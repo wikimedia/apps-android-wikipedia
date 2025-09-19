@@ -25,13 +25,13 @@
   <string name="offline_load_error_retry">Дубора саъй кунед</string>
   <string name="page_error_back_to_main">Аз нав оғоз намоед</string>
   <string name="error_back">Аз нав оғоз намоед</string>
-  <string name="menu_clear_all_history">Тозакунии таърих</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тозакунии таърих</string>
   <string name="history_item_deleted">%s аз таърих тоза шуд</string>
   <string name="history_items_deleted">%d мақолаҳо аз таърих тоза шуданд</string>
   <string name="history_item_delete_undo">Ботил</string>
   <string name="notification_archive_undo">Ботил</string>
   <string name="dialog_title_clear_history">Тозакунии таърихи мурур</string>
-  <string name="dialog_message_clear_history">Ин амал ҳамаи таърихи мурурро тоза мекунад ва саҳифаҳои дар ҳоли ҳозир бозро мепӯшад. Оё шумо мутмаинед?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ин амал ҳамаи таърихи мурурро тоза мекунад ва саҳифаҳои дар ҳоли ҳозир бозро мепӯшад. Оё шумо мутмаинед?</string>
   <string name="dialog_message_clear_history_yes">Бале</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Бо ҳам дидан тавассути</string>

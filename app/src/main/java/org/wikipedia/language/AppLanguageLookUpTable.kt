@@ -28,11 +28,15 @@ class AppLanguageLookUpTable(context: Context) {
         getStringList(R.array.preference_language_local_names)
     }
 
-    private val languagesVariants by lazy {
+    private val languageVariants by lazy {
         getStringList(R.array.preference_language_variants)
-            .map { it.split(",") }
+            .map { it.split("|") }
             .filter { it.size > 1 }
-            .associate { it[0] to ArrayList(it.subList(1, it.size)) }
+            .associate {
+                val key = it[0]
+                val variants = it[1].split(",")
+                key to variants
+            }
     }
 
     fun getCanonicalName(code: String?): String? {
@@ -66,11 +70,11 @@ class AppLanguageLookUpTable(context: Context) {
     }
 
     fun getLanguageVariants(code: String?): List<String>? {
-        return languagesVariants[code]
+        return languageVariants[code]
     }
 
     fun getDefaultLanguageCodeFromVariant(code: String?): String? {
-        return languagesVariants.entries.firstOrNull { (_, value) -> code in value }?.key
+        return languageVariants.entries.firstOrNull { (_, value) -> code in value }?.key
     }
 
     fun getBcp47Code(code: String): String {
@@ -104,6 +108,8 @@ class AppLanguageLookUpTable(context: Context) {
         const val CHINESE_MY_LANGUAGE_CODE = "zh-my"
         const val CHINESE_SG_LANGUAGE_CODE = "zh-sg"
         const val CHINESE_TW_LANGUAGE_CODE = "zh-tw"
+
+        const val CHINESE_LEGACY_YUE_LANGUAGE_CODE = "yue"
         const val CHINESE_YUE_LANGUAGE_CODE = "zh-yue"
         const val CHINESE_LANGUAGE_CODE = "zh"
         const val NORWEGIAN_LEGACY_LANGUAGE_CODE = "no"

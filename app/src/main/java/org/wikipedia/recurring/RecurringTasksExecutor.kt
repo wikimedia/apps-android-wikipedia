@@ -12,14 +12,22 @@ import org.wikipedia.util.log.L
 class RecurringTasksExecutor() {
     fun run() {
         val app = WikipediaApp.instance
-        MainScope().launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-        }) {
-            RemoteConfigRefreshTask().runIfNecessary()
-            DailyEventTask(app).runIfNecessary()
-            TalkOfflineCleanupTask(app).runIfNecessary()
+
+        mutableListOf(
+            RemoteConfigRefreshTask(),
+            DailyEventTask(app),
+            TalkOfflineCleanupTask(app),
+            CategoriesTableCleanupTask(),
+            RecommendedReadingListTask()
+        ).also {
             if (ReleaseUtil.isAlphaRelease) {
-                AlphaUpdateChecker(app).runIfNecessary()
+                it.add(AlphaUpdateChecker(app))
+            }
+        }.forEach { task ->
+            MainScope().launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }) {
+                task.runIfNecessary()
             }
         }
     }

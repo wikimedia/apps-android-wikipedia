@@ -20,6 +20,7 @@ import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
 import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
+import org.wikipedia.feed.wikigames.WikiGamesCardView
 import org.wikipedia.model.EnumCode
 
 enum class CardType constructor(private val code: Int,
@@ -109,10 +110,13 @@ enum class CardType constructor(private val code: Int,
             return PlacesCardView(ctx)
         }
     },
-    // TODO: refactor this item when the new Modern Event Platform is finished.
-    ARTICLE_ANNOUNCEMENT(96) {
+    WIKI_GAMES(24, FeedContentType.WIKI_GAMES) {
         override fun newView(ctx: Context): FeedCardView<*> {
-            // This is not actually used, since this type of card will not be shown in the feed.
+            return WikiGamesCardView(ctx)
+        }
+    },
+    YEAR_IN_REVIEW_ANNOUNCEMENT(96) {
+        override fun newView(ctx: Context): FeedCardView<*> {
             return AnnouncementCardView(ctx)
         }
     },

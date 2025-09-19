@@ -15,6 +15,10 @@ internal abstract class BasePreferenceLoader(protected val fragment: PreferenceF
         fragment.addPreferencesFromResource(id)
     }
 
+    protected fun clearPreferences() {
+        fragment.preferenceScreen.removeAll()
+    }
+
     protected val activity: Activity
         get() = fragment.requireActivity()
 }

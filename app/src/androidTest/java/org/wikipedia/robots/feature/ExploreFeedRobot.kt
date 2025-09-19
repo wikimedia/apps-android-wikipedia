@@ -1,5 +1,6 @@
 package org.wikipedia.robots.feature
 
+import BaseRobot
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -13,6 +14,8 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.hasSibling
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -24,11 +27,10 @@ import org.wikipedia.R
 import org.wikipedia.TestConstants
 import org.wikipedia.TestConstants.SUGGESTED_EDITS
 import org.wikipedia.TestUtil.childAtPosition
-import org.wikipedia.base.BaseRobot
-import org.wikipedia.base.ColorAssertions
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.base.utils.ColorAssertions
 import org.wikipedia.theme.Theme
 
 class ExploreFeedRobot : BaseRobot() {
@@ -47,9 +49,16 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun verifyFeedViewSize(expectedCount: Int) = apply {
+        list.verifyRecyclerViewItemCount(
+            viewId = R.id.feed_view,
+            expectedCount = expectedCount
+        )
+    }
+
     fun clickRandomArticle() = apply {
         // Random article card seen and saved to reading lists
-        makeViewVisibleAndClick(
+        scroll.toViewAndMakeVisibleAndClick(
             viewId = R.id.view_featured_article_card_content_container,
             parentViewId = R.id.feed_view
         )
@@ -62,7 +71,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun navigateUp() = apply {
-        clickOnDisplayedViewWithContentDescription("Navigate up")
+        click.onDisplayedViewWithContentDescription("Navigate up")
     }
 
     fun clickTopReadArticle() = apply {
@@ -70,9 +79,18 @@ class ExploreFeedRobot : BaseRobot() {
             onView(
                 allOf(
                     withId(R.id.view_list_card_list),
-                    childAtPosition(withId(R.id.view_list_card_list_container), 0)
-                )
-            ).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                    hasSibling(
+                        allOf(
+                            withId(R.id.view_list_card_header),
+                            hasDescendant(
+                                allOf(
+                                    withId(R.id.view_card_header_title),
+                                    withText("Top read")
+                                )
+                            )
+                        )
+                    )
+                )).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
                 .perform()
             pressBack()
             delay(TestConfig.DELAY_MEDIUM)
@@ -103,31 +121,31 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickAddArticleDescription() = apply {
-        clickOnDisplayedViewWithContentDescription(description = "Add article descriptions")
+        click.onDisplayedViewWithContentDescription(description = "Add article descriptions")
     }
 
     fun openOverflowMenuItem() = apply {
-        clickOnViewWithId(R.id.page_toolbar_button_show_overflow_menu)
+        click.onViewWithId(R.id.page_toolbar_button_show_overflow_menu)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
-        checkViewDoesNotExist(viewId = R.id.articleImage)
+        verify.viewWithIdIsNotVisible(viewId = R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickPictureOfTheDay() = apply {
-        clickOnViewWithId(R.id.view_featured_image_card_content_container)
+        click.onViewWithId(R.id.view_featured_image_card_content_container)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickTodayOnWikipedia() = apply {
-        clickOnViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
+        click.onViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun clickOnFeaturedArticle() = apply {
-        makeViewVisibleAndClick(
+        scroll.toViewAndMakeVisibleAndClick(
             viewId = R.id.view_featured_article_card_content_container,
             parentViewId = R.id.feed_view
         )
@@ -135,7 +153,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun stayOnFeaturedArticleFor(milliseconds: Long) = apply {
-        makeViewVisibleAndClick(
+        scroll.toViewAndMakeVisibleAndClick(
             viewId = R.id.view_featured_article_card_content_container,
             parentViewId = R.id.feed_view
         )
@@ -144,21 +162,12 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun scrollToSuggestedEditsIfVisible() = apply {
         try {
-            scrollToRecyclerView(title = SUGGESTED_EDITS)
+            list.scrollToRecyclerView(title = SUGGESTED_EDITS)
             clickAddArticleDescription()
             pressBack()
         } catch (e: Exception) {
             Log.e("ScrollError:", "Suggested edits not visible or espresso cannot find it.")
         }
-    }
-
-    private fun changWatchListArticleExpiryFromTheSnackBar() = apply {
-        clickOnDisplayedViewWithIdAnContentDescription(
-            viewId = com.google.android.material.R.id.snackbar_action,
-            "Change"
-        )
-        clickOnViewWithId(R.id.watchlistExpiryOneMonth)
-        delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) =
@@ -187,7 +196,7 @@ class ExploreFeedRobot : BaseRobot() {
         textViewId: Int = R.id.view_card_header_title,
         verticalOffset: Int = 200
     ) = apply {
-        scrollToRecyclerView(
+        list.scrollToRecyclerView(
             recyclerViewId,
             title,
             textViewId,
@@ -212,13 +221,13 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun longClickFeaturedArticleCardContainer() = apply {
-        makeViewVisibleAndLongClick(viewId = R.id.view_featured_article_card_content_container, parentViewId = R.id.feed_view)
+        scroll.toViewAndMakeVisibleAndLongClick(viewId = R.id.view_featured_article_card_content_container, parentViewId = R.id.feed_view)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickSave() = apply {
         try {
-            clickOnViewWithText("Save")
+            click.onViewWithText("Save")
             delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("ExploreFeedRobotError:", "Save text is not found.")
@@ -251,8 +260,11 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        onView(withId(R.id.view_list_card_list))
-            .check { view, _ ->
+        onView(allOf(
+            withId(R.id.view_list_card_list),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )).check { view, _ ->
                 val recyclerView = view as RecyclerView
                 val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
                     ?: throw AssertionError("No viewHolder found at position 0")

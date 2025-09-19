@@ -9,12 +9,12 @@ import org.wikipedia.databinding.ViewDescriptionEditReviewBinding
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_DEFAULT
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_IMAGE_CAPTION
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class DescriptionEditReviewView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     private val binding = ViewDescriptionEditReviewBinding.inflate(LayoutInflater.from(context), this)
 
     val isShowing: Boolean
@@ -33,7 +33,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     }
 
     fun setSummary(summaryForEdit: PageSummaryForEdit, description: String, captionReview: Boolean) {
-        L10nUtil.setConditionalLayoutDirection(this, summaryForEdit.lang)
+        setLayoutDirectionByLang(summaryForEdit.lang)
         if (captionReview) {
             setGalleryReviewView(summaryForEdit, description)
             binding.licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)

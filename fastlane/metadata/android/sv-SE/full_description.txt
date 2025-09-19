@@ -1,0 +1,13 @@
+Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt. Appen har skrivits om från grunden och är bättre än någonsin.
+
+Funktioner:
+
+   - Hastighet: Vår nya app låter dig läsa och redigera Wikipedia snabbare än någonsin.
+   - Redigering: Du kan redigera Wikipedia! Inloggad eller utloggad, tackar vi dig för alla dina bidrag.
+   - Senaste sidorna: Vi förser dig med din läshistorik, så kan du trycka runt på så många länkar som du vill utan att någonsin gå vilse.
+   - Sparade sidor: Du kan spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
+   - Dela: Använd dina befintliga sociala appar för att dela summan av all mänsklig kunskap.
+   - Språkstöd: Appen låter dig enkelt växla mellan att läsa Wikipedia på olika språk.
+   - Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen.
+
+Koden har öppen källkod. Om du har erfarenhet av Java och Android SDK kan du hjälpa oss! https://github.com/Wikimedia/apps-Android-wikipedia

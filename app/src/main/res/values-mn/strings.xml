@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">Буцах</string>
   <string name="error_back">Буцаж очих</string>
   <string name="error_next">Дараагийн</string>
-  <string name="menu_clear_all_history">Түүх арилгах</string>
+  <string name="menu_clear_all_history" fuzzy="true">Түүх арилгах</string>
   <string name="history_item_deleted">%s явцын түүхээс устгасан</string>
   <string name="history_items_deleted">%d Гарчиг явцын түүхээс устгагдсан.</string>
   <string name="history_item_delete_undo">Үйлдэл буцаах</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">Викимедиа Коммонс</string>
   <string name="wikidata">Викидата</string>
   <string name="dialog_title_clear_history">Хөтчийн түүхийг арилгах</string>
-  <string name="dialog_message_clear_history">Үүгээр таны хөтчийн бүх түүх устах ба одоогоор нээлттэй байгаа бүх цонх хаагдах болно. Та итгэлтэй байна уу?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Үүгээр таны хөтчийн бүх түүх устах ба одоогоор нээлттэй байгаа бүх цонх хаагдах болно. Та итгэлтэй байна уу?</string>
   <string name="dialog_message_clear_history_yes">Тийм</string>
   <string name="dialog_message_clear_history_no">Үгүй</string>
   <string name="share_via">Хуваалцахдаа</string>
@@ -125,7 +125,7 @@
   <string name="login_username_hint">Хэрэглэгчийн нэр</string>
   <string name="login_password_hint">Нууц үг</string>
   <string name="account_creation_password_hint">Нууц үг</string>
-  <string name="login_2fa_hint">Хоёр нөхцөлт баталгаажуулалтын код</string>
+  <string name="login_2fa_hint" fuzzy="true">Хоёр нөхцөлт баталгаажуулалтын код</string>
   <string name="onboarding_card_login">Нэвтрэх</string>
   <string name="page_editing_login">Нэвтрэх</string>
   <string name="reading_lists_sync_login">Нэвтрэх</string>

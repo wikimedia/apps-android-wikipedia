@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/listItemThumbnail"
+            android:layout_width="0dp"
+            android:layout_height="108dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_w_logo_circle"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/RoundedCornerOverlay.All"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/listItemInfoContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listItemThumbnail"
+            app:layout_constraintBottom_toTopOf="@id/listItemBookmark">
+
+            <TextView
+                android:id="@+id/listItemTitle"
+                style="@style/P"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:textColor="?attr/primary_color"
+                tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum" />
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/listItemDescription"
+                style="@style/List.MaterialListDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                tools:text="Lorem ipsum" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/listItemBookmark"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/button_add_to_reading_list"
+            android:focusable="true"
+            android:padding="12dp"
+            app:tint="?attr/secondary_color"
+            app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/listItemShare"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/share_via"
+            android:focusable="true"
+            android:padding="12dp"
+            app:tint="?attr/secondary_color"
+            app:srcCompat="@drawable/ic_share"
+            app:layout_constraintStart_toEndOf="@id/listItemBookmark"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>

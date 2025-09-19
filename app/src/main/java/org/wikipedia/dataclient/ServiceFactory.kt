@@ -91,14 +91,9 @@ object ServiceFactory {
     private class LanguageVariantHeaderInterceptor(private val wiki: WikiSite?) : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
-            var request = chain.request()
-
-            // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
-            if (!request.url.encodedPath.contains("/page/related")) {
-                request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(wiki))
-                    .build()
-            }
+            var request = chain.request().newBuilder()
+                .header("Accept-Language", WikipediaApp.instance.getAcceptLanguage(wiki))
+                .build()
             return chain.proceed(request)
         }
     }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_customize"
+        android:icon="@drawable/ic_baseline_tune_24"
+        android:title="@string/recommended_reading_list_page_overflow_customize"
+        app:iconTint="?attr/primary_color"/>
+    <item
+        android:id="@+id/menu_reading_list_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/reading_list_page_share"
+        app:iconTint="?attr/primary_color"/>
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/baseline_info_24"
+        android:title="@string/recommended_reading_list_page_overflow_about"
+        app:iconTint="?attr/primary_color"/>
+</menu>

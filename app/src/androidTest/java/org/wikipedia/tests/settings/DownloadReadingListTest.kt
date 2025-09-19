@@ -37,7 +37,7 @@ class DownloadReadingListTest : BaseTest<MainActivity>(
             .navigateToSearchPage()
         searchRobot
             .tapSearchView()
-            .typeTextInView("apple")
+            .typeTextInView("pokemon")
             .clickOnItemFromSearchList(0)
         readingListRobot
             .saveArticleToReadingList()

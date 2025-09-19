@@ -227,7 +227,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             otdEventLayout.text.text = event.text
             otdEventLayout.text.visibility = if (event.text.isEmpty()) View.GONE else View.VISIBLE
             otdEventLayout.year.text = DateUtil.yearToStringWithEra(event.year)
-            otdEventLayout.yearsText.text = DateUtil.getYearDifferenceString(event.year, wiki.languageCode)
+            otdEventLayout.yearsText.text = DateUtil.getYearDifferenceString(requireContext(), event.year, wiki.languageCode)
             setPagesViewPager(event)
         }
 

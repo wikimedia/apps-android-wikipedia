@@ -7,15 +7,17 @@ import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.net.toUri
 import org.wikipedia.databinding.ViewWikiArticleCardBinding
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 
-class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class WikiArticleCardView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     val binding = ViewWikiArticleCardBinding.inflate(LayoutInflater.from(context), this)
 
@@ -52,10 +54,12 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun prepareForTransition(title: PageTitle) {
-        setImageUri(if (title.thumbUrl.isNullOrEmpty()) null else Uri.parse(title.thumbUrl))
-        setTitle(title.displayText)
-        setDescription(title.description)
-        binding.articleDivider.visibility = View.GONE
-        L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode)
+        setImageUri(title.thumbUrl?.toUri())
+        if (!DonationReminderHelper.hasActiveReminder) {
+            setTitle(title.displayText)
+            setDescription(title.description)
+        }
+        binding.articleDivider.visibility = GONE
+        setLayoutDirectionByLang(title.wikiSite.languageCode)
     }
 }

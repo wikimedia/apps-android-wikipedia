@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
@@ -43,7 +42,7 @@ class NotificationViewModel : ViewModel() {
         fetchAndSave()
     }
 
-    private fun filterAndPostNotifications() {
+    private suspend fun filterAndPostNotifications() {
         val pair = Pair(processList(notificationRepository.getAllNotifications()), !currentContinueStr.isNullOrEmpty())
         _uiState.value = Resource.Success(pair)
     }
@@ -170,9 +169,6 @@ class NotificationViewModel : ViewModel() {
                 }
             }
             notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(notification)
-            if (!markUnread) {
-                NotificationInteractionEvent.logMarkRead(notification, selectionKey)
-            }
         }
 
         viewModelScope.launch(handler) {

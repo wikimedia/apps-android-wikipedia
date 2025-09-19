@@ -11,6 +11,7 @@
 * Vesely35
 * Wertuose
 * Şeyx Şamil
+* Əkrəm
 * Əkrəm Cəfər
 -->
 <resources>
@@ -24,8 +25,12 @@
   <string name="search_hint">Vikipediyada axtar</string>
   <string name="search_hint_voice_search">Səslə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
+  <string name="search_back_button_content_description">Geriyə qayıt</string>
+  <string name="search_clear_query_content_description">Sorğunu sil</string>
+  <string name="search_icon_content_description">Axtarış</string>
   <string name="filter_hint_filter_my_lists_and_articles">Siyahılarımı süzgəcdən keçir</string>
   <string name="nav_item_suggested_edits">Redaktələr</string>
+  <string name="nav_item_activity">Fəaliyyət</string>
   <string name="nav_item_more">Daha</string>
   <string name="nav_item_search">Axtar</string>
   <string name="nav_item_contribute">Töhfə ver</string>
@@ -38,7 +43,7 @@
   <string name="page_error_back_to_main">Geriyə</string>
   <string name="error_back">Geriyə</string>
   <string name="error_next">Növbəti</string>
-  <string name="menu_clear_all_history">Tarixçəni sil</string>
+  <string name="menu_clear_all_history">Oxunma tarixçəsini sil</string>
   <string name="history_item_deleted">%s tarixçədən silindi</string>
   <string name="history_items_deleted">%d məqalə tarixçədən silindi</string>
   <string name="history_item_delete_undo">Geri qaytar</string>
@@ -51,7 +56,7 @@
   <string name="wikimedia_commons">Vikianbar</string>
   <string name="wikidata">Vikidata</string>
   <string name="dialog_title_clear_history">Baxış tarixçəsini təmizləyin</string>
-  <string name="dialog_message_clear_history">Bu, bütün axtarış tarixçənizi siləcək və açıq pəncərələrinizi bağlayacaq. Əminsiniz?</string>
+  <string name="dialog_message_clear_history">Bu, bütün baxış tarixçənizi siləcək. Əminsiniz?</string>
   <string name="dialog_message_clear_history_yes">Bəli</string>
   <string name="dialog_message_clear_history_no">Xeyr</string>
   <string name="share_via">Paylaş...</string>
@@ -135,6 +140,10 @@
   <string name="dialog_message_leaving_edit">Dəyişiklikləriniz yayımlanmadı. Bu səhifəni tərk etmək istədiyinizə əminsiniz?</string>
   <string name="dialog_message_leaving_edit_leave">Tərk et</string>
   <string name="dialog_message_leaving_edit_stay">Qal</string>
+  <string name="dialog_confirm_delete_donation_history_title">Silinməni təsdiqlə</string>
+  <string name="dialog_confirm_delete_donation_history_message">Bu, yalnız bu cihazdan edilən ianələrə şamil ediləcək.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Sil</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">İmtina</string>
   <string name="menu_show_toc">Mündəricat</string>
   <string name="search_no_results_found">Nəticələr tapılmadı</string>
   <string name="search_reading_list_no_results">\"%s\"-də heç bir nəticə tapılmadı</string>
@@ -149,8 +158,11 @@
   <string name="login_username_hint">İstifadəçi adı</string>
   <string name="login_password_hint">Parol</string>
   <string name="account_creation_password_hint">Şifrə</string>
-  <string name="login_2fa_hint">İki faktorlu doğrulama Kodu</string>
-  <string name="login_2fa_other_workflow_error_msg">İki faktorlu kimlik doğrulaması tələb olunur! Ana fəaliyyətə qayıdın və 2FA simvolu ilə daxil olun və yenidən cəhd edin.</string>
+  <string name="login_2fa_hint">İki faktorlu autentifikasiya kodu</string>
+  <string name="login_2fa_other_workflow_error_msg">İki faktorlu autentifikasiya tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və 2FA kodunu daxil edin.</string>
+  <string name="login_email_auth_hint">E-poçt doğrulama kodu</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-poçt təsdiqi tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və e-poçt doğrulama kodunuzu daxil edin.</string>
+  <string name="login_background_error_msg">Yenidən giriş etmək mümkün olmadı. Zəhmət olmasa, əsas ekrana qayıt və manual daxil ol.</string>
   <string name="onboarding_card_login">Daxil ol</string>
   <string name="page_editing_login">Daxil ol</string>
   <string name="reading_lists_sync_login">Daxil ol</string>
@@ -241,19 +253,18 @@
   <string name="terms_of_use_description">İstifadə şərtləri</string>
   <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Komanda&lt;/a&gt;</string>
   <string name="about_translators_heading">Tərcüməçilər</string>
   <string name="about_translators_translatewiki">Bu proqramlar, könüllü tərcüməçilər tərəfindən &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net saytında&lt;/a&gt; tərcümə edildi</string>
   <string name="about_app_license_heading">Lisenziya</string>
   <string name="about_app_license">Mənbə kodu &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisenziyası&lt;/a&gt; altında mövcuddur. Başqa cür göstərilmədiyi halda, məzmun &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike Lisenziyası&lt;/a&gt; altında yayımlanır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedia fondunun&lt;/a&gt; məhsulu</string>
   <string name="about_activity_title">Haqqında</string>
+  <string name="about_logo_content_description">Vikipediya tapmacası qlobus loqosu</string>
   <string name="edit_abandon_confirm">Səhifə redaktə edildi. Dəyişikliklərinizi saxlamadan çıxmaq istədiyinizə əminsiniz?</string>
   <string name="edit_abandon_confirm_yes">Bəli</string>
   <string name="edit_abandon_confirm_no">Xeyr</string>
@@ -388,6 +399,7 @@
   <string name="preference_title_collapse_tables">Cədvəlləri bağla</string>
   <string name="preference_summary_collapse_tables">Məlumat qutuları, istinadlar və qeydlər kimi məqalələrdəki cədvəlləri avtomatik olaraq bağlayın.</string>
   <string name="nav_item_donate">Maddi kömək</string>
+  <string name="nav_item_year_in_review">İlin İcmalı</string>
   <string name="error_voice_search_not_available">Üzr istəyirik, səs tanıma mövcud deyil.</string>
   <string name="location_service_disabled">Məkan xidmətləri deaktivdir.</string>
   <string name="enable_location_service">Aktivləşdir</string>
@@ -415,6 +427,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Şəklin qaralması (Qaranlıq temada)</string>
   <string name="preference_title_prefer_offline_content">Oflayn məzmuna üstünlük verin</string>
   <string name="preference_summary_prefer_offline_content">Həmişə məqalənin ən son versiyasını yükləməkdənsə, oflayn mövcud olan məqalələri yükləməklə data istifadəsinə qənaət edin</string>
+  <string name="preference_title_delete_local_donation_history">İanə tarixçəsini təmizlə</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem mövzusuna uyğunlaşdırın</string>
   <string name="page_footer_license_text">Əksi qeyd olunmayıbsa, bu məzmun $1 çərçivəsində yayımlanır.</string>
   <string name="empty_tab_title">Yeni nişan</string>
@@ -571,8 +584,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Məqalə bir neçə siyahıda görünür</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artıq bütün oxuma siyahıları üçün oflayn olaraq əlçatan olmayacaq:</string>
   <string name="reading_lists_sync_reminder_title">Oxuma siyahısı sinxronizasiyası aktiv edilsin?</string>
-  <string name="reading_lists_sync_reminder_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Oxuma siyahılarında saxlanılan məqalələr indi Vikipediya hesabınızla sinxronlaşdırıla bilər. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı məlumat əldə edin&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ətraflı öyrən&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinxronizasiyanı aktivləşdir</string>
   <string name="reading_list_login_reminder_title">Oxuma siyahılarını sinxronlaşdır</string>
   <string name="reading_lists_login_reminder_text">Oxuma siyahıları indi cihazlar arasında sinxronlaşdırıla bilər. Vikipediya hesabınıza daxil olun və siyahılarınızın saxlanmasına icazə verin.</string>
@@ -877,6 +890,7 @@
   <string name="description_edit_learn_more">Məqalə təsvirləri haqqında daha çox məlumat əldə edin</string>
   <string name="description_edit_image_caption_learn_more">Şəkil alt yazıları haqqında ətraflı məlumat əldə edin</string>
   <string name="description_too_short">Mətn çox qısadır.</string>
+  <string name="description_too_long">İstifadəçilərin məqalənin mövzusunu bir baxışda anlaya bilməsi üçün təsvirləri qısa tutmağa çalışın</string>
   <string name="description_ends_with_punctuation">Mətn durğu işarələri ilə bitməməlidir.</string>
   <string name="description_starts_with_uppercase">Birinci söz xüsusi isim olmadığı təqdirdə kiçik hərflə başla.</string>
   <string name="description_starts_with_lowercase">Kiçik hərflə başlamaqdan çəkinin.</string>
@@ -911,6 +925,7 @@
   <string name="customize_toolbar_reset_to_default_button">Defolta sıfırla</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Elementi köçürmək üçün sürüşdürmə işarəsinə basılı saxlayın</string>
   <string name="customize_toolbar_item_default_tooltip">Yerini dəyişmək üçün elementə basın və sürüşdürün</string>
+  <string name="suggested_edits_activity_title">Redaktə</string>
   <string name="suggested_edits_describe_articles">Məqalələri təsvir et</string>
   <string name="suggested_edits_caption_images">Şəkillərə başlıq yaz</string>
   <string name="suggested_edits_tag_images">Şəkilləri etiketlə</string>
@@ -974,8 +989,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Şəkil başlığı əlavə et</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Şəkil başlığı əlavə et (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Şəkil etiketləri əlavə et</string>
-  <string name="suggested_edits_snackbar_survey_text">Redaktə təcrübəniz necə idi? Tətbiqdaxili redaktə ilə bağlı sorğunu doldurmaq üçün bir az vaxt ayırın.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Sorğuda iştirak edin</string>
   <string name="suggested_edits_task_action_text_add">Əlavə et</string>
   <string name="suggested_edits_task_action_text_translate">Tərcümə et</string>
   <string name="suggested_edits_image_captions">Şəkil başlıqları</string>
@@ -1125,6 +1138,89 @@
   <string name="edit_summary_added_caption">Başlıq əlavə edildi</string>
   <string name="edit_summary_added_image_and_caption">Şəkil və başlıq əlavə edildi</string>
   <string name="edit_published_view">Bax</string>
+  <string name="activity_tab_logged_out_title">Wikipedia tətbiqində fəaliyyətinizə baxmaq üçün daxil olun və ya hesab yaradın</string>
+  <string name="activity_tab_user_reading">%s istifadəçisinin oxuduqları</string>
+  <string name="activity_tab_on_wikipedia_android">Wikipedia Android-də</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
+  <string name="activity_tab_weekly_time_spent">Bu həftə oxumağa sərf olunan vaxt</string>
+  <string name="activity_tab_monthly_articles_read">Bu ay oxunan məqalələr</string>
+  <string name="activity_tab_monthly_articles_saved">Bu ay saxlanılan məqalələr</string>
+  <string name="activity_tab_monthly_top_categories">Bu ay ən çox oxunan kateqoriyalar</string>
+  <string name="activity_tab_explore_wikipedia">Vikipediya vasitəsilə kəşf edin</string>
+  <string name="activity_tab_discover_encourage">Oxumaq üçün yeni bir şey axtarırsınız?</string>
+  <string name="activity_tab_donation_unknown">Naməlum</string>
+  <string name="activity_tab_donation_last_donation">Tətbiqdəki &lt;b&gt;son ianə&lt;/b&gt;</string>
+  <string name="activity_tab_game_stats">Oyun statistikası</string>
+  <string name="activity_tab_game_stats_best_streak">Ən yaxşı davamiyyət</string>
+  <string name="activity_tab_play_wiki_games">WikiGames oyna</string>
+  <string name="activity_tab_report_email_subject">Problemin bildirilməsi - Fəaliyyət vərəqəsi</string>
+  <string name="activity_tab_report_email_body">Mən Fəaliyyət vərəsəqi ilə bağlı problemlə qarşılaşdım:\n- [Problemi təsvir edin]\n\nBaş verməsini gözlədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
+  <string name="activity_tab_menu_feedback">Funksiya ilə bağlı problem</string>
+  <string name="activity_tab_menu_info">Daha ətraflı öyrən</string>
+  <string name="activity_tab_menu_customize">Fərdiləşdir</string>
+  <string name="activity_tab_menu_customize_description">Fəaliyyət vərəqəsi statistikası parametrlərdəki əsas dilə əsaslanır və ictimai olan redaktələr istisna olmaqla, lokal datadan istifadə edir.</string>
+  <string name="activity_tab_highlights">Vurğulananlar</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Oxuma tarixçəsi</string>
+  <string name="activity_tab_impact">Sizin təsiriniz</string>
+  <string name="activity_tab_impact_most_viewed">Redaktənizdən sonra ən çox baxılan</string>
+  <string name="activity_tab_impact_contributions_this_month">Bu ay verilən töhfələr</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">redaktə</item>
+    <item quantity="other">redaktə</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">keçən aykı redaktə</item>
+    <item quantity="other">keçən aykı redaktə</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Ümumi təsir</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">toplam redaktə</item>
+    <item quantity="other">toplam redaktə</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">təşəkkür</item>
+    <item quantity="other">təşəkkür</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Ən yaxşı davamiyyət</string>
+  <string name="activity_tab_impact_last_edited">Sonuncu redaktə</string>
+  <string name="activity_tab_impact_suggested_edits_title">Bu yaxınlarda məqalələrə 0 düzəliş</string>
+  <string name="activity_tab_impact_suggested_edits_message">Deyəsən bu ay redaktə etməmisiniz. Sizin üçün ən vacib olan mövzuları redaktə edərək açıq bilik bazasını genişləndirin.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Redaktə et</string>
+  <string name="activity_tab_impact_recent_activity">Son fəaliyyətiniz (son 30 gün)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Redaktə</item>
+    <item quantity="other">Redaktə</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Redaktə etdiyiniz məqalələrə baxın</item>
+    <item quantity="other">Redaktə etdiyiniz məqalələrə baxın</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Oxumağa sərf olunan vaxt</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Oxuma statistikaları</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Redaktə statistikaları</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Ümumi təsir</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Oyun statistikası</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Tətbiqdə sonuncu ianə</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Davranış qrafiki</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Fəaliyyət modulları söndürülüb. Bu vərəqədə yeniləmələri görmək üçün &lt;a href=\"#\"&gt;onları aktivləşdirin&lt;/a&gt;.</string>
+  <string name="activity_tab_timeline_today">Bu gün</string>
+  <string name="activity_tab_timeline_yesterday">Dünən</string>
+  <string name="activity_tab_timeline_empty_state_title">Göstəriləcək heç nə yoxdur</string>
+  <string name="activity_tab_timeline_empty_state_message">Tarixçənizi yaratmaq üçün oxumağa və redaktə etməyə başlayın</string>
+  <string name="activity_tab_timeline_view_changes_button">Dəyişikliklərə bax</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Oxuma nümunələri</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Oxumağa nə qədər vaxt sərf etdiyinizə və zamanla hansı məqalələri və ya mövzuları araşdırdığınıza baxın.</string>
+  <string name="activity_tab_onboarding_screen_title">Fəaliyyətin təqdimatı</string>
+  <string name="activity_tab_onboarding_impact_title">Təsiriniz</string>
+  <string name="activity_tab_onboarding_impact_message">Töhfələriniz və paylaşdığınız biliklərin əhatə dairəsi haqqında statistikaya baxın.</string>
+  <string name="activity_tab_onboarding_engage_title">İştirak etmək üçün daha çox yol</string>
+  <string name="activity_tab_onboarding_engage_message">Sizi Vikipediya ilə daha dərindən birləşdirən oyunlar, yadda saxlanılan məqalələr və digər fəaliyyətlər üçün statistikaları araşdırın.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Nəzarətdə qalın</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Hansı modulların göstəriləcəyini seçin. Bütün şəxsi məlumatlar cihazınızda məxfi qalır və baxış tarixçəsi istənilən vaxt silinə bilər.</string>
   <string name="file_page_activity_title">Fayl səhifəsi</string>
   <string name="file_page_add_image_caption_button">Şəkil başlığı əlavə et</string>
   <string name="file_page_add_image_tags_button">Şəkil etiketləri əlavə et</string>
@@ -1376,14 +1472,12 @@
   <string name="revision_rollback_success">Redaktələr geri qaytarıldı.</string>
   <string name="revision_compare_button">Müqayisə et</string>
   <string name="revision_compare_two_only">Yalnız iki düzəliş seçilə bilər.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s və onun müzakirə səhifəsi %2$s izləmə siyahınıza əlavə edildi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Dəyiş</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">daimi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 həftə</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ay</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ay</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ay</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s və onun müzakirə səhifəsi izləmə siyahınızdan silindi.</string>
   <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
   <string name="watchlist_expiry_dialog_permanent">Daimi</string>
   <string name="watchlist_expiry_dialog_one_week">1 həftə</string>
@@ -1610,8 +1704,8 @@
   <string name="patroller_saved_message_body_coi_rem">Salam {{{username}}}, Vikipediyadakı əməkdaşlığınızı yüksək qiymətləndirirəm; Lakin, sizin [[Vikipediya:Maraqlar münaqişəsi|maraq toqquşması]] içində olduğunuzu gördüm. Maraqların toqquşması Vikipediyanın neytrallıq və etibarlılıq məqsədləri ilə müəyyən redaktorların, fiziki şəxslərin, qurumların və ya hər hansı bir tipli şirkətlərin xüsusi məqsədləri arasında uyğunsuzluqdur.\n\nƏsas məkanda olan bütün töhfələr bu Vikipediyanın məzmun meyarları ([[VP:VND|Vikipediya nə deyil]]), ensiklopedik əhəmiyyət ([[Vikipediya:Yoxlanıla bilmə|yoxlanıla bilmə]] və [[VP:OTYV|orijinal tədqiqata yer verilmir]]), redaksiya metodu [[VP:NM|neytral baxış bucağı]]) və məzmunun legitimliyi ([[VP:MH|müəllif hüquqları]]) siyasətlərinə tabedir. Bütün istifadəçilərdən məzmun yaradarkən və qiymətləndirərkən bu siyasətlərə riayət etmələri və bu siyasətlərə əməl olunmasını təmin etmək üçün digər istifadəçilərin hərəkətlərinə hörmət etmələri və onlara yaxşı niyyətlə yanaşmaları gözlənilir.\n\nMaraqların toqquşması altında redaktə etsəniz, müvafiq siyasəti xüsusi diqqətlə tətbiq etməlisiniz; Əks halda, istifadəçi hesabınız tək məqsədli hesab edilə və bloklana bilər. Hər hansı bir sualınız olarsa, mənim müzakirə səhifəmə yaza bilərsiniz.</string>
   <string name="patroller_saved_message_body_final_warning">Çoxlu dağıdıcı redaktələr etdiyiniz üçün bu, son xəbərdarlığınız olacaq. Vikipediyada yenidən vandallıq etsəniz, redaktə etmək sizə qadağan olunacaq.</string>
   <string name="patroller_saved_message_body_copy_vio">Son redaktəniz müəllif hüququ ilə qorunan materialı icazəsiz daxil edir. Zəhmət olmasa, silinməsinin qarşısını almaq üçün bütün məzmunun bu Vikipediyanın [[VP:MH|müəllif hüququ]] siyasətlərinə uyğun olduğundan əmin olun.</string>
-  <string name="patroller_saved_message_body_edit_summary">Salam {{{username}}}, deyəsən redaktə izahı yazmadan məzmunu Vikipediyadan silmisiniz. Zəhmət olmasa, Vikipediyaya məzmun əlavə etdiyiniz və ya sildiyiniz zaman redaktə xülasəsi yazın.</string>
-  <string name="patroller_saved_message_body_do_not_censor">Salam {{{username}}}, deyəsən siz məzmunu məqalənin müzakirə səhifəsində müzakirə etmədən silmisiniz. Nəzərə alın ki, Vikipediya senzuraya məruz qalmır və məzmun mübahisəli olduğu üçün silinməməlidir. Məlumatın qeyri-dəqiq olduğuna inanırsınızsa, məqalənin müzakirə səhifəsində konsensus əldə edin.</string>
+  <string name="patroller_saved_message_body_edit_summary">Salam, {{{username}}}, görünür, redaktə xülasəsi qeyd etmədən məzmunu Vikipediyadan silmisiniz. Zəhmət olmasa, Vikipediyaya məzmun əlavə etdiyiniz və ya sildiyiniz zaman redaktə xülasəsi yazın.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Salam, {{{username}}}, deyəsən siz məzmunu məqalənin müzakirə səhifəsində müzakirə etmədən silmisiniz. Nəzərə alın ki, Vikipediya senzuraya məruz qalmır və məzmun mübahisəli olduğu üçün silinməməlidir. Məlumatın qeyri-dəqiq olduğuna inanırsınızsa, məqalənin müzakirə səhifəsində konsensus əldə edin.</string>
   <string name="talk_warn_learn_more_label">Mesaj yer tutucuları haqqında məlumat əldə edin</string>
   <string name="talk_warn_saved_messages_usage_instruction">Mesajlarınızı fərdiləşdirmək, göndərmək və saxlamaq üçün aşağıdakı nümunə mesajından istifadə edin.</string>
   <string name="patroller_saved_message_body_art_imp">Salam {{{username}}}. Məqaləniz əla başlanğıcdır! Bunu daha da yaxşılaşdırmaq üçün etibarlı mənbələrə daha çox istinad etməyi düşünün. Bu, məlumatı yoxlamağa kömək edir və məqalənin keyfiyyətini artırır. Daha ətraflı məlumat üçün [[Vikipediya:EM|etibarlı mənbələr]]lə bağlı Vikipediya qaydalarına baxın.</string>
@@ -1643,6 +1737,7 @@
   <string name="donate_gpay_help_other_ways">İanə etməyin digər yolları</string>
   <string name="donate_gpay_help_faq">Tez-tez soruşulan suallar</string>
   <string name="donate_gpay_help_tax">Vergi endirimi haqqında məlumat</string>
+  <string name="donation_history_deleted_message_snackbar">Donor tarixçəsi silindi</string>
   <string name="places_title">Yerlər</string>
   <string name="places_permissions_denied">Xəritədə yerinizi görmək üçün məkan icazəsi tələb olunur. Yenidən cəhd edin.</string>
   <string name="places_search_hint">Yerlərdə axtar</string>
@@ -1666,6 +1761,243 @@
   <string name="survey_dialog_option_very_unsatisfied">Çox narazıyam</string>
   <string name="survey_dialog_cancel">İmtina</string>
   <string name="survey_dialog_submit">Göndər</string>
+  <string name="survey_dialog_next">Növbəti</string>
+  <string name="survey_dialog_general_yes">Bəli</string>
+  <string name="survey_dialog_general_no">Xeyr</string>
+  <string name="survey_dialog_general_maybe">Bəlkə</string>
   <string name="survey_dialog_input_hint">Əlavə rəy</string>
   <string name="survey_dialog_submitted_snackbar">Rəy təqdim edildi. Təşəkkürlər!</string>
+  <string name="on_this_day_game_entry_dialog_title">Təqdimat</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Vikipediya oyunları</string>
+  <string name="on_this_day_game_entry_dialog_button">Bu günün oyununu oyna</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Vikipediya oyunları Kəşf et lentində mövcuddur.</string>
+  <string name="on_this_day_game_title">Hansı birinci baş verib?</string>
+  <string name="on_this_day_game_dialog_button">Oyna</string>
+  <string name="on_this_day_game_splash_message">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
+  <string name="on_this_day_game_progress">%1$d/%2$d</string>
+  <string name="on_this_day_game_score">Xal: %d</string>
+  <string name="on_this_day_game_submit">Göndər</string>
+  <string name="on_this_day_game_correct">Düzdür!</string>
+  <string name="on_this_day_game_incorrect">Səhvdir!</string>
+  <string name="on_this_day_game_point">+1 xal</string>
+  <string name="on_this_day_game_next">Növbəti sual</string>
+  <string name="on_this_day_game_finish">Son nəticələr</string>
+  <string name="on_this_day_game_share_button">Paylaş</string>
+  <string name="on_this_day_game_pause_title">Oyuna fasilə verilsin?</string>
+  <string name="on_this_day_game_pause_body">Sizin irəliləyişiniz bu gün üçün yadda saxlanılacaq. Siz oyunu Kəşf et lentinizdə tapa bilərsiniz.</string>
+  <string name="on_this_day_game_pause_negative">Oynamağa davam et</string>
+  <string name="on_this_day_game_pause_positive">Başa düşdüm</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Vikipediya oyunları</string>
+  <string name="on_this_day_game_feed_entry_card_title">Hansı birinci baş verib?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Tarixdə bu gündə hansı hadisənin ilk baş verdiyini təxmin edin.</string>
+  <string name="on_this_day_game_result">%1$d/%2$d sualı bildiniz.</string>
+  <string name="on_this_day_game_next_in">Növbəti oyun %s sonra</string>
+  <string name="on_this_day_game_your_stats">Sizin statistikanız</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="one">Oynanan oyun sayı</item>
+    <item quantity="other">Oynanan oyun sayı</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Ortalama xal</string>
+  <string name="on_this_day_game_stats_streak">Cari ardıcıllıq</string>
+  <string name="on_this_day_game_result_subtitle">Bugünkü oyunda istinad edilən məqalələr</string>
+  <string name="on_this_day_game_completed_message">Oynadığınız üçün təşəkkür edirik. Yeni oyun \"Hansı birinci baş verib?\" hər gün Kəşf et lentində mövcuddur.</string>
+  <string name="on_this_day_game_menu_notifications">Oyun bildirişləri</string>
+  <string name="on_this_day_game_menu_info">Daha ətraflı öyrən</string>
+  <string name="on_this_day_game_menu_feedback">Funksiya ilə bağlı problem</string>
+  <string name="on_this_day_game_article_read_button">Məqaləni oxu</string>
+  <string name="on_this_day_game_article_related_event_title">Bu məqalə ilə bağlı hadisə</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Bu sualı düz tapdınız</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Bu sualı səhv tapdınız</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Oyun bildirişləri söndürülsün?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Canlı bildirişləri deaktiv etsəniz, hər gün yeni oyun oynamaq üçün hazır olduqda bildiriş almayacaqsınız.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Oyun bildirişləri yandırılsın?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Yeni oyun oynamaq üçün hazır olduqda oyun bildirişləri sizi gündəlik xəbərdar edir.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Xeyr, açıq saxla</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Söndür</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Bəli, yandır</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Sönülü saxla</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Oyun bildirişləri sönülüdür.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Oyun bildirişləri yanılıdır.</string>
+  <string name="on_this_day_game_notification_text">Bu günün oyunu olan \"Hansı birinci baş verib?\" oynamağa hazırdır.</string>
+  <string name="on_this_day_game_report_email_subject">Problem bildirişi - Vikipediya oyunları</string>
+  <string name="on_this_day_game_report_email_body">Mən Vikipediya oyunları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Problemi təsvir edin]\n\nBaş verməsini gözlədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
+  <string name="on_this_day_game_notification_undo">Geri qaytar</string>
+  <string name="on_this_day_game_share_link_message">Mən Vikipediya Android tətbiqində \"Hansı birinci baş verib?\" gündəlik trivia oyununu oynayıram %s</string>
+  <string name="on_this_day_game_share_screen_title">Mən bu gün \"Hansı birinci baş verib?\" oyununda %1$d/%2$d xal topladım.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Daxil olan mövzular:</string>
+  <string name="on_this_day_game_archive_calendar_title">Oynamaq üçün tarixə görə oyun seçin.</string>
+  <string name="on_this_day_game_score_toast_message">Bu gün %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_btn_text">Bugünkü oyuna davam edin</string>
+  <string name="on_this_day_game_current_progress_message">Sizin qaldığınız sual: %d.</string>
+  <string name="on_this_day_game_archive_btn_text">Arxivi oyna</string>
+  <string name="on_this_day_game_review_results_btn_text">Nəticələrə bax</string>
+  <string name="on_this_day_game_score_message">Bugünkü oyunda %1$d/%2$d xal topladınız.</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
+  <string name="on_this_day_game_sound_on">Səsi aç</string>
+  <string name="on_this_day_game_sound_off">Səsi söndür</string>
+  <string name="year_in_review_learn_more">Ətraflı öyrən</string>
+  <string name="year_in_review_get_started">Başla</string>
+  <string name="year_in_review_topbar_w_icon">Vikipediya W ikonu</string>
+  <string name="year_in_review_navigate_left">Sola naviqasiya</string>
+  <string name="year_in_review_share_icon">Paylaş ikonu</string>
+  <string name="year_in_review_heart_icon">Ürək ikonu</string>
+  <string name="year_in_review_navigate_right">Sağa naviqasiya</string>
+  <string name="year_in_review_donate">İanə et</string>
+  <string name="year_in_review_information_icon">Məlumat ikonu</string>
+  <string name="year_in_review_get_started_headline">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
+  <string name="year_in_review_get_started_bodytext">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın. Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="year_in_review_entry_dialog_title">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
+  <string name="year_in_review_entry_dialog_bodytext">Vikipediyada oxuduğumuz və redaktə etdiyimiz məqalələr haqqında məlumatlara bax və il ərzindəki əsas məqamları paylaş.</string>
+  <string name="year_in_review_entry_dialog_continue">Davam et</string>
+  <plurals name="year_in_review_read_count_headline">
+    <item quantity="one">Bu il %d məqalə oxumusunuz</item>
+    <item quantity="other">Bu il %d məqalə oxumusunuz</item>
+  </plurals>
+  <plurals name="year_in_review_read_count_bodytext">
+    <item quantity="one">Bu il, siz %2$s, %3$s, və %4$s daxil olmaqla tam %1$d məqalə oxumusunuz. Vikipediyada 300-dən çox dildə 63 milyondan çox məqalə olub. Siz biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz.</item>
+    <item quantity="other">Bu il, siz %2$s, %3$s, və %4$s daxil olmaqla tam %1$d məqalə oxumusunuz. Vikipediyada 300-dən çox dildə 63 milyondan çox məqalə olub. Siz biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz.</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_headline">
+    <item quantity="one">Vikipediyanı %d dəfə redaktə etmisiniz</item>
+    <item quantity="other">Vikipediyanı %d dəfə redaktə etmisiniz</item>
+  </plurals>
+  <plurals name="year_in_review_edit_count_bodytext">
+    <item quantity="one">Vikipediyanı %d dəfə redaktə etmisiniz. Dünya üzrə Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğunuz üçün təşəkkür edirik.</item>
+    <item quantity="other">Vikipediyanı %d dəfə redaktə etmisiniz. Dünya üzrə Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğunuz üçün təşəkkür edirik.</item>
+  </plurals>
+  <string name="year_in_review_non_english_collective_readcount_headline">Vikipediya 300-dən çox dildə mövcuddur</string>
+  <string name="year_in_review_non_english_collective_readcount_bodytext">Bu il Vikipediyada 300-dən çox aktiv dildə 63 milyondan çox məqalə var. Biliyi genişləndirmək və müxtəlif mövzuları araşdırmaqla məşğul olan milyonlarla insana qoşulmusunuz</string>
+  <string name="year_in_review_non_english_collective_editcount_headline">iOS proqramı vasitəsilə 452 257-dən çox redaktə edilib</string>
+  <string name="year_in_review_non_english_collective_editcount_bodytext">Vikipediyanın könüllü redaktorlar icması bu il iOS proqramında 452 257-dən çox redaktə edib. Vikipediyanın ürəyi və ruhu bizim könüllü redaktorlar, donorlar və sizin kimi milyardlarla oxucudan ibarət qlobal birliyimizdir – hamısı etibarlı məlumatı limitsiz şəkildə paylaşmaq üçün birləşib.</string>
+  <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
+  <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
+  <string name="year_in_review_survey_very_satisfied">Çox məmnunam</string>
+  <string name="year_in_review_survey_satisfied">Məmnunam</string>
+  <string name="year_in_review_survey_neutral">Neytral</string>
+  <string name="year_in_review_survey_unsatisfied">Məmnun deyiləm</string>
+  <string name="year_in_review_survey_very_unsatisfied">Çox narazıyam</string>
+  <string name="year_in_review_survey_placeholder_text">Əlavə fikriniz var?</string>
+  <string name="year_in_review_survey_cancel">İmtina</string>
+  <string name="year_in_review_survey_submit">Göndər</string>
+  <string name="year_in_review_screendeck_image_content_description">İlin İcmalının əsas ekranındakı şəkil resursu</string>
+  <string name="year_in_review_entry_dialog_screen_image_content_description">İlin İcmalının giriş dialoqu ekranının şəkil resursu</string>
+  <string name="year_in_review_screenshot_error">Skrinşot yaratmaq mümkün olmadı: %s</string>
+  <string name="year_in_review_share_subject">İlin İcmalı Şəkil və Link</string>
+  <string name="year_in_review_globe_icon">Qlobus İkonu</string>
+  <string name="recommended_reading_list_title">Kəşf et</string>
+  <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
+  <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Yeni!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Başla</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Xeyr, təşəkkürlər</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">Tövsiyə olunan oxuma siyahınızı daha sonra qurmaq üçün Parametrlərə keçin.</string>
+  <string name="recommended_reading_list_interest_source_message">Tövsiyə olunan oxuma siyahınızı necə yaratmalıyıq?</string>
+  <string name="recommended_reading_list_interest_source_interests">Mənim maraqlarım əsasında seçim etməyimə icazə verin</string>
+  <string name="recommended_reading_list_interest_source_saved">Saxlanmış məqalələrimə əsasən mənim üçün seçin</string>
+  <string name="recommended_reading_list_interest_source_history">Oxuma tarixçəmə əsaslanaraq mənim üçün seç</string>
+  <string name="recommended_reading_list_interest_pick_title">Nə ilə maraqlanırsınız?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Məqalə axtar</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d seçilib</item>
+    <item quantity="other">%d seçilib</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">Ən azı bir maraq dairəsi seçin</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Təsadüfi seç</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Sizin üçün təsadüfi bir neçə məqalə seçdik.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Geri qaytar</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">Seçiminizi təsadüfiləşdirmək istədiyinizə əminsiniz?</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">Bu, cari seçimlərinizi siləcək və təsadüfi olaraq yeni məqalələr seçəcək.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Bəli, mənim üçün seç</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Boşver</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">%s üçün hazırlanıb</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Sizin üçün hazırlanıb</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d məqalə</item>
+    <item quantity="other">• %d məqalə</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">Gündəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Gecə yarısı yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_weekly">Həftəlik oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Həftənin əvvəlində yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_description_monthly">Aylıq oxuma siyahınız. Yalnız sizin üçün seçilmiş yeni mövzular haqqında məlumat əldə edin. Hər ayın birincisi yeniləmələr olacaq.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Fərdiləşdir</string>
+  <string name="recommended_reading_list_page_overflow_about">Bu funksiya haqqında</string>
+  <string name="recommended_reading_list_page_snackbar">Kəşf et bölməsi hər %2$s %1$d yeni məqalə ilə yenilənəcək. Tövsiyələriniz cihazınızda lokal olaraq saxlanılır.</string>
+  <string name="recommended_reading_list_page_snackbar_action">Kəşf et bölməsini fərdiləşdir</string>
+  <string name="recommended_reading_list_page_snackbar_day">Gündəlik</string>
+  <string name="recommended_reading_list_page_snackbar_week">Həftəlik</string>
+  <string name="recommended_reading_list_page_snackbar_month">Aylıq</string>
+  <string name="recommended_reading_list_settings_section_header">Tövsiyələr</string>
+  <string name="recommended_reading_list_settings_title">Kəşf etmə parametrləri</string>
+  <string name="recommended_reading_list_settings_toggle">Kəşf edilmiş oxuma siyahısı</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">Kəşf etmə deaktivdir. Vikipediya sizə məqalələri oxumağı tövsiyə etməyəcək.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Kəşf etmə söndürülsün?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Kəşf etməni deaktiv etsəniz, Vikipediyadan %s oxuma tövsiyələri almağı dayandıracaqsınız.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Söndür</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Xeyr, açıq saxla</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Kəşf et deaktiv edilib. İstənilən vaxt parametrlərdə yenidən aktiv edə bilərsiniz.</string>
+  <string name="recommended_reading_list_settings_articles">məqalə</string>
+  <string name="recommended_reading_list_settings_updates_frequency">%s yenilənir</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">gündəlik</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">həftəlik</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">aylıq</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Hər gün</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Hər həftə</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Hər ay</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Kəşf et necə qurulur</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Maraqlarınıza əsaslanaraq</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Yadda saxladığınız məqalələr əsasında</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Oxuma tarixçəniz əsasında</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Kəşf etin necə qurulduğunu tənzimləmək istəyirsiz?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Kəşflərin tövsiyələr yaratma qaydasını tənzimləsəniz, cari tövsiyələriniz dəyişdiriləcək.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Tənzimlə</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Boşver</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Tövsiyələriniz indi maraqlarınıza əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Tövsiyələriniz indi yadda saxladığınız məqalələrə əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Tövsiyələriniz indi oxuma tarixçənizə əsaslanır.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Geri qaytar</string>
+  <string name="recommended_reading_list_settings_interests">Maraqlar</string>
+  <string name="recommended_reading_list_settings_notifications_title">Bildirişlər</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Kəşf et yeniləndikdə Vikipediya sizə bildiriş göndərməyəcək.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Kəşf et üçün bildirişlər söndürülüb. O yeniləndikdə bildiriş almayacaqsınız.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Bildirişlər söndürülsün?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Bildirişləri söndürsəniz, Kəşf et yeniləndikdə daha bildirişlər qəbul etməyəcəksiniz.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Söndür</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Xeyr, açıq saxla</string>
+  <string name="recommended_reading_list_notification_title">%s oxuma siyahınız hazırdır.</string>
+  <string name="recommended_reading_list_notification_subtitle">Ən son tövsiyələrinizə baxmaq üçün toxunun.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Kəşf et bölməsi yeniləndikdə, Vikipediya sizə bildiriş göndərəcək.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Kəşf etmə aktivdir. Vikipediya sizə oxumağınız üçün məqalələr tövsiyə edəcək.</string>
+  <string name="donation_reminders_initial_prompt_label">Eksperimental</string>
+  <string name="donation_reminders_initial_prompt_title">Oxuduğunuz zaman Vikipediyaya dəstək olun</string>
+  <string name="donation_reminders_initial_prompt_message">Vikipediyanın reklamsız, aktual və hamı üçün əlçatan olmasına kömək etmək üçün oxuduğunuz məqalələrin sayına əsasən ianə xatırladıcısı qurun.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Başla</string>
+  <string name="donation_reminders_initial_prompt_negative_button">İndi yox</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">İanə xatırlatmaları istənilən vaxt Parametrlərdə dəyişdirilə bilər.</string>
+  <string name="donation_settings_section_header">İanələr</string>
+  <string name="donation_reminders_settings_title">İanə xatırlatmaları</string>
+  <string name="donation_reminders_settings_thank_you_message">Vikipediyanı reklamsız, aktual və hamı üçün əlçatan saxlamaq üçün əllərindən gələni edən oxucuların 2%%-nə qoşulun. İanə xatırladıcınızı indi qurun.</string>
+  <string name="donation_reminders_settings_donation_info">İanələr Vikimedia Fonduna, filiallarına və onun digər saytlarına gedir.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Mən oxuyanda</string>
+  <string name="donation_reminders_settings_amount_label">Mənə ianə etməyi xatırlat</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Xatırlatmanı təsdiqlə</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Bu təcrübə haqqında</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">məqalə</string>
+  <string name="donation_reminders_settings_warning_min_amount">Ən azı %s daxil edin</string>
+  <string name="donation_reminders_settings_warning_max_amount">Maksimum %s icazə verilir</string>
+  <string name="donation_reminders_settings_option_custom">Fərdi…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
+  <string name="donation_reminders_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
+  <string name="donation_reminders_prompt_message">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
+  <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
+  <string name="donation_reminders_prompt_negative_button">İndi yox</string>
+  <string name="donation_reminders_gpay_text">Google Pay ilə %s ianə et</string>
+  <string name="donation_reminders_gpay_different_amount_text">Google Pay ilə fərqli məbləğdə ianə et</string>
+  <string name="donation_reminders_survey_dialog_title">İanə xatırlatmalarını təkmilləşdirməyə kömək edin.</string>
+  <string name="donation_reminders_survey_dialog_message">Bu funksiya sizi qane edir?</string>
+  <string name="donation_reminders_settings_description_on">İanə xatırlatmaları aktivdir. Vikipediya sizə bu eksperiment zamanı oxuduğunuz hər %2$s məqalədə %1$s ianə etməyi xatırladacaq.</string>
+  <string name="donation_reminders_settings_description_off">İanə xatırlatmaları deaktivdir.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Məqalələrin sayı cihazınızda lokal olaraq saxlanılır</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d məqalə</item>
+    <item quantity="other">%d məqalə</item>
+  </plurals>
 </resources>

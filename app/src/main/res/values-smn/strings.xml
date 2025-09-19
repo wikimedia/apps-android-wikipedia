@@ -28,7 +28,7 @@
   <string name="page_error_back_to_main">Maacâ</string>
   <string name="error_back">Maacâ</string>
   <string name="error_next">Čuávuvâš</string>
-  <string name="menu_clear_all_history">Kuorrii historjá</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kuorrii historjá</string>
   <string name="history_item_deleted">%s sikkum historjást</string>
   <string name="history_item_delete_undo">Koomeet</string>
   <string name="notification_archive_undo">Koomeet</string>
@@ -39,7 +39,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Kuorrii laađđâmhistorjá</string>
-  <string name="dialog_message_clear_history">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
   <string name="dialog_message_clear_history_yes">Joo</string>
   <string name="dialog_message_clear_history_no">Ij</string>
   <string name="share_via">Jyevi palvâlusâst</string>
@@ -94,6 +94,8 @@
   <string name="menu_save_changes">Almostit nubástusâid</string>
   <string name="dialog_message_edit_failed_retry">Keččâl uđđâsist</string>
   <string name="dialog_message_edit_failed_cancel">Jooskâ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Siho</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Jooskâ</string>
   <string name="menu_show_toc">Siskáldâslisto</string>
   <string name="search_no_results_found">Iä uuccâmpuátuseh</string>
   <string name="edit_section_captcha_request_an_account_message">Jieh-uv uáini kove? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Táátu tubdâlduv&lt;/a&gt;</string>
@@ -204,6 +206,7 @@
   <string name="reading_list_menu_select">Valjii</string>
   <string name="reading_list_menu_rename">Mute luuhâmlisto noomâ/kuvvim</string>
   <string name="reading_list_action_menu_add_to_another_list">Lasseet nube liiston</string>
+  <string name="reading_list_name_sample">Muu luuhâmlisto</string>
   <string name="reading_list_name_hint">Luuhâmlisto nommâ</string>
   <string name="reading_list_select_item">Valjii</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Jooskâ</string>
@@ -309,6 +312,7 @@
   <string name="suggested_edits_image_tags_published_list">Almostittum kilgoleh</string>
   <string name="suggested_edits_image_tags_search">Uusâ kilgolijd</string>
   <string name="suggested_edits_image_tags_add_tag">Lasseet kilgool</string>
+  <string name="suggested_edits_disabled_title">Meddâlistum kiävtust</string>
   <string name="suggested_edits_last_edited">Majemustáá nubástittum</string>
   <string name="suggested_edits_last_edited_never">Ij kuássin</string>
   <string name="suggested_edits_contribution_language_label">Kielâ</string>
@@ -379,6 +383,7 @@
   <string name="watchlist_filter_talk">Savâstâllâmsiijđoh</string>
   <string name="watchlist_filter_pages">Siijđoh</string>
   <string name="watchlist_page_deleted">Sikkum</string>
+  <string name="watchlist_filter_user_status_registered">Registeristum</string>
   <string name="preview_edit_watch_this_page">Tarkkuu taam siijđo</string>
   <string name="action_item_categories">Luokah</string>
   <string name="category_tab_subcategories">Vyeliluokah</string>
@@ -387,8 +392,10 @@
   <string name="talk_templates_new_message_dialog_title">Vuorkkii nubástusâid</string>
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registeristum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
   <string name="places_toggle_buttons_map">Kárttá</string>
+  <string name="places_toggle_buttons_list">Listo</string>
   <string name="survey_dialog_submit">Vuolgât</string>
 </resources>

@@ -19,13 +19,13 @@
   <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="page_error_back_to_main">បកក្រោយ</string>
-  <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ជម្រះ​ប្រវត្តិ</string>
   <string name="history_item_deleted">%s ត្រូវបានដកចេញពីប្រវត្តិ</string>
   <string name="history_items_deleted">អត្ថបទចំនួន %d ត្រូវបានដកចេញពីប្រវត្តិ</string>
   <string name="history_item_delete_undo">មិន​ធ្វើ​វិញ</string>
   <string name="app_settings">ការកំណត់កម្មវិធី</string>
   <string name="dialog_title_clear_history">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត</string>
-  <string name="dialog_message_clear_history">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​រាវរកទាំង​អស់ ហើយបិទថេបដែលកំពុងបើកមែន​ទេ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​រាវរកទាំង​អស់ ហើយបិទថេបដែលកំពុងបើកមែន​ទេ?</string>
   <string name="dialog_message_clear_history_yes">បាទ/ចាស៎</string>
   <string name="dialog_message_clear_history_no">ទេ</string>
   <string name="share_via">ចែកចាយ​តាម</string>
@@ -80,7 +80,7 @@
   <string name="nav_item_login">កត់ឈ្មោះចូលវិគីភីឌា</string>
   <string name="login_username_hint">អត្តនាម</string>
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
-  <string name="login_2fa_hint">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
+  <string name="login_2fa_hint" fuzzy="true">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
   <string name="menu_login">កត់ឈ្មោះចូល</string>
   <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>

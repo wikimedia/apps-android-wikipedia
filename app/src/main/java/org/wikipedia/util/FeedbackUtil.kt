@@ -8,14 +8,19 @@ import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
 import org.wikipedia.R
@@ -33,6 +38,7 @@ import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.log.L
+import org.wikipedia.views.AllowSnackbarOverBottomSheet
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
@@ -133,7 +139,7 @@ object FeedbackUtil {
     }
 
     fun makeSnackbar(view: View, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
+        val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()).trim(), duration)
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
@@ -142,6 +148,17 @@ object FeedbackUtil {
 
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         return makeSnackbar(findBestView(activity), text, duration, wikiSite)
+    }
+
+    fun makeNavigationAwareSnackbar(activity: Activity, text: CharSequence, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        val rootView = activity.findViewById<View>(android.R.id.content)
+        val snackbar = makeSnackbar(rootView, text, LENGTH_DEFAULT, wikiSite)
+        val view = snackbar.view
+        val params = view.layoutParams as ViewGroup.MarginLayoutParams
+        val marginForNavbar = ViewCompat.getRootWindowInsets(rootView)?.getInsets(WindowInsetsCompat.Type.navigationBars())
+        params.bottomMargin += (marginForNavbar?.bottom ?: 0)
+        view.layoutParams = params
+        return snackbar
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
@@ -248,6 +265,13 @@ object FeedbackUtil {
     }
 
     private fun findBestView(activity: Activity): View {
+        // If the activity is currently displaying a bottom sheet over which we allow a snackbar,
+        // use the bottom sheet's view as the anchor for the snackbar.
+        getTopmostBottomSheetFragment(activity)?.let {
+            return it.requireView()
+        }
+
+        // Otherwise, use the appropriate view for the activity.
         val viewId = when (activity) {
             is MainActivity -> R.id.fragment_main_coordinator
             is PageActivity -> R.id.fragment_page_coordinator
@@ -259,5 +283,26 @@ object FeedbackUtil {
             else -> android.R.id.content
         }
         return ActivityCompat.requireViewById(activity, viewId)
+    }
+
+    private fun getTopmostBottomSheetFragment(activity: Activity): BottomSheetDialogFragment? {
+        (activity as? FragmentActivity)?.supportFragmentManager?.fragments?.forEach {
+            getTopmostBottomSheetFragment(it)?.let { fragment ->
+                return fragment
+            }
+        }
+        return null
+    }
+
+    private fun getTopmostBottomSheetFragment(fragment: Fragment): BottomSheetDialogFragment? {
+        if (fragment is BottomSheetDialogFragment && fragment is AllowSnackbarOverBottomSheet && fragment.view != null) {
+            return fragment
+        }
+        fragment.childFragmentManager.fragments.forEach {
+            if (getTopmostBottomSheetFragment(it) != null) {
+                return it as BottomSheetDialogFragment
+            }
+        }
+        return null
     }
 }

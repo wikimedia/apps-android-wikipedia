@@ -7,8 +7,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 
@@ -18,21 +16,19 @@ class WatchlistExpiryDialogViewModel(savedStateHandle: SavedStateHandle) : ViewM
     }
 
     var pageTitle = savedStateHandle.get<PageTitle>(WatchlistExpiryDialog.ARG_PAGE_TITLE)!!
-    var expiry = savedStateHandle.get<WatchlistExpiry>(WatchlistExpiryDialog.ARG_EXPIRY)!!
 
-    private val _uiState = MutableStateFlow(Resource<WatchlistExpiry>())
+    private val _uiState = MutableStateFlow(Resource<WatchlistExpiryChangeSuccess>())
     val uiState = _uiState.asStateFlow()
 
     fun changeExpiry(expiry: WatchlistExpiry) {
-        WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
         viewModelScope.launch(handler) {
-            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
-            val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(null, null, pageTitle.prefixedText, expiry.expiry, token!!)
-            response.getFirst()?.let {
-                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-                _uiState.value = Resource.Success(expiry)
-            }
+            val pair = WatchlistViewModel.watchPageTitle(this, pageTitle, false, expiry, false, pageTitle.namespace().talk())
+            _uiState.value = Resource.Success(WatchlistExpiryChangeSuccess(expiry, pair.second))
         }
     }
+
+    data class WatchlistExpiryChangeSuccess(
+        val expiry: WatchlistExpiry,
+        val message: String
+    )
 }

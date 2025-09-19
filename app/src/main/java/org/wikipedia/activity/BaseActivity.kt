@@ -2,7 +2,6 @@ package org.wikipedia.activity
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -24,7 +23,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -37,6 +35,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
@@ -78,6 +77,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!DeviceUtil.assertAppContext(this, true)) {
+            finish()
+            return
+        }
+
         setTheme()
         removeSplashBackground()
 
@@ -90,9 +94,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        if (savedInstanceState == null) {
-            NotificationInteractionEvent.processIntent(intent)
-        }
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor().run()
@@ -186,16 +187,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> false
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -212,10 +208,15 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         return super.dispatchTouchEvent(event)
     }
 
-    protected fun setStatusBarColor(@ColorInt color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.statusBarColor = color
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && data?.hasExtra(OnThisDayGameResultFragment.EXTRA_GAME_COMPLETED) == true) {
+            OnThisDayGameResultFragment.maybeShowOnThisDayGameEndContent(this)
         }
+    }
+
+    protected fun setStatusBarColor(@ColorInt color: Int) {
+        window.statusBarColor = color
     }
 
     protected fun setNavigationBarColor(@ColorInt color: Int) {

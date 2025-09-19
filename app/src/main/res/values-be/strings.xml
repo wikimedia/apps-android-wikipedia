@@ -11,6 +11,7 @@
 * Kareyac
 * Liashko
 * Maksim L.
+* McDutchie
 * Mechanizatar
 * MuratTheTurkish
 * Pavel200071
@@ -48,7 +49,7 @@
   <string name="page_error_back_to_main">Вярнуцца</string>
   <string name="error_back">Вярнуцца</string>
   <string name="error_next">Далей</string>
-  <string name="menu_clear_all_history">Ачысціць гісторыю</string>
+  <string name="menu_clear_all_history" fuzzy="true">Ачысціць гісторыю</string>
   <string name="history_item_deleted">Артыкул \"%s\" выдалены з гісторыі праглядаў</string>
   <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі праглядаў</string>
   <string name="history_item_delete_undo">Вярнуць</string>
@@ -61,13 +62,13 @@
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
-  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>
   <string name="image_share_via">Падзяліцца праз</string>
   <string name="search_redirect_from">Перанакіравана з %s</string>
-  <string name="page_edit_history_activity_title">Гісторыя версіяў: %s</string>
+  <string name="page_edit_history_activity_title">Гісторыя версій: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Пустое тлумачэнне праўкі</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Пошук або фільтр правак</string>
@@ -163,8 +164,8 @@
   <string name="login_username_hint">Імя карыстальніка</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
-  <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
-  <string name="login_2fa_other_workflow_error_msg">Патрабуецца двухфакторная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасці і ўвайсці ў сістэму з дапамогай вашага 2FA-токена, а затым паўтарыце спробу.</string>
+  <string name="login_2fa_hint" fuzzy="true">Код двухфактарнай аўтэнтыфікацыі</string>
+  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Патрабуецца двухфакторная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасці і ўвайсці ў сістэму з дапамогай вашага 2FA-токена, а затым паўтарыце спробу.</string>
   <string name="onboarding_card_login">Увайсці</string>
   <string name="page_editing_login">Увайсці</string>
   <string name="reading_lists_sync_login">Увайсці</string>
@@ -254,16 +255,14 @@
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
   <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
   <string name="about_contributors_heading">Суаўтары</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
+  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэта праграма была перакладзена валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
@@ -609,8 +608,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Артыкул знаходзіцца ў некалькіх спісах</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больш не будзе дасяжны па-за сеткай для ўсіх спісаў чытання:</string>
   <string name="reading_lists_sync_reminder_title">Уключыць сінхранізацыю спіса чытання?</string>
-  <string name="reading_lists_sync_reminder_text">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text" fuzzy="true">Артыкулы, захаваныя ў спісах чытання, цяпер можна сінхранізаваць з вашым уліковым запісам Вікіпедыі. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Даведайцеся больш&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Уключыць сінхранізацыю</string>
   <string name="reading_list_login_reminder_title">Сінхранізацыя спісаў чытання</string>
   <string name="reading_lists_login_reminder_text">Цяпер спісы чытання можна сінхранізаваць на ўсіх прыладах. Увайдзіце ў свой уліковы запіс у Вікіпедыі і дазвольце захоўваць свае спісы.</string>
@@ -946,8 +945,6 @@
   <string name="description_edit_voice_input_description">Галасавы ўвод</string>
   <string name="description_edit_learn_more">Даведайцеся больш пра апісанні артыкулаў</string>
   <string name="description_edit_image_caption_learn_more">Даведайцеся больш пра подпісы выяў</string>
-  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">Тэкст занадта кароткі.</string>
   <string name="description_ends_with_punctuation">Тэкст не павінен сканчацца знакамі прыпынку.</string>
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>
@@ -1048,8 +1045,6 @@
   <string name="suggested_edits_feed_card_add_image_caption">Дадаць подпіс выяве</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Дадаць подпіс выявы (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Дадаць тэгі выявам</string>
-  <string name="suggested_edits_snackbar_survey_text">Якім быў ваш досвед рэдагавання? Калі ласка, знайдзіце час, каб запоўніць апытанне пра рэдагаванне ў дадатку.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Прайсці апытанне</string>
   <string name="suggested_edits_task_action_text_add">Дадаць</string>
   <string name="suggested_edits_task_action_text_translate">Перакласці</string>
   <string name="suggested_edits_image_captions">Подпісы выяў</string>
@@ -1472,14 +1467,12 @@
   <string name="revision_rollback_success">Праўкі адхілены.</string>
   <string name="revision_compare_button">Параўнаць</string>
   <string name="revision_compare_two_only">Магчыма абраць толькі дзве версіі.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s і яго старонка размоў дададзены да вашага спісу назірання %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Змяніць</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">стала</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 тыдзень</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцаў</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s і яго старонка размоў выдалены з вашага спісу назірання.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">на 1 тыдзень</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">на 1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">на 3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">на 6 месяцаў</string>
   <string name="watchlist_expiry_dialog_title">Выберыце перыяд часу, на працягу якога сачыць за старонкай</string>
   <string name="watchlist_expiry_dialog_permanent">Стала</string>
   <string name="watchlist_expiry_dialog_one_week">1 тыдзень</string>
@@ -1712,7 +1705,7 @@
   <string name="patroller_saved_message_body_vandalism">Прывітанне {{{username}}}, я хачу паведаміць вам, што я вярнуў адну або болей вашых [{{{diffLink}}}|нядаўніх унёскаў], бо яны не выглядаюць канструктыўнымі. Калі вы думаеце, што я памыліўся або ў вас ёсць пытанні, вы можаце пакінуць паведамленне ў [[User talk:{{{senderUserName}}}|маёй старонцы абмеркаванняў]]. Звярніце ўвагу, што працяг вандалізму можа прывесці да абмежаванняў.</string>
   <string name="patroller_saved_message_body_editing_tests">Прывітанне, {{{username}}}, я рады, што Вікіпедыя прыцягнула вашу ўвагу і што вам было цікава навучыцца правіць у ёй. Праведзены вамі тэст правак спрацаваў; аднак вы павінны мець на ўвазе, што мэта гэтага праекта — распрацаваць надзейную і поўную энцыклапедыю, з якой кожны можа азнаёміцца. Ваша праўка паўплывала на змесціва, таму яно было выдалена.\nКалі вы хочаце навучыцца рабіць праўкі ў Вікіпедыі, у вашым распараджэнні [[Wikipedia:Sandbox|пясочніца]]. Калі вашы каментары датычыліся артыкула, правільным месцам будзе старонка абмеркавання гэтага артыкула.</string>
   <string name="patroller_saved_message_body_npov">Прывітанне, {{{username}}}, некаторыя зробленыя вамі ўнёскі не адпавядаюць патрабаванням нейтральнасці, неабходным для захавання [[Wikipedia:NPOV|нейтральнага пункту гледжання]] палітыкі Вікіпедыі. Па гэтай прычыне некаторае змесціва было зменена або выдалена. Калі ласка, змяніце абзацы або раздзелы, якія паказваюць асобны пункт гледжання, замяніўшы іх больш нейтральным і аб’ектыўным тэкстам у адпаведнасці з тым, што чакаецца ў энцыклапедыі.</string>
-  <string name="patroller_saved_message_body_auto_trans">Прывітанне, {{{username}}}, некаторыя вашыя ўнёскі, магчыма, з’яўляюцца машыннымі перакладамі, таму яны былі зменены або пазначаны шаблонам. Калі ў артыкул не ўнесены паляпшэнні, ён можа быць выдалены.\n\nКалі, нягледзячы на ўсю гэтую інфармацыю, у вас застаюцца пытанні, не саромейцеся пакінуць паведамленне на [[User talk:{{{senderUserName} }}|маёй старонцы абмеркаванняў]]. Не адчайвайцеся ад гэтага невялікага здарэння. Ваш унёсак вельмі важны для Вікіпедыі.</string>
+  <string name="patroller_saved_message_body_auto_trans">Прывітанне, {{{username}}}, некаторыя вашыя ўнёскі, магчыма, з’яўляюцца машыннымі перакладамі, таму яны былі зменены або пазначаны шаблонам. Калі ў артыкул не ўнесены паляпшэнні, ён можа быць выдалены.\n\nКалі, нягледзячы на ўсю гэтую інфармацыю, у вас застаюцца пытанні, не саромейцеся пакінуць паведамленне на [[User talk:{{{senderUserName}}}|маёй старонцы абмеркаванняў]]. Не адчайвайцеся ад гэтага невялікага здарэння. Ваш унёсак вельмі важны для Вікіпедыі.</string>
   <string name="patroller_saved_message_body_coi_rem">Вітаю, {{{username}}}, я цаню ваш удзел у Вікіпедыі; Аднак, заўважыў, што ў вас ёсць [[Wikipedia:Conflict_of_interest|канфлікт інтарэсаў]]. Канфлікт інтарэсаў — несумяшчальнасць мэт Вікіпедыі па нейтральнасці і надзейнасці з прыватнымі мэтамі некаторых удзельнікаў, асоб, арганізацый або кампаній розных тыпаў.\n\nУвесь унёсак у асноўную прастору мусіць адпавядаць палітыцы крытэрыяў зместу гэтай Вікіпедыі ([[Вікіпедыя:Чым не з’яўляецца Вікіпедыя|Чым не з’яўляецца Вікіпедыя]]), энцыклапедычнай якасці (быць [[Вікіпедыя:Правяральнасць|правяральным]] і не быць [[Вікіпедыя:Не ўласнае даследаванне|уласным даследаваннем]]), рэдактарскаму метаду (адпавядаць [[Вікіпедыя:Нейтральны пункт гледжання|нейтральнаму пункту гледжання]]) і быць законным (не парушаць [[Вікіпедыя:Аўтарскія правы|аўтарскія правы]]). Усе ўдзельнікі павінны трымацца гэтых палітык пры стварэнні і ацэнцы зместу, а таксама паважаць і зыходзіць з сумленнасці іншых удзельнікаў, каб гарантаваць трыманне гэтым палітыкам.\n\nКалі вы рэдагуеце ва ўмовах канфлікту інтарэсаў, то павінны трымацца адпаведных палітык з асаблівай пільнасцю; у адваротным выпадку ваш уліковы запіс можа быць прызнаны ўжываным у прыватных мэтах і заблакіраваны. Не саромейцеся звяртацца на маю старонку размоў, калі ў вас ёсць якія-небудзь пытанні.</string>
   <string name="patroller_saved_message_body_final_warning">Паколькі вы зрабілі некалькі дэструктыўных правак, гэта будзе вашым апошнім папярэджаннем. Калі вы зноў будзеце бясчынстваваць ў Вікіпедыі, вам будзе забаронена рабіць праўкі.</string>
   <string name="patroller_saved_message_body_copy_vio">Ваша нядаўняя праўка, здаецца, уключае матэрыялы, абароненыя аўтарскім правам, без дазволу. Пераканайцеся, што ўвесь кантэнт адпавядае палітыцы [[Wikipedia:Copyrights|аўтарскіх правоў]] гэтай Вікіпедыі, каб пазбегнуць выдалення.</string>

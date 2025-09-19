@@ -24,7 +24,7 @@
   <string name="offline_load_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="page_error_back_to_main">Mååusat</string>
   <string name="error_back">Mååusat</string>
-  <string name="menu_clear_all_history">Kuârad historia</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kuârad historia</string>
   <string name="history_item_delete_undo">Kååʹmet</string>
   <string name="notification_archive_undo">Kååʹmet</string>
   <string name="history_list_title">Historia</string>
@@ -76,6 +76,8 @@
   <string name="dialog_message_edit_failed">Muuttâs ij oʹnnstam!</string>
   <string name="dialog_message_edit_failed_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="dialog_message_edit_failed_cancel">Jõõsk</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Jaukkâd</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Jõõsk</string>
   <string name="menu_show_toc">Siiskâžlooǥǥtõs</string>
   <string name="search_no_results_found">Ij käunnʼjam ni mii</string>
   <string name="search_reading_list_no_results">Lookkâmliistâst \"%s\" ij käunnʼjam ni mii</string>
@@ -391,15 +393,14 @@
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s da tõn saǥstõõllâmseeid lââʹzzteš tuu valvvâmliʹstte %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Muuʹtt</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar">%s da tõn saǥstõõllâmseeid jaukkeeš tuu valvvâmliistâst.</string>
   <string name="watchlist_expiry_dialog_one_month">1 määnpââʹjj</string>
   <string name="watchlist_filter_all">Puk</string>
   <string name="watchlist_filter_talk">Saǥstõõllâmseidd</string>
   <string name="watchlist_filter_pages">Artikkelseeid</string>
   <string name="watchlist_page_protected">Suõjjuum</string>
   <string name="watchlist_page_deleted">Jaukkuum</string>
+  <string name="watchlist_filter_user_status_registered">Rekisterõsttum</string>
   <string name="preview_edit_watch_this_page">Vaalv tän seeid</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
@@ -414,8 +415,10 @@
   <string name="talk_templates_new_message_dialog_title">Ruõkk muttsid</string>
   <string name="talk_templates_new_message_dialog_save">Ruõkk</string>
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
+  <string name="patroller_tasks_filters_user_status_registered">Rekisterõsttum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>
   <string name="places_toggle_buttons_map">Mäddkartt</string>
+  <string name="places_toggle_buttons_list">Listt</string>
   <string name="survey_dialog_submit">Vuõlttâd</string>
 </resources>

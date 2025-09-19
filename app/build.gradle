@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
@@ -18,27 +20,27 @@ static def computeVersionName(versionCode, label) {
     return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
-
 android {
-    compileSdk 35
+    compileSdk = 36
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JAVA_VERSION
-        targetCompatibility = JAVA_VERSION
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = JAVA_VERSION
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
     }
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk 21
-        targetSdk 35
-        versionCode 50516
+        minSdk = 23
+        targetSdk = 36
+        versionCode 50549
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -59,6 +61,7 @@ android {
 
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled = true
     }
 
     buildFeatures {
@@ -164,7 +167,6 @@ configurations {
 }
 
 apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -198,10 +200,6 @@ dependencies {
     implementation libs.hcaptcha
     implementation libs.metrics.platform
 
-    implementation libs.glide
-    implementation libs.okhttp3.integration
-    ksp libs.glide.ksp
-
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit
@@ -210,6 +208,7 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
+    implementation(libs.paging.compose)
 
     implementation libs.android.sdk
     implementation libs.android.plugin.annotation.v9
@@ -267,6 +266,12 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
+    // Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.gif)
+    implementation(libs.coil.svg)
+
     // Compose Library
     def composeBom = platform(libs.composeBom)
     implementation(composeBom)
@@ -276,10 +281,13 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.compose.activity)
     implementation(libs.compose.view.model)
+    implementation(libs.androidx.navigation.compose)
 
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
+    debugImplementation(libs.compose.debug.test)
+    debugImplementation(composeBom)
 }
 
 private setSigningConfigKey(config, Properties props) {

@@ -63,4 +63,12 @@ open class AnnouncementCard(private val announcement: Announcement) : Card() {
     fun hasBorder(): Boolean {
         return announcement.border == true
     }
+
+    fun getId(): String {
+        return announcement.id
+    }
+
+    fun aspectRatio(): Double {
+        return announcement.imageAspectRatio ?: 0.0
+    }
 }

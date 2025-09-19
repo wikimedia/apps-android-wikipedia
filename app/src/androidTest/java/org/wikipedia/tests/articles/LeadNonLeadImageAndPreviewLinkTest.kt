@@ -11,6 +11,7 @@ import org.wikipedia.base.DataInjector
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageActivity.Companion.ACTION_LOAD_IN_CURRENT_TAB
 import org.wikipedia.page.PageActivity.Companion.EXTRA_HISTORYENTRY
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.PageRobot
 
 @LargeTest
@@ -27,9 +28,12 @@ class LeadNonLeadImageAndPreviewLinkTest : BaseTest<PageActivity>(
 ) {
 
     private val pageRobot = PageRobot(context)
+    private val systemRobot = SystemRobot()
 
     @Test
     fun runTest() {
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         pageRobot
             .clickLeadImage()
             .swipePagerLeft()

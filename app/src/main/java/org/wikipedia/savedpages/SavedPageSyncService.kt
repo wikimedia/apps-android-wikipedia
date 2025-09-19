@@ -8,7 +8,9 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import okhttp3.Request
 import okio.Buffer
@@ -23,19 +25,20 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.PageDownloadEvent
-import org.wikipedia.gallery.MediaList
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
-import retrofit2.Response
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -67,7 +70,11 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     shouldSendSyncEvent = true
                 }
                 if (pagesToUnSave.isNotEmpty()) {
-                    AppDatabase.instance.readingListPageDao().resetUnsavedPageStatus()
+                    AppDatabase.instance.readingListPageDao().updateStatus(
+                        oldStatus = ReadingListPage.STATUS_SAVED,
+                        newStatus = ReadingListPage.STATUS_QUEUE_FOR_SAVE,
+                        offline = false
+                    )
                     shouldSendSyncEvent = true
                 }
             }
@@ -117,8 +124,10 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     // Lengthy operation during which the db state may change...
                     totalSize = savePageFor(page)
                     success = true
-                } catch (e: InterruptedException) {
-                    // fall through
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: InterruptedException) {
+                        // fall through
                 } catch (e: Exception) {
                     // This can be an IOException from the storage media, or several types
                     // of network exceptions from malformed URLs, timeouts, etc.
@@ -158,11 +167,21 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
         return withContext(Dispatchers.IO) {
             val pageTitle = ReadingListPage.toPageTitle(page)
 
-            // API calls
-            val summaryResponse = reqPageSummary(pageTitle)
-            val revision = summaryResponse.body()?.revision ?: 0
-            val mediaListResponse = reqMediaList(pageTitle, revision)
-            val mobileHTMLResponse = reqMobileHTML(pageTitle)
+            val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite).getPageSummary(pageTitle.prefixedText,
+                cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
+                saveHeader = OfflineCacheInterceptor.SAVE_HEADER_SAVE, langHeader = pageTitle.wikiSite.languageCode,
+                titleHeader = UriUtil.encodeURL(pageTitle.prefixedText)) }
+
+            val mediaListCall = async { ServiceFactory.getRest(pageTitle.wikiSite).getMediaList(pageTitle.prefixedText,
+                cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
+                saveHeader = OfflineCacheInterceptor.SAVE_HEADER_SAVE, langHeader = pageTitle.wikiSite.languageCode,
+                titleHeader = UriUtil.encodeURL(pageTitle.prefixedText)) }
+
+            val mobileHTMLCall = async { reqMobileHTML(pageTitle) }
+
+            val summaryResponse = summaryCall.await()
+            val mediaListResponse = mediaListCall.await()
+            val mobileHTMLResponse = mobileHTMLCall.await()
 
             page.downloadProgress = MEDIA_LIST_PROGRESS
             FlowEventBus.post(PageDownloadEvent(page))
@@ -175,22 +194,28 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
             }
             if (Prefs.isImageDownloadEnabled) {
                 // download thumbnail and lead image
-                if (!summaryResponse.body()?.thumbnailUrl.isNullOrEmpty()) {
-                    page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.body()?.thumbnailUrl.orEmpty())
-                    AppDatabase.instance.pageImagesDao().insertPageImageSync(PageImage(pageTitle, page.thumbUrl.orEmpty()))
+                if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
+                    page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.thumbnailUrl.orEmpty())
+                    AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(
+                        pageTitle,
+                        page.thumbUrl.orEmpty(),
+                        summaryResponse.description,
+                        summaryResponse.coordinates?.latitude,
+                        summaryResponse.coordinates?.longitude
+                    ))
                     fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
                         ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), DimenUtil.calculateLeadImageWidth())))
                 }
 
                 // download article images
-                for (item in mediaListResponse.body()?.getItems("image").orEmpty()) {
+                for (item in mediaListResponse.getItems("image")) {
                     item.srcSets.let {
                         fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
                     }
                 }
             }
-            page.displayTitle = summaryResponse.body()?.displayTitle.orEmpty()
-            page.description = summaryResponse.body()?.description.orEmpty()
+            page.displayTitle = summaryResponse.displayTitle.orEmpty()
+            page.description = summaryResponse.description.orEmpty()
 
             reqSaveFiles(page, pageTitle, fileUrls)
 
@@ -199,24 +224,6 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
             L.i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
 
             totalSize
-        }
-    }
-
-    private suspend fun reqPageSummary(pageTitle: PageTitle): Response<PageSummary> {
-        return withContext(Dispatchers.IO) {
-            ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
-                null, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
-                UriUtil.encodeURL(pageTitle.prefixedText))
-        }
-    }
-
-    private suspend fun reqMediaList(pageTitle: PageTitle, revision: Long): Response<MediaList> {
-        return withContext(Dispatchers.IO) {
-            ServiceFactory.getRest(pageTitle.wikiSite).getMediaListResponse(pageTitle.prefixedText,
-                revision, OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode,
-                UriUtil.encodeURL(pageTitle.prefixedText))
         }
     }
 
@@ -246,6 +253,8 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     percentage += updateRate
                     page.downloadProgress = percentage.toInt()
                     FlowEventBus.post(PageDownloadEvent(page))
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     if (isRetryable(e)) {
                         throw e

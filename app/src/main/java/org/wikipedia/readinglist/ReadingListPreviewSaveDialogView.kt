@@ -10,20 +10,24 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ItemReadingListPreviewSaveSelectItemBinding
 import org.wikipedia.databinding.ViewReadingListPreviewSaveDialogBinding
+import org.wikipedia.extensions.coroutineScope
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.util.Date
 
-class ReadingListPreviewSaveDialogView : FrameLayout {
+class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
         fun onError()
@@ -35,20 +39,21 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
     private lateinit var readingList: ReadingList
     private lateinit var savedReadingListPages: MutableList<ReadingListPage>
     private lateinit var callback: Callback
-    private var currentReadingLists: MutableList<ReadingList>
-
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    private var currentReadingLists = emptyList<ReadingList>()
+    var readingListMode = ReadingListMode.PREVIEW
 
     init {
         layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true, skipSearchBar = true))
-        currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
+        coroutineScope().launch(CoroutineExceptionHandler {
+            _, throwable -> L.w(throwable)
+        }) {
+            currentReadingLists = AppDatabase.instance.readingListDao().getListsWithoutContents()
+        }
         binding.readingListTitle.doOnTextChanged { _, _, _, _ ->
             validateTitleAndList()
         }
@@ -58,7 +63,12 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         this.readingList = readingList
         this.savedReadingListPages = savedReadingListPages
         this.callback = callback
-        val defaultListTitle = context.getString(R.string.reading_lists_preview_header_title).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
+        val titleRes = if (readingListMode == ReadingListMode.PREVIEW) {
+            R.string.reading_lists_preview_header_title
+        } else {
+            R.string.recommended_reading_list_title
+        }
+        val defaultListTitle = context.getString(titleRes).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
         binding.readingListTitleLayout.editText?.setText(defaultListTitle)
         validateTitleAndList()
         binding.recyclerView.adapter = ReadingListItemAdapter()
@@ -82,7 +92,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
         }
     }
 
-    private inner class ReadingListItemHolder constructor(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {
+    private inner class ReadingListItemHolder(val itemBinding: ItemReadingListPreviewSaveSelectItemBinding) : DefaultViewHolder<View>(itemBinding.root), OnClickListener {
         private lateinit var readingListPage: ReadingListPage
 
         fun bindItem(readingListPage: ReadingListPage) {
@@ -91,7 +101,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             itemBinding.articleName.text = StringUtil.fromHtml(readingListPage.displayTitle)
             itemBinding.articleDescription.isVisible = !readingListPage.description.isNullOrEmpty()
             itemBinding.articleDescription.text = StringUtil.fromHtml(readingListPage.description)
-            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl, roundedCorners = true)
+            ViewUtil.loadImage(itemBinding.articleThumbnail, readingListPage.thumbUrl)
             itemBinding.container.setOnClickListener(this)
             itemBinding.checkbox.setOnClickListener(this)
             updateState()

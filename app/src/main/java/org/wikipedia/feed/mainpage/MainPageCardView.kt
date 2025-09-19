@@ -4,13 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewStaticCardBinding
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
-import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
 
 class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(context) {
 
@@ -26,12 +26,12 @@ class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(con
         set(value) {
             field = value
             value?.let {
-                binding.cardHeader.setTitle(getStringForArticleLanguage(it.wikiSite().languageCode, R.string.view_main_page_card_title))
+                binding.cardHeader.setTitle(context.getString(it.wikiSite().languageCode, R.string.view_main_page_card_title))
                     .setLangCode(it.wikiSite().languageCode)
                     .setCard(it)
                     .setCallback(callback)
                 binding.cardFooter.callback = CardFooterView.Callback { goToMainPage() }
-                binding.cardFooter.setFooterActionText(getStringForArticleLanguage(it.wikiSite().languageCode,
+                binding.cardFooter.setFooterActionText(context.getString(it.wikiSite().languageCode,
                     R.string.view_main_page_card_action), it.wikiSite().languageCode)
             }
         }

@@ -61,6 +61,7 @@
         android:layout_marginVertical="12dp"
         android:layout_marginEnd="12dp"
         android:layout_gravity="center_vertical|end"
+        android:scaleType="centerCrop"
         android:contentDescription="@null" />
 
 </LinearLayout>

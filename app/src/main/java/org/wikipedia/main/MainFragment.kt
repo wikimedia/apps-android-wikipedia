@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.descendants
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -37,6 +38,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.activitytab.ActivityTabFragment
+import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -44,7 +48,9 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -52,7 +58,6 @@ import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
-import org.wikipedia.gallery.ImagePipelineBitmapGetter
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
@@ -85,11 +90,13 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
+import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
+import org.wikipedia.yearinreview.YearInReviewEntryDialog
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -119,6 +126,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            goToTab(NavTab.EDITS)
+        }
+    }
+
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -130,11 +143,16 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
+                            ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
                         is ImportReadingListsEvent -> {
                             maybeShowImportReadingListsNewInstallDialog()
+                        }
+                        is NewRecommendedReadingListEvent -> {
+                            binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
                         }
                     }
                 }
@@ -147,8 +165,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
             it.maxLines = 2
         }
-
+        val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            if (item.order == NavTab.EDITS.code()) {
+                if (ActivityTabABTest().isInTestGroup() && !Prefs.isActivityTabOnboardingShown) {
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    return@setOnItemSelectedListener false
+                }
+            }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
@@ -165,6 +190,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             requireActivity().invalidateOptionsMenu()
             true
         }
+
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, ActivityTabABTest().isInTestGroup() && !Prefs.activityTabRedDotShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
@@ -387,13 +414,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     override fun onFeedShareImage(card: FeaturedImageCard) {
         val thumbUrl = card.baseImage().thumbnailUrl
         val fullSizeUrl = card.baseImage().original.source
-        ImagePipelineBitmapGetter(requireContext(), thumbUrl) { bitmap ->
+        ImageService.loadImage(requireContext(), thumbUrl, onSuccess = { bitmap ->
             if (!isAdded) {
-                return@ImagePipelineBitmapGetter
+                return@loadImage
             }
             ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
                 ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
-        }
+        })
     }
 
     override fun onFeedDownloadImage(image: FeaturedImage) {
@@ -471,6 +498,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         (requireActivity() as? BaseActivity)?.launchDonateDialog(campaignId = campaignId)
     }
 
+    override fun yearInReviewClick() {
+        ExclusiveBottomSheetPresenter.show(childFragmentManager, YearInReviewEntryDialog.newInstance())
+    }
+
     fun setBottomNavVisible(visible: Boolean) {
         binding.mainNavTabBorder.isVisible = visible
         binding.mainNavTabLayout.isVisible = visible
@@ -525,7 +556,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     private fun goToTab(tab: NavTab) {
-        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu.getItem(tab.code()).itemId
+        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu[tab.code()].itemId
     }
 
     private fun refreshContents() {
@@ -599,9 +630,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         return getCallback(this, Callback::class.java)
     }
 
+    override fun onNavigateTo(navTab: NavTab) {
+        goToTab(navTab)
+    }
+
     companion object {
-        // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
-        private const val SHOW_EDITS_SNACKBAR_COUNT = 2
+        // Actually shows on the 4th time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
+        private const val SHOW_EDITS_SNACKBAR_COUNT = 3
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {

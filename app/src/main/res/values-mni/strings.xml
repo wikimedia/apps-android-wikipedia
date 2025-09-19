@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">ꯃꯅꯤꯡꯗ ꯠꯆꯂꯨ</string>
   <string name="error_back">ꯃꯅꯤꯡꯗ ꯠꯆꯂꯨ</string>
   <string name="error_next">ꯃꯊꯪ</string>
-  <string name="menu_clear_all_history">ꯄꯨꯋꯥꯔꯤ ꯃꯥꯡꯍꯟꯂꯨ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ꯄꯨꯋꯥꯔꯤ ꯃꯥꯡꯍꯟꯂꯨ</string>
   <string name="history_item_deleted">ꯄꯨꯋꯥꯔꯤꯗꯒꯤ %s ꯂꯧꯊꯣꯛ ꯎ(ꯃꯥꯡꯍꯟꯂꯨ)</string>
   <string name="history_items_deleted">ꯄꯨꯋꯥꯔꯤꯗꯒꯤ %d ꯂꯧꯊꯣꯛ ꯎ(ꯃꯥꯡꯍꯟꯂꯨ)</string>
   <string name="history_item_delete_undo">ꯇꯧꯗꯕ</string>
@@ -41,7 +41,7 @@
   <string name="wikimedia_commons">ꯋꯤꯀꯤꯃꯦꯗꯤꯌꯥ ꯀꯃꯣꯟꯁ</string>
   <string name="wikidata">ꯋꯤꯀꯤꯗꯥꯇꯥ</string>
   <string name="dialog_title_clear_history">ꯊꯤꯕꯒꯤ ꯄꯨꯋꯥꯔꯤ ꯃꯥꯡꯍꯟꯕ</string>
-  <string name="dialog_message_clear_history">ꯃꯁꯤꯅ ꯅꯍꯥꯛꯅ ꯊꯤꯔꯝ ꯌꯦꯡꯂꯝꯕ ꯀꯛꯊꯠꯈꯔꯅꯤ, ꯑꯃꯁꯨꯡ ꯍꯧꯖꯤꯛꯀꯤ ꯇꯦꯕꯁꯤ ꯈꯨꯝꯖꯤꯟꯂꯣ ꯫ ꯅꯍꯥꯛ ꯇꯁꯦꯡꯅ ꯆꯨꯝꯂꯕꯔꯥ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ꯃꯁꯤꯅ ꯅꯍꯥꯛꯅ ꯊꯤꯔꯝ ꯌꯦꯡꯂꯝꯕ ꯀꯛꯊꯠꯈꯔꯅꯤ, ꯑꯃꯁꯨꯡ ꯍꯧꯖꯤꯛꯀꯤ ꯇꯦꯕꯁꯤ ꯈꯨꯝꯖꯤꯟꯂꯣ ꯫ ꯅꯍꯥꯛ ꯇꯁꯦꯡꯅ ꯆꯨꯝꯂꯕꯔꯥ?</string>
   <string name="dialog_message_clear_history_yes">ꯍꯣꯏ</string>
   <string name="dialog_message_clear_history_no">ꯅꯠꯇꯦ</string>
   <string name="menu_page_other_languages">ꯂꯣꯟ ꯍꯣꯡꯗꯣꯛꯄ</string>
@@ -141,8 +141,8 @@
   <string name="privacy_policy_description">ꯑꯔꯣꯟꯕ ꯊꯧꯔꯥꯡ</string>
   <string name="terms_of_use_description">ꯁꯤꯖꯤꯟꯅꯕꯒꯤ ꯃꯇꯝ ꯑꯃꯗꯤ ꯃꯑꯣꯡ</string>
   <string name="about_wikipedia_url">https://mni.wikipedia.org/wiki/ꯋꯤꯀꯤꯄꯦꯗꯤꯌꯥ:ꯃꯔꯝꯗ</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#ꯅꯦꯠ ꯌꯥꯎꯗꯅ ꯄꯥꯕꯥ ꯑꯃꯁꯨꯡ ꯗꯥꯇꯥ</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ(ꯇꯣꯏꯅ ꯍꯪꯕ ꯋꯥꯍꯪ)</string>
+  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#ꯅꯦꯠ ꯌꯥꯎꯗꯅ ꯄꯥꯕꯥ ꯑꯃꯁꯨꯡ ꯗꯥꯇꯥ</string>
+  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ(ꯇꯣꯏꯅ ꯍꯪꯕ ꯋꯥꯍꯪ)</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:ꯑꯦꯀꯥꯎꯟ ꯑꯃꯥ ꯍꯥꯤꯖꯕ ꯄꯤꯕꯤꯅꯕ</string>
   <string name="about_contributors_heading">ꯁꯔꯨꯛꯌꯥꯔꯤꯕꯁꯤꯡ</string>
   <string name="about_translators_heading">ꯍꯟꯗꯣꯛꯂꯤꯕꯥꯁꯤꯡ</string>
@@ -267,7 +267,7 @@
   <string name="thank_dialog_title_text">ꯃꯤꯌꯥꯝ ꯈꯪꯅ \'ꯊꯥꯒꯠꯄꯥ ꯋꯥꯍꯩ\' ꯊꯥꯈꯣ</string>
   <string name="thank_dialog_negative_button_text">ꯇꯣꯛꯊꯣꯛꯎ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ꯃꯇꯝꯆꯨꯞꯞꯒꯤ ꯑꯣꯢꯅ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ꯊꯥ ꯶ ꯀꯤ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">ꯊꯥ ꯶ ꯀꯤ</string>
   <string name="watchlist_expiry_dialog_permanent">ꯃꯇꯝꯆꯨꯞꯄ</string>
   <string name="watchlist_expiry_dialog_one_week">ꯆꯩꯌꯣꯜ ꯱</string>
   <string name="watchlist_expiry_dialog_one_month">ꯊꯥ ꯱</string>

@@ -8,7 +8,6 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import org.wikipedia.Constants
@@ -33,7 +32,7 @@ import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 import java.util.Locale
 
-class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class FilePageView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
         fun onImageCaptionClick(summaryForEdit: PageSummaryForEdit)
@@ -131,7 +130,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     private fun loadImage(summaryForEdit: PageSummaryForEdit, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(binding.imageView)
         ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE),
-            roundedCorners = false,
             force = true,
             listener = null
         )
@@ -157,7 +155,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(context)
             view.binding.titleText.text = titleString
-            view.binding.contentText.text = StringUtil.fromHtml(detail).trim()
+            view.binding.contentText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(detail)).trim()
             if (!externalLink.isNullOrEmpty()) {
                 view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
                 view.binding.contentText.setTextIsSelectable(false)

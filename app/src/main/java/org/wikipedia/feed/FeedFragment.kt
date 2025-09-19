@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -32,6 +31,7 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
+import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -42,7 +42,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 
-class FeedFragment : Fragment(), BackPressedHandler {
+class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
 
@@ -134,6 +134,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onResume() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
+        OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
 
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
@@ -153,10 +154,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onDestroy() {
         super.onDestroy()
         coordinator.reset()
-    }
-
-    override fun onBackPressed(): Boolean {
-        return false
     }
 
     fun shouldElevateToolbar(): Boolean {

@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
@@ -14,12 +13,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemWatchlistBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
-class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+class WatchlistItemView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     val binding = ItemWatchlistBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
     private var item: MwQueryResult.WatchlistItem? = null
@@ -92,7 +91,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             binding.containerView.alpha = 1.0f
             binding.containerView.isClickable = true
         }
-        L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
+        setLayoutDirectionByLang(item.wiki!!.languageCode)
         StringUtil.setHighlightedAndBoldenedText(binding.titleText, item.title, currentQuery)
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.user, currentQuery)
         StringUtil.setHighlightedAndBoldenedText(binding.summaryText, summary, currentQuery)

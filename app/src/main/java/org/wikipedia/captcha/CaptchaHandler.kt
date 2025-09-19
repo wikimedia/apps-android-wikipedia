@@ -2,6 +2,7 @@ package org.wikipedia.captcha
 
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -19,7 +20,8 @@ import org.wikipedia.views.ViewUtil
 
 class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: WikiSite,
                      captchaView: View, private val primaryView: View,
-                     private val prevTitle: String, submitButtonText: String?) {
+                     private val prevTitle: String, submitButtonText: String?,
+                     private val isModal: Boolean = true) {
     private val binding = GroupCaptchaBinding.bind(captchaView)
     private var captchaResult: CaptchaResult? = null
     private var clientJob: Job? = null
@@ -28,12 +30,11 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
     val isActive get() = captchaResult != null
 
     init {
-        if (submitButtonText != null) {
-            binding.captchaSubmitButton.text = submitButtonText
-            binding.captchaSubmitButton.visibility = View.VISIBLE
-        }
+        binding.captchaSubmitButton.text = submitButtonText
+        binding.captchaSubmitButton.isVisible = !submitButtonText.isNullOrEmpty()
         binding.requestAccountText.text = StringUtil.fromHtml(activity.getString(R.string.edit_section_captcha_request_an_account_message))
         binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
+        binding.requestAccountText.isVisible = isModal
         binding.captchaImage.setOnClickListener { requestNewCaptcha() }
     }
 
@@ -74,16 +75,25 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         }
         DeviceUtil.hideSoftKeyboard(activity)
         if (!isReload) {
-            ViewAnimations.crossFade(primaryView, binding.root)
+            if (isModal) {
+                ViewAnimations.crossFade(primaryView, binding.root)
+            } else {
+                binding.root.isVisible = true
+            }
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")
-        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), roundedCorners = false, force = true, listener = null)
+        ViewUtil.loadImage(binding.captchaImage, captchaResult!!.getCaptchaUrl(wiki), force = true, listener = null)
     }
 
     fun hideCaptcha() {
-        activity.supportActionBar?.title = prevTitle
-        ViewAnimations.crossFade(binding.root, primaryView)
+        setErrorText()
+        if (isModal) {
+            activity.supportActionBar?.title = prevTitle
+            ViewAnimations.crossFade(binding.root, primaryView)
+        } else {
+            binding.root.isVisible = false
+        }
     }
 
     fun cancelCaptcha() {
@@ -93,5 +103,19 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         captchaResult = null
         binding.captchaText.editText?.setText("")
         hideCaptcha()
+    }
+
+    fun setErrorText(text: String? = null) {
+        if (text.isNullOrEmpty()) {
+            binding.captchaText.error = null
+            binding.captchaText.hint = activity.getString(R.string.edit_section_captcha_hint)
+        } else {
+            binding.captchaText.error = text
+            binding.captchaText.hint = null
+        }
+    }
+
+    fun setFocus() {
+        binding.captchaText.editText?.requestFocus()
     }
 }

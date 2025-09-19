@@ -1,9 +1,11 @@
 package org.wikipedia.dataclient
 
+import okhttp3.ResponseBody
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
@@ -16,6 +18,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
+import org.wikipedia.settings.RemoteConfig
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -32,6 +35,17 @@ interface RestService {
 
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
+    suspend fun getPageSummary(
+        @Path("title") title: String,
+        @Header("Referer") referrerUrl: String? = null,
+        @Header("Cache-Control") cacheControl: String? = null,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+    ): PageSummary
+
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
     suspend fun getSummaryResponse(
         @Path("title") title: String,
         @Header("Referer") referrerUrl: String? = null,
@@ -41,13 +55,6 @@ interface RestService {
         @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
     ): Response<PageSummary>
 
-    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/summary/{title}")
-    suspend fun getPageSummary(
-        @Header("Referer") referrerUrl: String?,
-        @Path("title") title: String
-    ): PageSummary
-
     @Headers("Accept: $ACCEPT_HEADER_DEFINITION")
     @GET("page/definition/{title}")
     suspend fun getDefinition(@Path("title") title: String): Map<String, List<RbDefinition.Usage>>
@@ -56,21 +63,20 @@ interface RestService {
     @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     suspend fun getRandomSummary(): PageSummary
 
+    @GET("page/media-list/{title}")
+    suspend fun getMediaList(
+        @Path("title") title: String,
+        @Header("Cache-Control") cacheControl: String? = null,
+        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String? = null,
+        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String? = null,
+        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String? = null
+    ): MediaList
+
     @GET("page/media-list/{title}/{revision}")
     suspend fun getMediaList(
         @Path("title") title: String,
         @Path("revision") revision: Long
     ): MediaList
-
-    @GET("page/media-list/{title}/{revision}")
-    suspend fun getMediaListResponse(
-        @Path("title") title: String?,
-        @Path("revision") revision: Long,
-        @Header("Cache-Control") cacheControl: String?,
-        @Header(OfflineCacheInterceptor.SAVE_HEADER) saveHeader: String?,
-        @Header(OfflineCacheInterceptor.LANG_HEADER) langHeader: String?,
-        @Header(OfflineCacheInterceptor.TITLE_HEADER) titleHeader: String?
-    ): Response<MediaList>
 
     @GET("feed/onthisday/events/{mm}/{dd}")
     suspend fun getOnThisDay(@Path("mm") month: Int,
@@ -86,7 +92,8 @@ interface RestService {
     suspend fun getFeedFeatured(
         @Path("year") year: String?,
         @Path("month") month: String?,
-        @Path("day") day: String?
+        @Path("day") day: String?,
+        @Query("lang") lang: String?
     ): AggregatedFeedContent
 
     @GET("feed/availability")
@@ -179,6 +186,15 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): Metrics
+
+    @POST("transform/wikitext/to/mobile-html/{title}")
+    suspend fun getHtmlPreviewFromWikitext(
+        @Path("title") title: String,
+        @Body body: PreviewRequest
+    ): ResponseBody
+
+    @GET("feed/configuration")
+    suspend fun getConfiguration(): RemoteConfig.RemoteConfigImpl
 
     companion object {
         const val REST_API_PREFIX = "/api/rest_v1"

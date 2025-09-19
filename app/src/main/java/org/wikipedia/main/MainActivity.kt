@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
@@ -21,6 +22,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -44,6 +46,16 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!DeviceUtil.assertAppContext(this)) {
+            return
+        }
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (fragment.onBackPressed()) {
+                return@addCallback
+            }
+            finish()
+        }
 
         setImageZoomHelper()
         if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null &&
@@ -123,13 +135,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onGoOnline() {
         fragment.onGoOnline()
-    }
-
-    override fun onBackPressed() {
-        if (fragment.onBackPressed()) {
-            return
-        }
-        super.onBackPressed()
     }
 
     private fun handleIntent(intent: Intent) {

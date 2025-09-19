@@ -28,7 +28,7 @@ class DailyStatsEvent(private val app_install_age_in_days: Long,
             return System.currentTimeMillis() - getInstallTime(context)
         }
 
-        private fun getInstallTime(context: Context): Long {
+        fun getInstallTime(context: Context): Long {
             return try {
                 context.packageManager.getPackageInfo(context.packageName, 0).firstInstallTime
             } catch (e: PackageManager.NameNotFoundException) {

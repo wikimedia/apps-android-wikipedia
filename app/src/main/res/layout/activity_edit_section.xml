@@ -69,12 +69,6 @@
         android:background="?attr/paper_color"
         android:elevation="12dp"/>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/edit_section_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="edit_section_scroll,edit_keyboard_overlay_headings,edit_keyboard_overlay_formatting,edit_keyboard_overlay"/>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/edit_section_preview_fragment"
         android:name="org.wikipedia.edit.preview.EditPreviewFragment"
@@ -105,6 +99,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
         android:background="?android:windowBackground"
         android:visibility="gone"
         tools:visibility="visible">

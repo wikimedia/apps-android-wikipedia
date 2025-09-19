@@ -1,7 +1,6 @@
 package org.wikipedia.feed.news
 
 import android.app.ActivityOptions
-import android.os.Build
 import android.os.Bundle
 import android.util.Pair
 import android.view.Gravity
@@ -19,6 +18,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNewsBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
@@ -29,7 +29,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GradientUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -59,7 +58,7 @@ class NewsFragment : Fragment() {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
 
-        L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wiki.languageCode)
+        binding.root.setLayoutDirectionByLang(viewModel.wiki.languageCode)
 
         binding.gradientView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(requireContext(), R.attr.overlay_color), Gravity.TOP)
         val imageUri = viewModel.item.thumb()
@@ -70,9 +69,7 @@ class NewsFragment : Fragment() {
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar, true)
         binding.appBarLayout.addOnOffsetChangedListener(offsetChangedListener)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
+        binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
 
         binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())

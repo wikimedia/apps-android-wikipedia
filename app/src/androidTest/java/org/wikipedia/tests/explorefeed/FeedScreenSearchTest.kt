@@ -27,6 +27,7 @@ class FeedScreenSearchTest : BaseTest<MainActivity>(
     fun startExploreFeedTest() {
         systemRobot
             .clickOnSystemDialogWithText("Allow")
+            .clickOnSystemDialogWithText("No thanks")
         homeScreenRobot
             .clickSearchContainer()
 

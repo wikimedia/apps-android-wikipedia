@@ -29,17 +29,6 @@ object CsrfTokenClient {
                 val service = svc ?: ServiceFactory.get(site)
                 var lastError: Throwable? = null
                 for (retry in 0 until MAX_RETRIES) {
-                    if (retry > 0 && AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount) {
-                        // Log in explicitly
-                        try {
-                            LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
-                        } catch (e: CancellationException) {
-                            throw e
-                        } catch (e: Throwable) {
-                            L.e(e)
-                            lastError = e
-                        }
-                    }
                     try {
                         val tokenResponse = service.getToken(type)
                         token = if (type == "rollback") {
@@ -47,8 +36,17 @@ object CsrfTokenClient {
                         } else {
                             tokenResponse.query?.csrfToken().orEmpty()
                         }
-                        if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
-                            throw RuntimeException("App believes we're logged in, but got anonymous token.")
+                        if (tokenRequiresLogin(token)) {
+                            L.d("App believes we're logged in, but got anonymous token. Logging in explicitly...")
+                            // Regardless of which WikiSite the token is being requested from, the login call
+                            // should be done on the primary WikiSite of the app itself.
+                            val loginResult = LoginClient().loginBlocking(WikipediaApp.instance.wikiSite, AccountUtil.userName, AccountUtil.password!!)
+                            // If the login sequence results in anything but PASS, then don't bother retrying.
+                            // Retrying is intended only for network errors, which would result in an exception, which is caught below.
+                            if (!loginResult.pass()) {
+                                bailWithLogout()
+                                break
+                            }
                         }
                     } catch (e: CancellationException) {
                         throw e
@@ -56,15 +54,12 @@ object CsrfTokenClient {
                         L.e(e)
                         lastError = e
                     }
-                    if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
+                    if (token.isEmpty() || tokenRequiresLogin(token)) {
                         continue
                     }
                     break
                 }
-                if (token.isEmpty() || (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)) {
-                    if (token == ANON_TOKEN) {
-                        bailWithLogout()
-                    }
+                if (token.isEmpty() || tokenRequiresLogin(token)) {
                     throw lastError ?: IOException("Invalid token, or login failure.")
                 }
             } finally {
@@ -74,9 +69,13 @@ object CsrfTokenClient {
         return token
     }
 
+    private fun tokenRequiresLogin(token: String): Boolean {
+        return (AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount && token == ANON_TOKEN)
+    }
+
     private fun bailWithLogout() {
         // Signal to the rest of the app that we're explicitly logging out in the background.
-        WikipediaApp.instance.logOut()
+        WikipediaApp.instance.resetAfterLogOut()
         Prefs.loggedOutInBackground = true
         FlowEventBus.post(LoggedOutInBackgroundEvent())
     }

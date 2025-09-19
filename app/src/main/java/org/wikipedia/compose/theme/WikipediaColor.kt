@@ -1,5 +1,6 @@
 package org.wikipedia.compose.theme
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -7,6 +8,7 @@ import org.wikipedia.compose.ComposeColors
 
 @Immutable
 data class WikipediaColor(
+    val isDarkTheme: Boolean = false,
     val primaryColor: Color,
     val paperColor: Color,
     val backgroundColor: Color,
@@ -63,6 +65,7 @@ val LightColors = WikipediaColor(
 )
 
 val DarkColors = WikipediaColor(
+    isDarkTheme = true,
     primaryColor = ComposeColors.Gray200,
     paperColor = ComposeColors.Gray700,
     backgroundColor = ComposeColors.Gray675,
@@ -81,6 +84,7 @@ val DarkColors = WikipediaColor(
 )
 
 val BlackColors = WikipediaColor(
+    isDarkTheme = true,
     primaryColor = ComposeColors.Gray200,
     paperColor = ComposeColors.Black,
     backgroundColor = ComposeColors.Gray700,
@@ -115,3 +119,20 @@ val SepiaColors = WikipediaColor(
     additionColor = ComposeColors.Blue300_15,
     overlayColor = ComposeColors.Black_30
 )
+
+@Composable
+fun WikipediaColor.shimmerColors(): List<Color> {
+    return if (isDarkTheme) {
+        listOf(
+            borderColor.copy(alpha = 0.3f),
+            inactiveColor.copy(alpha = 0.5f),
+            borderColor.copy(alpha = 0.3f)
+        )
+    } else {
+        listOf(
+            borderColor.copy(alpha = 0.6f),
+            backgroundColor.copy(alpha = 0.8f),
+            borderColor.copy(alpha = 0.6f)
+        )
+    }
+}

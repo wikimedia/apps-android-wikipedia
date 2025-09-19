@@ -9,6 +9,8 @@ import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.activitytab.ActivityTabABTest
+import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
@@ -16,6 +18,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 
@@ -28,6 +32,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun watchlistClick()
         fun contribsClick()
         fun donateClick(campaignId: String? = null)
+        fun yearInReviewClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -35,6 +40,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
+
+        binding.mainDrawerYearInReviewContainer.isVisible = Prefs.isYearInReviewEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -80,6 +87,18 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             callback()?.donateClick()
+            dismiss()
+        }
+
+        binding.mainDrawerYearInReviewContainer.setOnClickListener {
+            callback()?.yearInReviewClick()
+            dismiss()
+        }
+
+        binding.mainDrawerEditContainer.setOnClickListener {
+            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)
+            ActivityTabEvent.submit(activeInterface = "more_menu", action = "edit_click")
+            startActivity(SuggestedEditsTasksActivity.newIntent(requireContext()))
             dismiss()
         }
 
@@ -131,6 +150,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE
         }
+        binding.mainDrawerEditContainer.isVisible = ActivityTabABTest().isInTestGroup()
     }
 
     private fun callback(): Callback? {

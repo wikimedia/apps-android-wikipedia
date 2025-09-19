@@ -14,10 +14,11 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.concurrency.FlowEventBus
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent
 import org.wikipedia.events.ReadingListsEnabledStatusEvent
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
-import org.wikipedia.settings.DeveloperSettingsActivity.Companion.newIntent
+import org.wikipedia.settings.dev.DeveloperSettingsActivity.Companion.newIntent
 
 class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
     private lateinit var preferenceLoader: SettingsPreferenceLoader
@@ -27,7 +28,7 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
                         is ReadingListsEnabledStatusEvent -> {
@@ -55,13 +56,11 @@ class SettingsFragment : PreferenceLoaderFragment(), MenuProvider {
 
     override fun onResume() {
         super.onResume()
-        requireActivity().window.decorView.post {
-            if (!isAdded) {
-                return@post
-            }
-            preferenceLoader.updateSyncReadingListsPrefSummary()
-            preferenceLoader.updateLanguagePrefSummary()
-        }
+        preferenceLoader.updateSyncReadingListsPrefSummary()
+        preferenceLoader.updateLanguagePrefSummary()
+        preferenceLoader.updateRecommendedReadingListSummary()
+        preferenceLoader.updateDonationRemindersDescription()
+        DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
         requireActivity().invalidateOptionsMenu()
     }
 

@@ -3,18 +3,20 @@ package org.wikipedia.gallery
 import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -101,6 +103,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         }
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // ViewPager2 bug, will likely be fixed in the future
+        // https://issuetracker.google.com/issues/175796502
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val currentPosition = binding.pager.currentItem
+            val previousPosition = maxOf(currentPosition - 1, 0)
+            // Move to previous position without smoothScroll
+            binding.pager.setCurrentItem(previousPosition, false)
+            // move back to the original position without smoothScroll
+            binding.pager.setCurrentItem(currentPosition, false)
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGalleryBinding.inflate(layoutInflater)
@@ -109,13 +125,22 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
         setNavigationBarColor(Color.BLACK)
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (TRANSITION_INFO != null) {
+                showTransitionReceiver()
+            }
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.toolbarGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.TOP)
         binding.infoGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
         binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
-        binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.errorView.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             viewModel.fetchGalleryItems()
@@ -316,10 +341,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun onLicenseLongClick(): Boolean {
-        val licenseUrl = binding.licenseIcon.tag as String
-        if (licenseUrl.isNotEmpty()) {
+        val licenseUrl = binding.licenseIcon.tag as? String
+        if (!licenseUrl.isNullOrEmpty()) {
             UriUtil.handleExternalLink(this@GalleryActivity,
-                Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
+                UriUtil.resolveProtocolRelativeUrl(licenseUrl).toUri())
         }
         return true
     }
@@ -345,13 +370,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         outState.putInt(KEY_PAGER_INDEX, binding.pager.currentItem)
     }
 
-    override fun onBackPressed() {
-        if (TRANSITION_INFO != null) {
-            showTransitionReceiver()
-        }
-        super.onBackPressed()
-    }
-
     fun onMediaLoaded() {
         hideTransitionReceiver(true)
     }
@@ -361,7 +379,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     }
 
     private fun hideTransitionReceiver(delay: Boolean) {
-        if (binding.transitionReceiver.visibility == View.GONE) {
+        if (binding.transitionReceiver.isGone) {
             return
         }
         if (delay) {
@@ -405,7 +423,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             val title = PageTitle.titleForInternalLink(url, WikipediaApp.instance.wikiSite)
             showLinkPreview(title)
         } else {
-            val uri = Uri.parse(url)
+            val uri = url.toUri()
             val authority = uri.authority
             if (authority != null && WikiSite.supportedAuthority(authority) && uri.path?.startsWith("/wiki/") == true) {
                 val title = PageTitle.titleForUri(uri, WikiSite(uri))
@@ -416,7 +434,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
                     url = String.format("%1\$s://%2\$s", WikipediaApp.instance.wikiSite.scheme(),
                         WikipediaApp.instance.wikiSite.authority()) + url
                 }
-                UriUtil.handleExternalLink(this@GalleryActivity, Uri.parse(url))
+                UriUtil.handleExternalLink(this@GalleryActivity, url.toUri())
             }
         }
     }
@@ -598,10 +616,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     override fun onProvideAssistContent(outContent: AssistContent) {
         super.onProvideAssistContent(outContent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            currentItem?.mediaInfo?.commonsUrl?.let {
-                outContent.setWebUri(Uri.parse(it))
-            }
+        currentItem?.mediaInfo?.commonsUrl?.let {
+            outContent.webUri = it.toUri()
         }
     }
 
@@ -638,7 +654,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         const val EXTRA_FILENAME = "filename"
         const val EXTRA_REVISION = "revision"
 
-        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long? = null): Intent {
             return Intent(context, GalleryActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wiki)
                 .putExtra(Constants.ARG_TITLE, pageTitle)

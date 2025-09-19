@@ -29,11 +29,8 @@
     <integer name="maxTextSizeMultiplier">8</integer>
     <item type="dimen" format="float" name="textSizeMultiplierFactor">0.1</item>
 
-    <!-- Default height of list items -->
-    <dimen name="defaultListItemSize">56dp</dimen>
+    <dimen name="defaultThumbnailSize">56dp</dimen>
 
-    <!-- Default height of reading list items -->
-    <dimen name="readingListItemSize">56dp</dimen>
     <dimen name="readingListLeadHeight">240dp</dimen>
 
     <!-- Default width of the lead image to be downloaded -->
@@ -51,9 +48,6 @@
     <item type="dimen" format="float" name="linkPreviewThumbPressScale">1.03</item>
     <item type="dimen" format="float" name="linkPreviewThumbPressOverScale">1.05</item>
 
-    <!-- Crash report -->
-    <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
-
     <!-- The Feed -->
     <dimen name="view_feed_padding_top">-12dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
@@ -62,11 +56,11 @@
     <dimen name="view_list_card_margin_vertical">12dp</dimen>
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
-    <dimen name="view_list_card_item_image">40dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
 
     <!-- Description editing -->
     <integer name="description_max_chars">250</integer>
+    <integer name="description_max_chars_en">90</integer>
     <integer name="description_max_anon_edits">5</integer>
 
     <!-- Notifications -->

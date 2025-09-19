@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -29,6 +30,7 @@ import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -43,7 +45,6 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -113,6 +114,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
@@ -207,7 +210,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
 
-        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, showUserMention = true, isFromDiff = viewModel.isFromDiff)
 
@@ -233,7 +236,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun onInitialLoad() {
         binding.footerContainer.tempAccountInfoContainer.isVisible = false
-        L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
+        binding.talkScrollContainer.setLayoutDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
         binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
@@ -559,31 +562,33 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         requestLogin.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT, createAccountFirst))
     }
 
-    override fun onBackPressed() {
-        setResult(RESULT_BACK_FROM_TOPIC)
-        sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-        if (messagePreviewFragment.isActive) {
-            showProgressBar(false)
-            binding.talkScrollContainer.isVisible = true
-            messagePreviewFragment.hide()
-            setSaveButtonEnabled(true)
-            binding.replyNextButton.text = getString(R.string.edit_next)
-            setToolbarTitle(viewModel.pageTitle)
-        } else if (subjectOrBodyModified) {
-            MaterialAlertDialogBuilder(this)
-                .setCancelable(false)
-                .setTitle(R.string.talk_new_topic_exit_dialog_title)
-                .setMessage(R.string.talk_new_topic_exit_dialog_message)
-                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
-                    sendPatrollerExperienceEvent("publish_exit", "pt_warning_messages")
-                    super.onBackPressed()
-                }
-                .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
-                    sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
-                }
-                .show()
-        } else {
-            super.onBackPressed()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            setResult(RESULT_BACK_FROM_TOPIC)
+            sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
+            if (messagePreviewFragment.isActive) {
+                showProgressBar(false)
+                binding.talkScrollContainer.isVisible = true
+                messagePreviewFragment.hide()
+                setSaveButtonEnabled(true)
+                binding.replyNextButton.text = getString(R.string.edit_next)
+                setToolbarTitle(viewModel.pageTitle)
+            } else if (subjectOrBodyModified) {
+                MaterialAlertDialogBuilder(this@TalkReplyActivity)
+                    .setCancelable(false)
+                    .setTitle(R.string.talk_new_topic_exit_dialog_title)
+                    .setMessage(R.string.talk_new_topic_exit_dialog_message)
+                    .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
+                        sendPatrollerExperienceEvent("publish_exit", "pt_warning_messages")
+                        finish()
+                    }
+                    .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
+                        sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
+                    }
+                    .show()
+            } else {
+                finish()
+            }
         }
     }
 

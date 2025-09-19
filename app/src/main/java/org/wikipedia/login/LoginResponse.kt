@@ -30,9 +30,13 @@ class LoginResponse : MwResponse() {
                 if (requests != null) {
                     for (req in requests) {
                         if (req.id.orEmpty().endsWith("TOTPAuthenticationRequest")) {
-                            return LoginOAuthResult(site, status, userName, password, message)
+                            return LoginOATHResult(site, status, userName, password, message)
+                        } else if (req.id.orEmpty().endsWith("EmailAuthAuthenticationRequest")) {
+                            return LoginEmailAuthResult(site, status, userName, password, message)
                         } else if (req.id.orEmpty().endsWith("PasswordAuthenticationRequest")) {
                             return LoginResetPasswordResult(site, status, userName, password, message)
+                        } else if (req.id.orEmpty().endsWith("TwoFactorModuleSelectAuthenticationRequest")) {
+                            return LoginModuleSelectResult(site, status, userName, password, message)
                         }
                     }
                 }

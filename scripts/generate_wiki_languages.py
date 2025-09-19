@@ -6,7 +6,7 @@ import lxml
 import lxml.builder as lb
 import json
 import requests
-
+from constants import HEADERS as headers
 
 QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
     '&format=json&formatversion=2&smtype=language&smstate=all'
@@ -44,10 +44,10 @@ def add_variant(lang_code_variants):
     lang_variants.append(lang_code_variants)
 
 
-data = json.loads(requests.get(QUERY_SITEMATRIX).text)
+data = json.loads(requests.get(QUERY_SITEMATRIX, headers=headers).text)
 
-lang_list_response = json.loads(requests.get(QUERY_LANGLIST).text)
-lang_list_en_response = json.loads(requests.get(QUERY_LANGLIST + "en").text)
+lang_list_response = json.loads(requests.get(QUERY_LANGLIST, headers=headers).text)
+lang_list_en_response = json.loads(requests.get(QUERY_LANGLIST + "en", headers=headers).text)
 
 for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
@@ -76,7 +76,7 @@ for key, value in data[u"sitematrix"].items():
     date = datetime.today() - timedelta(days=31)
     unique_device_response = json.loads(requests.get('https://wikimedia.org/api/rest_v1/metrics/unique-devices/' +
                                                      wikipedia_url.replace('https://', '') + '/all-sites/monthly/' +
-                                                     date.strftime('%Y%m01') + '/' + date.strftime('%Y%m01')).text)
+                                                     date.strftime('%Y%m01') + '/' + date.strftime('%Y%m01'), headers=headers).text)
     rank = 0
     if u"items" in unique_device_response:
         if len(unique_device_response[u"items"]) > 0:
@@ -87,18 +87,31 @@ for key, value in data[u"sitematrix"].items():
         language_code = 'nb'
 
     lang_name = value[u"name"]
+    english_name = value[u"localname"]
     lang_bcp47 = language_code
     for name in lang_list_response[u"query"][u"languages"]:
         if name[u"code"] == language_code:
             lang_name = name[u"name"]
             lang_bcp47 = name[u"bcp47"]
             break
+    for name in lang_list_en_response[u"query"][u"languages"]:
+        if name[u"code"] == language_code:
+            english_name = name[u"name"]
+            break
 
     # add language variants into the list
     if language_code in lang_list_response[u"query"][u"languagevariants"]:
         print ("Language code: " + language_code + " has variants")
         language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code)
-        language_code_variants = language_code
+
+        # Count actual variants (excluding the main language code)
+        variant_count = sum(1 for variant in language_variants.keys() if variant != language_code)
+
+        if variant_count < 2:
+            language_code_variants = language_code + "|" + language_code
+        else:
+            language_code_variants = language_code + "|"
+
         for variant, fallbacks in language_variants.items():
 
             if variant == language_code:
@@ -119,7 +132,7 @@ for key, value in data[u"sitematrix"].items():
                     en_lang_name = name[u"name"]
                     break
 
-            language_code_variants = language_code_variants + "," + variant
+            language_code_variants = language_code_variants + variant if language_code_variants.endswith("|") else language_code_variants + "," + variant
 
             add_lang(variant, variant_bcp47, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
 
@@ -129,10 +142,11 @@ for key, value in data[u"sitematrix"].items():
     if language_code == 'zh':
         continue
 
-    add_lang(language_code, lang_bcp47, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
+    add_lang(language_code, lang_bcp47, lang_name.replace("'", "\\'"), english_name.replace("'", "\\'"), rank)
 
 
 add_lang(key='test', bcp47key='test', local_name='Test', eng_name='Test', rank=0)
+add_lang(key='test2', bcp47key='test2', local_name='Test2', eng_name='Test2', rank=0)
 
 # Generate the XML, for Android
 NAMESPACE = 'http://schemas.android.com/tools'

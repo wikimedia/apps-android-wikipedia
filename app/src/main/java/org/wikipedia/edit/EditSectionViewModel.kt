@@ -135,8 +135,8 @@ class EditSectionViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             while (revision < newRevision && retry < 10) {
                 delay(2000)
                 val pageSummaryResponse = ServiceFactory.getRest(pageTitle.wikiSite)
-                    .getSummaryResponse(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
-                revision = pageSummaryResponse.body()?.revision ?: -1L
+                    .getPageSummary(pageTitle.prefixedText, cacheControl = OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK.toString())
+                revision = pageSummaryResponse.revision
                 retry++
             }
             _waitForRevisionState.value = Resource.Success(revision)

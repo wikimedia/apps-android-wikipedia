@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="error_back">Atpakaļ</string>
   <string name="error_next">Tālāk</string>
-  <string name="menu_clear_all_history">Notīrīt vēsturi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
   <string name="notification_archive_undo">Atsaukt</string>
   <string name="app_settings">Lietotnes iestatījumi</string>
@@ -87,7 +87,7 @@
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
   <string name="account_creation_password_hint">Parole</string>
-  <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
+  <string name="login_2fa_hint" fuzzy="true">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast" fuzzy="true">Pieslēgšanās veiksmīga!</string>
   <string name="reset_password_hint">Jaunā parole</string>

@@ -3,7 +3,6 @@ package org.wikipedia.edit
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
@@ -15,9 +14,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -51,6 +52,7 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.setTextDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -65,7 +67,6 @@ import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -144,7 +145,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     private val movementMethod = LinkMovementMethodExt { urlStr ->
-        UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(viewModel.pageTitle.wikiSite, urlStr)))
+        UriUtil.visitInExternalBrowser(this, UriUtil.resolveProtocolRelativeUrl(viewModel.pageTitle.wikiSite, urlStr).toUri())
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -155,6 +156,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
@@ -175,7 +178,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             viewModel.editingAllowed = savedInstanceState.getBoolean(EXTRA_KEY_EDITING_ALLOWED, false)
             sectionTextModified = savedInstanceState.getBoolean(EXTRA_KEY_SECTION_TEXT_MODIFIED, false)
         }
-        L10nUtil.setConditionalTextDirection(binding.editSectionText, viewModel.pageTitle.wikiSite.languageCode)
+        binding.editSectionText.setTextDirectionByLang(viewModel.pageTitle.wikiSite.languageCode)
 
         fetchSectionText()
 
@@ -185,7 +188,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             fetchSectionText()
         }
         binding.viewEditSectionError.backClickListener = View.OnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
         textWatcher = binding.editSectionText.doAfterTextChanged {
@@ -200,7 +203,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             }
         }
 
-        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.editSectionText,
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.editSectionText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
 
@@ -478,7 +481,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
             else -> {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
-                binding.editSectionContainer.isVisible = false
+                binding.editSectionScroll.isVisible = false
                 editPreviewFragment.showPreview(viewModel.pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
                 supportActionBar?.title = getString(R.string.edit_preview)
@@ -626,7 +629,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
+            binding.editSectionScroll.isVisible = true
         }
     }
 
@@ -676,9 +679,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     private fun displaySectionText() {
         showProgressBar(false)
         binding.editSectionText.setText(viewModel.sectionWikitext)
-        binding.editSectionContainer.isVisible = true
+        binding.editSectionScroll.isVisible = true
         binding.editSectionText.isEnabled = viewModel.editingAllowed
-        binding.editKeyboardOverlay.isVisible = viewModel.editingAllowed
         scrollToHighlight(viewModel.textToHighlight)
     }
 
@@ -702,56 +704,58 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         return false
     }
 
-    override fun onBackPressed() {
-        val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
-        val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
-        val addImageSourceProjects = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS)
-        if (binding.viewProgressBar.isVisible) {
-            // If it is visible, it means we should wait until all the requests are done.
-            return
-        }
-        showProgressBar(false)
-        if (captchaHandler.isActive) {
-            captchaHandler.cancelCaptcha()
-            binding.editSectionCaptchaContainer.visibility = View.GONE
-        }
-        binding.viewEditSectionError.isVisible = false
-        if (editSummaryFragment.handleBackPressed()) {
-            ImageRecommendationsEvent.logAction("back", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
-                filename = addImageTitle?.prefixedText.orEmpty(), recommendationSource = addImageSource.orEmpty(), recommendationSourceProjects = addImageSourceProjects.orEmpty(), acceptanceState = "accepted",
-                captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
-                altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
-            supportActionBar?.title = getString(R.string.edit_preview)
-            return
-        }
-        if (editPreviewFragment.isActive) {
-            ImageRecommendationsEvent.logAction("back", "caption_preview", ImageRecommendationsEvent.getActionDataString(
-                filename = addImageTitle?.prefixedText.orEmpty(), recommendationSource = addImageSource.orEmpty(),
-                recommendationSourceProjects = addImageSourceProjects.orEmpty(), acceptanceState = "accepted",
-                captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
-                altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
-            editPreviewFragment.hide()
-            binding.editSectionContainer.isVisible = true
-            supportActionBar?.title = null
-
-            // If we came from the Image Recommendations workflow, bring back the Add Image activity.
-            if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-                // ...and reset the wikitext to the original, since the Add Image flow will re-
-                // modify it when the user returns to it.
-                viewModel.sectionWikitext = viewModel.sectionWikitextOriginal
-                binding.editSectionText.setText(viewModel.sectionWikitext)
-
-                startInsertImageFlow()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+            val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
+            val addImageSourceProjects = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS)
+            if (binding.viewProgressBar.isVisible) {
+                // If it is visible, it means we should wait until all the requests are done.
+                return
             }
-            return
+            showProgressBar(false)
+            if (captchaHandler.isActive) {
+                captchaHandler.cancelCaptcha()
+                binding.editSectionCaptchaContainer.visibility = View.GONE
+            }
+            binding.viewEditSectionError.isVisible = false
+            if (editSummaryFragment.handleBackPressed()) {
+                ImageRecommendationsEvent.logAction("back", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
+                    filename = addImageTitle?.prefixedText.orEmpty(), recommendationSource = addImageSource.orEmpty(), recommendationSourceProjects = addImageSourceProjects.orEmpty(), acceptanceState = "accepted",
+                    captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
+                    altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
+                supportActionBar?.title = getString(R.string.edit_preview)
+                return
+            }
+            if (editPreviewFragment.isActive) {
+                ImageRecommendationsEvent.logAction("back", "caption_preview", ImageRecommendationsEvent.getActionDataString(
+                    filename = addImageTitle?.prefixedText.orEmpty(), recommendationSource = addImageSource.orEmpty(),
+                    recommendationSourceProjects = addImageSourceProjects.orEmpty(), acceptanceState = "accepted",
+                    captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
+                    altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), viewModel.pageTitle.wikiSite.languageCode)
+                editPreviewFragment.hide()
+                binding.editSectionScroll.isVisible = true
+                supportActionBar?.title = null
+
+                // If we came from the Image Recommendations workflow, bring back the Add Image activity.
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                    // ...and reset the wikitext to the original, since the Add Image flow will re-
+                    // modify it when the user returns to it.
+                    viewModel.sectionWikitext = viewModel.sectionWikitextOriginal
+                    binding.editSectionText.setText(viewModel.sectionWikitext)
+
+                    startInsertImageFlow()
+                }
+                return
+            }
+            setNavigationBarColor(ResourceUtil.getThemedColor(this@EditSectionActivity, android.R.attr.colorBackground))
+            DeviceUtil.hideSoftKeyboard(this@EditSectionActivity)
+            if (sectionTextModified) {
+                doExitActionWithConfirmationDialog { finish() }
+                return
+            }
+            finish()
         }
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
-        DeviceUtil.hideSoftKeyboard(this)
-        if (sectionTextModified) {
-            doExitActionWithConfirmationDialog { finish() }
-            return
-        }
-        super.onBackPressed()
     }
 
     private fun doExitActionWithConfirmationDialog(action: () -> Unit) {
@@ -794,7 +798,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
                     if (link.contains("#login") || link.contains("#createaccount")) {
                         launchLogin(link.contains("#createaccount"))
                     } else {
-                        UriUtil.handleExternalLink(this, Uri.parse(link))
+                        UriUtil.handleExternalLink(this, link.toUri())
                     }
                     dialog.dismiss()
                 }

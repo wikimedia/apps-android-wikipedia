@@ -1,11 +1,14 @@
 package org.wikipedia.dataclient.growthtasks
 
+import android.text.format.DateUtils
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
+import java.time.LocalDate
 
 @Suppress("unused")
 @Serializable
@@ -14,6 +17,7 @@ class GrowthUserImpact(
     val userId: Int = 0,
     val userName: String = "",
     val receivedThanksCount: Int = 0,
+    val givenThanksCount: Int = 0,
     @SerialName("editCountByNamespace") private val mEditCountByNamespace: JsonElement? = null,
     @SerialName("editCountByDay") private val mEditCountByDay: JsonElement? = null,
     @SerialName("editCountByTaskType") private val mEditCountByTaskType: JsonElement? = null,
@@ -22,6 +26,7 @@ class GrowthUserImpact(
     val newcomerTaskEditCount: Int = 0,
     val revertedEditCount: Int = 0,
     val lastEditTimestamp: Long = 0,
+    val totalArticlesCreatedCount: Int = 0,
     @SerialName("longestEditingStreak") private val mLongestEditingStreak: JsonElement? = null,
     @SerialName("dailyTotalViews") private val mDailyTotalViews: JsonElement? = null,
     val totalPageviewsCount: Long = 0,
@@ -37,6 +42,34 @@ class GrowthUserImpact(
     val dailyTotalViews: Map<String, Int> by lazy { if (mDailyTotalViews is JsonObject) { JsonUtil.json.decodeFromJsonElement(mDailyTotalViews) } else { emptyMap() } }
     val topViewedArticles: Map<String, ArticleViews> by lazy { if (mTopViewedArticles is JsonObject) { JsonUtil.json.decodeFromJsonElement(mTopViewedArticles) } else { emptyMap() } }
     val longestEditingStreak: EditStreak? by lazy { if (mLongestEditingStreak is JsonObject) { JsonUtil.json.decodeFromJsonElement(mLongestEditingStreak) } else { null } }
+
+    val groupEditsByMonth: Map<String, Int> by lazy {
+        editCountByDay.entries.groupBy { it.key.substring(0, 7) }
+            .mapValues { it.value.sumOf { entry -> entry.value } }
+    }
+
+    var topViewedArticlesWithPageTitle: Map<PageTitle, ArticleViews> = emptyMap()
+
+    val editsThisMonth by lazy { groupEditsByMonth[LocalDate.now().toString().substring(0, 7)] ?: 0 }
+    val editsLastMonth by lazy { groupEditsByMonth[LocalDate.now().minusMonths(1).toString().substring(0, 7)] ?: 0 }
+
+    val lastThirtyDaysEdits by lazy {
+        val thirtyDaysAgo = LocalDate.now().minusDays(30)
+        // Some days do not have a key, fill them with 0
+        val filledEditCountByDay = (0..30).associate {
+            val date = thirtyDaysAgo.plusDays(it.toLong()).toString()
+            date to (editCountByDay[date] ?: 0)
+        }
+        filledEditCountByDay
+    }
+
+    val lastEditRelativeTime by lazy {
+        DateUtils.getRelativeTimeSpanString(
+            lastEditTimestamp * 1000,
+            System.currentTimeMillis(),
+            0L
+        ).toString()
+    }
 
     @Serializable
     class ArticleViews(
