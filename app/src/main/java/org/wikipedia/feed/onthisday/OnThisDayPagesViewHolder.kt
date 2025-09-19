@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -13,6 +14,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -20,7 +22,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.FaceAndColorDetectImageView
 
@@ -92,7 +93,7 @@ class OnThisDayPagesViewHolder(
                 }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    TabUtil.openInNewBackgroundTab(entry)
+                    TabHelper.openInNewBackgroundTab(activity.lifecycleScope, entry)
                     FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
                 }
 

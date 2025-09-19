@@ -20,6 +20,10 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.page.tabs.PageBackStackItem
+import org.wikipedia.page.tabs.PageBackStackItemDao
+import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tabs.TabDao
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
@@ -30,6 +34,7 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.readinglist.db.RecommendedPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
@@ -38,7 +43,7 @@ import org.wikipedia.talk.db.TalkTemplateDao
 import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 31
+const val DATABASE_VERSION = 32
 
 @Database(
     entities = [
@@ -54,7 +59,9 @@ const val DATABASE_VERSION = 31
         TalkTemplate::class,
         Category::class,
         DailyGameHistory::class,
-        RecommendedPage::class
+        RecommendedPage::class,
+        Tab::class,
+        PageBackStackItem::class
     ],
     version = DATABASE_VERSION
 )
@@ -80,6 +87,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
     abstract fun recommendedPageDao(): RecommendedPageDao
+    abstract fun tabDao(): TabDao
+    abstract fun pageBackStackItemDao(): PageBackStackItemDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -347,13 +356,65 @@ abstract class AppDatabase : RoomDatabase() {
                 db.execSQL("ALTER TABLE Category_temp RENAME TO Category")
             }
         }
+        val MIGRATION_31_32 = object : Migration(31, 32) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `Tab` (" +
+                        "  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "  `order` INTEGER NOT NULL," +
+                        "  `backStackIds` TEXT NOT NULL," +
+                        "  `backStackPosition` INTEGER NOT NULL" +
+                        ")")
+                db.execSQL("CREATE TABLE IF NOT EXISTS `PageBackStackItem` (" +
+                        "  `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "  `apiTitle` TEXT NOT NULL," +
+                        "  `displayTitle` TEXT NOT NULL," +
+                        "  `langCode` TEXT NOT NULL," +
+                        "  `namespace` TEXT NOT NULL," +
+                        "  `timestamp` INTEGER NOT NULL," +
+                        "  `scrollY` INTEGER NOT NULL," +
+                        "  `source` INTEGER NOT NULL," +
+                        "  `thumbUrl` TEXT," +
+                        "  `description` TEXT," +
+                        "  `extract` TEXT" +
+                        ")")
+
+                // Migrating from Pres.tabs to database
+                var pageBackStackItemIndex = 1
+                Prefs.tabs.forEachIndexed { index, tab ->
+                    // Insert back stack items to PageBackStackItem and get the IDs
+                    var backStackIds = mutableListOf<Int>()
+                    // TODO: make sure the order is correct
+                    tab.backStack.forEach { backStackItem ->
+                        db.execSQL("INSERT INTO PageBackStackItem " +
+                                "(apiTitle, displayTitle, langCode, namespace, timestamp, scrollY, source, thumbUrl, description, extract) " +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                            arrayOf<Any?>(
+                                backStackItem.apiTitle,
+                                backStackItem.displayTitle,
+                                backStackItem.langCode,
+                                backStackItem.namespace,
+                                backStackItem.timestamp,
+                                backStackItem.scrollY,
+                                backStackItem.source,
+                                backStackItem.thumbUrl,
+                                backStackItem.description,
+                                backStackItem.extract
+                            ))
+                        backStackIds.add(pageBackStackItemIndex++)
+                    }
+                    // Insert the tab into the Tab table
+                    db.execSQL("INSERT INTO Tab (`order`, backStackIds, backStackPosition) VALUES (?, ?, ?)",
+                        arrayOf<Any?>(index, backStackIds.joinToString(","), tab.backStackPosition))
+                }
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
                     MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
-                    MIGRATION_30_31)
+                    MIGRATION_30_31, MIGRATION_31_32)
                 .fallbackToDestructiveMigration(false)
                 .build()
         }
