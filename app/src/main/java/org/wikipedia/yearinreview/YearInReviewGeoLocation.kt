@@ -51,7 +51,6 @@ fun YearInReviewGeoLocation(
             bearing = 0.0,
             tilt = 0.0
         )
-
     }
 
     LaunchedEffect(shouldFindCluster) {
@@ -63,7 +62,8 @@ fun YearInReviewGeoLocation(
         }
     }
 
-    val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
+    val assetForTheme =
+        if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
 
     MaplibreMap(
         modifier = modifier,
@@ -87,12 +87,11 @@ fun YearInReviewGeoLocation(
             id = "clustered-points",
             source = testDataSource,
             filter = feature.has("point_count"),
-            color = const(Color.Red),        // All clusters = bright red
-            radius = const(30.dp),           // All clusters = big size
+            color = const(Color.Red),
+            radius = const(30.dp),
             strokeWidth = const(3.dp),
             strokeColor = const(Color.White)
         )
-
 
         SymbolLayer(
             id = "clustered-text",
@@ -114,7 +113,6 @@ fun YearInReviewGeoLocation(
         )
     }
 }
-
 
 // Simple test data structure
 data class TestLocation(
@@ -184,18 +182,18 @@ private suspend fun findLargestVisibleCluster(cameraState: CameraState) {
             if (geometry is Point) {
                 val position = geometry.coordinates
                 println("orange Largest cluster position: lat=${position.latitude}, lng=${position.longitude}")
-                cameraState.animateTo(CameraPosition(
-                    target = position,
-                    zoom = 3.0,
-                    bearing = 0.0,
-                    tilt = 0.0
-                ))
+                cameraState.animateTo(
+                    CameraPosition(
+                        target = position,
+                        zoom = 3.0,
+                        bearing = 0.0,
+                        tilt = 0.0
+                    )
+                )
                 delay(2000)
             }
         }
-
-    }
-    catch (e: Exception) {
+    } catch (e: Exception) {
         println("orange Error finding largest cluster: ${e.message}")
         e.printStackTrace()
     }
