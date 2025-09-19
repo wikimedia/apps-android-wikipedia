@@ -32,11 +32,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.isToday
 import org.wikipedia.extensions.isYesterday
 import org.wikipedia.theme.Theme
@@ -259,7 +261,8 @@ private fun TimelineItemPreview() {
                 thumbnailUrl = "",
                 timestamp = Date(),
                 source = 1,
-                activitySource = ActivitySource.EDIT
+                activitySource = ActivitySource.EDIT,
+                wiki = WikiSite("en.wikipedia.org".toUri(), "en")
             ),
             onItemClick = {}
         )
