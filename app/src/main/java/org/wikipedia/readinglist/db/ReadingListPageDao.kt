@@ -98,6 +98,12 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesByLocalySavedTime(limit: Int, offset: Int): List<ReadingListPage>
 
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT apiTitle, displayTitle FROM ReadingListPage WHERE atime BETWEEN :startDate AND :endDate)")
+    suspend fun getDistinctEntriesCountBetween(startDate: Long?, endDate: Long?): Int
+
+    @Query("SELECT DISTINCT displayTitle FROM ReadingListPage ORDER BY atime DESC LIMIT :limit")
+    suspend fun getLastestArticleTitles(limit: Int): List<String>
+
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
     suspend fun getAllPagesToBeForcedSave() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
