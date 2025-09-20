@@ -4,3 +4,25 @@
 # For more information: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
 
 *           @cooltey @dbrant @Williamrai
+To get started with GitHub Copilot, you can follow these steps:
+
+1. **Sign Up for Copilot**:
+   - You can begin with [Copilot Free](https://github.com/copilot?ref_cta=Copilot+free) to explore limited features without subscribing to a plan.
+   - Alternatively, upgrade to Copilot Pro or Copilot Pro+ for access to advanced features, models, and higher usage limits. For more details, check out [plans for GitHub Copilot](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+
+2. **Install and Enable Copilot in Your IDE**:
+   - To use Copilot, ensure you have it installed in your development environment, such as Visual Studio Code, JetBrains IDEs, or others. See the [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart) for setup instructions.
+
+3. **Start Using Copilot**:
+   - Once installed, you can begin using Copilot in your code editor. It will provide real-time coding suggestions as you type.
+   - You can also ask Copilot questions about your code, request explanations, or get assistance with debugging.
+
+4. **Set Up Copilot for Learning (Optional)**:
+   - If you're learning to code, you can configure Copilot to act as a tutor. Disable code completion temporarily and use it to ask conceptual questions. Learn more in [Setting up Copilot for learning to code](https://docs.github.com/en/get-started/learning-to-code/setting-up-copilot-for-learning-to-code).
+
+5. **Explore Advanced Features**:
+   - Engage with Copilot Chat to ask questions about your code, software development practices, or specific issues. See the [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart) for details.
+
+For more detailed guidance, refer to the official documentation:
+- [Getting started with a GitHub Copilot plan](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan)
+- [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart)
