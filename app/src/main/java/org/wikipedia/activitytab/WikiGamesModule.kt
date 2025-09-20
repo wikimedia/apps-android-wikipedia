@@ -47,7 +47,7 @@ fun WikiGamesModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            ActivityTabShimmerView()
+            ActivityTabShimmerView(size = 160.dp)
         }
         is UiState.Success -> {
             WikiGamesStatsCard(

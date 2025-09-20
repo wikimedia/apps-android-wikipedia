@@ -51,7 +51,7 @@ fun ImpactModule(
 ) {
     when (uiState) {
         UiState.Loading -> {
-            ActivityTabShimmerView()
+            ActivityTabShimmerView(size = 340.dp)
         }
         is UiState.Success -> {
             AllTimeImpactCard(
