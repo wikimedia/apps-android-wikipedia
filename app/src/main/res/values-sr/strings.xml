@@ -36,6 +36,7 @@
   <string name="search_icon_content_description">Претрага</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
+  <string name="nav_item_activity">Активност</string>
   <string name="nav_item_more">Више</string>
   <string name="nav_item_search">Претрага</string>
   <string name="nav_item_contribute">Допринесите</string>
@@ -256,7 +257,6 @@
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
   <string name="about_contributors_heading">Сарадници</string>

@@ -97,6 +97,7 @@
   <string name="search_icon_content_description">Поиск</string>
   <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
+  <string name="nav_item_activity">Активность</string>
   <string name="nav_item_more">Ещё</string>
   <string name="nav_item_search">Найти</string>
   <string name="nav_item_contribute">Вклад</string>
@@ -109,7 +110,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Далее</string>
-  <string name="menu_clear_all_history" fuzzy="true">Очистить историю</string>
+  <string name="menu_clear_all_history">Очистить историю чтения</string>
   <string name="history_item_deleted">Статья \"%s\" удалена из истории просмотров</string>
   <string name="history_items_deleted">%d статей удалено из истории просмотров</string>
   <string name="history_item_delete_undo">Вернуть</string>
@@ -122,7 +123,7 @@
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
+  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Нет</string>
   <string name="share_via">Поделиться...</string>
@@ -324,15 +325,12 @@
   <string name="terms_of_use_description">Условия использования</string>
   <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Страница команды разработки&lt;/a&gt;</string>
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -1058,6 +1056,7 @@
   <string name="customize_toolbar_reset_to_default_button">Сбросить к настройкам по умолчанию</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Удерживайте значок перетаскивания для перемещения элемента</string>
   <string name="customize_toolbar_item_default_tooltip">Нажмите и перенесите элемент для изменения его расположения</string>
+  <string name="suggested_edits_activity_title">Править</string>
   <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_caption_images">Описание изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
@@ -1280,13 +1279,43 @@
   <string name="image_recommendation_onboarding_3">Предложения генерируются системой, и вы сами решаете, принять их или отклонить.</string>
   <string name="image_recommendation_onboarding_4">Изображения взяты из Викисклада, коллекции свободно лицензированных изображений, используемых Википедией.</string>
   <string name="image_recommendation_tooltip_1">Просмотрите эту статью, чтобы понять ее тему</string>
+  <string name="image_recommendation_tooltip_2">Изучите изображение и связанную с ним информацию.</string>
   <string name="image_recommendation_tooltip_3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
   <string name="image_recommendation_tooltip_next">Далее</string>
+  <string name="image_recommendation_tooltip_warning">Пожалуйста, посмотрите статью, чтобы понять её тему, и изучите изображение.</string>
+  <string name="image_recommendation_depleted">Извините, на данный момент больше нет предлагаемых изображений. Пожалуйста, ознакомьтесь с другими &lt;a href=\"#\"&gt;предложенными правками&lt;/a&gt; или вернитесь позже.</string>
   <string name="suggested_edits_report_feature">Сообщить о проблеме</string>
+  <string name="suggested_edits_report_feature_subject">Проблема с предложенными правками</string>
   <string name="edit_summary_added_image">Добавлено изображение</string>
   <string name="edit_summary_added_caption">Добавлена подпись</string>
   <string name="edit_summary_added_image_and_caption">Добавить изображение и подпись</string>
   <string name="edit_published_view">Посмотреть</string>
+  <string name="activity_tab_logged_out_title">Авторизуйтесь или создайте учётную запись для просмотра вашей активности в приложении Википедии</string>
+  <string name="activity_tab_user_reading">%s читает</string>
+  <string name="activity_tab_on_wikipedia_android">В Википедии на Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d ч. %2$d мин.</string>
+  <string name="activity_tab_weekly_time_spent">Время, проведённое за чтением на этой неделе</string>
+  <string name="activity_tab_monthly_articles_read">Статьи, прочитанные в этом месяце</string>
+  <string name="activity_tab_monthly_articles_saved">Статьи, сохранённые в этом месяце</string>
+  <string name="activity_tab_monthly_top_categories">Самые популярные категории для чтения в этом месяце</string>
+  <string name="activity_tab_explore_wikipedia">Исследуйте с помощью Википедии</string>
+  <string name="activity_tab_discover_encourage">Ищете что-нибудь новое для чтения?</string>
+  <string name="activity_tab_donation_unknown">Неизвестно</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Последнее пожертвование&lt;/b&gt; в приложении</string>
+  <string name="activity_tab_game_stats">Статистика игр</string>
+  <string name="activity_tab_game_stats_best_streak">Лучшая серия</string>
+  <string name="activity_tab_play_wiki_games">Играть в ВикиИгры</string>
+  <string name="activity_tab_report_email_subject">Сообщить о проблеме — вкладка «Активность»</string>
+  <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+  <string name="activity_tab_menu_feedback">Проблема с функцией</string>
+  <string name="activity_tab_menu_info">Узнать больше</string>
+  <string name="activity_tab_menu_customize">Настроить</string>
+  <string name="activity_tab_menu_customize_description">Статистика на вкладке «Активность» основана на основном языке, установленном в настройках, и использует локальные данные, за исключением правок, которые являются общедоступными.</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">История чтения</string>
+  <string name="activity_tab_impact">Влияние вашего вклада</string>
+  <string name="activity_tab_impact_most_viewed">Наиболее просматриваемые после вашей правки</string>
+  <string name="activity_tab_timeline_today">Сегодня</string>
+  <string name="activity_tab_timeline_yesterday">Вчера</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
@@ -1861,10 +1890,12 @@
   <string name="on_this_day_game_current_progress_message">Вы отвечаете на вопрос %d.</string>
   <string name="on_this_day_game_archive_btn_text">Игры в архиве</string>
   <string name="on_this_day_game_review_results_btn_text">Посмотреть результат</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Продолжить игру</string>
   <string name="on_this_day_game_sound_on">Включить звук</string>
   <string name="on_this_day_game_sound_off">Выключить звук</string>
   <string name="year_in_review_learn_more">Подробнее</string>
   <string name="year_in_review_get_started">Начать</string>
+  <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
   <string name="year_in_review_donate">Пожертвовать</string>
   <string name="year_in_review_information_icon">Значок информации</string>
   <string name="year_in_review_entry_dialog_continue">Продолжить</string>
@@ -1899,7 +1930,11 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Каждую неделю</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Каждый месяц</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">Отменить</string>
+  <string name="recommended_reading_list_settings_interests">Интересы</string>
   <string name="recommended_reading_list_settings_notifications_title">Уведомления</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Отключить уведомления?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Выключить их</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нет, оставить их включенными</string>
   <string name="donation_reminders_initial_prompt_positive_button">Начать</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сейчас</string>
   <string name="donation_reminders_prompt_negative_button">Не сейчас</string>
