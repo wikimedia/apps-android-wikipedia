@@ -100,6 +100,9 @@ class CreateAccountActivity : BaseActivity() {
                             is CreateAccountActivityViewModel.AccountInfoState.DoCreateAccount -> {
                                 doCreateAccount(it.token)
                             }
+                            is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
+                                showHCaptcha()
+                            }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
                                 captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
                             }
@@ -202,22 +205,16 @@ class CreateAccountActivity : BaseActivity() {
             hCaptcha = HCaptcha.getClient(this)
             hCaptcha?.setup(
                 HCaptchaConfig.builder()
-                .siteKey("45205f58-be1c-40f0-b286-07a4498ea3da")
-                //.siteKey("f1f21d64-6384-4114-b7d0-d9d23e203b4a")
+                .siteKey("f1f21d64-6384-4114-b7d0-d9d23e203b4a")
                 .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                .size(HCaptchaSize.NORMAL)
-
                 .host("meta.wikimedia.org")
 
-                //.jsSrc("https://assets-hcaptcha.wikimedia.org/captcha/1/73f27c192b38c05ce2ebce596a0e28f88a2a56bf/secure-api.js")
-                .jsSrc("https://js.hcaptcha.com/1/api.js")
-                
+                .jsSrc("https://assets-hcaptcha.wikimedia.org/1/api.js")
                 .endpoint("https://hcaptcha.wikimedia.org")
                 .assethost("https://assets-hcaptcha.wikimedia.org")
                 .imghost("https://imgs-hcaptcha.wikimedia.org")
                 .reportapi("https://report-hcaptcha.wikimedia.org")
                 .sentry(false)
-
 
                 //.loading(true)
                 //.locale("en")
@@ -228,13 +225,12 @@ class CreateAccountActivity : BaseActivity() {
                 //.retryPredicate { config, exception ->
                 //    exception.hCaptchaError == HCaptchaError.SESSION_TIMEOUT
                 //}
+
                 .build())
 
             hCaptcha?.addOnSuccessListener { response ->
                 tokenResponse = response
-                val userResponseToken = response.tokenResult
-                L.d("hCaptcha token: $userResponseToken")
-                finish()
+                doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = response.tokenResult)
             }?.addOnFailureListener { e ->
                 L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
                 tokenResponse = null
@@ -265,13 +261,15 @@ class CreateAccountActivity : BaseActivity() {
         L.w("Account creation failed with result $message")
     }
 
-    private fun doCreateAccount(token: String) {
+    private fun doCreateAccount(token: String, hCaptchaToken: String? = null) {
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
-        viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
+        viewModel.doCreateAccount(token, captchaHandler.captchaId(),
+            if (hCaptchaToken.isNullOrEmpty()) captchaHandler.captchaWord() else hCaptchaToken,
+            userName, password, repeat, email)
     }
 
     public override fun onStop() {
