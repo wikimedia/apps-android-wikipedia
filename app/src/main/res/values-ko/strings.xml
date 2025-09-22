@@ -272,13 +272,11 @@
   <string name="terms_of_use_description">이용 약관</string>
   <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;팀 페이지&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;팀 페이지&lt;/a&gt;</string>
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 지원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>

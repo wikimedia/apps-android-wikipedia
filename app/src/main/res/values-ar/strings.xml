@@ -22,6 +22,7 @@
 * Hhaboh162002
 * HitomiAkane
 * Hocinend1
+* Hubaishan
 * Kassem789
 * Kassem7899
 * MRidhaAJ
@@ -305,15 +306,11 @@
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ar</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use/ar</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
@@ -1411,7 +1408,7 @@
   <string name="activity_tab_impact_best_streak">أفضل سلسلة</string>
   <string name="activity_tab_impact_last_edited">تم التعديل الأخير</string>
   <string name="activity_tab_impact_suggested_edits_title">0 تعديلات على المقالات مؤخرًا</string>
-  <string name="activity_tab_impact_suggested_edits_message">يبدو أنك لم تُجرِ أي تعديل هذا الشهر. وسّع آفاق معرفتك المجانية بتعديل المواضيع التي تهمّك أكثر.</string>
+  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">يبدو أنك لم تُجرِ أي تعديل هذا الشهر. وسّع آفاق معرفتك المجانية بتعديل المواضيع التي تهمّك أكثر.</string>
   <string name="activity_tab_impact_suggested_edits_button">إجراء تعديل</string>
   <string name="activity_tab_impact_recent_activity">نشاطك الأخير (آخر 30 يومًا)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1812,9 +1809,9 @@
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
   <string name="user_contrib_activity_title">مساهمات %s</string>
   <string name="archive_empty">لم يتم العثور على صفحات مؤرشفة.</string>
-  <string name="user_contrib_filter_ns">تصفية حسب مساحة الاسم</string>
+  <string name="user_contrib_filter_ns">تصفية حسب النطاق</string>
   <string name="user_contrib_filter_all">جميع النطاقات</string>
-  <string name="user_contrib_filter_ns_header">مرشح مساحة الاسم</string>
+  <string name="user_contrib_filter_ns_header">مرشح النطاق</string>
   <string name="namespace_article">المقالات</string>
   <string name="user_contrib_current">حالي</string>
   <string name="media_playback_error">خطأ في تشغيل الوسائط.</string>
