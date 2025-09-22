@@ -277,7 +277,6 @@
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
@@ -1217,7 +1216,7 @@
   <string name="activity_tab_impact_best_streak">最長連續時間</string>
   <string name="activity_tab_impact_last_edited">上一次編輯</string>
   <string name="activity_tab_impact_suggested_edits_title">最近對條目進行了 0 次編輯</string>
-  <string name="activity_tab_impact_suggested_edits_message">您似乎本月尚未做過任何編輯。您可以編輯您最關注的主題，來擴充可自由取得的知識。</string>
+  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">您似乎本月尚未做過任何編輯。您可以編輯您最關注的主題，來擴充可自由取得的知識。</string>
   <string name="activity_tab_impact_suggested_edits_button">進行編輯</string>
   <string name="activity_tab_impact_recent_activity">您最近的活動（過去 30 天）</string>
   <plurals name="activity_tab_impact_recent_activity_edits">

@@ -247,10 +247,7 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
@@ -1189,7 +1186,7 @@
   <string name="activity_tab_impact_best_streak">Најдобра тура</string>
   <string name="activity_tab_impact_last_edited">Последно уредување</string>
   <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
-  <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ви значат.</string>
+  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ви значат.</string>
   <string name="activity_tab_impact_suggested_edits_button">Направете уредување</string>
   <string name="activity_tab_impact_recent_activity">Ваша скорешна активност (изминатите 30 дена)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">

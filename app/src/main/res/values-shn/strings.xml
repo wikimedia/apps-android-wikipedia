@@ -174,7 +174,6 @@
   <string name="terms_of_use_description">ၶေႃႈမၵ်းမၼ်ႈလွင်ႈၸႂ်ႉတိုဝ်း</string>
   <string name="about_wikipedia_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ၸႂ်ႉဝႆႉ ​ႁူင်းၶေႃႈမုၼ်း</string>
@@ -581,7 +580,7 @@
   <string name="suggested_edits_image_caption_summary_title_author">ၽူႈတႅမ်ႈလိၵ်ႈ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ငိူၼ်ႈငဝ်ႈတိုၼ်း</string>
   <string name="suggested_edits_image_caption_summary_title_license">ဝႂ်ၶႂၢင်း</string>
-  <string name="suggested_edits_image_caption_summary_title_date">ဝၼ်းထီႉ</string>
+  <string name="suggested_edits_image_caption_summary_title_date">ဝၼ်းထိ</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 လွင်ႈၶဝ်ႈႁူမ်ႈ</item>
     <item quantity="other">လွင်ႈၶဝ်ႈႁူမ်ႈ %d</item>
@@ -590,7 +589,7 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">တႄႇၸႂ်ႉ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ၸဝ်ႈပၢႆးမွၼ်း</string>
-  <string name="suggested_edits_image_preview_dialog_date">ဝၼ်းထီႉ</string>
+  <string name="suggested_edits_image_preview_dialog_date">ဝၼ်းထိ</string>
   <string name="suggested_edits_image_preview_dialog_source">ငိုၼ်ႈငဝ်ႈငႃႇ/မေႃထႆႇၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">ဝ်ႂၶႂၢင်း</string>
   <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">လွၼ်ႉၶၢဝ်ၼမ်လိူဝ်</string>
