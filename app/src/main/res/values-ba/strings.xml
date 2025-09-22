@@ -246,12 +246,9 @@
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
   <string name="about_wikipedia_url">https://ba.wikipedia.org/wiki/Википедия:Тасуирлама</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>

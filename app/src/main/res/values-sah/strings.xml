@@ -232,7 +232,6 @@
   <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>

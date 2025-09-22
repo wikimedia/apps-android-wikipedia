@@ -337,15 +337,12 @@
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/es</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
