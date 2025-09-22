@@ -74,7 +74,7 @@ fun EditingInsightsModule(
         UiState.Loading -> {
             Column {
                 ActivityTabShimmerView()
-                ActivityTabShimmerView()
+                ActivityTabShimmerView(size = 210.dp)
             }
         }
         is UiState.Success -> {
