@@ -208,13 +208,14 @@ class LoginActivity : BaseActivity() {
 
         if (uiPromptResult == null && captchaResult == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
-        } else if (captchaResult != null) {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
-                captchaId = captchaHandler.captchaId(), captchaWord = captchaHandler.captchaWord(), cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
+                captchaId = if (captchaResult != null) captchaHandler.captchaId() else null,
+                captchaWord = if (captchaResult != null) captchaHandler.captchaWord() else null,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
-                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null, isContinuation = true, cb = loginCallback)
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                isContinuation = uiPromptResult != null,
+                cb = loginCallback)
         }
     }
 
@@ -235,22 +236,21 @@ class LoginActivity : BaseActivity() {
         override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token
-
-            if (captchaId.isNullOrEmpty()) {
+            if (captchaId != null) {
+                if (captchaResult != null) {
+                    FeedbackUtil.showError(this@LoginActivity, caught)
+                }
+                captchaResult = CaptchaResult(captchaId)
+                captchaHandler.handleCaptcha(token, captchaResult!!)
+            }
+            if (result is LoginEmailAuthResult || result is LoginOATHResult) {
                 uiPromptResult = result
-
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
                 binding.login2faText.visibility = View.VISIBLE
                 binding.login2faText.editText?.setText("")
                 binding.login2faText.requestFocus()
                 FeedbackUtil.showError(this@LoginActivity, caught)
-            } else {
-                if (captchaResult != null) {
-                    FeedbackUtil.showError(this@LoginActivity, caught)
-                }
-                captchaResult = CaptchaResult(captchaId)
-                captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         }

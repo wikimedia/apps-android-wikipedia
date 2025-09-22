@@ -108,7 +108,7 @@ fun ReadingHistoryModule(
         Column {
             ActivityTabShimmerView()
             ActivityTabShimmerView()
-            ActivityTabShimmerView()
+            ActivityTabShimmerView(size = 240.dp)
         }
     } else if (readingHistoryState is UiState.Success) {
         val readingHistory = readingHistoryState.data

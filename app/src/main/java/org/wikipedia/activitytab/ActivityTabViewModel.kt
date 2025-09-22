@@ -98,6 +98,8 @@ class ActivityTabViewModel() : ViewModel() {
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
 
+    var shouldRefreshTimelineSilently: Boolean = false
+
     val allDataLoaded = combine(
         readingHistoryState,
         donationUiState,

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -66,64 +65,10 @@ fun AppTextButton(
 }
 
 @Composable
-fun OutlineButton(
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    backgroundColor: Color = WikipediaTheme.colors.paperColor,
-    contentColor: Color = WikipediaTheme.colors.progressiveColor,
-    borderColor: Color = WikipediaTheme.colors.borderColor,
-    cornerRadius: Int = 8,
-    strokeWidth: Int = 1,
-    content: @Composable (() -> Unit)
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.border(
-            width = strokeWidth.dp,
-            color = borderColor,
-            shape = RoundedCornerShape(cornerRadius.dp)
-        ),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
-        )
-    ) {
-        content()
-    }
-}
-
-@Composable
-fun SmallOutlineButton(
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    backgroundColor: Color = WikipediaTheme.colors.paperColor,
-    contentColor: Color = WikipediaTheme.colors.progressiveColor,
-    borderColor: Color = WikipediaTheme.colors.borderColor,
-    cornerRadius: Int = 16,
-    content: @Composable (() -> Unit)
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.border(
-            width = 1.dp,
-            color = borderColor,
-            shape = RoundedCornerShape(cornerRadius.dp)
-        ),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = backgroundColor,
-            contentColor = contentColor
-        ),
-        contentPadding = PaddingValues(horizontal = 16.dp)
-    ) {
-        content()
-    }
-}
-
-@Composable
 fun ThemeColorCircularButton(
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
     text: String = "Aa",
-    modifier: Modifier = Modifier,
     size: Dp = 40.dp,
     defaultBackgroundColor: Color = WikipediaTheme.colors.paperColor,
     selectedBackgroundColor: Color = WikipediaTheme.colors.backgroundColor,

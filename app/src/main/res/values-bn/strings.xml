@@ -260,7 +260,6 @@
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="about_wikipedia_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
@@ -268,7 +267,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
   <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;দলের পাতা&lt;/a&gt;</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
