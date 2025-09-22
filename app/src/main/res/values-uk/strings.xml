@@ -272,10 +272,8 @@
   <string name="terms_of_use_description">Умови використання</string>
   <string name="about_wikipedia_url">https://uk.wikipedia.org/wiki/Вікіпедія:Про</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
@@ -1301,7 +1299,7 @@
   <string name="activity_tab_impact_best_streak">Найкраща серія</string>
   <string name="activity_tab_impact_last_edited">Останнє редагування</string>
   <string name="activity_tab_impact_suggested_edits_title">0 нещодавніх редагувань статей</string>
-  <string name="activity_tab_impact_suggested_edits_message">Схоже, ви не робили жодного редагування цього місяця. Розширте вільні знання, редагуючи теми, які вам небайдужі.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Схоже, ви не робили жодного редагування цього місяця. Розширте вільні знання, редагуючи теми, які вас цікавлять.</string>
   <string name="activity_tab_impact_suggested_edits_button">Зробити редагування</string>
   <string name="activity_tab_impact_recent_activity">Ваша нещодавня активність (за минулі 30 днів)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1309,6 +1307,12 @@
     <item quantity="few">Редагування</item>
     <item quantity="many">Редагувань</item>
     <item quantity="other">Редагувань</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Перегляд статей, які ви редагували</item>
+    <item quantity="few">Перегляди статей, які ви редагували</item>
+    <item quantity="many">Перегляди статей, які ви редагували</item>
+    <item quantity="other">Перегляди статей, які ви редагували</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Час, витрачений на читання</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Статистика читання</string>
@@ -1332,6 +1336,8 @@
   <string name="activity_tab_onboarding_engage_message">Переглядайте статистику ігор, збережених статей та інших дій, які глибше пов\'язують вас із Вікіпедією.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Контролюйте ситуацію</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Виберіть, які модулі відображати. Усі персональні дані залишаються конфіденційними на вашому пристрої, а історію переглядів можна очистити будь-коли.</string>
+  <string name="edits_screen_what_is_title">Редагування у застосунку Вікіпедії</string>
+  <string name="edits_screen_what_is_body">Не знаєте, з чого почати редагування? Спробуйте «Пропоновані редагування» — функцію, яка дає змогу робити невеликий, але важливий внесок у Вікіпедію. Або ж перейдіть безпосередньо до статті, яка вас цікавить, і внесіть зміни за допомогою вікітексту.</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>

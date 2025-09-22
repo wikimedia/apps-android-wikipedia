@@ -83,6 +83,7 @@
   <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
+  <string name="nav_item_activity">活動</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="nav_item_search">検索</string>
   <string name="nav_item_contribute">投稿</string>
@@ -95,7 +96,7 @@
   <string name="page_error_back_to_main">戻る</string>
   <string name="error_back">戻る</string>
   <string name="error_next">次へ</string>
-  <string name="menu_clear_all_history" fuzzy="true">履歴を消去</string>
+  <string name="menu_clear_all_history">閲覧履歴を消去</string>
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
@@ -108,7 +109,7 @@
   <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
   <string name="wikidata">ウィキデータ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
-  <string name="dialog_message_clear_history" fuzzy="true">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
+  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去します。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
   <string name="dialog_message_clear_history_no">いいえ</string>
   <string name="share_via">共有する</string>
@@ -954,6 +955,7 @@
   <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">ドラッグアイコンを長押しして項目を移動します</string>
   <string name="customize_toolbar_item_default_tooltip">項目を押してドラッグすることで再配置します</string>
+  <string name="suggested_edits_activity_title">編集</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
@@ -1162,6 +1164,18 @@
   <string name="edit_summary_added_caption">キャプションを追加しました</string>
   <string name="edit_summary_added_image_and_caption">画像とキャプションを追加しました</string>
   <string name="edit_published_view">閲覧</string>
+  <string name="activity_tab_user_reading">%sの閲覧</string>
+  <string name="activity_tab_monthly_articles_read">今月読んだ記事</string>
+  <string name="activity_tab_monthly_articles_saved">今月保存した記事</string>
+  <string name="activity_tab_donation_unknown">不明</string>
+  <string name="activity_tab_menu_info">詳細</string>
+  <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_impact_suggested_edits_button">編集する</string>
+  <string name="activity_tab_impact_recent_activity">あなたの最近の活動 (過去30日)</string>
+  <string name="activity_tab_timeline_today">今日</string>
+  <string name="activity_tab_timeline_yesterday">昨日</string>
+  <string name="activity_tab_timeline_empty_state_title">表示するものはありません</string>
+  <string name="activity_tab_timeline_view_changes_button">変更を表示</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -1742,6 +1756,7 @@
   <string name="donation_settings_section_header">寄付</string>
   <string name="donation_reminders_settings_title">寄付のリマインダー</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_settings_option_custom">カスタム…</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
   <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>

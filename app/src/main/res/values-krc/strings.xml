@@ -233,14 +233,12 @@
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Юсюнден</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/krc</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/krc</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/krc</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.krc</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.krc</string>
   <string name="about_libraries_heading">Хайырланнган китабханала</string>
   <string name="about_contributors_heading">Авторла</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/krc\"&gt;Команда бет&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бет&lt;/a&gt;</string>
   <string name="about_translators_heading">Кёчюрюучюле</string>
   <string name="about_translators_translatewiki">Бу программаны &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-деги волонтёрла кёчюргендиле.</string>
   <string name="about_app_license_heading">Лицензия</string>
