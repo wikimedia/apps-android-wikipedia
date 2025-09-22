@@ -973,7 +973,7 @@
   <string name="donation_campaign_go_back_button">Йуханехьа</string>
   <string name="menu_single_webview_open_external">Системин браузерехь схьайелла</string>
   <string name="donate_gpay_help_problems">Цатарло ахча дӀадахьийта?</string>
-  <string name="donate_gpay_help_other_ways">Ахча дохьуьйту кхин таронаш</string>
+  <string name="donate_gpay_help_other_ways">ГӀодан кхин таронаш</string>
   <string name="donate_gpay_help_faq">Дукха луш долу хаттарш</string>
   <string name="donate_gpay_help_tax">ГӀодечаран тӀера налог дӀаяккхарах лаьцна хаам</string>
   <string name="places_title">Меттигаш</string>

@@ -115,7 +115,7 @@
   <string name="terms_of_use_description">Cundiziòni d\'usu</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="about_contributors_heading">Autori</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttorii</string>
   <string name="about_app_license_heading">Licèntzia</string>
   <string name="about_activity_title">Infuimmazioni</string>
