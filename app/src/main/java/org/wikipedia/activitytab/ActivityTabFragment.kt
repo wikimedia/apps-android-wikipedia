@@ -813,35 +813,16 @@ class ActivityTabFragment : Fragment() {
                         ), item.pageId, revisionTo = item.id
                     )
                 )
-            }
-
-            ActivitySource.BOOKMARKED -> {
-                val title = item.toPageTitle()
-                val entry = HistoryEntry(
-                    title,
-                    HistoryEntry.SOURCE_INTERNAL_LINK
-                )
+            } else -> {
+                val pageTitle = item.toPageTitle()
                 startActivity(
                     PageActivity.newIntentForCurrentTab(
                         requireContext(),
-                        entry,
-                        entry.title
+                        HistoryEntry(pageTitle, HistoryEntry.SOURCE_ACTIVITY_TAB),
+                        pageTitle
                     )
                 )
             }
-
-            ActivitySource.LINK, ActivitySource.SEARCH -> {
-                val entry = item.toHistoryEntry()
-                startActivity(
-                    PageActivity.newIntentForCurrentTab(
-                        requireContext(),
-                        entry,
-                        entry.title
-                    )
-                )
-            }
-
-            else -> {}
         }
     }
 
