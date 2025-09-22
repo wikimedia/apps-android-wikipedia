@@ -96,7 +96,7 @@ interface ReadingListPageDao {
     suspend fun getMostRecentLocallySavedPage(): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
-    suspend fun getPagesByLocalySavedTime(limit: Int, offset: Int): List<ReadingListPage>
+    suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 
