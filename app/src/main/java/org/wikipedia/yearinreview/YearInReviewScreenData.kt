@@ -4,8 +4,8 @@ sealed class YearInReviewScreenData {
     data class StandardScreen(
         val animatedImageResource: Int,
         val staticImageResource: Int,
-        val headlineText: Any? = null,
-        val bodyText: Any? = null,
+        val enHeadlineText: YearInReviewScreenText? = null,
+        val enBodyText: YearInReviewScreenText? = null,
         val bottomButton: ButtonConfig? = null,
         val unlockIcon: UnlockIconConfig? = null
     ) : YearInReviewScreenData()
@@ -21,6 +21,14 @@ sealed class YearInReviewScreenData {
         val bodyText: String? = null
     ) : YearInReviewScreenData()
 }
+
+data class YearInReviewScreenText(
+    val defaultEnglishText: String? = null,
+    val loggedInEnglishText: String? = null,
+    val defaultLocalizedText: String? = null,
+    val loggedInLocalizedText: String? = null
+)
+
 
 data class ButtonConfig(
     val text: String,
