@@ -19,11 +19,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
-import com.hcaptcha.sdk.HCaptcha
-import com.hcaptcha.sdk.HCaptchaConfig
-import com.hcaptcha.sdk.HCaptchaSize
-import com.hcaptcha.sdk.HCaptchaTheme
-import com.hcaptcha.sdk.HCaptchaTokenResponse
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -32,6 +27,7 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
@@ -54,8 +50,9 @@ class CreateAccountActivity : BaseActivity() {
     private var userNameTextWatcher: TextWatcher? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
 
-    private var hCaptcha: HCaptcha? = null
-    private var tokenResponse: HCaptchaTokenResponse? = null
+    private val hCaptchaHelper = HCaptchaHelper(this) { token ->
+        doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +98,7 @@ class CreateAccountActivity : BaseActivity() {
                                 doCreateAccount(it.token)
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
-                                showHCaptcha()
+                                hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
                                 captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
@@ -177,7 +174,7 @@ class CreateAccountActivity : BaseActivity() {
 
 
 
-            showHCaptcha()
+            hCaptchaHelper.show()
 
 
 
@@ -197,54 +194,6 @@ class CreateAccountActivity : BaseActivity() {
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.verifyUserName(text)
         }
-    }
-
-    private fun showHCaptcha() {
-        if (hCaptcha == null) {
-
-            hCaptcha = HCaptcha.getClient(this)
-            hCaptcha?.setup(
-                HCaptchaConfig.builder()
-                .siteKey("f1f21d64-6384-4114-b7d0-d9d23e203b4a")
-                .theme(if (WikipediaApp.instance.currentTheme.isDark) HCaptchaTheme.DARK else HCaptchaTheme.LIGHT)
-                .host("meta.wikimedia.org")
-
-                .jsSrc("https://assets-hcaptcha.wikimedia.org/1/api.js")
-                .endpoint("https://hcaptcha.wikimedia.org")
-                .assethost("https://assets-hcaptcha.wikimedia.org")
-                .imghost("https://imgs-hcaptcha.wikimedia.org")
-                .reportapi("https://report-hcaptcha.wikimedia.org")
-                .sentry(false)
-
-                //.loading(true)
-                //.locale("en")
-                //.size(HCaptchaSize.INVISIBLE)
-                //.hideDialog(false)
-                //.tokenExpiration(10)
-                //.diagnosticLog(true)
-                //.retryPredicate { config, exception ->
-                //    exception.hCaptchaError == HCaptchaError.SESSION_TIMEOUT
-                //}
-
-                .build())
-
-            hCaptcha?.addOnSuccessListener { response ->
-                tokenResponse = response
-                doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = response.tokenResult)
-            }?.addOnFailureListener { e ->
-                L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
-                tokenResponse = null
-                FeedbackUtil.showMessage(this, "hCaptcha failed: ${e.message} (${e.statusCode})")
-            }?.addOnOpenListener {
-                FeedbackUtil.showMessage(this, "hCaptcha shown")
-            }
-        }
-        hCaptcha?.verifyWithHCaptcha()
-    }
-
-    private fun resetHCaptcha() {
-        hCaptcha?.reset()
-        hCaptcha = null
     }
 
     private fun handleAccountCreationError(message: String) {
@@ -278,7 +227,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
-        resetHCaptcha()
+        hCaptchaHelper.cleanup()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
