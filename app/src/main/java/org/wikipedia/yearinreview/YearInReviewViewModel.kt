@@ -70,12 +70,12 @@ class YearInReviewViewModel() : ViewModel() {
                     YearInReviewScreenData.StandardScreen(
                         animatedImageResource = R.drawable.wyir_block_5_resize,
                         staticImageResource = R.drawable.personal_slide_01,
-                        enHeadlineText = WikipediaApp.instance.resources.getQuantityString(
+                        headlineText = WikipediaApp.instance.resources.getQuantityString(
                             R.plurals.year_in_review_read_count_headline,
                             savedArticlesCount,
                             savedArticlesCount
                         ),
-                        enBodyText = WikipediaApp.instance.resources.getQuantityString(
+                        bodyText = WikipediaApp.instance.resources.getQuantityString(
                             R.plurals.year_in_review_read_count_bodytext,
                             savedArticlesCount,
                             savedArticlesCount,
@@ -97,12 +97,12 @@ class YearInReviewViewModel() : ViewModel() {
                     YearInReviewScreenData.StandardScreen(
                         animatedImageResource = R.drawable.wyir_block_5_resize,
                         staticImageResource = R.drawable.personal_slide_01,
-                        enHeadlineText = WikipediaApp.instance.resources.getQuantityString(
+                        headlineText = WikipediaApp.instance.resources.getQuantityString(
                             R.plurals.year_in_review_read_count_headline,
                             readCount,
                             readCount
                         ),
-                        enBodyText = WikipediaApp.instance.resources.getQuantityString(
+                        bodyText = WikipediaApp.instance.resources.getQuantityString(
                             R.plurals.year_in_review_read_count_bodytext,
                             readCount,
                             readCount,
@@ -162,12 +162,12 @@ class YearInReviewViewModel() : ViewModel() {
                         YearInReviewScreenData.StandardScreen(
                             animatedImageResource = R.drawable.wyir_bytes,
                             staticImageResource = R.drawable.english_slide_05,
-                            enHeadlineText = WikipediaApp.instance.resources.getQuantityString(
+                            headlineText = WikipediaApp.instance.resources.getQuantityString(
                                 R.plurals.year_in_review_edit_count_headline,
                                 editCount,
                                 editCount
                             ),
-                            enBodyText = WikipediaApp.instance.resources.getQuantityString(
+                            bodyText = WikipediaApp.instance.resources.getQuantityString(
                                 R.plurals.year_in_review_edit_count_bodytext,
                                 editCount,
                                 editCount
@@ -198,34 +198,22 @@ class YearInReviewViewModel() : ViewModel() {
         val getStartedData = YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_block_10_resize,
             staticImageResource = R.drawable.personal_slide_00,
-            enHeadlineText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_get_started_headline)
-            ),
-            enBodyText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_get_started_bodytext)
-            )
+            headlineText = R.string.year_in_review_get_started_headline,
+            bodyText = R.string.year_in_review_get_started_bodytext,
         )
 
         val nonEnglishCollectiveReadCountData = YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.wyir_puzzle_3,
             staticImageResource = R.drawable.non_english_slide_01,
-            enHeadlineText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_non_english_collective_readcount_headline)
-            ),
-            enBodyText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_non_english_collective_readcount_bodytext)
-            )
+            headlineText = R.string.year_in_review_non_english_collective_readcount_headline,
+            bodyText = R.string.year_in_review_non_english_collective_readcount_bodytext,
         )
 
         val nonEnglishCollectiveEditCountData = YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.wyir_puzzle_2_v5,
             staticImageResource = R.drawable.english_slide_01_and_non_english_slide_05,
-            enHeadlineText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_non_english_collective_editcount_headline)
-            ),
-            enBodyText = YearInReviewScreenText(
-                defaultEnglishText = WikipediaApp.instance.getString(R.string.year_in_review_non_english_collective_editcount_bodytext)
-            )
+            headlineText = R.string.year_in_review_non_english_collective_editcount_headline,
+            bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
         )
     }
 }

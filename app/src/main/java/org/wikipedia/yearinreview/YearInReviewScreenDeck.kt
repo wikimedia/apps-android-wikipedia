@@ -432,7 +432,7 @@ private fun StandardLayoutWithVariants(
                         .padding(top = 10.dp, start = 16.dp, end = 8.dp)
                         .height(IntrinsicSize.Min)
                         .weight(1f),
-                    text = processString(screenData.enHeadlineText),
+                    text = processString(screenData.headlineText),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.headlineMedium
                 )
@@ -456,7 +456,7 @@ private fun StandardLayoutWithVariants(
                 modifier = Modifier
                     .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
                     .height(IntrinsicSize.Min),
-                text = processString(screenData.enBodyText),
+                text = processString(screenData.bodyText),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
