@@ -17,7 +17,6 @@ import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -43,7 +42,7 @@ class YearInReviewActivity : BaseActivity() {
                     if (viewModel.canShowSurvey) {
                         isSurveyVisible = true
                     } else {
-                        endYearInReviewActivity(coroutineScope, this)
+                        finish()
                     }
                 }
 
@@ -52,7 +51,7 @@ class YearInReviewActivity : BaseActivity() {
                     YearInReviewSurvey(
                         onCancelButtonClick = {
                             isSurveyVisible = false
-                            endYearInReviewActivity(coroutineScope, this)
+                            finish()
                         },
                         onSubmitButtonClick = { selectedOption, userInput ->
                             PatrollerExperienceEvent.logAction(
@@ -65,7 +64,7 @@ class YearInReviewActivity : BaseActivity() {
                                     )
                             )
                             isSurveyVisible = false
-                            endYearInReviewActivity(coroutineScope, this)
+                            finish()
                         }
                     )
                 }
@@ -78,23 +77,6 @@ class YearInReviewActivity : BaseActivity() {
                     popExitTransition = { ExitTransition.None },
                     exitTransition = { ExitTransition.None }
                 ) {
-                    composable(route = YearInReviewNavigation.Onboarding.name) {
-                        YearInReviewOnboardingScreen(
-                            contentData = YearInReviewViewModel.getStartedData,
-                            onBackButtonClick = {
-                                if (viewModel.canShowSurvey) {
-                                    isSurveyVisible = true
-                                } else {
-                                    endYearInReviewActivity(coroutineScope, this@YearInReviewActivity)
-                                }
-                            },
-                            onGetStartedClick = {
-                                navController.navigate(
-                                    route = YearInReviewNavigation.ScreenDeck.name
-                                )
-                            }
-                        )
-                    }
                     composable(route = YearInReviewNavigation.ScreenDeck.name) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
@@ -137,10 +119,6 @@ class YearInReviewActivity : BaseActivity() {
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, YearInReviewActivity::class.java)
-        }
-
-        fun endYearInReviewActivity(scope: CoroutineScope, activity: YearInReviewActivity) {
-            activity.finish()
         }
     }
 }

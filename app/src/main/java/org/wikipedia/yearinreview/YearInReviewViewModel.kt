@@ -195,13 +195,6 @@ class YearInReviewViewModel() : ViewModel() {
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
         private const val MINIMUM_EDIT_COUNT = 1
 
-        val getStartedData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_block_10_resize,
-            staticImageResource = R.drawable.personal_slide_00,
-            headlineText = R.string.year_in_review_get_started_headline,
-            bodyText = R.string.year_in_review_get_started_bodytext,
-        )
-
         val nonEnglishCollectiveReadCountData = YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.wyir_puzzle_3,
             staticImageResource = R.drawable.non_english_slide_01,

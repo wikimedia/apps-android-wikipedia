@@ -1971,7 +1971,8 @@
     <string name="year_in_review_donate">Donate</string>
     <string name="year_in_review_information_icon">Information Icon</string>
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
-    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
+    <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
     <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
     <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
     <string name="year_in_review_entry_dialog_continue">Continue</string>
