@@ -174,6 +174,7 @@ class CreateAccountActivity : BaseActivity() {
 
 
 
+            // TODO: remove when done testing
             hCaptchaHelper.show()
 
 
