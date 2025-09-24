@@ -78,7 +78,6 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -526,7 +525,7 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
-            screenContent = nonEnglishCollectiveEditCountData
+            screenContent = YearInReviewSlides.addedBytesScreen()
         ) { /* No logic, preview only */ }
     }
 }
@@ -536,7 +535,7 @@ fun PreviewScreenShot() {
 fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
-            state = UiState.Success(listOf(nonEnglishCollectiveEditCountData)),
+            state = UiState.Success(YearInReviewSlides.nonLoggedInGeneralSlides()),
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}
