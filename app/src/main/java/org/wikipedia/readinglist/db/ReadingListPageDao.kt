@@ -102,7 +102,7 @@ interface ReadingListPageDao {
     suspend fun getDistinctEntriesCountBetween(startDate: Long?, endDate: Long?): Int
 
     @Query("SELECT DISTINCT displayTitle FROM ReadingListPage ORDER BY atime DESC LIMIT :limit")
-    suspend fun getLastestArticleTitles(limit: Int): List<String>
+    suspend fun getLatestArticleTitles(limit: Int): List<String>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 

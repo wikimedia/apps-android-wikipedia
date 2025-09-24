@@ -31,7 +31,7 @@ interface HistoryEntryDao {
     suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
 
     @Query("SELECT DISTINCT displayTitle FROM HistoryEntry ORDER BY timestamp DESC LIMIT :limit")
-    suspend fun getLastestArticleTitles(limit: Int): List<String>
+    suspend fun getLatestArticleTitles(limit: Int): List<String>
 
     @Query("SELECT COUNT(*) FROM HistoryEntry")
     suspend fun getHistoryCount(): Int

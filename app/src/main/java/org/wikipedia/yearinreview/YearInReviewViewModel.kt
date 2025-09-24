@@ -7,7 +7,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -35,9 +34,7 @@ class YearInReviewViewModel() : ViewModel() {
     private val endTimeInMillis = endTime.toEpochMilli()
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
-        _uiScreenListState.value = UiState.Success(
-            data = listOf(nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-        )
+        _uiScreenListState.value = UiState.Error(throwable)
     }
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
@@ -62,58 +59,22 @@ class YearInReviewViewModel() : ViewModel() {
             val remoteConfig = RemoteConfig.config
 
             // TODO: content TBD
-            val savedArticlesCountJob = async {
-                val savedArticlesCount = AppDatabase.instance.readingListPageDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
-                if (savedArticlesCount >= MINIMUM_SAVED_ARTICLE_COUNT) {
-                    val savedArticlesTitles = AppDatabase.instance.readingListPageDao().getLastestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
-                        .map { StringUtil.fromHtml(it).toString() }
-                    YearInReviewScreenData.StandardScreen(
-                        animatedImageResource = R.drawable.wyir_block_5_resize,
-                        staticImageResource = R.drawable.personal_slide_01,
-                        headlineText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_headline,
-                            savedArticlesCount,
-                            savedArticlesCount
-                        ),
-                        bodyText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_bodytext,
-                            savedArticlesCount,
-                            savedArticlesCount,
-                            savedArticlesTitles[0],
-                            savedArticlesTitles[1],
-                            savedArticlesTitles[2]
-                        )
-                    )
-                } else {
-                    nonEnglishCollectiveReadCountData
-                }
+            val savedArticlesCount = async {
+                AppDatabase.instance.readingListPageDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
             }
 
-            val readCountJob = async {
-                val readCount = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
-                if (readCount >= MINIMUM_READ_COUNT) {
-                    val readCountApiTitles = AppDatabase.instance.historyEntryDao().getLastestArticleTitles(MINIMUM_READ_COUNT)
-                        .map { StringUtil.fromHtml(it).toString() }
-                    YearInReviewScreenData.StandardScreen(
-                        animatedImageResource = R.drawable.wyir_block_5_resize,
-                        staticImageResource = R.drawable.personal_slide_01,
-                        headlineText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_headline,
-                            readCount,
-                            readCount
-                        ),
-                        bodyText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_bodytext,
-                            readCount,
-                            readCount,
-                            readCountApiTitles[0],
-                            readCountApiTitles[1],
-                            readCountApiTitles[2]
-                        )
-                    )
-                } else {
-                    nonEnglishCollectiveReadCountData
-                }
+            val latestArticleTitlesFromSaved = async {
+                AppDatabase.instance.readingListPageDao().getLatestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
+                    .map { StringUtil.fromHtml(it).toString() }
+            }
+
+            val readCountForTheYear = async {
+                AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
+            }
+
+            val latestArticleTitlesFromHistory = async {
+                AppDatabase.instance.historyEntryDao().getLatestArticleTitles(MINIMUM_READ_COUNT)
+                    .map { StringUtil.fromHtml(it).toString() }
             }
 
             // TODO: think about the actual data to show.
@@ -157,35 +118,17 @@ class YearInReviewViewModel() : ViewModel() {
                     } ?: emptyMap()
 
                     impact.topViewedArticlesWithPageTitle = pageMap
-                    val editCount = impact.totalUserEditCount
-                    if (editCount >= MINIMUM_EDIT_COUNT) {
-                        YearInReviewScreenData.StandardScreen(
-                            animatedImageResource = R.drawable.wyir_bytes,
-                            staticImageResource = R.drawable.english_slide_05,
-                            headlineText = WikipediaApp.instance.resources.getQuantityString(
-                                R.plurals.year_in_review_edit_count_headline,
-                                editCount,
-                                editCount
-                            ),
-                            bodyText = WikipediaApp.instance.resources.getQuantityString(
-                                R.plurals.year_in_review_edit_count_bodytext,
-                                editCount,
-                                editCount
-                            )
-                        )
-                    } else {
-                        // TODO: show generic content
-                        nonEnglishCollectiveEditCountData
-                    }
+                    impact
                 } else {
-                    // TODO: show non-logged in user content
-                    nonEnglishCollectiveEditCountData
+                    GrowthUserImpact()
                 }
             }
 
+            // TODO: build slides based on conditions: logged in, non-logged in, en vs non-en, and also based on the data we have.
+
             // TODO: make sure return enough slides here
             _uiScreenListState.value = UiState.Success(
-                data = listOf(readCountJob.await(), savedArticlesCountJob.await(), impactDataJob.await())
+                data = YearInReviewSlides.nonLoggedInEnglishGeneralSlides()
             )
         }
     }
@@ -194,19 +137,5 @@ class YearInReviewViewModel() : ViewModel() {
         private const val MINIMUM_READ_COUNT = 3
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
         private const val MINIMUM_EDIT_COUNT = 1
-
-        val nonEnglishCollectiveReadCountData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.wyir_puzzle_3,
-            staticImageResource = R.drawable.non_english_slide_01,
-            headlineText = R.string.year_in_review_non_english_collective_readcount_headline,
-            bodyText = R.string.year_in_review_non_english_collective_readcount_bodytext,
-        )
-
-        val nonEnglishCollectiveEditCountData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.wyir_puzzle_2_v5,
-            staticImageResource = R.drawable.english_slide_01_and_non_english_slide_05,
-            headlineText = R.string.year_in_review_non_english_collective_editcount_headline,
-            bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
-        )
     }
 }
