@@ -94,7 +94,6 @@ class AboutActivity : BaseActivity() {
             asset = "licenses/Retrofit"
         )
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
