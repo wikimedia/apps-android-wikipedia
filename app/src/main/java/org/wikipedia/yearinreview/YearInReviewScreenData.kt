@@ -28,7 +28,6 @@ data class ButtonConfig(
 )
 
 data class UnlockIconConfig(
-    val iconResource: Int,
     val isUnlocked: Boolean = false,
     val onClick: (() -> Unit)? = null
 )

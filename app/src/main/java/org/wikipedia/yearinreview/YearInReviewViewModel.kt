@@ -225,8 +225,8 @@ class YearInReviewViewModel() : ViewModel() {
         return withContext(Dispatchers.IO) {
             // TODO: Show a bunch of generic slides for English users - non-logged in.
             listOf(
-                readingHoursScreen(1),
-                readingHoursScreen(1)
+                spentReadingHoursScreen(1),
+                spentReadingHoursScreen(1)
             )
         }
     }
@@ -235,8 +235,8 @@ class YearInReviewViewModel() : ViewModel() {
         return withContext(Dispatchers.IO) {
             // TODO: Show a bunch of generic slides for non-English users - non-logged in.
             listOf(
-                readingHoursScreen(1),
-                readingHoursScreen(1)
+                spentReadingHoursScreen(1),
+                spentReadingHoursScreen(1)
             )
         }
     }
@@ -245,8 +245,8 @@ class YearInReviewViewModel() : ViewModel() {
         return withContext(Dispatchers.IO) {
             // TODO: Show a bunch of generic slides for logged in English users.
             listOf(
-                readingHoursScreen(1),
-                readingHoursScreen(1)
+                spentReadingHoursScreen(1),
+                spentReadingHoursScreen(1)
             )
         }
     }
@@ -255,20 +255,242 @@ class YearInReviewViewModel() : ViewModel() {
         return withContext(Dispatchers.IO) {
             // TODO: Show a bunch of generic slides for logged in users.
             listOf(
-                readingHoursScreen(1),
-                readingHoursScreen(1)
+                spentReadingHoursScreen(1),
+                spentReadingHoursScreen(1)
             )
         }
     }
 
-    suspend fun readingHoursScreen(n: Int): YearInReviewScreenData.StandardScreen {
+    suspend fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         return withContext(Dispatchers.IO) {
             // TODO: yir123
             YearInReviewScreenData.StandardScreen(
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                 staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-                headlineText = "We spent over $n billion hours reading",
-                bodyText = "People spent over 2 billion hours—nearly 275,000 years!—reading English Wikipedia in 2025. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question."
+                headlineText = "We spent over 2 billion hours reading",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun spentReadingMinutesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir99 + yir100 => need to check if it is en or not en
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "You spent 924 minutes reading 350 articles in 2025",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun popularArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir127 + 104
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "English Wikipedia’s most popular articles",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun globalSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir126
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "We had over 37 million saved articles",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun availableLanguagesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir123
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Wikipedia was available in more than 300 languages",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun viewedArticlesTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir125 + yir103
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "We have viewed Wikipedia articles more than 1 billion times",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun readingPatternsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir106 + yir107
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "You have clear reading patterns",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun interestingCategoriesScreen(isEnglishWiki: Boolean, params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir108 + yir110 => confirm the difference.
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Your most interesting categories",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun topArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir109 + yir105
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Your top articles",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir112
+            YearInReviewScreenData.GeoScreen(
+                coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
+                headlineText = "Articles you read are closest to France",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun localSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir113
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "You saved 25 articles",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun editedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir114
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "You edited Wikipedia 150 times",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun editedViewsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir115
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Your edits have been viewed more than 14,791 times recently",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun editorsEditsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir116
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Editors on the official Wikipedia apps made more than 452,257 edits",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun editedPerMinuteScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir117
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Wikipedia was edited 342 times per minute",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun editorsChangesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir118
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Editors made nearly 82 million changes this year",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun addedBytesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir119
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Over 3 billion bytes added",
+                bodyText = "TBD"
+            )
+        }
+    }
+
+    suspend fun newIconUnlockedScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir121
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "New icon unlocked",
+                bodyText = "TBD",
+                unlockIcon = UnlockIconConfig(
+                    isUnlocked = true
+                )
+            )
+        }
+    }
+
+    suspend fun unlockCustomIconScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir122
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Unlock your custom contributor icon",
+                bodyText = "TBD",
+                bottomButton = ButtonConfig(
+                    text = "Donate",
+                    onClick = { /* TODO: handle click */ }
+                )
             )
         }
     }
