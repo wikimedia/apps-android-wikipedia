@@ -71,7 +71,7 @@ class YearInReviewActivity : BaseActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = YearInReviewNavigation.Onboarding.name,
+                    startDestination = YearInReviewNavigation.ScreenDeck.name,
                     enterTransition = { EnterTransition.None },
                     popEnterTransition = { EnterTransition.None },
                     popExitTransition = { ExitTransition.None },
