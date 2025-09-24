@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.util.log.L
@@ -43,5 +44,19 @@ object RemoteConfig {
     @Serializable
     class RemoteConfigAndroidV1 {
         val disableReadingListSync = false
+        val hCaptcha: RemoteConfigHCaptcha? = null
     }
+
+    @Suppress("unused")
+    @Serializable
+    class RemoteConfigHCaptcha(
+        val baseURL: String = "",
+        val jsSrc: String = "",
+        val endpoint: String = "",
+        @SerialName("assethost") val assetHost: String = "",
+        @SerialName("imghost") val imgHost: String = "",
+        @SerialName("reportapi") val reportApi: String = "",
+        val sentry: Boolean = false,
+        val siteKey: String = ""
+    )
 }
