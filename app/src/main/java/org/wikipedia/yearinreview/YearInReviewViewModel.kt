@@ -3,10 +3,12 @@ package org.wikipedia.yearinreview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -186,6 +188,87 @@ class YearInReviewViewModel() : ViewModel() {
             // TODO: make sure return enough slides here
             _uiScreenListState.value = UiState.Success(
                 data = listOf(readCountJob.await(), savedArticlesCountJob.await(), impactDataJob.await())
+            )
+        }
+    }
+
+    suspend fun readingStats(): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            val readCount = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
+            if (readCount >= MINIMUM_READ_COUNT) {
+                val readCountApiTitles = AppDatabase.instance.historyEntryDao().getLastestArticleTitles(MINIMUM_READ_COUNT)
+                    .map { StringUtil.fromHtml(it).toString() }
+                YearInReviewScreenData.StandardScreen(
+                    animatedImageResource = R.drawable.wyir_block_5_resize,
+                    staticImageResource = R.drawable.personal_slide_01,
+                    headlineText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_headline,
+                        readCount,
+                        readCount
+                    ),
+                    bodyText = WikipediaApp.instance.resources.getQuantityString(
+                        R.plurals.year_in_review_read_count_bodytext,
+                        readCount,
+                        readCount,
+                        readCountApiTitles[0],
+                        readCountApiTitles[1],
+                        readCountApiTitles[2]
+                    )
+                )
+            } else {
+                nonEnglishCollectiveReadCountData
+            }
+        }
+    }
+
+    suspend fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+        return withContext(Dispatchers.IO) {
+            // TODO: Show a bunch of generic slides for English users - non-logged in.
+            listOf(
+                readingHoursScreen(1),
+                readingHoursScreen(1)
+            )
+        }
+    }
+
+    suspend fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+        return withContext(Dispatchers.IO) {
+            // TODO: Show a bunch of generic slides for non-English users - non-logged in.
+            listOf(
+                readingHoursScreen(1),
+                readingHoursScreen(1)
+            )
+        }
+    }
+
+    suspend fun loggedInEnglishSlides(): List<YearInReviewScreenData.StandardScreen> {
+        return withContext(Dispatchers.IO) {
+            // TODO: Show a bunch of generic slides for logged in English users.
+            listOf(
+                readingHoursScreen(1),
+                readingHoursScreen(1)
+            )
+        }
+    }
+
+    suspend fun loggedInGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+        return withContext(Dispatchers.IO) {
+            // TODO: Show a bunch of generic slides for logged in users.
+            listOf(
+                readingHoursScreen(1),
+                readingHoursScreen(1)
+            )
+        }
+    }
+
+    suspend fun readingHoursScreen(n: Int): YearInReviewScreenData.StandardScreen {
+        return withContext(Dispatchers.IO) {
+            // TODO: yir123
+            YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "We spent over $n billion hours reading",
+                bodyText = "People spent over 2 billion hours—nearly 275,000 years!—reading English Wikipedia in 2025. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question."
             )
         }
     }
