@@ -34,12 +34,15 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -78,6 +81,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
@@ -117,8 +121,19 @@ fun YearInReviewScreenDeck(
                 modifier = modifier,
                 containerColor = WikipediaTheme.colors.paperColor,
                 topBar = {
-                    YearInReviewTopBar(
-                        onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
+                    TopAppBar(
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = WikipediaTheme.colors.paperColor),
+                        title = { },
+                        navigationIcon = {
+                            IconButton(onClick = { onBackButtonClick(pagerState) }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                )
+                            }
+                        },
                         actions = {
                             IconButton(onClick = {
                                 startCapture = true
