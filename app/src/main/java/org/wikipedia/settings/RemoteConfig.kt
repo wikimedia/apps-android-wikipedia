@@ -49,14 +49,14 @@ object RemoteConfig {
 
     @Suppress("unused")
     @Serializable
-    class RemoteConfigHCaptcha {
-        val baseURL = ""
-        val jsSrc = ""
-        val endpoint = ""
-        @SerialName("assethost") val assetHost = ""
-        @SerialName("imghost") val imgHost = ""
-        @SerialName("reportapi") val reportApi = ""
-        val sentry = false
-        val siteKey = ""
-    }
+    class RemoteConfigHCaptcha(
+        val baseURL: String = "",
+        val jsSrc: String = "",
+        val endpoint: String = "",
+        @SerialName("assethost") val assetHost: String = "",
+        @SerialName("imghost") val imgHost: String = "",
+        @SerialName("reportapi") val reportApi: String = "",
+        val sentry: Boolean = false,
+        val siteKey: String = ""
+    )
 }
