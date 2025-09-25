@@ -47,8 +47,9 @@ swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.10.5"
-composeBom = "2025.09.00"
+composeBom = "2025.09.01"
 composeActivity = "1.11.0"
+composeMaterialIcons = "1.7.8"
 composeViewModel = "2.9.4"
 
 
@@ -119,6 +120,7 @@ viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpag
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-material-icons = { module = "androidx.compose.material:material-icons-core", version.ref = "composeMaterialIcons" }
 compose-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
