@@ -25,10 +25,13 @@ interface HistoryEntryDao {
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate)")
-    suspend fun getDistinctEntriesBetween(startDate: Long?, endDate: Long?): Int
+    suspend fun getDistinctEntriesCountBetween(startDate: Long?, endDate: Long?): Int
 
-    @Query("SELECT DISTINCT displayTitle FROM HistoryEntry LIMIT 3")
-    suspend fun getDisplayTitles(): List<String>
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
+    suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
+
+    @Query("SELECT displayTitle FROM HistoryEntry WHERE timestamp > :timestamp GROUP BY displayTitle ORDER BY COUNT(displayTitle) DESC LIMIT :limit")
+    suspend fun getTopVisitedEntriesSince(limit: Int, timestamp: Long): List<String>
 
     @Query("SELECT COUNT(*) FROM HistoryEntry")
     suspend fun getHistoryCount(): Int
@@ -38,9 +41,6 @@ interface HistoryEntryDao {
 
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
-
-    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
-    suspend fun getDistinctEntriesSince(timestamp: Long): Int?
 
     @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
     suspend fun getMostRecentEntry(): HistoryEntry?

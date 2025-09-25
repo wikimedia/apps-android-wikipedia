@@ -34,12 +34,15 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -75,9 +78,9 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
@@ -116,20 +119,33 @@ fun YearInReviewScreenDeck(
             Scaffold(
                 modifier = modifier,
                 containerColor = WikipediaTheme.colors.paperColor,
-                topBar = { YearInReviewTopBar(
-                    onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
-                    actions = {
-                        IconButton(onClick = {
-                            startCapture = true
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_share),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_share_icon)
-                            )
+                topBar = {
+                    TopAppBar(
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = WikipediaTheme.colors.paperColor),
+                        title = { },
+                        navigationIcon = {
+                            IconButton(onClick = { onBackButtonClick(pagerState) }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                )
+                            }
+                        },
+                        actions = {
+                            IconButton(onClick = {
+                                startCapture = true
+                            }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_share),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_share_icon)
+                                )
+                            }
                         }
-                    }
-                ) },
+                    )
+                },
                 bottomBar = {
                     MainBottomBar(
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
@@ -509,7 +525,12 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
-            screenContent = nonEnglishCollectiveEditCountData
+            screenContent = YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Over 3 billion bytes added",
+                bodyText = "TBD"
+            )
         ) { /* No logic, preview only */ }
     }
 }
@@ -519,7 +540,14 @@ fun PreviewScreenShot() {
 fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
-            state = UiState.Success(listOf(nonEnglishCollectiveEditCountData)),
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.StandardScreen(
+                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    headlineText = "Over 3 billion bytes added",
+                    bodyText = "TBD"
+                )
+            )),
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}

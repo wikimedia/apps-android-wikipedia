@@ -1,32 +1,51 @@
 package org.wikipedia.yearinreview
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewOnboardingScreen(
     modifier: Modifier = Modifier,
-    contentData: YearInReviewScreenData,
     onBackButtonClick: () -> Unit,
     onGetStartedClick: () -> Unit
 ) {
@@ -34,26 +53,101 @@ fun YearInReviewOnboardingScreen(
         modifier = modifier,
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
-            YearInReviewTopBar(
-                onNavigationBackButtonClick = onBackButtonClick
+            CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = WikipediaTheme.colors.paperColor),
+                title = {
+                    Icon(
+                        modifier = Modifier.size(42.dp),
+                        painter = painterResource(R.drawable.ic_w_transparent),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = { onBackButtonClick() }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_close_black_24dp),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                        )
+                    }
+                }
             )
         },
         bottomBar = {
-            OnboardingBottomBar(onGetStartedClick = onGetStartedClick)
+            YearInReviewOnboardingBottomBar(onGetStartedClick = onGetStartedClick)
         },
         content = { paddingValues ->
-            YearInReviewScreenContent(
-                innerPadding = paddingValues,
-                screenData = contentData,
-                screenCaptureMode = false,
-                isOnboardingScreen = true,
+            YearInReviewOnboardingContent(
+                modifier = modifier.padding(paddingValues)
             )
         }
     )
 }
 
 @Composable
-fun OnboardingBottomBar(
+fun YearInReviewOnboardingContent(
+    modifier: Modifier = Modifier
+) {
+    val gifAspectRatio = 3f / 2f
+    Column(
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+            .fillMaxHeight()
+    ) {
+        SubcomposeAsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(R.drawable.year_in_review_block_10_resize)
+                .allowHardware(false)
+                .build(),
+            loading = { LoadingIndicator() },
+            success = { SubcomposeAsyncImageContent() },
+            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(gifAspectRatio)
+                .clip(RoundedCornerShape(16.dp))
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 16.dp, end = 8.dp),
+                text = stringResource(R.string.year_in_review_get_started_headline),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.headlineMedium,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
+                text = stringResource(R.string.year_in_review_get_started_bodytext),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center
+            )
+            Spacer(
+                modifier = Modifier
+                    .weight(1f)
+            )
+            Text(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
+                text = stringResource(R.string.year_in_review_get_started_bodytext),
+                color = WikipediaTheme.colors.secondaryColor,
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Composable
+fun YearInReviewOnboardingBottomBar(
     onGetStartedClick: () -> Unit
 ) {
     val context = LocalContext.current
@@ -64,15 +158,15 @@ fun OnboardingBottomBar(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 10.dp, end = 10.dp)
+                    .padding(horizontal = 10.dp)
             ) {
                 OutlinedButton(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.paperColor,
                         contentColor = WikipediaTheme.colors.progressiveColor),
                     modifier = Modifier
-                        .width(152.dp)
-                        .height(42.dp),
+                        .weight(1f)
+                        .padding(end = 12.dp),
                     onClick = {
                         UriUtil.handleExternalLink(
                             context = context,
@@ -91,8 +185,8 @@ fun OnboardingBottomBar(
                         contentColor = WikipediaTheme.colors.paperColor
                     ),
                     modifier = Modifier
-                        .width(152.dp)
-                        .height(42.dp),
+                        .weight(1f)
+                        .padding(start = 12.dp),
                     onClick = { onGetStartedClick() }
                 ) {
                     Text(
@@ -103,4 +197,17 @@ fun OnboardingBottomBar(
             }
         }
     )
+}
+
+@Preview
+@Composable
+fun YearInReviewOnboardingScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        YearInReviewOnboardingScreen(
+            onBackButtonClick = {},
+            onGetStartedClick = {}
+        )
+    }
 }
