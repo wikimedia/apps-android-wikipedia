@@ -783,7 +783,11 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
-    var yirSurveyShown
+    var yearInReviewVisited: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_visited, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_visited, value)
+
+    var yearInReviewSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_survey_shown, value)
 

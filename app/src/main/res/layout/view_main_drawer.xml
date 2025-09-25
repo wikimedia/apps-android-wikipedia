@@ -226,6 +226,7 @@
             <LinearLayout
                 android:id="@+id/main_drawer_year_in_review_container"
                 android:visibility="gone"
+                tools:visibility="visible"
                 style="@style/SideDrawerMenuItem">
 
                 <ImageView
@@ -242,6 +243,14 @@
                     android:layout_marginStart="24dp"
                     android:layout_weight="1"
                     android:text="@string/nav_item_year_in_review" />
+
+                <View
+                    android:id="@+id/yearInReviewRedDot"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/shape_circle"
+                    android:backgroundTint="?attr/destructive_color" />
 
             </LinearLayout>
 
