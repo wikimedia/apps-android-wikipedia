@@ -2007,6 +2007,10 @@
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
     <string name="year_in_review_share_subject">Year In Review Image and Link</string>
     <string name="year_in_review_globe_icon">Globe Icon</string>
+    <string name="year_in_review_login_dialog_title">Log in for personalization?</string>
+    <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
+    <string name="year_in_review_login_dialog_positive">Log in / join Wikipedia</string>
+    <string name="year_in_review_login_dialog_negative">Continue without logging in</string>
 
 
     <!--Recommended Reading list -->
