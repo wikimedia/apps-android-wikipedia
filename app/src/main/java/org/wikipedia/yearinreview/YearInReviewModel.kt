@@ -1,17 +1,20 @@
 package org.wikipedia.yearinreview
 
 data class YearInReviewModel(
-    val enReadingTimeInHours: Long,
+    val enReadingTimeSpent: Long,
     val enPopularArticles: List<String>,
+    val enEditsCount: Long,
+    val enBytesAddedCount: Long,
     val availableLanguages: Int,
     val globalTotalArticles: Long,
+    val globalEditsCount: Long,
     val articlesViewedTimes: Long,
     val articlesSavedTimes: Long,
-    val localReadingTimeInMinutes: Long,
+    val localReadingTimeSpent: Long,
     val localReadingArticles: Int,
     val localReadingRank: String, // TODO: TBD: top 50% or pure numbers,
     val localSavedArticles: List<String>,
-    val topArticles: List<String>,
+    val localTopVisitedArticles: List<String>,
     val favoriteTimeToRead: String,
     val favoriteDayToRead: String,
     val favoriteMonthDidMostReading: String,
@@ -19,10 +22,7 @@ data class YearInReviewModel(
     val closestLocation: Pair<Double, Double>,
     val closestArticles: List<String>,
     val userEditsCount: Long,
-    val globalEditsCount: Long,
-    val enEditsCount: Long,
     val userEditsViewedTimes: Long,
     val appsEditsCount: Long,
     val editsPerMinute: Long,
-    val enBytesAddedCount: Long
 )

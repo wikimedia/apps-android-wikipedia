@@ -23,6 +23,7 @@ import org.wikipedia.util.log.L
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
@@ -48,6 +49,9 @@ class YearInReviewViewModel() : ViewModel() {
         viewModelScope.launch(handler) {
 
             _uiScreenListState.value = UiState.Loading
+            val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            val yearInMillis = TimeUnit.DAYS.toMillis(365)
+            val yearAgo = now - yearInMillis
 
             // TODO: handle remote config to show numbers, maybe grab generic content from the config.
             val remoteConfig = RemoteConfig.config
@@ -66,9 +70,14 @@ class YearInReviewViewModel() : ViewModel() {
                 AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
             }
 
-            val latestArticleTitlesFromHistory = async {
+            val topVisitedArticlesForTheYear = async {
+                // TODO: update the query
                 AppDatabase.instance.historyEntryDao().getLatestArticleTitles(MINIMUM_READ_COUNT)
                     .map { StringUtil.fromHtml(it).toString() }
+            }
+
+            val totalTimeSpent = async {
+                AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(yearAgo)
             }
 
             // TODO: think about the actual data to show.
@@ -162,17 +171,20 @@ class YearInReviewViewModel() : ViewModel() {
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
                 yearInReviewModel = YearInReviewModel(
-                    enReadingTimeInHours = 0L,
+                    enReadingTimeSpent = 0L, // TODO: remote config
                     enPopularArticles = emptyList(),
-                    availableLanguages = 0,
+                    enEditsCount = 0L,
+                    enBytesAddedCount = 0L,
+                    availableLanguages = 0, // TODO: remote config
                     globalTotalArticles = 0L,
+                    globalEditsCount = 0L,
                     articlesViewedTimes = 0L,
                     articlesSavedTimes = 0L,
-                    localReadingTimeInMinutes = 0L,
-                    localReadingArticles = 0,
+                    localReadingTimeSpent = totalTimeSpent.await(),
+                    localReadingArticles = readCountForTheYear.await(),
                     localReadingRank = "50%",
-                    localSavedArticles = emptyList(),
-                    topArticles = emptyList(),
+                    localSavedArticles = latestArticleTitlesFromSaved.await(),
+                    localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     favoriteTimeToRead = "Evening",
                     favoriteDayToRead = "Saturday",
                     favoriteMonthDidMostReading = "March",
@@ -180,12 +192,9 @@ class YearInReviewViewModel() : ViewModel() {
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = 0L,
-                    globalEditsCount = 0L,
-                    enEditsCount = 0L,
                     userEditsViewedTimes = 0L,
                     appsEditsCount = 0L,
-                    editsPerMinute = 0L,
-                    enBytesAddedCount = 0L
+                    editsPerMinute = 0L
                 )
             ).finalSlides()
 
