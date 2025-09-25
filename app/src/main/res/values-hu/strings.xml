@@ -1202,7 +1202,7 @@
   <string name="activity_tab_impact_best_streak">Leghosszabb szerkesztési sorozat</string>
   <string name="activity_tab_impact_last_edited">Legutóbbi szerkesztés</string>
   <string name="activity_tab_impact_suggested_edits_title">Mostanában nem volt szócikk-szerkesztés</string>
-  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">Úgy tűnik, ebben a hónapban még nem szerkesztettél. Bővítsd a szabad tudást azoknak a témáknak a szerkesztésével, amelyek a legfontosabbak számodra.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Úgy tűnik, ebben a hónapban még nem szerkesztettél. Bővítsd a szabad tudást azoknak a témáknak a szerkesztésével, amelyek a legérdekesebbek számodra.</string>
   <string name="activity_tab_impact_suggested_edits_button">Szerkesztés</string>
   <string name="activity_tab_impact_recent_activity">Legutóbbi tevékenységed (az elmúlt 30 napban)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1232,6 +1232,7 @@
   <string name="activity_tab_onboarding_engage_message">Fedezd fel a játékok statisztikáit, a mentett cikkeket és más tevékenységeket, amelyek mélyebben kapcsolódnak a Wikipédiához.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Tartsd kézben az irányítást</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Válaszd ki, mely modulokat szeretnéd megjeleníteni. Minden személyes adat privát marad az eszközödön, és a böngészési előzmények bármikor törölhetők.</string>
+  <string name="edits_screen_what_is_title">Szerkesztés a Wikipédia appban</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
