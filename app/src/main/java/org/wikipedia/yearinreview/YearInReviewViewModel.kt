@@ -125,10 +125,25 @@ class YearInReviewViewModel() : ViewModel() {
             }
 
             // TODO: build slides based on conditions: logged in, non-logged in, en vs non-en, and also based on the data we have.
+            val finalRoute = when {
+                AccountUtil.isLoggedIn && WikipediaApp.instance.appOrSystemLanguageCode == "en" -> {
+                    YearInReviewSlides.loggedInEnglishSlides()
+                }
+
+                AccountUtil.isLoggedIn && WikipediaApp.instance.appOrSystemLanguageCode != "en" -> {
+                    YearInReviewSlides.loggedInGeneralSlides()
+                }
+
+                !AccountUtil.isLoggedIn && WikipediaApp.instance.appOrSystemLanguageCode == "en" -> {
+                    YearInReviewSlides.nonLoggedInEnglishGeneralSlides()
+                }
+
+                else -> YearInReviewSlides.nonLoggedInGeneralSlides()
+            }
 
             // TODO: make sure return enough slides here
             _uiScreenListState.value = UiState.Success(
-                data = YearInReviewSlides.nonLoggedInEnglishGeneralSlides()
+                data = finalRoute
             )
         }
     }

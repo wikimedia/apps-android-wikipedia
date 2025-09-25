@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview
 
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 
 object YearInReviewSlides {
     fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
@@ -73,7 +74,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun interestingCategoriesScreen(isEnglishWiki: Boolean, params: Int): YearInReviewScreenData.StandardScreen {
+    fun interestingCategoriesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir108 + yir110 => confirm the difference.
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -211,35 +212,102 @@ object YearInReviewSlides {
         )
     }
 
-    fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+    // TODO: add parameters for numbers
+    fun editorRoutes(isEditor: Boolean): List<YearInReviewScreenData> {
+        return when {
+            isEditor -> listOf(
+                editedTimesScreen(),
+                editedViewsScreen()
+            )
+            !isEditor && WikipediaApp.instance.appOrSystemLanguageCode != "en" -> {
+                listOf(
+                    editorsEditsScreen(),
+                    editedPerMinuteScreen()
+                )
+            }
+            !isEditor && WikipediaApp.instance.appOrSystemLanguageCode == "en" -> {
+                listOf(
+                    editorsChangesScreen(),
+                    addedBytesScreen()
+                )
+            }
+            else -> emptyList()
+        }
+    }
+
+    fun unlockedIconRoute(isIconUnlocked: Boolean): List<YearInReviewScreenData> {
+        return if (isIconUnlocked) {
+            listOf(
+                newIconUnlockedScreen()
+            )
+        } else {
+            listOf(
+                unlockCustomIconScreen()
+            )
+        }
+    }
+
+    fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
+        val isEditor = false // TODO: determine if the user is an editor
+        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
             spentReadingHoursScreen(1),
-            spentReadingHoursScreen(1)
+            popularArticlesScreen(),
+            globalSavedArticlesScreen()
+        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
+            isLoggedIn = false,
+            isEnglishWiki = true
         )
     }
 
-    fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+    fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for non-English users - non-logged in.
+        val isEditor = false // TODO: determine if the user is an editor
+        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
-            spentReadingHoursScreen(1),
-            spentReadingHoursScreen(1)
+            availableLanguagesScreen(),
+            viewedArticlesTimesScreen(),
+            globalSavedArticlesScreen()
+        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
+            isLoggedIn = false,
+            isEnglishWiki = false
         )
     }
 
-    fun loggedInEnglishSlides(): List<YearInReviewScreenData.StandardScreen> {
+    fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
+        val isEditor = false // TODO: determine if the user is an editor
+        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
-            spentReadingHoursScreen(1),
-            spentReadingHoursScreen(1)
+            spentReadingMinutesScreen(true),
+            viewedArticlesTimesScreen(),
+            readingPatternsScreen(),
+            interestingCategoriesScreen(true),
+            topArticlesScreen(),
+            geoWithArticlesScreen(),
+            localSavedArticlesScreen()
+        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
+            isLoggedIn = true,
+            isEnglishWiki = true
         )
     }
 
-    fun loggedInGeneralSlides(): List<YearInReviewScreenData.StandardScreen> {
+    fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
+        val isEditor = false // TODO: determine if the user is an editor
+        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
-            spentReadingHoursScreen(1),
-            spentReadingHoursScreen(1)
+            spentReadingMinutesScreen(false),
+            popularArticlesScreen(),
+            topArticlesScreen(),
+            readingPatternsScreen(),
+            interestingCategoriesScreen(false),
+            geoWithArticlesScreen(),
+            localSavedArticlesScreen()
+        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
+            isLoggedIn = true,
+            isEnglishWiki = true
         )
     }
 }
