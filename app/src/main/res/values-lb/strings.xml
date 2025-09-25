@@ -222,6 +222,7 @@
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
   <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont späichert</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont „%s“ späichert</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchroniséiert Lieslëschte vum „%s“ ewechhuelen?</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe  engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>

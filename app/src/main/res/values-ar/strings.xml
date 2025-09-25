@@ -311,6 +311,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
@@ -1408,7 +1409,7 @@
   <string name="activity_tab_impact_best_streak">أفضل سلسلة</string>
   <string name="activity_tab_impact_last_edited">تم التعديل الأخير</string>
   <string name="activity_tab_impact_suggested_edits_title">0 تعديلات على المقالات مؤخرًا</string>
-  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">يبدو أنك لم تُجرِ أي تعديل هذا الشهر. وسّع آفاق معرفتك المجانية بتعديل المواضيع التي تهمّك أكثر.</string>
+  <string name="activity_tab_impact_suggested_edits_message">يبدو أنك لم تُجرِ أي تعديل هذا الشهر. وسّع آفاق معرفتك المجانية بتعديل المواضيع التي تهمك.</string>
   <string name="activity_tab_impact_suggested_edits_button">إجراء تعديل</string>
   <string name="activity_tab_impact_recent_activity">نشاطك الأخير (آخر 30 يومًا)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1449,6 +1450,8 @@
   <string name="activity_tab_onboarding_engage_message">استكشف إحصائيات الألعاب والمقالات المحفوظة والأنشطة الأخرى التي تربطك بشكل أعمق مع ويكيبيديا.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">البقاء في السيطرة</string>
   <string name="activity_tab_onboarding_stay_in_control_message">اختر الوحدات التي ترغب في عرضها. جميع بياناتك الشخصية تبقى سرية على جهازك، ويمكنك مسح سجل التصفح في أي وقت.</string>
+  <string name="edits_screen_what_is_title">التحرير في تطبيق ويكيبيديا</string>
+  <string name="edits_screen_what_is_body">لست متأكدًا من أين تبدأ بالتعديل؟ جرّب ميزة \"التعديلات المقترحة\"، وهي ميزة تتيح لك تقديم مساهمات صغيرة لكنها جوهرية في ويكيبيديا. أو انتقل مباشرةً إلى مقالة تهمك وأجرِ تعديلًا باستخدام ويكي تيكست.</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
