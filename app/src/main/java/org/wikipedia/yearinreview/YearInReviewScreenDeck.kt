@@ -525,7 +525,12 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
-            screenContent = YearInReviewSlides.addedBytesScreen()
+            screenContent = YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Over 3 billion bytes added",
+                bodyText = "TBD"
+            )
         ) { /* No logic, preview only */ }
     }
 }
@@ -535,7 +540,14 @@ fun PreviewScreenShot() {
 fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
-            state = UiState.Success(YearInReviewSlides.nonLoggedInGeneralSlides()),
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.StandardScreen(
+                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    headlineText = "Over 3 billion bytes added",
+                    bodyText = "TBD"
+                )
+            )),
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}
