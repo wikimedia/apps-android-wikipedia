@@ -1,6 +1,6 @@
 package org.wikipedia.yearinreview
 
-sealed class YearInReviewScreenData(
+data class YearInReviewModel(
     val enReadingTimeInHours: Long,
     val enPopularArticles: List<String>,
     val availableLanguages: Int,
