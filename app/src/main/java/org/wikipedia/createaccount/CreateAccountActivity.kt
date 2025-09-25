@@ -27,6 +27,7 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
@@ -48,6 +49,10 @@ class CreateAccountActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
+
+    private val hCaptchaHelper = HCaptchaHelper(this) { token ->
+        doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +96,9 @@ class CreateAccountActivity : BaseActivity() {
                         when (it) {
                             is CreateAccountActivityViewModel.AccountInfoState.DoCreateAccount -> {
                                 doCreateAccount(it.token)
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
+                                hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
                                 captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
@@ -163,7 +171,15 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            FeedbackUtil.showPrivacyPolicy(this)
+
+
+
+            // TODO: remove when done testing
+            hCaptchaHelper.show()
+
+
+
+            //FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
             visitInExternalBrowser(this, PageTitle("Special:PasswordReset", wiki).uri.toUri())
@@ -195,13 +211,15 @@ class CreateAccountActivity : BaseActivity() {
         L.w("Account creation failed with result $message")
     }
 
-    private fun doCreateAccount(token: String) {
+    private fun doCreateAccount(token: String, hCaptchaToken: String? = null) {
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
-        viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
+        viewModel.doCreateAccount(token, captchaHandler.captchaId(),
+            if (hCaptchaToken.isNullOrEmpty()) captchaHandler.captchaWord() else hCaptchaToken,
+            userName, password, repeat, email)
     }
 
     public override fun onStop() {
@@ -210,6 +228,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
+        hCaptchaHelper.cleanup()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
