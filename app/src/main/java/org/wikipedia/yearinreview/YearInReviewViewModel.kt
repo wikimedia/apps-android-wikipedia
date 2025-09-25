@@ -56,11 +56,6 @@ class YearInReviewViewModel() : ViewModel() {
             // TODO: handle remote config to show numbers, maybe grab generic content from the config.
             val remoteConfig = RemoteConfig.config
 
-            // TODO: content TBD
-            val savedArticlesCount = async {
-                AppDatabase.instance.readingListPageDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
-            }
-
             val latestArticleTitlesFromSaved = async {
                 AppDatabase.instance.readingListPageDao().getLatestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
                     .map { StringUtil.fromHtml(it).toString() }
@@ -173,28 +168,29 @@ class YearInReviewViewModel() : ViewModel() {
                 yearInReviewModel = YearInReviewModel(
                     enReadingTimeSpent = 0L, // TODO: remote config
                     enPopularArticles = emptyList(),
-                    enEditsCount = 0L,
-                    enBytesAddedCount = 0L,
+                    enEditsCount = 0L, // TODO: remote config
+                    enBytesAddedCount = 0L, // TODO: remote config
                     availableLanguages = 0, // TODO: remote config
-                    globalTotalArticles = 0L,
-                    globalEditsCount = 0L,
-                    articlesViewedTimes = 0L,
-                    articlesSavedTimes = 0L,
+                    globalTotalArticles = 0L, // TODO: remote config
+                    globalEditsCount = 0L, // TODO: remote config
+                    globalReadingArticlesCount = 0, // TODO: remote config
+                    globalEditsPerMinute = 0, // TODO: remote config
+                    appArticlesViewedTimes = 0L, // TODO: remote config
+                    appArticlesSavedTimes = 0L, // TODO: remote config
+                    appsEditsCount = 0L, // TODO: remote config
                     localReadingTimeSpent = totalTimeSpent.await(),
-                    localReadingArticles = readCountForTheYear.await(),
-                    localReadingRank = "50%",
+                    localReadingArticlesCount = readCountForTheYear.await(),
+                    localReadingRank = "50%", // TODO: compare with the total reading hours
                     localSavedArticles = latestArticleTitlesFromSaved.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
+                    localTopCategories = emptyList(),
                     favoriteTimeToRead = "Evening",
                     favoriteDayToRead = "Saturday",
                     favoriteMonthDidMostReading = "March",
-                    topCategories = emptyList(),
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
-                    userEditsCount = 0L,
-                    userEditsViewedTimes = 0L,
-                    appsEditsCount = 0L,
-                    editsPerMinute = 0L
+                    userEditsCount = editCount,
+                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount
                 )
             ).finalSlides()
 
