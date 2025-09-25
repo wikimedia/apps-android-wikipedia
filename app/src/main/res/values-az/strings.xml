@@ -1185,7 +1185,7 @@
   <string name="activity_tab_impact_best_streak">Ən yaxşı davamiyyət</string>
   <string name="activity_tab_impact_last_edited">Sonuncu redaktə</string>
   <string name="activity_tab_impact_suggested_edits_title">Bu yaxınlarda məqalələrə 0 düzəliş</string>
-  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">Deyəsən bu ay redaktə etməmisiniz. Sizin üçün ən vacib olan mövzuları redaktə edərək açıq bilik bazasını genişləndirin.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Deyəsən bu ay redaktə etməmisiniz. Sizə maraqlı olan mövzuları redaktə edərək açıq bilik bazasını genişləndirin.</string>
   <string name="activity_tab_impact_suggested_edits_button">Redaktə et</string>
   <string name="activity_tab_impact_recent_activity">Son fəaliyyətiniz (son 30 gün)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1218,6 +1218,7 @@
   <string name="activity_tab_onboarding_engage_message">Sizi Vikipediya ilə daha dərindən birləşdirən oyunlar, yadda saxlanılan məqalələr və digər fəaliyyətlər üçün statistikaları araşdırın.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Nəzarətdə qalın</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Hansı modulların göstəriləcəyini seçin. Bütün şəxsi məlumatlar cihazınızda məxfi qalır və baxış tarixçəsi istənilən vaxt silinə bilər.</string>
+  <string name="edits_screen_what_is_title">Vikipediya tətbiqində redaktə</string>
   <string name="file_page_activity_title">Fayl səhifəsi</string>
   <string name="file_page_add_image_caption_button">Şəkil başlığı əlavə et</string>
   <string name="file_page_add_image_tags_button">Şəkil etiketləri əlavə et</string>

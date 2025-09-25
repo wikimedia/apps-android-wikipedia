@@ -19,10 +19,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -472,7 +468,7 @@ fun DonationHeader(
                     modifier = Modifier
                         .size(20.dp)
                         .padding(start = 4.dp),
-                    imageVector = Icons.Filled.Favorite,
+                    painter = painterResource(R.drawable.ic_heart_24),
                     contentDescription = null,
                     tint = WikipediaTheme.colors.destructiveColor
                 )
@@ -544,7 +540,7 @@ fun <T : Number>OptionSelector(
                     ),
                     trailingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.ArrowDropDown,
+                            painter = painterResource(R.drawable.ic_arrow_drop_down_black_24dp),
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
@@ -749,7 +745,7 @@ fun CustomInputDialog(
                     trailingIcon = if (errorMessage.isNotEmpty()) {
                         {
                             Icon(
-                                imageVector = Icons.Default.Info,
+                                painter = painterResource(R.drawable.baseline_info_24),
                                 contentDescription = null,
                                 tint = WikipediaTheme.colors.destructiveColor
                             )
