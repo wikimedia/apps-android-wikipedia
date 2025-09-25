@@ -275,7 +275,6 @@ dependencies {
     def composeBom = platform(libs.composeBom)
     implementation(composeBom)
     implementation(libs.compose.material3)
-    implementation(libs.compose.material.icons)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     debugImplementation(libs.compose.ui.tooling)

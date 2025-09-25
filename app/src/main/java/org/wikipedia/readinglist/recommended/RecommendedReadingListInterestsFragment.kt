@@ -32,11 +32,6 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -258,7 +253,7 @@ fun RecommendedReadingListInterestsScreen(
                 navigationIcon = {
                     val enabled = !fromSettings || (uiState !is Resource.Success) || uiState.data.selectedItems.isNotEmpty()
                     Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                         contentDescription = stringResource(R.string.search_back_button_content_description),
                         modifier = Modifier
                             .size(48.dp)
@@ -435,7 +430,7 @@ fun RecommendedReadingListInterestsContent(
                         .clickable(enabled = selectedItems.isNotEmpty(), onClick = onNextClick)
                         .padding(12.dp)
                         .alpha(if (selectedItems.isNotEmpty()) 1f else 0.5f),
-                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                    painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.nav_item_forward)
                 )
@@ -510,7 +505,7 @@ fun ReadingListInterestCard(
                         Spacer(modifier = Modifier.width(8.dp))
                         Icon(
                             modifier = Modifier.size(24.dp).align(Alignment.Bottom),
-                            imageVector = Icons.Default.CheckCircle,
+                            painter = painterResource(R.drawable.check_circle_24px),
                             tint = WikipediaTheme.colors.primaryColor,
                             contentDescription = null
                         )
@@ -539,7 +534,7 @@ fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
     ) {
         Spacer(modifier = Modifier.width(16.dp))
         Icon(
-            imageVector = Icons.Default.Search,
+            painter = painterResource(R.drawable.outline_search_24),
             contentDescription = stringResource(R.string.search_hint),
             tint = WikipediaTheme.colors.secondaryColor,
             modifier = Modifier.size(24.dp)
