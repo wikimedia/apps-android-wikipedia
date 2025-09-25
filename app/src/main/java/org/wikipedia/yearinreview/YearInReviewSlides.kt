@@ -2,8 +2,12 @@ package org.wikipedia.yearinreview
 
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 
 object YearInReviewSlides {
+
+    private val isEnglishWiki = WikipediaApp.instance.appOrSystemLanguageCode == "en"
+
     fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
         return YearInReviewScreenData.StandardScreen(
@@ -208,7 +212,7 @@ object YearInReviewSlides {
                 "You saved 25 articles",
                 "You edited Wikipedia 150 times"
             ),
-            headlineText = if (isLoggedIn) "Your 2025 highlights" else "2025 highlights"
+            headlineText = "2025 highlights"
         )
     }
 
@@ -219,19 +223,18 @@ object YearInReviewSlides {
                 editedTimesScreen(),
                 editedViewsScreen()
             )
-            !isEditor && WikipediaApp.instance.appOrSystemLanguageCode != "en" -> {
+            !isEditor && !isEnglishWiki -> {
                 listOf(
                     editorsEditsScreen(),
                     editedPerMinuteScreen()
                 )
             }
-            !isEditor && WikipediaApp.instance.appOrSystemLanguageCode == "en" -> {
+            else -> {
                 listOf(
                     editorsChangesScreen(),
                     addedBytesScreen()
                 )
             }
-            else -> emptyList()
         }
     }
 
@@ -309,5 +312,24 @@ object YearInReviewSlides {
             isLoggedIn = true,
             isEnglishWiki = true
         )
+    }
+
+    // TODO: send all required data to this function
+    fun finalSlides(): List<YearInReviewScreenData> {
+        return when {
+            AccountUtil.isLoggedIn && isEnglishWiki -> {
+                loggedInEnglishSlides()
+            }
+
+            AccountUtil.isLoggedIn && !isEnglishWiki -> {
+                loggedInGeneralSlides()
+            }
+
+            !AccountUtil.isLoggedIn && isEnglishWiki -> {
+                nonLoggedInEnglishGeneralSlides()
+            }
+
+            else -> nonLoggedInGeneralSlides()
+        }
     }
 }
