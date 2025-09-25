@@ -1179,7 +1179,7 @@
   <string name="activity_tab_impact_best_streak">Melior serie</string>
   <string name="activity_tab_impact_last_edited">Ultime modification</string>
   <string name="activity_tab_impact_suggested_edits_title">0 modificationes recente de articulos</string>
-  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">Pare que tu non ha apportate alcun modification iste mense. Extende le cognoscentia libere modificante le topicos que te importa le plus.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Pare que tu non ha apportate alcun modification iste mense. Extende le cognoscentia libere modificante le topicos que te interessa.</string>
   <string name="activity_tab_impact_suggested_edits_button">Facer un modification</string>
   <string name="activity_tab_impact_recent_activity">Tu activitate recente (ultime 30 dies)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1212,6 +1212,8 @@
   <string name="activity_tab_onboarding_engage_message">Explora statisticas de jocos, articulos salveguardate e altere activitates que approfunda tu connexion con Wikipedia.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Mantener le controlo</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Elige le modulos a monstrar. Tote le datos personal resta private sur tu apparato e le historia de navigation pote esser radite a omne momento.</string>
+  <string name="edits_screen_what_is_title">Modificar in le app de Wikipedia</string>
+  <string name="edits_screen_what_is_body">Non secur ubi comenciar a modificar? Tenta le Modificationes suggerite, un function que crea opportunitates de apportar contributiones micre ma essential a Wikipedia. Alternativemente, visita directemente un articulo de interesse e apporta un modification in wikitexto.</string>
   <string name="file_page_activity_title">Pagina de file</string>
   <string name="file_page_add_image_caption_button">Adder legenda al imagine</string>
   <string name="file_page_add_image_tags_button">Adder etiquettas al imagine</string>
