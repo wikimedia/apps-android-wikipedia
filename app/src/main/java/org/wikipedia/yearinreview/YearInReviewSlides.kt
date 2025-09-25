@@ -1,14 +1,16 @@
 package org.wikipedia.yearinreview
 
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil
 
-object YearInReviewSlides {
+class YearInReviewSlides(
+    val isEditor: Boolean,
+    val isLoggedIn: Boolean,
+    val isEnglishWiki: Boolean,
+    val isIconUnlocked: Boolean,
+    val yearInReviewModel: YearInReviewModel
+) {
 
-    private val isEnglishWiki = WikipediaApp.instance.appOrSystemLanguageCode == "en"
-
-    fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -18,7 +20,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun spentReadingMinutesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun spentReadingMinutesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir99 + yir100 => need to check if it is en or not en
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -28,7 +30,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun popularArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun popularArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir127 + 104
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -38,7 +40,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun globalSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun globalSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir126
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -48,7 +50,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun availableLanguagesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun availableLanguagesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -58,7 +60,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun viewedArticlesTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun viewedArticlesTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir125 + yir103
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -68,7 +70,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun readingPatternsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun readingPatternsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir106 + yir107
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -78,7 +80,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun interestingCategoriesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun interestingCategoriesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir108 + yir110 => confirm the difference.
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -88,7 +90,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun topArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun topArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir109 + yir105
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -98,7 +100,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
+    private fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
         // TODO: yir112
         return YearInReviewScreenData.GeoScreen(
             coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
@@ -107,7 +109,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun localSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun localSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir113
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -117,7 +119,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun editedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir114
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -127,7 +129,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun editedViewsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editedViewsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir115
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -137,7 +139,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun editorsEditsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editorsEditsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir116
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -147,7 +149,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun editedPerMinuteScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editedPerMinuteScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir117
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -157,7 +159,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun editorsChangesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editorsChangesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir118
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -167,7 +169,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun addedBytesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun addedBytesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir119
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -177,7 +179,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun newIconUnlockedScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun newIconUnlockedScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir121
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -190,7 +192,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun unlockCustomIconScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun unlockCustomIconScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir122
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -204,7 +206,7 @@ object YearInReviewSlides {
         )
     }
 
-    fun highlightScreen(isLoggedIn: Boolean, isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.HighlightsScreen {
+    private fun highlightScreen(vararg params: Int): YearInReviewScreenData.HighlightsScreen {
         // TODO: yir122
         return YearInReviewScreenData.HighlightsScreen(
             highlights = listOf(
@@ -217,7 +219,7 @@ object YearInReviewSlides {
     }
 
     // TODO: add parameters for numbers
-    fun editorRoutes(isEditor: Boolean): List<YearInReviewScreenData> {
+    private fun editorRoutes(): List<YearInReviewScreenData> {
         return when {
             isEditor -> listOf(
                 editedTimesScreen(),
@@ -238,7 +240,7 @@ object YearInReviewSlides {
         }
     }
 
-    fun unlockedIconRoute(isIconUnlocked: Boolean): List<YearInReviewScreenData> {
+    private fun unlockedIconRoute(): List<YearInReviewScreenData> {
         return if (isIconUnlocked) {
             listOf(
                 newIconUnlockedScreen()
@@ -250,38 +252,26 @@ object YearInReviewSlides {
         }
     }
 
-    fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
+    private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
-        val isEditor = false // TODO: determine if the user is an editor
-        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
             spentReadingHoursScreen(1),
             popularArticlesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
-            isLoggedIn = false,
-            isEnglishWiki = true
-        )
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
     }
 
-    fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
+    private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for non-English users - non-logged in.
-        val isEditor = false // TODO: determine if the user is an editor
-        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
-            isLoggedIn = false,
-            isEnglishWiki = false
-        )
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
     }
 
-    fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
+    private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
-        val isEditor = false // TODO: determine if the user is an editor
-        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
             spentReadingMinutesScreen(true),
             viewedArticlesTimesScreen(),
@@ -290,16 +280,11 @@ object YearInReviewSlides {
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
-            isLoggedIn = true,
-            isEnglishWiki = true
-        )
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
     }
 
-    fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
+    private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
-        val isEditor = false // TODO: determine if the user is an editor
-        val isIconUnlocked = false // TODO: determine if the user is an editor
         return listOf(
             spentReadingMinutesScreen(false),
             popularArticlesScreen(),
@@ -308,24 +293,21 @@ object YearInReviewSlides {
             interestingCategoriesScreen(false),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes(isEditor) + unlockedIconRoute(isIconUnlocked) + highlightScreen(
-            isLoggedIn = true,
-            isEnglishWiki = true
-        )
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
     }
 
     // TODO: send all required data to this function
     fun finalSlides(): List<YearInReviewScreenData> {
         return when {
-            AccountUtil.isLoggedIn && isEnglishWiki -> {
+            isLoggedIn && isEnglishWiki -> {
                 loggedInEnglishSlides()
             }
 
-            AccountUtil.isLoggedIn && !isEnglishWiki -> {
+            isLoggedIn && !isEnglishWiki -> {
                 loggedInGeneralSlides()
             }
 
-            !AccountUtil.isLoggedIn && isEnglishWiki -> {
+            !isLoggedIn && isEnglishWiki -> {
                 nonLoggedInEnglishGeneralSlides()
             }
 

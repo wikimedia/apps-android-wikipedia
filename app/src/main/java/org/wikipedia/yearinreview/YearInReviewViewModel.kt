@@ -7,6 +7,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -117,8 +118,76 @@ class YearInReviewViewModel() : ViewModel() {
                 }
             }
 
-            // TODO: build slides based on conditions: logged in, non-logged in, en vs non-en, and also based on the data we have.
-            val finalRoute = YearInReviewSlides.finalSlides()
+            val homeSiteCall = async {
+                ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                    .getUserContribsByTimeFrame(
+                        username = AccountUtil.userName,
+                        maxCount = 500,
+                        startDate = endTime,
+                        endDate = startTime
+                    )
+            }
+            val commonsCall = async {
+                ServiceFactory.get(Constants.commonsWikiSite)
+                    .getUserContribsByTimeFrame(
+                        username = AccountUtil.userName,
+                        maxCount = 500,
+                        startDate = endTime,
+                        endDate = startTime
+                    )
+            }
+            val wikidataCall = async {
+                ServiceFactory.get(Constants.wikidataWikiSite)
+                    .getUserContribsByTimeFrame(
+                        username = AccountUtil.userName,
+                        maxCount = 500,
+                        startDate = endTime,
+                        endDate = startTime,
+                        ns = 0,
+                    )
+            }
+
+            val homeSiteResponse = homeSiteCall.await()
+            val commonsResponse = commonsCall.await()
+            val wikidataResponse = wikidataCall.await()
+
+            var editCount = homeSiteResponse.query?.userInfo!!.editCount
+            editCount += wikidataResponse.query?.userInfo!!.editCount
+            editCount += commonsResponse.query?.userInfo!!.editCount
+
+            // TODO: send the actual data to the YearInReviewSlides
+            val finalRoute = YearInReviewSlides(
+                isEditor = editCount > 0,
+                isLoggedIn = AccountUtil.isLoggedIn,
+                isIconUnlocked = Prefs.donationResults.isNotEmpty(),
+                isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                yearInReviewModel = YearInReviewModel(
+                    enReadingTimeInHours = 0L,
+                    enPopularArticles = emptyList(),
+                    availableLanguages = 0,
+                    globalTotalArticles = 0L,
+                    articlesViewedTimes = 0L,
+                    articlesSavedTimes = 0L,
+                    localReadingTimeInMinutes = 0L,
+                    localReadingArticles = 0,
+                    localReadingRank = "50%",
+                    localSavedArticles = emptyList(),
+                    topArticles = emptyList(),
+                    favoriteTimeToRead = "Evening",
+                    favoriteDayToRead = "Saturday",
+                    favoriteMonthDidMostReading = "March",
+                    topCategories = emptyList(),
+                    closestLocation = Pair(0.0, 0.0),
+                    closestArticles = emptyList(),
+                    userEditsCount = 0L,
+                    globalEditsCount = 0L,
+                    enEditsCount = 0L,
+                    userEditsViewedTimes = 0L,
+                    appsEditsCount = 0L,
+                    editsPerMinute = 0L,
+                    enBytesAddedCount = 0L
+                )
+            ).finalSlides()
 
             // TODO: make sure return enough slides here
             _uiScreenListState.value = UiState.Success(
