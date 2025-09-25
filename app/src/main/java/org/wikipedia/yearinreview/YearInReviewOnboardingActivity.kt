@@ -19,6 +19,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                     },
                     onGetStartedClick = {
                         startActivity(YearInReviewActivity.newIntent(this))
+                        finish()
                     }
                 )
             }

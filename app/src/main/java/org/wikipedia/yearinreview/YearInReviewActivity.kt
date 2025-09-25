@@ -9,11 +9,7 @@ import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -22,9 +18,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -36,38 +30,12 @@ class YearInReviewActivity : BaseActivity() {
             BaseTheme {
                 val coroutineScope = rememberCoroutineScope()
                 val navController = rememberNavController()
-                var isSurveyVisible by remember { mutableStateOf(false) }
 
                 BackHandler {
-                    if (viewModel.canShowSurvey) {
-                        isSurveyVisible = true
-                    } else {
-                        finish()
-                    }
+                    finish()
                 }
 
-                if (isSurveyVisible) {
-                    Prefs.yirSurveyShown = true
-                    YearInReviewSurvey(
-                        onCancelButtonClick = {
-                            isSurveyVisible = false
-                            finish()
-                        },
-                        onSubmitButtonClick = { selectedOption, userInput ->
-                            PatrollerExperienceEvent.logAction(
-                                action = "yir_survey_submit",
-                                activeInterface = "yir_survey_form",
-                                actionData = PatrollerExperienceEvent
-                                    .getActionDataString(
-                                        feedbackOption = selectedOption,
-                                        feedbackText = userInput
-                                    )
-                            )
-                            isSurveyVisible = false
-                            finish()
-                        }
-                    )
-                }
+                // TODO: implement survey in the article screen.
 
                 NavHost(
                     navController = navController,
@@ -87,11 +55,10 @@ class YearInReviewActivity : BaseActivity() {
                                         pagerState.animateScrollToPage(pagerState.currentPage - 1)
                                     }
                                 } else {
-                                    navController.popBackStack()
+                                    finish()
                                 }
                             },
                             onNextButtonClick = { pagerState ->
-                                viewModel.canShowSurvey = true
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
                                 }

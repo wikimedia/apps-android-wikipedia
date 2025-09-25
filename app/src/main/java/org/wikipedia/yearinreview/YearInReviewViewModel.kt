@@ -39,13 +39,6 @@ class YearInReviewViewModel() : ViewModel() {
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
 
-    private var _canShowSurvey: Boolean = false
-    var canShowSurvey: Boolean
-        get() = _canShowSurvey && !Prefs.yirSurveyShown
-        set(value) {
-            _canShowSurvey = value
-        }
-
     init {
         fetchPersonalizedData()
     }
