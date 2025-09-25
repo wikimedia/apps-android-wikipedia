@@ -66,16 +66,13 @@ class YearInReviewViewModel() : ViewModel() {
             }
 
             val topVisitedArticlesForTheYear = async {
-                // TODO: update the query
-                AppDatabase.instance.historyEntryDao().getLatestArticleTitles(MINIMUM_READ_COUNT)
+                AppDatabase.instance.historyEntryDao().getTopVisitedEntriesSince(MINIMUM_READ_COUNT, yearAgo)
                     .map { StringUtil.fromHtml(it).toString() }
             }
 
             val totalTimeSpent = async {
                 AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(yearAgo)
             }
-
-            // TODO: think about the actual data to show.
 
             val impactDataJob = async {
                 if (AccountUtil.isLoggedIn) {

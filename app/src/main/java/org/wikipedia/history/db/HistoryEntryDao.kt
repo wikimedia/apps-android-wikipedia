@@ -30,8 +30,8 @@ interface HistoryEntryDao {
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
     suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
 
-    @Query("SELECT DISTINCT displayTitle FROM HistoryEntry ORDER BY timestamp DESC LIMIT :limit")
-    suspend fun getLatestArticleTitles(limit: Int): List<String>
+    @Query("SELECT displayTitle FROM HistoryEntry WHERE timestamp > :timestamp GROUP BY displayTitle ORDER BY COUNT(displayTitle) DESC LIMIT :limit")
+    suspend fun getTopVisitedEntriesSince(limit: Int, timestamp: Long): List<String>
 
     @Query("SELECT COUNT(*) FROM HistoryEntry")
     suspend fun getHistoryCount(): Int
