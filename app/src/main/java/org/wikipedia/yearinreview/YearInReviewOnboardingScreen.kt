@@ -8,12 +8,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -21,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -53,17 +52,9 @@ fun YearInReviewOnboardingScreen(
         modifier = modifier,
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
-            CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = WikipediaTheme.colors.paperColor),
-                title = {
-                    Icon(
-                        modifier = Modifier.size(42.dp),
-                        painter = painterResource(R.drawable.ic_w_transparent),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_topbar_w_icon)
-                    )
-                },
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = WikipediaTheme.colors.paperColor),
+                title = {},
                 navigationIcon = {
                     IconButton(onClick = { onBackButtonClick() }) {
                         Icon(
@@ -137,7 +128,7 @@ fun YearInReviewOnboardingContent(
             Text(
                 modifier = Modifier
                     .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
-                text = stringResource(R.string.year_in_review_get_started_bodytext),
+                text = stringResource(R.string.year_in_review_get_started_info),
                 color = WikipediaTheme.colors.secondaryColor,
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center
