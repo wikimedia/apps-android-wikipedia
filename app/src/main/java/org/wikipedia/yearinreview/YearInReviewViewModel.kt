@@ -49,120 +49,123 @@ class YearInReviewViewModel() : ViewModel() {
         viewModelScope.launch(handler) {
 
             _uiScreenListState.value = UiState.Loading
-            val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            val yearInMillis = TimeUnit.DAYS.toMillis(365)
-            val yearAgo = now - yearInMillis
 
-            // TODO: handle remote config to show numbers, maybe grab generic content from the config.
-            val remoteConfig = RemoteConfig.config
+            val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
-            val latestArticleTitlesFromSaved = async {
-                AppDatabase.instance.readingListPageDao().getLatestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
-                    .map { StringUtil.fromHtml(it).toString() }
-            }
+            if (yearInReviewModelMap[currentYear] == null) {
+                val now =
+                    LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                val yearInMillis = TimeUnit.DAYS.toMillis(365)
+                val yearAgo = now - yearInMillis
 
-            val readCountForTheYear = async {
-                AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
-            }
+                // TODO: handle remote config to show numbers, maybe grab generic content from the config.
+                val remoteConfig = RemoteConfig.config
 
-            val topVisitedArticlesForTheYear = async {
-                AppDatabase.instance.historyEntryDao().getTopVisitedEntriesSince(MINIMUM_READ_COUNT, yearAgo)
-                    .map { StringUtil.fromHtml(it).toString() }
-            }
-
-            val totalTimeSpent = async {
-                AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(yearAgo)
-            }
-
-            val impactDataJob = async {
-                if (AccountUtil.isLoggedIn) {
-                    val wikiSite = WikipediaApp.instance.wikiSite
-                    val now = Instant.now().epochSecond
-                    val impact: GrowthUserImpact
-                    val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
-                    val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
-                    if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(
-                            12
-                        )
-                    ) {
-                        val userId =
-                            ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
-                        impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
-                        impactLastResponseBodyMap[wikiSite.languageCode] =
-                            JsonUtil.encodeToString(impact).orEmpty()
-                        Prefs.impactLastResponseBody = impactLastResponseBodyMap
-                        Prefs.impactLastQueryTime = now
-                    } else {
-                        impact = JsonUtil.decodeFromString(impactResponse)!!
-                    }
-
-                    val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
-                        titles = impact.topViewedArticles.keys.joinToString(separator = "|")
-                    )
-
-                    // Transform the response to a map of PageTitle to ArticleViews
-                    val pageMap = pagesResponse.query?.pages?.associate { page ->
-                        val pageTitle = PageTitle(
-                            text = page.title,
-                            wiki = wikiSite,
-                            thumbUrl = page.thumbUrl(),
-                            description = page.description,
-                            displayText = page.displayTitle(wikiSite.languageCode)
-                        )
-                        pageTitle to impact.topViewedArticles[pageTitle.text]!!
-                    } ?: emptyMap()
-
-                    impact.topViewedArticlesWithPageTitle = pageMap
-                    impact
-                } else {
-                    GrowthUserImpact()
+                val latestArticleTitlesFromSaved = async {
+                    AppDatabase.instance.readingListPageDao()
+                        .getLatestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
+                        .map { StringUtil.fromHtml(it).toString() }
                 }
-            }
 
-            val homeSiteCall = async {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime
-                    )
-            }
-            val commonsCall = async {
-                ServiceFactory.get(Constants.commonsWikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime
-                    )
-            }
-            val wikidataCall = async {
-                ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime,
-                        ns = 0,
-                    )
-            }
+                val readCountForTheYear = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
+                }
 
-            val homeSiteResponse = homeSiteCall.await()
-            val commonsResponse = commonsCall.await()
-            val wikidataResponse = wikidataCall.await()
+                val topVisitedArticlesForTheYear = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getTopVisitedEntriesSince(MINIMUM_READ_COUNT, yearAgo)
+                        .map { StringUtil.fromHtml(it).toString() }
+                }
 
-            var editCount = homeSiteResponse.query?.userInfo!!.editCount
-            editCount += wikidataResponse.query?.userInfo!!.editCount
-            editCount += commonsResponse.query?.userInfo!!.editCount
+                val totalTimeSpent = async {
+                    AppDatabase.instance.historyEntryWithImageDao()
+                        .getTimeSpentSinceTimeStamp(yearAgo)
+                }
 
-            // TODO: send the actual data to the YearInReviewSlides
-            val finalRoute = YearInReviewSlides(
-                isEditor = editCount > 0,
-                isLoggedIn = AccountUtil.isLoggedIn,
-                isIconUnlocked = Prefs.donationResults.isNotEmpty(),
-                isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
-                yearInReviewModel = YearInReviewModel(
+                val impactDataJob = async {
+                    if (AccountUtil.isLoggedIn) {
+                        val wikiSite = WikipediaApp.instance.wikiSite
+                        val now = Instant.now().epochSecond
+                        val impact: GrowthUserImpact
+                        val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+                        val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(
+                                12
+                            )
+                        ) {
+                            val userId =
+                                ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                            impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                            impactLastResponseBodyMap[wikiSite.languageCode] =
+                                JsonUtil.encodeToString(impact).orEmpty()
+                            Prefs.impactLastResponseBody = impactLastResponseBodyMap
+                            Prefs.impactLastQueryTime = now
+                        } else {
+                            impact = JsonUtil.decodeFromString(impactResponse)!!
+                        }
+
+                        val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+                            titles = impact.topViewedArticles.keys.joinToString(separator = "|")
+                        )
+
+                        // Transform the response to a map of PageTitle to ArticleViews
+                        val pageMap = pagesResponse.query?.pages?.associate { page ->
+                            val pageTitle = PageTitle(
+                                text = page.title,
+                                wiki = wikiSite,
+                                thumbUrl = page.thumbUrl(),
+                                description = page.description,
+                                displayText = page.displayTitle(wikiSite.languageCode)
+                            )
+                            pageTitle to impact.topViewedArticles[pageTitle.text]!!
+                        } ?: emptyMap()
+
+                        impact.topViewedArticlesWithPageTitle = pageMap
+                        impact
+                    } else {
+                        GrowthUserImpact()
+                    }
+                }
+
+                val homeSiteCall = async {
+                    ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = endTime,
+                            endDate = startTime
+                        )
+                }
+                val commonsCall = async {
+                    ServiceFactory.get(Constants.commonsWikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = endTime,
+                            endDate = startTime
+                        )
+                }
+                val wikidataCall = async {
+                    ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = endTime,
+                            endDate = startTime,
+                            ns = 0,
+                        )
+                }
+
+                val homeSiteResponse = homeSiteCall.await()
+                val commonsResponse = commonsCall.await()
+                val wikidataResponse = wikidataCall.await()
+
+                var editCount = homeSiteResponse.query?.userInfo!!.editCount
+                editCount += wikidataResponse.query?.userInfo!!.editCount
+                editCount += commonsResponse.query?.userInfo!!.editCount
+
+                yearInReviewModelMap[currentYear] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
                     enPopularArticles = emptyList(),
                     enEditsCount = 0L, // TODO: remote config
@@ -189,6 +192,18 @@ class YearInReviewViewModel() : ViewModel() {
                     userEditsCount = editCount,
                     userEditsViewedTimes = impactDataJob.await().totalPageviewsCount
                 )
+
+                Prefs.yearInReviewModelData = yearInReviewModelMap
+            }
+
+            val yearInReviewModel = yearInReviewModelMap[currentYear]!!
+
+            val finalRoute = YearInReviewSlides(
+                isEditor = yearInReviewModel.userEditsCount > 0,
+                isLoggedIn = AccountUtil.isLoggedIn,
+                isIconUnlocked = Prefs.donationResults.isNotEmpty(),
+                isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
             // TODO: make sure return enough slides here
