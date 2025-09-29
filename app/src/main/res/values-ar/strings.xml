@@ -323,7 +323,7 @@
   <string name="edit_abandon_confirm_yes">نعم</string>
   <string name="edit_abandon_confirm_no">لا</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
-  <string name="user_logged_in_blocked_from_editing">تم منع حسابك من تعديل هذه الويكي.</string>
+  <string name="user_logged_in_blocked_from_editing">مُنع حسابك من تعديل هذه الويكي.</string>
   <string name="user_anon_blocked_from_editing">تم منع عنوان الآي بي الخاص بك من التعديل.</string>
   <string name="edit_how_page_improved">كيف حسّنت الصفحة؟</string>
   <string name="edit_next">التالي</string>
