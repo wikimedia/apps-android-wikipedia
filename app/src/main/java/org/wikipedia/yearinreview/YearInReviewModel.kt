@@ -1,7 +1,7 @@
 package org.wikipedia.yearinreview
 
 data class YearInReviewModel(
-    val enReadingTimeSpent: Long,
+    val enReadingTimePerHour: Long,
     val enPopularArticles: List<String>,
     val enEditsCount: Long,
     val enBytesAddedCount: Long,
@@ -13,7 +13,7 @@ data class YearInReviewModel(
     val appArticlesViewedTimes: Long,
     val appArticlesSavedTimes: Long,
     val appsEditsCount: Long,
-    val localReadingTimeSpent: Long,
+    val localReadingTimePerMinute: Long,
     val localReadingArticlesCount: Int,
     val localReadingRank: String, // TODO: TBD: top 50% or pure numbers,
     val localSavedArticles: List<String>,

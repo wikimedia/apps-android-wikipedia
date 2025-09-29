@@ -163,7 +163,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
                 yearInReviewModel = YearInReviewModel(
-                    enReadingTimeSpent = 0L, // TODO: remote config
+                    enReadingTimePerHour = 0L, // TODO: remote config
                     enPopularArticles = emptyList(),
                     enEditsCount = 0L, // TODO: remote config
                     enBytesAddedCount = 0L, // TODO: remote config
@@ -175,7 +175,7 @@ class YearInReviewViewModel() : ViewModel() {
                     appArticlesViewedTimes = 0L, // TODO: remote config
                     appArticlesSavedTimes = 0L, // TODO: remote config
                     appsEditsCount = 0L, // TODO: remote config
-                    localReadingTimeSpent = totalTimeSpent.await(),
+                    localReadingTimePerMinute = totalTimeSpent.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
                     localReadingRank = "50%", // TODO: compare with the total reading hours
                     localSavedArticles = latestArticleTitlesFromSaved.await(),
