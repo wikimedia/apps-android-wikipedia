@@ -55,6 +55,7 @@
   <string name="search_icon_content_description">Hledat</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_suggested_edits">Editace</string>
+  <string name="nav_item_activity">Aktivita</string>
   <string name="nav_item_more">Více</string>
   <string name="nav_item_search">Vyhledávání</string>
   <string name="nav_item_contribute">Přispět</string>
@@ -188,7 +189,7 @@
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
   <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
+  <string name="login_2fa_other_workflow_error_msg">Vyžaduje se dvoufaktorové ověřování! Přihlaste se prosím z hlavní obrazovky a zadejte kód z vašeho 2FA tokenu.</string>
   <string name="login_email_auth_hint">Ověřovací kód z e-mailu</string>
   <string name="login_email_auth_other_workflow_error_msg">Je vyžadováno ověření e-mailu! Přihlaste se prosím z hlavní strany a zadejte ověřovací kód z e-mailu.</string>
   <string name="login_background_error_msg">Nelze se znovu přihlásit. Vraťte se prosím na hlavní stranu a přihlaste se ručně.</string>
@@ -214,6 +215,7 @@
   <string name="logged_out_in_background_cancel">Storno</string>
   <string name="account_vanish_request_title">Nechat zmizet účet</string>
   <string name="account_vanish_request_confirm_title">Varování zmizení účtu</string>
+  <string name="account_vanish_request_confirm">Zmizení je &lt;b&gt;poslední možnost&lt;/b&gt; a mělo by &lt;b&gt;se používat pouze tehdy, když chcete úpravy navždy ukončit&lt;/b&gt; a také skrýt co nejvíce svých minulých asociací.&lt;br/&gt;&lt;br/&gt; Smazání účtu na Wikipedii se provádí změnou uživatelského jména tak, aby ostatní nemohli rozpoznat vaše příspěvky, a to procesem zvaným zmizení účtu. &lt;b&gt;Zmizení nezaručuje úplnou anonymitu ani odstranění příspěvků k projektům&lt;/b&gt; .</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -295,6 +297,7 @@
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
+  <string name="about_logo_content_description">Logotyp puzzle globu Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="edit_abandon_confirm_yes">Ano</string>
   <string name="edit_abandon_confirm_no">Ne</string>
@@ -310,6 +313,7 @@
   <string name="edit_rollback">Vrátit zpět</string>
   <string name="edit_warn">Varovat</string>
   <string name="edit_damage">Poškozeno %s</string>
+  <string name="edit_intent">Záměr %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte.</item>
     <item quantity="few">%s byty.</item>
@@ -478,6 +482,7 @@
   <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
+  <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
   <string name="temp_account_dialog_ok">Rozumím</string>
   <string name="temp_account_using_title">Využíváte dočasný účet</string>
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>

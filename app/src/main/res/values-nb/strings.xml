@@ -40,6 +40,7 @@
   <string name="search_icon_content_description">Søk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer listene mine</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
+  <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Søk</string>
   <string name="nav_item_contribute">Bidra</string>
@@ -52,7 +53,7 @@
   <string name="page_error_back_to_main">Gå tilbake</string>
   <string name="error_back">Gå tilbake</string>
   <string name="error_next">Neste</string>
-  <string name="menu_clear_all_history" fuzzy="true">Tøm logg</string>
+  <string name="menu_clear_all_history">Tøm lesehistorikk</string>
   <string name="history_item_deleted">%s ble fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler ble fjernet fra historikken</string>
   <string name="history_item_delete_undo">Angre</string>
@@ -65,7 +66,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
+  <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nei</string>
   <string name="share_via">Del via</string>
@@ -435,7 +436,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
   <string name="preference_title_prefer_offline_content">Foretrekk offline-innhold</string>
   <string name="preference_summary_prefer_offline_content">Reduser dataforbruket ved å vise artikler som er tilgjengelige offline i stedet for å alltid laste den siste versjonen av en artikkel</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Slett lokal donasjonshistorikk</string>
+  <string name="preference_title_delete_local_donation_history">Slett donasjonshistorikk</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Match med systemets stil</string>
   <string name="page_footer_license_text">Innholdet er tilgjengelig under $1 med mindre annet er angitt</string>
   <string name="empty_tab_title">Ny fane</string>
@@ -936,6 +937,7 @@
   <string name="customize_toolbar_reset_to_default_button">Nullstill</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold flytteikonet for å flytte elementet</string>
   <string name="customize_toolbar_item_default_tooltip">Trykk og dra elementet for å flytte det</string>
+  <string name="suggested_edits_activity_title">Rediger</string>
   <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_caption_images">Skriv bildetekster</string>
   <string name="suggested_edits_tag_images">Tagg bilder</string>
@@ -1148,6 +1150,15 @@
   <string name="edit_summary_added_caption">La til bildetekst</string>
   <string name="edit_summary_added_image_and_caption">Bilde og bildetekst lagt til</string>
   <string name="edit_published_view">Vis</string>
+  <string name="activity_tab_logged_out_title">Logg inn eller opprett en konto for å se aktiviteten din i Wikipedia-appen</string>
+  <string name="activity_tab_on_wikipedia_android">På Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent">Tid brukt på lesing denne uken</string>
+  <string name="activity_tab_monthly_articles_read">Artikler lest denne måneden</string>
+  <string name="activity_tab_monthly_articles_saved">Artikler lagret denne måneden</string>
+  <string name="activity_tab_monthly_top_categories">Toppkategorier lest denne måneden</string>
+  <string name="activity_tab_explore_wikipedia">Oppdag gjennom Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Leter du etter noe nytt å lese?</string>
+  <string name="activity_tab_donation_unknown">Ukjent</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
