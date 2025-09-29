@@ -51,6 +51,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 YearInReviewOnboardingScreen(
                     onBackButtonClick = {
+                        setResult(RESULT_CANCELED)
                         finish()
                     },
                     onGetStartedClick = {
@@ -66,6 +67,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
     }
 
     private fun proceed() {
+        setResult(RESULT_OK)
         startActivity(YearInReviewActivity.newIntent(this))
         finish()
     }
