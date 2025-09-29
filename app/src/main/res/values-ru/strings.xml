@@ -1845,6 +1845,7 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Попробуйте удалить %s, чтобы увидеть больше правок.</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d фильтр</item>
     <item quantity="few">%d фильтра</item>
@@ -1864,6 +1865,7 @@
   <string name="patroller_onboarding_two_thank_title">Благодарность</string>
   <string name="patroller_onboarding_two_thank_content">Видите продуктивную правку? Поблагодарите участника за его вклад.</string>
   <string name="patroller_onboarding_two_watch_title">Следить</string>
+  <string name="patroller_onboarding_two_watch_content">Хотите отслеживать правки в статьях? Добавьте статью в свой список наблюдения. Смотрите ниже в разделе «Ещё».</string>
   <string name="patroller_onboarding_two_talk_title">Обсуждение</string>
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_onboarding_two_undo_title">Отменить/Откатить</string>
@@ -1899,6 +1901,10 @@
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
   <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
+  <string name="email_report_image_recommendations_subject">Issue Report - Image Recommendations feature</string>
+  <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+  <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
+  <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
@@ -2002,6 +2008,8 @@
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Уведомления об игре отключены.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Уведомления об игре включены.</string>
   <string name="on_this_day_game_notification_text">Сегодняшняя игра «Что было раньше?» готова к запуску.</string>
+  <string name="on_this_day_game_report_email_subject">Issue Report - Wikipedia games</string>
+  <string name="on_this_day_game_report_email_body">I have encountered a problem with the Wikipedia games feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
   <string name="on_this_day_game_notification_undo">Отменить</string>
   <string name="on_this_day_game_share_link_message">Я играю в «Что произошло раньше?» — ежедневную викторину в приложении Википедии для Android %s</string>
   <string name="on_this_day_game_share_screen_title">Сегодня мой результат в «Что произошло раньше?»: %1$d/%2$d.</string>
@@ -2019,6 +2027,7 @@
   <string name="year_in_review_learn_more">Подробнее</string>
   <string name="year_in_review_get_started">Начать</string>
   <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
+  <string name="year_in_review_navigate_left">Навигация влево</string>
   <string name="year_in_review_donate">Пожертвовать</string>
   <string name="year_in_review_information_icon">Значок информации</string>
   <string name="year_in_review_entry_dialog_continue">Продолжить</string>
