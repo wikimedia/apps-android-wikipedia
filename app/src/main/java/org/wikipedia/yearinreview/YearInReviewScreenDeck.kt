@@ -72,6 +72,7 @@ import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -466,7 +467,7 @@ private fun StandardLayoutWithVariants(
                     }
                 }
             }
-            Text(
+            HtmlText(
                 modifier = Modifier
                     .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
                     .height(IntrinsicSize.Min),
