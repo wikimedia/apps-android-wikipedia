@@ -257,25 +257,25 @@ class YearInReviewSlides(
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
-        return listOf(
+        return (listOf(
             spentReadingHoursScreen(1),
             popularArticlesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for non-English users - non-logged in.
-        return listOf(
+        return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(true),
             viewedArticlesTimesScreen(),
             readingPatternsScreen(),
@@ -283,12 +283,12 @@ class YearInReviewSlides(
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(false),
             popularArticlesScreen(),
             topArticlesScreen(),
@@ -296,7 +296,7 @@ class YearInReviewSlides(
             interestingCategoriesScreen(false),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     // TODO: send all required data to this function
