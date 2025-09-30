@@ -93,13 +93,20 @@ class YearInReviewSlides(
         )
     }
 
-    private fun topArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir109 + yir105
+    private fun topArticlesScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.localTopVisitedArticles.isEmpty()) {
+            return null
+        }
+
+        var topArticlesText = "<br />"
+        yearInReviewModel.localTopVisitedArticles.forEachIndexed { index, it ->
+            topArticlesText += "${index + 1}. $it<br />"
+        }
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your top articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_top_articles_headline),
+            bodyText = context.getString(R.string.year_in_review_slide_top_articles_body, currentYear, topArticlesText)
         )
     }
 
@@ -257,46 +264,44 @@ class YearInReviewSlides(
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
-        return listOf(
+        return (listOf(
             spentReadingHoursScreen(1),
             popularArticlesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for non-English users - non-logged in.
-        return listOf(
+        return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(true),
             viewedArticlesTimesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(true),
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(false),
             popularArticlesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(false),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     // TODO: send all required data to this function

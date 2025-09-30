@@ -66,7 +66,7 @@ class YearInReviewViewModel() : ViewModel() {
             }
 
             val topVisitedArticlesForTheYear = async {
-                AppDatabase.instance.historyEntryDao().getTopVisitedEntriesSince(MINIMUM_READ_COUNT, yearAgo)
+                AppDatabase.instance.historyEntryDao().getTopVisitedEntriesSince(MAX_TOP_ARTICLES, yearAgo)
                     .map { StringUtil.fromHtml(it).toString() }
             }
 
@@ -201,8 +201,8 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     companion object {
-        private const val MINIMUM_READ_COUNT = 3
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
         private const val MINIMUM_EDIT_COUNT = 1
+        const val MAX_TOP_ARTICLES = 5
     }
 }
