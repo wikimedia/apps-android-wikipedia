@@ -96,8 +96,8 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_top_categories_headline),
-            bodyText = context.getString(R.string.year_in_review_top_categories_body, currentYear, topCategoriesText)
+            headlineText = context.getString(R.string.year_in_review_slide_top_categories_headline),
+            bodyText = context.getString(R.string.year_in_review_slide_top_categories_body, currentYear, topCategoriesText)
         )
     }
 
