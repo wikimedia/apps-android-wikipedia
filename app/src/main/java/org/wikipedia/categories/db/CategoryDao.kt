@@ -29,8 +29,8 @@ interface CategoryDao {
     suspend fun getTopCategoriesByMonth(year: Int, month: Int): List<Category>
 
     // Get top categories by year
-    @Query("SELECT year, month, title, lang, SUM (count) AS count FROM Category WHERE year = :year GROUP BY title, lang ORDER BY count DESC")
-    suspend fun getTopCategoriesByYear(year: Int): List<Category>
+    @Query("SELECT year, month, title, lang, SUM (count) AS count FROM Category WHERE year = :year GROUP BY title, lang ORDER BY count DESC LIMIT :limit")
+    suspend fun getTopCategoriesByYear(year: Int, limit: Int): List<Category>
 
     @Query("SELECT * FROM Category")
     suspend fun getAllCategories(): List<Category>

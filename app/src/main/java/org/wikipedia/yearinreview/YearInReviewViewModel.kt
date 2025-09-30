@@ -75,9 +75,8 @@ class YearInReviewViewModel() : ViewModel() {
             }
 
             val topVisitedCategoryForTheYear = async {
-                AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = currentYear)
+                AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = currentYear, limit = MAX_TOP_CATEGORY)
                     .map { StringUtil.removeNamespace(it.title) }
-                    .take(MAX_CATEGORY)
             }
 
             val impactDataJob = async {
@@ -209,7 +208,7 @@ class YearInReviewViewModel() : ViewModel() {
     companion object {
         private const val MINIMUM_READ_COUNT = 3
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
-        const val MINIMUM_CATEGORY = 3
-        const val MAX_CATEGORY = 5
+        const val MIN_TOP_CATEGORY = 3
+        const val MAX_TOP_CATEGORY = 5
     }
 }

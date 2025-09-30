@@ -84,7 +84,7 @@ class YearInReviewSlides(
     }
 
     private fun topCategoriesScreen(): YearInReviewScreenData.StandardScreen? {
-        if (yearInReviewModel.localTopCategories.isEmpty() || yearInReviewModel.localTopCategories.size < YearInReviewViewModel.MINIMUM_CATEGORY) {
+        if (yearInReviewModel.localTopCategories.isEmpty() || yearInReviewModel.localTopCategories.size < YearInReviewViewModel.MIN_TOP_CATEGORY) {
             return null
         }
 
