@@ -1,8 +1,11 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
 import org.wikipedia.R
 
 class YearInReviewSlides(
+    val context: Context,
+    val currentYear: Int,
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,

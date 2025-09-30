@@ -158,6 +158,8 @@ class YearInReviewViewModel() : ViewModel() {
 
             // TODO: send the actual data to the YearInReviewSlides
             val finalRoute = YearInReviewSlides(
+                context = WikipediaApp.instance,
+                currentYear = currentYear,
                 isEditor = editCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
