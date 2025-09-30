@@ -164,6 +164,8 @@ class YearInReviewViewModel() : ViewModel() {
 
             // TODO: send the actual data to the YearInReviewSlides
             val finalRoute = YearInReviewSlides(
+                context = WikipediaApp.instance,
+                currentYear = currentYear,
                 isEditor = editCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
@@ -207,7 +209,7 @@ class YearInReviewViewModel() : ViewModel() {
     companion object {
         private const val MINIMUM_READ_COUNT = 3
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
-        private const val MINIMUM_CATEGORY = 3
-        private const val MAX_CATEGORY = 5
+        const val MINIMUM_CATEGORY = 3
+        const val MAX_CATEGORY = 5
     }
 }

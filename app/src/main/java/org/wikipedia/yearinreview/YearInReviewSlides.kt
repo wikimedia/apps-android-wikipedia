@@ -1,8 +1,11 @@
 package org.wikipedia.yearinreview
 
+import android.content.Context
 import org.wikipedia.R
 
 class YearInReviewSlides(
+    val context: Context,
+    val currentYear: Int,
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
@@ -80,13 +83,22 @@ class YearInReviewSlides(
         )
     }
 
-    private fun interestingCategoriesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir108 + yir110 => confirm the difference.
+    private fun topCategoriesScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.localTopCategories.isEmpty() || yearInReviewModel.localTopCategories.size < YearInReviewViewModel.MINIMUM_CATEGORY) {
+            return null
+        }
+
+        var topCategoriesText = "<ol>"
+        yearInReviewModel.localTopCategories.forEach {
+            topCategoriesText += "<li>$it</li>"
+        }
+        topCategoriesText += "</ol>"
+
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your most interesting categories",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_top_categories_headline),
+            bodyText = context.getString(R.string.year_in_review_top_categories_body, currentYear, topCategoriesText)
         )
     }
 
@@ -254,46 +266,46 @@ class YearInReviewSlides(
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
-        return listOf(
+        return (listOf(
             spentReadingHoursScreen(1),
             popularArticlesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for non-English users - non-logged in.
-        return listOf(
+        return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
             globalSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(true),
             viewedArticlesTimesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(true),
+            topCategoriesScreen(),
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
-        return listOf(
+        return (listOf(
             spentReadingMinutesScreen(false),
             popularArticlesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(false),
+            topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()
+        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     // TODO: send all required data to this function
