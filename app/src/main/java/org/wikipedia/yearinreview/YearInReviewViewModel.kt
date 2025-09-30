@@ -199,6 +199,8 @@ class YearInReviewViewModel() : ViewModel() {
             val yearInReviewModel = yearInReviewModelMap[currentYear]!!
 
             val finalRoute = YearInReviewSlides(
+                context = WikipediaApp.instance,
+                currentYear = currentYear,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
