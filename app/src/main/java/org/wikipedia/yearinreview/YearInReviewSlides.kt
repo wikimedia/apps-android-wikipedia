@@ -88,11 +88,10 @@ class YearInReviewSlides(
             return null
         }
 
-        var topCategoriesText = "<ol>"
-        yearInReviewModel.localTopCategories.forEach {
-            topCategoriesText += "<li>$it</li>"
+        var topCategoriesText = "<br />"
+        yearInReviewModel.localTopCategories.forEachIndexed { index, it ->
+            topCategoriesText += "${index + 1}. $it<br />"
         }
-        topCategoriesText += "</ol>"
 
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
