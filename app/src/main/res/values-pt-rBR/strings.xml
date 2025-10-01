@@ -1812,29 +1812,6 @@
   <string name="year_in_review_information_icon">Ícone de informação</string>
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
   <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
-  <string name="year_in_review_entry_dialog_title">Explore sua Wikipédia: Resumo</string>
-  <string name="year_in_review_entry_dialog_bodytext">Veja informações sobre os artigos que lemos e editamos e compartilhe os destaques do nosso ano na Wikipédia.</string>
-  <string name="year_in_review_entry_dialog_continue">Continuar</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Você leu %d artigo este ano</item>
-    <item quantity="other">Você leu %d artigos este ano</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Este ano, você leu %1$d artigos, incluindo %2$s, %3$s e %4$s. A Wikipédia tinha mais de 63 milhões de artigos disponíveis em mais de 300 idiomas. Você se juntou a milhões na expansão do conhecimento e na exploração de tópicos diversos.</item>
-    <item quantity="other">Este ano, você leu %1$d artigos, incluindo %2$s, %3$s e %4$s. A Wikipédia tinha mais de 63 milhões de artigos disponíveis em mais de 300 idiomas. Você se juntou a milhões na expansão do conhecimento e na exploração de tópicos diversos.</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Você editou a Wikipédia %d vez</item>
-    <item quantity="other">Você editou a Wikipédia %d vezes</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Você editou a Wikipédia %d vez(es). Obrigado(a) por ser um(a) dos(as) editores(as) voluntários(as) que fazem a diferença nos projetos Wikimedia ao redor do mundo.</item>
-    <item quantity="other">Você editou a Wikipédia %d vez(es). Obrigado(a) por ser um(a) dos(as) editores(as) voluntários(as) que fazem a diferença nos projetos Wikimedia ao redor do mundo.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">A Wikipédia estava disponível em mais de 300 idiomas.</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">A Wikipédia tinha mais de 63 milhões de artigos em mais de 300 idiomas ativos este ano. Você se juntou a milhões de pessoas na expansão do conhecimento e na exploração de diversos tópicos.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Os editores do aplicativo iOS fizeram mais de 452.257 edições.</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">A comunidade de editores voluntários da Wikipédia fez mais de 452.257 edições no aplicativo iOS até agora este ano. O coração e a alma da Wikipédia são a nossa comunidade global de colaboradores voluntários, doadores e bilhões de leitores como você – todos unidos para compartilhar acesso ilimitado a informações confiáveis.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
@@ -1846,7 +1823,6 @@
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Enviar</string>
   <string name="year_in_review_screendeck_image_content_description">Recursos de imagem para a tela principal do resumo do ano</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Recurso de imagem para a tela de diálogo de entrada do resumo do ano</string>
   <string name="year_in_review_screenshot_error">Não foi possível gerar captura de tela: %s</string>
   <string name="year_in_review_share_subject">Imagem e link do resumo do ano</string>
   <string name="year_in_review_globe_icon">Ícone de globo</string>
