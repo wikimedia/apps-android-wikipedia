@@ -31,7 +31,7 @@ class HCaptchaHelper(
         imgHost = "https://imgs-hcaptcha.wikimedia.org",
         reportApi = "https://report-hcaptcha.wikimedia.org",
         sentry = false,
-        siteKey = "f1f21d64-6384-4114-b7d0-d9d23e203b4a"
+        siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
     )
 
     fun show() {

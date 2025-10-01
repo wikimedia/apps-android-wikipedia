@@ -171,15 +171,7 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-
-
-
-            // TODO: remove when done testing
-            hCaptchaHelper.show()
-
-
-
-            //FeedbackUtil.showPrivacyPolicy(this)
+            FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
             visitInExternalBrowser(this, PageTitle("Special:PasswordReset", wiki).uri.toUri())
