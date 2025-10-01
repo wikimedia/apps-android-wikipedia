@@ -101,13 +101,20 @@ class YearInReviewSlides(
         )
     }
 
-    private fun topArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir109 + yir105
+    private fun topArticlesScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.localTopVisitedArticles.isEmpty()) {
+            return null
+        }
+
+        var topArticlesText = "<br />"
+        yearInReviewModel.localTopVisitedArticles.forEachIndexed { index, it ->
+            topArticlesText += "${index + 1}. $it<br />"
+        }
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your top articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_top_articles_headline),
+            bodyText = context.getString(R.string.year_in_review_slide_top_articles_body, currentYear, topArticlesText)
         )
     }
 
