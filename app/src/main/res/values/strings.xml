@@ -1993,6 +1993,8 @@
     <string name="year_in_review_login_dialog_negative">Continue without logging in</string>
     <string name="year_in_review_slide_top_articles_headline">Your top articles</string>
     <string name="year_in_review_slide_top_articles_body"><![CDATA[Here were the articles you visited the most in %1$d: %2$s]]></string>
+    <string name="year_in_review_slide_top_categories_headline">Your most interesting categories</string>
+    <string name="year_in_review_slide_top_categories_body"><![CDATA[Categories group articles on similar subjects together. In %1$d, you visited articles in these interesting categories multiple times: %2$s]]></string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>

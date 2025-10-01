@@ -1886,6 +1886,8 @@
   <string name="year_in_review_login_dialog_negative">Negative button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_slide_top_articles_headline">Title of the top articles slide for the Year in Review.</string>
   <string name="year_in_review_slide_top_articles_body">Body text of the top articles slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top articles.</string>
+  <string name="year_in_review_slide_top_categories_headline">Title of the top categories slide for the Year in Review.</string>
+  <string name="year_in_review_slide_top_categories_body">Body text of the top categories slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top categories.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>
