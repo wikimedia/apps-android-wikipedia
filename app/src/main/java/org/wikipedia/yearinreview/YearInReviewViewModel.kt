@@ -172,7 +172,7 @@ class YearInReviewViewModel() : ViewModel() {
 
                 yearInReviewModelMap[currentYear] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
-                    enPopularArticles = emptyList(),
+                    enPopularArticles = listOf("Dog", "Cat", "Bear", "Bird", "Tiger"), // TODO: remote config
                     enEditsCount = 0L, // TODO: remote config
                     enBytesAddedCount = 0L, // TODO: remote config
                     availableLanguages = 0, // TODO: remote config

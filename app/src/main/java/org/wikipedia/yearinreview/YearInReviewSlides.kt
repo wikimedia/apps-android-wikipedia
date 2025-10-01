@@ -33,13 +33,15 @@ class YearInReviewSlides(
         )
     }
 
-    private fun popularArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir127 + 104
+    private fun popularEnglishArticlesScreen(): YearInReviewScreenData.StandardScreen {
+
+        val popularEnglishArticlesText = buildListWithNumbers(yearInReviewModel.enPopularArticles)
+
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "English Wikipedia’s most popular articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
+            bodyText = context.getString(R.string.year_in_review_slide_popular_english_articles_body, yearInReviewModel.enPopularArticles.size, popularEnglishArticlesText)
         )
     }
 
@@ -88,10 +90,7 @@ class YearInReviewSlides(
             return null
         }
 
-        var topCategoriesText = "<br />"
-        yearInReviewModel.localTopCategories.forEachIndexed { index, it ->
-            topCategoriesText += "${index + 1}. $it<br />"
-        }
+        val topCategoriesText = buildListWithNumbers(yearInReviewModel.localTopCategories)
 
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
@@ -106,10 +105,8 @@ class YearInReviewSlides(
             return null
         }
 
-        var topArticlesText = "<br />"
-        yearInReviewModel.localTopVisitedArticles.forEachIndexed { index, it ->
-            topArticlesText += "${index + 1}. $it<br />"
-        }
+        val topArticlesText = buildListWithNumbers(yearInReviewModel.localTopVisitedArticles)
+
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
@@ -274,7 +271,7 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for English users - non-logged in.
         return (listOf(
             spentReadingHoursScreen(1),
-            popularArticlesScreen(),
+            popularEnglishArticlesScreen(),
             globalSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
@@ -292,7 +289,7 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
             spentReadingMinutesScreen(true),
-            viewedArticlesTimesScreen(),
+            popularEnglishArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
             topArticlesScreen(),
@@ -305,13 +302,21 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for logged in users.
         return (listOf(
             spentReadingMinutesScreen(false),
-            popularArticlesScreen(),
+            viewedArticlesTimesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+    }
+
+    private fun buildListWithNumbers(items: List<String>): String {
+        var outputText = "<br />"
+        items.forEachIndexed { index, it ->
+            outputText += "${index + 1}. $it<br />"
+        }
+        return outputText
     }
 
     // TODO: send all required data to this function
