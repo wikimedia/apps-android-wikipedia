@@ -1844,29 +1844,6 @@
   <string name="year_in_review_information_icon">Icone de information</string>
   <string name="year_in_review_get_started_headline">Explorar tu summario del anno de Wikipedia</string>
   <string name="year_in_review_get_started_bodytext">Vide perspectivas sur le articulos que tu ha legite in le app de Wikipedia e le modificationes que tu ha facite. Tu historia de lectura es guardate secur. Le perspectivas de lectura es calculate usante datos immagazinate localmente sur tu apparato.</string>
-  <string name="year_in_review_entry_dialog_title">Explorar tu summario del anno de Wikipedia</string>
-  <string name="year_in_review_entry_dialog_bodytext">Discoperi qual articulos nos ha legite e modificate, e condivide le momentos saliente de nostre anno sur Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Continuar</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Tu ha legite %d articulo iste anno</item>
-    <item quantity="other">Tu ha legite %d articulos iste anno</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Iste anno, tu ha legite %1$d articulo, includente %2$s, %3$s e %4$s. Wikipedia habeva plus de 63 milliones de articulos disponibile in plus de 300 linguas. Tu te ha unite a milliones de personas expandente le cognoscentia e explorante diverse topicos</item>
-    <item quantity="other">Iste anno, tu ha legite %1$d articulos, includente %2$s, %3$s e %4$s. Wikipedia habeva plus de 63 milliones de articulos disponibile in plus de 300 linguas. Tu te ha unite a milliones de personas expandente le cognoscentia e explorante diverse topicos</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Tu ha modificate Wikipedia %d vice</item>
-    <item quantity="other">Tu ha modificate Wikipedia %d vices</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Tu ha modificate Wikipedia %d vice. Gratias pro esser un del redactores voluntari qui face un differentia sur le projectos de Wikimedia in tote le mundo.</item>
-    <item quantity="other">Tu ha modificate Wikipedia %d vices. Gratias pro esser un del redactores voluntari qui face un differentia sur le projectos de Wikimedia in tote le mundo.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia esseva disponibile in plus de 300 linguas</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Iste anno, Wikipedia habeva plus de 63 milliones de articulos in plus de 300 linguas active. Tu te jungeva a milliones pro expander le cognoscentia e explorar subjectos diverse.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Le redactores usante le app iOS ha facite plus de 452.257 modificationes</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Le communitate de redactores voluntari de Wikipedia ha facite plus que 452.257 modificationes in le application iOS desde le initio del anno. Le corde e le anima de Wikipedia es nostre communitate global de contributores voluntari, donatores, e milliardos de lectores como tu — totes unite pro condivider le accesso illimitate a informationes digne de fide.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
   <string name="year_in_review_survey_very_satisfied">Multo satisfacite</string>
@@ -1878,7 +1855,6 @@
   <string name="year_in_review_survey_cancel">Cancellar</string>
   <string name="year_in_review_survey_submit">Submitter</string>
   <string name="year_in_review_screendeck_image_content_description">Ressource de imagine pro le pannello de controlo principal del Summario del anno</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Ressource de imagine pro le schermo de dialogo introductive del Summario del anno</string>
   <string name="year_in_review_screenshot_error">Impossibile generar captura de schermo: %s</string>
   <string name="year_in_review_share_subject">Imagine e ligamine del Summario del anno</string>
   <string name="year_in_review_globe_icon">Icone de globo</string>

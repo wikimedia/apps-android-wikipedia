@@ -1686,18 +1686,6 @@
   <string name="year_in_review_donate">En Don maachen</string>
   <string name="year_in_review_information_icon">Informatiounssymbol</string>
   <string name="year_in_review_get_started_headline">Entdeckt Äre Wikipedia-Joresréckbléck</string>
-  <string name="year_in_review_entry_dialog_title">Entdeckt Äre Wikipediaréckbléck</string>
-  <string name="year_in_review_entry_dialog_continue">Weider</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Dir hutt dëst Joer %d Artikel gelies</item>
-    <item quantity="other">Dir hutt dëst Joer %d Artikele gelies</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Dir hutt %d Ännerung op der Wikipedia gemaach</item>
-    <item quantity="other">Dir hutt %d Ännerungen op der Wikipedia gemaach</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war a méi wéi 300 Sproochen disponibel</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Editeuren an der iOS-App hu méi wéi 452.257 Ännerunge gemaach</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
