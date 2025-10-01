@@ -1881,29 +1881,6 @@
   <string name="year_in_review_information_icon">資訊圖示</string>
   <string name="year_in_review_get_started_headline">探索您的維基百科年度回顧</string>
   <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過的條目，以及您做過的編輯。您的閱讀歷史不會洩露出去，閱讀洞察資訊是使用儲存在您裝置上本機資料所計算出的。</string>
-  <string name="year_in_review_entry_dialog_title">探索您的維基百科回顧</string>
-  <string name="year_in_review_entry_dialog_bodytext">查看我們閱讀與編輯過條目的分析，並分享我們這一年的精采時刻。</string>
-  <string name="year_in_review_entry_dialog_continue">繼續</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">您今年閱讀了 %d 篇條目</item>
-    <item quantity="other">您今年閱讀了 %d 篇條目</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">今年，您閱讀了 %1$d 篇條目，包括%2$s、%3$s、和%4$s。維基百科擁有超過 6,300 萬篇條目，涵蓋 300 多種語言。您加入了數百萬人的行列來一同拓展知識，探索不同的主題</item>
-    <item quantity="other">今年，您閱讀了 %1$d 篇條目，包括%2$s、%3$s、和%4$s。維基百科擁有超過 6,300 萬篇條目，涵蓋 300 多種語言。您加入了數百萬人的行列來一同拓展知識，探索不同的主題</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">您編輯了維基百科 %d 次</item>
-    <item quantity="other">您編輯了維基百科 %d 次</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">您編輯了維基百科 %d 次。感謝您成為志願編輯者之一，為世界各地的維基媒體計畫做出改變。</item>
-    <item quantity="other">您編輯了維基百科 %d 次。感謝您成為志願編輯者之一，為世界各地的維基媒體計畫做出改變。</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">維基百科提供超過 300 種語言版本</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">維基百科在今年擁有超過 6300 萬篇條目，涵蓋超過 300 種活躍的語言版本。您與數百萬人一同拓展知識，探索多元主題。</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">iOS 應用程式上的編輯者進行了超過 452,257 次編輯。</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">維基百科社群的志願編輯者社群今年在 iOS 應用程式上編輯了超過 452,257 次。維基百科的核心與靈魂是在我們的全球志願編輯者社群、捐款者，以及像您一樣的數十億讀者——大家一同齊心協力，分享無限取用且可靠的資訊。</string>
   <string name="year_in_review_survey_title">協助改善年度回顧</string>
   <string name="year_in_review_survey_subtitle">您滿意這個功能嗎？</string>
   <string name="year_in_review_survey_very_satisfied">非常滿意</string>
@@ -1915,7 +1892,6 @@
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_survey_submit">提交</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顧主畫面圖片資源</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">年度回顧輸入對話框畫面的圖片資源</string>
   <string name="year_in_review_screenshot_error">無法產生螢幕截圖：%s</string>
   <string name="year_in_review_share_subject">年度回顧圖片和連結</string>
   <string name="year_in_review_globe_icon">地球圖示</string>
