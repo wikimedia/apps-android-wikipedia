@@ -2,6 +2,8 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class YearInReviewSlides(
     val context: Context,
@@ -12,6 +14,8 @@ class YearInReviewSlides(
     val isIconUnlocked: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
+
+    private val formatter: NumberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
 
     private fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
@@ -147,13 +151,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editsViewedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir115
+    private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val formattedNumber = formatter.format(yearInReviewModel.userEditsViewedTimes)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your edits have been viewed more than 14,791 times recently",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_edits_viewed_times_headline, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_edits_viewed_times_body, formattedNumber)
         )
     }
 
@@ -167,13 +171,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedPerMinuteScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir117
+    private fun editedPerMinuteScreen(): YearInReviewScreenData.StandardScreen {
+        val formattedNumber = formatter.format(yearInReviewModel.globalEditsPerMinute)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Wikipedia was edited 342 times per minute",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_edited_per_minute_headline, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
     }
 
@@ -187,13 +191,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun addedBytesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir119
+    private fun addedBytesScreen(): YearInReviewScreenData.StandardScreen {
+        val formattedNumber = formatter.format(yearInReviewModel.enBytesAddedCount)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Over 3 billion bytes added",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_bytes_added_headline, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_bytes_added_body,
+                currentYear, formattedNumber, context.getString(R.string.editing_learn_more_url))
         )
     }
 

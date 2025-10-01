@@ -64,8 +64,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
@@ -472,7 +475,12 @@ private fun StandardLayoutWithVariants(
                     .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
                     .height(IntrinsicSize.Min),
                 text = processString(screenData.bodyText),
-                color = WikipediaTheme.colors.primaryColor,
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontSize = 16.sp
+                    )
+                ),
                 style = MaterialTheme.typography.bodyLarge
             )
 
