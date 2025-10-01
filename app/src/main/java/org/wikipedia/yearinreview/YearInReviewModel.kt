@@ -1,5 +1,8 @@
 package org.wikipedia.yearinreview
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class YearInReviewModel(
     val enReadingTimePerHour: Long,
     val enPopularArticles: List<String>,

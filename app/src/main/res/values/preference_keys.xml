@@ -205,5 +205,6 @@
     <string name="preference_category_donations">donations</string>
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
+    <string name="preference_key_yir_model_data">yirModelData</string>
 
 </resources>

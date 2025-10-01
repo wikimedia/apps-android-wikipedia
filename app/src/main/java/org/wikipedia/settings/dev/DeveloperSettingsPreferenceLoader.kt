@@ -257,6 +257,11 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             fragment.requireActivity().finish()
             true
         }
+        findPreference(R.string.preference_key_yir_model_data).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            Prefs.yearInReviewModelData = emptyMap()
+            Toast.makeText(activity, "Year in Review data has been reset", Toast.LENGTH_SHORT).show()
+            true
+        }
     }
 
     private fun setUpMediaWikiSettings() {

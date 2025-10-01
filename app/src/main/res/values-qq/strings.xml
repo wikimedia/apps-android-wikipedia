@@ -1884,6 +1884,10 @@
   <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_positive">Positive button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_negative">Negative button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
+  <string name="year_in_review_slide_top_articles_headline">Title of the top articles slide for the Year in Review.</string>
+  <string name="year_in_review_slide_top_articles_body">Body text of the top articles slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top articles.</string>
+  <string name="year_in_review_slide_top_categories_headline">Title of the top categories slide for the Year in Review.</string>
+  <string name="year_in_review_slide_top_categories_body">Body text of the top categories slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top categories.</string>
   <string name="year_in_review_slide_edits_viewed_times_headline">Title of the edits viewed times slide for the Year in Review. %s will be replaced by the formatted number.</string>
   <string name="year_in_review_slide_edits_viewed_times_body">Body text of the edits viewed times slide for the Year in Review. %s will be replaced by the formatted number.</string>
   <string name="year_in_review_slide_edited_per_minute_headline">Title of the edited times per minute slide for the Year in Review. %s will be replaced by the formatted number.</string>
