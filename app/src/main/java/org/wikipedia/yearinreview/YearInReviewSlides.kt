@@ -83,13 +83,21 @@ class YearInReviewSlides(
         )
     }
 
-    private fun interestingCategoriesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir108 + yir110 => confirm the difference.
+    private fun topCategoriesScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.localTopCategories.isEmpty() || yearInReviewModel.localTopCategories.size < YearInReviewViewModel.MIN_TOP_CATEGORY) {
+            return null
+        }
+
+        var topCategoriesText = "<br />"
+        yearInReviewModel.localTopCategories.forEachIndexed { index, it ->
+            topCategoriesText += "${index + 1}. $it<br />"
+        }
+
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your most interesting categories",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_top_categories_headline),
+            bodyText = context.getString(R.string.year_in_review_slide_top_categories_body, currentYear, topCategoriesText)
         )
     }
 
@@ -279,7 +287,7 @@ class YearInReviewSlides(
             spentReadingMinutesScreen(true),
             viewedArticlesTimesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(true),
+            topCategoriesScreen(),
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
@@ -293,7 +301,7 @@ class YearInReviewSlides(
             popularArticlesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),
-            interestingCategoriesScreen(false),
+            topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()

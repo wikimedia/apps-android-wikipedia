@@ -83,6 +83,11 @@ class YearInReviewViewModel() : ViewModel() {
                         .getTimeSpentSinceTimeStamp(yearAgo)
                 }
 
+                val topVisitedCategoryForTheYear = async {
+                    AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = currentYear, limit = MAX_TOP_CATEGORY)
+                        .map { StringUtil.removeNamespace(it.title) }
+                }
+
                 val impactDataJob = async {
                     if (AccountUtil.isLoggedIn) {
                         val wikiSite = WikipediaApp.instance.wikiSite
@@ -183,7 +188,7 @@ class YearInReviewViewModel() : ViewModel() {
                     localReadingRank = "50%", // TODO: compare with the total reading hours
                     localSavedArticles = latestArticleTitlesFromSaved.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
-                    localTopCategories = emptyList(),
+                    localTopCategories = topVisitedCategoryForTheYear.await(),
                     favoriteTimeToRead = "Evening",
                     favoriteDayToRead = "Saturday",
                     favoriteMonthDidMostReading = "March",
@@ -218,6 +223,7 @@ class YearInReviewViewModel() : ViewModel() {
     companion object {
         private const val MINIMUM_READ_COUNT = 3
         private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
-        private const val MINIMUM_EDIT_COUNT = 1
+        const val MIN_TOP_CATEGORY = 3
+        const val MAX_TOP_CATEGORY = 5
     }
 }
