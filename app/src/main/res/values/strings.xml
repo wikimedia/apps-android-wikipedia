@@ -1991,7 +1991,12 @@
     <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
     <string name="year_in_review_login_dialog_positive">Log in / join Wikipedia</string>
     <string name="year_in_review_login_dialog_negative">Continue without logging in</string>
-
+    <string name="year_in_review_slide_edits_viewed_times_headline">Your edits have been viewed more than %s times recently</string>
+    <string name="year_in_review_slide_edits_viewed_times_body">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %s total views. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</string>
+    <string name="year_in_review_slide_edited_per_minute_headline">Wikipedia was edited %s times per minute</string>
+    <string name="year_in_review_slide_edited_per_minute_body"><![CDATA[Articles are collaboratively created and improved using reliable sources. All of us have knowledge to share, <a href="%s">learn how to participate.</a>]]></string>
+    <string name="year_in_review_slide_bytes_added_headline">%s bytes added</string>
+    <string name="year_in_review_slide_bytes_added_body"><![CDATA[In %1$d, volunteers added %2$s bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate..]]></string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>

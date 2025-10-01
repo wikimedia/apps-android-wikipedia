@@ -132,7 +132,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedViewsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
+    private fun editsViewedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir115
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
@@ -226,7 +226,7 @@ class YearInReviewSlides(
         return when {
             isEditor -> listOf(
                 editedTimesScreen(),
-                editedViewsScreen()
+                editsViewedTimesScreen()
             )
             !isEditor && !isEnglishWiki -> {
                 listOf(
