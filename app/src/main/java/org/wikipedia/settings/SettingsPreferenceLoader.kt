@@ -58,9 +58,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
 
         findPreference(R.string.preference_key_selected_app_icon).let {
-            it.isVisible = shouldShowAppIconPreference
+            it.isVisible = true // TODO - something based on YiR state
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                showAppIconDialog()
+                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
                 true
             }
         }
@@ -150,14 +150,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), articleFrequency) else
                 activity.getString(R.string.donation_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description
-    }
-
-    private val shouldShowAppIconPreference get() = true //TODO
-
-    fun showAppIconDialog() {
-        if (shouldShowAppIconPreference) {
-            ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog.newInstance())
-        }
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

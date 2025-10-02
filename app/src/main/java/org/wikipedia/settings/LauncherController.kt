@@ -26,8 +26,7 @@ enum class LauncherIcon(
     val key: String,
     val background: Int,
     val foreground: Int,
-    val label: Int,
-    var isSelected: Boolean = false
+    val label: Int
 ) {
     DEFAULT(
         key = "DefaultIcon",
@@ -44,15 +43,5 @@ enum class LauncherIcon(
 
     fun getComponentName(context: Context): ComponentName {
         return ComponentName(context.packageName, "org.wikipedia.$key")
-    }
-
-    companion object {
-        fun initialValues(): List<LauncherIcon> {
-            val savedAppIcon = Prefs.selectedAppIcon ?: DEFAULT.key
-            entries.forEach { icon ->
-                icon.isSelected = icon.key == savedAppIcon
-            }
-            return entries
-        }
     }
 }

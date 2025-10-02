@@ -112,7 +112,8 @@
             android:name=".YIR25Icon"
             android:targetActivity=".main.MainActivity"
             android:icon="@mipmap/launcher_yir25"
-            android:exported="true">
+            android:exported="true"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
