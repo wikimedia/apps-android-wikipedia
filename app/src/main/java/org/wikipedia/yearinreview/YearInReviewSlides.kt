@@ -110,6 +110,8 @@ class YearInReviewSlides(
             return null
         }
 
+        val quantity = yearInReviewModel.localTopVisitedArticles.size
+
         var topArticlesText = "<br />"
         yearInReviewModel.localTopVisitedArticles.forEachIndexed { index, it ->
             topArticlesText += "${index + 1}. $it<br />"
@@ -117,8 +119,8 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_top_articles_headline),
-            bodyText = context.getString(R.string.year_in_review_slide_top_articles_body, currentYear, topArticlesText)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_headline, quantity),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_body, quantity, currentYear, topArticlesText)
         )
     }
 
@@ -152,12 +154,13 @@ class YearInReviewSlides(
     }
 
     private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
         val formattedNumber = formatter.format(yearInReviewModel.userEditsViewedTimes)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_edits_viewed_times_headline, formattedNumber),
-            bodyText = context.getString(R.string.year_in_review_slide_edits_viewed_times_body, formattedNumber)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_headline, quantity, formattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_body, quantity, formattedNumber)
         )
     }
 
@@ -176,7 +179,7 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_edited_per_minute_headline, formattedNumber),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, yearInReviewModel.globalEditsPerMinute, formattedNumber),
             bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
     }
@@ -192,13 +195,14 @@ class YearInReviewSlides(
     }
 
     private fun addedBytesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.enBytesAddedCount.toInt()
         val formattedNumber = formatter.format(yearInReviewModel.enBytesAddedCount)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_bytes_added_headline, formattedNumber),
-            bodyText = context.getString(R.string.year_in_review_slide_bytes_added_body,
-                currentYear, formattedNumber, context.getString(R.string.editing_learn_more_url))
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, quantity, formattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_body,
+                quantity, currentYear, formattedNumber, context.getString(R.string.editing_learn_more_url))
         )
     }
 
