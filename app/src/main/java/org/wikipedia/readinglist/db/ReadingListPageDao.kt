@@ -99,7 +99,7 @@ interface ReadingListPageDao {
     suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>
 
     @Query("SELECT DISTINCT displayTitle FROM ReadingListPage ORDER BY atime DESC")
-    suspend fun getAllArticleTitles(): List<String>
+    suspend fun getAllDistinctArticleTitles(): List<String>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 

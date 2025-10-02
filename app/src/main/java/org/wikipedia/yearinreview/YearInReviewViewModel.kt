@@ -63,7 +63,7 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val latestArticleTitlesFromSaved = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getAllArticleTitles()
+                        .getAllDistinctArticleTitles()
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
