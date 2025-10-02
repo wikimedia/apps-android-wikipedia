@@ -1880,6 +1880,10 @@
   <string name="year_in_review_screenshot_error">A generic error idicator with \"%s\" representing the actual error thrown</string>
   <string name="year_in_review_share_subject">The subject line for sharing the year in review</string>
   <string name="year_in_review_globe_icon">Content description for the year in review globe icon</string>
+  <string name="settings_app_icon_title">Title for dialog where the user selects a custom app icon.</string>
+  <string name="settings_app_icon_subtitle">Subtitle for dialog where the user selects a custom app icon.</string>
+  <string name="settings_app_icon_preference_subtitle">Explanation for a preference that allows selection of a custom app icon.</string>
+  <string name="settings_app_icon_updated">Message shown when the user selects a custom app icon.</string>
   <string name="year_in_review_login_dialog_title">Title of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_positive">Positive button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
