@@ -1219,6 +1219,7 @@
   <string name="activity_tab_onboarding_stay_in_control_title">Nəzarətdə qalın</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Hansı modulların göstəriləcəyini seçin. Bütün şəxsi məlumatlar cihazınızda məxfi qalır və baxış tarixçəsi istənilən vaxt silinə bilər.</string>
   <string name="edits_screen_what_is_title">Vikipediya tətbiqində redaktə</string>
+  <string name="edits_screen_what_is_body">Redaktə etməyə haradan başlayacağınızdan əmin deyilsiniz? Vikipediyaya kiçik, lakin mühüm töhfələr vermək üçün imkanlar yaradan xüsusiyyət olan Tövsiyə Edilən Redaktələri sınayın. Alternativ olaraq, birbaşa maraqlı məqaləyə keçin və vikimətndən istifadə edərək dəyişiklik edin.</string>
   <string name="file_page_activity_title">Fayl səhifəsi</string>
   <string name="file_page_add_image_caption_button">Şəkil başlığı əlavə et</string>
   <string name="file_page_add_image_tags_button">Şəkil etiketləri əlavə et</string>
