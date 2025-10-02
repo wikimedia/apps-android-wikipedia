@@ -48,11 +48,12 @@ class YearInReviewSlides(
     }
 
     private fun appSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.appArticlesSavedTimes.toInt()
         val formattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_global_saved_articles_headline, formattedNumber),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, quantity, formattedNumber),
             bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
     }
@@ -137,14 +138,15 @@ class YearInReviewSlides(
             return appSavedArticlesScreen()
         }
         val localSavedFormattedNumber = formatter.format(yearInReviewModel.localSavedArticles.size)
+        val appSavedArticlesSize = yearInReviewModel.appArticlesSavedTimes.toInt()
         val appSavedFormattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
         val randomArticles = yearInReviewModel.localSavedArticles.shuffled().take(YearInReviewViewModel.MIN_SAVED_ARTICLES)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_saved_articles_headline, localSavedFormattedNumber),
-            bodyText = context.getString(R.string.year_in_review_slide_saved_articles_body,
-                randomArticles[0], randomArticles[1], randomArticles[2], appSavedFormattedNumber)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, localSavedArticlesSize, localSavedFormattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_body,
+                appSavedArticlesSize, randomArticles[0], randomArticles[1], randomArticles[2], appSavedFormattedNumber)
         )
     }
 
