@@ -41,7 +41,8 @@ class YearInReviewSlides(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
-            bodyText = context.getString(R.string.year_in_review_slide_popular_english_articles_body, yearInReviewModel.enPopularArticles.size, popularEnglishArticlesText)
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
+                yearInReviewModel.enPopularArticles.size, yearInReviewModel.enPopularArticles.size, popularEnglishArticlesText)
         )
     }
 
