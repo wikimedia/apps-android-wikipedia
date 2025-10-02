@@ -2,6 +2,8 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class YearInReviewSlides(
     val context: Context,
@@ -12,6 +14,8 @@ class YearInReviewSlides(
     val isIconUnlocked: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
+
+    private val formatter: NumberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
 
     private fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
@@ -43,13 +47,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun globalSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir126
+    private fun appSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        val formattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "We had over 37 million saved articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_global_saved_articles_headline, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
     }
 
@@ -127,13 +131,20 @@ class YearInReviewSlides(
         )
     }
 
-    private fun localSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir113
+    private fun localSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        val localSavedArticlesSize = yearInReviewModel.localSavedArticles.size
+        if (localSavedArticlesSize < YearInReviewViewModel.MIN_SAVED_ARTICLES) {
+            return appSavedArticlesScreen()
+        }
+        val localSavedFormattedNumber = formatter.format(yearInReviewModel.localSavedArticles.size)
+        val appSavedFormattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
+        val randomArticles = yearInReviewModel.localSavedArticles.shuffled().take(YearInReviewViewModel.MIN_SAVED_ARTICLES)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You saved 25 articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_saved_articles_headline, localSavedFormattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_saved_articles_body,
+                randomArticles[0], randomArticles[1], randomArticles[2], appSavedFormattedNumber)
         )
     }
 
@@ -275,7 +286,7 @@ class YearInReviewSlides(
         return (listOf(
             spentReadingHoursScreen(1),
             popularArticlesScreen(),
-            globalSavedArticlesScreen()
+            appSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
@@ -284,7 +295,7 @@ class YearInReviewSlides(
         return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
-            globalSavedArticlesScreen()
+            appSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 

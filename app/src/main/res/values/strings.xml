@@ -1995,6 +1995,10 @@
     <string name="year_in_review_slide_top_articles_body"><![CDATA[Here were the articles you visited the most in %1$d: %2$s]]></string>
     <string name="year_in_review_slide_top_categories_headline">Your most interesting categories</string>
     <string name="year_in_review_slide_top_categories_body"><![CDATA[Categories group articles on similar subjects together. In %1$d, you visited articles in these interesting categories multiple times: %2$s]]></string>
+    <string name="year_in_review_slide_saved_articles_headline">You saved %s articles</string>
+    <string name="year_in_review_slide_saved_articles_body"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved articles this year.]]></string>
+    <string name="year_in_review_slide_global_saved_articles_headline">App users had %s saved articles</string>
+    <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
