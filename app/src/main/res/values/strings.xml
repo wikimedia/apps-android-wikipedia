@@ -1983,6 +1983,10 @@
     <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
     <string name="year_in_review_survey_cancel">Cancel</string>
     <string name="year_in_review_survey_submit">Submit</string>
+    <string name="year_in_review_disable_title">Are you sure you want to turn off Year in Review?</string>
+    <string name="year_in_review_disable_positive_button">Yes, I\'m sure</string>
+    <string name="year_in_review_disable_negative_button">No, thanks</string>
+    <string name="year_in_review_setting_subtitle">Turning off Year in Review will clear all stored personalized insights, and hide the Year in Review.</string>
     <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
     <string name="year_in_review_share_subject">Year In Review Image and Link</string>
