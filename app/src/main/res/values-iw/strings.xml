@@ -87,7 +87,7 @@
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">עריכה %1$d מאז %2$s</item>
+    <item quantity="one">עריכה אחת מאז %2$s</item>
     <item quantity="two">%1$d עריכות מאז %2$s</item>
     <item quantity="many">%1$d עריכות מאז %2$s</item>
     <item quantity="other">%1$d עריכות מאז %2$s</item>
@@ -451,7 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">מחיקת היסטוריית תרומות מקומית</string>
+  <string name="preference_title_delete_local_donation_history">ניקוי היסטוריית תרומות</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
@@ -626,8 +626,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
@@ -1233,6 +1233,12 @@
   <string name="edit_summary_added_caption">נוסף כיתוב</string>
   <string name="edit_summary_added_image_and_caption">נוספו תמונה וכיתוב</string>
   <string name="edit_published_view">הצגה</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">עריכה אחת החודש</item>
+    <item quantity="two">$2 עריכות החודש</item>
+    <item quantity="many">$2 עריכות החודש</item>
+    <item quantity="other">$2 עריכות החודש</item>
+  </plurals>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
