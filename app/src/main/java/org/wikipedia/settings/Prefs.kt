@@ -868,4 +868,8 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Map<Int, YearInReviewModel>>(PrefsIoUtil.getString(R.string.preference_key_yir_model_data, null))
             ?: emptyMap()
         set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
+
+    var selectedAppIcon
+        get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
 }

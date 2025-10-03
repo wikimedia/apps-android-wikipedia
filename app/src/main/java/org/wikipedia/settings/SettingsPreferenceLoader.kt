@@ -18,6 +18,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -52,6 +53,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.setSummary(WikipediaApp.instance.currentTheme.nameId)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
+                true
+            }
+        }
+
+        findPreference(R.string.preference_key_selected_app_icon).let {
+            it.isVisible = true // TODO - something based on YiR state
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
                 true
             }
         }
