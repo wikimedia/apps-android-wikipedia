@@ -50,13 +50,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun globalSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir126
+    private fun appSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.appArticlesSavedTimes.toInt()
+        val formattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "We had over 37 million saved articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, quantity, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
     }
 
@@ -130,13 +131,21 @@ class YearInReviewSlides(
         )
     }
 
-    private fun localSavedArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir113
+    private fun localSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        val localSavedArticlesSize = yearInReviewModel.localSavedArticlesCount
+        if (localSavedArticlesSize < YearInReviewViewModel.MIN_SAVED_ARTICLES) {
+            return appSavedArticlesScreen()
+        }
+        val localSavedFormattedNumber = formatter.format(localSavedArticlesSize)
+        val appSavedArticlesSize = yearInReviewModel.appArticlesSavedTimes.toInt()
+        val appSavedFormattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You saved 25 articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, localSavedArticlesSize, localSavedFormattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_body,
+                appSavedArticlesSize, yearInReviewModel.localSavedArticles[0], yearInReviewModel.localSavedArticles[1],
+                yearInReviewModel.localSavedArticles[2], appSavedFormattedNumber)
         )
     }
 
@@ -281,7 +290,7 @@ class YearInReviewSlides(
         return (listOf(
             spentReadingHoursScreen(1),
             popularEnglishArticlesScreen(),
-            globalSavedArticlesScreen()
+            appSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
@@ -290,7 +299,7 @@ class YearInReviewSlides(
         return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
-            globalSavedArticlesScreen()
+            appSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 

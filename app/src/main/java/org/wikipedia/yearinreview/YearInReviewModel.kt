@@ -19,6 +19,7 @@ data class YearInReviewModel(
     val localReadingTimePerMinute: Long,
     val localReadingArticlesCount: Int,
     val localReadingRank: String, // TODO: TBD: top 50% or pure numbers,
+    val localSavedArticlesCount: Int,
     val localSavedArticles: List<String>,
     val localTopVisitedArticles: List<String>,
     val localTopCategories: List<String>,
