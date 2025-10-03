@@ -1884,14 +1884,41 @@
   <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_positive">Positive button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_negative">Negative button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
-  <string name="year_in_review_slide_top_articles_headline">Title of the top articles slide for the Year in Review.</string>
-  <string name="year_in_review_slide_top_articles_body">Body text of the top articles slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top articles.</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Title of the top article slide for the Year in Review.</item>
+    <item quantity="other">Title of the top articles slide for the Year in Review.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Body text of the top article slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the top article.</item>
+    <item quantity="other">Body text of the top articles slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top articles.</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">Title of the top categories slide for the Year in Review.</string>
   <string name="year_in_review_slide_top_categories_body">Body text of the top categories slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top categories.</string>
   <string name="year_in_review_slide_popular_english_articles_headline">Title of the most popular English Wikipedia articles for the Year in Review.</string>
   <plurals name="year_in_review_slide_popular_english_articles_body">
     <item quantity="one">Title of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
     <item quantity="other">Title of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Title of the edit viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the edits viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Body text of the edit viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Body text of the edits viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Title of the edited time per minute slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the edited times per minute slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Title of the edited times per minute slide for the Year in Review. %s will be replaced by the wiki page URL.</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">Title of thea added byte slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of thea added bytes slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">Title of thea added byte slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+    <item quantity="other">Title of thea added bytes slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
   </plurals>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
