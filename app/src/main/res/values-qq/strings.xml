@@ -1913,12 +1913,37 @@
   </plurals>
   <string name="year_in_review_slide_edited_per_minute_body">Title of the edited times per minute slide for the Year in Review. %s will be replaced by the wiki page URL.</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
-    <item quantity="one">Title of thea added byte slide for the Year in Review. %s will be replaced by the formatted number.</item>
-    <item quantity="other">Title of thea added bytes slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="one">Title of the added byte slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the added bytes slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
   <plurals name="year_in_review_slide_bytes_added_body">
-    <item quantity="one">Title of thea added byte slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
-    <item quantity="other">Title of thea added bytes slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+    <item quantity="one">Title of the added byte slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+    <item quantity="other">Title of the added bytes slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+  </plurals>
+  <plurals name="year_in_review_edited_times_headline">
+    <item quantity="one">Title of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the user edited times for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_edited_times_body">
+    <item quantity="one">Body of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Body of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_app_edited_times_headline">
+    <item quantity="one">Title of the app edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the app edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <string name="year_in_review_app_edited_times_body">Body of the app edited times slide for the Year in Review.</string>
+  <plurals name="year_in_review_english_edited_times_headline">
+    <item quantity="one">Title of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_english_edited_times_body_first">
+    <item quantity="one">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_english_edited_times_body_second">
+    <item quantity="one">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
