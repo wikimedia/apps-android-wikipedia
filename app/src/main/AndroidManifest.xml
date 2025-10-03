@@ -374,6 +374,9 @@
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <activity
+            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
+
+        <activity
             android:name=".yearinreview.YearInReviewActivity"/>
       
         <activity

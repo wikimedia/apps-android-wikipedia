@@ -94,6 +94,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.yearInReviewClick()
             dismiss()
         }
+        binding.yearInReviewRedDot.isVisible = !Prefs.yearInReviewVisited
 
         binding.mainDrawerEditContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)

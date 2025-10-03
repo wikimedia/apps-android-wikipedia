@@ -34,12 +34,15 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -61,23 +64,27 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.nonEnglishCollectiveEditCountData
 import kotlin.math.absoluteValue
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
@@ -116,26 +123,56 @@ fun YearInReviewScreenDeck(
             Scaffold(
                 modifier = modifier,
                 containerColor = WikipediaTheme.colors.paperColor,
-                topBar = { YearInReviewTopBar(
-                    onNavigationBackButtonClick = { onBackButtonClick(pagerState) },
-                    actions = {
-                        IconButton(onClick = {
-                            startCapture = true
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_share),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_share_icon)
-                            )
+                topBar = {
+                    TopAppBar(
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = WikipediaTheme.colors.paperColor),
+                        title = { },
+                        navigationIcon = {
+                            IconButton(onClick = { onBackButtonClick(pagerState) }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                )
+                            }
+                        },
+                        actions = {
+                            Box(
+                                modifier = Modifier
+                                    .clickable(onClick = { onDonateClick() })
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                        .wrapContentWidth(),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                ) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_heart_24),
+                                        tint = WikipediaTheme.colors.destructiveColor,
+                                        contentDescription = stringResource(R.string.year_in_review_heart_icon),
+                                    )
+
+                                    Text(
+                                        text = stringResource(R.string.year_in_review_donate),
+                                        style = MaterialTheme.typography.labelLarge,
+                                        color = WikipediaTheme.colors.destructiveColor
+                                    )
+                                }
+                            }
                         }
-                    }
-                ) },
+                    )
+                },
                 bottomBar = {
                     MainBottomBar(
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
-                        onDonateClick = onDonateClick
+                        onShareClick = {
+                            startCapture = true
+                        }
                     )
                 },
                 content = { paddingValues ->
@@ -162,7 +199,7 @@ fun MainBottomBar(
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onShareClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -179,27 +216,14 @@ fun MainBottomBar(
                         .fillMaxWidth()
                         .wrapContentHeight()
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .wrapContentWidth()
-                            .align(Alignment.CenterStart)
-                            .clickable(
-                                onClick = { onDonateClick() }
-                            ),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    IconButton(
+                        onClick = onShareClick,
+                        modifier = Modifier.padding(end = 16.dp)
                     ) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_heart_24),
-                            tint = WikipediaTheme.colors.destructiveColor,
-                            contentDescription = stringResource(R.string.year_in_review_heart_icon),
-                        )
-
-                        Text(
-                            text = stringResource(R.string.year_in_review_donate),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = WikipediaTheme.colors.destructiveColor
+                            painter = painterResource(R.drawable.ic_share),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_share_icon)
                         )
                     }
                     Row(
@@ -450,12 +474,17 @@ private fun StandardLayoutWithVariants(
                     }
                 }
             }
-            Text(
+            HtmlText(
                 modifier = Modifier
                     .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
                     .height(IntrinsicSize.Min),
                 text = processString(screenData.bodyText),
-                color = WikipediaTheme.colors.primaryColor,
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontSize = 16.sp
+                    )
+                ),
                 style = MaterialTheme.typography.bodyLarge
             )
 
@@ -509,7 +538,12 @@ private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerSt
 fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
-            screenContent = nonEnglishCollectiveEditCountData
+            screenContent = YearInReviewScreenData.StandardScreen(
+                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                headlineText = "Over 3 billion bytes added",
+                bodyText = "TBD"
+            )
         ) { /* No logic, preview only */ }
     }
 }
@@ -519,7 +553,14 @@ fun PreviewScreenShot() {
 fun PreviewContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
-            state = UiState.Success(listOf(nonEnglishCollectiveEditCountData)),
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.StandardScreen(
+                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    headlineText = "Over 3 billion bytes added",
+                    bodyText = "TBD"
+                )
+            )),
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}
