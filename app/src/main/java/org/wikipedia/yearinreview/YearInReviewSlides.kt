@@ -132,20 +132,20 @@ class YearInReviewSlides(
     }
 
     private fun localSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
-        val localSavedArticlesSize = yearInReviewModel.localSavedArticles.size
+        val localSavedArticlesSize = yearInReviewModel.localSavedArticlesCount
         if (localSavedArticlesSize < YearInReviewViewModel.MIN_SAVED_ARTICLES) {
             return appSavedArticlesScreen()
         }
-        val localSavedFormattedNumber = formatter.format(yearInReviewModel.localSavedArticles.size)
+        val localSavedFormattedNumber = formatter.format(localSavedArticlesSize)
         val appSavedArticlesSize = yearInReviewModel.appArticlesSavedTimes.toInt()
         val appSavedFormattedNumber = formatter.format(yearInReviewModel.appArticlesSavedTimes)
-        val randomArticles = yearInReviewModel.localSavedArticles.shuffled().take(YearInReviewViewModel.MIN_SAVED_ARTICLES)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, localSavedArticlesSize, localSavedFormattedNumber),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_body,
-                appSavedArticlesSize, randomArticles[0], randomArticles[1], randomArticles[2], appSavedFormattedNumber)
+                appSavedArticlesSize, yearInReviewModel.localSavedArticles[0], yearInReviewModel.localSavedArticles[1],
+                yearInReviewModel.localSavedArticles[2], appSavedFormattedNumber)
         )
     }
 

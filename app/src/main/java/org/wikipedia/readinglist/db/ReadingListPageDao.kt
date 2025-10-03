@@ -74,6 +74,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
+    @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getRandomPageTitlesSince(limit: Int, timestamp: Long): List<String?>
+
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
 
@@ -97,9 +100,6 @@ interface ReadingListPageDao {
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>
-
-    @Query("SELECT DISTINCT displayTitle FROM ReadingListPage ORDER BY atime DESC")
-    suspend fun getAllDistinctArticleTitles(): List<String>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 

@@ -61,9 +61,13 @@ class YearInReviewViewModel() : ViewModel() {
                 // TODO: handle remote config to show numbers, maybe grab generic content from the config.
                 val remoteConfig = RemoteConfig.config
 
-                val latestArticleTitlesFromSaved = async {
+                val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getAllDistinctArticleTitles()
+                        .getTotalLocallySavedPagesSince(yearAgo) ?: 0
+                }
+                val randomSavedArticleTitles = async {
+                    AppDatabase.instance.readingListPageDao()
+                        .getRandomPageTitlesSince(MIN_SAVED_ARTICLES, yearAgo)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
@@ -184,9 +188,10 @@ class YearInReviewViewModel() : ViewModel() {
                     appArticlesSavedTimes = 0L, // TODO: remote config
                     appsEditsCount = 0L, // TODO: remote config
                     localReadingTimePerMinute = totalTimeSpent.await(),
+                    localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
                     localReadingRank = "50%", // TODO: compare with the total reading hours
-                    localSavedArticles = latestArticleTitlesFromSaved.await(),
+                    localSavedArticles = randomSavedArticleTitles.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
                     favoriteTimeToRead = "Evening",
