@@ -138,14 +138,29 @@ fun YearInReviewScreenDeck(
                             }
                         },
                         actions = {
-                            IconButton(onClick = {
-                                startCapture = true
-                            }) {
-                                Icon(
-                                    painter = painterResource(R.drawable.ic_share),
-                                    tint = WikipediaTheme.colors.primaryColor,
-                                    contentDescription = stringResource(R.string.year_in_review_share_icon)
-                                )
+                            Box(
+                                modifier = Modifier
+                                    .clickable(onClick = { onDonateClick() })
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                        .wrapContentWidth(),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                ) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_heart_24),
+                                        tint = WikipediaTheme.colors.destructiveColor,
+                                        contentDescription = stringResource(R.string.year_in_review_heart_icon),
+                                    )
+
+                                    Text(
+                                        text = stringResource(R.string.year_in_review_donate),
+                                        style = MaterialTheme.typography.labelLarge,
+                                        color = WikipediaTheme.colors.destructiveColor
+                                    )
+                                }
                             }
                         }
                     )
@@ -155,7 +170,9 @@ fun YearInReviewScreenDeck(
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
-                        onDonateClick = onDonateClick
+                        onShareClick = {
+                            startCapture = true
+                        }
                     )
                 },
                 content = { paddingValues ->
@@ -182,7 +199,7 @@ fun MainBottomBar(
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onShareClick: () -> Unit
 ) {
     Column {
         HorizontalDivider(
@@ -199,27 +216,14 @@ fun MainBottomBar(
                         .fillMaxWidth()
                         .wrapContentHeight()
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .wrapContentWidth()
-                            .align(Alignment.CenterStart)
-                            .clickable(
-                                onClick = { onDonateClick() }
-                            ),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    IconButton(
+                        onClick = onShareClick,
+                        modifier = Modifier.padding(end = 16.dp)
                     ) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_heart_24),
-                            tint = WikipediaTheme.colors.destructiveColor,
-                            contentDescription = stringResource(R.string.year_in_review_heart_icon),
-                        )
-
-                        Text(
-                            text = stringResource(R.string.year_in_review_donate),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = WikipediaTheme.colors.destructiveColor
+                            painter = painterResource(R.drawable.ic_share),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_share_icon)
                         )
                     }
                     Row(
