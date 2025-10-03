@@ -85,7 +85,7 @@ sealed class YearInReviewScreenData {
     class CustomIconScreen(
         headlineText: Any? = null,
         bodyText: Any? = null,
-        val showDonateButton: Boolean = true
+        val showDonateButton: Boolean = false
     ) : StandardScreen(
         headlineText = headlineText,
         bodyText = bodyText
