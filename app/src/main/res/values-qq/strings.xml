@@ -1866,6 +1866,10 @@
   <string name="year_in_review_get_started_bodytext">Body text for the year in review get started page.</string>
   <string name="year_in_review_get_started_info">Info text for the year in review get started page.</string>
   <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
+  <string name="year_in_review_disable_title">Title of dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_disable_positive_button">Positive button for dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_disable_negative_button">Negative button for dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_setting_subtitle">Explanation for the preference that allows the user to disable the Year in Review feature.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
   <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>

@@ -65,6 +65,22 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
+        findPreference(R.string.preference_key_year_in_review_is_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+            if (newValue as Boolean) {
+                return@OnPreferenceChangeListener true
+            }
+            MaterialAlertDialogBuilder(activity)
+                .setTitle(R.string.year_in_review_disable_title)
+                .setMessage(R.string.year_in_review_setting_subtitle)
+                .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                    Prefs.yearInReviewModelData = emptyMap()
+                    (preference as SwitchPreferenceCompat).isChecked = false
+                }
+                .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                .show()
+            false
+        }
+
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity.startActivity(Intent(activity, AboutActivity::class.java))
             true
