@@ -2,6 +2,8 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class YearInReviewSlides(
     val context: Context,
@@ -12,6 +14,8 @@ class YearInReviewSlides(
     val isIconUnlocked: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
+
+    private val formatter: NumberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
 
     private fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
         // TODO: yir123
@@ -33,13 +37,16 @@ class YearInReviewSlides(
         )
     }
 
-    private fun popularArticlesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir127 + 104
+    private fun popularEnglishArticlesScreen(): YearInReviewScreenData.StandardScreen {
+
+        val popularEnglishArticlesText = buildListWithNumbers(yearInReviewModel.enPopularArticles)
+
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "English Wikipedia’s most popular articles",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
+                yearInReviewModel.enPopularArticles.size, yearInReviewModel.enPopularArticles.size, popularEnglishArticlesText)
         )
     }
 
@@ -88,10 +95,7 @@ class YearInReviewSlides(
             return null
         }
 
-        var topCategoriesText = "<br />"
-        yearInReviewModel.localTopCategories.forEachIndexed { index, it ->
-            topCategoriesText += "${index + 1}. $it<br />"
-        }
+        val topCategoriesText = buildListWithNumbers(yearInReviewModel.localTopCategories)
 
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
@@ -106,15 +110,14 @@ class YearInReviewSlides(
             return null
         }
 
-        var topArticlesText = "<br />"
-        yearInReviewModel.localTopVisitedArticles.forEachIndexed { index, it ->
-            topArticlesText += "${index + 1}. $it<br />"
-        }
+        val topArticlesText = buildListWithNumbers(yearInReviewModel.localTopVisitedArticles)
+        val quantity = yearInReviewModel.localTopVisitedArticles.size
+
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.getString(R.string.year_in_review_slide_top_articles_headline),
-            bodyText = context.getString(R.string.year_in_review_slide_top_articles_body, currentYear, topArticlesText)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_headline, quantity),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_body, quantity, currentYear, topArticlesText)
         )
     }
 
@@ -147,13 +150,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedViewsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir115
+    private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
+        val formattedNumber = formatter.format(yearInReviewModel.userEditsViewedTimes)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Your edits have been viewed more than 14,791 times recently",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_headline, quantity, formattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_body, quantity, formattedNumber)
         )
     }
 
@@ -167,13 +171,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedPerMinuteScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir117
+    private fun editedPerMinuteScreen(): YearInReviewScreenData.StandardScreen {
+        val formattedNumber = formatter.format(yearInReviewModel.globalEditsPerMinute)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Wikipedia was edited 342 times per minute",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, yearInReviewModel.globalEditsPerMinute, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
     }
 
@@ -187,13 +191,15 @@ class YearInReviewSlides(
         )
     }
 
-    private fun addedBytesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir119
+    private fun addedBytesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.enBytesAddedCount.toInt()
+        val formattedNumber = formatter.format(yearInReviewModel.enBytesAddedCount)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Over 3 billion bytes added",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, quantity, formattedNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_body,
+                quantity, currentYear, formattedNumber, context.getString(R.string.editing_learn_more_url))
         )
     }
 
@@ -241,7 +247,7 @@ class YearInReviewSlides(
         return when {
             isEditor -> listOf(
                 editedTimesScreen(),
-                editedViewsScreen()
+                editsViewedTimesScreen()
             )
             !isEditor && !isEnglishWiki -> {
                 listOf(
@@ -274,7 +280,7 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for English users - non-logged in.
         return (listOf(
             spentReadingHoursScreen(1),
-            popularArticlesScreen(),
+            popularEnglishArticlesScreen(),
             globalSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
@@ -292,7 +298,7 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
             spentReadingMinutesScreen(true),
-            viewedArticlesTimesScreen(),
+            popularEnglishArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
             topArticlesScreen(),
@@ -305,13 +311,21 @@ class YearInReviewSlides(
         // TODO: Show a bunch of generic slides for logged in users.
         return (listOf(
             spentReadingMinutesScreen(false),
-            popularArticlesScreen(),
+            viewedArticlesTimesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+    }
+
+    private fun buildListWithNumbers(items: List<String>): String {
+        var outputText = "<br />"
+        items.forEachIndexed { index, it ->
+            outputText += "${index + 1}. $it<br />"
+        }
+        return outputText
     }
 
     // TODO: send all required data to this function

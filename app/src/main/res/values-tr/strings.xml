@@ -69,6 +69,7 @@
   <string name="search_icon_content_description">Ara</string>
   <string name="filter_hint_filter_my_lists_and_articles">Listelerimi filtrele</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
+  <string name="nav_item_activity">Etkinlik</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="nav_item_search">Ara</string>
   <string name="nav_item_contribute">Katkıda bulun</string>
@@ -81,7 +82,7 @@
   <string name="page_error_back_to_main">Geri dön</string>
   <string name="error_back">Geri dön</string>
   <string name="error_next">Sonraki</string>
-  <string name="menu_clear_all_history" fuzzy="true">Geçmişi temizle</string>
+  <string name="menu_clear_all_history">Okuma geçmişini temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
   <string name="history_item_delete_undo">Geri al</string>
@@ -1695,6 +1696,8 @@
   <string name="survey_dialog_general_maybe">Belki</string>
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
+  <string name="on_this_day_game_entry_dialog_button">Bugünün oyununu oyna</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
   <string name="on_this_day_game_pause_title">Oyun durdurulsun mu?</string>

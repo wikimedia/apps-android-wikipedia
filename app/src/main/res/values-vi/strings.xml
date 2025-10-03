@@ -52,7 +52,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
   <string name="nav_item_suggested_edits">Sửa đổi</string>
   <string name="nav_item_activity">Hoạt động</string>
-  <string name="nav_item_more">Mở rộng.</string>
+  <string name="nav_item_more">Mở rộng</string>
   <string name="nav_item_search">Tìm kiếm</string>
   <string name="nav_item_contribute">Đóng góp</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
@@ -1141,6 +1141,7 @@
   <string name="edit_summary_added_caption">Đã thêm chú thích</string>
   <string name="edit_summary_added_image_and_caption">Đã thêm hình ảnh và chú thích</string>
   <string name="edit_published_view">Xem</string>
+  <string name="activity_tab_user_reading">Thời gian đọc của %s</string>
   <string name="activity_tab_on_wikipedia_android">Trên Wikipedia Android</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$dg %2$dp</string>
   <string name="activity_tab_weekly_time_spent">Lượng thời gian trong tuần đã dành ra để đọc bài viết</string>
@@ -1159,6 +1160,13 @@
   <string name="activity_tab_highlights">Điểm nổi bật</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lịch sử đọc</string>
   <string name="activity_tab_impact">Hoạt động của bạn</string>
+  <string name="activity_tab_impact_contributions_this_month">Đóng góp trong tháng này</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">tổng số lượt sửa đổi</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d ngày</item>
+  </plurals>
   <string name="activity_tab_impact_suggested_edits_button">Làm một sửa đổi</string>
   <string name="activity_tab_impact_recent_activity">Hoạt động gần đây của bạn (30 ngày qua)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1357,7 +1365,7 @@
   <string name="talk_overflow_sort_date_published">Ngày xuất bản</string>
   <string name="talk_overflow_sort_date_updated">Ngày cập nhật</string>
   <string name="talk_overflow_sort_topic_name">Tên chủ đề</string>
-  <string name="talk_new_topic_exit_dialog_title">Bạn chắc chắn có muốn thoát không?</string>
+  <string name="talk_new_topic_exit_dialog_title">Bạn có chắc chắn muốn thoát không?</string>
   <string name="talk_new_topic_exit_dialog_message">Tiêu đề và nội dung văn bản sẽ không được lưu.</string>
   <string name="talk_list_item_overflow_subscribe">Theo dõi</string>
   <string name="talk_list_item_overflow_subscribed">Đã theo dõi</string>
@@ -1585,6 +1593,8 @@
   <string name="patroller_onboarding_two_talk_title">Thảo luận</string>
   <string name="patroller_diff_menu_edit_history_title">Lịch sử sửa đổi bài viết</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Phản hồi</string>
+  <string name="patroller_saved_message_title_vandalism">Cảnh báo về việc phá hoại</string>
+  <string name="patroller_saved_message_title_editing_tests">Sửa đổi thử nghiệm</string>
   <string name="patroller_saved_message_title_npov">Quan điểm trung lập</string>
   <string name="patroller_saved_message_title_auto_trans">Bản dịch tự động</string>
   <string name="patroller_saved_message_title_coi_rem">Nhắc nhở về mâu thuẫn</string>
@@ -1593,6 +1603,18 @@
   <string name="patroller_saved_message_title_edit_summary_reminder">Hãy để lại tóm lược sửa đổi</string>
   <string name="patroller_saved_message_title_do_not_censor">Không kiểm duyệt</string>
   <string name="patroller_saved_message_title_art_imp">Đề xuất cải thiện bài viết</string>
+  <string name="patroller_saved_message_body_vandalism">Xin chào {{{username}}}, tôi muốn thông báo cho bạn biết rằng một hoặc nhiều [{{{diffLink}}}|sửa đổi gần đây của bạn] không mang tính chất xây dựng và đã bị hồi sửa. Nếu bạn nghĩ rằng tôi đã phạm sai lầm hay bạn có bất kỳ câu hỏi nào, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Hãy lưu ý rằng, việc liên tục sửa đổi gây hại có thể dẫn đến việc cấm sửa đổi. Cảm ơn bạn.</string>
+  <string name="patroller_saved_message_body_editing_tests">Xin chào {{{username}}}, tôi rất vui khi biết Wikipedia đã thu hút được sự chú ý của bạn và bạn đang quan tâm đến việc tìm hiểu cách chỉnh sửa tại đây. Thử nghiệm của bạn đã thực sự hoạt động. Tuy nhiên, bạn cần lưu ý rằng mục tiêu của dự án này là xây dựng một bách khoa toàn thư, nơi có đầy đủ thông tin và đáng tin cậy mà mọi người đều có thể tra cứu. Sửa đổi của bạn đã làm ảnh hưởng đến nội dung bài viết, vì vậy nó đã bị gỡ bỏ.\n\nNếu bạn muốn học cách chỉnh sửa tại Wikipedia, bạn có thể sử dụng [[Wikipedia:Chỗ thử|trang thử nghiệm]]. Nếu bạn có ý kiến liên quan đến một bài viết cụ thể, thì nơi thích hợp nhất để đăng ý kiến của bạn là trang thảo luận của bài viết đó.</string>
+  <string name="patroller_saved_message_body_npov">Xin chào {{{username}}}, một số đóng góp của bạn chưa đáp ứng tính trung lập theo chính sách [[Wikipedia:NPOV|quan điểm trung lập]] của Wikipedia. Vì lý do này, một số nội dung đã được chỉnh sửa hoặc gỡ bỏ. Vui lòng điều chỉnh lại các đoạn hoặc mục thể hiện quan điểm thiên lệch, thay thế chúng bằng văn bản trung lập và khách quan hơn, phù hợp với những gì được kỳ vọng trong một bách khoa toàn thư.</string>
+  <string name="patroller_saved_message_body_auto_trans">Xin chào {{{username}}}. Hoan nghênh bạn đã đóng góp cho Wikipedia nhưng những đóng góp gần đây của bạn cho thấy rằng bạn có thể đã lạm dụng công cụ dịch tự động mà chưa được biên tập kỹ, nên những đóng góp này đã được chỉnh sửa hoặc đánh dấu bằng bản mẫu. Nếu như không có sự cải thiện nào được thực hiện đối với đoạn văn hoặc bài viết đó, chúng có thể bị lùi sửa hoặc bị xóa.\n\nSau khi tôi đã đưa ra những bằng chứng về sự lạm dụng công cụ dịch tự động mà bạn vẫn còn thắc mắc, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Đừng nản lòng vì sự cố nhỏ này. Những đóng góp của bạn rất quan trọng đối với Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Xin chào {{{username}}}, chúng tôi trân trọng những đóng góp của bạn trên Wikipedia. Tuy nhiên, tôi nhận thấy bạn đang gặp phải tình huống [[Wikipedia:Xung đột lợi ích|xung đột lợi ích]]. Xung đột lợi ích là sự mâu thuẫn giữa mục tiêu về tính trung lập và độ tin cậy của Wikipedia với những mục tiêu riêng của một số biên tập viên, cá nhân, tổ chức hay doanh nghiệp thuộc bất kỳ loại hình nào.\n\nMọi đóng góp trong không gian bài viết chính đều phải tuân thủ các chính sách về tiêu chí nội dung của Wikipedia ([[Wikipedia:Những gì không phải là Wikipedia|Những gì không phải là Wikipedia]]), ([[Wikipedia:Thông tin kiểm chứng được|khả năng kiểm chứng]] thông tin và [[Wikipedia:Không đăng nghiên cứu chưa được công bố|nghiên cứu chưa được công bố]]), cách thức biên tập theo ([[Wikipedia:Thái độ trung lập|quan điểm trung lập]]) và tính hợp pháp của nội dung ([[Wikipedia:Quyền tác giả|bản quyền]]). Tất cả các biên tập viên đều được kỳ vọng tuân thủ những chính sách này khi tạo lập và đánh giá nội dung, đồng thời tôn trọng và hành xử thiện chí với những đóng góp của người khác để bảo đảm các chính sách được thực hiện.\n\nNếu bạn đang trong tình huống có thể xung đột lợi ích, bạn cần đặc biệt tuân thủ chính sách liên quan. Nếu không, tài khoản của bạn có thể bị coi là phục vụ cho mục đích cá nhân và sẽ bị cấm. Nếu bạn có thắc mắc, bạn có thể để lại lời nhắn trên trang thảo luận của tôi.</string>
+  <string name="patroller_saved_message_body_final_warning">Vì bạn đã thực hiện nhiều sửa đổi mang tính phá hoại, đây sẽ được coi là cảnh cáo cuối cùng dành cho bạn. Nếu bạn tiếp tục phá hoại Wikipedia, bạn sẽ bị cấm sửa đổi.</string>
+  <string name="patroller_saved_message_body_copy_vio">Sửa đổi gần đây của bạn dường như có chứa nội dung vi phạm bản quyền mà chưa được cho phép. Xin hãy đảm bảo mọi nội dung đều tuân thủ chính sách [[Wikipedia:Quyền tác giả|bản quyền]] của Wikipedia để tránh bị gỡ bỏ.</string>
+  <string name="patroller_saved_message_body_edit_summary">Xin chào {{{username}}}, có vẻ như bạn đã xóa bỏ nội dung khỏi Wikipedia mà không để lại tóm lược sửa đổi. Vui lòng ghi tóm lược sửa đổi mỗi khi bạn thêm hoặc xóa nội dung trên Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Xin chào {{{username}}}, có vẻ như bạn đã xóa bỏ nội dung mà không thông qua thảo luận tại trang thảo luận của bài viết. Xin lưu ý rằng Wikipedia không bị kiểm duyệt, và nội dung không nên bị gỡ bỏ chỉ vì chúng gây tranh cãi. Nếu bạn cho rằng thông tin chưa chính xác, hãy trao đổi để đạt được đồng thuận trên trang thảo luận của bài viết.</string>
+  <string name="talk_warn_learn_more_label">Tìm hiểu thêm về các tham số trong thông điệp</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Hãy sử dụng một thông điệp mẫu dưới đây để tùy chỉnh, gửi và lưu vào mục thông điệp của bạn.</string>
+  <string name="patroller_saved_message_body_art_imp">Xin chào {{{username}}}. Bài viết của bạn là một khởi đầu tuyệt vời! Để làm cho nó hoàn thiện hơn, bạn nên bổ sung thêm các nguồn tham khảo đáng tin cậy. Điều này giúp xác minh thông tin và nâng cao chất lượng của bài viết. Bạn có thể tham khảo hướng dẫn của Wikipedia về [[ Wikipedia:Nguồn đáng tin cậy|nguồn đáng tin cậy]] để biết thêm chi tiết.</string>
   <string name="talk_templates_menu_edit_title">Sửa đổi</string>
   <string name="data_opt_in_accept">Chấp nhận</string>
   <string name="data_opt_in_reject">Từ chối</string>
@@ -1620,7 +1642,9 @@
   <string name="places_filter_title">Bộ lọc ngôn ngữ</string>
   <string name="places_toggle_buttons_map">Bản đồ</string>
   <string name="places_toggle_buttons_list">Danh sách</string>
+  <string name="places_card_title">Địa điểm gần đây</string>
   <string name="places_card_enable_location_card_button">Kích hoạt vị trí</string>
+  <string name="places_card_distance_suffix">cách đây %s</string>
   <string name="places_card_distance_unknown">Khoảng cách không rõ</string>
   <string name="places_empty_message_snackbar">Không có bài viết nào gần đó. Hãy thử thu nhỏ và di chuyển bản đồ.</string>
   <string name="survey_dialog_title">Hãy giúp chúng tôi cải thiện tính năng này</string>
@@ -1652,6 +1676,9 @@
   <string name="on_this_day_game_feed_entry_card_subtitle">Hãy đoán xem sự kiện nào diễn ra trước vào ngày này năm xưa.</string>
   <string name="on_this_day_game_result">Bạn trả lời đúng %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Lần chơi kế tiếp bắt đầu trong %s</string>
+  <string name="on_this_day_game_stats_average_score">Điểm số trung bình</string>
+  <string name="on_this_day_game_stats_streak">Chuỗi hiện tại</string>
+  <string name="on_this_day_game_result_subtitle">Những bài viết liên quan đến lượt chơi hôm nay</string>
   <string name="on_this_day_game_menu_info">Tìm hiểu thêm</string>
   <string name="on_this_day_game_menu_feedback">Gặp vấn đề với tính năng này</string>
   <string name="on_this_day_game_article_read_button">Đọc bài viết</string>
