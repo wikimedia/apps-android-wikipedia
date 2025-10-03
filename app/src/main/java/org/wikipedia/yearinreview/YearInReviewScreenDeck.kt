@@ -147,6 +147,7 @@ fun YearInReviewScreenDeck(
                 },
                 bottomBar = {
                     MainBottomBar(
+                        contentData,
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
@@ -174,11 +175,13 @@ fun YearInReviewScreenDeck(
 
 @Composable
 fun MainBottomBar(
+    contentData: List<YearInReviewScreenData>,
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
     onDonateClick: () -> Unit
 ) {
+    val context = LocalContext.current
     Column {
         HorizontalDivider(
             modifier = Modifier
@@ -186,6 +189,9 @@ fun MainBottomBar(
                 .fillMaxWidth(),
             color = WikipediaTheme.colors.inactiveColor
         )
+        Box {
+            contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
+        }
         BottomAppBar(
             containerColor = WikipediaTheme.colors.paperColor,
             content = {
@@ -465,14 +471,6 @@ private fun StandardLayoutWithVariants(
                 ),
                 style = MaterialTheme.typography.bodyLarge
             )
-
-            screenData.bottomButton?.let {
-                // @TODO: donation button based on android design
-            }
-
-            screenData.unlockIcon?.let {
-                // @TODO: unlock icon based on android design
-            }
         }
     }
 }

@@ -1,13 +1,21 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,17 +33,21 @@ import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
 sealed class YearInReviewScreenData {
+
+    @Composable
+    open fun BottomButton(context: Context, onButtonClick: () -> Unit) {
+    }
+
     open class StandardScreen(
         val animatedImageResource: Int = 0,
         val staticImageResource: Int = 0,
         val headlineText: Any? = null,
-        val bodyText: Any? = null,
-        val bottomButton: ButtonConfig? = null,
-        val unlockIcon: UnlockIconConfig? = null
+        val bodyText: Any? = null
     ) : YearInReviewScreenData() {
         @Composable
         open fun Header(context: Context,
@@ -110,18 +122,37 @@ sealed class YearInReviewScreenData {
                 )
             }
         }
+
+        @Composable
+        override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
+            if (showDonateButton) {
+                Button(
+                    modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp).fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = 18.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        contentColor = Color.White,
+                    ),
+                    border = BorderStroke(1.dp, WikipediaTheme.colors.destructiveColor),
+                    onClick = onButtonClick,
+                ) {
+                    Icon(
+                        modifier = Modifier.size(20.dp),
+                        painter = painterResource(R.drawable.ic_heart_24),
+                        tint = WikipediaTheme.colors.destructiveColor,
+                        contentDescription = null
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 6.dp),
+                        text = stringResource(R.string.year_in_review_donate),
+                        color = WikipediaTheme.colors.destructiveColor,
+                        style = MaterialTheme.typography.labelLarge,
+                    )
+                }
+            }
+        }
     }
 }
-
-data class ButtonConfig(
-    val text: String,
-    val onClick: () -> Unit,
-)
-
-data class UnlockIconConfig(
-    val isUnlocked: Boolean = false,
-    val onClick: (() -> Unit)? = null
-)
 
 @Preview
 @Composable
@@ -134,6 +165,21 @@ private fun CustomIconScreenHeaderPreview() {
                 context = LocalContext.current,
                 screenCaptureMode = false,
                 aspectRatio = 1f
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun CustomIconScreenButtonPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        Box(
+            modifier = Modifier.size(400.dp, 200.dp)
+        ) {
+            CustomIconScreen(showDonateButton = true).BottomButton(
+                context = LocalContext.current,
+                onButtonClick = {}
             )
         }
     }
