@@ -64,6 +64,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 .setTitle(R.string.year_in_review_disable_title)
                 .setMessage(R.string.year_in_review_setting_subtitle)
                 .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                    Prefs.yearInReviewModelData = emptyMap()
                     (preference as SwitchPreferenceCompat).isChecked = false
                 }
                 .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
