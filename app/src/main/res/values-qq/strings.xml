@@ -1894,6 +1894,11 @@
   </plurals>
   <string name="year_in_review_slide_top_categories_headline">Title of the top categories slide for the Year in Review.</string>
   <string name="year_in_review_slide_top_categories_body">Body text of the top categories slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top categories.</string>
+  <string name="year_in_review_slide_popular_english_articles_headline">Title of the most popular English Wikipedia articles for the Year in Review.</string>
+  <plurals name="year_in_review_slide_popular_english_articles_body">
+    <item quantity="one">Title of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
+    <item quantity="other">Title of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
+  </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Title of the edit viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Title of the edits viewed times slide for the Year in Review. %s will be replaced by the formatted number.</item>
