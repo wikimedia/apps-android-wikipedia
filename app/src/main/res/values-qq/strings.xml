@@ -1892,7 +1892,7 @@
   <string name="year_in_review_app_icon_title_unlock">Title of screen informing the user about how to unlock a new app icon.</string>
   <string name="year_in_review_app_icon_title_unlock_later">Title of screen informing the user about how to unlock a new app icon for next year.</string>
   <string name="year_in_review_app_icon_body_unlocked">Body text of screen informing the user that a new app icon has been unlocked.</string>
-  <string name="year_in_review_app_icon_body_unlock">Body text of screen informing the user about how to unlock a new app icon.</string>
+  <string name="year_in_review_app_icon_body_unlock">Body text of screen informing the user about how to unlock a new app icon. The %s parameter is replace with a URL for learning more about the feature.</string>
   <string name="year_in_review_app_icon_body_unlock_later">Body text of screen informing the user about how to unlock a new app icon for next year.</string>
   <string name="year_in_review_login_dialog_title">Title of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>

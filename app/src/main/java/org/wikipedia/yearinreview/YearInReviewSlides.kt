@@ -259,7 +259,7 @@ class YearInReviewSlides(
             listOf(
                 YearInReviewScreenData.CustomIconScreen(
                     headlineText = R.string.year_in_review_app_icon_title_unlock,
-                    bodyText = R.string.year_in_review_app_icon_body_unlock
+                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlock, "") // TODO: URL for learning more.
                 )
             )
         }
