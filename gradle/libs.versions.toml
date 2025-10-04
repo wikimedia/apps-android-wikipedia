@@ -126,6 +126,7 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+maplibre-compose = { module = "org.maplibre.compose:maplibre-compose", version = "0.11.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
