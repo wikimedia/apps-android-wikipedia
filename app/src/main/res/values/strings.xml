@@ -2049,8 +2049,8 @@
         <item quantity="other">Editors made %s changes this year</item>
     </plurals>
     <plurals name="year_in_review_english_edited_times_body_first">
-        <item quantity="one">Volunteers made %s change across over 300 different language editions of Wikipedia. %2$s changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
-        <item quantity="other">Volunteers made %s changes across over 300 different language editions of Wikipedia. 31,XXX,XXX changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
+        <item quantity="one">Volunteers made %s change across over 300 different language editions of Wikipedia.</item>
+        <item quantity="other">Volunteers made %s changes across over 300 different language editions of Wikipedia.</item>
     </plurals>
     <plurals name="year_in_review_english_edited_times_body_second">
         <item quantity="one">%s change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
