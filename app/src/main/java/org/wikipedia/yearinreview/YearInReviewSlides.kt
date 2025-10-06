@@ -149,13 +149,19 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedTimesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir114
+    private fun editedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val userEditsCount = yearInReviewModel.userEditsCount
+        var formattedUserEditsNumber = formatter.format(yearInReviewModel.userEditsCount)
+        if (userEditsCount > YearInReviewViewModel.MAX_EDITED_TIMES) {
+            formattedUserEditsNumber = "${YearInReviewViewModel.MAX_EDITED_TIMES}+"
+        }
+        val globalEditsCount = yearInReviewModel.globalEditsCount.toInt()
+        val formattedGlobalEditsNumber = formatter.format(yearInReviewModel.globalEditsCount)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You edited Wikipedia 150 times",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_edited_times_headline, userEditsCount, formattedUserEditsNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_edited_times_body, globalEditsCount, formattedGlobalEditsNumber)
         )
     }
 
@@ -170,13 +176,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editorsEditsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir116
+    private fun appEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val quantity = yearInReviewModel.globalEditsCount.toInt()
+        val formattedNumber = formatter.format(yearInReviewModel.globalEditsCount)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Editors on the official Wikipedia apps made more than 452,257 edits",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_app_edited_times_headline, quantity, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_app_edited_times_body)
         )
     }
 
@@ -190,13 +197,20 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editorsChangesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir118
+    private fun englishEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        val globalEditsCount = yearInReviewModel.globalEditsCount.toInt()
+        val formattedGlobalEditsNumber = formatter.format(yearInReviewModel.globalEditsCount)
+        val englishEditsCount = yearInReviewModel.enEditsCount.toInt()
+        val formattedEnglishEditsNumber = formatter.format(yearInReviewModel.enEditsCount)
+        val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_body_first,
+            globalEditsCount, formattedGlobalEditsNumber, formattedEnglishEditsNumber) + " " +
+                context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_body_second,
+                    englishEditsCount, formattedEnglishEditsNumber)
         return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Editors made nearly 82 million changes this year",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_headline, globalEditsCount, formattedGlobalEditsNumber),
+            bodyText = bodyText
         )
     }
 
@@ -260,13 +274,13 @@ class YearInReviewSlides(
             )
             !isEditor && !isEnglishWiki -> {
                 listOf(
-                    editorsEditsScreen(),
+                    appEditedTimesScreen(),
                     editedPerMinuteScreen()
                 )
             }
             else -> {
                 listOf(
-                    editorsChangesScreen(),
+                    englishEditedTimesScreen(),
                     addedBytesScreen()
                 )
             }

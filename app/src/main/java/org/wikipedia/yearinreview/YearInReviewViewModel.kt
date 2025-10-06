@@ -226,7 +226,7 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     companion object {
-        private const val MINIMUM_EDIT_COUNT = 1
+        const val MAX_EDITED_TIMES = 500
         const val MIN_SAVED_ARTICLES = 3
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
