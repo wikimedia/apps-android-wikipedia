@@ -950,6 +950,7 @@
     <item quantity="one">%d ورځ</item>
     <item quantity="other">%d ورځې</item>
   </plurals>
+  <string name="activity_tab_impact_best_streak">غوره لړۍ</string>
   <string name="activity_tab_impact_last_edited">وروستی ځل سم‌شوی</string>
   <string name="activity_tab_impact_suggested_edits_title">په دې وروستيو کې په ليکنو کې ۰ سمونونه</string>
   <string name="activity_tab_impact_suggested_edits_button">يو سمون کول</string>

@@ -322,7 +322,7 @@
   <string name="find_last_occurence">Đầy là lần cuối cùng</string>
   <string name="article_opened_in_background_tab">Bài viết đã được mở trong một tab nền.</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không mang tính xây dựng. Bạn có chắc chắn muốn đăng nó lên?</string>
-  <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và chỉnh sửa nó.</string>
+  <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và sửa nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
   <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
   <string name="page_similar_titles">Trang tương tự</string>
@@ -503,7 +503,7 @@
   <string name="theme_category_reading">Đọc</string>
   <string name="theme_category_editing">Sửa đổi</string>
   <string name="reading_focus_mode">Chế độ tập trung đọc</string>
-  <string name="reading_focus_mode_detail">Ẩn các tính năng chỉnh sửa và thanh công cụ dưới cùng khi cuộn</string>
+  <string name="reading_focus_mode_detail">Ẩn các tính năng sửa đổi và thanh công cụ dưới cùng khi cuộn</string>
   <string name="editing_syntax_highlight_label">Tô màu Cú pháp</string>
   <string name="editing_line_numbers_label">Đánh số dòng</string>
   <string name="editing_monospace_font_label">Sử dụng phông chữ monospace</string>
@@ -847,7 +847,7 @@
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
-  <string name="feed_item_type_suggested_edits">Đề xuất thêm nội dung vào Wikipedia</string>
+  <string name="feed_item_type_suggested_edits">Gợi ý thêm nội dung vào Wikipedia</string>
   <string name="feed_item_type_places">Các bài viết liên quan dựa trên vị trí hiện tại</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
@@ -900,8 +900,8 @@
   <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>
   <string name="description_verification_notice">Vui lòng xác nhận rằng mô tả của bạn có bằng %1$s không. Bạn có thể bỏ qua cảnh báo này nếu mô tả bạn viết bằng %2$s.</string>
-  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được đề xuất</string>
-  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do máy đề xuất</string>
+  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được gợi ý</string>
+  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do phần mềm gợi ý</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
   <string name="description_edit_success_saved_snackbar">Đã đăng lời miêu tả bài viết!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
@@ -919,8 +919,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">Đề xuất của máy</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Các đề xuất do máy tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Gợi ý của phần mềm</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Các gợi ý do phần mềm tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Tùy chỉnh thanh công cụ</string>
   <string name="customize_toolbar_shortcut_description_text">Tùy chỉnh thanh công cụ phía dưới bằng 5 phím tắt mà bạn thấy hữu ích nhất.</string>
   <string name="customize_toolbar_category_toolbar">Thanh công cụ</string>
@@ -1084,11 +1084,11 @@
   <string name="suggested_edits_contribution_type_image_tag">Thẻ cho hình ảnh</string>
   <string name="suggested_edits_contribution_current_revision_text">Sửa đổi của bạn đang hiện tại ở Wikipedia</string>
   <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
-  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả được đề xuất</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả gợi ý</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Bạn muốn báo cáo điều gì?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Không đủ thông tin</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được đề xuất</string>
-  <string name="suggested_edits_inappropriate_suggestion">Đề xuất không phù hợp</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được gợi ý</string>
+  <string name="suggested_edits_inappropriate_suggestion">Gợi ý không phù hợp</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tôi không hiểu nhiệm vụ</string>
   <string name="suggested_edits_report_suggestion">Báo cáo</string>
   <string name="suggested_edits_suggestion_report_submitted">Đã gửi báo cáo</string>
@@ -1116,7 +1116,7 @@
   <string name="image_recommendation_reject">Không</string>
   <string name="image_recommendation_notsure">Không chắc chắn</string>
   <string name="image_recommendation_reject_title">Lý do từ chối</string>
-  <string name="image_recommendation_reject_subtitle">Lý do từ chối sẽ được ẩn danh và sẽ cải thiện các đề xuất hình ảnh trong tương lai.</string>
+  <string name="image_recommendation_reject_subtitle">Lý do từ chối sẽ được ẩn danh và sẽ được sử dụng để cải thiện các gợi ý hình ảnh trong tương lai.</string>
   <string name="image_recommendation_reject_not_relevant">Hình ảnh không liên quan</string>
   <string name="image_recommendation_reject_no_info">Không đủ thông tin để quyết định</string>
   <string name="image_recommendation_reject_offensive">Hình ảnh mang tính xúc phạm</string>
@@ -1124,7 +1124,7 @@
   <string name="image_recommendation_reject_dont_know">Tôi không biết chủ đề này</string>
   <string name="image_recommendation_reject_other">Khác</string>
   <string name="image_recommendation_reject_submit">Gửi</string>
-  <string name="image_recommendation_tooltip_main">Thêm hình ảnh còn thiếu vào bài viết trong mục đề xuất sửa đổi</string>
+  <string name="image_recommendation_tooltip_main">Thêm hình ảnh còn thiếu vào bài viết trong mục sửa đổi gợi ý</string>
   <string name="image_recommendation_onboarding_1">Hình ảnh giúp mọi người hiểu rõ hơn, nhưng nhiều bài viết lại không có hình ảnh.</string>
   <string name="image_recommendation_onboarding_2">Bạn sẽ quyết định xem hình ảnh được gợi ý có nên được đưa vào bài viết Wikipedia hay không.</string>
   <string name="image_recommendation_onboarding_3">Các gợi ý được tạo ra bằng máy và bạn sẽ sử dụng khả năng phán đoán của mình để quyết định chấp nhận hay từ chối chúng.</string>
@@ -1136,7 +1136,7 @@
   <string name="image_recommendation_tooltip_warning">Vui lòng xem lại bài viết để hiểu chủ đề và kiểm tra hình ảnh</string>
   <string name="image_recommendation_depleted">Xin lỗi, hiện tại không có thêm hình ảnh gợi ý nào. Vui lòng khám phá &lt;a href=\"#\"&gt;các gợi ý sửa đổi&lt;/a&gt; khác hoặc quay lại sau.</string>
   <string name="suggested_edits_report_feature">Vấn đề với tính năng</string>
-  <string name="suggested_edits_report_feature_subject">Vấn đề với Đề xuất sửa đổi</string>
+  <string name="suggested_edits_report_feature_subject">Vấn đề với sửa đổi gợi ý</string>
   <string name="edit_summary_added_image">Đã thêm hình mới</string>
   <string name="edit_summary_added_caption">Đã thêm chú thích</string>
   <string name="edit_summary_added_image_and_caption">Đã thêm hình ảnh và chú thích</string>
@@ -1173,7 +1173,7 @@
     <item quantity="other">Sửa đổi</item>
   </plurals>
   <plurals name="activity_tab_impact_recent_activity_views">
-    <item quantity="other">Lượt xem bài viết mà bạn đã chỉnh sửa</item>
+    <item quantity="other">Lượt xem bài viết mà bạn đã sửa đổi</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Thời gian dành cho việc đọc</string>
   <string name="activity_tab_timeline_today">Hôm nay</string>
@@ -1181,10 +1181,12 @@
   <string name="activity_tab_timeline_empty_state_title">Không có gì để hiển thị</string>
   <string name="activity_tab_timeline_view_changes_button">Xem thay đổi</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Giữ quyền kiểm soát</string>
+  <string name="edits_screen_what_is_title">Sửa đổi trong ứng dụng Wikipedia</string>
+  <string name="edits_screen_what_is_body">Bạn chưa biết bắt đầu sửa đổi từ đâu? Hãy thử tính năng sửa đổi gợi ý, một tính năng tạo cơ hội cho những đóng góp nhỏ nhưng thiết thực cho Wikipedia. Hoặc, bạn có thể truy cập trực tiếp vào bài viết mà bạn quan tâm và thực hiện thay đổi bằng mã wiki.</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ cho hình ảnh</string>
-  <string name="file_page_edit_button_content_description">Chỉnh sửa %s</string>
+  <string name="file_page_edit_button_content_description">Sửa đổi %s</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
@@ -1367,12 +1369,19 @@
   <string name="talk_overflow_sort_topic_name">Tên chủ đề</string>
   <string name="talk_new_topic_exit_dialog_title">Bạn có chắc chắn muốn thoát không?</string>
   <string name="talk_new_topic_exit_dialog_message">Tiêu đề và nội dung văn bản sẽ không được lưu.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="other">Hiện trả lời (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Đã theo dõi \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">Đã hủy theo dõi \"%s\"</string>
   <string name="talk_list_item_overflow_subscribe">Theo dõi</string>
   <string name="talk_list_item_overflow_subscribed">Đã theo dõi</string>
   <string name="talk_list_item_overflow_mark_as_read">Đánh dấu là đã đọc</string>
   <string name="talk_list_item_overflow_mark_as_unread">Đánh dấu là chưa đọc</string>
   <string name="talk_list_item_overflow_share">Chia sẻ</string>
   <string name="talk_list_item_last_comment_date">Bình luận mới nhất: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Tổng số câu trả lời</string>
+  <string name="talk_list_item_user_icon_content_description">Biểu tượng người dùng</string>
   <string name="talk_list_item_swipe_mark_as_read">Đọc</string>
   <string name="talk_list_item_swipe_mark_as_unread">Chưa đọc</string>
   <string name="talk_login_to_subscribe_dialog_title">Đăng nhập để theo dõi chủ đề</string>
@@ -1535,6 +1544,9 @@
   <string name="talk_templates_edit_message_dialog_delete">Xóa</string>
   <string name="talk_templates_edit_message_updated">Thông điệp đã được cập nhật</string>
   <string name="talk_templates_menu_remove_message">Gỡ bỏ thông điệp</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">Tin nhắn đã bị xóa</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Tựa đề không được để trống.</string>
   <string name="talk_templates_your_messages_tab_title">Thông điệp của bạn.</string>
   <string name="talk_templates_example_messages_tab_title">Thông điệp mẫu</string>
@@ -1582,6 +1594,14 @@
   <string name="patroller_tasks_filters_contribution_quality_bad">Chắc chắn có vấn đề</string>
   <string name="patroller_tasks_filters_user_intent_header">Dự đoán ý định người dùng</string>
   <string name="patroller_tasks_filters_user_intent_good">Chắc chắn có ý tốt</string>
+  <string name="patroller_tasks_filters_empty_search_message">Hãy thử xóa %s để xem thêm các sửa đổi</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="other">bộ lọc %d</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Lịch sử sửa đổi bài viết</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Lùi lại thành công</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Bạn có chắc chắn muốn hoàn tác không?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Hoàn tác thành công</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Xem</string>
   <string name="patroller_tasks_overflow_report">Vấn đề với tính năng</string>
   <string name="patroller_tasks_overflow_learn">Tìm hiểu thêm</string>
@@ -1591,6 +1611,7 @@
   <string name="patroller_onboarding_two_watch_title">Theo dõi</string>
   <string name="patroller_onboarding_two_watch_content">Bạn muốn theo dõi các sửa đổi bài viết? Hãy thêm vào Danh sách theo dõi. Xem trong mục \"Thêm\".</string>
   <string name="patroller_onboarding_two_talk_title">Thảo luận</string>
+  <string name="patroller_onboarding_two_undo_title">Lùi lại/Hoàn tác</string>
   <string name="patroller_diff_menu_edit_history_title">Lịch sử sửa đổi bài viết</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Phản hồi</string>
   <string name="patroller_saved_message_title_vandalism">Cảnh báo về việc phá hoại</string>
@@ -1602,11 +1623,11 @@
   <string name="patroller_saved_message_title_copy_vio">Cảnh báo vi phạm bản quyền</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Hãy để lại tóm lược sửa đổi</string>
   <string name="patroller_saved_message_title_do_not_censor">Không kiểm duyệt</string>
-  <string name="patroller_saved_message_title_art_imp">Đề xuất cải thiện bài viết</string>
-  <string name="patroller_saved_message_body_vandalism">Xin chào {{{username}}}, tôi muốn thông báo cho bạn biết rằng một hoặc nhiều [{{{diffLink}}}|sửa đổi gần đây của bạn] không mang tính chất xây dựng và đã bị hồi sửa. Nếu bạn nghĩ rằng tôi đã phạm sai lầm hay bạn có bất kỳ câu hỏi nào, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Hãy lưu ý rằng, việc liên tục sửa đổi gây hại có thể dẫn đến việc cấm sửa đổi. Cảm ơn bạn.</string>
-  <string name="patroller_saved_message_body_editing_tests">Xin chào {{{username}}}, tôi rất vui khi biết Wikipedia đã thu hút được sự chú ý của bạn và bạn đang quan tâm đến việc tìm hiểu cách chỉnh sửa tại đây. Thử nghiệm của bạn đã thực sự hoạt động. Tuy nhiên, bạn cần lưu ý rằng mục tiêu của dự án này là xây dựng một bách khoa toàn thư, nơi có đầy đủ thông tin và đáng tin cậy mà mọi người đều có thể tra cứu. Sửa đổi của bạn đã làm ảnh hưởng đến nội dung bài viết, vì vậy nó đã bị gỡ bỏ.\n\nNếu bạn muốn học cách chỉnh sửa tại Wikipedia, bạn có thể sử dụng [[Wikipedia:Chỗ thử|trang thử nghiệm]]. Nếu bạn có ý kiến liên quan đến một bài viết cụ thể, thì nơi thích hợp nhất để đăng ý kiến của bạn là trang thảo luận của bài viết đó.</string>
-  <string name="patroller_saved_message_body_npov">Xin chào {{{username}}}, một số đóng góp của bạn chưa đáp ứng tính trung lập theo chính sách [[Wikipedia:NPOV|quan điểm trung lập]] của Wikipedia. Vì lý do này, một số nội dung đã được chỉnh sửa hoặc gỡ bỏ. Vui lòng điều chỉnh lại các đoạn hoặc mục thể hiện quan điểm thiên lệch, thay thế chúng bằng văn bản trung lập và khách quan hơn, phù hợp với những gì được kỳ vọng trong một bách khoa toàn thư.</string>
-  <string name="patroller_saved_message_body_auto_trans">Xin chào {{{username}}}. Hoan nghênh bạn đã đóng góp cho Wikipedia nhưng những đóng góp gần đây của bạn cho thấy rằng bạn có thể đã lạm dụng công cụ dịch tự động mà chưa được biên tập kỹ, nên những đóng góp này đã được chỉnh sửa hoặc đánh dấu bằng bản mẫu. Nếu như không có sự cải thiện nào được thực hiện đối với đoạn văn hoặc bài viết đó, chúng có thể bị lùi sửa hoặc bị xóa.\n\nSau khi tôi đã đưa ra những bằng chứng về sự lạm dụng công cụ dịch tự động mà bạn vẫn còn thắc mắc, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Đừng nản lòng vì sự cố nhỏ này. Những đóng góp của bạn rất quan trọng đối với Wikipedia.</string>
+  <string name="patroller_saved_message_title_art_imp">Gợi ý cải thiện bài viết</string>
+  <string name="patroller_saved_message_body_vandalism">Xin chào {{{username}}}, tôi muốn thông báo cho bạn biết rằng một hoặc nhiều [{{{diffLink}}}|sửa đổi gần đây của bạn] không mang tính chất xây dựng và đã bị lùi lại. Nếu bạn nghĩ rằng tôi đã sai hay bạn có bất kỳ câu hỏi nào, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Hãy lưu ý rằng, việc liên tục sửa đổi gây hại có thể dẫn đến việc cấm sửa đổi. Cảm ơn bạn.</string>
+  <string name="patroller_saved_message_body_editing_tests">Xin chào {{{username}}}, tôi rất vui khi biết Wikipedia đã thu hút được sự chú ý của bạn và bạn đang quan tâm đến việc tìm hiểu cách sửa đổi tại đây. Thử nghiệm của bạn đã thực sự hoạt động. Tuy nhiên, bạn cần lưu ý rằng mục tiêu của dự án này là xây dựng một bách khoa toàn thư, nơi có đầy đủ thông tin và đáng tin cậy mà mọi người đều có thể tra cứu. Sửa đổi của bạn đã làm ảnh hưởng đến nội dung bài viết, vì vậy nó đã bị gỡ bỏ.\n\nNếu bạn muốn học cách sửa đổi tại Wikipedia, bạn có thể sử dụng [[Wikipedia:Chỗ thử|chỗ thử]]. Nếu bạn có ý kiến liên quan đến một bài viết cụ thể, thì nơi thích hợp nhất để đăng ý kiến của bạn là trang thảo luận của bài viết đó.</string>
+  <string name="patroller_saved_message_body_npov">Xin chào {{{username}}}, một số đóng góp của bạn chưa đáp ứng tính trung lập theo quy định [[Wikipedia:NPOV|quan điểm trung lập]] của Wikipedia. Vì lý do này, một số nội dung đã được sửa đổi hoặc gỡ bỏ. Vui lòng điều chỉnh lại các đoạn hoặc mục thể hiện quan điểm thiên lệch, thay thế chúng bằng văn bản trung lập và khách quan hơn, phù hợp với những gì được kỳ vọng trong một bách khoa toàn thư.</string>
+  <string name="patroller_saved_message_body_auto_trans">Xin chào {{{username}}}. Hoan nghênh bạn đã đóng góp cho Wikipedia nhưng những đóng góp gần đây của bạn cho thấy rằng bạn có thể đã lạm dụng công cụ dịch máy mà chưa được biên tập kỹ, nên những đóng góp này đã được sửa đổi hoặc đánh dấu bằng bản mẫu. Nếu như không có sự cải thiện nào được thực hiện đối với đoạn văn hoặc bài viết đó, chúng có thể bị lùi sửa hoặc bị xóa.\n\nNếu bạn vẫn còn thắc mắc, bạn có thể để lại lời nhắn trên [[User talk:{{{senderUserName}}}|trang thảo luận của tôi]]. Đừng nản lòng vì sự cố nhỏ này. Những đóng góp của bạn rất quan trọng đối với Wikipedia.</string>
   <string name="patroller_saved_message_body_coi_rem">Xin chào {{{username}}}, chúng tôi trân trọng những đóng góp của bạn trên Wikipedia. Tuy nhiên, tôi nhận thấy bạn đang gặp phải tình huống [[Wikipedia:Xung đột lợi ích|xung đột lợi ích]]. Xung đột lợi ích là sự mâu thuẫn giữa mục tiêu về tính trung lập và độ tin cậy của Wikipedia với những mục tiêu riêng của một số biên tập viên, cá nhân, tổ chức hay doanh nghiệp thuộc bất kỳ loại hình nào.\n\nMọi đóng góp trong không gian bài viết chính đều phải tuân thủ các chính sách về tiêu chí nội dung của Wikipedia ([[Wikipedia:Những gì không phải là Wikipedia|Những gì không phải là Wikipedia]]), ([[Wikipedia:Thông tin kiểm chứng được|khả năng kiểm chứng]] thông tin và [[Wikipedia:Không đăng nghiên cứu chưa được công bố|nghiên cứu chưa được công bố]]), cách thức biên tập theo ([[Wikipedia:Thái độ trung lập|quan điểm trung lập]]) và tính hợp pháp của nội dung ([[Wikipedia:Quyền tác giả|bản quyền]]). Tất cả các biên tập viên đều được kỳ vọng tuân thủ những chính sách này khi tạo lập và đánh giá nội dung, đồng thời tôn trọng và hành xử thiện chí với những đóng góp của người khác để bảo đảm các chính sách được thực hiện.\n\nNếu bạn đang trong tình huống có thể xung đột lợi ích, bạn cần đặc biệt tuân thủ chính sách liên quan. Nếu không, tài khoản của bạn có thể bị coi là phục vụ cho mục đích cá nhân và sẽ bị cấm. Nếu bạn có thắc mắc, bạn có thể để lại lời nhắn trên trang thảo luận của tôi.</string>
   <string name="patroller_saved_message_body_final_warning">Vì bạn đã thực hiện nhiều sửa đổi mang tính phá hoại, đây sẽ được coi là cảnh cáo cuối cùng dành cho bạn. Nếu bạn tiếp tục phá hoại Wikipedia, bạn sẽ bị cấm sửa đổi.</string>
   <string name="patroller_saved_message_body_copy_vio">Sửa đổi gần đây của bạn dường như có chứa nội dung vi phạm bản quyền mà chưa được cho phép. Xin hãy đảm bảo mọi nội dung đều tuân thủ chính sách [[Wikipedia:Quyền tác giả|bản quyền]] của Wikipedia để tránh bị gỡ bỏ.</string>
@@ -1636,6 +1657,7 @@
   <string name="donate_gpay_help_other_ways">Thêm cách để quyên góp</string>
   <string name="donate_gpay_help_faq">Câu hỏi thường gặp</string>
   <string name="donate_gpay_help_tax">Thông tin khấu trừ thuế</string>
+  <string name="donation_history_deleted_message_snackbar">Lịch sử quyên góp bị xóa</string>
   <string name="places_title">Địa điểm</string>
   <string name="places_permissions_denied">Cần có quyền truy cập vị trí để xem vị trí của bạn trên bản đồ. Xin hãy thử lại.</string>
   <string name="places_search_hint">Chỗ tìm kiếm</string>
@@ -1657,6 +1679,7 @@
   <string name="survey_dialog_next">Kế tiếp</string>
   <string name="survey_dialog_general_yes">Có</string>
   <string name="survey_dialog_general_no">Không</string>
+  <string name="survey_dialog_general_maybe">Có lẽ</string>
   <string name="survey_dialog_input_hint">Phản hồi bổ sung</string>
   <string name="survey_dialog_submitted_snackbar">Đã gửi phản hồi. Cảm ơn bạn!</string>
   <string name="on_this_day_game_dialog_button">Chơi</string>
@@ -1688,6 +1711,13 @@
   <string name="on_this_day_game_turn_off_notification_dialog_title">Tắt thông báo về trò chơi này?</string>
   <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Nếu bạn tắt thông báo đẩy, bạn sẽ không còn nhận được lời nhắc mỗi ngày khi có trò chơi mới để chơi nữa.</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">Bật thông báo về trò chơi này?</string>
+  <string name="on_this_day_game_notification_undo">Lùi lại</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Tiếp tục chơi</string>
+  <string name="on_this_day_game_sound_on">Bật âm thanh</string>
+  <string name="on_this_day_game_sound_off">Tắt âm thanh</string>
+  <string name="year_in_review_learn_more">Tìm hiểu thêm</string>
+  <string name="year_in_review_get_started">Bắt đầu</string>
+  <string name="year_in_review_topbar_w_icon">Biểu tượng W của Wikipedia</string>
   <string name="year_in_review_entry_dialog_continue">Tiếp tục</string>
   <string name="year_in_review_survey_subtitle">Bạn có hài lòng với tính năng này không?</string>
   <string name="year_in_review_survey_very_satisfied">Rất hài lòng</string>
@@ -1719,7 +1749,7 @@
   <string name="recommended_reading_list_page_snackbar_day">Ngày</string>
   <string name="recommended_reading_list_page_snackbar_week">Tuần</string>
   <string name="recommended_reading_list_page_snackbar_month">Tháng</string>
-  <string name="recommended_reading_list_settings_section_header">Đề xuất</string>
+  <string name="recommended_reading_list_settings_section_header">Gợi ý</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Tắt tính năng Khám phá?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Tắt nó đi</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Không, giữ nguyên</string>
