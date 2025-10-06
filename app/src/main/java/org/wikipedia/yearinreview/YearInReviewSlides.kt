@@ -259,16 +259,16 @@ class YearInReviewSlides(
     // TODO: add parameters for numbers
     private fun editorRoutes(): List<YearInReviewScreenData> {
         return when {
-//            isEditor -> listOf(
-//                editedTimesScreen(),
-//                editsViewedTimesScreen()
-//            )
-//            !isEditor && !isEnglishWiki -> {
-//                listOf(
-//                    appEditedTimesScreen(),
-//                    editedPerMinuteScreen()
-//                )
-//            }
+            isEditor -> listOf(
+                editedTimesScreen(),
+                editsViewedTimesScreen()
+            )
+            !isEditor && !isEnglishWiki -> {
+                listOf(
+                    appEditedTimesScreen(),
+                    editedPerMinuteScreen()
+                )
+            }
             else -> {
                 listOf(
                     englishEditedTimesScreen(),
