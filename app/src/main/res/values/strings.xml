@@ -2031,6 +2031,19 @@
         <item quantity="one"><![CDATA[In %1$d, volunteers added %2$s byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
         <item quantity="other"><![CDATA[In %1$d, volunteers added %2$s bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
     </plurals>
+    <plurals name="year_in_review_slide_saved_articles_headline">
+        <item quantity="one">You saved %s article</item>
+        <item quantity="other">You saved %s articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_saved_articles_body">
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved articles this year.]]></item>
+    </plurals>
+    <plurals name="year_in_review_slide_global_saved_articles_headline">
+        <item quantity="one">App users had %s saved article</item>
+        <item quantity="other">App users had %s saved articles</item>
+    </plurals>
+    <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
