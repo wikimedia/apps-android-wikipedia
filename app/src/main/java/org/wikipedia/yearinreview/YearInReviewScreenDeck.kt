@@ -168,7 +168,8 @@ fun YearInReviewScreenDeck(
                         totalPages = contentData.size,
                         onShareClick = {
                             startCapture = true
-                        }
+                        },
+                        onDonateClick = onDonateClick
                     )
                 },
                 content = { paddingValues ->
@@ -196,7 +197,8 @@ fun MainBottomBar(
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: () -> Unit,
+    onDonateClick: () -> Unit
 ) {
     val context = LocalContext.current
     Column {
