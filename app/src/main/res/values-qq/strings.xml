@@ -1949,6 +1949,19 @@
     <item quantity="one">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Title of the user saved articles slide for the Year in Review. %s will be replaced by the number of saved article.</item>
+    <item quantity="other">Title of the user saved articles slide for the Year in Review. %s will be replaced by the number of saved articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Body text of the user saved articles slide for the Year in Review. The %1$s, %2$s, and %3$s will be replaced by the article titles, and %4$s will be replaced by the total number of saved article from the app.</item>
+    <item quantity="other">Body text of the user saved articles slide for the Year in Review. The %1$s, %2$s, and %3$s will be replaced by the article titles, and %4$s will be replaced by the total number of saved articles from the app.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Title of the app saved article slide for the Year in Review. %s will be replaced by the total number of saved article from the app.</item>
+    <item quantity="other">Title of the app saved articles slide for the Year in Review. %s will be replaced by the total number of saved articles from the app.</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Body text of the app saved articles slide for the Year in Review.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>

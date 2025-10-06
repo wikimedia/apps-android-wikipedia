@@ -2056,6 +2056,19 @@
         <item quantity="one">%s change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
         <item quantity="other">%s changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
     </plurals>
+    <plurals name="year_in_review_slide_saved_articles_headline">
+        <item quantity="one">You saved %s article</item>
+        <item quantity="other">You saved %s articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_saved_articles_body">
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved articles this year.]]></item>
+    </plurals>
+    <plurals name="year_in_review_slide_global_saved_articles_headline">
+        <item quantity="one">App users had %s saved article</item>
+        <item quantity="other">App users had %s saved articles</item>
+    </plurals>
+    <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
