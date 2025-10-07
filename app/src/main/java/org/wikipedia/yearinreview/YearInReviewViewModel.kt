@@ -20,10 +20,14 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
+import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalDateTime
+import java.time.Month
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.format.TextStyle
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
@@ -172,6 +176,30 @@ class YearInReviewViewModel() : ViewModel() {
                 editCount += wikidataResponse.query?.userInfo!!.editCount
                 editCount += commonsResponse.query?.userInfo!!.editCount
 
+                val favoriteTimeToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val favoriteDayToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val mostReadingMonth = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val favoriteDayToReadText = favoriteDayToRead.await()?.let {
+                    val dayIndex = it % 7
+                    DayOfWeek.of(dayIndex).getDisplayName(TextStyle.FULL, Locale.getDefault())
+                }.orEmpty()
+
+                val mostReadingMonthText = mostReadingMonth.await()?.let {
+                    Month.of(it).getDisplayName(TextStyle.FULL, Locale.getDefault())
+                }.orEmpty()
+
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
                     enPopularArticles = listOf("Dog", "Cat", "Bear", "Bird", "Tiger"), // TODO: remote config
@@ -193,8 +221,8 @@ class YearInReviewViewModel() : ViewModel() {
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
                     favoriteTimeToRead = "Evening",
-                    favoriteDayToRead = "Saturday",
-                    favoriteMonthDidMostReading = "March",
+                    favoriteDayToRead = favoriteDayToReadText,
+                    favoriteMonthDidMostReading = mostReadingMonthText,
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,

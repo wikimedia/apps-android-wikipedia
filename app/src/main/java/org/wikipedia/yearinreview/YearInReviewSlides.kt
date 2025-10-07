@@ -81,13 +81,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun readingPatternsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir106 + yir107
-        return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You have clear reading patterns",
-            bodyText = "TBD"
+    private fun readingPatternsScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.ReadingPatterns(
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_reading_patterns_headline),
+            favoriteTimeText = yearInReviewModel.favoriteTimeToRead,
+            favoriteDayText = yearInReviewModel.favoriteDayToRead,
+            favoriteMonthText = yearInReviewModel.favoriteMonthDidMostReading
         )
     }
 
