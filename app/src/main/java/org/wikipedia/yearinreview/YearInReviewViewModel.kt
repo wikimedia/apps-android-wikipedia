@@ -21,7 +21,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.time.Instant
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
@@ -29,9 +28,8 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
-    private val currentYear = LocalDate.now().year
-    private val startTime: Instant = LocalDateTime.of(currentYear, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
-    private val endTime: Instant = LocalDateTime.of(currentYear, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
+    private val startTime: Instant = LocalDateTime.of(YIR_YEAR, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
+    private val endTime: Instant = LocalDateTime.of(YIR_YEAR, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
     private val startTimeInMillis = startTime.toEpochMilli()
     private val endTimeInMillis = endTime.toEpochMilli()
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -52,7 +50,7 @@ class YearInReviewViewModel() : ViewModel() {
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
-            if (yearInReviewModelMap[currentYear] == null) {
+            if (yearInReviewModelMap[YIR_YEAR] == null) {
                 val now =
                     LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
                 val yearInMillis = TimeUnit.DAYS.toMillis(365)
@@ -88,7 +86,7 @@ class YearInReviewViewModel() : ViewModel() {
                 }
 
                 val topVisitedCategoryForTheYear = async {
-                    AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = currentYear, limit = MAX_TOP_CATEGORY)
+                    AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY)
                         .map { StringUtil.removeNamespace(it.title) }
                 }
 
@@ -174,7 +172,7 @@ class YearInReviewViewModel() : ViewModel() {
                 editCount += wikidataResponse.query?.userInfo!!.editCount
                 editCount += commonsResponse.query?.userInfo!!.editCount
 
-                yearInReviewModelMap[currentYear] = YearInReviewModel(
+                yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
                     enPopularArticles = listOf("Dog", "Cat", "Bear", "Bird", "Tiger"), // TODO: remote config
                     enEditsCount = 0L, // TODO: remote config
@@ -206,11 +204,11 @@ class YearInReviewViewModel() : ViewModel() {
                 Prefs.yearInReviewModelData = yearInReviewModelMap
             }
 
-            val yearInReviewModel = yearInReviewModelMap[currentYear]!!
+            val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
 
             val finalRoute = YearInReviewSlides(
                 context = WikipediaApp.instance,
-                currentYear = currentYear,
+                currentYear = YIR_YEAR,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isIconUnlocked = Prefs.donationResults.isNotEmpty(),
@@ -226,6 +224,7 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     companion object {
+        const val YIR_YEAR = 2025
         const val MAX_EDITED_TIMES = 500
         const val MIN_SAVED_ARTICLES = 3
         const val MAX_TOP_ARTICLES = 5
