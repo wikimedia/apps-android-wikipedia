@@ -2078,7 +2078,9 @@
     </plurals>
     <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
     <string name="year_in_review_slide_reading_patterns_headline">You have clear reading patterns</string>
-    <string name="year_in_review_slide_reading_patterns_body"><![CDATA[%1$s<br />Favorite time to read<br /><br />%2$s<br />Favorite day to read<br /><br />%3$s<br />Month you did the most reading]]></string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorite time to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favorite day to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_month">Month you did the most reading</string>
     <string name="year_in_review_slide_reading_pattern_morning">Morning</string>
     <string name="year_in_review_slide_reading_pattern_midday">Midday</string>
     <string name="year_in_review_slide_reading_pattern_afternoon">Afternoon</string>

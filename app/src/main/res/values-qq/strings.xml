@@ -1971,7 +1971,9 @@
   </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">Body text of the app saved articles slide for the Year in Review.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Title of the reading patterns slide for the Year in Review</string>
-  <string name="year_in_review_slide_reading_patterns_body">Body text of the reading patterns slide for the Year in Review. %1$s will be replaced by the time bucket of the day, %2$s will be replaced by the day of the week, and %3$s will be replaced by the month of the year.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Text of the time bucket that indicates the favorite time to read.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Text of the time bucket that indicates the favorite day to read.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Text of the time bucket that indicates the month you did the most reading.</string>
   <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning.</string>
   <string name="year_in_review_slide_reading_pattern_midday">Text of the time bucket that indicates midday</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Text of the time bucket that indicates afternoon</string>

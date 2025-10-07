@@ -116,6 +116,21 @@ sealed class YearInReviewScreenData(
         val bodyText: String? = null
     ) : YearInReviewScreenData()
 
+    class ReadingPatterns(
+        animatedImageResource: Int = 0,
+        staticImageResource: Int = 0,
+        headlineText: Any? = null,
+        bodyText: Any? = null,
+        val favoriteTimeText: String,
+        val favoriteDayText: String,
+        val favoriteMonthText: String
+    ) : StandardScreen(
+        animatedImageResource = animatedImageResource,
+        staticImageResource = staticImageResource,
+        headlineText = headlineText,
+        bodyText = bodyText,
+    )
+
     class CustomIconScreen(
         headlineText: Any? = null,
         bodyText: Any? = null,
