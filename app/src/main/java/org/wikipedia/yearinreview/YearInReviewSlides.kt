@@ -4,7 +4,6 @@ import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
 import java.text.NumberFormat
-import java.time.LocalDate
 import java.util.Locale
 
 class YearInReviewSlides(
@@ -263,27 +262,19 @@ class YearInReviewSlides(
 
     private fun unlockedIconRoute(): List<YearInReviewScreenData> {
         val isIconUnlocked = yearInReviewModel.userEditsCount > 0 || Prefs.donationResults.isNotEmpty()
-        val isNextYear = LocalDate.now().year > 2025
         return if (isIconUnlocked) {
             listOf(
                 YearInReviewScreenData.CustomIconScreen(
                     headlineText = R.string.year_in_review_app_icon_title_unlocked,
-                    bodyText = R.string.year_in_review_app_icon_body_unlocked,
-                )
-            )
-        } else if (isNextYear) {
-            listOf(
-                YearInReviewScreenData.CustomIconScreen(
-                    headlineText = R.string.year_in_review_app_icon_title_unlock_later,
-                    bodyText = R.string.year_in_review_app_icon_body_unlock_later,
-                    showDonateButton = true
+                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlocked, YearInReviewViewModel.YIR_YEAR),
                 )
             )
         } else {
             listOf(
                 YearInReviewScreenData.CustomIconScreen(
                     headlineText = R.string.year_in_review_app_icon_title_unlock,
-                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlock, ""), // TODO: URL for learning more.
+                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
+                        context.getString(R.string.editing_learn_more_url), context.getString(R.string.apps_about_wmf_url)),
                     showDonateButton = true
                 )
             )
