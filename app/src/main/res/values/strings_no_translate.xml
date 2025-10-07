@@ -30,7 +30,8 @@
     <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
     <string name="activity_tab_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Activity_Tab_Experiment</string>
     <string name="edit_screen_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#General_2</string>
-    <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Editing</string>
+    <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
+    <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
