@@ -1870,9 +1870,12 @@
   <string name="patroller_onboarding_two_talk_content">Общайтесь с другими редакторами. Сохраняйте часто используемые сообщения на странице обсуждения или используйте шаблон.</string>
   <string name="patroller_onboarding_two_undo_title">Отменить/Откатить</string>
   <string name="patroller_onboarding_two_undo_content">Выберите «Отменить», чтобы отменить или откатить потенциально деструктивную правку.</string>
+  <string name="patroller_diff_tooltip_one">Прогнозируется ущерб, если правка нанесёт ущерб Википедии.</string>
+  <string name="patroller_diff_tooltip_two">Прогнозируется высокая вероятность того, что правка будет совершена с благими намерениями.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Как мы можем улучшить эту функцию?</string>
   <string name="patroller_diff_menu_edit_history_title">История редактирования статьи</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
+  <string name="patroller_diff_feedback_tooltip">Чтобы в любое время отправить отзыв, нажмите во всплывающем меню на «Проблема с функцией».</string>
   <string name="patroller_saved_message_title_vandalism">Предупреждение о вандализме</string>
   <string name="patroller_saved_message_title_editing_tests">Тестирование редактирования</string>
   <string name="patroller_saved_message_title_npov">Нейтральная точка зрения</string>
@@ -2028,9 +2031,12 @@
   <string name="year_in_review_get_started">Начать</string>
   <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
   <string name="year_in_review_navigate_left">Навигация влево</string>
+  <string name="year_in_review_share_icon">Значок «Поделиться»</string>
+  <string name="year_in_review_navigate_right">Навигация вправо</string>
   <string name="year_in_review_donate">Пожертвовать</string>
   <string name="year_in_review_information_icon">Значок информации</string>
-  <string name="year_in_review_entry_dialog_continue">Продолжить</string>
+  <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
+  <string name="year_in_review_get_started_bodytext">Смотрите статистику о прочитанных вами статьях в приложении Википедии и внесённых вами правок. Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
   <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
   <string name="year_in_review_survey_satisfied">Доволен</string>

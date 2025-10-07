@@ -400,6 +400,7 @@
   <string name="preference_title_collapse_tables">Скупљање табела</string>
   <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референци и напомена.</string>
   <string name="nav_item_donate">Донирај</string>
+  <string name="nav_item_year_in_review">Преглед године</string>
   <string name="error_voice_search_not_available">Препознавање гласа није доступно.</string>
   <string name="location_service_disabled">Услуге локације су онемогућене.</string>
   <string name="enable_location_service">Омогући</string>
@@ -1113,6 +1114,7 @@
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
   <string name="activity_tab_timeline_today">Данас</string>
   <string name="activity_tab_timeline_yesterday">Јуче</string>
+  <string name="activity_tab_timeline_view_changes_button">Види измене</string>
   <string name="file_page_activity_title">Страница датотеке</string>
   <string name="file_page_add_image_caption_button">Додај натпис слике</string>
   <string name="file_page_add_image_tags_button">Додај ознаке за слику</string>

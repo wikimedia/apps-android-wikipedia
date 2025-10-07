@@ -61,9 +61,13 @@ class YearInReviewViewModel() : ViewModel() {
                 // TODO: handle remote config to show numbers, maybe grab generic content from the config.
                 val remoteConfig = RemoteConfig.config
 
-                val latestArticleTitlesFromSaved = async {
+                val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getLatestArticleTitles(MINIMUM_SAVED_ARTICLE_COUNT)
+                        .getTotalLocallySavedPagesSince(yearAgo) ?: 0
+                }
+                val randomSavedArticleTitles = async {
+                    AppDatabase.instance.readingListPageDao()
+                        .getRandomPageTitlesSince(MIN_SAVED_ARTICLES, yearAgo)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
@@ -184,9 +188,10 @@ class YearInReviewViewModel() : ViewModel() {
                     appArticlesSavedTimes = 0L, // TODO: remote config
                     appsEditsCount = 0L, // TODO: remote config
                     localReadingTimePerMinute = totalTimeSpent.await(),
+                    localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
                     localReadingRank = "50%", // TODO: compare with the total reading hours
-                    localSavedArticles = latestArticleTitlesFromSaved.await(),
+                    localSavedArticles = randomSavedArticleTitles.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
                     favoriteTimeToRead = "Evening",
@@ -221,8 +226,8 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     companion object {
-        private const val MINIMUM_SAVED_ARTICLE_COUNT = 3
-        private const val MINIMUM_EDIT_COUNT = 1
+        const val MAX_EDITED_TIMES = 500
+        const val MIN_SAVED_ARTICLES = 3
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
