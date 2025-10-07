@@ -37,7 +37,9 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
-sealed class YearInReviewScreenData {
+sealed class YearInReviewScreenData(
+    val showDonateInToolbar: Boolean = true
+) {
 
     @Composable
     open fun BottomButton(context: Context, onButtonClick: () -> Unit) {
@@ -47,8 +49,9 @@ sealed class YearInReviewScreenData {
         val animatedImageResource: Int = 0,
         val staticImageResource: Int = 0,
         val headlineText: Any? = null,
-        val bodyText: Any? = null
-    ) : YearInReviewScreenData() {
+        val bodyText: Any? = null,
+        showDonateInToolbar: Boolean = true
+    ) : YearInReviewScreenData(showDonateInToolbar) {
         @Composable
         open fun Header(context: Context,
                         screenCaptureMode: Boolean,
@@ -88,7 +91,8 @@ sealed class YearInReviewScreenData {
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         headlineText = headlineText,
-        bodyText = bodyText
+        bodyText = bodyText,
+        showDonateInToolbar = !showDonateButton
     ) {
         @Composable
         override fun Header(context: Context,

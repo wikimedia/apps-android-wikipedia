@@ -133,28 +133,30 @@ fun YearInReviewScreenDeck(
                             }
                         },
                         actions = {
-                            Box(
-                                modifier = Modifier
-                                    .clickable(onClick = { onDonateClick() })
-                            ) {
-                                Row(
+                            if (contentData[pagerState.currentPage].showDonateInToolbar) {
+                                Box(
                                     modifier = Modifier
-                                        .padding(16.dp)
-                                        .wrapContentWidth(),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                        .clickable(onClick = { onDonateClick() })
                                 ) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_heart_24),
-                                        tint = WikipediaTheme.colors.destructiveColor,
-                                        contentDescription = stringResource(R.string.year_in_review_heart_icon),
-                                    )
+                                    Row(
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                            .wrapContentWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(R.drawable.ic_heart_24),
+                                            tint = WikipediaTheme.colors.destructiveColor,
+                                            contentDescription = stringResource(R.string.year_in_review_heart_icon),
+                                        )
 
-                                    Text(
-                                        text = stringResource(R.string.year_in_review_donate),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        color = WikipediaTheme.colors.destructiveColor
-                                    )
+                                        Text(
+                                            text = stringResource(R.string.year_in_review_donate),
+                                            style = MaterialTheme.typography.labelLarge,
+                                            color = WikipediaTheme.colors.destructiveColor
+                                        )
+                                    }
                                 }
                             }
                         }
