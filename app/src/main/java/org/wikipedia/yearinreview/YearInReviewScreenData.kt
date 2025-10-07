@@ -7,10 +7,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -19,7 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -52,11 +52,29 @@ sealed class YearInReviewScreenData(
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(showDonateInToolbar) {
+
         @Composable
         open fun Header(context: Context,
                         screenCaptureMode: Boolean,
                         isImageResourceLoaded: ((Boolean) -> Unit)? = null,
                         aspectRatio: Float) {
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(aspectRatio)
+                    .headerBackground(),
+                contentAlignment = Alignment.Center,
+            ) {
+                HeaderContents(context, screenCaptureMode, isImageResourceLoaded, aspectRatio)
+            }
+        }
+
+        @Composable
+        open fun HeaderContents(context: Context,
+                                screenCaptureMode: Boolean,
+                                isImageResourceLoaded: ((Boolean) -> Unit)? = null,
+                                aspectRatio: Float) {
             SubcomposeAsyncImage(
                 model = ImageRequest.Builder(context)
                     .data(if (screenCaptureMode) staticImageResource else animatedImageResource)
@@ -66,10 +84,23 @@ sealed class YearInReviewScreenData(
                 success = { SubcomposeAsyncImageContent() },
                 onSuccess = { isImageResourceLoaded?.invoke(true) },
                 contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(aspectRatio)
-                    .clip(RoundedCornerShape(16.dp))
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+
+        open fun Modifier.headerBackground(): Modifier {
+            return this.background(
+                brush = Brush.linearGradient(
+                    colorStops = arrayOf(
+                        0.265f to Color(0xFF0D0D0D),
+                        0.385f to Color(0xFF092D60),
+                        0.515f to Color(0xFF1171C8),
+                        0.585f to Color(0xFF3DB2FF),
+                        0.775f to Color(0xFFD3F1F3)
+                    ),
+                    start = Offset(0f, 0f),
+                    end = Offset(0f, Float.POSITIVE_INFINITY)
+                )
             )
         }
     }
@@ -95,36 +126,15 @@ sealed class YearInReviewScreenData(
         showDonateInToolbar = !showDonateButton
     ) {
         @Composable
-        override fun Header(context: Context,
-                            screenCaptureMode: Boolean,
-                            isImageResourceLoaded: ((Boolean) -> Unit)?,
-                            aspectRatio: Float) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(aspectRatio)
-                    .background(
-                        brush = Brush.linearGradient(
-                            colorStops = arrayOf(
-                                0.265f to Color(0xFF0D0D0D),
-                                0.385f to Color(0xFF092D60),
-                                0.515f to Color(0xFF1171C8),
-                                0.585f to Color(0xFF3DB2FF),
-                                0.775f to Color(0xFFD3F1F3)
-                            ),
-                            start = androidx.compose.ui.geometry.Offset(0f, 0f),
-                            end = androidx.compose.ui.geometry.Offset(0f, Float.POSITIVE_INFINITY)
-                        ),
-                        shape = RoundedCornerShape(16.dp),
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    modifier = Modifier.size(200.dp),
-                    painter = painterResource(R.drawable.launcher_foreground_yir25),
-                    contentDescription = null
-                )
-            }
+        override fun HeaderContents(context: Context,
+                                    screenCaptureMode: Boolean,
+                                    isImageResourceLoaded: ((Boolean) -> Unit)?,
+                                    aspectRatio: Float) {
+            Image(
+                modifier = Modifier.size(200.dp),
+                painter = painterResource(R.drawable.launcher_foreground_yir25),
+                contentDescription = null
+            )
         }
 
         @Composable
