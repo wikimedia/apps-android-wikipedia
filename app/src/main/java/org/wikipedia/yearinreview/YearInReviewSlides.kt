@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.settings.Prefs
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -11,7 +12,6 @@ class YearInReviewSlides(
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
-    val isIconUnlocked: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -226,33 +226,6 @@ class YearInReviewSlides(
         )
     }
 
-    private fun newIconUnlockedScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir121
-        return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "New icon unlocked",
-            bodyText = "TBD",
-            unlockIcon = UnlockIconConfig(
-                isUnlocked = true
-            )
-        )
-    }
-
-    private fun unlockCustomIconScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir122
-        return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Unlock your custom contributor icon",
-            bodyText = "TBD",
-            bottomButton = ButtonConfig(
-                text = "Donate",
-                onClick = { /* TODO: handle click */ }
-            )
-        )
-    }
-
     private fun highlightScreen(vararg params: Int): YearInReviewScreenData.HighlightsScreen {
         // TODO: yir122
         return YearInReviewScreenData.HighlightsScreen(
@@ -288,13 +261,22 @@ class YearInReviewSlides(
     }
 
     private fun unlockedIconRoute(): List<YearInReviewScreenData> {
+        val isIconUnlocked = yearInReviewModel.userEditsCount > 0 || Prefs.donationResults.isNotEmpty()
         return if (isIconUnlocked) {
             listOf(
-                newIconUnlockedScreen()
+                YearInReviewScreenData.CustomIconScreen(
+                    headlineText = R.string.year_in_review_app_icon_title_unlocked,
+                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlocked, YearInReviewViewModel.YIR_YEAR),
+                )
             )
         } else {
             listOf(
-                unlockCustomIconScreen()
+                YearInReviewScreenData.CustomIconScreen(
+                    headlineText = R.string.year_in_review_app_icon_title_unlock,
+                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
+                        context.getString(R.string.editing_learn_more_url), context.getString(R.string.apps_about_wmf_url)),
+                    showDonateButton = true
+                )
             )
         }
     }

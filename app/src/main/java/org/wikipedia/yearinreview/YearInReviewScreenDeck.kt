@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -70,10 +69,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
-import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.SubcomposeAsyncImageContent
-import coil3.request.ImageRequest
-import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
@@ -138,28 +133,30 @@ fun YearInReviewScreenDeck(
                             }
                         },
                         actions = {
-                            Box(
-                                modifier = Modifier
-                                    .clickable(onClick = { onDonateClick() })
-                            ) {
-                                Row(
+                            if (contentData[pagerState.currentPage].showDonateInToolbar) {
+                                Box(
                                     modifier = Modifier
-                                        .padding(16.dp)
-                                        .wrapContentWidth(),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                        .clickable(onClick = { onDonateClick() })
                                 ) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_heart_24),
-                                        tint = WikipediaTheme.colors.destructiveColor,
-                                        contentDescription = stringResource(R.string.year_in_review_heart_icon),
-                                    )
+                                    Row(
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                            .wrapContentWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                    ) {
+                                        Icon(
+                                            painter = painterResource(R.drawable.ic_heart_24),
+                                            tint = WikipediaTheme.colors.destructiveColor,
+                                            contentDescription = stringResource(R.string.year_in_review_heart_icon),
+                                        )
 
-                                    Text(
-                                        text = stringResource(R.string.year_in_review_donate),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        color = WikipediaTheme.colors.destructiveColor
-                                    )
+                                        Text(
+                                            text = stringResource(R.string.year_in_review_donate),
+                                            style = MaterialTheme.typography.labelLarge,
+                                            color = WikipediaTheme.colors.destructiveColor
+                                        )
+                                    }
                                 }
                             }
                         }
@@ -167,12 +164,14 @@ fun YearInReviewScreenDeck(
                 },
                 bottomBar = {
                     MainBottomBar(
+                        contentData,
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
                         onShareClick = {
                             startCapture = true
-                        }
+                        },
+                        onDonateClick = onDonateClick
                     )
                 },
                 content = { paddingValues ->
@@ -196,11 +195,14 @@ fun YearInReviewScreenDeck(
 
 @Composable
 fun MainBottomBar(
+    contentData: List<YearInReviewScreenData>,
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
-    onShareClick: () -> Unit
+    onShareClick: () -> Unit,
+    onDonateClick: () -> Unit
 ) {
+    val context = LocalContext.current
     Column {
         HorizontalDivider(
             modifier = Modifier
@@ -208,6 +210,9 @@ fun MainBottomBar(
                 .fillMaxWidth(),
             color = WikipediaTheme.colors.inactiveColor
         )
+        Box {
+            contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
+        }
         BottomAppBar(
             containerColor = WikipediaTheme.colors.paperColor,
             content = {
@@ -422,7 +427,7 @@ private fun StandardLayoutWithVariants(
     isImageResourceLoaded: ((Boolean) -> Unit)? = null,
 ) {
     val scrollState = rememberScrollState()
-    val gifAspectRatio = 3f / 2f
+    val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
     Column(
         verticalArrangement = Arrangement.Top,
@@ -430,20 +435,7 @@ private fun StandardLayoutWithVariants(
             .padding(innerPadding)
             .verticalScroll(scrollState)
     ) {
-        SubcomposeAsyncImage(
-            model = ImageRequest.Builder(context)
-                .data(if (screenCaptureMode) screenData.staticImageResource else screenData.animatedImageResource)
-                .allowHardware(false)
-                .build(),
-            loading = { LoadingIndicator() },
-            success = { SubcomposeAsyncImageContent() },
-            onSuccess = { isImageResourceLoaded?.invoke(true) },
-            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(gifAspectRatio)
-                .clip(RoundedCornerShape(16.dp))
-        )
+        screenData.Header(context, screenCaptureMode, isImageResourceLoaded, headerAspectRatio)
         Column {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -487,14 +479,6 @@ private fun StandardLayoutWithVariants(
                 ),
                 style = MaterialTheme.typography.bodyLarge
             )
-
-            screenData.bottomButton?.let {
-                // @TODO: donation button based on android design
-            }
-
-            screenData.unlockIcon?.let {
-                // @TODO: unlock icon based on android design
-            }
         }
     }
 }

@@ -211,7 +211,6 @@ class YearInReviewViewModel() : ViewModel() {
                 currentYear = YIR_YEAR,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
-                isIconUnlocked = Prefs.donationResults.isNotEmpty(),
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
