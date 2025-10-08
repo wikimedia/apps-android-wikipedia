@@ -20,14 +20,10 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
-import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalDateTime
-import java.time.Month
 import java.time.ZoneId
 import java.time.ZoneOffset
-import java.time.format.TextStyle
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
@@ -191,14 +187,13 @@ class YearInReviewViewModel() : ViewModel() {
                         .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
                 }
 
-                val favoriteDayToReadText = favoriteDayToRead.await()?.let {
-                    val dayIndex = it % 7
-                    DayOfWeek.of(dayIndex).getDisplayName(TextStyle.FULL, Locale.getDefault())
-                }.orEmpty()
+                val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
 
-                val mostReadingMonthText = mostReadingMonth.await()?.let {
-                    Month.of(it).getDisplayName(TextStyle.FULL, Locale.getDefault())
-                }.orEmpty()
+                val favoriteDayToReadIndex = favoriteDayToRead.await()?.let {
+                    it % 7
+                } ?: 0
+
+                val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
@@ -220,9 +215,9 @@ class YearInReviewViewModel() : ViewModel() {
                     localSavedArticles = randomSavedArticleTitles.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
-                    favoriteTimeToRead = "Evening",
-                    favoriteDayToRead = favoriteDayToReadText,
-                    favoriteMonthDidMostReading = mostReadingMonthText,
+                    favoriteTimeToRead = favoriteTimeToReadHour,
+                    favoriteDayToRead = favoriteDayToReadIndex,
+                    favoriteMonthDidMostReading = mostReadingMonthIndex,
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
