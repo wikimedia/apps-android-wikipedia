@@ -24,6 +24,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.TimeZone
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
@@ -97,9 +98,7 @@ class YearInReviewViewModel() : ViewModel() {
                         val impact: GrowthUserImpact
                         val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
                         val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
-                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(
-                                12
-                            )
+                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)
                         ) {
                             val userId =
                                 ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
@@ -172,19 +171,21 @@ class YearInReviewViewModel() : ViewModel() {
                 editCount += wikidataResponse.query?.userInfo!!.editCount
                 editCount += commonsResponse.query?.userInfo!!.editCount
 
+                val utcOffsetMillis = TimeZone.getDefault().getOffset(System.currentTimeMillis())
+
                 val favoriteTimeToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis, utcOffsetMillis)
                 }
 
                 val favoriteDayToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis, utcOffsetMillis)
                 }
 
                 val mostReadingMonth = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
+                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis, utcOffsetMillis)
                 }
 
                 val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
