@@ -190,8 +190,8 @@ class YearInReviewViewModel() : ViewModel() {
                 val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
 
                 val favoriteDayToReadIndex = favoriteDayToRead.await()?.let {
-                    it % 7
-                } ?: 0
+                    if (it == 0) 7 else it
+                } ?: 1
 
                 val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
