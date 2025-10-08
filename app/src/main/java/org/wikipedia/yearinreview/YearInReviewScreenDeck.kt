@@ -455,7 +455,7 @@ private fun StandardScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
+                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
                             )
                         }) {
                         Icon(
