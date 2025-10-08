@@ -45,13 +45,13 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
     suspend fun getMostRecentEntry(): HistoryEntry?
 
-    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
+    @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getFavoriteTimeToReadSince(startDate: Long, endDate: Long): Int?
 
-    @Query("SELECT CAST(strftime('%w', timestamp / 1000, 'unixepoch') AS INTEGER) AS dayOfWeek FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY dayOfWeek ORDER BY COUNT(id) DESC LIMIT 1")
+    @Query("SELECT CAST(strftime('%w', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS dayOfWeek FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY dayOfWeek ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getFavoriteDayToReadSince(startDate: Long, endDate: Long): Int?
 
-    @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch') AS INTEGER) AS month FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY month ORDER BY COUNT(id) DESC LIMIT 1")
+    @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY month ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getMostReadingMonthSince(startDate: Long, endDate: Long): Int?
 
     @Transaction
