@@ -1932,28 +1932,28 @@
     <item quantity="one">Body text of thea added byte slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
     <item quantity="other">Body text of thea added bytes slide for the Year in Review. %1$d will be replaced by the current year, %2$s will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
   </plurals>
-  <plurals name="year_in_review_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Title of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Title of the user edited times for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
-  <plurals name="year_in_review_edited_times_body">
+  <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">Body of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Body of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
-  <plurals name="year_in_review_app_edited_times_headline">
+  <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">Title of the app edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Title of the app edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
-  <string name="year_in_review_app_edited_times_body">Body of the app edited times slide for the Year in Review.</string>
-  <plurals name="year_in_review_english_edited_times_headline">
+  <string name="year_in_review_slide_app_edited_times_body">Body of the app edited times slide for the Year in Review.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
     <item quantity="one">Title of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Title of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
-  <plurals name="year_in_review_english_edited_times_body_first">
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
     <item quantity="one">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>
-  <plurals name="year_in_review_english_edited_times_body_second">
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
     <item quantity="one">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
     <item quantity="other">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
   </plurals>

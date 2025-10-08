@@ -2039,28 +2039,28 @@
         <item quantity="one"><![CDATA[In %1$d, volunteers added %2$s byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
         <item quantity="other"><![CDATA[In %1$d, volunteers added %2$s bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
     </plurals>
-    <plurals name="year_in_review_edited_times_headline">
+    <plurals name="year_in_review_slide_edited_times_headline">
         <item quantity="one">You edited Wikipedia %s time</item>
         <item quantity="other">You edited Wikipedia %s times</item>
     </plurals>
-    <plurals name="year_in_review_edited_times_body">
+    <plurals name="year_in_review_slide_edited_times_body">
         <item quantity="one">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %s change across over 300 different language editions of Wikipedia.</item>
         <item quantity="other">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %s changes across over 300 different language editions of Wikipedia.</item>
     </plurals>
-    <plurals name="year_in_review_app_edited_times_headline">
+    <plurals name="year_in_review_slide_app_edited_times_headline">
         <item quantity="one">Editors on the official Wikipedia apps made %s edit</item>
         <item quantity="other">Editors on the official Wikipedia apps made %s edits</item>
     </plurals>
-    <string name="year_in_review_app_edited_times_body">The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
-    <plurals name="year_in_review_english_edited_times_headline">
+    <string name="year_in_review_slide_app_edited_times_body">The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <plurals name="year_in_review_slide_english_edited_times_headline">
         <item quantity="one">Editors made %s change this year</item>
         <item quantity="other">Editors made %s changes this year</item>
     </plurals>
-    <plurals name="year_in_review_english_edited_times_body_first">
+    <plurals name="year_in_review_slide_english_edited_times_body_first">
         <item quantity="one">Volunteers made %s change across over 300 different language editions of Wikipedia.</item>
         <item quantity="other">Volunteers made %s changes across over 300 different language editions of Wikipedia.</item>
     </plurals>
-    <plurals name="year_in_review_english_edited_times_body_second">
+    <plurals name="year_in_review_slide_english_edited_times_body_second">
         <item quantity="one">%s change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
         <item quantity="other">%s changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
     </plurals>

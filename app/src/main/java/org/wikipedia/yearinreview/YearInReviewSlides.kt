@@ -179,8 +179,8 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_edited_times_headline, userEditsCount, formattedUserEditsNumber),
-            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_edited_times_body, globalEditsCount, formattedGlobalEditsNumber)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_headline, userEditsCount, formattedUserEditsNumber),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_body, globalEditsCount, formattedGlobalEditsNumber)
         )
     }
 
@@ -201,8 +201,8 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_app_edited_times_headline, quantity, formattedNumber),
-            bodyText = context.getString(R.string.year_in_review_app_edited_times_body)
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_app_edited_times_headline, quantity, formattedNumber),
+            bodyText = context.getString(R.string.year_in_review_slide_app_edited_times_body)
         )
     }
 
@@ -221,14 +221,14 @@ class YearInReviewSlides(
         val formattedGlobalEditsNumber = formatter.format(yearInReviewModel.globalEditsCount)
         val englishEditsCount = yearInReviewModel.enEditsCount.toInt()
         val formattedEnglishEditsNumber = formatter.format(yearInReviewModel.enEditsCount)
-        val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_body_first,
+        val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_first,
             globalEditsCount, formattedGlobalEditsNumber, formattedEnglishEditsNumber) + " " +
-                context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_body_second,
+                context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_second,
                     englishEditsCount, formattedEnglishEditsNumber)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_english_edited_times_headline, globalEditsCount, formattedGlobalEditsNumber),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, globalEditsCount, formattedGlobalEditsNumber),
             bodyText = bodyText
         )
     }
