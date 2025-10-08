@@ -172,6 +172,29 @@ class YearInReviewViewModel() : ViewModel() {
                 editCount += wikidataResponse.query?.userInfo!!.editCount
                 editCount += commonsResponse.query?.userInfo!!.editCount
 
+                val favoriteTimeToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val favoriteDayToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val mostReadingMonth = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
+                }
+
+                val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
+
+                val favoriteDayToReadIndex = favoriteDayToRead.await()?.let {
+                    if (it == 0) 7 else it
+                } ?: 1
+
+                val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
+
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
                     enReadingTimePerHour = 0L, // TODO: remote config
                     enPopularArticles = listOf("Dog", "Cat", "Bear", "Bird", "Tiger"), // TODO: remote config
@@ -192,9 +215,9 @@ class YearInReviewViewModel() : ViewModel() {
                     localSavedArticles = randomSavedArticleTitles.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
-                    favoriteTimeToRead = "Evening",
-                    favoriteDayToRead = "Saturday",
-                    favoriteMonthDidMostReading = "March",
+                    favoriteTimeToRead = favoriteTimeToReadHour,
+                    favoriteDayToRead = favoriteDayToReadIndex,
+                    favoriteMonthDidMostReading = mostReadingMonthIndex,
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
@@ -229,5 +252,7 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
+
+        const val MIN_READING_PATTERNS_ARTICLES = 5
     }
 }

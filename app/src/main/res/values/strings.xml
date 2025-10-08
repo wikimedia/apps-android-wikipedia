@@ -2077,6 +2077,16 @@
         <item quantity="other">App users had %s saved articles</item>
     </plurals>
     <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
+    <string name="year_in_review_slide_reading_patterns_headline">You have clear reading patterns</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorite time to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favorite day to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_month">Month you did the most reading</string>
+    <string name="year_in_review_slide_reading_pattern_morning">Morning</string>
+    <string name="year_in_review_slide_reading_pattern_midday">Midday</string>
+    <string name="year_in_review_slide_reading_pattern_afternoon">Afternoon</string>
+    <string name="year_in_review_slide_reading_pattern_evening">Evening</string>
+    <string name="year_in_review_slide_reading_pattern_night">Night</string>
+    <string name="year_in_review_slide_reading_pattern_late_night">Late night</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>

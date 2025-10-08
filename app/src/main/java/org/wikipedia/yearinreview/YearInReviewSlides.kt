@@ -4,6 +4,9 @@ import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
 import java.text.NumberFormat
+import java.time.DayOfWeek
+import java.time.Month
+import java.time.format.TextStyle
 import java.util.Locale
 
 class YearInReviewSlides(
@@ -81,13 +84,30 @@ class YearInReviewSlides(
         )
     }
 
-    private fun readingPatternsScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir106 + yir107
-        return YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You have clear reading patterns",
-            bodyText = "TBD"
+    private fun readingPatternsScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_PATTERNS_ARTICLES) {
+            return null
+        }
+        // TODO: check if the time needs to follow the locale
+        val favoriteTimeText = when (yearInReviewModel.favoriteTimeToRead) {
+            in 0..5 -> context.getString(R.string.year_in_review_slide_reading_pattern_late_night)
+            in 5..12 -> context.getString(R.string.year_in_review_slide_reading_pattern_morning)
+            in 12..13 -> context.getString(R.string.year_in_review_slide_reading_pattern_midday)
+            in 13..17 -> context.getString(R.string.year_in_review_slide_reading_pattern_afternoon)
+            in 17..21 -> context.getString(R.string.year_in_review_slide_reading_pattern_evening)
+            else -> context.getString(R.string.year_in_review_slide_reading_pattern_night)
+        }
+        val favoriteDayText = DayOfWeek.of(yearInReviewModel.favoriteDayToRead)
+            .getDisplayName(TextStyle.FULL, Locale.getDefault())
+        val favoriteMonthText = Month.of(yearInReviewModel.favoriteMonthDidMostReading)
+            .getDisplayName(TextStyle.FULL, Locale.getDefault())
+        return YearInReviewScreenData.ReadingPatterns(
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.getString(R.string.year_in_review_slide_reading_patterns_headline),
+            favoriteTimeText = favoriteTimeText,
+            favoriteDayText = favoriteDayText,
+            favoriteMonthText = favoriteMonthText
         )
     }
 

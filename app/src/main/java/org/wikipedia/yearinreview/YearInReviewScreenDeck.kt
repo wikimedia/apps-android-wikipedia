@@ -400,7 +400,7 @@ fun YearInReviewScreenContent(
 ) {
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
-            StandardLayoutWithVariants(
+            StandardScreenContent(
                 innerPadding = innerPadding,
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode,
@@ -418,7 +418,7 @@ fun YearInReviewScreenContent(
 }
 
 @Composable
-private fun StandardLayoutWithVariants(
+private fun StandardScreenContent(
     modifier: Modifier = Modifier,
     innerPadding: PaddingValues,
     screenData: YearInReviewScreenData.StandardScreen,
@@ -466,20 +466,60 @@ private fun StandardLayoutWithVariants(
                     }
                 }
             }
-            HtmlText(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
-                    .height(IntrinsicSize.Min),
-                text = processString(screenData.bodyText),
-                linkStyle = TextLinkStyles(
-                    style = SpanStyle(
-                        color = WikipediaTheme.colors.progressiveColor,
-                        fontSize = 16.sp
+            if (screenData is YearInReviewScreenData.ReadingPatterns) {
+                val readingPattersMap = mapOf(
+                    screenData.favoriteTimeText to R.string.year_in_review_slide_reading_patterns_body_favorite_time,
+                    screenData.favoriteDayText to R.string.year_in_review_slide_reading_patterns_body_favorite_day,
+                    screenData.favoriteMonthText to R.string.year_in_review_slide_reading_patterns_body_favorite_month,
+                )
+                readingPattersMap.forEach { (title, description) ->
+                    ReadingPatternsItem(
+                        title = title,
+                        description = description
                     )
-                ),
-                style = MaterialTheme.typography.bodyLarge
-            )
+                }
+            } else {
+                HtmlText(
+                    modifier = Modifier
+                        .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+                        .height(IntrinsicSize.Min),
+                    text = processString(screenData.bodyText),
+                    linkStyle = TextLinkStyles(
+                        style = SpanStyle(
+                            color = WikipediaTheme.colors.progressiveColor,
+                            fontSize = 16.sp
+                        )
+                    ),
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
         }
+    }
+}
+
+@Composable
+fun ReadingPatternsItem(
+    title: String,
+    description: Int,
+) {
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 16.dp, vertical = 12.dp)
+    ) {
+        Text(
+            modifier = Modifier
+                .height(IntrinsicSize.Min),
+            text = processString(title),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyLarge
+        )
+        Text(
+            modifier = Modifier
+                .height(IntrinsicSize.Min),
+            text = processString(description),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyMedium
+        )
     }
 }
 
@@ -534,7 +574,7 @@ fun PreviewScreenShot() {
 
 @Preview
 @Composable
-fun PreviewContent() {
+fun PreviewStandardContent() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
             state = UiState.Success(listOf(
@@ -543,6 +583,29 @@ fun PreviewContent() {
                     staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "Over 3 billion bytes added",
                     bodyText = "TBD"
+                )
+            )),
+            onDonateClick = {},
+            onBackButtonClick = {},
+            onNextButtonClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewReadingPatternsContent() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewScreenDeck(
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.ReadingPatterns(
+                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    headlineText = "You have clear reading patterns",
+                    bodyText = "",
+                    favoriteTimeText = "Afternoon",
+                    favoriteDayText = "Wednesday",
+                    favoriteMonthText = "February"
                 )
             )),
             onDonateClick = {},
