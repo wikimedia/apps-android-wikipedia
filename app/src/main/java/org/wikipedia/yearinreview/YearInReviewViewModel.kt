@@ -97,10 +97,7 @@ class YearInReviewViewModel() : ViewModel() {
                         val impact: GrowthUserImpact
                         val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
                         val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
-                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(
-                                12
-                            )
-                        ) {
+                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
                             val userId =
                                 ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
                             impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)

@@ -88,7 +88,6 @@ class YearInReviewSlides(
         if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_PATTERNS_ARTICLES) {
             return null
         }
-        // TODO: check if the time needs to follow the locale
         val favoriteTimeText = when (yearInReviewModel.favoriteTimeToRead) {
             in 0..5 -> context.getString(R.string.year_in_review_slide_reading_pattern_late_night)
             in 5..12 -> context.getString(R.string.year_in_review_slide_reading_pattern_morning)
