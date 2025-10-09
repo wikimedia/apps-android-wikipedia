@@ -2178,7 +2178,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Напоминания о пожертвованиях можно изменить в любое время в настройках.</string>
   <string name="donation_settings_section_header">Пожертвования</string>
   <string name="donation_reminders_settings_title">Напоминания о пожертвованиях</string>
-  <string name="donation_reminders_settings_thank_you_message">Присоединяйтесь к 2% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
+  <string name="donation_reminders_settings_thank_you_message">Присоединяйтесь к 2%% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
   <string name="donation_reminders_settings_donation_info">Пожертвования направляются в Фонд Викимедиа и его филиалы, которые с гордостью являются владельцами Википедии и родственных ей сайтов.</string>
   <string name="donation_reminders_settings_article_frequency_label">Когда я читаю</string>
   <string name="donation_reminders_settings_amount_label">Напомнить мне сделать пожертвование</string>
