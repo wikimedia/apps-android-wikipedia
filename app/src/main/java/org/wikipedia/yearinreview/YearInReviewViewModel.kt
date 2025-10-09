@@ -232,6 +232,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                isEditorOnly = EDITOR_ONLY_COUNTRIES.contains(WikipediaApp.instance.wikiSite.languageCode),
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
@@ -249,7 +250,11 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
-
         const val MIN_READING_PATTERNS_ARTICLES = 5
+        val EDITOR_ONLY_COUNTRIES = listOf(
+            "AE", "AF", "AX", "BY", "CD", "CI", "CU", "FI", "ID", "IQ", "IR", "KP", "KR", "LB",
+            "LY", "MM", "PY", "RU", "SA", "SD", "SO", "SS", "SY", "TM", "TR", "UA", "UZ", "XK",
+            "YE", "ZW"
+        )
     }
 }
