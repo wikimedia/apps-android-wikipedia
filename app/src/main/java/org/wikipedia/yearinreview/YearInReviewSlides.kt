@@ -20,23 +20,87 @@ class YearInReviewSlides(
 
     private val formatter: NumberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
 
-    private fun spentReadingHoursScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir123
+    private fun englishReadingHoursScreen(): YearInReviewScreenData.StandardScreen {
+        val hoursQuantity = yearInReviewModel.enReadingTimePerHour.toInt()
+        val formattedHours = formatter.format(yearInReviewModel.enReadingTimePerHour)
+        val yearsQuantity = (hoursQuantity / 8760)
+        val formattedYears = formatter.format(yearsQuantity)
+        val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_first,
+            hoursQuantity, formattedHours) + " " +
+                context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_second,
+                    yearsQuantity, formattedYears, currentYear)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "We spent over 2 billion hours reading",
-            bodyText = "TBD"
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, hoursQuantity, formattedHours),
+            bodyText = bodyText
         )
     }
 
-    private fun spentReadingMinutesScreen(isEnglishWiki: Boolean, vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir99 + yir100 => need to check if it is en or not en
+    private fun spentReadingMinutesScreen(): YearInReviewScreenData.StandardScreen {
+        if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_ARTICLES ||
+            yearInReviewModel.localReadingTimePerMinute < YearInReviewViewModel.MIN_READING_MINUTES) {
+            return if (isEnglishWiki) {
+                englishReadingHoursScreen()
+            } else {
+                availableLanguagesScreen()
+            }
+        }
+        val minutesQuantity = yearInReviewModel.localReadingTimePerMinute.toInt()
+        val formattedMinutes = formatter.format(yearInReviewModel.localReadingTimePerMinute)
+        val localArticlesQuantity = yearInReviewModel.localReadingArticlesCount
+        val formattedLocalArticles = formatter.format(yearInReviewModel.localReadingArticlesCount)
+        val globalAverageArticlesQuantity = yearInReviewModel.globalAverageReadingArticlesCount
+        val formattedGlobalAverageArticles = formatter.format(yearInReviewModel.globalAverageReadingArticlesCount)
+        val hoursQuantity = yearInReviewModel.enReadingTimePerHour.toInt()
+        val formattedHours = formatter.format(yearInReviewModel.enReadingTimePerHour)
+        val yearsQuantity = (hoursQuantity / 8760)
+        val formattedYears = formatter.format(yearsQuantity)
+        val availableLanguages = yearInReviewModel.availableLanguages
+        val articlesQuantity = yearInReviewModel.globalTotalArticles.toInt()
+        val formattedArticles = formatter.format(articlesQuantity)
+
+        val headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_first,
+            minutesQuantity, formattedMinutes) + " " +
+                context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_second,
+                    localArticlesQuantity, formattedLocalArticles, currentYear)
+
+        // build reading rank
+        var rankingText = when (yearInReviewModel.localReadingArticlesCount) {
+            in 336..1233 -> "50%"
+            in 1234..2455 -> "40%"
+            in 2456..4566 -> "30%"
+            in 4567..8900 -> "20%"
+            in 8901..12344 -> "10%"
+            in 12345..23455 -> "5%"
+            in 23456..43739 -> "1%"
+            in 43740..Int.MAX_VALUE -> "0.01%"
+            else -> null
+        }
+        var bodyText = ""
+        rankingText?.let {
+            rankingText = "<b>$it</b>"
+            bodyText += context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_top,
+                globalAverageArticlesQuantity, rankingText, formattedGlobalAverageArticles) + "<br /><br />"
+        }
+
+        bodyText += if (isEnglishWiki) {
+            context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_english_first,
+                hoursQuantity, formattedHours) + " " +
+                    context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_english_second,
+                        yearsQuantity, formattedYears, currentYear)
+        } else {
+            context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_global_first,
+                articlesQuantity, formattedArticles) + " " +
+                    context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_global_second,
+                        availableLanguages, availableLanguages, currentYear)
+        }
+
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "You spent 924 minutes reading 350 articles in 2025",
-            bodyText = "TBD"
+            headlineText = headlineText,
+            bodyText = bodyText
         )
     }
 
@@ -64,13 +128,19 @@ class YearInReviewSlides(
         )
     }
 
-    private fun availableLanguagesScreen(vararg params: Int): YearInReviewScreenData.StandardScreen {
-        // TODO: yir123
+    private fun availableLanguagesScreen(): YearInReviewScreenData.StandardScreen {
+        val availableLanguages = yearInReviewModel.availableLanguages
+        val articlesQuantity = yearInReviewModel.globalTotalArticles.toInt()
+        val formattedArticles = formatter.format(articlesQuantity)
+        val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_first,
+            articlesQuantity, formattedArticles) + " " +
+                context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_second,
+                    availableLanguages, availableLanguages, currentYear)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "Wikipedia was available in more than 300 languages",
-            bodyText = "TBD"
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_headline, availableLanguages, availableLanguages),
+            bodyText = bodyText
         )
     }
 
@@ -85,7 +155,7 @@ class YearInReviewSlides(
     }
 
     private fun readingPatternsScreen(): YearInReviewScreenData.StandardScreen? {
-        if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_PATTERNS_ARTICLES) {
+        if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_ARTICLES) {
             return null
         }
         val favoriteTimeText = when (yearInReviewModel.favoriteTimeToRead) {
@@ -303,7 +373,7 @@ class YearInReviewSlides(
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for English users - non-logged in.
         return (listOf(
-            spentReadingHoursScreen(1),
+            englishReadingHoursScreen(),
             popularEnglishArticlesScreen(),
             appSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
@@ -321,7 +391,7 @@ class YearInReviewSlides(
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
-            spentReadingMinutesScreen(true),
+            spentReadingMinutesScreen(),
             popularEnglishArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
@@ -334,7 +404,7 @@ class YearInReviewSlides(
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in users.
         return (listOf(
-            spentReadingMinutesScreen(false),
+            spentReadingMinutesScreen(),
             viewedArticlesTimesScreen(),
             topArticlesScreen(),
             readingPatternsScreen(),

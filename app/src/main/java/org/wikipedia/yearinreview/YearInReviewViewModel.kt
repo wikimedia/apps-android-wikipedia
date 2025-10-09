@@ -200,7 +200,7 @@ class YearInReviewViewModel() : ViewModel() {
                     availableLanguages = 0, // TODO: remote config
                     globalTotalArticles = 0L, // TODO: remote config
                     globalEditsCount = 0L, // TODO: remote config
-                    globalReadingArticlesCount = 0, // TODO: remote config
+                    globalAverageReadingArticlesCount = 0, // TODO: remote config
                     globalEditsPerMinute = 0, // TODO: remote config
                     appArticlesViewedTimes = 0L, // TODO: remote config
                     appArticlesSavedTimes = 0L, // TODO: remote config
@@ -208,7 +208,6 @@ class YearInReviewViewModel() : ViewModel() {
                     localReadingTimePerMinute = totalTimeSpent.await(),
                     localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
-                    localReadingRank = "50%", // TODO: compare with the total reading hours
                     localSavedArticles = randomSavedArticleTitles.await(),
                     localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
                     localTopCategories = topVisitedCategoryForTheYear.await(),
@@ -250,6 +249,7 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
 
-        const val MIN_READING_PATTERNS_ARTICLES = 5
+        const val MIN_READING_ARTICLES = 5
+        const val MIN_READING_MINUTES = 1
     }
 }
