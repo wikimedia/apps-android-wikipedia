@@ -22,6 +22,7 @@
   <string name="search_icon_content_description">ရှာဖွီပါ</string>
   <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
+  <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပိုလို့</string>
   <string name="nav_item_search">ရှာဖွီပါ</string>
   <string name="nav_item_contribute">ပံ့ပိုးရေ</string>
