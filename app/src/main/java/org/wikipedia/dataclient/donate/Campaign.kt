@@ -3,7 +3,8 @@ package org.wikipedia.dataclient.donate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.DateUtil
+import org.wikipedia.json.LocalDateTimeSerializer
+import java.time.LocalDateTime
 import kotlin.random.Random
 
 @Suppress("unused")
@@ -11,16 +12,12 @@ import kotlin.random.Random
 class Campaign(
     val version: Int,
     private val id: String = "",
-    @SerialName("start_time") private val startTime: String? = null,
-    @SerialName("end_time") private val endTime: String? = null,
+    @SerialName("start_time") @Serializable(with = LocalDateTimeSerializer::class) val startDateTime: LocalDateTime? = null,
+    @SerialName("end_time") @Serializable(with = LocalDateTimeSerializer::class) val endDateTime: LocalDateTime? = null,
     val platforms: Map<String, PlatformParams> = emptyMap(),
     val countries: List<String> = emptyList(),
     private val assets: Map<String, List<Assets>> = emptyMap()
 ) {
-    val startDateTime get() = startTime?.let { DateUtil.iso8601LocalDateTimeParse(it) }
-
-    val endDateTime get() = endTime?.let { DateUtil.iso8601LocalDateTimeParse(it) }
-
     fun hasPlatform(platform: String): Boolean {
         return platforms.containsKey(platform)
     }
