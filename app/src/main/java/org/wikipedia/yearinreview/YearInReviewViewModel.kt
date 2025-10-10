@@ -86,8 +86,12 @@ class YearInReviewViewModel() : ViewModel() {
                 }
 
                 val topVisitedCategoryForTheYear = async {
-                    AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY)
+                    val categories = AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY * 10)
                         .map { StringUtil.removeNamespace(it.title) }
+                    val categoriesWithTwoSpaces = categories.filter { it.count { c -> c == ' ' } >= 2 }
+                    val remainingCategories = categories.filter { it.count { c -> c == ' ' } < 2 }
+                    categoriesWithTwoSpaces.plus(remainingCategories)
+                        .take(MAX_TOP_CATEGORY)
                 }
 
                 val impactDataJob = async {
