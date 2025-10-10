@@ -15,7 +15,7 @@ class YearInReviewSlides(
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
-    val isEditorOnly: Boolean,
+    val isFundraisingDisabled: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -294,7 +294,7 @@ class YearInReviewSlides(
                 headlineText = R.string.year_in_review_slide_app_icon_title_unlocked,
                 bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR),
             )
-        } else if (!isEditorOnly) {
+        } else if (!isFundraisingDisabled) {
             YearInReviewScreenData.CustomIconScreen(
                 headlineText = R.string.year_in_review_slide_app_icon_title_unlock,
                 bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
