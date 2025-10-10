@@ -74,6 +74,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
+    @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getRandomPageTitlesSince(limit: Int, timestamp: Long): List<String?>
+
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
 

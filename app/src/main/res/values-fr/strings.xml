@@ -1918,29 +1918,6 @@
   <string name="year_in_review_information_icon">Icône des informations</string>
   <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
   <string name="year_in_review_get_started_bodytext">Consultez des informations sur les articles que vous lisez sur l’application Wikipédia et les modifications que vous avez apportées. Votre historique de lecture est protégé. Les informations de lecture sont calculées à l’aide des données stockées localement sur votre appareil.</string>
-  <string name="year_in_review_entry_dialog_title">Explorez votre bilan Wikipédia</string>
-  <string name="year_in_review_entry_dialog_bodytext">Consultez des informations sur les articles lus et modifiés, et partagez les moments forts de notre année sur Wikipédia.</string>
-  <string name="year_in_review_entry_dialog_continue">Continuer</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Vous avez lu %d article cette année</item>
-    <item quantity="other">Vous avez lu %d articles cette année</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Cette année, vous avez lu %1$d article, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
-    <item quantity="other">Cette année, vous avez lu %1$d articles, dont %2$s, %3$s et %4$s. Wikipédia comptait plus de 63 millions d’articles disponibles dans plus de 300 langues. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Vous avez modifié Wikipédia %d fois</item>
-    <item quantity="other">Vous avez modifié Wikipédia %d fois</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
-    <item quantity="other">Vous avez modifié Wikipédia %d fois. Merci de faire partie des bénévoles qui contribuent aux projets Wikimédia à travers le monde.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipédia était disponible dans plus de 300 langues</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipédia comptait plus de 63 millions d’articles dans plus de $2 langues actives. Vous avez rejoint des millions de personnes qui approfondissent les connaissances et explorent des sujets variés.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Les contributeurs de l’applicatio iOS ont réalisé plus de 452 257 modifications.</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">La communauté de contributeurs bénévoles de Wikipédia a réalisé plus de 452 257 modifications via l’application iOS depuis le début de l’année. Le cœur et l’âme de Wikipédia résident dans sa communauté mondiale de contributeurs bénévoles, donateurs et milliards de lecteurs comme vous — tous unis pour partager un accès illimité à des informations fiables.</string>
   <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
   <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
   <string name="year_in_review_survey_very_satisfied">Très satisfait</string>
@@ -1952,7 +1929,6 @@
   <string name="year_in_review_survey_cancel">Annuler</string>
   <string name="year_in_review_survey_submit">Soumettre</string>
   <string name="year_in_review_screendeck_image_content_description">Image pour l’écran principal du bilan de l’année</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Image pour l’écran de dialogue d’entrée du bilan de l’année</string>
   <string name="year_in_review_screenshot_error">Impossible de générer une capture d’écran : %s</string>
   <string name="year_in_review_share_subject">Image et lien du bilan de l’année</string>
   <string name="year_in_review_globe_icon">Icône de globe</string>
