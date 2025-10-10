@@ -15,6 +15,7 @@ class YearInReviewSlides(
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
+    val isFundraisingDisabled: Boolean,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -279,25 +280,28 @@ class YearInReviewSlides(
         }
     }
 
-    private fun unlockedIconRoute(): List<YearInReviewScreenData> {
+    private fun unlockedIconRoute(): YearInReviewScreenData? {
         val isIconUnlocked = yearInReviewModel.userEditsCount > 0 || Prefs.donationResults.isNotEmpty()
         return if (isIconUnlocked) {
-            listOf(
-                YearInReviewScreenData.CustomIconScreen(
-                    headlineText = R.string.year_in_review_app_icon_title_unlocked,
-                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlocked, YearInReviewViewModel.YIR_YEAR),
-                )
+            val contributorType = if (yearInReviewModel.userEditsCount > 0 && Prefs.donationResults.isNotEmpty()) {
+                context.getString(R.string.year_in_review_slide_app_icon_donor_and_editor)
+            } else if (yearInReviewModel.userEditsCount > 0) {
+                context.getString(R.string.year_in_review_slide_app_icon_editor)
+            } else {
+                context.getString(R.string.year_in_review_slide_app_icon_donor)
+            }
+            YearInReviewScreenData.CustomIconScreen(
+                headlineText = R.string.year_in_review_slide_app_icon_title_unlocked,
+                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR),
             )
-        } else {
-            listOf(
-                YearInReviewScreenData.CustomIconScreen(
-                    headlineText = R.string.year_in_review_app_icon_title_unlock,
-                    bodyText = context.getString(R.string.year_in_review_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
-                        context.getString(R.string.editing_learn_more_url), context.getString(R.string.apps_about_wmf_url)),
-                    showDonateButton = true
-                )
+        } else if (!isFundraisingDisabled) {
+            YearInReviewScreenData.CustomIconScreen(
+                headlineText = R.string.year_in_review_slide_app_icon_title_unlock,
+                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
+                    context.getString(R.string.editing_learn_more_url), context.getString(R.string.apps_about_wmf_url)),
+                showDonateButton = true
             )
-        }
+        } else null
     }
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {

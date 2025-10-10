@@ -230,12 +230,15 @@ class YearInReviewViewModel() : ViewModel() {
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
 
+            val fundraisingDisabledCountries = emptyList<String>() // TODO: remote config
+
             val finalRoute = YearInReviewSlides(
                 context = WikipediaApp.instance,
                 currentYear = YIR_YEAR,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                isFundraisingDisabled = fundraisingDisabledCountries.contains(WikipediaApp.instance.wikiSite.languageCode),
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
@@ -253,7 +256,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
-
         const val MIN_READING_PATTERNS_ARTICLES = 5
     }
 }
