@@ -50,9 +50,17 @@ class CreateAccountActivity : BaseActivity() {
     private var userNameTextWatcher: TextWatcher? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
 
-    private val hCaptchaHelper = HCaptchaHelper(this) { token ->
-        doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
-    }
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onSuccess(token: String) {
+            showProgressBar(false)
+            doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
+        }
+
+        override fun onError(e: Exception) {
+            showProgressBar(false)
+            FeedbackUtil.showMessage(this@CreateAccountActivity, e.message.orEmpty())
+        }
+    })
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +106,7 @@ class CreateAccountActivity : BaseActivity() {
                                 doCreateAccount(it.token)
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
+                                showProgressBar(true)
                                 hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
@@ -204,6 +213,11 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun doCreateAccount(token: String, hCaptchaToken: String? = null) {
+        if (!hCaptchaToken.isNullOrEmpty()) {
+            FeedbackUtil.showMessage(this, "HCaptcha success!\nAccount would have been created at this point.")
+            return
+        }
+
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
@@ -304,7 +318,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun showProgressBar(enable: Boolean) {
-        binding.viewProgressBar.visibility = if (enable) View.VISIBLE else View.GONE
+        binding.viewProgressBar.isVisible = enable
         binding.captchaContainer.captchaSubmitButton.isEnabled = !enable
         binding.captchaContainer.captchaSubmitButton.setText(if (enable) R.string.dialog_create_account_checking_progress else R.string.create_account_button)
     }

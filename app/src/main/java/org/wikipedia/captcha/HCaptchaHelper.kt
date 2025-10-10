@@ -8,7 +8,6 @@ import com.hcaptcha.sdk.HCaptchaTheme
 import com.hcaptcha.sdk.HCaptchaTokenResponse
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 import kotlin.String
 
@@ -16,8 +15,9 @@ class HCaptchaHelper(
     private val activity: FragmentActivity,
     private val callback: Callback
 ) {
-    fun interface Callback {
+    interface Callback {
         fun onSuccess(token: String)
+        fun onError(e: Exception)
     }
 
     private var hCaptcha: HCaptcha? = null
@@ -58,7 +58,7 @@ class HCaptchaHelper(
             }?.addOnFailureListener { e ->
                 tokenResponse = null
                 L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
-                FeedbackUtil.showMessage(activity, "${e.message} (${e.statusCode})")
+                callback.onError(e)
             }?.addOnOpenListener {
                 L.d("hCaptcha opened")
             }
