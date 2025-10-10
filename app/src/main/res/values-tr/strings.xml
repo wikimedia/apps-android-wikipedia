@@ -467,7 +467,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
   <string name="preference_summary_prefer_offline_content">Bir maddenin son sürümünü yüklemek yerine her daim çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Yerel bağış geçmişini sil</string>
+  <string name="preference_title_delete_local_donation_history">Bağış geçmişini sil</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
@@ -482,6 +482,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="temp_account_not_logged_in">Oturum açmadınız</string>
+  <string name="temp_account_anon_ip_dialog_body">Bir değişiklik yaptığınızda, IP adresiniz değişikliklerinizle ilişkilendirilecektir.\n&lt;br /&gt;&lt;br /&gt;Gelecekteki düzenlemelerinizi kaydetmek ve diğer özelliklere erişmek için &lt;a href=\"https://#login\"&gt;Giriş yapın&lt;/a&gt; veya &lt;a href=\"https://#createaccount\"&gt;hesap oluşturun&lt;/a&gt;.</string>
   <string name="temp_account_dialog_ok">Anladım</string>
   <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
   <string name="temp_account_dialog_discard">Değişiklikleri silin ve oturum açın</string>

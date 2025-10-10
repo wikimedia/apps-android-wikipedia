@@ -81,8 +81,8 @@
   <string name="page_edit_history_metrics_content_description">Valori de la %1$s la %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modificări de la %2$s</item>
-    <item quantity="few">%1$d modificări de la%2$s</item>
-    <item quantity="other">%1$d modificări de la%2$s</item>
+    <item quantity="few">%1$d modificări din %2$s</item>
+    <item quantity="other">%1$d modificări din %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d editări de la %2$s (%3$s)</item>
