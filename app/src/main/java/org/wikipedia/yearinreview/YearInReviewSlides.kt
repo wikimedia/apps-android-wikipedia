@@ -18,7 +18,6 @@ class YearInReviewSlides(
     val yearInReviewModel: YearInReviewModel
 ) {
 
-
     private fun englishReadingHoursScreen(): YearInReviewScreenData.StandardScreen {
         val hoursQuantity = yearInReviewModel.enReadingTimePerHour.toInt()
         val yearsQuantity = (hoursQuantity / 8760)
