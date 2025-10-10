@@ -857,6 +857,7 @@
   <string name="watchlist_page_moved">सारियो</string>
   <string name="watchlist_page_protected">सुरक्षित</string>
   <string name="watchlist_filter_contribution_authorship_header">योगदान लेखकत्व</string>
+  <string name="watchlist_filter_latest_revisions_header">नवीनतम संशोधनहरू</string>
   <string name="action_item_categories">श्रेणीहरू</string>
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>

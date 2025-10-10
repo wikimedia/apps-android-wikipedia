@@ -1229,6 +1229,8 @@
   <string name="activity_tab_onboarding_reading_patterns_title">Olvasási minták</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Nézd meg, mennyi időt töltöttél olvasással, és mely szócikkeket vagy témákat fedeztél fel az idők során.</string>
   <string name="activity_tab_onboarding_screen_title">A Tevékenység bemutatása</string>
+  <string name="activity_tab_onboarding_impact_title">Tevékenység áttekintés</string>
+  <string name="activity_tab_onboarding_engage_title">A részvétel további lehetőségei</string>
   <string name="activity_tab_onboarding_engage_message">Fedezd fel a játékok statisztikáit, a mentett cikkeket és más tevékenységeket, amelyek mélyebben kapcsolódnak a Wikipédiához.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Tartsd kézben az irányítást</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Válaszd ki, mely modulokat szeretnéd megjeleníteni. Minden személyes adat privát marad az eszközödön, és a böngészési előzmények bármikor törölhetők.</string>

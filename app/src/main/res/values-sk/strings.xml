@@ -613,6 +613,7 @@
   <string name="reading_list_activity_title">Zoznam na čítanie: %s</string>
   <string name="reading_lists_preview_save_button">Uložiť</string>
   <string name="reading_lists_preview_save_dialog_title">Uložiť zoznam</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Názov</string>
   <string name="reading_lists_preview_save_dialog_cancel">Zrušiť</string>
   <string name="reading_lists_preview_save_dialog_save">Uložiť</string>
   <string name="reading_lists_preview_saved_snackbar_action">Zobraziť</string>
