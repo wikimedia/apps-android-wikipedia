@@ -85,7 +85,7 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
     onDonateClick: () -> Unit,
-    onNextButtonClick: (PagerState) -> Unit,
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
     onBackButtonClick: (PagerState) -> Unit
 ) {
     when (state) {
@@ -165,7 +165,7 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         contentData,
-                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        onNavigationRightClick = { onNextButtonClick(pagerState, contentData[pagerState.currentPage]) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
                         onShareClick = {
@@ -588,7 +588,7 @@ fun PreviewStandardContent() {
             )),
             onDonateClick = {},
             onBackButtonClick = {},
-            onNextButtonClick = {}
+            onNextButtonClick = { _, _ -> }
         )
     }
 }
@@ -611,7 +611,7 @@ fun PreviewReadingPatternsContent() {
             )),
             onDonateClick = {},
             onBackButtonClick = {},
-            onNextButtonClick = {}
+            onNextButtonClick = { _, _ -> }
         )
     }
 }

@@ -58,12 +58,22 @@ class YearInReviewActivity : BaseActivity() {
                                         pagerState.animateScrollToPage(pagerState.currentPage - 1)
                                     }
                                 } else {
+                                    if (viewModel.slideViewedCount >= 2 && !Prefs.yearInReviewSurveyShown) {
+                                        Prefs.showYearInReviewSurvey = true
+                                    }
                                     finish()
                                 }
                             },
-                            onNextButtonClick = { pagerState ->
+                            onNextButtonClick = { pagerState, currentSlideData ->
+                                viewModel.slideViewedCount += 1
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                }
+                                if (currentSlideData is YearInReviewScreenData.HighlightsScreen) {
+                                    if (!Prefs.yearInReviewSurveyShown) {
+                                        Prefs.showYearInReviewSurvey = true
+                                    }
+                                    finish()
                                 }
                             },
                             onDonateClick = {
