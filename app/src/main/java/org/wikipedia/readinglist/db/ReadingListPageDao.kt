@@ -87,8 +87,8 @@ interface ReadingListPageDao {
     suspend fun markAllPagesUnsynced()
 
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
-
     suspend fun getAllPagesToBeSynced(): List<ReadingListPage>
+
     @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startDate AND :endDate")
     suspend fun getTotalLocallySavedPagesBetween(startDate: Long, endDate: Long = System.currentTimeMillis()): Int?
 
