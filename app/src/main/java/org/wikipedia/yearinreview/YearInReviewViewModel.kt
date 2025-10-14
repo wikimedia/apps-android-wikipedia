@@ -16,7 +16,6 @@ import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
@@ -49,8 +48,7 @@ class YearInReviewViewModel() : ViewModel() {
 
             _uiScreenListState.value = UiState.Loading
 
-            // TODO: explicitly fetch remote config so it's guaranteed fresh here.
-            val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)!!
+            val remoteConfig = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration().commonv1?.getYirForYear(YIR_YEAR)!!
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
