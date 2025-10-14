@@ -86,8 +86,12 @@ class YearInReviewViewModel() : ViewModel() {
                 }
 
                 val topVisitedCategoryForTheYear = async {
-                    AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY)
+                    val categories = AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY * 10)
                         .map { StringUtil.removeNamespace(it.title) }
+                    val categoriesWithTwoSpaces = categories.filter { it.count { c -> c == ' ' } >= 2 }
+                    val remainingCategories = categories.filter { it.count { c -> c == ' ' } < 2 }
+                    categoriesWithTwoSpaces.plus(remainingCategories)
+                        .take(MAX_TOP_CATEGORY)
                 }
 
                 val impactDataJob = async {
@@ -225,12 +229,15 @@ class YearInReviewViewModel() : ViewModel() {
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
 
+            val fundraisingDisabledCountries = emptyList<String>() // TODO: remote config
+
             val finalRoute = YearInReviewSlides(
                 context = WikipediaApp.instance,
                 currentYear = YIR_YEAR,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                isFundraisingDisabled = fundraisingDisabledCountries.contains(WikipediaApp.instance.wikiSite.languageCode),
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
@@ -248,8 +255,8 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_ARTICLES = 5
         const val MIN_TOP_CATEGORY = 3
         const val MAX_TOP_CATEGORY = 5
-
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
+        const val MIN_READING_PATTERNS_ARTICLES = 5
     }
 }
