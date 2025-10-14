@@ -75,7 +75,7 @@ interface ReadingListPageDao {
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startDate AND :endDate ORDER BY RANDOM() LIMIT :limit")
-    suspend fun getRandomPageTitlesBetween(limit: Int, startDate: Long, endDate: Long): List<String?>
+    suspend fun getRandomPageTitlesBetween(limit: Int, startDate: Long, endDate: Long = System.currentTimeMillis()): List<String?>
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
