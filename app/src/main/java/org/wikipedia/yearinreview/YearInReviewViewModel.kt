@@ -57,16 +57,14 @@ class YearInReviewViewModel() : ViewModel() {
             if (yearInReviewModelMap[YIR_YEAR] == null) {
                 val now =
                     LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-                val yearInMillis = TimeUnit.DAYS.toMillis(365)
-                val yearAgo = now - yearInMillis
 
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getTotalLocallySavedPagesSince(yearAgo) ?: 0
+                        .getTotalLocallySavedPagesBetween(startTimeInMillis, endTimeInMillis) ?: 0
                 }
                 val randomSavedArticleTitles = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getRandomPageTitlesSince(MIN_SAVED_ARTICLES, yearAgo)
+                        .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, startTimeInMillis, endTimeInMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
@@ -77,13 +75,13 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val topVisitedArticlesForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getTopVisitedEntriesSince(MAX_TOP_ARTICLES, yearAgo)
+                        .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, startTimeInMillis, endTimeInMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
                 val totalTimeSpent = async {
                     AppDatabase.instance.historyEntryWithImageDao()
-                        .getTimeSpentSinceTimeStamp(yearAgo)
+                        .getTimeSpentBetween(startTimeInMillis, endTimeInMillis)
                 }
 
                 val topVisitedCategoryForTheYear = async {
@@ -176,17 +174,17 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val favoriteTimeToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteTimeToReadBetween(startTimeInMillis, endTimeInMillis)
                 }
 
                 val favoriteDayToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteDayToReadBetween(startTimeInMillis, endTimeInMillis)
                 }
 
                 val mostReadingMonth = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
+                        .getMostReadingMonthBetween(startTimeInMillis, endTimeInMillis)
                 }
 
                 val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0

@@ -37,9 +37,9 @@ interface HistoryEntryWithImageDao {
     @Query("SELECT SUM(timeSpentSec) FROM (" +
             "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
             "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
-            "  WHERE timestamp > :timeStamp" +
+            "  WHERE timestamp BETWEEN :startDate AND :endDate" +
             ")")
-    suspend fun getTimeSpentSinceTimeStamp(timeStamp: Long): Long
+    suspend fun getTimeSpentBetween(startDate: Long, endDate: Long = System.currentTimeMillis()): Long
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)

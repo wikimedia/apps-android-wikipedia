@@ -25,13 +25,13 @@ interface HistoryEntryDao {
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate)")
-    suspend fun getDistinctEntriesCountBetween(startDate: Long?, endDate: Long?): Int
+    suspend fun getDistinctEntriesCountBetween(startDate: Long, endDate: Long): Int
 
     @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
     suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
 
-    @Query("SELECT displayTitle FROM HistoryEntry WHERE timestamp > :timestamp GROUP BY displayTitle ORDER BY COUNT(displayTitle) DESC LIMIT :limit")
-    suspend fun getTopVisitedEntriesSince(limit: Int, timestamp: Long): List<String>
+    @Query("SELECT displayTitle FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY displayTitle ORDER BY COUNT(displayTitle) DESC LIMIT :limit")
+    suspend fun getTopVisitedEntriesBetween(limit: Int, startDate: Long, endDate: Long): List<String>
 
     @Query("SELECT COUNT(*) FROM HistoryEntry")
     suspend fun getHistoryCount(): Int
@@ -46,13 +46,13 @@ interface HistoryEntryDao {
     suspend fun getMostRecentEntry(): HistoryEntry?
 
     @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
-    suspend fun getFavoriteTimeToReadSince(startDate: Long, endDate: Long): Int?
+    suspend fun getFavoriteTimeToReadBetween(startDate: Long, endDate: Long): Int?
 
     @Query("SELECT CAST(strftime('%w', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS dayOfWeek FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY dayOfWeek ORDER BY COUNT(id) DESC LIMIT 1")
-    suspend fun getFavoriteDayToReadSince(startDate: Long, endDate: Long): Int?
+    suspend fun getFavoriteDayToReadBetween(startDate: Long, endDate: Long): Int?
 
     @Query("SELECT CAST(strftime('%m', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS month FROM HistoryEntry WHERE timestamp BETWEEN :startDate AND :endDate GROUP BY month ORDER BY COUNT(id) DESC LIMIT 1")
-    suspend fun getMostReadingMonthSince(startDate: Long, endDate: Long): Int?
+    suspend fun getMostReadingMonthBetween(startDate: Long, endDate: Long): Int?
 
     @Transaction
     suspend fun insert(entries: List<HistoryEntry>) {
