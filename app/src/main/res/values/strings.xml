@@ -2022,62 +2022,62 @@
         <item quantity="other"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edits_viewed_times_headline">
-        <item quantity="one">Your edit has been viewed more than %s times recently</item>
-        <item quantity="other">Your edits have been viewed more than %s times recently</item>
+        <item quantity="one">Your edit has been viewed more than %,d times recently</item>
+        <item quantity="other">Your edits have been viewed more than %,d times recently</item>
     </plurals>
     <plurals name="year_in_review_slide_edits_viewed_times_body">
-        <item quantity="one">Readers around the world appreciate your contributions. In the last 2 months, article you\'ve edited have received %s total views. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
-        <item quantity="other">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %s total views. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
+        <item quantity="one">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %,d total view. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
+        <item quantity="other">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %,d total views. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
     </plurals>
     <plurals name="year_in_review_slide_edited_per_minute_headline">
-        <item quantity="one">Wikipedia was edited %s time per minute</item>
-        <item quantity="other">Wikipedia was edited %s times per minute</item>
+        <item quantity="one">Wikipedia was edited %,d time per minute</item>
+        <item quantity="other">Wikipedia was edited %,d times per minute</item>
     </plurals>
     <string name="year_in_review_slide_edited_per_minute_body"><![CDATA[Articles are collaboratively created and improved using reliable sources. All of us have knowledge to share, <a href="%s">learn how to participate.</a>]]></string>
     <plurals name="year_in_review_slide_bytes_added_headline">
-        <item quantity="one">%s byte added</item>
-        <item quantity="other">%s bytes added</item>
+        <item quantity="one">%,d byte added</item>
+        <item quantity="other">%,d bytes added</item>
     </plurals>
     <plurals name="year_in_review_slide_bytes_added_body">
-        <item quantity="one"><![CDATA[In %1$d, volunteers added %2$s byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
-        <item quantity="other"><![CDATA[In %1$d, volunteers added %2$s bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
+        <item quantity="one"><![CDATA[In %1$d, volunteers added %2$,d byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
+        <item quantity="other"><![CDATA[In %1$d, volunteers added %2$,d bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edited_times_headline">
         <item quantity="one">You edited Wikipedia %s time</item>
         <item quantity="other">You edited Wikipedia %s times</item>
     </plurals>
     <plurals name="year_in_review_slide_edited_times_body">
-        <item quantity="one">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %s change across over 300 different language editions of Wikipedia.</item>
-        <item quantity="other">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %s changes across over 300 different language editions of Wikipedia.</item>
+        <item quantity="one">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %,d change across over 300 different language editions of Wikipedia.</item>
+        <item quantity="other">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %,d changes across over 300 different language editions of Wikipedia.</item>
     </plurals>
     <plurals name="year_in_review_slide_app_edited_times_headline">
-        <item quantity="one">Editors on the official Wikipedia apps made %s edit</item>
-        <item quantity="other">Editors on the official Wikipedia apps made %s edits</item>
+        <item quantity="one">Editors on the official Wikipedia apps made %,d edit</item>
+        <item quantity="other">Editors on the official Wikipedia apps made %,d edits</item>
     </plurals>
     <string name="year_in_review_slide_app_edited_times_body">The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
     <plurals name="year_in_review_slide_english_edited_times_headline">
-        <item quantity="one">Editors made %s change this year</item>
-        <item quantity="other">Editors made %s changes this year</item>
+        <item quantity="one">Editors made %,d change this year</item>
+        <item quantity="other">Editors made %,d changes this year</item>
     </plurals>
     <plurals name="year_in_review_slide_english_edited_times_body_first">
-        <item quantity="one">Volunteers made %s change across over 300 different language editions of Wikipedia.</item>
-        <item quantity="other">Volunteers made %s changes across over 300 different language editions of Wikipedia.</item>
+        <item quantity="one">Volunteers made %,d change across over 300 different language editions of Wikipedia.</item>
+        <item quantity="other">Volunteers made %,d changes across over 300 different language editions of Wikipedia.</item>
     </plurals>
     <plurals name="year_in_review_slide_english_edited_times_body_second">
-        <item quantity="one">%s change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
-        <item quantity="other">%s changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
+        <item quantity="one">%,d change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
+        <item quantity="other">%,d changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
     </plurals>
     <plurals name="year_in_review_slide_saved_articles_headline">
-        <item quantity="one">You saved %s article</item>
-        <item quantity="other">You saved %s articles</item>
+        <item quantity="one">You saved %,d article</item>
+        <item quantity="other">You saved %,d articles</item>
     </plurals>
     <plurals name="year_in_review_slide_saved_articles_body">
-        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved article this year.]]></item>
-        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$s saved articles this year.]]></item>
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_global_saved_articles_headline">
-        <item quantity="one">App users had %s saved article</item>
-        <item quantity="other">App users had %s saved articles</item>
+        <item quantity="one">App users had %,d saved article</item>
+        <item quantity="other">App users had %,d saved articles</item>
     </plurals>
     <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
     <string name="year_in_review_slide_reading_patterns_headline">You have clear reading patterns</string>
@@ -2090,7 +2090,58 @@
     <string name="year_in_review_slide_reading_pattern_evening">Evening</string>
     <string name="year_in_review_slide_reading_pattern_night">Night</string>
     <string name="year_in_review_slide_reading_pattern_late_night">Late night</string>
-
+    <plurals name="year_in_review_slide_english_reading_hours_headline">
+        <item quantity="one">We spent %,d hour reading</item>
+        <item quantity="other">We spent %,d hours reading</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_reading_hours_body_first">
+        <item quantity="one">People spent an estimated %,d hour</item>
+        <item quantity="other">People spent an estimated %,d hours</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_reading_hours_body_second">
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_headline">
+        <item quantity="one">Wikipedia was available in more than %,d language</item>
+        <item quantity="other">Wikipedia was available in more than %,d languages</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_body_first">
+        <item quantity="one">Wikipedia had %,d article</item>
+        <item quantity="other">Wikipedia had %,d articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_body_second">
+        <item quantity="one">across over %,d active language this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+        <item quantity="other">across over %,d active languages this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+        <item quantity="one">You spent %,d minute</item>
+        <item quantity="other">You spent %,d minutes</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+        <item quantity="one">reading %1$,d article in %2$d</item>
+        <item quantity="other">reading %1$,d articles in %2$d</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+        <item quantity="one">We estimate that puts you in the top %1$s of Wikipedia readers globally. The average person reads %2$,d article a year.</item>
+        <item quantity="other">We estimate that puts you in the top %1$s of Wikipedia readers globally. The average person reads %2$,d articles a year.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+        <item quantity="one">Wikipedia had %,d article</item>
+        <item quantity="other">Wikipedia had %,d articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+        <item quantity="one">across over %,d active language this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+        <item quantity="other">across over %,d active languages this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+        <item quantity="one">People spent an estimated %,d hour</item>
+        <item quantity="other">People spent an estimated %,d hours</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d.</item>
+    </plurals>
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
