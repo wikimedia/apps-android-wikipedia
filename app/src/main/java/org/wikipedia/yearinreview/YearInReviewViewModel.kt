@@ -17,6 +17,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
@@ -48,6 +49,9 @@ class YearInReviewViewModel() : ViewModel() {
 
             _uiScreenListState.value = UiState.Loading
 
+            // TODO: explicitly fetch remote config so it's guaranteed fresh here.
+            val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)!!
+
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
             if (yearInReviewModelMap[YIR_YEAR] == null) {
@@ -55,9 +59,6 @@ class YearInReviewViewModel() : ViewModel() {
                     LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
                 val yearInMillis = TimeUnit.DAYS.toMillis(365)
                 val yearAgo = now - yearInMillis
-
-                // TODO: handle remote config to show numbers, maybe grab generic content from the config.
-                val remoteConfig = RemoteConfig.config
 
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
@@ -197,18 +198,6 @@ class YearInReviewViewModel() : ViewModel() {
                 val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
-                    enReadingTimePerHour = 0L, // TODO: remote config
-                    enPopularArticles = listOf("Dog", "Cat", "Bear", "Bird", "Tiger"), // TODO: remote config
-                    enEditsCount = 0L, // TODO: remote config
-                    enBytesAddedCount = 0L, // TODO: remote config
-                    availableLanguages = 0, // TODO: remote config
-                    globalTotalArticles = 0L, // TODO: remote config
-                    globalEditsCount = 0L, // TODO: remote config
-                    globalAverageReadingArticlesCount = 0, // TODO: remote config
-                    globalEditsPerMinute = 0, // TODO: remote config
-                    appArticlesViewedTimes = 0L, // TODO: remote config
-                    appArticlesSavedTimes = 0L, // TODO: remote config
-                    appsEditsCount = 0L, // TODO: remote config
                     localReadingTimePerMinute = totalTimeSpent.await(),
                     localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
@@ -229,15 +218,14 @@ class YearInReviewViewModel() : ViewModel() {
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
 
-            val fundraisingDisabledCountries = emptyList<String>() // TODO: remote config
-
             val finalRoute = YearInReviewSlides(
                 context = WikipediaApp.instance,
                 currentYear = YIR_YEAR,
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
-                isFundraisingDisabled = fundraisingDisabledCountries.contains(WikipediaApp.instance.wikiSite.languageCode),
+                isFundraisingDisabled = remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
+                config = remoteConfig,
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 

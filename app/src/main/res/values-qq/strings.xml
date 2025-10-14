@@ -2016,8 +2016,8 @@
     <item quantity="other">Title of the second part of the spent minutes slide for the Year in Review. %1$,d will be replaced by the number of articles and %2$d will be replaced by the current year.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-    <item quantity="one">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the ranking and %2$,d will be replaced by the number of article.</item>
-    <item quantity="other">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the ranking and %2$,d will be replaced by the number of articles.</item>
+    <item quantity="one">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the percentage ranking and %2$,d will be replaced by the number of article.</item>
+    <item quantity="other">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the percentage ranking and %2$,d will be replaced by the number of articles.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Body of the first part of the global spent minutes slide for the Year in Review. %,d will be replaced by the number of article.</item>

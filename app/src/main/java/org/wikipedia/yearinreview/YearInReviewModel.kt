@@ -4,18 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class YearInReviewModel(
-    val enReadingTimePerHour: Long,
-    val enPopularArticles: List<String>,
-    val enEditsCount: Long,
-    val enBytesAddedCount: Long,
-    val availableLanguages: Int,
-    val globalTotalArticles: Long,
-    val globalEditsCount: Long,
-    val globalAverageReadingArticlesCount: Int,
-    val globalEditsPerMinute: Int,
-    val appArticlesViewedTimes: Long,
-    val appArticlesSavedTimes: Long,
-    val appsEditsCount: Long,
     val localReadingTimePerMinute: Long,
     val localReadingArticlesCount: Int,
     val localSavedArticlesCount: Int,

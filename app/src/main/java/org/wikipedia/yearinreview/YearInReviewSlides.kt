@@ -3,6 +3,7 @@ package org.wikipedia.yearinreview
 import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import java.text.NumberFormat
 import java.time.DayOfWeek
 import java.time.Month
@@ -16,20 +17,21 @@ class YearInReviewSlides(
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
     val isFundraisingDisabled: Boolean,
+    val config: RemoteConfig.RemoteConfigYearInReview,
     val yearInReviewModel: YearInReviewModel
 ) {
 
     private fun englishReadingHoursScreen(): YearInReviewScreenData.StandardScreen {
-        val hoursQuantity = yearInReviewModel.enReadingTimePerHour.toInt()
-        val yearsQuantity = (hoursQuantity / 8760)
+        val hoursQuantity = config.hoursReadEN.toInt()
+        val yearsQuantity = config.yearsReadEN
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_first,
-            hoursQuantity, yearInReviewModel.enReadingTimePerHour) + " " +
+            hoursQuantity, hoursQuantity) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_second,
                     yearsQuantity, yearsQuantity, currentYear)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, hoursQuantity, yearInReviewModel.enReadingTimePerHour),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, hoursQuantity, hoursQuantity),
             bodyText = bodyText
         )
     }
@@ -44,43 +46,34 @@ class YearInReviewSlides(
             }
         }
         val minutesQuantity = yearInReviewModel.localReadingTimePerMinute.toInt()
-        val hoursQuantity = yearInReviewModel.enReadingTimePerHour.toInt()
-        val yearsQuantity = (hoursQuantity / 8760)
-        val availableLanguages = yearInReviewModel.availableLanguages
-        val articlesQuantity = yearInReviewModel.globalTotalArticles.toInt()
+        val hoursQuantity = config.hoursReadEN.toInt()
+        val yearsQuantity = config.yearsReadEN
+        val availableLanguages = config.languages
+        val articlesQuantity = config.articles.toInt()
 
         val headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_first,
             minutesQuantity, yearInReviewModel.localReadingTimePerMinute) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_second,
                     yearInReviewModel.localReadingArticlesCount, yearInReviewModel.localReadingArticlesCount, currentYear)
 
-        // build reading rank
-        var rankingText = when (yearInReviewModel.localReadingArticlesCount) {
-            in 336..1233 -> "50%"
-            in 1234..2455 -> "40%"
-            in 2456..4566 -> "30%"
-            in 4567..8900 -> "20%"
-            in 8901..12344 -> "10%"
-            in 12345..23455 -> "5%"
-            in 23456..43739 -> "1%"
-            in 43740..Int.MAX_VALUE -> "0.01%"
-            else -> null
-        }
+        val rankPercentage = config.topReadPercentages.find {
+            yearInReviewModel.localReadingArticlesCount > it.min && yearInReviewModel.localReadingArticlesCount <= it.max
+        }?.identifier
+
         var bodyText = ""
-        rankingText?.let {
-            rankingText = "<b>$it</b>"
+        rankPercentage?.let {
             bodyText += context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_top,
-                yearInReviewModel.globalAverageReadingArticlesCount, rankingText, yearInReviewModel.globalAverageReadingArticlesCount) + "<br /><br />"
+                config.averageArticlesReadPerYear, "<b>$it</b>", config.averageArticlesReadPerYear) + "<br /><br />"
         }
 
         bodyText += if (isEnglishWiki) {
             context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_english_first,
-                hoursQuantity, yearInReviewModel.enReadingTimePerHour) + " " +
+                hoursQuantity, hoursQuantity) + " " +
                     context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_english_second,
                         yearsQuantity, yearsQuantity, currentYear)
         } else {
             context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_global_first,
-                articlesQuantity, yearInReviewModel.globalTotalArticles) + " " +
+                articlesQuantity, config.articles) + " " +
                     context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_body_global_second,
                         availableLanguages, availableLanguages, currentYear)
         }
@@ -95,32 +88,32 @@ class YearInReviewSlides(
 
     private fun popularEnglishArticlesScreen(): YearInReviewScreenData.StandardScreen {
 
-        val popularEnglishArticlesText = buildListWithNumbers(yearInReviewModel.enPopularArticles)
+        val popularEnglishArticlesText = buildListWithNumbers(config.topReadEN)
 
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
-                yearInReviewModel.enPopularArticles.size, yearInReviewModel.enPopularArticles.size, popularEnglishArticlesText)
+                config.topReadEN.size, config.topReadEN.size, popularEnglishArticlesText)
         )
     }
 
     private fun appSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
-        val quantity = yearInReviewModel.appArticlesSavedTimes.toInt()
+        val quantity = config.savedArticlesApps.toInt()
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, quantity, yearInReviewModel.appArticlesSavedTimes),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, quantity, quantity),
             bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
     }
 
     private fun availableLanguagesScreen(): YearInReviewScreenData.StandardScreen {
-        val availableLanguages = yearInReviewModel.availableLanguages
-        val articlesQuantity = yearInReviewModel.globalTotalArticles.toInt()
+        val availableLanguages = config.languages
+        val articlesQuantity = config.articles.toInt()
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_first,
-            articlesQuantity, yearInReviewModel.globalTotalArticles) + " " +
+            articlesQuantity, config.articles) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_second,
                     availableLanguages, availableLanguages, currentYear)
         return YearInReviewScreenData.StandardScreen(
@@ -211,14 +204,14 @@ class YearInReviewSlides(
         if (yearInReviewModel.localSavedArticlesCount < YearInReviewViewModel.MIN_SAVED_ARTICLES) {
             return appSavedArticlesScreen()
         }
-        val appSavedArticlesSize = yearInReviewModel.appArticlesSavedTimes.toInt()
+        val appSavedArticlesSize = config.savedArticlesApps.toInt()
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, yearInReviewModel.localSavedArticlesCount, yearInReviewModel.localSavedArticlesCount),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_body,
                 appSavedArticlesSize, yearInReviewModel.localSavedArticles[0], yearInReviewModel.localSavedArticles[1],
-                yearInReviewModel.localSavedArticles[2], yearInReviewModel.appArticlesSavedTimes)
+                yearInReviewModel.localSavedArticles[2], config.savedArticlesApps)
         )
     }
 
@@ -228,12 +221,12 @@ class YearInReviewSlides(
         if (userEditsCount > YearInReviewViewModel.MAX_EDITED_TIMES) {
             formattedUserEditsNumber = "${YearInReviewViewModel.MAX_EDITED_TIMES}+"
         }
-        val globalEditsCount = yearInReviewModel.globalEditsCount.toInt()
+        val globalEditsCount = config.edits.toInt()
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_headline, userEditsCount, formattedUserEditsNumber),
-            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_body, globalEditsCount, yearInReviewModel.globalEditsCount)
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_body, globalEditsCount, config.edits)
         )
     }
 
@@ -248,11 +241,11 @@ class YearInReviewSlides(
     }
 
     private fun appEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
-        val quantity = yearInReviewModel.globalEditsCount.toInt()
+        val quantity = config.edits.toInt()
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_app_edited_times_headline, quantity, yearInReviewModel.globalEditsCount),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_app_edited_times_headline, quantity, config.edits),
             bodyText = context.getString(R.string.year_in_review_slide_app_edited_times_body)
         )
     }
@@ -261,34 +254,34 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, yearInReviewModel.globalEditsPerMinute, yearInReviewModel.globalEditsPerMinute),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, config.editsPerMinute, config.editsPerMinute),
             bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
     }
 
     private fun englishEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
-        val globalEditsCount = yearInReviewModel.globalEditsCount.toInt()
-        val englishEditsCount = yearInReviewModel.enEditsCount.toInt()
+        val globalEditsCount = config.edits.toInt()
+        val englishEditsCount = config.editsEN.toInt()
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_first,
-            globalEditsCount, yearInReviewModel.globalEditsCount, yearInReviewModel.enEditsCount) + " " +
+            globalEditsCount, config.edits, config.editsEN) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_second,
-                    englishEditsCount, yearInReviewModel.enEditsCount)
+                    englishEditsCount, config.editsEN)
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, globalEditsCount, yearInReviewModel.globalEditsCount),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, globalEditsCount, config.edits),
             bodyText = bodyText
         )
     }
 
     private fun addedBytesScreen(): YearInReviewScreenData.StandardScreen {
-        val quantity = yearInReviewModel.enBytesAddedCount.toInt()
+        val quantity = config.bytesAddedEN.toInt()
         return YearInReviewScreenData.StandardScreen(
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, quantity, yearInReviewModel.enBytesAddedCount),
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, quantity, config.bytesAddedEN),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_body,
-                quantity, currentYear, yearInReviewModel.enBytesAddedCount, context.getString(R.string.editing_learn_more_url))
+                quantity, currentYear, config.bytesAddedEN, context.getString(R.string.editing_learn_more_url))
         )
     }
 

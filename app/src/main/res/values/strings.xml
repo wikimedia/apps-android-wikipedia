@@ -2123,8 +2123,8 @@
         <item quantity="other">reading %1$,d articles in %2$d</item>
     </plurals>
     <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-        <item quantity="one">We estimate that puts you in the top %1$s of Wikipedia readers globally. The average person reads %2$,d article a year.</item>
-        <item quantity="other">We estimate that puts you in the top %1$s of Wikipedia readers globally. The average person reads %2$,d articles a year.</item>
+        <item quantity="one">We estimate that puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$,d article a year.</item>
+        <item quantity="other">We estimate that puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$,d articles a year.</item>
     </plurals>
     <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
         <item quantity="one">Wikipedia had %,d article</item>
