@@ -277,7 +277,6 @@
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
@@ -1217,7 +1216,7 @@
   <string name="activity_tab_impact_best_streak">最長連續時間</string>
   <string name="activity_tab_impact_last_edited">上一次編輯</string>
   <string name="activity_tab_impact_suggested_edits_title">最近對條目進行了 0 次編輯</string>
-  <string name="activity_tab_impact_suggested_edits_message">您似乎本月尚未做過任何編輯。您可以編輯您最關注的主題，來擴充可自由取得的知識。</string>
+  <string name="activity_tab_impact_suggested_edits_message">您似乎本月尚未做過任何編輯。您可以編輯您感興趣的主題，來擴充可自由取得的知識。</string>
   <string name="activity_tab_impact_suggested_edits_button">進行編輯</string>
   <string name="activity_tab_impact_recent_activity">您最近的活動（過去 30 天）</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1250,6 +1249,8 @@
   <string name="activity_tab_onboarding_engage_message">探索遊戲、已儲存條目和其他活動的統計數據，讓您能與維基百科有更深入的聯繫。</string>
   <string name="activity_tab_onboarding_stay_in_control_title">保持控制</string>
   <string name="activity_tab_onboarding_stay_in_control_message">選擇要顯示的模組。所有個人資料在您的裝置上都會保持隱私，並且可以隨時清除瀏覽紀錄。</string>
+  <string name="edits_screen_what_is_title">在維基百科應用程式中編輯</string>
+  <string name="edits_screen_what_is_body">不確定從哪裡開始編輯嗎？請試試「建議編輯」，這功能可讓您有機會為維基百科做出變動不多；但至關重要的貢獻。或者，您也可以直接前往您感興趣的條目，使用 wikitext 進行修改。</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>

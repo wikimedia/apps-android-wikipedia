@@ -247,10 +247,7 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
@@ -1189,7 +1186,7 @@
   <string name="activity_tab_impact_best_streak">Најдобра тура</string>
   <string name="activity_tab_impact_last_edited">Последно уредување</string>
   <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
-  <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ви значат.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ве интересираат.</string>
   <string name="activity_tab_impact_suggested_edits_button">Направете уредување</string>
   <string name="activity_tab_impact_recent_activity">Ваша скорешна активност (изминатите 30 дена)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1222,6 +1219,8 @@
   <string name="activity_tab_onboarding_engage_message">Истражете статистика за игри, зачувани статии и други активности што ве поврзуваат подлабоко со Википедија.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Останете во контрола</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Изберете кои модули да се прикажуваат. Сите лични податоци остануваат доверливи на вашиот уред, а историјата на прелистување може да се исчисти во секое време.</string>
+  <string name="edits_screen_what_is_title">Уредување во прилгот на Википедија</string>
+  <string name="edits_screen_what_is_body">Не знаете каде да почнете со уредување? Пробајте ги Предложените уредувања, функција која дава прилики за мали, но важни придонеси на Википедија. Друга можност е да одите право на статијата што ве интересира и да направите измена користејќи викитекст.</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>

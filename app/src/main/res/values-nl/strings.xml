@@ -286,10 +286,7 @@
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
@@ -1228,7 +1225,7 @@
   <string name="activity_tab_impact_best_streak">Beste reeks</string>
   <string name="activity_tab_impact_last_edited">Laatst bewerkt</string>
   <string name="activity_tab_impact_suggested_edits_title">0 recente bewerkingen van artikelen</string>
-  <string name="activity_tab_impact_suggested_edits_message">Het lijkt erop dat u deze maand nog geen bewerking hebt aangebracht. Breid de vrije kennis uit door de onderwerpen te bewerken die voor u het belangrijkst zijn.</string>
+  <string name="activity_tab_impact_suggested_edits_message">Het lijkt erop dat u deze maand nog geen bewerking hebt aangebracht. Breid de vrije kennis uit door de onderwerpen te bewerken die u interesseren.</string>
   <string name="activity_tab_impact_suggested_edits_button">Een bewerking maken</string>
   <string name="activity_tab_impact_recent_activity">Uw recente activiteit (afgelopen 30 dagen)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1261,6 +1258,8 @@
   <string name="activity_tab_onboarding_engage_message">Bekijk statistieken over spellen, opgeslagen artikelen en andere activiteiten waarmee u uw verbinding met Wikipedia verdiept.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">De touwtjes in handen houden</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Kies welke modules u wilt weergeven. Alle persoonlijke gegevens blijven privé op uw apparaat staan. U kunt uw browsergeschiedenis op elk moment wissen.</string>
+  <string name="edits_screen_what_is_title">Bewerken in de Wikipedia-app</string>
+  <string name="edits_screen_what_is_body">Weet u niet waar u moet beginnen met bewerken? Probeer dan ‘Voorgestelde bewerkingen’, een functie waarmee u kleine maar essentiële bijdragen aan Wikipedia kunt doen. U kunt ook direct naar een interessant artikel gaan en een wijziging aanbrengen met behulp van wikitekst.</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>

@@ -316,12 +316,10 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/fr</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -1256,7 +1254,7 @@
   <string name="activity_tab_impact_best_streak">Meilleure série</string>
   <string name="activity_tab_impact_last_edited">Dernière modification</string>
   <string name="activity_tab_impact_suggested_edits_title">Aucune modification apportée aux articles récemment</string>
-  <string name="activity_tab_impact_suggested_edits_message">Il semblerait que vous n\'ayez rien modifié ce mois. Élargissez l\'accès libre à la connaissances en améliorant les sujets qui vous intéressent.</string>
+  <string name="activity_tab_impact_suggested_edits_message" fuzzy="true">Il semblerait que vous n\'ayez rien modifié ce mois. Élargissez l\'accès libre à la connaissances en améliorant les sujets qui vous intéressent.</string>
   <string name="activity_tab_impact_suggested_edits_button">Faire une modification</string>
   <string name="activity_tab_impact_recent_activity">Activité récente (30 derniers jours)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1749,7 +1747,7 @@
   <string name="patroller_onboarding_two_thank_title">Remercier</string>
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
-  <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de surveillance. Consultez-la sous « Plus ».</string>
+  <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de suivi. Consultez-la sous « Plus ».</string>
   <string name="patroller_onboarding_two_talk_title">Discussion</string>
   <string name="patroller_onboarding_two_talk_content">Communiquer avec d\'autres contributeurs. Enregistrer les messages des pages de discussion couramment utilisés ou utiliser un modèle.</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>

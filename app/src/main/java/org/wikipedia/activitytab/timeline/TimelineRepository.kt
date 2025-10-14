@@ -3,7 +3,6 @@ package org.wikipedia.activitytab.timeline
 import kotlinx.coroutines.delay
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryEntry.Companion.SOURCE_SEARCH
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.Namespace
@@ -30,7 +29,6 @@ class HistoryEntryPagingSource(
             TimelineItem(
                 id = it.id,
                 pageId = 0,
-                authority = it.authority,
                 apiTitle = it.apiTitle,
                 displayTitle = it.displayTitle,
                 description = it.description,
@@ -42,7 +40,8 @@ class HistoryEntryPagingSource(
                 activitySource = when (it.source) {
                     SOURCE_SEARCH -> ActivitySource.SEARCH
                     else -> ActivitySource.LINK
-                }
+                },
+                wiki = WikiSite.forLanguageCode(it.lang)
             )
         }
         val nextCursor =
@@ -82,7 +81,8 @@ class UserContribPagingSource(
                 thumbnailUrl = savedHistoryItem?.imageName,
                 timestamp = Date.from(contribution.parsedDateTime.atZone(ZoneId.systemDefault()).toInstant()),
                 activitySource = ActivitySource.EDIT,
-                source = -1
+                source = -1,
+                wiki = wikiSite
             )
             timelineItemsByPageId[keyForMap] = timelineItem
             // only fetch page info for contribution in article namespace
@@ -119,7 +119,7 @@ class ReadingListPagingSource(
 
     override suspend fun fetch(pageSize: Int, cursor: Cursor?): Pair<List<TimelineItem>, Cursor?> {
         val offset = (cursor as? Cursor.ReadingListCursor)?.offset ?: 0
-        val items = dao.getPagesByLocalySavedTime(pageSize, offset).map {
+        val items = dao.getPagesByLocallySavedTime(pageSize, offset).map {
             TimelineItem(
                 id = it.mtime + it.atime + it.id,
                 pageId = 0,
@@ -128,9 +128,9 @@ class ReadingListPagingSource(
                 description = it.description,
                 thumbnailUrl = it.thumbUrl,
                 timestamp = Date(it.atime),
-                wiki = WikiSite.forLanguageCode(it.lang),
                 activitySource = ActivitySource.BOOKMARKED,
-                source = -1
+                source = -1,
+                wiki = WikiSite.forLanguageCode(it.lang)
             )
         }
         val nextCursor =
@@ -152,37 +152,18 @@ data class TimelineItem(
     val timestamp: Date,
     val source: Int,
     val activitySource: ActivitySource?,
-    var authority: String = "",
     var lang: String = "",
     var apiTitle: String = "",
     var displayTitle: String = "",
     var namespace: String = "",
-    val wiki: WikiSite? = null
+    val wiki: WikiSite
 ) {
-    fun toHistoryEntry(): HistoryEntry {
-        val entry = HistoryEntry(
-            authority = authority,
-            lang = lang,
-            apiTitle = apiTitle,
-            displayTitle = displayTitle,
-            id = id,
-            namespace = namespace,
-            source = source
-        )
-        entry.title.thumbUrl = thumbnailUrl
-        entry.title.description = description
-
-        return entry
-    }
-
     fun toPageTitle(): PageTitle {
-        return PageTitle(
-            apiTitle,
-            wiki!!,
-            thumbnailUrl,
-            description,
-            displayTitle
-        )
+        return PageTitle(namespace, apiTitle, wiki).also {
+            it.displayText = displayTitle
+            it.thumbUrl = thumbnailUrl
+            it.description = description
+        }
     }
 }
 
