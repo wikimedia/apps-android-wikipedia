@@ -1,6 +1,7 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
+import android.graphics.drawable.Animatable
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.asDrawable
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
@@ -47,7 +49,6 @@ sealed class YearInReviewScreenData(
 
     open class StandardScreen(
         val animatedImageResource: Int = 0,
-        val staticImageResource: Int = 0,
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
@@ -77,11 +78,22 @@ sealed class YearInReviewScreenData(
                                 aspectRatio: Float) {
             SubcomposeAsyncImage(
                 model = ImageRequest.Builder(context)
-                    .data(if (screenCaptureMode) staticImageResource else animatedImageResource)
+                    .data(animatedImageResource)
                     .allowHardware(false)
                     .build(),
                 loading = { LoadingIndicator() },
-                success = { SubcomposeAsyncImageContent() },
+                success = {
+                    val drawable = it.result.image.asDrawable(context.resources)
+                    val animatable = drawable as? Animatable
+                    animatable?.let { animation ->
+                        if (screenCaptureMode) {
+                            animation.stop()
+                        } else if (!animation.isRunning) {
+                            animation.start()
+                        }
+                    }
+                    SubcomposeAsyncImageContent()
+                },
                 onSuccess = { isImageResourceLoaded?.invoke(true) },
                 contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
                 modifier = Modifier.fillMaxSize()
@@ -118,7 +130,6 @@ sealed class YearInReviewScreenData(
 
     class ReadingPatterns(
         animatedImageResource: Int = 0,
-        staticImageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
         val favoriteTimeText: String,
@@ -126,7 +137,6 @@ sealed class YearInReviewScreenData(
         val favoriteMonthText: String
     ) : StandardScreen(
         animatedImageResource = animatedImageResource,
-        staticImageResource = staticImageResource,
         headlineText = headlineText,
         bodyText = bodyText,
     )

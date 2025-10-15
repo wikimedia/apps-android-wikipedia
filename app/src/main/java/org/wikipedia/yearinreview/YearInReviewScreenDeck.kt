@@ -565,7 +565,6 @@ fun PreviewScreenShot() {
         CreateScreenShotBitmap(
             screenContent = YearInReviewScreenData.StandardScreen(
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                 headlineText = "Over 3 billion bytes added",
                 bodyText = "TBD"
             )
@@ -581,7 +580,6 @@ fun PreviewStandardContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.StandardScreen(
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "Over 3 billion bytes added",
                     bodyText = "TBD"
                 )
@@ -601,7 +599,6 @@ fun PreviewReadingPatternsContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "You have clear reading patterns",
                     bodyText = "",
                     favoriteTimeText = "Afternoon",
