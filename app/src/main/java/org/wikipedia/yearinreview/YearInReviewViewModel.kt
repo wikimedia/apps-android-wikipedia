@@ -77,9 +77,9 @@ class YearInReviewViewModel() : ViewModel() {
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
-                val totalTimeSpent = async {
+                val totalReadingTimeMinutes = async {
                     AppDatabase.instance.historyEntryWithImageDao()
-                        .getTimeSpentBetween(dataStartMillis, dataEndMillis)
+                        .getTimeSpentBetween(dataStartMillis, dataEndMillis) / 60
                 }
 
                 val topVisitedCategoryForTheYear = async {
@@ -194,7 +194,7 @@ class YearInReviewViewModel() : ViewModel() {
                 val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
-                    localReadingTimePerMinute = totalTimeSpent.await(),
+                    totalReadingTimeMinutes = totalReadingTimeMinutes.await(),
                     localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
                     localSavedArticles = randomSavedArticleTitles.await(),

@@ -36,7 +36,7 @@ class YearInReviewSlides(
 
     private fun spentReadingMinutesScreen(): YearInReviewScreenData.StandardScreen {
         if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_ARTICLES ||
-            yearInReviewModel.localReadingTimePerMinute < YearInReviewViewModel.MIN_READING_MINUTES) {
+            yearInReviewModel.totalReadingTimeMinutes < YearInReviewViewModel.MIN_READING_MINUTES) {
             return if (isEnglishWiki) {
                 englishReadingHoursScreen()
             } else {
@@ -45,7 +45,7 @@ class YearInReviewSlides(
         }
 
         val headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_first,
-            yearInReviewModel.localReadingTimePerMinute.toInt(), yearInReviewModel.localReadingTimePerMinute) + " " +
+            yearInReviewModel.totalReadingTimeMinutes.toInt(), yearInReviewModel.totalReadingTimeMinutes) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_spent_minutes_reading_headline_second,
                     yearInReviewModel.localReadingArticlesCount, yearInReviewModel.localReadingArticlesCount, currentYear)
 
