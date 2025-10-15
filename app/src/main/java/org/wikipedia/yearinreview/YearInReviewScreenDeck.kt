@@ -85,7 +85,7 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
     onDonateClick: () -> Unit,
-    onNextButtonClick: (PagerState) -> Unit,
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
     onBackButtonClick: () -> Unit
 ) {
     when (state) {
@@ -165,7 +165,7 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         contentData,
-                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        onNavigationRightClick = { onNextButtonClick(pagerState, contentData[pagerState.currentPage]) },
                         pagerState = pagerState,
                         totalPages = contentData.size,
                         onShareClick = {
@@ -266,19 +266,17 @@ fun MainBottomBar(
                             )
                         }
                     }
-                    if (pagerState.currentPage + 1 < totalPages) {
-                        IconButton(
-                            onClick = { onNavigationRightClick() },
-                            modifier = Modifier
-                                .padding(0.dp)
-                                .align(Alignment.CenterEnd)
-                        ) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                            )
-                        }
+                    IconButton(
+                        onClick = { onNavigationRightClick() },
+                        modifier = Modifier
+                            .padding(0.dp)
+                            .align(Alignment.CenterEnd)
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                        )
                     }
                 }
             }
@@ -413,6 +411,11 @@ fun YearInReviewScreenContent(
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
+            YearInReviewHighlightsScreen(
+                modifier = Modifier
+                    .padding(innerPadding),
+                screenData = screenData
+            )
         }
     }
 }
@@ -588,7 +591,7 @@ fun PreviewStandardContent() {
             )),
             onDonateClick = {},
             onBackButtonClick = {},
-            onNextButtonClick = {}
+            onNextButtonClick = { _, _ -> }
         )
     }
 }
@@ -611,7 +614,7 @@ fun PreviewReadingPatternsContent() {
             )),
             onDonateClick = {},
             onBackButtonClick = {},
-            onNextButtonClick = {}
+            onNextButtonClick = { _, _ -> }
         )
     }
 }

@@ -2143,6 +2143,8 @@
         <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d.</item>
         <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d.</item>
     </plurals>
+    <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
+    <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>

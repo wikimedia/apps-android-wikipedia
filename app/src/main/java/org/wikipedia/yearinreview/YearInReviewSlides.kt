@@ -2,8 +2,10 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.yearinreview.YearInReviewScreenData.HighlightItem
 import java.text.NumberFormat
 import java.time.DayOfWeek
 import java.time.Month
@@ -270,15 +272,41 @@ class YearInReviewSlides(
         )
     }
 
-    private fun highlightScreen(vararg params: Int): YearInReviewScreenData.HighlightsScreen {
+    private fun loggedInHighlightScreen(): YearInReviewScreenData.HighlightsScreen {
         // TODO: yir122
         return YearInReviewScreenData.HighlightsScreen(
             highlights = listOf(
-                "You read 350 articles",
-                "You saved 25 articles",
-                "You edited Wikipedia 150 times"
-            ),
-            headlineText = "2025 highlights"
+                // @TODO: get proper data
+                HighlightItem(
+                    title = "Articles I read the longest",
+                    items = listOf(
+                        "Pamela Anderson",
+                        "Pamukkale",
+                        "History of US science fiction and fantasy magazines to 1950"
+                    ),
+                    highlightColor = ComposeColors.Blue600
+                ),
+                HighlightItem(
+                    title = "Minutes read",
+                    singleValue = "924"
+                ),
+                HighlightItem(
+                    title = "Favorite day to read",
+                    singleValue = "Wednesday"
+                ),
+                HighlightItem(
+                    title = "Articles read",
+                    singleValue = "253"
+                ),
+                HighlightItem(
+                    title = "Categories that interested me",
+                    items = listOf(
+                        "Mass media-related controversies in the United States",
+                        "Executed female serial killers",
+                        "Shapeshifters in Greek mythology"
+                    )
+                ),
+            )
         )
     }
 
@@ -334,7 +362,7 @@ class YearInReviewSlides(
             englishReadingHoursScreen(),
             popularEnglishArticlesScreen(),
             appSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+        ) + editorRoutes() + unlockedIconRoute()).filterNotNull()
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
@@ -343,7 +371,7 @@ class YearInReviewSlides(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
             appSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+        ) + editorRoutes() + unlockedIconRoute()).filterNotNull()
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
@@ -356,7 +384,7 @@ class YearInReviewSlides(
             topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+        ) + editorRoutes() + unlockedIconRoute() + loggedInHighlightScreen()).filterNotNull()
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
@@ -369,7 +397,7 @@ class YearInReviewSlides(
             topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
+        ) + editorRoutes() + unlockedIconRoute()).filterNotNull()
     }
 
     private fun buildListWithNumbers(items: List<String>): String {
