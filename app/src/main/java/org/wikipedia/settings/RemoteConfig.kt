@@ -20,7 +20,7 @@ object RemoteConfig {
                     RemoteConfigImpl()
                 }
             }
-            return curConfig!!
+            return curConfig ?: RemoteConfigImpl()
         }
 
     fun updateConfig(config: RemoteConfigImpl) {
