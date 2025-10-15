@@ -260,8 +260,7 @@ class YearInReviewViewModel() : ViewModel() {
         }
 
         val isCustomIconAllowed get(): Boolean {
-            val yirViewModelData = Prefs.yearInReviewModelData[YIR_YEAR]
-            return isAccessible && yirViewModelData?.isCustomIconUnlocked == true
+            return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
         }
     }
 }
