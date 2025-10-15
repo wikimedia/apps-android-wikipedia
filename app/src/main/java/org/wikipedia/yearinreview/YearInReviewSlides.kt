@@ -289,8 +289,7 @@ class YearInReviewSlides(
     }
 
     private fun unlockedIconRoute(): YearInReviewScreenData? {
-        val isIconUnlocked = yearInReviewModel.userEditsCount > 0 || Prefs.donationResults.isNotEmpty()
-        return if (isIconUnlocked) {
+        return if (yearInReviewModel.isCustomIconUnlocked) {
             val contributorType = if (yearInReviewModel.userEditsCount > 0 && Prefs.donationResults.isNotEmpty()) {
                 context.getString(R.string.year_in_review_slide_app_icon_donor_and_editor)
             } else if (yearInReviewModel.userEditsCount > 0) {
