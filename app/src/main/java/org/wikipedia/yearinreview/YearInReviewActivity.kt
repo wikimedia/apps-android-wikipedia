@@ -52,14 +52,8 @@ class YearInReviewActivity : BaseActivity() {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,
-                            onBackButtonClick = { pagerState ->
-                                if (pagerState.currentPage > 0) {
-                                    coroutineScope.launch {
-                                        pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                                    }
-                                } else {
-                                    finish()
-                                }
+                            onBackButtonClick = {
+                                finish()
                             },
                             onNextButtonClick = { pagerState ->
                                 coroutineScope.launch {
