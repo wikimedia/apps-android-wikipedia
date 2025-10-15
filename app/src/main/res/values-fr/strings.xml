@@ -1747,7 +1747,7 @@
   <string name="patroller_onboarding_two_thank_title">Remercier</string>
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
-  <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de surveillance. Consultez-la sous « Plus ».</string>
+  <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de suivi. Consultez-la sous « Plus ».</string>
   <string name="patroller_onboarding_two_talk_title">Discussion</string>
   <string name="patroller_onboarding_two_talk_content">Communiquer avec d\'autres contributeurs. Enregistrer les messages des pages de discussion couramment utilisés ou utiliser un modèle.</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
