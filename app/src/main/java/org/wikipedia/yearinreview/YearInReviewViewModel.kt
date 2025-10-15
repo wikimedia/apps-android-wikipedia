@@ -28,10 +28,6 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
-    private val startTime: Instant = LocalDateTime.of(YIR_YEAR, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
-    private val endTime: Instant = LocalDateTime.of(YIR_YEAR, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
-    private val startTimeInMillis = startTime.toEpochMilli()
-    private val endTimeInMillis = endTime.toEpochMilli()
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
@@ -49,6 +45,10 @@ class YearInReviewViewModel() : ViewModel() {
             _uiScreenListState.value = UiState.Loading
 
             val remoteConfig = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration().commonv1?.getYirForYear(YIR_YEAR)!!
+            val dataStartInstant = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC)
+            val dataEndInstant = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC)
+            val dataStartMillis = dataStartInstant.toEpochMilli()
+            val dataEndMillis = dataEndInstant.toEpochMilli()
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
@@ -58,28 +58,28 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getTotalLocallySavedPagesBetween(startTimeInMillis, endTimeInMillis) ?: 0
+                        .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
                 }
                 val randomSavedArticleTitles = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, startTimeInMillis, endTimeInMillis)
+                        .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
                 val readCountForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
+                        .getDistinctEntriesCountBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val topVisitedArticlesForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, startTimeInMillis, endTimeInMillis)
+                        .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
                 val totalTimeSpent = async {
                     AppDatabase.instance.historyEntryWithImageDao()
-                        .getTimeSpentBetween(startTimeInMillis, endTimeInMillis)
+                        .getTimeSpentBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val topVisitedCategoryForTheYear = async {
@@ -138,8 +138,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
                         )
                 }
                 val commonsCall = async {
@@ -147,8 +147,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
                         )
                 }
                 val wikidataCall = async {
@@ -156,8 +156,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime,
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant,
                             ns = 0,
                         )
                 }
@@ -172,17 +172,17 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val favoriteTimeToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteTimeToReadBetween(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteTimeToReadBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val favoriteDayToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteDayToReadBetween(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteDayToReadBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val mostReadingMonth = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getMostReadingMonthBetween(startTimeInMillis, endTimeInMillis)
+                        .getMostReadingMonthBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
