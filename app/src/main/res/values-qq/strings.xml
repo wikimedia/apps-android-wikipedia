@@ -1857,6 +1857,7 @@
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
   <string name="year_in_review_navigate_left">Content description of the navigation left icon for the Year in Review Scaffold.</string>
+  <string name="year_in_review_close">Content description of the close button in the Year in Review app bar.</string>
   <string name="year_in_review_share_icon">Content description of the share icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_heart_icon">Content description of the heart icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_navigate_right">Content description of the navigate right icon for the Year in Review screen scaffold.</string>
