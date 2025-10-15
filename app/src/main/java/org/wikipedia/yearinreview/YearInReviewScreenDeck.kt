@@ -320,17 +320,17 @@ fun CreateScreenShotBitmap(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(bottom = 40.dp),
+                .padding(vertical = 12.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_wikipedia_b),
                 tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.year_in_review_navigate_left),
+                contentDescription = stringResource(R.string.app_name_prod),
                 modifier = Modifier
-                    .height(32.dp)
-                    .width(50.dp)
+                    .height(20.dp)
+                    .width(31.dp)
             )
         }
         YearInReviewScreenContent(
