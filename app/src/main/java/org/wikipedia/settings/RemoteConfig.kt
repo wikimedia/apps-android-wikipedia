@@ -20,7 +20,7 @@ object RemoteConfig {
                     RemoteConfigImpl()
                 }
             }
-            return curConfig!!
+            return curConfig ?: RemoteConfigImpl()
         }
 
     fun updateConfig(config: RemoteConfigImpl) {
@@ -41,7 +41,11 @@ object RemoteConfig {
     @Suppress("unused")
     @Serializable
     class RemoteConfigCommonV1 {
-        val yir: RemoteConfigYearInReview? = null
+        val yir: List<RemoteConfigYearInReview> = emptyList()
+
+        fun getYirForYear(year: Int): RemoteConfigYearInReview? {
+            return yir.find { it.year == year }
+        }
     }
 
     @Suppress("unused")
@@ -93,7 +97,7 @@ object RemoteConfig {
     @Serializable
     class TopReadPercentage(
         val identifier: String = "",
-        val min: Int? = null,
-        val max: Int? = null
+        val min: Int = 0,
+        val max: Int = Int.MAX_VALUE
     )
 }
