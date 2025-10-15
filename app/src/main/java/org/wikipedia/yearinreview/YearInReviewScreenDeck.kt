@@ -1,11 +1,9 @@
 package org.wikipedia.yearinreview
 
 import android.graphics.Bitmap
-import android.graphics.BlurMaskFilter
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,11 +25,8 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -52,19 +47,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.drawLayer
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.rememberGraphicsLayer
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -291,7 +283,6 @@ fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
     onBitmapReady: (Bitmap) -> Unit
 ) {
-    val shadowColor = WikipediaTheme.colors.primaryColor
     val graphicsLayer = rememberGraphicsLayer()
     var isImageLoaded by remember { mutableStateOf(false) }
 
@@ -333,60 +324,23 @@ fun CreateScreenShotBitmap(
                     .width(31.dp)
             )
         }
+
         YearInReviewScreenContent(
             innerPadding = PaddingValues(0.dp),
             screenData = screenContent,
             screenCaptureMode = true,
-        ) { isLoaded -> isImageLoaded = isLoaded }
-
-        Card(
-            shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = WikipediaTheme.colors.paperColor
-            ),
-            modifier = Modifier
-                .width(312.dp)
-                .padding(top = 36.dp)
-                .drawBehind {
-                    /* Manually creating card shadow for render compatibility with graphicsLayer.toImageBitmap() */
-                    val paint = Paint().asFrameworkPaint().apply {
-                        color = shadowColor.copy(alpha = 0.15f).toArgb()
-                        maskFilter = BlurMaskFilter(
-                            20f,
-                            BlurMaskFilter.Blur.NORMAL
-                        )
-                    }
-                    drawContext.canvas.nativeCanvas.drawRoundRect(
-                        0f,
-                        0f,
-                        size.width,
-                        size.height,
-                        16f,
-                        16f,
-                        paint
-                    )
-                }
         ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
-
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.globe),
-                    contentDescription = stringResource(R.string.year_in_review_globe_icon)
-                )
-                Text(
-                    text = "#WikipediaYearInReview",
-                    color = WikipediaTheme.colors.progressiveColor,
-                    style = MaterialTheme.typography.titleSmall
-                )
-            }
+            isLoaded -> isImageLoaded = isLoaded
         }
+
+        Text(
+            modifier = Modifier.padding(top = 64.dp),
+            text = "#WikipediaYearInReview",
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyLarge.copy(
+                fontWeight = FontWeight.Medium
+            )
+        )
     }
 }
 
