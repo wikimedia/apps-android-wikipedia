@@ -86,7 +86,7 @@ fun YearInReviewScreenDeck(
     state: UiState<List<YearInReviewScreenData>>,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState) -> Unit,
-    onBackButtonClick: (PagerState) -> Unit
+    onBackButtonClick: () -> Unit
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -124,11 +124,11 @@ fun YearInReviewScreenDeck(
                             containerColor = WikipediaTheme.colors.paperColor),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onBackButtonClick(pagerState) }) {
+                            IconButton(onClick = { onBackButtonClick() }) {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
-                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                    contentDescription = stringResource(R.string.year_in_review_close)
                                 )
                             }
                         },
