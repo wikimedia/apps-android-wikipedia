@@ -159,7 +159,7 @@ class ActivityTabFragment : Fragment() {
             setContent {
                 BaseTheme {
                     ActivityTabScreen(
-                        isLoggedIn = AccountUtil.isLoggedIn,
+                        isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         userName = AccountUtil.userName,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
