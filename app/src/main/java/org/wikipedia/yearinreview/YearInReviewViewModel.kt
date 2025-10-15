@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
@@ -206,7 +207,8 @@ class YearInReviewViewModel() : ViewModel() {
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
-                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount
+                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
@@ -242,5 +244,24 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
+
+        // Whether Year-in-Review should be accessible at all.
+        // (different from the user enabling/disabling it in Settings.)
+        val isAccessible get(): Boolean {
+            if (Prefs.isShowDeveloperSettingsEnabled) {
+                return true
+            }
+            val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val now = LocalDateTime.now()
+            return (config != null &&
+                    !config.hideCountryCodes.contains(GeoUtil.geoIPCountry) &&
+                    now.isAfter(config.activeStartDate) &&
+                    now.isBefore(config.activeEndDate))
+        }
+
+        val isCustomIconAllowed get(): Boolean {
+            val yirViewModelData = Prefs.yearInReviewModelData[YIR_YEAR]
+            return isAccessible && yirViewModelData?.isCustomIconUnlocked == true
+        }
     }
 }
