@@ -31,7 +31,7 @@ class YearInReviewViewModel() : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Success(
-            data = listOf(nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+            data = listOf(testGeo, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
         )
     }
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
@@ -132,11 +132,11 @@ class YearInReviewViewModel() : ViewModel() {
                     )
                 )
                 _uiScreenListState.value = UiState.Success(
-                    data = listOf(readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+                    data = listOf(testGeo, readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
                 )
             } else {
                 _uiScreenListState.value = UiState.Success(
-                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
+                    data = listOf(testGeo, readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
                 )
             }
         }
@@ -165,6 +165,10 @@ class YearInReviewViewModel() : ViewModel() {
             staticImageResource = R.drawable.english_slide_01_and_non_english_slide_05,
             headlineText = R.string.year_in_review_non_english_collective_editcount_headline,
             bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
+        )
+
+        val testGeo = YearInReviewScreenData.GeoScreen(
+            coordinates = mapOf()
         )
     }
 }
