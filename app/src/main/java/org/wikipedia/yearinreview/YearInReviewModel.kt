@@ -17,6 +17,6 @@ data class YearInReviewModel(
     val closestArticles: List<String>,
     val userEditsCount: Int,
     val userEditsViewedTimes: Long,
-    val isCustomIconUnlocked: Boolean
+    val isCustomIconUnlocked: Boolean,
     val localLongestReadArticles: List<String>
 )

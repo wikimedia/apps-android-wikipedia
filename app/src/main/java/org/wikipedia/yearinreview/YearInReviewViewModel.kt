@@ -269,6 +269,5 @@ class YearInReviewViewModel() : ViewModel() {
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
         }
-
     }
 }
