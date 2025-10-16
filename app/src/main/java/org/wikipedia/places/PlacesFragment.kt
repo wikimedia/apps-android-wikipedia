@@ -705,7 +705,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     return@loadImage
                 }
                 annotationCache.find { it.pageId == page.pageId }?.let {
-                    val bmp = getMarkerBitmap(bitmap)
+                    val bmp = getMarkerBitmap(bitmap, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint)
                     it.bitmap = bmp
 
                     mapboxMap?.style?.addImage(url, bmp.toDrawable(resources))
@@ -717,16 +717,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
             }
         )
-    }
-
-    private fun getMarkerBitmap(thumbnailBitmap: Bitmap): Bitmap {
-        val markerSize = DimenUtil.roundedDpToPx(40f)
-        val bmp = createBitmap(markerSize, markerSize, Bitmap.Config.ARGB_8888)
-        bmp.applyCanvas {
-            this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
-            drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, thumbnailBitmap)
-        }
-        return bmp
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
