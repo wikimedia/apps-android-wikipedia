@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.location.Location
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 import org.wikipedia.history.db.HistoryEntryWithImage
@@ -29,8 +30,8 @@ object GeoUtil {
             geoStr += "(${Uri.encode(placeName)})"
         }
         try {
-            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(geoStr)))
-        } catch (e: ActivityNotFoundException) {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, geoStr.toUri()))
+        } catch (_: ActivityNotFoundException) {
             FeedbackUtil.showMessage(activity, R.string.error_no_maps_app)
         }
     }
@@ -42,7 +43,7 @@ object GeoUtil {
             } else {
                 GeoIPCookieUnmarshaller.unmarshal().country
             }
-        } catch (e: IllegalArgumentException) {
+        } catch (_: IllegalArgumentException) {
             // For our purposes, don't care about malformations in the GeoIP cookie for now.
             null
         }
@@ -63,15 +64,6 @@ object GeoUtil {
         val tolerance = 0.0000001
         return abs(startLat - endLat) < tolerance && abs(startLon - endLon) < tolerance
     }
-
-
-
-
-
-
-
-
-    private const val EARTH_RADIUS_KM = 6371.0
 
     data class Cluster(
         val id: Int,
@@ -186,7 +178,8 @@ object GeoUtil {
                     cos(Math.toRadians(lat2)) *
                     sin(dLon / 2).pow(2)
             val c = 2 * atan2(sqrt(a), sqrt(1 - a))
-            return EARTH_RADIUS_KM * c
+            val earthRadiusKm = 6371.0
+            return earthRadiusKm * c
         }
     }
 }

@@ -1896,6 +1896,8 @@
   <string name="year_in_review_slide_app_icon_donor">Text of the app unlock screen that indicates the user is a donor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
   <string name="year_in_review_slide_app_icon_editor">Text of the app unlock screen that indicates the user is an editor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">Text of the app unlock screen that indicates the user is a donor and an editor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
+  <string name="year_in_review_slide_geo_headline">Title for slide that describes the closest country that matches the user\'s reading history.</string>
+  <string name="year_in_review_slide_geo_body">Body of slide that describes the closest country that matches the user\'s reading history. The %1$s symbol is the name of the country, %2$s is an example article title and %3$s is another example article title.</string>
   <string name="year_in_review_login_dialog_title">Title of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>
   <string name="year_in_review_login_dialog_positive">Positive button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
