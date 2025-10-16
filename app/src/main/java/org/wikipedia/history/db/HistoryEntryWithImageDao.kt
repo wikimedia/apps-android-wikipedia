@@ -41,6 +41,10 @@ interface HistoryEntryWithImageDao {
             ")")
     suspend fun getTimeSpentBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Long
 
+    @Query("SELECT HistoryEntry.*, PageImage.* FROM HistoryEntry INNER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) ORDER BY PageImage.timeSpentSec DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getLongestReadArticles(limit: Int): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {

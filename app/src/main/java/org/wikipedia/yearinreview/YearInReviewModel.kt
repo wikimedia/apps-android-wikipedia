@@ -16,5 +16,6 @@ data class YearInReviewModel(
     val closestLocation: Pair<Double, Double>,
     val closestArticles: List<String>,
     val userEditsCount: Int,
-    val userEditsViewedTimes: Long
+    val userEditsViewedTimes: Long,
+    val localLongestReadArticles: List<String>
 )

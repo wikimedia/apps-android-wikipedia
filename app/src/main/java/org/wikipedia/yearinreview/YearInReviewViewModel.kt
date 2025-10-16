@@ -91,6 +91,12 @@ class YearInReviewViewModel() : ViewModel() {
                         .take(MAX_TOP_CATEGORY)
                 }
 
+                val longestReadArticles = async {
+                    AppDatabase.instance.historyEntryWithImageDao().getLongestReadArticles(MAX_LONGEST_READ_ARTICLES).map {
+                        StringUtil.fromHtml(it.displayTitle).toString()
+                    }
+                }
+
                 val impactDataJob = async {
                     if (AccountUtil.isLoggedIn) {
                         val wikiSite = WikipediaApp.instance.wikiSite
@@ -206,7 +212,8 @@ class YearInReviewViewModel() : ViewModel() {
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
-                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount
+                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    localLongestReadArticles = longestReadArticles.await()
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
@@ -242,5 +249,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
+        const val MAX_LONGEST_READ_ARTICLES = 3
     }
 }

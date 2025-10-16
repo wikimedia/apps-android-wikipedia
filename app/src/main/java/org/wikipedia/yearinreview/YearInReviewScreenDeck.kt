@@ -410,7 +410,6 @@ fun YearInReviewScreenContent(
             // @TODO: geo location screen
         }
         is YearInReviewScreenData.HighlightsScreen -> {
-            // @TODO: has different layout structure based on ios slides
             YearInReviewHighlightsScreen(
                 modifier = Modifier
                     .padding(innerPadding),
