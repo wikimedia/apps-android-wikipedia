@@ -273,33 +273,49 @@ class YearInReviewSlides(
     }
 
     private fun loggedInHighlightScreen(): HighlightsScreen {
-        // TODO: yir122
         return HighlightsScreen(
-            highlights = listOf(
-                // @TODO: get proper data
-                HighlightItem(
+            highlights = buildList {
+                add(
+                    HighlightItem(
                     title = context.resources.getString(R.string.year_in_review_highlights_logged_in_longest_article_title),
                     items = yearInReviewModel.localLongestReadArticles,
                     highlightColor = ComposeColors.Blue600
-                ),
-                HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_in_minutes_read_title),
-                    singleValue = numberFormatter.format(yearInReviewModel.totalReadingTimeMinutes)
-                ),
-                HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_in_favorite_day_title),
-                    singleValue = DayOfWeek.of(yearInReviewModel.favoriteDayToRead)
-                        .getDisplayName(TextStyle.FULL, Locale.getDefault())
-                ),
-                HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_read_title),
-                    singleValue = numberFormatter.format(yearInReviewModel.localReadingArticlesCount)
-                ),
-                HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_interested_categories_title),
-                    items = yearInReviewModel.localTopCategories.take(3)
-                ),
-            )
+                    )
+                )
+                add(
+                    HighlightItem(
+                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_minutes_read_title),
+                        singleValue = numberFormatter.format(yearInReviewModel.totalReadingTimeMinutes)
+                    )
+                )
+                add(
+                    HighlightItem(
+                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_favorite_day_title),
+                        singleValue = DayOfWeek.of(yearInReviewModel.favoriteDayToRead)
+                            .getDisplayName(TextStyle.FULL, Locale.getDefault())
+                    )
+                )
+                add(
+                    HighlightItem(
+                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_read_title),
+                        singleValue = numberFormatter.format(yearInReviewModel.localReadingArticlesCount)
+                    )
+                )
+                add(
+                    HighlightItem(
+                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_interested_categories_title),
+                        items = yearInReviewModel.localTopCategories.take(3)
+                    )
+                )
+                if (isEditor) {
+                    add(
+                        HighlightItem(
+                            title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_edited_articles_title),
+                            singleValue = numberFormatter.format(yearInReviewModel.userEditsCount)
+                        )
+                    )
+                }
+            }
         )
     }
 
@@ -410,7 +426,6 @@ class YearInReviewSlides(
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
         // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
-            loggedInHighlightScreen(),
             spentReadingMinutesScreen(),
             popularEnglishArticlesScreen(),
             readingPatternsScreen(),
