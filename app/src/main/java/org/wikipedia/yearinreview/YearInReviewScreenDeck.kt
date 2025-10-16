@@ -29,7 +29,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -213,76 +212,71 @@ fun MainBottomBar(
         Box {
             contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
         }
-        BottomAppBar(
-            containerColor = WikipediaTheme.colors.paperColor,
-            content = {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                ) {
-                    IconButton(
-                        onClick = onShareClick,
-                        modifier = Modifier.padding(end = 16.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_share),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_share_icon)
-                        )
-                    }
-                    Row(
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+        ) {
+            IconButton(
+                onClick = onShareClick,
+                modifier = Modifier.padding(end = 16.dp)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_share_icon)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .wrapContentWidth()
+                    .align(Alignment.Center),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                val animationDuration = 500
+                repeat(totalPages) { iteration ->
+                    val colorTransition by animateColorAsState(
+                        targetValue = if (pagerState.currentPage == iteration) {
+                            WikipediaTheme.colors.progressiveColor
+                        } else {
+                            WikipediaTheme.colors.inactiveColor
+                        },
+                        animationSpec = tween(durationMillis = animationDuration)
+                    )
+                    val sizeTransition by animateDpAsState(
+                        targetValue = paginationSizeGradient(
+                            totalIndicators = totalPages,
+                            iteration = iteration,
+                            pagerState = pagerState
+                        ).dp,
+                        animationSpec = tween(durationMillis = animationDuration)
+                    )
+                    Box(
                         modifier = Modifier
-                            .wrapContentHeight()
-                            .wrapContentWidth()
-                            .align(Alignment.Center),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        val animationDuration = 500
-                        repeat(totalPages) { iteration ->
-                            val colorTransition by animateColorAsState(
-                                targetValue = if (pagerState.currentPage == iteration) {
-                                    WikipediaTheme.colors.progressiveColor
-                                } else {
-                                    WikipediaTheme.colors.inactiveColor
-                                },
-                                animationSpec = tween(durationMillis = animationDuration)
-                            )
-                            val sizeTransition by animateDpAsState(
-                                targetValue = paginationSizeGradient(
-                                    totalIndicators = totalPages,
-                                    iteration = iteration,
-                                    pagerState = pagerState
-                                ).dp,
-                                animationSpec = tween(durationMillis = animationDuration)
-                            )
-                            Box(
-                                modifier = Modifier
-                                    .padding(2.dp)
-                                    .clip(CircleShape)
-                                    .background(colorTransition)
-                                    .align(Alignment.CenterVertically)
-                                    .size(sizeTransition)
-                            )
-                        }
-                    }
-                    if (pagerState.currentPage + 1 < totalPages) {
-                        IconButton(
-                            onClick = { onNavigationRightClick() },
-                            modifier = Modifier
-                                .padding(0.dp)
-                                .align(Alignment.CenterEnd)
-                        ) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                            )
-                        }
-                    }
+                            .padding(2.dp)
+                            .clip(CircleShape)
+                            .background(colorTransition)
+                            .align(Alignment.CenterVertically)
+                            .size(sizeTransition)
+                    )
                 }
             }
-        )
+            if (pagerState.currentPage + 1 < totalPages) {
+                IconButton(
+                    onClick = { onNavigationRightClick() },
+                    modifier = Modifier
+                        .padding(0.dp)
+                        .align(Alignment.CenterEnd)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                    )
+                }
+            }
+        }
     }
 }
 
