@@ -52,7 +52,7 @@ fun WikiTopAppBar(
                 onNavigationClick()
             }) {
                 Icon(
-                    painter = painterResource(R.drawable.outline_search_24),
+                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.search_back_button_content_description)
                 )

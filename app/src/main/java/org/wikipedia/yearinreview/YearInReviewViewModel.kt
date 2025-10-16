@@ -29,10 +29,6 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
-    private val startTime: Instant = LocalDateTime.of(YIR_YEAR, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
-    private val endTime: Instant = LocalDateTime.of(YIR_YEAR, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
-    private val startTimeInMillis = startTime.toEpochMilli()
-    private val endTimeInMillis = endTime.toEpochMilli()
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
@@ -50,41 +46,42 @@ class YearInReviewViewModel() : ViewModel() {
 
             _uiScreenListState.value = UiState.Loading
 
-            // TODO: explicitly fetch remote config so it's guaranteed fresh here.
-            val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)!!
+            val remoteConfig = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration().commonv1?.getYirForYear(YIR_YEAR)!!
+            val dataStartInstant = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC)
+            val dataEndInstant = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC)
+            val dataStartMillis = dataStartInstant.toEpochMilli()
+            val dataEndMillis = dataEndInstant.toEpochMilli()
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
             if (yearInReviewModelMap[YIR_YEAR] == null) {
                 val now =
                     LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-                val yearInMillis = TimeUnit.DAYS.toMillis(365)
-                val yearAgo = now - yearInMillis
 
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getTotalLocallySavedPagesSince(yearAgo) ?: 0
+                        .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
                 }
                 val randomSavedArticleTitles = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getRandomPageTitlesSince(MIN_SAVED_ARTICLES, yearAgo)
+                        .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
                 val readCountForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getDistinctEntriesCountBetween(startTimeInMillis, endTimeInMillis)
+                        .getDistinctEntriesCountBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val topVisitedArticlesForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getTopVisitedEntriesSince(MAX_TOP_ARTICLES, yearAgo)
+                        .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
                 }
 
-                val totalTimeSpent = async {
+                val totalReadingTimeMinutes = async {
                     AppDatabase.instance.historyEntryWithImageDao()
-                        .getTimeSpentSinceTimeStamp(yearAgo)
+                        .getTimeSpentBetween(dataStartMillis, dataEndMillis) / 60
                 }
 
                 val topVisitedCategoryForTheYear = async {
@@ -143,8 +140,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
                         )
                 }
                 val commonsCall = async {
@@ -152,8 +149,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
                         )
                 }
                 val wikidataCall = async {
@@ -161,8 +158,8 @@ class YearInReviewViewModel() : ViewModel() {
                         .getUserContribsByTimeFrame(
                             username = AccountUtil.userName,
                             maxCount = 500,
-                            startDate = endTime,
-                            endDate = startTime,
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant,
                             ns = 0,
                         )
                 }
@@ -177,17 +174,17 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val favoriteTimeToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteTimeToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteTimeToReadBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val favoriteDayToRead = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getFavoriteDayToReadSince(startTimeInMillis, endTimeInMillis)
+                        .getFavoriteDayToReadBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val mostReadingMonth = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getMostReadingMonthSince(startTimeInMillis, endTimeInMillis)
+                        .getMostReadingMonthBetween(dataStartMillis, dataEndMillis)
                 }
 
                 val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
@@ -199,7 +196,7 @@ class YearInReviewViewModel() : ViewModel() {
                 val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
-                    localReadingTimePerMinute = totalTimeSpent.await(),
+                    totalReadingTimeMinutes = totalReadingTimeMinutes.await(),
                     localSavedArticlesCount = totalSavedArticlesCount.await(),
                     localReadingArticlesCount = readCountForTheYear.await(),
                     localSavedArticles = randomSavedArticleTitles.await(),
@@ -211,7 +208,8 @@ class YearInReviewViewModel() : ViewModel() {
                     closestLocation = Pair(0.0, 0.0),
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
-                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount
+                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
@@ -225,7 +223,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
-                isFundraisingDisabled = remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
+                isFundraisingAllowed = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
                 config = remoteConfig,
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
@@ -247,5 +245,23 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
+
+        // Whether Year-in-Review should be accessible at all.
+        // (different from the user enabling/disabling it in Settings.)
+        val isAccessible get(): Boolean {
+            if (Prefs.isShowDeveloperSettingsEnabled) {
+                return true
+            }
+            val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val now = LocalDateTime.now()
+            return (config != null &&
+                    !config.hideCountryCodes.contains(GeoUtil.geoIPCountry) &&
+                    now.isAfter(config.activeStartDate) &&
+                    now.isBefore(config.activeEndDate))
+        }
+
+        val isCustomIconAllowed get(): Boolean {
+            return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
     }
 }

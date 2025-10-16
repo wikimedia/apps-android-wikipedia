@@ -53,16 +53,7 @@ class YearInReviewActivity : BaseActivity() {
                         YearInReviewScreenDeck(
                             state = screenState,
                             onBackButtonClick = { pagerState ->
-                                if (pagerState.currentPage > 0) {
-                                    coroutineScope.launch {
-                                        pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                                    }
-                                } else {
-                                    if (viewModel.slideViewedCount >= 2 && !Prefs.yearInReviewSurveyShown) {
-                                        Prefs.showYearInReviewSurvey = true
-                                    }
-                                    finish()
-                                }
+                                finish()
                             },
                             onNextButtonClick = { pagerState, currentSlideData ->
                                 viewModel.slideViewedCount += 1

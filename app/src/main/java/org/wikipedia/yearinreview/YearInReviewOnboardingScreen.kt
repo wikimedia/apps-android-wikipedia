@@ -81,7 +81,7 @@ fun YearInReviewOnboardingScreen(
 fun YearInReviewOnboardingContent(
     modifier: Modifier = Modifier
 ) {
-    val gifAspectRatio = 3f / 2f
+    val gifAspectRatio = 4f / 3f
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
@@ -89,7 +89,7 @@ fun YearInReviewOnboardingContent(
     ) {
         SubcomposeAsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(R.drawable.year_in_review_block_10_resize)
+                .data(R.drawable.wyir_puzzle_tumble)
                 .allowHardware(false)
                 .build(),
             loading = { LoadingIndicator() },

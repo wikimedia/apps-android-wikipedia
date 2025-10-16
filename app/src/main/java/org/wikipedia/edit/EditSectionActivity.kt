@@ -681,7 +681,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         binding.editSectionText.setText(viewModel.sectionWikitext)
         binding.editSectionScroll.isVisible = true
         binding.editSectionText.isEnabled = viewModel.editingAllowed
-        scrollToHighlight(viewModel.textToHighlight)
+        if (!viewModel.sectionWikitext.isNullOrEmpty()) {
+            scrollToHighlight(viewModel.textToHighlight)
+        }
     }
 
     private fun scrollToHighlight(highlightText: String?) {

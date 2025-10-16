@@ -29,7 +29,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -86,7 +85,7 @@ fun YearInReviewScreenDeck(
     state: UiState<List<YearInReviewScreenData>>,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
-    onBackButtonClick: (PagerState) -> Unit
+    onBackButtonClick: () -> Unit
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -95,14 +94,14 @@ fun YearInReviewScreenDeck(
 
         is UiState.Success -> {
             val coroutineScope = rememberCoroutineScope()
-            val contentData = state.data
-            val pagerState = rememberPagerState(pageCount = { contentData.size })
+            val pages = state.data
+            val pagerState = rememberPagerState(pageCount = { pages.size })
             var startCapture by remember { mutableStateOf(false) }
             val context = LocalContext.current
 
             if (startCapture) {
                 CreateScreenShotBitmap(
-                    screenContent = contentData[pagerState.currentPage]
+                    screenContent = pages[pagerState.currentPage]
                 ) { bitmap ->
                     ShareUtil.shareImage(
                         coroutineScope = coroutineScope,
@@ -124,16 +123,16 @@ fun YearInReviewScreenDeck(
                             containerColor = WikipediaTheme.colors.paperColor),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onBackButtonClick(pagerState) }) {
+                            IconButton(onClick = { onBackButtonClick() }) {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                    painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
-                                    contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                                    contentDescription = stringResource(R.string.year_in_review_close)
                                 )
                             }
                         },
                         actions = {
-                            if (contentData[pagerState.currentPage].showDonateInToolbar) {
+                            if (pages[pagerState.currentPage].allowDonate && pages[pagerState.currentPage].showDonateInToolbar) {
                                 Box(
                                     modifier = Modifier
                                         .clickable(onClick = { onDonateClick() })
@@ -164,10 +163,10 @@ fun YearInReviewScreenDeck(
                 },
                 bottomBar = {
                     MainBottomBar(
-                        contentData,
-                        onNavigationRightClick = { onNextButtonClick(pagerState, contentData[pagerState.currentPage]) },
+                        pages,
+                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
                         pagerState = pagerState,
-                        totalPages = contentData.size,
+                        totalPages = pages.size,
                         onShareClick = {
                             startCapture = true
                         },
@@ -182,7 +181,7 @@ fun YearInReviewScreenDeck(
                     ) { page ->
                         YearInReviewScreenContent(
                             innerPadding = paddingValues,
-                            screenData = contentData[page]
+                            screenData = pages[page]
                         )
                     }
                 }
@@ -195,7 +194,7 @@ fun YearInReviewScreenDeck(
 
 @Composable
 fun MainBottomBar(
-    contentData: List<YearInReviewScreenData>,
+    pages: List<YearInReviewScreenData>,
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
@@ -208,81 +207,76 @@ fun MainBottomBar(
             modifier = Modifier
                 .height(1.dp)
                 .fillMaxWidth(),
-            color = WikipediaTheme.colors.inactiveColor
+            color = WikipediaTheme.colors.borderColor
         )
         Box {
-            contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
+            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
         }
-        BottomAppBar(
-            containerColor = WikipediaTheme.colors.paperColor,
-            content = {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                ) {
-                    IconButton(
-                        onClick = onShareClick,
-                        modifier = Modifier.padding(end = 16.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_share),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_share_icon)
-                        )
-                    }
-                    Row(
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+        ) {
+            IconButton(
+                onClick = onShareClick,
+                modifier = Modifier.padding(end = 16.dp)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_share_icon)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .wrapContentHeight()
+                    .wrapContentWidth()
+                    .align(Alignment.Center),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                val animationDuration = 500
+                repeat(totalPages) { iteration ->
+                    val colorTransition by animateColorAsState(
+                        targetValue = if (pagerState.currentPage == iteration) {
+                            WikipediaTheme.colors.progressiveColor
+                        } else {
+                            WikipediaTheme.colors.inactiveColor
+                        },
+                        animationSpec = tween(durationMillis = animationDuration)
+                    )
+                    val sizeTransition by animateDpAsState(
+                        targetValue = paginationSizeGradient(
+                            totalIndicators = totalPages,
+                            iteration = iteration,
+                            pagerState = pagerState
+                        ).dp,
+                        animationSpec = tween(durationMillis = animationDuration)
+                    )
+                    Box(
                         modifier = Modifier
-                            .wrapContentHeight()
-                            .wrapContentWidth()
-                            .align(Alignment.Center),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        val animationDuration = 500
-                        repeat(totalPages) { iteration ->
-                            val colorTransition by animateColorAsState(
-                                targetValue = if (pagerState.currentPage == iteration) {
-                                    WikipediaTheme.colors.progressiveColor
-                                } else {
-                                    WikipediaTheme.colors.inactiveColor
-                                },
-                                animationSpec = tween(durationMillis = animationDuration)
-                            )
-                            val sizeTransition by animateDpAsState(
-                                targetValue = paginationSizeGradient(
-                                    totalIndicators = totalPages,
-                                    iteration = iteration,
-                                    pagerState = pagerState
-                                ).dp,
-                                animationSpec = tween(durationMillis = animationDuration)
-                            )
-                            Box(
-                                modifier = Modifier
-                                    .padding(2.dp)
-                                    .clip(CircleShape)
-                                    .background(colorTransition)
-                                    .align(Alignment.CenterVertically)
-                                    .size(sizeTransition)
-                            )
-                        }
-                    }
-                    if (pagerState.currentPage + 1 < totalPages) {
-                        IconButton(
-                            onClick = { onNavigationRightClick() },
-                            modifier = Modifier
-                                .padding(0.dp)
-                                .align(Alignment.CenterEnd)
-                        ) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                            )
-                        }
-                    }
+                            .padding(2.dp)
+                            .clip(CircleShape)
+                            .background(colorTransition)
+                            .align(Alignment.CenterVertically)
+                            .size(sizeTransition)
+                    )
                 }
             }
-        )
+            if (pagerState.currentPage + 1 < totalPages) {
+                IconButton(
+                    onClick = { onNavigationRightClick() },
+                    modifier = Modifier
+                        .padding(0.dp)
+                        .align(Alignment.CenterEnd)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -564,6 +558,7 @@ fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
             screenContent = YearInReviewScreenData.StandardScreen(
+                allowDonate = true,
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                 staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                 headlineText = "Over 3 billion bytes added",
@@ -580,6 +575,7 @@ fun PreviewStandardContent() {
         YearInReviewScreenDeck(
             state = UiState.Success(listOf(
                 YearInReviewScreenData.StandardScreen(
+                    allowDonate = true,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                     staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "Over 3 billion bytes added",
@@ -600,6 +596,7 @@ fun PreviewReadingPatternsContent() {
         YearInReviewScreenDeck(
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
+                    allowDonate = false,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                     staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "You have clear reading patterns",
