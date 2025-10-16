@@ -293,14 +293,15 @@ fun CreateScreenShotBitmap(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .drawWithContent {
                 graphicsLayer.record {
                     this@drawWithContent.drawContent()
                 }
                 drawLayer(graphicsLayer)
             }
-            .background(color = WikipediaTheme.colors.paperColor),
+            .background(color = WikipediaTheme.colors.paperColor)
+            .padding(vertical = 8.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -333,7 +334,7 @@ fun CreateScreenShotBitmap(
         }
 
         Text(
-            modifier = Modifier.padding(top = 64.dp),
+            modifier = Modifier.padding(top = 32.dp),
             text = "#WikipediaYearInReview",
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyLarge.copy(
