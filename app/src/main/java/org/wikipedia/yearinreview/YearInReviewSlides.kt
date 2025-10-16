@@ -112,8 +112,8 @@ class YearInReviewSlides(
                     config.languages, config.languages, currentYear)
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_headline, config.languages, config.languages),
             bodyText = bodyText
         )
@@ -122,10 +122,10 @@ class YearInReviewSlides(
     private fun viewedArticlesTimesScreen(): YearInReviewScreenData.StandardScreen {
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
-            headlineText = "We have viewed Wikipedia articles more than 1 billion times",
-            bodyText = "TBD"
+            animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
+            headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_viewed_articles_times_headline, config.viewsApps.toInt(), config.viewsApps),
+            bodyText = context.getString(R.string.year_in_review_slide_viewed_articles_times_body)
         )
     }
 
