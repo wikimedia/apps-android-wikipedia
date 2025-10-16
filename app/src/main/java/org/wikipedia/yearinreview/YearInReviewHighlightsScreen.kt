@@ -53,7 +53,7 @@ fun YearInReviewHighlightsScreen(
     ) {
         Text(
             modifier = Modifier
-                .padding(vertical = 60.dp),
+                .padding(top = 60.dp, bottom = 16.dp),
             text = buildAnnotatedString {
                 append(stringResource(R.string.year_in_review_highlights_thank_you_message))
                 withStyle(
@@ -61,6 +61,7 @@ fun YearInReviewHighlightsScreen(
                         fontWeight = FontWeight.Normal,
                     )
                 ) {
+                    append(" ")
                     append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
                 }
             },

@@ -292,13 +292,16 @@ class YearInReviewSlides(
     private fun loggedInHighlightScreen(): HighlightsScreen {
         return HighlightsScreen(
             highlights = buildList {
-                add(
-                    HighlightItem(
-                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_longest_article_title),
-                        items = yearInReviewModel.localLongestReadArticles,
-                        highlightColor = ComposeColors.Blue600
+                // TODO: update copy for article read the most
+                if (yearInReviewModel.localTopVisitedArticles.isNotEmpty()) {
+                    add(
+                        HighlightItem(
+                            title = context.resources.getString(R.string.year_in_review_highlights_logged_in_most_read_article_title),
+                            items = yearInReviewModel.localTopVisitedArticles.take(3),
+                            highlightColor = ComposeColors.Blue600
+                        )
                     )
-                )
+                }
                 add(
                     HighlightItem(
                         title = context.resources.getString(R.string.year_in_review_highlights_logged_in_minutes_read_title),

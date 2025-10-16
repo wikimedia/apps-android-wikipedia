@@ -2161,7 +2161,7 @@
         <item quantity="one">%d time per minute</item>
         <item quantity="other">%d times per minute</item>
     </plurals>
-    <string name="year_in_review_highlights_logged_in_longest_article_title">Articles I read the longest</string>
+    <string name="year_in_review_highlights_logged_in_most_read_article_title">Articles I read the most</string>
     <string name="year_in_review_highlights_logged_in_minutes_read_title">Minutes read</string>
     <string name="year_in_review_highlights_logged_in_favorite_day_title">Favorite day to read</string>
     <string name="year_in_review_highlights_logged_in_articles_read_title">Articles read</string>
