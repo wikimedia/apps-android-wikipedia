@@ -173,7 +173,9 @@ fun YearInReviewScreenDeck(
                         contentPadding = PaddingValues(0.dp),
                     ) { page ->
                         YearInReviewScreenContent(
-                            innerPadding = paddingValues,
+                            modifier = Modifier
+                                .padding(paddingValues)
+                                .verticalScroll(rememberScrollState()),
                             screenData = contentData[page]
                         )
                     }
@@ -326,7 +328,8 @@ fun CreateScreenShotBitmap(
         }
 
         YearInReviewScreenContent(
-            innerPadding = PaddingValues(0.dp),
+            modifier = Modifier
+                .padding(0.dp),
             screenData = screenContent,
             screenCaptureMode = true,
         ) {
@@ -346,7 +349,7 @@ fun CreateScreenShotBitmap(
 
 @Composable
 fun YearInReviewScreenContent(
-    innerPadding: PaddingValues,
+    modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
@@ -355,7 +358,7 @@ fun YearInReviewScreenContent(
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(
-                innerPadding = innerPadding,
+                modifier = modifier,
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode,
                 isOnboardingScreen = isOnboardingScreen,
@@ -374,20 +377,16 @@ fun YearInReviewScreenContent(
 @Composable
 private fun StandardScreenContent(
     modifier: Modifier = Modifier,
-    innerPadding: PaddingValues,
     screenData: YearInReviewScreenData.StandardScreen,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null,
 ) {
-    val scrollState = rememberScrollState()
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
-            .padding(innerPadding)
-            .verticalScroll(scrollState)
     ) {
         screenData.Header(context, screenCaptureMode, isImageResourceLoaded, headerAspectRatio)
         Column {
