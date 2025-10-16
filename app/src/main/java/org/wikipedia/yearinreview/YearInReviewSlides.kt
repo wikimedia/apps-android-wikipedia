@@ -5,7 +5,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.yearinreview.YearInReviewScreenData.*
 import java.text.NumberFormat
 import java.time.DayOfWeek
 import java.time.Month
@@ -18,17 +17,18 @@ class YearInReviewSlides(
     val isEditor: Boolean,
     val isLoggedIn: Boolean,
     val isEnglishWiki: Boolean,
-    val isFundraisingDisabled: Boolean,
+    val isFundraisingAllowed: Boolean,
     val config: RemoteConfig.RemoteConfigYearInReview,
     val yearInReviewModel: YearInReviewModel
 ) {
-    private val numberFormatter = NumberFormat.getNumberInstance()
-    private fun englishReadingHoursScreen(): StandardScreen {
+
+    private fun englishReadingHoursScreen(): YearInReviewScreenData.StandardScreen {
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_first,
             config.hoursReadEN.toInt(), config.hoursReadEN) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_body_second,
                     config.yearsReadEN, config.yearsReadEN, currentYear)
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, config.hoursReadEN.toInt(), config.hoursReadEN),
@@ -36,7 +36,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun spentReadingMinutesScreen(): StandardScreen {
+    private fun spentReadingMinutesScreen(): YearInReviewScreenData.StandardScreen {
         if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_ARTICLES ||
             yearInReviewModel.totalReadingTimeMinutes < YearInReviewViewModel.MIN_READING_MINUTES) {
             return if (isEnglishWiki) {
@@ -73,7 +73,8 @@ class YearInReviewSlides(
                         config.languages, config.languages, currentYear)
         }
 
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
             headlineText = headlineText,
@@ -81,11 +82,12 @@ class YearInReviewSlides(
         )
     }
 
-    private fun popularEnglishArticlesScreen(): StandardScreen {
+    private fun popularEnglishArticlesScreen(): YearInReviewScreenData.StandardScreen {
 
         val popularEnglishArticlesText = buildListWithNumbers(config.topReadEN)
 
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
@@ -94,8 +96,9 @@ class YearInReviewSlides(
         )
     }
 
-    private fun appSavedArticlesScreen(): StandardScreen {
-        return StandardScreen(
+    private fun appSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, config.savedArticlesApps.toInt(), config.savedArticlesApps),
@@ -103,12 +106,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun availableLanguagesScreen(): StandardScreen {
+    private fun availableLanguagesScreen(): YearInReviewScreenData.StandardScreen {
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_first,
             config.articles.toInt(), config.articles) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_body_second,
                     config.languages, config.languages, currentYear)
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_headline, config.languages, config.languages),
@@ -116,9 +120,9 @@ class YearInReviewSlides(
         )
     }
 
-    private fun viewedArticlesTimesScreen(vararg params: Int): StandardScreen {
-        // TODO: yir125 + yir103
-        return StandardScreen(
+    private fun viewedArticlesTimesScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
             staticImageResource = R.drawable.year_in_review_puzzle_pieces,
             headlineText = "We have viewed Wikipedia articles more than 1 billion times",
@@ -126,7 +130,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun readingPatternsScreen(): StandardScreen? {
+    private fun readingPatternsScreen(): YearInReviewScreenData.StandardScreen? {
         if (yearInReviewModel.localReadingArticlesCount < YearInReviewViewModel.MIN_READING_ARTICLES) {
             return null
         }
@@ -142,7 +146,8 @@ class YearInReviewSlides(
             .getDisplayName(TextStyle.FULL, Locale.getDefault())
         val favoriteMonthText = Month.of(yearInReviewModel.favoriteMonthDidMostReading)
             .getDisplayName(TextStyle.FULL, Locale.getDefault())
-        return ReadingPatterns(
+        return YearInReviewScreenData.ReadingPatterns(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_reading_patterns_headline),
@@ -152,14 +157,15 @@ class YearInReviewSlides(
         )
     }
 
-    private fun topCategoriesScreen(): StandardScreen? {
+    private fun topCategoriesScreen(): YearInReviewScreenData.StandardScreen? {
         if (yearInReviewModel.localTopCategories.isEmpty() || yearInReviewModel.localTopCategories.size < YearInReviewViewModel.MIN_TOP_CATEGORY) {
             return null
         }
 
         val topCategoriesText = buildListWithNumbers(yearInReviewModel.localTopCategories)
 
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_top_categories_headline),
@@ -167,7 +173,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun topArticlesScreen(): StandardScreen? {
+    private fun topArticlesScreen(): YearInReviewScreenData.StandardScreen? {
         if (yearInReviewModel.localTopVisitedArticles.isEmpty()) {
             return null
         }
@@ -175,7 +181,8 @@ class YearInReviewSlides(
         val topArticlesText = buildListWithNumbers(yearInReviewModel.localTopVisitedArticles)
         val quantity = yearInReviewModel.localTopVisitedArticles.size
 
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_headline, quantity),
@@ -183,21 +190,23 @@ class YearInReviewSlides(
         )
     }
 
-    private fun geoWithArticlesScreen(vararg params: Int): GeoScreen {
+    private fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
         // TODO: yir112
-        return GeoScreen(
+        return YearInReviewScreenData.GeoScreen(
+            isFundraisingAllowed,
             coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
             headlineText = "Articles you read are closest to France",
             bodyText = "TBD"
         )
     }
 
-    private fun localSavedArticlesScreen(): StandardScreen {
+    private fun localSavedArticlesScreen(): YearInReviewScreenData.StandardScreen {
         if (yearInReviewModel.localSavedArticlesCount < YearInReviewViewModel.MIN_SAVED_ARTICLES) {
             return appSavedArticlesScreen()
         }
         val appSavedArticlesSize = config.savedArticlesApps.toInt()
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, yearInReviewModel.localSavedArticlesCount, yearInReviewModel.localSavedArticlesCount),
@@ -207,13 +216,14 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedTimesScreen(): StandardScreen {
+    private fun editedTimesScreen(): YearInReviewScreenData.StandardScreen {
         val userEditsCount = yearInReviewModel.userEditsCount
         var formattedUserEditsNumber = NumberFormat.getNumberInstance(Locale.getDefault()).format(yearInReviewModel.userEditsCount)
         if (userEditsCount > YearInReviewViewModel.MAX_EDITED_TIMES) {
             formattedUserEditsNumber = "${YearInReviewViewModel.MAX_EDITED_TIMES}+"
         }
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_headline, userEditsCount, formattedUserEditsNumber),
@@ -221,9 +231,10 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editsViewedTimesScreen(): StandardScreen {
+    private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen {
         val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_headline, quantity, yearInReviewModel.userEditsViewedTimes),
@@ -231,8 +242,9 @@ class YearInReviewSlides(
         )
     }
 
-    private fun appEditedTimesScreen(): StandardScreen {
-        return StandardScreen(
+    private fun appEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_app_edited_times_headline, config.edits.toInt(), config.edits),
@@ -240,8 +252,9 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editedPerMinuteScreen(): StandardScreen {
-        return StandardScreen(
+    private fun editedPerMinuteScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, config.editsPerMinute, config.editsPerMinute),
@@ -249,12 +262,13 @@ class YearInReviewSlides(
         )
     }
 
-    private fun englishEditedTimesScreen(): StandardScreen {
+    private fun englishEditedTimesScreen(): YearInReviewScreenData.StandardScreen {
         val bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_first,
             config.edits.toInt(), config.edits, config.editsEN) + " " +
                 context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_body_second,
                     config.editsEN.toInt(), config.editsEN)
-        return StandardScreen(
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, config.edits.toInt(), config.edits),
@@ -262,8 +276,9 @@ class YearInReviewSlides(
         )
     }
 
-    private fun addedBytesScreen(): StandardScreen {
-        return StandardScreen(
+    private fun addedBytesScreen(): YearInReviewScreenData.StandardScreen {
+        return YearInReviewScreenData.StandardScreen(
+            isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, config.bytesAddedEN.toInt(), config.bytesAddedEN),
@@ -382,8 +397,7 @@ class YearInReviewSlides(
     }
 
     private fun unlockedIconRoute(): YearInReviewScreenData? {
-        val isIconUnlocked = yearInReviewModel.userEditsCount > 0 || Prefs.donationResults.isNotEmpty()
-        return if (isIconUnlocked) {
+        return if (yearInReviewModel.isCustomIconUnlocked) {
             val contributorType = if (yearInReviewModel.userEditsCount > 0 && Prefs.donationResults.isNotEmpty()) {
                 context.getString(R.string.year_in_review_slide_app_icon_donor_and_editor)
             } else if (yearInReviewModel.userEditsCount > 0) {
@@ -391,12 +405,14 @@ class YearInReviewSlides(
             } else {
                 context.getString(R.string.year_in_review_slide_app_icon_donor)
             }
-            CustomIconScreen(
+            YearInReviewScreenData.CustomIconScreen(
+                isFundraisingAllowed,
                 headlineText = R.string.year_in_review_slide_app_icon_title_unlocked,
-                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR),
+                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR)
             )
-        } else if (!isFundraisingDisabled) {
-            CustomIconScreen(
+        } else if (isFundraisingAllowed) {
+            YearInReviewScreenData.CustomIconScreen(
+                isFundraisingAllowed,
                 headlineText = R.string.year_in_review_slide_app_icon_title_unlock,
                 bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlock, YearInReviewViewModel.YIR_YEAR, YearInReviewViewModel.YIR_YEAR + 1,
                     context.getString(R.string.editing_learn_more_url), context.getString(R.string.apps_about_wmf_url)),

@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
@@ -213,6 +214,7 @@ class YearInReviewViewModel() : ViewModel() {
                     closestArticles = emptyList(),
                     userEditsCount = editCount,
                     userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty(),
                     localLongestReadArticles = longestReadArticles.await()
                 )
 
@@ -227,7 +229,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
-                isFundraisingDisabled = remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
+                isFundraisingAllowed = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
                 config = remoteConfig,
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
@@ -250,5 +252,23 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
         const val MAX_LONGEST_READ_ARTICLES = 3
+        // Whether Year-in-Review should be accessible at all.
+        // (different from the user enabling/disabling it in Settings.)
+        val isAccessible get(): Boolean {
+            if (Prefs.isShowDeveloperSettingsEnabled) {
+                return true
+            }
+            val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val now = LocalDateTime.now()
+            return (config != null &&
+                    !config.hideCountryCodes.contains(GeoUtil.geoIPCountry) &&
+                    now.isAfter(config.activeStartDate) &&
+                    now.isBefore(config.activeEndDate))
+        }
+
+        val isCustomIconAllowed get(): Boolean {
+            return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
+
     }
 }

@@ -59,7 +59,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
 
         findPreference(R.string.preference_key_selected_app_icon).let {
-            it.isVisible = true // TODO - something based on YiR state
+            it.isVisible = YearInReviewViewModel.isCustomIconAllowed
             it.summary = fragment.getString(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR)
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
@@ -67,20 +67,23 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
         }
 
-        findPreference(R.string.preference_key_year_in_review_is_enabled).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
-            if (newValue as Boolean) {
-                return@OnPreferenceChangeListener true
-            }
-            MaterialAlertDialogBuilder(activity)
-                .setTitle(R.string.year_in_review_disable_title)
-                .setMessage(R.string.year_in_review_setting_subtitle)
-                .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
-                    Prefs.yearInReviewModelData = emptyMap()
-                    (preference as SwitchPreferenceCompat).isChecked = false
+        findPreference(R.string.preference_key_year_in_review_is_enabled).let {
+            it.isVisible = YearInReviewViewModel.isAccessible
+            it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+                if (newValue as Boolean) {
+                    return@OnPreferenceChangeListener true
                 }
-                .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
-                .show()
-            false
+                MaterialAlertDialogBuilder(activity)
+                    .setTitle(R.string.year_in_review_disable_title)
+                    .setMessage(R.string.year_in_review_setting_subtitle)
+                    .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                        Prefs.yearInReviewModelData = emptyMap()
+                        (preference as SwitchPreferenceCompat).isChecked = false
+                    }
+                    .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                    .show()
+                false
+            }
         }
 
         findPreference(R.string.preference_key_about_wikipedia_app).onPreferenceClickListener = Preference.OnPreferenceClickListener {
