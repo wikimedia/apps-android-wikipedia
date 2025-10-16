@@ -222,7 +222,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isEditor = yearInReviewModel.userEditsCount > 0,
                 isLoggedIn = AccountUtil.isLoggedIn,
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
-                isFundraisingDisabled = remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
+                isFundraisingAllowed = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
                 config = remoteConfig,
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()

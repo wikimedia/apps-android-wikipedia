@@ -1,7 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -38,6 +37,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
 sealed class YearInReviewScreenData(
+    val allowDonate: Boolean = true,
     val showDonateInToolbar: Boolean = true
 ) {
 
@@ -46,12 +46,13 @@ sealed class YearInReviewScreenData(
     }
 
     open class StandardScreen(
+        allowDonate: Boolean = true,
         val animatedImageResource: Int = 0,
         val staticImageResource: Int = 0,
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
-    ) : YearInReviewScreenData(showDonateInToolbar) {
+    ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
 
         @Composable
         open fun Header(context: Context,
@@ -105,18 +106,21 @@ sealed class YearInReviewScreenData(
         }
     }
 
-    data class HighlightsScreen(
+    class HighlightsScreen(
+        allowDonate: Boolean = true,
         val highlights: List<String>,
         val headlineText: String? = null
-    ) : YearInReviewScreenData()
+    ) : YearInReviewScreenData(allowDonate)
 
-    data class GeoScreen(
+    class GeoScreen(
+        allowDonate: Boolean = true,
         val coordinates: Map<String, List<Int>>, // just a placeholder, @TODO: replace with actual data type
         val headlineText: String? = null,
         val bodyText: String? = null
-    ) : YearInReviewScreenData()
+    ) : YearInReviewScreenData(allowDonate)
 
     class ReadingPatterns(
+        allowDonate: Boolean = true,
         animatedImageResource: Int = 0,
         staticImageResource: Int = 0,
         headlineText: Any? = null,
@@ -125,6 +129,7 @@ sealed class YearInReviewScreenData(
         val favoriteDayText: String,
         val favoriteMonthText: String
     ) : StandardScreen(
+        allowDonate,
         animatedImageResource = animatedImageResource,
         staticImageResource = staticImageResource,
         headlineText = headlineText,
@@ -132,10 +137,12 @@ sealed class YearInReviewScreenData(
     )
 
     class CustomIconScreen(
+        allowDonate: Boolean = true,
         headlineText: Any? = null,
         bodyText: Any? = null,
         val showDonateButton: Boolean = false
     ) : StandardScreen(
+        allowDonate = allowDonate,
         headlineText = headlineText,
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
@@ -204,7 +211,7 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(showDonateButton = true).BottomButton(
+            CustomIconScreen(allowDonate = true, showDonateButton = true).BottomButton(
                 context = LocalContext.current,
                 onButtonClick = {}
             )

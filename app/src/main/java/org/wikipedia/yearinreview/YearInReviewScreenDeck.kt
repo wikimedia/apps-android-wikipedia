@@ -94,14 +94,14 @@ fun YearInReviewScreenDeck(
 
         is UiState.Success -> {
             val coroutineScope = rememberCoroutineScope()
-            val contentData = state.data
-            val pagerState = rememberPagerState(pageCount = { contentData.size })
+            val pages = state.data
+            val pagerState = rememberPagerState(pageCount = { pages.size })
             var startCapture by remember { mutableStateOf(false) }
             val context = LocalContext.current
 
             if (startCapture) {
                 CreateScreenShotBitmap(
-                    screenContent = contentData[pagerState.currentPage]
+                    screenContent = pages[pagerState.currentPage]
                 ) { bitmap ->
                     ShareUtil.shareImage(
                         coroutineScope = coroutineScope,
@@ -132,7 +132,7 @@ fun YearInReviewScreenDeck(
                             }
                         },
                         actions = {
-                            if (contentData[pagerState.currentPage].showDonateInToolbar) {
+                            if (pages[pagerState.currentPage].allowDonate && pages[pagerState.currentPage].showDonateInToolbar) {
                                 Box(
                                     modifier = Modifier
                                         .clickable(onClick = { onDonateClick() })
@@ -163,10 +163,10 @@ fun YearInReviewScreenDeck(
                 },
                 bottomBar = {
                     MainBottomBar(
-                        contentData,
+                        pages,
                         onNavigationRightClick = { onNextButtonClick(pagerState) },
                         pagerState = pagerState,
-                        totalPages = contentData.size,
+                        totalPages = pages.size,
                         onShareClick = {
                             startCapture = true
                         },
@@ -181,7 +181,7 @@ fun YearInReviewScreenDeck(
                     ) { page ->
                         YearInReviewScreenContent(
                             innerPadding = paddingValues,
-                            screenData = contentData[page]
+                            screenData = pages[page]
                         )
                     }
                 }
@@ -194,7 +194,7 @@ fun YearInReviewScreenDeck(
 
 @Composable
 fun MainBottomBar(
-    contentData: List<YearInReviewScreenData>,
+    pages: List<YearInReviewScreenData>,
     pagerState: PagerState,
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
@@ -210,7 +210,7 @@ fun MainBottomBar(
             color = WikipediaTheme.colors.borderColor
         )
         Box {
-            contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
+            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
         }
         Box(
             modifier = Modifier
@@ -558,6 +558,7 @@ fun PreviewScreenShot() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CreateScreenShotBitmap(
             screenContent = YearInReviewScreenData.StandardScreen(
+                allowDonate = true,
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                 staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                 headlineText = "Over 3 billion bytes added",
@@ -574,6 +575,7 @@ fun PreviewStandardContent() {
         YearInReviewScreenDeck(
             state = UiState.Success(listOf(
                 YearInReviewScreenData.StandardScreen(
+                    allowDonate = true,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                     staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "Over 3 billion bytes added",
@@ -594,6 +596,7 @@ fun PreviewReadingPatternsContent() {
         YearInReviewScreenDeck(
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
+                    allowDonate = false,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                     staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "You have clear reading patterns",
