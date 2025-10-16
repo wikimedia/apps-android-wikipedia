@@ -414,9 +414,7 @@ fun YearInReviewScreenContent(
             GeoScreenContent(
                 innerPadding = innerPadding,
                 screenData = screenData,
-                screenCaptureMode = screenCaptureMode,
-                isOnboardingScreen = isOnboardingScreen,
-                isImageResourceLoaded = isImageResourceLoaded,
+                screenCaptureMode = screenCaptureMode
             )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
@@ -424,109 +422,6 @@ fun YearInReviewScreenContent(
         }
     }
 }
-
-@Composable
-private fun GeoScreenContent(
-    modifier: Modifier = Modifier,
-    innerPadding: PaddingValues,
-    screenData: YearInReviewScreenData.GeoScreen,
-    screenCaptureMode: Boolean = false,
-    isOnboardingScreen: Boolean = false,
-    isImageResourceLoaded: ((Boolean) -> Unit)? = null,
-) {
-    val scrollState = rememberScrollState()
-    val headerAspectRatio = 3f / 2f
-    val context = LocalContext.current
-    Column(
-        verticalArrangement = Arrangement.Top,
-        modifier = modifier
-            .padding(innerPadding)
-            .verticalScroll(scrollState)
-    ) {
-        Box(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(headerAspectRatio)
-                    .background(
-                        brush = Brush.linearGradient(
-                            colorStops = arrayOf(
-                                0.265f to Color(0xFF0D0D0D),
-                                0.385f to Color(0xFF092D60),
-                                0.515f to Color(0xFF1171C8),
-                                0.585f to Color(0xFF3DB2FF),
-                                0.775f to Color(0xFFD3F1F3)
-                            ),
-                            start = Offset(0f, 0f),
-                            end = Offset(0f, Float.POSITIVE_INFINITY)
-                        )
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                SubcomposeAsyncImage(
-                    model = ImageRequest.Builder(context)
-                        .data(R.drawable.wyir_puzzle_tumble)
-                        .allowHardware(false)
-                        .build(),
-                    loading = { LoadingIndicator() },
-                    success = { SubcomposeAsyncImageContent() },
-                    onSuccess = { isImageResourceLoaded?.invoke(true) },
-                    contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
-        }
-        Column {
-            Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    modifier = Modifier
-                        .padding(top = 10.dp, start = 16.dp, end = 8.dp)
-                        .height(IntrinsicSize.Min)
-                        .weight(1f),
-                    text = processString(screenData.headlineText),
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.headlineMedium
-                )
-                if (!screenCaptureMode && !isOnboardingScreen) {
-                    IconButton(
-                        onClick = {
-                            UriUtil.handleExternalLink(
-                                context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
-                            )
-                        }) {
-                        Icon(
-                            painter = painterResource(R.drawable.baseline_info_24),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_information_icon)
-                        )
-                    }
-                }
-            }
-            HtmlText(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
-                    .height(IntrinsicSize.Min),
-                text = processString(screenData.bodyText),
-                color = WikipediaTheme.colors.primaryColor,
-                linkStyle = TextLinkStyles(
-                    style = SpanStyle(
-                        color = WikipediaTheme.colors.progressiveColor,
-                        fontSize = 16.sp
-                    )
-                ),
-                style = MaterialTheme.typography.bodyLarge
-            )
-        }
-    }
-}
-
 
 @Composable
 private fun StandardScreenContent(
@@ -653,7 +548,7 @@ fun LoadingIndicator() {
 }
 
 @Composable
-private fun processString(resource: Any?): String {
+fun processString(resource: Any?): String {
     return when (resource) {
         is Int -> stringResource(resource)
         else -> resource.toString()
