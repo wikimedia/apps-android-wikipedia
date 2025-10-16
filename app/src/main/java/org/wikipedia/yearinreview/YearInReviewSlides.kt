@@ -316,7 +316,7 @@ class YearInReviewSlides(
             }
             YearInReviewScreenData.CustomIconScreen(
                 headlineText = R.string.year_in_review_slide_app_icon_title_unlocked,
-                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR),
+                bodyText = context.getString(R.string.year_in_review_slide_app_icon_body_unlocked, contributorType, YearInReviewViewModel.YIR_YEAR)
             )
         } else if (!isFundraisingDisabled) {
             YearInReviewScreenData.CustomIconScreen(

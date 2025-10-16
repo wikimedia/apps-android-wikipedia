@@ -159,22 +159,20 @@ sealed class YearInReviewScreenData(
                     modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp).fillMaxWidth(),
                     contentPadding = PaddingValues(horizontal = 18.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        contentColor = Color.White,
+                        containerColor = WikipediaTheme.colors.progressiveColor
                     ),
-                    border = BorderStroke(1.dp, WikipediaTheme.colors.destructiveColor),
                     onClick = onButtonClick,
                 ) {
                     Icon(
                         modifier = Modifier.size(20.dp),
                         painter = painterResource(R.drawable.ic_heart_24),
-                        tint = WikipediaTheme.colors.destructiveColor,
+                        tint = Color.White,
                         contentDescription = null
                     )
                     Text(
                         modifier = Modifier.padding(start = 6.dp),
                         text = stringResource(R.string.year_in_review_donate),
-                        color = WikipediaTheme.colors.destructiveColor,
+                        color = Color.White,
                         style = MaterialTheme.typography.labelLarge,
                     )
                 }
