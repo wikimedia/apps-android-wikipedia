@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -20,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -40,6 +42,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
 sealed class YearInReviewScreenData(
+    val allowDonate: Boolean = true,
     val showDonateInToolbar: Boolean = true
 ) {
 
@@ -48,26 +51,31 @@ sealed class YearInReviewScreenData(
     }
 
     open class StandardScreen(
+        allowDonate: Boolean = true,
         val animatedImageResource: Int = 0,
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
-    ) : YearInReviewScreenData(showDonateInToolbar) {
+    ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
 
         @Composable
         open fun Header(context: Context,
                         screenCaptureMode: Boolean,
                         isImageResourceLoaded: ((Boolean) -> Unit)? = null,
                         aspectRatio: Float) {
-
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(aspectRatio)
-                    .headerBackground(),
-                contentAlignment = Alignment.Center,
+                    .clip(RoundedCornerShape(16.dp))
             ) {
-                HeaderContents(context, screenCaptureMode, isImageResourceLoaded, aspectRatio)
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(aspectRatio)
+                        .headerBackground(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    HeaderContents(context, screenCaptureMode, isImageResourceLoaded, aspectRatio)
+                }
             }
         }
 
@@ -117,18 +125,21 @@ sealed class YearInReviewScreenData(
         }
     }
 
-    data class HighlightsScreen(
+    class HighlightsScreen(
+        allowDonate: Boolean = true,
         val highlights: List<String>,
         val headlineText: String? = null
-    ) : YearInReviewScreenData()
+    ) : YearInReviewScreenData(allowDonate)
 
-    data class GeoScreen(
+    class GeoScreen(
+        allowDonate: Boolean = true,
         val coordinates: Map<String, List<Int>>, // just a placeholder, @TODO: replace with actual data type
         val headlineText: String? = null,
         val bodyText: String? = null
-    ) : YearInReviewScreenData()
+    ) : YearInReviewScreenData(allowDonate)
 
     class ReadingPatterns(
+        allowDonate: Boolean = true,
         animatedImageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
@@ -136,16 +147,19 @@ sealed class YearInReviewScreenData(
         val favoriteDayText: String,
         val favoriteMonthText: String
     ) : StandardScreen(
+        allowDonate,
         animatedImageResource = animatedImageResource,
         headlineText = headlineText,
         bodyText = bodyText,
     )
 
     class CustomIconScreen(
+        allowDonate: Boolean = true,
         headlineText: Any? = null,
         bodyText: Any? = null,
         val showDonateButton: Boolean = false
     ) : StandardScreen(
+        allowDonate = allowDonate,
         headlineText = headlineText,
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
@@ -169,22 +183,20 @@ sealed class YearInReviewScreenData(
                     modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp).fillMaxWidth(),
                     contentPadding = PaddingValues(horizontal = 18.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        contentColor = Color.White,
+                        containerColor = WikipediaTheme.colors.progressiveColor
                     ),
-                    border = BorderStroke(1.dp, WikipediaTheme.colors.destructiveColor),
                     onClick = onButtonClick,
                 ) {
                     Icon(
                         modifier = Modifier.size(20.dp),
                         painter = painterResource(R.drawable.ic_heart_24),
-                        tint = WikipediaTheme.colors.destructiveColor,
+                        tint = Color.White,
                         contentDescription = null
                     )
                     Text(
                         modifier = Modifier.padding(start = 6.dp),
                         text = stringResource(R.string.year_in_review_donate),
-                        color = WikipediaTheme.colors.destructiveColor,
+                        color = Color.White,
                         style = MaterialTheme.typography.labelLarge,
                     )
                 }
@@ -216,7 +228,7 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(showDonateButton = true).BottomButton(
+            CustomIconScreen(allowDonate = true, showDonateButton = true).BottomButton(
                 context = LocalContext.current,
                 onButtonClick = {}
             )

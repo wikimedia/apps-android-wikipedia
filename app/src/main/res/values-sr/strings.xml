@@ -1109,6 +1109,7 @@
   <string name="edit_summary_added_caption">Додат натпис</string>
   <string name="edit_summary_added_image_and_caption">Додата слика и натпис</string>
   <string name="edit_published_view">Прикажи</string>
+  <string name="activity_tab_logged_out_title">Пријавите се или отворите налог да видите Вашу активност</string>
   <string name="activity_tab_donation_unknown">Непознато</string>
   <string name="activity_tab_menu_info">Сазнајте више</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
