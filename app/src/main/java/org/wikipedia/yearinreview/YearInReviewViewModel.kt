@@ -1,5 +1,6 @@
 package org.wikipedia.yearinreview
 
+import android.location.Geocoder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -18,14 +19,17 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
+import java.io.IOException
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
+import kotlin.String
 import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
@@ -50,6 +54,9 @@ class YearInReviewViewModel() : ViewModel() {
             val dataEndInstant = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC)
             val dataStartMillis = dataStartInstant.toEpochMilli()
             val dataEndMillis = dataEndInstant.toEpochMilli()
+
+            val pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256)
+                .distinctBy { it.apiTitle }
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
@@ -194,6 +201,33 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
 
+                var largestClusterLatitude = 0.0
+                var largestClusterLongitude = 0.0
+                var largestClusterCountryName = ""
+                val largestClusterArticles = mutableListOf<String>()
+                if (pagesWithCoordinates.size > 2) {
+                    try {
+                        val clusters = LocationClusterer().clusterLocations(
+                            locations = pagesWithCoordinates,
+                            epsilonKm = 500.0,
+                            minPoints = 3
+                        )
+                        val largestCluster = clusters.maxByOrNull { it.locations.size }
+                        if (largestCluster != null && largestCluster.centroid != null && largestCluster.locations.size >= 2) {
+                            largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(2))
+                            largestClusterLatitude = largestCluster.centroid.latitude
+                            largestClusterLongitude = largestCluster.centroid.longitude
+                            val geocoder = Geocoder(WikipediaApp.instance)
+                            val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
+                            if (!results.isNullOrEmpty()) {
+                                largestClusterCountryName = results.first().countryName
+                            }
+                        }
+                    } catch (_: IOException) {
+                        // could be thrown by Geocoder, and safe to ignore.
+                    }
+                }
+
                 yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
                     totalReadingTimeMinutes = totalReadingTimeMinutes.await(),
                     localSavedArticlesCount = totalSavedArticlesCount.await(),
@@ -204,8 +238,9 @@ class YearInReviewViewModel() : ViewModel() {
                     favoriteTimeToRead = favoriteTimeToReadHour,
                     favoriteDayToRead = favoriteDayToReadIndex,
                     favoriteMonthDidMostReading = mostReadingMonthIndex,
-                    closestLocation = Pair(0.0, 0.0),
-                    closestArticles = emptyList(),
+                    largestClusterLocation = Pair(largestClusterLatitude, largestClusterLongitude),
+                    largestClusterCountryName = largestClusterCountryName,
+                    largestClusterArticles = largestClusterArticles,
                     userEditsCount = editCount,
                     userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
                     isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()

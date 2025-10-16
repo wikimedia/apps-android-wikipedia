@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -53,6 +54,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.drawLayer
@@ -68,6 +72,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
+import coil3.compose.SubcomposeAsyncImage
+import coil3.compose.SubcomposeAsyncImageContent
+import coil3.request.ImageRequest
+import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
@@ -403,13 +411,122 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.GeoScreen -> {
-            // @TODO: geo location screen
+            GeoScreenContent(
+                innerPadding = innerPadding,
+                screenData = screenData,
+                screenCaptureMode = screenCaptureMode,
+                isOnboardingScreen = isOnboardingScreen,
+                isImageResourceLoaded = isImageResourceLoaded,
+            )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
         }
     }
 }
+
+@Composable
+private fun GeoScreenContent(
+    modifier: Modifier = Modifier,
+    innerPadding: PaddingValues,
+    screenData: YearInReviewScreenData.GeoScreen,
+    screenCaptureMode: Boolean = false,
+    isOnboardingScreen: Boolean = false,
+    isImageResourceLoaded: ((Boolean) -> Unit)? = null,
+) {
+    val scrollState = rememberScrollState()
+    val headerAspectRatio = 3f / 2f
+    val context = LocalContext.current
+    Column(
+        verticalArrangement = Arrangement.Top,
+        modifier = modifier
+            .padding(innerPadding)
+            .verticalScroll(scrollState)
+    ) {
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(16.dp))
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(headerAspectRatio)
+                    .background(
+                        brush = Brush.linearGradient(
+                            colorStops = arrayOf(
+                                0.265f to Color(0xFF0D0D0D),
+                                0.385f to Color(0xFF092D60),
+                                0.515f to Color(0xFF1171C8),
+                                0.585f to Color(0xFF3DB2FF),
+                                0.775f to Color(0xFFD3F1F3)
+                            ),
+                            start = Offset(0f, 0f),
+                            end = Offset(0f, Float.POSITIVE_INFINITY)
+                        )
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                SubcomposeAsyncImage(
+                    model = ImageRequest.Builder(context)
+                        .data(R.drawable.wyir_puzzle_tumble)
+                        .allowHardware(false)
+                        .build(),
+                    loading = { LoadingIndicator() },
+                    success = { SubcomposeAsyncImageContent() },
+                    onSuccess = { isImageResourceLoaded?.invoke(true) },
+                    contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+        }
+        Column {
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 10.dp, start = 16.dp, end = 8.dp)
+                        .height(IntrinsicSize.Min)
+                        .weight(1f),
+                    text = processString(screenData.headlineText),
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.headlineMedium
+                )
+                if (!screenCaptureMode && !isOnboardingScreen) {
+                    IconButton(
+                        onClick = {
+                            UriUtil.handleExternalLink(
+                                context = context,
+                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
+                            )
+                        }) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_info_24),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            contentDescription = stringResource(R.string.year_in_review_information_icon)
+                        )
+                    }
+                }
+            }
+            HtmlText(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+                    .height(IntrinsicSize.Min),
+                text = processString(screenData.bodyText),
+                color = WikipediaTheme.colors.primaryColor,
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontSize = 16.sp
+                    )
+                ),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+    }
+}
+
 
 @Composable
 private fun StandardScreenContent(

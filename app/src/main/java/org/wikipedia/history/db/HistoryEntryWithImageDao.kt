@@ -41,6 +41,10 @@ interface HistoryEntryWithImageDao {
             ")")
     suspend fun getTimeSpentBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Long
 
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE PageImage.geoLat IS NOT 0.0 AND PageImage.geoLon IS NOT 0.0 ORDER BY timestamp DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesWithCoordinates(limit: Int): List<HistoryEntryWithImage>
+
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
