@@ -123,7 +123,7 @@ sealed class YearInReviewScreenData(
         allowDonate: Boolean = true,
         val largestClusterLatitude: Double,
         val largestClusterLongitude: Double,
-        val placeMarkers: List<HistoryEntryWithImage>,
+        val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
         val bodyText: String? = null
     ) : YearInReviewScreenData(allowDonate)

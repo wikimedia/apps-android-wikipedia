@@ -173,9 +173,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupMarkerPaints()
-        markerBitmapBase = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888).applyCanvas {
+        markerBitmapBase = createBitmap(MARKER_SIZE, MARKER_SIZE).applyCanvas {
             val bitmap = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.ic_w_logo_circle)
-            drawMarker(this, bitmap)
+            drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, bitmap)
         }
 
         MapLibre.getInstance(requireActivity().applicationContext)
@@ -724,19 +724,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         val bmp = createBitmap(markerSize, markerSize, Bitmap.Config.ARGB_8888)
         bmp.applyCanvas {
             this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
-            drawMarker(this, thumbnailBitmap)
+            drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, thumbnailBitmap)
         }
         return bmp
-    }
-
-    private fun drawMarker(canvas: Canvas, thumbnailBitmap: Bitmap? = null) {
-        val radius = MARKER_SIZE / 2f
-        canvas.drawCircle(radius, radius, radius, markerPaintSrc)
-        thumbnailBitmap?.let {
-            val thumbnailRect = Rect(0, 0, it.width, it.height)
-            canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
-        }
-        canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
@@ -870,6 +860,28 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
          */
         fun latitudeDiffToMeters(latitudeDiff: Double): Int {
             return (111132 * latitudeDiff).toInt().coerceIn(10, 10000)
+        }
+
+        fun getMarkerBitmap(thumbnailBitmap: Bitmap, markerRect: Rect, markerPaintSrc: Paint,
+                            markerPaintSrcIn: Paint, markerBorderPaint: Paint): Bitmap {
+            val markerSize = DimenUtil.roundedDpToPx(40f)
+            val bmp = createBitmap(markerSize, markerSize, Bitmap.Config.ARGB_8888)
+            bmp.applyCanvas {
+                this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
+                drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, thumbnailBitmap)
+            }
+            return bmp
+        }
+
+        fun drawMarker(canvas: Canvas, markerRect: Rect, markerPaintSrc: Paint,
+                               markerPaintSrcIn: Paint, markerBorderPaint: Paint, thumbnailBitmap: Bitmap? = null) {
+            val radius = MARKER_SIZE / 2f
+            canvas.drawCircle(radius, radius, radius, markerPaintSrc)
+            thumbnailBitmap?.let {
+                val thumbnailRect = Rect(0, 0, it.width, it.height)
+                canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
+            }
+            canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
         }
     }
 }

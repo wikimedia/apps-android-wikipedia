@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import java.text.NumberFormat
@@ -18,6 +19,7 @@ class YearInReviewSlides(
     val isEnglishWiki: Boolean,
     val isFundraisingAllowed: Boolean,
     val config: RemoteConfig.RemoteConfigYearInReview,
+    val pagesWithCoordinates: List<HistoryEntryWithImage>,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -197,7 +199,7 @@ class YearInReviewSlides(
             isFundraisingAllowed,
             largestClusterLatitude = yearInReviewModel.largestClusterLocation.first,
             largestClusterLongitude = yearInReviewModel.largestClusterLocation.second,
-            placeMarkers = emptyList(),
+            pagesWithCoordinates = pagesWithCoordinates,
             headlineText = context.resources.getString(R.string.year_in_review_slide_geo_headline, yearInReviewModel.largestClusterCountryName),
             bodyText = context.resources.getString(R.string.year_in_review_slide_geo_body, yearInReviewModel.largestClusterCountryName, yearInReviewModel.largestClusterArticles[0], yearInReviewModel.largestClusterArticles[1])
         )

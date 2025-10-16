@@ -1,6 +1,12 @@
 package org.wikipedia.yearinreview
 
 import android.Manifest
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
 import android.location.Location
 import android.view.Gravity
 import androidx.appcompat.content.res.AppCompatResources
@@ -34,11 +40,16 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.applyCanvas
 import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import org.maplibre.android.MapLibre
+import org.maplibre.android.camera.CameraUpdateFactory
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapLibreMapOptions
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
@@ -49,12 +60,33 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.places.PlacesFragment.Companion.MARKER_DRAWABLE
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.drawable.toDrawable
+import org.maplibre.android.plugins.annotation.ClusterOptions
+import org.maplibre.android.plugins.annotation.SymbolManager
+import org.maplibre.android.plugins.annotation.SymbolOptions
+import org.maplibre.android.style.expressions.Expression
+import org.maplibre.android.style.layers.PropertyFactory.circleColor
+import org.maplibre.android.style.layers.PropertyFactory.circleOpacity
+import org.maplibre.android.style.layers.PropertyFactory.circleRadius
+import org.maplibre.android.style.layers.PropertyFactory.circleStrokeColor
+import org.maplibre.android.style.layers.PropertyFactory.circleStrokeWidth
+import org.maplibre.android.style.layers.PropertyFactory.textAllowOverlap
+import org.maplibre.android.style.layers.PropertyFactory.textColor
+import org.maplibre.android.style.layers.PropertyFactory.textField
+import org.maplibre.android.style.layers.PropertyFactory.textFont
+import org.maplibre.android.style.layers.PropertyFactory.textIgnorePlacement
+import org.maplibre.android.style.layers.PropertyFactory.textSize
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.NearbyPage
+import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesFragment
+import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun GeoScreenContent(
@@ -67,11 +99,43 @@ fun GeoScreenContent(
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    val markerRect = Rect(0, 0, PlacesFragment.MARKER_SIZE, PlacesFragment.MARKER_SIZE)
 
     val mapView = remember {
         MapLibre.getInstance(context.applicationContext)
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
         MapView(context, MapLibreMapOptions.createFromAttributes(context))
+    }
+
+    val markerPaintSrc: Paint = remember {
+        Paint().apply {
+            isAntiAlias = true
+            color = ResourceUtil.getThemedColor(context, R.attr.secondary_color)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
+        }
+    }
+
+    val markerPaintSrcIn: Paint = remember {
+        Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        }
+    }
+
+    val markerBorderPaint: Paint = remember {
+        Paint().apply {
+            style = Paint.Style.STROKE
+            strokeWidth = PlacesFragment.MARKER_BORDER_SIZE
+            color = ResourceUtil.getThemedColor(context, R.attr.paper_color)
+            isAntiAlias = true
+        }
+    }
+
+    val markerBitmapBase: Bitmap = remember {
+        createBitmap(PlacesFragment.MARKER_SIZE, PlacesFragment.MARKER_SIZE).applyCanvas {
+            val bitmap = ResourceUtil.bitmapFromVectorDrawable(context, R.drawable.ic_w_logo_circle)
+            PlacesFragment.drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, bitmap)
+        }
     }
 
     DisposableEffect(lifecycleOwner) {
@@ -114,7 +178,7 @@ fun GeoScreenContent(
                             map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                                 //mapboxMap = map
 
-                                //style.addImage(MARKER_DRAWABLE, markerBitmapBase)
+                                style.addImage(PlacesFragment.MARKER_DRAWABLE, markerBitmapBase)
 
                                 map.setMaxZoomPreference(20.0)
 
@@ -126,6 +190,46 @@ fun GeoScreenContent(
                                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
 
+
+                                val symbolManager = SymbolManager(mapView, map, style)
+                                symbolManager.iconAllowOverlap = true
+                                symbolManager.textAllowOverlap = true
+
+                                val nearbyPages = screenData.pagesWithCoordinates.map {
+                                    NearbyPage(
+                                        0,
+                                        PageTitle(it.namespace, it.apiTitle, null, it.imageName, WikiSite.forLanguageCode(it.lang)),
+                                        it.geoLat ?: 0.0,
+                                        it.geoLon ?: 0.0
+                                    )
+                                }
+                                nearbyPages.forEach { page ->
+                                    page.annotation = symbolManager.create(
+                                        SymbolOptions()
+                                            .withLatLng(LatLng(page.latitude, page.longitude))
+                                            .withTextFont(PlacesFragment.MARKER_FONT_STACK)
+                                            .withIconImage(PlacesFragment.MARKER_DRAWABLE)
+                                    )
+                                    symbolManager.update(page.annotation)
+
+                                    val url = page.pageTitle.thumbUrl
+                                    if (Prefs.isImageDownloadEnabled && !url.isNullOrEmpty()) {
+                                        ImageService.loadImage(context, url, whiteBackground = true,
+                                            onSuccess = { bitmap ->
+                                                val bmp = PlacesFragment.getMarkerBitmap(bitmap, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint)
+                                                page.bitmap = bmp
+                                                map.style?.addImage(
+                                                    url,
+                                                    bmp.toDrawable(context.resources)
+                                                )
+                                                page.annotation?.let { annotation ->
+                                                    annotation.iconImage = url
+                                                    symbolManager.update(annotation)
+                                                }
+                                            }
+                                        )
+                                    }
+                                }
 
                                 /*
                                 map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
@@ -141,8 +245,8 @@ fun GeoScreenContent(
                                         onUpdateCameraPosition(it)
                                     }
                                 }
-
                                 map.addOnMapClickListener(this)
+
 
                                 setUpSymbolManagerWithClustering(map, style)
 
@@ -165,17 +269,9 @@ fun GeoScreenContent(
                                     true
                                 }
 
-                                viewModel.location?.let {
-                                    goToLocation(it)
-                                } ?: run {
-                                    if (Prefs.placesDefaultLocationLatLng != null) {
-                                        goToLocation(getDefaultLocation())
-                                    } else {
-                                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
-                                    }
-                                }
                                 */
+
+                                goToLocation(map, screenData.largestClusterLatitude, screenData.largestClusterLongitude)
 
                             }
                         }
@@ -229,4 +325,12 @@ fun GeoScreenContent(
             )
         }
     }
+}
+
+
+private fun goToLocation(map: MapLibreMap, latitude: Double, longitude: Double, zoom: Double = 4.0) {
+    map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitude, longitude), zoom), object : MapLibreMap.CancelableCallback {
+        override fun onCancel() { }
+        override fun onFinish() { }
+    })
 }

@@ -259,6 +259,7 @@ class YearInReviewViewModel() : ViewModel() {
                 isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
                 isFundraisingAllowed = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
                 config = remoteConfig,
+                pagesWithCoordinates = pagesWithCoordinates,
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
