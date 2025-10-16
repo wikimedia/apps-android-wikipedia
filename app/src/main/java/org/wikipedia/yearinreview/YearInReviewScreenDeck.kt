@@ -208,7 +208,7 @@ fun MainBottomBar(
             modifier = Modifier
                 .height(1.dp)
                 .fillMaxWidth(),
-            color = WikipediaTheme.colors.inactiveColor
+            color = WikipediaTheme.colors.borderColor
         )
         Box {
             contentData[pagerState.currentPage].BottomButton(context, onDonateClick)
