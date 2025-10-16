@@ -52,7 +52,10 @@ class YearInReviewActivity : BaseActivity() {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,
-                            onBackButtonClick = { pagerState ->
+                            onBackButtonClick = {
+                                if (viewModel.slideViewedCount >= 2 && !Prefs.yearInReviewSurveyShown) {
+                                    Prefs.showYearInReviewSurvey = true
+                                }
                                 finish()
                             },
                             onNextButtonClick = { pagerState, currentSlideData ->
