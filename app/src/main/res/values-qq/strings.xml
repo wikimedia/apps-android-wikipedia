@@ -2036,6 +2036,12 @@
     <item quantity="one">Body of the second part of the English spent minutes slide for the Year in Review. %1$,d will be replaced by the year from the total hours and %2$d will be replaced by the current year.</item>
     <item quantity="other">Body of the second part of the English spent minutes slide for the Year in Review. %1$,d will be replaced by the years from the total hours and %2$d will be replaced by the current year.</item>
   </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Title of the app users viewed articles time slide for the Year in Review. %,d will be replaced by the number of viewed time.</item>
+    <item quantity="other">Title of the app users viewed articles times slide for the Year in Review. %,d will be replaced by the number of viewed times.</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Body of the app users viewed articles time slide for the Year in Review.</string>
+
   <string name="year_in_review_highlights_thank_you_message">Text displayed at the top of the Year in Review highlights screen.</string>
   <string name="year_in_review_highlights_looking_forward_message">Text shown after the thank-you message on the Year in Review highlights screen.</string>
   <string name="year_in_review_highlights_logged_out_en_most_popular_title">Title of the first highlight shown on the Year in Review highlights screen for logged-out English Wikipedia users.</string>

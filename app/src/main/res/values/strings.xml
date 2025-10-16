@@ -2143,6 +2143,12 @@
         <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d.</item>
         <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d.</item>
     </plurals>
+    <plurals name="year_in_review_slide_viewed_articles_times_headline">
+        <item quantity="one">App users viewed Wikipedia articles %,d time</item>
+        <item quantity="other">App users viewed Wikipedia articles %,d times</item>
+    </plurals>
+    <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
+
     <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
     <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
     <string name="year_in_review_highlights_logged_out_en_most_popular_title">Most popular articles on English Wikipedia</string>
