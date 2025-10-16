@@ -96,13 +96,15 @@ fun YearInReviewScreenDeck(
                 CreateScreenShotBitmap(
                     screenContent = pages[pagerState.currentPage]
                 ) { bitmap ->
+                    val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+                    val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl)
                     ShareUtil.shareImage(
                         coroutineScope = coroutineScope,
                         context = context,
                         bmp = bitmap,
-                        imageFileName = "year_in_review",
-                        subject = context.getString(R.string.year_in_review_share_subject),
-                        text = context.getString(R.string.year_in_review_share_url)
+                        imageFileName = YearInReviewViewModel.YIR_TAG,
+                        subject = context.getString(R.string.year_in_review_share_subject) + " ${YearInReviewViewModel.YIR_YEAR}",
+                        text = bodyText
                     )
                     startCapture = false
                 }
