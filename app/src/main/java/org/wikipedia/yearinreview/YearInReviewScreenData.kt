@@ -2,7 +2,6 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import android.graphics.drawable.Animatable
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -159,22 +158,11 @@ sealed class YearInReviewScreenData(
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
+        animatedImageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
     ) {
-        @Composable
-        override fun HeaderContents(context: Context,
-                                    screenCaptureMode: Boolean,
-                                    isImageResourceLoaded: ((Boolean) -> Unit)?,
-                                    aspectRatio: Float) {
-            Image(
-                modifier = Modifier.size(200.dp),
-                painter = painterResource(R.drawable.launcher_foreground_yir25),
-                contentDescription = null
-            )
-        }
-
         @Composable
         override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
             if (showDonateButton) {
