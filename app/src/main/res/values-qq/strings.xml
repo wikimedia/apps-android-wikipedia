@@ -1884,6 +1884,7 @@
   <string name="year_in_review_screendeck_image_content_description">Content description for the image used in the Year in Review main screendeck</string>
   <string name="year_in_review_screenshot_error">A generic error idicator with \"%s\" representing the actual error thrown</string>
   <string name="year_in_review_share_subject">The subject line for sharing the year in review</string>
+  <string name="year_in_review_share_body">The body for sharing the year in review. %1$s will be replaced by the Google Play store link, and %2$s will be replaced by the Year in Review hashtag.</string>
   <string name="year_in_review_globe_icon">Content description for the year in review globe icon</string>
   <string name="settings_app_icon_title">Title for dialog where the user selects a custom app icon.</string>
   <string name="settings_app_icon_subtitle">Subtitle for dialog where the user selects a custom app icon.</string>
