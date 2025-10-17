@@ -54,7 +54,7 @@ object ShareUtil {
     }
 
     fun shareImage(coroutineScope: CoroutineScope, context: Context, bmp: Bitmap,
-                   imageFileName: String, subject: String, text: String) {
+                   imageFileName: String, subject: String, text: String, onShared: (() -> Unit)? = null) {
         coroutineScope.launch(CoroutineExceptionHandler { _, msg ->
             displayOnCatchMessage(msg, context)
         }) {
@@ -65,6 +65,7 @@ object ShareUtil {
                 val chooserIntent = buildImageShareChooserIntent(context, subject, text, uri)
                 context.startActivity(chooserIntent)
             }
+            onShared?.invoke()
         }
     }
 

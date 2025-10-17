@@ -55,9 +55,12 @@ class YearInReviewActivity : BaseActivity() {
                             onBackButtonClick = {
                                 finish()
                             },
-                            onNextButtonClick = { pagerState ->
+                            onNextButtonClick = { pagerState, currentSlide ->
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                }
+                                if (currentSlide is YearInReviewScreenData.HighlightsScreen) {
+                                    finish()
                                 }
                             },
                             onDonateClick = {
