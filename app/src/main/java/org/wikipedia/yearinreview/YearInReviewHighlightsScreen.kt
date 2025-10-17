@@ -1,9 +1,11 @@
 package org.wikipedia.yearinreview
 
+import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,9 +21,18 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asAndroidBitmap
+import androidx.compose.ui.graphics.rememberGraphicsLayer
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -43,86 +54,103 @@ import org.wikipedia.theme.Theme
 @Composable
 fun YearInReviewHighlightsScreen(
     modifier: Modifier = Modifier,
-    screenData: YearInReviewScreenData.HighlightsScreen
+    screenData: YearInReviewScreenData.HighlightsScreen,
+    onShareHighlights: () -> Unit
 ) {
-    Column(
-        modifier = modifier
-            .yearInReviewHeaderBackground()
-            .fillMaxSize()
-            .padding(horizontal = 18.dp)
-    ) {
-        Text(
-            modifier = Modifier
-                .padding(top = 60.dp, bottom = 16.dp),
-            text = buildAnnotatedString {
-                append(stringResource(R.string.year_in_review_highlights_thank_you_message))
-                withStyle(
-                    style = SpanStyle(
-                        fontWeight = FontWeight.Normal,
-                    )
-                ) {
-                    append(" ")
-                    append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
-                }
-            },
-            color = WikipediaTheme.colors.paperColor,
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Medium
-        )
-
+    Box(modifier = Modifier.fillMaxSize()) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(324.dp)
-                .background(ComposeColors.Gray100)
-                .border(width = 1.dp, color = ComposeColors.Gray300)
-                .padding(8.dp)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = modifier
+                .yearInReviewHeaderBackground()
+                .fillMaxSize()
+                .padding(horizontal = 18.dp)
         ) {
             Text(
-                text = "#WikipediaYearinReview",
-                fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
-                lineHeight = 21.sp,
-                color = ComposeColors.Gray700
-            )
-            Image(
                 modifier = Modifier
-                    .size(163.dp)
-                    .padding(vertical = 4.dp),
-                painter = painterResource(R.drawable.w_nav_mark),
-                contentDescription = null
+                    .padding(top = 60.dp, bottom = 16.dp),
+                text = buildAnnotatedString {
+                    append(stringResource(R.string.year_in_review_highlights_thank_you_message))
+                    withStyle(
+                        style = SpanStyle(
+                            fontWeight = FontWeight.Normal,
+                        )
+                    ) {
+                        append(" ")
+                        append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
+                    }
+                },
+                color = WikipediaTheme.colors.paperColor,
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Medium
             )
-            Text(
+
+            ShareableHighlightsCard(
                 modifier = Modifier
-                    .padding(4.dp),
-                text = "Wikipedia logo",
-                fontSize = 12.sp,
-                lineHeight = 16.sp,
-                color = ComposeColors.Gray700
+                    .fillMaxWidth()
+                    .height(324.dp)
+                    .background(ComposeColors.Gray100)
+                    .border(width = 1.dp, color = ComposeColors.Gray300)
+                    .padding(8.dp)
+                    .verticalScroll(rememberScrollState()),
+                highlights = screenData.highlights
             )
-            screenData.highlights.forEach { highlightItem ->
-                HighlightsContent(
-                    modifier = Modifier
-                        .padding(top = 12.dp),
-                    highlightItem = highlightItem
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 32.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor
+                ),
+                onClick = onShareHighlights
+            ) {
+                Text(
+                    "Share highlights"
                 )
             }
         }
+    }
+}
 
-        Button(
+@Composable
+fun ShareableHighlightsCard(
+    modifier: Modifier = Modifier,
+    hashtag: String = "#WikipediaYearinReview",
+    logoResource: Int = R.drawable.w_nav_mark,
+    logoDescription: String = "Wikipedia logo",
+    highlights: List<YearInReviewScreenData.HighlightItem>,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = hashtag,
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+            lineHeight = 21.sp,
+            color = ComposeColors.Gray700
+        )
+        Image(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 32.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = WikipediaTheme.colors.progressiveColor
-            ),
-            onClick = {}
-        ) {
-            Text(
-                "Share highlights"
+                .size(163.dp)
+                .padding(vertical = 4.dp),
+            painter = painterResource(logoResource),
+            contentDescription = logoDescription
+        )
+        Text(
+            modifier = Modifier
+                .padding(4.dp),
+            text = logoDescription,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
+            color = ComposeColors.Gray700
+        )
+        highlights.forEach { highlightItem ->
+            HighlightsContent(
+                modifier = Modifier
+                    .padding(top = 12.dp),
+                highlightItem = highlightItem
             )
         }
     }
@@ -179,6 +207,57 @@ fun HighlightsContent(
     }
 }
 
+@Composable
+fun ShareHighlightsScreenCapture(
+    highlights: List<YearInReviewScreenData.HighlightItem>,
+    onBitmapReady: (Bitmap) -> Unit
+) {
+    val graphicsLayer = rememberGraphicsLayer()
+    var isReadyToCapture by remember { mutableStateOf(false) }
+
+    if (isReadyToCapture) {
+        LaunchedEffect(Unit) {
+            val bitmap = graphicsLayer.toImageBitmap()
+            onBitmapReady(bitmap.asAndroidBitmap())
+        }
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .onGloballyPositioned {
+                isReadyToCapture = true
+            }
+            .drawWithContent {
+                graphicsLayer.record {
+                    drawRect(
+                        color = ComposeColors.White
+                    )
+                    this@drawWithContent.drawContent()
+                }
+            }
+            .background(ComposeColors.White),
+    ) {
+        ShareableHighlightsCard(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .padding(horizontal = 34.dp)
+                .background(ComposeColors.Gray100)
+                .border(width = 1.dp, color = ComposeColors.Gray300)
+                .padding(8.dp),
+            highlights = highlights
+        )
+
+        Text(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp),
+            text = "wikipedia.org/year-in-review",
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
 @Preview(device = Devices.PIXEL_9)
 @Composable
 private fun YearInReviewHighlightsScreenPreview() {
@@ -198,7 +277,8 @@ private fun YearInReviewHighlightsScreenPreview() {
                         highlightColor = ComposeColors.Blue600
                     )
                 )
-            )
+            ),
+            onShareHighlights = {}
         )
     }
 }
