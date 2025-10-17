@@ -2145,6 +2145,12 @@
         <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d.</item>
         <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d.</item>
     </plurals>
+    <plurals name="year_in_review_slide_viewed_articles_times_headline">
+        <item quantity="one">App users viewed Wikipedia articles %,d time</item>
+        <item quantity="other">App users viewed Wikipedia articles %,d times</item>
+    </plurals>
+    <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
+
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>
