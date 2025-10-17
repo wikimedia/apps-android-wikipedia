@@ -74,7 +74,7 @@ object GeoUtil {
     class LocationClusterer {
         fun clusterLocations(
             locations: List<HistoryEntryWithImage>,
-            epsilonKm: Double = 0.5, // 500 meters default
+            epsilonKm: Double = 0.5,
             minPoints: Int = 3
         ): List<Cluster> {
             val clusters = mutableListOf<Cluster>()
@@ -87,14 +87,12 @@ object GeoUtil {
                 visited.add(location)
 
                 val neighbors = getNeighbors(location, locations, epsilonKm)
-
                 if (neighbors.size < minPoints) {
                     noise.add(location)
                 } else {
                     val cluster = Cluster(id = clusterId++)
                     expandCluster(location, neighbors, cluster, visited, locations, epsilonKm, minPoints)
 
-                    // Calculate centroid for the cluster
                     if (cluster.locations.isNotEmpty()) {
                         cluster.copy(centroid = calculateCentroid(cluster.locations))
                         clusters.add(cluster)
@@ -102,7 +100,6 @@ object GeoUtil {
                 }
             }
 
-            // Add centroids to clusters
             return clusters.map { cluster ->
                 cluster.copy(centroid = calculateCentroid(cluster.locations))
             }

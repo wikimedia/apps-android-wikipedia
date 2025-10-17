@@ -3,6 +3,7 @@ package org.wikipedia.places
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -122,7 +123,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private lateinit var markerPaintSrc: Paint
     private lateinit var markerPaintSrcIn: Paint
     private lateinit var markerBorderPaint: Paint
-    private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
+    private val markerRect = getMarkerRect()
 
     private val searchRadius
         get() = mapboxMap?.let {
@@ -172,11 +173,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupMarkerPaints()
-        markerBitmapBase = createBitmap(MARKER_SIZE, MARKER_SIZE).applyCanvas {
-            val bitmap = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.ic_w_logo_circle)
-            drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, bitmap)
-        }
+        markerPaintSrc = getMarkerPaintSrc(requireContext())
+        markerPaintSrcIn = getMarkerPaintSrcIn()
+        markerBorderPaint = getMarkerBorderPaint(requireContext())
+        markerBitmapBase = getMarkerBitmapBase(requireContext())
 
         MapLibre.getInstance(requireActivity().applicationContext)
 
@@ -315,8 +315,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         PlacesEvent.logImpression("map_view")
 
         binding.mapView.getMapAsync { map ->
-            val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
-            map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
+            map.setStyle(Style.Builder().fromUri(getStyleAsset())) { style ->
                 mapboxMap = map
 
                 style.addImage(MARKER_DRAWABLE, markerBitmapBase)
@@ -456,24 +455,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         magnifiedMarker = symbol
         magnifiedMarker?.iconSize = 1.75f
         magnifiedMarker?.symbolSortKey = 1f
-    }
-
-    private fun setupMarkerPaints() {
-        markerPaintSrc = Paint().apply {
-            isAntiAlias = true
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_color)
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
-        }
-        markerPaintSrcIn = Paint().apply {
-            isAntiAlias = true
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-        }
-        markerBorderPaint = Paint().apply {
-            style = Paint.Style.STROKE
-            strokeWidth = MARKER_BORDER_SIZE
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)
-            isAntiAlias = true
-        }
     }
 
     private fun updateSearchCardViews() {
@@ -842,6 +823,35 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     Constants.ARG_TITLE to pageTitle,
                     PlacesActivity.EXTRA_LOCATION to location
                 )
+            }
+        }
+
+        fun getStyleAsset() = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
+
+        fun getMarkerRect() = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
+
+        fun getMarkerPaintSrc(context: Context) = Paint().apply {
+            isAntiAlias = true
+            color = ResourceUtil.getThemedColor(context, R.attr.secondary_color)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
+        }
+
+        fun getMarkerPaintSrcIn() = Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        }
+
+        fun getMarkerBorderPaint(context: Context) = Paint().apply {
+            style = Paint.Style.STROKE
+            strokeWidth = MARKER_BORDER_SIZE
+            color = ResourceUtil.getThemedColor(context, R.attr.paper_color)
+            isAntiAlias = true
+        }
+
+        fun getMarkerBitmapBase(context: Context): Bitmap {
+            return createBitmap(MARKER_SIZE, MARKER_SIZE).applyCanvas {
+                val bitmap = ResourceUtil.bitmapFromVectorDrawable(context, R.drawable.ic_w_logo_circle)
+                drawMarker(this, getMarkerRect(), getMarkerPaintSrc(context), getMarkerPaintSrcIn(), getMarkerBorderPaint(context), bitmap)
             }
         }
 

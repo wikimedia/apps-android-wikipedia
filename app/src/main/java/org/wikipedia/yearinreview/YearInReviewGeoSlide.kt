@@ -2,9 +2,6 @@ package org.wikipedia.yearinreview
 
 import android.graphics.Bitmap
 import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.Rect
 import android.view.Gravity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.layout.Arrangement
@@ -37,8 +34,6 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.graphics.applyCanvas
-import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
@@ -55,7 +50,6 @@ import org.maplibre.android.module.http.HttpRequestImpl
 import org.maplibre.android.plugins.annotation.SymbolManager
 import org.maplibre.android.plugins.annotation.SymbolOptions
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -80,7 +74,7 @@ fun GeoScreenContent(
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
-    val markerRect = Rect(0, 0, PlacesFragment.MARKER_SIZE, PlacesFragment.MARKER_SIZE)
+    val markerRect = PlacesFragment.getMarkerRect()
 
     val mapView = remember {
         MapLibre.getInstance(context.applicationContext)
@@ -88,36 +82,10 @@ fun GeoScreenContent(
         MapView(context, MapLibreMapOptions.createFromAttributes(context))
     }
 
-    val markerPaintSrc: Paint = remember {
-        Paint().apply {
-            isAntiAlias = true
-            color = ResourceUtil.getThemedColor(context, R.attr.secondary_color)
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
-        }
-    }
-
-    val markerPaintSrcIn: Paint = remember {
-        Paint().apply {
-            isAntiAlias = true
-            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-        }
-    }
-
-    val markerBorderPaint: Paint = remember {
-        Paint().apply {
-            style = Paint.Style.STROKE
-            strokeWidth = PlacesFragment.MARKER_BORDER_SIZE
-            color = ResourceUtil.getThemedColor(context, R.attr.paper_color)
-            isAntiAlias = true
-        }
-    }
-
-    val markerBitmapBase: Bitmap = remember {
-        createBitmap(PlacesFragment.MARKER_SIZE, PlacesFragment.MARKER_SIZE).applyCanvas {
-            val bitmap = ResourceUtil.bitmapFromVectorDrawable(context, R.drawable.ic_w_logo_circle)
-            PlacesFragment.drawMarker(this, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint, bitmap)
-        }
-    }
+    val markerPaintSrc: Paint = remember { PlacesFragment.getMarkerPaintSrc(context) }
+    val markerPaintSrcIn: Paint = remember { PlacesFragment.getMarkerPaintSrcIn() }
+    val markerBorderPaint: Paint = remember { PlacesFragment.getMarkerBorderPaint(context) }
+    val markerBitmapBase: Bitmap = remember { PlacesFragment.getMarkerBitmapBase(context) }
 
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -155,8 +123,7 @@ fun GeoScreenContent(
                     modifier = Modifier.matchParentSize(),
                     update = { view ->
                         view.getMapAsync { map ->
-                            val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
-                            map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
+                            map.setStyle(Style.Builder().fromUri(PlacesFragment.getStyleAsset())) { style ->
                                 style.addImage(PlacesFragment.MARKER_DRAWABLE, markerBitmapBase)
                                 map.setMaxZoomPreference(20.0)
                                 map.uiSettings.isLogoEnabled = false
@@ -179,7 +146,7 @@ fun GeoScreenContent(
                                         it.geoLat ?: 0.0,
                                         it.geoLon ?: 0.0
                                     )
-                                }
+                                }.take(32)
                                 nearbyPages.forEach { page ->
                                     page.annotation = symbolManager.create(
                                         SymbolOptions()
@@ -198,10 +165,7 @@ fun GeoScreenContent(
                                                 }
                                                 val bmp = PlacesFragment.getMarkerBitmap(bitmap, markerRect, markerPaintSrc, markerPaintSrcIn, markerBorderPaint)
                                                 page.bitmap = bmp
-                                                map.style?.addImage(
-                                                    url,
-                                                    bmp.toDrawable(context.resources)
-                                                )
+                                                map.style?.addImage(url, bmp.toDrawable(context.resources))
                                                 page.annotation?.let { annotation ->
                                                     annotation.iconImage = url
                                                     symbolManager.update(annotation)
