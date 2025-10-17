@@ -244,7 +244,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
-        const val MAX_LONGEST_READ_ARTICLES = 3
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
         val isAccessible get(): Boolean {

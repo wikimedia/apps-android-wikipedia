@@ -292,7 +292,6 @@ class YearInReviewSlides(
     private fun loggedInHighlightScreen(): HighlightsScreen {
         return HighlightsScreen(
             highlights = buildList {
-                // TODO: update copy for article read the most
                 if (yearInReviewModel.localTopVisitedArticles.isNotEmpty()) {
                     add(
                         HighlightItem(
