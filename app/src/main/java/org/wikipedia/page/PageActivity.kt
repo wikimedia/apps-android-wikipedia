@@ -88,6 +88,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.maybeShowYearInReviewFeedbackDialog
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -338,6 +339,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
+        maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {

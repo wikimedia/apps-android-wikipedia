@@ -792,6 +792,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_survey_shown, value)
 
+    var showYearInReviewSurvey
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_yir_survey, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_yir_survey, value)
+
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
