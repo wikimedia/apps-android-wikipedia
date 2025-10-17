@@ -1849,13 +1849,6 @@
   <string name="year_in_review_donate">Dona</string>
   <string name="year_in_review_information_icon">Icona delle informazioni</string>
   <string name="year_in_review_get_started_headline">Esplora il tuo Anno in Rassegna su Wikipedia</string>
-  <string name="year_in_review_entry_dialog_title">Esplora il tuo Anno in Rassegna su Wikipedia</string>
-  <string name="year_in_review_entry_dialog_continue">Continua</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Hai letto %d voce quest\'anno</item>
-    <item quantity="other">Hai letto %d voci quest\'anno</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_editcount_headline">Gli editor dell\'app iOS hanno effettuato più di 452.257 modifiche</string>
   <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
   <string name="year_in_review_survey_very_satisfied">Molto soddisfatto</string>
   <string name="year_in_review_survey_satisfied">Soddisfatto</string>

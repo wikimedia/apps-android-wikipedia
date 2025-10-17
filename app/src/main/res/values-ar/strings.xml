@@ -2119,45 +2119,6 @@
   <string name="year_in_review_information_icon">أيقونة المعلومات</string>
   <string name="year_in_review_get_started_headline">استكشف مراجعة العام على ويكيبيديا</string>
   <string name="year_in_review_get_started_bodytext">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها. سجل قراءتك محمي. تُحسب رؤى القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
-  <string name="year_in_review_entry_dialog_title">استكشف ويكيبيديا الخاصة بك في المراجعة</string>
-  <string name="year_in_review_entry_dialog_bodytext">اطلع على رؤى حول المقالات التي قرأناها وحررناها، وشارك أبرز أحداث عامنا على ويكيبيديا.</string>
-  <string name="year_in_review_entry_dialog_continue">استمرار</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="zero">أنت لم تقرأ أي مقال ها العام</item>
-    <item quantity="one">لقد قرأت %d مقالة هذا العام</item>
-    <item quantity="two">أنت قرأت مقالين ها العام</item>
-    <item quantity="few">أنت قرأت مقالات قليلة هذا العام</item>
-    <item quantity="many">أنت قرأت مقالات كثيرة هذا العام</item>
-    <item quantity="other">لقد قرأت %d مقالة هذا العام</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="zero">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-    <item quantity="one">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-    <item quantity="two">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-    <item quantity="few">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-    <item quantity="many">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-    <item quantity="other">هذا العام، قرأتَ %1$d مقالة، بما في ذلك %2$s و %3$s و %4$s . كان لدى ويكيبيديا أكثر من 63 مليون مقالة متاحة بأكثر من 300 لغة. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="zero">أنت لم تحرر ويكيبيديا</item>
-    <item quantity="one">لقد حررت ويكيبيديا %d مرة</item>
-    <item quantity="two">أنت حررت ويكيبيديا مرتين</item>
-    <item quantity="few">أنت حررت ويكيبيديا مرات قليلة</item>
-    <item quantity="many">أنت حررت ويكيبيديا مرات كثيرة</item>
-    <item quantity="other">لقد حررت ويكيبيديا %d مرة</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="zero">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-    <item quantity="one">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-    <item quantity="two">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-    <item quantity="few">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-    <item quantity="many">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-    <item quantity="other">لقد حررت ويكيبيديا %d مرة. شكرًا لكونك أحد المحررين المتطوعين الذين يُحدثون فرقًا في مشاريع ويكيميديا حول العالم.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">كانت ويكيبيديا متاحة بأكثر من 300 لغة</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">احتوت ويكيبيديا على أكثر من 63 مليون مقالة بأكثر من 300 لغة نشطة هذا العام. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">قام المحررون على تطبيق iOS بإجراء تعديلات تزيد قيمتها عن $1</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">أجرى مجتمع محرري ويكيبيديا المتطوعين أكثر من 452,257 تعديلاً على تطبيق iOS حتى الآن هذا العام. جوهر ويكيبيديا هو مجتمعنا العالمي من المساهمين المتطوعين والمتبرعين ومليارات القراء مثلك - جميعهم متحدون لمشاركة وصول غير محدود إلى معلومات موثوقة.</string>
   <string name="year_in_review_survey_title">ساعد في تحسين مراجعة العام</string>
   <string name="year_in_review_survey_subtitle">هل أنت راض عن هذه الميزة؟</string>
   <string name="year_in_review_survey_very_satisfied">راضٍ جدًا</string>
@@ -2169,7 +2130,6 @@
   <string name="year_in_review_survey_cancel">إلغاء</string>
   <string name="year_in_review_survey_submit">إرسال</string>
   <string name="year_in_review_screendeck_image_content_description">مصدر الصورة لشاشة العرض الرئيسية لمراجعة العام</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">مصدر الصورة لشاشة حوار إدخال مراجعة العام</string>
   <string name="year_in_review_screenshot_error">لم يتمكن من إنشاء لقطة شاشة: %s</string>
   <string name="year_in_review_share_subject">مراجعة العام - الصورة والرابط</string>
   <string name="year_in_review_globe_icon">أيقونة الكرة الأرضية</string>

@@ -136,20 +136,20 @@ class ActivityTabViewModel() : ViewModel() {
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
             var weekAgo = now - weekInMillis
-            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
+            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentBetween(weekAgo)
 
             val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
-            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(thirtyDaysAgo) ?: 0
+            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(weekAgo) ?: 0)
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(weekAgo) ?: 0)
             for (i in 1..3) {
                 weekAgo -= weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(weekAgo, weekAgo + weekInMillis)
+                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(weekAgo, weekAgo + weekInMillis)
                 articlesReadByWeek.add(articlesRead)
             }
             val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesSince(thirtyDaysAgo) ?: 0
+            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesBetween(thirtyDaysAgo) ?: 0
             val articlesSaved = AppDatabase.instance.readingListPageDao().getLocallySavedPagesSince(thirtyDaysAgo, 4)
                 .map { ReadingListPage.toPageTitle(it) }
             val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()

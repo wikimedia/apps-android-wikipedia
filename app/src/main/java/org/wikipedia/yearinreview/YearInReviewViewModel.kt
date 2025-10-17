@@ -8,41 +8,33 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.time.Instant
-import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZoneOffset
+import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
-    private val currentYear = LocalDate.now().year
-    private val startTime: Instant = LocalDateTime.of(currentYear, 1, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
-    private val endTime: Instant = LocalDateTime.of(currentYear, 12, 31, 23, 59, 59).toInstant(ZoneOffset.UTC)
-    private val startTimeInMillis = startTime.toEpochMilli()
-    private val endTimeInMillis = endTime.toEpochMilli()
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
-        _uiScreenListState.value = UiState.Success(
-            data = listOf(nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-        )
+        _uiScreenListState.value = UiState.Error(throwable)
     }
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
-
-    private var _canShowSurvey: Boolean = false
-    var canShowSurvey: Boolean
-        get() = _canShowSurvey && !Prefs.yirSurveyShown
-        set(value) {
-            _canShowSurvey = value
-        }
 
     init {
         fetchPersonalizedData()
@@ -50,121 +42,225 @@ class YearInReviewViewModel() : ViewModel() {
 
     fun fetchPersonalizedData() {
         viewModelScope.launch(handler) {
+
             _uiScreenListState.value = UiState.Loading
 
-            val readCountJob = async {
-                val readCount = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(startTimeInMillis, endTimeInMillis)
-                if (readCount >= MINIMUM_READ_COUNT) {
-                    val readCountApiTitles = AppDatabase.instance.historyEntryDao().getDisplayTitles()
-                        .map { StringUtil.fromHtml(it).toString() }
-                    YearInReviewScreenData.StandardScreen(
-                        animatedImageResource = R.drawable.wyir_block_5_resize,
-                        staticImageResource = R.drawable.personal_slide_01,
-                        headlineText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_headline,
-                            readCount,
-                            readCount
-                        ),
-                        bodyText = WikipediaApp.instance.resources.getQuantityString(
-                            R.plurals.year_in_review_read_count_bodytext,
-                            readCount,
-                            readCount,
-                            readCountApiTitles[0],
-                            readCountApiTitles[1],
-                            readCountApiTitles[2]
-                        )
-                    )
-                } else {
-                    nonEnglishCollectiveReadCountData
+            val remoteConfig = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration().commonv1?.getYirForYear(YIR_YEAR)!!
+            val dataStartInstant = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC)
+            val dataEndInstant = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC)
+            val dataStartMillis = dataStartInstant.toEpochMilli()
+            val dataEndMillis = dataEndInstant.toEpochMilli()
+
+            val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
+
+            if (yearInReviewModelMap[YIR_YEAR] == null) {
+                val now =
+                    LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+
+                val totalSavedArticlesCount = async {
+                    AppDatabase.instance.readingListPageDao()
+                        .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
                 }
-            }
+                val randomSavedArticleTitles = async {
+                    AppDatabase.instance.readingListPageDao()
+                        .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, dataStartMillis, dataEndMillis)
+                        .map { StringUtil.fromHtml(it).toString() }
+                }
 
-            val homeSiteCall = async {
-                ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime
-                    )
-            }
-            val commonsCall = async {
-                ServiceFactory.get(Constants.commonsWikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime
-                    )
-            }
-            val wikidataCall = async {
-                ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getUserContribsByTimeFrame(
-                        username = AccountUtil.userName,
-                        maxCount = 500,
-                        startDate = endTime,
-                        endDate = startTime,
-                        ns = 0,
-                    )
-            }
+                val readCountForTheYear = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getDistinctEntriesCountBetween(dataStartMillis, dataEndMillis)
+                }
 
-            val homeSiteResponse = homeSiteCall.await()
-            val commonsResponse = commonsCall.await()
-            val wikidataResponse = wikidataCall.await()
+                val topVisitedArticlesForTheYear = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, dataStartMillis, dataEndMillis)
+                        .map { StringUtil.fromHtml(it).toString() }
+                }
 
-            var editCount = homeSiteResponse.query?.userInfo!!.editCount
-            editCount += wikidataResponse.query?.userInfo!!.editCount
-            editCount += commonsResponse.query?.userInfo!!.editCount
+                val totalReadingTimeMinutes = async {
+                    AppDatabase.instance.historyEntryWithImageDao()
+                        .getTimeSpentBetween(dataStartMillis, dataEndMillis) / 60
+                }
 
-            if (editCount >= MINIMUM_EDIT_COUNT) {
-                val editCountData = YearInReviewScreenData.StandardScreen(
-                    animatedImageResource = R.drawable.wyir_bytes,
-                    staticImageResource = R.drawable.english_slide_05,
-                    headlineText = WikipediaApp.instance.resources.getQuantityString(
-                        R.plurals.year_in_review_edit_count_headline,
-                        editCount,
-                        editCount
-                    ),
-                    bodyText = WikipediaApp.instance.resources.getQuantityString(
-                        R.plurals.year_in_review_edit_count_bodytext,
-                        editCount,
-                        editCount
-                    )
+                val topVisitedCategoryForTheYear = async {
+                    val categories = AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY * 10)
+                        .map { StringUtil.removeNamespace(it.title) }
+                    val categoriesWithTwoSpaces = categories.filter { it.count { c -> c == ' ' } >= 2 }
+                    val remainingCategories = categories.filter { it.count { c -> c == ' ' } < 2 }
+                    categoriesWithTwoSpaces.plus(remainingCategories)
+                        .take(MAX_TOP_CATEGORY)
+                }
+
+                val impactDataJob = async {
+                    if (AccountUtil.isLoggedIn) {
+                        val wikiSite = WikipediaApp.instance.wikiSite
+                        val now = Instant.now().epochSecond
+                        val impact: GrowthUserImpact
+                        val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+                        val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
+                            val userId =
+                                ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                            impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                            impactLastResponseBodyMap[wikiSite.languageCode] =
+                                JsonUtil.encodeToString(impact).orEmpty()
+                            Prefs.impactLastResponseBody = impactLastResponseBodyMap
+                            Prefs.impactLastQueryTime = now
+                        } else {
+                            impact = JsonUtil.decodeFromString(impactResponse)!!
+                        }
+
+                        val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+                            titles = impact.topViewedArticles.keys.joinToString(separator = "|")
+                        )
+
+                        // Transform the response to a map of PageTitle to ArticleViews
+                        val pageMap = pagesResponse.query?.pages?.associate { page ->
+                            val pageTitle = PageTitle(
+                                text = page.title,
+                                wiki = wikiSite,
+                                thumbUrl = page.thumbUrl(),
+                                description = page.description,
+                                displayText = page.displayTitle(wikiSite.languageCode)
+                            )
+                            pageTitle to impact.topViewedArticles[pageTitle.text]!!
+                        } ?: emptyMap()
+
+                        impact.topViewedArticlesWithPageTitle = pageMap
+                        impact
+                    } else {
+                        GrowthUserImpact()
+                    }
+                }
+
+                val homeSiteCall = async {
+                    ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
+                        )
+                }
+                val commonsCall = async {
+                    ServiceFactory.get(Constants.commonsWikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant
+                        )
+                }
+                val wikidataCall = async {
+                    ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getUserContribsByTimeFrame(
+                            username = AccountUtil.userName,
+                            maxCount = 500,
+                            startDate = dataEndInstant,
+                            endDate = dataStartInstant,
+                            ns = 0,
+                        )
+                }
+
+                val homeSiteResponse = homeSiteCall.await()
+                val commonsResponse = commonsCall.await()
+                val wikidataResponse = wikidataCall.await()
+
+                var editCount = homeSiteResponse.query?.userInfo!!.editCount
+                editCount += wikidataResponse.query?.userInfo!!.editCount
+                editCount += commonsResponse.query?.userInfo!!.editCount
+
+                val favoriteTimeToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteTimeToReadBetween(dataStartMillis, dataEndMillis)
+                }
+
+                val favoriteDayToRead = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getFavoriteDayToReadBetween(dataStartMillis, dataEndMillis)
+                }
+
+                val mostReadingMonth = async {
+                    AppDatabase.instance.historyEntryDao()
+                        .getMostReadingMonthBetween(dataStartMillis, dataEndMillis)
+                }
+
+                val favoriteTimeToReadHour = favoriteTimeToRead.await() ?: 0
+
+                val favoriteDayToReadIndex = favoriteDayToRead.await()?.let {
+                    if (it == 0) 7 else it
+                } ?: 1
+
+                val mostReadingMonthIndex = mostReadingMonth.await() ?: 1
+
+                yearInReviewModelMap[YIR_YEAR] = YearInReviewModel(
+                    totalReadingTimeMinutes = totalReadingTimeMinutes.await(),
+                    localSavedArticlesCount = totalSavedArticlesCount.await(),
+                    localReadingArticlesCount = readCountForTheYear.await(),
+                    localSavedArticles = randomSavedArticleTitles.await(),
+                    localTopVisitedArticles = topVisitedArticlesForTheYear.await(),
+                    localTopCategories = topVisitedCategoryForTheYear.await(),
+                    favoriteTimeToRead = favoriteTimeToReadHour,
+                    favoriteDayToRead = favoriteDayToReadIndex,
+                    favoriteMonthDidMostReading = mostReadingMonthIndex,
+                    closestLocation = Pair(0.0, 0.0),
+                    closestArticles = emptyList(),
+                    userEditsCount = editCount,
+                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()
                 )
-                _uiScreenListState.value = UiState.Success(
-                    data = listOf(readCountJob.await(), editCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-                )
-            } else {
-                _uiScreenListState.value = UiState.Success(
-                    data = listOf(readCountJob.await(), nonEnglishCollectiveEditCountData, nonEnglishCollectiveReadCountData, nonEnglishCollectiveEditCountData)
-                )
+
+                Prefs.yearInReviewModelData = yearInReviewModelMap
             }
+
+            val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
+
+            val finalRoute = YearInReviewSlides(
+                context = WikipediaApp.instance,
+                currentYear = YIR_YEAR,
+                isEditor = yearInReviewModel.userEditsCount > 0,
+                isLoggedIn = AccountUtil.isLoggedIn,
+                isEnglishWiki = WikipediaApp.instance.wikiSite.languageCode == "en",
+                isFundraisingAllowed = !remoteConfig.hideDonateCountryCodes.contains(GeoUtil.geoIPCountry.orEmpty()),
+                config = remoteConfig,
+                yearInReviewModel = yearInReviewModel
+            ).finalSlides()
+
+            // TODO: make sure return enough slides here
+            _uiScreenListState.value = UiState.Success(
+                data = finalRoute
+            )
         }
     }
 
     companion object {
-        private const val MINIMUM_READ_COUNT = 3
-        private const val MINIMUM_EDIT_COUNT = 1
+        const val YIR_YEAR = 2025
+        const val MAX_EDITED_TIMES = 500
+        const val MIN_SAVED_ARTICLES = 3
+        const val MAX_TOP_ARTICLES = 5
+        const val MIN_TOP_CATEGORY = 3
+        const val MAX_TOP_CATEGORY = 5
+        const val MIN_READING_ARTICLES = 5
+        const val MIN_READING_MINUTES = 1
+        const val MIN_READING_PATTERNS_ARTICLES = 5
 
-        val getStartedData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.year_in_review_block_10_resize,
-            staticImageResource = R.drawable.personal_slide_00,
-            headlineText = R.string.year_in_review_get_started_headline,
-            bodyText = R.string.year_in_review_get_started_bodytext,
-        )
+        // Whether Year-in-Review should be accessible at all.
+        // (different from the user enabling/disabling it in Settings.)
+        val isAccessible get(): Boolean {
+            if (Prefs.isShowDeveloperSettingsEnabled) {
+                return true
+            }
+            val config = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val now = LocalDateTime.now()
+            return (config != null &&
+                    !config.hideCountryCodes.contains(GeoUtil.geoIPCountry) &&
+                    now.isAfter(config.activeStartDate) &&
+                    now.isBefore(config.activeEndDate))
+        }
 
-        val nonEnglishCollectiveReadCountData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.wyir_puzzle_3,
-            staticImageResource = R.drawable.non_english_slide_01,
-            headlineText = R.string.year_in_review_non_english_collective_readcount_headline,
-            bodyText = R.string.year_in_review_non_english_collective_readcount_bodytext,
-        )
-
-        val nonEnglishCollectiveEditCountData = YearInReviewScreenData.StandardScreen(
-            animatedImageResource = R.drawable.wyir_puzzle_2_v5,
-            staticImageResource = R.drawable.english_slide_01_and_non_english_slide_05,
-            headlineText = R.string.year_in_review_non_english_collective_editcount_headline,
-            bodyText = R.string.year_in_review_non_english_collective_editcount_bodytext,
-        )
+        val isCustomIconAllowed get(): Boolean {
+            return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
     }
 }

@@ -1837,19 +1837,6 @@
   <string name="year_in_review_information_icon">Tietoa-kuvake</string>
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
   <string name="year_in_review_get_started_bodytext">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa. Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
-  <string name="year_in_review_entry_dialog_title">Tutustu Wikipedia-vuoteesi</string>
-  <string name="year_in_review_entry_dialog_bodytext">Tutustu kohokohtiin miten artikkeleita luetaan ja muokataan Wikipediassa.</string>
-  <string name="year_in_review_entry_dialog_continue">Jatka</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Luit %d artikkelin tänä vuonna</item>
-    <item quantity="other">Luit %d artikkelia tänä vuonna</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Muokkasit Wikipediaa %d kerran</item>
-    <item quantity="other">Muokkasit Wikipediaa %d kertaa</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia oli saatavilla yli 300 kielellä</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipediassa oli yli 63 miljoonaa artikkelia yli 300 aktiivisella kielellä. Liityit miljoonien joukkoon laajentamassa tietämystä ja tutkimassa moninaisia aiheita.</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
   <string name="year_in_review_survey_satisfied">Tyytyväinen</string>

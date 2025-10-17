@@ -86,6 +86,8 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -176,6 +178,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     }
                 }
             }
+        }
+    }
+
+    private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_CANCELED) {
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
         }
     }
 
@@ -283,6 +291,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
         }
+
+        maybeShowYearInReview()
     }
 
     override fun onStart() {
@@ -704,6 +714,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
             .show()
+    }
+
+    private fun maybeShowYearInReview() {
+        if (YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
+            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+        }
     }
 
     private fun maybeShowThemeTooltip() {
