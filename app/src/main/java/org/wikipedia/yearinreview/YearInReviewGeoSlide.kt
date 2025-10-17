@@ -135,6 +135,13 @@ fun GeoScreenContent(
                                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
                                 map.uiSettings.setAttributionMargins(defMargin, 0, 0, defMargin)
 
+                                map.uiSettings.isZoomGesturesEnabled = false
+                                map.uiSettings.isScrollGesturesEnabled = false
+                                map.uiSettings.isRotateGesturesEnabled = false
+                                map.uiSettings.isTiltGesturesEnabled = false
+                                map.uiSettings.isDoubleTapGesturesEnabled = false
+                                map.uiSettings.isQuickZoomGesturesEnabled = false
+
                                 val symbolManager = SymbolManager(mapView, map, style)
                                 symbolManager.iconAllowOverlap = true
                                 symbolManager.textAllowOverlap = true
