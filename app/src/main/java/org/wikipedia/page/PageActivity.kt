@@ -87,6 +87,7 @@ import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import org.wikipedia.yearinreview.maybeShowYearInReviewFeedbackDialog
 import java.util.Locale
 
@@ -718,7 +719,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun maybeShowYearInReview() {
-        if (Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
+        if (YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
             yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
         }
     }
