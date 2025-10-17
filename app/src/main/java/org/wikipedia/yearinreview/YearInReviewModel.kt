@@ -13,8 +13,9 @@ data class YearInReviewModel(
     val favoriteTimeToRead: Int,
     val favoriteDayToRead: Int,
     val favoriteMonthDidMostReading: Int,
-    val closestLocation: Pair<Double, Double>,
-    val closestArticles: List<String>,
+    val largestClusterLocation: Pair<Double, Double>,
+    val largestClusterCountryName: String,
+    val largestClusterArticles: List<String>,
     val userEditsCount: Int,
     val userEditsViewedTimes: Long,
     val isCustomIconUnlocked: Boolean

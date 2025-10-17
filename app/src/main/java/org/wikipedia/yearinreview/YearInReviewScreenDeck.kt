@@ -405,7 +405,11 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.GeoScreen -> {
-            // @TODO: geo location screen
+            GeoScreenContent(
+                innerPadding = innerPadding,
+                screenData = screenData,
+                screenCaptureMode = screenCaptureMode
+            )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
@@ -538,7 +542,7 @@ fun LoadingIndicator() {
 }
 
 @Composable
-private fun processString(resource: Any?): String {
+fun processString(resource: Any?): String {
     return when (resource) {
         is Int -> stringResource(resource)
         else -> resource.toString()
