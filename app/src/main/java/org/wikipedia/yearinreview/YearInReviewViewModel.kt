@@ -236,6 +236,7 @@ class YearInReviewViewModel() : ViewModel() {
 
     companion object {
         const val YIR_YEAR = 2025
+        const val YIR_TAG = "yir_$YIR_YEAR"
         const val MAX_EDITED_TIMES = 500
         const val MIN_SAVED_ARTICLES = 3
         const val MAX_TOP_ARTICLES = 5
@@ -243,7 +244,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_CATEGORY = 5
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
-        const val YIR_TAG = "yir_$YIR_YEAR"
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)

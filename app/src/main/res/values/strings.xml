@@ -1990,8 +1990,8 @@
     <string name="year_in_review_setting_subtitle">Turning off Year in Review will clear all stored personalized insights, and hide the Year in Review.</string>
     <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
-    <string name="year_in_review_share_subject">Wikipedia Year in Review</string>
-    <string name="year_in_review_share_body">Here\'s my Wikipedia Year in Review. Created with the Wikipedia Android app %s #WikipediaYearInReview</string>
+    <string name="year_in_review_share_subject">My Wikipedia Year in Review</string>
+    <string name="year_in_review_share_body">Here\'s my Wikipedia Year in Review. Created with the Wikipedia Android app %1$s %2$s</string>
     <string name="year_in_review_globe_icon">Globe icon</string>
     <string name="settings_app_icon_title">App icon</string>
     <string name="settings_app_icon_subtitle">Contributor benefit</string>
