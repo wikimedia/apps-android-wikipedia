@@ -1151,7 +1151,9 @@
   <string name="edit_summary_added_image_and_caption">Bilde og bildetekst lagt til</string>
   <string name="edit_published_view">Vis</string>
   <string name="activity_tab_logged_out_title">Logg inn eller opprett en konto for å se aktiviteten din i Wikipedia-appen</string>
+  <string name="activity_tab_user_reading">%ss lesning</string>
   <string name="activity_tab_on_wikipedia_android">På Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
   <string name="activity_tab_weekly_time_spent">Tid brukt på lesing denne uken</string>
   <string name="activity_tab_monthly_articles_read">Artikler lest denne måneden</string>
   <string name="activity_tab_monthly_articles_saved">Artikler lagret denne måneden</string>
@@ -1161,6 +1163,7 @@
   <string name="activity_tab_donation_unknown">Ukjent</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Siste gave&lt;/b&gt; i appen</string>
   <string name="activity_tab_game_stats">Spillstatistikk</string>
+  <string name="activity_tab_game_stats_best_streak">Beste rekke</string>
   <string name="activity_tab_play_wiki_games">Spill wikispill</string>
   <string name="activity_tab_report_email_subject">Feilrapport – aktivitetsfane</string>
   <string name="activity_tab_report_email_body">Jeg har funnet et problem med aktivitetsfanefunksjonen:\n- [Beskriv et spesifikt problem]\n\nDet jeg ønsker at skulle skje er:\n- [Legg inn løsningsforslag]</string>

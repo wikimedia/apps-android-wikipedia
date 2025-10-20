@@ -59,6 +59,7 @@ sealed class YearInReviewScreenData(
     val allowDonate: Boolean = true,
     val showDonateInToolbar: Boolean = true
 ) {
+
     @Composable
     open fun BottomButton(context: Context, onButtonClick: () -> Unit) {
     }
