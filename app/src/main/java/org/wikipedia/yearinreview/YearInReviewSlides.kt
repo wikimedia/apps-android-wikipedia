@@ -2,10 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
-<<<<<<< HEAD
 import org.wikipedia.history.db.HistoryEntryWithImage
-=======
->>>>>>> main
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import java.text.NumberFormat
@@ -22,10 +19,7 @@ class YearInReviewSlides(
     val isEnglishWiki: Boolean,
     val isFundraisingAllowed: Boolean,
     val config: RemoteConfig.RemoteConfigYearInReview,
-<<<<<<< HEAD
     val pagesWithCoordinates: List<HistoryEntryWithImage>,
-=======
->>>>>>> main
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -197,7 +191,6 @@ class YearInReviewSlides(
         )
     }
 
-<<<<<<< HEAD
     private fun geoWithArticlesScreen(): YearInReviewScreenData.GeoScreen? {
         if (yearInReviewModel.largestClusterCountryName.isEmpty() || yearInReviewModel.largestClusterArticles.size < YearInReviewViewModel.MIN_ARTICLES_PER_MAP_CLUSTER) {
             return null
@@ -209,15 +202,6 @@ class YearInReviewSlides(
             pagesWithCoordinates = pagesWithCoordinates,
             headlineText = context.resources.getString(R.string.year_in_review_slide_geo_headline, yearInReviewModel.largestClusterCountryName),
             bodyText = context.resources.getString(R.string.year_in_review_slide_geo_body, yearInReviewModel.largestClusterCountryName, yearInReviewModel.largestClusterArticles[0], yearInReviewModel.largestClusterArticles[1])
-=======
-    private fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
-        // TODO: yir112
-        return YearInReviewScreenData.GeoScreen(
-            isFundraisingAllowed,
-            coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
-            headlineText = "Articles you read are closest to France",
-            bodyText = "TBD"
->>>>>>> main
         )
     }
 
