@@ -338,7 +338,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             isTextValid = false
             setError(context.getString(R.string.description_too_short))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-            (punctuationList.any { text.endsWith(it) })) {
+            punctuationList.any { text.endsWith(it) }) {
             isTextValid = false
             setError(context.getString(R.string.description_ends_with_punctuation))
         } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
