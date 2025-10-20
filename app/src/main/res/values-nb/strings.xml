@@ -1151,7 +1151,9 @@
   <string name="edit_summary_added_image_and_caption">Bilde og bildetekst lagt til</string>
   <string name="edit_published_view">Vis</string>
   <string name="activity_tab_logged_out_title">Logg inn eller opprett en konto for å se aktiviteten din i Wikipedia-appen</string>
+  <string name="activity_tab_user_reading">%ss lesning</string>
   <string name="activity_tab_on_wikipedia_android">På Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
   <string name="activity_tab_weekly_time_spent">Tid brukt på lesing denne uken</string>
   <string name="activity_tab_monthly_articles_read">Artikler lest denne måneden</string>
   <string name="activity_tab_monthly_articles_saved">Artikler lagret denne måneden</string>
@@ -1161,6 +1163,7 @@
   <string name="activity_tab_donation_unknown">Ukjent</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Siste gave&lt;/b&gt; i appen</string>
   <string name="activity_tab_game_stats">Spillstatistikk</string>
+  <string name="activity_tab_game_stats_best_streak">Beste rekke</string>
   <string name="activity_tab_play_wiki_games">Spill wikispill</string>
   <string name="activity_tab_report_email_subject">Feilrapport – aktivitetsfane</string>
   <string name="activity_tab_report_email_body">Jeg har funnet et problem med aktivitetsfanefunksjonen:\n- [Beskriv et spesifikt problem]\n\nDet jeg ønsker at skulle skje er:\n- [Legg inn løsningsforslag]</string>
@@ -1852,20 +1855,6 @@
   <string name="year_in_review_information_icon">Informasjonsikon</string>
   <string name="year_in_review_get_started_headline">Utforsk Wikipedia-årskavalkaden din</string>
   <string name="year_in_review_get_started_bodytext">Få innsikt i hvilke artikler du har lest i Wikipedia-appen og redigeringene du har gjort. Lesehistorikken din er beskyttet. Leseinnsikten beregnes ved hjelp av data som lagres lokalt på enheten din.</string>
-  <string name="year_in_review_entry_dialog_title">Utforsk Wikipedia-årskavalkaden din</string>
-  <string name="year_in_review_entry_dialog_bodytext">Få innsikt i hvilke artikler vi har lest og redigert, og del høydepunkter fra året vårt på Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Fortsett</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Du leste %d artikkel i år</item>
-    <item quantity="other">Du leste %d artikler i år</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Du redigerte Wikipedia %d gang</item>
-    <item quantity="other">Du redigerte Wikipedia %d ganger</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia var tilgjengelig på mer enn 300 språk</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia hadde mer enn 63 millioner artikler på tvers av over 300 aktive språkutgaer i år. Du ble én av mange millioner mennesker som utvidet kunnskapen og utforsket mangfoldige emner</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Bidragsytere med iOS-appen gjorde mer en 452 257 redigeringer</string>
   <string name="year_in_review_survey_title">Hjelp til å forbedre årskavalkaden</string>
   <string name="year_in_review_survey_subtitle">Er du fornøyd med denne funksjonen?</string>
   <string name="year_in_review_survey_very_satisfied">Veldig fornøyd</string>

@@ -1857,24 +1857,20 @@
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
   <string name="year_in_review_navigate_left">Content description of the navigation left icon for the Year in Review Scaffold.</string>
+  <string name="year_in_review_close">Content description of the close button in the Year in Review app bar.</string>
   <string name="year_in_review_share_icon">Content description of the share icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_heart_icon">Content description of the heart icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_navigate_right">Content description of the navigate right icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_donate">Clickable Donate string for the Year in Review screen scaffold.</string>
   <string name="year_in_review_information_icon">Content description of the information icon for the Year in Review screen scaffold.</string>
   <string name="year_in_review_get_started_headline">Healine text for the year in review get started page</string>
-  <string name="year_in_review_get_started_bodytext">Body text for the the year in review get started page</string>
-  <string name="year_in_review_entry_dialog_title">Headline for the year in review Explore Screen</string>
-  <string name="year_in_review_entry_dialog_bodytext">Body text for the year in review Explore Screen</string>
-  <string name="year_in_review_entry_dialog_continue">Button text for the year in review Explore Screen</string>
-  <string name="year_in_review_read_count_headline">Headline text for the year in review readcount page. %d represents how many articles a user read for the current year.</string>
-  <string name="year_in_review_read_count_bodytext">Body text for the Year in Review read count page. %1$d is the total number of articles in the HistoryEntry table for the current year. %2$s, %3$s, and %4$s are the titles of three example articles the user has read, used for personalization.</string>
-  <string name="year_in_review_edit_count_headline">Headline text for the year in review editcount page. %d represents the total number of user contributions for the current year</string>
-  <string name="year_in_review_edit_count_bodytext">Body text for the year in review editcount page. %d represents the total number of user contributions for the current year</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">Headline text for the year in review non-english collective read count screen</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Body text for the year in review non-english collective read count screen</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Headline text for the year in review non-english collective edit count screen</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Body text for the year in review non-english collective edit count screen</string>
+  <string name="year_in_review_get_started_bodytext">Body text for the year in review get started page.</string>
+  <string name="year_in_review_get_started_info">Info text for the year in review get started page.</string>
+  <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
+  <string name="year_in_review_disable_title">Title of dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_disable_positive_button">Positive button for dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_disable_negative_button">Negative button for dialog box asking if the user wants to disable Year in Review.</string>
+  <string name="year_in_review_setting_subtitle">Explanation for the preference that allows the user to disable the Year in Review feature.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
   <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>
@@ -1886,10 +1882,166 @@
   <string name="year_in_review_survey_cancel">Cancel button text for the Year in Review survey</string>
   <string name="year_in_review_survey_submit">Submit button text for the Year in Review survey</string>
   <string name="year_in_review_screendeck_image_content_description">Content description for the image used in the Year in Review main screendeck</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Content description for the image used in the Year in Review entry dialog screen</string>
   <string name="year_in_review_screenshot_error">A generic error idicator with \"%s\" representing the actual error thrown</string>
   <string name="year_in_review_share_subject">The subject line for sharing the year in review</string>
   <string name="year_in_review_globe_icon">Content description for the year in review globe icon</string>
+  <string name="settings_app_icon_title">Title for dialog where the user selects a custom app icon.</string>
+  <string name="settings_app_icon_subtitle">Subtitle for dialog where the user selects a custom app icon.</string>
+  <string name="settings_app_icon_preference_subtitle">Explanation for a preference that allows selection of a custom app icon as a reward for this year\'s contributions. The %d symbol is replaced with the year.</string>
+  <string name="settings_app_icon_updated">Message shown when the user selects a custom app icon.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Title of screen informing the user that a new app icon has been unlocked.</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Title of screen informing the user about how to unlock a new app icon.</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Body text of screen informing the user that a new app icon has been unlocked, based on contributions for this year. The %1$s is replaced with a contributor type of word and the %2$d symbol is replaced with the year.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Body text of screen informing the user about unlocking a contributor benefit for next year\'s year-in-review. The %1$d parameter is the current year, %2$d is the next year, %3$s is a URL for learning about editing Wikipedia, and %4$s is a URL to the home page of the Wikimedia Foundation.</string>
+  <string name="year_in_review_slide_app_icon_donor">Text of the app unlock screen that indicates the user is a donor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
+  <string name="year_in_review_slide_app_icon_editor">Text of the app unlock screen that indicates the user is an editor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">Text of the app unlock screen that indicates the user is a donor and an editor. This text will be a part of the app icon has been unlocked screen that indicates the contributor type.</string>
+  <string name="year_in_review_login_dialog_title">Title of a dialog asking the user to log in before accessing the Year in Review feature.</string>
+  <string name="year_in_review_login_dialog_body">Body text of a dialog asking the user to log in before accessing the Year in Review feature.</string>
+  <string name="year_in_review_login_dialog_positive">Positive button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
+  <string name="year_in_review_login_dialog_negative">Negative button label for a dialog asking the user to log in before accessing the Year in Review feature.</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Title of the top article slide for the Year in Review.</item>
+    <item quantity="other">Title of the top articles slide for the Year in Review.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Body text of the top article slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the top article.</item>
+    <item quantity="other">Body text of the top articles slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top articles.</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Title of the top categories slide for the Year in Review.</string>
+  <string name="year_in_review_slide_top_categories_body">Body text of the top categories slide for the Year in Review. The %1$d will be replaced by the current year and %2$s will be replaced by the list of top categories.</string>
+  <string name="year_in_review_slide_popular_english_articles_headline">Title of the most popular English Wikipedia articles for the Year in Review.</string>
+  <plurals name="year_in_review_slide_popular_english_articles_body">
+    <item quantity="one">Body text of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
+    <item quantity="other">Body text of the most popular English Wikipedia articles for the Year in Review. The %1$d will be replaced by the number of articles and %2$s will be replaced by the list of the most popular English articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Title of the edit viewed times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the edits viewed times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Body text of the edit viewed times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Body text of the edits viewed times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Title of the edited time per minute slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the edited times per minute slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Body text of the edited times per minute slide for the Year in Review. %s will be replaced by the wiki page URL.</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">Title of the added byte slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the added bytes slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">Body text of thea added byte slide for the Year in Review. %1$d will be replaced by the current year, %2$,d will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+    <item quantity="other">Body text of thea added bytes slide for the Year in Review. %1$d will be replaced by the current year, %2$,d will be replaced by the formatted number, and %3$s will be replaced by the wiki page URL.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Title of the user edited times slide for the Year in Review. %s will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the user edited times for the Year in Review. %s will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Body of the user edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Body of the user edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Title of the app edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the app edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Body of the app edited times slide for the Year in Review.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Title of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Title of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Body of the first paragraph of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+    <item quantity="other">Body of second paragraph of the English Wikipedia edited times slide for the Year in Review. %,d will be replaced by the formatted number.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Title of the user saved articles slide for the Year in Review. %,d will be replaced by the number of saved article.</item>
+    <item quantity="other">Title of the user saved articles slide for the Year in Review. %,d will be replaced by the number of saved articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Body text of the user saved articles slide for the Year in Review. The %1$s, %2$s, and %3$s will be replaced by the article titles, and %4$,d will be replaced by the total number of saved article from the app.</item>
+    <item quantity="other">Body text of the user saved articles slide for the Year in Review. The %1$s, %2$s, and %3$s will be replaced by the article titles, and %4$,d will be replaced by the total number of saved articles from the app.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Title of the app saved article slide for the Year in Review. %,d will be replaced by the total number of saved article from the app.</item>
+    <item quantity="other">Title of the app saved articles slide for the Year in Review. %,d will be replaced by the total number of saved articles from the app.</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Body text of the app saved articles slide for the Year in Review.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Title of the reading patterns slide for the Year in Review</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Text of the time bucket that indicates the favorite time to read.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Text of the time bucket that indicates the favorite day to read.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Text of the time bucket that indicates the month you did the most reading.</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Text of the time bucket that indicates morning.</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Text of the time bucket that indicates midday</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Text of the time bucket that indicates afternoon</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Text of the time bucket that indicates evening</string>
+  <string name="year_in_review_slide_reading_pattern_night">Text of the time bucket that indicates night</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Text of the time bucket that indicates late night</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Title of the English reading hours slide for the Year in Review. %,d will be replaced by the number of hour.</item>
+    <item quantity="other">Title of the English reading hours slide for the Year in Review. %,d will be replaced by the number of hours.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Body of the first part of the English reading hours slide for the Year in Review. %,d will be replaced by the number of hour.</item>
+    <item quantity="other">Body of the first part of the English reading hours slide for the Year in Review. %,d will be replaced by the number of hours.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">Body of the second part of the English reading hours slide for the Year in Review. %1$,d will be replaced by the year from the total hours and %2$d will be replaced by the current year.</item>
+    <item quantity="other">Body of the second part of the English reading hours slide for the Year in Review. %1$,d will be replaced by the years from the total hours and %2$d will be replaced by the current year.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Title of the available languages slide for the Year in Review. %,d will be replaced by the number of available langauges.</item>
+    <item quantity="other">Title of the available languages slide for the Year in Review. %,d will be replaced by the numbers of available langauges.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Body of the first part of the available languages slide for the Year in Review. %,d will be replaced by the number of article.</item>
+    <item quantity="other">Body of the first part of the available languages slide for the Year in Review. %,d will be replaced by the number of articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">Body of the second part of the available languages slide for the Year in Review. %,d will be replaced by the number of active language.</item>
+    <item quantity="other">Body of the second part of the available languages slide for the Year in Review. %,d will be replaced by the number of active languages.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Title of the first part of the spent minutes slide for the Year in Review. %,d will be replaced by the number of minute.</item>
+    <item quantity="other">Title of the first part of the spent minutes slide for the Year in Review. %,d will be replaced by the number of minutes.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">Title of the second part of the spent minutes slide for the Year in Review. %1$,d will be replaced by the number of article and %2$d will be replaced by the current year.</item>
+    <item quantity="other">Title of the second part of the spent minutes slide for the Year in Review. %1$,d will be replaced by the number of articles and %2$d will be replaced by the current year.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the percentage ranking and %2$,d will be replaced by the number of article.</item>
+    <item quantity="other">Body of the top part of the spent minutes slide for the Year in Review. %1$s will be replaced by the percentage ranking and %2$,d will be replaced by the number of articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Body of the first part of the global spent minutes slide for the Year in Review. %,d will be replaced by the number of article.</item>
+    <item quantity="other">Body of the first part of the global spent minutes slide for the Year in Review. %,d will be replaced by the number of articles.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">Body of the second part of the global spent minutes slide for the Year in Review. %,d will be replaced by the number of active language.</item>
+    <item quantity="other">Body of the second part of the global spent minutes slide for the Year in Review. %,d will be replaced by the number of active languages.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Body of the first part of the English spent minutes slide for the Year in Review. %,d will be replaced by the number of hour.</item>
+    <item quantity="other">Body of the first part of the English spent minutes slide for the Year in Review. %,d will be replaced by the number of hours.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">Body of the second part of the English spent minutes slide for the Year in Review. %1$,d will be replaced by the year from the total hours and %2$d will be replaced by the current year.</item>
+    <item quantity="other">Body of the second part of the English spent minutes slide for the Year in Review. %1$,d will be replaced by the years from the total hours and %2$d will be replaced by the current year.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Title of the app users viewed articles time slide for the Year in Review. %,d will be replaced by the number of viewed time.</item>
+    <item quantity="other">Title of the app users viewed articles times slide for the Year in Review. %,d will be replaced by the number of viewed times.</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Body of the app users viewed articles time slide for the Year in Review.</string>
+
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>
   <string name="recommended_reading_list_onboarding_card_message">Message on the onboarding card for the recommended reading list.</string>

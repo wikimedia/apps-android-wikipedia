@@ -838,7 +838,7 @@
   <string name="view_top_read_card_title">よく読まれている記事</string>
   <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
-  <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d百万</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
@@ -1765,7 +1765,7 @@
   <string name="recommended_reading_list_settings_toggle">あとで読むリストを発見</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">発見はオフです。ウィキペディアは読む記事をお勧めしません。</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">発見をオフにしますか？</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_message">発見をオフにすると、%sウィキペディアからお勧めを受け取るのを停止します。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">発見をオフにすると、%sウィキペディアから届くお勧めを停止します。</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">オフにする</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">いいえ、オンのままにします</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">発見がオフになっています。いつでも設定でオンに戻せます。</string>
@@ -1791,10 +1791,10 @@
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">取り消す</string>
   <string name="recommended_reading_list_settings_interests">興味</string>
   <string name="recommended_reading_list_settings_notifications_title">通知</string>
-  <string name="recommended_reading_list_settings_notifications_subtitle">発見が更新されたときにウィキペディアは通知を送信しません。</string>
-  <string name="recommended_reading_list_settings_notifications_subtitle_disable">発見の通知がオフになっています。発見が更新されたときに通知を受け取りません。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">発見が更新されてもウィキペディアから通知を送信しません。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">発見の通知がオフになっています。発見が更新されたときに通知が届きません。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">通知をオフにしますか?</string>
-  <string name="recommended_reading_list_settings_notifications_dialog_message">通知をオフにした場合、発見が更新されたときにリマインダーを受け取らなくなります。</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">通知をオフにした場合、発見が更新されたときにリマインダーが届かなくなります。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、そのままにします</string>
   <string name="donation_reminders_initial_prompt_positive_button">始める</string>
