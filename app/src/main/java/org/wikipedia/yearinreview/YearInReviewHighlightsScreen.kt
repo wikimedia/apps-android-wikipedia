@@ -92,7 +92,8 @@ fun YearInReviewHighlightsScreen(
                     .border(width = 1.dp, color = ComposeColors.Gray300)
                     .padding(8.dp)
                     .verticalScroll(rememberScrollState()),
-                highlights = screenData.highlights
+                highlights = screenData.highlights,
+                logoDescription = "Wikipedia logo"
             )
 
             Button(
@@ -117,7 +118,7 @@ fun ShareableHighlightsCard(
     modifier: Modifier = Modifier,
     hashtag: String = "#WikipediaYearinReview",
     logoResource: Int = R.drawable.w_nav_mark,
-    logoDescription: String = "Wikipedia logo",
+    logoDescription: String = "",
     highlights: List<YearInReviewScreenData.HighlightItem>,
 ) {
     Column(
