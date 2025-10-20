@@ -54,7 +54,7 @@ class YearInReviewViewModel() : ViewModel() {
             val dataStartMillis = dataStartInstant.toEpochMilli()
             val dataEndMillis = dataEndInstant.toEpochMilli()
 
-            var pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256)
+            var pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256, dataStartMillis, dataEndMillis)
                 .distinctBy { it.apiTitle }
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
