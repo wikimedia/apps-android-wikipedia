@@ -324,6 +324,12 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
 
     private fun validateText() {
         isTextValid = true
+        // T317462: accept ending punctuation for Czech descriptions
+        val punctuationList = if (pageTitle.wikiSite.languageCode == "cs") {
+            listOf(",", "!", "?")
+        } else {
+            listOf(".", ",", "!", "?")
+        }
         val text = binding.viewDescriptionEditText.text.toString().lowercase(Locale.getDefault()).trim()
         if (text.isEmpty()) {
             isTextValid = false
@@ -332,7 +338,7 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
             isTextValid = false
             setError(context.getString(R.string.description_too_short))
         } else if ((action == DescriptionEditActivity.Action.ADD_DESCRIPTION || action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-            (listOf(".", ",", "!", "?").filter { text.endsWith(it) }).isNotEmpty()) {
+            (punctuationList.filter { text.endsWith(it) }).isNotEmpty()) {
             isTextValid = false
             setError(context.getString(R.string.description_ends_with_punctuation))
         } else if (pageTitle.wikiSite.languageCode == "en" && text.length > resources.getInteger(R.integer.description_max_chars_en)) {
