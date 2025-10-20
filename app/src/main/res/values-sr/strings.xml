@@ -1110,9 +1110,12 @@
   <string name="edit_summary_added_image_and_caption">Додата слика и натпис</string>
   <string name="edit_published_view">Прикажи</string>
   <string name="activity_tab_logged_out_title">Пријавите се или отворите налог да видите Вашу активност</string>
+  <string name="activity_tab_on_wikipedia_android">На Википедији за Андроид</string>
   <string name="activity_tab_donation_unknown">Непознато</string>
   <string name="activity_tab_menu_info">Сазнајте више</string>
+  <string name="activity_tab_menu_customize">Прилагоди</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
+  <string name="activity_tab_impact_last_edited">Последње уређивање</string>
   <string name="activity_tab_timeline_today">Данас</string>
   <string name="activity_tab_timeline_yesterday">Јуче</string>
   <string name="activity_tab_timeline_view_changes_button">Види измене</string>
@@ -1692,6 +1695,7 @@
   <string name="year_in_review_survey_submit">Проследи</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Почнимо</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Нема везе</string>
@@ -1713,10 +1717,12 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
   <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
+  <string name="donation_settings_section_header">Донације</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
   <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Највише дозвољено %s</string>
   <string name="donation_reminders_settings_option_custom">Прилагођено…</string>
   <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
+  <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
 </resources>
