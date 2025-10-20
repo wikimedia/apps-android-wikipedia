@@ -96,20 +96,6 @@ fun YearInReviewScreenDeck(
             val pagerState = rememberPagerState(pageCount = { pages.size })
             var captureRequest by remember { mutableStateOf<YearInReviewCaptureRequest?>(null) }
 
-            if (startCapture) {
-                CreateScreenShotBitmap(
-                    screenContent = pages[pagerState.currentPage]
-                ) { bitmap ->
-                    ShareUtil.shareImage(
-                        coroutineScope = coroutineScope,
-                        context = context,
-                        bmp = bitmap,
-                        imageFileName = "year_in_review",
-                        subject = context.getString(R.string.year_in_review_share_subject),
-                        text = context.getString(R.string.year_in_review_share_url)
-                    )
-                    startCapture = false
-                }
             captureRequest?.let { request ->
                 YearInReviewCaptureHandler(
                     request = request,
@@ -126,7 +112,8 @@ fun YearInReviewScreenDeck(
                 topBar = {
                     TopAppBar(
                         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = WikipediaTheme.colors.paperColor),
+                            containerColor = WikipediaTheme.colors.paperColor
+                        ),
                         title = { },
                         navigationIcon = {
                             IconButton(onClick = { onBackButtonClick() }) {
@@ -170,12 +157,17 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
+                        onNavigationRightClick = {
+                            onNextButtonClick(
+                                pagerState,
+                                pages[pagerState.currentPage]
+                            )
+                        },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
-                            captureRequest = YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage])
-
+                            captureRequest =
+                                YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage])
                         },
                         onDonateClick = onDonateClick
                     )
@@ -190,7 +182,8 @@ fun YearInReviewScreenDeck(
                             innerPadding = paddingValues,
                             screenData = pages[page],
                             onShareHighlights = { highlights ->
-                                captureRequest = YearInReviewCaptureRequest.HighlightsScreen(highlights)
+                                captureRequest =
+                                    YearInReviewCaptureRequest.HighlightsScreen(highlights)
                             }
                         )
                     }
@@ -285,76 +278,6 @@ fun MainBottomBar(
                         contentDescription = stringResource(R.string.year_in_review_navigate_right)
                     )
                 }
-            }
-        }
-        Box {
-            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
-        }
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-        ) {
-            if (pages[pagerState.currentPage] !is YearInReviewScreenData.HighlightsScreen) {
-                IconButton(
-                    onClick = onShareClick,
-                    modifier = Modifier.padding(end = 16.dp)
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_share_icon)
-                    )
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .wrapContentHeight()
-                    .wrapContentWidth()
-                    .align(Alignment.Center),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                val animationDuration = 500
-                repeat(totalPages) { iteration ->
-                    val colorTransition by animateColorAsState(
-                        targetValue = if (pagerState.currentPage == iteration) {
-                            WikipediaTheme.colors.progressiveColor
-                        } else {
-                            WikipediaTheme.colors.inactiveColor
-                        },
-                        animationSpec = tween(durationMillis = animationDuration)
-                    )
-                    val sizeTransition by animateDpAsState(
-                        targetValue = paginationSizeGradient(
-                            totalIndicators = totalPages,
-                            iteration = iteration,
-                            pagerState = pagerState
-                        ).dp,
-                        animationSpec = tween(durationMillis = animationDuration)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .padding(2.dp)
-                            .clip(CircleShape)
-                            .background(colorTransition)
-                            .align(Alignment.CenterVertically)
-                            .size(sizeTransition)
-                    )
-                }
-            }
-
-            IconButton(
-                onClick = { onNavigationRightClick() },
-                modifier = Modifier
-                    .padding(0.dp)
-                    .align(Alignment.CenterEnd)
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                )
             }
         }
     }

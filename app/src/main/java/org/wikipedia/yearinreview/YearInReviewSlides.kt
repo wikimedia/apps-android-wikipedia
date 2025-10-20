@@ -466,7 +466,7 @@ class YearInReviewSlides(
             topCategoriesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
-        ) + editorRoutes() + unlockedIconRoute()).filterNotNull()
+        ) + editorRoutes() + unlockedIconRoute() + loggedInHighlightScreen()).filterNotNull()
     }
 
     private fun buildListWithNumbers(items: List<String>): String {
