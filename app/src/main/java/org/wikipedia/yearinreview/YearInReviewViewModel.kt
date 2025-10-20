@@ -214,6 +214,7 @@ class YearInReviewViewModel() : ViewModel() {
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
+                YearInReviewSurvey.resetYearInReviewSurveyState()
             }
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!

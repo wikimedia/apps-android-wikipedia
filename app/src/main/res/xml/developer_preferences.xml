@@ -525,9 +525,9 @@
             android:key="@string/preference_key_year_in_review_visited"
             android:title="@string/preference_key_year_in_review_visited" />
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_yir_survey_shown"
-            android:title="@string/preference_key_yir_survey_shown" />
+        <ListPreference
+            android:key="@string/preference_key_yir_survey_state"
+            android:title="Yir Survey State"/>
 
     </PreferenceCategory>
 
