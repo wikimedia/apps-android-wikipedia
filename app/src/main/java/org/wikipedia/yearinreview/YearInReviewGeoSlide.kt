@@ -42,7 +42,6 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
-import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapLibreMapOptions
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
@@ -153,7 +152,7 @@ fun GeoScreenContent(
                                         it.geoLat ?: 0.0,
                                         it.geoLon ?: 0.0
                                     )
-                                }.take(32)
+                                }.take(YearInReviewViewModel.MAX_ARTICLES_ON_MAP)
                                 nearbyPages.forEach { page ->
                                     page.annotation = symbolManager.create(
                                         SymbolOptions()
@@ -182,7 +181,7 @@ fun GeoScreenContent(
                                     }
                                 }
 
-                                goToLocation(map, screenData.largestClusterLatitude, screenData.largestClusterLongitude)
+                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(screenData.largestClusterLatitude, screenData.largestClusterLongitude), 4.0))
                             }
                         }
                     }
@@ -235,11 +234,4 @@ fun GeoScreenContent(
             )
         }
     }
-}
-
-private fun goToLocation(map: MapLibreMap, latitude: Double, longitude: Double, zoom: Double = 4.0) {
-    map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(latitude, longitude), zoom), object : MapLibreMap.CancelableCallback {
-        override fun onCancel() { }
-        override fun onFinish() { }
-    })
 }

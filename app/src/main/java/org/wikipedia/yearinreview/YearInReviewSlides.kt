@@ -192,7 +192,7 @@ class YearInReviewSlides(
     }
 
     private fun geoWithArticlesScreen(): YearInReviewScreenData.GeoScreen? {
-        if (yearInReviewModel.largestClusterCountryName.isEmpty() || yearInReviewModel.largestClusterArticles.size < 2) {
+        if (yearInReviewModel.largestClusterCountryName.isEmpty() || yearInReviewModel.largestClusterArticles.size < YearInReviewViewModel.MIN_ARTICLES_PER_MAP_CLUSTER) {
             return null
         }
         return YearInReviewScreenData.GeoScreen(

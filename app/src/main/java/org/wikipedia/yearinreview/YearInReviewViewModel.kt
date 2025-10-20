@@ -26,7 +26,6 @@ import org.wikipedia.util.log.L
 import java.io.IOException
 import java.time.Instant
 import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 import kotlin.String
@@ -55,15 +54,12 @@ class YearInReviewViewModel() : ViewModel() {
             val dataStartMillis = dataStartInstant.toEpochMilli()
             val dataEndMillis = dataEndInstant.toEpochMilli()
 
-            val pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256)
+            var pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256)
                 .distinctBy { it.apiTitle }
 
             val yearInReviewModelMap = Prefs.yearInReviewModelData.toMutableMap()
 
             if (yearInReviewModelMap[YIR_YEAR] == null) {
-                val now =
-                    LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
                         .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
@@ -205,7 +201,7 @@ class YearInReviewViewModel() : ViewModel() {
                 var largestClusterLongitude = 0.0
                 var largestClusterCountryName = ""
                 val largestClusterArticles = mutableListOf<String>()
-                if (pagesWithCoordinates.size > 2) {
+                if (pagesWithCoordinates.size > MIN_ARTICLES_PER_MAP_CLUSTER) {
                     try {
                         val clusters = LocationClusterer().clusterLocations(
                             locations = pagesWithCoordinates,
@@ -213,8 +209,8 @@ class YearInReviewViewModel() : ViewModel() {
                             minPoints = 3
                         )
                         val largestCluster = clusters.maxByOrNull { it.locations.size }
-                        if (largestCluster != null && largestCluster.centroid != null && largestCluster.locations.size >= 2) {
-                            largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(2))
+                        if (largestCluster != null && largestCluster.centroid != null && largestCluster.locations.size >= MIN_ARTICLES_PER_MAP_CLUSTER) {
+                            largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(MIN_ARTICLES_PER_MAP_CLUSTER))
                             largestClusterLatitude = largestCluster.centroid.latitude
                             largestClusterLongitude = largestCluster.centroid.longitude
                             val geocoder = Geocoder(WikipediaApp.instance)
@@ -222,6 +218,7 @@ class YearInReviewViewModel() : ViewModel() {
                             if (!results.isNullOrEmpty()) {
                                 largestClusterCountryName = results.first().countryName
                             }
+                            pagesWithCoordinates = largestCluster.locations.plus(pagesWithCoordinates.minus(largestCluster.locations))
                         }
                     } catch (_: IOException) {
                         // could be thrown by Geocoder, and safe to ignore.
@@ -280,6 +277,8 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
         const val MIN_READING_PATTERNS_ARTICLES = 5
+        const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
+        const val MAX_ARTICLES_ON_MAP = 32
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
