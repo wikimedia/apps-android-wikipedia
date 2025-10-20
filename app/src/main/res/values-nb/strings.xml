@@ -1855,20 +1855,6 @@
   <string name="year_in_review_information_icon">Informasjonsikon</string>
   <string name="year_in_review_get_started_headline">Utforsk Wikipedia-årskavalkaden din</string>
   <string name="year_in_review_get_started_bodytext">Få innsikt i hvilke artikler du har lest i Wikipedia-appen og redigeringene du har gjort. Lesehistorikken din er beskyttet. Leseinnsikten beregnes ved hjelp av data som lagres lokalt på enheten din.</string>
-  <string name="year_in_review_entry_dialog_title">Utforsk Wikipedia-årskavalkaden din</string>
-  <string name="year_in_review_entry_dialog_bodytext">Få innsikt i hvilke artikler vi har lest og redigert, og del høydepunkter fra året vårt på Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Fortsett</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Du leste %d artikkel i år</item>
-    <item quantity="other">Du leste %d artikler i år</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Du redigerte Wikipedia %d gang</item>
-    <item quantity="other">Du redigerte Wikipedia %d ganger</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia var tilgjengelig på mer enn 300 språk</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia hadde mer enn 63 millioner artikler på tvers av over 300 aktive språkutgaer i år. Du ble én av mange millioner mennesker som utvidet kunnskapen og utforsket mangfoldige emner</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Bidragsytere med iOS-appen gjorde mer en 452 257 redigeringer</string>
   <string name="year_in_review_survey_title">Hjelp til å forbedre årskavalkaden</string>
   <string name="year_in_review_survey_subtitle">Er du fornøyd med denne funksjonen?</string>
   <string name="year_in_review_survey_very_satisfied">Veldig fornøyd</string>

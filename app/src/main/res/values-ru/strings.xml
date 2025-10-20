@@ -2038,38 +2038,6 @@
   <string name="year_in_review_information_icon">Значок информации</string>
   <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
   <string name="year_in_review_get_started_bodytext">Смотрите статистику о прочитанных вами статьях в приложении Википедии и внесённых вами правок. Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
-  <string name="year_in_review_entry_dialog_title">Изучите ваш «Обзор года» в Википедии</string>
-  <string name="year_in_review_entry_dialog_bodytext">Узнайте, какие статьи мы прочитали и отредактировали, а также какими самыми яркими моментами прошедшего года в Википедии мы поделились.</string>
-  <string name="year_in_review_entry_dialog_continue">Продолжить</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Вы прочитали %d статью в этом году</item>
-    <item quantity="few">Вы прочитали %d статьи в этом году</item>
-    <item quantity="many">Вы прочитали %d статей в этом году</item>
-    <item quantity="other">Вы прочитали %d статей в этом году</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">В этом году вы прочитали %1$d статью, включая %2$s, %3$s и %4$s. В Википедии доступно более 63 миллионов статей на более чем 300 языках. Вы присоединились к миллионам людей, расширяющих знания и исследующих различные темы.</item>
-    <item quantity="few">В этом году вы прочитали %1$d статьи, включая %2$s, %3$s и %4$s. В Википедии доступно более 63 миллионов статей на более чем 300 языках. Вы присоединились к миллионам людей, расширяющих знания и исследующих различные темы.</item>
-    <item quantity="many">В этом году вы прочитали %1$d статей, включая %2$s, %3$s и %4$s. В Википедии доступно более 63 миллионов статей на более чем 300 языках. Вы присоединились к миллионам людей, расширяющих знания и исследующих различные темы.</item>
-    <item quantity="other">В этом году вы прочитали %1$d статей, включая %2$s, %3$s и %4$s. В Википедии доступно более 63 миллионов статей на более чем 300 языках. Вы присоединились к миллионам людей, расширяющих знания и исследующих различные темы.</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Вы редактировали Википедию %d раз</item>
-    <item quantity="few">Вы редактировали Википедию %d раза</item>
-    <item quantity="many">Вы редактировали Википедию %d раз</item>
-    <item quantity="other">Вы редактировали Википедию %d раз</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Вы редактировали Википедию %d раз. Благодарим вас за то, что вы стали одним из редакторов-волонтёров, вносящих вклад в проекты Викимедиа по всему миру.</item>
-    <item quantity="few">Вы редактировали Википедию %d раза. Благодарим вас за то, что вы стали одним из редакторов-волонтёров, вносящих вклад в проекты Викимедиа по всему миру.</item>
-    <item quantity="many">Вы редактировали Википедию %d раз. Благодарим вас за то, что вы стали одним из редакторов-волонтёров, вносящих вклад в проекты Викимедиа по всему миру.</item>
-    <item quantity="other">Вы редактировали Википедию %d раз. Благодарим вас за то, что вы стали одним из редакторов-волонтёров, вносящих вклад в проекты Викимедиа по всему миру.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Википедия была доступна на более чем 300 языках</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Википедия содержит более 63 миллионов статей на более чем 300 активных языках по итогам этого года. Вы присоединились к миллионам людей, расширяя свои знания и исследуя разнообразные темы.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Редакторы приложения для iOS внесли более 452 257 правок</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Сообщество волонтёров-редакторов Википедии внесло более 452 257 правок в приложение для iOS в этом году. Сердце и душа Википедии — это наше глобальное сообщество волонтёров, спонсоров и миллиардов читателей, таких как вы, — всех, кто объединён для предоставления неограниченного доступа к достоверной информации.</string>
-  <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
   <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
   <string name="year_in_review_survey_satisfied">Доволен</string>
@@ -2080,7 +2048,6 @@
   <string name="year_in_review_survey_cancel">Отмена</string>
   <string name="year_in_review_survey_submit">Отправить</string>
   <string name="year_in_review_screendeck_image_content_description">Источник изображения для главного экрана «Обзор года»</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Источник изображения для диалогового экрана «Обзор года»</string>
   <string name="year_in_review_screenshot_error">Не удалось сделать снимок экрана: %s</string>
   <string name="year_in_review_share_subject">Изображение и ссылка «Обзора года»</string>
   <string name="year_in_review_globe_icon">Значок глобуса</string>

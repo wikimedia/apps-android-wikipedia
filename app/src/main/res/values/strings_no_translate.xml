@@ -25,11 +25,14 @@
     <string name="on_this_day_game_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/TrivaGame</string>
     <string name="on_this_day_game_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dgame%26utm_medium%3Dlink%26utm_campaign%3Dfirst</string>
     <string name="year_in_review_share_url">https://play.google.com/store/apps/details?id=org.wikipedia&amp;referrer=utm_source%3Dwmfapp%26utm_medium%3Dlink%26utm_campaign%3Dyir_2025&amp;pli=1</string>
-    <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/iOS/Personalized_Wikipedia_Year_in_Review/How_your_data_is_used</string>
+    <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review</string>
+    <string name="year_in_review_media_wiki_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#Frequently_asked_questions</string>
     <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
     <string name="activity_tab_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Activity_Tab_Experiment</string>
     <string name="edit_screen_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#General_2</string>
+    <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
+    <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

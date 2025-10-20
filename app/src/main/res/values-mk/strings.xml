@@ -1851,29 +1851,6 @@
   <string name="year_in_review_information_icon">Икона за информации</string>
   <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
   <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите. Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
-  <string name="year_in_review_entry_dialog_title">Истражете ја вашата ретроспектива на Википедија</string>
-  <string name="year_in_review_entry_dialog_bodytext">Погледајте сознанија за тоа какви статии читавме и уредувавме, и споделете ги најважните моменти во нашата година на Википедија.</string>
-  <string name="year_in_review_entry_dialog_continue">Продолжи</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Годинава прочитавте %d статија</item>
-    <item quantity="other">Годинава прочитавте %d статии</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Годинава прочитавте %1$d статија, меѓу кои %2$s, %3$s и %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
-    <item quantity="other">Годинава прочитавте %1$d статии, меѓу кои %2$s, %3$s и and %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Википедија ја уредивте еднаш</item>
-    <item quantity="other">Википедија ја уредивте %d пати</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Википедија ја уредивте еднаш. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
-    <item quantity="other">Википедија ја уредивте %d пати. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Википедија беше достапна на преку 300 јазици</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Годинава Википедија имаше преку 63 милиони статии на над 300 активни јазици. Се придруживте на милиони луѓе во проширување на знаењето и истражувањето на разновидни теми.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Уредниците од прилогот за iOS направија преку 452.257 уредувања</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Википедиината заедница на доброволни уредници направи преку 452.257 уредувања на прилогот за iOS. Сржта на Википедија е нашата глобална заедница на доброволни учесници, дарители и милијарди читатели како вас — сите обединети во напорот за споделување на неограничен пристап до проверени информации.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
   <string name="year_in_review_survey_subtitle">Дали сте задоволни со оваа функција?</string>
   <string name="year_in_review_survey_very_satisfied">Многу задоволен</string>
@@ -1885,7 +1862,6 @@
   <string name="year_in_review_survey_cancel">Откажи</string>
   <string name="year_in_review_survey_submit">Поднеси</string>
   <string name="year_in_review_screendeck_image_content_description">Сликовен ресурс за главниот екран за Преглед на годината</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Сликовен ресурс за екранот со дијалог за Преглед на годината</string>
   <string name="year_in_review_screenshot_error">Не можев да ја создадам екранската снимка: %s</string>
   <string name="year_in_review_share_subject">Слика и врска за Преглед на годината</string>
   <string name="year_in_review_globe_icon">Икона на глобус</string>

@@ -22,6 +22,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -41,7 +42,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        binding.mainDrawerYearInReviewContainer.isVisible = Prefs.isYearInReviewEnabled
+        binding.mainDrawerYearInReviewContainer.isVisible = YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -94,6 +95,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.yearInReviewClick()
             dismiss()
         }
+        binding.yearInReviewRedDot.isVisible = !Prefs.yearInReviewVisited
 
         binding.mainDrawerEditContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerEditContainer)

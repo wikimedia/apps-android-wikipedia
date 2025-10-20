@@ -1814,29 +1814,6 @@
   <string name="year_in_review_information_icon">Informationssymbol</string>
   <string name="year_in_review_get_started_headline">Entdecke dein Wikipedia-Jahr im Rückblick</string>
   <string name="year_in_review_get_started_bodytext">Erfahre, welche Artikel du in der Wikipedia-App gelesen und welche Änderungen du vorgenommen hast. Dein Leseverlauf bleibt geschützt. Die Leseeinblicke werden anhand der lokal gespeicherten Daten auf deinem Gerät erstellt.</string>
-  <string name="year_in_review_entry_dialog_title">Erkunde Wikipedia im Rückblick</string>
-  <string name="year_in_review_entry_dialog_bodytext">Erfahre, welche Artikel wir gelesen und bearbeitet haben, und teile die Höhepunkte unseres Jahres auf Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Weiter</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Du hast dieses Jahr %d Artikel gelesen</item>
-    <item quantity="other">Du hast dieses Jahr %d Artikel gelesen</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Dieses Jahr hast du %1$d Artikel gelesen, darunter %2$s , %3$s und %4$s. Wikipedia hatte mehr als 63 Millionen Artikel in über 300 Sprachen. Du hast dich Millionen anderen angeschlossen, um Wissen zu erweitern und vielfältige Themen zu erkunden.</item>
-    <item quantity="other">Dieses Jahr hast du %1$d Artikel gelesen, darunter %2$s , %3$s und %4$s. Wikipedia hatte mehr als 63 Millionen Artikel in über 300 Sprachen. Du hast dich Millionen anderen angeschlossen, um Wissen zu erweitern und vielfältige Themen zu erkunden.</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Du hast Wikipedia einmal bearbeitet</item>
-    <item quantity="other">Du hast Wikipedia %d mal bearbeitet</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Du hast Wikipedia einmal bearbeitet. Vielen Dank, dass du einer der freiwilligen Redakteure bist, die bei Wikimedia-Projekten auf der ganzen Welt etwas bewirken.</item>
-    <item quantity="other">Du hast Wikipedia %d mal bearbeitet. Vielen Dank, dass Du einer der freiwilligen Redakteure bist, die bei Wikimedia-Projekten auf der ganzen Welt etwas bewirken.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war in über 300 Sprachen verfügbar</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia hatte dieses Jahr mehr als 63 Millionen Artikel in über 300 aktiven Sprachen. Gemeinsam mit Millionen anderen hast du dein Wissen erweitert und verschiedene Themen erkundet.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Bearbeiter auf der iOS-App haben mehr als 452.257 Bearbeitungen vorgenommen</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Die Wikipedia-Gemeinschaft freiwilliger Bearbeiter hat dieses Jahr mehr als 452.257 Bearbeitungen in der iOS-App vorgenommen. Herz und Seele von Wikipedia ist unsere globale Gemeinschaft von freiwilligen Mitarbeitern, Spendern und Milliarden von Lesern wie dir – alle vereint, um unbegrenzten Zugang zu zuverlässigen Informationen zu haben.</string>
   <string name="year_in_review_survey_title">Hilf mit, den Jahresrückblick zu verbessern</string>
   <string name="year_in_review_survey_subtitle">Bist du mit dieser Funktion zufrieden?</string>
   <string name="year_in_review_survey_very_satisfied">Sehr zufrieden</string>
@@ -1848,7 +1825,6 @@
   <string name="year_in_review_survey_cancel">Abbrechen</string>
   <string name="year_in_review_survey_submit">Übermitteln</string>
   <string name="year_in_review_screendeck_image_content_description">Bildressource für den Hauptbildschirm des Jahresrückblicks</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Bildressource für den Eingangsdialog des Jahresrückblicks</string>
   <string name="year_in_review_screenshot_error">Screenshot konnte nicht erstellt werden: %s</string>
   <string name="year_in_review_share_subject">Bild und Verknüpfung zum Jahresrückblick</string>
   <string name="year_in_review_globe_icon">Globus-Symbol</string>

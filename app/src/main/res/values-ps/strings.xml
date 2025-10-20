@@ -1506,11 +1506,6 @@
   <string name="year_in_review_donate">بسپنه ورکول</string>
   <string name="year_in_review_information_icon">مالوماتو نښه</string>
   <string name="year_in_review_get_started_headline">د خپل ويکيپېډيا کال بياکتنه وپلټئ</string>
-  <string name="year_in_review_entry_dialog_continue">پرله‌پورې</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">تاسو سږ کال %d ليکنه ولوسته</item>
-    <item quantity="other">تاسو سږ کال %d ليکنې ولوستلې</item>
-  </plurals>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
