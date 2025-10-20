@@ -8,6 +8,7 @@
 * Pickle12
 * P̲̳l̳eo
 * SHaran (WMF)
+* SaldırganSincap
 * Upwinxp
 -->
 <resources>
@@ -447,7 +448,7 @@
   <string name="error_blocked_footer_no_blocker">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="temp_account_not_logged_in">Niste prijavljeni</string>
   <string name="temp_account_anon_ip_dialog_body">Po urejanju bo pri vašem urejanju naveden vaš IP-nasloⱱ&lt;br /&gt;&lt;br /&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
-  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;ɓ&gt;začasen račʊn&lt;b/&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
+  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;b&gt;začasen račʊn&lt;/b&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
   <string name="temp_account_temp_dialog_body">Vaše urejanje bo pripisano %1$s. Vaš IP-naslov bo viden administratorjem.&lt;br /&gt;&lt;br /&gt; Če &lt;a href=\"https://#login\"&gt;se boste prijavili&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si boste ustvarili račun&lt;/a&gt;, bodo poleg drugih ugodnosti vaša urejanja pripisana izbranemu imenu.</string>
   <string name="temp_account_dialog_ok">Razumem</string>
   <string name="temp_account_using_title">Uporabljate začasni račun</string>

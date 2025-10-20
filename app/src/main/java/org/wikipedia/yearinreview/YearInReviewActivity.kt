@@ -58,7 +58,7 @@ class YearInReviewActivity : BaseActivity() {
                                 }
                                 finish()
                             },
-                            onNextButtonClick = { pagerState, currentSlideData ->
+                            onNextButtonClick = { pagerState ->
                                 viewModel.slideViewedCount += 1
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)

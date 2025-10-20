@@ -35,6 +35,7 @@ class YearInReviewViewModel() : ViewModel() {
     }
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
+
     var slideViewedCount = 1
 
     init {
