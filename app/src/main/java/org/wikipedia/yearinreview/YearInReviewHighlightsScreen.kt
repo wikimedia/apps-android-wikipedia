@@ -193,10 +193,7 @@ fun HighlightsContent(
                                     color = highlightItem.highlightColor
                                 )
                             ) {
-                                append(
-                                    text = item,
-
-                                    )
+                                append(text = item)
                             }
                         },
                         lineHeight = 21.sp
@@ -252,7 +249,7 @@ fun ShareHighlightsScreenCapture(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp),
-            text = "wikipedia.org/year-in-review",
+            text = stringResource(R.string.year_in_highlights_screenshot_url),
             style = MaterialTheme.typography.bodyLarge
         )
     }
