@@ -24,6 +24,11 @@
                 android:title="@string/menu_clear_all_history"
                 app:iconTint="?attr/secondary_color" />
             <item
+                android:id="@+id/menu_clear_donation_history"
+                android:icon="@drawable/ic_delete_white_24dp"
+                android:title="@string/preference_title_delete_local_donation_history"
+                app:iconTint="?attr/secondary_color" />
+            <item
                 android:id="@+id/menu_report_feature"
                 android:icon="@drawable/ic_report_flag"
                 android:title="@string/activity_tab_menu_feedback"
