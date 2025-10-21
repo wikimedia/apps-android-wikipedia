@@ -366,7 +366,7 @@ fun YearInReviewScreenContent(
         }
         is YearInReviewScreenData.GeoScreen -> {
             GeoScreenContent(
-                innerPadding = innerPadding,
+                modifier = modifier,
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode
             )
