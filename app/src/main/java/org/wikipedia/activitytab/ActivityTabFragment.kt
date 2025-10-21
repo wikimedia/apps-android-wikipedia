@@ -781,6 +781,13 @@ class ActivityTabFragment : Fragment() {
                 }
                 true
             }
+            R.id.menu_clear_donation_history -> {
+                ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "clear_donation_history_click")
+                Prefs.donationResults = emptyList()
+                Prefs.activityTabModules = Prefs.activityTabModules.setModuleEnabled(ModuleType.DONATIONS, false)
+                viewModel.loadAll()
+                true
+            }
             R.id.menu_learn_more -> {
                 ActivityTabEvent.submit(activeInterface = "activity_tab_overflow_menu", action = "learn_click")
                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.activity_tab_url).toUri())
