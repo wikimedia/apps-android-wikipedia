@@ -292,7 +292,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MAX_TOP_CATEGORY = 5
         const val MIN_READING_ARTICLES = 5
         const val MIN_READING_MINUTES = 1
-        const val MIN_READING_PATTERNS_ARTICLES = 5
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
 
