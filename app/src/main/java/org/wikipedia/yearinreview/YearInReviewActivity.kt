@@ -50,6 +50,7 @@ class YearInReviewActivity : BaseActivity() {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,
+                            requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
                             onBackButtonClick = {
                                 finish()
                             },

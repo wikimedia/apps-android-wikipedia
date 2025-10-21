@@ -2005,6 +2005,8 @@
     <string name="year_in_review_slide_app_icon_donor">a donor</string>
     <string name="year_in_review_slide_app_icon_editor">an editor</string>
     <string name="year_in_review_slide_app_icon_donor_and_editor">a donor and editor</string>
+    <string name="year_in_review_slide_geo_headline">Articles you read are closest to: %s</string>
+    <string name="year_in_review_slide_geo_body"><![CDATA[When it comes to articles about places, you read most about %1$s, including <b>%2$s</b> and <b>%3$s.</b>]]></string>
     <string name="year_in_review_login_dialog_title">Log in for personalization?</string>
     <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
     <string name="year_in_review_login_dialog_positive">Log in / Join Wikipedia</string>
