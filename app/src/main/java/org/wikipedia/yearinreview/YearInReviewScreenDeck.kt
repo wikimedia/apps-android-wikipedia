@@ -172,8 +172,7 @@ fun YearInReviewScreenDeck(
                     ) { page ->
                         YearInReviewScreenContent(
                             modifier = Modifier
-                                .padding(paddingValues)
-                                .verticalScroll(rememberScrollState()),
+                                .padding(paddingValues),
                             screenData = pages[page],
                             onShareHighlights = { highlights ->
                                 captureRequest =
@@ -357,7 +356,8 @@ fun YearInReviewScreenContent(
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(
-                modifier = modifier,
+                modifier = modifier
+                    .verticalScroll(rememberScrollState()),
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode,
                 isOnboardingScreen = isOnboardingScreen,
