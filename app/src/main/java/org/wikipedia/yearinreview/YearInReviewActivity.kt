@@ -19,7 +19,6 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -27,7 +26,6 @@ class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Prefs.yearInReviewVisited = true
 
         setContent {
             BaseTheme {
@@ -52,6 +50,7 @@ class YearInReviewActivity : BaseActivity() {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,
+                            requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
                             onBackButtonClick = {
                                 if (viewModel.slideViewedCount >= 2 && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
                                     Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
