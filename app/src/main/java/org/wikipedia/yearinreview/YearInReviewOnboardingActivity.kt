@@ -43,7 +43,6 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                         },
                         onConfirmButtonClick = {
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_YEAR_IN_REVIEW))
-                            showLoginDialog = false
                         },
                         onDismissButtonClick = {
                             proceed()
