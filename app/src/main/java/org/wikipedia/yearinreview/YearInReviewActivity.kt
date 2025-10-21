@@ -19,6 +19,7 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
