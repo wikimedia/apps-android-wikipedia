@@ -76,7 +76,7 @@ import kotlin.math.absoluteValue
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
-    requestScreenshotBitmap: ((Int, Int) -> Bitmap?)?,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState) -> Unit,
     onBackButtonClick: () -> Unit
@@ -284,7 +284,7 @@ fun MainBottomBar(
 @Composable
 fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
-    requestScreenshotBitmap: ((Int, Int) -> Bitmap?)?,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val graphicsLayer = rememberGraphicsLayer()
@@ -355,7 +355,7 @@ fun CreateScreenShotBitmap(
 fun YearInReviewScreenContent(
     modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData,
-    requestScreenshotBitmap: ((Int, Int) -> Bitmap?)?,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null

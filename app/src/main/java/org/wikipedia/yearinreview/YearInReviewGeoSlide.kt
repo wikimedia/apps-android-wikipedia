@@ -69,7 +69,7 @@ import org.wikipedia.views.imageservice.ImageService
 fun GeoScreenContent(
     modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData.GeoScreen,
-    requestScreenshotBitmap: ((Int, Int) -> Bitmap?)?,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {

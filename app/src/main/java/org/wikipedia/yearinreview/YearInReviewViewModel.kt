@@ -42,7 +42,7 @@ class YearInReviewViewModel() : ViewModel() {
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
 
-    var screenshotHeaderBitmap: Bitmap? = null
+    var screenshotHeaderBitmap = createBitmap(1, 1)
 
     init {
         fetchPersonalizedData()
@@ -285,7 +285,7 @@ class YearInReviewViewModel() : ViewModel() {
         }
     }
 
-    fun requestScreenshotHeaderBitmap(width: Int = 0, height: Int = 0): Bitmap? {
+    fun requestScreenshotHeaderBitmap(width: Int = 0, height: Int = 0): Bitmap {
         if ((screenshotHeaderBitmap == null || screenshotHeaderBitmap!!.width != width || screenshotHeaderBitmap!!.height != height) && width > 0 && height > 0) {
             screenshotHeaderBitmap = createBitmap(width, height)
         }
