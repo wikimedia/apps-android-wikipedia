@@ -3,7 +3,6 @@ package org.wikipedia.yearinreview
 import android.graphics.Bitmap
 import android.graphics.Paint
 import android.view.Gravity
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -142,8 +141,6 @@ fun GeoScreenContent(
                                     map.uiSettings.isLogoEnabled = false
                                     val defMargin = DimenUtil.roundedDpToPx(16f)
 
-                                    map.uiSettings.setCompassImage(AppCompatResources.getDrawable(context, R.drawable.ic_compass_with_bg)!!)
-                                    map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
                                     map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                                     map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
                                     map.uiSettings.setAttributionMargins(defMargin, 0, 0, defMargin)
