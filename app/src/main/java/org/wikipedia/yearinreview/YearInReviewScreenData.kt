@@ -37,6 +37,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
@@ -137,7 +138,11 @@ sealed class YearInReviewScreenData(
 
     class GeoScreen(
         allowDonate: Boolean = true,
-        val coordinates: Map<String, List<Int>>, // just a placeholder, @TODO: replace with actual data type
+        val largestClusterLatitude: Double,
+        val largestClusterLongitude: Double,
+        val largestClusterTopLeft: Pair<Double, Double>,
+        val largestClusterBottomRight: Pair<Double, Double>,
+        val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
         val bodyText: String? = null
     ) : YearInReviewScreenData(allowDonate)
