@@ -97,6 +97,8 @@ class ActivityTabViewModel() : ViewModel() {
 
     private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
+    private val _totalEditsUiState = MutableStateFlow<UiState<Int>>(UiState.Loading)
+    val totalEditsUiState: StateFlow<UiState<Int>> = _totalEditsUiState.asStateFlow()
 
     var shouldRefreshTimelineSilently: Boolean = false
 
@@ -225,9 +227,10 @@ class ActivityTabViewModel() : ViewModel() {
                 impact = JsonUtil.decodeFromString(impactResponse)!!
             }
 
-            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByTitlesWithGlobalUserInfo(
                 titles = impact.topViewedArticles.keys.joinToString(separator = "|")
             )
+            _totalEditsUiState.value = UiState.Success(pagesResponse.query?.globalUserInfo?.editCount ?: 0)
 
             // Transform the response to a map of PageTitle to ArticleViews
             val pageMap = pagesResponse.query?.pages?.associate { page ->

@@ -9,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -161,13 +163,16 @@ class ActivityTabFragment : Fragment() {
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         userName = AccountUtil.userName,
+                        languageCode = WikipediaApp.instance.wikiSite.languageCode,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
+                        viewModel.shouldRefreshTimelineSilently,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
                         impactUiState = viewModel.impactUiState.collectAsState().value,
+                        totalEditsUiState = viewModel.totalEditsUiState.collectAsState().value,
                         timelineFlow = viewModel.timelineFlow
                     )
                 }
@@ -192,13 +197,16 @@ class ActivityTabFragment : Fragment() {
     fun ActivityTabScreen(
         isLoggedIn: Boolean,
         userName: String,
+        languageCode: String,
         modules: ActivityTabModules,
         haveAtLeastOneDonation: Boolean,
         areGamesAvailable: Boolean,
+        refreshSilently: Boolean,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
         impactUiState: UiState<GrowthUserImpact>,
+        totalEditsUiState: UiState<Int>,
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
@@ -414,13 +422,34 @@ class ActivityTabFragment : Fragment() {
                                 )
                         ) {
                             if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleVisible(ModuleType.IMPACT)) {
-                                Text(
-                                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp),
-                                    text = stringResource(R.string.activity_tab_impact),
-                                    style = MaterialTheme.typography.titleLarge,
-                                    fontWeight = FontWeight.Medium,
-                                    color = WikipediaTheme.colors.primaryColor
-                                )
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                ) {
+                                    Text(
+                                        modifier = Modifier
+                                            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                                            .weight(1f),
+                                        text = stringResource(R.string.activity_tab_impact),
+                                        style = MaterialTheme.typography.titleLarge,
+                                        fontWeight = FontWeight.Medium,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    )
+                                    Box(
+                                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                                        .background(color = WikipediaTheme.colors.paperColor).border(
+                                                0.5.dp,
+                                                WikipediaTheme.colors.borderColor,
+                                                RoundedCornerShape(4.dp)
+                                        )
+                                    ) {
+                                        Text(
+                                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+                                            text = languageCode.uppercase(),
+                                            style = MaterialTheme.typography.bodyLarge,
+                                            color = WikipediaTheme.colors.primaryColor
+                                        )
+                                    }
+                                }
                             }
 
                             if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS)) {
@@ -474,6 +503,15 @@ class ActivityTabFragment : Fragment() {
                                             viewModel.loadImpact()
                                         }
                                     )
+                                )
+                                TotalEditsCard(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                    uiState = totalEditsUiState,
+                                    onClickListener = {
+                                        startActivity(UserContribListActivity.newIntent(requireContext(), userName))
+                                    },
                                 )
                             }
 
@@ -548,7 +586,7 @@ class ActivityTabFragment : Fragment() {
                         val isEmpty = timelineItems.itemCount == 0
                         when {
                             // Show loading for fresh navigation or explicit refresh, User came from tab navigation OR pulled to refresh
-                            isRefreshing && !viewModel.shouldRefreshTimelineSilently -> {
+                            isRefreshing && !refreshSilently -> {
                                 item {
                                     ActivityTabShimmerView()
                                 }
@@ -557,7 +595,7 @@ class ActivityTabFragment : Fragment() {
                             // Show loading UI during silent refresh transition
                             // User clicked timeline item (shouldRefreshTimelineSilently = true) and returned,
                             // but timeline data is still loading/empty. Without this case, user would see empty state briefly before data loads instead of loading UI.
-                            isEmpty && viewModel.shouldRefreshTimelineSilently -> {
+                            isEmpty && refreshSilently -> {
                                 item {
                                     ActivityTabShimmerView()
                                 }
@@ -630,9 +668,11 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                languageCode = "en",
                 modules = ActivityTabModules(isDonationsEnabled = true),
                 haveAtLeastOneDonation = true,
                 areGamesAvailable = true,
+                refreshSilently = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 12345,
                     articlesReadThisMonth = 123,
@@ -660,6 +700,7 @@ class ActivityTabFragment : Fragment() {
                     bestStreak = 25
                 )),
                 impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345)),
+                totalEditsUiState = UiState.Success(123456),
                 timelineFlow = emptyFlow()
             )
         }
@@ -672,9 +713,11 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                languageCode = "ru",
                 modules = ActivityTabModules(isDonationsEnabled = true),
                 haveAtLeastOneDonation = false,
                 areGamesAvailable = false,
+                refreshSilently = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -688,6 +731,7 @@ class ActivityTabFragment : Fragment() {
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
+                totalEditsUiState = UiState.Success(0),
                 timelineFlow = emptyFlow()
             )
         }
@@ -700,9 +744,11 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = false,
                 userName = "User",
+                languageCode = "he",
                 modules = ActivityTabModules(),
                 haveAtLeastOneDonation = false,
                 areGamesAvailable = false,
+                refreshSilently = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -716,6 +762,7 @@ class ActivityTabFragment : Fragment() {
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
+                totalEditsUiState = UiState.Success(0),
                 timelineFlow = emptyFlow()
             )
         }
@@ -728,6 +775,7 @@ class ActivityTabFragment : Fragment() {
             ActivityTabScreen(
                 isLoggedIn = true,
                 userName = "User",
+                languageCode = "zh",
                 modules = ActivityTabModules(
                     isTimeSpentEnabled = false,
                     isReadingInsightsEnabled = false,
@@ -739,6 +787,7 @@ class ActivityTabFragment : Fragment() {
                 ),
                 haveAtLeastOneDonation = true,
                 areGamesAvailable = true,
+                refreshSilently = false,
                 readingHistoryState = UiState.Success(ActivityTabViewModel.ReadingHistory(
                     timeSpentThisWeek = 0,
                     articlesReadThisMonth = 0,
@@ -752,7 +801,8 @@ class ActivityTabFragment : Fragment() {
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
                 impactUiState = UiState.Success(GrowthUserImpact()),
-                    timelineFlow = emptyFlow()
+                totalEditsUiState = UiState.Success(0),
+                timelineFlow = emptyFlow()
             )
         }
     }
