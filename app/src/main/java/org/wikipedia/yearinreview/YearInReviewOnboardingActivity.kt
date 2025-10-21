@@ -16,6 +16,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.settings.Prefs
 
 class YearInReviewOnboardingActivity : BaseActivity() {
 
@@ -27,6 +28,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Prefs.yearInReviewVisited = true
         setContent {
             BaseTheme {
                 var showLoginDialog by remember { mutableStateOf(false) }

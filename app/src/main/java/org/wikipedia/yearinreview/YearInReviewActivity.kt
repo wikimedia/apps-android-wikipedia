@@ -19,7 +19,6 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -27,7 +26,6 @@ class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Prefs.yearInReviewVisited = true
 
         setContent {
             BaseTheme {
