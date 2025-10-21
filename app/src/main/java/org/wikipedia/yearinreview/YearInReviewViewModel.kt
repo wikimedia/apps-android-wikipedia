@@ -284,6 +284,7 @@ class YearInReviewViewModel() : ViewModel() {
 
     companion object {
         const val YIR_YEAR = 2025
+        const val YIR_TAG = "yir_$YIR_YEAR"
         const val MAX_EDITED_TIMES = 500
         const val MIN_SAVED_ARTICLES = 3
         const val MAX_TOP_ARTICLES = 5
