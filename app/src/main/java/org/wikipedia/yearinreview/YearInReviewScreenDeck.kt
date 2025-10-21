@@ -76,6 +76,7 @@ import kotlin.math.absoluteValue
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState) -> Unit,
     onBackButtonClick: () -> Unit
@@ -94,7 +95,8 @@ fun YearInReviewScreenDeck(
 
             if (startCapture) {
                 CreateScreenShotBitmap(
-                    screenContent = pages[pagerState.currentPage]
+                    screenContent = pages[pagerState.currentPage],
+                    requestScreenshotBitmap = requestScreenshotBitmap
                 ) { bitmap ->
                     val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
                     val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl, context.getString(R.string.year_in_review_hashtag))
@@ -179,6 +181,7 @@ fun YearInReviewScreenDeck(
                             modifier = Modifier
                                 .padding(paddingValues)
                                 .verticalScroll(rememberScrollState()),
+                            requestScreenshotBitmap = requestScreenshotBitmap,
                             screenData = pages[page]
                         )
                     }
@@ -281,6 +284,7 @@ fun MainBottomBar(
 @Composable
 fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val graphicsLayer = rememberGraphicsLayer()
@@ -330,6 +334,7 @@ fun CreateScreenShotBitmap(
             modifier = Modifier
                 .padding(0.dp),
             screenData = screenContent,
+            requestScreenshotBitmap = requestScreenshotBitmap,
             screenCaptureMode = true,
         ) {
             isLoaded -> isImageLoaded = isLoaded
@@ -350,6 +355,7 @@ fun CreateScreenShotBitmap(
 fun YearInReviewScreenContent(
     modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
@@ -365,7 +371,13 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.GeoScreen -> {
-            // @TODO: geo location screen
+            GeoScreenContent(
+                modifier = modifier,
+                screenData = screenData,
+                requestScreenshotBitmap = requestScreenshotBitmap,
+                screenCaptureMode = screenCaptureMode,
+                isImageResourceLoaded = isImageResourceLoaded,
+            )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
@@ -494,7 +506,7 @@ fun LoadingIndicator() {
 }
 
 @Composable
-private fun processString(resource: Any?): String {
+fun processString(resource: Any?): String {
     return when (resource) {
         is Int -> stringResource(resource)
         else -> resource.toString()
@@ -520,7 +532,8 @@ fun PreviewScreenShot() {
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
                 headlineText = "Over 3 billion bytes added",
                 bodyText = "TBD"
-            )
+            ),
+            requestScreenshotBitmap = null
         ) { /* No logic, preview only */ }
     }
 }
@@ -538,6 +551,7 @@ fun PreviewStandardContent() {
                     bodyText = "TBD"
                 )
             )),
+            requestScreenshotBitmap = null,
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}
@@ -561,6 +575,7 @@ fun PreviewReadingPatternsContent() {
                     favoriteMonthText = "February"
                 )
             )),
+            requestScreenshotBitmap = null,
             onDonateClick = {},
             onBackButtonClick = {},
             onNextButtonClick = {}

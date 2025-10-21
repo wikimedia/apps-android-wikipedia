@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import java.text.NumberFormat
@@ -18,6 +19,7 @@ class YearInReviewSlides(
     val isEnglishWiki: Boolean,
     val isFundraisingAllowed: Boolean,
     val config: RemoteConfig.RemoteConfigYearInReview,
+    val pagesWithCoordinates: List<HistoryEntryWithImage>,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -180,13 +182,19 @@ class YearInReviewSlides(
         )
     }
 
-    private fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
-        // TODO: yir112
+    private fun geoWithArticlesScreen(): YearInReviewScreenData.GeoScreen? {
+        if (yearInReviewModel.largestClusterCountryName.isEmpty() || yearInReviewModel.largestClusterArticles.size < YearInReviewViewModel.MIN_ARTICLES_PER_MAP_CLUSTER) {
+            return null
+        }
         return YearInReviewScreenData.GeoScreen(
             isFundraisingAllowed,
-            coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
-            headlineText = "Articles you read are closest to France",
-            bodyText = "TBD"
+            largestClusterLatitude = yearInReviewModel.largestClusterLocation.first,
+            largestClusterLongitude = yearInReviewModel.largestClusterLocation.second,
+            largestClusterTopLeft = yearInReviewModel.largestClusterTopLeft,
+            largestClusterBottomRight = yearInReviewModel.largestClusterBottomRight,
+            pagesWithCoordinates = pagesWithCoordinates,
+            headlineText = context.resources.getString(R.string.year_in_review_slide_geo_headline, yearInReviewModel.largestClusterCountryName),
+            bodyText = context.resources.getString(R.string.year_in_review_slide_geo_body, yearInReviewModel.largestClusterCountryName, yearInReviewModel.largestClusterArticles[0], yearInReviewModel.largestClusterArticles[1])
         )
     }
 
