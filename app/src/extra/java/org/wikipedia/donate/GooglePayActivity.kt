@@ -53,6 +53,7 @@ class GooglePayActivity : BaseActivity() {
         binding = ActivityDonateBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        binding.toolbar.title = getString(R.string.donate_gpay_activity_title_with_currency, DonateUtil.currencyCode)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
