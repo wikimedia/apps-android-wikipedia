@@ -50,6 +50,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.drawLayer
 import androidx.compose.ui.graphics.rememberGraphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -172,7 +173,9 @@ fun YearInReviewScreenDeck(
                     ) { page ->
                         YearInReviewScreenContent(
                             modifier = Modifier
-                                .padding(paddingValues),
+                                .fillMaxSize()
+                                .padding(paddingValues)
+                                .verticalScroll(rememberScrollState()),
                             screenData = pages[page],
                             onShareHighlights = { highlights ->
                                 captureRequest =
@@ -198,7 +201,11 @@ fun MainBottomBar(
     onDonateClick: () -> Unit
 ) {
     val context = LocalContext.current
-    Column {
+    val currentScreen = pages[pagerState.currentPage]
+    Column(
+        modifier = Modifier
+            .pointerInput(Unit) {} // disables drag gesture for horizontal sliding
+    ) {
         HorizontalDivider(
             modifier = Modifier
                 .height(1.dp)
@@ -213,16 +220,19 @@ fun MainBottomBar(
                 .fillMaxWidth()
                 .wrapContentHeight()
         ) {
-            IconButton(
-                onClick = onShareClick,
-                modifier = Modifier.padding(end = 16.dp)
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_share),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.year_in_review_share_icon)
-                )
+            if (currentScreen !is YearInReviewScreenData.HighlightsScreen) {
+                IconButton(
+                    onClick = onShareClick,
+                    modifier = Modifier.padding(end = 16.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = stringResource(R.string.year_in_review_share_icon)
+                    )
+                }
             }
+
             Row(
                 modifier = Modifier
                     .wrapContentHeight()
@@ -258,19 +268,17 @@ fun MainBottomBar(
                     )
                 }
             }
-            if (pagerState.currentPage + 1 < totalPages) {
-                IconButton(
-                    onClick = { onNavigationRightClick() },
-                    modifier = Modifier
-                        .padding(0.dp)
-                        .align(Alignment.CenterEnd)
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                    )
-                }
+            IconButton(
+                onClick = { onNavigationRightClick() },
+                modifier = Modifier
+                    .padding(0.dp)
+                    .align(Alignment.CenterEnd)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                )
             }
         }
     }
@@ -356,8 +364,7 @@ fun YearInReviewScreenContent(
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(
-                modifier = modifier
-                    .verticalScroll(rememberScrollState()),
+                modifier = modifier,
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode,
                 isOnboardingScreen = isOnboardingScreen,
@@ -369,7 +376,9 @@ fun YearInReviewScreenContent(
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             YearInReviewHighlightsScreen(
-                modifier = modifier,
+                modifier = modifier
+                    .yearInReviewHeaderBackground()
+                    .padding(horizontal = 18.dp),
                 screenData = screenData,
                 onShareHighlights = {
                     onShareHighlights?.invoke(screenData.highlights)

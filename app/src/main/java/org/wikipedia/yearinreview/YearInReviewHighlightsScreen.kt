@@ -57,58 +57,53 @@ fun YearInReviewHighlightsScreen(
     screenData: YearInReviewScreenData.HighlightsScreen,
     onShareHighlights: () -> Unit
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = modifier
-                .yearInReviewHeaderBackground()
-                .fillMaxSize()
-                .padding(horizontal = 18.dp)
+    Column(
+        modifier = modifier
+    ) {
+        Text(
+            modifier = Modifier
+                .padding(top = 60.dp, bottom = 16.dp),
+            text = buildAnnotatedString {
+                append(stringResource(R.string.year_in_review_highlights_thank_you_message))
+                withStyle(
+                    style = SpanStyle(
+                        fontWeight = FontWeight.Normal,
+                    )
+                ) {
+                    append(" ")
+                    append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
+                }
+            },
+            color = WikipediaTheme.colors.paperColor,
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Medium
+        )
+
+        ShareableHighlightsCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(324.dp)
+                .background(ComposeColors.Gray100)
+                .border(width = 1.dp, color = ComposeColors.Gray300)
+                .padding(8.dp)
+                .verticalScroll(rememberScrollState()),
+            highlights = screenData.highlights,
+            logoDescription = "Wikipedia logo"
+        )
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 32.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WikipediaTheme.colors.progressiveColor
+            ),
+            onClick = onShareHighlights
         ) {
             Text(
-                modifier = Modifier
-                    .padding(top = 60.dp, bottom = 16.dp),
-                text = buildAnnotatedString {
-                    append(stringResource(R.string.year_in_review_highlights_thank_you_message))
-                    withStyle(
-                        style = SpanStyle(
-                            fontWeight = FontWeight.Normal,
-                        )
-                    ) {
-                        append(" ")
-                        append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
-                    }
-                },
-                color = WikipediaTheme.colors.paperColor,
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Medium
+                "Share highlights"
             )
-
-            ShareableHighlightsCard(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(324.dp)
-                    .background(ComposeColors.Gray100)
-                    .border(width = 1.dp, color = ComposeColors.Gray300)
-                    .padding(8.dp)
-                    .verticalScroll(rememberScrollState()),
-                highlights = screenData.highlights,
-                logoDescription = "Wikipedia logo"
-            )
-
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 32.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = WikipediaTheme.colors.progressiveColor
-                ),
-                onClick = onShareHighlights
-            ) {
-                Text(
-                    "Share highlights"
-                )
-            }
         }
     }
 }
