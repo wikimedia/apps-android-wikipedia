@@ -199,6 +199,8 @@ class YearInReviewSlides(
             isFundraisingAllowed,
             largestClusterLatitude = yearInReviewModel.largestClusterLocation.first,
             largestClusterLongitude = yearInReviewModel.largestClusterLocation.second,
+            largestClusterTopLeft = yearInReviewModel.largestClusterTopLeft,
+            largestClusterBottomRight = yearInReviewModel.largestClusterBottomRight,
             pagesWithCoordinates = pagesWithCoordinates,
             headlineText = context.resources.getString(R.string.year_in_review_slide_geo_headline, yearInReviewModel.largestClusterCountryName),
             bodyText = context.resources.getString(R.string.year_in_review_slide_geo_body, yearInReviewModel.largestClusterCountryName, yearInReviewModel.largestClusterArticles[0], yearInReviewModel.largestClusterArticles[1])

@@ -14,6 +14,8 @@ data class YearInReviewModel(
     val favoriteDayToRead: Int,
     val favoriteMonthDidMostReading: Int,
     val largestClusterLocation: Pair<Double, Double>,
+    val largestClusterTopLeft: Pair<Double, Double>,
+    val largestClusterBottomRight: Pair<Double, Double>,
     val largestClusterCountryName: String,
     val largestClusterArticles: List<String>,
     val userEditsCount: Int,

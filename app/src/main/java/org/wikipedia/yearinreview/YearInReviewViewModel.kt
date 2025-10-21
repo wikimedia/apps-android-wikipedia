@@ -8,6 +8,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -199,6 +201,8 @@ class YearInReviewViewModel() : ViewModel() {
 
                 var largestClusterLatitude = 0.0
                 var largestClusterLongitude = 0.0
+                var largestClusterTopLeft = Pair(0.0, 0.0)
+                var largestClusterBottomRight = Pair(0.0, 0.0)
                 var largestClusterCountryName = ""
                 val largestClusterArticles = mutableListOf<String>()
                 if (pagesWithCoordinates.size > MIN_ARTICLES_PER_MAP_CLUSTER) {
@@ -213,6 +217,15 @@ class YearInReviewViewModel() : ViewModel() {
                             largestClusterArticles.addAll(largestCluster.locations.map { it.displayTitle }.take(MIN_ARTICLES_PER_MAP_CLUSTER))
                             largestClusterLatitude = largestCluster.centroid.latitude
                             largestClusterLongitude = largestCluster.centroid.longitude
+
+                            val largestClusterBounds = LatLngBounds.Builder()
+                            largestCluster.locations.forEach {
+                                largestClusterBounds.include(LatLng(it.geoLat ?: 0.0, it.geoLon ?: 0.0))
+                            }
+                            val bounds = largestClusterBounds.build()
+                            largestClusterTopLeft = Pair(bounds.latitudeNorth, bounds.longitudeEast)
+                            largestClusterBottomRight = Pair(bounds.latitudeSouth, bounds.longitudeWest)
+
                             val geocoder = Geocoder(WikipediaApp.instance)
                             val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
                             if (!results.isNullOrEmpty()) {
@@ -236,6 +249,8 @@ class YearInReviewViewModel() : ViewModel() {
                     favoriteDayToRead = favoriteDayToReadIndex,
                     favoriteMonthDidMostReading = mostReadingMonthIndex,
                     largestClusterLocation = Pair(largestClusterLatitude, largestClusterLongitude),
+                    largestClusterTopLeft = largestClusterTopLeft,
+                    largestClusterBottomRight = largestClusterBottomRight,
                     largestClusterCountryName = largestClusterCountryName,
                     largestClusterArticles = largestClusterArticles,
                     userEditsCount = editCount,

@@ -42,6 +42,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapLibreMapOptions
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
@@ -181,7 +182,10 @@ fun GeoScreenContent(
                                     }
                                 }
 
-                                map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(screenData.largestClusterLatitude, screenData.largestClusterLongitude), 4.0))
+                                map.moveCamera(CameraUpdateFactory.newLatLngBounds(LatLngBounds.Builder().include(
+                                    LatLng(screenData.largestClusterTopLeft.first, screenData.largestClusterTopLeft.second)).include(
+                                    LatLng(screenData.largestClusterBottomRight.first, screenData.largestClusterBottomRight.second)).build(),
+                                    DimenUtil.roundedDpToPx(16f)))
                             }
                         }
                     }
