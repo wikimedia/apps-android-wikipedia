@@ -1,6 +1,8 @@
 package org.wikipedia.yearinreview
 
+import android.graphics.Bitmap
 import android.location.Geocoder
+import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -30,7 +32,6 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
-import kotlin.String
 import kotlin.math.abs
 
 class YearInReviewViewModel() : ViewModel() {
@@ -40,6 +41,8 @@ class YearInReviewViewModel() : ViewModel() {
     }
     private var _uiScreenListState = MutableStateFlow<UiState<List<YearInReviewScreenData>>>(UiState.Loading)
     val uiScreenListState = _uiScreenListState.asStateFlow()
+
+    var screenshotHeaderBitmap: Bitmap? = null
 
     init {
         fetchPersonalizedData()
@@ -280,6 +283,13 @@ class YearInReviewViewModel() : ViewModel() {
                 data = finalRoute
             )
         }
+    }
+
+    fun requestScreenshotHeaderBitmap(width: Int = 0, height: Int = 0): Bitmap? {
+        if ((screenshotHeaderBitmap == null || screenshotHeaderBitmap!!.width != width || screenshotHeaderBitmap!!.height != height) && width > 0 && height > 0) {
+            screenshotHeaderBitmap = createBitmap(width, height)
+        }
+        return screenshotHeaderBitmap
     }
 
     companion object {
