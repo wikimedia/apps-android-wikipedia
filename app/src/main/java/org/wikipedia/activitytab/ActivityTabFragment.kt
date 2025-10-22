@@ -167,12 +167,11 @@ class ActivityTabFragment : Fragment() {
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
-                        viewModel.shouldRefreshTimelineSilently,
+                        refreshSilently = viewModel.shouldRefreshTimelineSilently,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
                         impactUiState = viewModel.impactUiState.collectAsState().value,
-                        totalEditsUiState = viewModel.totalEditsUiState.collectAsState().value,
                         timelineFlow = viewModel.timelineFlow
                     )
                 }
@@ -205,8 +204,7 @@ class ActivityTabFragment : Fragment() {
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
-        impactUiState: UiState<GrowthUserImpact>,
-        totalEditsUiState: UiState<Int>,
+        impactUiState: UiState<Pair<GrowthUserImpact, Int>>,
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
@@ -498,20 +496,14 @@ class ActivityTabFragment : Fragment() {
                                         .fillMaxWidth()
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = impactUiState,
+                                    onTotalEditsClick = {
+                                        startActivity(UserContribListActivity.newIntent(requireContext(), userName))
+                                    },
                                     wikiErrorClickEvents = WikiErrorClickEvents(
                                         retryClickListener = {
                                             viewModel.loadImpact()
                                         }
                                     )
-                                )
-                                TotalEditsCard(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
-                                    uiState = totalEditsUiState,
-                                    onClickListener = {
-                                        startActivity(UserContribListActivity.newIntent(requireContext(), userName))
-                                    },
                                 )
                             }
 
@@ -699,8 +691,7 @@ class ActivityTabFragment : Fragment() {
                     currentStreak = 15,
                     bestStreak = 25
                 )),
-                impactUiState = UiState.Success(GrowthUserImpact(totalEditsCount = 12345)),
-                totalEditsUiState = UiState.Success(123456),
+                impactUiState = UiState.Success(Pair(GrowthUserImpact(totalEditsCount = 12345), 123456)),
                 timelineFlow = emptyFlow()
             )
         }
@@ -730,8 +721,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                impactUiState = UiState.Success(GrowthUserImpact()),
-                totalEditsUiState = UiState.Success(0),
+                impactUiState = UiState.Success(Pair(GrowthUserImpact(), 0)),
                 timelineFlow = emptyFlow()
             )
         }
@@ -761,8 +751,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                impactUiState = UiState.Success(GrowthUserImpact()),
-                totalEditsUiState = UiState.Success(0),
+                impactUiState = UiState.Success(Pair(GrowthUserImpact(), 0)),
                 timelineFlow = emptyFlow()
             )
         }
@@ -800,8 +789,7 @@ class ActivityTabFragment : Fragment() {
                 )),
                 donationUiState = UiState.Success("Unknown"),
                 wikiGamesUiState = UiState.Success(null),
-                impactUiState = UiState.Success(GrowthUserImpact()),
-                totalEditsUiState = UiState.Success(0),
+                impactUiState = UiState.Success(Pair(GrowthUserImpact(), 0)),
                 timelineFlow = emptyFlow()
             )
         }
