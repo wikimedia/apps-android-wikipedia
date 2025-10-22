@@ -889,8 +889,7 @@ fun MetricHeader(
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+            .fillMaxWidth()
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Row(
