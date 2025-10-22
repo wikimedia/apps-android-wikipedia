@@ -446,9 +446,9 @@ class YearInReviewSlides(
         return (listOf(
             spentReadingMinutesScreen(),
             popularEnglishArticlesScreen(),
+            topArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
-            topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + loggedInHighlightScreen()).filterNotNull()

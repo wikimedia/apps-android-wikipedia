@@ -1907,17 +1907,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuer à jouer</string>
   <string name="on_this_day_game_sound_on">Activer le son</string>
   <string name="on_this_day_game_sound_off">Désactiver le son</string>
-  <string name="year_in_review_learn_more">En savoir plus</string>
-  <string name="year_in_review_get_started">Commencer</string>
+  <string name="year_in_review_learn_more" fuzzy="true">En savoir plus</string>
+  <string name="year_in_review_get_started" fuzzy="true">Commencer</string>
   <string name="year_in_review_topbar_w_icon">Icône de Wikipédia W</string>
-  <string name="year_in_review_navigate_left">Naviguer vers la gauche</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Naviguer vers la gauche</string>
   <string name="year_in_review_share_icon">Icône de partage</string>
   <string name="year_in_review_heart_icon">Icône de cœur</string>
   <string name="year_in_review_navigate_right">Naviguer vers la droite</string>
   <string name="year_in_review_donate">Faire un don</string>
   <string name="year_in_review_information_icon">Icône des informations</string>
   <string name="year_in_review_get_started_headline">Explorez votre bilan Wikipédia de l’année</string>
-  <string name="year_in_review_get_started_bodytext">Consultez des informations sur les articles que vous lisez sur l’application Wikipédia et les modifications que vous avez apportées. Votre historique de lecture est protégé. Les informations de lecture sont calculées à l’aide des données stockées localement sur votre appareil.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Consultez des informations sur les articles que vous lisez sur l’application Wikipédia et les modifications que vous avez apportées. Votre historique de lecture est protégé. Les informations de lecture sont calculées à l’aide des données stockées localement sur votre appareil.</string>
   <string name="year_in_review_survey_title">Aidez-nous à améliorer le bilan de l’année</string>
   <string name="year_in_review_survey_subtitle">Êtes-vous satisfait de cette fonctionnalité ?</string>
   <string name="year_in_review_survey_very_satisfied">Très satisfait</string>
@@ -1930,8 +1930,8 @@
   <string name="year_in_review_survey_submit">Soumettre</string>
   <string name="year_in_review_screendeck_image_content_description">Image pour l’écran principal du bilan de l’année</string>
   <string name="year_in_review_screenshot_error">Impossible de générer une capture d’écran : %s</string>
-  <string name="year_in_review_share_subject">Image et lien du bilan de l’année</string>
-  <string name="year_in_review_globe_icon">Icône de globe</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Image et lien du bilan de l’année</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Icône de globe</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>

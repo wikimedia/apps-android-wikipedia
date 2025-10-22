@@ -1833,17 +1833,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuar a jocar</string>
   <string name="on_this_day_game_sound_on">Activar le sono</string>
   <string name="on_this_day_game_sound_off">Disactivar le sono</string>
-  <string name="year_in_review_learn_more">Leger plus</string>
-  <string name="year_in_review_get_started">Comenciar</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Leger plus</string>
+  <string name="year_in_review_get_started" fuzzy="true">Comenciar</string>
   <string name="year_in_review_topbar_w_icon">Icone W de Wikipedia</string>
-  <string name="year_in_review_navigate_left">Navigar al sinistra</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navigar al sinistra</string>
   <string name="year_in_review_share_icon">Icone pro condivider</string>
   <string name="year_in_review_heart_icon">Icone de corde</string>
   <string name="year_in_review_navigate_right">Navigar al dextra</string>
   <string name="year_in_review_donate">Donar</string>
   <string name="year_in_review_information_icon">Icone de information</string>
   <string name="year_in_review_get_started_headline">Explorar tu summario del anno de Wikipedia</string>
-  <string name="year_in_review_get_started_bodytext">Vide perspectivas sur le articulos que tu ha legite in le app de Wikipedia e le modificationes que tu ha facite. Tu historia de lectura es guardate secur. Le perspectivas de lectura es calculate usante datos immagazinate localmente sur tu apparato.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Vide perspectivas sur le articulos que tu ha legite in le app de Wikipedia e le modificationes que tu ha facite. Tu historia de lectura es guardate secur. Le perspectivas de lectura es calculate usante datos immagazinate localmente sur tu apparato.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
   <string name="year_in_review_survey_very_satisfied">Multo satisfacite</string>
@@ -1856,8 +1856,8 @@
   <string name="year_in_review_survey_submit">Submitter</string>
   <string name="year_in_review_screendeck_image_content_description">Ressource de imagine pro le pannello de controlo principal del Summario del anno</string>
   <string name="year_in_review_screenshot_error">Impossibile generar captura de schermo: %s</string>
-  <string name="year_in_review_share_subject">Imagine e ligamine del Summario del anno</string>
-  <string name="year_in_review_globe_icon">Icone de globo</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Imagine e ligamine del Summario del anno</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Icone de globo</string>
   <string name="recommended_reading_list_title">Discoperir</string>
   <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
   <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>

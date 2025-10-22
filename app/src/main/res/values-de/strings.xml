@@ -1803,17 +1803,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Weiterspielen</string>
   <string name="on_this_day_game_sound_on">Ton einschalten</string>
   <string name="on_this_day_game_sound_off">Ton ausschalten</string>
-  <string name="year_in_review_learn_more">Mehr erfahren</string>
-  <string name="year_in_review_get_started">Erste Schritte</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Mehr erfahren</string>
+  <string name="year_in_review_get_started" fuzzy="true">Erste Schritte</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-Symbol</string>
-  <string name="year_in_review_navigate_left">Navigation links</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navigation links</string>
   <string name="year_in_review_share_icon">Teilen-Symbol</string>
   <string name="year_in_review_heart_icon">Herzsymbol</string>
   <string name="year_in_review_navigate_right">Navigation rechts</string>
   <string name="year_in_review_donate">Spenden</string>
   <string name="year_in_review_information_icon">Informationssymbol</string>
   <string name="year_in_review_get_started_headline">Entdecke dein Wikipedia-Jahr im Rückblick</string>
-  <string name="year_in_review_get_started_bodytext">Erfahre, welche Artikel du in der Wikipedia-App gelesen und welche Änderungen du vorgenommen hast. Dein Leseverlauf bleibt geschützt. Die Leseeinblicke werden anhand der lokal gespeicherten Daten auf deinem Gerät erstellt.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Erfahre, welche Artikel du in der Wikipedia-App gelesen und welche Änderungen du vorgenommen hast. Dein Leseverlauf bleibt geschützt. Die Leseeinblicke werden anhand der lokal gespeicherten Daten auf deinem Gerät erstellt.</string>
   <string name="year_in_review_survey_title">Hilf mit, den Jahresrückblick zu verbessern</string>
   <string name="year_in_review_survey_subtitle">Bist du mit dieser Funktion zufrieden?</string>
   <string name="year_in_review_survey_very_satisfied">Sehr zufrieden</string>
@@ -1826,8 +1826,8 @@
   <string name="year_in_review_survey_submit">Übermitteln</string>
   <string name="year_in_review_screendeck_image_content_description">Bildressource für den Hauptbildschirm des Jahresrückblicks</string>
   <string name="year_in_review_screenshot_error">Screenshot konnte nicht erstellt werden: %s</string>
-  <string name="year_in_review_share_subject">Bild und Verknüpfung zum Jahresrückblick</string>
-  <string name="year_in_review_globe_icon">Globus-Symbol</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Bild und Verknüpfung zum Jahresrückblick</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Globus-Symbol</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdecke für dich ausgewählte Artikel</string>
   <string name="recommended_reading_list_onboarding_card_message">Deine wöchentliche Leseliste mit Wikipedia-Artikeln, nur für dich zusammengestellt.</string>

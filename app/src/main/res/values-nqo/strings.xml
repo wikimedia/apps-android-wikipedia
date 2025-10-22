@@ -1571,19 +1571,16 @@
   <string name="on_this_day_game_continue_playing_btn_text">ߕߏߟߏ߲ ߘߊߓߊ߲߫</string>
   <string name="on_this_day_game_sound_on">ߡߊ߲߬ߞߊ߲ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="on_this_day_game_sound_off">ߡߊ߲߬ߞߊ߲ ߓߴߊ߬ ߟߊ߫</string>
-  <string name="year_in_review_learn_more">ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
-  <string name="year_in_review_get_started">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
+  <string name="year_in_review_learn_more" fuzzy="true">ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
+  <string name="year_in_review_get_started" fuzzy="true">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="year_in_review_topbar_w_icon">ߥߞߌߔߋߘߌߦߊ ߛߌ߲ߞߐ߲ ߥ (W)</string>
-  <string name="year_in_review_navigate_left">ߊ߬ ߕߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߫ ߣߎߡߊ߲ ߝߍ߬</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">ߊ߬ ߕߍ߬ߙߍ߲߬ߓߍ߬ߙߍ߲߫ ߣߎߡߊ߲ ߝߍ߬</string>
   <string name="year_in_review_share_icon">ߟߊ߬ߖߍ߲߬ߛߍ߲߬ߠߌ߲ ߛߌ߲ߞߐ߲</string>
   <string name="year_in_review_heart_icon">ߛߐ߭ ߛߌ߲ߞߐ߲</string>
   <string name="year_in_review_navigate_right">ߊ߬ ߓߍ߬ߙߍ߲߬ߓߍߙߍ߲߫ ߞߌߣߌ߲ ߝߍ߬</string>
   <string name="year_in_review_donate">ߣߌ߬ߟߌ</string>
   <string name="year_in_review_information_icon">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ ߛߌ߲ߞߐ߲</string>
   <string name="year_in_review_get_started_headline">ߌ ߟߊ߫ ߛߊ߲߭ ߥߞߌߔߋߘߌߦߊ ߓߊ߯ߙߊߣߐ ߟߎ߬ ߘߐߜߍ߫</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">ߥߞߌߔߋߘߌߦߊ ߦߋ߫ ߡߊߛߐ߬ߘߐ߲߬ߕߊ ߘߌ߫ ߞߊ߲߫ ߃߀߀ ߣߌ߫ ߞߐ߫ ߟߋ߬ ߘߐ߫</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">ߞߎߡߘߊ߫ ߞߋ߲߬ߥߟߎ߬ ߆߃ ߣߌ߫ ߞߐ߫ ߟߋ߬ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬ ߞߊ߲߫ ߃߀߀ ߣߌ߫ ߞߐ߫ ߘߐ߫ ߢߌ߬ߣߊ߲߬ ߛߊ߲ ߣߌ߲߬ ߠߊ߫. ߌ ߓߘߊ߫ ߕߘߍ߬ ߞߋ߲߬ߥߟߎ ߟߎ߬ ߘߐ߫ ߟߐ߲ߕߊ ߟߎ߬ ߘߐߦߙߌߥߊ ߘߐ߫ ߊ߬ ߣߌ߫ ߞߊ߬ ߞߎߡߘߊ߫ ߓߐߣߍ߲ߢߐ߲߯ߡߊ ߟߎ߬ ߓߍ߬ߙߍ߲߬ߕߍߙߍ߲߫</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߌߐߛ (iOS) ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲߬߸ ߏ߬ ߟߎ߬ ߓߘߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߄߅߂ ߂߅߇ ߣߌ߫ ߞߐ߫ ߟߋ߬ ߞߍ߫</string>
   <string name="year_in_review_survey_title">ߘߍ߬ߡߍ߲߬ߠߌ߲ ߞߍ߫ ߛߊ߲߭ ߛߊߞߍߟߌ ߟߊ߫ ߞߊ߬ ߟߢߊ߬ߟߌ ߞߍ߫</string>
   <string name="year_in_review_survey_subtitle">ߌߟߋ ߖߛߎ߬ ߟߊߖߌ߰ߣߍ߲߫ ߗߋߘߊ ߣߌ߲߬ ߠߊ߫ ߞߏ ߘߐ߫ ߓߊ߬؟</string>
   <string name="year_in_review_survey_very_satisfied">ߒ ߖߛߎ߬ߟߊߖߌ߰ߣߍ߲߫ ߞߏߛߓߍ߫</string>
@@ -1595,8 +1592,8 @@
   <string name="year_in_review_survey_cancel">ߊ߬ ߘߐߛߊ߬</string>
   <string name="year_in_review_survey_submit">ߊ߬ ߞߘߊߡߊ߫</string>
   <string name="year_in_review_screenshot_error">ߘߊ߬ߣߊ߲߬ߥߟߊ ߖߌ߬ߦߊ߫ ߖߊ߬ߛߏ߲߬ߣߍ߲ ߕߍ߫ ߛߐ߲߬ ߘߐߓߍ߲߬ ߠߊ߫: %s</string>
-  <string name="year_in_review_share_subject">ߛߊ߲߭ ߛߊߞߍߟߌ߸ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߫ ߛߘߌ߬ߜߋ߲</string>
-  <string name="year_in_review_globe_icon">ߜߘߎߞߘߎ ߛߌ߲ߞߐ߲</string>
+  <string name="year_in_review_share_subject" fuzzy="true">ߛߊ߲߭ ߛߊߞߍߟߌ߸ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߫ ߛߘߌ߬ߜߋ߲</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">ߜߘߎߞߘߎ ߛߌ߲ߞߐ߲</string>
   <string name="recommended_reading_list_title">ߞߎ߲߬ߠߊ߬ߞߊ߬ߟߌ</string>
   <string name="recommended_reading_list_onboarding_card_title">ߞߎߡߘߊ߫ ߟߎ߫ ߞߎ߲߬ߠߊߞߊ߬ ߡߍ߲ ߠߎ߬ ߕߐ߬ߡߐ߲߬ߣߍ߲߫ ߌߟߋ ߘߐߙߐ߲߫ ߢߍ߫</string>
   <string name="recommended_reading_list_onboarding_card_message">ߌ ߟߊ߫ ߞߎ߲߬ߢߐ߮ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬، ߡߍ߲ ߛߌ߲߬ߝߏ߲߬ߧߊ߬ߣߍ߲߫ ߌߟߋ ߘߐߙߐ߲߫ ߢߍ߫.</string>

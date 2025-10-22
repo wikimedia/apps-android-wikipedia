@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">နောက်ကို ပြန်လားပါ</string>
   <string name="error_back">နောက်ကို ပြန်လားပါ</string>
   <string name="error_next">နောက်တစ်ခု</string>
-  <string name="menu_clear_all_history" fuzzy="true">မှတ်တမ်းကို ရှင်းပါ</string>
+  <string name="menu_clear_all_history">ဖတ်ရှုမှုရာဇ၀င်ကို ရှင်းလင်းပါ။</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးဗျာလ်</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးပါဗျာလ်</string>
   <string name="history_item_delete_undo">နောက်တဆင့်ဆုတ်</string>

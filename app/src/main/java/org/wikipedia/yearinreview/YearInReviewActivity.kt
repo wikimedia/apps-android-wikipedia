@@ -19,7 +19,6 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -27,7 +26,6 @@ class YearInReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Prefs.yearInReviewVisited = true
 
         setContent {
             BaseTheme {
@@ -38,17 +36,15 @@ class YearInReviewActivity : BaseActivity() {
                     finish()
                 }
 
-                // TODO: implement survey in the article screen.
-
                 NavHost(
                     navController = navController,
-                    startDestination = YearInReviewNavigation.ScreenDeck.name,
+                    startDestination = YearInReviewViewModel.YIR_TAG,
                     enterTransition = { EnterTransition.None },
                     popEnterTransition = { EnterTransition.None },
                     popExitTransition = { ExitTransition.None },
                     exitTransition = { ExitTransition.None }
                 ) {
-                    composable(route = YearInReviewNavigation.ScreenDeck.name) {
+                    composable(route = YearInReviewViewModel.YIR_TAG) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,
