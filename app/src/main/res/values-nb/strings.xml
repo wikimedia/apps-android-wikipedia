@@ -1844,17 +1844,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Fortsett å spille</string>
   <string name="on_this_day_game_sound_on">Slå på lyden</string>
   <string name="on_this_day_game_sound_off">Slå av lyden</string>
-  <string name="year_in_review_learn_more">Lær mer</string>
-  <string name="year_in_review_get_started">Kom i gang</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Lær mer</string>
+  <string name="year_in_review_get_started" fuzzy="true">Kom i gang</string>
   <string name="year_in_review_topbar_w_icon">Wikipedias W-ikon</string>
-  <string name="year_in_review_navigate_left">Naviger til venstre</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Naviger til venstre</string>
   <string name="year_in_review_share_icon">Delingsikon</string>
   <string name="year_in_review_heart_icon">Hjerteikon</string>
   <string name="year_in_review_navigate_right">Naviger til høyre</string>
   <string name="year_in_review_donate">Doner</string>
   <string name="year_in_review_information_icon">Informasjonsikon</string>
   <string name="year_in_review_get_started_headline">Utforsk Wikipedia-årskavalkaden din</string>
-  <string name="year_in_review_get_started_bodytext">Få innsikt i hvilke artikler du har lest i Wikipedia-appen og redigeringene du har gjort. Lesehistorikken din er beskyttet. Leseinnsikten beregnes ved hjelp av data som lagres lokalt på enheten din.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Få innsikt i hvilke artikler du har lest i Wikipedia-appen og redigeringene du har gjort. Lesehistorikken din er beskyttet. Leseinnsikten beregnes ved hjelp av data som lagres lokalt på enheten din.</string>
   <string name="year_in_review_survey_title">Hjelp til å forbedre årskavalkaden</string>
   <string name="year_in_review_survey_subtitle">Er du fornøyd med denne funksjonen?</string>
   <string name="year_in_review_survey_very_satisfied">Veldig fornøyd</string>
@@ -1866,8 +1866,8 @@
   <string name="year_in_review_survey_cancel">Avbryt</string>
   <string name="year_in_review_survey_submit">Send</string>
   <string name="year_in_review_screenshot_error">Kunne ikke generere skjermbilde: %s</string>
-  <string name="year_in_review_share_subject">Bilde og lenke for årskavalkaden</string>
-  <string name="year_in_review_globe_icon">Globusikon</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Bilde og lenke for årskavalkaden</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Globusikon</string>
   <string name="recommended_reading_list_title">Oppdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Oppdag artikler som er valgt spesielt for deg</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ukentlige leseliste med Wikipediaartikler, satt sammen spesielt for deg.</string>
