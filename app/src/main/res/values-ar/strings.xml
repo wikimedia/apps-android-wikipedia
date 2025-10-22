@@ -2108,17 +2108,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">استمر باللعب</string>
   <string name="on_this_day_game_sound_on">تشغيل الصوت</string>
   <string name="on_this_day_game_sound_off">إيقاف الصوت</string>
-  <string name="year_in_review_learn_more">معرفة المزيد</string>
-  <string name="year_in_review_get_started">ابدأ</string>
+  <string name="year_in_review_learn_more" fuzzy="true">معرفة المزيد</string>
+  <string name="year_in_review_get_started" fuzzy="true">ابدأ</string>
   <string name="year_in_review_topbar_w_icon">أيقونة ويكيبيديا W</string>
-  <string name="year_in_review_navigate_left">التنقل إلى اليسار</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">التنقل إلى اليسار</string>
   <string name="year_in_review_share_icon">أيقونة المشاركة</string>
   <string name="year_in_review_heart_icon">أيقونة القلب</string>
   <string name="year_in_review_navigate_right">التنقل إلى اليمين</string>
   <string name="year_in_review_donate">تبرع</string>
   <string name="year_in_review_information_icon">أيقونة المعلومات</string>
   <string name="year_in_review_get_started_headline">استكشف مراجعة العام على ويكيبيديا</string>
-  <string name="year_in_review_get_started_bodytext">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها. سجل قراءتك محمي. تُحسب رؤى القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها. سجل قراءتك محمي. تُحسب رؤى القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
   <string name="year_in_review_survey_title">ساعد في تحسين مراجعة العام</string>
   <string name="year_in_review_survey_subtitle">هل أنت راض عن هذه الميزة؟</string>
   <string name="year_in_review_survey_very_satisfied">راضٍ جدًا</string>
@@ -2131,8 +2131,8 @@
   <string name="year_in_review_survey_submit">إرسال</string>
   <string name="year_in_review_screendeck_image_content_description">مصدر الصورة لشاشة العرض الرئيسية لمراجعة العام</string>
   <string name="year_in_review_screenshot_error">لم يتمكن من إنشاء لقطة شاشة: %s</string>
-  <string name="year_in_review_share_subject">مراجعة العام - الصورة والرابط</string>
-  <string name="year_in_review_globe_icon">أيقونة الكرة الأرضية</string>
+  <string name="year_in_review_share_subject" fuzzy="true">مراجعة العام - الصورة والرابط</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">أيقونة الكرة الأرضية</string>
   <string name="recommended_reading_list_title">يكتشف</string>
   <string name="recommended_reading_list_onboarding_card_title">اكتشف المقالات المختارة خصيصًا لك</string>
   <string name="recommended_reading_list_onboarding_card_message">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>

@@ -1696,7 +1696,7 @@
   <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
   <string name="patroller_saved_message_title_npov">Неутрална гледна точка</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматски превод</string>
-  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротиставеност на интереси</string>
+  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротивставеност на интереси</string>
   <string name="patroller_saved_message_title_final_warning">Последна опомена</string>
   <string name="patroller_saved_message_title_copy_vio">Напомена за нарушено авторско право</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Ставете опис на уредувањето</string>
@@ -1840,17 +1840,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продолжи со играта</string>
   <string name="on_this_day_game_sound_on">Вклучи звук</string>
   <string name="on_this_day_game_sound_off">Исклучи звук</string>
-  <string name="year_in_review_learn_more">Дознајте повеќе</string>
-  <string name="year_in_review_get_started">Започнете</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Дознајте повеќе</string>
+  <string name="year_in_review_get_started" fuzzy="true">Започнете</string>
   <string name="year_in_review_topbar_w_icon">Икона W на Википедија</string>
-  <string name="year_in_review_navigate_left">Оди лево</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Оди лево</string>
   <string name="year_in_review_share_icon">Икона за споделување</string>
   <string name="year_in_review_heart_icon">Икона на срце</string>
   <string name="year_in_review_navigate_right">Оди десно</string>
   <string name="year_in_review_donate">Дарувајте</string>
   <string name="year_in_review_information_icon">Икона за информации</string>
   <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
-  <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите. Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите. Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
   <string name="year_in_review_survey_subtitle">Дали сте задоволни со оваа функција?</string>
   <string name="year_in_review_survey_very_satisfied">Многу задоволен</string>
@@ -1863,8 +1863,8 @@
   <string name="year_in_review_survey_submit">Поднеси</string>
   <string name="year_in_review_screendeck_image_content_description">Сликовен ресурс за главниот екран за Преглед на годината</string>
   <string name="year_in_review_screenshot_error">Не можев да ја создадам екранската снимка: %s</string>
-  <string name="year_in_review_share_subject">Слика и врска за Преглед на годината</string>
-  <string name="year_in_review_globe_icon">Икона на глобус</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Слика и врска за Преглед на годината</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Икона на глобус</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвен токму за вас.</string>
