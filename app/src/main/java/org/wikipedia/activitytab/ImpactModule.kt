@@ -46,7 +46,8 @@ import java.util.Locale
 @Composable
 fun ImpactModule(
     modifier: Modifier = Modifier,
-    uiState: UiState<GrowthUserImpact>,
+    uiState: UiState<Pair<GrowthUserImpact, Int>>,
+    onTotalEditsClick: () -> Unit = {},
     wikiErrorClickEvents: WikiErrorClickEvents? = null
 ) {
     when (uiState) {
@@ -54,16 +55,24 @@ fun ImpactModule(
             ActivityTabShimmerView(size = 340.dp)
         }
         is UiState.Success -> {
+            val impact = uiState.data.first
             AllTimeImpactCard(
-                modifier = modifier
-                    .fillMaxWidth(),
-                totalEdits = uiState.data.totalEditsCount,
-                totalThanks = uiState.data.receivedThanksCount,
-                longestEditingStreak = uiState.data.longestEditingStreak?.totalEditCountForPeriod ?: 0,
-                lastEditTimestamp = uiState.data.lastEditTimestamp,
-                lastThirtyDaysEdits = uiState.data.lastThirtyDaysEdits,
-                totalPageviewsCount = uiState.data.totalPageviewsCount,
-                dailyTotalViews = uiState.data.dailyTotalViews
+                modifier = modifier.fillMaxWidth(),
+                totalEdits = impact.totalEditsCount,
+                totalThanks = impact.receivedThanksCount,
+                longestEditingStreak = impact.longestEditingStreak?.totalEditCountForPeriod ?: 0,
+                lastEditTimestamp = impact.lastEditTimestamp,
+                lastThirtyDaysEdits = impact.lastThirtyDaysEdits,
+                totalPageviewsCount = impact.totalPageviewsCount,
+                dailyTotalViews = impact.dailyTotalViews
+            )
+            val totalEdits = uiState.data.second
+            TotalEditsCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                totalEdits = totalEdits,
+                onClickListener = onTotalEditsClick,
             )
         }
 
@@ -301,6 +310,60 @@ fun AllTimeImpactCard(
 }
 
 @Composable
+fun TotalEditsCard(
+    modifier: Modifier = Modifier,
+    totalEdits: Int,
+    onClickListener: () -> Unit = {}
+) {
+    val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
+    WikiCard(
+        modifier = modifier,
+        elevation = 0.dp,
+        border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
+        onClick = onClickListener
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Row(
+                    modifier = Modifier.weight(1f),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.ic_public_24),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                    Text(
+                        text = stringResource(R.string.activity_tab_total_edits_all_projects),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                    )
+                }
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                    tint = WikipediaTheme.colors.secondaryColor,
+                    contentDescription = null
+                )
+            }
+            Text(
+                modifier = Modifier.padding(top = 16.dp),
+                text = formatter.format(totalEdits),
+                style = MaterialTheme.typography.titleLarge,
+                color = WikipediaTheme.colors.primaryColor,
+                fontWeight = FontWeight.Medium
+            )
+        }
+    }
+}
+
+@Composable
 fun ImpactStatView(
     modifier: Modifier,
     iconResource: Int,
@@ -389,6 +452,19 @@ private fun AllTimeImpactCardPreview() {
                 "2023-10-05" to 180,
                 "2023-10-06" to 220
             )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TotalEditsCardPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        TotalEditsCard(
+            modifier = Modifier.fillMaxWidth(),
+            totalEdits = 1234
         )
     }
 }
