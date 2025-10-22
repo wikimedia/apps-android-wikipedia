@@ -22,7 +22,7 @@ fun YearInReviewScreenCaptureHandler(
             coroutineScope = coroutineScope,
             context = context,
             bmp = bitmap,
-            imageFileName = "year_in_review",
+            imageFileName = YearInReviewViewModel.YIR_TAG,
             subject = context.getString(R.string.year_in_review_share_subject),
             text = bodyText,
             onShared = onComplete
