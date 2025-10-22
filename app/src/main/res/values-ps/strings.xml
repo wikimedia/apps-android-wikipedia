@@ -1496,10 +1496,10 @@
   <string name="on_this_day_game_continue_playing_btn_text">لوبولو ته دوام‌‌ورکول</string>
   <string name="on_this_day_game_sound_on">غږ بلول</string>
   <string name="on_this_day_game_sound_off">غږ گولول</string>
-  <string name="year_in_review_learn_more">نور زده‌کول</string>
-  <string name="year_in_review_get_started">پيلول</string>
+  <string name="year_in_review_learn_more" fuzzy="true">نور زده‌کول</string>
+  <string name="year_in_review_get_started" fuzzy="true">پيلول</string>
   <string name="year_in_review_topbar_w_icon">ويکيپېډيا W نښه</string>
-  <string name="year_in_review_navigate_left">کيڼ لوري گرځښت</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">کيڼ لوري گرځښت</string>
   <string name="year_in_review_share_icon">نښه وېشل</string>
   <string name="year_in_review_heart_icon">زړه نښه</string>
   <string name="year_in_review_navigate_right">ښي لوري ته گرځښت</string>
@@ -1516,7 +1516,7 @@
   <string name="year_in_review_survey_placeholder_text">کوم زياتي اندونه لرئ؟</string>
   <string name="year_in_review_survey_cancel">ناگارل</string>
   <string name="year_in_review_survey_submit">سپارل</string>
-  <string name="year_in_review_globe_icon">نړۍ نښه</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">نړۍ نښه</string>
   <string name="recommended_reading_list_title">موندل</string>
   <string name="recommended_reading_list_onboarding_card_title">ستاسو لپاره غوره‌شوې ليکنې ومومئ</string>
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>
