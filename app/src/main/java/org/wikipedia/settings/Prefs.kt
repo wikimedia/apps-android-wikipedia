@@ -30,6 +30,7 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.yearinreview.YearInReviewModel
+import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -788,9 +789,11 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_visited, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_visited, value)
 
-    var yearInReviewSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_survey_shown, value)
+    var yearInReviewSurveyState: YearInReviewSurveyState
+        get() = PrefsIoUtil.getString(R.string.preference_key_yir_survey_state, null)?.let {
+            YearInReviewSurveyState.valueOf(it)
+        } ?: YearInReviewSurveyState.NOT_TRIGGERED
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_survey_state, value.name)
 
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
