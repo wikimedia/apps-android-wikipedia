@@ -63,6 +63,8 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -77,9 +79,10 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
-    onDonateClick: () -> Unit,
-    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
-    onCloseButtonClick: () -> Unit
+    onDonateClick: () -> Unit = {},
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit = { _, _ -> },
+    onCloseButtonClick: () -> Unit = {},
+    onRetryClick: () -> Unit = {}
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -189,7 +192,22 @@ fun YearInReviewScreenDeck(
             )
         }
 
-        is UiState.Error -> {}
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxSize()) {
+                WikiErrorView(
+                    modifier = modifier.align(Alignment.Center),
+                    caught = state.error,
+                    errorClickEvents = WikiErrorClickEvents(
+                        retryClickListener = {
+                            onRetryClick()
+                        },
+                        backClickListener = {
+                            onCloseButtonClick()
+                        }
+                    )
+                )
+            }
+        }
     }
 }
 
@@ -551,10 +569,7 @@ fun PreviewStandardContent() {
                     bodyText = "TBD"
                 )
             )),
-            requestScreenshotBitmap = null,
-            onDonateClick = {},
-            onCloseButtonClick = {},
-            onNextButtonClick = { _, _ -> }
+            requestScreenshotBitmap = null
         )
     }
 }
@@ -575,10 +590,18 @@ fun PreviewReadingPatternsContent() {
                     favoriteMonthText = "February"
                 )
             )),
-            requestScreenshotBitmap = null,
-            onDonateClick = {},
-            onCloseButtonClick = {},
-            onNextButtonClick = { _, _ -> }
+            requestScreenshotBitmap = null
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewScreenDeckError() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewScreenDeck(
+            state = UiState.Error(Exception("Error")),
+            requestScreenshotBitmap = null
         )
     }
 }
