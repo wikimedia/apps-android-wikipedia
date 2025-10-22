@@ -79,7 +79,7 @@ fun YearInReviewScreenDeck(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onDonateClick: () -> Unit,
     onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
-    onBackButtonClick: () -> Unit
+    onCloseButtonClick: () -> Unit
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -121,7 +121,7 @@ fun YearInReviewScreenDeck(
                             containerColor = WikipediaTheme.colors.paperColor),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onBackButtonClick() }) {
+                            IconButton(onClick = { onCloseButtonClick() }) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
@@ -553,7 +553,7 @@ fun PreviewStandardContent() {
             )),
             requestScreenshotBitmap = null,
             onDonateClick = {},
-            onBackButtonClick = {},
+            onCloseButtonClick = {},
             onNextButtonClick = { _, _ -> }
         )
     }
@@ -577,7 +577,7 @@ fun PreviewReadingPatternsContent() {
             )),
             requestScreenshotBitmap = null,
             onDonateClick = {},
-            onBackButtonClick = {},
+            onCloseButtonClick = {},
             onNextButtonClick = { _, _ -> }
         )
     }

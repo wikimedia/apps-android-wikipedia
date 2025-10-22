@@ -50,8 +50,8 @@ class YearInReviewActivity : BaseActivity() {
                         YearInReviewScreenDeck(
                             state = screenState,
                             requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
-                            onBackButtonClick = {
-                                if (viewModel.slideViewedCount >= 2 && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
+                            onCloseButtonClick = {
+                                if (viewModel.slideViewedCount >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
                                     Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
                                 }
                                 finish()
