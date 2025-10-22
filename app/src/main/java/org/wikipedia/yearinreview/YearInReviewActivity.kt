@@ -37,17 +37,15 @@ class YearInReviewActivity : BaseActivity() {
                     finish()
                 }
 
-                // TODO: implement survey in the article screen.
-
                 NavHost(
                     navController = navController,
-                    startDestination = YearInReviewNavigation.ScreenDeck.name,
+                    startDestination = YearInReviewViewModel.YIR_TAG,
                     enterTransition = { EnterTransition.None },
                     popEnterTransition = { EnterTransition.None },
                     popExitTransition = { ExitTransition.None },
                     exitTransition = { ExitTransition.None }
                 ) {
-                    composable(route = YearInReviewNavigation.ScreenDeck.name) {
+                    composable(route = YearInReviewViewModel.YIR_TAG) {
                         val screenState = viewModel.uiScreenListState.collectAsState().value
                         YearInReviewScreenDeck(
                             state = screenState,

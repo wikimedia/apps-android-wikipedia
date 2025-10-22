@@ -1750,15 +1750,13 @@
   <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
-  <string name="year_in_review_learn_more">더 알아보기</string>
-  <string name="year_in_review_get_started">시작하기</string>
+  <string name="year_in_review_learn_more" fuzzy="true">더 알아보기</string>
+  <string name="year_in_review_get_started" fuzzy="true">시작하기</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
   <string name="year_in_review_share_icon">공유 아이콘</string>
   <string name="year_in_review_heart_icon">하트 아이콘</string>
   <string name="year_in_review_donate">기부</string>
   <string name="year_in_review_information_icon">정보 아이콘</string>
-  <string name="year_in_review_entry_dialog_continue">계속</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">iOS 앱의 편집자는 452,257번 이상 편집을 했습니다</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
   <string name="year_in_review_survey_very_satisfied">매우 만족</string>
   <string name="year_in_review_survey_satisfied">만족</string>
@@ -1768,7 +1766,7 @@
   <string name="year_in_review_survey_placeholder_text">추가 의견이 있으신가요?</string>
   <string name="year_in_review_survey_cancel">취소</string>
   <string name="year_in_review_survey_submit">제출</string>
-  <string name="year_in_review_globe_icon">지구본 아이콘</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">지구본 아이콘</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
