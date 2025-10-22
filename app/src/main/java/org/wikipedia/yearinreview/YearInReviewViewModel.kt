@@ -142,42 +142,45 @@ class YearInReviewViewModel() : ViewModel() {
                     }
                 }
 
-                val homeSiteCall = async {
-                    ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                        .getUserContribsByTimeFrame(
-                            username = AccountUtil.userName,
-                            maxCount = 500,
-                            startDate = dataEndInstant,
-                            endDate = dataStartInstant
-                        )
-                }
-                val commonsCall = async {
-                    ServiceFactory.get(Constants.commonsWikiSite)
-                        .getUserContribsByTimeFrame(
-                            username = AccountUtil.userName,
-                            maxCount = 500,
-                            startDate = dataEndInstant,
-                            endDate = dataStartInstant
-                        )
-                }
-                val wikidataCall = async {
-                    ServiceFactory.get(Constants.wikidataWikiSite)
-                        .getUserContribsByTimeFrame(
-                            username = AccountUtil.userName,
-                            maxCount = 500,
-                            startDate = dataEndInstant,
-                            endDate = dataStartInstant,
-                            ns = 0,
-                        )
-                }
+                var editCount = 0
+                if (AccountUtil.isLoggedIn) {
+                    val homeSiteCall = async {
+                        ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                            .getUserContribsByTimeFrame(
+                                username = AccountUtil.userName,
+                                maxCount = 500,
+                                startDate = dataEndInstant,
+                                endDate = dataStartInstant
+                            )
+                    }
+                    val commonsCall = async {
+                        ServiceFactory.get(Constants.commonsWikiSite)
+                            .getUserContribsByTimeFrame(
+                                username = AccountUtil.userName,
+                                maxCount = 500,
+                                startDate = dataEndInstant,
+                                endDate = dataStartInstant
+                            )
+                    }
+                    val wikidataCall = async {
+                        ServiceFactory.get(Constants.wikidataWikiSite)
+                            .getUserContribsByTimeFrame(
+                                username = AccountUtil.userName,
+                                maxCount = 500,
+                                startDate = dataEndInstant,
+                                endDate = dataStartInstant,
+                                ns = 0,
+                            )
+                    }
 
-                val homeSiteResponse = homeSiteCall.await()
-                val commonsResponse = commonsCall.await()
-                val wikidataResponse = wikidataCall.await()
+                    val homeSiteResponse = homeSiteCall.await()
+                    val commonsResponse = commonsCall.await()
+                    val wikidataResponse = wikidataCall.await()
 
-                var editCount = homeSiteResponse.query?.userInfo!!.editCount
-                editCount += wikidataResponse.query?.userInfo!!.editCount
-                editCount += commonsResponse.query?.userInfo!!.editCount
+                    editCount += homeSiteResponse.query?.userInfo!!.editCount
+                    editCount += wikidataResponse.query?.userInfo!!.editCount
+                    editCount += commonsResponse.query?.userInfo!!.editCount
+                }
 
                 val favoriteTimeToRead = async {
                     AppDatabase.instance.historyEntryDao()
@@ -286,7 +289,7 @@ class YearInReviewViewModel() : ViewModel() {
     }
 
     fun requestScreenshotHeaderBitmap(width: Int = 0, height: Int = 0): Bitmap {
-        if ((screenshotHeaderBitmap == null || screenshotHeaderBitmap!!.width != width || screenshotHeaderBitmap!!.height != height) && width > 0 && height > 0) {
+        if ((screenshotHeaderBitmap.width != width || screenshotHeaderBitmap.height != height) && width > 0 && height > 0) {
             screenshotHeaderBitmap = createBitmap(width, height)
         }
         return screenshotHeaderBitmap
