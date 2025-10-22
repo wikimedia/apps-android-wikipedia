@@ -49,7 +49,7 @@ class YearInReviewActivity : BaseActivity() {
                         YearInReviewScreenDeck(
                             state = screenState,
                             requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
-                            onBackButtonClick = {
+                            onCloseButtonClick = {
                                 finish()
                             },
                             onNextButtonClick = { pagerState ->
@@ -69,6 +69,9 @@ class YearInReviewActivity : BaseActivity() {
                                     campaignId = "yir"
                                 )
                                 launchDonateDialog("yir")
+                            },
+                            onRetryClick = {
+                                viewModel.fetchPersonalizedData()
                             }
                         )
                     }
