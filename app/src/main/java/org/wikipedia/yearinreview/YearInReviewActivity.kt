@@ -80,6 +80,9 @@ class YearInReviewActivity : BaseActivity() {
                                     campaignId = "yir"
                                 )
                                 launchDonateDialog("yir")
+                            },
+                            onRetryClick = {
+                                viewModel.fetchPersonalizedData()
                             }
                         )
                     }
