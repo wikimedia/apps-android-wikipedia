@@ -78,8 +78,8 @@ fun YearInReviewScreenDeck(
     state: UiState<List<YearInReviewScreenData>>,
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onDonateClick: () -> Unit,
-    onNextButtonClick: (PagerState) -> Unit,
-    onBackButtonClick: () -> Unit
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit,
+    onCloseButtonClick: () -> Unit
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -121,7 +121,7 @@ fun YearInReviewScreenDeck(
                             containerColor = WikipediaTheme.colors.paperColor),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onBackButtonClick() }) {
+                            IconButton(onClick = { onCloseButtonClick() }) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
@@ -162,7 +162,7 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
@@ -553,8 +553,8 @@ fun PreviewStandardContent() {
             )),
             requestScreenshotBitmap = null,
             onDonateClick = {},
-            onBackButtonClick = {},
-            onNextButtonClick = {}
+            onCloseButtonClick = {},
+            onNextButtonClick = { _, _ -> }
         )
     }
 }
@@ -577,8 +577,8 @@ fun PreviewReadingPatternsContent() {
             )),
             requestScreenshotBitmap = null,
             onDonateClick = {},
-            onBackButtonClick = {},
-            onNextButtonClick = {}
+            onCloseButtonClick = {},
+            onNextButtonClick = { _, _ -> }
         )
     }
 }
