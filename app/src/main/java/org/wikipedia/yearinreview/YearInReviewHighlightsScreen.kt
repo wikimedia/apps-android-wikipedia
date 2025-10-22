@@ -94,7 +94,7 @@ fun YearInReviewHighlightsScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 32.dp),
+                .padding(vertical = 32.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.progressiveColor
             ),
@@ -114,7 +114,7 @@ fun ShareableHighlightsCard(
     modifier: Modifier = Modifier,
     hashtag: String = stringResource(R.string.year_in_review_hashtag),
     logoResource: Int = R.drawable.w_nav_mark,
-    logoDescription: String = stringResource(R.string.year_in_review_logo_description),
+    logoDescription: String = stringResource(R.string.year_in_review_highlights_logo_description),
     highlights: List<YearInReviewScreenData.HighlightItem>,
 ) {
     Column(

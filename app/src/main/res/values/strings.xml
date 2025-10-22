@@ -2202,6 +2202,7 @@
         <item quantity="other">Articles edited</item>
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
+    <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>

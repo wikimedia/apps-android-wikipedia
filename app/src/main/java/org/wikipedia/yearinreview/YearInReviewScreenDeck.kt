@@ -50,7 +50,6 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.drawLayer
 import androidx.compose.ui.graphics.rememberGraphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -207,10 +206,7 @@ fun MainBottomBar(
 ) {
     val context = LocalContext.current
     val currentScreen = pages[pagerState.currentPage]
-    Column(
-        modifier = Modifier
-            .pointerInput(Unit) {} // disables drag gesture for horizontal pager
-    ) {
+    Column {
         HorizontalDivider(
             modifier = Modifier
                 .height(1.dp)
