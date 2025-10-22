@@ -91,7 +91,7 @@ fun YearInReviewScreenDeck(
             var captureRequest by remember { mutableStateOf<YearInReviewCaptureRequest?>(null) }
 
             captureRequest?.let { request ->
-                YearInReviewCaptureHandler(
+                YearInReviewScreenCaptureHandler(
                     request = request,
                     onComplete = {
                         captureRequest = null
@@ -182,7 +182,7 @@ fun YearInReviewScreenDeck(
                                 .verticalScroll(rememberScrollState()),
                             requestScreenshotBitmap = requestScreenshotBitmap,
                             screenData = pages[page],
-                            onShareHighlights = { highlights ->
+                            onShareHighlightsBtnClick = { highlights ->
                                 captureRequest =
                                     YearInReviewCaptureRequest.HighlightsScreen(highlights)
                             }
@@ -209,7 +209,7 @@ fun MainBottomBar(
     val currentScreen = pages[pagerState.currentPage]
     Column(
         modifier = Modifier
-            .pointerInput(Unit) {} // disables drag gesture for horizontal sliding
+            .pointerInput(Unit) {} // disables drag gesture for horizontal pager
     ) {
         HorizontalDivider(
             modifier = Modifier
@@ -366,7 +366,7 @@ fun YearInReviewScreenContent(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
-    onShareHighlights: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
+    onShareHighlightsBtnClick: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     when (screenData) {
@@ -394,8 +394,8 @@ fun YearInReviewScreenContent(
                     .yearInReviewHeaderBackground()
                     .padding(horizontal = 18.dp),
                 screenData = screenData,
-                onShareHighlights = {
-                    onShareHighlights?.invoke(screenData.highlights)
+                onShareHighlightsBtnClick = {
+                    onShareHighlightsBtnClick?.invoke(screenData.highlights)
                 }
             )
         }

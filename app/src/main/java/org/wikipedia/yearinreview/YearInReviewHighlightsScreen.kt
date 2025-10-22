@@ -55,7 +55,7 @@ import org.wikipedia.theme.Theme
 fun YearInReviewHighlightsScreen(
     modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData.HighlightsScreen,
-    onShareHighlights: () -> Unit
+    onShareHighlightsBtnClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -98,7 +98,7 @@ fun YearInReviewHighlightsScreen(
             colors = ButtonDefaults.buttonColors(
                 containerColor = WikipediaTheme.colors.progressiveColor
             ),
-            onClick = onShareHighlights
+            onClick = onShareHighlightsBtnClick
         ) {
             Text(
                 text = stringResource(R.string.year_in_review_highlights_share_button_title),
@@ -272,7 +272,7 @@ private fun YearInReviewHighlightsScreenPreview() {
                     )
                 )
             ),
-            onShareHighlights = {}
+            onShareHighlightsBtnClick = {}
         )
     }
 }

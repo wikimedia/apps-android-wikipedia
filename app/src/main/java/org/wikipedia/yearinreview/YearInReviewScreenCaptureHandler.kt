@@ -8,7 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.util.ShareUtil
 
 @Composable
-fun YearInReviewCaptureHandler(
+fun YearInReviewScreenCaptureHandler(
     request: YearInReviewCaptureRequest,
     onComplete: () -> Unit
 ) {
@@ -16,13 +16,15 @@ fun YearInReviewCaptureHandler(
     val context = LocalContext.current
 
     val shareImageCallback: (Bitmap) -> Unit = { bitmap ->
+        val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+        val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl, context.getString(R.string.year_in_review_hashtag))
         ShareUtil.shareImage(
             coroutineScope = coroutineScope,
             context = context,
             bmp = bitmap,
             imageFileName = "year_in_review",
             subject = context.getString(R.string.year_in_review_share_subject),
-            text = context.getString(R.string.year_in_review_share_url),
+            text = bodyText,
             onShared = onComplete
         )
     }
