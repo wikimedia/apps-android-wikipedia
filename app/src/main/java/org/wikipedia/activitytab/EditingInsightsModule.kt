@@ -64,7 +64,7 @@ import java.util.Locale
 @Composable
 fun EditingInsightsModule(
     modifier: Modifier = Modifier,
-    uiState: UiState<GrowthUserImpact>,
+    uiState: UiState<Pair<GrowthUserImpact, Int>>,
     onPageItemClick: (PageTitle) -> Unit,
     onContributionClick: (() -> Unit),
     onSuggestedEditsClick: (() -> Unit),
@@ -78,10 +78,11 @@ fun EditingInsightsModule(
             }
         }
         is UiState.Success -> {
+            val impact = uiState.data.first
             MostViewedCard(
                 modifier = modifier
                     .fillMaxWidth(),
-                data = uiState.data.topViewedArticlesWithPageTitle,
+                data = impact.topViewedArticlesWithPageTitle,
                 onClick = {
                     onPageItemClick(it)
                 }
@@ -89,9 +90,9 @@ fun EditingInsightsModule(
             ContributionCard(
                 modifier = modifier
                     .fillMaxWidth(),
-                lastEditRelativeTime = uiState.data.lastEditRelativeTime,
-                editsThisMonth = uiState.data.editsThisMonth,
-                editsLastMonth = uiState.data.editsLastMonth,
+                lastEditRelativeTime = impact.lastEditRelativeTime,
+                editsThisMonth = impact.editsThisMonth,
+                editsLastMonth = impact.editsLastMonth,
                 onContributionClick = {
                     onContributionClick()
                 },
