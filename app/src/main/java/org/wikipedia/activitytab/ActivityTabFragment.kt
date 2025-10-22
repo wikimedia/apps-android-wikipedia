@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -887,12 +886,10 @@ fun MetricHeader(
     subtitle: String? = null,
     useHtmlText: Boolean = false,
     showChevron: Boolean = false,
-    onClick: (() -> Unit)? = null
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth()
-            .let { if (onClick != null) it.clickable { onClick() } else it },
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column(modifier = Modifier.weight(1f)) {

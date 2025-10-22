@@ -325,33 +325,12 @@ fun TotalEditsCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Row(
-                    modifier = Modifier.weight(1f),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    Icon(
-                        modifier = Modifier.size(16.dp),
-                        painter = painterResource(R.drawable.ic_public_24),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = null
-                    )
-                    Text(
-                        text = stringResource(R.string.activity_tab_total_edits_all_projects),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = WikipediaTheme.colors.primaryColor,
-                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
-                    )
-                }
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
-            }
+            MetricHeader(
+                icon = painterResource(R.drawable.ic_public_24),
+                title = stringResource(R.string.activity_tab_total_edits_all_projects),
+                showChevron = true
+            )
+
             Text(
                 modifier = Modifier.padding(top = 16.dp),
                 text = formatter.format(totalEdits),
