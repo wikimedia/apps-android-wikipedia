@@ -1779,20 +1779,16 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuar a Jogar</string>
   <string name="on_this_day_game_sound_on">Ativar o som</string>
   <string name="on_this_day_game_sound_off">Desativar o som</string>
-  <string name="year_in_review_learn_more">Saber Mais</string>
-  <string name="year_in_review_get_started">Começar</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Saber Mais</string>
+  <string name="year_in_review_get_started" fuzzy="true">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
-  <string name="year_in_review_navigate_left">Navegar para a esquerda</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navegar para a esquerda</string>
   <string name="year_in_review_share_icon">Ícone de Partilhar</string>
   <string name="year_in_review_heart_icon">Ícone de Coração</string>
   <string name="year_in_review_navigate_right">Navegar para a direita</string>
   <string name="year_in_review_donate">Doar</string>
   <string name="year_in_review_information_icon">Ícone de Informação</string>
   <string name="year_in_review_get_started_headline">Explore o seu Ano em Resumo da Wikipédia</string>
-  <string name="year_in_review_entry_dialog_title">Explore o seu Ano em Resumo da Wikipédia</string>
-  <string name="year_in_review_entry_dialog_continue">Continuar</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">A Wikipédia estava disponível em mais de 300 idiomas</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">A Wikipédia teve mais de 63 milhões de artigos em mais de 300 idiomas ativos este ano. Você juntou-se a milhões para expandir o conhecimento e explorar diversos tópicos</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o Ano em Revista</string>
   <string name="year_in_review_survey_subtitle">Está satisfeito com esta funcionalidade?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
@@ -1803,7 +1799,7 @@
   <string name="year_in_review_survey_placeholder_text">Alguma ideia adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Submeter</string>
-  <string name="year_in_review_globe_icon">Ícone de Globo</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Ícone de Globo</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos escolhidos apenas para si</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>

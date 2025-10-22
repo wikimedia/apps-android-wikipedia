@@ -98,7 +98,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Isto eliminará todo o seu histórico de navegação e fechará todas as guias abertas. Tem a certeza?</string>
+  <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
   <string name="dialog_message_clear_history_no">Não</string>
   <string name="share_via">Compartilhar via</string>
@@ -1185,11 +1185,22 @@
   <string name="edit_summary_added_caption">Legenda adicionada</string>
   <string name="edit_summary_added_image_and_caption">Imagem e legenda adicionadas</string>
   <string name="edit_published_view">Ver</string>
+  <string name="activity_tab_logged_out_title">Entre ou crie uma conta para ver a sua atividade no aplicativo da Wikipédia</string>
+  <string name="activity_tab_user_reading">Leitura de %s</string>
+  <string name="activity_tab_on_wikipedia_android">Na Wikipédia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Tempo dedicado à leitura esta semana</string>
+  <string name="activity_tab_monthly_articles_read">Artigos lidos este mês</string>
+  <string name="activity_tab_monthly_articles_saved">Artigos salvos este mês</string>
+  <string name="activity_tab_monthly_top_categories">Categorias mais lidas este mês</string>
+  <string name="activity_tab_explore_wikipedia">Descubra através da Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Procurando algo novo para ler?</string>
   <string name="activity_tab_donation_unknown">Desconhecido</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; no aplicativo</string>
   <string name="activity_tab_game_stats">Estatísticas do jogo</string>
   <string name="activity_tab_game_stats_best_streak">Melhor sequência</string>
   <string name="activity_tab_play_wiki_games">Jogar wikiJogos</string>
+  <string name="activity_tab_menu_feedback">Problema com a funcionalidade</string>
   <string name="activity_tab_menu_info">Saber mais</string>
   <string name="activity_tab_menu_customize">Personalizar</string>
   <string name="activity_tab_menu_customize_description">As informações da guia Atividade são baseadas no idioma principal definido nas configurações e utilizam dados locais, com exceção das edições que são públicas.</string>
@@ -1198,8 +1209,35 @@
   <string name="activity_tab_impact">Seu impacto</string>
   <string name="activity_tab_impact_most_viewed">Mais visualizados desde a sua edição</string>
   <string name="activity_tab_impact_contributions_this_month">Contribuições deste mês</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">edição deste mês</item>
+    <item quantity="other">edições deste mês</item>
+  </plurals>
+  <string name="activity_tab_impact_last_edited">Última edição</string>
+  <string name="activity_tab_impact_suggested_edits_title">Recentemente 0 edições nos artigos</string>
+  <string name="activity_tab_impact_suggested_edits_message">Parece que você não fez nenhuma edição este mês. Amplie o conhecimento gratuito editando tópicos que lhe interessam.</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Tempo dedicado à leitura</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Insights de leitura</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Insights sobre edição</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Impacto de todos os tempos</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Estatísticas do jogo</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Última doação no aplicativo</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Linha do tempo do comportamento</string>
   <string name="activity_tab_timeline_today">Hoje</string>
   <string name="activity_tab_timeline_yesterday">Ontem</string>
+  <string name="activity_tab_timeline_empty_state_title">Nada para mostrar</string>
+  <string name="activity_tab_timeline_empty_state_message">Comece a ler e editar para construir seu histórico</string>
+  <string name="activity_tab_timeline_view_changes_button">Ver alterações</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Padrões de leitura</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Veja quanto tempo você passou lendo e quais artigos\n ou tópicos você explorou ao longo do tempo.</string>
+  <string name="activity_tab_onboarding_screen_title">Apresentando Atividade</string>
+  <string name="activity_tab_onboarding_impact_title">Destaques de impacto</string>
+  <string name="activity_tab_onboarding_impact_message">Descubra informações sobre suas contribuições e o alcance do conhecimento que você compartilhou.</string>
+  <string name="activity_tab_onboarding_engage_title">Mais maneiras para se envolver</string>
+  <string name="activity_tab_onboarding_engage_message">Explore estatísticas de jogos, artigos salvos e outras atividades que o conectam mais profundamente à Wikipédia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Mantenha o controle</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Escolha quais módulos para mostrar. Todos os dados pessoais permanecem privados no seu dispositivo e o histórico de navegação pode ser apagado a qualquer momento.</string>
+  <string name="edits_screen_what_is_title">Edição no aplicativo da Wikipédia</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1818,17 +1856,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuar jogando</string>
   <string name="on_this_day_game_sound_on">Ativar som</string>
   <string name="on_this_day_game_sound_off">Desativar som</string>
-  <string name="year_in_review_learn_more">Saiba mais</string>
-  <string name="year_in_review_get_started">Começar</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Saiba mais</string>
+  <string name="year_in_review_get_started" fuzzy="true">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
-  <string name="year_in_review_navigate_left">Navegar para a esquerda</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navegar para a esquerda</string>
   <string name="year_in_review_share_icon">Ícone de compartilhar</string>
   <string name="year_in_review_heart_icon">Ícone de Coração</string>
   <string name="year_in_review_navigate_right">Navegar para a direita</string>
   <string name="year_in_review_donate">Doar</string>
   <string name="year_in_review_information_icon">Ícone de informação</string>
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
-  <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
@@ -1841,8 +1879,8 @@
   <string name="year_in_review_survey_submit">Enviar</string>
   <string name="year_in_review_screendeck_image_content_description">Recursos de imagem para a tela principal do resumo do ano</string>
   <string name="year_in_review_screenshot_error">Não foi possível gerar captura de tela: %s</string>
-  <string name="year_in_review_share_subject">Imagem e link do resumo do ano</string>
-  <string name="year_in_review_globe_icon">Ícone de globo</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Imagem e link do resumo do ano</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Ícone de globo</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
   <string name="recommended_reading_list_onboarding_card_message">Sua lista semanal de artigos da Wikipedia selecionados especialmente para você.</string>
@@ -1942,6 +1980,7 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">artigos</string>
   <string name="donation_reminders_settings_warning_min_amount">Insira pelo menos %s</string>
   <string name="donation_reminders_settings_warning_max_amount">O máximo permitido é %s</string>
+  <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
   <string name="donation_reminders_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
   <string name="donation_reminders_prompt_message">Em %1$s, você nos pediu para lembrá-lo de fazer uma doação após ler %2$s. Se a Wikipédia lhe proporcionou %3$s de conhecimento, junte-se aos 2%% dos leitores que fazem doações e cumpra sua promessa hoje mesmo.</string>

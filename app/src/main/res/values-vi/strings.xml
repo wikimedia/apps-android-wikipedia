@@ -1715,10 +1715,9 @@
   <string name="on_this_day_game_continue_playing_btn_text">Tiếp tục chơi</string>
   <string name="on_this_day_game_sound_on">Bật âm thanh</string>
   <string name="on_this_day_game_sound_off">Tắt âm thanh</string>
-  <string name="year_in_review_learn_more">Tìm hiểu thêm</string>
-  <string name="year_in_review_get_started">Bắt đầu</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Tìm hiểu thêm</string>
+  <string name="year_in_review_get_started" fuzzy="true">Bắt đầu</string>
   <string name="year_in_review_topbar_w_icon">Biểu tượng W của Wikipedia</string>
-  <string name="year_in_review_entry_dialog_continue">Tiếp tục</string>
   <string name="year_in_review_survey_subtitle">Bạn có hài lòng với tính năng này không?</string>
   <string name="year_in_review_survey_very_satisfied">Rất hài lòng</string>
   <string name="year_in_review_survey_satisfied">Hài lòng</string>

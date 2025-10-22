@@ -1834,17 +1834,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
   <string name="on_this_day_game_sound_on">Səsi aç</string>
   <string name="on_this_day_game_sound_off">Səsi söndür</string>
-  <string name="year_in_review_learn_more">Ətraflı öyrən</string>
-  <string name="year_in_review_get_started">Başla</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Ətraflı öyrən</string>
+  <string name="year_in_review_get_started" fuzzy="true">Başla</string>
   <string name="year_in_review_topbar_w_icon">Vikipediya W ikonu</string>
-  <string name="year_in_review_navigate_left">Sola naviqasiya</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Sola naviqasiya</string>
   <string name="year_in_review_share_icon">Paylaş ikonu</string>
   <string name="year_in_review_heart_icon">Ürək ikonu</string>
   <string name="year_in_review_navigate_right">Sağa naviqasiya</string>
   <string name="year_in_review_donate">İanə et</string>
   <string name="year_in_review_information_icon">Məlumat ikonu</string>
   <string name="year_in_review_get_started_headline">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
-  <string name="year_in_review_get_started_bodytext">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın. Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın. Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
   <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
   <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
   <string name="year_in_review_survey_very_satisfied">Çox məmnunam</string>
@@ -1857,8 +1857,8 @@
   <string name="year_in_review_survey_submit">Göndər</string>
   <string name="year_in_review_screendeck_image_content_description">İlin İcmalının əsas ekranındakı şəkil resursu</string>
   <string name="year_in_review_screenshot_error">Skrinşot yaratmaq mümkün olmadı: %s</string>
-  <string name="year_in_review_share_subject">İlin İcmalı Şəkil və Link</string>
-  <string name="year_in_review_globe_icon">Qlobus İkonu</string>
+  <string name="year_in_review_share_subject" fuzzy="true">İlin İcmalı Şəkil və Link</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Qlobus İkonu</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
