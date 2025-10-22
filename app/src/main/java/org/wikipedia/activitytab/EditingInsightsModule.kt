@@ -143,22 +143,11 @@ fun MostViewedCard(
         )
     ) {
         Column {
-            Row(
+            MetricHeader(
                 modifier = Modifier.padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.outline_trending_up_24),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
-                )
-                Text(
-                    text = stringResource(R.string.activity_tab_impact_most_viewed),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            }
+                icon = painterResource(R.drawable.outline_trending_up_24),
+                title = stringResource(R.string.activity_tab_impact_most_viewed)
+            )
 
             var index = 1
             data.forEach { (pageTitle, articleViews) ->
@@ -286,45 +275,13 @@ fun ContributionCard(
         onClick = onContributionClick
     ) {
         Column {
-            Row(
-                modifier = Modifier.fillMaxWidth()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp)
-            ) {
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(16.dp),
-                            painter = painterResource(R.drawable.ic_icon_user_contributions_ooui),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        Text(
-                            text = stringResource(R.string.activity_tab_impact_contributions_this_month),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                    if (editsThisMonth > 0) {
-                        Text(
-                            text = lastEditRelativeTime,
-                            modifier = Modifier.padding(top = 4.dp),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = WikipediaTheme.colors.secondaryColor
-                        )
-                    }
-                }
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
-            }
+            MetricHeader(
+                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+                icon = painterResource(R.drawable.ic_icon_user_contributions_ooui),
+                title = stringResource(R.string.activity_tab_impact_contributions_this_month),
+                subtitle = if (editsThisMonth > 0) lastEditRelativeTime else null,
+                showChevron = true
+            )
 
             Column(
                 modifier = Modifier

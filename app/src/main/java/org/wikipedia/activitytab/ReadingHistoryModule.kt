@@ -5,7 +5,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -248,63 +247,33 @@ private fun ArticleReadThisMonthCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(16.dp),
-                            painter = painterResource(R.drawable.ic_newsstand_24),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        Text(
-                            text = stringResource(R.string.activity_tab_monthly_articles_read),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                    if (readingHistory.lastArticleReadTime != null) {
-                        Text(
-                            text = if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
-                                readingHistory.lastArticleReadTime
-                                    .format(
-                                        DateTimeFormatter.ofPattern(
-                                            DateFormat.getBestDateTimePattern(
-                                                Locale.getDefault(),
-                                                "hhmm a"
-                                            )
-                                        )
+            MetricHeader(
+                icon = painterResource(R.drawable.ic_newsstand_24),
+                title = stringResource(R.string.activity_tab_monthly_articles_read),
+                showChevron = true,
+                subtitle = if (readingHistory.lastArticleReadTime != null) {
+                    if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
+                        readingHistory.lastArticleReadTime
+                            .format(
+                                DateTimeFormatter.ofPattern(
+                                    DateFormat.getBestDateTimePattern(
+                                        Locale.getDefault(),
+                                        "hhmm a"
                                     )
-                            else
-                                readingHistory.lastArticleReadTime
-                                    .format(
-                                        DateTimeFormatter.ofPattern(
-                                            DateFormat.getBestDateTimePattern(
-                                                Locale.getDefault(),
-                                                "MMMM d"
-                                            )
-                                        )
-                                    ),
-                            modifier = Modifier.padding(top = 4.dp),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = WikipediaTheme.colors.secondaryColor
-                        )
-                    }
-                }
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
-            }
+                                )
+                            )
+                    else
+                        readingHistory.lastArticleReadTime
+                            .format(
+                                DateTimeFormatter.ofPattern(
+                                    DateFormat.getBestDateTimePattern(
+                                        Locale.getDefault(),
+                                        "MMMM d"
+                                    )
+                                )
+                            )
+                } else null
+            )
 
             Row(
                 modifier = Modifier.fillMaxWidth().padding(top = 6.dp)
@@ -351,63 +320,34 @@ private fun ArticleSavedThisMonthCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(16.dp),
-                            painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
-                            tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = null
-                        )
-                        Text(
-                            text = stringResource(R.string.activity_tab_monthly_articles_saved),
-                            style = MaterialTheme.typography.labelMedium,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                    if (readingHistory.lastArticleSavedTime != null) {
-                        Text(
-                            text = if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
-                                readingHistory.lastArticleSavedTime
-                                    .format(
-                                        DateTimeFormatter.ofPattern(
-                                            DateFormat.getBestDateTimePattern(
-                                                Locale.getDefault(),
-                                                "hhmm a"
-                                            )
-                                        )
+            MetricHeader(
+                icon = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                title = stringResource(R.string.activity_tab_monthly_articles_saved),
+                showChevron = true,
+                subtitle = if (readingHistory.lastArticleSavedTime != null) {
+                    if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
+                        readingHistory.lastArticleSavedTime
+                            .format(
+                                DateTimeFormatter.ofPattern(
+                                    DateFormat.getBestDateTimePattern(
+                                        Locale.getDefault(),
+                                        "hhmm a"
                                     )
-                            else
-                                readingHistory.lastArticleSavedTime
-                                    .format(
-                                        DateTimeFormatter.ofPattern(
-                                            DateFormat.getBestDateTimePattern(
-                                                Locale.getDefault(),
-                                                "MMMM d"
-                                            )
-                                        )
-                                    ),
-                            modifier = Modifier.padding(top = 4.dp),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = WikipediaTheme.colors.secondaryColor
-                        )
-                    }
-                }
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
-            }
+                                )
+                            )
+                    else
+                        readingHistory.lastArticleSavedTime
+                            .format(
+                                DateTimeFormatter.ofPattern(
+                                    DateFormat.getBestDateTimePattern(
+                                        Locale.getDefault(),
+                                        "MMMM d"
+                                    )
+                                )
+                            )
+                } else null
+            )
+
             Row(
                 modifier = Modifier.fillMaxWidth().padding(top = 6.dp)
             ) {
@@ -502,22 +442,11 @@ fun TopCategoriesCard(
         )
     ) {
         Column {
-            Row(
+            MetricHeader(
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Icon(
-                    modifier = Modifier.size(16.dp),
-                    painter = painterResource(R.drawable.ic_category_black_24dp),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
-                )
-                Text(
-                    text = stringResource(R.string.activity_tab_monthly_top_categories),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-            }
+                icon = painterResource(R.drawable.ic_category_black_24dp),
+                title = stringResource(R.string.activity_tab_monthly_top_categories)
+            )
 
             categories.forEachIndexed { index, value ->
                 Box(
