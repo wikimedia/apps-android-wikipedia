@@ -44,6 +44,8 @@ class YearInReviewViewModel() : ViewModel() {
 
     var screenshotHeaderBitmap = createBitmap(1, 1)
 
+    var slideViewedCount = 1
+
     init {
         fetchPersonalizedData()
     }
@@ -262,6 +264,7 @@ class YearInReviewViewModel() : ViewModel() {
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
+                YearInReviewSurvey.resetYearInReviewSurveyState()
             }
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
@@ -304,6 +307,7 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_READING_MINUTES = 1
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
+        const val MIN_SLIDES_BEFORE_SURVEY = 2
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)

@@ -34,6 +34,7 @@ import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.yearinreview.YearInReviewSurveyState
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     private val setMediaWikiBaseUriChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
@@ -256,6 +257,22 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Toast.makeText(activity, "promptLastSeen has been reset", Toast.LENGTH_SHORT).show()
             fragment.requireActivity().finish()
             true
+        }
+        (findPreference(R.string.preference_key_yir_survey_state) as ListPreference).apply {
+            val states = YearInReviewSurveyState.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "NOT_TRIGGERED" -> YearInReviewSurveyState.NOT_TRIGGERED
+                    "SHOULD_SHOW" -> YearInReviewSurveyState.SHOULD_SHOW
+                    else -> YearInReviewSurveyState.SHOWN
+                }
+                Prefs.yearInReviewSurveyState = source
+                true
+            }
         }
     }
 
