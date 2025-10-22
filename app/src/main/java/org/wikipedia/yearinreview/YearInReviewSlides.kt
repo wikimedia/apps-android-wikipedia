@@ -2,11 +2,15 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
-import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.yearinreview.YearInReviewScreenData.*
+import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
+import org.wikipedia.yearinreview.YearInReviewScreenData.HighlightItem
+import org.wikipedia.yearinreview.YearInReviewScreenData.HighlightsScreen
+import org.wikipedia.yearinreview.YearInReviewScreenData.ReadingPatterns
+import org.wikipedia.yearinreview.YearInReviewScreenData.StandardScreen
 import java.text.NumberFormat
 import java.time.DayOfWeek
 import java.time.Month
@@ -285,17 +289,18 @@ class YearInReviewSlides(
         return HighlightsScreen(
             highlights = buildList {
                 if (yearInReviewModel.localTopVisitedArticles.isNotEmpty()) {
+                    val topVisitedArticles = yearInReviewModel.localTopVisitedArticles.take(3)
                     add(
                         HighlightItem(
-                            title = context.resources.getString(R.string.year_in_review_highlights_logged_in_most_read_article_title),
-                            items = yearInReviewModel.localTopVisitedArticles.take(3),
+                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_most_read_article_title, topVisitedArticles.size),
+                            items = topVisitedArticles,
                             highlightColor = ComposeColors.Blue600
                         )
                     )
                 }
                 add(
                     HighlightItem(
-                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_minutes_read_title),
+                        title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_minutes_read_title, yearInReviewModel.totalReadingTimeMinutes.toInt()),
                         singleValue = numberFormatter.format(yearInReviewModel.totalReadingTimeMinutes)
                     )
                 )
@@ -308,20 +313,21 @@ class YearInReviewSlides(
                 )
                 add(
                     HighlightItem(
-                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_read_title),
+                        title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_read_title, yearInReviewModel.localReadingArticlesCount),
                         singleValue = numberFormatter.format(yearInReviewModel.localReadingArticlesCount)
                     )
                 )
+                val topCategories = yearInReviewModel.localTopCategories.take(3)
                 add(
                     HighlightItem(
-                        title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_interested_categories_title),
-                        items = yearInReviewModel.localTopCategories.take(3)
+                        title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_interested_categories_title, topCategories.size),
+                        items = topCategories
                     )
                 )
                 if (isEditor) {
                     add(
                         HighlightItem(
-                            title = context.resources.getString(R.string.year_in_review_highlights_logged_in_articles_edited_articles_title),
+                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_edited_articles_title, yearInReviewModel.userEditsCount),
                             singleValue = numberFormatter.format(yearInReviewModel.userEditsCount)
                         )
                     )
@@ -335,16 +341,16 @@ class YearInReviewSlides(
         return HighlightsScreen(
             highlights = listOf(
                 HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_out_en_most_popular_title),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_most_popular_title, config.topReadEN.size),
                     items = config.topReadEN,
                     highlightColor = ComposeColors.Blue600
                 ),
                 HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_out_en_hours_spent_title),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_hours_spent_title, config.hoursReadEN.toInt()),
                     singleValue = numberFormatter.format(config.hoursReadEN)
                 ),
                 HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_out_en_edits_title),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_edits_title, config.editsEN.toInt()),
                     singleValue = numberFormatter.format(config.editsEN)
                 )
             )
@@ -355,11 +361,11 @@ class YearInReviewSlides(
         return HighlightsScreen(
             highlights = listOf(
                 HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_out_non_en_articles_title),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_non_en_articles_title, config.viewsApps.toInt()),
                     singleValue = numberFormatter.format(config.viewsApps)
                 ),
                 HighlightItem(
-                    title = context.resources.getString(R.string.year_in_review_highlights_logged_out_non_en_edits_title),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_non_en_edits_title, config.editsApps.toInt()),
                     singleValue = numberFormatter.format(config.editsApps)
                 ),
                 HighlightItem(

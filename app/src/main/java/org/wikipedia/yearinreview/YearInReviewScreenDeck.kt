@@ -160,8 +160,11 @@ fun YearInReviewScreenDeck(
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
-                            captureRequest =
-                                YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage])
+                            when (pages[pagerState.currentPage]) {
+                                is YearInReviewScreenData.GeoScreen -> { captureRequest = YearInReviewCaptureRequest.GeoScreen(pages[pagerState.currentPage], requestScreenshotBitmap) }
+                                is YearInReviewScreenData.StandardScreen -> { captureRequest = YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage]) }
+                                is YearInReviewScreenData.HighlightsScreen -> {}
+                            }
                         },
                         onDonateClick = onDonateClick
                     )

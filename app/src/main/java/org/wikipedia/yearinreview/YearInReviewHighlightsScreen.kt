@@ -88,8 +88,7 @@ fun YearInReviewHighlightsScreen(
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp)
                 .verticalScroll(rememberScrollState()),
-            highlights = screenData.highlights,
-            logoDescription = "Wikipedia logo"
+            highlights = screenData.highlights
         )
 
         Button(
@@ -102,7 +101,9 @@ fun YearInReviewHighlightsScreen(
             onClick = onShareHighlights
         ) {
             Text(
-                "Share highlights"
+                text = stringResource(R.string.year_in_review_highlights_share_button_title),
+                color = WikipediaTheme.colors.paperColor,
+                style = MaterialTheme.typography.labelLarge
             )
         }
     }
@@ -111,9 +112,9 @@ fun YearInReviewHighlightsScreen(
 @Composable
 fun ShareableHighlightsCard(
     modifier: Modifier = Modifier,
-    hashtag: String = "#WikipediaYearinReview",
+    hashtag: String = stringResource(R.string.year_in_review_hashtag),
     logoResource: Int = R.drawable.w_nav_mark,
-    logoDescription: String = "",
+    logoDescription: String = stringResource(R.string.year_in_review_logo_description),
     highlights: List<YearInReviewScreenData.HighlightItem>,
 ) {
     Column(

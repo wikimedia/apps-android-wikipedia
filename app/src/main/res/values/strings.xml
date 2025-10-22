@@ -2155,22 +2155,52 @@
 
     <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
     <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
-    <string name="year_in_review_highlights_logged_out_en_most_popular_title">Most popular articles on English Wikipedia</string>
-    <string name="year_in_review_highlights_logged_out_en_hours_spent_title">Hours spent reading</string>
-    <string name="year_in_review_highlights_logged_out_en_edits_title">Changes editors made</string>
-    <string name="year_in_review_highlights_logged_out_non_en_articles_title">Number of viewed articles</string>
-    <string name="year_in_review_highlights_logged_out_non_en_edits_title">Edits on-app</string>
+    <plurals name="year_in_review_highlights_logged_out_en_most_popular_title">
+        <item quantity="one">Most popular article on English Wikipedia</item>
+        <item quantity="other">Most popular articles on English Wikipedia</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+        <item quantity="one">Hour spent reading</item>
+        <item quantity="other">Hours spent reading</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+        <item quantity="one">Change editors made</item>
+        <item quantity="other">Changes editors made</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+        <item quantity="one">Number of viewed article</item>
+        <item quantity="other">Number of viewed articles</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+        <item quantity="one">Edit on-app</item>
+        <item quantity="other">Edits on-app</item>
+    </plurals>
     <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">How often Wikipedia was edited</string>
     <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
         <item quantity="one">%d time per minute</item>
         <item quantity="other">%d times per minute</item>
     </plurals>
-    <string name="year_in_review_highlights_logged_in_most_read_article_title">Articles I read the most</string>
-    <string name="year_in_review_highlights_logged_in_minutes_read_title">Minutes read</string>
+    <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+        <item quantity="one">Article I read the most</item>
+        <item quantity="other">Articles I read the most</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+        <item quantity="one">Minute read</item>
+        <item quantity="other">Minutes read</item>
+    </plurals>
     <string name="year_in_review_highlights_logged_in_favorite_day_title">Favorite day to read</string>
-    <string name="year_in_review_highlights_logged_in_articles_read_title">Articles read</string>
-    <string name="year_in_review_highlights_logged_in_articles_interested_categories_title">Categories that interested me</string>
-    <string name="year_in_review_highlights_logged_in_articles_edited_articles_title">Articles edited</string>
+    <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+        <item quantity="one">Article read</item>
+        <item quantity="other">Articles read</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+        <item quantity="one">Category that interested me</item>
+        <item quantity="other">Categories that interested me</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+        <item quantity="one">Article edited</item>
+        <item quantity="other">Articles edited</item>
+    </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
