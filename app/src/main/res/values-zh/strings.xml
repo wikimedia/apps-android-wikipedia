@@ -1813,27 +1813,20 @@
   <string name="on_this_day_game_continue_playing_btn_text">继续游玩</string>
   <string name="on_this_day_game_sound_on">开启音效</string>
   <string name="on_this_day_game_sound_off">关闭音效</string>
-  <string name="year_in_review_learn_more">了解更多</string>
-  <string name="year_in_review_get_started">入门</string>
+  <string name="year_in_review_learn_more" fuzzy="true">了解更多</string>
+  <string name="year_in_review_get_started" fuzzy="true">入门</string>
   <string name="year_in_review_topbar_w_icon">维基百科W图标</string>
-  <string name="year_in_review_navigate_left">向左导航</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">向左导航</string>
   <string name="year_in_review_share_icon">分享图标</string>
   <string name="year_in_review_heart_icon">心形图标</string>
   <string name="year_in_review_navigate_right">向右导航</string>
   <string name="year_in_review_donate">捐款</string>
   <string name="year_in_review_information_icon">信息图标</string>
   <string name="year_in_review_get_started_headline">探索您的维基百科年度回顾</string>
-  <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。您的阅读历史将受到保护。阅读见解使用设备上本地存储的数据计算。</string>
-  <string name="year_in_review_entry_dialog_title">探索您的维基百科年度回顾</string>
-  <string name="year_in_review_entry_dialog_bodytext">查看我们阅读和编辑的文章的分析数据，并分享我们这一年使用维基百科的亮点。</string>
-  <string name="year_in_review_entry_dialog_continue">继续</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">维基百科提供300多种语言版本</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">今年，维基百科拥有超过 6300万篇文章，涵盖300多种活跃语言。您与数百万人一起拓展知识，探索各种主题。</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">iOS应用上的编辑者进行了超过452,257次编辑</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。您的阅读历史将受到保护。阅读见解使用设备上本地存储的数据计算。</string>
   <string name="year_in_review_survey_subtitle">您对该功能满意吗？</string>
   <string name="year_in_review_survey_placeholder_text">您还有别的想法吗？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顾主屏幕图像资源</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">年度回顾输入对话框屏幕的图像资源</string>
-  <string name="year_in_review_share_subject">年度回顾图片和链接</string>
+  <string name="year_in_review_share_subject" fuzzy="true">年度回顾图片和链接</string>
 </resources>

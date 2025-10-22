@@ -2027,17 +2027,18 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продолжить игру</string>
   <string name="on_this_day_game_sound_on">Включить звук</string>
   <string name="on_this_day_game_sound_off">Выключить звук</string>
-  <string name="year_in_review_learn_more">Подробнее</string>
-  <string name="year_in_review_get_started">Начать</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Подробнее</string>
+  <string name="year_in_review_get_started" fuzzy="true">Начать</string>
   <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
-  <string name="year_in_review_navigate_left">Навигация влево</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Навигация влево</string>
   <string name="year_in_review_share_icon">Значок «Поделиться»</string>
   <string name="year_in_review_heart_icon">Значок сердца</string>
   <string name="year_in_review_navigate_right">Навигация вправо</string>
   <string name="year_in_review_donate">Пожертвовать</string>
   <string name="year_in_review_information_icon">Значок информации</string>
   <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
-  <string name="year_in_review_get_started_bodytext">Смотрите статистику о прочитанных вами статьях в приложении Википедии и внесённых вами правок. Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Смотрите статистику о прочитанных вами статьях в приложении Википедии и внесённых вами правок. Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
+  <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
   <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
   <string name="year_in_review_survey_satisfied">Доволен</string>
@@ -2049,8 +2050,8 @@
   <string name="year_in_review_survey_submit">Отправить</string>
   <string name="year_in_review_screendeck_image_content_description">Источник изображения для главного экрана «Обзор года»</string>
   <string name="year_in_review_screenshot_error">Не удалось сделать снимок экрана: %s</string>
-  <string name="year_in_review_share_subject">Изображение и ссылка «Обзора года»</string>
-  <string name="year_in_review_globe_icon">Значок глобуса</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Изображение и ссылка «Обзора года»</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Значок глобуса</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш еженедельный список для чтения, отобранный специально для вас.</string>

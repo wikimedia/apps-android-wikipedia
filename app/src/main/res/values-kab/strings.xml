@@ -773,7 +773,7 @@
   <string name="on_this_day_game_menu_info">Issin ugar</string>
   <string name="on_this_day_game_article_read_button">Ɣeṛ amagrad</string>
   <string name="on_this_day_game_notification_undo">Semmet</string>
-  <string name="year_in_review_learn_more">Issin ugar</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Issin ugar</string>
   <string name="recommended_reading_list_onboarding_card_new">Amaynut!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Ala, tanemmirt</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Nadi ɣef umagrad</string>
