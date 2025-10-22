@@ -51,11 +51,13 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -435,17 +437,21 @@ class ActivityTabFragment : Fragment() {
                                         color = WikipediaTheme.colors.primaryColor
                                     )
                                     Box(
-                                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                                        modifier = Modifier
+                                            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                                            .align(Alignment.CenterVertically)
                                         .background(color = WikipediaTheme.colors.paperColor).border(
-                                                0.5.dp,
-                                                WikipediaTheme.colors.borderColor,
+                                                1.5.dp,
+                                                WikipediaTheme.colors.primaryColor,
                                                 RoundedCornerShape(4.dp)
                                         )
                                     ) {
                                         Text(
-                                            modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp),
+                                            modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
                                             text = languageCode.uppercase(),
-                                            style = MaterialTheme.typography.bodyLarge,
+                                            fontSize = 10.sp,
+                                            fontFamily = FontFamily.Monospace,
+                                            fontWeight = FontWeight.Bold,
                                             color = WikipediaTheme.colors.primaryColor
                                         )
                                     }
