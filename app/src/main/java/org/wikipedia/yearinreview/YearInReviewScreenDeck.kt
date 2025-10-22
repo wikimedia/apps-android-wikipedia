@@ -80,7 +80,7 @@ fun YearInReviewScreenDeck(
     state: UiState<List<YearInReviewScreenData>>,
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onDonateClick: () -> Unit = {},
-    onNextButtonClick: (PagerState) -> Unit = {},
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit = { _, _ -> },
     onCloseButtonClick: () -> Unit = {},
     onRetryClick: () -> Unit = {}
 ) {
@@ -165,7 +165,7 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {

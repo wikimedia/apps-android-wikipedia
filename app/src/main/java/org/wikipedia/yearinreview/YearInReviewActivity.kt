@@ -19,6 +19,7 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
 
@@ -50,11 +51,21 @@ class YearInReviewActivity : BaseActivity() {
                             state = screenState,
                             requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
                             onCloseButtonClick = {
+                                if (viewModel.slideViewedCount >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
+                                    Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
+                                }
                                 finish()
                             },
-                            onNextButtonClick = { pagerState ->
+                            onNextButtonClick = { pagerState, currentSlideData ->
+                                viewModel.slideViewedCount += 1
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                                }
+                                if (currentSlideData is YearInReviewScreenData.HighlightsScreen) {
+                                    if (Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
+                                        Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
+                                    }
+                                    finish()
                                 }
                             },
                             onDonateClick = {
