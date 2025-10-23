@@ -70,6 +70,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -87,7 +88,6 @@ import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
@@ -244,7 +244,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
-            if (WikipediaApp.instance.tabCount == 0) {
+            if (TabHelper.count == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
                 return
             }
@@ -303,14 +303,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         menu.findItem(R.id.menu_overflow_button).isVisible = currentFragment is ReadingListsFragment
 
         val tabsItem = menu.findItem(R.id.menu_tabs)
-        if (WikipediaApp.instance.tabCount < 1 || currentFragment is SuggestedEditsTasksFragment) {
+        if (TabHelper.count < 1 || currentFragment is SuggestedEditsTasksFragment) {
             tabsItem.isVisible = false
             tabCountsView = null
         } else {
             tabsItem.isVisible = true
             tabCountsView = TabCountsView(requireActivity(), null)
             tabCountsView!!.setOnClickListener {
-                if (WikipediaApp.instance.tabCount == 1) {
+                if (TabHelper.count == 1) {
                     startActivity(PageActivity.newIntent(requireActivity()))
                 } else {
                     startActivityForResult(TabActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_BROWSE_TABS)
@@ -361,7 +361,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             goToTab(NavTab.READING_LISTS)
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
+        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && TabHelper.count > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
     }
@@ -382,9 +382,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
         if (openInNewBackgroundTab) {
-            TabUtil.openInNewBackgroundTab(entry)
-            showTabCountsAnimation = true
-            requireActivity().invalidateOptionsMenu()
+            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry) {
+                showTabCountsAnimation = true
+                requireActivity().invalidateOptionsMenu()
+            }
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
         }

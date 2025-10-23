@@ -34,6 +34,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.maplibre.android.MapLibre
@@ -80,6 +81,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -92,7 +94,6 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -217,7 +218,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.tabsButton.setOnClickListener {
             PlacesEvent.logAction("tabs_view_click", "search_bar_view")
-            if (WikipediaApp.instance.tabCount == 1) {
+            if (TabHelper.count == 1) {
                 startActivity(PageActivity.newIntent(requireActivity()))
             } else {
                 startActivity(TabActivity.newIntent(requireActivity()))
@@ -458,7 +459,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun updateSearchCardViews() {
-        val tabsCount = WikipediaApp.instance.tabCount
+        val tabsCount = TabHelper.count
         binding.tabsButton.isVisible = tabsCount != 0
         binding.tabsButton.updateTabCount(false)
 
@@ -702,9 +703,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
-            TabUtil.openInNewBackgroundTab(entry)
+            TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
             requireActivity().invalidateOptionsMenu()
-            binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
+            binding.tabsButton.isVisible = TabHelper.count > 0
             binding.tabsButton.updateTabCount(true)
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))

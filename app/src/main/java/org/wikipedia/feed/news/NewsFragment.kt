@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import org.wikipedia.Constants
@@ -23,6 +24,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DeviceUtil
@@ -30,7 +32,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
@@ -106,7 +107,7 @@ class NewsFragment : Fragment() {
     private inner class Callback : ListCardItemView.Callback {
         override fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean) {
             if (openInNewBackgroundTab) {
-                TabUtil.openInNewBackgroundTab(entry)
+                TabHelper.openInNewBackgroundTab(viewLifecycleOwner.lifecycleScope, entry)
                 FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab)
             } else {
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))

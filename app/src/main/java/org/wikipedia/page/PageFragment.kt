@@ -37,6 +37,7 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.float
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
@@ -92,7 +93,9 @@ import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
+import org.wikipedia.page.tabs.PageBackStackItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.page.tabs.TabHelper
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -184,13 +187,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
+    var currentTab = Tab()
+
     var revision = 0L
 
-    private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
-    private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
-    private val foregroundTabPosition get() = app.tabList.size
     private val tabLayoutOffsetParams get() = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.pageActionsTabLayout.height)
-    val currentTab get() = app.tabList.last()
     val title get() = model.title
     val page get() = model.page
     val isLoading get() = bridge.isLoading
@@ -200,6 +201,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         _binding = FragmentPageBinding.inflate(inflater, container, false)
         webView = binding.pageWebView
         initWebViewListeners()
+        initTab()
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
         val swipeOffset = DimenUtil.getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET
@@ -292,8 +294,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         activeTimer.pause()
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
-        app.commitTabState()
-        val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
+        runBlocking {
+            TabHelper.updateTab(currentTab)
+        }
+        val time = if (currentTab.backStack.isNotEmpty() && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
@@ -335,10 +339,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return true
         }
         // if the current tab can no longer go back, then close the tab before exiting
-        if (app.tabList.isNotEmpty()) {
-            app.tabList.removeAt(app.tabList.size - 1)
-            app.commitTabState()
-        }
+        TabHelper.removeTab(currentTab)
         return false
     }
 
@@ -527,59 +528,59 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    private fun setCurrentTabAndReset(position: Int) {
-        // move the selected tab to the bottom of the list, and navigate to it!
+    private fun setCurrentTabAndReset(tab: Tab) {
+        L.d("setCurrentTabAndReset" + tab.id + " " + tab.backStack.size)
+        // move the selected tab to the foreground, and navigate to it!
         // (but only if it's a different tab than the one currently in view!
-        if (position < app.tabList.size - 1) {
-            val tab = app.tabList.removeAt(position)
-            app.tabList.add(tab)
-            pageFragmentLoadState.setTab(tab)
+        // TODO: verify this & make sure to use coroutine
+        runBlocking {
+            pageFragmentLoadState.setTab(TabHelper.moveTabToForeground(tab).first())
         }
-        if (app.tabCount > 0) {
-            app.tabList.last().squashBackstack()
+        if (TabHelper.count > 0) {
+            // TODO: verify this (whether it is a foreground tab or not)
+            currentTab.squashBackstack()
             pageFragmentLoadState.loadFromBackStack()
         }
     }
 
-    private fun selectedTabPosition(title: PageTitle): Int {
-        return app.tabList.firstOrNull { it.backStackPositionTitle != null &&
-                title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
+    fun initTab() {
+        // TODO: use coroutines if we have viewModel
+        runBlocking {
+            currentTab = TabHelper.getCurrentTab()
+        }
     }
 
-    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, position: Int) {
-        val selectedTabPosition = selectedTabPosition(title)
-        if (selectedTabPosition >= 0) {
-            setCurrentTabAndReset(selectedTabPosition)
+    fun setTab(tab: Tab) {
+        currentTab = tab
+        pageFragmentLoadState.setTab(tab)
+    }
+
+    private fun openInNewTab(title: PageTitle, entry: HistoryEntry, toForeground: Boolean) {
+        val selectedTab = TabHelper.findTabByTitle(title)
+        if (selectedTab != null) {
+            setCurrentTabAndReset(selectedTab)
             return
         }
-        if (shouldCreateNewTab) {
-            // create a new tab
-            val tab = Tab()
-            val isForeground = position == foregroundTabPosition
-            // if the requested position is at the top, then make its backstack current
-            if (isForeground) {
-                pageFragmentLoadState.setTab(tab)
-            }
-            // put this tab in the requested position
-            app.tabList.add(position, tab)
-            trimTabCount()
-            // add the requested page to its backstack
-            tab.backStack.add(PageBackStackItem(title, entry))
-            if (!isForeground) {
-                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
-                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let { page ->
-                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
-                                thumbUrl = page.thumbUrl()
-                                description = page.description
-                            }
+
+        // TODO: handle this with coroutines if we have viewModel
+        runBlocking {
+            // Add a new PageBackStackItem to currentTab, which is an empty Tab
+            currentTab = Tab()
+            currentTab.backStack.add(PageBackStackItem(title, entry))
+            if (!toForeground) {
+                ServiceFactory.get(title.wikiSite)
+                    .getInfoByPageIdsOrTitles(null, title.prefixedText)
+                    .query?.firstPage()?.let { page ->
+                        // TODO: verify this
+                        currentTab.getBackStackPositionTitle()?.apply {
+                            thumbUrl = page.thumbUrl()
+                            description = page.description
                         }
-                }
+                        pageFragmentLoadState.setTab(currentTab)
+                    }
             }
             requireActivity().invalidateOptionsMenu()
-        } else {
             pageFragmentLoadState.setTab(currentTab)
-            currentTab.backStack.add(PageBackStackItem(title, entry))
         }
     }
 
@@ -596,12 +597,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val historyEntryId = model.curEntry?.id ?: -1
         model.title?.let {
             callback()?.onPageRequestLangLinks(it, historyEntryId)
-        }
-    }
-
-    private fun trimTabCount() {
-        while (app.tabList.size > Constants.MAX_TABS) {
-            app.tabList.removeAt(0)
         }
     }
 
@@ -907,6 +902,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun reloadFromBackstack(forceReload: Boolean = true) {
+        // TODO: fix this
+        L.d("reloadFromBackstack ${currentTab.getBackStackPositionTitle()?.displayText}}")
         if (pageFragmentLoadState.setTab(currentTab) || forceReload) {
             if (!pageFragmentLoadState.backStackEmpty()) {
                 pageFragmentLoadState.loadFromBackStack()
@@ -961,37 +958,40 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
+
+        // Update the currentTab from the pageLoadState
+        currentTab = pageFragmentLoadState.getCurrentTab()
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
-        if (app.tabCount == 0) {
-            openInNewTab(title, entry, foregroundTabPosition)
+        if (TabHelper.count == 0) {
+            openInNewTab(title, entry, true)
             pageFragmentLoadState.loadFromBackStack()
         } else {
-            openInNewTab(title, entry, backgroundTabPosition)
+            openInNewTab(title, entry, false)
             (requireActivity() as PageActivity).animateTabsButton()
         }
     }
 
     fun openInNewForegroundTab(title: PageTitle, entry: HistoryEntry) {
-        openInNewTab(title, entry, foregroundTabPosition)
+        openInNewTab(title, entry, true)
         pageFragmentLoadState.loadFromBackStack()
     }
 
     fun openFromExistingTab(title: PageTitle, entry: HistoryEntry) {
-        val selectedTabPosition = selectedTabPosition(title)
+        val selectedTab = TabHelper.findTabByTitle(title)
 
-        if (selectedTabPosition == -1) {
+        if (selectedTab == null) {
             loadPage(title, entry, pushBackStack = true, squashBackstack = false)
             return
         }
-        setCurrentTabAndReset(selectedTabPosition)
+        setCurrentTabAndReset(selectedTab)
     }
 
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean, isRefresh: Boolean = false) {
         // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() &&
-                title == currentTab.backStack[currentTab.backStackPosition].title) {
+                title == currentTab.backStack[currentTab.backStackPosition].getPageTitle()) {
             if (model.page == null || isRefresh) {
                 pageFragmentLoadState.loadFromBackStack()
             } else if (!title.fragment.isNullOrEmpty()) {
@@ -1000,8 +1000,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             return
         }
         if (squashBackstack) {
-            if (app.tabCount > 0) {
-                app.tabList.last().clearBackstack()
+            if (TabHelper.count > 0) {
+                // TODO: verify this
+                currentTab.clearBackstack()
             }
         }
         loadPage(title, entry, pushBackStack, 0, isRefresh)

@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import androidx.core.widget.TextViewCompat
+import kotlinx.coroutines.runBlocking
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ViewTabsCountBinding
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -25,11 +26,14 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
     }
 
     fun updateTabCount(animation: Boolean) {
-        val count = WikipediaApp.instance.tabCount
-        binding.tabsCountText.text = count.toString()
-        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 10, 1, TypedValue.COMPLEX_UNIT_SP)
-        if (animation) {
-            startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+        // TODO: determine if this should be run on the main thread or not
+        runBlocking {
+            val tabs = AppDatabase.instance.tabDao().getTabs().filter { it.getBackStackIds().isNotEmpty() }
+            binding.tabsCountText.text = tabs.size.toString()
+            TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 10, 1, TypedValue.COMPLEX_UNIT_SP)
+            if (animation) {
+                startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+            }
         }
     }
 }

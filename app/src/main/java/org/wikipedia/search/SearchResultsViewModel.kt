@@ -125,15 +125,25 @@ class SearchResultsViewModel : ViewModel() {
             return null
         }
 
-        private fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
-            WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
-                    if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                        return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
-                    }
+        private suspend fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
+            return withContext(Dispatchers.IO) {
+                val tabs = AppDatabase.instance.tabDao().getTabs()
+                tabs.forEach { tab ->
+                    // Use the backStackIds to get the full backStack items from the database
+                    val backStackItems = AppDatabase.instance.pageBackStackItemDao()
+                        .getPageBackStackItems(tab.getBackStackIds())
+                    tab.backStack = backStackItems.toMutableList()
+                }
+                return@withContext tabs.firstOrNull {
+                    it.getBackStackPositionTitle()?.let { title ->
+                        title.wikiSite == wikiSite && StringUtil.fromHtml(title.displayText).contains(searchTerm, true)
+                    } ?: false
+                }?.let { tab ->
+                    SearchResults(mutableListOf(SearchResult(tab.getBackStackPositionTitle()!!, SearchResult.SearchResultType.TAB_LIST)))
+                } ?: run {
+                    SearchResults()
                 }
             }
-            return SearchResults()
         }
     }
 }
