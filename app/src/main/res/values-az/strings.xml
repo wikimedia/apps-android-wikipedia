@@ -1155,7 +1155,7 @@
   <string name="activity_tab_menu_feedback">Funksiya ilə bağlı problem</string>
   <string name="activity_tab_menu_info">Daha ətraflı öyrən</string>
   <string name="activity_tab_menu_customize">Fərdiləşdir</string>
-  <string name="activity_tab_menu_customize_description">Fəaliyyət vərəqəsi statistikası parametrlərdəki əsas dilə əsaslanır və ictimai olan redaktələr istisna olmaqla, lokal datadan istifadə edir.</string>
+  <string name="activity_tab_menu_customize_description" fuzzy="true">Fəaliyyət vərəqəsi statistikası parametrlərdəki əsas dilə əsaslanır və ictimai olan redaktələr istisna olmaqla, lokal datadan istifadə edir.</string>
   <string name="activity_tab_highlights">Vurğulananlar</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Oxuma tarixçəsi</string>
   <string name="activity_tab_impact">Sizin təsiriniz</string>
@@ -1726,6 +1726,7 @@
   <string name="donate_gpay_dialog_pay_button">Google Pay ilə ianə et</string>
   <string name="donate_gpay_dialog_other_button">Digər ödəniş üsulu</string>
   <string name="donate_gpay_activity_title">Məbləği seçin</string>
+  <string name="donate_gpay_activity_title_with_currency">Məbləğ seç (%s)</string>
   <string name="donate_gpay_check_transaction_fee">İanəmin 100%%-ni ala bilməyiniz üçün əməliyyat xərclərini də ödəmək üçün %s əlavə edəcəm</string>
   <string name="donate_gpay_check_recurring">Bunu aylıq təkrarlanan ianə edin.</string>
   <string name="donate_gpay_check_send_email">Bəli, Vikimedia Fondu mənə vaxtaşırı e-poçt göndərə bilər.</string>
@@ -1834,17 +1835,20 @@
   <string name="on_this_day_game_continue_playing_btn_text">Oynamağa davam et</string>
   <string name="on_this_day_game_sound_on">Səsi aç</string>
   <string name="on_this_day_game_sound_off">Səsi söndür</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Ətraflı öyrən</string>
-  <string name="year_in_review_get_started" fuzzy="true">Başla</string>
+  <string name="year_in_review_learn_more">Ətraflı öyrən</string>
+  <string name="year_in_review_get_started">Başla</string>
   <string name="year_in_review_topbar_w_icon">Vikipediya W ikonu</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Sola naviqasiya</string>
+  <string name="year_in_review_navigate_left">Sola naviqasiya</string>
+  <string name="year_in_review_close">Bağla</string>
   <string name="year_in_review_share_icon">Paylaş ikonu</string>
   <string name="year_in_review_heart_icon">Ürək ikonu</string>
   <string name="year_in_review_navigate_right">Sağa naviqasiya</string>
   <string name="year_in_review_donate">İanə et</string>
   <string name="year_in_review_information_icon">Məlumat ikonu</string>
   <string name="year_in_review_get_started_headline">Vikipediyadakı ilinizin icmalını nəzərdən keçirin</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın. Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="year_in_review_get_started_bodytext">Vikipediya proqramında oxuduğunuz məqalələr və etdiyiniz redaktələr haqqında statistikaya baxın.</string>
+  <string name="year_in_review_get_started_info">Oxuma tarixçəniz qorunur. Oxuma statistikası cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="year_in_review_get_started_later">İlin İcmalına Daha çox menyusundan baxa bilərsiniz.</string>
   <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
   <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
   <string name="year_in_review_survey_very_satisfied">Çox məmnunam</string>
@@ -1855,10 +1859,21 @@
   <string name="year_in_review_survey_placeholder_text">Əlavə fikriniz var?</string>
   <string name="year_in_review_survey_cancel">İmtina</string>
   <string name="year_in_review_survey_submit">Göndər</string>
+  <string name="year_in_review_disable_title">İlin İcmalını söndürmək istədiyinizə əminsiniz?</string>
+  <string name="year_in_review_disable_positive_button">Bəli, əminəm</string>
+  <string name="year_in_review_disable_negative_button">Xeyr, təşəkkürlər</string>
+  <string name="year_in_review_setting_subtitle">İlin İcmalının söndürülməsi bütün saxlanılan fərdiləşdirilmiş məlumatları siləcək və İlin İcmalını gizlədəcək.</string>
   <string name="year_in_review_screendeck_image_content_description">İlin İcmalının əsas ekranındakı şəkil resursu</string>
   <string name="year_in_review_screenshot_error">Skrinşot yaratmaq mümkün olmadı: %s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">İlin İcmalı Şəkil və Link</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Qlobus İkonu</string>
+  <string name="year_in_review_share_subject">Vikipediyadakı ilimin icmalı</string>
+  <string name="year_in_review_share_body">Mənim Vikipediyada İlimin İcmalı. Vikipediya Android tətbiqi ilə yaradılıb %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Qlobus ikonu</string>
+  <string name="settings_app_icon_title">Tətbiq ikonu</string>
+  <string name="settings_app_icon_subtitle">Töhfəçi faydası</string>
+  <string name="settings_app_icon_preference_subtitle">Töhfəçi ikonası %d-ci ildə Vikipediyaya tətbiqdaxili töhfələrinizi qeyd edir. O, növbəti İlin İcmalına qədər qalacaq.</string>
+  <string name="settings_app_icon_updated">Tətbiq ikonanız yeniləndi.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Yeni ikonanın kilidi açıldı</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
