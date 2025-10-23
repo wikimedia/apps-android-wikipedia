@@ -133,7 +133,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    var previousFragment: Fragment? = null
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
+
+    var shouldBackToActivityTab = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -170,6 +173,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             if (item.order == NavTab.EDITS.code()) {
+                shouldBackToActivityTab = false
                 if (ActivityTabABTest().isInTestGroup() && !Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     return@setOnItemSelectedListener false
@@ -187,6 +191,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
                 return@setOnItemSelectedListener true
             }
+            previousFragment = fragment
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()
             true
@@ -557,7 +562,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }
 
-    private fun goToTab(tab: NavTab) {
+    fun goToTab(tab: NavTab) {
         binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu[tab.code()].itemId
     }
 
@@ -633,6 +638,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onNavigateTo(navTab: NavTab) {
+        shouldBackToActivityTab = true
         goToTab(navTab)
     }
 
