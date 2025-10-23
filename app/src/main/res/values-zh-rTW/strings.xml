@@ -1186,7 +1186,7 @@
   <string name="activity_tab_menu_feedback">功能問題</string>
   <string name="activity_tab_menu_info">了解更多</string>
   <string name="activity_tab_menu_customize">自訂</string>
-  <string name="activity_tab_menu_customize_description">活動分頁分析基於設定中所設定的主要語言，並利用本地端資料（公開的編輯除外）</string>
+  <string name="activity_tab_menu_customize_description" fuzzy="true">活動分頁分析基於設定中所設定的主要語言，並利用本地端資料（公開的編輯除外）</string>
   <string name="activity_tab_highlights">亮點</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">閱讀歷史</string>
   <string name="activity_tab_impact">您的影響</string>
@@ -1870,17 +1870,18 @@
   <string name="on_this_day_game_continue_playing_btn_text">繼續遊玩</string>
   <string name="on_this_day_game_sound_on">打開音效</string>
   <string name="on_this_day_game_sound_off">關閉音效</string>
-  <string name="year_in_review_learn_more" fuzzy="true">了解更多</string>
-  <string name="year_in_review_get_started" fuzzy="true">入門</string>
+  <string name="year_in_review_learn_more">了解更多</string>
+  <string name="year_in_review_get_started">入門</string>
   <string name="year_in_review_topbar_w_icon">維基百科 W 圖示</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">向左導覽</string>
+  <string name="year_in_review_navigate_left">向左導覽</string>
+  <string name="year_in_review_close">關閉</string>
   <string name="year_in_review_share_icon">分享圖示</string>
   <string name="year_in_review_heart_icon">心形圖示</string>
   <string name="year_in_review_navigate_right">向右導覽</string>
   <string name="year_in_review_donate">捐款</string>
   <string name="year_in_review_information_icon">資訊圖示</string>
   <string name="year_in_review_get_started_headline">探索您的維基百科年度回顧</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">查看您在維基百科應用程式上閱讀過的條目，以及您做過的編輯。您的閱讀歷史不會洩露出去，閱讀洞察資訊是使用儲存在您裝置上本機資料所計算出的。</string>
+  <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過的條目，以及您做過的編輯。</string>
   <string name="year_in_review_survey_title">協助改善年度回顧</string>
   <string name="year_in_review_survey_subtitle">您滿意這個功能嗎？</string>
   <string name="year_in_review_survey_very_satisfied">非常滿意</string>
@@ -1893,8 +1894,17 @@
   <string name="year_in_review_survey_submit">提交</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顧主畫面圖片資源</string>
   <string name="year_in_review_screenshot_error">無法產生螢幕截圖：%s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">年度回顧圖片和連結</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">地球圖示</string>
+  <string name="year_in_review_share_subject">我的維基百科年度回顧</string>
+  <string name="year_in_review_globe_icon">地球圖示</string>
+  <string name="year_in_review_slide_app_icon_donor">捐款者</string>
+  <string name="year_in_review_slide_app_icon_editor">編輯者</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
+  <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
+  <string name="year_in_review_slide_reading_pattern_midday">中午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
+  <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
+  <string name="year_in_review_slide_reading_pattern_night">晚間</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
   <string name="recommended_reading_list_title">發現</string>
   <string name="recommended_reading_list_onboarding_card_title">發現專為您挑選的條目</string>
   <string name="recommended_reading_list_onboarding_card_message">您的每週維基百科條目閱讀清單，專為您精心挑選。</string>
