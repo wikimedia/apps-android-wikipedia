@@ -1153,6 +1153,7 @@
   <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
   <string name="activity_tab_donation_unknown">Desconhecido</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; na aplicação</string>
+  <string name="activity_tab_total_edits_all_projects">Total de edições em todos os projetos</string>
   <string name="activity_tab_game_stats">Estatísticas do Jogo</string>
   <string name="activity_tab_play_wiki_games">Jogar WikiGames</string>
   <string name="activity_tab_report_email_subject">Relatório de problemas - Separador de Atividade</string>
@@ -1687,6 +1688,7 @@
   <string name="donate_gpay_dialog_pay_button">Doar com Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
   <string name="donate_gpay_activity_title">Selecione um montante</string>
+  <string name="donate_gpay_activity_title_with_currency">Selecione um valor (%s)</string>
   <string name="donate_gpay_check_recurring">Faça disto um mês doação recorrente.</string>
   <string name="donate_gpay_check_send_email">Sim, a Fundação Wikimedia pode enviar-me uma mensagem ocasional.</string>
   <string name="donate_gpay_minimum_amount">Por favor, selecione um valor (mínimo %s)</string>
@@ -1779,10 +1781,11 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuar a Jogar</string>
   <string name="on_this_day_game_sound_on">Ativar o som</string>
   <string name="on_this_day_game_sound_off">Desativar o som</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Saber Mais</string>
-  <string name="year_in_review_get_started" fuzzy="true">Começar</string>
+  <string name="year_in_review_learn_more">Saber mais</string>
+  <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Navegar para a esquerda</string>
+  <string name="year_in_review_navigate_left">Navegar para a esquerda</string>
+  <string name="year_in_review_close">Fechar</string>
   <string name="year_in_review_share_icon">Ícone de Partilhar</string>
   <string name="year_in_review_heart_icon">Ícone de Coração</string>
   <string name="year_in_review_navigate_right">Navegar para a direita</string>
@@ -1799,7 +1802,23 @@
   <string name="year_in_review_survey_placeholder_text">Alguma ideia adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Submeter</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Ícone de Globo</string>
+  <string name="year_in_review_disable_positive_button">Sim, eu tenho a certeza</string>
+  <string name="year_in_review_disable_negative_button">Não, obrigado</string>
+  <string name="year_in_review_share_subject">Meu Ano da Wikipédia em Avaliação</string>
+  <string name="year_in_review_globe_icon">Ícone Globo</string>
+  <string name="settings_app_icon_title">Ícone da aplicação</string>
+  <string name="year_in_review_slide_app_icon_donor">um doador</string>
+  <string name="year_in_review_slide_app_icon_editor">um editor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
+  <string name="year_in_review_login_dialog_positive">Iniciar sessão / Registar na Wikipédia</string>
+  <string name="year_in_review_login_dialog_negative">Continuar sem iniciar a sessão</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Editores efetuaram %,d alteração este ano</item>
+    <item quantity="other">Editores efetuaram %,d alterações neste ano</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Meio dia</string>
+  <string name="year_in_review_slide_reading_pattern_night">Noite</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos escolhidos apenas para si</string>
   <string name="recommended_reading_list_onboarding_card_new">Novo!</string>
