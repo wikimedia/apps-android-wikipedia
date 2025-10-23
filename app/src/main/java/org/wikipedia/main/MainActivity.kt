@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
@@ -53,10 +52,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
         onBackPressedDispatcher.addCallback(this) {
             if (fragment.onBackPressed()) {
-                return@addCallback
-            }
-            if (fragment.shouldBackToActivityTab && fragment.previousFragment is ActivityTabFragment) {
-                fragment.goToTab(NavTab.EDITS)
                 return@addCallback
             }
             finish()
