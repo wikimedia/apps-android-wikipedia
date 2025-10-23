@@ -57,6 +57,8 @@ sealed class YearInReviewScreenData(
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
 
+        open val imageModifier = Modifier.fillMaxSize()
+
         @Composable
         open fun Header(context: Context,
                         screenCaptureMode: Boolean,
@@ -73,38 +75,30 @@ sealed class YearInReviewScreenData(
                         .headerBackground(),
                     contentAlignment = Alignment.Center
                 ) {
-                    HeaderContents(context, screenCaptureMode, isImageResourceLoaded, aspectRatio)
+                    SubcomposeAsyncImage(
+                        model = ImageRequest.Builder(context)
+                            .data(animatedImageResource)
+                            .allowHardware(false)
+                            .build(),
+                        loading = { LoadingIndicator() },
+                        success = {
+                            val drawable = it.result.image.asDrawable(context.resources)
+                            val animatable = drawable as? Animatable
+                            animatable?.let { animation ->
+                                if (screenCaptureMode) {
+                                    animation.stop()
+                                } else if (!animation.isRunning) {
+                                    animation.start()
+                                }
+                            }
+                            SubcomposeAsyncImageContent()
+                        },
+                        onSuccess = { isImageResourceLoaded?.invoke(true) },
+                        contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+                        modifier = imageModifier
+                    )
                 }
             }
-        }
-
-        @Composable
-        open fun HeaderContents(context: Context,
-                                screenCaptureMode: Boolean,
-                                isImageResourceLoaded: ((Boolean) -> Unit)? = null,
-                                aspectRatio: Float) {
-            SubcomposeAsyncImage(
-                model = ImageRequest.Builder(context)
-                    .data(animatedImageResource)
-                    .allowHardware(false)
-                    .build(),
-                loading = { LoadingIndicator() },
-                success = {
-                    val drawable = it.result.image.asDrawable(context.resources)
-                    val animatable = drawable as? Animatable
-                    animatable?.let { animation ->
-                        if (screenCaptureMode) {
-                            animation.stop()
-                        } else if (!animation.isRunning) {
-                            animation.start()
-                        }
-                    }
-                    SubcomposeAsyncImageContent()
-                },
-                onSuccess = { isImageResourceLoaded?.invoke(true) },
-                contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                modifier = Modifier.fillMaxSize()
-            )
         }
 
         open fun Modifier.headerBackground(): Modifier {
@@ -168,6 +162,9 @@ sealed class YearInReviewScreenData(
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
     ) {
+
+        override val imageModifier: Modifier = Modifier.size(200.dp)
+
         @Composable
         override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
             if (showDonateButton) {
