@@ -1703,10 +1703,11 @@
   <string name="on_this_day_game_continue_playing_btn_text">Virufuere mat Spillen</string>
   <string name="on_this_day_game_sound_on">Toun ausmaachen</string>
   <string name="on_this_day_game_sound_off">Toun umaachen</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Méi gewuer ginn</string>
-  <string name="year_in_review_get_started" fuzzy="true">Ufänken</string>
+  <string name="year_in_review_learn_more">Méi gewuer ginn</string>
+  <string name="year_in_review_get_started">Ufänken</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia-W-Symbol</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">No lénks navigéieren</string>
+  <string name="year_in_review_navigate_left">No lénks navigéieren</string>
+  <string name="year_in_review_close">Zoumaachen</string>
   <string name="year_in_review_share_icon">Deelen-Symbol</string>
   <string name="year_in_review_heart_icon">Häerzsymbol</string>
   <string name="year_in_review_navigate_right">No riets navigéieren</string>
@@ -1723,9 +1724,12 @@
   <string name="year_in_review_survey_placeholder_text">Wëllt Dir nach eppes soen?</string>
   <string name="year_in_review_survey_cancel">Ofbriechen</string>
   <string name="year_in_review_survey_submit">Ofschécken</string>
+  <string name="year_in_review_disable_positive_button">Jo, ech si mer sécher</string>
+  <string name="year_in_review_disable_negative_button">Nee, merci</string>
   <string name="year_in_review_screenshot_error">Et konnt kee Screenshot gemaach ginn: %s</string>
   <string name="year_in_review_share_subject" fuzzy="true">Bild a Link fir de Joresréckbléck</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Globussymbol</string>
+  <string name="year_in_review_globe_icon">Globussymbol</string>
+  <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdeckt Artikelen, déi just fir Iech erausgesicht goufen</string>
   <string name="recommended_reading_list_onboarding_card_message">Är wéchentlech Lieslëscht mat Wikipedia-Artikelen, déi speziell fir Iech zesummegestallt goufen.</string>
