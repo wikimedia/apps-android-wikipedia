@@ -255,10 +255,10 @@ class TranslationTests {
 
         /** Add more if needed, but then also add some tests.  */
         private val POSSIBLE_PARAMS = listOf(
-            "%s", "%1\$s", "%2\$s", "%3\$s",
-            "%d", "%1\$d", "%2\$d", "%3\$d",
-            "%,d", "%1$,d", "%2$,d", "%3$,d",
-            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f",
+            "%s", "%1\$s", "%2\$s", "%3\$s", "%4\$s",
+            "%d", "%1\$d", "%2\$d", "%3\$d", "%4\$d",
+            "%,d", "%1$,d", "%2$,d", "%3$,d", "%4$,d",
+            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "%4$.2f",
             "^1"
         )
         private val UNSUPPORTED_TEXTS_REGEX = listOf(
