@@ -1259,7 +1259,7 @@
   <string name="activity_tab_menu_feedback">Проблема з функцією</string>
   <string name="activity_tab_menu_info">Дізнатися більше</string>
   <string name="activity_tab_menu_customize">Налаштувати</string>
-  <string name="activity_tab_menu_customize_description">Статистика вкладки «Активність» базується на основній мові, встановленій у налаштуваннях, та використовує локальні дані (окрім редагувань: вони є публічними).</string>
+  <string name="activity_tab_menu_customize_description" fuzzy="true">Статистика вкладки «Активність» базується на основній мові, встановленій у налаштуваннях, та використовує локальні дані (окрім редагувань: вони є публічними).</string>
   <string name="activity_tab_highlights">Основні моменти</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Історія читання</string>
   <string name="activity_tab_impact">Ваш вплив</string>
@@ -1976,17 +1976,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
   <string name="on_this_day_game_sound_on">Увімкнути звук</string>
   <string name="on_this_day_game_sound_off">Вимкнути звук</string>
-  <string name="year_in_review_learn_more">Дізнатися більше</string>
-  <string name="year_in_review_get_started">Розпочати</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Дізнатися більше</string>
+  <string name="year_in_review_get_started" fuzzy="true">Розпочати</string>
   <string name="year_in_review_topbar_w_icon">Іконка W Вікіпедії</string>
-  <string name="year_in_review_navigate_left">Перейти ліворуч</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Перейти ліворуч</string>
   <string name="year_in_review_share_icon">Іконка «Поділитися»</string>
   <string name="year_in_review_heart_icon">Іконка серця</string>
   <string name="year_in_review_navigate_right">Перейти праворуч</string>
   <string name="year_in_review_donate">Пожертвувати</string>
   <string name="year_in_review_information_icon">Іконка інформації</string>
   <string name="year_in_review_get_started_headline">Ознайомтеся зі своїм оглядом року у Вікіпедії</string>
-  <string name="year_in_review_get_started_bodytext">Переглядайте статистику того, які статті ви читали в програмці Вікіпедії, а також редагування, які ви зробили. Ваша історія читання зберігається під захистом. Статистика читання обчислюється на основі локально збережених даних на вашому пристрої.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Переглядайте статистику того, які статті ви читали в програмці Вікіпедії, а також редагування, які ви зробили. Ваша історія читання зберігається під захистом. Статистика читання обчислюється на основі локально збережених даних на вашому пристрої.</string>
   <string name="year_in_review_survey_title">Допоможіть покращити Огляд року</string>
   <string name="year_in_review_survey_subtitle">Ви задоволені цією функцією?</string>
   <string name="year_in_review_survey_very_satisfied">Дуже задоволений/а</string>
@@ -1999,8 +1999,8 @@
   <string name="year_in_review_survey_submit">Надіслати</string>
   <string name="year_in_review_screendeck_image_content_description">Ресурс зображень для головної панелі Огляду року</string>
   <string name="year_in_review_screenshot_error">Не вдалося створити скриншот: %s</string>
-  <string name="year_in_review_share_subject">Зображення та посилання на Огляд року</string>
-  <string name="year_in_review_globe_icon">Іконка глобуса</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Зображення та посилання на Огляд року</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Іконка глобуса</string>
   <string name="recommended_reading_list_title">Рекомендації</string>
   <string name="recommended_reading_list_onboarding_card_title">Відкрийте статті, підібрані спеціально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш щотижневий список статей Вікіпедії для читання, підібраний спеціально для вас.</string>

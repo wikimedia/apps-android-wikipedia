@@ -1,7 +1,7 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
-import androidx.compose.foundation.Image
+import android.graphics.drawable.Animatable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.asDrawable
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
@@ -35,6 +36,7 @@ import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
 
@@ -50,11 +52,12 @@ sealed class YearInReviewScreenData(
     open class StandardScreen(
         allowDonate: Boolean = true,
         val animatedImageResource: Int = 0,
-        val staticImageResource: Int = 0,
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
+
+        open val imageModifier = Modifier.fillMaxSize()
 
         @Composable
         open fun Header(context: Context,
@@ -72,27 +75,30 @@ sealed class YearInReviewScreenData(
                         .headerBackground(),
                     contentAlignment = Alignment.Center
                 ) {
-                    HeaderContents(context, screenCaptureMode, isImageResourceLoaded, aspectRatio)
+                    SubcomposeAsyncImage(
+                        model = ImageRequest.Builder(context)
+                            .data(animatedImageResource)
+                            .allowHardware(false)
+                            .build(),
+                        loading = { LoadingIndicator() },
+                        success = {
+                            val drawable = it.result.image.asDrawable(context.resources)
+                            val animatable = drawable as? Animatable
+                            animatable?.let { animation ->
+                                if (screenCaptureMode) {
+                                    animation.stop()
+                                } else if (!animation.isRunning) {
+                                    animation.start()
+                                }
+                            }
+                            SubcomposeAsyncImageContent()
+                        },
+                        onSuccess = { isImageResourceLoaded?.invoke(true) },
+                        contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+                        modifier = imageModifier
+                    )
                 }
             }
-        }
-
-        @Composable
-        open fun HeaderContents(context: Context,
-                                screenCaptureMode: Boolean,
-                                isImageResourceLoaded: ((Boolean) -> Unit)? = null,
-                                aspectRatio: Float) {
-            SubcomposeAsyncImage(
-                model = ImageRequest.Builder(context)
-                    .data(if (screenCaptureMode) staticImageResource else animatedImageResource)
-                    .allowHardware(false)
-                    .build(),
-                loading = { LoadingIndicator() },
-                success = { SubcomposeAsyncImageContent() },
-                onSuccess = { isImageResourceLoaded?.invoke(true) },
-                contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                modifier = Modifier.fillMaxSize()
-            )
         }
 
         open fun Modifier.headerBackground(): Modifier {
@@ -120,7 +126,11 @@ sealed class YearInReviewScreenData(
 
     class GeoScreen(
         allowDonate: Boolean = true,
-        val coordinates: Map<String, List<Int>>, // just a placeholder, @TODO: replace with actual data type
+        val largestClusterLatitude: Double,
+        val largestClusterLongitude: Double,
+        val largestClusterTopLeft: Pair<Double, Double>,
+        val largestClusterBottomRight: Pair<Double, Double>,
+        val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
         val bodyText: String? = null
     ) : YearInReviewScreenData(allowDonate)
@@ -128,7 +138,6 @@ sealed class YearInReviewScreenData(
     class ReadingPatterns(
         allowDonate: Boolean = true,
         animatedImageResource: Int = 0,
-        staticImageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
         val favoriteTimeText: String,
@@ -137,7 +146,6 @@ sealed class YearInReviewScreenData(
     ) : StandardScreen(
         allowDonate,
         animatedImageResource = animatedImageResource,
-        staticImageResource = staticImageResource,
         headlineText = headlineText,
         bodyText = bodyText,
     )
@@ -149,21 +157,13 @@ sealed class YearInReviewScreenData(
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
+        animatedImageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
     ) {
-        @Composable
-        override fun HeaderContents(context: Context,
-                                    screenCaptureMode: Boolean,
-                                    isImageResourceLoaded: ((Boolean) -> Unit)?,
-                                    aspectRatio: Float) {
-            Image(
-                modifier = Modifier.size(200.dp),
-                painter = painterResource(R.drawable.launcher_foreground_yir25),
-                contentDescription = null
-            )
-        }
+
+        override val imageModifier: Modifier = Modifier.size(200.dp)
 
         @Composable
         override fun BottomButton(context: Context, onButtonClick: () -> Unit) {

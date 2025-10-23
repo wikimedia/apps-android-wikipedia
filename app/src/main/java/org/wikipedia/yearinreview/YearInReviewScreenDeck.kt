@@ -1,11 +1,9 @@
 package org.wikipedia.yearinreview
 
 import android.graphics.Bitmap
-import android.graphics.BlurMaskFilter
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,10 +26,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -52,25 +47,24 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.drawLayer
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.rememberGraphicsLayer
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -84,9 +78,11 @@ import kotlin.math.absoluteValue
 fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
-    onDonateClick: () -> Unit,
-    onNextButtonClick: (PagerState) -> Unit,
-    onBackButtonClick: () -> Unit
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
+    onDonateClick: () -> Unit = {},
+    onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit = { _, _ -> },
+    onCloseButtonClick: () -> Unit = {},
+    onRetryClick: () -> Unit = {}
 ) {
     when (state) {
         is UiState.Loading -> {
@@ -102,15 +98,18 @@ fun YearInReviewScreenDeck(
 
             if (startCapture) {
                 CreateScreenShotBitmap(
-                    screenContent = pages[pagerState.currentPage]
+                    screenContent = pages[pagerState.currentPage],
+                    requestScreenshotBitmap = requestScreenshotBitmap
                 ) { bitmap ->
+                    val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
+                    val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl, context.getString(R.string.year_in_review_hashtag))
                     ShareUtil.shareImage(
                         coroutineScope = coroutineScope,
                         context = context,
                         bmp = bitmap,
-                        imageFileName = "year_in_review",
+                        imageFileName = YearInReviewViewModel.YIR_TAG,
                         subject = context.getString(R.string.year_in_review_share_subject),
-                        text = context.getString(R.string.year_in_review_share_url)
+                        text = bodyText
                     )
                     startCapture = false
                 }
@@ -125,7 +124,7 @@ fun YearInReviewScreenDeck(
                             containerColor = WikipediaTheme.colors.paperColor),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onBackButtonClick() }) {
+                            IconButton(onClick = { onCloseButtonClick() }) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
@@ -166,7 +165,7 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState) },
+                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
@@ -182,7 +181,10 @@ fun YearInReviewScreenDeck(
                         contentPadding = PaddingValues(0.dp),
                     ) { page ->
                         YearInReviewScreenContent(
-                            innerPadding = paddingValues,
+                            modifier = Modifier
+                                .padding(paddingValues)
+                                .verticalScroll(rememberScrollState()),
+                            requestScreenshotBitmap = requestScreenshotBitmap,
                             screenData = pages[page]
                         )
                     }
@@ -190,7 +192,22 @@ fun YearInReviewScreenDeck(
             )
         }
 
-        is UiState.Error -> {}
+        is UiState.Error -> {
+            Box(modifier = Modifier.fillMaxSize()) {
+                WikiErrorView(
+                    modifier = modifier.align(Alignment.Center),
+                    caught = state.error,
+                    errorClickEvents = WikiErrorClickEvents(
+                        retryClickListener = {
+                            onRetryClick()
+                        },
+                        backClickListener = {
+                            onCloseButtonClick()
+                        }
+                    )
+                )
+            }
+        }
     }
 }
 
@@ -285,9 +302,9 @@ fun MainBottomBar(
 @Composable
 fun CreateScreenShotBitmap(
     screenContent: YearInReviewScreenData,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     onBitmapReady: (Bitmap) -> Unit
 ) {
-    val shadowColor = WikipediaTheme.colors.primaryColor
     val graphicsLayer = rememberGraphicsLayer()
     var isImageLoaded by remember { mutableStateOf(false) }
 
@@ -300,14 +317,15 @@ fun CreateScreenShotBitmap(
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .drawWithContent {
                 graphicsLayer.record {
                     this@drawWithContent.drawContent()
                 }
                 drawLayer(graphicsLayer)
             }
-            .background(color = WikipediaTheme.colors.paperColor),
+            .background(color = WikipediaTheme.colors.paperColor)
+            .padding(vertical = 8.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -316,80 +334,46 @@ fun CreateScreenShotBitmap(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .padding(bottom = 40.dp),
+                .padding(vertical = 12.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 painter = painterResource(R.drawable.ic_wikipedia_b),
                 tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.year_in_review_navigate_left),
+                contentDescription = stringResource(R.string.app_name_prod),
                 modifier = Modifier
-                    .height(32.dp)
-                    .width(50.dp)
+                    .height(20.dp)
+                    .width(31.dp)
             )
         }
+
         YearInReviewScreenContent(
-            innerPadding = PaddingValues(0.dp),
-            screenData = screenContent,
-            screenCaptureMode = true,
-        ) { isLoaded -> isImageLoaded = isLoaded }
-
-        Card(
-            shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = WikipediaTheme.colors.paperColor
-            ),
             modifier = Modifier
-                .width(312.dp)
-                .padding(top = 36.dp)
-                .drawBehind {
-                    /* Manually creating card shadow for render compatibility with graphicsLayer.toImageBitmap() */
-                    val paint = Paint().asFrameworkPaint().apply {
-                        color = shadowColor.copy(alpha = 0.15f).toArgb()
-                        maskFilter = BlurMaskFilter(
-                            20f,
-                            BlurMaskFilter.Blur.NORMAL
-                        )
-                    }
-                    drawContext.canvas.nativeCanvas.drawRoundRect(
-                        0f,
-                        0f,
-                        size.width,
-                        size.height,
-                        16f,
-                        16f,
-                        paint
-                    )
-                }
+                .padding(0.dp),
+            screenData = screenContent,
+            requestScreenshotBitmap = requestScreenshotBitmap,
+            screenCaptureMode = true,
         ) {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.Start),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(start = 12.dp, end = 16.dp, top = 12.dp, bottom = 11.dp)
-
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.globe),
-                    contentDescription = stringResource(R.string.year_in_review_globe_icon)
-                )
-                Text(
-                    text = "#WikipediaYearInReview",
-                    color = WikipediaTheme.colors.progressiveColor,
-                    style = MaterialTheme.typography.titleSmall
-                )
-            }
+            isLoaded -> isImageLoaded = isLoaded
         }
+
+        Text(
+            modifier = Modifier.padding(top = 32.dp),
+            text = processString(R.string.year_in_review_hashtag),
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyLarge.copy(
+                fontWeight = FontWeight.Medium
+            )
+        )
     }
 }
 
 @Composable
 fun YearInReviewScreenContent(
-    innerPadding: PaddingValues,
+    modifier: Modifier = Modifier,
     screenData: YearInReviewScreenData,
+    requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
@@ -397,7 +381,7 @@ fun YearInReviewScreenContent(
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(
-                innerPadding = innerPadding,
+                modifier = modifier,
                 screenData = screenData,
                 screenCaptureMode = screenCaptureMode,
                 isOnboardingScreen = isOnboardingScreen,
@@ -405,7 +389,13 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.GeoScreen -> {
-            // @TODO: geo location screen
+            GeoScreenContent(
+                modifier = modifier,
+                screenData = screenData,
+                requestScreenshotBitmap = requestScreenshotBitmap,
+                screenCaptureMode = screenCaptureMode,
+                isImageResourceLoaded = isImageResourceLoaded,
+            )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
             // @TODO: has different layout structure based on ios slides
@@ -416,20 +406,16 @@ fun YearInReviewScreenContent(
 @Composable
 private fun StandardScreenContent(
     modifier: Modifier = Modifier,
-    innerPadding: PaddingValues,
     screenData: YearInReviewScreenData.StandardScreen,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null,
 ) {
-    val scrollState = rememberScrollState()
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
-            .padding(innerPadding)
-            .verticalScroll(scrollState)
     ) {
         screenData.Header(context, screenCaptureMode, isImageResourceLoaded, headerAspectRatio)
         Column {
@@ -538,7 +524,7 @@ fun LoadingIndicator() {
 }
 
 @Composable
-private fun processString(resource: Any?): String {
+fun processString(resource: Any?): String {
     return when (resource) {
         is Int -> stringResource(resource)
         else -> resource.toString()
@@ -562,10 +548,10 @@ fun PreviewScreenShot() {
             screenContent = YearInReviewScreenData.StandardScreen(
                 allowDonate = true,
                 animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                 headlineText = "Over 3 billion bytes added",
                 bodyText = "TBD"
-            )
+            ),
+            requestScreenshotBitmap = null
         ) { /* No logic, preview only */ }
     }
 }
@@ -579,14 +565,11 @@ fun PreviewStandardContent() {
                 YearInReviewScreenData.StandardScreen(
                     allowDonate = true,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "Over 3 billion bytes added",
                     bodyText = "TBD"
                 )
             )),
-            onDonateClick = {},
-            onBackButtonClick = {},
-            onNextButtonClick = {}
+            requestScreenshotBitmap = null
         )
     }
 }
@@ -600,7 +583,6 @@ fun PreviewReadingPatternsContent() {
                 YearInReviewScreenData.ReadingPatterns(
                     allowDonate = false,
                     animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-                    staticImageResource = R.drawable.year_in_review_puzzle_pieces,
                     headlineText = "You have clear reading patterns",
                     bodyText = "",
                     favoriteTimeText = "Afternoon",
@@ -608,9 +590,18 @@ fun PreviewReadingPatternsContent() {
                     favoriteMonthText = "February"
                 )
             )),
-            onDonateClick = {},
-            onBackButtonClick = {},
-            onNextButtonClick = {}
+            requestScreenshotBitmap = null
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewScreenDeckError() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        YearInReviewScreenDeck(
+            state = UiState.Error(Exception("Error")),
+            requestScreenshotBitmap = null
         )
     }
 }

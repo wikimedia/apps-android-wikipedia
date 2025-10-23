@@ -2,6 +2,7 @@ package org.wikipedia.yearinreview
 
 import android.content.Context
 import org.wikipedia.R
+import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import java.text.NumberFormat
@@ -18,6 +19,7 @@ class YearInReviewSlides(
     val isEnglishWiki: Boolean,
     val isFundraisingAllowed: Boolean,
     val config: RemoteConfig.RemoteConfigYearInReview,
+    val pagesWithCoordinates: List<HistoryEntryWithImage>,
     val yearInReviewModel: YearInReviewModel
 ) {
 
@@ -29,7 +31,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, config.hoursReadEN.toInt(), config.hoursReadEN),
             bodyText = bodyText
         )
@@ -74,8 +75,7 @@ class YearInReviewSlides(
 
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
-            animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces,
+            animatedImageResource = R.drawable.year_in_review_block_10_resize,
             headlineText = headlineText,
             bodyText = bodyText
         )
@@ -88,7 +88,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
                 config.topReadEN.size, config.topReadEN.size, popularEnglishArticlesText)
@@ -99,7 +98,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, config.savedArticlesApps.toInt(), config.savedArticlesApps),
             bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
@@ -113,7 +111,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_available_languages_headline, config.languages, config.languages),
             bodyText = bodyText
         )
@@ -123,7 +120,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_viewed_articles_times_headline, config.viewsApps.toInt(), config.viewsApps),
             bodyText = context.getString(R.string.year_in_review_slide_viewed_articles_times_body)
         )
@@ -148,7 +144,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.ReadingPatterns(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_reading_patterns_headline),
             favoriteTimeText = favoriteTimeText,
             favoriteDayText = favoriteDayText,
@@ -166,7 +161,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_top_categories_headline),
             bodyText = context.getString(R.string.year_in_review_slide_top_categories_body, currentYear, topCategoriesText)
         )
@@ -183,19 +177,24 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_headline, quantity),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_top_articles_body, quantity, currentYear, topArticlesText)
         )
     }
 
-    private fun geoWithArticlesScreen(vararg params: Int): YearInReviewScreenData.GeoScreen {
-        // TODO: yir112
+    private fun geoWithArticlesScreen(): YearInReviewScreenData.GeoScreen? {
+        if (yearInReviewModel.largestClusterCountryName.isEmpty() || yearInReviewModel.largestClusterArticles.size < YearInReviewViewModel.MIN_ARTICLES_PER_MAP_CLUSTER) {
+            return null
+        }
         return YearInReviewScreenData.GeoScreen(
             isFundraisingAllowed,
-            coordinates = mapOf("lat" to listOf(34, 56), "lon" to listOf(-123, 45)),
-            headlineText = "Articles you read are closest to France",
-            bodyText = "TBD"
+            largestClusterLatitude = yearInReviewModel.largestClusterLocation.first,
+            largestClusterLongitude = yearInReviewModel.largestClusterLocation.second,
+            largestClusterTopLeft = yearInReviewModel.largestClusterTopLeft,
+            largestClusterBottomRight = yearInReviewModel.largestClusterBottomRight,
+            pagesWithCoordinates = pagesWithCoordinates,
+            headlineText = context.resources.getString(R.string.year_in_review_slide_geo_headline, yearInReviewModel.largestClusterCountryName),
+            bodyText = context.resources.getString(R.string.year_in_review_slide_geo_body, yearInReviewModel.largestClusterCountryName, yearInReviewModel.largestClusterArticles[0], yearInReviewModel.largestClusterArticles[1])
         )
     }
 
@@ -207,7 +206,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_headline, yearInReviewModel.localSavedArticlesCount, yearInReviewModel.localSavedArticlesCount),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_saved_articles_body,
                 appSavedArticlesSize, yearInReviewModel.localSavedArticles[0], yearInReviewModel.localSavedArticles[1],
@@ -224,7 +222,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_headline, userEditsCount, formattedUserEditsNumber),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_times_body, config.edits.toInt(), config.edits)
         )
@@ -235,7 +232,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_headline, quantity, yearInReviewModel.userEditsViewedTimes),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_body, quantity, yearInReviewModel.userEditsViewedTimes)
         )
@@ -245,7 +241,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_app_edited_times_headline, config.edits.toInt(), config.edits),
             bodyText = context.getString(R.string.year_in_review_slide_app_edited_times_body)
         )
@@ -255,7 +250,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, config.editsPerMinute, config.editsPerMinute),
             bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
@@ -269,7 +263,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, config.edits.toInt(), config.edits),
             bodyText = bodyText
         )
@@ -279,7 +272,6 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
-            staticImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, config.bytesAddedEN.toInt(), config.bytesAddedEN),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_body,
                 config.bytesAddedEN.toInt(), currentYear, config.bytesAddedEN, context.getString(R.string.editing_learn_more_url))
@@ -299,7 +291,6 @@ class YearInReviewSlides(
         )
     }
 
-    // TODO: add parameters for numbers
     private fun editorRoutes(): List<YearInReviewScreenData> {
         return when {
             isEditor -> listOf(
@@ -347,7 +338,6 @@ class YearInReviewSlides(
     }
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for English users - non-logged in.
         return (listOf(
             englishReadingHoursScreen(),
             popularEnglishArticlesScreen(),
@@ -356,7 +346,6 @@ class YearInReviewSlides(
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for non-English users - non-logged in.
         return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
@@ -365,20 +354,18 @@ class YearInReviewSlides(
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
             spentReadingMinutesScreen(),
             popularEnglishArticlesScreen(),
+            topArticlesScreen(),
             readingPatternsScreen(),
             topCategoriesScreen(),
-            topArticlesScreen(),
             geoWithArticlesScreen(),
             localSavedArticlesScreen()
         ) + editorRoutes() + unlockedIconRoute() + highlightScreen()).filterNotNull()
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for logged in users.
         return (listOf(
             spentReadingMinutesScreen(),
             viewedArticlesTimesScreen(),
@@ -398,7 +385,6 @@ class YearInReviewSlides(
         return outputText
     }
 
-    // TODO: send all required data to this function
     fun finalSlides(): List<YearInReviewScreenData> {
         return when {
             isLoggedIn && isEnglishWiki -> {

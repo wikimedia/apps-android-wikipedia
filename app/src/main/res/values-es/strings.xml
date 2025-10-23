@@ -1842,17 +1842,17 @@
   <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
   <string name="on_this_day_game_sound_on">Activar el sonido</string>
   <string name="on_this_day_game_sound_off">Desactivar el sonido</string>
-  <string name="year_in_review_learn_more">Más información</string>
-  <string name="year_in_review_get_started">Comenzar</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Más información</string>
+  <string name="year_in_review_get_started" fuzzy="true">Comenzar</string>
   <string name="year_in_review_topbar_w_icon">Icono W de Wikipedia</string>
-  <string name="year_in_review_navigate_left">Navegar a la izquierda</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navegar a la izquierda</string>
   <string name="year_in_review_share_icon">Icono para compartir</string>
   <string name="year_in_review_heart_icon">Icono de corazón</string>
   <string name="year_in_review_navigate_right">Navegar a la derecha</string>
   <string name="year_in_review_donate">Donar</string>
   <string name="year_in_review_information_icon">Icono de información</string>
   <string name="year_in_review_get_started_headline">Explora tu Wikipedia: Resumen del año</string>
-  <string name="year_in_review_get_started_bodytext">Consulta información sobre los artículos que leíste en la app de Wikipedia y las modificaciones que realizaste. Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Consulta información sobre los artículos que leíste en la app de Wikipedia y las modificaciones que realizaste. Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
   <string name="year_in_review_survey_title">Ayude a mejorar Resumen del año</string>
   <string name="year_in_review_survey_subtitle">¿Estás satisfecho con esta función?</string>
   <string name="year_in_review_survey_very_satisfied">Muy satisfecho</string>
@@ -1865,8 +1865,8 @@
   <string name="year_in_review_survey_submit">Enviar</string>
   <string name="year_in_review_screendeck_image_content_description">Recurso de imagen para la pantalla principal del Resumen del año</string>
   <string name="year_in_review_screenshot_error">No se pudo generar captura de pantalla: %s</string>
-  <string name="year_in_review_share_subject">Imagen y enlace del Resumen del año</string>
-  <string name="year_in_review_globe_icon">Icono del globo</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Imagen y enlace del Resumen del año</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Icono del globo</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>

@@ -1718,6 +1718,7 @@
   <string name="donate_gpay_dialog_pay_button">Lahjoita Google Paylla</string>
   <string name="donate_gpay_dialog_other_button">Muu maksutapa</string>
   <string name="donate_gpay_activity_title">Valitse summa</string>
+  <string name="donate_gpay_activity_title_with_currency">Valitse summa (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Lisään avokätisesti %s kattamaan siirtokulut, jotta voitte pitää 100 %% lahjoituksestani.</string>
   <string name="donate_gpay_check_recurring">Tee tästä kuukausittainen toistuva lahjoitus.</string>
   <string name="donate_gpay_check_send_email">Kyllä, Wikimedia Foundation voi lähettää minulle satunnaisia sähköpostia.</string>
@@ -1830,13 +1831,14 @@
   <string name="year_in_review_get_started">Aloita</string>
   <string name="year_in_review_topbar_w_icon">Wikipedian W-kuvake</string>
   <string name="year_in_review_navigate_left">Mene vasemmalle</string>
+  <string name="year_in_review_close">Sulje</string>
   <string name="year_in_review_share_icon">Jaa-kuvake</string>
   <string name="year_in_review_heart_icon">Sydän-kuvake</string>
   <string name="year_in_review_navigate_right">Mene oikealle</string>
   <string name="year_in_review_donate">Lahjoita</string>
   <string name="year_in_review_information_icon">Tietoa-kuvake</string>
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
-  <string name="year_in_review_get_started_bodytext">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa. Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa. Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
   <string name="year_in_review_survey_satisfied">Tyytyväinen</string>
@@ -1846,6 +1848,8 @@
   <string name="year_in_review_survey_placeholder_text">Muita ajatuksia?</string>
   <string name="year_in_review_survey_cancel">Peruuta</string>
   <string name="year_in_review_survey_submit">Lähetä</string>
+  <string name="year_in_review_disable_positive_button">Kyllä, olen varma</string>
+  <string name="year_in_review_disable_negative_button">Ei kiitos</string>
   <string name="year_in_review_screenshot_error">Kuvakaappauksen luominen epäonnistui: %s</string>
   <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
   <string name="recommended_reading_list_title">Löydä artikkeleita</string>

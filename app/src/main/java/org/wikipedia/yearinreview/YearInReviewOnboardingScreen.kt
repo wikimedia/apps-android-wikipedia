@@ -60,7 +60,7 @@ fun YearInReviewOnboardingScreen(
                         Icon(
                             painter = painterResource(R.drawable.ic_close_black_24dp),
                             tint = WikipediaTheme.colors.primaryColor,
-                            contentDescription = stringResource(R.string.year_in_review_navigate_left)
+                            contentDescription = stringResource(R.string.year_in_review_close)
                         )
                     }
                 }
@@ -107,7 +107,7 @@ fun YearInReviewOnboardingContent(
         ) {
             Text(
                 modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 8.dp),
+                    .padding(top = 16.dp, start = 16.dp, end = 8.dp),
                 text = stringResource(R.string.year_in_review_get_started_headline),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.headlineMedium,
@@ -127,7 +127,7 @@ fun YearInReviewOnboardingContent(
             )
             Text(
                 modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
+                    .padding(top = 10.dp, start = 16.dp, end = 16.dp),
                 text = stringResource(R.string.year_in_review_get_started_info),
                 color = WikipediaTheme.colors.secondaryColor,
                 style = MaterialTheme.typography.bodySmall,
