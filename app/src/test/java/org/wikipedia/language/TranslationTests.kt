@@ -20,8 +20,9 @@ class TranslationTests {
         // Check for multiple single (non-sequential) parameters
         baseMap.forEach { (key, list) ->
             val singleIntParam = POSSIBLE_PARAMS.indexOf("%d")
+            val singleIntSepParam = POSSIBLE_PARAMS.indexOf("%,d")
             val singleStrParam = POSSIBLE_PARAMS.indexOf("%s")
-            if ((list[singleIntParam] + list[singleStrParam] > 1) && !key.contains('[')) {
+            if ((list[singleIntParam] + list[singleIntSepParam] + list[singleStrParam] > 1) && !key.contains('[')) {
                 mismatches.append("Too many single parameters in ")
                     .append(STRINGS_XML_NAME).append(": ")
                     .append(key).append(" \n")
@@ -256,6 +257,7 @@ class TranslationTests {
         private val POSSIBLE_PARAMS = listOf(
             "%s", "%1\$s", "%2\$s", "%3\$s",
             "%d", "%1\$d", "%2\$d", "%3\$d",
+            "%,d", "%1$,d", "%2$,d", "%3$,d",
             "%.2f", "%1$.2f", "%2$.2f", "%3$.2f",
             "^1"
         )
@@ -264,7 +266,7 @@ class TranslationTests {
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
             "''.*?''",
-            "[^%]%[ .,;?]"
+            "[^%]%[ .,;?][^d]"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 
