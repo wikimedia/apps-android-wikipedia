@@ -868,6 +868,10 @@ object Prefs {
             ?: emptyMap()
         set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
 
+    var yearInReviewSlideViewedCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_slide_viewed_count, 1)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_slide_viewed_count, value)
+
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)

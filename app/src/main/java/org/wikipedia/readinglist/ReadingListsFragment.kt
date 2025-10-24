@@ -154,8 +154,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
         }
 
-        YearInReviewViewModel.maybeShowCreateReadingListDialog(requireActivity())
-
         return binding.root
     }
 
@@ -177,10 +175,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
+        viewLifecycleOwner.lifecycleScope.launch {
+            YearInReviewViewModel.maybeShowCreateReadingListDialog(requireActivity())
+        }
     }
 
     override fun onPause() {
