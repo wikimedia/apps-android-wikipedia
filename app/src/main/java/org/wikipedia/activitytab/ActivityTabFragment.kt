@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -46,6 +47,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -879,6 +881,65 @@ class ActivityTabFragment : Fragment() {
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+}
+
+@Composable
+fun CommonCardHeader(
+    modifier: Modifier = Modifier,
+    icon: Painter,
+    title: String,
+    subtitle: String? = null,
+    useHtmlText: Boolean = false,
+    showChevron: Boolean = false,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    painter = icon,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = null
+                )
+                if (useHtmlText) {
+                    HtmlText(
+                        text = title,
+                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                    )
+                } else {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.labelMedium,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                }
+            }
+            subtitle?.let {
+                Text(
+                    text = it,
+                    modifier = Modifier.padding(top = 4.dp),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.secondaryColor
+                )
+            }
+        }
+        if (showChevron) {
+            Icon(
+                modifier = Modifier.size(24.dp),
+                painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                tint = WikipediaTheme.colors.secondaryColor,
+                contentDescription = null
+            )
+        }
     }
 }
 
