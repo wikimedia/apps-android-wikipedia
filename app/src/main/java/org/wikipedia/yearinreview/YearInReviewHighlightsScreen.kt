@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -83,7 +82,7 @@ fun YearInReviewHighlightsScreen(
         ShareableHighlightsCard(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(324.dp)
+                .weight(1f)
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp)
