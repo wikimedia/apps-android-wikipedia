@@ -35,6 +35,7 @@
     <string name="edit_screen_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#General_2</string>
     <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
+    <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
