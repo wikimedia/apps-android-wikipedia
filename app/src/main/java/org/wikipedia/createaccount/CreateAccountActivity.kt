@@ -28,7 +28,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -168,7 +167,8 @@ class CreateAccountActivity : BaseActivity() {
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            visitInExternalBrowser(this, PageTitle("Special:PasswordReset", wiki).uri.toUri())
+            val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
+            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
