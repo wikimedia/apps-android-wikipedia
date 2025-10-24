@@ -25,6 +25,7 @@
   <string name="search_icon_content_description">Nadi</string>
   <string name="filter_hint_filter_my_lists_and_articles">Sizdeg tibdarin-iw</string>
   <string name="nav_item_suggested_edits">Ibeddilen</string>
+  <string name="nav_item_activity">Armud</string>
   <string name="nav_item_more">Ugar</string>
   <string name="nav_item_search">Nadi</string>
   <string name="nav_item_contribute">Ttekki</string>
@@ -657,6 +658,8 @@
   <string name="image_recommendation_reject_other">Wayeḍ</string>
   <string name="image_recommendation_tooltip_next">Uḍfir</string>
   <string name="activity_tab_menu_info">Issin ugar</string>
+  <string name="activity_tab_timeline_today">Ass-a</string>
+  <string name="activity_tab_timeline_yesterday">Iḍelli</string>
   <string name="file_page_edit_button_content_description">Ẓreg %s</string>
   <string name="description_edit_revert_subtitle">Tanemmirt ɣef teẓrigt Wikipedia!</string>
   <string name="description_edit_revert_intro">Neẓra d akken txeddmeḍ ayen tzemreḍ, acu kan yiwen seg imeɣriyen-nneɣ yufa-d ugur. D ayen i d-yewwin asefsex n usnifel-ik. Hatan wacuɣeṛ:</string>
@@ -710,6 +713,7 @@
   <string name="insert_media_advanced_settings_image_position_right">Ayeffus</string>
   <string name="insert_media_advanced_settings_image_position_left">Azelmaḍ</string>
   <string name="insert_media_advanced_settings_image_position_center">Alemmas</string>
+  <string name="templates_param_suggested_value">amedya %s</string>
   <string name="templates_learn_more_link">Issin ugar</string>
   <string name="main_drawer_help">Tallelt</string>
   <string name="main_drawer_login">Qqen / Jerred di Wikipidya</string>
@@ -723,6 +727,7 @@
   <string name="talk_warn_save_dialog_publish">Suffeɣ-d</string>
   <string name="talk_warn_save_dialog_cancel">Semmet</string>
   <string name="talk_warn_save_dialog_dont_save">Ur seklas ara</string>
+  <string name="talk_add_reply">Tiririt</string>
   <string name="talk_snackbar_undo">Err-d</string>
   <string name="talk_overflow_sort_by">Smizzwer s</string>
   <string name="talk_list_item_overflow_share">Bḍu</string>

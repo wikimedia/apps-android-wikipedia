@@ -9,7 +9,6 @@ import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.activitytab.ActivityTabABTest
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -140,6 +139,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerTempAccountContainer.isVisible = AccountUtil.isTemporaryAccount
             binding.mainDrawerWatchlistContainer.isVisible = !AccountUtil.isTemporaryAccount
             binding.mainDrawerContribsContainer.visibility = View.VISIBLE
+            binding.mainDrawerEditContainer.visibility = View.VISIBLE
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
@@ -151,8 +151,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerTalkContainer.visibility = View.GONE
             binding.mainDrawerWatchlistContainer.visibility = View.GONE
             binding.mainDrawerContribsContainer.visibility = View.GONE
+            binding.mainDrawerEditContainer.visibility = View.GONE
         }
-        binding.mainDrawerEditContainer.isVisible = ActivityTabABTest().isInTestGroup()
     }
 
     private fun callback(): Callback? {

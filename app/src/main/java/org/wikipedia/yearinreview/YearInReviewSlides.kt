@@ -235,6 +235,9 @@ class YearInReviewSlides(
     }
 
     private fun editsViewedTimesScreen(): StandardScreen {
+        if (yearInReviewModel.userEditsViewedTimes <= 0L) {
+            return null
+        }
         val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
         return StandardScreen(
             isFundraisingAllowed,
@@ -376,8 +379,7 @@ class YearInReviewSlides(
         )
     }
 
-    // TODO: add parameters for numbers
-    private fun editorRoutes(): List<YearInReviewScreenData> {
+    private fun editorRoutes(): List<YearInReviewScreenData?> {
         return when {
             isEditor -> listOf(
                 editedTimesScreen(),
@@ -424,7 +426,6 @@ class YearInReviewSlides(
     }
 
     private fun nonLoggedInEnglishGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for English users - non-logged in.
         return (listOf(
             englishReadingHoursScreen(),
             popularEnglishArticlesScreen(),
@@ -433,7 +434,6 @@ class YearInReviewSlides(
     }
 
     private fun nonLoggedInGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for non-English users - non-logged in.
         return (listOf(
             availableLanguagesScreen(),
             viewedArticlesTimesScreen(),
@@ -442,7 +442,6 @@ class YearInReviewSlides(
     }
 
     private fun loggedInEnglishSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for logged in English users.
         return (listOf(
             spentReadingMinutesScreen(),
             popularEnglishArticlesScreen(),
@@ -455,7 +454,6 @@ class YearInReviewSlides(
     }
 
     private fun loggedInGeneralSlides(): List<YearInReviewScreenData> {
-        // TODO: Show a bunch of generic slides for logged in users.
         return (listOf(
             spentReadingMinutesScreen(),
             viewedArticlesTimesScreen(),
@@ -475,7 +473,6 @@ class YearInReviewSlides(
         return outputText
     }
 
-    // TODO: send all required data to this function
     fun finalSlides(): List<YearInReviewScreenData> {
         return when {
             isLoggedIn && isEnglishWiki -> {
