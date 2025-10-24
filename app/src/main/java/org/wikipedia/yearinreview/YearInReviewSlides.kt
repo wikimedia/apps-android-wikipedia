@@ -227,7 +227,10 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen {
+    private fun editsViewedTimesScreen(): YearInReviewScreenData.StandardScreen? {
+        if (yearInReviewModel.userEditsViewedTimes <= 0L) {
+            return null
+        }
         val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
@@ -291,7 +294,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editorRoutes(): List<YearInReviewScreenData> {
+    private fun editorRoutes(): List<YearInReviewScreenData?> {
         return when {
             isEditor -> listOf(
                 editedTimesScreen(),
