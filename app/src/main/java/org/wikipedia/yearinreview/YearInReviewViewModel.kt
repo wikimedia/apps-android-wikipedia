@@ -1,10 +1,14 @@
 package org.wikipedia.yearinreview
 
+import android.app.Activity
 import android.graphics.Bitmap
 import android.location.Geocoder
+import android.text.method.LinkMovementMethod
+import android.widget.TextView
 import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -43,8 +48,6 @@ class YearInReviewViewModel() : ViewModel() {
     val uiScreenListState = _uiScreenListState.asStateFlow()
 
     var screenshotHeaderBitmap = createBitmap(1, 1)
-
-    var slideViewedCount = 1
 
     init {
         fetchPersonalizedData()
@@ -311,6 +314,9 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
         const val MIN_SLIDES_BEFORE_SURVEY = 2
+        const val MIN_SLIDES_FOR_CREATING_YIR_READING_LIST = 1
+        const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
+        const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
@@ -328,6 +334,38 @@ class YearInReviewViewModel() : ViewModel() {
 
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
+
+        suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
+            if (!AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || Prefs.yearInReviewSlideViewedCount < YearInReviewViewModel.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
+                return
+            }
+
+            val cutoffDate = Instant.parse(YearInReviewViewModel.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
+            if (System.currentTimeMillis() > cutoffDate) {
+                return
+            }
+
+            val activeStartDate = "2025-01-01T00:00:00Z"
+            val activeEndDate = "2025-12-31T23:59:59Z"
+            val startMillis = Instant.parse(activeStartDate).toEpochMilli()
+            val endMillis = Instant.parse(activeEndDate).toEpochMilli()
+            val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
+            val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+            if (count < YearInReviewViewModel.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "A") {
+                return
+            }
+
+            val resource = activity.resources
+            val title = resource.getString(R.string.year_in_review_reading_list_dialog_title)
+            val message = resource.getString(R.string.year_in_review_reading_list_dialog_message, activity.resources.getString(R.string.year_in_review_reading_list_learn_more))
+            MaterialAlertDialogBuilder(activity)
+                .setTitle(title)
+                .setMessage(StringUtil.fromHtml(message))
+                .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { _, _ -> }
+                .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> }
+                .show()
+                .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
         }
     }
 }
