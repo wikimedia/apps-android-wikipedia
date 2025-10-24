@@ -885,7 +885,7 @@ class ActivityTabFragment : Fragment() {
 }
 
 @Composable
-fun MetricHeader(
+fun CommonCardHeader(
     modifier: Modifier = Modifier,
     icon: Painter,
     title: String,

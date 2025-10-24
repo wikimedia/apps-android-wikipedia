@@ -144,7 +144,7 @@ fun MostViewedCard(
         )
     ) {
         Column {
-            MetricHeader(
+            CommonCardHeader(
                 modifier = Modifier.padding(16.dp),
                 icon = painterResource(R.drawable.outline_trending_up_24),
                 title = stringResource(R.string.activity_tab_impact_most_viewed)
@@ -276,7 +276,7 @@ fun ContributionCard(
         onClick = onContributionClick
     ) {
         Column {
-            MetricHeader(
+            CommonCardHeader(
                 modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
                 icon = painterResource(R.drawable.ic_icon_user_contributions_ooui),
                 title = stringResource(R.string.activity_tab_impact_contributions_this_month),

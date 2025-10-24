@@ -41,7 +41,7 @@ fun DonationModule(
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
-                MetricHeader(
+                CommonCardHeader(
                     icon = painterResource(R.drawable.outline_credit_card_heart_24),
                     useHtmlText = true,
                     title = stringResource(R.string.activity_tab_donation_last_donation),

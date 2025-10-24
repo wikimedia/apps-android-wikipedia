@@ -247,7 +247,7 @@ private fun ArticleReadThisMonthCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            MetricHeader(
+            CommonCardHeader(
                 icon = painterResource(R.drawable.ic_newsstand_24),
                 title = stringResource(R.string.activity_tab_monthly_articles_read),
                 showChevron = true,
@@ -320,7 +320,7 @@ private fun ArticleSavedThisMonthCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            MetricHeader(
+            CommonCardHeader(
                 icon = painterResource(R.drawable.ic_bookmark_border_white_24dp),
                 title = stringResource(R.string.activity_tab_monthly_articles_saved),
                 showChevron = true,
@@ -442,7 +442,7 @@ fun TopCategoriesCard(
         )
     ) {
         Column {
-            MetricHeader(
+            CommonCardHeader(
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
                 icon = painterResource(R.drawable.ic_category_black_24dp),
                 title = stringResource(R.string.activity_tab_monthly_top_categories)

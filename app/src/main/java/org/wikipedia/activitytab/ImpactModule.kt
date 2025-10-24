@@ -325,7 +325,7 @@ fun TotalEditsCard(
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            MetricHeader(
+            CommonCardHeader(
                 icon = painterResource(R.drawable.ic_public_24),
                 title = stringResource(R.string.activity_tab_total_edits_all_projects),
                 showChevron = true
