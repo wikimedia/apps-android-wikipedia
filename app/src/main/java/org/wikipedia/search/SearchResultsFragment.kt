@@ -68,7 +68,8 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.searchResultsFlow.collectLatest {
-                        binding.searchResultsList.visibility = View.VISIBLE
+                        binding.searchResultsList.isVisible = true
+                        binding.searchErrorView.isVisible = false
                         searchResultsAdapter.submitData(lifecycleScope, it)
                     }
                 }
@@ -78,6 +79,7 @@ class SearchResultsFragment : Fragment() {
                         if (it.refresh is LoadState.Error) {
                             binding.searchErrorView.setError((it.refresh as LoadState.Error).error)
                             binding.searchErrorView.isVisible = true
+                            binding.searchResultsList.isVisible = false
                             return@collectLatest
                         }
                         binding.searchErrorView.isVisible = false
