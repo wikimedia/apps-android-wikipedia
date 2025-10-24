@@ -83,6 +83,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -152,6 +153,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 }
             }
         }
+
+        YearInReviewViewModel.maybeShowCreateReadingListDialog(requireActivity())
 
         return binding.root
     }

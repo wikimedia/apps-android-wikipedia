@@ -2045,6 +2045,8 @@
     <item quantity="one">Title of the app users viewed articles time slide for the Year in Review. %,d will be replaced by the number of viewed time.</item>
     <item quantity="other">Title of the app users viewed articles times slide for the Year in Review. %,d will be replaced by the number of viewed times.</item>
   </plurals>
+  <string name="year_in_review_reading_list_dialog_title">Title of the dialog prompting users to create a Year in Review 2025 reading list.</string>
+  <string name="year_in_review_reading_list_dialog_message">Message explaining that the Year in Review feature will create a reading list from the articles the user spent the most time reading in 2025. %s will be replaced by a URL.</string>
   <string name="year_in_review_slide_viewed_articles_times_body">Body of the app users viewed articles time slide for the Year in Review.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>

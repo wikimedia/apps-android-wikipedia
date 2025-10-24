@@ -1,10 +1,14 @@
 package org.wikipedia.yearinreview
 
+import android.app.Activity
 import android.graphics.Bitmap
 import android.location.Geocoder
+import android.text.method.LinkMovementMethod
+import android.widget.TextView
 import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -298,6 +303,10 @@ class YearInReviewViewModel() : ViewModel() {
         return screenshotHeaderBitmap
     }
 
+    private fun getUserGroup(): String {
+        return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+    }
+
     companion object {
         const val YIR_YEAR = 2025
         const val YIR_TAG = "yir_$YIR_YEAR"
@@ -328,6 +337,18 @@ class YearInReviewViewModel() : ViewModel() {
 
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
+
+        fun maybeShowCreateReadingListDialog(activity: Activity) {
+            // TODO: update the learn more reading list url
+            val message = activity.resources.getString(R.string.year_in_review_reading_list_dialog_message, activity.resources.getString(R.string.year_in_review_reading_list_learn_more))
+            MaterialAlertDialogBuilder(activity)
+                .setTitle("")
+                .setMessage(StringUtil.fromHtml(message))
+                .setPositiveButton("Create") { _, _ -> }
+                .setNegativeButton("No thanks") { _, _ -> }
+                .show()
+                .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
         }
     }
 }

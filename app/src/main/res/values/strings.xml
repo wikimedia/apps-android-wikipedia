@@ -2153,6 +2153,8 @@
         <item quantity="other">App users viewed Wikipedia articles %,d times</item>
     </plurals>
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
+    <string name="year_in_review_reading_list_dialog_title">Create your Year in Review 2025 reading list?</string>
+    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in 2025. <a href="%s">Learn more</a>]]></string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>

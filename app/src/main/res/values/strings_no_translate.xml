@@ -28,6 +28,7 @@
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review</string>
     <string name="year_in_review_media_wiki_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#Frequently_asked_questions</string>
     <string name="year_in_review_hashtag">#WikipediaYearInReview</string>
+    <string name="year_in_review_reading_list_learn_more">#</string>
     <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
     <string name="activity_tab_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Activity_Tab_Experiment</string>
