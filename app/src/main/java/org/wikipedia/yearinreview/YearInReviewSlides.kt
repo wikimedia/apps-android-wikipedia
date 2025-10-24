@@ -234,7 +234,7 @@ class YearInReviewSlides(
         )
     }
 
-    private fun editsViewedTimesScreen(): StandardScreen {
+    private fun editsViewedTimesScreen(): StandardScreen? {
         if (yearInReviewModel.userEditsViewedTimes <= 0L) {
             return null
         }
