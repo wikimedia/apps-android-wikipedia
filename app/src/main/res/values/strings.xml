@@ -17,6 +17,7 @@
     <string name="search_icon_content_description">Search</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_suggested_edits">Edits</string>
+    <string name="nav_item_activity">Activity</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>
     <string name="nav_item_contribute">Contribute</string>
@@ -29,7 +30,7 @@
     <string name="page_error_back_to_main">Go back</string>
     <string name="error_back">Go back</string>
     <string name="error_next">Next</string>
-    <string name="menu_clear_all_history">Clear history</string>
+    <string name="menu_clear_all_history">Clear reading history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
@@ -44,7 +45,7 @@
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
-    <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
+    <string name="dialog_message_clear_history">This will delete all of your browsing history. Are you sure?</string>
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
     <string name="share_via">Share via</string>
@@ -976,6 +977,7 @@
     <!-- /Customize toolbar -->
 
     <!-- Suggested edits -->
+    <string name="suggested_edits_activity_title">Edit</string>
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
@@ -1189,6 +1191,93 @@
     <string name="edit_summary_added_caption">Added caption</string>
     <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
+    <string name="activity_tab_logged_out_title">Log in or create an account to view your activity on the Wikipedia app</string>
+    <string name="activity_tab_user_reading">%s\'s reading</string>
+    <string name="activity_tab_on_wikipedia_android">On Wikipedia Android</string>
+    <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+    <string name="activity_tab_weekly_time_spent">Time spent reading this week</string>
+    <string name="activity_tab_monthly_articles_read">Articles read this month</string>
+    <string name="activity_tab_monthly_articles_saved">Articles saved this month</string>
+    <string name="activity_tab_monthly_top_categories">Top categories read this month</string>
+    <string name="activity_tab_explore_wikipedia">Discover through Wikipedia</string>
+    <string name="activity_tab_discover_encourage">Looking for something new to read?</string>
+    <string name="activity_tab_donation_unknown">Unknown</string>
+    <string name="activity_tab_donation_last_donation"><![CDATA[<b>Last donation</b> in app]]></string>
+    <string name="activity_tab_total_edits_all_projects">Total edits across projects</string>
+    <string name="activity_tab_game_stats">Game stats</string>
+    <string name="activity_tab_game_stats_best_streak">Best streak</string>
+    <string name="activity_tab_play_wiki_games">Play WikiGames</string>
+    <string name="activity_tab_report_email_subject">Issue report - Activity Tab</string>
+    <string name="activity_tab_report_email_body">I have encountered a problem with Activity Tab feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="activity_tab_menu_feedback">Problem with feature</string>
+    <string name="activity_tab_menu_info">Learn more</string>
+    <string name="activity_tab_menu_customize">Customize</string>
+    <string name="activity_tab_menu_customize_description">Reading insights are based on your app languages in settings, and editing insights are limited to your primary app language. Insights leverage local data, with the exception of edits which are public.</string>
+    <string name="activity_tab_highlights">Highlights</string>
+    <string name="activity_tab_customize_screen_reading_history_switch_title">Reading history</string>
+    <string name="activity_tab_impact">Your impact</string>
+    <string name="activity_tab_impact_most_viewed">Most viewed since your edit</string>
+    <string name="activity_tab_impact_contributions_this_month">Contributions this month</string>
+    <plurals name="activity_tab_impact_edits_this_month">
+        <item quantity="one">edit this month</item>
+        <item quantity="other">edits this month</item>
+    </plurals>
+    <plurals name="activity_tab_impact_edits_last_month">
+        <item quantity="one">edit last month</item>
+        <item quantity="other">edits last month</item>
+    </plurals>
+    <string name="activity_tab_impact_all_time">All time impact</string>
+    <plurals name="activity_tab_impact_total_edits">
+        <item quantity="one">total edit</item>
+        <item quantity="other">total edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_thanks">
+        <item quantity="one">thank</item>
+        <item quantity="other">thanks</item>
+    </plurals>
+    <plurals name="activity_tab_impact_best_streak_text">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <string name="activity_tab_impact_best_streak">Best streak</string>
+    <string name="activity_tab_impact_last_edited">Last edited</string>
+    <string name="activity_tab_impact_suggested_edits_title">0 edits to articles recently</string>
+    <string name="activity_tab_impact_suggested_edits_message">Looks like you haven\'t made an edit this month. Extend free knowledge by editing topics that interest you.</string>
+    <string name="activity_tab_impact_suggested_edits_button">Make an edit</string>
+    <string name="activity_tab_impact_recent_activity">Your recent activity (last 30 days)</string>
+    <plurals name="activity_tab_impact_recent_activity_edits">
+        <item quantity="one">Edit</item>
+        <item quantity="other">Edits</item>
+    </plurals>
+    <plurals name="activity_tab_impact_recent_activity_views">
+        <item quantity="one">View on articles you\'ve edited</item>
+        <item quantity="other">Views on articles you\'ve edited</item>
+    </plurals>
+    <string name="activity_tab_customize_screen_time_spent_switch_title">Time spent reading</string>
+    <string name="activity_tab_customize_screen_reading_insights_switch_title">Reading insights</string>
+    <string name="activity_tab_customize_screen_editing_insights_switch_title">Editing insights</string>
+    <string name="activity_tab_customize_screen_impact_switch_title">All time impact</string>
+    <string name="activity_tab_customize_screen_games_switch_title">Game stats</string>
+    <string name="activity_tab_customize_screen_donations_switch_title">Last in app donation</string>
+    <string name="activity_tab_customize_screen_timeline_switch_title">Timeline of behavior</string>
+    <string name="activity_tab_customize_screen_no_modules_message"><![CDATA[Activity modules are turned off. <a href=\"#\">Switch them on</a> to see updates in this tab.]]></string>
+    <string name="activity_tab_timeline_today">Today</string>
+    <string name="activity_tab_timeline_yesterday">Yesterday</string>
+    <string name="activity_tab_timeline_empty_state_title">Nothing to show</string>
+    <string name="activity_tab_timeline_empty_state_message">Start reading and editing to build your history</string>
+    <string name="activity_tab_timeline_view_changes_button">View changes</string>
+    <string name="activity_tab_onboarding_reading_patterns_title">Reading patterns</string>
+    <string name="activity_tab_onboarding_reading_patterns_message">See how much time you\'ve spent reading and which articles or topics you\'ve explored over time.</string>
+    <string name="activity_tab_onboarding_screen_title">Introducing Activity</string>
+    <string name="activity_tab_onboarding_impact_title">Impact highlights</string>
+    <string name="activity_tab_onboarding_impact_message">Discover insights about your contributions and the reach of the knowledge you\'ve shared.</string>
+    <string name="activity_tab_onboarding_engage_title">More ways to engage</string>
+    <string name="activity_tab_onboarding_engage_message">Explore stats for games, saved articles, and other activities that connect you more deeply with Wikipedia.</string>
+    <string name="activity_tab_onboarding_stay_in_control_title">Stay in control</string>
+    <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
+    <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
+    <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -1755,6 +1844,7 @@
     <string name="donate_gpay_dialog_pay_button">Donate with Google Pay</string>
     <string name="donate_gpay_dialog_other_button">Other payment method</string>
     <string name="donate_gpay_activity_title">Select an amount</string>
+    <string name="donate_gpay_activity_title_with_currency">Select an amount (%s)</string>
     <string name="donate_gpay_check_transaction_fee">I\'ll generously add %s to cover the transaction fees so you can keep 100%% of my donation.</string>
     <string name="donate_gpay_check_recurring">Make this a monthly recurring donation.</string>
     <string name="donate_gpay_check_send_email">Yes, the Wikimedia Foundation can send me an occasional email.</string>
@@ -1873,41 +1963,20 @@
     <string name="on_this_day_game_sound_off">Turn sound off</string>
 
     <!-- Year In Review -->
-    <string name="year_in_review_learn_more">Learn More</string>
-    <string name="year_in_review_get_started">Get Started</string>
+    <string name="year_in_review_learn_more">Learn more</string>
+    <string name="year_in_review_get_started">Get started</string>
     <string name="year_in_review_topbar_w_icon">Wikipedia W Icon</string>
-    <string name="year_in_review_navigate_left">Navigate Left</string>
+    <string name="year_in_review_navigate_left">Navigate left</string>
+    <string name="year_in_review_close">Close</string>
     <string name="year_in_review_share_icon">Share Icon</string>
     <string name="year_in_review_heart_icon">Heart Icon</string>
     <string name="year_in_review_navigate_right">Navigate Right</string>
     <string name="year_in_review_donate">Donate</string>
     <string name="year_in_review_information_icon">Information Icon</string>
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
-    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made. Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
-    <string name="year_in_review_entry_dialog_title">Explore your Wikipedia in Review</string>
-    <string name="year_in_review_entry_dialog_bodytext">See insights about what articles we read and edited, and share highlights from our year on Wikipedia.</string>
-    <string name="year_in_review_entry_dialog_continue">Continue</string>
-    <plurals name="year_in_review_read_count_headline">
-        <item quantity="one">You read %d article this year</item>
-        <item quantity="other">You read %d articles this year</item>
-    </plurals>
-    <plurals name="year_in_review_read_count_bodytext">
-        <item quantity="one">This year, you read %1$d article, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
-        <item quantity="other">This year, you read %1$d articles, including %2$s, %3$s, and %4$s. Wikipedia had more than 63 million articles available across over 300 languages. You joined millions in expanding knowledge and exploring diverse topics</item>
-    </plurals>
-    <plurals name="year_in_review_edit_count_headline">
-        <item quantity="one">You edited Wikipedia %d time</item>
-        <item quantity="other">You edited Wikipedia %d times</item>
-    </plurals>
-    <plurals name="year_in_review_edit_count_bodytext">
-        <item quantity="one">You edited Wikipedia %d time. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
-        <item quantity="other">You edited Wikipedia %d times. Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world.</item>
-    </plurals>
-    <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia was available in more than 300 languages</string>
-    <string name="year_in_review_non_english_collective_readcount_bodytext">Wikipedia had more than 63 million articles across over 300 active languages this year. You joined millions in expanding knowledge and exploring diverse topics</string>
-    <string name="year_in_review_non_english_collective_editcount_headline">Editors on the iOS app made more than 452,257 edits</string>
-    <string name="year_in_review_non_english_collective_editcount_bodytext">Wikipedia\'s community of volunteer editors made more than 452,257 edits on the iOS app so far this year. The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
-    <string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
+    <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string><string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
     <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
     <string name="year_in_review_survey_satisfied">Satisfied</string>
@@ -1917,12 +1986,173 @@
     <string name="year_in_review_survey_placeholder_text">Any additional thoughts?</string>
     <string name="year_in_review_survey_cancel">Cancel</string>
     <string name="year_in_review_survey_submit">Submit</string>
+    <string name="year_in_review_disable_title">Are you sure you want to turn off Year in Review?</string>
+    <string name="year_in_review_disable_positive_button">Yes, I\'m sure</string>
+    <string name="year_in_review_disable_negative_button">No, thanks</string>
+    <string name="year_in_review_setting_subtitle">Turning off Year in Review will clear all stored personalized insights, and hide the Year in Review.</string>
     <string name="year_in_review_screendeck_image_content_description">Image resource for the Year in Review main screen deck</string>
-    <string name="year_in_review_entry_dialog_screen_image_content_description">Image resource for the Year in Review entry dialog screen</string>
     <string name="year_in_review_screenshot_error">Could not generate screenshot: %s</string>
-    <string name="year_in_review_share_subject">Year In Review Image and Link</string>
-    <string name="year_in_review_globe_icon">Globe Icon</string>
-
+    <string name="year_in_review_share_subject">My Wikipedia Year in Review</string>
+    <string name="year_in_review_share_body">Here\'s my Wikipedia Year in Review. Created with the Wikipedia Android app %1$s %2$s</string>
+    <string name="year_in_review_globe_icon">Globe icon</string>
+    <string name="settings_app_icon_title">App icon</string>
+    <string name="settings_app_icon_subtitle">Contributor benefit</string>
+    <string name="settings_app_icon_preference_subtitle">You have access to a custom icon that celebrates your %d in-app contributions to Wikipedia. It will remain until the next Year in Review.</string>
+    <string name="settings_app_icon_updated">Your app icon has been updated.</string>
+    <string name="year_in_review_slide_app_icon_title_unlocked">New app icon unlocked for your home screen</string>
+    <string name="year_in_review_slide_app_icon_title_unlock">Unlock your contributor reward for next year!</string>
+    <string name="year_in_review_slide_app_icon_body_unlocked"><![CDATA[Activate your new app icon in Settings under App icon. Thank you for investing in the future of free knowledge. Your contributions as %1$s in %2$d are helping pave the way to a world of free information, and as a result you have unlocked a custom contributor icon for Wikipedia on your home screen.]]></string>
+    <string name="year_in_review_slide_app_icon_body_unlock"><![CDATA[We\'re glad Wikipedia was part of your %1$d! Unlock a special reward in your %2$d Year in Review by becoming a contributor—whether by <a href="%3$s">editing Wikipedia</a> or by donating to the <a href="%4$s">Wikimedia Foundation</a>, the nonprofit behind it. If Wikipedia is useful to you, please consider donating to help sustain its future and keep it free, ad-free, trustworthy, and accessible to all.]]></string>
+    <string name="year_in_review_slide_app_icon_donor">a donor</string>
+    <string name="year_in_review_slide_app_icon_editor">an editor</string>
+    <string name="year_in_review_slide_app_icon_donor_and_editor">a donor and editor</string>
+    <string name="year_in_review_slide_geo_headline">Articles you read are closest to: %s</string>
+    <string name="year_in_review_slide_geo_body"><![CDATA[When it comes to articles about places, you read most about %1$s, including <b>%2$s</b> and <b>%3$s.</b>]]></string>
+    <string name="year_in_review_login_dialog_title">Log in for personalization?</string>
+    <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
+    <string name="year_in_review_login_dialog_positive">Log in / Join Wikipedia</string>
+    <string name="year_in_review_login_dialog_negative">Continue without logging in</string>
+    <plurals name="year_in_review_slide_top_articles_headline">
+        <item quantity="one">Your top article</item>
+        <item quantity="other">Your top articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_top_articles_body">
+        <item quantity="one"><![CDATA[Here was the article you visited the most in %1$d: %2$s]]></item>
+        <item quantity="other"><![CDATA[Here were the articles you visited the most in %1$d: %2$s]]></item>
+    </plurals>
+    <string name="year_in_review_slide_top_categories_headline">Your most interesting categories</string>
+    <string name="year_in_review_slide_top_categories_body"><![CDATA[Categories group articles on similar subjects together. In %1$d, you visited articles in these interesting categories multiple times: %2$s]]></string>
+    <string name="year_in_review_slide_popular_english_articles_headline">English Wikipedia\'s most popular articles</string>
+    <plurals name="year_in_review_slide_popular_english_articles_body">
+        <item quantity="one"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited article on English Wikipedia was: %2$s]]></item>
+        <item quantity="other"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s]]></item>
+    </plurals>
+    <plurals name="year_in_review_slide_edits_viewed_times_headline">
+        <item quantity="one">Your edit has been viewed more than %,d times recently</item>
+        <item quantity="other">Your edits have been viewed more than %,d times recently</item>
+    </plurals>
+    <plurals name="year_in_review_slide_edits_viewed_times_body">
+        <item quantity="one">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %,d total view. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
+        <item quantity="other">Readers around the world appreciate your contributions. In the last 2 months, articles you\'ve edited have received %,d total views. Thanks to editors like you, Wikipedia is a steadily improving, fact-based, and reliable knowledge resource for the world.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_edited_per_minute_headline">
+        <item quantity="one">Wikipedia was edited %,d time per minute</item>
+        <item quantity="other">Wikipedia was edited %,d times per minute</item>
+    </plurals>
+    <string name="year_in_review_slide_edited_per_minute_body"><![CDATA[Articles are collaboratively created and improved using reliable sources. All of us have knowledge to share, <a href="%s">learn how to participate.</a>]]></string>
+    <plurals name="year_in_review_slide_bytes_added_headline">
+        <item quantity="one">%,d byte added</item>
+        <item quantity="other">%,d bytes added</item>
+    </plurals>
+    <plurals name="year_in_review_slide_bytes_added_body">
+        <item quantity="one"><![CDATA[In %1$d, volunteers added %2$,d byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
+        <item quantity="other"><![CDATA[In %1$d, volunteers added %2$,d bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
+    </plurals>
+    <plurals name="year_in_review_slide_edited_times_headline">
+        <item quantity="one">You edited Wikipedia %s time</item>
+        <item quantity="other">You edited Wikipedia %s times</item>
+    </plurals>
+    <plurals name="year_in_review_slide_edited_times_body">
+        <item quantity="one">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %,d change across over 300 different language editions of Wikipedia.</item>
+        <item quantity="other">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %,d changes across over 300 different language editions of Wikipedia.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_app_edited_times_headline">
+        <item quantity="one">Editors on the official Wikipedia apps made %,d edit</item>
+        <item quantity="other">Editors on the official Wikipedia apps made %,d edits</item>
+    </plurals>
+    <string name="year_in_review_slide_app_edited_times_body">The heart and soul of Wikipedia is our global community of volunteer contributors, donors, and billions of readers like yourself – all united to share unlimited access to reliable information.</string>
+    <plurals name="year_in_review_slide_english_edited_times_headline">
+        <item quantity="one">Editors made %,d change this year</item>
+        <item quantity="other">Editors made %,d changes this year</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_edited_times_body_first">
+        <item quantity="one">Volunteers made %,d change across over 300 different language editions of Wikipedia.</item>
+        <item quantity="other">Volunteers made %,d changes across over 300 different language editions of Wikipedia.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_edited_times_body_second">
+        <item quantity="one">%,d change was made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
+        <item quantity="other">%,d changes were made on English Wikipedia. Every hour of every day, volunteers are working to improve Wikipedia.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_saved_articles_headline">
+        <item quantity="one">You saved %,d article</item>
+        <item quantity="other">You saved %,d articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_saved_articles_body">
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
+    </plurals>
+    <plurals name="year_in_review_slide_global_saved_articles_headline">
+        <item quantity="one">App users had %,d saved article</item>
+        <item quantity="other">App users had %,d saved articles</item>
+    </plurals>
+    <string name="year_in_review_slide_global_saved_articles_body">Adding articles to reading lists allows you to access articles even while offline. You can also log in to sync reading lists across devices.</string>
+    <string name="year_in_review_slide_reading_patterns_headline">You have clear reading patterns</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_time">Favorite time to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_day">Favorite day to read</string>
+    <string name="year_in_review_slide_reading_patterns_body_favorite_month">Month you did the most reading</string>
+    <string name="year_in_review_slide_reading_pattern_morning">Morning</string>
+    <string name="year_in_review_slide_reading_pattern_midday">Midday</string>
+    <string name="year_in_review_slide_reading_pattern_afternoon">Afternoon</string>
+    <string name="year_in_review_slide_reading_pattern_evening">Evening</string>
+    <string name="year_in_review_slide_reading_pattern_night">Night</string>
+    <string name="year_in_review_slide_reading_pattern_late_night">Late night</string>
+    <plurals name="year_in_review_slide_english_reading_hours_headline">
+        <item quantity="one">We spent %,d hour reading</item>
+        <item quantity="other">We spent %,d hours reading</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_reading_hours_body_first">
+        <item quantity="one">People spent an estimated %,d hour</item>
+        <item quantity="other">People spent an estimated %,d hours</item>
+    </plurals>
+    <plurals name="year_in_review_slide_english_reading_hours_body_second">
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_headline">
+        <item quantity="one">Wikipedia was available in more than %,d language</item>
+        <item quantity="other">Wikipedia was available in more than %,d languages</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_body_first">
+        <item quantity="one">Wikipedia had %,d article</item>
+        <item quantity="other">Wikipedia had %,d articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_available_languages_body_second">
+        <item quantity="one">across over %,d active language this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+        <item quantity="other">across over %,d active languages this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+        <item quantity="one">You spent %,d minute</item>
+        <item quantity="other">You spent %,d minutes</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+        <item quantity="one">reading %1$,d article in %2$d</item>
+        <item quantity="other">reading %1$,d articles in %2$d</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+        <item quantity="one">We estimate that puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$,d article a year.</item>
+        <item quantity="other">We estimate that puts you in the top %1$s%% of Wikipedia readers globally. The average person reads %2$,d articles a year.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+        <item quantity="one">Wikipedia had %,d article</item>
+        <item quantity="other">Wikipedia had %,d articles</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+        <item quantity="one">across over %,d active language this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+        <item quantity="other">across over %,d active languages this year. You joined millions in expanding knowledge and exploring diverse topics.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+        <item quantity="one">People spent an estimated %,d hour</item>
+        <item quantity="other">People spent an estimated %,d hours</item>
+    </plurals>
+    <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d.</item>
+    </plurals>
+    <plurals name="year_in_review_slide_viewed_articles_times_headline">
+        <item quantity="one">App users viewed Wikipedia articles %,d time</item>
+        <item quantity="other">App users viewed Wikipedia articles %,d times</item>
+    </plurals>
+    <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
@@ -2026,6 +2256,7 @@
     <string name="donation_reminders_settings_article_frequency_input_suffix_label">articles</string>
     <string name="donation_reminders_settings_warning_min_amount">Please enter at least %s</string>
     <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
+    <string name="donation_reminders_settings_option_custom">Custom…</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
     <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
     <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>

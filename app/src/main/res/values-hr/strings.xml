@@ -44,7 +44,7 @@
   <string name="page_error_back_to_main">Idi natrag</string>
   <string name="error_back">Idi natrag</string>
   <string name="error_next">Dalje</string>
-  <string name="menu_clear_all_history">Očisti povijest</string>
+  <string name="menu_clear_all_history" fuzzy="true">Očisti povijest</string>
   <string name="history_item_deleted">Članak %s uklonjen iz povijesti</string>
   <string name="history_items_deleted">Uklonjenih članaka iz povijesti: %d</string>
   <string name="history_item_delete_undo">Vrati</string>
@@ -57,7 +57,7 @@
   <string name="wikimedia_commons">Zajednički poslužitelj</string>
   <string name="wikidata">Wikipodatci</string>
   <string name="dialog_title_clear_history">Izbriši povijest</string>
-  <string name="dialog_message_clear_history">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Podijeliti putem</string>
@@ -247,14 +247,11 @@
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uvjeti uporabe</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hr</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
   <string name="about_contributors_heading">Doprinositelji</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Timska stranica&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Timska stranica&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevoditelji</string>
   <string name="about_translators_translatewiki">Ovu aplikaciju preveli su su prevoditelji volonteri na projektu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>

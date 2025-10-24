@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Кире</string>
   <string name="error_back">Кире кайту</string>
   <string name="error_next">Алга</string>
-  <string name="menu_clear_all_history">Тарихны бушату</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихны бушату</string>
   <string name="history_item_deleted">«%s» мәкаләсе карау тарихыннан бетерелгән</string>
   <string name="history_items_deleted">%d мәкалә карау тарихыннан бетерелгән</string>
   <string name="history_item_delete_undo">Кире кайтару</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Викиҗыентык</string>
   <string name="wikidata">Викимәгълүмат</string>
   <string name="dialog_title_clear_history">Карау тарихын бушату</string>
-  <string name="dialog_message_clear_history">Бу сезнең барлык карау тарихыгызны бетерәчәк һәм хәзерге вакытта ачылган салынмаларны ябачак. Дәвам итәргәме?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Бу сезнең барлык карау тарихыгызны бетерәчәк һәм хәзерге вакытта ачылган салынмаларны ябачак. Дәвам итәргәме?</string>
   <string name="dialog_message_clear_history_yes">Әйе</string>
   <string name="dialog_message_clear_history_no">Юк</string>
   <string name="share_via">Уртаклашу</string>
@@ -239,11 +239,9 @@
   <string name="terms_of_use_description">Куллану шартлары</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>

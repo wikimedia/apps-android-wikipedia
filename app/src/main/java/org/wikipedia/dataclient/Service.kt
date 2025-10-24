@@ -117,6 +117,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getInfoByTitlesWithGlobalUserInfo(@Query("titles") titles: String? = null): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
@@ -299,7 +302,8 @@ interface Service {
         @Field("captchaWord") captchaWord: String? = null,
         @Field("loginreturnurl") returnUrl: String? = null,
         @Field("logintoken") loginToken: String? = null,
-        @Field("logincontinue") loginContinue: Boolean? = null
+        @Field("logincontinue") loginContinue: Boolean? = null,
+        @Field("newModule") newModule: String? = null
     ): LoginResponse
 
     @FormUrlEncoded
@@ -438,7 +442,8 @@ interface Service {
             @Query("uclimit") maxCount: Int,
             @Query("ucnamespace") ns: String?,
             @Query("ucshow") filter: String?,
-            @Query("uccontinue") uccontinue: String?
+            @Query("uccontinue") uccontinue: String?,
+            @Query("ucdir") ucdir: String? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&meta=userinfo&uiprop=editcount")

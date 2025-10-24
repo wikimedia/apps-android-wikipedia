@@ -105,7 +105,7 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
   <string name="error_next">下一个</string>
-  <string name="menu_clear_all_history">清除历史</string>
+  <string name="menu_clear_all_history">清除阅读历史</string>
   <string name="history_item_deleted">%s已从历史中移除</string>
   <string name="history_items_deleted">已从历史中移除%d个条目</string>
   <string name="history_item_delete_undo">撤销</string>
@@ -118,7 +118,7 @@
   <string name="wikimedia_commons">维基共享资源</string>
   <string name="wikidata">维基数据</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
-  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签页。您确定吗？</string>
+  <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史。您确定吗？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">分享到…</string>
@@ -316,7 +316,6 @@
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
@@ -1817,24 +1816,17 @@
   <string name="year_in_review_learn_more">了解更多</string>
   <string name="year_in_review_get_started">入门</string>
   <string name="year_in_review_topbar_w_icon">维基百科W图标</string>
-  <string name="year_in_review_navigate_left">向左导航</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">向左导航</string>
   <string name="year_in_review_share_icon">分享图标</string>
   <string name="year_in_review_heart_icon">心形图标</string>
   <string name="year_in_review_navigate_right">向右导航</string>
   <string name="year_in_review_donate">捐款</string>
   <string name="year_in_review_information_icon">信息图标</string>
   <string name="year_in_review_get_started_headline">探索您的维基百科年度回顾</string>
-  <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。您的阅读历史将受到保护。阅读见解使用设备上本地存储的数据计算。</string>
-  <string name="year_in_review_entry_dialog_title">探索您的维基百科年度回顾</string>
-  <string name="year_in_review_entry_dialog_bodytext">查看我们阅读和编辑的文章的分析数据，并分享我们这一年使用维基百科的亮点。</string>
-  <string name="year_in_review_entry_dialog_continue">继续</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">维基百科提供300多种语言版本</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">今年，维基百科拥有超过 6300万篇文章，涵盖300多种活跃语言。您与数百万人一起拓展知识，探索各种主题。</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">iOS应用上的编辑者进行了超过452,257次编辑</string>
+  <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。</string>
   <string name="year_in_review_survey_subtitle">您对该功能满意吗？</string>
   <string name="year_in_review_survey_placeholder_text">您还有别的想法吗？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顾主屏幕图像资源</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">年度回顾输入对话框屏幕的图像资源</string>
-  <string name="year_in_review_share_subject">年度回顾图片和链接</string>
+  <string name="year_in_review_share_subject" fuzzy="true">年度回顾图片和链接</string>
 </resources>

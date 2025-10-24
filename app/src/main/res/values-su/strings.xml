@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">Balik deui</string>
   <string name="error_back">Balik deui</string>
   <string name="error_next">Salajengna</string>
-  <string name="menu_clear_all_history">Kosongkeun jujutan</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kosongkeun jujutan</string>
   <string name="history_item_deleted">%s dipupus tina daptar</string>
   <string name="history_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="history_item_delete_undo">Bolaykeun</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">Commons Wikimédia</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pupus jujutan panyungsian</string>
-  <string name="dialog_message_clear_history">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>
   <string name="dialog_message_clear_history_yes">Nya</string>
   <string name="dialog_message_clear_history_no">Teu</string>
   <string name="share_via">Bagikeun liwat</string>
@@ -223,7 +223,6 @@
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
   <string name="about_wikipedia_url">https://su.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="about_libraries_heading">Pabukon nu dipaké</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Panarjamah</string>

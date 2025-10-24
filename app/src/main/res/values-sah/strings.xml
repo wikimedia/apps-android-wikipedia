@@ -37,7 +37,7 @@
   <string name="page_error_back_to_main">Төнүн</string>
   <string name="error_back">Төнүн</string>
   <string name="error_next">Аныгыскы</string>
-  <string name="menu_clear_all_history">Устуоруйатын сот</string>
+  <string name="menu_clear_all_history" fuzzy="true">Устуоруйатын сот</string>
   <string name="history_item_deleted">\"%s\" ыстатыйа көрүү устуоруйатыттан сотулунна</string>
   <string name="history_items_deleted">%d ыстатыйа көрүү устуоруйатыттан сотулунна</string>
   <string name="history_item_delete_undo">Төннөр</string>
@@ -50,7 +50,7 @@
   <string name="wikimedia_commons">Биики Хааһах</string>
   <string name="wikidata">Биики Тиһик</string>
   <string name="dialog_title_clear_history">Устуоруйатын сотуу</string>
-  <string name="dialog_message_clear_history">Урут сылдьыбытыҥ устуоруйата сотуллуо уонна аһаҕас кыбытыктар сабыллыахтара. Салгыыгын дуо?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Урут сылдьыбытыҥ устуоруйата сотуллуо уонна аһаҕас кыбытыктар сабыллыахтара. Салгыыгын дуо?</string>
   <string name="dialog_message_clear_history_yes">Сөп</string>
   <string name="dialog_message_clear_history_no">Суох</string>
   <string name="share_via">Бу нөҥүө тарҕат</string>
@@ -232,7 +232,6 @@
   <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>

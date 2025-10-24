@@ -69,6 +69,7 @@
   <string name="search_icon_content_description">Ara</string>
   <string name="filter_hint_filter_my_lists_and_articles">Listelerimi filtrele</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
+  <string name="nav_item_activity">Etkinlik</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="nav_item_search">Ara</string>
   <string name="nav_item_contribute">Katkıda bulun</string>
@@ -81,7 +82,7 @@
   <string name="page_error_back_to_main">Geri dön</string>
   <string name="error_back">Geri dön</string>
   <string name="error_next">Sonraki</string>
-  <string name="menu_clear_all_history">Geçmişi temizle</string>
+  <string name="menu_clear_all_history">Okuma geçmişini temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
   <string name="history_item_delete_undo">Geri al</string>
@@ -94,7 +95,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiveri</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
-  <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
   <string name="dialog_message_clear_history_no">Hayır</string>
   <string name="share_via">Şununla paylaş:</string>
@@ -291,9 +292,7 @@
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
@@ -468,7 +467,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
   <string name="preference_summary_prefer_offline_content">Bir maddenin son sürümünü yüklemek yerine her daim çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Yerel bağış geçmişini sil</string>
+  <string name="preference_title_delete_local_donation_history">Bağış geçmişini sil</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
@@ -483,6 +482,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="temp_account_not_logged_in">Oturum açmadınız</string>
+  <string name="temp_account_anon_ip_dialog_body">Bir değişiklik yaptığınızda, IP adresiniz değişikliklerinizle ilişkilendirilecektir.\n&lt;br /&gt;&lt;br /&gt;Gelecekteki düzenlemelerinizi kaydetmek ve diğer özelliklere erişmek için &lt;a href=\"https://#login\"&gt;Giriş yapın&lt;/a&gt; veya &lt;a href=\"https://#createaccount\"&gt;hesap oluşturun&lt;/a&gt;.</string>
   <string name="temp_account_dialog_ok">Anladım</string>
   <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
   <string name="temp_account_dialog_discard">Değişiklikleri silin ve oturum açın</string>
@@ -1697,6 +1697,8 @@
   <string name="survey_dialog_general_maybe">Belki</string>
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
+  <string name="on_this_day_game_entry_dialog_button">Bugünün oyununu oyna</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
   <string name="on_this_day_game_pause_title">Oyun durdurulsun mu?</string>

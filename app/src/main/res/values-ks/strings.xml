@@ -23,7 +23,7 @@
   <string name="page_error_back_to_main">واپس گَژھن</string>
   <string name="error_back">واپَس گٔژھِو</string>
   <string name="error_next">برٛونٛہہ</string>
-  <string name="menu_clear_all_history">تَوأریٖخ مِٹٲیو</string>
+  <string name="menu_clear_all_history" fuzzy="true">تَوأریٖخ مِٹٲیو</string>
   <string name="history_item_deleted">%s آو تَوأریٖخ مَنٛز مِٹاونہِ</string>
   <string name="history_items_deleted">%d موضوعات آیہِ توٲریخ منٛز مِٹاونہٕ</string>
   <string name="history_item_delete_undo">رَد کٕرو</string>
@@ -36,7 +36,7 @@
   <string name="wikimedia_commons">وِکیٖمیٖیڈیا کاَمَنٕز</string>
   <string name="wikidata">وِکی ڈیٹا</string>
   <string name="dialog_title_clear_history">توٲریٖخچہٕ مِٹٲوِیو</string>
-  <string name="dialog_message_clear_history">یہِ مِٹاوِ تُہنٛز یہ سٲرٕی کامہِ أنہِ مٕژ توأریٖخ ، تہٕ چلَن وٲلی ٹیب تہِ کَرِ بند. تُہہ چھوا یہِ یژھان یہِ کرُن؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">یہِ مِٹاوِ تُہنٛز یہ سٲرٕی کامہِ أنہِ مٕژ توأریٖخ ، تہٕ چلَن وٲلی ٹیب تہِ کَرِ بند. تُہہ چھوا یہِ یژھان یہِ کرُن؟</string>
   <string name="dialog_message_clear_history_yes">آ</string>
   <string name="dialog_message_clear_history_no">نہَ</string>
   <string name="share_via">بٲغرٲوِیو بَذٕریعہ</string>
@@ -208,14 +208,11 @@
   <string name="terms_of_use_description">اِستِمالٕک شَرٕط</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia: مُتلق</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/رازدأری اصوٗل</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">کُتُب خانہٕ استعمال</string>
   <string name="about_contributors_heading">صٲرفیٖن</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">تَرجَمہٕ کار</string>
   <string name="about_translators_translatewiki">یَتھ ایپلِیکیشَنِہ چھُ رَزاکار صٲرفَو تَرجَمہٕ کورمُت &lt;a href=\"https://translatewiki.net\"&gt;تَرجَمہٕ وِکی پؠٹھ&lt;/a&gt;</string>
   <string name="about_app_license_heading">اِجازَت نامہٕ</string>

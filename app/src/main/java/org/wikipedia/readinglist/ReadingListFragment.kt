@@ -390,9 +390,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun setToolbar() {
         binding.readingListAppBar.addOnOffsetChangedListener(appBarListener)
         binding.readingListToolbarContainer.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
+        binding.readingListToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
     private fun setHeaderView() {
@@ -1030,7 +1028,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             } else if (item != null) {
                 val title = ReadingListPage.toPageTitle(item)
                 val entry = HistoryEntry(title, if (isRecommendedList) HistoryEntry.SOURCE_RECOMMENDED_READING_LIST else HistoryEntry.SOURCE_READING_LIST)
-                item.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
                 if (isRecommendedList) {
                     RecommendedReadingListEvent.submit("reading_list_click", "rrl_discover")

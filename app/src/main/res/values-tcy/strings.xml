@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">ಪಿರ ಪೋಲೆ</string>
   <string name="error_back">ಪಿರ ಪೋಲೆ</string>
   <string name="error_next">ನನತ್ತ</string>
-  <string name="menu_clear_all_history">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
   <string name="history_item_deleted">%s ಪನ್ಪಿ ಲೇಕನೊನು ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_items_deleted">%d ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
@@ -52,7 +52,7 @@
   <string name="wikimedia_commons">ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್</string>
   <string name="wikidata">ವಿಕಿಡಾಟ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಲ್ತಿ ಇತಿಹಾಸೊನ್ ಮಾಜಾಲೆ</string>
-  <string name="dialog_message_clear_history">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
   <string name="dialog_message_clear_history_yes">ಅಂದ್</string>
   <string name="dialog_message_clear_history_no">ಅತ್ತ್</string>
   <string name="share_via">ನೆನ್ನೊಟ್ಟುಗೂ ಪಟ್ಟೊನ್ಲೆ</string>
@@ -199,7 +199,7 @@
   <string name="email_recommendation_message">ಖಾತೆ ಪುನಃ ಪಡೆಯರಾ ಮಿಂಚಂಚೆ ಅಗತ್ಯ ಇಪ್ಪುಂಡು,  ಶಿಫಾರಸ್ಸು ಮಾಲ್ಪುಲೆ.</string>
   <string name="email_recommendation_dialog_create_without_email_action">ಮಿಂಚಂಚೆ ಇಜ್ಜಿಯಾಂತೆ ದುಂಬು ಪೊಲೆ.</string>
   <string name="email_recommendation_dialog_create_with_email_action">ಮಿಂಚಂಚೆ ವಿಲಾಸೊನು ಸ್ತಾಪನೆ ಮಲ್ಪುಲೆ.</string>
-  <string name="create_account_button">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
+  <string name="create_account_button">ಕಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="create_account_name_unavailable">ಸದಸ್ಯತ್ವೊದ ಪುದರ್  \"%s\" ಲಭ್ಯ ಇಜ್ಜಿ. ದಯಮಾಲ್ತ್ ಬೇತೆ ಪುದಾರ್ ಆಯ್ಕೆ ಮಾಲ್ಪುಲೆ.</string>
   <string name="create_account_ip_block_message">ಕ್ಷಮೆ ಉಪ್ಪಾಡ್, ಪೊಸ ಖಾತೆನ್ ಸೃಷ್ಟಿ ಮಾಲ್ಪುಯಾರ ಇರೆನ IP ವಿಲಾಸೊನ್ ಇತ್ತೆ ನಿರ್ಬಂಧ ಮಾಲ್ತೆರ್.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
@@ -231,8 +231,6 @@
   <string name="terms_of_use_description">ಗಳಸುನಾ ನಿಬಂದೊಲು</string>
   <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">ಗ್ರಂಥಾಲಯಟ್ ಬಲಕೆ ಅಪುಂಡು</string>
   <string name="about_contributors_heading">ಕಾನಿಕೆ ಕೊರ್ನಾರ್</string>
   <string name="about_translators_heading">ಅನುವಾದಕೆರ್</string>

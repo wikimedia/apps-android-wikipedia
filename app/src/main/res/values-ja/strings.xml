@@ -20,6 +20,7 @@
 * Kokage si
 * Kokoko-H
 * LaMagiaaa
+* Largestone
 * Los688
 * M1660661
 * MagicAho
@@ -82,6 +83,7 @@
   <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
+  <string name="nav_item_activity">活動</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="nav_item_search">検索</string>
   <string name="nav_item_contribute">投稿</string>
@@ -94,7 +96,7 @@
   <string name="page_error_back_to_main">戻る</string>
   <string name="error_back">戻る</string>
   <string name="error_next">次へ</string>
-  <string name="menu_clear_all_history">履歴を消去</string>
+  <string name="menu_clear_all_history">閲覧履歴を消去</string>
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
@@ -107,7 +109,7 @@
   <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
   <string name="wikidata">ウィキデータ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
-  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
+  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去します。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
   <string name="dialog_message_clear_history_no">いいえ</string>
   <string name="share_via">共有する</string>
@@ -475,7 +477,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">ローカル寄付履歴を削除</string>
+  <string name="preference_title_delete_local_donation_history">寄付履歴を消去</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
@@ -836,7 +838,7 @@
   <string name="view_top_read_card_title">よく読まれている記事</string>
   <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
-  <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d百万</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
@@ -953,6 +955,7 @@
   <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">ドラッグアイコンを長押しして項目を移動します</string>
   <string name="customize_toolbar_item_default_tooltip">項目を押してドラッグすることで再配置します</string>
+  <string name="suggested_edits_activity_title">編集</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
@@ -1161,6 +1164,18 @@
   <string name="edit_summary_added_caption">キャプションを追加しました</string>
   <string name="edit_summary_added_image_and_caption">画像とキャプションを追加しました</string>
   <string name="edit_published_view">閲覧</string>
+  <string name="activity_tab_user_reading">%sの閲覧</string>
+  <string name="activity_tab_monthly_articles_read">今月読んだ記事</string>
+  <string name="activity_tab_monthly_articles_saved">今月保存した記事</string>
+  <string name="activity_tab_donation_unknown">不明</string>
+  <string name="activity_tab_menu_info">詳細</string>
+  <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_impact_suggested_edits_button">編集する</string>
+  <string name="activity_tab_impact_recent_activity">あなたの最近の活動 (過去30日)</string>
+  <string name="activity_tab_timeline_today">今日</string>
+  <string name="activity_tab_timeline_yesterday">昨日</string>
+  <string name="activity_tab_timeline_empty_state_title">表示するものはありません</string>
+  <string name="activity_tab_timeline_view_changes_button">変更を表示</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -1703,6 +1718,8 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
+  <string name="year_in_review_learn_more" fuzzy="true">詳細</string>
+  <string name="year_in_review_get_started" fuzzy="true">始める</string>
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
   <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
@@ -1714,11 +1731,44 @@
   <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="recommended_reading_list_title">発見</string>
+  <string name="recommended_reading_list_onboarding_card_title">あなただけのために選ばれた記事を発見</string>
+  <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊あとで読むリストが、あなただけのために収集されます。</string>
+  <string name="recommended_reading_list_onboarding_card_new">New!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">始める</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">いいえ、結構です</string>
+  <string name="recommended_reading_list_interest_source_message">どのようにお勧めのあとで読むリストを構築すべきですか？</string>
+  <string name="recommended_reading_list_interest_source_interests">自分の興味に基づいて選ばせてください</string>
+  <string name="recommended_reading_list_interest_source_saved">保存済み記事に基づいて選んでください</string>
+  <string name="recommended_reading_list_interest_source_history">閲覧履歴に基づいて選んでください</string>
+  <string name="recommended_reading_list_interest_pick_title">何に興味がありますか？</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">記事を検索</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="other">%d 件選択済み</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">少なくともひとつの興味を選択してください</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">ランダムに選択</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">いくつかの記事をランダムに選択しました。</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">取り消す</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">本当に選択をランダム化したいですか？</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">これは現在の選択をクリアして新しい記事をランダムに選択します。</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">はい、私のために選んで</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">結構です</string>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
+  <string name="recommended_reading_list_page_snackbar_action">発見をカスタマイズ</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">週</string>
   <string name="recommended_reading_list_page_snackbar_month">月</string>
+  <string name="recommended_reading_list_settings_section_header">お勧め</string>
+  <string name="recommended_reading_list_settings_title">発見の設定</string>
+  <string name="recommended_reading_list_settings_toggle">あとで読むリストを発見</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">発見はオフです。ウィキペディアは読む記事をお勧めしません。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">発見をオフにしますか？</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">発見をオフにすると、%sウィキペディアから届くお勧めを停止します。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">オフにする</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">いいえ、オンのままにします</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">発見がオフになっています。いつでも設定でオンに戻せます。</string>
   <string name="recommended_reading_list_settings_articles">記事</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">毎日</string>
@@ -1727,8 +1777,24 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">毎日</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">毎週</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_updates_base_title">発見を構築する方法</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">興味に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">保存済み記事に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">閲覧履歴に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">発見を構築する方法を調整しますか？</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">発見がお勧めを生成する方法を調整する場合、現在のお勧めは置き換えられます。</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">調整する</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">結構です</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">興味に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">保存済み記事に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">閲覧履歴に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">取り消す</string>
+  <string name="recommended_reading_list_settings_interests">興味</string>
   <string name="recommended_reading_list_settings_notifications_title">通知</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">発見が更新されてもウィキペディアから通知を送信しません。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">発見の通知がオフになっています。発見が更新されたときに通知が届きません。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">通知をオフにしますか?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">通知をオフにした場合、発見が更新されたときにリマインダーが届かなくなります。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、そのままにします</string>
   <string name="donation_reminders_initial_prompt_positive_button">始める</string>
@@ -1736,6 +1802,7 @@
   <string name="donation_settings_section_header">寄付</string>
   <string name="donation_reminders_settings_title">寄付のリマインダー</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_settings_option_custom">カスタム…</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
   <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>

@@ -91,7 +91,7 @@ class RecommendedReadingListInterestsViewModel(savedStateHandle: SavedStateHandl
             _uiState.value = Resource.Success(
                 UiState(
                     fromSettings = fromSettings,
-                    items = results,
+                    items = results.distinctBy { it.prefixedText },
                     selectedItems = selectedItems.toSet()
                 )
             )

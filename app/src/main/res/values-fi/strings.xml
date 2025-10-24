@@ -52,6 +52,7 @@
   <string name="search_icon_content_description">Haku</string>
   <string name="filter_hint_filter_my_lists_and_articles">Suodata listani</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
+  <string name="nav_item_activity">Toiminta</string>
   <string name="nav_item_more">Lisää</string>
   <string name="nav_item_search">Hae</string>
   <string name="nav_item_contribute">Muokkaa</string>
@@ -64,7 +65,7 @@
   <string name="page_error_back_to_main">Takaisin</string>
   <string name="error_back">Takaisin</string>
   <string name="error_next">Seuraava</string>
-  <string name="menu_clear_all_history">Tyhjennä historia</string>
+  <string name="menu_clear_all_history">Tyhjennä lukuhistoria</string>
   <string name="history_item_deleted">%s poistettu historiasta</string>
   <string name="history_items_deleted">%d artikkelia poistettu historiasta</string>
   <string name="history_item_delete_undo">Kumoa</string>
@@ -77,7 +78,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
-  <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
+  <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
   <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Jaa palvelussa</string>
@@ -183,6 +184,7 @@
   <string name="login_2fa_other_workflow_error_msg">Kaksivaiheinen tunnistautuminen vaaditaan! Kirjaudu sisään pääsivulla ja anna kaksivaiheisen tunnistautumisen koodi.</string>
   <string name="login_email_auth_hint">Sähköpostivahvistuskoodi</string>
   <string name="login_email_auth_other_workflow_error_msg">Sähköpostitunnistautuminen vaaditaan! Kirjaudu sisään pääsivulla ja anna sähköpostitunnistautumisen koodi.</string>
+  <string name="login_background_error_msg">Kirjautuminen uudelleen epäonnistui. Palaa etusivulle ja kirjaudu sisään manuaalisesti.</string>
   <string name="onboarding_card_login">Kirjaudu sisään</string>
   <string name="page_editing_login">Kirjaudu sisään</string>
   <string name="reading_lists_sync_login">Kirjaudu sisään</string>
@@ -273,10 +275,7 @@
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
   <string name="about_libraries_heading">Käytetyt kirjastot</string>
@@ -946,6 +945,7 @@
   <string name="customize_toolbar_reset_to_default_button">Palauta oletusarvoihin</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Siirrä kohdetta pitämällä vetokuvaketta painettuna</string>
   <string name="customize_toolbar_item_default_tooltip">Paina ja vedä kohdetta sijoittaaksesi sen uudelleen</string>
+  <string name="suggested_edits_activity_title">Muokkaa</string>
   <string name="suggested_edits_describe_articles">Kuvaile artikkeleita</string>
   <string name="suggested_edits_caption_images">Kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
@@ -1158,6 +1158,65 @@
   <string name="edit_summary_added_caption">Lisätty kuvateksti</string>
   <string name="edit_summary_added_image_and_caption">Lisätty kuva ja kuvateksti</string>
   <string name="edit_published_view">Näytä</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dmin</string>
+  <string name="activity_tab_weekly_time_spent">Lukemiseen käytetty aika tällä viikolla</string>
+  <string name="activity_tab_monthly_articles_read">Tässä kuussa luettuja artikkeleita</string>
+  <string name="activity_tab_monthly_articles_saved">Tässä kuussa tallennettuja artikkeleita</string>
+  <string name="activity_tab_discover_encourage">Etsitkö uutta luettavaa?</string>
+  <string name="activity_tab_donation_unknown">Tuntematon</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Viimeisin lahjoitus&lt;/b&gt; sovelluksessa</string>
+  <string name="activity_tab_game_stats">Pelitilastot</string>
+  <string name="activity_tab_game_stats_best_streak">Paras putki</string>
+  <string name="activity_tab_play_wiki_games">Pelaa Wikipelejä</string>
+  <string name="activity_tab_report_email_subject">Ongelmaraportti - Toiminta-välilehti</string>
+  <string name="activity_tab_report_email_body">Olen huomannut seuraavan ongelman Toiminta-välilehti-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
+  <string name="activity_tab_menu_feedback">Ongelma ominaisuudessa</string>
+  <string name="activity_tab_menu_info">Lisätietoja</string>
+  <string name="activity_tab_menu_customize">Mukauta</string>
+  <string name="activity_tab_highlights">Kohokohdat</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Lukuhistoria</string>
+  <string name="activity_tab_impact">Vaikutuksesi</string>
+  <string name="activity_tab_impact_most_viewed">Katsotuimmat muokkauksesi jälkeen</string>
+  <string name="activity_tab_impact_contributions_this_month">Muokkauksia tässä kuussa</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">muokkaus tässä kuussa</item>
+    <item quantity="other">muokkausta tässä kuussa</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">muokkaus tässä kuussa</item>
+    <item quantity="other">muokkausta tässä kuussa</item>
+  </plurals>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">muokkaus yhteensä</item>
+    <item quantity="other">muokkausta yhteensä</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d päivä</item>
+    <item quantity="other">%d päivää</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Pisin putki</string>
+  <string name="activity_tab_impact_last_edited">Viimeisin muokkaus</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 muokkausta artikkeleihin viime aikoina</string>
+  <string name="activity_tab_impact_suggested_edits_message">Näyttää siltä, ettet ole tehnyt muokkausta tässä kuussa. Laajenna vapaata tietoa muokkaamalla sinua kiinnostavia aiheita</string>
+  <string name="activity_tab_impact_suggested_edits_button">Tee muokkaus</string>
+  <string name="activity_tab_impact_recent_activity">Viimeaikainen toimintasi (viimeiset 30 päivää)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Muokkaus</item>
+    <item quantity="other">Muokkausta</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Muokaamasi artikkelin katselukerrat</item>
+    <item quantity="other">Muokaamiesi artikkelien katselukerrat</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Lukemiseen käytetty aika</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Pelitilastot</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Viimeisin sovelluksen sisäinen lahjoitus</string>
+  <string name="activity_tab_timeline_today">Tänään</string>
+  <string name="activity_tab_timeline_yesterday">Eilen</string>
+  <string name="activity_tab_timeline_empty_state_title">Ei mitään näytettävää</string>
+  <string name="activity_tab_timeline_view_changes_button">Näytä muutokset</string>
+  <string name="edits_screen_what_is_title">Muokkaaminen Wikipedia-sovelluksessa</string>
+  <string name="edits_screen_what_is_body">Oletko epävarma, miten aloittaa muokkaaminen? Kokeile ehdotettuja muokkauksia. Tämä ominaisuus luo mahdollisuuksia pienille mutta tärkeille Wikipedian muokkauksille. Vaihtoehtoisesti voit mennä suoraan sinua kiinnostavaan artikkeliin ja tehdä muokkauksen wikitekstin kautta.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -1659,6 +1718,7 @@
   <string name="donate_gpay_dialog_pay_button">Lahjoita Google Paylla</string>
   <string name="donate_gpay_dialog_other_button">Muu maksutapa</string>
   <string name="donate_gpay_activity_title">Valitse summa</string>
+  <string name="donate_gpay_activity_title_with_currency">Valitse summa (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Lisään avokätisesti %s kattamaan siirtokulut, jotta voitte pitää 100 %% lahjoituksestani.</string>
   <string name="donate_gpay_check_recurring">Tee tästä kuukausittainen toistuva lahjoitus.</string>
   <string name="donate_gpay_check_send_email">Kyllä, Wikimedia Foundation voi lähettää minulle satunnaisia sähköpostia.</string>
@@ -1771,13 +1831,26 @@
   <string name="year_in_review_get_started">Aloita</string>
   <string name="year_in_review_topbar_w_icon">Wikipedian W-kuvake</string>
   <string name="year_in_review_navigate_left">Mene vasemmalle</string>
+  <string name="year_in_review_close">Sulje</string>
   <string name="year_in_review_share_icon">Jaa-kuvake</string>
   <string name="year_in_review_heart_icon">Sydän-kuvake</string>
   <string name="year_in_review_navigate_right">Mene oikealle</string>
   <string name="year_in_review_donate">Lahjoita</string>
   <string name="year_in_review_information_icon">Tietoa-kuvake</string>
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
-  <string name="year_in_review_entry_dialog_continue">Jatka</string>
+  <string name="year_in_review_get_started_bodytext" fuzzy="true">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa. Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
+  <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
+  <string name="year_in_review_survey_satisfied">Tyytyväinen</string>
+  <string name="year_in_review_survey_neutral">Neutraali</string>
+  <string name="year_in_review_survey_unsatisfied">Tyytymätön</string>
+  <string name="year_in_review_survey_very_unsatisfied">Erittäin tyytymätön</string>
+  <string name="year_in_review_survey_placeholder_text">Muita ajatuksia?</string>
+  <string name="year_in_review_survey_cancel">Peruuta</string>
+  <string name="year_in_review_survey_submit">Lähetä</string>
+  <string name="year_in_review_disable_positive_button">Kyllä, olen varma</string>
+  <string name="year_in_review_disable_negative_button">Ei kiitos</string>
+  <string name="year_in_review_screenshot_error">Kuvakaappauksen luominen epäonnistui: %s</string>
   <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
   <string name="recommended_reading_list_title">Löydä artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_title">Löydä juuri sinulle valittuja artikkeleita</string>
@@ -1859,4 +1932,37 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ei, pidä ne päällä</string>
   <string name="recommended_reading_list_notification_title">%s Löydä artikkeleita -lukulistasi on valmis.</string>
   <string name="recommended_reading_list_notification_subtitle">Napauta nähdäksesi uusimmat suosituksesi.</string>
+  <string name="donation_reminders_initial_prompt_label">Kokeellinen</string>
+  <string name="donation_reminders_initial_prompt_title">Tue Wikipediaa lukiessasi</string>
+  <string name="donation_reminders_initial_prompt_message">Aseta lahjoitusmuistutus lukemiesi artikkelien määrän perusteella. Tämä auttaa pitämään Wikipedian mainoksettomana, ajantasaisena ja kaikkien saatavilla.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Aloita</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Ei nyt</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Lahjoitusmuistutuksia voi muokata milloin tahansa asetuksissa.</string>
+  <string name="donation_settings_section_header">Lahjoitukset</string>
+  <string name="donation_reminders_settings_title">Lahjoitusmuistutukset</string>
+  <string name="donation_reminders_settings_thank_you_message">Liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat pitääkseen Wikipedian mainoksettomana, ajantasaisena ja kaikkien saatavilla. Ota lahjoitusmuistutus käyttöön nyt.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Kun luen</string>
+  <string name="donation_reminders_settings_amount_label">Muistuta minua lahjoittamaan</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Vahvista muistutus</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Tietoja tästä kokeilusta</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">artikkelia</string>
+  <string name="donation_reminders_settings_warning_min_amount">Syötä vähintään %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Sallittu enimmäismäärä on %s</string>
+  <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
+  <string name="donation_reminders_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
+  <string name="donation_reminders_prompt_message">%1$s pyysit meitä muistuttamaan sinua lahjoituksesta luettuasi %2$s. Jos Wikipedia on tarjonnut sinulle %3$s arvosta tietoa, liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat ja täytä lupauksesi tänään.</string>
+  <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
+  <string name="donation_reminders_prompt_negative_button">Ei nyt</string>
+  <string name="donation_reminders_gpay_text">Lahjoita %s Google Paylla</string>
+  <string name="donation_reminders_gpay_different_amount_text">Lahjoita eri summa Google Paylla</string>
+  <string name="donation_reminders_survey_dialog_title">Auta parantamaan lahjoitusmuistutuksia.</string>
+  <string name="donation_reminders_survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="donation_reminders_settings_description_on">Lahjoitusmuistutukset ovat käytössä. Wikipedia muistuttaa sinua lahjoittamaan %1$s jokaista lukemaasi %2$s tämän kokeilun aikana.</string>
+  <string name="donation_reminders_settings_description_off">Lahjoitusmuistutukset ovat pois käytöstä.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Artikkelimäärä tallennetaan paikallisesti laitteellesi</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d artikkeli</item>
+    <item quantity="other">%d artikkelia</item>
+  </plurals>
 </resources>

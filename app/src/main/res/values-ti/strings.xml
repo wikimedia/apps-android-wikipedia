@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">ተመለስ</string>
   <string name="error_back">ተመለስ</string>
   <string name="error_next">ዝቕጽል</string>
-  <string name="menu_clear_all_history">ታሪኽ ኣጽርይ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ታሪኽ ኣጽርይ</string>
   <string name="history_item_deleted">%s ካብ ታሪኽ ተኣልዩ</string>
   <string name="history_items_deleted">%d ጽሑፋት ካብ ታሪኽ ተኣልዩ</string>
   <string name="history_item_delete_undo">ምለስ</string>

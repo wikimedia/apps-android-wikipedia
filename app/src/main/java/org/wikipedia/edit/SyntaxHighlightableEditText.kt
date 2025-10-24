@@ -251,6 +251,7 @@ open class SyntaxHighlightableEditText : EditText {
         if (pos >= 0) {
             setSelection(firstPos, pos + words.last().length)
             val targetScrollPos = min(firstPos + 100, curText.length)
+            requestFocus()
             postDelayed({
                 if (isAttachedToWindow && layout != null) {
                     allowScrollToCursor = true

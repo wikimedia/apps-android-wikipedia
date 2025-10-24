@@ -18,6 +18,7 @@
   <string name="search_icon_content_description">Iskanje</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovati moje spisky</string>
   <string name="nav_item_suggested_edits">Pravky</string>
+  <string name="nav_item_activity">Aktivnost</string>
   <string name="nav_item_more">Veče</string>
   <string name="nav_item_search">Iskati</string>
   <string name="nav_item_contribute">Vnesite svoj vklad</string>
@@ -30,7 +31,7 @@
   <string name="page_error_back_to_main">Nazad</string>
   <string name="error_back">Nazad</string>
   <string name="error_next">Dalje</string>
-  <string name="menu_clear_all_history">Izčistiti historiju</string>
+  <string name="menu_clear_all_history">Izčistiti historiju čitanja</string>
   <string name="history_item_deleted">Članok %s odstranjeny iz historije</string>
   <string name="history_items_deleted">%d člankov odstranjenyh iz historije</string>
   <string name="history_item_delete_undo">Odčiniti</string>
@@ -43,7 +44,7 @@
   <string name="wikimedia_commons">Vikisklad</string>
   <string name="wikidata">Vikidane</string>
   <string name="dialog_title_clear_history">Izčistiti historije prěgleděnja</string>
-  <string name="dialog_message_clear_history">Tuta operacija odstrani vsu vašu historiju prěgleděnja i zatvori vse odkryte zakladky. Jeste li uvěrjeni?</string>
+  <string name="dialog_message_clear_history">Tuta operacija odstrani vsu vašu historiju prěgleděnja. Jeste li uvěrjeni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Poděliti se črěz</string>
@@ -243,9 +244,6 @@
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stranica družiny&lt;/a&gt;</string>
@@ -423,7 +421,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatemnjenje obrazkov (v Temnoj temě)</string>
   <string name="preference_title_prefer_offline_content">Prědpočitanje na oflajn-sodržanje</string>
   <string name="preference_summary_prefer_offline_content">Ščedite izkoristanje danyh, pokazyvajuči članky v oflajn-versiji zaměsto togo, že vsegda včityvaje se poslědnja versija članka</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Udaliti lokalnu historiju darovanij</string>
+  <string name="preference_title_delete_local_donation_history">Izčistiti historiju darovanij</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prisposobiti vizualnoj temě sistemy</string>
   <string name="page_footer_license_text">Sodržanje jest dostupno pod licencijeju $1, ako ne jest napisano inače</string>
   <string name="empty_tab_title">Nova zakladka</string>
@@ -971,6 +969,7 @@
   <string name="customize_toolbar_reset_to_default_button">Obnoviti standardne nastavjenja</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Za prěměščenje elementa pridržite ikonu prěteganja</string>
   <string name="customize_toolbar_item_default_tooltip">Natisknite i prětegnite element za izměnjenje jego položenje</string>
+  <string name="suggested_edits_activity_title">Praviti</string>
   <string name="suggested_edits_describe_articles">Dodavanje opisov člankom</string>
   <string name="suggested_edits_caption_images">Dodavanje nadpisov obrazkam</string>
   <string name="suggested_edits_tag_images">Dodavanje tagov obrazkom</string>
@@ -1203,6 +1202,44 @@
   <string name="edit_summary_added_caption">Dodany nadpis</string>
   <string name="edit_summary_added_image_and_caption">Dodane obrazok i nadpis</string>
   <string name="edit_published_view">Izobraziti</string>
+  <string name="activity_tab_logged_out_title">Prijavite se ili stvorite koristničsko konto, da byste viděli svoju aktivnost na aplikaciji Vikipedije</string>
+  <string name="activity_tab_user_reading">%s čitaje</string>
+  <string name="activity_tab_on_wikipedia_android">V Vikipediji za Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d č. %2$d min.</string>
+  <string name="activity_tab_weekly_time_spent">Čas provedeny na čitanje v tutoj sedmici</string>
+  <string name="activity_tab_monthly_articles_read">Članky pročitane v tutom měsecu</string>
+  <string name="activity_tab_monthly_articles_saved">Članky zapisane v tutom měsecu</string>
+  <string name="activity_tab_monthly_top_categories">Najpopularnějše kategorije člankov pročitanyh v tutom měsecu</string>
+  <string name="activity_tab_explore_wikipedia">Odkryjte s pomočju Vikipedije</string>
+  <string name="activity_tab_discover_encourage">Iščete li něčto novo za čitanje?</string>
+  <string name="activity_tab_donation_unknown">Neizvěstno</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Poslědnje darovanje&lt;/b&gt; v aplikaciji</string>
+  <string name="activity_tab_game_stats">Statistika igr</string>
+  <string name="activity_tab_game_stats_best_streak">Najlěpša serija</string>
+  <string name="activity_tab_play_wiki_games">Igrati v VikiIgry</string>
+  <string name="activity_tab_report_email_subject">Soobčite o problemu – zakladka «Aktivnost»</string>
+  <string name="activity_tab_report_email_body">Ja našel problem s zakladkoju «Aktivnost»:\n- [Opišite konkretny problem]\n\nOčekyvano mnoju povedenje funkcije:\n- [Opišite prědloženo rěšenje]</string>
+  <string name="activity_tab_menu_feedback">Problem s funkcijeju</string>
+  <string name="activity_tab_menu_info">Doznati veče</string>
+  <string name="activity_tab_menu_customize">Prisposobiti</string>
+  <string name="activity_tab_highlights">Najvažnějše</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Historija čitanja</string>
+  <string name="activity_tab_impact">Vaš vliv</string>
+  <string name="activity_tab_impact_most_viewed">Najčestěje prěgledano poslě vašej pravky</string>
+  <string name="activity_tab_impact_contributions_this_month">Vklad v tutom měsecu</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">pravka v tutom měsecu</item>
+    <item quantity="few">pravky v tutom měsecu</item>
+    <item quantity="many">pravok v tutom měsecu</item>
+    <item quantity="other">pravok v tutom měsecu</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">pravka v prošlom měsecu</item>
+    <item quantity="few">pravky v prošlom měsecu</item>
+    <item quantity="many">pravok v prošlom měsecu</item>
+    <item quantity="other">pravok v prošlom měsecu</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Vliv za ves čas</string>
   <string name="file_page_activity_title">Stranica fajla</string>
   <string name="file_page_add_image_caption_button">Dodati nadpis obrazka</string>
   <string name="file_page_add_image_tags_button">Dodati značky obrazku</string>

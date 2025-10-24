@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="error_back">Atpakaļ</string>
   <string name="error_next">Tālāk</string>
-  <string name="menu_clear_all_history">Notīrīt vēsturi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
   <string name="notification_archive_undo">Atsaukt</string>
   <string name="app_settings">Lietotnes iestatījumi</string>
@@ -270,6 +270,7 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">Vikipēdija</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
+  <string name="view_random_article_card_title">Nejaušs raksts</string>
   <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
   <string name="view_main_page_card_action">Skatīt sākumlapu</string>

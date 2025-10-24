@@ -38,9 +38,9 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
-        versionCode 50545
+        versionCode 50553
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -207,6 +207,7 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
+    implementation(libs.paging.compose)
 
     implementation libs.android.sdk
     implementation libs.android.plugin.annotation.v9
