@@ -28,22 +28,24 @@ import org.wikipedia.util.Resource
 class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogDonateBinding? = null
     private val binding get() = _binding!!
+    private var campaignId: String? = null
 
     private val viewModel: DonateViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
+        campaignId = arguments?.getString(ARG_CAMPAIGN_ID)
 
         binding.donateOtherButton.setOnClickListener {
-            DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
+            DonorExperienceEvent.logAction("webpay_click", if (campaignId.isNullOrEmpty()) "setting" else "article_banner", campaignId = campaignId)
             onDonateClicked()
         }
 
         binding.donateGooglePayButton.setOnClickListener {
             invalidateCampaign()
-            DonorExperienceEvent.logAction("gpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
+            DonorExperienceEvent.logAction("gpay_click", if (campaignId.isNullOrEmpty()) "setting" else "article_banner", campaignId = campaignId)
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId, arguments?.getString(ARG_DONATE_URL)))
         }
 
         lifecycleScope.launch {
@@ -99,7 +101,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun invalidateCampaign() {
-        arguments?.getString(ARG_CAMPAIGN_ID)?.let {
+        campaignId?.let {
             Prefs.announcementShownDialogs = setOf(it)
         }
     }
