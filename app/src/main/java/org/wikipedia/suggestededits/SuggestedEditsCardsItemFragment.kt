@@ -1,12 +1,12 @@
 package org.wikipedia.suggestededits
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -142,7 +142,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewArticleImagePlaceholder.visibility = GONE
         } else {
             binding.viewArticleImagePlaceholder.visibility = VISIBLE
-            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit?.getPreferredSizeThumbnailUrl()))
+            binding.viewArticleImage.loadImage(sourceSummaryForEdit?.getPreferredSizeThumbnailUrl()?.toUri())
         }
     }
 
@@ -168,7 +168,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
-        binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+        binding.viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
         binding.viewArticleExtract.visibility = GONE
     }
 

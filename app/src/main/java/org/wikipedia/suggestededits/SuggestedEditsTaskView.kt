@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
+import androidx.core.view.isVisible
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -13,7 +13,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.WikiCardView
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+internal class SuggestedEditsTaskView(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
     private val binding = ViewSuggestedEditsTaskItemBinding.inflate(LayoutInflater.from(context), this)
 
     init {
@@ -58,7 +58,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, true)
             }
         }
-        binding.secondaryButton.visibility = if (task.secondaryAction.isNullOrEmpty()) View.GONE else VISIBLE
+        binding.secondaryButton.isVisible = !task.secondaryAction.isNullOrEmpty()
         binding.secondaryButton.text = task.secondaryAction
         binding.secondaryButton.contentDescription = task.secondaryAction + " " + task.title
     }
