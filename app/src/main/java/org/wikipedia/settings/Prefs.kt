@@ -497,10 +497,6 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
 
-    var showOneTimeSequentialUserStatsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, value)
-
     var showSearchTabTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_search_tab_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_search_tab_tooltip, value)
