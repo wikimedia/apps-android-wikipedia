@@ -38,7 +38,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.activitytab.ActivityTabABTest
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
@@ -172,7 +171,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
-                if (ActivityTabABTest().isInTestGroup() && !Prefs.isActivityTabOnboardingShown) {
+                if (!Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     return@setOnItemSelectedListener false
                 }
@@ -194,7 +193,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, ActivityTabABTest().isInTestGroup() && !Prefs.activityTabRedDotShown)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.activityTabRedDotShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
