@@ -20,11 +20,12 @@
   <string name="nav_item_forward">Welleh</string>
   <string name="search_hint">Nadi di Wikipedia</string>
   <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
-  <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
+  <string name="search_hint_search_languages">Nadi ɣef tutlayt</string>
   <string name="search_back_button_content_description">Uɣal ar deffir</string>
   <string name="search_icon_content_description">Nadi</string>
   <string name="filter_hint_filter_my_lists_and_articles">Sizdeg tibdarin-iw</string>
   <string name="nav_item_suggested_edits">Ibeddilen</string>
+  <string name="nav_item_activity">Armud</string>
   <string name="nav_item_more">Ugar</string>
   <string name="nav_item_search">Nadi</string>
   <string name="nav_item_contribute">Ttekki</string>
@@ -37,7 +38,7 @@
   <string name="page_error_back_to_main">Uɣal ar deffir</string>
   <string name="error_back">Uɣal ɣer deffir</string>
   <string name="error_next">Ɣer zdat</string>
-  <string name="menu_clear_all_history">Sfeḍ amazray</string>
+  <string name="menu_clear_all_history" fuzzy="true">Sfeḍ amazray</string>
   <string name="history_item_deleted">%s yettwakkes seg umazray</string>
   <string name="history_items_deleted">%d n imagraden ttwakksen seg umazray</string>
   <string name="history_item_delete_undo">Err-d</string>
@@ -49,7 +50,7 @@
   <string name="page_content_description">Asebter: %s</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Sfeḍ amazray n tunigin</string>
-  <string name="dialog_message_clear_history">ayagi ad yekkes akk amazray n tunigin, sakin ad yemdel akk iccaren yeldin tura. Tebɣiḍ ad teged aya?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ayagi ad yekkes akk amazray n tunigin, sakin ad yemdel akk iccaren yeldin tura. Tebɣiḍ ad teged aya?</string>
   <string name="dialog_message_clear_history_yes">Ih</string>
   <string name="dialog_message_clear_history_no">Uhu</string>
   <string name="share_via">Bḍu s</string>
@@ -222,12 +223,8 @@
   <string name="privacy_policy_description">Tasertit n tbaḍnit</string>
   <string name="terms_of_use_description">Tiwtilin n useqdec</string>
   <string name="about_wikipedia_url">https://kab.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Timkaṛḍiyin yettwasqedcen</string>
   <string name="about_contributors_heading">Imttekkiyen</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Imsuqal</string>
   <string name="about_translators_translatewiki">Asnas-agi suqlen-t imsuqal iwiziwen n &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Turagt</string>
@@ -660,6 +657,9 @@
   <string name="image_recommendation_reject">Uhu</string>
   <string name="image_recommendation_reject_other">Wayeḍ</string>
   <string name="image_recommendation_tooltip_next">Uḍfir</string>
+  <string name="activity_tab_menu_info">Issin ugar</string>
+  <string name="activity_tab_timeline_today">Ass-a</string>
+  <string name="activity_tab_timeline_yesterday">Iḍelli</string>
   <string name="file_page_edit_button_content_description">Ẓreg %s</string>
   <string name="description_edit_revert_subtitle">Tanemmirt ɣef teẓrigt Wikipedia!</string>
   <string name="description_edit_revert_intro">Neẓra d akken txeddmeḍ ayen tzemreḍ, acu kan yiwen seg imeɣriyen-nneɣ yufa-d ugur. D ayen i d-yewwin asefsex n usnifel-ik. Hatan wacuɣeṛ:</string>
@@ -693,6 +693,7 @@
   <string name="wikipedia_languages_add_language_text">Rnu tutlayt</string>
   <string name="wikipedia_languages_remove_text">Kkes tutlayt</string>
   <string name="wikipedia_languages_remove_action_mode_title">Kkes tutlayt</string>
+  <string name="more_language_options">ugar</string>
   <string name="add_wikipedia_languages_text">Rnu tutlayin n Wikipidya</string>
   <string name="remove_language_dialog_cancel_button_text">Semmet</string>
   <string name="remove_language_dialog_ok_button_text">Ih</string>
@@ -702,11 +703,17 @@
   <string name="edit_conflict_dialog_ok_button_text">Ih</string>
   <string name="reverted_edit_dialog_ok_button_text">Ih</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Semmet</string>
+  <string name="content_description_for_page_indicator">Asebter wis %1$d ɣef %2$d</string>
   <string name="wikitext_bold">Azuran</string>
   <string name="wikitext_italic">Uknan</string>
   <string name="wikitext_code">Tangalt</string>
   <string name="wikitext_link">Aseɣwen</string>
+  <string name="wikitext_template">Tamudemt</string>
   <string name="insert_media_advanced_settings">Iɣewwaṛen leqqayen</string>
+  <string name="insert_media_advanced_settings_image_position_right">Ayeffus</string>
+  <string name="insert_media_advanced_settings_image_position_left">Azelmaḍ</string>
+  <string name="insert_media_advanced_settings_image_position_center">Alemmas</string>
+  <string name="templates_param_suggested_value">amedya %s</string>
   <string name="templates_learn_more_link">Issin ugar</string>
   <string name="main_drawer_help">Tallelt</string>
   <string name="main_drawer_login">Qqen / Jerred di Wikipidya</string>
@@ -714,14 +721,24 @@
   <string name="text_input_dialog_ok_button_text">Ih</string>
   <string name="text_input_dialog_cancel_button_text">Semmet</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Semmet</string>
+  <string name="talk_warn_save_dialog_title">Sekles isenfal?</string>
+  <string name="talk_warn_save_dialog_message">Sekles amzun d izen amaynut</string>
+  <string name="talk_warn_save_dialog_hint">Azwel n yizen</string>
+  <string name="talk_warn_save_dialog_publish">Suffeɣ-d</string>
   <string name="talk_warn_save_dialog_cancel">Semmet</string>
   <string name="talk_warn_save_dialog_dont_save">Ur seklas ara</string>
+  <string name="talk_add_reply">Tiririt</string>
   <string name="talk_snackbar_undo">Err-d</string>
+  <string name="talk_overflow_sort_by">Smizzwer s</string>
+  <string name="talk_list_item_overflow_share">Bḍu</string>
+  <string name="menu_option_edit_source">Ẓreg aɣbalu</string>
+  <string name="talk_menu_copy_text">Nɣel aḍris</string>
   <string name="thank_dialog_negative_button_text">Semmet</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 n wayyur</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 n wayyuren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 n wayyuren</string>
   <string name="watchlist_filter_all">Akk</string>
+  <string name="watchlist_filter_pages">Isebtar</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Akk</string>
   <string name="watchlist_filter_type_of_change_new_users">Iseqdacen imaynuten</string>
@@ -732,17 +749,23 @@
   <string name="talk_templates_new_message_title">Izen amaynut</string>
   <string name="talk_templates_new_message_save">Sekles</string>
   <string name="talk_templates_new_message_dialog_title">Sekles isenfal</string>
+  <string name="talk_templates_new_message_dialog_hint">Azwel n yizen</string>
   <string name="talk_templates_new_message_dialog_save">Sekles</string>
   <string name="talk_templates_new_message_dialog_cancel">Semmet</string>
+  <string name="talk_templates_edit_message_dialog_title">Ẓreg izen</string>
   <string name="talk_templates_edit_message_dialog_save">Sekles</string>
   <string name="talk_templates_edit_message_dialog_delete">Kkes</string>
+  <string name="talk_templates_menu_remove_message">Kkes izen</string>
+  <string name="talk_templates_your_messages_tab_title">Iznan-ik·im</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Mdel</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Akk</string>
+  <string name="patroller_tasks_overflow_learn">Issin ugar</string>
   <string name="patroller_saved_message_title_auto_trans">Tasuqilt tawurmant</string>
   <string name="talk_templates_menu_edit_title">Ẓreg</string>
   <string name="donation_campaign_go_back_button">Uɣal ar deffir</string>
   <string name="places_title">Imeḍqan</string>
+  <string name="places_filter_title">Sizdeg s tutlayt</string>
   <string name="places_toggle_buttons_map">Takarḍa</string>
   <string name="places_toggle_buttons_list">Tabdart</string>
   <string name="survey_dialog_cancel">Semmet</string>
@@ -752,8 +775,10 @@
   <string name="on_this_day_game_dialog_button">Urar</string>
   <string name="on_this_day_game_progress">%1$d seg %2$d</string>
   <string name="on_this_day_game_share_button">Bḍu</string>
+  <string name="on_this_day_game_menu_info">Issin ugar</string>
   <string name="on_this_day_game_article_read_button">Ɣeṛ amagrad</string>
   <string name="on_this_day_game_notification_undo">Semmet</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Issin ugar</string>
   <string name="recommended_reading_list_onboarding_card_new">Amaynut!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Ala, tanemmirt</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Nadi ɣef umagrad</string>

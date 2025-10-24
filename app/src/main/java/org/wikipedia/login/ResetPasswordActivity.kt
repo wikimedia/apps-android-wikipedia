@@ -38,7 +38,7 @@ class ResetPasswordActivity : BaseActivity() {
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
         NonEmptyValidator(binding.loginButton, binding.resetPasswordInput, binding.resetPasswordRepeat)
         binding.resetPasswordInput.editText?.setOnEditorActionListener { _, actionId, _ ->
@@ -52,11 +52,6 @@ class ResetPasswordActivity : BaseActivity() {
         userName = intent.getStringExtra(LOGIN_USER_NAME).orEmpty()
         firstStepToken = intent.getStringExtra(LOGIN_TOKEN).orEmpty()
         resetAuthState()
-    }
-
-    override fun onBackPressed() {
-        DeviceUtil.hideSoftKeyboard(this)
-        super.onBackPressed()
     }
 
     override fun onStop() {
@@ -115,7 +110,7 @@ class ResetPasswordActivity : BaseActivity() {
                 token = firstStepToken, cb = loginCallback)
         } else {
             loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
-                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
+                twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
                 emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
                 token = firstStepToken, isContinuation = true, cb = loginCallback)
         }

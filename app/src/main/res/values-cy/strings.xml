@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">Ewch yn ôl</string>
   <string name="error_back">Yn ôl</string>
   <string name="error_next">Nesaf</string>
-  <string name="menu_clear_all_history">Clirio\'r hanes</string>
+  <string name="menu_clear_all_history" fuzzy="true">Clirio\'r hanes</string>
   <string name="history_item_deleted">%s wedi ei dynnu o\'ch hanes</string>
   <string name="history_items_deleted">%d erthyglau wedi\'u tynnu o\'ch hanes</string>
   <string name="history_item_delete_undo">Dadwneud</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Comin Wicimedia</string>
   <string name="wikidata">Wicidata</string>
   <string name="dialog_title_clear_history">Clirio hanes y pori?</string>
-  <string name="dialog_message_clear_history">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
   <string name="dialog_message_clear_history_yes">Ydw/Ie/Iawn</string>
   <string name="dialog_message_clear_history_no">Na</string>
   <string name="share_via">Rhannu drwy</string>

@@ -28,7 +28,7 @@
   <string name="page_error_back_to_main">ආපසු යන්න</string>
   <string name="error_back">ආපසු යන්න</string>
   <string name="error_next">ඊළග</string>
-  <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
+  <string name="menu_clear_all_history" fuzzy="true">ඉතිහාසය ඉවත් කරන්න</string>
   <string name="history_item_deleted">%s ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
   <string name="history_items_deleted">%d ලිපිය ඉතිහාසයෙන් ඉවත් කරන ලදි</string>
   <string name="history_item_delete_undo">පසුගමනය</string>
@@ -39,7 +39,7 @@
   <string name="page_content_description">පිටුව : %s</string>
   <string name="wikidata">විකිදත්ත</string>
   <string name="dialog_title_clear_history">සෙවුම් ඉතිහාසය මකන්න</string>
-  <string name="dialog_message_clear_history">මෙමගින් ඔබේ සියලු සෙවුම් ඉතිහාසය මකා දැමෙනු ඇත, එමෙන්ම සියලු විවෘත ටැබ්(කුඩා තීරු) ද වැසෙනු ඇත. ඔබට සහතික ද?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">මෙමගින් ඔබේ සියලු සෙවුම් ඉතිහාසය මකා දැමෙනු ඇත, එමෙන්ම සියලු විවෘත ටැබ්(කුඩා තීරු) ද වැසෙනු ඇත. ඔබට සහතික ද?</string>
   <string name="dialog_message_clear_history_yes">ඔව්</string>
   <string name="dialog_message_clear_history_no">නැහැ</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>

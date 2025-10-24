@@ -8,6 +8,7 @@
 * Pickle12
 * P̲̳l̳eo
 * SHaran (WMF)
+* SaldırganSincap
 * Upwinxp
 -->
 <resources>
@@ -38,7 +39,7 @@
   <string name="page_error_back_to_main">Pojdi nazaj</string>
   <string name="error_back">Pojdi nazaj</string>
   <string name="error_next">Naprej</string>
-  <string name="menu_clear_all_history">Izbriši zgodovino</string>
+  <string name="menu_clear_all_history" fuzzy="true">Izbriši zgodovino</string>
   <string name="history_item_deleted">Članek %s izbrisan iz zgodovine</string>
   <string name="history_items_deleted">%d člankov izbrisanih iz zgodovine</string>
   <string name="history_item_delete_undo">Razveljavi</string>
@@ -51,7 +52,7 @@
   <string name="wikimedia_commons">Wikimedijina zbirka</string>
   <string name="wikidata">Wikipodatki</string>
   <string name="dialog_title_clear_history">Izbriši zgodovino brskanja</string>
-  <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali to res želite storiti?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ali to res želite storiti?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Deli z</string>
@@ -251,14 +252,12 @@
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/sl</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/sl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
   <string name="about_libraries_heading">Uporabljene knjižnice</string>
   <string name="about_contributors_heading">Sodelavci</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
@@ -433,7 +432,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatemnitev slike (pri temni temi)</string>
   <string name="preference_title_prefer_offline_content">Prednost daj preneseni vsebini</string>
   <string name="preference_summary_prefer_offline_content">Prihranite pri porabi podatkov tako, da namesto stalnega prenašanja zadnje redakcije članka uporabljate članke, kakor so že na voljo preneseni.</string>
-  <string name="preference_title_delete_local_donation_history">Izbris lokalne zgodovine donacij</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Izbris lokalne zgodovine donacij</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Usklajeno s sistemsko temo</string>
   <string name="page_footer_license_text">Vsebina je na voljo pod licenco $1, razen če je navedeno drugače.</string>
   <string name="empty_tab_title">Nov zavihek</string>
@@ -449,10 +448,10 @@
   <string name="error_blocked_footer_no_blocker">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="temp_account_not_logged_in">Niste prijavljeni</string>
   <string name="temp_account_anon_ip_dialog_body">Po urejanju bo pri vašem urejanju naveden vaš IP-nasloⱱ&lt;br /&gt;&lt;br /&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
-  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;ɓ&gt;začasen račʊn&lt;b/&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
+  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;b&gt;začasen račʊn&lt;/b&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
   <string name="temp_account_temp_dialog_body">Vaše urejanje bo pripisano %1$s. Vaš IP-naslov bo viden administratorjem.&lt;br /&gt;&lt;br /&gt; Če &lt;a href=\"https://#login\"&gt;se boste prijavili&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si boste ustvarili račun&lt;/a&gt;, bodo poleg drugih ugodnosti vaša urejanja pripisana izbranemu imenu.</string>
   <string name="temp_account_dialog_ok">Razumem</string>
-  <string name="temp_account_using_title">Uporabljate začasen račun</string>
+  <string name="temp_account_using_title">Uporabljate začasni račun</string>
   <string name="temp_account_dialog_discard">Zavrzi spremembe in me prijavi</string>
   <plurals name="temp_account_created">
     <item quantity="one">Začasni račun %1$s je bil ustvarjen po objavi vašega urejanja. Njegova veljavnost bo potekla čez %2$d dan.</item>
@@ -1309,7 +1308,7 @@
   <string name="wikitext_headings">Podnaslovi</string>
   <string name="wikitext_insert_media">Vstavi predstavnost</string>
   <string name="wikitext_bulleted_list">Označen seznam</string>
-  <string name="wikitext_numbered_list">Oštevilčen seznam</string>
+  <string name="wikitext_numbered_list">Oštevilčeni seznam</string>
   <string name="wikitext_template">Predloga</string>
   <string name="wikitext_reference">Sklic</string>
   <string name="wikitext_preview_link">Predogled povezave</string>

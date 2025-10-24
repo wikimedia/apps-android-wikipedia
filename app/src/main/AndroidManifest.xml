@@ -88,9 +88,13 @@
 
         <activity
             android:name=".main.MainActivity"
-            android:icon="@mipmap/launcher"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
+            android:exported="true" />
+        <activity-alias
+            android:name=".DefaultIcon"
+            android:targetActivity=".main.MainActivity"
+            android:icon="@mipmap/launcher"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -103,7 +107,26 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+        <activity-alias
+            android:name=".YIR25Icon"
+            android:targetActivity=".main.MainActivity"
+            android:icon="@mipmap/launcher_yir25"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+            </intent-filter>
+        </activity-alias>
+
         <activity
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
@@ -157,6 +180,10 @@
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".suggestededits.SuggestedEditsTasksActivity"
+            android:theme="@style/AppTheme.ActionBar"
+            android:label="@string/suggested_edits_activity_title" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:windowSoftInputMode="adjustResize|stateVisible"
@@ -370,11 +397,24 @@
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
 
         <activity
+            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
+
+        <activity
             android:name=".yearinreview.YearInReviewActivity"/>
       
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListSettingsActivity"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activitytab.ActivityTabCustomizationActivity" />
+
+        <activity
+            android:name=".activitytab.ActivityTabOnboardingActivity" />
+
+        <activity
+            android:name=".donate.donationreminder.DonationReminderActivity"
+            android:windowSoftInputMode="adjustResize"/>
 
         <provider
             android:name=".WikipediaFileProvider"

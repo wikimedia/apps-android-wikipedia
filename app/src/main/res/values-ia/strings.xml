@@ -22,6 +22,7 @@
   <string name="search_icon_content_description">Cercar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mi listas</string>
   <string name="nav_item_suggested_edits">Modificationes</string>
+  <string name="nav_item_activity">Activitate</string>
   <string name="nav_item_more">Plus</string>
   <string name="nav_item_search">Cercar</string>
   <string name="nav_item_contribute">Contribuer</string>
@@ -34,7 +35,7 @@
   <string name="page_error_back_to_main">Retornar</string>
   <string name="error_back">Retornar</string>
   <string name="error_next">Sequente</string>
-  <string name="menu_clear_all_history">Rader historia</string>
+  <string name="menu_clear_all_history">Rader le historia de lectura</string>
   <string name="history_item_deleted">%s removite del historia</string>
   <string name="history_items_deleted">%d articulos removite del historia</string>
   <string name="history_item_delete_undo">Disfacer</string>
@@ -47,7 +48,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
-  <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
+  <string name="dialog_message_clear_history">Isto delera tote tu historia de navigation. Es tu secur?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Condivider via</string>
@@ -243,9 +244,6 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
@@ -420,7 +418,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuation de imagines (in thema Obscur)</string>
   <string name="preference_title_prefer_offline_content">Preferer contento foras de linea</string>
   <string name="preference_summary_prefer_offline_content">Economisar le utilisation de datos cargante articulos disponibile foras de linea in loco de sempre cargar le ultime version de un articulo</string>
-  <string name="preference_title_delete_local_donation_history">Deler le historia local de donationes</string>
+  <string name="preference_title_delete_local_donation_history">Rader le historia de donationes</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Adaptar al thema del systema</string>
   <string name="page_footer_license_text">Le contento es disponibile sub $1 salvo indication contrari</string>
   <string name="empty_tab_title">Nove scheda</string>
@@ -918,6 +916,7 @@
   <string name="customize_toolbar_reset_to_default_button">Reinitialisar al predefinition</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Tene premite le icone de traction pro displaciar le objecto</string>
   <string name="customize_toolbar_item_default_tooltip">Preme e trahe un objecto pro repositionar lo</string>
+  <string name="suggested_edits_activity_title">Modificar</string>
   <string name="suggested_edits_describe_articles">Describer articulos</string>
   <string name="suggested_edits_caption_images">Adder legendas a imagines</string>
   <string name="suggested_edits_tag_images">Etiquettar imagines</string>
@@ -1130,6 +1129,91 @@
   <string name="edit_summary_added_caption">Legenda addite</string>
   <string name="edit_summary_added_image_and_caption">Imagine e legenda addite</string>
   <string name="edit_published_view">Monstrar</string>
+  <string name="activity_tab_logged_out_title">Aperi session o crea un conto pro vider tu activitate sur le app Wikipedia</string>
+  <string name="activity_tab_user_reading">Lectura de %s</string>
+  <string name="activity_tab_on_wikipedia_android">Sur Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Tempore passate a leger iste septimana</string>
+  <string name="activity_tab_monthly_articles_read">Articulos legite iste mense</string>
+  <string name="activity_tab_monthly_articles_saved">Articulos salveguardate iste mense</string>
+  <string name="activity_tab_monthly_top_categories">Categorias le plus legite iste mense</string>
+  <string name="activity_tab_explore_wikipedia">Discoperir via Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Cerca qualcosa de nove a leger?</string>
+  <string name="activity_tab_donation_unknown">Incognite</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Ultime donation&lt;/b&gt; in app</string>
+  <string name="activity_tab_game_stats">Statisticas de joco</string>
+  <string name="activity_tab_game_stats_best_streak">Melior serie</string>
+  <string name="activity_tab_play_wiki_games">Jocar al WikiGames</string>
+  <string name="activity_tab_report_email_subject">Reporto de problema: scheda Activitate</string>
+  <string name="activity_tab_report_email_body">Io ha incontrate un problema con le scheda Activitate:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="activity_tab_menu_feedback">Problema de functionalitate</string>
+  <string name="activity_tab_menu_info">Leger plus</string>
+  <string name="activity_tab_menu_customize">Personalisar</string>
+  <string name="activity_tab_menu_customize_description" fuzzy="true">Le analyticas del scheda Activitate es basate sur le lingua primari fixate in le parametros. Illos utilisa datos local, con exception del modificationes, le quales es public.</string>
+  <string name="activity_tab_highlights">In evidentia</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Historia de lectura</string>
+  <string name="activity_tab_impact">Tu impacto</string>
+  <string name="activity_tab_impact_most_viewed">Le plus visitate post tu modification</string>
+  <string name="activity_tab_impact_contributions_this_month">Contributiones iste mense</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">modification iste mense</item>
+    <item quantity="other">modificationes iste mense</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">modification le ultime mense</item>
+    <item quantity="other">modificationes le ultime mense</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Impacto total</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">modification in total</item>
+    <item quantity="other">modificationes in total</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">regratiamento</item>
+    <item quantity="other">regratiamentos</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d die</item>
+    <item quantity="other">%d dies</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Melior serie</string>
+  <string name="activity_tab_impact_last_edited">Ultime modification</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 modificationes recente de articulos</string>
+  <string name="activity_tab_impact_suggested_edits_message">Pare que tu non ha apportate alcun modification iste mense. Extende le cognoscentia libere modificante le topicos que te interessa.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Facer un modification</string>
+  <string name="activity_tab_impact_recent_activity">Tu activitate recente (ultime 30 dies)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Modification</item>
+    <item quantity="other">Modificationes</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Visita de un articulo que tu ha modificate</item>
+    <item quantity="other">Visitas de articulos que tu ha modificate</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Tempore passate a leger</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Analyticas de lectura</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Analyticas de modification</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Impacto total</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statisticas de joco</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Ultime donation in app</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Chronologia de comportamento</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Le modulos de activitate es disactivate. &lt;a href=\"#\"&gt;Activa los&lt;/a&gt; pro vider actualisationes in iste scheda.</string>
+  <string name="activity_tab_timeline_today">Hodie</string>
+  <string name="activity_tab_timeline_yesterday">Heri</string>
+  <string name="activity_tab_timeline_empty_state_title">Nihil a monstrar</string>
+  <string name="activity_tab_timeline_empty_state_message">Comencia a leger e modificar pro accumular tu historia</string>
+  <string name="activity_tab_timeline_view_changes_button">Monstrar cambiamentos</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Patronos de lectura</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Vide quante tempore tu ha passate a leger e qual articulos o topicos tu ha explorate in le curso del tempore.</string>
+  <string name="activity_tab_onboarding_screen_title">Introduction al Activitate</string>
+  <string name="activity_tab_onboarding_impact_title">Impacto principal</string>
+  <string name="activity_tab_onboarding_impact_message">Discoperi le analyses de tu contributiones e le portata del cognoscentia que tu ha condividite.</string>
+  <string name="activity_tab_onboarding_engage_title">Plus manieras de ingagiar se</string>
+  <string name="activity_tab_onboarding_engage_message">Explora statisticas de jocos, articulos salveguardate e altere activitates que approfunda tu connexion con Wikipedia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Mantener le controlo</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Elige le modulos a monstrar. Tote le datos personal resta private sur tu apparato e le historia de navigation pote esser radite a omne momento.</string>
+  <string name="edits_screen_what_is_title">Modificar in le app de Wikipedia</string>
+  <string name="edits_screen_what_is_body">Non secur ubi comenciar a modificar? Tenta le Modificationes suggerite, un function que crea opportunitates de apportar contributiones micre ma essential a Wikipedia. Alternativemente, visita directemente un articulo de interesse e apporta un modification in wikitexto.</string>
   <string name="file_page_activity_title">Pagina de file</string>
   <string name="file_page_add_image_caption_button">Adder legenda al imagine</string>
   <string name="file_page_add_image_tags_button">Adder etiquettas al imagine</string>
@@ -1641,6 +1725,7 @@
   <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Altere methodo de pagamento</string>
   <string name="donate_gpay_activity_title">Selige un amonta</string>
+  <string name="donate_gpay_activity_title_with_currency">Selige un amonta (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Io vole generosemente adder %s pro coperir le costo del transaction de maniera que vos pote retener 100%% de mi donation.</string>
   <string name="donate_gpay_check_recurring">Facer isto un donation mensual recurrente.</string>
   <string name="donate_gpay_check_send_email">Si, le Fundation Wikimedia pote inviar me un message de e-mail occasional.</string>
@@ -1753,36 +1838,16 @@
   <string name="year_in_review_get_started">Comenciar</string>
   <string name="year_in_review_topbar_w_icon">Icone W de Wikipedia</string>
   <string name="year_in_review_navigate_left">Navigar al sinistra</string>
+  <string name="year_in_review_close">Clauder</string>
   <string name="year_in_review_share_icon">Icone pro condivider</string>
   <string name="year_in_review_heart_icon">Icone de corde</string>
   <string name="year_in_review_navigate_right">Navigar al dextra</string>
   <string name="year_in_review_donate">Donar</string>
   <string name="year_in_review_information_icon">Icone de information</string>
   <string name="year_in_review_get_started_headline">Explorar tu summario del anno de Wikipedia</string>
-  <string name="year_in_review_get_started_bodytext">Vide perspectivas sur le articulos que tu ha legite in le app de Wikipedia e le modificationes que tu ha facite. Tu historia de lectura es guardate secur. Le perspectivas de lectura es calculate usante datos immagazinate localmente sur tu apparato.</string>
-  <string name="year_in_review_entry_dialog_title">Explorar tu summario del anno de Wikipedia</string>
-  <string name="year_in_review_entry_dialog_bodytext">Discoperi qual articulos nos ha legite e modificate, e condivide le momentos saliente de nostre anno sur Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Continuar</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Tu ha legite %d articulo iste anno</item>
-    <item quantity="other">Tu ha legite %d articulos iste anno</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Iste anno, tu ha legite %1$d articulo, includente %2$s, %3$s e %4$s. Wikipedia habeva plus de 63 milliones de articulos disponibile in plus de 300 linguas. Tu te ha unite a milliones de personas expandente le cognoscentia e explorante diverse topicos</item>
-    <item quantity="other">Iste anno, tu ha legite %1$d articulos, includente %2$s, %3$s e %4$s. Wikipedia habeva plus de 63 milliones de articulos disponibile in plus de 300 linguas. Tu te ha unite a milliones de personas expandente le cognoscentia e explorante diverse topicos</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Tu ha modificate Wikipedia %d vice</item>
-    <item quantity="other">Tu ha modificate Wikipedia %d vices</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Tu ha modificate Wikipedia %d vice. Gratias pro esser un del redactores voluntari qui face un differentia sur le projectos de Wikimedia in tote le mundo.</item>
-    <item quantity="other">Tu ha modificate Wikipedia %d vices. Gratias pro esser un del redactores voluntari qui face un differentia sur le projectos de Wikimedia in tote le mundo.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia esseva disponibile in plus de 300 linguas</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Iste anno, Wikipedia habeva plus de 63 milliones de articulos in plus de 300 linguas active. Tu te jungeva a milliones pro expander le cognoscentia e explorar subjectos diverse.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Le redactores usante le app iOS ha facite plus de 452.257 modificationes</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Le communitate de redactores voluntari de Wikipedia ha facite plus que 452.257 modificationes in le application iOS desde le initio del anno. Le corde e le anima de Wikipedia es nostre communitate global de contributores voluntari, donatores, e milliardos de lectores como tu — totes unite pro condivider le accesso illimitate a informationes digne de fide.</string>
+  <string name="year_in_review_get_started_bodytext">Vider analyses sur le articulos que tu ha legite in le application Wikipedia e sur le modificationes que tu ha apportate.</string>
+  <string name="year_in_review_get_started_info">Tu historia de lectura se mantene protegite. Le analyses de lectura se calcula a base de datos immagazinate localmente sur tu apparato.</string>
+  <string name="year_in_review_get_started_later">Tu pote acceder a tu Summario del anno plus tarde in le menu Plus.</string>
   <string name="year_in_review_survey_title">Adjuta a meliorar le Summario del anno</string>
   <string name="year_in_review_survey_subtitle">Es tu satisfacite de iste function?</string>
   <string name="year_in_review_survey_very_satisfied">Multo satisfacite</string>
@@ -1793,11 +1858,22 @@
   <string name="year_in_review_survey_placeholder_text">Altere commentos?</string>
   <string name="year_in_review_survey_cancel">Cancellar</string>
   <string name="year_in_review_survey_submit">Submitter</string>
+  <string name="year_in_review_disable_title">Es tu secur de voler disactivar le Summario del anno?</string>
+  <string name="year_in_review_disable_positive_button">Si, io es secur</string>
+  <string name="year_in_review_disable_negative_button">No, gratias</string>
+  <string name="year_in_review_setting_subtitle">Disactivar le Summario del anno eliminara tote le analyses personalisate immagazinate e celara le Summario del anno.</string>
   <string name="year_in_review_screendeck_image_content_description">Ressource de imagine pro le pannello de controlo principal del Summario del anno</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Ressource de imagine pro le schermo de dialogo introductive del Summario del anno</string>
   <string name="year_in_review_screenshot_error">Impossibile generar captura de schermo: %s</string>
-  <string name="year_in_review_share_subject">Imagine e ligamine del Summario del anno</string>
+  <string name="year_in_review_share_subject">Mi Summario del anno de Wikipedia</string>
+  <string name="year_in_review_share_body">Ecce mi Summario del anno de Wikipedia. Create con le app Android de Wikipedia %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icone de globo</string>
+  <string name="settings_app_icon_title">Icone del app</string>
+  <string name="settings_app_icon_subtitle">Beneficio de contributor</string>
+  <string name="settings_app_icon_preference_subtitle">Tu ha accesso a un icone personalisate que celebra tu contributiones apportate a Wikipedia desde le app in %d. Illo remanera usque le proxime Summario del anno.</string>
+  <string name="settings_app_icon_updated">Tu icone del app ha essite actualisate.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nove icone disvelate</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Disvela tu recompensa de contributor pro le proxime anno!</string>
+  <string name="year_in_review_login_dialog_body">Aperir session te da accesso a analyses personalisate. Tu pote totevia vider le analyses collective sin aperir session.</string>
   <string name="recommended_reading_list_title">Discoperir</string>
   <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
   <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
@@ -1880,4 +1956,38 @@
   <string name="recommended_reading_list_notification_subtitle">Tocca pro vider tu ultime recommendationes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando tu “Discoperir” se actualisa, Wikipedia te inviara un notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">“Discoperir” es activate. Wikipedia te recommendara articulos a leger.</string>
+  <string name="donation_reminders_initial_prompt_label">Experimento</string>
+  <string name="donation_reminders_initial_prompt_title">Appoia Wikipedia durante que tu lege</string>
+  <string name="donation_reminders_initial_prompt_message">Configura un rememoration de donation basate sur le numero de articulos que tu lege pro adjutar a mantener Wikipedia sin publicitate, actual e disponibile pro omnes.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Comenciar</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Non ora</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Le rememorationes de donation pote esser modificate a omne momento in le Parametros.</string>
+  <string name="donation_settings_section_header">Donationes</string>
+  <string name="donation_reminders_settings_title">Rememorationes de donation</string>
+  <string name="donation_reminders_settings_thank_you_message">Junge te al 2%% de lectores que dona lo que illes pote pro mantener Wikipedia sin publicitate, actual e disponibile pro omnes. Configura ora tu rememoration de donation.</string>
+  <string name="donation_reminders_settings_donation_info">Le donationes se destina al Fundation Wikimedia e su affiliatos, orgoliose hospites de Wikipedia e su sitos fratres.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Quando io lege</string>
+  <string name="donation_reminders_settings_amount_label">Rememorar me de donar</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Confirmar rememoration</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">A proposito de iste experimento</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">articulos</string>
+  <string name="donation_reminders_settings_warning_min_amount">Per favor indica al minus %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Es permittite un maximo de %s</string>
+  <string name="donation_reminders_settings_option_custom">Personalisar…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Gratias! Nos te rememorara de donar %1$s quando tu lege %2$s durante iste experimento.</string>
+  <string name="donation_reminders_prompt_title">Tu ha legite %1$s desde que tu promitteva %2$s</string>
+  <string name="donation_reminders_prompt_message">Le %1$s, tu nos demandava de rememorar te de donar post leger %2$s. Si Wikipedia te ha fornite %3$s de cognoscentia, per favor junge te al 2%% de lectores que dona e completa tu promissa hodie.</string>
+  <string name="donation_reminders_prompt_positive_button">Donar ora</string>
+  <string name="donation_reminders_prompt_negative_button">Non ora</string>
+  <string name="donation_reminders_gpay_text">Donar %s con Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Donar un altere amonta con Google Pay</string>
+  <string name="donation_reminders_survey_dialog_title">Adjuta a meliorar le rememorationes de donation.</string>
+  <string name="donation_reminders_survey_dialog_message">Es tu satisfacite de iste experientia?</string>
+  <string name="donation_reminders_settings_description_on">Le rememorationes de donation es active. Wikipedia te rememorara de donar %1$s cata %2$s que tu lege durante iste experimento.</string>
+  <string name="donation_reminders_settings_description_off">Le rememorationes de donation es inactive.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Le contage de articulos se immagazina localmente sur tu apparato</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d articulo</item>
+    <item quantity="other">%d articulo</item>
+  </plurals>
 </resources>

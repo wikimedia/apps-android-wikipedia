@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
@@ -18,27 +20,27 @@ static def computeVersionName(versionCode, label) {
     return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
-final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
-
 android {
-    compileSdk 35
+    compileSdk = 36
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
 
-        sourceCompatibility = JAVA_VERSION
-        targetCompatibility = JAVA_VERSION
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = JAVA_VERSION
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
     }
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdk 21
-        targetSdk 35
-        versionCode 50541
+        minSdk = 23
+        targetSdk = 36
+        versionCode 50553
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -205,6 +207,7 @@ dependencies {
     implementation libs.photoview
     implementation libs.balloon
     implementation libs.retrofit2.kotlinx.serialization.converter
+    implementation(libs.paging.compose)
 
     implementation libs.android.sdk
     implementation libs.android.plugin.annotation.v9
