@@ -1,15 +1,12 @@
 package org.wikipedia.suggestededits
 
-import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
 
-@Suppress("unused")
-enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
-                                                            val value: String,
-                                                            @StringRes val title: Int,
-                                                            @StringRes val description: Int? = null
-) : EnumCode {
+enum class SuggestedEditsRecentEditsFilterTypes(val id: String,
+                                                val value: String,
+                                                val title: Int,
+                                                val description: Int? = null) : EnumCode {
     ALL_EDITS("allEdits", "",
         R.string.patroller_tasks_filters_all_text),
     MINOR_EDITS("minorEdits", "minor",
