@@ -2005,8 +2005,8 @@
     <item quantity="other">читајќи %1$,d статии на %2$d</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-    <item quantity="one">Проценуваме дека ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$,d статија годишно.</item>
-    <item quantity="other">Проценуваме дека ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$,d статии годишно.</item>
+    <item quantity="one">Проценуваме дека ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$,d статија годишно.</item>
+    <item quantity="other">Проценуваме дека ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$,d статии годишно.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Годинава Википедија имаше %,d статија</item>
