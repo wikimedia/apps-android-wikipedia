@@ -6,6 +6,7 @@
 * Jimidar
 * Kuldeepburjbhalaike
 * MuratTheTurkish
+* SaldırganSincap
 * Satdeep gill
 * Satnam S Virdi
 * Sony dandiwal
@@ -440,7 +441,7 @@
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।&lt;/b&gt; ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਇੱਕ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡਾ IP ਪਤਾ ਤੁਹਾਡਿਆਂ ਸੋਧਾਂ ਨਾਲ ਜੁੜ ਜਾਵੇਗਾ।</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;ਤੁਸੀਂ ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।&lt;/b&gt; ਇੱਕ ਵਾਰ ਜਦੋਂ ਤੁਸੀਂ ਸੋਧ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਡੀ ਨਿੱਜਤਾ ਦੀ ਰੱਖਿਆ ਲਈ ਤੁਹਾਡੇ ਲਈ ਇੱਕ ਅਸਥਾਈ ਖਾਤਾ ਬਣਾਇਆ ਜਾਵੇਗਾ। &lt;a href=\"%1$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;ਤੁਸੀਂ ਇੱਕ ਅਸਥਾਈ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।&lt;/b&gt; ਤੁਹਾਡਾ ਸੋਧ %1$s ਨਾਲ ਸਬੰਧਿਤ ਹੋਵੇਗਾ। &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt; ।</string>
+  <string name="temp_account_edit_status">&lt;b&gt;ਤੁਸੀਂ ਇੱਕ ਅਸਥਾਈ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।&lt;/b&gt; ਤੁਹਾਡਾ ਸੋਧ %1$s ਨਾਲ ਸਬੰਧਿਤ ਹੋਵੇਗਾ। &lt;a href=\"%2$s\"&gt;ਹੋਰ ਜਾਣੋ&lt;/a&gt; ।</string>
   <string name="temp_account_login_status">&lt;b&gt;ਤੁਸੀਂ ਇਸ ਵੇਲੇ ਇੱਕ ਆਰਜ਼ੀ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ। &lt;/b&gt; ਜਦੋਂ ਤੁਸੀਂ ਦਾਖ਼ਲ ਹੁੰਦੇ ਹੋ ਤਾਂ ਅਸਥਾਈ ਖਾਤੇ %1$s ਨਾਲ ਕੀਤੇ ਗਏ ਸੋਧ ਤੁਹਾਡੇ ਸਥਾਈ ਖਾਤੇ ਵਿੱਚ ਨਹੀਂ ਜਾਣਗੇ। ਹੋਰ ਲਾਭਾਂ ਦੇ ਨਾਲ-ਨਾਲ ਆਪਣੇ ਵਰਤੋਂਕਾਰ ਨਾਂ \'ਤੇ ਸਿਹਰਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਦਾਖ਼ਲ ਹੋਵੋ ਜਾਂ ਖਾਤਾ ਬਣਾਓ।</string>
   <string name="temp_account_end_session">ਅਜਲਾਸ ਖਤਮ ਕਰੋ</string>
   <string name="temp_account_end_session_confirm">ਇਹ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਅਸਥਾਈ ਖਾਤੇ ਤੋਂ ਬਾਹਰ ਕੱਢ ਦੇਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
@@ -1134,7 +1135,7 @@
   <string name="templates_learn_more_link">ਹੋਰ ਜਾਣੋ</string>
   <string name="templates_description_incomplete">ਫਰਮੇ ਵਰਤੋਂਕਾਰਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤੇ ਜਾਂਦੇ ਹਨ ਅਤੇ ਪੂਰੇ ਵੇਰਵੇ ਦੀ ਘਾਟ ਹੋ ਸਕਦੀ ਹੈ।</string>
   <string name="templates_description_empty">\"%s\" ਫਰਮੇ ਦਾ ਅਜੇ ਕੋਈ ਵੇਰਵਾ ਨਹੀਂ ਹੈ।</string>
-  <string name="templates_description_missing_data">ਇਸ ਫਰਮੇ ਵਿੱਚ &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;ਫਰਮਾ-ਡਾਟਾ&lt;/a&gt; ਮੌਜੂਦ ਨਹੀਂ ਹੈ, ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡ &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;ਆਪਣੇ-ਆਪ-ਬਣਾਏ&lt;/a&gt; ਗਏ ਹਨ। ਨਤੀਜੇ ਵਜੋਂ ਫਰਮੇ ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡਾਂ ਵਿੱਚ ਵੇਰਵੇ ਦੀ ਘਾਟ ਹੈ।</string>
+  <string name="templates_description_missing_data">ਇਸ ਫਰਮੇ ਵਿੱਚ &lt;a href=\"%1$s\"&gt;ਫਰਮਾ-ਡਾਟਾ&lt;/a&gt; ਮੌਜੂਦ ਨਹੀਂ ਹੈ, ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡ &lt;a href=\"%2$s\"&gt;ਆਪਣੇ-ਆਪ-ਬਣਾਏ&lt;/a&gt; ਗਏ ਹਨ। ਨਤੀਜੇ ਵਜੋਂ ਫਰਮੇ ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡਾਂ ਵਿੱਚ ਵੇਰਵੇ ਦੀ ਘਾਟ ਹੈ।</string>
   <string name="main_drawer_help">ਮਦਦ</string>
   <string name="main_drawer_login">ਵਿਕੀਪੀਡੀਆ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ / ਨਾਲ ਜੁੜੋ</string>
   <string name="main_tooltip_text">ਕਿਦਾਂ %s, ਕੀ ਤੁਸੀਂ ਜਾਣਦੇ ਹੋ ਕਿ ਹਰ ਕੋਈ ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸੋਧ ਸਕਦਾ ਹੈ?</string>
