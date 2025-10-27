@@ -2049,6 +2049,8 @@
   <string name="year_in_review_reading_list_dialog_message">Message explaining that the Year in Review feature will create a reading list from the articles the user spent the most time reading in 2025. %s will be replaced by a URL.</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Label for the button that confirms creating the Year in Review reading list.</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Negat Label for the button that cancels creating the Year in Review reading list.</string>
+  <string name="year_in_review_reading_list_title">Title for the Year in Review reading list. %d will be replaced with the year.</string>
+  <string name="year_in_review_reading_list_description">Description for the Year in Review reading list. Explains who the list is made for and which year it covers. %1$s will be replaced with the username, and %2$d will be replaced with the year.</string>
   <string name="year_in_review_slide_viewed_articles_times_body">Body of the app users viewed articles time slide for the Year in Review.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
   <string name="recommended_reading_list_onboarding_card_title">Title of the onboarding card for the recommended reading list.</string>

@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -187,6 +188,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                     RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = resource.data.pages.size)
                                 }
 
+                                if (readingListMode == ReadingListMode.YEAR_IN_REVIEW) {
+                                    return@collect
+                                }
+
                                 requireActivity().startActivity(MainActivity.newIntent(requireContext())
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                                 requireActivity().finish()
@@ -248,6 +253,22 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 }
                                 binding.errorView.setError(it.throwable)
                             }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.yirListFlow.collect {
+                        when (it) {
+                           is Resource.Success -> {
+                               readingList = it.data
+                               binding.progressBar.isVisible = false
+                               binding.errorView.isVisible = false
+                               binding.readingListHeader.isVisible = true
+                               binding.readingListSwipeRefresh.isVisible = true
+                               binding.readingListSwipeRefresh.isRefreshing = false
+                               update()
+                               viewModel.saveReadingList(it.data)
+                           }
                         }
                     }
                 }
@@ -485,6 +506,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     update()
                     Prefs.isNewRecommendedReadingListGenerated = false
                     FlowEventBus.post(NewRecommendedReadingListEvent())
+                }
+            }
+
+            ReadingListMode.YEAR_IN_REVIEW -> {
+                if (readingList == null) {
+                    viewModel.generateYearInReviewReadingList(requireContext(), AccountUtil.userName)
+                } else {
+                    update()
                 }
             }
         }
@@ -861,7 +890,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         }
                     }
                 }
-                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW -> { }
+                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW, ReadingListMode.YEAR_IN_REVIEW -> { }
             }
         }
 

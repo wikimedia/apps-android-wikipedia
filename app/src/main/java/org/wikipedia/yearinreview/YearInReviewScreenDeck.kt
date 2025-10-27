@@ -67,6 +67,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UiState
@@ -90,6 +91,10 @@ fun YearInReviewScreenDeck(
         }
 
         is UiState.Success -> {
+            LaunchedEffect(Unit) {
+                Prefs.yearInReviewSlideViewedCount += 1
+            }
+
             val coroutineScope = rememberCoroutineScope()
             val pages = state.data
             val pagerState = rememberPagerState(pageCount = { pages.size })

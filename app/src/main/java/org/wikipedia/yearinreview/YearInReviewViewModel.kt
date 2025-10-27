@@ -25,6 +25,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
@@ -317,6 +319,7 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_SLIDES_FOR_CREATING_YIR_READING_LIST = 1
         const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
         const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
+        const val MAX_LONGEST_READ_ARTICLES = 25
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
@@ -337,11 +340,11 @@ class YearInReviewViewModel() : ViewModel() {
         }
 
         suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
-            if (!AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || Prefs.yearInReviewSlideViewedCount < YearInReviewViewModel.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
+            if (!AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || Prefs.yearInReviewSlideViewedCount < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
                 return
             }
 
-            val cutoffDate = Instant.parse(YearInReviewViewModel.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
+            val cutoffDate = Instant.parse(CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
             if (System.currentTimeMillis() > cutoffDate) {
                 return
             }
@@ -352,7 +355,7 @@ class YearInReviewViewModel() : ViewModel() {
             val endMillis = Instant.parse(activeEndDate).toEpochMilli()
             val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
             val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-            if (count < YearInReviewViewModel.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "A") {
+            if (count <= MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
                 return
             }
 
@@ -362,7 +365,10 @@ class YearInReviewViewModel() : ViewModel() {
             MaterialAlertDialogBuilder(activity)
                 .setTitle(title)
                 .setMessage(StringUtil.fromHtml(message))
-                .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { _, _ -> }
+                .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { dialog, _ ->
+                    activity.startActivity(ReadingListActivity.newIntent(activity, readingListMode = ReadingListMode.YEAR_IN_REVIEW))
+                    dialog.dismiss()
+                }
                 .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> }
                 .show()
                 .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()

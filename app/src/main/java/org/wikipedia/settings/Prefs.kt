@@ -869,7 +869,7 @@ object Prefs {
         set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
 
     var yearInReviewSlideViewedCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_slide_viewed_count, 1)
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_slide_viewed_count, 0)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_slide_viewed_count, value)
 
     var selectedAppIcon

@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -11,6 +12,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.Namespace
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
@@ -18,6 +21,8 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.yearinreview.YearInReviewViewModel
+import java.time.Instant
 
 class ReadingListFragmentViewModel : ViewModel() {
 
@@ -35,6 +40,9 @@ class ReadingListFragmentViewModel : ViewModel() {
 
     private val _recommendedListFlow = MutableStateFlow(Resource<ReadingList>())
     val recommendedListFlow = _recommendedListFlow.asStateFlow()
+
+    private val _yirListFlow = MutableStateFlow(Resource<ReadingList>())
+    val yirListFlow = _yirListFlow.asStateFlow()
 
     fun updateListById(readingListId: Long) {
          viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -136,6 +144,47 @@ class ReadingListFragmentViewModel : ViewModel() {
                     _recommendedListFlow.value = Resource.Error(Throwable(context.getString(R.string.error_message_generic)))
                 }
             }
+        }
+    }
+
+    fun generateYearInReviewReadingList(context: Context, userName: String) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _yirListFlow.value = Resource.Error(throwable)
+            }
+        }) {
+            println("orange generating yir reading list")
+            val activeStartDate = "2025-01-01T00:00:00Z"
+            val activeEndDate = "2025-12-31T23:59:59Z"
+            val startMillis = Instant.parse(activeStartDate).toEpochMilli()
+            val endMillis = Instant.parse(activeEndDate).toEpochMilli()
+
+            val articles = AppDatabase.instance.historyEntryWithImageDao().getLongestReadArticlesInPeriod(startMillis, endMillis,
+                YearInReviewViewModel.MAX_LONGEST_READ_ARTICLES)
+            val yirReadingListPages = articles.map {
+                ReadingListPage(
+                    wiki = WikiSite.forLanguageCode(it.lang),
+                    lang = it.lang,
+                    namespace = Namespace.MAIN,
+                    displayTitle = it.displayTitle,
+                    apiTitle = it.apiTitle,
+                    description = it.description,
+                    thumbUrl = it.imageName,
+                    remoteId = 0
+                ).apply {
+                    mtime = System.currentTimeMillis()
+                    atime = mtime
+                }
+            }
+            val readingList = ReadingList(
+                listTitle = context.getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR),
+                description = context.getString(R.string.year_in_review_reading_list_description, userName, YearInReviewViewModel.YIR_YEAR)
+            ).apply {
+                pages.addAll(yirReadingListPages)
+                mtime = System.currentTimeMillis()
+                atime = mtime
+            }
+            _yirListFlow.value = Resource.Success(readingList)
         }
     }
 }

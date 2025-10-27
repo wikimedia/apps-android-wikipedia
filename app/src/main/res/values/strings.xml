@@ -2157,6 +2157,8 @@
     <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in 2025. <a href="%s">Learn more</a>]]></string>\
     <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
     <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
+    <string name="year_in_review_reading_list_title">Year in Review %d</string>
+    <string name="year_in_review_reading_list_description">Made for %1$s. Articles you spent the most time with in %2$d.</string>
 
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
