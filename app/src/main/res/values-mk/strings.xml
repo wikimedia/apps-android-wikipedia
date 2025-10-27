@@ -1879,7 +1879,7 @@
   <string name="settings_app_icon_subtitle">Придобивка на учесник</string>
   <string name="settings_app_icon_preference_subtitle">Имате пристап до прилагодлива икона која ги чествува вашите придонеси кон Википедија во %d г направени во прилог. Ќе остане сè до следниот Преглед на годината.</string>
   <string name="settings_app_icon_updated">Вашиата икона на прилогот е подновена.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Отклучена нова икона</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Отклучена нова икона на прилог за вашиот почетен екран</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Отклучeте ја вашата награда за придонеси за следната година!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Активирајте ја вашата нова икона на прилогот во нагодувањата под „Икона на прилогот“. Ви благодариме што вложувате во иднината на слободното знаење. Вашите приронеси како %1$s во %2$d г. ни помагаат да го отвориме патот кон свет на слободни информации. Поради придонесите, отклучивте прилагодлива учесничка икона за Википедија на вашиот почетен екран.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Драго ни е што Википедија беше дел од вашата %1$d година! Отклучете специјална награда во вашиот преглед на годината %2$d со тоа што ќе станете учесник — било со &lt;a href=\"%3$s\"&gt;уредување на Википедија&lt;/a&gt; или со дарување на паричен прилог за &lt;a href=\"%4$s\"&gt;Фондацијата Викимедија&lt;/a&gt;($4), непрофитната организација што стои зад неа. Ако Википедија ви е корисна, би ве замолиле да дарувате за да ја зачуваме за во иднина, и таа да биде слободна, без реклами, меродавна и пристапна за сите.</string>
@@ -1903,6 +1903,22 @@
   <string name="year_in_review_slide_top_categories_headline">Вашите најинтересни категории</string>
   <string name="year_in_review_slide_top_categories_body">Категориите ги групираат статиите со слична тематика. Во %1$d г. на повеќе наврати посетувавте статии во овие интересни категории: %2$s</string>
   <string name="year_in_review_slide_popular_english_articles_headline">Најполуларни статии на англиската Википедија</string>
+  <plurals name="year_in_review_slide_popular_english_articles_body">
+    <item quantity="one">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетената статија на англиската Википедија беше: %2$s</item>
+    <item quantity="other">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетените %1$d статии на англиската Википедија беа: %2$s</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Вашето уредување беше посетено преку %,d пати во последно време</item>
+    <item quantity="other">Вашите уредувања беа посетени преку %,d пати во последно време</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Читателите ширум светот ги ценат вашите придонеси. Во изминативе 2 месеца, статиите што ги уредивте беа посетени вкупно еднаш.  Благодарение на уредниците како вас Википедија постепено се подобрува како фактографски и веродостоен ресурс на знаења за светот.</item>
+    <item quantity="other">Читателите ширум светот ги ценат вашите придонеси. Во изминативе 2 месеца, статиите што ги уредивте беа посетени вкупно %,d пати. Благодарение на уредниците како вас Википедија постепено се подобрува како фактографски и веродостоен ресурс на знаења за светот.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Википедија беше уредувана еднаш во минута</item>
+    <item quantity="other">Википедија беше уредувана %,d пати во минута</item>
+  </plurals>
   <string name="year_in_review_slide_edited_per_minute_body">Статиите се соработно создадени и подобрени со сигурни извори. Сите ние имаме знаења за споделување. &lt;a href=\"%s\"&gt;Дознајте како да учествувате.&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="one">Додаден %,d бајт</item>
@@ -1912,6 +1928,40 @@
     <item quantity="one">Ја уредивте Википедија еднаш</item>
     <item quantity="other">Ја уредивте Википедија %s пати</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Ви благодариме што сте меѓу доброволците кои оставаат свој печат на Викимедиините проекти ширум светот. Доброволците како вас направија %,d промена на 300 различни јазични изданија на Википедија.</item>
+    <item quantity="other">Ви благодариме што сте меѓу доброволците кои оставаат свој печат на Викимедиините проекти ширум светот. Доброволците како вас направија %,d промени на 300 различни јазични изданија на Википедија.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Уредниците од официјалните прилози на Википедија направија %,d уредување</item>
+    <item quantity="other">Уредниците од официјалните прилози на Википедија направија %,d уредувања</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Сржта на Википедија е нашата глобална заедница на доброволни учесници, дарители и милијарди читатели како вас — сите обединети во напорот за споделување на неограничен пристап до проверени информации.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Годинава уредниците направија %,d промена</item>
+    <item quantity="other">Годинава уредниците направија %,d промени</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Доброволците како вас направија %,d промена на 300 различни јазични изданија на Википедија.</item>
+    <item quantity="other">Доброволците како вас направија %,d промени на 300 различни јазични изданија на Википедија.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">На англиската Википедија беше направена %,d промена. Секој час од секој ден, доброволците работат на подобрување на Википедија.</item>
+    <item quantity="other">На англиската Википедија беа направени %,d промени. Секој час од секој ден, доброволците работат на подобрување на Википедија..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Зачувавте %,d статија</item>
+    <item quantity="other">Зачувавте %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Во тие статии спаѓаат &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt;, and &lt;b&gt;%3$s&lt;/b&gt;. Секоја зачувана статија ги одразува вашите интереси и гради лично прилагодена база на знаења на Википедија.&lt;br /&gt;&lt;br /&gt;Активните корисници на прилозите годинава имаа %4$,d зачувана статија.</item>
+    <item quantity="other">Во тие статии спаѓаат &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt;, and &lt;b&gt;%3$s&lt;/b&gt;. Секоја зачувана статија ги одразува вашите интереси и гради лично прилагодена база на знаења на Википедија.&lt;br /&gt;&lt;br /&gt;Активните корисници на прилозите годинава имаа %4$,d зачувани статии.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Корисниците на прилогот зачуваа %,d статија</item>
+    <item quantity="other">Корисниците на прилогот зачуваа %,d статии</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Ставањето на статии во списоци за читање ви овозможува пристап до статии дури и кога немате линија. Можете и да се најавите за да ги усогласите списоците за читање на повеќе уреди.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Имате јасна закономерност на читањето</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Омилено време за читање</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Омилен ден за читање</string>
@@ -1930,6 +1980,55 @@
     <item quantity="one">Според проценката, луѓето проведоа %,d час</item>
     <item quantity="other">Според проценката, луѓето проведоа %,d часа</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—околу %1$,d година!—читајќи ја англиската Википедија во %2$d г. Википедија ви стои на располагање кога сакате да дознаете нешто за нашиот променлив свет, да добиете облог со пријателите или да одговорите прашање на љубопитно дете.</item>
+    <item quantity="other">—околу %1$,d години!—читајќи ја англиската Википедија во %2$d г. Википедија ви стои на располагање кога сакате да дознаете нешто за нашиот променлив свет, да добиете облог со пријателите или да одговорите прашање на љубопитно дете.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Википедија беше достапна на преку %,d јазик</item>
+    <item quantity="other">Википедија беше достапна на преку %,d јазици</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Википедија имаше %,d статија</item>
+    <item quantity="other">Википедија имаше %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">на преку %,d активен јазик. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми.</item>
+    <item quantity="other">на преку %,d активни јазици. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Проведовте %,d минута</item>
+    <item quantity="other">Проведовте %,d минути</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">читајќи %1$,d статија на %2$d</item>
+    <item quantity="other">читајќи %1$,d статии на %2$d</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Проценуваме дека ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$,d статија годишно.</item>
+    <item quantity="other">Проценуваме дека ова ве става во првите %1$s% % од читателите на Википедија глобално. Просечниот човек чита %2$,d статии годишно.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Годинава Википедија имаше %,d статија</item>
+    <item quantity="other">Годинава Википедија имаше %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">на преку %,d активен јазик. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми.</item>
+    <item quantity="other">на преку %,d активни јазици. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Според проценката, луѓето проведоа %,d час</item>
+    <item quantity="other">Според проценката, луѓето проведоа %,d часа</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—околу %1$,d година!—читајќи ја англиската Википедија во %2$d г.</item>
+    <item quantity="other">—околу %1$,d години!—читајќи ја англиската Википедија во %2$d г.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Корисниците на прилогот посетија Википедиини статии еднаш</item>
+    <item quantity="other">Корисниците на прилогот посетија Википедиини статии %,d пати</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">За луѓето ширум светот Википедија е главна место за добивање на одговори на прашања, проверка на информации за училиште или работа, или за добивање на некое ново сознание.</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвен токму за вас.</string>

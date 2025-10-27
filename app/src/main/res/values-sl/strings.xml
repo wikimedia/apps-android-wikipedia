@@ -466,8 +466,8 @@
     <item quantity="other">Račun bo potekel čez %d dni.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Ob urejanju bo z vašimi urejanji povezan vaš IP-naslov.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Več o tem&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Več o tem&lt;/a&gt;.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"%1$s\"&gt;Več o tem&lt;/a&gt;</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s. &lt;a href=\"%1$s\"&gt;Več o tem&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Trenutno uporabljate začasni račun.&lt;/b&gt; Urejanja, opravljena z začasnim računom %1$s, po prijavi ne bodo prenesena k vašemu trajnemu računu. Prijavite se ali si ustvarite račun, da boste med drugimi ugodnostmi pridobili priznanje avtorstva vašemu uporabniškemu imenu.</string>
   <string name="temp_account_end_session">Končaj sejo</string>
   <string name="temp_account_end_session_confirm">S tem se boste odjavili iz svojega začasnega računa. Želite nadaljevati?</string>
@@ -1350,7 +1350,7 @@
   <string name="templates_learn_more_link">Več o tem</string>
   <string name="templates_description_incomplete">Predloge ustvarijo uporabniki in morda nimajo popolnih opisov.</string>
   <string name="templates_description_empty">Predloga »%s« še nima opisa.</string>
-  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
+  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"%2$s\"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / pridružite se Wikipediji</string>
   <string name="main_tooltip_text">Pozdravljeni, %s, ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>

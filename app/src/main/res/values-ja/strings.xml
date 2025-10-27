@@ -498,6 +498,12 @@
   <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは仮アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
+  <plurals name="temp_account_created">
+    <item quantity="other">仮アカウント %1$s があなたの編集公開後に作成されました。 %2$d日で期限切れになります。</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="other">アカウントは%d日で期限切れになります。</item>
+  </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために仮アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;仮アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
@@ -1067,6 +1073,9 @@
     <item quantity="one">投稿</item>
     <item quantity="other">投稿</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="other">編集</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d日</item>
     <item quantity="other">%d日</item>
@@ -1170,6 +1179,7 @@
   <string name="activity_tab_donation_unknown">不明</string>
   <string name="activity_tab_menu_info">詳細</string>
   <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_impact_last_edited">最終編集</string>
   <string name="activity_tab_impact_suggested_edits_button">編集する</string>
   <string name="activity_tab_impact_recent_activity">あなたの最近の活動 (過去30日)</string>
   <string name="activity_tab_timeline_today">今日</string>
@@ -1718,8 +1728,9 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
-  <string name="year_in_review_learn_more" fuzzy="true">詳細</string>
-  <string name="year_in_review_get_started" fuzzy="true">始める</string>
+  <string name="year_in_review_learn_more">詳細</string>
+  <string name="year_in_review_get_started">始める</string>
+  <string name="year_in_review_close">閉じる</string>
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
   <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
@@ -1731,6 +1742,12 @@
   <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="year_in_review_slide_reading_pattern_morning">朝</string>
+  <string name="year_in_review_slide_reading_pattern_midday">正午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">午後</string>
+  <string name="year_in_review_slide_reading_pattern_evening">夕方</string>
+  <string name="year_in_review_slide_reading_pattern_night">夜</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
   <string name="recommended_reading_list_title">発見</string>
   <string name="recommended_reading_list_onboarding_card_title">あなただけのために選ばれた記事を発見</string>
   <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊あとで読むリストが、あなただけのために収集されます。</string>
