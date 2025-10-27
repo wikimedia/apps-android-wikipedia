@@ -18,6 +18,7 @@ import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -25,6 +26,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 /** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -53,6 +55,34 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
+            }
+        }
+
+        findPreference(R.string.preference_key_selected_app_icon).let {
+            it.isVisible = YearInReviewViewModel.isCustomIconAllowed
+            it.summary = fragment.getString(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR)
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
+                true
+            }
+        }
+
+        findPreference(R.string.preference_key_year_in_review_is_enabled).let {
+            it.isVisible = YearInReviewViewModel.isAccessible
+            it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+                if (newValue as Boolean) {
+                    return@OnPreferenceChangeListener true
+                }
+                MaterialAlertDialogBuilder(activity)
+                    .setTitle(R.string.year_in_review_disable_title)
+                    .setMessage(R.string.year_in_review_setting_subtitle)
+                    .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                        Prefs.yearInReviewModelData = emptyMap()
+                        (preference as SwitchPreferenceCompat).isChecked = false
+                    }
+                    .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                    .show()
+                false
             }
         }
 

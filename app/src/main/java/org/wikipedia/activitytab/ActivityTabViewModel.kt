@@ -95,8 +95,8 @@ class ActivityTabViewModel() : ViewModel() {
             }
         }
 
-    private val _impactUiState = MutableStateFlow<UiState<GrowthUserImpact>>(UiState.Loading)
-    val impactUiState: StateFlow<UiState<GrowthUserImpact>> = _impactUiState.asStateFlow()
+    private val _impactUiState = MutableStateFlow<UiState<Pair<GrowthUserImpact, Int>>>(UiState.Loading)
+    val impactUiState: StateFlow<UiState<Pair<GrowthUserImpact, Int>>> = _impactUiState.asStateFlow()
 
     var shouldRefreshTimelineSilently: Boolean = false
 
@@ -136,20 +136,20 @@ class ActivityTabViewModel() : ViewModel() {
             val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
             val weekInMillis = TimeUnit.DAYS.toMillis(7)
             var weekAgo = now - weekInMillis
-            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentSinceTimeStamp(weekAgo)
+            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentBetween(weekAgo)
 
             val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
-            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(thirtyDaysAgo) ?: 0
+            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesSince(weekAgo) ?: 0)
+            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(weekAgo) ?: 0)
             for (i in 1..3) {
                 weekAgo -= weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesBetween(weekAgo, weekAgo + weekInMillis)
+                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(weekAgo, weekAgo + weekInMillis)
                 articlesReadByWeek.add(articlesRead)
             }
             val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesSince(thirtyDaysAgo) ?: 0
+            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesBetween(thirtyDaysAgo) ?: 0
             val articlesSaved = AppDatabase.instance.readingListPageDao().getLocallySavedPagesSince(thirtyDaysAgo, 4)
                 .map { ReadingListPage.toPageTitle(it) }
             val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
@@ -225,10 +225,9 @@ class ActivityTabViewModel() : ViewModel() {
                 impact = JsonUtil.decodeFromString(impactResponse)!!
             }
 
-            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
+            val pagesResponse = ServiceFactory.get(wikiSite).getInfoByTitlesWithGlobalUserInfo(
                 titles = impact.topViewedArticles.keys.joinToString(separator = "|")
             )
-
             // Transform the response to a map of PageTitle to ArticleViews
             val pageMap = pagesResponse.query?.pages?.associate { page ->
                 val pageTitle = PageTitle(
@@ -243,7 +242,7 @@ class ActivityTabViewModel() : ViewModel() {
 
             impact.topViewedArticlesWithPageTitle = pageMap
 
-            _impactUiState.value = UiState.Success(impact)
+            _impactUiState.value = UiState.Success(Pair(impact, (pagesResponse.query?.globalUserInfo?.editCount ?: 0)))
         }
     }
 
@@ -260,7 +259,7 @@ class ActivityTabViewModel() : ViewModel() {
 
     fun getTotalEditsCount(): Int {
         return when (val currentState = _impactUiState.value) {
-            is UiState.Success -> currentState.data.totalEditsCount
+            is UiState.Success -> currentState.data.first.totalEditsCount
             else -> 0
         }
     }
@@ -285,7 +284,7 @@ class ActivityTabViewModel() : ViewModel() {
     fun hasNoImpactData(): Boolean {
         return when (val currentState = _impactUiState.value) {
             is UiState.Success -> {
-                val data = currentState.data
+                val data = currentState.data.first
                 data.totalEditsCount <= 0 && data.receivedThanksCount <= 0 && data.totalPageviewsCount <= 0
             }
             else -> true

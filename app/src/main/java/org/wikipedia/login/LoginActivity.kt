@@ -25,7 +25,6 @@ import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
-import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -73,6 +72,8 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
             submitButtonText = null, isModal = false)
@@ -131,8 +132,8 @@ class LoginActivity : BaseActivity() {
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
         binding.footerContainer.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
-            visitInExternalBrowser(this, title.uri.toUri())
+            val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
+            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
     }
 
@@ -298,6 +299,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
         const val SOURCE_ACTIVITY_TAB = "activity_tab"
+        const val SOURCE_YEAR_IN_REVIEW = "yir"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

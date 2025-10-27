@@ -45,6 +45,7 @@
 * Pierpao
 * Redredsonia
 * RubatoStuf
+* SaldırganSincap
 * Samuele2002
 * Sarah Bernabei
 * Selven
@@ -504,10 +505,10 @@
     <item quantity="other">L\'account scadrà tra %d giorni.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, il tuo indirizzo IP verrà associato alle tue modifiche.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, verrà creato un\'utenza temporanea per proteggere la tua privacy. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Scopri di più&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Stai utilizzando un\'utenza temporanea.&lt;/b&gt; La tua modifica verrà attribuita a %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Scopri di più&lt;/a&gt; .</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, verrà creata un\'utenza temporanea per proteggere la tua privacy. &lt;a href=\"%1$s\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Stai utilizzando un\'utenza temporanea.&lt;/b&gt; La tua modifica verrà attribuita a %1$s. &lt;a href=\"%2$s\"&gt;Ulteriori informazioni&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Al momento stai utilizzando un\'utenza temporanea.&lt;/b&gt; Le modifiche apportate con l\'account temporaneo %1$s non verranno trasferite alla tua utenza permanente quando effettui l\'accesso. Accedi o crea un\'utenza per ottenere riconoscimento sotto il tuo nome utente e usufruire di ulteriori vantaggi.</string>
-  <string name="temp_account_end_session">Termina la sessione</string>
+  <string name="temp_account_end_session">Termina sessione</string>
   <string name="temp_account_end_session_confirm">Questo ti disconnetterà dalla tuo utenza temporanea. Vuoi continuare?</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
@@ -1350,7 +1351,7 @@
   <string name="templates_learn_more_link">Ulteriori informazioni</string>
   <string name="templates_description_incomplete">I modelli sono generati dagli utenti e potrebbero non avere descrizioni complete.</string>
   <string name="templates_description_empty">Il modello \" %s \" non ha ancora una descrizione.</string>
-  <string name="templates_description_missing_data">A questo modello mancano &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; e i suoi parametri sono stati &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerati&lt;/a&gt; . Di conseguenza, il modello e i suoi parametri non hanno descrizioni.</string>
+  <string name="templates_description_missing_data">A questo modello mancano &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e i suoi parametri sono stati &lt;a href=\"%2$s\"&gt;autogenerati&lt;/a&gt;. Di conseguenza, il modello e i suoi parametri non hanno descrizioni.</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
@@ -1731,6 +1732,7 @@
   <string name="donate_gpay_dialog_pay_button">Dona con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Altro metodo di pagamento</string>
   <string name="donate_gpay_activity_title">Seleziona un importo</string>
+  <string name="donate_gpay_activity_title_with_currency">Seleziona un importo (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Voglio generosamente aggiungere %s per coprire le spese di transazione così potete tenere il 100%% della mia donazione.</string>
   <string name="donate_gpay_check_recurring">Imposta questa donazione come mensile.</string>
   <string name="donate_gpay_check_send_email">Sì, la Wikimedia Foundation può inviarmi e-mail di tanto in tanto.</string>
@@ -1849,13 +1851,6 @@
   <string name="year_in_review_donate">Dona</string>
   <string name="year_in_review_information_icon">Icona delle informazioni</string>
   <string name="year_in_review_get_started_headline">Esplora il tuo Anno in Rassegna su Wikipedia</string>
-  <string name="year_in_review_entry_dialog_title">Esplora il tuo Anno in Rassegna su Wikipedia</string>
-  <string name="year_in_review_entry_dialog_continue">Continua</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Hai letto %d voce quest\'anno</item>
-    <item quantity="other">Hai letto %d voci quest\'anno</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_editcount_headline">Gli editor dell\'app iOS hanno effettuato più di 452.257 modifiche</string>
   <string name="year_in_review_survey_subtitle">Sei soddisfatto di questa funzionalità?</string>
   <string name="year_in_review_survey_very_satisfied">Molto soddisfatto</string>
   <string name="year_in_review_survey_satisfied">Soddisfatto</string>
@@ -1865,7 +1860,28 @@
   <string name="year_in_review_survey_placeholder_text">Qualcosa da aggiungere?</string>
   <string name="year_in_review_survey_cancel">Annulla</string>
   <string name="year_in_review_survey_submit">Invia</string>
+  <string name="year_in_review_disable_positive_button">Si, ne sono sicuro</string>
+  <string name="year_in_review_disable_negative_button">No, grazie</string>
   <string name="year_in_review_globe_icon">Icona del globo</string>
+  <string name="year_in_review_slide_app_icon_donor">un donatore</string>
+  <string name="year_in_review_login_dialog_positive">Entra / unisciti a Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Continua senza accedere</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d byte aggiunto</item>
+    <item quantity="other">%,d byte aggiunti</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Il cuore e l\'anima di Wikipedia sono la nostra comunità globale di collaboratori volontari, donatori e miliardi di lettori come te, tutti uniti per condividere un accesso illimitato a informazioni affidabili.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Hai schemi di lettura chiari</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Mezzogiorno</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Pomeriggio</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Sera</string>
+  <string name="year_in_review_slide_reading_pattern_night">Notte</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Tarda notte</string>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Wikipedia aveva %,d voce</item>
+    <item quantity="other">Wikipedia aveva %,d voci</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Per le persone di tutto il mondo, Wikipedia è il punto di riferimento quando si risponde a una domanda, si cercano informazioni per scuola o lavoro o per imparare un nuovo fatto.</string>
   <string name="recommended_reading_list_title">Scopri</string>
   <string name="recommended_reading_list_onboarding_card_title">Scopri gli articoli scelti per te</string>
   <string name="recommended_reading_list_onboarding_card_message">La tua lista di lettura settimanale di articoli di Wikipedia, selezionata per te.</string>

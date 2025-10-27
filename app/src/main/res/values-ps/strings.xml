@@ -6,6 +6,7 @@
 * Baloch Khan
 * Dbrant
 * MuratTheTurkish
+* O.sediqi93
 * شاه زمان پټان
 -->
 <resources>
@@ -226,13 +227,20 @@
   <string name="preference_summary_sync_reading_lists">د خپل ويکيپېډيا گڼون کې د خوندي کولو سره په بېلابېلو وسيلو کې د لوست لړليکونه همغږي کول</string>
   <string name="preference_summary_sync_reading_lists_from_account">خپل ويکيپېډيا گڼون \"%s\" کې د خوندي کولو سره په بېلابېلو وسيلو کې لوست لړليکونه همغږي کول.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" څخه دې همغږي شوي لوست لړليکونه لرې شي؟</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">دا کړنه به له انلاین زېرمتون (remote storage) څخه ټول هغه د لوستلو لیستونه (reading lists)، چې تر دې وړاندې همغږي (synced) شوي دي، په بشپړه توګه له منځه یوسي.\nایا ته غواړې چې د خپل \"%s\" اکاونټ (account) څخه ټول همغږي شوي لیستونه ړنګ کړم؟</string>
   <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
+  <string name="preference_summary_auto_upload_crash_reports">کاریال یا(app) دا اجازه ورکړه چې د خطا راپورونه (crash reports) په اوتومات ډول د چوپړتیاوو وړاندې کوونکي درېیمې ډلې (third-party service provider) ته واستوي، تر څو موږ وکولی شو ستا ستونزه ترلاسه او نیمګړتیا (bug) په چټک او اسانه ډول سم کړو.</string>
+  <string name="editing_error_spamblacklist">دا موندل شوي تړوني  یا (links) له تړل شوو ويب‌پاڼو (blocked domains) (%s) سره تړاو لري، مهرباني وکړئ، دا تړړوني  لیرې کړئ او بیا هڅه وکړئ.</string>
   <string name="history_filter_list_hint">چاڼگر پېښليک</string>
   <string name="error_can_not_process_link">دا تړنه ښکاره نه شوه</string>
   <string name="page_protected_autoconfirmed">دا مخ نيم-ژغورلی دی.</string>
   <string name="page_protected_sysop">دا مخ بشپړ ژغورلی دی.</string>
+  <string name="page_protected_other">دا پاڼه د لاندې اندازه(levels) تر مخې خوندي (protected) شوې ده: %s</string>
+  <string name="page_protected_can_not_edit">بښنه غواړو، ستا اکاونټ (account) دا مهال د دې پاڼې د سمون (edit) لپارهاړین صلاحیتونه (privileges) نه لري.</string>
+  <string name="page_protected_can_not_edit_anon">ښنه غواړو، دا پاڼه په نا مالوم حالت(anonymously) کې د سملولو سیسټم نه قبلوي.</string>
   <string name="page_protected_can_not_edit_title">دا مخ ژغورل شوی</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">کتنلړ کې ورگډول</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"> د هغو مقالو (articles څارنه وکړه چې ستاسو خوښېږي. د اضافي مینو (overflow menu) کلیک کړه او &lt;b&gt;په څارلیسټ کې اضافه کړه (Add to Watchlist)&lt;/b&gt; انتخاب کړه، تر څو د مقالو له بدلونونو خبر شې.</string>
   <string name="settings_item_preferences">اوڼنې</string>
   <string name="settings_activity_title">اوڼنې</string>
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
@@ -244,11 +252,17 @@
   <string name="about_contributors_heading">ونډه‌وال</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;ډله مخ&lt;/a&gt;</string>
   <string name="about_translators_heading">ژباړونکي</string>
+  <string name="about_translators_translatewiki">د کاریال د رضاکارو ژباړونکو (volunteer translators) له خوا په &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; کې وژباړل شو.</string>
   <string name="about_app_license_heading">منښتليک</string>
+  <string name="about_app_license">د سرچینې کوډ (source code) په &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; کې د &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; لاندې شتون لري. تر هغه ځایه چې بل څه نه وي ښودل شوي، منځپانګه (content) د &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; لاندې شتون ده.</string>
+  <string name="about_wmf">د &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; یو تولید (product) دی.</string>
   <string name="about_activity_title">په اړه</string>
+  <string name="about_logo_content_description">د ویکي‌ پیډیا (Wikipedia) د معمايي نړۍ (puzzle globe) لوګو (logo)</string>
   <string name="edit_abandon_confirm_yes">هو</string>
   <string name="edit_abandon_confirm_no">نه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
+  <string name="user_logged_in_blocked_from_editing">ستاسې اکاونټ (user account) د دې ویکي (wiki) د ایډیټ (editing) کولو له امله بلاک شوی دی.</string>
+  <string name="user_anon_blocked_from_editing">ستاسو د انټرنېټ پته یا (IP address) د دې پاڼې د سمون (editing) لپاره بنده شوې ده.</string>
   <string name="edit_how_page_improved">ليکنه مو څنگه ښه کړه؟</string>
   <string name="edit_next">راتلونکی</string>
   <string name="edit_done">خپرول</string>
@@ -273,6 +287,7 @@
   <string name="edit_summary_added_short_description">ورگډشوی لنډ څرگنداوی</string>
   <string name="edit_summary_updated_short_description">هم‌مهاله‌شوی لنډ څرگنداوی</string>
   <string name="edit_conflict_title">سمون شخړه</string>
+  <string name="edit_conflict_message">دا پاڼه له پخوا  د (user) له خوا بدله شوې ده او ستاسو سمون (edit) ورسره ټکر کې دی. مهرباني وکړئ خپل بدلونونه (edits) کاپي کړه، او  پاڼه تازه (refresh) کړه، بیا هڅه وکړه چې سمون (edit) وکړي.</string>
   <string name="edit_notices">سمون يادښتونه</string>
   <string name="edit_notices_please_read">مهرباني وکړئ د سمون دمخه یې ولولئ</string>
   <string name="edit_notices_show_auto">په خپلکاري ډول سمون يادښتونه ښودل</string>
@@ -1481,21 +1496,16 @@
   <string name="on_this_day_game_continue_playing_btn_text">لوبولو ته دوام‌‌ورکول</string>
   <string name="on_this_day_game_sound_on">غږ بلول</string>
   <string name="on_this_day_game_sound_off">غږ گولول</string>
-  <string name="year_in_review_learn_more">نور زده‌کول</string>
-  <string name="year_in_review_get_started">پيلول</string>
+  <string name="year_in_review_learn_more" fuzzy="true">نور زده‌کول</string>
+  <string name="year_in_review_get_started" fuzzy="true">پيلول</string>
   <string name="year_in_review_topbar_w_icon">ويکيپېډيا W نښه</string>
-  <string name="year_in_review_navigate_left">کيڼ لوري گرځښت</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">کيڼ لوري گرځښت</string>
   <string name="year_in_review_share_icon">نښه وېشل</string>
   <string name="year_in_review_heart_icon">زړه نښه</string>
   <string name="year_in_review_navigate_right">ښي لوري ته گرځښت</string>
   <string name="year_in_review_donate">بسپنه ورکول</string>
   <string name="year_in_review_information_icon">مالوماتو نښه</string>
   <string name="year_in_review_get_started_headline">د خپل ويکيپېډيا کال بياکتنه وپلټئ</string>
-  <string name="year_in_review_entry_dialog_continue">پرله‌پورې</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">تاسو سږ کال %d ليکنه ولوسته</item>
-    <item quantity="other">تاسو سږ کال %d ليکنې ولوستلې</item>
-  </plurals>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
@@ -1506,7 +1516,7 @@
   <string name="year_in_review_survey_placeholder_text">کوم زياتي اندونه لرئ؟</string>
   <string name="year_in_review_survey_cancel">ناگارل</string>
   <string name="year_in_review_survey_submit">سپارل</string>
-  <string name="year_in_review_globe_icon">نړۍ نښه</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">نړۍ نښه</string>
   <string name="recommended_reading_list_title">موندل</string>
   <string name="recommended_reading_list_onboarding_card_title">ستاسو لپاره غوره‌شوې ليکنې ومومئ</string>
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>

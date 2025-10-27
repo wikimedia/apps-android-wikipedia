@@ -110,7 +110,6 @@
     <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
     <string name="preference_key_explore_feed_visit_count">exploreFeedVisitCount</string>
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
-    <string name="preference_key_show_sequential_user_stats_tooltip">showSequentialUserStatsTooltip</string>
     <string name="preference_key_show_search_tab_tooltip">showSearchTabTooltip</string>
     <string name="preference_key_push_notification_token">pushNotificationToken</string>
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
@@ -184,7 +183,9 @@
     <string name="preference_key_otd_is_archive_game_playing">isArchiveGamePlaying</string>
     <string name="preference_key_otd_sound_on">isOtdSoundOn</string>
     <string name="preference_key_year_in_review_is_enabled">isYearInReviewEnabled</string>
-    <string name="preference_key_yir_survey_shown">yirSurveyShown</string>
+    <string name="preference_key_year_in_review_visited">yearInReviewVisited</string>
+    <string name="preference_key_yir_survey_state">yirSurveyState</string>
+    <string name="preference_key_selected_app_icon">selectedAppIcon</string>
     <string name="preference_category_recommended_reading_list">recommendedReadingListSettings</string>
     <string name="preference_key_recommended_reading_list_enabled">recommendedReadingListEnabled</string>
     <string name="preference_key_recommended_reading_list_articles_number">recommendedReadingListArticlesNumber</string>
@@ -204,5 +205,6 @@
     <string name="preference_category_donations">donations</string>
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
+    <string name="preference_key_yir_model_data">yirModelData</string>
 
 </resources>

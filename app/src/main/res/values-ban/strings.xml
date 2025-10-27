@@ -959,9 +959,8 @@
   <string name="survey_dialog_general_no">Nénten</string>
   <string name="survey_dialog_general_maybe">Minab</string>
   <string name="on_this_day_game_your_stats">Stats ragané</string>
-  <string name="year_in_review_learn_more">Pelajahin Malih</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Pelajahin Malih</string>
   <string name="year_in_review_donate">Mapunia</string>
-  <string name="year_in_review_entry_dialog_continue">Lanturang</string>
   <string name="year_in_review_survey_cancel">Wangdé</string>
   <string name="year_in_review_survey_submit">Kumpulang</string>
   <string name="recommended_reading_list_onboarding_card_new">Anyar!</string>

@@ -1825,25 +1825,16 @@
   <string name="on_this_day_game_continue_playing_btn_text">Fortsätt spela</string>
   <string name="on_this_day_game_sound_on">Slå på ljud</string>
   <string name="on_this_day_game_sound_off">Stäng av ljud</string>
-  <string name="year_in_review_learn_more">Läs mer</string>
-  <string name="year_in_review_get_started">Kom igång</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Läs mer</string>
+  <string name="year_in_review_get_started" fuzzy="true">Kom igång</string>
   <string name="year_in_review_topbar_w_icon">Wikipedias W-ikon</string>
-  <string name="year_in_review_navigate_left">Navigera åt vänster</string>
+  <string name="year_in_review_navigate_left" fuzzy="true">Navigera åt vänster</string>
   <string name="year_in_review_share_icon">Delningsikon</string>
   <string name="year_in_review_heart_icon">Hjärtikon</string>
   <string name="year_in_review_navigate_right">Navigera åt höger</string>
   <string name="year_in_review_donate">Donera</string>
   <string name="year_in_review_information_icon">Informationsikon</string>
   <string name="year_in_review_get_started_headline">Utforska ditt årsöversikt för Wikipedia</string>
-  <string name="year_in_review_entry_dialog_title">Utforska din årsöversikt för Wikipedia</string>
-  <string name="year_in_review_entry_dialog_bodytext">Få insikter om vilka artiklar vi läser och redigerar samt dela höjdpunkterna från vårt år på Wikipedia.</string>
-  <string name="year_in_review_entry_dialog_continue">Fortsätt</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Du läste %d artikel i år</item>
-    <item quantity="other">Du läste %d artiklar i år</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia gjordes tillgänglig på fler än 300 språk</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Redigerare i iOS-appen har gjort mer än 452.257 redigeringar</string>
   <string name="year_in_review_survey_title">Hjälp till att förbättra årsöversikten</string>
   <string name="year_in_review_survey_subtitle">Är du nöjd med denna funktion?</string>
   <string name="year_in_review_survey_very_satisfied">Mycket nöjd</string>
@@ -1854,8 +1845,8 @@
   <string name="year_in_review_survey_placeholder_text">Några ytterligare kommentarer?</string>
   <string name="year_in_review_survey_cancel">Avbryt</string>
   <string name="year_in_review_survey_submit">Skicka</string>
-  <string name="year_in_review_share_subject">Bild och länk för årsöversikten</string>
-  <string name="year_in_review_globe_icon">Jordglobsikon</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Bild och länk för årsöversikten</string>
+  <string name="year_in_review_globe_icon" fuzzy="true">Jordglobsikon</string>
   <string name="recommended_reading_list_title">Upptäck</string>
   <string name="recommended_reading_list_onboarding_card_title">Upptäck artiklar utvalda för just dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Veckans läslista av Wikipediaartiklar, utvalda för dig.</string>

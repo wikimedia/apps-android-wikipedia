@@ -1000,6 +1000,7 @@
   <string name="thank_dialog_positive_button_text">ပလံင် ဂလာန်တင်ဂုန်</string>
   <string name="thank_dialog_negative_button_text">တးပဲါ</string>
   <string name="thank_success_message">ဂလာန်တင်ဂုန်မၞးဂှ် ပလံင်ဏာ ဇရေင် %s 👍</string>
+  <string name="revision_compare_button">ပတဝ်ပတုပ်ရံၚ်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြံင်လှာဲ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ထာဝရ</string>
 </resources>

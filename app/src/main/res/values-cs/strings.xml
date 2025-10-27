@@ -29,6 +29,7 @@
 * Patrik L.
 * Pavreh
 * Robins7
+* SaldırganSincap
 * Segoulas
 * Spotter
 * Tereza
@@ -482,7 +483,7 @@
   <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
-  <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
+  <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
   <string name="temp_account_dialog_ok">Rozumím</string>
   <string name="temp_account_using_title">Využíváte dočasný účet</string>
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
@@ -1626,7 +1627,7 @@
   <string name="on_this_day_game_notification_undo">Zpět</string>
   <string name="on_this_day_game_sound_on">Zapnout zvuk</string>
   <string name="on_this_day_game_sound_off">Vypnout zvuk</string>
-  <string name="year_in_review_get_started">Začít</string>
+  <string name="year_in_review_get_started" fuzzy="true">Začít</string>
   <string name="recommended_reading_list_title">Objevit</string>
   <string name="recommended_reading_list_onboarding_card_title">Objevte články vybrané právě pro vás</string>
   <string name="recommended_reading_list_onboarding_card_message">Váš týdenní seznam článků na Wikipedii, sestavený právě pro vás.</string>

@@ -1451,7 +1451,7 @@
   <string name="watchlist_filter_type_of_change_category_changes">Kategorienännerungen</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Ännerungen</string>
   <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
-  <string name="watchlist_filter_reset_button">Zrécksetzen</string>
+  <string name="watchlist_filter_reset_button">Zerécksetzen</string>
   <string name="watchlist_search_bar_hint">Iwwerwaachungslëscht duerchsichen oder filteren</string>
   <string name="watchlist_search_bar_filter_hint">Iwwerwaachungslëschtfilter</string>
   <string name="watchlist_empty_search_message">Keng Resultater, probéiert %s ewechzeloosse fir méi ze gesinn.</string>
@@ -1534,7 +1534,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Ännerungszuel: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
   <string name="patroller_tasks_filters_title">Filteren</string>
-  <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
+  <string name="patroller_tasks_filters_reset">Zerécksetzen</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">All</string>
   <string name="patroller_tasks_filters_user_status_header">Benotzerumeldung an -erfarung</string>
@@ -1707,24 +1707,13 @@
   <string name="year_in_review_get_started">Ufänken</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia-W-Symbol</string>
   <string name="year_in_review_navigate_left">No lénks navigéieren</string>
+  <string name="year_in_review_close">Zoumaachen</string>
   <string name="year_in_review_share_icon">Deelen-Symbol</string>
   <string name="year_in_review_heart_icon">Häerzsymbol</string>
   <string name="year_in_review_navigate_right">No riets navigéieren</string>
   <string name="year_in_review_donate">En Don maachen</string>
   <string name="year_in_review_information_icon">Informatiounssymbol</string>
   <string name="year_in_review_get_started_headline">Entdeckt Äre Wikipedia-Joresréckbléck</string>
-  <string name="year_in_review_entry_dialog_title">Entdeckt Äre Wikipediaréckbléck</string>
-  <string name="year_in_review_entry_dialog_continue">Weider</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Dir hutt dëst Joer %d Artikel gelies</item>
-    <item quantity="other">Dir hutt dëst Joer %d Artikele gelies</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Dir hutt %d Ännerung op der Wikipedia gemaach</item>
-    <item quantity="other">Dir hutt %d Ännerungen op der Wikipedia gemaach</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war a méi wéi 300 Sproochen disponibel</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Editeuren an der iOS-App hu méi wéi 452.257 Ännerunge gemaach</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
@@ -1735,9 +1724,12 @@
   <string name="year_in_review_survey_placeholder_text">Wëllt Dir nach eppes soen?</string>
   <string name="year_in_review_survey_cancel">Ofbriechen</string>
   <string name="year_in_review_survey_submit">Ofschécken</string>
+  <string name="year_in_review_disable_positive_button">Jo, ech si mer sécher</string>
+  <string name="year_in_review_disable_negative_button">Nee, merci</string>
   <string name="year_in_review_screenshot_error">Et konnt kee Screenshot gemaach ginn: %s</string>
-  <string name="year_in_review_share_subject">Bild a Link fir de Joresréckbléck</string>
+  <string name="year_in_review_share_subject" fuzzy="true">Bild a Link fir de Joresréckbléck</string>
   <string name="year_in_review_globe_icon">Globussymbol</string>
+  <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdeckt Artikelen, déi just fir Iech erausgesicht goufen</string>
   <string name="recommended_reading_list_onboarding_card_message">Är wéchentlech Lieslëscht mat Wikipedia-Artikelen, déi speziell fir Iech zesummegestallt goufen.</string>
