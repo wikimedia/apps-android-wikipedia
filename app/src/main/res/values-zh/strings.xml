@@ -1816,7 +1816,7 @@
   <string name="year_in_review_learn_more">了解更多</string>
   <string name="year_in_review_get_started">入门</string>
   <string name="year_in_review_topbar_w_icon">维基百科W图标</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">向左导航</string>
+  <string name="year_in_review_navigate_left">向左导航</string>
   <string name="year_in_review_share_icon">分享图标</string>
   <string name="year_in_review_heart_icon">心形图标</string>
   <string name="year_in_review_navigate_right">向右导航</string>
@@ -1828,5 +1828,5 @@
   <string name="year_in_review_survey_placeholder_text">您还有别的想法吗？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顾主屏幕图像资源</string>
-  <string name="year_in_review_share_subject" fuzzy="true">年度回顾图片和链接</string>
+  <string name="year_in_review_share_subject">我的维基百科年度回顾</string>
 </resources>

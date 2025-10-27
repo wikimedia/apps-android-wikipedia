@@ -1807,17 +1807,25 @@
   <string name="year_in_review_share_subject">Meu Ano da Wikipédia em Avaliação</string>
   <string name="year_in_review_globe_icon">Ícone Globo</string>
   <string name="settings_app_icon_title">Ícone da aplicação</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Desbloqueie a sua recompensa para o próximo ano!</string>
   <string name="year_in_review_slide_app_icon_donor">um doador</string>
   <string name="year_in_review_slide_app_icon_editor">um editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
+  <string name="year_in_review_login_dialog_title">Iniciar sessão para personalização?</string>
   <string name="year_in_review_login_dialog_positive">Iniciar sessão / Registar na Wikipédia</string>
   <string name="year_in_review_login_dialog_negative">Continuar sem iniciar a sessão</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d byte adicionado</item>
+    <item quantity="other">%,d bytes adicionados</item>
+  </plurals>
   <plurals name="year_in_review_slide_english_edited_times_headline">
     <item quantity="one">Editores efetuaram %,d alteração este ano</item>
     <item quantity="other">Editores efetuaram %,d alterações neste ano</item>
   </plurals>
   <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
   <string name="year_in_review_slide_reading_pattern_midday">Meio dia</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Noite</string>
   <string name="year_in_review_slide_reading_pattern_night">Noite</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos escolhidos apenas para si</string>
