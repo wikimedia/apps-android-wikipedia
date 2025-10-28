@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.asDrawable
 import coil3.compose.SubcomposeAsyncImage
@@ -51,13 +52,16 @@ sealed class YearInReviewScreenData(
 
     open class StandardScreen(
         allowDonate: Boolean = true,
-        val animatedImageResource: Int = 0,
+        val imageResource: Int = 0,
+        val imageSize: Dp? = 200.dp,
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
 
-        open val imageModifier = Modifier.fillMaxSize()
+        open val imageModifier = imageSize?.let {
+            Modifier.size(it)
+        } ?: Modifier.fillMaxSize()
 
         @Composable
         open fun Header(context: Context,
@@ -77,7 +81,7 @@ sealed class YearInReviewScreenData(
                 ) {
                     SubcomposeAsyncImage(
                         model = ImageRequest.Builder(context)
-                            .data(animatedImageResource)
+                            .data(imageResource)
                             .allowHardware(false)
                             .build(),
                         loading = { LoadingIndicator() },
@@ -105,11 +109,12 @@ sealed class YearInReviewScreenData(
             return this.background(
                 brush = Brush.linearGradient(
                     colorStops = arrayOf(
-                        0.265f to Color(0xFF0D0D0D),
-                        0.385f to Color(0xFF092D60),
-                        0.515f to Color(0xFF1171C8),
-                        0.585f to Color(0xFF3DB2FF),
-                        0.775f to Color(0xFFD3F1F3)
+                        0.125f to Color(0xFF171717),
+                        0.225f to Color(0xFF003F45),
+                        0.285f to Color(0xFF00807A),
+                        0.440f to Color(0xFF2AECA6),
+                        0.525f to Color(0xFF86FFAC),
+                        0.650f to Color(0xFFFFFFFF)
                     ),
                     start = Offset(0f, 0f),
                     end = Offset(0f, Float.POSITIVE_INFINITY)
@@ -145,7 +150,7 @@ sealed class YearInReviewScreenData(
         val favoriteMonthText: String
     ) : StandardScreen(
         allowDonate,
-        animatedImageResource = animatedImageResource,
+        imageResource = animatedImageResource,
         headlineText = headlineText,
         bodyText = bodyText,
     )
@@ -157,14 +162,11 @@ sealed class YearInReviewScreenData(
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
-        animatedImageResource = R.drawable.launcher_foreground_yir25,
+        imageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
         showDonateInToolbar = !showDonateButton
     ) {
-
-        override val imageModifier: Modifier = Modifier.size(200.dp)
-
         @Composable
         override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
             if (showDonateButton) {
