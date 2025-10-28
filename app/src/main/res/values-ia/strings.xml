@@ -1896,10 +1896,6 @@
   <string name="year_in_review_slide_top_categories_headline">Tu categorias le plus interessante</string>
   <string name="year_in_review_slide_top_categories_body">Le categorias reuni articulos sur subjectos similar. In %1$d, tu ha visitate articulos in iste categorias interessante plure vices: %2$s</string>
   <string name="year_in_review_slide_popular_english_articles_headline">Le articulos le plus popular de Wikipedia in anglese</string>
-  <plurals name="year_in_review_slide_popular_english_articles_body">
-    <item quantity="one">Quando le gente vole apprender sur nostre mundo - lo bon, lo mal, lo estranie e lo salvage – illes se refere a Wikipedia. Le articulo le plus visitate (%1$d) in Wikipedia in anglese esseva: %2$s</item>
-    <item quantity="other">Quando le gente vole apprender sur nostre mundo - lo bon, lo mal, lo estranie e lo salvage – illes se refere a Wikipedia. Le articulos le plus visitate (%1$d) in Wikipedia in anglese esseva: %2$s</item>
-  </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Tu modification ha essite vidite plus de %,d vices recentemente</item>
     <item quantity="other">Tu modificationes ha essite vidite plus de %,d vices recentemente</item>
