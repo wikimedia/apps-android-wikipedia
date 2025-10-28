@@ -1451,7 +1451,7 @@
   <string name="watchlist_filter_type_of_change_category_changes">Kategorienännerungen</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Ännerungen</string>
   <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
-  <string name="watchlist_filter_reset_button">Zrécksetzen</string>
+  <string name="watchlist_filter_reset_button">Zerécksetzen</string>
   <string name="watchlist_search_bar_hint">Iwwerwaachungslëscht duerchsichen oder filteren</string>
   <string name="watchlist_search_bar_filter_hint">Iwwerwaachungslëschtfilter</string>
   <string name="watchlist_empty_search_message">Keng Resultater, probéiert %s ewechzeloosse fir méi ze gesinn.</string>
@@ -1534,7 +1534,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Ännerungszuel: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
   <string name="patroller_tasks_filters_title">Filteren</string>
-  <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
+  <string name="patroller_tasks_filters_reset">Zerécksetzen</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">All</string>
   <string name="patroller_tasks_filters_user_status_header">Benotzerumeldung an -erfarung</string>

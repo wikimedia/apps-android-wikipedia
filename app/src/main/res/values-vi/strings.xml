@@ -28,6 +28,7 @@
 * Phungminh141
 * Quenhitran
 * Quoclinh94
+* SaldırganSincap
 * SongNgu.xyz
 * TARGET6tidiem
 * Thanhtai2009
@@ -1313,7 +1314,7 @@
   <string name="templates_learn_more_link">Tìm hiểu thêm</string>
   <string name="templates_description_incomplete">Bản mẫu do người dùng tạo ra và có thể chưa có mô tả đầy đủ.</string>
   <string name="templates_description_empty">Bản mẫu \"%s\" vẫn chưa có mô tả.</string>
-  <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
+  <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"%1$s\"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"%2$s\"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
   <string name="main_drawer_help">Trợ giúp</string>
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
   <string name="main_tooltip_text">Xin chào %s, bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * IJzeren Jan
+* SaldırganSincap
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -177,7 +178,7 @@
   <string name="logged_out_in_background_cancel">Anulovati</string>
   <string name="account_vanish_request_title">Odstraniti koristničsko konto</string>
   <string name="account_vanish_request_confirm_title">Prěduprědženje ob odstranjenju koristničskogo konta</string>
-  <string name="account_vanish_request_confirm">Izčezanje jest &lt;b&gt;krajna měra&lt;/b&gt;, ktoru trěba koristati &lt;b&gt;jedino&lt;/b&gt; ako vy hočete &lt;b&gt;skončiti s pravjenjem na vsegda&lt;/b&gt;, a takože, da byste skryli kako možno mnogo svojih poprědnjih povezanij.&lt;br /&gt;&lt;br /&gt; Odstranjenje konta na Vikipediji realizuje se črěz izměnjenje imene vašego konta, da by drugi ne mogli razpoznati vaš vklad. &lt;b&gt;Izčezanje&lt;/b&gt; ne garantuje popolnu anonimnost i ne odstrani vaš vklad v projekty.&lt;/b&gt;</string>
+  <string name="account_vanish_request_confirm">Izčezanje jest &lt;b&gt;krajna měra&lt;/b&gt;, ktoru trěba koristati &lt;b&gt;jedino&lt;/b&gt; ako vy hočete &lt;b&gt;skončiti s pravjenjem na vsegda&lt;/b&gt;, a takože, da byste skryli kako možno mnogo svojih poprědnjih povezanij.&lt;br /&gt;&lt;br /&gt; Odstranjenje konta na Vikipediji realizuje se črěz izměnjenje imene vašego konta, da by drugi ne mogli razpoznati vaš vklad. &lt;b&gt;Izčezanje ne garantuje popolnu anonimnost i ne odstrani vaš vklad v projekty.&lt;/b&gt;</string>
   <string name="history_empty_title">Nemaje nedavno uviděnyh člankov</string>
   <string name="history_empty_message">Slěditi za tym, čto vy uže jeste tu čitali.</string>
   <string name="history_offline_articles_toast">Někoje članky v historiji mogut ne byti vidime v režimu oflajn.</string>
@@ -894,7 +895,7 @@
   <string name="feed_configure_onboarding_action">Prisposobiti</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Anulovati</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prisposobite svoj kanal «Odkryvati»&lt;/strong&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Prisposobite svoj kanal «Odkryvati»&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Tutčas vy možete izbrati, čto trěba izobražati v vašem kanalu, a takože ustaviti prioritety za vaše ljubime tipy sodržanja.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulovati</string>
   <string name="feed_accessibility_card_text">Vy jeste dosegli konca kanala.</string>

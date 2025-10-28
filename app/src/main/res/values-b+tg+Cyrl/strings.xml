@@ -202,7 +202,7 @@
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
   <string name="nav_item_donate" fuzzy="true">Дастгирии Википедия</string>
-  <string name="reference_list_title">Танзимот</string>
+  <string name="reference_list_title">Эзоҳ</string>
   <string name="page_footer_license_text">Муҳтаво таҳти $1 дар дастрас аст, магар ин ки ғайри он баён гардад.</string>
   <string name="article_header_edit_hint">Вироиш...</string>
   <string name="article_header_edit_description">Иловаи тавзеҳоти мақола</string>

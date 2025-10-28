@@ -1854,10 +1854,10 @@
   <string name="on_this_day_game_continue_playing_btn_text">A játék folytatása</string>
   <string name="on_this_day_game_sound_on">Hang bekapcsolása</string>
   <string name="on_this_day_game_sound_off">Hang kikapcsolása</string>
-  <string name="year_in_review_learn_more" fuzzy="true">További információk</string>
-  <string name="year_in_review_get_started" fuzzy="true">Kezdés</string>
+  <string name="year_in_review_learn_more">További információk</string>
+  <string name="year_in_review_get_started">Kezdés</string>
   <string name="year_in_review_topbar_w_icon">Wikipédia W ikon</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Navigálás balra</string>
+  <string name="year_in_review_navigate_left">Navigálás balra</string>
   <string name="year_in_review_share_icon">Megosztás ikon</string>
   <string name="year_in_review_heart_icon">Szív ikon</string>
   <string name="year_in_review_navigate_right">Navigálás jobbra</string>
@@ -1878,7 +1878,7 @@
   <string name="year_in_review_screendeck_image_content_description">Az Év áttekintése főképernyőjének képforrása</string>
   <string name="year_in_review_screenshot_error">Nem sikerült képernyőképet készíteni: %s</string>
   <string name="year_in_review_share_subject" fuzzy="true">Éves áttekintés képe és hivatkozása</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Földgömb ikon</string>
+  <string name="year_in_review_globe_icon">Földgömb ikon</string>
   <string name="recommended_reading_list_title">Felfedezés</string>
   <string name="recommended_reading_list_onboarding_card_title">Fedezz fel kifejezetten neked válogatott szócikkeket</string>
   <string name="recommended_reading_list_onboarding_card_message">A heti olvasólistád Wikipédia-szócikkekből, kifejezetten számodra válogatva.</string>
