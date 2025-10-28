@@ -162,10 +162,11 @@ class ReadingListFragmentViewModel : ViewModel() {
             val articles = AppDatabase.instance.historyEntryWithImageDao().getLongestReadArticlesInPeriod(startMillis, endMillis,
                 YearInReviewViewModel.MAX_LONGEST_READ_ARTICLES)
             val yirReadingListPages = articles.map {
+                val wikiSite = WikiSite.forLanguageCode(it.lang)
                 ReadingListPage(
-                    wiki = WikiSite.forLanguageCode(it.lang),
+                    wiki = wikiSite,
                     lang = it.lang,
-                    namespace = Namespace.MAIN,
+                    namespace = Namespace.fromLegacyString(wikiSite, it.namespace),
                     displayTitle = it.displayTitle,
                     apiTitle = it.apiTitle,
                     description = it.description,

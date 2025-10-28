@@ -83,7 +83,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -178,9 +177,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
-        viewLifecycleOwner.lifecycleScope.launch {
-            YearInReviewViewModel.maybeShowCreateReadingListDialog(requireActivity())
-        }
     }
 
     override fun onPause() {
@@ -348,8 +344,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     result.dispatchUpdatesTo(adapter)
                 }
 
-                recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                    .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                if (recentPreviewSavedReadingList == null) {
+                    recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                        .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                }
 
                 binding.swipeRefreshLayout.isRefreshing = false
                 maybeShowListLimitMessage()
@@ -532,11 +530,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) {
+                updateLists(currentSearchQuery, true)
+            }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) {
+                updateLists(currentSearchQuery, true)
+            }
         }
 
         override fun onSelectList(readingList: ReadingList) {

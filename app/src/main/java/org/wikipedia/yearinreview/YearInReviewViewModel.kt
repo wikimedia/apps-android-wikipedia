@@ -1,14 +1,10 @@
 package org.wikipedia.yearinreview
 
-import android.app.Activity
 import android.graphics.Bitmap
 import android.location.Geocoder
-import android.text.method.LinkMovementMethod
-import android.widget.TextView
 import androidx.core.graphics.createBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +13,6 @@ import kotlinx.coroutines.launch
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.Constants
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -25,8 +20,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.GeoUtil
@@ -272,7 +265,7 @@ class YearInReviewViewModel() : ViewModel() {
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
-                YearInReviewSurvey.resetYearInReviewSurveyState()
+                YearInReviewDialog.resetYearInReviewSurveyState()
             }
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
@@ -339,39 +332,16 @@ class YearInReviewViewModel() : ViewModel() {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
         }
 
-        suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
-            if (!AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || Prefs.yearInReviewSlideViewedCount < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
-                return
+        fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {
+            val currentData = Prefs.yearInReviewModelData.toMutableMap()
+            currentData[year]?.let { model ->
+                currentData[year] = update(model)
+                Prefs.yearInReviewModelData = currentData
             }
+        }
 
-            val cutoffDate = Instant.parse(CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
-            if (System.currentTimeMillis() > cutoffDate) {
-                return
-            }
-
-            val activeStartDate = "2025-01-01T00:00:00Z"
-            val activeEndDate = "2025-12-31T23:59:59Z"
-            val startMillis = Instant.parse(activeStartDate).toEpochMilli()
-            val endMillis = Instant.parse(activeEndDate).toEpochMilli()
-            val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
-            val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-            if (count <= MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
-                return
-            }
-
-            val resource = activity.resources
-            val title = resource.getString(R.string.year_in_review_reading_list_dialog_title)
-            val message = resource.getString(R.string.year_in_review_reading_list_dialog_message, activity.resources.getString(R.string.year_in_review_reading_list_learn_more))
-            MaterialAlertDialogBuilder(activity)
-                .setTitle(title)
-                .setMessage(StringUtil.fromHtml(message))
-                .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { dialog, _ ->
-                    activity.startActivity(ReadingListActivity.newIntent(activity, readingListMode = ReadingListMode.YEAR_IN_REVIEW))
-                    dialog.dismiss()
-                }
-                .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> }
-                .show()
-                .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
+        fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
+            return Prefs.yearInReviewModelData[year]
         }
     }
 }

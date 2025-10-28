@@ -91,8 +91,8 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
+import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
-import org.wikipedia.yearinreview.YearInReviewSurvey
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -215,7 +215,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        YearInReviewSurvey.maybeShowYearInReviewFeedbackDialog(requireActivity())
+        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
     }
 
     override fun onDestroyView() {
