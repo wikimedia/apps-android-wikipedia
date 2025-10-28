@@ -345,8 +345,10 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     result.dispatchUpdatesTo(adapter)
                 }
 
-                recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                    .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                if (recentPreviewSavedReadingList == null) {
+                    recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                        .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                }
 
                 binding.swipeRefreshLayout.isRefreshing = false
                 maybeShowListLimitMessage()
