@@ -91,13 +91,14 @@ class YearInReviewSlides(
     private fun popularEnglishArticlesScreen(): StandardScreen {
 
         val popularEnglishArticlesText = buildListWithNumbers(config.topReadEN)
+        val popularEnglishArticlesBlogUrl = context.getString(R.string.year_in_review_popular_english_articles_blog_url)
 
         return StandardScreen(
             isFundraisingAllowed,
             animatedImageResource = R.drawable.year_in_review_puzzle_pieces, // TODO: tbd
             headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
-                config.topReadEN.size, config.topReadEN.size, popularEnglishArticlesText)
+                config.topReadEN.size, config.topReadEN.size, popularEnglishArticlesText, popularEnglishArticlesBlogUrl)
         )
     }
 
@@ -466,7 +467,7 @@ class YearInReviewSlides(
     }
 
     private fun buildListWithNumbers(items: List<String>): String {
-        var outputText = "<br />"
+        var outputText = "<br /><br />"
         items.forEachIndexed { index, it ->
             outputText += "${index + 1}. $it<br />"
         }

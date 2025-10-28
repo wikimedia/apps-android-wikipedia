@@ -21,6 +21,7 @@
   <string name="search_icon_content_description">Pretraga</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje liste</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
+  <string name="nav_item_activity">Aktivnost</string>
   <string name="nav_item_more">Više</string>
   <string name="nav_item_search">Traži</string>
   <string name="nav_item_contribute">Doprinesite</string>

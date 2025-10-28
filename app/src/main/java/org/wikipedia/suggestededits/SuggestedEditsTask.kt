@@ -12,8 +12,6 @@ class SuggestedEditsTask {
     var disabled: Boolean = false
 
     var new: Boolean = false
-    var dailyProgress: Int = 0
-    var dailyProgressMax: Int = 0
 
     @DrawableRes
     var imageDrawable: Int = 0
