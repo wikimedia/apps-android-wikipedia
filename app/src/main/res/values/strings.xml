@@ -2078,8 +2078,8 @@
         <item quantity="other">You saved %,d articles</item>
     </plurals>
     <plurals name="year_in_review_slide_saved_articles_body">
-        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
-        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_global_saved_articles_headline">
         <item quantity="one">App users had %,d saved article</item>
