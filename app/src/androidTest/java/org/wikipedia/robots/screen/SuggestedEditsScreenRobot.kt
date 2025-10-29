@@ -34,11 +34,6 @@ class SuggestedEditsScreenRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun enterContributionScreen() = apply {
-        click.onDisplayedView(R.id.contributionsContainer)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
     fun clickArticleDescriptions() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 0, viewAction = click())
         delay(TestConfig.DELAY_MEDIUM)
