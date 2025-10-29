@@ -38,7 +38,7 @@ object YearInReviewDialog {
         val endMillis = Instant.parse(activeEndDate).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
         val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-        if (count <= MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
+        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
             return
         }
 
