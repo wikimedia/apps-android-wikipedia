@@ -118,7 +118,7 @@ class YearInReviewViewModel() : ViewModel() {
                         val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
                         val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
                         if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                            val userId = userInfoResponse.query?.userInfo?.id!!
+                            val userId = userInfoResponse.query?.userInfo?.id ?: 0
                             impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
                             impactLastResponseBodyMap[wikiSite.languageCode] =
                                 JsonUtil.encodeToString(impact).orEmpty()
@@ -150,7 +150,7 @@ class YearInReviewViewModel() : ViewModel() {
 
                     val editCountCall = async {
                         var response = UserEdits()
-                        // This is an exerimental-ish API, so guard it with an explicit try-catch,
+                        // This is an experimental-ish API, so guard it with an explicit try-catch,
                         // and proceed if it fails.
                         try {
                             response = ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
