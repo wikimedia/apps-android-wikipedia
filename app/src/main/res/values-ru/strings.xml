@@ -56,6 +56,7 @@
 * Rivka Silinsky
 * Rubin16
 * SHaran (WMF)
+* SaldırganSincap
 * SimondR
 * Smigles
 * Soul Train
@@ -522,7 +523,7 @@
   <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="temp_account_not_logged_in">Вы не вошли в систему</string>
   <string name="temp_account_anon_ip_dialog_body">После сохранения правки ваш IP-адрес будет виден всем в истории изменений страницы.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы сохранять историю будущих правок и получить доступ к другим функциям.</string>
-  <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
+  <string name="temp_account_anon_dialog_body">После внесения правки для вас будет создана &lt;b&gt;временная учётная запись&lt;/b&gt; для защиты вашей конфиденциальности. &lt;a href=\"%1$s\"&gt;Узнайте об этом подробнее&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Войдите в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создайте учётную запись&lt;/a&gt;, чтобы получить признание за будущие правки и получить доступ к другим функциям.</string>
   <string name="temp_account_temp_dialog_body">Ваша правка будет отнесена к %1$s . Ваш IP-адрес будет виден администраторам.&lt;br /&gt;&lt;br /&gt; Если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt; или &lt;a href=\"https://#createaccount\"&gt;создадите учётную запись&lt;/a&gt;, помимо других преимуществ ваши правки будут связаны с выбранным вами именем.</string>
   <string name="temp_account_dialog_ok">Понятно</string>
   <string name="temp_account_using_title">Вы используете временную учётную запись</string>
