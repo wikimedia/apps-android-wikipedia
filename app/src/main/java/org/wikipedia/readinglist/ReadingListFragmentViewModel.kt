@@ -153,7 +153,6 @@ class ReadingListFragmentViewModel : ViewModel() {
                 _yirListFlow.value = Resource.Error(throwable)
             }
         }) {
-            println("orange generating yir reading list")
             val activeStartDate = "2025-01-01T00:00:00Z"
             val activeEndDate = "2025-12-31T23:59:59Z"
             val startMillis = Instant.parse(activeStartDate).toEpochMilli()

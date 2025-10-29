@@ -49,6 +49,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // for launching YIR reading list on the next app launch
         if (savedInstanceState == null) {
            lifecycleScope.launch {
                YearInReviewDialog.maybeShowCreateReadingListDialog(this@MainActivity)

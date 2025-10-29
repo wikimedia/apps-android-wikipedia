@@ -174,6 +174,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
+
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -537,15 +538,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) {
-                updateLists(currentSearchQuery, true)
-            }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) {
-                updateLists(currentSearchQuery, true)
-            }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { updateLists(currentSearchQuery, true) }
         }
 
         override fun onSelectList(readingList: ReadingList) {
