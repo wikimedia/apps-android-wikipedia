@@ -40,7 +40,7 @@
   <string name="page_error_back_to_main">უკან</string>
   <string name="error_back">უკან დაბრუნება</string>
   <string name="error_next">შემდეგი</string>
-  <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
+  <string name="menu_clear_all_history" fuzzy="true">ისტორიის გასუფთავება</string>
   <string name="history_item_deleted">%s წაიშალა ისტორიიდან</string>
   <string name="history_items_deleted">%d სტატია წაიშალა ისტორიიდან</string>
   <string name="history_item_delete_undo">დაბრუნება</string>
@@ -53,7 +53,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
-  <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ბრძანდებით?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ბრძანდებით?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
   <string name="dialog_message_clear_history_no">არა</string>
   <string name="share_via">გაზიარება</string>
@@ -220,7 +220,7 @@
   <string name="about_translators_translatewiki">ეს აპლიკაცია თარგმნილია მოხალისე მთარგმნელთა მიერ აქ: &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ლიცენზია</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ფონდ ვიკიმედიის&lt;/a&gt; პროდუქტი</string>
-  <string name="about_activity_title">შესახებ</string>
+  <string name="about_activity_title">პროექტის შესახებ</string>
   <string name="edit_abandon_confirm">გვერდი შეიცვალა. მართლა გნებავთ თქვენი ცვლილებების შენახვის გარეშე გასვლა?</string>
   <string name="edit_abandon_confirm_yes">დიახ</string>
   <string name="edit_abandon_confirm_no">არა</string>

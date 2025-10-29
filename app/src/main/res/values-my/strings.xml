@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">နောက်သို့ ပြန်သွားရန်</string>
   <string name="error_back">နောက်သို့ ပြန်သွားရန်</string>
   <string name="error_next">ရှေ့သို့</string>
-  <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
+  <string name="menu_clear_all_history" fuzzy="true">မှတ်တမ်းအားရှင်းမည်</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
   <string name="history_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">ဝီကီမီဒီယာ ကွန်မွန်းစ်</string>
   <string name="wikidata">ဝီကီဒေတာ</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းရန်</string>
-  <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
   <string name="dialog_message_clear_history_yes">လုပ်မည်</string>
   <string name="dialog_message_clear_history_no">မလုပ်ပါ</string>
   <string name="share_via">မှမျှဝေ</string>
@@ -221,12 +221,11 @@
   <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကြောင်း</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/my</string>
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
   <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;အဖွဲ့စာမျက်နှာ&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;အဖွဲ့စာမျက်နှာ&lt;/a&gt;</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>

@@ -9,17 +9,22 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.FragmentPreviewEditBinding
-import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
+import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -35,6 +40,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
 
@@ -58,6 +64,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override val toolbarMargin = 0
     override val referencesGroup get() = references.referencesGroup
     override val selectedReferenceIndex get() = references.selectedIndex
+    override val messageCardHeight: Int = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
@@ -82,14 +89,26 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     fun showPreview(title: PageTitle, wikiText: String) {
         DeviceUtil.hideSoftKeyboard(requireActivity())
         callback().showProgressBar(true)
+        lifecycleScope.launch(CoroutineExceptionHandler { _, t ->
+            showPreview(t.message)
+            L.e(t)
+        }) {
+            var html: String?
+            withContext(Dispatchers.IO) {
+                // Workaround for T363781
+                // The preview endpoint requires the target page to exist, so if it doesn't exist yet,
+                // we will base the preview on the Main Page of the wiki.
+                val previewTitle = if (callback().isNewPage() || title.prefixedText.contains("/")) MainPageNameData.valueFor(title.wikiSite.languageCode) else title.prefixedText
+                ServiceFactory.getRest(model.title!!.wikiSite).getHtmlPreviewFromWikitext(previewTitle, PreviewRequest(wikiText)).use {
+                    html = it.string()
+                }
+            }
+            showPreview(html)
+        }
+    }
 
-        // Workaround for T363781
-        // The preview endpoint requires the target page to exist, so if it doesn't exist yet,
-        // we will base the preview on the Main Page of the wiki.
-        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) + RestService.PAGE_HTML_PREVIEW_ENDPOINT +
-                UriUtil.encodeURL(if (callback().isNewPage()) MainPageNameData.valueFor(title.wikiSite.languageCode) else title.prefixedText)
-        val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
-        binding.editPreviewWebview.postUrl(url, postData.toByteArray())
+    private fun showPreview(html: String?) {
+        binding.editPreviewWebview.loadDataWithBaseURL(ServiceFactory.getRestBasePath(model.title!!.wikiSite), html.orEmpty(), "text/html", "UTF-8", null)
         binding.editPreviewContainer.isVisible = true
         requireActivity().invalidateOptionsMenu()
     }
@@ -108,7 +127,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                     return
                 }
                 bridge.onMetadataReady()
-                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
+                bridge.execute(JavaScriptActionHandler.setMargins(0, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
                 callback().showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
             }

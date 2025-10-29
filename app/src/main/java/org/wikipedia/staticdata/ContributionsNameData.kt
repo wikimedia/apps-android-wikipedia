@@ -259,6 +259,7 @@ object ContributionsNameData {
             "pt" to "Contribuições",
             "pwn" to "使用者貢獻",
             "qu" to "Rurasqakuna",
+            "rki" to "Contributions",
             "rm" to "Beiträge",
             "rmy" to "Contribuții",
             "rn" to "Contributions",
@@ -357,5 +358,6 @@ object ContributionsNameData {
             "zh-yue" to "貢獻",
             "zu" to "Contributions",
             "test" to "Contributions",
+            "test2" to "Contributions",
     )
 }

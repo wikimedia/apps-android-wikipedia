@@ -13,9 +13,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSettingsActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListSource
@@ -23,6 +26,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 /** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -41,7 +45,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             true
         }
         findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivityForResult(ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
+             activity.startActivityForResult(
+                 ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
                     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
             true
         }
@@ -50,6 +55,34 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 activity.startActivity(ThemeFittingRoomActivity.newIntent(activity))
                 true
+            }
+        }
+
+        findPreference(R.string.preference_key_selected_app_icon).let {
+            it.isVisible = YearInReviewViewModel.isCustomIconAllowed
+            it.summary = fragment.getString(R.string.settings_app_icon_preference_subtitle, YearInReviewViewModel.YIR_YEAR)
+            it.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show(fragment.parentFragmentManager, AppIconDialog())
+                true
+            }
+        }
+
+        findPreference(R.string.preference_key_year_in_review_is_enabled).let {
+            it.isVisible = YearInReviewViewModel.isAccessible
+            it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+                if (newValue as Boolean) {
+                    return@OnPreferenceChangeListener true
+                }
+                MaterialAlertDialogBuilder(activity)
+                    .setTitle(R.string.year_in_review_disable_title)
+                    .setMessage(R.string.year_in_review_setting_subtitle)
+                    .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                        Prefs.yearInReviewModelData = emptyMap()
+                        (preference as SwitchPreferenceCompat).isChecked = false
+                    }
+                    .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                    .show()
+                false
             }
         }
 
@@ -66,8 +99,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 )
                 true
         }
-        val recommendedReadingListCategory = findPreference(R.string.preference_category_recommended_reading_list)
-        recommendedReadingListCategory.isVisible = RecommendedReadingListAbTest().isTestGroupUser()
         findPreference(R.string.preference_key_recommended_reading_list_enabled).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             RecommendedReadingListEvent.submit("discover_click", "global_settings")
             if (Prefs.recommendedReadingListInterests.isEmpty() &&
@@ -84,6 +115,13 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
 
+        val donationCategory = findPreference(R.string.preference_category_donations)
+        donationCategory.isVisible = DonationReminderHelper.isEnabled
+        findPreference(R.string.preference_key_donation_reminders).onPreferenceClickListener =
+            Preference.OnPreferenceClickListener {
+                activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
+                true
+            }
         if (Prefs.donationResults.isNotEmpty()) {
             setupDeleteLocalDonationHistoryPreference()
         }
@@ -125,6 +163,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             R.string.recommended_reading_list_settings_toggle_enable_message
         } else R.string.recommended_reading_list_settings_toggle_disable_message
         findPreference(R.string.preference_key_recommended_reading_list_enabled).summary = activity.getString(summary)
+    }
+
+    fun updateDonationRemindersDescription() {
+        val articleFrequency = activity.resources.getQuantityString(R.plurals.donation_reminders_text_articles, Prefs.donationReminderConfig.articleFrequency, Prefs.donationReminderConfig.articleFrequency)
+        val description = if (Prefs.donationReminderConfig.isEnabled) activity.getString(R.string.donation_reminders_settings_description_on,
+            DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), articleFrequency) else
+                activity.getString(R.string.donation_reminders_settings_description_off)
+        findPreference(R.string.preference_key_donation_reminders).summary = description
     }
 
     private inner class SyncReadingListsListener : Preference.OnPreferenceChangeListener {

@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Ruovttoluotta</string>
   <string name="error_back">Ruovttoluotta</string>
   <string name="error_next">Čuovvovaš</string>
-  <string name="menu_clear_all_history">Gurre historjjá</string>
+  <string name="menu_clear_all_history" fuzzy="true">Gurre historjjá</string>
   <string name="history_item_deleted">%s sihkkojuvvon historjjás</string>
   <string name="history_items_deleted">%d ártihkkala sihkkojuvvon historjjás</string>
   <string name="history_item_delete_undo">Gáđa</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Gurre neahttalohkki historjjá</string>
-  <string name="dialog_message_clear_history">Dát sihkku visot du neahttalohkki historjjá, ja gidde visot rabas leavggaid. Leatgo sihkkár?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dát sihkku visot du neahttalohkki historjjá, ja gidde visot rabas leavggaid. Leatgo sihkkár?</string>
   <string name="dialog_message_clear_history_yes">Jua</string>
   <string name="dialog_message_clear_history_no">Ii</string>
   <string name="share_via">Juoge bálvalusas</string>
@@ -239,7 +239,7 @@
   <string name="about_wikipedia_url">https://se.wikipedia.org/wiki/Wikipedia:Birra</string>
   <string name="about_libraries_heading">Girjerádju geavahuvvon</string>
   <string name="about_contributors_heading">Čálusveahkit</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
   <string name="about_translators_heading">Jorgaleaddjit</string>
   <string name="about_translators_translatewiki">Áppa jorgaluvvui eaktodáhtolaš jorgaleddjiin &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;:s.</string>
   <string name="about_app_license_heading">Liseansa</string>

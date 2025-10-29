@@ -5,8 +5,6 @@ import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Gravity
@@ -16,9 +14,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
@@ -86,6 +86,7 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.yearinreview.YearInReviewSurvey
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -189,6 +190,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -312,7 +315,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         return when (item.itemId) {
             android.R.id.home -> {
                 if (app.haveMainActivity) {
-                    onBackPressed()
+                    onBackPressedDispatcher.onBackPressed()
                 } else {
                     pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
@@ -326,6 +329,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
+        YearInReviewSurvey.maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {
@@ -366,25 +370,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         handleIntent(intent)
     }
 
-    override fun onBackPressed() {
-        if (isCabOpen) {
-            onPageCloseActionMode()
-            return
-        }
-        app.appSessionEvent.backPressed()
-        if (pageFragment.onBackPressed()) {
-            return
-        }
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (isCabOpen) {
+                onPageCloseActionMode()
+                return
+            }
+            app.appSessionEvent.backPressed()
+            if (pageFragment.onBackPressed()) {
+                return
+            }
 
-        // If user enter PageActivity in portrait and leave in landscape,
-        // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
-            binding.wikiArticleCardView.visibility = View.GONE
-        } else {
-            binding.wikiArticleCardView.visibility = View.VISIBLE
-            binding.pageFragment.visibility = View.GONE
+            // If user enter PageActivity in portrait and leave in landscape,
+            // we should hide the transition animation view to prevent bad animation.
+            if (DimenUtil.isLandscape(this@PageActivity) || !hasTransitionAnimation) {
+                binding.wikiArticleCardView.visibility = View.GONE
+            } else {
+                binding.wikiArticleCardView.visibility = View.VISIBLE
+                binding.pageFragment.visibility = View.GONE
+            }
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
         }
-        super.onBackPressed()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
@@ -497,7 +504,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data
-            if (ReleaseUtil.isProdRelease && uri?.scheme != null && uri.scheme == "http") {
+            if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
@@ -646,12 +653,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 startActivity(TalkTopicsActivity.newIntent(this, title, InvokeSource.PAGE_ACTIVITY))
                 finish()
                 return true
-            } else if (title.isSpecial && title.isContributions) {
-                title.displayText.split('/').lastOrNull()?.let {
-                    startActivity(UserContribListActivity.newIntent(this, it))
-                    finish()
-                    return true
+            } else if (title.isSpecial) {
+                if (title.isContributions) {
+                    title.displayText.split('/').lastOrNull()?.let {
+                        startActivity(UserContribListActivity.newIntent(this, it))
+                        finish()
+                        return true
+                    }
                 }
+                UriUtil.visitInExternalBrowser(this, title.uri.toUri())
+                finish()
+                return true
             }
         }
         return false
@@ -791,10 +803,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onProvideAssistContent(outContent: AssistContent) {
         super.onProvideAssistContent(outContent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            pageFragment.model.title?.let {
-                outContent.setWebUri(Uri.parse(it.uri))
-            }
+        pageFragment.model.title?.let {
+            outContent.webUri = it.uri.toUri()
         }
     }
 

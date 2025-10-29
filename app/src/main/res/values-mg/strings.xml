@@ -12,13 +12,13 @@
   <string name="error_network_error">Tsy afaka mifandray amin\'ny Aterineto.</string>
   <string name="page_error_retry">Andramana indray</string>
   <string name="page_error_back_to_main">Hiverina</string>
-  <string name="menu_clear_all_history">Handio ny tantara</string>
+  <string name="menu_clear_all_history" fuzzy="true">Handio ny tantara</string>
   <string name="history_item_deleted">Nesorina tamin\'ny tantara %s</string>
   <string name="history_items_deleted">Lahatsoratra %d nesorina tamin\'ny tantara</string>
   <string name="history_item_delete_undo">Averina</string>
   <string name="app_settings">Parametatry ny fampiharana</string>
   <string name="dialog_title_clear_history">Handio ny tantaram-pitetezana</string>
-  <string name="dialog_message_clear_history">Hamafa ny tantaram-pitetezanao avokoa izany, ary koa hamafa ny  vakizoro misoratra. Tianao atao tokoa ve izany?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Hamafa ny tantaram-pitetezanao avokoa izany, ary koa hamafa ny  vakizoro misoratra. Tianao atao tokoa ve izany?</string>
   <string name="dialog_message_clear_history_yes">Eny</string>
   <string name="dialog_message_clear_history_no">Tsia</string>
   <string name="share_via">Zaraina</string>

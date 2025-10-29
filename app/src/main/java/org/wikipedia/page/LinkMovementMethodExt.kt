@@ -1,6 +1,5 @@
 package org.wikipedia.page
 
-import android.net.Uri
 import android.text.Selection
 import android.text.Spannable
 import android.text.method.LinkMovementMethod
@@ -8,6 +7,7 @@ import android.text.method.Touch
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -97,7 +97,7 @@ class LinkMovementMethodExt : LinkMovementMethod {
             // Explicitly send everything to an external browser, since the error might be shown in
             // a child activity of PageActivity, and we don't want to lose our place.
             UriUtil.visitInExternalBrowser(WikipediaApp.instance,
-                    Uri.parse(UriUtil.resolveProtocolRelativeUrl(title.wikiSite, title.mobileUri)))
+                UriUtil.resolveProtocolRelativeUrl(title.wikiSite, title.uri).toUri())
         }
     }
 

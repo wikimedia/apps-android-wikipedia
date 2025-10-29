@@ -47,7 +47,7 @@ class OnThisDayGamePlayFragment : Fragment() {
     private val viewModel: OnThisDayGameViewModel by activityViewModels()
     private val cardAnimatorSetIn = AnimatorSet()
     private val cardAnimatorSetOut = AnimatorSet()
-    private lateinit var mediaPlayer: MediaPlayer
+    private var mediaPlayer: MediaPlayer? = null
     private var selectedCardView: WikiCardView? = null
     private var mainActivity: OnThisDayGameActivity? = null
 
@@ -322,7 +322,7 @@ class OnThisDayGamePlayFragment : Fragment() {
         cardAnimatorSetOut.playTogether(translationX1, translationA1, translationX2, translationA2)
         cardAnimatorSetOut.doOnEnd {
             binding.root.post {
-                if (!requireActivity().isDestroyed) {
+                if (isAdded) {
                     onFinished()
                 }
             }
@@ -416,7 +416,7 @@ class OnThisDayGamePlayFragment : Fragment() {
         binding.currentQuestionContainer.isVisible = true
 
         binding.root.post {
-            if (!requireActivity().isDestroyed) {
+            if (isAdded) {
                 binding.questionContainer1.minimumHeight = binding.questionScroll1.height - DimenUtil.roundedDpToPx(16f)
                 binding.questionContainer2.minimumHeight = binding.questionScroll2.height - DimenUtil.roundedDpToPx(16f)
             }
@@ -432,7 +432,7 @@ class OnThisDayGamePlayFragment : Fragment() {
             binding.nextQuestionText.isVisible = true
 
             cardView.setStrokeColor(ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            cardView.setStrokeWidth(DimenUtil.roundedDpToPx(2f))
+            cardView.strokeWidth = DimenUtil.roundedDpToPx(2f)
             selectedCardView = cardView
         }
     }
@@ -440,9 +440,9 @@ class OnThisDayGamePlayFragment : Fragment() {
     private fun resetCardBorders() {
         val otherCardView = if (selectedCardView == binding.questionCard1) binding.questionCard2 else binding.questionCard1
         binding.questionCard1.setStrokeColor(otherCardView.strokeColorStateList)
-        binding.questionCard1.setStrokeWidth(otherCardView.strokeWidth)
+        binding.questionCard1.strokeWidth = otherCardView.strokeWidth
         binding.questionCard2.setStrokeColor(otherCardView.strokeColorStateList)
-        binding.questionCard2.setStrokeWidth(otherCardView.strokeWidth)
+        binding.questionCard2.strokeWidth = otherCardView.strokeWidth
     }
 
     fun updateInitialScores(gameState: OnThisDayGameViewModel.GameState) {
@@ -452,13 +452,15 @@ class OnThisDayGamePlayFragment : Fragment() {
     fun playSound(soundName: String) {
         if (Prefs.isOtdSoundOn) {
             try {
-                mediaPlayer.reset()
-                mediaPlayer.setDataSource(
-                    requireContext(),
-                    "android.resource://${requireContext().packageName}/raw/$soundName".toUri()
-                )
-                mediaPlayer.prepare()
-                mediaPlayer.start()
+                mediaPlayer?.let {
+                    it.reset()
+                    it.setDataSource(
+                        requireContext(),
+                        "android.resource://${requireContext().packageName}/raw/$soundName".toUri()
+                    )
+                    it.prepare()
+                    it.start()
+                }
             } catch (e: Exception) {
                 L.e(e)
             }
@@ -467,7 +469,7 @@ class OnThisDayGamePlayFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
+        mediaPlayer?.release()
     }
 
     companion object {

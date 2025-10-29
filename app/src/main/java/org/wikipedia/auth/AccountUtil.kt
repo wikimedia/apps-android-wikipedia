@@ -4,7 +4,6 @@ import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.app.Activity
-import android.os.Build
 import androidx.core.os.bundleOf
 import androidx.core.text.isDigitsOnly
 import org.wikipedia.R
@@ -87,11 +86,7 @@ object AccountUtil {
     fun removeAccount() {
         val account = account()
         if (account != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                accountManager().removeAccountExplicitly(account)
-            } else {
-                accountManager().removeAccount(account, null, null)
-            }
+            accountManager().removeAccountExplicitly(account)
         }
     }
 

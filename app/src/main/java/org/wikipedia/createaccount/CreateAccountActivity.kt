@@ -9,7 +9,9 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import androidx.activity.addCallback
 import androidx.activity.viewModels
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
@@ -26,7 +28,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -51,6 +52,8 @@ class CreateAccountActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.createAccountPrimaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button))
         // Don't allow user to submit registration unless they've put in a username and password
         NonEmptyValidator(binding.createAccountSubmitButton, binding.createAccountUsername, binding.createAccountPasswordInput)
@@ -68,6 +71,16 @@ class CreateAccountActivity : BaseActivity() {
             binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (captchaHandler.isActive) {
+                captchaHandler.cancelCaptcha()
+                showProgressBar(false)
+                return@addCallback
+            }
+            DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
+            finish()
         }
 
         // Set default result to failed, so we can override if it did not
@@ -154,7 +167,8 @@ class CreateAccountActivity : BaseActivity() {
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            visitInExternalBrowser(this, Uri.parse(PageTitle("Special:PasswordReset", wiki).uri))
+            val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
+            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
@@ -190,16 +204,6 @@ class CreateAccountActivity : BaseActivity() {
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
         viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
-    }
-
-    override fun onBackPressed() {
-        if (captchaHandler.isActive) {
-            captchaHandler.cancelCaptcha()
-            showProgressBar(false)
-            return
-        }
-        DeviceUtil.hideSoftKeyboard(this)
-        super.onBackPressed()
     }
 
     public override fun onStop() {
