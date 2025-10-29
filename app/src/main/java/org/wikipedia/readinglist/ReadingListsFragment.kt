@@ -174,7 +174,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
+        hideNewIndicatorForRecentSavedList()
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -214,6 +214,16 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
         ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
+    }
+
+    private fun hideNewIndicatorForRecentSavedList() {
+        if (recentPreviewSavedReadingList != null) {
+            val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == recentPreviewSavedReadingList?.id }
+            if (pos != -1) {
+                adapter.notifyItemChanged(pos)
+            }
+            recentPreviewSavedReadingList = null
+        }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -508,13 +518,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             } else {
                 actionMode?.finish()
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
-                if (recentPreviewSavedReadingList != null) {
-                    recentPreviewSavedReadingList = null
-                    val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == readingList.id }
-                    if (pos != -1) {
-                        adapter.notifyItemChanged(pos)
-                    }
-                }
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
