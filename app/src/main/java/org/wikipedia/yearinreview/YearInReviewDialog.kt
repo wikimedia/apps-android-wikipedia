@@ -13,13 +13,16 @@ import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.YIR_YEAR
 import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.getYearInReviewModel
 import java.time.Instant
+import java.time.ZoneOffset
 
 object YearInReviewDialog {
     suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
@@ -32,10 +35,9 @@ object YearInReviewDialog {
             return
         }
 
-        val activeStartDate = "2025-01-01T00:00:00Z"
-        val activeEndDate = "2025-12-31T23:59:59Z"
-        val startMillis = Instant.parse(activeStartDate).toEpochMilli()
-        val endMillis = Instant.parse(activeEndDate).toEpochMilli()
+        val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR) ?: return
+        val startMillis = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
+        val endMillis = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
         val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
         if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {

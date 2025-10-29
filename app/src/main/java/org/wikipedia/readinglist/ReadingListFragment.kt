@@ -259,16 +259,33 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 launch {
                     viewModel.yirListFlow.collect {
                         when (it) {
-                           is Resource.Success -> {
-                               readingList = it.data
-                               binding.progressBar.isVisible = false
-                               binding.errorView.isVisible = false
-                               binding.readingListHeader.isVisible = true
-                               binding.readingListSwipeRefresh.isVisible = true
-                               binding.readingListSwipeRefresh.isRefreshing = false
-                               update()
-                               viewModel.saveReadingList(it.data)
-                           }
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                            }
+                            is Resource.Success -> {
+                                readingList = it.data
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = true
+                                binding.readingListSwipeRefresh.isVisible = true
+                                binding.readingListSwipeRefresh.isRefreshing = false
+                                update()
+                                viewModel.saveReadingList(it.data)
+                            }
+                            is Resource.Error -> {
+                                L.e(it.throwable)
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = true
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                                binding.errorView.backClickListener = View.OnClickListener {
+                                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                                }
+                                binding.errorView.setError(it.throwable)
+                            }
                         }
                     }
                 }
@@ -511,7 +528,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
             ReadingListMode.YEAR_IN_REVIEW -> {
                 if (readingList == null) {
-                    viewModel.generateYearInReviewReadingList(requireContext(), AccountUtil.userName)
+                    viewModel.generateYearInReviewReadingList(AccountUtil.userName)
                 } else {
                     update()
                 }

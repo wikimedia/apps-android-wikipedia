@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -19,10 +18,12 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.yearinreview.YearInReviewViewModel
-import java.time.Instant
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.YIR_YEAR
+import java.time.ZoneOffset
 
 class ReadingListFragmentViewModel : ViewModel() {
 
@@ -147,16 +148,16 @@ class ReadingListFragmentViewModel : ViewModel() {
         }
     }
 
-    fun generateYearInReviewReadingList(context: Context, userName: String) {
+    fun generateYearInReviewReadingList(userName: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             viewModelScope.launch {
                 _yirListFlow.value = Resource.Error(throwable)
             }
         }) {
-            val activeStartDate = "2025-01-01T00:00:00Z"
-            val activeEndDate = "2025-12-31T23:59:59Z"
-            val startMillis = Instant.parse(activeStartDate).toEpochMilli()
-            val endMillis = Instant.parse(activeEndDate).toEpochMilli()
+            val context = WikipediaApp.instance
+            val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val startMillis = remoteConfig?.dataStartDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli() ?: 0
+            val endMillis = remoteConfig?.dataEndDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli() ?: 0
 
             val articles = AppDatabase.instance.historyEntryWithImageDao().getLongestReadArticlesInPeriod(startMillis, endMillis,
                 YearInReviewViewModel.MAX_LONGEST_READ_ARTICLES)
