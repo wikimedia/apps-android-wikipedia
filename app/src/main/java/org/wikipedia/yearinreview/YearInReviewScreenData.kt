@@ -33,11 +33,29 @@ import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.YearInReviewScreenData.CustomIconScreen
+
+fun Modifier.yearInReviewHeaderBackground(): Modifier {
+    return this.background(
+        brush = Brush.linearGradient(
+            colorStops = arrayOf(
+                0.125f to Color(0xFF171717),
+                0.225f to Color(0xFF003F45),
+                0.285f to Color(0xFF00807A),
+                0.440f to Color(0xFF2AECA6),
+                0.525f to Color(0xFF86FFAC),
+                0.650f to Color(0xFFFFFFFF)
+            ),
+            start = Offset(0f, 0f),
+            end = Offset(0f, Float.POSITIVE_INFINITY)
+        )
+    )
+}
 
 sealed class YearInReviewScreenData(
     val allowDonate: Boolean = true,
@@ -70,7 +88,7 @@ sealed class YearInReviewScreenData(
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(aspectRatio)
-                        .headerBackground(),
+                        .yearInReviewHeaderBackground(),
                     contentAlignment = Alignment.Center
                 ) {
                     SubcomposeAsyncImage(
@@ -98,30 +116,18 @@ sealed class YearInReviewScreenData(
                 }
             }
         }
-
-        open fun Modifier.headerBackground(): Modifier {
-            return this.background(
-                brush = Brush.linearGradient(
-                    colorStops = arrayOf(
-                        0.125f to Color(0xFF171717),
-                        0.225f to Color(0xFF003F45),
-                        0.285f to Color(0xFF00807A),
-                        0.440f to Color(0xFF2AECA6),
-                        0.525f to Color(0xFF86FFAC),
-                        0.650f to Color(0xFFFFFFFF)
-                    ),
-                    start = Offset(0f, 0f),
-                    end = Offset(0f, Float.POSITIVE_INFINITY)
-                )
-            )
-        }
     }
 
-    class HighlightsScreen(
-        allowDonate: Boolean = true,
-        val highlights: List<String>,
-        val headlineText: String? = null
-    ) : YearInReviewScreenData(allowDonate)
+    data class HighlightItem(
+        val title: String,
+        val singleValue: String? = null,
+        val items: List<String> = emptyList(),
+        val highlightColor: Color = ComposeColors.Gray700
+    )
+
+    data class HighlightsScreen(
+        val highlights: List<HighlightItem>
+    ) : YearInReviewScreenData()
 
     class GeoScreen(
         allowDonate: Boolean = true,
