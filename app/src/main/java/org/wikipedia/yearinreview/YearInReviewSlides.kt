@@ -1,6 +1,8 @@
 package org.wikipedia.yearinreview
 
 import android.content.Context
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import org.wikipedia.R
 import org.wikipedia.history.db.HistoryEntryWithImage
 import org.wikipedia.settings.Prefs
@@ -76,7 +78,7 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             imageResource = R.drawable.yir_puzzle_walk,
-            imageSize = null,
+            imageModifier = Modifier.fillMaxSize(),
             headlineText = headlineText,
             bodyText = bodyText
         )
@@ -255,7 +257,7 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             imageResource = R.drawable.yir_puzzle_bytes,
-            imageSize = null,
+            imageModifier = Modifier.fillMaxSize(),
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edited_per_minute_headline, config.editsPerMinute, config.editsPerMinute),
             bodyText = context.getString(R.string.year_in_review_slide_edited_per_minute_body, context.getString(R.string.editing_learn_more_url))
         )
@@ -269,7 +271,7 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             imageResource = R.drawable.yir_puzzle_bytes,
-            imageSize = null,
+            imageModifier = Modifier.fillMaxSize(),
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, config.edits.toInt(), config.edits),
             bodyText = bodyText
         )
@@ -279,7 +281,7 @@ class YearInReviewSlides(
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
             imageResource = R.drawable.yir_puzzle_bytes,
-            imageSize = null,
+            imageModifier = Modifier.fillMaxSize(),
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_headline, config.bytesAddedEN.toInt(), config.bytesAddedEN),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_bytes_added_body,
                 config.bytesAddedEN.toInt(), currentYear, config.bytesAddedEN, context.getString(R.string.editing_learn_more_url))

@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -27,7 +26,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.asDrawable
 import coil3.compose.SubcomposeAsyncImage
@@ -53,15 +51,11 @@ sealed class YearInReviewScreenData(
     open class StandardScreen(
         allowDonate: Boolean = true,
         val imageResource: Int = 0,
-        val imageSize: Dp? = 200.dp,
+        val imageModifier: Modifier = Modifier.size(200.dp),
         val headlineText: Any? = null,
         val bodyText: Any? = null,
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
-
-        open val imageModifier = imageSize?.let {
-            Modifier.size(it)
-        } ?: Modifier.fillMaxSize()
 
         @Composable
         open fun Header(context: Context,
