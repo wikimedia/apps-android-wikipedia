@@ -27,6 +27,7 @@ import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -47,6 +48,18 @@ class CreateAccountActivity : BaseActivity() {
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private val viewModel: CreateAccountActivityViewModel by viewModels()
+
+    private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onSuccess(token: String) {
+            showProgressBar(false)
+            doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
+        }
+
+        override fun onError(e: Exception) {
+            showProgressBar(false)
+            FeedbackUtil.showMessage(this@CreateAccountActivity, e.message.orEmpty())
+        }
+    })
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +105,10 @@ class CreateAccountActivity : BaseActivity() {
                         when (it) {
                             is CreateAccountActivityViewModel.AccountInfoState.DoCreateAccount -> {
                                 doCreateAccount(it.token)
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
+                                showProgressBar(true)
+                                hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
                                 captchaHandler.handleCaptcha(it.token, CaptchaResult(it.captchaId))
@@ -197,13 +214,20 @@ class CreateAccountActivity : BaseActivity() {
         L.w("Account creation failed with result $message")
     }
 
-    private fun doCreateAccount(token: String) {
+    private fun doCreateAccount(token: String, hCaptchaToken: String? = null) {
+        if (!hCaptchaToken.isNullOrEmpty()) {
+            FeedbackUtil.showMessage(this, "HCaptcha success!\nAccount would have been created at this point.")
+            return
+        }
+
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
-        viewModel.doCreateAccount(token, captchaHandler.captchaId().toString(), captchaHandler.captchaWord().toString(), userName, password, repeat, email)
+        viewModel.doCreateAccount(token, captchaHandler.captchaId(),
+            if (hCaptchaToken.isNullOrEmpty()) captchaHandler.captchaWord() else hCaptchaToken,
+            userName, password, repeat, email)
     }
 
     public override fun onStop() {
@@ -212,6 +236,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     public override fun onDestroy() {
+        hCaptchaHelper.cleanup()
         captchaHandler.dispose()
         userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
@@ -295,7 +320,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun showProgressBar(enable: Boolean) {
-        binding.viewProgressBar.visibility = if (enable) View.VISIBLE else View.GONE
+        binding.viewProgressBar.isVisible = enable
         binding.captchaContainer.captchaSubmitButton.isEnabled = !enable
         binding.captchaContainer.captchaSubmitButton.setText(if (enable) R.string.dialog_create_account_checking_progress else R.string.create_account_button)
     }
