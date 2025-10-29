@@ -803,7 +803,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
-        val yirReadingListTitle = requireContext().getString(R.string.year_in_review_reading_list_title,YearInReviewViewModel.YIR_YEAR)
+        val yirReadingListTitle = requireContext().getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR)
         val isReadingListCreatedFromYir = recentPreviewSavedReadingList?.listTitle?.equals(yirReadingListTitle, ignoreCase = true) == true
         if (shouldShowImportedSnackbar && !isReadingListCreatedFromYir) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
