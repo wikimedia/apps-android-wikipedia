@@ -238,7 +238,7 @@ class YearInReviewSlides(
         val quantity = yearInReviewModel.userEditsViewedTimes.toInt()
         return YearInReviewScreenData.StandardScreen(
             isFundraisingAllowed,
-            imageResource = R.drawable.yir_puzzle_worker, // TODO: tbd
+            imageResource = R.drawable.yir_puzzle_pencil, // TODO: tbd
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_headline, quantity, yearInReviewModel.userEditsViewedTimes),
             bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_edits_viewed_times_body, quantity, yearInReviewModel.userEditsViewedTimes)
         )
