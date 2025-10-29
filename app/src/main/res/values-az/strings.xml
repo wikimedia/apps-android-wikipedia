@@ -1872,7 +1872,7 @@
   <string name="settings_app_icon_subtitle">Töhfəçi faydası</string>
   <string name="settings_app_icon_preference_subtitle">Töhfəçi ikonası %d-ci ildə Vikipediyaya tətbiqdaxili töhfələrinizi qeyd edir. O, növbəti İlin İcmalına qədər qalacaq.</string>
   <string name="settings_app_icon_updated">Tətbiq ikonanız yeniləndi.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Yeni ikonanın kilidi açıldı</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked" fuzzy="true">Yeni ikonanın kilidi açıldı</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>

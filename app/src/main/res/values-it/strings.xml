@@ -45,6 +45,7 @@
 * Pierpao
 * Redredsonia
 * RubatoStuf
+* SaldırganSincap
 * Samuele2002
 * Sarah Bernabei
 * Selven
@@ -504,10 +505,10 @@
     <item quantity="other">L\'account scadrà tra %d giorni.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, il tuo indirizzo IP verrà associato alle tue modifiche.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, verrà creato un\'utenza temporanea per proteggere la tua privacy. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Scopri di più&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Stai utilizzando un\'utenza temporanea.&lt;/b&gt; La tua modifica verrà attribuita a %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Scopri di più&lt;/a&gt; .</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Non hai effettuato l\'accesso.&lt;/b&gt; Una volta apportata una modifica, verrà creata un\'utenza temporanea per proteggere la tua privacy. &lt;a href=\"%1$s\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Stai utilizzando un\'utenza temporanea.&lt;/b&gt; La tua modifica verrà attribuita a %1$s. &lt;a href=\"%2$s\"&gt;Ulteriori informazioni&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Al momento stai utilizzando un\'utenza temporanea.&lt;/b&gt; Le modifiche apportate con l\'account temporaneo %1$s non verranno trasferite alla tua utenza permanente quando effettui l\'accesso. Accedi o crea un\'utenza per ottenere riconoscimento sotto il tuo nome utente e usufruire di ulteriori vantaggi.</string>
-  <string name="temp_account_end_session">Termina la sessione</string>
+  <string name="temp_account_end_session">Termina sessione</string>
   <string name="temp_account_end_session_confirm">Questo ti disconnetterà dalla tuo utenza temporanea. Vuoi continuare?</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
@@ -1350,7 +1351,7 @@
   <string name="templates_learn_more_link">Ulteriori informazioni</string>
   <string name="templates_description_incomplete">I modelli sono generati dagli utenti e potrebbero non avere descrizioni complete.</string>
   <string name="templates_description_empty">Il modello \" %s \" non ha ancora una descrizione.</string>
-  <string name="templates_description_missing_data">A questo modello mancano &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; e i suoi parametri sono stati &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerati&lt;/a&gt; . Di conseguenza, il modello e i suoi parametri non hanno descrizioni.</string>
+  <string name="templates_description_missing_data">A questo modello mancano &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e i suoi parametri sono stati &lt;a href=\"%2$s\"&gt;autogenerati&lt;/a&gt;. Di conseguenza, il modello e i suoi parametri non hanno descrizioni.</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>

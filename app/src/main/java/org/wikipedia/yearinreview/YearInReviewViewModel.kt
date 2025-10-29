@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
-import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -153,33 +152,7 @@ class YearInReviewViewModel() : ViewModel() {
                                 endDate = dataStartInstant
                             )
                     }
-                    val commonsCall = async {
-                        ServiceFactory.get(Constants.commonsWikiSite)
-                            .getUserContribsByTimeFrame(
-                                username = AccountUtil.userName,
-                                maxCount = 500,
-                                startDate = dataEndInstant,
-                                endDate = dataStartInstant
-                            )
-                    }
-                    val wikidataCall = async {
-                        ServiceFactory.get(Constants.wikidataWikiSite)
-                            .getUserContribsByTimeFrame(
-                                username = AccountUtil.userName,
-                                maxCount = 500,
-                                startDate = dataEndInstant,
-                                endDate = dataStartInstant,
-                                ns = 0,
-                            )
-                    }
-
-                    val homeSiteResponse = homeSiteCall.await()
-                    val commonsResponse = commonsCall.await()
-                    val wikidataResponse = wikidataCall.await()
-
-                    editCount += homeSiteResponse.query?.userInfo!!.editCount
-                    editCount += wikidataResponse.query?.userInfo!!.editCount
-                    editCount += commonsResponse.query?.userInfo!!.editCount
+                    editCount = homeSiteCall.await().query?.userInfo?.editCount ?: 0
                 }
 
                 val favoriteTimeToRead = async {

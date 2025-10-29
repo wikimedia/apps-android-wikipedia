@@ -2024,8 +2024,8 @@
     <string name="year_in_review_slide_top_categories_body"><![CDATA[Categories group articles on similar subjects together. In %1$d, you visited articles in these interesting categories multiple times: %2$s]]></string>
     <string name="year_in_review_slide_popular_english_articles_headline">English Wikipedia\'s most popular articles</string>
     <plurals name="year_in_review_slide_popular_english_articles_body">
-        <item quantity="one"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited article on English Wikipedia was: %2$s]]></item>
-        <item quantity="other"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s]]></item>
+        <item quantity="one"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited article on English Wikipedia was: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
+        <item quantity="other"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edits_viewed_times_headline">
         <item quantity="one">Your edit has been viewed more than %,d times recently</item>
@@ -2045,8 +2045,8 @@
         <item quantity="other">%,d bytes added</item>
     </plurals>
     <plurals name="year_in_review_slide_bytes_added_body">
-        <item quantity="one"><![CDATA[In %1$d, volunteers added %2$,d byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
-        <item quantity="other"><![CDATA[In %1$d, volunteers added %2$,d bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate.]]></item>
+        <item quantity="one"><![CDATA[In %1$d, volunteers added %2$,d byte to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate</a>.]]></item>
+        <item quantity="other"><![CDATA[In %1$d, volunteers added %2$,d bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate</a>.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edited_times_headline">
         <item quantity="one">You edited Wikipedia %s time</item>
@@ -2078,8 +2078,8 @@
         <item quantity="other">You saved %,d articles</item>
     </plurals>
     <plurals name="year_in_review_slide_saved_articles_body">
-        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
-        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>,. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
+        <item quantity="one"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved article this year.]]></item>
+        <item quantity="other"><![CDATA[These articles included <b>%1$s</b>, <b>%2$s</b>, and <b>%3$s</b>. Each saved article reflects your interests and helps build a personalized knowledge base on Wikipedia.<br /><br />Active app users had %4$,d saved articles this year.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_global_saved_articles_headline">
         <item quantity="one">App users had %,d saved article</item>
@@ -2160,6 +2160,56 @@
     <string name="year_in_review_reading_list_title">Year in Review %d</string>
     <string name="year_in_review_reading_list_description">Made for %1$s. Articles you spent the most time with in %2$d.</string>
 
+    <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
+    <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
+    <plurals name="year_in_review_highlights_logged_out_en_most_popular_title">
+        <item quantity="one">Most popular article on English Wikipedia</item>
+        <item quantity="other">Most popular articles on English Wikipedia</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+        <item quantity="one">Hour spent reading</item>
+        <item quantity="other">Hours spent reading</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+        <item quantity="one">Change editors made</item>
+        <item quantity="other">Changes editors made</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+        <item quantity="one">Number of viewed article</item>
+        <item quantity="other">Number of viewed articles</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+        <item quantity="one">Edit on-app</item>
+        <item quantity="other">Edits on-app</item>
+    </plurals>
+    <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">How often Wikipedia was edited</string>
+    <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+        <item quantity="one">%d time per minute</item>
+        <item quantity="other">%d times per minute</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+        <item quantity="one">Article I read the most</item>
+        <item quantity="other">Articles I read the most</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+        <item quantity="one">Minute read</item>
+        <item quantity="other">Minutes read</item>
+    </plurals>
+    <string name="year_in_review_highlights_logged_in_favorite_day_title">Favorite day to read</string>
+    <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+        <item quantity="one">Article read</item>
+        <item quantity="other">Articles read</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+        <item quantity="one">Category that interested me</item>
+        <item quantity="other">Categories that interested me</item>
+    </plurals>
+    <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+        <item quantity="one">Article edited</item>
+        <item quantity="other">Articles edited</item>
+    </plurals>
+    <string name="year_in_review_highlights_share_button_title">Share highlights</string>
+    <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
     <!--Recommended Reading list -->
     <string name="recommended_reading_list_title">Discover</string>
     <string name="recommended_reading_list_onboarding_card_title">Discover articles picked just for you</string>

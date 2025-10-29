@@ -1141,6 +1141,7 @@
   <string name="activity_tab_discover_encourage">Cerca qualcosa de nove a leger?</string>
   <string name="activity_tab_donation_unknown">Incognite</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Ultime donation&lt;/b&gt; in app</string>
+  <string name="activity_tab_total_edits_all_projects">Total de modificationes trans projectos</string>
   <string name="activity_tab_game_stats">Statisticas de joco</string>
   <string name="activity_tab_game_stats_best_streak">Melior serie</string>
   <string name="activity_tab_play_wiki_games">Jocar al WikiGames</string>
@@ -1149,7 +1150,7 @@
   <string name="activity_tab_menu_feedback">Problema de functionalitate</string>
   <string name="activity_tab_menu_info">Leger plus</string>
   <string name="activity_tab_menu_customize">Personalisar</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">Le analyticas del scheda Activitate es basate sur le lingua primari fixate in le parametros. Illos utilisa datos local, con exception del modificationes, le quales es public.</string>
+  <string name="activity_tab_menu_customize_description">Le analyticas de lectura es basate sur le linguas del app fixate in le parametros. Le analyticas de modification es limitate al lingua primari de tu app. Le analyticas utilisa datos local, con exception del modificationes, le quales es public.</string>
   <string name="activity_tab_highlights">In evidentia</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Historia de lectura</string>
   <string name="activity_tab_impact">Tu impacto</string>
@@ -1871,9 +1872,47 @@
   <string name="settings_app_icon_subtitle">Beneficio de contributor</string>
   <string name="settings_app_icon_preference_subtitle">Tu ha accesso a un icone personalisate que celebra tu contributiones apportate a Wikipedia desde le app in %d. Illo remanera usque le proxime Summario del anno.</string>
   <string name="settings_app_icon_updated">Tu icone del app ha essite actualisate.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked">Nove icone disvelate</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nove icone del app disvelate pro tu schermo initial</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Disvela tu recompensa de contributor pro le proxime anno!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Activa tu nove icone del app in le Parametros sub Icone del app. Gratias pro investir in le futuro del cognoscentia libere. Tu contributiones como %1$s in %2$d adjuta a aperir le via verso un mundo de information libere. Como regratiamento, te ha essite concedite un icone personal de contributor pro Wikipedia sur tu schermo initial.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Nos es felice que Wikipedia ha facite parte de tu anno %1$d! Disvela un recompensa special in tu Summario del anno %2$d deveniente contributor: &lt;a href=\"%3$s\"&gt;modifica Wikipedia&lt;/a&gt; o dona al &lt;a href=\"%4$s\"&gt;Fundation Wikimedia&lt;/a&gt;, le organisation sin scopo lucrative detra Wikipedia. Si Wikipedia te es utile, per favor considera donar pro adjutar a sustener su futuro e mantener lo libere, sin publicitate, digne de fide e accessibile pro omnes.</string>
+  <string name="year_in_review_slide_app_icon_donor">donator</string>
+  <string name="year_in_review_slide_app_icon_editor">redactor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donator e redactor</string>
+  <string name="year_in_review_slide_geo_headline">Le articulos que tu ha legite es le plus proxime a: %s</string>
+  <string name="year_in_review_slide_geo_body">Quando se tracta de articulos sur localitates, tu ha legite le plus sur %1$s, como &lt;b&gt;%2$s&lt;/b&gt; e &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Aperir session pro personalisation?</string>
   <string name="year_in_review_login_dialog_body">Aperir session te da accesso a analyses personalisate. Tu pote totevia vider le analyses collective sin aperir session.</string>
+  <string name="year_in_review_login_dialog_positive">Aperir session / Adherer a Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Continuar sin aperir session</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Tu articulo principal</item>
+    <item quantity="other">Tu articulos principal</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Ecce le articulo que tu ha visitate le plus in %1$d: %2$s</item>
+    <item quantity="other">Ecce le articulos que tu ha visitate le plus in %1$d: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Tu categorias le plus interessante</string>
+  <string name="year_in_review_slide_top_categories_body">Le categorias reuni articulos sur subjectos similar. In %1$d, tu ha visitate articulos in iste categorias interessante plure vices: %2$s</string>
+  <string name="year_in_review_slide_popular_english_articles_headline">Le articulos le plus popular de Wikipedia in anglese</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Tu modification ha essite vidite plus de %,d vices recentemente</item>
+    <item quantity="other">Tu modificationes ha essite vidite plus de %,d vices recentemente</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Lectores de tote le mundo apprecia tu contributiones. In le ultime duo menses, le articulos que tu ha modificate ha recipite un total de %,d visita. Gratias a redactores como tu, Wikipedia es un ressource de cognoscentia factual, confidibile e in constante melioration, pro tote le mundo.</item>
+    <item quantity="other">Lectores de tote le mundo apprecia tu contributiones. In le ultime duo menses, le articulos que tu ha modificate ha recipite un total de %,d visitas. Gratias a redactores como tu, Wikipedia es un ressource de cognoscentia factual, confidibile e in constante melioration, pro tote le mundo.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Wikipedia ha essite modificate %,d vice per minuta</item>
+    <item quantity="other">Wikipedia ha essite modificate %,d vices per minuta</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Le articulos se crea e meliora de maniera collaborative, usante fontes digne de fide. Cata uno de nos ha cognoscentias a compartir. &lt;a href=\"%s\"&gt;Apprende como participar&lt;/a&gt;!</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d byte addite</item>
+    <item quantity="other">%,d bytes addite</item>
+  </plurals>
   <string name="recommended_reading_list_title">Discoperir</string>
   <string name="recommended_reading_list_onboarding_card_title">Discoperir articulos seligite specialmente pro te</string>
   <string name="recommended_reading_list_onboarding_card_message">Tu lista de lectura septimanal de articulos de Wikipedia, curate specialmente pro te.</string>
