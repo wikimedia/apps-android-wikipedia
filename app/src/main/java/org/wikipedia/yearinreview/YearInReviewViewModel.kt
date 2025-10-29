@@ -15,12 +15,16 @@ import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
@@ -28,6 +32,7 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
@@ -101,16 +106,19 @@ class YearInReviewViewModel() : ViewModel() {
                         .take(MAX_TOP_CATEGORY)
                 }
 
-                val impactDataJob = async {
-                    if (AccountUtil.isLoggedIn) {
-                        val wikiSite = WikipediaApp.instance.wikiSite
+                var totalPageViews = 0L
+                var editCount = 0
+                if (AccountUtil.isLoggedIn) {
+                    val wikiSite = WikipediaApp.instance.wikiSite
+                    val userInfoResponse = ServiceFactory.get(wikiSite).getLocalAndGlobalUserInfo()
+
+                    val impactDataJob = async {
                         val now = Instant.now().epochSecond
                         val impact: GrowthUserImpact
                         val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
                         val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
                         if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                            val userId =
-                                ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                            val userId = userInfoResponse.query?.userInfo?.id ?: 0
                             impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
                             impactLastResponseBodyMap[wikiSite.languageCode] =
                                 JsonUtil.encodeToString(impact).orEmpty()
@@ -138,23 +146,26 @@ class YearInReviewViewModel() : ViewModel() {
 
                         impact.topViewedArticlesWithPageTitle = pageMap
                         impact
-                    } else {
-                        GrowthUserImpact()
                     }
-                }
 
-                var editCount = 0
-                if (AccountUtil.isLoggedIn) {
-                    val homeSiteCall = async {
-                        ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                            .getUserContribsByTimeFrame(
-                                username = AccountUtil.userName,
-                                maxCount = 500,
-                                startDate = dataEndInstant,
-                                endDate = dataStartInstant
-                            )
+                    val editCountCall = async {
+                        var response = UserEdits()
+                        // This is an experimental-ish API, so guard it with an explicit try-catch,
+                        // and proceed if it fails.
+                        try {
+                            response = ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                                .getEditsPerGlobalUserMonthly(
+                                    userInfoResponse.query?.globalUserInfo?.id ?: 0,
+                                    DateUtil.getYMDDateString(LocalDate.of(YIR_YEAR, 1, 1)),
+                                    DateUtil.getYMDDateString(LocalDate.of(YIR_YEAR, 12, 31))
+                                )
+                        } catch (e: IOException) {
+                            L.e(e)
+                        }
+                        response
                     }
-                    editCount = homeSiteCall.await().query?.userInfo?.editCount ?: 0
+                    totalPageViews = impactDataJob.await().totalPageviewsCount
+                    editCount = editCountCall.await().items.sumOf { it.editCount }
                 }
 
                 val favoriteTimeToRead = async {
@@ -235,7 +246,7 @@ class YearInReviewViewModel() : ViewModel() {
                     largestClusterCountryName = largestClusterCountryName,
                     largestClusterArticles = largestClusterArticles,
                     userEditsCount = editCount,
-                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    userEditsViewedTimes = totalPageViews,
                     isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()
                 )
 
