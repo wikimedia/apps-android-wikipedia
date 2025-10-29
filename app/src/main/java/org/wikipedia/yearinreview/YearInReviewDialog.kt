@@ -38,7 +38,7 @@ object YearInReviewDialog {
         val endMillis = Instant.parse(activeEndDate).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
         val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-        if (count <= MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "A") {
+        if (count <= MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
             return
         }
 
@@ -49,10 +49,12 @@ object YearInReviewDialog {
             .setTitle(title)
             .setMessage(StringUtil.fromHtml(message))
             .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { dialog, _ ->
+                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) }
                 activity.startActivity(ReadingListActivity.newIntent(activity, readingListMode = ReadingListMode.YEAR_IN_REVIEW))
                 dialog.dismiss()
             }
-            .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> }
+            .setCancelable(false)
+            .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) } }
             .show()
             .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
     }

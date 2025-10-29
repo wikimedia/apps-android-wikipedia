@@ -216,6 +216,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
+        if (Prefs.readingListRecentReceivedId != -1L) // Navigate to reading lists only if Year in Review reading list is created
+            onNavigateTo(NavTab.READING_LISTS)
     }
 
     override fun onDestroyView() {

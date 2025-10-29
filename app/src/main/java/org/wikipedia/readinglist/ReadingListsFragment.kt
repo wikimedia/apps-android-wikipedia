@@ -507,6 +507,13 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             } else {
                 actionMode?.finish()
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
+                if (recentPreviewSavedReadingList != null) {
+                    recentPreviewSavedReadingList = null
+                    val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == readingList.id }
+                    if (pos != -1) {
+                        adapter.notifyItemChanged(pos)
+                    }
+                }
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
         }
