@@ -40,7 +40,7 @@ object YearInReviewDialog {
         val endMillis = Instant.parse(activeEndDate).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
 
-        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup != "B") {
+        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
             return
         }
 
@@ -62,7 +62,7 @@ object YearInReviewDialog {
     }
 
     fun maybeShowYirReadingListSurveyDialog(activity: Activity) {
-        if (Prefs.yearInReviewReadingListSurveyState != YearInReviewReadingListSurveyState.SHOW_ON_NEXT_VISIT || userGroup != "B") {
+        if (Prefs.yearInReviewReadingListSurveyShown || Prefs.yearInReviewReadingListVisitCount < 2 || userGroup == "B") {
             return
         }
 
@@ -98,9 +98,9 @@ object YearInReviewDialog {
                 }, 200)
             }
         }
+        Prefs.yearInReviewReadingListSurveyShown = true
+        Prefs.yearInReviewReadingListVisitCount = 0
         dialog.show()
-
-        Prefs.yearInReviewReadingListSurveyState = YearInReviewReadingListSurveyState.SHOWN
     }
 
     fun maybeShowYearInReviewFeedbackDialog(activity: Activity) {
@@ -165,11 +165,5 @@ object YearInReviewDialog {
 enum class YearInReviewSurveyState {
     NOT_TRIGGERED,
     SHOULD_SHOW,
-    SHOWN
-}
-
-enum class YearInReviewReadingListSurveyState {
-    NOT_TRIGGERED,
-    SHOW_ON_NEXT_VISIT,
     SHOWN
 }

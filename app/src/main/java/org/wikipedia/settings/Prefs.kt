@@ -30,7 +30,6 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.yearinreview.YearInReviewModel
-import org.wikipedia.yearinreview.YearInReviewReadingListSurveyState
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
 
@@ -792,12 +791,6 @@ object Prefs {
         } ?: YearInReviewSurveyState.NOT_TRIGGERED
         set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_survey_state, value.name)
 
-    var yearInReviewReadingListSurveyState: YearInReviewReadingListSurveyState
-        get() = PrefsIoUtil.getString(R.string.preference_key_yir_reading_list_survey_state, null)?.let {
-            YearInReviewReadingListSurveyState.valueOf(it)
-        } ?: YearInReviewReadingListSurveyState.NOT_TRIGGERED
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_reading_list_survey_state, value.name)
-
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_enabled, value)
@@ -878,4 +871,12 @@ object Prefs {
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
+
+    var yearInReviewReadingListVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
+
+    var yearInReviewReadingListSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
 }

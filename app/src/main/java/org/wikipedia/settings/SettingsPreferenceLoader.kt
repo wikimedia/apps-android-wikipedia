@@ -26,7 +26,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.yearinreview.YearInReviewReadingListSurveyState
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
 /** UI code for app settings used by PreferenceFragment.  */
@@ -80,8 +79,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         Prefs.yearInReviewModelData = emptyMap()
                         YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = 0) }
+                        Prefs.yearInReviewReadingListSurveyShown = false
+                        Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
-                        Prefs.yearInReviewReadingListSurveyState = YearInReviewReadingListSurveyState.NOT_TRIGGERED
                     }
                     .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
                     .show()
