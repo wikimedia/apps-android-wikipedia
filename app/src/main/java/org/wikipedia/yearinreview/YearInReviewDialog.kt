@@ -22,6 +22,8 @@ import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.getYearInRevie
 import java.time.Instant
 
 object YearInReviewDialog {
+    private val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+
     suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
         if (getYearInReviewModel()?.isReadingListDialogShown == true || !AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || (getYearInReviewModel()?.slideViewedCount ?: 0) < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
             return
@@ -37,8 +39,8 @@ object YearInReviewDialog {
         val startMillis = Instant.parse(activeStartDate).toEpochMilli()
         val endMillis = Instant.parse(activeEndDate).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
-        val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
+
+        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup != "B") {
             return
         }
 
@@ -57,6 +59,48 @@ object YearInReviewDialog {
             .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) } }
             .show()
             .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    fun maybeShowYirReadingListSurveyDialog(activity: Activity) {
+        if (Prefs.yearInReviewReadingListSurveyState != YearInReviewReadingListSurveyState.SHOW_ON_NEXT_VISIT || userGroup != "B") {
+            return
+        }
+
+        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(R.string.year_in_review_reading_list_survey_title)
+        binding.messageText.text = activity.getString(R.string.year_in_review_reading_list_survey_subtitle)
+        binding.feedbackInputContainer.isVisible = true
+        binding.feedbackInputContainer.hint =
+            activity.getString(R.string.year_in_review_survey_placeholder_text)
+
+        val dialog = MaterialAlertDialogBuilder(activity)
+            .setView(binding.root)
+            .setCancelable(false)
+            .create()
+
+        binding.cancelButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.submitButton.setOnClickListener {
+            val selectedOption = getSelectedOption(binding)
+            val feedbackText = binding.feedbackInput.text.toString()
+            // @TODO: instrumentation
+            FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+            dialog.dismiss()
+        }
+
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    if (!activity.isDestroyed) {
+                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
+                }, 200)
+            }
+        }
+        dialog.show()
+
+        Prefs.yearInReviewReadingListSurveyState = YearInReviewReadingListSurveyState.SHOWN
     }
 
     fun maybeShowYearInReviewFeedbackDialog(activity: Activity) {
@@ -121,5 +165,11 @@ object YearInReviewDialog {
 enum class YearInReviewSurveyState {
     NOT_TRIGGERED,
     SHOULD_SHOW,
+    SHOWN
+}
+
+enum class YearInReviewReadingListSurveyState {
+    NOT_TRIGGERED,
+    SHOW_ON_NEXT_VISIT,
     SHOWN
 }

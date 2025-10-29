@@ -77,6 +77,9 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.yearinreview.YearInReviewDialog
+import org.wikipedia.yearinreview.YearInReviewReadingListSurveyState
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
@@ -479,6 +482,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                 val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
                 FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
+            }
+            if (readingList.title.contains(getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR))) {
+                YearInReviewDialog.maybeShowYirReadingListSurveyDialog(requireActivity())
+                updateYiReadingListSurveyState()
             }
         }
     }
@@ -1194,6 +1201,12 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
     private fun getPagePositionInList(page: ReadingListPage): Int {
         return displayedLists.indexOfFirst { it is ReadingListPage && it.id == page.id }
+    }
+
+    private fun updateYiReadingListSurveyState() {
+        if (Prefs.yearInReviewReadingListSurveyState != YearInReviewReadingListSurveyState.SHOWN) {
+            Prefs.yearInReviewReadingListSurveyState = YearInReviewReadingListSurveyState.SHOW_ON_NEXT_VISIT
+        }
     }
 
     companion object {

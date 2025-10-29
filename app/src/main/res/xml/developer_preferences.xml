@@ -525,6 +525,10 @@
             android:key="@string/preference_key_yir_survey_state"
             android:title="Yir Survey State"/>
 
+        <ListPreference
+            android:key="@string/preference_key_yir_reading_list_survey_state"
+            android:title="Yir Reading List Survey State"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Donation Reminder">

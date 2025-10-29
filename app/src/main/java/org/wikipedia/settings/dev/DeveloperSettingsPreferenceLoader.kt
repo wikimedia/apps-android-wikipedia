@@ -34,6 +34,7 @@ import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.yearinreview.YearInReviewReadingListSurveyState
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 
 internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
@@ -271,6 +272,22 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                     else -> YearInReviewSurveyState.SHOWN
                 }
                 Prefs.yearInReviewSurveyState = source
+                true
+            }
+        }
+        (findPreference(R.string.preference_key_yir_reading_list_survey_state) as ListPreference).apply {
+            val states = YearInReviewReadingListSurveyState.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "NOT_TRIGGERED" -> YearInReviewReadingListSurveyState.NOT_TRIGGERED
+                    "SHOULD_SHOW" -> YearInReviewReadingListSurveyState.SHOW_ON_NEXT_VISIT
+                    else -> YearInReviewReadingListSurveyState.SHOWN
+                }
+                Prefs.yearInReviewReadingListSurveyState = source
                 true
             }
         }

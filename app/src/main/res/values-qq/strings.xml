@@ -1871,6 +1871,8 @@
   <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
+  <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Reading list survey.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Subtitle for the Year in Review Reading list survey.</string>
   <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>
   <string name="year_in_review_survey_satisfied">Satisfied button option for the Year in Review survey</string>
   <string name="year_in_review_survey_neutral">Neutral button option for the Year in Review survey</string>
