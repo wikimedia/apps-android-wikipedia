@@ -22,5 +22,6 @@ data class YearInReviewModel(
     val userEditsViewedTimes: Long,
     val isCustomIconUnlocked: Boolean,
     val slideViewedCount: Int = 0,
-    val isReadingListDialogShown: Boolean = false
+    val isReadingListDialogShown: Boolean = false,
+    val isReadingListCreated: Boolean = false
 )

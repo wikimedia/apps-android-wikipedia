@@ -77,6 +77,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
@@ -273,6 +274,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 binding.readingListSwipeRefresh.isVisible = true
                                 binding.readingListSwipeRefresh.isRefreshing = false
                                 update()
+                                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = true) }
                                 viewModel.saveReadingList(it.data)
                             }
                             is Resource.Error -> {
