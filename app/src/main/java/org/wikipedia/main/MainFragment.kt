@@ -93,6 +93,7 @@ import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
 import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
 import java.util.concurrent.TimeUnit
 
@@ -216,8 +217,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
-        if (Prefs.readingListRecentReceivedId != -1L) {
+        if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
             onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
+            YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = false) }
         }
     }
 
