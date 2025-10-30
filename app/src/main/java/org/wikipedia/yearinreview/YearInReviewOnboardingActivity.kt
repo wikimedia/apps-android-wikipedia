@@ -12,6 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
@@ -29,6 +30,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        YearInReviewEvent.submit(action = "impression", slide = "entry_a")
         Prefs.yearInReviewVisited = true
         setContent {
             BaseTheme {
@@ -43,9 +45,11 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
+                            YearInReviewEvent.submit(action = "login_click", slide = "entry_a")
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_YEAR_IN_REVIEW))
                         },
                         onDismissButtonClick = {
+                            YearInReviewEvent.submit(action = "continue_click", slide = "entry_a")
                             proceed()
                         }
                     )
@@ -53,6 +57,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 YearInReviewOnboardingScreen(
                     onBackButtonClick = {
+                        YearInReviewEvent.submit(action = "close_click", slide = "entry_a")
                         setResult(RESULT_CANCELED)
                         finish()
                     },

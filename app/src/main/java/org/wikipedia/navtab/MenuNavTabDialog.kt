@@ -13,6 +13,7 @@ import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -38,10 +39,16 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: ViewMainDrawerBinding? = null
     private val binding get() = _binding!!
 
+    private val yirEntrySlide get() = if (AccountUtil.isLoggedIn) "entry_b" else "entry_c"
+    private val yirEnabled get() = YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = ViewMainDrawerBinding.inflate(inflater, container, false)
 
-        binding.mainDrawerYearInReviewContainer.isVisible = YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled
+        if (yirEnabled) {
+            YearInReviewEvent.submit(action = "impression", slide = yirEntrySlide)
+        }
+        binding.mainDrawerYearInReviewContainer.isVisible = yirEnabled
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
@@ -91,6 +98,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerYearInReviewContainer.setOnClickListener {
+            YearInReviewEvent.submit(action = "start_click", slide = yirEntrySlide)
             callback()?.yearInReviewClick()
             dismiss()
         }
