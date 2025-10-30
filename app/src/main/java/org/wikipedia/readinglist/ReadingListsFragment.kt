@@ -175,7 +175,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-        hideNewIndicatorForRecentSavedList()
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -215,16 +214,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
         ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
-    }
-
-    private fun hideNewIndicatorForRecentSavedList() {
-        if (recentPreviewSavedReadingList != null) {
-            val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == recentPreviewSavedReadingList?.id }
-            if (pos != -1) {
-                adapter.notifyItemChanged(pos)
-            }
-            recentPreviewSavedReadingList = null
-        }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -358,7 +347,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 if (recentPreviewSavedReadingList == null) {
                     recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                        .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                        .find { it.id == Prefs.readingListRecentReceivedId }
+                        ?.also { shouldShowImportedSnackbar = true }
+                        ?: run {
+                            shouldShowImportedSnackbar = false
+                            null
+                        }
                 }
 
                 binding.swipeRefreshLayout.isRefreshing = false
@@ -518,6 +512,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
+                if (recentPreviewSavedReadingList != null) {
+                    recentPreviewSavedReadingList = null
+                    Prefs.readingListRecentReceivedId = -1
+                    val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == readingList.id }
+                    if (pos != -1) {
+                        adapter.notifyItemChanged(pos)
+                    }
+                }
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
