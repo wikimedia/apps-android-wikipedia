@@ -28,11 +28,12 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         updateStatusBarColor(false)
-        title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
+        val listTitle = intent.getStringExtra(EXTRA_READING_LIST_TITLE)
+        title = getString(R.string.reading_list_activity_title, listTitle)
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         callback = this
 
-        if (readingListMode == ReadingListMode.YEAR_IN_REVIEW || title.contains(getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR))) {
+        if (readingListMode == ReadingListMode.YEAR_IN_REVIEW || listTitle.equals(getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR), ignoreCase = true)) {
             YearInReviewDialog.maybeShowYirReadingListSurveyDialog(this)
             incrementYiReadingListVisitCount()
         }
