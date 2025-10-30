@@ -30,7 +30,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.Calendar
+import java.time.LocalDate
 
 class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
@@ -96,10 +96,9 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            val calendar = Calendar.getInstance()
-            val today = DateUtil.getYMDDateString(calendar.time)
-            calendar.add(Calendar.YEAR, -1)
-            val lastYear = DateUtil.getYMDDateString(calendar.time)
+            val now = LocalDate.now()
+            val today = DateUtil.getYMDDateString(now)
+            val lastYear = DateUtil.getYMDDateString(now.minusYears(1))
 
             val mwResponse = async { ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsAscending(pageTitle.prefixedText, null, 1, null) }
             val editCountsResponse = async { ServiceFactory.getCoreRest(pageTitle.wikiSite).getEditCount(pageTitle.prefixedText, EditCount.EDIT_TYPE_EDITS) }
