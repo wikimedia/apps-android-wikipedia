@@ -871,4 +871,12 @@ object Prefs {
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
+
+    var yearInReviewReadingListVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
+
+    var yearInReviewReadingListSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
 }

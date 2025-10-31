@@ -25,6 +25,8 @@ import java.time.Instant
 import java.time.ZoneOffset
 
 object YearInReviewDialog {
+    private val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+
     suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
         if (getYearInReviewModel()?.isReadingListDialogShown == true || !AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || (getYearInReviewModel()?.slideViewedCount ?: 0) < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
             return
@@ -39,7 +41,7 @@ object YearInReviewDialog {
         val startMillis = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val endMillis = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
-        val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+
         if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
             return
         }
@@ -59,6 +61,48 @@ object YearInReviewDialog {
             .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) } }
             .show()
             .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    fun maybeShowYirReadingListSurveyDialog(activity: Activity) {
+        if (Prefs.yearInReviewReadingListSurveyShown || Prefs.yearInReviewReadingListVisitCount < 2 || userGroup == "B") {
+            return
+        }
+
+        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
+        binding.titleText.text = activity.getString(R.string.year_in_review_reading_list_survey_title)
+        binding.messageText.text = activity.getString(R.string.year_in_review_reading_list_survey_subtitle)
+        binding.feedbackInputContainer.isVisible = true
+        binding.feedbackInputContainer.hint =
+            activity.getString(R.string.year_in_review_survey_placeholder_text)
+
+        val dialog = MaterialAlertDialogBuilder(activity)
+            .setView(binding.root)
+            .setCancelable(false)
+            .create()
+
+        binding.cancelButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.submitButton.setOnClickListener {
+            val selectedOption = getSelectedOption(binding)
+            val feedbackText = binding.feedbackInput.text.toString()
+            // @TODO: instrumentation
+            FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+            dialog.dismiss()
+        }
+
+        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                binding.dialogContainer.postDelayed({
+                    if (!activity.isDestroyed) {
+                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
+                    }
+                }, 200)
+            }
+        }
+        Prefs.yearInReviewReadingListSurveyShown = true
+        Prefs.yearInReviewReadingListVisitCount = 0
+        dialog.show()
     }
 
     fun maybeShowYearInReviewFeedbackDialog(activity: Activity) {

@@ -1976,8 +1976,11 @@
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
     <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
     <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
-    <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string><string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_reading_list_survey_title">Help improve the Year in Review 2025 reading list.</string>
+    <string name="year_in_review_reading_list_survey_subtitle">Are you satisfied with your reading list?</string>
     <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
     <string name="year_in_review_survey_satisfied">Satisfied</string>
     <string name="year_in_review_survey_neutral">Neutral</string>
