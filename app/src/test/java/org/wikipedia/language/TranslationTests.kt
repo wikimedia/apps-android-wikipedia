@@ -108,15 +108,14 @@ class TranslationTests {
         val mismatches = StringBuilder()
 
         // Step 1: collect all items in en/strings.xml
-        val basePluralsList = findStringItemInXML(baseFile, "string", "plurals")
+        val basePluralsList = findStringItemInXML(baseFile, "plurals")
 
         // Step 2: check qq/strings.xml for plurals without items
         val document = Jsoup.parse(qQFile, "UTF-8")
         val pluralsElements = document.select("plurals")
         for (element in pluralsElements) {
             val name = element.attr("name")
-            val items = element.select("item")
-
+            val items = element.select("> item")
             // Check if this plural exists in base and has no items in qq
             if (basePluralsList.contains(name) && items.isEmpty()) {
                 mismatches
