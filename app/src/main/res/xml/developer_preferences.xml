@@ -545,11 +545,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Activity tab">
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_activity_tab_has_visited"
-            android:title="@string/preference_key_activity_tab_has_visited" />
-
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_activity_tab_onboarding_shown"
             android:title="@string/preference_key_activity_tab_onboarding_shown" />

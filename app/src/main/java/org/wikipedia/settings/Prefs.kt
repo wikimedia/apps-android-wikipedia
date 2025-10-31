@@ -835,10 +835,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
-    var hasVisitedActivityTab
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_has_visited, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_has_visited, value)
-
     var impactLastQueryTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
