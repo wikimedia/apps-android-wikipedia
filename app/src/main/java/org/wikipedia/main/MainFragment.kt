@@ -176,6 +176,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     return@setOnItemSelectedListener false
                 }
             }
+            if (item.order == NavTab.EDITS.code() && !Prefs.hasVisitedActivityTab) {
+                Prefs.hasVisitedActivityTab = true
+                binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
+            }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
@@ -193,7 +197,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.activityTabRedDotShown)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.hasVisitedActivityTab)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
