@@ -8,44 +8,18 @@ import org.wikipedia.base.TestConfig
 import org.wikipedia.settings.Prefs
 
 class SuggestedEditsScreenRobot : BaseRobot() {
-
-    fun verifyContributionsIsVisible() = apply {
-        verify.viewWithTextDisplayed(text = "Contributions")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyViewsIsVisible() = apply {
-        verify.viewWithTextDisplayed(text = "Views")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyLastEditedIsVisible() = apply {
-        verify.viewWithTextDisplayed(text = "Last edited")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyEditQualityIsVisible() = apply {
-        verify.viewWithTextDisplayed(text = "Edit quality")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun verifyLastDonatedIsVisible() = apply {
-        verify.viewWithTextDisplayed(text = "Last donated")
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun clickArticleDescriptions() = apply {
         list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 0, viewAction = click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickImageCaptions() = apply {
-        list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 1, viewAction = click())
+        list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 2, viewAction = click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickImageTags() = apply {
-        list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 2, viewAction = click())
+        list.scrollToRecyclerViewInsideNestedScrollView(recyclerViewId = R.id.tasksRecyclerView, position = 3, viewAction = click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -63,6 +37,20 @@ class SuggestedEditsScreenRobot : BaseRobot() {
         list.verifyItemDoesNotExistWithText(
             recyclerViewId = R.id.tasksRecyclerView,
             text = context.getString(R.string.description_edit_tutorial_title_descriptions)
+        )
+    }
+
+    fun verifyImageCaptionsExist(context: Context) = apply {
+        list.verifyItemExistWithText(
+            recyclerViewId = R.id.tasksRecyclerView,
+            text = context.getString(R.string.suggested_edits_image_captions)
+        )
+    }
+
+    fun verifyImageTagsExist(context: Context) = apply {
+        list.verifyItemExistWithText(
+            recyclerViewId = R.id.tasksRecyclerView,
+            text = context.getString(R.string.suggested_edits_image_captions)
         )
     }
 
