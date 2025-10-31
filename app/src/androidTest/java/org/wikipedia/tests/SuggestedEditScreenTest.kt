@@ -52,7 +52,6 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
         suggestedEditsScreenRobot
             .verifyArticleDescriptionDoesNotExist(context)
             .increaseContribution()
-            .enterContributionScreen()
         systemRobot
             .clickOnSystemDialogWithText("No thanks")
             .pressBack()
