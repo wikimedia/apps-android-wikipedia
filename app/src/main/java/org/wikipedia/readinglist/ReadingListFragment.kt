@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -76,6 +77,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Date
 import java.util.Locale
 
@@ -187,6 +189,10 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                     RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = resource.data.pages.size)
                                 }
 
+                                if (readingListMode == ReadingListMode.YEAR_IN_REVIEW) {
+                                    return@collect
+                                }
+
                                 requireActivity().startActivity(MainActivity.newIntent(requireContext())
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS, true))
                                 requireActivity().finish()
@@ -236,6 +242,40 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                                 maybeShowCustomizeSnackbar()
                                 Prefs.isNewRecommendedReadingListGenerated = false
                                 FlowEventBus.post(NewRecommendedReadingListEvent())
+                            }
+                            is Resource.Error -> {
+                                L.e(it.throwable)
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = true
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                                binding.errorView.backClickListener = View.OnClickListener {
+                                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                                }
+                                binding.errorView.setError(it.throwable)
+                            }
+                        }
+                    }
+                }
+                launch {
+                    viewModel.yirListFlow.collect {
+                        when (it) {
+                            is Resource.Loading -> {
+                                binding.progressBar.isVisible = true
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = false
+                                binding.readingListSwipeRefresh.isVisible = false
+                            }
+                            is Resource.Success -> {
+                                readingList = it.data
+                                binding.progressBar.isVisible = false
+                                binding.errorView.isVisible = false
+                                binding.readingListHeader.isVisible = true
+                                binding.readingListSwipeRefresh.isVisible = true
+                                binding.readingListSwipeRefresh.isRefreshing = false
+                                update()
+                                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = true) }
+                                viewModel.saveReadingList(it.data)
                             }
                             is Resource.Error -> {
                                 L.e(it.throwable)
@@ -485,6 +525,14 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     update()
                     Prefs.isNewRecommendedReadingListGenerated = false
                     FlowEventBus.post(NewRecommendedReadingListEvent())
+                }
+            }
+
+            ReadingListMode.YEAR_IN_REVIEW -> {
+                if (readingList == null) {
+                    viewModel.generateYearInReviewReadingList(AccountUtil.userName)
+                } else {
+                    update()
                 }
             }
         }
@@ -861,7 +909,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         }
                     }
                 }
-                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW -> { }
+                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW, ReadingListMode.YEAR_IN_REVIEW -> { }
             }
         }
 

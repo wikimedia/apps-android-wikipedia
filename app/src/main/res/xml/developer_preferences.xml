@@ -525,6 +525,15 @@
             android:key="@string/preference_key_yir_survey_state"
             android:title="Yir Survey State"/>
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_yir_reading_list_visit_count"
+            android:title="Yir Reading List Visit Count" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_reading_list_survey_shown"
+            android:title="@string/preference_key_yir_reading_list_survey_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Donation Reminder">

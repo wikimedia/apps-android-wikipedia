@@ -11,13 +11,19 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.Namespace
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.yearinreview.YearInReviewViewModel
+import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.YIR_YEAR
+import java.time.ZoneOffset
 
 class ReadingListFragmentViewModel : ViewModel() {
 
@@ -35,6 +41,9 @@ class ReadingListFragmentViewModel : ViewModel() {
 
     private val _recommendedListFlow = MutableStateFlow(Resource<ReadingList>())
     val recommendedListFlow = _recommendedListFlow.asStateFlow()
+
+    private val _yirListFlow = MutableStateFlow(Resource<ReadingList>())
+    val yirListFlow = _yirListFlow.asStateFlow()
 
     fun updateListById(readingListId: Long) {
          viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -136,6 +145,47 @@ class ReadingListFragmentViewModel : ViewModel() {
                     _recommendedListFlow.value = Resource.Error(Throwable(context.getString(R.string.error_message_generic)))
                 }
             }
+        }
+    }
+
+    fun generateYearInReviewReadingList(userName: String) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            viewModelScope.launch {
+                _yirListFlow.value = Resource.Error(throwable)
+            }
+        }) {
+            val context = WikipediaApp.instance
+            val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR)
+            val startMillis = remoteConfig?.dataStartDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli() ?: 0
+            val endMillis = remoteConfig?.dataEndDate?.toInstant(ZoneOffset.UTC)?.toEpochMilli() ?: 0
+
+            val articles = AppDatabase.instance.historyEntryWithImageDao().getLongestReadArticlesInPeriod(startMillis, endMillis,
+                YearInReviewViewModel.MAX_LONGEST_READ_ARTICLES)
+            val yirReadingListPages = articles.map {
+                val wikiSite = WikiSite.forLanguageCode(it.lang)
+                ReadingListPage(
+                    wiki = wikiSite,
+                    lang = it.lang,
+                    namespace = Namespace.fromLegacyString(wikiSite, it.namespace),
+                    displayTitle = it.displayTitle,
+                    apiTitle = it.apiTitle,
+                    description = it.description,
+                    thumbUrl = it.imageName,
+                    remoteId = 0
+                ).apply {
+                    mtime = System.currentTimeMillis()
+                    atime = mtime
+                }
+            }
+            val readingList = ReadingList(
+                listTitle = context.getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR),
+                description = context.getString(R.string.year_in_review_reading_list_description, userName, YearInReviewViewModel.YIR_YEAR)
+            ).apply {
+                pages.addAll(yirReadingListPages)
+                mtime = System.currentTimeMillis()
+                atime = mtime
+            }
+            _yirListFlow.value = Resource.Success(readingList)
         }
     }
 }

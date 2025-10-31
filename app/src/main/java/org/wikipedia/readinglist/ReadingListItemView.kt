@@ -168,7 +168,7 @@ class ReadingListItemView(context: Context, attrs: AttributeSet? = null) : Const
         binding.itemRecommendedListInfoContainer.isVisible = readingListMode == ReadingListMode.RECOMMENDED
         binding.itemNotificationButton.isVisible = readingListMode == ReadingListMode.RECOMMENDED
         binding.itemSaveToListButton.isVisible = readingListMode == ReadingListMode.RECOMMENDED
-        binding.itemShareButton.isVisible = readingListMode == ReadingListMode.DEFAULT
+        binding.itemShareButton.isVisible = readingListMode == ReadingListMode.DEFAULT || readingListMode == ReadingListMode.YEAR_IN_REVIEW
 
         if (readingListMode == ReadingListMode.RECOMMENDED) {
             val madeForText = if (AccountUtil.isLoggedIn) {

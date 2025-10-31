@@ -83,6 +83,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -174,7 +175,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -347,7 +347,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
                 if (recentPreviewSavedReadingList == null) {
                     recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                        .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                        .find { it.id == Prefs.readingListRecentReceivedId }
+                        ?.also { shouldShowImportedSnackbar = true }
+                        ?: run {
+                            shouldShowImportedSnackbar = false
+                            null
+                        }
                 }
 
                 binding.swipeRefreshLayout.isRefreshing = false
@@ -507,6 +512,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
+                if (recentPreviewSavedReadingList != null) {
+                    recentPreviewSavedReadingList = null
+                    Prefs.readingListRecentReceivedId = -1
+                    val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == readingList.id }
+                    if (pos != -1) {
+                        adapter.notifyItemChanged(pos)
+                    }
+                }
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
@@ -792,7 +805,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
-        if (shouldShowImportedSnackbar) {
+        val yirReadingListTitle = requireContext().getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR)
+        val isReadingListCreatedFromYir = recentPreviewSavedReadingList?.listTitle?.equals(yirReadingListTitle, ignoreCase = true) == true
+        if (shouldShowImportedSnackbar && !isReadingListCreatedFromYir) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
