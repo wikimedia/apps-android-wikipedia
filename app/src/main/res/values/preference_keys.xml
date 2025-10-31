@@ -174,7 +174,6 @@
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
-    <string name="preference_key_activity_tab_red_dot_shown">activityTabRedDotShown</string>
     <string name="preference_key_impact_last_query_time">impactLastQueryTime</string>
     <string name="preference_key_impact_last_response_body">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
