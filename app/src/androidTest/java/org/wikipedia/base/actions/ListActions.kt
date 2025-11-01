@@ -206,6 +206,23 @@ class ListActions {
             )
     }
 
+    fun verifyItemExistWithText(
+        recyclerViewId: Int,
+        text: String
+    ) {
+        onView(withId(recyclerViewId))
+            .check(
+                matches(
+                    hasDescendant(
+                        allOf(
+                            withText(text),
+                            isDisplayed()
+                        )
+                    )
+                )
+            )
+    }
+
     private fun verifyItemAtPosition(
         recyclerViewId: Int,
         position: Int,
