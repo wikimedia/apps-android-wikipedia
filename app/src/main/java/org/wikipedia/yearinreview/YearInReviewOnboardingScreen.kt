@@ -36,6 +36,7 @@ import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -159,6 +160,7 @@ fun YearInReviewOnboardingBottomBar(
                         .weight(1f)
                         .padding(end = 12.dp),
                     onClick = {
+                        YearInReviewEvent.submit(action = "learn_click", slide = "entry_a")
                         UriUtil.handleExternalLink(
                             context = context,
                             uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
@@ -178,7 +180,10 @@ fun YearInReviewOnboardingBottomBar(
                     modifier = Modifier
                         .weight(1f)
                         .padding(start = 12.dp),
-                    onClick = { onGetStartedClick() }
+                    onClick = {
+                        YearInReviewEvent.submit(action = "start_click", slide = "entry_a")
+                        onGetStartedClick()
+                    }
                 ) {
                     Text(
                         text = stringResource(R.string.year_in_review_get_started),
