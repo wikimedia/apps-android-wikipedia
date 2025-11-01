@@ -89,7 +89,7 @@ fun YearInReviewOnboardingContent(
     ) {
         SubcomposeAsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(R.drawable.wyir_puzzle_tumble)
+                .data(R.drawable.yir_puzzle_pinch)
                 .allowHardware(false)
                 .build(),
             loading = { LoadingIndicator() },
