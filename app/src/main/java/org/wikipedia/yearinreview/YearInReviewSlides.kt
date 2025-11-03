@@ -108,7 +108,7 @@ class YearInReviewSlides(
     private fun appSavedArticlesScreen(): StandardScreen {
         return StandardScreen(
             allowDonate = isFundraisingAllowed,
-            imageResource = R.drawable.yir_puzzle_browser,
+            imageResource = R.drawable.yir_puzzle_cloud,
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_global_saved_articles_headline, config.savedArticlesApps.toInt(), config.savedArticlesApps),
             bodyText = context.getString(R.string.year_in_review_slide_global_saved_articles_body)
         )
@@ -275,7 +275,7 @@ class YearInReviewSlides(
                     config.editsEN.toInt(), config.editsEN)
         return StandardScreen(
             allowDonate = isFundraisingAllowed,
-            imageResource = R.drawable.yir_puzzle_bytes,
+            imageResource = R.drawable.yir_puzzle_worker,
             imageModifier = Modifier.fillMaxSize(),
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_edited_times_headline, config.edits.toInt(), config.edits),
             bodyText = bodyText
