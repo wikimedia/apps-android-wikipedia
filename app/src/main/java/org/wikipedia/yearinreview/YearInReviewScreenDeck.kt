@@ -590,7 +590,7 @@ fun PreviewReadingPatternsContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
                     allowDonate = false,
-                    animatedImageResource = R.drawable.yir_puzzle_browser,
+                    imageResource = R.drawable.yir_puzzle_browser,
                     headlineText = "You have clear reading patterns",
                     bodyText = "",
                     favoriteTimeText = "Afternoon",

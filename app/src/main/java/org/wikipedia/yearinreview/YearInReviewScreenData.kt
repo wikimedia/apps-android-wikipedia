@@ -131,8 +131,6 @@ sealed class YearInReviewScreenData(
 
     class GeoScreen(
         allowDonate: Boolean = true,
-        val largestClusterLatitude: Double,
-        val largestClusterLongitude: Double,
         val largestClusterTopLeft: Pair<Double, Double>,
         val largestClusterBottomRight: Pair<Double, Double>,
         val pagesWithCoordinates: List<HistoryEntryWithImage>,
@@ -142,7 +140,7 @@ sealed class YearInReviewScreenData(
 
     class ReadingPatterns(
         allowDonate: Boolean = true,
-        animatedImageResource: Int = 0,
+        imageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
         val favoriteTimeText: String,
@@ -150,7 +148,7 @@ sealed class YearInReviewScreenData(
         val favoriteMonthText: String
     ) : StandardScreen(
         allowDonate,
-        imageResource = animatedImageResource,
+        imageResource = imageResource,
         headlineText = headlineText,
         bodyText = bodyText,
     )

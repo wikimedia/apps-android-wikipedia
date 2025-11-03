@@ -154,7 +154,7 @@ class YearInReviewSlides(
             .getDisplayName(TextStyle.FULL, Locale.getDefault())
         return ReadingPatterns(
             allowDonate = isFundraisingAllowed,
-            animatedImageResource = R.drawable.yir_puzzle_clock,
+            imageResource = R.drawable.yir_puzzle_clock,
             headlineText = context.getString(R.string.year_in_review_slide_reading_patterns_headline),
             favoriteTimeText = favoriteTimeText,
             favoriteDayText = favoriteDayText,
@@ -199,8 +199,6 @@ class YearInReviewSlides(
         }
         return YearInReviewScreenData.GeoScreen(
             allowDonate = isFundraisingAllowed,
-            largestClusterLatitude = yearInReviewModel.largestClusterLocation.first,
-            largestClusterLongitude = yearInReviewModel.largestClusterLocation.second,
             largestClusterTopLeft = yearInReviewModel.largestClusterTopLeft,
             largestClusterBottomRight = yearInReviewModel.largestClusterBottomRight,
             pagesWithCoordinates = pagesWithCoordinates,
@@ -347,7 +345,6 @@ class YearInReviewSlides(
     }
 
     private fun enWikiLoggedOutHighlightsScreen(): HighlightsScreen {
-
         return HighlightsScreen(
             highlights = listOf(
                 HighlightItem(
