@@ -173,6 +173,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (item.order == NavTab.EDITS.code()) {
                 if (!Prefs.isActivityTabOnboardingShown) {
                     activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
             }
@@ -193,7 +194,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             true
         }
 
-        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.activityTabRedDotShown)
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
