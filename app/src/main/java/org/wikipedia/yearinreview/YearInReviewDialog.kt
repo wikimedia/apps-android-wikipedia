@@ -25,7 +25,7 @@ import java.time.Instant
 import java.time.ZoneOffset
 
 object YearInReviewDialog {
-    private val userGroup = if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
+    private val isTestGroupUser = YearInReviewReadingListAbTest().isTestGroupUser()
 
     suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
         if (getYearInReviewModel()?.isReadingListDialogShown == true || !AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || (getYearInReviewModel()?.slideViewedCount ?: 0) < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
@@ -42,7 +42,7 @@ object YearInReviewDialog {
         val endMillis = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
 
-        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || userGroup == "B") {
+        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || !isTestGroupUser) {
             return
         }
 
@@ -64,7 +64,7 @@ object YearInReviewDialog {
     }
 
     fun maybeShowYirReadingListSurveyDialog(activity: Activity) {
-        if (Prefs.yearInReviewReadingListSurveyShown || Prefs.yearInReviewReadingListVisitCount < 2 || userGroup == "B") {
+        if (Prefs.yearInReviewReadingListSurveyShown || Prefs.yearInReviewReadingListVisitCount < 2 || !isTestGroupUser) {
             return
         }
 
