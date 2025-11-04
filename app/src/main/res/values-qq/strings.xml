@@ -1871,7 +1871,7 @@
   <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
-  <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Reading list survey.</string>
+  <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Reading list survey. %d will be replaced by the current year.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Subtitle for the Year in Review Reading list survey.</string>
   <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>
   <string name="year_in_review_survey_satisfied">Satisfied button option for the Year in Review survey</string>
@@ -2035,8 +2035,8 @@
     <item quantity="one">Title of the app users viewed articles time slide for the Year in Review. %,d will be replaced by the number of viewed time.</item>
     <item quantity="other">Title of the app users viewed articles times slide for the Year in Review. %,d will be replaced by the number of viewed times.</item>
   </plurals>
-  <string name="year_in_review_reading_list_dialog_title">Title of the dialog prompting users to create a Year in Review 2025 reading list.</string>
-  <string name="year_in_review_reading_list_dialog_message">Message explaining that the Year in Review feature will create a reading list from the articles the user spent the most time reading in 2025. %s will be replaced by a URL.</string>
+  <string name="year_in_review_reading_list_dialog_title">Title of the dialog prompting users to create a Year in Review reading list. %d will be replaced by the current year.</string>
+  <string name="year_in_review_reading_list_dialog_message">Message explaining that the Year in Review feature will create a reading list from the articles the user spent the most time reading in the current year. %1$d will be replaced by the current year, and %2$s will be replaced by a URL.</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Label for the button that confirms creating the Year in Review reading list.</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Negat Label for the button that cancels creating the Year in Review reading list.</string>
   <string name="year_in_review_reading_list_title">Title for the Year in Review reading list. %d will be replaced with the year.</string>
