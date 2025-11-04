@@ -537,7 +537,7 @@
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="ab_test_yirReadingList"
-            android:title="Yir Reading List test group" />
+            android:title="Yir Reading List test group (require restart)" />
 
     </PreferenceCategory>
 
