@@ -89,6 +89,10 @@ fun YearInReviewScreenDeck(
         }
 
         is UiState.Success -> {
+            LaunchedEffect(Unit) {
+                YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = it.slideViewedCount + 1) }
+            }
+
             val pages = state.data
             val pagerState = rememberPagerState(pageCount = { pages.size })
             var captureRequest by remember { mutableStateOf<YearInReviewCaptureRequest?>(null) }
