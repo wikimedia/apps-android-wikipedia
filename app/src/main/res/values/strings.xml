@@ -1979,7 +1979,7 @@
     <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string>
     <string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
-    <string name="year_in_review_reading_list_survey_title">Help improve the Year in Review 2025 reading list.</string>
+    <string name="year_in_review_reading_list_survey_title">Help improve the Year in Review %d reading list.</string>
     <string name="year_in_review_reading_list_survey_subtitle">Are you satisfied with your reading list?</string>
     <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
     <string name="year_in_review_survey_satisfied">Satisfied</string>
@@ -2156,8 +2156,8 @@
         <item quantity="other">App users viewed Wikipedia articles %,d times</item>
     </plurals>
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
-    <string name="year_in_review_reading_list_dialog_title">Create your Year in Review 2025 reading list?</string>
-    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in 2025. <a href="%s">Learn more</a>]]></string>\
+    <string name="year_in_review_reading_list_dialog_title">Create your Year in Review %d reading list?</string>
+    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>\
     <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
     <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
     <string name="year_in_review_reading_list_title">Year in Review %d</string>
