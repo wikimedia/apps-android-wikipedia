@@ -1871,6 +1871,8 @@
   <string name="year_in_review_get_started_later">Snackbar message for the year in review that indicates the feature can be visited in the More menu.</string>
   <string name="year_in_review_survey_title">Title for the Year in Review survey</string>
   <string name="year_in_review_survey_subtitle">Subtitle for the Year in Review survey</string>
+  <string name="year_in_review_reading_list_survey_title">Title for the Year in Review Reading list survey.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Subtitle for the Year in Review Reading list survey.</string>
   <string name="year_in_review_survey_very_satisfied">Very satisfied button option for the Year in Review survey</string>
   <string name="year_in_review_survey_satisfied">Satisfied button option for the Year in Review survey</string>
   <string name="year_in_review_survey_neutral">Neutral button option for the Year in Review survey</string>
@@ -2033,6 +2035,12 @@
     <item quantity="one">Title of the app users viewed articles time slide for the Year in Review. %,d will be replaced by the number of viewed time.</item>
     <item quantity="other">Title of the app users viewed articles times slide for the Year in Review. %,d will be replaced by the number of viewed times.</item>
   </plurals>
+  <string name="year_in_review_reading_list_dialog_title">Title of the dialog prompting users to create a Year in Review 2025 reading list.</string>
+  <string name="year_in_review_reading_list_dialog_message">Message explaining that the Year in Review feature will create a reading list from the articles the user spent the most time reading in 2025. %s will be replaced by a URL.</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Label for the button that confirms creating the Year in Review reading list.</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Negat Label for the button that cancels creating the Year in Review reading list.</string>
+  <string name="year_in_review_reading_list_title">Title for the Year in Review reading list. %d will be replaced with the year.</string>
+  <string name="year_in_review_reading_list_description">Description for the Year in Review reading list. Explains who the list is made for and which year it covers. %1$s will be replaced with the username, and %2$d will be replaced with the year.</string>
   <string name="year_in_review_slide_viewed_articles_times_body">Body of the app users viewed articles time slide for the Year in Review.</string>
   <string name="year_in_review_highlights_thank_you_message">Text displayed at the top of the Year in Review highlights screen.</string>
   <string name="year_in_review_highlights_looking_forward_message">Text shown after the thank-you message on the Year in Review highlights screen.</string>

@@ -86,7 +86,7 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.yearinreview.YearInReviewSurvey
+import org.wikipedia.yearinreview.YearInReviewDialog
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -187,6 +187,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
 
         app = WikipediaApp.instance
+
+        if (savedInstanceState == null && !app.haveMainActivity) {
+            lifecycleScope.launch {
+                YearInReviewDialog.maybeShowCreateReadingListDialog(this@PageActivity)
+            }
+        }
+
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -329,7 +336,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
-        YearInReviewSurvey.maybeShowYearInReviewFeedbackDialog(this)
+        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {
