@@ -559,7 +559,7 @@ fun PreviewScreenShot() {
         CreateScreenShotBitmap(
             screenContent = YearInReviewScreenData.StandardScreen(
                 allowDonate = true,
-                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                imageResource = R.drawable.yir_puzzle_browser,
                 headlineText = "Over 3 billion bytes added",
                 bodyText = "TBD"
             ),
@@ -576,7 +576,7 @@ fun PreviewStandardContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.StandardScreen(
                     allowDonate = true,
-                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    imageResource = R.drawable.yir_puzzle_bytes,
                     headlineText = "Over 3 billion bytes added",
                     bodyText = "TBD"
                 )
@@ -594,7 +594,7 @@ fun PreviewReadingPatternsContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
                     allowDonate = false,
-                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    imageResource = R.drawable.yir_puzzle_browser,
                     headlineText = "You have clear reading patterns",
                     bodyText = "",
                     favoriteTimeText = "Afternoon",
