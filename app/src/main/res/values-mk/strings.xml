@@ -1887,7 +1887,7 @@
   <string name="year_in_review_slide_app_icon_editor">уредник</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">дарител и уредник</string>
   <string name="year_in_review_slide_geo_headline">Статиите што ги читавте се најблиску до: %s</string>
-  <string name="year_in_review_slide_geo_body">Кога станува збор за статии за места, најмногу читавте за %1$s, вклучувајќи ги &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s.&lt;/b&gt;</string>
+  <string name="year_in_review_slide_geo_body">Кога станува збор за статии за места, најмногу читавте за %1$s, вклучувајќи ги &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s&lt;/b&gt;</string>
   <string name="year_in_review_login_dialog_title">Се најавувате за лични прилагодувања?</string>
   <string name="year_in_review_login_dialog_body">Најавувањето ви дава пристап до лично прилагодени сознанија. Збирните сознанија можете да ги гледате и без најава.</string>
   <string name="year_in_review_login_dialog_positive">Најавете се / Зачленете се на Википедија</string>
