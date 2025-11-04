@@ -278,18 +278,16 @@ fun ShareHighlightsScreenCapture(
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp),
-            highlights = data.highlights
+            highlights = highlights
         )
 
-        if (data.screenshotLink != null) {
-            Text(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 16.dp),
-                text = data.screenshotLink,
-                style = MaterialTheme.typography.bodyLarge
-            )
-        }
+        Text(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp),
+            text = stringResource(R.string.year_in_highlights_screenshot_url),
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }
 

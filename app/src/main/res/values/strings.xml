@@ -2157,8 +2157,8 @@
     <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
     <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
     <plurals name="year_in_review_highlights_logged_out_en_most_popular_title">
-        <item quantity="one">Most read article on English Wikipedia</item>
-        <item quantity="other">Most read articles on English Wikipedia</item>
+        <item quantity="one">Most popular article on English Wikipedia</item>
+        <item quantity="other">Most popular articles on English Wikipedia</item>
     </plurals>
     <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
         <item quantity="one">Hour spent reading</item>
