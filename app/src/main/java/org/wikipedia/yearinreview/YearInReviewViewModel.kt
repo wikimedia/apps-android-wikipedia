@@ -48,8 +48,6 @@ class YearInReviewViewModel() : ViewModel() {
 
     var screenshotHeaderBitmap = createBitmap(1, 1)
 
-    var slideViewedCount = 1
-
     init {
         fetchPersonalizedData()
     }
@@ -251,7 +249,7 @@ class YearInReviewViewModel() : ViewModel() {
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
-                YearInReviewSurvey.resetYearInReviewSurveyState()
+                YearInReviewDialog.resetYearInReviewSurveyState()
             }
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
@@ -295,6 +293,10 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
         const val MIN_SLIDES_BEFORE_SURVEY = 2
+        const val MIN_SLIDES_FOR_CREATING_YIR_READING_LIST = 1
+        const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
+        const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
+        const val MAX_LONGEST_READ_ARTICLES = 25
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
@@ -312,6 +314,18 @@ class YearInReviewViewModel() : ViewModel() {
 
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
+
+        fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {
+            val currentData = Prefs.yearInReviewModelData.toMutableMap()
+            currentData[year]?.let { model ->
+                currentData[year] = update(model)
+                Prefs.yearInReviewModelData = currentData
+            }
+        }
+
+        fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
+            return Prefs.yearInReviewModelData[year]
         }
     }
 }

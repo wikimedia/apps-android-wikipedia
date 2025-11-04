@@ -51,13 +51,14 @@ class YearInReviewActivity : BaseActivity() {
                             state = screenState,
                             requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
                             onCloseButtonClick = {
-                                if (viewModel.slideViewedCount >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
+                                if ((YearInReviewViewModel.getYearInReviewModel()?.slideViewedCount ?: 0) >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
                                     Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
                                 }
                                 finish()
                             },
                             onNextButtonClick = { pagerState, currentSlideData ->
-                                viewModel.slideViewedCount += 1
+                                YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = it.slideViewedCount + 1) }
+
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
                                 }

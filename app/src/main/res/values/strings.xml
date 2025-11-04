@@ -1976,8 +1976,11 @@
     <string name="year_in_review_get_started_headline">Explore your Wikipedia Year in Review</string>
     <string name="year_in_review_get_started_bodytext">See insights about which articles you read on the Wikipedia app and the edits you made.</string>
     <string name="year_in_review_get_started_info">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
-    <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string><string name="year_in_review_survey_title">Help improve Year in Review</string>
+    <string name="year_in_review_get_started_later">You can access your Year in Review later in the More menu.</string>
+    <string name="year_in_review_survey_title">Help improve Year in Review</string>
     <string name="year_in_review_survey_subtitle">Are you satisfied with this feature?</string>
+    <string name="year_in_review_reading_list_survey_title">Help improve the Year in Review 2025 reading list.</string>
+    <string name="year_in_review_reading_list_survey_subtitle">Are you satisfied with your reading list?</string>
     <string name="year_in_review_survey_very_satisfied">Very satisfied</string>
     <string name="year_in_review_survey_satisfied">Satisfied</string>
     <string name="year_in_review_survey_neutral">Neutral</string>
@@ -2007,7 +2010,7 @@
     <string name="year_in_review_slide_app_icon_editor">an editor</string>
     <string name="year_in_review_slide_app_icon_donor_and_editor">a donor and editor</string>
     <string name="year_in_review_slide_geo_headline">Articles you read are closest to %s</string>
-    <string name="year_in_review_slide_geo_body"><![CDATA[The country that is closest to many articles you\'ve read seems to be: %1$s, based on articles like <b>%2$s</b> and <b>%3$s.</b>.]]></string>
+    <string name="year_in_review_slide_geo_body"><![CDATA[The country that is closest to many articles you\'ve read seems to be: %1$s, based on articles like <b>%2$s</b> and <b>%3$s</b>.]]></string>
     <string name="year_in_review_login_dialog_title">Log in for personalization?</string>
     <string name="year_in_review_login_dialog_body">Logging in gives you access to personalized insights. You can still see collective insights without logging in.</string>
     <string name="year_in_review_login_dialog_positive">Log in / Join Wikipedia</string>
@@ -2153,6 +2156,12 @@
         <item quantity="other">App users viewed Wikipedia articles %,d times</item>
     </plurals>
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
+    <string name="year_in_review_reading_list_dialog_title">Create your Year in Review 2025 reading list?</string>
+    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in 2025. <a href="%s">Learn more</a>]]></string>\
+    <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
+    <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
+    <string name="year_in_review_reading_list_title">Year in Review %d</string>
+    <string name="year_in_review_reading_list_description">Made for %1$s. Articles you spent the most time with in %2$d.</string>
 
     <string name="year_in_review_highlights_thank_you_message">Thank you for spending your year with Wikipedia.</string>
     <string name="year_in_review_highlights_looking_forward_message">We look forward to next year!</string>
