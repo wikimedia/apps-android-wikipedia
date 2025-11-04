@@ -16,11 +16,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.YIR_YEAR
-import org.wikipedia.yearinreview.YearInReviewViewModel.Companion.getYearInReviewModel
 import java.time.Instant
 import java.time.ZoneOffset
 
@@ -28,27 +23,29 @@ object YearInReviewDialog {
     private val isTestGroupUser = YearInReviewReadingListAbTest().isTestGroupUser()
 
     suspend fun maybeShowCreateReadingListDialog(activity: Activity) {
-        if (getYearInReviewModel()?.isReadingListDialogShown == true || !AccountUtil.isLoggedIn || !Prefs.isYearInReviewEnabled || (getYearInReviewModel()?.slideViewedCount ?: 0) < MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
+        if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListDialogShown == true || !AccountUtil.isLoggedIn ||
+            !Prefs.isYearInReviewEnabled || (YearInReviewViewModel.getYearInReviewModel()?.slideViewedCount ?: 0) < YearInReviewViewModel.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
             return
         }
 
-        val cutoffDate = Instant.parse(CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
+        val cutoffDate = Instant.parse(YearInReviewViewModel.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
         if (System.currentTimeMillis() > cutoffDate) {
             return
         }
 
-        val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YIR_YEAR) ?: return
+        val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YearInReviewViewModel.YIR_YEAR) ?: return
         val startMillis = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val endMillis = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
         val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
 
-        if (count < MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || !isTestGroupUser) {
+        if (count < YearInReviewViewModel.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || !isTestGroupUser) {
             return
         }
 
         val resource = activity.resources
-        val title = resource.getString(R.string.year_in_review_reading_list_dialog_title)
-        val message = resource.getString(R.string.year_in_review_reading_list_dialog_message, activity.resources.getString(R.string.year_in_review_reading_list_learn_more))
+        val title = resource.getString(R.string.year_in_review_reading_list_dialog_title,
+            YearInReviewViewModel.YIR_YEAR)
+        val message = resource.getString(R.string.year_in_review_reading_list_dialog_message, YearInReviewViewModel.YIR_YEAR, activity.resources.getString(R.string.year_in_review_reading_list_learn_more))
         MaterialAlertDialogBuilder(activity)
             .setTitle(title)
             .setMessage(StringUtil.fromHtml(message))
@@ -69,7 +66,8 @@ object YearInReviewDialog {
         }
 
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
-        binding.titleText.text = activity.getString(R.string.year_in_review_reading_list_survey_title)
+        binding.titleText.text = activity.getString(R.string.year_in_review_reading_list_survey_title,
+            YearInReviewViewModel.YIR_YEAR)
         binding.messageText.text = activity.getString(R.string.year_in_review_reading_list_survey_subtitle)
         binding.feedbackInputContainer.isVisible = true
         binding.feedbackInputContainer.hint =
