@@ -39,7 +39,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
@@ -207,8 +206,7 @@ fun HighlightsContent(
             text = highlightItem.title,
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
-            lineHeight = 21.sp,
-            fontFamily = FontFamily.SansSerif
+            lineHeight = 21.sp
         )
 
         if (highlightItem.singleValue != null) {
@@ -242,7 +240,7 @@ fun HighlightsContent(
 
 @Composable
 fun ShareHighlightsScreenCapture(
-    data: YearInReviewScreenData.HighlightsScreen,
+    highlights: List<YearInReviewScreenData.HighlightItem>,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val graphicsLayer = rememberGraphicsLayer()
