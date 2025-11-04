@@ -2156,7 +2156,7 @@
   <string name="year_in_review_slide_app_icon_editor">محرر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">متبرع ومحرر</string>
   <string name="year_in_review_slide_geo_headline">المقالات التي تقرأها هي الأقرب إلى: %s</string>
-  <string name="year_in_review_slide_geo_body">عندما يتعلق الأمر بالمقالات حول الأماكن، فإنك تقرأ في الغالب عن %1$s ، بما في ذلك &lt;b&gt;%2$s&lt;/b&gt; و &lt;b&gt;%3$s .&lt;/b&gt;</string>
+  <string name="year_in_review_slide_geo_body">عندما يتعلق الأمر بالمقالات حول الأماكن، فإنك تقرأ في الغالب عن %1$s ، بما في ذلك &lt;b&gt;%2$s&lt;/b&gt; و &lt;b&gt;%3$s&lt;/b&gt;</string>
   <string name="year_in_review_login_dialog_title">تسجيل الدخول للتخصيص؟</string>
   <string name="year_in_review_login_dialog_body">يتيح لك تسجيل الدخول الوصول إلى رؤى مخصصة. ولا يزال بإمكانك الاطلاع على الرؤى الجماعية دون الحاجة إلى تسجيل الدخول.</string>
   <string name="year_in_review_login_dialog_positive">تسجيل الدخول / الانضمام إلى ويكيبيديا</string>
