@@ -72,6 +72,7 @@ sealed class YearInReviewScreenData(
         val imageModifier: Modifier = Modifier.size(200.dp),
         val headlineText: Any? = null,
         val bodyText: Any? = null,
+        val slideName: String,
         showDonateInToolbar: Boolean = true
     ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
 
@@ -126,7 +127,8 @@ sealed class YearInReviewScreenData(
     )
 
     data class HighlightsScreen(
-        val highlights: List<HighlightItem>
+        val highlights: List<HighlightItem>,
+        val slideName: String
     ) : YearInReviewScreenData()
 
     class GeoScreen(
@@ -135,7 +137,8 @@ sealed class YearInReviewScreenData(
         val largestClusterBottomRight: Pair<Double, Double>,
         val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
-        val bodyText: String? = null
+        val bodyText: String? = null,
+        val slideName: String
     ) : YearInReviewScreenData(allowDonate)
 
     class ReadingPatterns(
@@ -143,26 +146,30 @@ sealed class YearInReviewScreenData(
         imageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val favoriteTimeText: String,
         val favoriteDayText: String,
-        val favoriteMonthText: String
+        val favoriteMonthText: String,
     ) : StandardScreen(
         allowDonate,
         imageResource = imageResource,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName
     )
 
     class CustomIconScreen(
         allowDonate: Boolean = true,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
         imageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName,
         showDonateInToolbar = !showDonateButton
     ) {
         @Composable
@@ -201,7 +208,9 @@ private fun CustomIconScreenHeaderPreview() {
         Box(
             modifier = Modifier.size(400.dp, 300.dp)
         ) {
-            CustomIconScreen().Header(
+            CustomIconScreen(
+                slideName = "test"
+            ).Header(
                 context = LocalContext.current,
                 screenCaptureMode = false,
                 aspectRatio = 1f
@@ -217,7 +226,11 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(allowDonate = true, showDonateButton = true).BottomButton(
+            CustomIconScreen(
+                allowDonate = true,
+                showDonateButton = true,
+                slideName = "test"
+            ).BottomButton(
                 context = LocalContext.current,
                 onButtonClick = {}
             )

@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.json.JsonUtil
 
 open class YearInReviewEvent {
@@ -11,6 +12,7 @@ open class YearInReviewEvent {
         fun submit(
             action: String,
             activeInterface: String = "wiki_yir",
+            campaignId: String? = null,
             slide: String,
             wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
         ) {
@@ -19,6 +21,7 @@ open class YearInReviewEvent {
                     action = action,
                     active_interface = activeInterface,
                     action_data = JsonUtil.encodeToString(ActionData(
+                        campaignId = campaignId?.let { "campaign_id: ${CampaignCollection.getFormattedCampaignId(it)}" },
                         slide = slide
                     )).orEmpty(),
                     primary_language = WikipediaApp.instance.languageState.appLanguageCode,
