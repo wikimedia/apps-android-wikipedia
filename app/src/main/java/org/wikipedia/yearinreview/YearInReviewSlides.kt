@@ -340,7 +340,9 @@ class YearInReviewSlides(
                         )
                     )
                 }
-            }
+            },
+            screenshotLink = context.getString(R.string.year_in_highlights_screenshot_url,
+                YearInReviewViewModel.YIR_2025_PATH)
         )
     }
 
@@ -360,7 +362,9 @@ class YearInReviewSlides(
                     title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_edits_title, config.editsEN.toInt()),
                     singleValue = numberFormatter.format(config.editsEN)
                 )
-            )
+            ),
+            screenshotLink = context.getString(R.string.year_in_highlights_screenshot_url,
+                YearInReviewViewModel.ARTICLES_2025_PATH)
         )
     }
 
@@ -379,7 +383,9 @@ class YearInReviewSlides(
                     title = context.resources.getString(R.string.year_in_review_highlights_logged_out_non_en_wikipedia_edited_title),
                     singleValue = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label, config.editsPerMinute, config.editsPerMinute)
                 )
-            )
+            ),
+            screenshotLink = context.getString(R.string.year_in_highlights_screenshot_url,
+                YearInReviewViewModel.YIR_2025_PATH)
         )
     }
 

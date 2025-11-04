@@ -26,6 +26,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -375,7 +376,7 @@ fun YearInReviewScreenContent(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
-    onShareHighlightsBtnClick: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
+    onShareHighlightsBtnClick: ((YearInReviewScreenData.HighlightsScreen) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     when (screenData) {
@@ -400,11 +401,12 @@ fun YearInReviewScreenContent(
         is YearInReviewScreenData.HighlightsScreen -> {
             YearInReviewHighlightsScreen(
                 modifier = modifier
+                    .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                     .yearInReviewHeaderBackground()
                     .padding(horizontal = 18.dp),
                 screenData = screenData,
                 onShareHighlightsBtnClick = {
-                    onShareHighlightsBtnClick?.invoke(screenData.highlights)
+                    onShareHighlightsBtnClick?.invoke(screenData)
                 }
             )
         }

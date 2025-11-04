@@ -295,6 +295,8 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
         const val MIN_SLIDES_BEFORE_SURVEY = 2
+        const val ARTICLES_2025_PATH = "2025articles"
+        const val YIR_2025_PATH = "yir25"
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
