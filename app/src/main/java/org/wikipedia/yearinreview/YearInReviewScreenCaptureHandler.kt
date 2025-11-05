@@ -47,7 +47,7 @@ fun YearInReviewScreenCaptureHandler(
 
         is YearInReviewCaptureRequest.HighlightsScreen -> {
             ShareHighlightsScreenCapture(
-                highlights = request.highlights,
+                data = request.data,
                 onBitmapReady = shareImageCallback
             )
         }
@@ -57,5 +57,5 @@ fun YearInReviewScreenCaptureHandler(
 sealed class YearInReviewCaptureRequest {
     data class StandardScreen(val screenData: YearInReviewScreenData) : YearInReviewCaptureRequest()
     data class GeoScreen(val screenData: YearInReviewScreenData, val requestScreenshotBitmap: ((Int, Int) -> Bitmap)? = null) : YearInReviewCaptureRequest()
-    data class HighlightsScreen(val highlights: List<YearInReviewScreenData.HighlightItem>) : YearInReviewCaptureRequest()
+    data class HighlightsScreen(val data: YearInReviewScreenData.HighlightsScreen) : YearInReviewCaptureRequest()
 }
