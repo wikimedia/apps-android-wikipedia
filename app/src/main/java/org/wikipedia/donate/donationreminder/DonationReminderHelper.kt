@@ -8,7 +8,6 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.settings.Prefs
@@ -23,15 +22,13 @@ object DonationReminderHelper {
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
     private val enabledCountries = listOf(
-        "IT"
-    )
-
-    private val enabledLanguages = listOf(
-        "it", "en"
+        "GB", "AU", "CA"
     )
 
     val currencyAmountPresets = mapOf(
-        "IT" to listOf(1f, 2f, 3f)
+        "GB" to listOf(1f, 2f, 3f),
+        "AU" to listOf(1f, 2f, 3f),
+        "CA" to listOf(1f, 2f, 3f)
     )
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15)
@@ -39,9 +36,8 @@ object DonationReminderHelper {
     // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled
         get() = ReleaseUtil.isDevRelease ||
-                (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                        enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
-                        LocalDate.now() <= LocalDate.of(2025, 9, 26) && !AccountUtil.isLoggedIn)
+                enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                        LocalDate.now() <= LocalDate.of(2025, 12, 31)
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
             (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
