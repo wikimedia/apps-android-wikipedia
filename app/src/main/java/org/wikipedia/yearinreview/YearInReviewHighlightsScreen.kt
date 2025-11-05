@@ -89,7 +89,7 @@ fun YearInReviewHighlightsScreen(
                 .weight(1f, fill = false)
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
-                .padding(8.dp),
+                .padding(start = 8.dp, end = 8.dp, top = 8.dp),
             highlights = screenData.highlights
         )
 
@@ -149,10 +149,10 @@ fun ShareableHighlightsCard(
                 lineHeight = 16.sp,
                 color = ComposeColors.Gray700
             )
-            highlights.forEach { highlightItem ->
+            highlights.forEachIndexed { index, highlightItem ->
                 HighlightsContent(
                     modifier = Modifier
-                        .padding(top = 12.dp),
+                        .padding(top = 12.dp, bottom = if (index == highlights.size - 1) 4.dp else 0.dp),
                     highlightItem = highlightItem
                 )
             }
