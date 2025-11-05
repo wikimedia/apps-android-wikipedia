@@ -93,7 +93,7 @@ fun DonationReminderScreen(
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
     onConfirmBtnClick: (String) -> Unit,
-    onAboutThisExperimentClick: () -> Unit
+    onFooterButtonClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
     var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
@@ -175,9 +175,9 @@ fun DonationReminderScreen(
             viewModel = viewModel,
             uiState = uiState,
             onConfirmBtnClick = onConfirmBtnClick,
-            onAboutThisExperimentClick = {
+            onFooterButtonClick = {
                 isNavigatingToExternalUrl = true
-                onAboutThisExperimentClick()
+                onFooterButtonClick()
             }
         )
     }
@@ -189,7 +189,7 @@ fun DonationReminderContent(
     viewModel: DonationReminderViewModel,
     uiState: DonationReminderUiState,
     onConfirmBtnClick: (String) -> Unit,
-    onAboutThisExperimentClick: () -> Unit
+    onFooterButtonClick: () -> Unit
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
@@ -358,16 +358,17 @@ fun DonationReminderContent(
                 )
             }
         }
-
+        val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
+        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
         TextButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 16.dp),
-            onClick = onAboutThisExperimentClick,
+            onClick = onFooterButtonClick,
             content = {
                 Text(
-                    text = stringResource(R.string.donation_reminders_settings_about_experiment_btn_label),
+                    text = footerButtonText,
                     color = WikipediaTheme.colors.progressiveColor
                 )
             }

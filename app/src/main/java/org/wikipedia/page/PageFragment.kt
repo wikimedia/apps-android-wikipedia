@@ -2,6 +2,7 @@ package org.wikipedia.page
 
 import android.animation.ObjectAnimator
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -19,6 +20,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -73,6 +75,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
@@ -144,6 +147,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
+    }
+
+    private var campaignDialog: CampaignDialog? = null
+    private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+            campaignDialog?.dismiss()
+        }
     }
 
     private var _binding: FragmentPageBinding? = null
@@ -699,9 +710,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
                         if (!Prefs.announcementShownDialogs.contains(campaignId)) {
                             DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
-                            val dialog = CampaignDialog(requireActivity(), it)
-                            dialog.setCancelable(false)
-                            dialog.show()
+                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = {
+                                donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
+                            })
+                            campaignDialog?.setCancelable(false)
+                            campaignDialog?.show()
                         }
                     }
                 }

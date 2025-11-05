@@ -213,7 +213,6 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     campaignId = DonationReminderHelper.CAMPAIGN_ID
                 )
                 ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
-                // activity.startActivity(DonationReminderActivity.newIntent(activity))
             }
 
             override fun donationReminderCardNegativeClicked() {

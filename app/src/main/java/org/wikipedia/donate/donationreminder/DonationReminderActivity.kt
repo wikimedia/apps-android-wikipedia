@@ -32,13 +32,18 @@ class DonationReminderActivity : BaseActivity() {
                         DonationReminderHelper.shouldShowSettingSnackbar = true
                         finish()
                     },
-                    onAboutThisExperimentClick = {
-                        UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                        val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                        DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = activeInterface,
-                            action = "reminder_about_click"
-                        )
+                    onFooterButtonClick = {
+                        if (viewModel.isFromSettings) {
+                            UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
+                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = activeInterface,
+                                action = "reminder_about_click"
+                            )
+                        } else {
+                            setResult(RESULT_OK)
+                            finish()
+                        }
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
@@ -64,6 +69,7 @@ class DonationReminderActivity : BaseActivity() {
     }
 
     companion object {
+
         fun newIntent(context: Context, isFromSettings: Boolean = false): Intent {
             return Intent(context, DonationReminderActivity::class.java)
                 .putExtra(EXTRA_FROM_SETTINGS, isFromSettings)
