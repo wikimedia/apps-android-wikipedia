@@ -561,7 +561,8 @@ fun PreviewScreenShot() {
                 allowDonate = true,
                 imageResource = R.drawable.yir_puzzle_browser,
                 headlineText = "Over 3 billion bytes added",
-                bodyText = "TBD"
+                bodyText = "TBD",
+                slideName = "test"
             ),
             requestScreenshotBitmap = null
         ) { /* No logic, preview only */ }
@@ -578,7 +579,8 @@ fun PreviewStandardContent() {
                     allowDonate = true,
                     imageResource = R.drawable.yir_puzzle_bytes,
                     headlineText = "Over 3 billion bytes added",
-                    bodyText = "TBD"
+                    bodyText = "TBD",
+                    slideName = "test"
                 )
             )),
             requestScreenshotBitmap = null
@@ -599,7 +601,8 @@ fun PreviewReadingPatternsContent() {
                     bodyText = "",
                     favoriteTimeText = "Afternoon",
                     favoriteDayText = "Wednesday",
-                    favoriteMonthText = "February"
+                    favoriteMonthText = "February",
+                    slideName = "test"
                 )
             )),
             requestScreenshotBitmap = null

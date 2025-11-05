@@ -269,7 +269,8 @@ private fun YearInReviewHighlightsScreenPreview() {
                         ),
                         highlightColor = ComposeColors.Blue600
                     )
-                )
+                ),
+                slideName = "test"
             ),
             onShareHighlightsBtnClick = {}
         )
