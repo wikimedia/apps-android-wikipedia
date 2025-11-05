@@ -17,7 +17,6 @@ import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import java.time.Instant
-import java.time.ZoneOffset
 
 object YearInReviewDialog {
     private val isTestGroupUser = YearInReviewReadingListAbTest().isTestGroupUser()
@@ -34,9 +33,8 @@ object YearInReviewDialog {
         }
 
         val remoteConfig = RemoteConfig.config.commonv1?.getYirForYear(YearInReviewViewModel.YIR_YEAR) ?: return
-        val startMillis = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
-        val endMillis = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
-        val count = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(startMillis, endMillis)
+        val count = AppDatabase.instance.historyEntryDao()
+            .getDistinctEntriesCountBetween(remoteConfig.dataStartDate, remoteConfig.dataEndDate)
 
         if (count < YearInReviewViewModel.MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST || !isTestGroupUser) {
             return

@@ -41,11 +41,12 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
 import java.time.Instant
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.ZoneOffset
+import java.time.temporal.TemporalAdjusters
+import java.time.temporal.WeekFields
 import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
@@ -133,33 +134,37 @@ class ActivityTabViewModel() : ViewModel() {
         }) {
             _readingHistoryState.value = UiState.Loading
             delay(500)
-            val now = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            val weekInMillis = TimeUnit.DAYS.toMillis(7)
-            var weekAgo = now - weekInMillis
-            val totalTimeSpent = AppDatabase.instance.historyEntryWithImageDao().getTimeSpentBetween(weekAgo)
+            val now = LocalDateTime.now()
+            val today = now.toLocalDate()
+            val firstDayOfWeek = WeekFields.of(Locale.getDefault()).firstDayOfWeek
+            val startOfWeek = today.with(firstDayOfWeek).atStartOfDay()
+            val timeSpentThisWeek = AppDatabase.instance.historyEntryWithImageDao()
+                .getTimeSpentBetween(startOfWeek, now)
+            val startOfMonth = today.withDayOfMonth(1)
 
-            val thirtyDaysAgo = now - TimeUnit.DAYS.toMillis(30)
-            val articlesReadThisMonth = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(thirtyDaysAgo) ?: 0
             val articlesReadByWeek = mutableListOf<Int>()
-            articlesReadByWeek.add(AppDatabase.instance.historyEntryDao().getDistinctEntriesCountSince(weekAgo) ?: 0)
-            for (i in 1..3) {
-                weekAgo -= weekInMillis
-                val articlesRead = AppDatabase.instance.historyEntryDao().getDistinctEntriesCountBetween(weekAgo, weekAgo + weekInMillis)
+            val adjuster = TemporalAdjusters.next(firstDayOfWeek)
+            var currentDate = startOfMonth
+            while (currentDate <= today) {
+                val endDate = currentDate.with(adjuster)
+                val articlesRead = AppDatabase.instance.historyEntryDao()
+                    .getDistinctEntriesCountBetween(currentDate.atStartOfDay(), endDate.atStartOfDay())
                 articlesReadByWeek.add(articlesRead)
+                currentDate = endDate
             }
-            val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentEntry()?.timestamp?.toInstant()?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
-            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesBetween(thirtyDaysAgo) ?: 0
-            val articlesSaved = AppDatabase.instance.readingListPageDao().getLocallySavedPagesSince(thirtyDaysAgo, 4)
+            val mostRecentReadTime = AppDatabase.instance.historyEntryDao().getMostRecentReadTime()
+            val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao()
+                .getTotalLocallySavedPagesBetween(startOfMonth.atStartOfDay(), now) ?: 0
+            val articlesSaved = AppDatabase.instance.readingListPageDao()
+                .getLocallySavedPagesSince(startOfMonth, 4)
                 .map { ReadingListPage.toPageTitle(it) }
-            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
-
-            val currentDate = LocalDate.now()
-            val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
+            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedTime()
+            val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(today.year, today.monthValue)
 
             _readingHistoryState.value = UiState.Success(ReadingHistory(
-                timeSpentThisWeek = totalTimeSpent,
-                articlesReadThisMonth = articlesReadThisMonth,
+                timeSpentThisWeek = timeSpentThisWeek,
+                articlesReadThisMonth = articlesReadByWeek.sum(),
                 lastArticleReadTime = mostRecentReadTime,
                 articlesReadByWeek = articlesReadByWeek,
                 articlesSavedThisMonth = articlesSavedThisMonth,

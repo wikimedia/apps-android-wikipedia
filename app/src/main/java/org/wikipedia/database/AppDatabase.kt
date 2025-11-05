@@ -62,7 +62,8 @@ const val DATABASE_VERSION = 31
     DateTypeConverter::class,
     WikiSiteTypeConverter::class,
     NamespaceTypeConverter::class,
-    NotificationTypeConverters::class
+    NotificationTypeConverters::class,
+    DateTimeTypeConverters::class
 )
 abstract class AppDatabase : RoomDatabase() {
 

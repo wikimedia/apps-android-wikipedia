@@ -58,10 +58,10 @@ class YearInReviewViewModel() : ViewModel() {
             _uiScreenListState.value = UiState.Loading
 
             val remoteConfig = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getConfiguration().commonv1?.getYirForYear(YIR_YEAR)!!
-            val dataStartInstant = remoteConfig.dataStartDate.toInstant(ZoneOffset.UTC)
-            val dataEndInstant = remoteConfig.dataEndDate.toInstant(ZoneOffset.UTC)
-            val dataStartMillis = dataStartInstant.toEpochMilli()
-            val dataEndMillis = dataEndInstant.toEpochMilli()
+            val dataStartDate = remoteConfig.dataStartDate
+            val dataEndDate = remoteConfig.dataEndDate
+            val dataStartMillis = dataStartDate.toInstant(ZoneOffset.UTC).toEpochMilli()
+            val dataEndMillis = dataEndDate.toInstant(ZoneOffset.UTC).toEpochMilli()
 
             var pagesWithCoordinates = AppDatabase.instance.historyEntryWithImageDao().getEntriesWithCoordinates(256, dataStartMillis, dataEndMillis)
                 .distinctBy { it.apiTitle }
@@ -71,7 +71,7 @@ class YearInReviewViewModel() : ViewModel() {
             if (yearInReviewModelMap[YIR_YEAR] == null) {
                 val totalSavedArticlesCount = async {
                     AppDatabase.instance.readingListPageDao()
-                        .getTotalLocallySavedPagesBetween(dataStartMillis, dataEndMillis) ?: 0
+                        .getTotalLocallySavedPagesBetween(dataStartDate, dataEndDate) ?: 0
                 }
                 val randomSavedArticleTitles = async {
                     AppDatabase.instance.readingListPageDao()
@@ -81,7 +81,7 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val readCountForTheYear = async {
                     AppDatabase.instance.historyEntryDao()
-                        .getDistinctEntriesCountBetween(dataStartMillis, dataEndMillis)
+                        .getDistinctEntriesCountBetween(dataStartDate, dataEndDate)
                 }
 
                 val topVisitedArticlesForTheYear = async {
@@ -92,7 +92,7 @@ class YearInReviewViewModel() : ViewModel() {
 
                 val totalReadingTimeMinutes = async {
                     AppDatabase.instance.historyEntryWithImageDao()
-                        .getTimeSpentBetween(dataStartMillis, dataEndMillis) / 60
+                        .getTimeSpentBetween(dataStartDate, dataEndDate) / 60
                 }
 
                 val topVisitedCategoryForTheYear = async {

@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import org.wikipedia.history.HistoryEntry
+import java.time.LocalDateTime
 
 @Dao
 interface HistoryEntryDao {
@@ -24,11 +25,8 @@ interface HistoryEntryDao {
     @Query("SELECT * FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND apiTitle = :apiTitle AND timestamp = :timestamp LIMIT 1")
     suspend fun findEntryBy(authority: String, lang: String, apiTitle: String, timestamp: Long): HistoryEntry?
 
-    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis)")
-    suspend fun getDistinctEntriesCountBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int
-
-    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp > :timestamp)")
-    suspend fun getDistinctEntriesCountSince(timestamp: Long): Int?
+    @Query("SELECT COUNT(*) FROM (SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle FROM HistoryEntry WHERE timestamp BETWEEN :startDateTime AND :endDateTime)")
+    suspend fun getDistinctEntriesCountBetween(startDateTime: LocalDateTime, endDateTime: LocalDateTime): Int
 
     @Query("SELECT displayTitle FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY displayTitle HAVING COUNT(displayTitle) > 1 ORDER BY COUNT(displayTitle) DESC LIMIT :limit")
     suspend fun getTopVisitedEntriesBetween(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<String>
@@ -42,8 +40,8 @@ interface HistoryEntryDao {
     @Query("DELETE FROM HistoryEntry WHERE authority = :authority AND lang = :lang AND namespace = :namespace AND apiTitle = :apiTitle")
     suspend fun deleteBy(authority: String, lang: String, namespace: String?, apiTitle: String)
 
-    @Query("SELECT * FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
-    suspend fun getMostRecentEntry(): HistoryEntry?
+    @Query("SELECT timestamp FROM HistoryEntry ORDER BY timestamp DESC LIMIT 1")
+    suspend fun getMostRecentReadTime(): LocalDateTime?
 
     @Query("SELECT CAST(strftime('%H', timestamp / 1000, 'unixepoch', 'localtime') AS INTEGER) AS hour FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY hour ORDER BY COUNT(id) DESC LIMIT 1")
     suspend fun getFavoriteTimeToReadBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?

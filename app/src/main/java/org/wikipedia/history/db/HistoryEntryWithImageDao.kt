@@ -10,6 +10,7 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
+import java.time.LocalDateTime
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -22,6 +23,7 @@ interface HistoryEntryWithImageDao {
     suspend fun getLongestReadArticlesInPeriod(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithImage>
 
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
+    @RewriteQueriesToDropUnusedColumns
     suspend fun getHistoryEntriesWithOffset(
         limit: Int,
         offset: Int
@@ -41,9 +43,8 @@ interface HistoryEntryWithImageDao {
     @Query("SELECT SUM(timeSpentSec) FROM (" +
             "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
             "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
-            "  WHERE timestamp BETWEEN :startMillis AND :endMillis" +
-            ")")
-    suspend fun getTimeSpentBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Long
+            "  WHERE timestamp BETWEEN :startDateTime AND :endDateTime)")
+    suspend fun getTimeSpentBetween(startDateTime: LocalDateTime, endDateTime: LocalDateTime): Long
 
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
             "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +

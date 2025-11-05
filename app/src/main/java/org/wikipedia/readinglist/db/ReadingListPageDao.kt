@@ -20,6 +20,8 @@ import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Dao
 interface ReadingListPageDao {
@@ -75,7 +77,7 @@ interface ReadingListPageDao {
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
     @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis ORDER BY RANDOM() LIMIT :limit")
-    suspend fun getRandomPageTitlesBetween(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<String?>
+    suspend fun getRandomPageTitlesBetween(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<String>
 
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
@@ -89,14 +91,14 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     suspend fun getAllPagesToBeSynced(): List<ReadingListPage>
 
-    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis")
-    suspend fun getTotalLocallySavedPagesBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
+    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startDateTime AND :endDateTime")
+    suspend fun getTotalLocallySavedPagesBetween(startDateTime: LocalDateTime, endDateTime: LocalDateTime): Int?
 
-    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY atime DESC LIMIT :limit")
-    suspend fun getLocallySavedPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
+    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :date ORDER BY atime DESC LIMIT :limit")
+    suspend fun getLocallySavedPagesSince(date: LocalDate, limit: Int): List<ReadingListPage>
 
-    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
-    suspend fun getMostRecentLocallySavedPage(): ReadingListPage?
+    @Query("SELECT atime FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
+    suspend fun getMostRecentLocallySavedTime(): LocalDateTime?
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>
