@@ -61,6 +61,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -77,7 +78,7 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
-    onDonateClick: () -> Unit = {},
+    onDonateClick: (String) -> Unit = {},
     onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit = { _, _ -> },
     onCloseButtonClick: () -> Unit = {},
     onRetryClick: () -> Unit = {}
@@ -116,7 +117,10 @@ fun YearInReviewScreenDeck(
                         ),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onCloseButtonClick() }) {
+                            IconButton(onClick = {
+                                YearInReviewEvent.submit(action = "close_click", slide = pages[pagerState.currentPage].slideName)
+                                onCloseButtonClick()
+                            }) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
@@ -128,7 +132,9 @@ fun YearInReviewScreenDeck(
                             if (pages[pagerState.currentPage].allowDonate && pages[pagerState.currentPage].showDonateInToolbar) {
                                 Box(
                                     modifier = Modifier
-                                        .clickable(onClick = { onDonateClick() })
+                                        .clickable(onClick = {
+                                            onDonateClick(pages[pagerState.currentPage].slideName)
+                                        })
                                 ) {
                                     Row(
                                         modifier = Modifier
@@ -157,17 +163,23 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
+                        onNavigationRightClick = {
+                            YearInReviewEvent.submit(action = "next_click", slide = pages[pagerState.currentPage].slideName)
+                            onNextButtonClick(pagerState, pages[pagerState.currentPage])
+                        },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
+                            YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
                             when (pages[pagerState.currentPage]) {
                                 is YearInReviewScreenData.GeoScreen -> { captureRequest = YearInReviewCaptureRequest.GeoScreen(pages[pagerState.currentPage], requestScreenshotBitmap) }
                                 is YearInReviewScreenData.StandardScreen -> { captureRequest = YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage]) }
                                 is YearInReviewScreenData.HighlightsScreen -> {}
                             }
                         },
-                        onDonateClick = onDonateClick
+                        onDonateClick = {
+                            onDonateClick(pages[pagerState.currentPage].slideName)
+                        }
                     )
                 },
                 content = { paddingValues ->
@@ -382,6 +394,7 @@ fun YearInReviewScreenContent(
     onShareHighlightsBtnClick: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
+    YearInReviewEvent.submit(action = "impression", slide = screenData.slideName)
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(

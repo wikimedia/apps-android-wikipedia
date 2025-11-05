@@ -16,8 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.settings.Prefs
 
@@ -69,18 +69,19 @@ class YearInReviewActivity : BaseActivity() {
                                     finish()
                                 }
                             },
-                            onDonateClick = {
+                            onDonateClick = { currentSlide ->
                                 EventPlatformClient.submit(
                                     BreadCrumbLogEvent(
                                         screen_name = "year_in_review",
                                         action = "donate_click")
                                 )
-                                DonorExperienceEvent.logAction(
+                                val campaignId = "appmenu_yir_$currentSlide"
+                                YearInReviewEvent.submit(
                                     action = "donate_start_click_yir",
-                                    activeInterface = "wiki_yir",
-                                    campaignId = "yir"
+                                    slide = currentSlide,
+                                    campaignId = campaignId
                                 )
-                                launchDonateDialog("yir")
+                                launchDonateDialog(campaignId) // TODO: confirm with Shay
                             },
                             onRetryClick = {
                                 viewModel.fetchPersonalizedData()

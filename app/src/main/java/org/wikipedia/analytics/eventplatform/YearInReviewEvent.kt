@@ -21,7 +21,9 @@ open class YearInReviewEvent {
                     action = action,
                     active_interface = activeInterface,
                     action_data = JsonUtil.encodeToString(ActionData(
-                        campaignId = campaignId?.let { "campaign_id: ${CampaignCollection.getFormattedCampaignId(it)}" },
+                        campaignId = campaignId?.let {
+                            CampaignCollection.getFormattedCampaignId(it)
+                        },
                         slide = slide
                     )).orEmpty(),
                     primary_language = WikipediaApp.instance.languageState.appLanguageCode,

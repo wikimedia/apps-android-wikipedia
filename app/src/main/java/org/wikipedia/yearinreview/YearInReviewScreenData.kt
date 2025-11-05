@@ -59,7 +59,8 @@ fun Modifier.yearInReviewHeaderBackground(): Modifier {
 
 sealed class YearInReviewScreenData(
     val allowDonate: Boolean = true,
-    val showDonateInToolbar: Boolean = true
+    val showDonateInToolbar: Boolean = true,
+    val slideName: String
 ) {
 
     @Composable
@@ -72,9 +73,13 @@ sealed class YearInReviewScreenData(
         val imageModifier: Modifier = Modifier.size(200.dp),
         val headlineText: Any? = null,
         val bodyText: Any? = null,
-        val slideName: String,
+        slideName: String,
         showDonateInToolbar: Boolean = true
-    ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        showDonateInToolbar = showDonateInToolbar,
+        slideName = slideName
+    ) {
 
         @Composable
         open fun Header(context: Context,
@@ -126,20 +131,25 @@ sealed class YearInReviewScreenData(
         val highlightColor: Color = ComposeColors.Gray700
     )
 
-    data class HighlightsScreen(
+    open class HighlightsScreen(
         val highlights: List<HighlightItem>,
-        val slideName: String
-    ) : YearInReviewScreenData()
+        slideName: String
+    ) : YearInReviewScreenData(
+        slideName = slideName
+    )
 
-    class GeoScreen(
+    open class  GeoScreen(
         allowDonate: Boolean = true,
         val largestClusterTopLeft: Pair<Double, Double>,
         val largestClusterBottomRight: Pair<Double, Double>,
         val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
         val bodyText: String? = null,
-        val slideName: String
-    ) : YearInReviewScreenData(allowDonate)
+        slideName: String
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        slideName = slideName
+    )
 
     class ReadingPatterns(
         allowDonate: Boolean = true,
