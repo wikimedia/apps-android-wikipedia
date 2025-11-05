@@ -2163,7 +2163,7 @@
   <string name="year_in_review_login_dialog_negative">متابعة بدون تسجيل الدخول</string>
   <string name="year_in_review_slide_top_categories_headline">فئاتك الأكثر إثارة للاهتمام</string>
   <string name="year_in_review_slide_top_categories_body">الفئات مجموعة المقالات حول الموضوعات المماثلة معا. في %1$d، قمت بزيارة المقالات في هذه الفئات المثيرة للاهتمام مرات عديدة: %2$s</string>
-  <string name="year_in_review_slide_popular_english_articles_headline">المقالات الأكثر شعبية في ويكيبيديا الإنجليزية</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">المقالات الأكثر شعبية في ويكيبيديا الإنجليزية</string>
   <string name="year_in_review_slide_reading_patterns_headline">لديك أنماط قراءة واضحة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>

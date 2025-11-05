@@ -99,13 +99,13 @@ class YearInReviewSlides(
     private fun popularEnglishArticlesScreen(): StandardScreen {
 
         val popularEnglishArticlesText = buildListWithNumbers(config.topReadEN)
-        val popularEnglishArticlesBlogUrl = context.getString(R.string.year_in_review_popular_english_articles_blog_url)
+        val popularEnglishArticlesBlogUrl = context.getString(R.string.year_in_review_most_read_english_articles_blog_url)
 
         return StandardScreen(
             allowDonate = isFundraisingAllowed,
             imageResource = R.drawable.yir_puzzle_browser,
-            headlineText = context.getString(R.string.year_in_review_slide_popular_english_articles_headline),
-            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_popular_english_articles_body,
+            headlineText = context.getString(R.string.year_in_review_slide_most_read_english_articles_headline),
+            bodyText = context.resources.getQuantityString(R.plurals.year_in_review_slide_most_read_english_articles_body,
                 config.topReadEN.size, config.topReadEN.size, popularEnglishArticlesText, popularEnglishArticlesBlogUrl),
             slideName = if (isLoggedIn) "li_en_popular" else "lo_en_popular"
         )
@@ -366,7 +366,8 @@ class YearInReviewSlides(
                     )
                 }
             },
-            slideName = if (isEnglishWiki) "li_en_summary" else "li_non_summary"
+            slideName = if (isEnglishWiki) "li_en_summary" else "li_non_summary",
+            screenshotUrl = context.getString(R.string.year_in_highlights_screenshot_url)
         )
     }
 
@@ -374,7 +375,7 @@ class YearInReviewSlides(
         return HighlightsScreen(
             highlights = listOf(
                 HighlightItem(
-                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_most_popular_title, config.topReadEN.size),
+                    title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_en_most_read_title, config.topReadEN.size),
                     items = config.topReadEN,
                     highlightColor = ComposeColors.Blue600
                 ),
@@ -387,7 +388,8 @@ class YearInReviewSlides(
                     singleValue = numberFormatter.format(config.editsEN)
                 )
             ),
-            slideName = "lo_en_summary"
+            slideName = "lo_en_summary",
+            screenshotUrl = context.getString(R.string.year_in_highlights_screenshot_articles_url)
         )
     }
 
@@ -407,7 +409,8 @@ class YearInReviewSlides(
                     singleValue = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label, config.editsPerMinute, config.editsPerMinute)
                 )
             ),
-            slideName = "lo_non_summary"
+            slideName = "lo_non_summary",
+            screenshotUrl = context.getString(R.string.year_in_highlights_screenshot_url)
         )
     }
 

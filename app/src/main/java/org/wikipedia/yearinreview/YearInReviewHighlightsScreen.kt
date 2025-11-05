@@ -87,7 +87,7 @@ fun YearInReviewHighlightsScreen(
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp)
                 .verticalScroll(rememberScrollState()),
-            highlights = screenData.highlights
+            data = screenData
         )
 
         Button(
@@ -114,7 +114,7 @@ fun ShareableHighlightsCard(
     hashtag: String = stringResource(R.string.year_in_review_hashtag),
     logoResource: Int = R.drawable.w_nav_mark,
     logoDescription: String = stringResource(R.string.year_in_review_highlights_logo_description),
-    highlights: List<YearInReviewScreenData.HighlightItem>,
+    data: YearInReviewScreenData.HighlightsScreen,
 ) {
     Column(
         modifier = modifier,
@@ -142,7 +142,7 @@ fun ShareableHighlightsCard(
             lineHeight = 16.sp,
             color = ComposeColors.Gray700
         )
-        highlights.forEach { highlightItem ->
+        data.highlights.forEach { highlightItem ->
             HighlightsContent(
                 modifier = Modifier
                     .padding(top = 12.dp),
@@ -202,7 +202,7 @@ fun HighlightsContent(
 
 @Composable
 fun ShareHighlightsScreenCapture(
-    highlights: List<YearInReviewScreenData.HighlightItem>,
+    data: YearInReviewScreenData.HighlightsScreen,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val graphicsLayer = rememberGraphicsLayer()
@@ -238,14 +238,14 @@ fun ShareHighlightsScreenCapture(
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp),
-            highlights = highlights
+            data = data
         )
 
         Text(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp),
-            text = stringResource(R.string.year_in_highlights_screenshot_url),
+            text = data.screenshotUrl,
             style = MaterialTheme.typography.bodyLarge
         )
     }
@@ -270,7 +270,8 @@ private fun YearInReviewHighlightsScreenPreview() {
                         highlightColor = ComposeColors.Blue600
                     )
                 ),
-                slideName = "test"
+                slideName = "test",
+                screenshotUrl = "#wikimediafoundation"
             ),
             onShareHighlightsBtnClick = {}
         )

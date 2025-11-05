@@ -133,6 +133,7 @@ sealed class YearInReviewScreenData(
 
     open class HighlightsScreen(
         val highlights: List<HighlightItem>,
+        val screenshotUrl: String,
         slideName: String
     ) : YearInReviewScreenData(
         slideName = slideName

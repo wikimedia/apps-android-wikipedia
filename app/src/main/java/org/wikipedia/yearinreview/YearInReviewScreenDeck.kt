@@ -397,7 +397,7 @@ fun YearInReviewScreenContent(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
-    onShareHighlightsBtnClick: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
+    onShareHighlightsBtnClick: ((YearInReviewScreenData.HighlightsScreen) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     when (screenData) {
@@ -426,7 +426,7 @@ fun YearInReviewScreenContent(
                     .padding(horizontal = 18.dp),
                 screenData = screenData,
                 onShareHighlightsBtnClick = {
-                    onShareHighlightsBtnClick?.invoke(screenData.highlights)
+                    onShareHighlightsBtnClick?.invoke(screenData)
                 }
             )
         }
