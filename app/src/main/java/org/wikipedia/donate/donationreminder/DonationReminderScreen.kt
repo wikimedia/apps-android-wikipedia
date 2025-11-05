@@ -56,6 +56,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -677,10 +678,7 @@ fun CustomInputDialog(
 ) {
     var value by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }
-
-    LaunchedEffect(Unit) {
-        focusRequester.requestFocus()
-    }
+    var hasFocused by remember { mutableStateOf(false) }
 
     Dialog(
         onDismissRequest = onDismissRequest,
@@ -702,7 +700,13 @@ fun CustomInputDialog(
                 Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
                     modifier = Modifier
-                        .focusRequester(focusRequester),
+                        .focusRequester(focusRequester)
+                        .onGloballyPositioned {
+                            if (!hasFocused) {
+                                focusRequester.requestFocus()
+                                hasFocused = true
+                            }
+                        },
                     value = value,
                     singleLine = true,
                     onValueChange = { newValue ->
