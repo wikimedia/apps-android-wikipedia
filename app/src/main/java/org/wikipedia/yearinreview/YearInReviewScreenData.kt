@@ -127,7 +127,7 @@ sealed class YearInReviewScreenData(
 
     data class HighlightsScreen(
         val highlights: List<HighlightItem>,
-        val screenshotLink: String
+        val screenshotUrl: String
     ) : YearInReviewScreenData()
 
     class GeoScreen(

@@ -245,7 +245,7 @@ fun ShareHighlightsScreenCapture(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp),
-            text = data.screenshotLink,
+            text = data.screenshotUrl,
             style = MaterialTheme.typography.bodyLarge
         )
     }
@@ -270,7 +270,7 @@ private fun YearInReviewHighlightsScreenPreview() {
                         highlightColor = ComposeColors.Blue600
                     )
                 ),
-                screenshotLink = "#wikimediafoundation"
+                screenshotUrl = "#wikimediafoundation"
             ),
             onShareHighlightsBtnClick = {}
         )
