@@ -87,10 +87,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     fun toggleDonationReminders(enabled: Boolean) {
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
         if (enabled) {
-            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                initialPromptActive = false,
-                finalPromptActive = false
-            )
+            Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(finalPromptActive = false)
         } else {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "global_setting",

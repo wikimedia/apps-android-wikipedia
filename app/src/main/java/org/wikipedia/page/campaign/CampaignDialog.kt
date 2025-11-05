@@ -14,7 +14,6 @@ import org.wikipedia.util.FeedbackUtil
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalDateTime
-import java.util.Date
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
@@ -63,7 +62,8 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
-        Prefs.announcementPauseTime = Date().time
+        // TODO: uncomment this before merging
+        // Prefs.announcementPauseTime = Date().time
         FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         dismissDialog(false)

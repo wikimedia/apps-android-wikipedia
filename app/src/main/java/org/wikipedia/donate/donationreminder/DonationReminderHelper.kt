@@ -43,8 +43,7 @@ object DonationReminderHelper {
                         enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
                         LocalDate.now() <= LocalDate.of(2025, 9, 26) && !AccountUtil.isLoggedIn)
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
-            (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
+    val hasActiveReminder get() = (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
 
     var shouldShowSettingSnackbar = false
 
@@ -83,33 +82,9 @@ object DonationReminderHelper {
         }
     }
 
-    fun donationReminderDismissed(isInitialPrompt: Boolean) {
+    fun donationReminderDismissed() {
         val config = Prefs.donationReminderConfig
-        Prefs.donationReminderConfig = if (isInitialPrompt) {
-            config.copy(initialPromptActive = false)
-        } else {
-            config.copy(finalPromptActive = false)
-        }
-    }
-
-    fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
-        if (!isEnabled) return false
-        return Prefs.donationReminderConfig.let { config ->
-            val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
-            if (config.setupTimestamp > 0L || !config.initialPromptActive ||
-                config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-                daysOfLastSeen <= 0
-            ) {
-                return@let false
-            }
-            if (update) {
-                Prefs.donationReminderConfig = config.copy(
-                    initialPromptCount = config.initialPromptCount + 1,
-                    promptLastSeen = LocalDate.now().toEpochDay()
-                )
-            }
-            return true
-        }
+        Prefs.donationReminderConfig = config.copy(finalPromptActive = false)
     }
 
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
@@ -137,8 +112,7 @@ object DonationReminderHelper {
     private fun activateDonationReminder() {
         Prefs.donationReminderConfig.let { config ->
             if (config.articleVisit > 0 && config.articleFrequency > 0 &&
-                config.articleVisit % config.articleFrequency == 0 &&
-                !config.initialPromptActive) {
+                config.articleVisit % config.articleFrequency == 0) {
                 // When reaching the article frequency, activate the reminder and reset the count and visits
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptActive = true,
@@ -171,13 +145,6 @@ object DonationReminderHelper {
                     }
                 }
             }
-            return
-        }
-
-        // User has not taken any action on the initial prompt
-        // Show survey on next article visit if this continues for continuous 5 times
-        if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            showFeedbackOptionsDialog(activity, "impression_next_article")
             return
         }
     }
@@ -246,8 +213,6 @@ object DonationReminderHelper {
 @Serializable
 data class DonationReminderConfig(
     val isEnabled: Boolean = false,
-    val initialPromptCount: Int = 0,
-    val initialPromptActive: Boolean = true,
     val finalPromptCount: Int = 0,
     val finalPromptActive: Boolean = false,
     val promptLastSeen: Long = 0,
