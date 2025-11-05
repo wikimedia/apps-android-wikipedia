@@ -188,6 +188,12 @@ fun YearInReviewScreenDeck(
                         state = pagerState,
                         contentPadding = PaddingValues(0.dp),
                     ) { page ->
+                        if (page == pagerState.currentPage) {
+                            YearInReviewEvent.submit(
+                                action = "impression",
+                                slide = pages[page].slideName
+                            )
+                        }
                         YearInReviewScreenContent(
                             modifier = Modifier
                                 .fillMaxSize()
@@ -394,7 +400,6 @@ fun YearInReviewScreenContent(
     onShareHighlightsBtnClick: ((List<YearInReviewScreenData.HighlightItem>) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
-    YearInReviewEvent.submit(action = "impression", slide = screenData.slideName)
     when (screenData) {
         is YearInReviewScreenData.StandardScreen -> {
             StandardScreenContent(
