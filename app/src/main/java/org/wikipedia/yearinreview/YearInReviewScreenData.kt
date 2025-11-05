@@ -138,7 +138,7 @@ sealed class YearInReviewScreenData(
         slideName = slideName
     )
 
-    open class  GeoScreen(
+    open class GeoScreen(
         allowDonate: Boolean = true,
         val largestClusterTopLeft: Pair<Double, Double>,
         val largestClusterBottomRight: Pair<Double, Double>,
