@@ -1909,7 +1909,7 @@
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
   <string name="year_in_review_login_dialog_positive">登入/註冊維基百科</string>
   <string name="year_in_review_login_dialog_negative">以不登入來繼續</string>
-  <string name="year_in_review_slide_popular_english_articles_headline">中文維基百科最受歡迎的條目</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">中文維基百科最受歡迎的條目</string>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">您編輯了維基百科%s次</item>
     <item quantity="other">您編輯了維基百科%s次</item>
