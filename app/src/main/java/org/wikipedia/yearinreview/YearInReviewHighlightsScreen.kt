@@ -89,7 +89,7 @@ fun YearInReviewHighlightsScreen(
                 .weight(1f, fill = false)
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
-                .padding(start = 8.dp, end = 8.dp, top = 8.dp),
+                .padding(horizontal = 8.dp),
             highlights = screenData.highlights
         )
 
@@ -120,8 +120,10 @@ fun ShareableHighlightsCard(
     highlights: List<YearInReviewScreenData.HighlightItem>,
 ) {
     val scrollState = rememberScrollState()
+    val topPadding = if (scrollState.value > 0) 0.dp else 8.dp
 
-    Box(modifier = modifier) {
+    Box(modifier = modifier
+        .padding(top = topPadding)) {
         Column(
             modifier = Modifier
                 .verticalScroll(scrollState),
@@ -164,7 +166,8 @@ fun ShareableHighlightsCard(
                     .align(Alignment.CenterEnd)
                     .fillMaxHeight()
                     .width(8.dp)
-                    .padding(vertical = 4.dp, horizontal = 2.dp)
+                    .padding(horizontal = 2.dp)
+                    .padding(bottom = 4.dp)
             ) {
                 val scrollbarHeight = (scrollState.viewportSize.toFloat()) / (scrollState.maxValue + scrollState.viewportSize) * 0.5f
                 val scrollbarOffsetY = (scrollState.value.toFloat() / scrollState.maxValue) * (1f - scrollbarHeight)
