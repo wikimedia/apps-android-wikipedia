@@ -151,10 +151,10 @@ fun ShareableHighlightsCard(
                 lineHeight = 16.sp,
                 color = ComposeColors.Gray700
             )
-            highlights.forEachIndexed { index, highlightItem ->
+            data.highlights.forEachIndexed { index, highlightItem ->
                 HighlightsContent(
                     modifier = Modifier
-                        .padding(top = 12.dp, bottom = if (index == highlights.size - 1) 4.dp else 0.dp),
+                        .padding(top = 12.dp, bottom = if (index == data.highlights.size - 1) 4.dp else 0.dp),
                     highlightItem = highlightItem
                 )
             }
