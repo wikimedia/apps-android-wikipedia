@@ -13,6 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.base.TestConfig
+import org.wikipedia.dataclient.donate.CampaignCollection
 
 class MoreMenuRobot : BaseRobot() {
 
@@ -87,7 +88,7 @@ class MoreMenuRobot : BaseRobot() {
         try {
             val customTabIntentMatcher = allOf(
                 hasAction(Intent.ACTION_VIEW),
-                hasData(context.getString(R.string.donate_url, "appmenu",
+                hasData(context.getString(R.string.donate_url, CampaignCollection.getFormattedCampaignId("appmenu"),
                     WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
             )
             intended(customTabIntentMatcher)
