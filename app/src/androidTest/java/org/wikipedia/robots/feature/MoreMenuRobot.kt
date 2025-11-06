@@ -87,7 +87,7 @@ class MoreMenuRobot : BaseRobot() {
         try {
             val customTabIntentMatcher = allOf(
                 hasAction(Intent.ACTION_VIEW),
-                hasData(context.getString(R.string.donate_url,
+                hasData(context.getString(R.string.donate_url, "appmenu",
                     WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
             )
             intended(customTabIntentMatcher)
