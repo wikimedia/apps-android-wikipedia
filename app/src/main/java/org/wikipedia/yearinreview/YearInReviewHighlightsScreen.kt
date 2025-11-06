@@ -77,7 +77,7 @@ fun YearInReviewHighlightsScreen(
                     append(stringResource(R.string.year_in_review_highlights_looking_forward_message))
                 }
             },
-            color = WikipediaTheme.colors.paperColor,
+            color = ComposeColors.White,
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Medium
