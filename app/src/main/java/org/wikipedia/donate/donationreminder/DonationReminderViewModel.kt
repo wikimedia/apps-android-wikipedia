@@ -20,8 +20,10 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+    private val preSelectedArticleFrequency = 15
     private val maxArticleFrequencyLimit = 1000
     private val minArticleFrequencyLimit = 1
+    private val maxPresetItemsInDropdown = 3
     val isFromSettings = savedStateHandle.get<Boolean>(RecommendedReadingListOnboardingActivity.EXTRA_FROM_SETTINGS) == true
 
     private val _uiState = MutableStateFlow(DonationReminderUiState())
@@ -105,7 +107,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 it, it))
         } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))
 
-        val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) options.first()
+        val selectedValue = if (Prefs.donationReminderConfig.articleFrequency <= 0) preSelectedArticleFrequency
         else Prefs.donationReminderConfig.articleFrequency
 
         return SelectableOption(
@@ -137,7 +139,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         }
 
         val context = WikipediaApp.instance
-        val presets = DonationReminderHelper.currencyAmountPresets[currentCountryCode] ?: listOf(minimumAmount)
+        val presets = donationConfig?.currencyAmountPresets[currencyCode]?.take(maxPresetItemsInDropdown) ?: listOf(minimumAmount)
         val options = presets.map {
             OptionItem.Preset(it, DonateUtil.currencyFormat.format(it).replace(formatRegex, ""))
         } + OptionItem.Custom(context.getString(R.string.donation_reminders_settings_option_custom))

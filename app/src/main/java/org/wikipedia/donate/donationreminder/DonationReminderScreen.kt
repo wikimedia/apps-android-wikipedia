@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -61,6 +62,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -77,7 +80,6 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
-import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
@@ -91,7 +93,7 @@ fun DonationReminderScreen(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
-    onBackButtonClick: () -> Unit,
+    onBackBtnClick: () -> Unit,
     onConfirmBtnClick: (String) -> Unit,
     onFooterButtonClick: () -> Unit
 ) {
@@ -129,9 +131,13 @@ fun DonationReminderScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            WikiTopAppBar(
-                title = stringResource(R.string.donation_reminders_settings_title),
-                onNavigationClick = onBackButtonClick
+            DonationReminderAppBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .statusBarsPadding()
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                onBackBtnClick = onBackBtnClick,
+                onMoreMenuBtnClick = {}
             )
         },
         containerColor = WikipediaTheme.colors.paperColor,
@@ -180,6 +186,69 @@ fun DonationReminderScreen(
                 onFooterButtonClick()
             }
         )
+    }
+}
+
+@Composable
+fun DonationReminderAppBar(
+    modifier: Modifier = Modifier,
+    onBackBtnClick: () -> Unit,
+    onMoreMenuBtnClick: (() -> Unit)? = null
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Icon(
+                modifier = Modifier
+                    .padding(top = 4.dp)
+                    .clickable(onClick = onBackBtnClick),
+                painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                contentDescription = null
+            )
+            Text(
+                modifier = Modifier
+                    .weight(1f),
+                text = stringResource(R.string.donation_reminders_settings_title),
+                style = MaterialTheme.typography.headlineSmall.copy(
+                    fontWeight = FontWeight.Bold,
+                    lineHeight = 24.sp
+                ),
+                color = WikipediaTheme.colors.primaryColor
+            )
+            if (onMoreMenuBtnClick != null) {
+                Icon(
+                    modifier = Modifier
+                        .padding(top = 4.dp),
+                    painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                    contentDescription = null
+                )
+            }
+        }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(24.dp)
+            )
+            Row(
+                modifier = Modifier
+                    .background(color = WikipediaTheme.colors.additionColor, shape = RoundedCornerShape(size = 16.dp))
+                    .padding(horizontal = 8.dp, vertical = 4.dp)
+            ) {
+                Text(
+                    text = "EXPERIMENT",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.Normal,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+        }
     }
 }
 
@@ -599,7 +668,7 @@ private fun DonationRemindersSwitch(
         ),
         headlineContent = {
             Text(
-                text = stringResource(R.string.donation_reminders_settings_title),
+                text = stringResource(R.string.donation_reminders_settings_option_title),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )

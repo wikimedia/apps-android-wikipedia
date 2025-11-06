@@ -152,7 +152,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private var campaignDialog: CampaignDialog? = null
     private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
             campaignDialog?.dismiss()
         }
     }

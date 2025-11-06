@@ -2179,6 +2179,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Snackbar message that indicates the donation reminder is available in the Settings screen.</string>
   <string name="donation_settings_section_header">Text of the section in the settings screen for donation.</string>
   <string name="donation_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
+  <string name="donation_reminders_settings_option_title">Title of the donations reminder feature in the app settings screen</string>
   <string name="donation_reminders_settings_thank_you_message">Thank you text message in the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_donation_info">Donation information text in the donation reminders settings screen.</string>
   <string name="donation_reminders_settings_article_frequency_label">Label for the section where users configure how many articles they read before seeing donation reminders.</string>

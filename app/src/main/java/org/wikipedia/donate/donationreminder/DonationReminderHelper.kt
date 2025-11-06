@@ -34,7 +34,7 @@ object DonationReminderHelper {
         "IT" to listOf(1f, 2f, 3f)
     )
 
-    val defaultReadFrequencyOptions = listOf(5, 10, 15)
+    val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
     // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled

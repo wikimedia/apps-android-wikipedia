@@ -67,6 +67,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         // TODO: uncomment this before merging
         // Prefs.announcementPauseTime = Date().time
+        // TODO: update with AB test
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         onNeutralBtnClick?.invoke()
     }
