@@ -90,7 +90,7 @@ fun YearInReviewHighlightsScreen(
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(horizontal = 8.dp),
-            highlights = screenData.highlights
+            data = screenData
         )
 
         Button(
@@ -117,7 +117,7 @@ fun ShareableHighlightsCard(
     hashtag: String = stringResource(R.string.year_in_review_hashtag),
     logoResource: Int = R.drawable.w_nav_mark,
     logoDescription: String = stringResource(R.string.year_in_review_highlights_logo_description),
-    highlights: List<YearInReviewScreenData.HighlightItem>,
+    data: YearInReviewScreenData.HighlightsScreen,
 ) {
     val scrollState = rememberScrollState()
     val topPadding = if (scrollState.value > 0) 0.dp else 8.dp
@@ -243,7 +243,7 @@ fun HighlightsContent(
 
 @Composable
 fun ShareHighlightsScreenCapture(
-    highlights: List<YearInReviewScreenData.HighlightItem>,
+    data: YearInReviewScreenData.HighlightsScreen,
     onBitmapReady: (Bitmap) -> Unit
 ) {
     val graphicsLayer = rememberGraphicsLayer()
@@ -279,14 +279,14 @@ fun ShareHighlightsScreenCapture(
                 .background(ComposeColors.Gray100)
                 .border(width = 1.dp, color = ComposeColors.Gray300)
                 .padding(8.dp),
-            highlights = highlights
+            data = data
         )
 
         Text(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 16.dp),
-            text = stringResource(R.string.year_in_highlights_screenshot_url),
+            text = data.screenshotUrl,
             style = MaterialTheme.typography.bodyLarge
         )
     }
@@ -310,7 +310,8 @@ private fun YearInReviewHighlightsScreenPreview() {
                         ),
                         highlightColor = ComposeColors.Blue600
                     )
-                )
+                ),
+                screenshotUrl = "#wikimediafoundation"
             ),
             onShareHighlightsBtnClick = {}
         )
