@@ -12,8 +12,11 @@ open class YearInReviewEvent {
         fun submit(
             action: String,
             activeInterface: String = "wiki_yir",
+            groupAssigned: String? = null,
             campaignId: String? = null,
-            slide: String,
+            slide: String? = null,
+            feedbackSelect: Int? = null,
+            feedbackText: String? = null,
             wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
         ) {
             EventPlatformClient.submit(
@@ -24,7 +27,10 @@ open class YearInReviewEvent {
                         campaignId = campaignId?.let {
                             CampaignCollection.getFormattedCampaignId(it)
                         },
-                        slide = slide
+                        groupAssigned = groupAssigned,
+                        slide = slide,
+                        feedbackSelect = feedbackSelect,
+                        feedbackText = feedbackText
                     )).orEmpty(),
                     primary_language = WikipediaApp.instance.languageState.appLanguageCode,
                     wiki_id = wikiId,
@@ -38,6 +44,7 @@ open class YearInReviewEvent {
     class ActionData(
         val slide: String? = null,
         @SerialName("campaign_id") val campaignId: String? = null,
+        @SerialName("group_assigned") val groupAssigned: String? = null,
         @SerialName("feedback_select") val feedbackSelect: Int? = null,
         @SerialName("feedback_text") val feedbackText: String? = null
     )
