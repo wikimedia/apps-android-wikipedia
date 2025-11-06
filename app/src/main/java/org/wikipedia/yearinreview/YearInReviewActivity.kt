@@ -19,6 +19,8 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.donate.DonateDialog
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
@@ -81,7 +83,7 @@ class YearInReviewActivity : BaseActivity() {
                                     slide = currentSlide,
                                     campaignId = campaignId
                                 )
-                                launchDonateDialog(campaignId) // TODO: confirm with Shay
+                                ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
                             },
                             onRetryClick = {
                                 viewModel.fetchPersonalizedData()

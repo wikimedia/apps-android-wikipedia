@@ -156,7 +156,7 @@ class CreateAccountActivity : BaseActivity() {
         binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
-                YearInReviewEvent.submit(action = "create_account_click", slide = "entry_a")
+                YearInReviewEvent.submit(action = "create_account_click", slide = "explore_prompt")
             }
             validateThenCreateAccount()
         }
@@ -165,7 +165,7 @@ class CreateAccountActivity : BaseActivity() {
         }
         binding.createAccountLoginButton.setOnClickListener {
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
-                YearInReviewEvent.submit(action = "login_click", slide = "entry_a")
+                YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
             }
             // This assumes that the CreateAccount activity was launched from the Login activity
             // (since there's currently no other mechanism to invoke CreateAccountActivity),

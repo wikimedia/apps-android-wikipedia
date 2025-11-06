@@ -30,7 +30,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        YearInReviewEvent.submit(action = "impression", slide = "entry_a")
+        YearInReviewEvent.submit(action = "impression", slide = "explore_prompt")
         Prefs.yearInReviewVisited = true
         setContent {
             BaseTheme {
@@ -45,11 +45,11 @@ class YearInReviewOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            YearInReviewEvent.submit(action = "login_click", slide = "entry_a")
+                            YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_YEAR_IN_REVIEW))
                         },
                         onDismissButtonClick = {
-                            YearInReviewEvent.submit(action = "continue_click", slide = "entry_a")
+                            YearInReviewEvent.submit(action = "continue_click", slide = "explore_prompt")
                             proceed()
                         }
                     )
@@ -57,7 +57,7 @@ class YearInReviewOnboardingActivity : BaseActivity() {
 
                 YearInReviewOnboardingScreen(
                     onBackButtonClick = {
-                        YearInReviewEvent.submit(action = "close_click", slide = "entry_a")
+                        YearInReviewEvent.submit(action = "close_click", slide = "explore_prompt")
                         setResult(RESULT_CANCELED)
                         finish()
                     },

@@ -549,6 +549,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         // Check if the donation started from the app, but completed via web, in which case
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
+
+                        // TODO: check if we want to keep the campaignId in memory.
+
                         if (campaign != null && campaign == "Android") {
                             DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
                             startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),

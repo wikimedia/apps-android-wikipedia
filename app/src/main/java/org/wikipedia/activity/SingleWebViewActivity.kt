@@ -22,6 +22,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
@@ -177,8 +178,21 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     private fun goBack() {
-        if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
-            DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
+        if (!intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).isNullOrEmpty()) {
+            val extraPageContentInfo = intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO)
+            when (extraPageContentInfo) {
+                PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE -> {
+                    DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
+                }
+                PAGE_CONTENT_SOURCE_YIR -> {
+                    YearInReviewEvent.submit(
+                        action = "article_return_click",
+                        slide = "webpay_processed",
+                        campaignId = "" // TODO: tbd
+                    )
+                }
+                else -> { }
+            }
         }
         pageTitleToLoadOnBackPress?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
@@ -208,6 +222,7 @@ class SingleWebViewActivity : BaseActivity() {
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
         const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
+        const val PAGE_CONTENT_SOURCE_YIR = "yearInReview"
         const val EXTRA_IS_WEB_FORM = "isWebForm"
 
         fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitleToLoadOnBackPress: PageTitle? = null,
