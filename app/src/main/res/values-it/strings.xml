@@ -1189,12 +1189,12 @@
   <string name="edit_summary_added_caption">Didascalia aggiunta</string>
   <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
   <string name="edit_published_view">Visualizza</string>
-  <string name="activity_tab_logged_out_title">Accedi o crea un account per vedere la tua attività sull\'app Wikipedia</string>
+  <string name="activity_tab_logged_out_title">Accedi o crea un\'utenza per vedere la tua attività sull\'applicazione di Wikipedia</string>
   <string name="activity_tab_user_reading">Letture di %s</string>
   <string name="activity_tab_on_wikipedia_android">Su Wikipedia Android</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d ore %2$d minuti</string>
-  <string name="activity_tab_weekly_time_spent">Tempo passato leggendo questa settimana</string>
-  <string name="activity_tab_monthly_articles_read">Pagine lette questo mese</string>
+  <string name="activity_tab_weekly_time_spent">Tempo trascorso a leggere questa settimana</string>
+  <string name="activity_tab_monthly_articles_read">Voci lette questo mese</string>
   <string name="activity_tab_monthly_articles_saved">Pagine salvate questo mese</string>
   <string name="activity_tab_discover_encourage">Stai cercando qualcosa di nuovo da leggere?</string>
   <string name="activity_tab_donation_unknown">Sconosciuto</string>
