@@ -202,6 +202,7 @@ fun YearInReviewScreenDeck(
                             requestScreenshotBitmap = requestScreenshotBitmap,
                             screenData = pages[page],
                             onShareHighlightsBtnClick = { highlights ->
+                                YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
                                 captureRequest =
                                     YearInReviewCaptureRequest.HighlightsScreen(highlights)
                             }
