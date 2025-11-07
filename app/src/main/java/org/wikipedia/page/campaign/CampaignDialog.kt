@@ -14,8 +14,9 @@ import org.wikipedia.util.FeedbackUtil
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalDateTime
+import java.util.Date
 
-class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: (() -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
     private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
 
@@ -65,11 +66,15 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
-        // TODO: uncomment this before merging
-        // Prefs.announcementPauseTime = Date().time
         // TODO: update with AB test
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
-        onNeutralBtnClick?.invoke()
+        if (false) {
+            Prefs.announcementPauseTime = Date().time
+            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+            dismissDialog(false)
+            return
+        }
+        onNeutralBtnClick?.invoke(campaignId)
     }
 
     override fun onClose() {

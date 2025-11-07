@@ -709,7 +709,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
                         if (!Prefs.announcementShownDialogs.contains(campaignId)) {
                             DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
-                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = {
+                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = { campaignId ->
+                                Prefs.announcementShownDialogs = setOf(campaignId)
                                 donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
                             })
                             campaignDialog?.setCancelable(false)

@@ -2334,4 +2334,5 @@
         <item quantity="other">%d articles</item>
     </plurals>
     <string name="donation_reminders_settings_no_thanks_btn_label">No thanks</string>
+    <string name="donation_reminders_experiment_label">EXPERIMENT</string>
 </resources>

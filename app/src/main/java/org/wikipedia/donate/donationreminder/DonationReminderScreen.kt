@@ -63,6 +63,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -138,8 +139,7 @@ fun DonationReminderScreen(
                     .statusBarsPadding()
                     .padding(top = 12.dp)
                     .padding(horizontal = 16.dp),
-                onBackBtnClick = onBackBtnClick,
-                onMoreMenuBtnClick = {}
+                onBackBtnClick = onBackBtnClick
             )
         },
         containerColor = WikipediaTheme.colors.paperColor,
@@ -195,19 +195,22 @@ fun DonationReminderScreen(
 fun DonationReminderAppBar(
     modifier: Modifier = Modifier,
     onBackBtnClick: () -> Unit,
-    onMoreMenuBtnClick: (() -> Unit)? = null
+    menuItems: List<DonationReminderDropDownMenuItem> = emptyList()
 ) {
+    var expanded by remember { mutableStateOf(false) }
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 modifier = Modifier
-                    .padding(top = 4.dp)
                     .clickable(onClick = onBackBtnClick),
+                tint = WikipediaTheme.colors.primaryColor,
                 painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                 contentDescription = null
             )
@@ -215,19 +218,40 @@ fun DonationReminderAppBar(
                 modifier = Modifier
                     .weight(1f),
                 text = stringResource(R.string.donation_reminders_settings_title),
-                style = MaterialTheme.typography.headlineSmall.copy(
+                style = TextStyle(
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    lineHeight = 24.sp
+                    lineHeight = 20.sp
                 ),
                 color = WikipediaTheme.colors.primaryColor
             )
-            if (onMoreMenuBtnClick != null) {
-                Icon(
-                    modifier = Modifier
-                        .padding(top = 4.dp),
-                    painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                    contentDescription = null
-                )
+            if (menuItems.isNotEmpty()) {
+                Box {
+                    Icon(
+                        modifier = Modifier
+                            .clickable(onClick = { expanded = true }),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                        contentDescription = null
+                    )
+                    DropdownMenu(
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        menuItems.forEach { item ->
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = item.text,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    )
+                                },
+                                onClick = item.onClick
+                            )
+                        }
+                    }
+                }
             }
         }
         Row(
@@ -239,11 +263,14 @@ fun DonationReminderAppBar(
             )
             Row(
                 modifier = Modifier
-                    .background(color = WikipediaTheme.colors.additionColor, shape = RoundedCornerShape(size = 16.dp))
+                    .background(
+                        color = WikipediaTheme.colors.additionColor,
+                        shape = RoundedCornerShape(size = 16.dp)
+                    )
                     .padding(horizontal = 8.dp, vertical = 4.dp)
             ) {
                 Text(
-                    text = "EXPERIMENT",
+                    text = stringResource(R.string.donation_reminders_experiment_label),
                     style = MaterialTheme.typography.labelSmall,
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Normal,
@@ -877,6 +904,37 @@ private fun CustomInputDialogPreview() {
                 )
             },
             onValueChange = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun DonationReminderAppBarPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        DonationReminderAppBar(
+            modifier = Modifier
+                .fillMaxWidth()
+                .statusBarsPadding()
+                .padding(top = 12.dp)
+                .padding(horizontal = 16.dp),
+            onBackBtnClick = {},
+            menuItems = listOf(
+                DonationReminderDropDownMenuItem(
+                    text = "Learn more",
+                    onClick = {
+                        println("orange learn more clicked.")
+                    }
+                ),
+                DonationReminderDropDownMenuItem(
+                    text = "Problem with feature",
+                    onClick = {
+                        println("orange problem with feature is clicked.")
+                    }
+                )
+            )
         )
     }
 }

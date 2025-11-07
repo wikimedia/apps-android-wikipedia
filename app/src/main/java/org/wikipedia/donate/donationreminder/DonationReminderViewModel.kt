@@ -192,3 +192,8 @@ data class SelectableOption<T : Number>(
     val defaultValue: T,
     val displayFormatter: (T) -> String = { it.toString() }
 )
+
+data class DonationReminderDropDownMenuItem(
+    val text: String,
+    val onClick: () -> Unit
+)

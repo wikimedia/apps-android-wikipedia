@@ -2204,5 +2204,5 @@
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
   <string name="donation_reminders_text_articles">Indicating the number of articles that was set by the user. %d is replaced by the count.</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">No thanks button label for the donation reminders settings screen.</string>
-
+  <string name="donation_reminders_experiment_label">Experiment lable for the donation reminders settings screen.</string>
 </resources>
