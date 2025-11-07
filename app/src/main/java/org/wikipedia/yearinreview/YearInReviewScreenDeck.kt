@@ -184,17 +184,19 @@ fun YearInReviewScreenDeck(
                     )
                 },
                 content = { paddingValues ->
+
+                    LaunchedEffect(pagerState.currentPage) {
+                        YearInReviewEvent.submit(
+                            action = "impression",
+                            slide = pages[pagerState.currentPage].slideName
+                        )
+                    }
+
                     HorizontalPager(
                         verticalAlignment = Alignment.Top,
                         state = pagerState,
                         contentPadding = PaddingValues(0.dp),
                     ) { page ->
-                        if (page == pagerState.currentPage) {
-                            YearInReviewEvent.submit(
-                                action = "impression",
-                                slide = pages[page].slideName
-                            )
-                        }
                         YearInReviewScreenContent(
                             modifier = Modifier
                                 .fillMaxSize()
