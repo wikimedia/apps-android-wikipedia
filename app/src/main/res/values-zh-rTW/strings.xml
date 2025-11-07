@@ -1894,6 +1894,7 @@
   <string name="year_in_review_survey_placeholder_text">您還有其他想法嗎？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_survey_submit">提交</string>
+  <string name="year_in_review_disable_title">您確定要關閉年度回顧嗎？</string>
   <string name="year_in_review_disable_positive_button">是的，我確定</string>
   <string name="year_in_review_disable_negative_button">不用了，謝謝！</string>
   <string name="year_in_review_setting_subtitle">關閉年度回顧將清除所有儲存的個人化分析資訊，並隱藏年度回顧功能。</string>
@@ -1904,22 +1905,99 @@
   <string name="year_in_review_globe_icon">地球圖示</string>
   <string name="settings_app_icon_title">應用程式圖示</string>
   <string name="settings_app_icon_subtitle">貢獻者福利</string>
+  <string name="settings_app_icon_updated">您的應用程式圖示已更新。</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">解鎖您明年的貢獻者獎勵！</string>
   <string name="year_in_review_slide_app_icon_donor">捐款者</string>
   <string name="year_in_review_slide_app_icon_editor">編輯者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
+  <string name="year_in_review_slide_geo_headline">您閱讀過的條目裡，最靠近您的地點是%s</string>
+  <string name="year_in_review_login_dialog_title">登入來進行個人化設定？</string>
   <string name="year_in_review_login_dialog_positive">登入/註冊維基百科</string>
   <string name="year_in_review_login_dialog_negative">以不登入來繼續</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">您的年度熱門條目</item>
+    <item quantity="other">您的年度熱門條目</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">您最感興趣的分類</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">中文維基百科最受歡迎的條目</string>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">維基百科每分鐘有 %,d 次編輯</item>
+    <item quantity="other">維基百科每分鐘有 %,d 次編輯</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">條目是由多人協作且不斷用可靠來源改善。我們每個人都有知識可以分享，&lt;a href=\"%s\"&gt;歡迎學習如何參與其中&lt;/a&gt;。</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">新增 %,d 位元組</item>
+    <item quantity="other">新增 %,d 位元組</item>
+  </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">您編輯了維基百科%s次</item>
     <item quantity="other">您編輯了維基百科%s次</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
+    <item quantity="other">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">維基百科的一心一意都是在我們的全球志願者社群，包括貢獻者、捐款者，以及像您一樣的數十億讀者——大家齊心協力，共同提供無限且可靠的資訊存取。</string>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">您儲存了 %,d 篇條目</item>
+    <item quantity="other">您儲存了 %,d 篇條目</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">將條目增加到閱讀清單，可以讓您即使在離線時也能存取條目。此外，您還可以登入帳號，將閱讀清單同步到不同裝置。</string>
+  <string name="year_in_review_slide_reading_patterns_headline">您有明確的閱讀規律</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜歡的閱讀時間</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜歡閱讀的日子</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">您閱讀最多次的月份</string>
   <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
   <string name="year_in_review_slide_reading_pattern_midday">中午</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
   <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
   <string name="year_in_review_slide_reading_pattern_night">晚間</string>
   <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">我們用了 %,d 小時閱讀</item>
+    <item quantity="other">我們用了 %,d 小時閱讀</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">維基百科有 %,d 篇條目</item>
+    <item quantity="other">維基百科有 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+    <item quantity="other">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">您用了 %,d 分鐘</item>
+    <item quantity="other">您用了 %,d 分鐘</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">在 %2$d 閱讀了 %1$,d 篇條目</item>
+    <item quantity="other">在 %2$d 閱讀了 %1$,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">維基百科有 %,d 篇條目</item>
+    <item quantity="other">維基百科有 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+    <item quantity="other">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+  </plurals>
+  <string name="year_in_review_highlights_thank_you_message">感謝您與維基百科共度的這一年。</string>
+  <string name="year_in_review_highlights_looking_forward_message">我們期待明年！</string>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">我閱讀最多次的條目</item>
+    <item quantity="other">我閱讀最多次的條目</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">最喜歡閱讀的日子</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">已閱讀條目</item>
+    <item quantity="other">已閱讀條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">已編輯條目</item>
+    <item quantity="other">已編輯條目</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">分享精彩內容</string>
+  <string name="year_in_review_highlights_logo_description">維基百科標誌</string>
   <string name="recommended_reading_list_title">發現</string>
   <string name="recommended_reading_list_onboarding_card_title">發現專為您挑選的條目</string>
   <string name="recommended_reading_list_onboarding_card_message">您的每週維基百科條目閱讀清單，專為您精心挑選。</string>
