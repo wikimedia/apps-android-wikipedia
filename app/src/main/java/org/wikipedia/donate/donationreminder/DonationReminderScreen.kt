@@ -136,7 +136,8 @@ fun DonationReminderScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .statusBarsPadding()
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                    .padding(top = 12.dp)
+                    .padding(horizontal = 16.dp),
                 onBackBtnClick = onBackBtnClick,
                 onMoreMenuBtnClick = {}
             )
@@ -277,17 +278,15 @@ fun DonationReminderContent(
                 .padding(16.dp)
         ) {
             DonationHeader()
-            if (viewModel.isFromSettings) {
-                DonationRemindersSwitch(
-                    modifier = Modifier
-                        .noRippleClickable {
-                            viewModel.toggleDonationReminders(!isDonationReminderEnabled)
-                        }
-                        .padding(top = 24.dp),
-                    isDonationRemindersEnabled = isDonationReminderEnabled,
-                    onCheckedChange = { viewModel.toggleDonationReminders(it) }
-                )
-            }
+            DonationRemindersSwitch(
+                modifier = Modifier
+                    .noRippleClickable {
+                        viewModel.toggleDonationReminders(!isDonationReminderEnabled)
+                    }
+                    .padding(top = 24.dp),
+                isDonationRemindersEnabled = isDonationReminderEnabled,
+                onCheckedChange = { viewModel.toggleDonationReminders(it) }
+            )
             Spacer(modifier = Modifier.height(24.dp))
             if (uiState.isDonationReminderEnabled || !viewModel.isFromSettings) {
                 ReadFrequencyView(
@@ -428,21 +427,22 @@ fun DonationReminderContent(
                 )
             }
         }
-        val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
-        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
-        TextButton(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .padding(bottom = 16.dp),
-            onClick = onFooterButtonClick,
-            content = {
-                Text(
-                    text = footerButtonText,
-                    color = WikipediaTheme.colors.progressiveColor
-                )
-            }
-        )
+
+        if (!viewModel.isFromSettings) {
+            TextButton(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .padding(bottom = 16.dp),
+                onClick = onFooterButtonClick,
+                content = {
+                    Text(
+                        text = stringResource(R.string.donation_reminders_settings_no_thanks_btn_label),
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            )
+        }
     }
 }
 

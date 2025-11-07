@@ -126,7 +126,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     private suspend fun createDonationAmountOptions(): SelectableOption<Float> {
         val donationConfig = DonationConfigHelper.getConfig()
         val currencyCode = DonateUtil.currencyCode
-        val currentCountryCode = DonateUtil.currentCountryCode
         val minimumAmount = donationConfig?.currencyMinimumDonation?.get(currencyCode) ?: 0f
 
         var maximumAmount = donationConfig?.currencyMaximumDonation?.get(currencyCode) ?: 0f
