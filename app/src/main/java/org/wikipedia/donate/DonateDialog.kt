@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -101,7 +102,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onDonateClicked() {
-        launchDonateLink(requireContext(), arguments?.getString(ARG_DONATE_URL))
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL))
         invalidateCampaign()
         dismiss()
     }
@@ -165,8 +166,11 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             }
         }
 
-        fun launchDonateLink(context: Context, url: String? = null) {
-            val donateUrl = url ?: context.getString(R.string.donate_url,
+        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu") {
+            val formattedCampaignId = campaignId?.let {
+                return@let CampaignCollection.getFormattedCampaignId(it)
+            }.orEmpty()
+            val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
                 WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }

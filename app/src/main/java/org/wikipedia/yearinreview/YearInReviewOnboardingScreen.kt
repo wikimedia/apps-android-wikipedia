@@ -1,11 +1,12 @@
 package org.wikipedia.yearinreview
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -24,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
@@ -76,7 +78,6 @@ fun YearInReviewOnboardingScreen(
             YearInReviewOnboardingContent(
                 modifier = modifier
                     .padding(paddingValues)
-                    .verticalScroll(rememberScrollState())
             )
         }
     )
@@ -86,30 +87,34 @@ fun YearInReviewOnboardingScreen(
 fun YearInReviewOnboardingContent(
     modifier: Modifier = Modifier
 ) {
-    val gifAspectRatio = 4f / 3f
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
             .fillMaxHeight()
     ) {
-        SubcomposeAsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(R.drawable.yir_puzzle_pinch)
-                .allowHardware(false)
-                .build(),
-            loading = { LoadingIndicator() },
-            success = { SubcomposeAsyncImageContent() },
-            contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(gifAspectRatio)
-                .clip(RoundedCornerShape(16.dp))
-        )
         Column(
             modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth(),
+                .weight(1f)
+                .verticalScroll(rememberScrollState())
         ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(3f / 2f)
+                    .clip(RoundedCornerShape(16.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                SubcomposeAsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(R.drawable.yir_puzzle_pinch)
+                        .allowHardware(false)
+                        .build(),
+                    loading = { LoadingIndicator() },
+                    success = { SubcomposeAsyncImageContent() },
+                    contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp, start = 16.dp, end = 8.dp),
@@ -126,19 +131,15 @@ fun YearInReviewOnboardingContent(
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center
             )
-            Spacer(
-                modifier = Modifier
-                    .weight(1f)
-            )
-            Text(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 16.dp, end = 16.dp),
-                text = stringResource(R.string.year_in_review_get_started_info),
-                color = WikipediaTheme.colors.secondaryColor,
-                style = MaterialTheme.typography.bodySmall,
-                textAlign = TextAlign.Center
-            )
         }
+        Text(
+            modifier = Modifier
+                .padding(top = 10.dp, start = 16.dp, end = 16.dp),
+            text = stringResource(R.string.year_in_review_get_started_info),
+            color = WikipediaTheme.colors.secondaryColor,
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Center
+        )
     }
 }
 

@@ -252,6 +252,7 @@
   <string name="edit_preview">Antaŭrigardi</string>
   <string name="edit_undo">Malfari</string>
   <string name="edit_redo">Refari</string>
+  <string name="edit_warn">Averti</string>
   <string name="edit_intent">Intenco %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bajto</item>
@@ -460,6 +461,8 @@
   <string name="reading_list_article_offline">Disponebla eksterrete</string>
   <string name="reading_list_article_make_offline">Disponebligi ĉi tiun artikolon eksterrete</string>
   <string name="reading_list_add_to_other_list">Aldoni al alia legolisto</string>
+  <string name="reading_list_move_to_other_list">Movi al alia legolisto</string>
+  <string name="reading_list_move_from_to_other_list">Movi el %s al alia legolisto</string>
   <string name="reading_list_remove_from_list">Forigi de %s</string>
   <string name="reading_list_remove_from_lists">Forigi de legolistoj</string>
   <string name="reading_list_select_item">Elekti</string>

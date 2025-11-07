@@ -1174,14 +1174,43 @@
   <string name="edit_summary_added_image_and_caption">画像とキャプションを追加しました</string>
   <string name="edit_published_view">閲覧</string>
   <string name="activity_tab_user_reading">%sの閲覧</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d時間%2$d分</string>
   <string name="activity_tab_monthly_articles_read">今月読んだ記事</string>
   <string name="activity_tab_monthly_articles_saved">今月保存した記事</string>
   <string name="activity_tab_donation_unknown">不明</string>
+  <string name="activity_tab_menu_feedback">機能の問題</string>
   <string name="activity_tab_menu_info">詳細</string>
   <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_impact_contributions_this_month">今月の投稿</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="other">今月の編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="other">先月の編集</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">全期間の影響</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">総編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">感謝</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d日</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">最高連続</string>
   <string name="activity_tab_impact_last_edited">最終編集</string>
+  <string name="activity_tab_impact_suggested_edits_title">最近の記事への編集は0件です</string>
+  <string name="activity_tab_impact_suggested_edits_message">今月は編集をしていないようです。興味のあるトピックを編集して、フリーな知識を広げましょう。</string>
   <string name="activity_tab_impact_suggested_edits_button">編集する</string>
   <string name="activity_tab_impact_recent_activity">あなたの最近の活動 (過去30日)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="other">編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="other">あなたが編集した記事の閲覧数</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_impact_switch_title">全期間の影響</string>
   <string name="activity_tab_timeline_today">今日</string>
   <string name="activity_tab_timeline_yesterday">昨日</string>
   <string name="activity_tab_timeline_empty_state_title">表示するものはありません</string>
@@ -1728,6 +1757,8 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
+  <string name="on_this_day_game_sound_on">サウンドをオンにする</string>
+  <string name="on_this_day_game_sound_off">サウンドをオフにする</string>
   <string name="year_in_review_learn_more">詳細</string>
   <string name="year_in_review_get_started">始める</string>
   <string name="year_in_review_close">閉じる</string>
@@ -1742,6 +1773,12 @@
   <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="year_in_review_slide_app_icon_donor">寄付者</string>
+  <string name="year_in_review_slide_app_icon_editor">編集者</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">寄付者かつ編集者</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,dバイト追加</item>
+  </plurals>
   <string name="year_in_review_slide_reading_pattern_morning">朝</string>
   <string name="year_in_review_slide_reading_pattern_midday">正午</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">午後</string>
@@ -1771,6 +1808,9 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_message">これは現在の選択をクリアして新しい記事をランダムに選択します。</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">はい、私のために選んで</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">結構です</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="other">• %d記事</item>
+  </plurals>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
   <string name="recommended_reading_list_page_snackbar_action">発見をカスタマイズ</string>
@@ -1826,4 +1866,7 @@
   <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
   <string name="donation_reminders_survey_dialog_title">寄付リマインダーの改善にご協力ください。</string>
   <string name="donation_reminders_settings_description_off">寄付リマインダーはオフです。</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="other">%d記事</item>
+  </plurals>
 </resources>
