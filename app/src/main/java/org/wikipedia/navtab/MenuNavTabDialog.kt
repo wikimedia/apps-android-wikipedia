@@ -39,7 +39,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: ViewMainDrawerBinding? = null
     private val binding get() = _binding!!
 
-    private val yirEntrySlide get() = if (AccountUtil.isLoggedIn) "entry_b" else "entry_c"
+    private val yirEntrySlide get() = if (AccountUtil.isLoggedIn) "li_profile" else "lo_profile"
     private val yirEnabled get() = YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -75,17 +75,19 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             }
             it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
                 if (newValue as Boolean) {
-                    val eventAction = if (newValue) "yir_on_click" else "yir_off_click"
-                    YearInReviewEvent.submit(action = eventAction, slide = "setting")
+                    YearInReviewEvent.submit(action = "yir_on_click", slide = "setting")
                     return@OnPreferenceChangeListener true
                 }
+                YearInReviewEvent.submit(action = "yir_off_click", slide = "setting")
                 MaterialAlertDialogBuilder(activity)
                     .setTitle(R.string.year_in_review_disable_title)
                     .setMessage(R.string.year_in_review_setting_subtitle)
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = 0) }
+                        YearInReviewViewModel.updateYearInReviewModel { model ->
+                            model.copy(slideViewedCount = 0)
+                        }
                         Prefs.yearInReviewReadingListSurveyShown = false
                         Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false

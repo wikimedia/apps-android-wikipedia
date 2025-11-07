@@ -42,7 +42,7 @@ class YearInReviewSlides(
             imageResource = R.drawable.yir_puzzle_clock,
             headlineText = context.resources.getQuantityString(R.plurals.year_in_review_slide_english_reading_hours_headline, config.hoursReadEN.toInt(), config.hoursReadEN),
             bodyText = bodyText,
-            slideName = "lo_en_collhours"
+            slideName = if (isLoggedIn) "li_en_collhours" else "lo_en_collhours"
         )
     }
 

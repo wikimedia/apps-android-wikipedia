@@ -165,7 +165,7 @@ fun YearInReviewOnboardingBottomBar(
                         .weight(1f)
                         .padding(end = 12.dp),
                     onClick = {
-                        YearInReviewEvent.submit(action = "learn_click", slide = "entry_a")
+                        YearInReviewEvent.submit(action = "learn_click", slide = "explore_prompt")
                         UriUtil.handleExternalLink(
                             context = context,
                             uri = context.getString(R.string.year_in_review_media_wiki_url).toUri()
@@ -186,7 +186,7 @@ fun YearInReviewOnboardingBottomBar(
                         .weight(1f)
                         .padding(start = 12.dp),
                     onClick = {
-                        YearInReviewEvent.submit(action = "start_click", slide = "entry_a")
+                        YearInReviewEvent.submit(action = "start_click", slide = "explore_prompt")
                         onGetStartedClick()
                     }
                 ) {
