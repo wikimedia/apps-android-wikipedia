@@ -98,25 +98,21 @@ fun YearInReviewOnboardingContent(
         ) {
             Box(
                 modifier = Modifier
-                    .clip(RoundedCornerShape(16.dp))
+                    .fillMaxWidth()
+                    .aspectRatio(3f / 2f)
+                    .clip(RoundedCornerShape(16.dp)),
+                contentAlignment = Alignment.Center
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(3f / 2f),
-                    contentAlignment = Alignment.Center
-                ) {
-                    SubcomposeAsyncImage(
-                        model = ImageRequest.Builder(LocalContext.current)
-                            .data(R.drawable.yir_puzzle_pinch)
-                            .allowHardware(false)
-                            .build(),
-                        loading = { LoadingIndicator() },
-                        success = { SubcomposeAsyncImageContent() },
-                        contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
-                        modifier = Modifier.fillMaxSize()
-                    )
-                }
+                SubcomposeAsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(R.drawable.yir_puzzle_pinch)
+                        .allowHardware(false)
+                        .build(),
+                    loading = { LoadingIndicator() },
+                    success = { SubcomposeAsyncImageContent() },
+                    contentDescription = stringResource(R.string.year_in_review_screendeck_image_content_description),
+                    modifier = Modifier.fillMaxSize()
+                )
             }
             Text(
                 modifier = Modifier
