@@ -40,6 +40,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -87,6 +88,7 @@ import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.yearinreview.YearInReviewDialog
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -550,12 +552,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
 
-                        // TODO: check if we want to keep the campaignId in memory.
-
                         if (campaign != null && campaign == "Android") {
-                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
+                            YearInReviewViewModel.currentCampaignId?.let { campaignId ->
+                                YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                                pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
+                            } ?: run {
+                                DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            }
                             startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
+                                true, pageFragment.title, pageContentInfo))
                             finish()
                             return
                         }

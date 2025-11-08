@@ -77,13 +77,13 @@ class YearInReviewActivity : BaseActivity() {
                                         screen_name = "year_in_review",
                                         action = "donate_click")
                                 )
-                                val campaignId = "appmenu_yir_$currentSlide"
+                                YearInReviewViewModel.currentCampaignId = "appmenu_yir_$currentSlide"
                                 YearInReviewEvent.submit(
                                     action = "donate_start_click_yir",
                                     slide = currentSlide,
-                                    campaignId = campaignId
+                                    campaignId = YearInReviewViewModel.currentCampaignId
                                 )
-                                ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = campaignId, fromYiR = true))
+                                ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = YearInReviewViewModel.currentCampaignId, fromYiR = true))
                             },
                             onRetryClick = {
                                 viewModel.fetchPersonalizedData()

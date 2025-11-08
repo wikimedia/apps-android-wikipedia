@@ -37,6 +37,7 @@ import org.wikipedia.page.PageViewModel
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class SingleWebViewActivity : BaseActivity() {
     private lateinit var binding: ActivitySingleWebViewBinding
@@ -185,11 +186,13 @@ class SingleWebViewActivity : BaseActivity() {
                     DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
                 }
                 PAGE_CONTENT_SOURCE_YIR -> {
-                    YearInReviewEvent.submit(
-                        action = "article_return_click",
-                        slide = "webpay_processed",
-                        campaignId = "" // TODO: tbd
-                    )
+                    YearInReviewViewModel.currentCampaignId?.let { campaignId ->
+                        YearInReviewEvent.submit(
+                            action = "article_return_click",
+                            slide = "webpay_processed",
+                            campaignId = campaignId
+                        )
+                    }
                 }
                 else -> { }
             }

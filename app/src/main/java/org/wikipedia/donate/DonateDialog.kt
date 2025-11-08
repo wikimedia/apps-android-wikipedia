@@ -102,7 +102,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onDonateClicked() {
-        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL))
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId)
         invalidateCampaign()
         dismiss()
     }
