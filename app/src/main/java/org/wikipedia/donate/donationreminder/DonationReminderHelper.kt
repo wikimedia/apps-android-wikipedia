@@ -16,6 +16,8 @@ object DonationReminderHelper {
     const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
+
+    private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
@@ -30,9 +32,8 @@ object DonationReminderHelper {
 
     // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled
-        get() = ReleaseUtil.isDevRelease ||
-                enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                        LocalDate.now() <= LocalDate.of(2025, 12, 31)
+        get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+                        LocalDate.now() <= LocalDate.of(2025, 12, 31) && isTestGroupUser
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
             (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
