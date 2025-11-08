@@ -1,14 +1,9 @@
 package org.wikipedia.donate.donationreminder
 
 import android.app.Activity
-import android.widget.ScrollView
-import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -142,99 +137,6 @@ object DonationReminderHelper {
                     articleVisit = 0
                 )
             }
-        }
-    }
-
-    fun maybeShowSurveyDialog(activity: Activity) {
-        if (!isEnabled) return
-
-        val config = Prefs.donationReminderConfig
-        if (config.isSurveyShown) return
-
-        // when user sets up the reminder
-        val hasSetupReminder = config.donateAmount > 0 && config.articleFrequency > 0
-        if (hasSetupReminder) {
-            val userGroup = getUserGroup()
-            when (userGroup) {
-                "A" -> {
-                    // Group A: Show survey on next article visit after setting up reminder
-                    showFeedbackOptionsDialog(activity, "reminder_setup_next_article")
-                }
-                "B" -> {
-                    // Group B: Show survey on the next article visit after seeing reminder impressions
-                    if (config.finalPromptCount >= 1) {
-                        showFeedbackOptionsDialog(activity, "reminder_impression_next_article")
-                    }
-                }
-            }
-            return
-        }
-
-        // User has not taken any action on the initial prompt
-        // Show survey on next article visit if this continues for continuous 5 times
-        if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            showFeedbackOptionsDialog(activity, "impression_next_article")
-            return
-        }
-    }
-
-    private fun getUserGroup(): String {
-        return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-    }
-
-    private fun showFeedbackOptionsDialog(activity: Activity, userGroup: String) {
-        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
-        binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
-        binding.messageText.text = activity.getString(R.string.donation_reminders_survey_dialog_message)
-        binding.feedbackInputContainer.isVisible = true
-
-        val dialog = AlertDialog.Builder(activity)
-            .setView(binding.root)
-            .setCancelable(false)
-            .create()
-
-        binding.cancelButton.setOnClickListener {
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_feedback",
-                action = "feedback_close_click",
-                userGroup = userGroup
-            )
-            dialog.dismiss()
-        }
-        binding.submitButton.setOnClickListener {
-            val selectedOption = getSelectedOption(binding)
-            val feedbackText = binding.feedbackInput.text.toString()
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_feedback",
-                action = "feedback_submit_click",
-                feedbackSelect = selectedOption,
-                feedbackText = feedbackText,
-                userGroup = userGroup
-            )
-            dialog.dismiss()
-        }
-
-        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.dialogContainer.postDelayed({
-                    if (!activity.isDestroyed) {
-                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
-                    }
-                }, 200)
-            }
-        }
-        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression", userGroup = userGroup)
-        dialog.show()
-        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
-    }
-
-    private fun getSelectedOption(binding: DialogFeedbackOptionsBinding): Int? {
-        val selectedId = binding.feedbackRadioGroup.checkedRadioButtonId
-        return when (selectedId) {
-            R.id.optionSatisfied -> 1
-            R.id.optionNeutral -> 2
-            R.id.optionUnsatisfied -> 3
-            else -> null
         }
     }
 }
