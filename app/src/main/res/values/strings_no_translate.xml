@@ -5,7 +5,7 @@
 
     <!-- URLs -->
     <string name="support_email">android-support@wikimedia.org</string>
-    <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=appmenu&amp;uselang=%1$s&amp;app_version=%2$s</string>
+    <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
@@ -28,8 +28,9 @@
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review</string>
     <string name="year_in_review_media_wiki_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#Frequently_asked_questions</string>
     <string name="year_in_review_hashtag">#WikipediaYearInReview</string>
-    <string name="year_in_review_popular_english_articles_blog_url"></string>
-    <string name="year_in_highlights_screenshot_url">wikipedia.org/year-in-review</string>
+    <string name="year_in_review_most_read_english_articles_blog_url">https://wikimediafoundation.org/news/2025/12/01/announcing-english-wikipedias-most-read-articles-of-2025</string>
+    <string name="year_in_highlights_screenshot_url">wikimediafoundation.org/yir25</string>
+    <string name="year_in_highlights_screenshot_articles_url">wikimediafoundation.org/2025articles</string>
     <string name="year_in_review_reading_list_learn_more">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#How_does_the_Year_in_Review_reading_list_work?</string>
     <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
