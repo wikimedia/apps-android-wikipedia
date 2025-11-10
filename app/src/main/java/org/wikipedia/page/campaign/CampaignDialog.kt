@@ -66,10 +66,10 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
-        // TODO: update with AB test
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
+        Prefs.announcementPauseTime = Date().time
+        // TODO: update conditional check with AB test
         if (false) {
-            Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
             dismissDialog(false)
             return

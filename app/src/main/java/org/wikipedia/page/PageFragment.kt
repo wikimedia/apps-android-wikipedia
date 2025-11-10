@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.animation.ObjectAnimator
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -151,7 +150,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private var campaignDialog: CampaignDialog? = null
     private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
+        if (result.resultCode == DonationReminderActivity.RESULT_OK_FROM_DONATION_REMINDER) {
             campaignDialog?.dismiss()
         }
     }

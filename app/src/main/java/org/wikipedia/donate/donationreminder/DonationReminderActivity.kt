@@ -31,7 +31,7 @@ class DonationReminderActivity : BaseActivity() {
                     onConfirmBtnClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true
                         // TODO: update with AB test
-                        setResult(RESULT_OK)
+                        setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },
                     onFooterButtonClick = {
@@ -43,7 +43,7 @@ class DonationReminderActivity : BaseActivity() {
                                 action = "reminder_about_click"
                             )
                         } else {
-                            setResult(RESULT_OK)
+                            setResult(RESULT_OK_FROM_DONATION_REMINDER)
                             finish()
                         }
                     },
@@ -71,7 +71,7 @@ class DonationReminderActivity : BaseActivity() {
     }
 
     companion object {
-
+        const val RESULT_OK_FROM_DONATION_REMINDER = 100
         fun newIntent(context: Context, isFromSettings: Boolean = false): Intent {
             return Intent(context, DonationReminderActivity::class.java)
                 .putExtra(EXTRA_FROM_SETTINGS, isFromSettings)
