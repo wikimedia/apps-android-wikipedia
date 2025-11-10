@@ -30,13 +30,11 @@ object DonationReminderHelper {
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15)
 
-    // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled
         get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                        LocalDate.now() <= LocalDate.of(2025, 12, 31) && isTestGroupUser
+                        LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
-            (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
+    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive
 
     var shouldShowSettingSnackbar = false
 
@@ -84,6 +82,7 @@ object DonationReminderHelper {
         }
     }
 
+    // TODO: remove this and replace it with campaign dialog "Maybe later" action
     fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
         if (!isEnabled) return false
         return Prefs.donationReminderConfig.let { config ->
