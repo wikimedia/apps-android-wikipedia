@@ -311,6 +311,7 @@ private fun YearInReviewHighlightsScreenPreview() {
                         highlightColor = ComposeColors.Blue600
                     )
                 ),
+                slideName = "test",
                 screenshotUrl = "#wikimediafoundation"
             ),
             onShareHighlightsBtnClick = {}

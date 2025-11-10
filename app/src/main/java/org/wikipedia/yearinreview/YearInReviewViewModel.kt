@@ -314,6 +314,8 @@ class YearInReviewViewModel() : ViewModel() {
                     now.isBefore(config.activeEndDate))
         }
 
+        var currentCampaignId: String? = null
+
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
         }
