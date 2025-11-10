@@ -1711,6 +1711,7 @@
   <string name="year_in_review_slide_reading_pattern_late_night">Касно увече</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Направи</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Не, хвала</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колико често је Википедија уређивана</string>
   <string name="year_in_review_highlights_logo_description">Логотип Википедије</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
