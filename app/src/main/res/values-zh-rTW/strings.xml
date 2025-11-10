@@ -1958,8 +1958,8 @@
     <item quantity="other">新增 %,d 位元組</item>
   </plurals>
   <plurals name="year_in_review_slide_bytes_added_body">
-    <item quantity="one">在 %1$d 年，志工們為英文維基百科添加了多達 %2$ 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
-    <item quantity="other">在 %1$d 年，志工們為英文維基百科添加了多達 %2$ 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+    <item quantity="one">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+    <item quantity="other">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">您編輯了維基百科%s次</item>

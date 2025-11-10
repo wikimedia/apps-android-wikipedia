@@ -1920,8 +1920,8 @@
     <item quantity="other">%,d bytes addite</item>
   </plurals>
   <plurals name="year_in_review_slide_bytes_added_body">
-    <item quantity="one">In %1$d, le voluntarios ha addite $2 byte al Wikipedia in anglese. Le summa de tote lor travalio commun resulta in un ressource de cognoscimento in constante melioramento, basate sur factos e digne de fide, que illes mitte al disposition del mundo. Tote nos ha cognoscentias a condivider. &lt;a href=\"%3$s\"&gt;Apprende como participar&lt;/a&gt;!</item>
-    <item quantity="other">In %1$d, le voluntarios ha addite $2 bytes al Wikipedia in anglese. Le summa de tote lor travalio commun resulta in un ressource de cognoscimento in constante melioramento, basate sur factos e digne de fide, que illes mitte al disposition del mundo. Tote nos ha cognoscentias a condivider. &lt;a href=\"%3$s\"&gt;Apprende como participar&lt;/a&gt;!</item>
+    <item quantity="one">In %1$d, le voluntarios ha addite %2$,d byte al Wikipedia in anglese. Le summa de tote lor travalio commun resulta in un ressource de cognoscimento in constante melioramento, basate sur factos e digne de fide, que illes mitte al disposition del mundo. Tote nos ha cognoscentias a condivider. &lt;a href=\"%3$s\"&gt;Apprende como participar&lt;/a&gt;!</item>
+    <item quantity="other">In %1$d, le voluntarios ha addite %2$,d bytes al Wikipedia in anglese. Le summa de tote lor travalio commun resulta in un ressource de cognoscimento in constante melioramento, basate sur factos e digne de fide, que illes mitte al disposition del mundo. Tote nos ha cognoscentias a condivider. &lt;a href=\"%3$s\"&gt;Apprende como participar&lt;/a&gt;!</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Tu ha modificate Wikipedia %s vice</item>

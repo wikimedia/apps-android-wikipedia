@@ -1969,7 +1969,7 @@
   <string name="year_in_review_highlights_logged_out_en_edits_title">Title of the third highlight shown on the Year in Review highlights screen for logged-out English Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_out_non_en_articles_title">Title of the first highlight shown on the Year in Review highlights screen for logged-out Non English Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_out_non_en_edits_title">Title of the second highlight shown on the Year in Review highlights screen for logged-out Non English Wikipedia users.</string>
-  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title"/>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Title shown above a message showing how often Wikipedia was edited this year.</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">Value of the third highlight shown on the Year in Review highlights screen for logged-out Non English Wikipedia users, %d will be replaced by the number of minutes.</string>
   <string name="year_in_review_highlights_logged_in_most_read_article_title">Title of the first highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_minutes_read_title">Title of the second highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
