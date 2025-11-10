@@ -125,8 +125,13 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                 true
             }
-        if (Prefs.donationResults.isNotEmpty()) {
-            setupDeleteLocalDonationHistoryPreference()
+        findPreference(R.string.preference_key_delete_local_donation_history).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            if (Prefs.donationResults.isNotEmpty()) {
+                FeedbackUtil.showMessage(activity, R.string.donation_history_deleted_message_snackbar)
+            } else {
+                FeedbackUtil.showMessage(activity, R.string.donation_history_no_history_message_snackbar)
+            }
+            true
         }
     }
 
