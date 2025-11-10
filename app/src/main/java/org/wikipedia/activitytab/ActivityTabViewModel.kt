@@ -40,6 +40,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.UiState
+import org.wikipedia.util.log.L
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -215,8 +216,14 @@ class ActivityTabViewModel() : ViewModel() {
             val impact: GrowthUserImpact
             val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
             val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+
+            val userInfo = ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo
+            val userId = userInfo?.id!!
+
+            L.d(">>>>>>> " + userInfo.options?.watchEditedPagesByDefault)
+
             if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                val userId = ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+
                 impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
                 impactLastResponseBodyMap[wikiSite.languageCode] = JsonUtil.encodeToString(impact).orEmpty()
                 Prefs.impactLastResponseBody = impactLastResponseBodyMap
