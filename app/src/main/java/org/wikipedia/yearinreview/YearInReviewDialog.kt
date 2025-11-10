@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogFeedbackOptionsBinding
@@ -27,6 +28,11 @@ object YearInReviewDialog {
             !Prefs.isYearInReviewEnabled || (YearInReviewViewModel.getYearInReviewModel()?.slideViewedCount ?: 0) < YearInReviewViewModel.MIN_SLIDES_FOR_CREATING_YIR_READING_LIST) {
             return
         }
+
+        YearInReviewEvent.submit(
+            action = "group_assigned",
+            groupAssigned = if (isTestGroupUser) "android_yir_2025_b" else "android_yir_2025_a"
+        )
 
         val cutoffDate = Instant.parse(YearInReviewViewModel.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
         if (System.currentTimeMillis() > cutoffDate) {
@@ -50,21 +56,27 @@ object YearInReviewDialog {
             .setTitle(title)
             .setMessage(StringUtil.fromHtml(message))
             .setPositiveButton(resource.getString(R.string.year_in_review_reading_list_dialog_positive_button_label)) { dialog, _ ->
+                YearInReviewEvent.submit(action = "create_click", slide = "reading_list_prompt")
                 YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) }
                 activity.startActivity(ReadingListActivity.newIntent(activity, readingListMode = ReadingListMode.YEAR_IN_REVIEW))
                 dialog.dismiss()
             }
             .setCancelable(false)
-            .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ -> YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) } }
+            .setNegativeButton(resource.getString(R.string.year_in_review_reading_list_dialog_negative_button_label)) { _, _ ->
+                YearInReviewEvent.submit(action = "nothanks_click", slide = "reading_list_prompt")
+                YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListDialogShown = true) }
+            }
             .show()
             .findViewById<TextView>(android.R.id.message)?.movementMethod = LinkMovementMethod.getInstance()
+
+        YearInReviewEvent.submit(action = "impression", slide = "reading_list_prompt")
     }
 
     fun maybeShowYirReadingListSurveyDialog(activity: Activity) {
         if (Prefs.yearInReviewReadingListSurveyShown || Prefs.yearInReviewReadingListVisitCount < 2 || !isTestGroupUser) {
             return
         }
-
+        YearInReviewEvent.submit(action = "impression", slide = "feedback_choice_rltest")
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.year_in_review_reading_list_survey_title,
             YearInReviewViewModel.YIR_YEAR)
@@ -79,13 +91,19 @@ object YearInReviewDialog {
             .create()
 
         binding.cancelButton.setOnClickListener {
+            YearInReviewEvent.submit(action = "close_click", slide = "feedback_choice_rltest")
             dialog.dismiss()
         }
         binding.submitButton.setOnClickListener {
             val selectedOption = getSelectedOption(binding)
             val feedbackText = binding.feedbackInput.text.toString()
-            // @TODO: instrumentation
             FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
+            YearInReviewEvent.submit(
+                action = "feedback_submit_click",
+                slide = "feedback_choice_rltest",
+                feedbackSelect = selectedOption,
+                feedbackText = feedbackText
+            )
             dialog.dismiss()
         }
 
@@ -107,6 +125,7 @@ object YearInReviewDialog {
         if (Prefs.yearInReviewSurveyState != YearInReviewSurveyState.SHOULD_SHOW) {
             return
         }
+        YearInReviewEvent.submit(action = "impression", slide = "feedback_choice")
         val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
         binding.titleText.text = activity.getString(R.string.year_in_review_survey_title)
         binding.messageText.text = activity.getString(R.string.year_in_review_survey_subtitle)
@@ -122,12 +141,18 @@ object YearInReviewDialog {
             .create()
 
         binding.cancelButton.setOnClickListener {
+            YearInReviewEvent.submit(action = "close_click", slide = "feedback_choice")
             dialog.dismiss()
         }
         binding.submitButton.setOnClickListener {
             val selectedOption = getSelectedOption(binding)
             val feedbackText = binding.feedbackInput.text.toString()
-            // @TODO: instrumentation
+            YearInReviewEvent.submit(
+                action = "feedback_submit_click",
+                slide = "feedback_choice",
+                feedbackSelect = selectedOption,
+                feedbackText = feedbackText
+            )
             FeedbackUtil.showMessage(activity, R.string.survey_dialog_submitted_snackbar)
             dialog.dismiss()
         }
