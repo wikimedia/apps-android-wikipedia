@@ -2046,6 +2046,8 @@
   <string name="year_in_review_get_started_later">Вы можете просмотреть «Обзор года» позже, нажав в меню «Ещё».</string>
   <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
+  <string name="year_in_review_reading_list_survey_title">Помогите улучшить список для чтения в «Обзоре года %d».</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Довольны ли вы списком чтения, сформированным для вас?</string>
   <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
   <string name="year_in_review_survey_satisfied">Доволен</string>
   <string name="year_in_review_survey_neutral">Воздержусь</string>
@@ -2064,6 +2066,10 @@
   <string name="year_in_review_share_body">Вот мой «Обзор года» в Википедии. Создано в приложении «Википедия» на Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Значок глобуса</string>
   <string name="settings_app_icon_title">Значок приложения</string>
+  <string name="settings_app_icon_subtitle">Бенефит для авторов</string>
+  <string name="settings_app_icon_preference_subtitle">Вам доступен специальный значок, отмечающий ваш вклад через приложение Википедии в течение %d года. Он сохранится до следующего выпуска «Обзор года».</string>
+  <string name="settings_app_icon_updated">Значок вашего приложения обновлён.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Разблокирован новый значок приложения для вашего домашнего экрана</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш еженедельный список для чтения, отобранный специально для вас.</string>
