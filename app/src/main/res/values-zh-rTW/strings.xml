@@ -1764,6 +1764,7 @@
   <string name="donate_gpay_dialog_pay_button">使用 Google Pay 捐款</string>
   <string name="donate_gpay_dialog_other_button">其他支付方式</string>
   <string name="donate_gpay_activity_title">選擇金額</string>
+  <string name="donate_gpay_activity_title_with_currency">選擇金額（%s）</string>
   <string name="donate_gpay_check_transaction_fee">我願意慷慨地添加 %s 來支付手續費，這樣維基百科就可以保有我的 100%% 捐款。</string>
   <string name="donate_gpay_check_recurring">將此作為每月定期捐款。</string>
   <string name="donate_gpay_check_send_email">是的，維基媒體基金會可以臨時對我發送電子郵件。</string>
@@ -1883,9 +1884,13 @@
   <string name="year_in_review_donate">捐款</string>
   <string name="year_in_review_information_icon">資訊圖示</string>
   <string name="year_in_review_get_started_headline">探索您的維基百科年度回顧</string>
-  <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過的條目，以及您做過的編輯。</string>
+  <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過條目以及所做過編輯的分析。</string>
+  <string name="year_in_review_get_started_info">您的閱讀歷史記錄會受到保護。閱讀分析是基於您裝置上所儲存資料計算。</string>
+  <string name="year_in_review_get_started_later">您可以稍後在更多選單中取得您的年度回顧。</string>
   <string name="year_in_review_survey_title">協助改善年度回顧</string>
   <string name="year_in_review_survey_subtitle">您滿意這個功能嗎？</string>
+  <string name="year_in_review_reading_list_survey_title">協助改善 %d 年度回顧閱讀清單。</string>
+  <string name="year_in_review_reading_list_survey_subtitle">您滿意您的閱讀清單嗎？</string>
   <string name="year_in_review_survey_very_satisfied">非常滿意</string>
   <string name="year_in_review_survey_satisfied">滿意</string>
   <string name="year_in_review_survey_neutral">普通</string>
@@ -1905,21 +1910,44 @@
   <string name="year_in_review_globe_icon">地球圖示</string>
   <string name="settings_app_icon_title">應用程式圖示</string>
   <string name="settings_app_icon_subtitle">貢獻者福利</string>
+  <string name="settings_app_icon_preference_subtitle">您取得了自訂圖示，以表彰您於 %d 年在應用程式裡對維基百科做出的貢獻。該圖示會保留至下一次年度回顧。</string>
   <string name="settings_app_icon_updated">您的應用程式圖示已更新。</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">已為您的主畫面解鎖新的應用程式圖示</string>
   <string name="year_in_review_slide_app_icon_title_unlock">解鎖您明年的貢獻者獎勵！</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">請在設定中的「應用程式圖示」裡啟動您的新應用程式圖示。感謝您投入自由知識的未來，您作為 %2$d 年%1$s的貢獻，幫助到鋪往自由資訊世界的道路，因此您在主畫面上解鎖了維基百科的自訂貢獻者圖示。</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">我們很高興維基百科成為您在 %1$d 年參與的活動！透過成為貢獻者，即可在您的 %2$d 年度回顧解鎖特別獎勵—無論是藉由&lt;a href=\"%3$s\"&gt;編輯維基百科&lt;/a&gt;，或是對其背後的非營利組織&lt;a href=\"%4$s\"&gt;維基媒體基金會&lt;/a&gt;捐款。如果維基百科對您有所幫助，歡迎您考慮捐款，來幫助維基百科維持其未來發展，並保持免費、無廣告、值得信賴、且人人皆可用的運作狀態。</string>
   <string name="year_in_review_slide_app_icon_donor">捐款者</string>
   <string name="year_in_review_slide_app_icon_editor">編輯者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
   <string name="year_in_review_slide_geo_headline">您閱讀過的條目裡，最靠近您的地點是%s</string>
+  <string name="year_in_review_slide_geo_body">根據條目&lt;b&gt;%2$s&lt;/b&gt;與&lt;b&gt;%3$s&lt;/b&gt;來看，與您所閱讀過多個條目最接近的國家應是：%1$s。</string>
   <string name="year_in_review_login_dialog_title">登入來進行個人化設定？</string>
+  <string name="year_in_review_login_dialog_body">登入後即可查看個人化分析。若不登入您仍可以查看匯總分析。</string>
   <string name="year_in_review_login_dialog_positive">登入/註冊維基百科</string>
   <string name="year_in_review_login_dialog_negative">以不登入來繼續</string>
   <plurals name="year_in_review_slide_top_articles_headline">
     <item quantity="one">您的年度熱門條目</item>
     <item quantity="other">您的年度熱門條目</item>
   </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">此為您在 %1$d 年期間瀏覽最多次的條目：%2$s</item>
+    <item quantity="other">此為您在 %1$d 年期間瀏覽最多次的條目：%2$s</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">您最感興趣的分類</string>
+  <string name="year_in_review_slide_top_categories_body">分類會把主題相似的條目歸類在一起。在 %1$d 年，您多次閱讀過以下這些您感興趣分類裡的條目：%2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">中文維基百科最受歡迎的條目</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+    <item quantity="other">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">您的編輯內容最近已被瀏覽超過 %,d 次</item>
+    <item quantity="other">您的編輯內容最近已被瀏覽超過 %,d 次</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">全球的讀者感謝您的貢獻。在過去兩個月中，您編輯過的條目被瀏覽了 %,d 次。正因為有像您這樣的編輯者，維基百科才能持續改進，成為一個以事實為基礎且值得信賴的全球知識資源。</item>
+    <item quantity="other">全球的讀者感謝您的貢獻。在過去兩個月中，您編輯過的條目被瀏覽了 %,d 次。正因為有像您這樣的編輯者，維基百科才能持續改進，成為一個以事實為基礎且值得信賴的全球知識資源。</item>
+  </plurals>
   <plurals name="year_in_review_slide_edited_per_minute_headline">
     <item quantity="one">維基百科每分鐘有 %,d 次編輯</item>
     <item quantity="other">維基百科每分鐘有 %,d 次編輯</item>
@@ -1929,6 +1957,10 @@
     <item quantity="one">新增 %,d 位元組</item>
     <item quantity="other">新增 %,d 位元組</item>
   </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+    <item quantity="other">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+  </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">您編輯了維基百科%s次</item>
     <item quantity="other">您編輯了維基百科%s次</item>
@@ -1937,10 +1969,34 @@
     <item quantity="one">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
     <item quantity="other">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
   </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">官方維基百科應用程式上的編輯者做出了 %,d 次編輯</item>
+    <item quantity="other">官方維基百科應用程式上的編輯者做出了 %,d 次編輯</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">維基百科的一心一意都是在我們的全球志願者社群，包括貢獻者、捐款者，以及像您一樣的數十億讀者——大家齊心協力，共同提供無限且可靠的資訊存取。</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">編輯者們今年做出了 %,d 次更改</item>
+    <item quantity="other">編輯者們今年做出了 %,d 次更改</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">志工們對超過 300 種不同語言版本的維基百科做出了 %,d 次更改。</item>
+    <item quantity="other">志工們對超過 300 種不同語言版本的維基百科做出了 %,d 次更改。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">在英文維基百科上做出了 %,d 次更改。每一天的時時刻刻，志工們都在努力改善維基百科。</item>
+    <item quantity="other">在英文維基百科上做出了 %,d 次更改。每一天的時時刻刻，志工們都在努力改善維基百科。</item>
+  </plurals>
   <plurals name="year_in_review_slide_saved_articles_headline">
     <item quantity="one">您儲存了 %,d 篇條目</item>
     <item quantity="other">您儲存了 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">這些條目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每篇儲存的條目都反應了您的興趣，並有助於在維基百科上建立個人化的知識庫。&lt;br /&gt;&lt;br /&gt; 今年，活躍的應用程式使用者已儲存了 %4$,d 篇條目。</item>
+    <item quantity="other">這些條目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每篇儲存的條目都反應了您的興趣，並有助於在維基百科上建立個人化的知識庫。&lt;br /&gt;&lt;br /&gt; 今年，活躍的應用程式使用者已儲存了 %4$,d 篇條目。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">應用程式使用者已儲存 %,d 篇條目</item>
+    <item quantity="other">應用程式使用者已儲存 %,d 篇條目</item>
   </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">將條目增加到閱讀清單，可以讓您即使在離線時也能存取條目。此外，您還可以登入帳號，將閱讀清單同步到不同裝置。</string>
   <string name="year_in_review_slide_reading_patterns_headline">您有明確的閱讀規律</string>
@@ -1956,6 +2012,18 @@
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">我們用了 %,d 小時閱讀</item>
     <item quantity="other">我們用了 %,d 小時閱讀</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">人們估計花了 %,d 小時</item>
+    <item quantity="other">人們估計花了 %,d 小時</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！當您想了解我們不斷變化的世界、在朋友之間贏得對事物了解的賭注、或是回答孩子好奇的問題時，維基百科都在您身邊。</item>
+    <item quantity="other">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！當您想了解我們不斷變化的世界、在朋友之間贏得對事物了解的賭注、或是回答孩子好奇的問題時，維基百科都在您身邊。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">維基百科提供超過 %,d 種語言版本</item>
+    <item quantity="other">維基百科提供超過 %,d 種語言版本</item>
   </plurals>
   <plurals name="year_in_review_slide_available_languages_body_first">
     <item quantity="one">維基百科有 %,d 篇條目</item>
@@ -1973,6 +2041,10 @@
     <item quantity="one">在 %2$d 閱讀了 %1$,d 篇條目</item>
     <item quantity="other">在 %2$d 閱讀了 %1$,d 篇條目</item>
   </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">我們估計這讓您躋身至維基百科全球讀者的前 %1$s%%（一般人每年閱讀 %2$,d 篇條目）。</item>
+    <item quantity="other">我們估計這讓您躋身至維基百科全球讀者的前 %1$s%%（一般人每年閱讀 %2$,d 篇條目）。</item>
+  </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">維基百科有 %,d 篇條目</item>
     <item quantity="other">維基百科有 %,d 篇條目</item>
@@ -1981,16 +2053,68 @@
     <item quantity="one">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
     <item quantity="other">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
   </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">人們估計花了 %,d 小時</item>
+    <item quantity="other">人們估計花了 %,d 小時</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">–在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！</item>
+    <item quantity="other">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">應用程式使用者瀏覽了維基百科條目 %,d次 次</item>
+    <item quantity="other">應用程式使用者瀏覽了維基百科條目 %,d 次</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">對於全球各地的人們來說，維基百科是解答問題、查詢學校或工作相關資訊、或學習新知的第一站。</string>
+  <string name="year_in_review_reading_list_dialog_title">建立您的 %d 年度回顧閱讀清單？</string>
+  <string name="year_in_review_reading_list_dialog_message">維基百科年度回顧會產生一份閱讀清單，列出您在 %1$d 年用上最多時間的條目。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">建立</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">不用了，謝謝</string>
+  <string name="year_in_review_reading_list_title">%d 年度回顧</string>
+  <string name="year_in_review_reading_list_description">專為%1$s您打造。這是您在%2$d年裡用上最多時間的條目。</string>
   <string name="year_in_review_highlights_thank_you_message">感謝您與維基百科共度的這一年。</string>
   <string name="year_in_review_highlights_looking_forward_message">我們期待明年！</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">英文維基百科閱讀次數最高的條目</item>
+    <item quantity="other">英文維基百科閱讀次數最高的條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">閱讀小時數</item>
+    <item quantity="other">閱讀小時數</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">編輯者做過的更改</item>
+    <item quantity="other">編輯者們做過的更改</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">條目瀏覽數</item>
+    <item quantity="other">條目瀏覽數</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">應用程式上的編輯}</item>
+    <item quantity="other">應用程式上的編輯}</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">維基百科的編輯頻率</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">每分鐘 %d 次</item>
+    <item quantity="other">每分鐘 %d 次</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
     <item quantity="one">我閱讀最多次的條目</item>
     <item quantity="other">我閱讀最多次的條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">閱讀分鐘數</item>
+    <item quantity="other">閱讀分鐘數</item>
   </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">最喜歡閱讀的日子</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
     <item quantity="one">已閱讀條目</item>
     <item quantity="other">已閱讀條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">我感興趣的分類</item>
+    <item quantity="other">我感興趣的分類</item>
   </plurals>
   <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
     <item quantity="one">已編輯條目</item>
