@@ -280,7 +280,7 @@
   <string name="widget_name_search">Anadi Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Ulac tabadut.</string>
   <string name="alpha_update_notification_title">Lqem amaynut alpha yella</string>
-  <string name="alpha_update_notification_text">Nnal akken ad tessidreḍ</string>
+  <string name="alpha_update_notification_text">Kenned akken ad tessidreḍ</string>
   <string name="dialog_close_description">Mdel</string>
   <string name="preference_title_show_images">Sken tugniwin</string>
   <string name="preference_summary_show_images">Rmed neɣ sens asnifel n tugniwin deg isebtar. Kkes acraḍ n uɣewwaṛ-agi ma yella tuqqna-ik ar Internet ẓẓayet, neɣ ma ɣur-k talast n isefka.</string>
@@ -505,8 +505,8 @@
   <string name="notification_syncing_reading_list_channel_description">Amtawi n tebdarin n tɣuri itteddu</string>
   <string name="notification_many_unread">Tesɛiḍ %d n yilɣuten ur nettwaɣṛa ara</string>
   <plurals name="notification_channel_name">
-    <item quantity="one">Downloading article</item>
-    <item quantity="other">Downloading articles</item>
+    <item quantity="one">Azdam n umagrad</item>
+    <item quantity="other">Azdam n imagraden</item>
   </plurals>
   <string name="notification_echo_channel_description">Ilɣa n Wikipedia</string>
   <string name="notifications_activity_title">Ilɣa</string>
@@ -550,7 +550,7 @@
   <string name="view_main_page_card_title">Ass-a di Wikipedia</string>
   <string name="view_main_page_card_action">Sken asebter agejdan</string>
   <string name="view_featured_image_card_title">Tugna n wass</string>
-  <string name="view_featured_image_card_download">Sider</string>
+  <string name="view_featured_image_card_download">Sider-d</string>
   <string name="view_featured_image_card_share">Bḍu</string>
   <string name="menu_feed_card_dismiss">Ffer takarḍa-agi</string>
   <string name="menu_feed_card_dismissed">Takarḍa teffer</string>
@@ -779,6 +779,8 @@
   <string name="on_this_day_game_article_read_button">Ɣeṛ amagrad</string>
   <string name="on_this_day_game_notification_undo">Semmet</string>
   <string name="year_in_review_learn_more" fuzzy="true">Issin ugar</string>
+  <string name="year_in_review_close">Mdel</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Snulfu-d</string>
   <string name="recommended_reading_list_onboarding_card_new">Amaynut!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Ala, tanemmirt</string>
   <string name="recommended_reading_list_interest_pick_search_hint">Nadi ɣef umagrad</string>
