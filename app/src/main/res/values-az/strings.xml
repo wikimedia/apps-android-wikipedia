@@ -1147,6 +1147,7 @@
   <string name="activity_tab_discover_encourage">Oxumaq üçün yeni bir şey axtarırsınız?</string>
   <string name="activity_tab_donation_unknown">Naməlum</string>
   <string name="activity_tab_donation_last_donation">Tətbiqdəki &lt;b&gt;son ianə&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">Layihələr boyu ümumi redaktə sayı</string>
   <string name="activity_tab_game_stats">Oyun statistikası</string>
   <string name="activity_tab_game_stats_best_streak">Ən yaxşı davamiyyət</string>
   <string name="activity_tab_play_wiki_games">WikiGames oyna</string>
@@ -1155,7 +1156,7 @@
   <string name="activity_tab_menu_feedback">Funksiya ilə bağlı problem</string>
   <string name="activity_tab_menu_info">Daha ətraflı öyrən</string>
   <string name="activity_tab_menu_customize">Fərdiləşdir</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">Fəaliyyət vərəqəsi statistikası parametrlərdəki əsas dilə əsaslanır və ictimai olan redaktələr istisna olmaqla, lokal datadan istifadə edir.</string>
+  <string name="activity_tab_menu_customize_description">Oxuma statistikası parametrlərdəki tətbiq dillərinizə əsaslanır, redaktə statistikası isə əsas tətbiq dilinizlə məhdudlaşır. Statistikalar ictimai olan redaktələr istisna olmaqla, lokal datadan istifadə edir.</string>
   <string name="activity_tab_highlights">Vurğulananlar</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Oxuma tarixçəsi</string>
   <string name="activity_tab_impact">Sizin təsiriniz</string>
@@ -1851,6 +1852,8 @@
   <string name="year_in_review_get_started_later">İlin İcmalına Daha çox menyusundan baxa bilərsiniz.</string>
   <string name="year_in_review_survey_title">İlin İcmalının təkmilləşdirilməsinə kömək et</string>
   <string name="year_in_review_survey_subtitle">Bu funksiya sizi qane edir?</string>
+  <string name="year_in_review_reading_list_survey_title">%d İlin İcmalı oxuma siyahısının təkmilləşdirilməsinə kömək edin.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Oxuma siyahınız sizi qane edir?</string>
   <string name="year_in_review_survey_very_satisfied">Çox məmnunam</string>
   <string name="year_in_review_survey_satisfied">Məmnunam</string>
   <string name="year_in_review_survey_neutral">Neytral</string>
@@ -1872,8 +1875,74 @@
   <string name="settings_app_icon_subtitle">Töhfəçi faydası</string>
   <string name="settings_app_icon_preference_subtitle">Töhfəçi ikonası %d-ci ildə Vikipediyaya tətbiqdaxili töhfələrinizi qeyd edir. O, növbəti İlin İcmalına qədər qalacaq.</string>
   <string name="settings_app_icon_updated">Tətbiq ikonanız yeniləndi.</string>
-  <string name="year_in_review_slide_app_icon_title_unlocked" fuzzy="true">Yeni ikonanın kilidi açıldı</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Əsas ekranınız üçün yeni tətbiq ikonası açıldı</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Tətbiq ikonasının altındakı Parametrlərdə yeni tətbiq ikonanızı aktivləşdirin. Açıq biliyin gələcəyinə sərmayə qoyduğunuz üçün təşəkkür edirik. %2$dda %1$s kimi verdiyiniz töhfələriniz azad məlumat dünyasına yol açmağa kömək edir və nəticədə siz ana ekranınızda Vikipediya üçün fərdi töhfəçi ikonasını açdınız.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirt.</string>
+  <string name="year_in_review_slide_app_icon_donor">donor</string>
+  <string name="year_in_review_slide_app_icon_editor">redaktor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donor və redaktor</string>
+  <string name="year_in_review_slide_geo_headline">Oxuduğunuz məqalələrə ən yaxın yer: %s</string>
+  <string name="year_in_review_slide_geo_body">Oxuduğunuz bir çox məqaləyə ən yaxın ölkə: &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; kimi məqalələrə əsasən %1$s</string>
+  <string name="year_in_review_login_dialog_title">Fərdiləşdirmə üçün daxil olunsun?</string>
+  <string name="year_in_review_login_dialog_body">Daxil olmaq sizə fərdiləşdirilmiş məlumatlara giriş imkanı verir. Siz daxil olmadan kollektiv məlumatlara baxa bilərsiniz.</string>
+  <string name="year_in_review_login_dialog_positive">Daxil ol / Vikipediyaya qoşul</string>
+  <string name="year_in_review_login_dialog_negative">Daxil olmadan davam et</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Ən çox oxuduğunuz məqalə</item>
+    <item quantity="other">Ən çox oxuduğunuz məqalələr</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">%1$d-ci ildə ən çox oxuduğunuz məqalə: %2$s </item>
+    <item quantity="other">%1$d-ci ildə ən çox oxuduğunuz məqalələr: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Ən maraqlandığınız kateqoriyalarınız</string>
+  <string name="year_in_review_slide_top_categories_body">Kateqoriyalar oxşar mövzularda məqalələri bir yerdə qruplaşdırır. %1$d-ci ildə siz bu kateqoriyalardakı məqalələrə dəfələrlə baş çəkmisiniz: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">İngiliscə Vikipediyanın ən çox oxunan məqalələri</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Son vaxtlar redaktənizə %,d dəfədən çox baxılıb</item>
+    <item quantity="other">Son vaxtlar redaktələrinizə %,d dəfədən çox baxılıb</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Dünyanın hər yerindən oxucular sənin töhfələrini yüksək qiymətləndirir. Son 2 ayda sənin redaktə etdiyin məqalələr ümumilikdə %,d baxış qazanıb. Sənin kimi redaktorlar sayəsində Vikipediya davamlı olaraq inkişaf edən, faktlara əsaslanan və etibarlı bilik mənbəyinə çevrilib.</item>
+    <item quantity="other">Dünyanın hər yerindən oxucular sənin töhfələrini yüksək qiymətləndirir. Son 2 ayda sənin redaktə etdiyin məqalələr ümumilikdə %,d baxış alıb. Sənin kimi redaktorlar sayəsində Vikipediya daim inkişaf edən, faktlara əsaslanan və etibarlı bilik mənbəyinə çevrilib.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Vikipediya dəqiqədə %,d dəfə redaktə edilib</item>
+    <item quantity="other">Vikipediya dəqiqədə %,d dəfə redaktə edilib</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Məqalələr etibarlı mənbələrdən istifadə etməklə birgə yaradılır və təkmilləşdirilir. Hamımızın paylaşacaq biliyimiz var, &lt;a href=\"%s\"&gt;necə iştirak edəcəyinizi öyrənin.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d bayt əlavə edildi</item>
+    <item quantity="other">%,d bayt əlavə edildi</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Vikipediyanı %s dəfə redaktə etmisiniz</item>
+    <item quantity="other">Vikipediyanı %s dəfə redaktə etmisiniz</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Dünyanın hər yerindəki Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğun üçün təşəkkür edirik. Sənin kimi könüllülər Vikipediyanın 300-dən çox dil versiyasında ümumilikdə %,d redaktə edib.</item>
+    <item quantity="other">Dünyanın hər yerindəki Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğun üçün təşəkkür edirik. Sənin kimi könüllülər Vikipediyanın 300-dən çox dil versiyasında ümumilikdə %,d redaktə edib.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Rəsmi Vikipediya proqramlarında redaktorlar %,d redaktə edib</item>
+    <item quantity="other">Rəsmi Vikipediya proqramlarında redaktorlar %,d redaktə edib</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Vikipediyanın ürəyi və ruhu, sənin kimi milyardlarla oxucu, könüllü töhfəçilər və ianəçilərdən ibarət qlobal icmamızdır — hamısı etibarlı məlumata məhdudiyyətsiz çıxışı paylaşmaq məqsədi ilə birləşib.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Redaktorlar bu il %,d dəyişiklik edib</item>
+    <item quantity="other">Redaktorlar bu il %,d dəyişiklik edib</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Könüllülər Vikipediyanın 300-dən çox müxtəlif dil nəşrlərində %,d dəyişiklik ediblər.</item>
+    <item quantity="other">Könüllülər Vikipediyanın 300-dən çox müxtəlif dildə nəşrlərində %,d dəyişiklik ediblər.</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_pattern_morning">Səhər</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Günorta</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Günorta</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Axşam</string>
+  <string name="year_in_review_slide_reading_pattern_night">Gecə</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Gecə</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>

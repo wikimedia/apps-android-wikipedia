@@ -76,7 +76,7 @@ class GooglePayActivity : BaseActivity() {
                             }
                             is GooglePayViewModel.NoPaymentMethod -> {
                                 DonorExperienceEvent.logAction("no_payment_method", "gpay", campaignId = campaignId)
-                                DonateDialog.launchDonateLink(this@GooglePayActivity, intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
+                                DonateDialog.launchDonateLink(this@GooglePayActivity, url = intent.getStringExtra(DonateDialog.ARG_DONATE_URL))
                                 finish()
                             }
                             is Resource.Success -> {

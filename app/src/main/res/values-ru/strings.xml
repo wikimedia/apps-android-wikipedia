@@ -1303,6 +1303,7 @@
   <string name="activity_tab_discover_encourage">Ищете что-нибудь новое для чтения?</string>
   <string name="activity_tab_donation_unknown">Неизвестно</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Последнее пожертвование&lt;/b&gt; в приложении</string>
+  <string name="activity_tab_total_edits_all_projects">Общее число правок по всем проектам</string>
   <string name="activity_tab_game_stats">Статистика игр</string>
   <string name="activity_tab_game_stats_best_streak">Лучшая серия</string>
   <string name="activity_tab_play_wiki_games">Играть в ВикиИгры</string>
@@ -1311,7 +1312,7 @@
   <string name="activity_tab_menu_feedback">Проблема с функцией</string>
   <string name="activity_tab_menu_info">Узнать больше</string>
   <string name="activity_tab_menu_customize">Настроить</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">Статистика на вкладке «Активность» основана на основном языке, установленном в настройках, и использует локальные данные, за исключением правок, которые являются общедоступными.</string>
+  <string name="activity_tab_menu_customize_description">Статистика на вкладке «Активность» основана на основном языке, установленном в настройках, и использует локальные данные, за исключением правок, которые являются общедоступными.\n\nСтатистика чтения основана на языках, выбранных в настройках приложения, а статистика редактирования ограничена языком приложения, выбранным в качестве основного. Статистика использует локальные данные, за исключением общедоступных правок.</string>
   <string name="activity_tab_highlights">Основные моменты</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">История чтения</string>
   <string name="activity_tab_impact">Влияние вашего вклада</string>
@@ -1918,6 +1919,7 @@
   <string name="donate_gpay_dialog_pay_button">Пожертвовать через Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Другой способ оплаты</string>
   <string name="donate_gpay_activity_title">Выберите сумму</string>
+  <string name="donate_gpay_activity_title_with_currency">Выберите сумму в (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Я щедро добавлю %s для покрытия комиссии за транзакцию, чтобы вы могли получить 100%% моего пожертвования.</string>
   <string name="donate_gpay_check_recurring">Сделать это ежемесячным пожертвованием.</string>
   <string name="donate_gpay_check_send_email">Да, Фонд Викимедиа может время от времени присылать мне электронные письма.</string>
@@ -2028,19 +2030,24 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продолжить игру</string>
   <string name="on_this_day_game_sound_on">Включить звук</string>
   <string name="on_this_day_game_sound_off">Выключить звук</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Подробнее</string>
-  <string name="year_in_review_get_started" fuzzy="true">Начать</string>
+  <string name="year_in_review_learn_more">Подробнее</string>
+  <string name="year_in_review_get_started">Начать</string>
   <string name="year_in_review_topbar_w_icon">Значок Википедии W</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Навигация влево</string>
+  <string name="year_in_review_navigate_left">Навигация влево</string>
+  <string name="year_in_review_close">Закрыть</string>
   <string name="year_in_review_share_icon">Значок «Поделиться»</string>
   <string name="year_in_review_heart_icon">Значок сердца</string>
   <string name="year_in_review_navigate_right">Навигация вправо</string>
   <string name="year_in_review_donate">Пожертвовать</string>
   <string name="year_in_review_information_icon">Значок информации</string>
   <string name="year_in_review_get_started_headline">Изучите ваш «Обзор года» в Википедии</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">Смотрите статистику о прочитанных вами статьях в приложении Википедии и внесённых вами правок. Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
+  <string name="year_in_review_get_started_bodytext">Смотрите вашу статистику о прочитанных статьях в приложении Википедии и внесённых правках.</string>
+  <string name="year_in_review_get_started_info">Ваша история чтения защищена. Аналитика чтения рассчитывается на основе данных, сохранённых локально на вашем устройстве.</string>
+  <string name="year_in_review_get_started_later">Вы можете просмотреть «Обзор года» позже, нажав в меню «Ещё».</string>
   <string name="year_in_review_survey_title">Помогите улучшить «Обзор года»</string>
   <string name="year_in_review_survey_subtitle">Вы довольны этой функцией?</string>
+  <string name="year_in_review_reading_list_survey_title">Помогите улучшить список для чтения в «Обзоре года %d».</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Довольны ли вы списком чтения, сформированным для вас?</string>
   <string name="year_in_review_survey_very_satisfied">Очень доволен</string>
   <string name="year_in_review_survey_satisfied">Доволен</string>
   <string name="year_in_review_survey_neutral">Воздержусь</string>
@@ -2049,10 +2056,20 @@
   <string name="year_in_review_survey_placeholder_text">Есть ли у вас какие-нибудь дополнительные мысли?</string>
   <string name="year_in_review_survey_cancel">Отмена</string>
   <string name="year_in_review_survey_submit">Отправить</string>
+  <string name="year_in_review_disable_title">Вы уверены, что хотите отключить «Обзор года»?</string>
+  <string name="year_in_review_disable_positive_button">Да, я уверен</string>
+  <string name="year_in_review_disable_negative_button">Нет, спасибо</string>
+  <string name="year_in_review_setting_subtitle">Отключение «Обзора года» приведёт к удалению всех сохранённых персонализированных сведений и скрытию функции «Обзор года».</string>
   <string name="year_in_review_screendeck_image_content_description">Источник изображения для главного экрана «Обзор года»</string>
   <string name="year_in_review_screenshot_error">Не удалось сделать снимок экрана: %s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">Изображение и ссылка «Обзора года»</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Значок глобуса</string>
+  <string name="year_in_review_share_subject">Мой «Обзора года» в Википедии</string>
+  <string name="year_in_review_share_body">Вот мой «Обзор года» в Википедии. Создано в приложении «Википедия» на Android %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Значок глобуса</string>
+  <string name="settings_app_icon_title">Значок приложения</string>
+  <string name="settings_app_icon_subtitle">Бенефит для авторов</string>
+  <string name="settings_app_icon_preference_subtitle">Вам доступен специальный значок, отмечающий ваш вклад через приложение Википедии в течение %d года. Он сохранится до следующего выпуска «Обзор года».</string>
+  <string name="settings_app_icon_updated">Значок вашего приложения обновлён.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Разблокирован новый значок приложения для вашего домашнего экрана</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш еженедельный список для чтения, отобранный специально для вас.</string>
