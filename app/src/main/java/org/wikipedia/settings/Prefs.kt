@@ -31,6 +31,8 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import org.wikipedia.yearinreview.YearInReviewModel
 import org.wikipedia.yearinreview.YearInReviewSurveyState
+import java.time.LocalDate
+import java.time.format.DateTimeParseException
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -743,9 +745,13 @@ object Prefs {
         get() = JsonUtil.decodeFromString<List<DonationResult>>(PrefsIoUtil.getString(R.string.preference_key_donation_results, null)).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_donation_results, JsonUtil.encodeToString(value))
 
-    var lastOtdGameDateOverride
-        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value)
+    var lastOtdGameDateOverride: LocalDate?
+        get() = try {
+            LocalDate.parse(PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty())
+        } catch (_: DateTimeParseException) {
+            null
+        }
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value?.toString())
 
     var otdGameState
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
