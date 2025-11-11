@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
 import androidx.core.view.descendants
+import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -37,6 +38,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activitytab.ActivityTabFragment
+import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -44,6 +47,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
+import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
@@ -87,11 +91,13 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.views.imageservice.ImageService
 import org.wikipedia.watchlist.WatchlistActivity
-import org.wikipedia.yearinreview.YearInReviewEntryDialog
+import org.wikipedia.yearinreview.YearInReviewDialog
+import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback, ActivityTabFragment.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -121,6 +127,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
+    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            onNavigateTo(NavTab.EDITS)
+        }
+    }
+
+    var navTabBackStack = mutableListOf<NavTab>()
     val currentFragment get() = (binding.mainViewPager.adapter as NavTabFragmentPagerAdapter).getFragmentAt(binding.mainViewPager.currentItem)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -132,7 +145,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 FlowEventBus.events.collectLatest { event ->
                     when (event) {
+                        is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
+                            ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
                         is ImportReadingListsEvent -> {
@@ -155,6 +170,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         val shouldShowRedDotForRecommendedReadingList = (!Prefs.isRecommendedReadingListOnboardingShown) || (Prefs.isRecommendedReadingListEnabled && Prefs.isNewRecommendedReadingListGenerated)
         binding.mainNavTabLayout.setOverlayDot(NavTab.READING_LISTS, shouldShowRedDotForRecommendedReadingList)
         binding.mainNavTabLayout.setOnItemSelectedListener { item ->
+            navTabBackStack.clear()
+            if (item.order == NavTab.EDITS.code()) {
+                if (!Prefs.isActivityTabOnboardingShown) {
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
+                    return@setOnItemSelectedListener false
+                }
+            }
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
@@ -171,6 +194,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             requireActivity().invalidateOptionsMenu()
             true
         }
+
+        binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, !Prefs.isActivityTabOnboardingShown)
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
@@ -192,6 +217,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(requireActivity())
+        if (YearInReviewViewModel.getYearInReviewModel()?.isReadingListCreated == true) {
+            onNavigateTo(NavTab.READING_LISTS) // Navigate to reading lists only if Year in Review reading list is created
+            YearInReviewViewModel.updateYearInReviewModel { it.copy(isReadingListCreated = false) }
+        }
     }
 
     override fun onDestroyView() {
@@ -324,15 +354,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_PLACES)) {
             startActivity(PlacesActivity.newIntent(requireActivity()))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
-            goToTab(NavTab.READING_LISTS)
+            onNavigateTo(NavTab.READING_LISTS)
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) &&
                 !(binding.mainNavTabLayout.selectedItemId == NavTab.EXPLORE.code() &&
                         intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
+            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
+            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
-            goToTab(NavTab.READING_LISTS)
+            onNavigateTo(NavTab.READING_LISTS)
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
@@ -387,7 +417,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeedSeCardFooterClicked() {
-        goToTab(NavTab.EDITS)
+        onNavigateTo(NavTab.EDITS)
     }
 
     override fun onFeedShareImage(card: FeaturedImageCard) {
@@ -435,8 +465,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onBackPressed(): Boolean {
-        val fragment = currentFragment
-        return fragment is BackPressedHandler && (fragment as BackPressedHandler).onBackPressed()
+        if ((currentFragment as? BackPressedHandler)?.onBackPressed() == true) {
+            return true
+        } else if (navTabBackStack.isNotEmpty()) {
+            onNavigateTo(navTabBackStack.removeLastOrNull()!!)
+            return true
+        }
+        return false
     }
 
     override fun usernameClick() {
@@ -478,7 +513,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun yearInReviewClick() {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, YearInReviewEntryDialog.newInstance())
+        startActivity(YearInReviewOnboardingActivity.newIntent(requireActivity()))
     }
 
     fun setBottomNavVisible(visible: Boolean) {
@@ -532,10 +567,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
-    }
-
-    private fun goToTab(tab: NavTab) {
-        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu.getItem(tab.code()).itemId
     }
 
     private fun refreshContents() {
@@ -607,6 +638,14 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    override fun onNavigateTo(navTab: NavTab) {
+        val lastNavTab = NavTab.entries.find { binding.mainNavTabLayout.selectedItemId == binding.mainNavTabLayout.menu[it.code()].itemId }
+        binding.mainNavTabLayout.selectedItemId = binding.mainNavTabLayout.menu[navTab.code()].itemId
+        if (lastNavTab == NavTab.EDITS && navTab != NavTab.EDITS) {
+            navTabBackStack.add(NavTab.EDITS)
+        }
     }
 
     companion object {

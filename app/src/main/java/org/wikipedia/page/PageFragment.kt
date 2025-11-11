@@ -432,7 +432,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                 UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
                                 binding.root.post {
                                     if (isAdded) {
-                                        requireActivity().onBackPressed()
+                                        requireActivity().onBackPressedDispatcher.onBackPressed()
                                     }
                                 }
                             }
@@ -694,10 +694,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     val campaignList = CampaignCollection.getActiveCampaigns()
-                    val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
+                    val availableCampaign = campaignList.find { campaign -> campaign.getAssetsForLang(app.appOrSystemLanguageCode) != null }
                     availableCampaign?.let {
-                        if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
+                        val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
+                        if (!Prefs.announcementShownDialogs.contains(campaignId)) {
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()
@@ -936,7 +937,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     L.e(t)
                 }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
-                        AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
+                        AppDatabase.instance.readingListPageDao().updateThumbAndDescriptionByName(
+                            lang = page.wiki.languageCode,
+                            apiTitle = page.apiTitle,
+                            thumbUrl = title.thumbUrl,
+                            description = title.description
+                        )
                     }
                 }
             }
@@ -1077,13 +1083,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().invalidateOptionsMenu()
     }
 
-    fun updateBookmarkAndMenuOptionsFromDao() {
+    suspend fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            lifecycleScope.launch {
-                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
-                updateQuickActionsAndMenuOptions()
-                requireActivity().invalidateOptionsMenu()
-            }
+            model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+            updateQuickActionsAndMenuOptions()
+            requireActivity().invalidateOptionsMenu()
         }
     }
 

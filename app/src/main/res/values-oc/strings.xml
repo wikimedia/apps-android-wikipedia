@@ -36,7 +36,7 @@
   <string name="page_error_back_to_main">Tornar en arrièr</string>
   <string name="error_back">Tornar en arrier</string>
   <string name="error_next">Seguent</string>
-  <string name="menu_clear_all_history">Voidar l\'istoric</string>
+  <string name="menu_clear_all_history" fuzzy="true">Voidar l\'istoric</string>
   <string name="history_item_deleted">%s suprimit de la lista</string>
   <string name="history_items_deleted">%d articles eliminats de l\'istoric</string>
   <string name="history_item_delete_undo">Anullar</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Wikimèdia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Escafar l’istoric de navigacion</string>
-  <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
   <string name="dialog_message_clear_history_yes">Òc</string>
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Partejar via</string>

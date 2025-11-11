@@ -5,8 +5,6 @@ import android.app.assist.AssistContent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.ActionMode
 import android.view.Gravity
@@ -16,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -41,6 +40,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -87,6 +87,8 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.yearinreview.YearInReviewDialog
+import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -187,9 +189,18 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
 
         app = WikipediaApp.instance
+
+        if (savedInstanceState == null && !app.haveMainActivity) {
+            lifecycleScope.launch {
+                YearInReviewDialog.maybeShowCreateReadingListDialog(this@PageActivity)
+            }
+        }
+
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -313,7 +324,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         return when (item.itemId) {
             android.R.id.home -> {
                 if (app.haveMainActivity) {
-                    onBackPressed()
+                    onBackPressedDispatcher.onBackPressed()
                 } else {
                     pageFragment.goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
                 }
@@ -327,6 +338,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         app.resetWikiSite()
         updateNotificationsButton(false)
         Prefs.temporaryWikitext = null
+        YearInReviewDialog.maybeShowYearInReviewFeedbackDialog(this)
     }
 
     override fun onPause() {
@@ -367,25 +379,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         handleIntent(intent)
     }
 
-    override fun onBackPressed() {
-        if (isCabOpen) {
-            onPageCloseActionMode()
-            return
-        }
-        app.appSessionEvent.backPressed()
-        if (pageFragment.onBackPressed()) {
-            return
-        }
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (isCabOpen) {
+                onPageCloseActionMode()
+                return
+            }
+            app.appSessionEvent.backPressed()
+            if (pageFragment.onBackPressed()) {
+                return
+            }
 
-        // If user enter PageActivity in portrait and leave in landscape,
-        // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
-            binding.wikiArticleCardView.visibility = View.GONE
-        } else {
-            binding.wikiArticleCardView.visibility = View.VISIBLE
-            binding.pageFragment.visibility = View.GONE
+            // If user enter PageActivity in portrait and leave in landscape,
+            // we should hide the transition animation view to prevent bad animation.
+            if (DimenUtil.isLandscape(this@PageActivity) || !hasTransitionAnimation) {
+                binding.wikiArticleCardView.visibility = View.GONE
+            } else {
+                binding.wikiArticleCardView.visibility = View.VISIBLE
+                binding.pageFragment.visibility = View.GONE
+            }
+            this.isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
         }
-        super.onBackPressed()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
@@ -498,7 +513,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
             var uri = intent.data
-            if (ReleaseUtil.isProdRelease && uri?.scheme != null && uri.scheme == "http") {
+            if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
@@ -536,10 +551,17 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         // Check if the donation started from the app, but completed via web, in which case
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
+
                         if (campaign != null && campaign == "Android") {
-                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
+                            YearInReviewViewModel.currentCampaignId?.let { campaignId ->
+                                YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                                pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
+                            } ?: run {
+                                DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                            }
                             startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
+                                true, pageFragment.title, pageContentInfo))
                             finish()
                             return
                         }
@@ -797,10 +819,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onProvideAssistContent(outContent: AssistContent) {
         super.onProvideAssistContent(outContent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            pageFragment.model.title?.let {
-                outContent.setWebUri(Uri.parse(it.uri))
-            }
+        pageFragment.model.title?.let {
+            outContent.webUri = it.uri.toUri()
         }
     }
 

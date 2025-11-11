@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Vegere</string>
   <string name="error_back">Vegere</string>
   <string name="error_next">Pêşve</string>
-  <string name="menu_clear_all_history">Dîrokê paqij bike</string>
+  <string name="menu_clear_all_history" fuzzy="true">Dîrokê paqij bike</string>
   <string name="history_item_deleted">%s ji dîroka gerokê hate rakirin</string>
   <string name="history_items_deleted">%d gotar ji dîrokê hatin rakirin</string>
   <string name="history_item_delete_undo">Betal bike</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Wîkîmedya Kommons</string>
   <string name="wikidata">Wîkîdane</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
-  <string name="dialog_message_clear_history">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
   <string name="dialog_message_clear_history_yes">Erê</string>
   <string name="dialog_message_clear_history_no">Na</string>
   <string name="share_via">Bi awayê $ parve bike</string>
@@ -231,12 +231,9 @@
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_wikipedia_url">https://ku.wikipedia.org/wiki/Wîkîpediya:Derbarê_Wîkîpediyayê_de</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Kitêbxaneyên bikarhatî</string>
   <string name="about_contributors_heading">Tevkar</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Rûpela tîmê&lt;/a&gt;</string>
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
