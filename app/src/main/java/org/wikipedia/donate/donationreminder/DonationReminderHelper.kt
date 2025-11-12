@@ -20,14 +20,15 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
+    private val isInEligibleCountry = enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
     val isEnabled
-        get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+        get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
                         LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive
+    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
@@ -79,10 +80,12 @@ object DonationReminderHelper {
                 config.finalPromptCount > MAX_REMINDER_PROMPTS ||
                 daysOfLastSeen <= 0
             ) {
+                println("orange maybeShowDonationReminder false")
                 return@let false
             }
 
             if (update) {
+                println("orange maybeShowDonationReminder update")
                 val finalPromptCount = config.finalPromptCount + 1
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptCount = finalPromptCount,
@@ -101,7 +104,8 @@ object DonationReminderHelper {
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptActive = true,
                     finalPromptCount = 0,
-                    articleVisit = 0
+                    articleVisit = 0,
+                    cycleCount = config.cycleCount + 1
                 )
             }
         }
@@ -117,5 +121,6 @@ data class DonationReminderConfig(
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
     val articleFrequency: Int = 0,
-    val donateAmount: Float = 0f
+    val donateAmount: Float = 0f,
+    val cycleCount: Int = 0
 )

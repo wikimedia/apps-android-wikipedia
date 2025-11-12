@@ -1820,7 +1820,7 @@
   <string name="donation_reminders_settings_warning_min_amount">Gitt wgl. op d\'mannst %s an</string>
   <string name="donation_reminders_settings_warning_max_amount">Maximal %s ass erlaabt</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci! Mir erënneren Iech dorunner fir en Don vu(n) %1$s ze maachen, wann Dir %2$s gelies hutt, wärend dëst Experiment leeft.</string>
-  <string name="donation_reminders_prompt_title">Dir hutt %1$s gelies, zanter datt Dir %2$s engagéiert hutt.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Dir hutt %1$s gelies, zanter datt Dir %2$s engagéiert hutt.</string>
   <string name="donation_reminders_prompt_positive_button">Elo en Don maachen</string>
   <string name="donation_reminders_prompt_negative_button">Net elo</string>
   <string name="donation_reminders_gpay_text">En Don vu(n) %s mat Google Pay maachen</string>

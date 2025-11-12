@@ -1982,7 +1982,7 @@
   <string name="donation_reminders_settings_warning_max_amount">O máximo permitido é %s</string>
   <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
-  <string name="donation_reminders_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
   <string name="donation_reminders_prompt_message">Em %1$s, você nos pediu para lembrá-lo de fazer uma doação após ler %2$s. Se a Wikipédia lhe proporcionou %3$s de conhecimento, junte-se aos 2%% dos leitores que fazem doações e cumpra sua promessa hoje mesmo.</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
   <string name="donation_reminders_prompt_negative_button">Agora não</string>

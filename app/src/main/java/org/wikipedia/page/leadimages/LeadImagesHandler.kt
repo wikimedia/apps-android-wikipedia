@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -221,12 +222,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     activeInterface = "reminder_milestone",
                     action = "notnow_click"
                 )
-                if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                    FeedbackUtil.showMessage(
-                        parentFragment,
-                        R.string.donation_reminders_prompt_dismiss_snackbar
-                    )
-                }
+                val context = parentFragment.requireContext()
+                FeedbackUtil.makeSnackbar(parentFragment.requireActivity(), context.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                    .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                        parentFragment.requireActivity().startActivity(DonationReminderActivity.newIntent(context))
+                    }.show()
             }
         }
     }

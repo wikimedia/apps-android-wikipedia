@@ -1991,7 +1991,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximum %s engedélyezett</string>
   <string name="donation_reminders_settings_option_custom">Egyedi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Köszönjük! Emlékeztetni fogjuk, hogy adományozz %1$s összeget, amikor elolvastál %2$s a kísérlet futása alatt.</string>
-  <string name="donation_reminders_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél</string>
   <string name="donation_reminders_prompt_message">%1$s napon arra kértél minket, hogy emlékeztessük az adományozásra, miután elolvastad %2$s . Ha a Wikipédia %3$s tudást adott neked, kérjük, csatlakozz az olvasók 2%%-ához, akik adományoznak, és teljesítsd a fogadalmadat még ma.</string>
   <string name="donation_reminders_prompt_positive_button">Adományozz most!</string>
   <string name="donation_reminders_prompt_negative_button">Ne most</string>

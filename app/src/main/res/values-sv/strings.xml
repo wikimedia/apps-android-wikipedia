@@ -2128,7 +2128,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximalt %s är tillåtet</string>
   <string name="donation_reminders_settings_option_custom">Anpassad…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Tack! Vi påminner dig om att donera %1$s när du har läst %2$s medan experimentet pågår.</string>
-  <string name="donation_reminders_prompt_title">Du har läst %1$s sedan du lovade %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har läst %1$s sedan du lovade %2$s</string>
   <string name="donation_reminders_prompt_positive_button">Donera nu</string>
   <string name="donation_reminders_prompt_negative_button">Inte nu</string>
   <string name="donation_reminders_gpay_text">Donera %s med Google Pay</string>

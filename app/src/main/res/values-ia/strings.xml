@@ -2185,7 +2185,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Es permittite un maximo de %s</string>
   <string name="donation_reminders_settings_option_custom">Personalisar…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Gratias! Nos te rememorara de donar %1$s quando tu lege %2$s durante iste experimento.</string>
-  <string name="donation_reminders_prompt_title">Tu ha legite %1$s desde que tu promitteva %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Tu ha legite %1$s desde que tu promitteva %2$s</string>
   <string name="donation_reminders_prompt_message">Le %1$s, tu nos demandava de rememorar te de donar post leger %2$s. Si Wikipedia te ha fornite %3$s de cognoscentia, per favor junge te al 2%% de lectores que dona e completa tu promissa hodie.</string>
   <string name="donation_reminders_prompt_positive_button">Donar ora</string>
   <string name="donation_reminders_prompt_negative_button">Non ora</string>

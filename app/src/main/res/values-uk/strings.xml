@@ -2338,7 +2338,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Дозволено максимум %s</string>
   <string name="donation_reminders_settings_option_custom">Користувацький…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Дякуємо! Ми нагадаємо вам пожертвувати %1$s, коли ви прочитаєте %2$s під час цього експерименту.</string>
-  <string name="donation_reminders_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s ви попросили нас нагадати вам про пожертву після прочитання %2$s. Якщо Вікіпедія надала вам %3$s знань, будь ласка, приєднайтесь до 2%% читачів, які роблять пожертви, та виконайте свою обіцянку.</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвувати зараз</string>
   <string name="donation_reminders_prompt_negative_button">Не зараз</string>

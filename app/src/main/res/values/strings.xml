@@ -2317,8 +2317,9 @@
     <string name="donation_reminders_settings_warning_max_amount">Maximum %s is allowed</string>
     <string name="donation_reminders_settings_option_custom">Custom…</string>
     <string name="donation_reminders_snacbkbar_confirmation_label">Thank you! We\'ll remind you to donate %1$s when you read %2$s while this experiment runs.</string>
-    <string name="donation_reminders_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
-    <string name="donation_reminders_prompt_message">On %1$s, you asked us to remind you to donate after reading %2$s. If Wikipedia has provided you with %3$s of knowledge, please join the 2%% of readers who give and complete your pledge today.</string>
+    <string name="donation_reminders_first_milestone_reached_prompt_title">You\'ve read %1$s since you pledged %2$s</string>
+    <string name="donation_reminders_subsequent_milestone_reached_prompt_title">You\'ve read another %1$s</string>
+    <string name="donation_reminders_prompt_message">You set up a donation reminder on %1$s to give %3$s every %2$s you read. Ready to follow through on your pledge to support Wikipedia?</string>
     <string name="donation_reminders_prompt_positive_button">Donate now</string>
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
@@ -2334,4 +2335,5 @@
     </plurals>
     <string name="donation_reminders_settings_no_thanks_btn_label">No thanks</string>
     <string name="donation_reminders_experiment_label">EXPERIMENT</string>
+    <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
 </resources>

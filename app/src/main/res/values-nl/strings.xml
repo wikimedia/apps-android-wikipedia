@@ -2218,7 +2218,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximaal %s is toegestaan</string>
   <string name="donation_reminders_settings_option_custom">Anders…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Bedankt! We herinneren u eraan om %1$s te doneren wanneer u %2$s leest terwijl dit experiment loopt.</string>
-  <string name="donation_reminders_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
   <string name="donation_reminders_prompt_message">Op %1$s vroeg u ons u eraan te herinneren te doneren na het lezen van %2$s. Als Wikipedia u %3$s aan kennis heeft gegeven, sluit u dan aan bij de 2%% van de lezers die doneren en voltooi vandaag nog uw donatie.</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>

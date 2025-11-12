@@ -2077,7 +2077,8 @@
   <string name="donation_reminders_settings_warning_max_amount">Error message that indicates a maximum amount is allowed. %s will be replaced by the formatted amount.</string>
   <string name="donation_reminders_settings_option_custom">Menu option that allows users to customize the number.</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Snackbar confirmation label which appears after user sets up donation reminders. %1$s will be replaced by the amount of donation and %2$s will be replaced by the text of the number of articles.</string>
-  <string name="donation_reminders_prompt_title">Title for the donation reminder prompt. %1$s will be replaced by the text of number of articles and %2$s will be replaced by the amount of donation.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Title for the donation reminder prompt shown after reaching the first milestone. %1$s will be replaced by the text of number of articles and %2$s will be replaced by the amount of donation.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Title for the donation reminder prompt shown after reaching a subsequent milestone. %1$s will be replaced by the text of number of articles.</string>
   <string name="donation_reminders_prompt_message">Message for the donation reminder prompt. %1$s will be replaced by the date, %2$s will be replaced by the text of the number of articles, and %3$s will be replaced by the amount of donation.</string>
   <string name="donation_reminders_prompt_positive_button">Positive button for the donation reminder prompt that opens the donation bottom sheet.</string>
   <string name="donation_reminders_prompt_negative_button">Negative button for the donation reminder prompt to close the prompt.</string>
@@ -2090,5 +2091,6 @@
   <string name="donation_reminders_settings_tooltip_info_label">Tooltip label that lets user know the article count is stored locally.</string>
   <string name="donation_reminders_text_articles">Indicating the number of articles that was set by the user. %d is replaced by the count.</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">No thanks button label for the donation reminders settings screen.</string>
-  <string name="donation_reminders_experiment_label">Experiment lable for the donation reminders settings screen.</string>
+  <string name="donation_reminders_experiment_label">Experiment label for the donation reminders settings screen.</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
 </resources>

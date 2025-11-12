@@ -125,7 +125,11 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
             val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-            val titleText = context.getString(R.string.donation_reminders_prompt_title, articleText, donationAmount)
+            val titleText = if (config.cycleCount == 1) {
+                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
+            } else {
+                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
+            }
 
             val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
             val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
@@ -167,6 +171,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun maybeShowDonationReminderCard() {
+        println("orange article visit: ${Prefs.donationReminderConfig.articleVisit} cycle: ${Prefs.donationReminderConfig.cycleCount} finalPromptActive: ${Prefs.donationReminderConfig.finalPromptActive}")
         if (!DonationReminderHelper.hasActiveReminder) {
             return
         }
