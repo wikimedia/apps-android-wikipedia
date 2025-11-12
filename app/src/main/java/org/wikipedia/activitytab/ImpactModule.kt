@@ -28,6 +28,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.toJavaLocalDate
 import org.wikipedia.R
 import org.wikipedia.compose.components.LineChart
 import org.wikipedia.compose.components.WikiCard
@@ -40,8 +42,11 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UiState
 import java.text.NumberFormat
-import java.util.Date
+import java.time.Instant
+import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import java.util.Locale
+import java.time.LocalDate as JavaLocalDate
 
 @Composable
 fun ImpactModule(
@@ -100,10 +105,10 @@ fun AllTimeImpactCard(
     totalEdits: Int = 0,
     totalThanks: Int = 0,
     longestEditingStreak: Int = 0,
-    lastEditTimestamp: Long = 0,
-    lastThirtyDaysEdits: Map<String, Int> = emptyMap(),
+    lastEditTimestamp: Instant = Instant.EPOCH,
+    lastThirtyDaysEdits: Map<LocalDate, Int> = emptyMap(),
     totalPageviewsCount: Long = 0,
-    dailyTotalViews: Map<String, Int> = emptyMap()
+    dailyTotalViews: Map<LocalDate, Int> = emptyMap()
 ) {
     val formatter = remember { NumberFormat.getNumberInstance(Locale.getDefault()) }
     WikiCard(
@@ -165,8 +170,9 @@ fun AllTimeImpactCard(
                     statValue = totalThanks.toString(),
                     statLabel = pluralStringResource(R.plurals.activity_tab_impact_thanks, totalThanks)
                 )
-                val lastEditedDateString = if (lastEditTimestamp > 0) {
-                    DateUtil.getMDYDateString(Date(lastEditTimestamp * 1000))
+                val lastEditedDateString = if (lastEditTimestamp > Instant.EPOCH) {
+                    val date = JavaLocalDate.ofInstant(lastEditTimestamp, ZoneId.systemDefault())
+                    DateUtil.getMDYDateString(date)
                 } else {
                     "-"
                 }
@@ -250,12 +256,12 @@ fun AllTimeImpactCard(
                     ) {
                         Text(
                             modifier = Modifier.weight(1f),
-                            text = DateUtil.getMonthOnlyDateStringFromTimeString(lastThirtyDaysEdits.keys.first()),
+                            text = DateUtil.getMonthOnlyDateString(lastThirtyDaysEdits.keys.first().toJavaLocalDate()),
                             style = MaterialTheme.typography.bodySmall,
                             color = WikipediaTheme.colors.secondaryColor
                         )
                         Text(
-                            text = DateUtil.getMonthOnlyDateStringFromTimeString(lastThirtyDaysEdits.keys.last()),
+                            text = DateUtil.getMonthOnlyDateString(lastThirtyDaysEdits.keys.last().toJavaLocalDate()),
                             style = MaterialTheme.typography.bodySmall,
                             color = WikipediaTheme.colors.secondaryColor
                         )
@@ -388,48 +394,48 @@ private fun AllTimeImpactCardPreview() {
             totalEdits = 123,
             totalThanks = 56,
             longestEditingStreak = 15,
-            lastEditTimestamp = System.currentTimeMillis() - 86400000L,
+            lastEditTimestamp = Instant.now().minus(1, ChronoUnit.DAYS),
             lastThirtyDaysEdits = mapOf(
-                "2023-10-01" to 5,
-                "2023-10-02" to 3,
-                "2023-10-03" to 7,
-                "2023-10-04" to 0,
-                "2023-10-05" to 4,
-                "2023-10-06" to 6,
-                "2023-10-07" to 2,
-                "2023-10-08" to 1,
-                "2023-10-09" to 0,
-                "2023-10-10" to 8,
-                "2023-10-11" to 0,
-                "2023-10-12" to 3,
-                "2023-10-13" to 5,
-                "2023-10-14" to 2,
-                "2023-10-15" to 4,
-                "2023-10-16" to 0,
-                "2023-10-17" to 1,
-                "2023-10-18" to 0,
-                "2023-10-19" to 6,
-                "2023-10-20" to 2,
-                "2023-10-21" to 3,
-                "2023-10-22" to 0,
-                "2023-10-23" to 4,
-                "2023-10-24" to 5,
-                "2023-10-25" to 0,
-                "2023-10-26" to 1,
-                "2023-10-27" to 2,
-                "2023-10-28" to 0,
-                "2023-10-29" to 3,
-                "2023-10-30" to 4,
-                "2023-10-31" to 0
+                LocalDate(2023, 10, 1) to 5,
+                LocalDate(2023, 10, 2) to 3,
+                LocalDate(2023, 10, 3) to 7,
+                LocalDate(2023, 10, 4) to 0,
+                LocalDate(2023, 10, 5) to 4,
+                LocalDate(2023, 10, 6) to 6,
+                LocalDate(2023, 10, 7) to 2,
+                LocalDate(2023, 10, 8) to 1,
+                LocalDate(2023, 10, 9) to 0,
+                LocalDate(2023, 10, 10) to 8,
+                LocalDate(2023, 10, 11) to 0,
+                LocalDate(2023, 10, 12) to 3,
+                LocalDate(2023, 10, 13) to 5,
+                LocalDate(2023, 10, 14) to 2,
+                LocalDate(2023, 10, 15) to 4,
+                LocalDate(2023, 10, 16) to 0,
+                LocalDate(2023, 10, 17) to 1,
+                LocalDate(2023, 10, 18) to 0,
+                LocalDate(2023, 10, 19) to 6,
+                LocalDate(2023, 10, 20) to 2,
+                LocalDate(2023, 10, 21) to 3,
+                LocalDate(2023, 10, 22) to 0,
+                LocalDate(2023, 10, 23) to 4,
+                LocalDate(2023, 10, 24) to 5,
+                LocalDate(2023, 10, 25) to 0,
+                LocalDate(2023, 10, 26) to 1,
+                LocalDate(2023, 10, 27) to 2,
+                LocalDate(2023, 10, 28) to 0,
+                LocalDate(2023, 10, 29) to 3,
+                LocalDate(2023, 10, 30) to 4,
+                LocalDate(2023, 10, 31) to 0
             ),
             totalPageviewsCount = 7890,
             dailyTotalViews = mapOf(
-                "2023-10-01" to 100,
-                "2023-10-02" to 150,
-                "2023-10-03" to 200,
-                "2023-10-04" to 120,
-                "2023-10-05" to 180,
-                "2023-10-06" to 220
+                LocalDate(2023, 10, 1) to 100,
+                LocalDate(2023, 10, 2) to 150,
+                LocalDate(2023, 10, 3) to 200,
+                LocalDate(2023, 10, 4) to 120,
+                LocalDate(2023, 10, 5) to 180,
+                LocalDate(2023, 10, 6) to 220
             )
         )
     }

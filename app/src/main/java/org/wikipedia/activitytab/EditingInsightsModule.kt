@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.AsyncImage
+import kotlinx.datetime.LocalDate
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.LineChart
@@ -443,7 +444,7 @@ private fun MostViewedCardPreview() {
             thumbUrl = "https://example.com/thumb.jpg"
         )
         val articleViews = ArticleViews(
-            firstEditDate = "2023-01-01",
+            firstEditDate = LocalDate(2023, 1, 1),
             newestEdit = "2023-10-01",
             imageUrl = "https://example.com/image.jpg",
             viewsCount = 1000

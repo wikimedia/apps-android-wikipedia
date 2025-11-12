@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.datetime.LocalDate
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
@@ -20,7 +21,7 @@ import kotlin.math.max
 
 @Composable
 fun LineChart(
-    map: Map<String, Int>,
+    map: Map<LocalDate, Int>,
     modifier: Modifier = Modifier,
     chartSampleSize: Int = 10,
     strokeWidth: Dp = 2.dp,
@@ -90,26 +91,26 @@ private fun LineChartPreview() {
         ) {
             LineChart(
                 map = mapOf(
-                    "2025-01-01" to 100,
-                    "2025-01-02" to 122,
-                    "2025-01-03" to 100,
-                    "2025-01-04" to 103,
-                    "2025-01-05" to 120,
-                    "2025-01-06" to 121,
-                    "2025-01-07" to 110,
-                    "2025-01-08" to 153,
-                    "2025-01-09" to 100,
-                    "2025-01-10" to 150,
-                    "2025-01-11" to 160,
-                    "2025-01-12" to 170,
-                    "2025-01-13" to 180,
-                    "2025-01-14" to 140,
-                    "2025-01-15" to 130,
-                    "2025-01-16" to 106,
-                    "2025-01-17" to 102,
-                    "2025-01-18" to 103,
-                    "2025-01-19" to 95,
-                    "2025-01-20" to 76,
+                    LocalDate(2025, 1, 1) to 100,
+                    LocalDate(2025, 1, 2) to 122,
+                    LocalDate(2025, 1, 3) to 100,
+                    LocalDate(2025, 1, 4) to 103,
+                    LocalDate(2025, 1, 5) to 120,
+                    LocalDate(2025, 1, 6) to 121,
+                    LocalDate(2025, 1, 7) to 110,
+                    LocalDate(2025, 1, 8) to 153,
+                    LocalDate(2025, 1, 9) to 100,
+                    LocalDate(2025, 1, 10) to 150,
+                    LocalDate(2025, 1, 11) to 160,
+                    LocalDate(2025, 1, 12) to 170,
+                    LocalDate(2025, 1, 13) to 180,
+                    LocalDate(2025, 1, 14) to 140,
+                    LocalDate(2025, 1, 15) to 130,
+                    LocalDate(2025, 1, 16) to 106,
+                    LocalDate(2025, 1, 17) to 102,
+                    LocalDate(2025, 1, 18) to 103,
+                    LocalDate(2025, 1, 19) to 95,
+                    LocalDate(2025, 1, 20) to 76,
                 ),
                 modifier = Modifier.fillMaxSize(),
                 chartSampleSize = 10,

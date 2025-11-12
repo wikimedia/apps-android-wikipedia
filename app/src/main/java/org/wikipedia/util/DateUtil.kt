@@ -58,16 +58,12 @@ object DateUtil {
         return getExtraShortDateString(date.time)
     }
 
-    fun getMDYDateString(date: Date): String {
+    fun getMDYDateString(date: LocalDate): String {
         return getDateStringWithSkeletonPattern(date, "MM/dd/yyyy")
     }
 
     fun getMonthOnlyDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
-    }
-
-    fun getMonthOnlyDateStringFromTimeString(dateStr: String): String {
-        return getMonthOnlyDateString(SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr)!!)
     }
 
     fun getMonthOnlyDateString(date: LocalDate): String {
