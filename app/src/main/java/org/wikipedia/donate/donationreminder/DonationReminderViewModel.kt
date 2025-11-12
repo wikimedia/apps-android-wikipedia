@@ -88,7 +88,6 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
         Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
         if (enabled) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                initialPromptActive = false,
                 finalPromptActive = false
             )
         } else {
