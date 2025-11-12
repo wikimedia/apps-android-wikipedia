@@ -171,7 +171,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun maybeShowDonationReminderCard() {
-        println("orange article visit: ${Prefs.donationReminderConfig.articleVisit} cycle: ${Prefs.donationReminderConfig.cycleCount} finalPromptActive: ${Prefs.donationReminderConfig.finalPromptActive}")
         if (!DonationReminderHelper.hasActiveReminder) {
             return
         }

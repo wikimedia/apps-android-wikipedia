@@ -80,12 +80,10 @@ object DonationReminderHelper {
                 config.finalPromptCount > MAX_REMINDER_PROMPTS ||
                 daysOfLastSeen <= 0
             ) {
-                println("orange maybeShowDonationReminder false")
                 return@let false
             }
 
             if (update) {
-                println("orange maybeShowDonationReminder update")
                 val finalPromptCount = config.finalPromptCount + 1
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptCount = finalPromptCount,

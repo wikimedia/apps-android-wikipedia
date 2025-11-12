@@ -926,15 +926,11 @@ private fun DonationReminderAppBarPreview() {
             menuItems = listOf(
                 DonationReminderDropDownMenuItem(
                     text = "Learn more",
-                    onClick = {
-                        println("orange learn more clicked.")
-                    }
+                    onClick = {}
                 ),
                 DonationReminderDropDownMenuItem(
                     text = "Problem with feature",
-                    onClick = {
-                        println("orange problem with feature is clicked.")
-                    }
+                    onClick = {}
                 )
             )
         )
