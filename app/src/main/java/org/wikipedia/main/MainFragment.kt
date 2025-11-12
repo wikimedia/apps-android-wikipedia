@@ -112,7 +112,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
-    private var exclusiveTooltipRunnable: Runnable? = null
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -199,8 +198,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
-        maybeShowEditsTooltip()
-
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
@@ -242,9 +239,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
                 resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             refreshContents()
-            if (!Prefs.showSuggestedEditsTooltip) {
-                FeedbackUtil.showMessage(this, R.string.login_success_toast)
-            }
+            FeedbackUtil.showMessage(this, R.string.login_success_toast)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.instance.tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -597,19 +592,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private fun maybeShowEditsTooltip() {
-        if (currentFragment !is SuggestedEditsTasksFragment && Prefs.showSuggestedEditsTooltip &&
-                Prefs.exploreFeedVisitCount >= SHOW_EDITS_SNACKBAR_COUNT) {
-            enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id),
-                    if (AccountUtil.isLoggedIn) getString(R.string.main_tooltip_text, AccountUtil.userName)
-                    else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
-                            Prefs.showSuggestedEditsTooltip = false
-                    }
-            }
-        }
-    }
-
     private inner class PageChangeCallback : OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             callback()?.onTabChanged(NavTab.of(position))
@@ -620,20 +602,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         override fun onSuccess() {
             FeedbackUtil.showMessage(requireActivity(), R.string.gallery_save_success)
         }
-    }
-
-    private fun enqueueTooltip(runnable: Runnable) {
-        if (exclusiveTooltipRunnable != null) {
-            return
-        }
-        exclusiveTooltipRunnable = runnable
-        binding.mainNavTabLayout.postDelayed({
-            exclusiveTooltipRunnable = null
-            if (!isAdded) {
-                return@postDelayed
-            }
-            runnable.run()
-        }, 500)
     }
 
     private fun callback(): Callback? {
@@ -649,9 +617,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     companion object {
-        // Actually shows on the 4th time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
-        private const val SHOW_EDITS_SNACKBAR_COUNT = 3
-
         fun newInstance(): MainFragment {
             return MainFragment().apply {
                 retainInstance = true
