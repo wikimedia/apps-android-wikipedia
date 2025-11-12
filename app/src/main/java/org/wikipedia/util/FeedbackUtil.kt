@@ -15,6 +15,7 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -22,7 +23,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
-import com.skydoves.balloon.*
+import com.skydoves.balloon.ArrowOrientationRules
+import com.skydoves.balloon.ArrowPositionRules
+import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.BalloonSizeSpec
+import com.skydoves.balloon.createBalloon
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -111,18 +116,22 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_request_an_account_url)))
     }
 
-    fun showAndroidAppEditingFAQ(context: Context,
-                                 @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
+    fun showAndroidAppEditingFAQ(
+        context: Context,
+        @StringRes urlStr: Int = R.string.android_app_edit_help_url,
+    ) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
-    fun composeEmail(context: Context,
-                     emailAddress: String = context.getString(R.string.support_email),
-                     subject: String = "",
-                     body: String = "") {
+    fun composeEmail(
+        context: Context,
+        emailAddress: String = context.getString(R.string.support_email),
+        subject: String = "",
+        body: String = "",
+    ) {
         val intent = Intent()
             .setAction(Intent.ACTION_SENDTO)
-            .setData(Uri.parse("mailto:$emailAddress?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+            .setData("mailto:$emailAddress?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}".toUri())
         try {
             context.startActivity(intent)
         } catch (e: Exception) {
@@ -175,13 +184,28 @@ object FeedbackUtil {
         return toast
     }
 
-    fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean,
-                    autoDismiss: Boolean, arrowAnchorPadding: Int = 0, topOrBottomMargin: Int = 0, showDismissButton: Boolean = autoDismiss): Balloon {
+    fun showTooltip(
+        activity: Activity,
+        anchor: View,
+        text: CharSequence,
+        aboveOrBelow: Boolean,
+        autoDismiss: Boolean,
+        arrowAnchorPadding: Int = 0,
+        topOrBottomMargin: Int = 0,
+        showDismissButton: Boolean = autoDismiss,
+    ): Balloon {
         return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, showDismissButton), anchor, aboveOrBelow, autoDismiss)
     }
 
-    fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
-                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
+    fun showTooltip(
+        activity: Activity,
+        anchor: View,
+        @LayoutRes layoutRes: Int,
+        arrowAnchorPadding: Int,
+        topOrBottomMargin: Int,
+        aboveOrBelow: Boolean,
+        autoDismiss: Boolean,
+    ): Balloon {
         return showTooltip(activity, getTooltip(anchor.context, layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
     }
 
@@ -198,9 +222,18 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false,
-                   @StringRes dismissButtonText: Int = R.string.onboarding_got_it, countNum: Int = 0, countTotal: Int = 0): Balloon {
+    fun getTooltip(
+        context: Context,
+        text: CharSequence,
+        autoDismiss: Boolean,
+        arrowAnchorPadding: Int = 0,
+        topOrBottomMargin: Int = 0,
+        aboveOrBelow: Boolean = false,
+        showDismissButton: Boolean = false,
+        @StringRes dismissButtonText: Int = R.string.onboarding_got_it,
+        countNum: Int = 0,
+        countTotal: Int = 0,
+    ): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         binding.buttonView.isVisible = showDismissButton
@@ -244,8 +277,10 @@ object FeedbackUtil {
         return balloon
     }
 
-    private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,
-                           topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
+    private fun getTooltip(
+        context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,
+        topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean,
+    ): Balloon {
         return createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)

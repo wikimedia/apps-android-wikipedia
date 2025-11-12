@@ -97,7 +97,9 @@ fun DonationReminderScreen(
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
     onConfirmButtonClick: (String) -> Unit,
-    onFooterButtonClick: () -> Unit
+    onFooterButtonClick: () -> Unit,
+    onLearnMoreClick: () -> Unit,
+    onReportClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
     var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
@@ -139,7 +141,19 @@ fun DonationReminderScreen(
                     .statusBarsPadding()
                     .padding(top = 12.dp)
                     .padding(horizontal = 16.dp),
-                onBackButtonClick = onBackButtonClick
+                onBackButtonClick = onBackButtonClick,
+                menuItems = listOf(
+                    DonationReminderDropDownMenuItem(
+                        text = stringResource(R.string.donation_reminders_settings_learn_more_button),
+                        icon = R.drawable.ic_info_outline_black_24dp,
+                        onClick = onLearnMoreClick
+                    ),
+                    DonationReminderDropDownMenuItem(
+                        text = stringResource(R.string.donation_reminders_settings_report_button),
+                        icon = R.drawable.ic_report_flag,
+                        onClick = onReportClick
+                    )
+                )
             )
         },
         containerColor = WikipediaTheme.colors.paperColor,
@@ -244,7 +258,15 @@ fun DonationReminderAppBar(
                                 text = {
                                     Text(
                                         text = item.text,
+                                        style = MaterialTheme.typography.bodyLarge,
                                         color = WikipediaTheme.colors.primaryColor
+                                    )
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        painter = painterResource(item.icon),
+                                        tint = WikipediaTheme.colors.primaryColor,
+                                        contentDescription = null
                                     )
                                 },
                                 onClick = item.onClick
@@ -926,12 +948,14 @@ private fun DonationReminderAppBarPreview() {
             menuItems = listOf(
                 DonationReminderDropDownMenuItem(
                     text = "Learn more",
+                    icon = R.drawable.ic_info_outline_black_24dp,
                     onClick = {
                         println("orange learn more clicked.")
                     }
                 ),
                 DonationReminderDropDownMenuItem(
                     text = "Problem with feature",
+                    icon = R.drawable.ic_report_flag,
                     onClick = {
                         println("orange problem with feature is clicked.")
                     }

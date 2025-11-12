@@ -195,5 +195,6 @@ data class SelectableOption<T : Number>(
 
 data class DonationReminderDropDownMenuItem(
     val text: String,
+    val icon: Int,
     val onClick: () -> Unit
 )
