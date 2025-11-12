@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentReadingListBinding
@@ -530,6 +531,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
 
             ReadingListMode.YEAR_IN_REVIEW -> {
                 if (readingList == null) {
+                    YearInReviewEvent.submit(action = "impression", slide = "reading_list_create")
                     viewModel.generateYearInReviewReadingList(AccountUtil.userName)
                 } else {
                     update()

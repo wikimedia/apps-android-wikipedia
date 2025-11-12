@@ -59,7 +59,8 @@ fun Modifier.yearInReviewHeaderBackground(): Modifier {
 
 sealed class YearInReviewScreenData(
     val allowDonate: Boolean = true,
-    val showDonateInToolbar: Boolean = true
+    val showDonateInToolbar: Boolean = true,
+    val slideName: String
 ) {
 
     @Composable
@@ -72,8 +73,13 @@ sealed class YearInReviewScreenData(
         val imageModifier: Modifier = Modifier.size(200.dp),
         val headlineText: Any? = null,
         val bodyText: Any? = null,
+        slideName: String,
         showDonateInToolbar: Boolean = true
-    ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        showDonateInToolbar = showDonateInToolbar,
+        slideName = slideName
+    ) {
 
         @Composable
         open fun Header(context: Context,
@@ -125,45 +131,56 @@ sealed class YearInReviewScreenData(
         val highlightColor: Color = ComposeColors.Gray700
     )
 
-    data class HighlightsScreen(
+    open class HighlightsScreen(
         val highlights: List<HighlightItem>,
-        val screenshotUrl: String
-    ) : YearInReviewScreenData()
+        val screenshotUrl: String,
+        slideName: String
+    ) : YearInReviewScreenData(
+        slideName = slideName
+    )
 
-    class GeoScreen(
+    open class GeoScreen(
         allowDonate: Boolean = true,
         val largestClusterTopLeft: Pair<Double, Double>,
         val largestClusterBottomRight: Pair<Double, Double>,
         val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
-        val bodyText: String? = null
-    ) : YearInReviewScreenData(allowDonate)
+        val bodyText: String? = null,
+        slideName: String
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        slideName = slideName
+    )
 
     class ReadingPatterns(
         allowDonate: Boolean = true,
         imageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val favoriteTimeText: String,
         val favoriteDayText: String,
-        val favoriteMonthText: String
+        val favoriteMonthText: String,
     ) : StandardScreen(
         allowDonate,
         imageResource = imageResource,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName
     )
 
     class CustomIconScreen(
         allowDonate: Boolean = true,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
         imageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName,
         showDonateInToolbar = !showDonateButton
     ) {
         @Composable
@@ -202,7 +219,9 @@ private fun CustomIconScreenHeaderPreview() {
         Box(
             modifier = Modifier.size(400.dp, 300.dp)
         ) {
-            CustomIconScreen().Header(
+            CustomIconScreen(
+                slideName = "test"
+            ).Header(
                 context = LocalContext.current,
                 screenCaptureMode = false,
                 aspectRatio = 1f
@@ -218,7 +237,11 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(allowDonate = true, showDonateButton = true).BottomButton(
+            CustomIconScreen(
+                allowDonate = true,
+                showDonateButton = true,
+                slideName = "test"
+            ).BottomButton(
                 context = LocalContext.current,
                 onButtonClick = {}
             )

@@ -12,6 +12,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
@@ -69,21 +70,31 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
         findPreference(R.string.preference_key_year_in_review_is_enabled).let {
             it.isVisible = YearInReviewViewModel.isAccessible
+            if (it.isVisible) {
+                YearInReviewEvent.submit(action = "impression", slide = "setting")
+            }
             it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
                 if (newValue as Boolean) {
+                    YearInReviewEvent.submit(action = "yir_on_click", slide = "setting")
                     return@OnPreferenceChangeListener true
                 }
+                YearInReviewEvent.submit(action = "yir_off_click", slide = "setting")
                 MaterialAlertDialogBuilder(activity)
                     .setTitle(R.string.year_in_review_disable_title)
                     .setMessage(R.string.year_in_review_setting_subtitle)
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                        YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = 0) }
+                        YearInReviewViewModel.updateYearInReviewModel { model ->
+                            model.copy(slideViewedCount = 0)
+                        }
                         Prefs.yearInReviewReadingListSurveyShown = false
                         Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
                     }
-                    .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                    .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->
+                        YearInReviewEvent.submit(action = "yir_off_cancel_click", slide = "setting")
+                    }
                     .show()
                 false
             }
