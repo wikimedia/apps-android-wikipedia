@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -62,6 +63,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -78,7 +82,6 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.InlinePosition
 import org.wikipedia.compose.components.TextWithInlineElement
-import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.noRippleClickable
@@ -93,8 +96,8 @@ fun DonationReminderScreen(
     viewModel: DonationReminderViewModel,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
     onBackButtonClick: () -> Unit,
-    onConfirmBtnClick: (String) -> Unit,
-    onAboutThisExperimentClick: () -> Unit
+    onConfirmButtonClick: (String) -> Unit,
+    onFooterButtonClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
     var isNavigatingToExternalUrl by remember { mutableStateOf(false) }
@@ -107,7 +110,7 @@ fun DonationReminderScreen(
                     if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmBtnClick(message)
+                        onConfirmButtonClick(message)
                     }
                 }
                 Lifecycle.Event.ON_RESUME -> {
@@ -130,9 +133,13 @@ fun DonationReminderScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            WikiTopAppBar(
-                title = stringResource(R.string.donation_reminders_settings_title),
-                onNavigationClick = onBackButtonClick
+            DonationReminderAppBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .statusBarsPadding()
+                    .padding(top = 12.dp)
+                    .padding(horizontal = 16.dp),
+                onBackButtonClick = onBackButtonClick
             )
         },
         containerColor = WikipediaTheme.colors.paperColor,
@@ -175,12 +182,102 @@ fun DonationReminderScreen(
                 .fillMaxSize(),
             viewModel = viewModel,
             uiState = uiState,
-            onConfirmBtnClick = onConfirmBtnClick,
-            onAboutThisExperimentClick = {
+            onConfirmButtonClick = onConfirmButtonClick,
+            onFooterButtonClick = {
                 isNavigatingToExternalUrl = true
-                onAboutThisExperimentClick()
+                onFooterButtonClick()
             }
         )
+    }
+}
+
+@Composable
+fun DonationReminderAppBar(
+    modifier: Modifier = Modifier,
+    onBackButtonClick: () -> Unit,
+    menuItems: List<DonationReminderDropDownMenuItem> = emptyList()
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                modifier = Modifier
+                    .clickable(onClick = onBackButtonClick),
+                tint = WikipediaTheme.colors.primaryColor,
+                painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                contentDescription = null
+            )
+            Text(
+                modifier = Modifier
+                    .weight(1f),
+                text = stringResource(R.string.donation_reminders_settings_title),
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    lineHeight = 20.sp
+                ),
+                color = WikipediaTheme.colors.primaryColor
+            )
+            if (menuItems.isNotEmpty()) {
+                Box {
+                    Icon(
+                        modifier = Modifier
+                            .clickable(onClick = { expanded = true }),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                        contentDescription = null
+                    )
+                    DropdownMenu(
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        menuItems.forEach { item ->
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = item.text,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    )
+                                },
+                                onClick = item.onClick
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(24.dp)
+            )
+            Row(
+                modifier = Modifier
+                    .background(
+                        color = WikipediaTheme.colors.additionColor,
+                        shape = RoundedCornerShape(size = 16.dp)
+                    )
+                    .padding(horizontal = 8.dp, vertical = 4.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.donation_reminders_experiment_label),
+                    style = MaterialTheme.typography.labelSmall,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.Normal,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+        }
     }
 }
 
@@ -189,8 +286,8 @@ fun DonationReminderContent(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel,
     uiState: DonationReminderUiState,
-    onConfirmBtnClick: (String) -> Unit,
-    onAboutThisExperimentClick: () -> Unit
+    onConfirmButtonClick: (String) -> Unit,
+    onFooterButtonClick: () -> Unit
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
@@ -349,7 +446,7 @@ fun DonationReminderContent(
                         viewModel.toggleDonationReminders(true)
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmBtnClick(message)
+                        onConfirmButtonClick(message)
                     },
                     content = {
                         Text(
@@ -360,15 +457,17 @@ fun DonationReminderContent(
             }
         }
 
+        val footerButtonText = if (viewModel.isFromSettings) stringResource(R.string.donation_reminders_settings_about_experiment_btn_label)
+        else stringResource(R.string.donation_reminders_settings_no_thanks_btn_label)
         TextButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 16.dp),
-            onClick = onAboutThisExperimentClick,
+            onClick = onFooterButtonClick,
             content = {
                 Text(
-                    text = stringResource(R.string.donation_reminders_settings_about_experiment_btn_label),
+                    text = footerButtonText,
                     color = WikipediaTheme.colors.progressiveColor
                 )
             }
@@ -599,7 +698,7 @@ private fun DonationRemindersSwitch(
         ),
         headlineContent = {
             Text(
-                text = stringResource(R.string.donation_reminders_settings_title),
+                text = stringResource(R.string.donation_reminders_settings_option_title),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
@@ -807,6 +906,37 @@ private fun CustomInputDialogPreview() {
                 )
             },
             onValueChange = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun DonationReminderAppBarPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        DonationReminderAppBar(
+            modifier = Modifier
+                .fillMaxWidth()
+                .statusBarsPadding()
+                .padding(top = 12.dp)
+                .padding(horizontal = 16.dp),
+            onBackButtonClick = {},
+            menuItems = listOf(
+                DonationReminderDropDownMenuItem(
+                    text = "Learn more",
+                    onClick = {
+                        println("orange learn more clicked.")
+                    }
+                ),
+                DonationReminderDropDownMenuItem(
+                    text = "Problem with feature",
+                    onClick = {
+                        println("orange problem with feature is clicked.")
+                    }
+                )
+            )
         )
     }
 }
