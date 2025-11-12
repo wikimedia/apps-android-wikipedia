@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
@@ -68,8 +69,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
         Prefs.announcementPauseTime = Date().time
-        // TODO: update conditional check with AB test
-        if (false) {
+        if (!DonationReminderHelper.isEnabled) {
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
             dismissDialog(false)
             return

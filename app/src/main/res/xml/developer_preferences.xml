@@ -556,6 +556,11 @@
             android:key="@string/preference_key_donation_reminder_config"
             android:title="@string/preference_key_donation_reminder_config"/>
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_donationReminder"
+            android:title="Donation Reminder test group (require restart)"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Activity tab">

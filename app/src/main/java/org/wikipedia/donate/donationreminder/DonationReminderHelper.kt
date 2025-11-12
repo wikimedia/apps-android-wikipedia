@@ -13,19 +13,12 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val CAMPAIGN_ID = "appmenu_reminder"
-    const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
-    )
-
-    val currencyAmountPresets = mapOf(
-        "GB" to listOf(1f, 2f, 3f),
-        "AU" to listOf(1f, 2f, 3f),
-        "CA" to listOf(1f, 2f, 3f)
     )
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
