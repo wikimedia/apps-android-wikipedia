@@ -37,14 +37,20 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
         campaignId = arguments?.getString(ARG_CAMPAIGN_ID)
 
+        val activeInterface = if (arguments?.getBoolean(ARG_FROM_YIR) == true) {
+            "wiki_yir"
+        } else {
+            if (campaignId.isNullOrEmpty()) "setting" else "article_banner"
+        }
+
         binding.donateOtherButton.setOnClickListener {
-            DonorExperienceEvent.logAction("webpay_click", if (campaignId.isNullOrEmpty()) "setting" else "article_banner", campaignId = campaignId)
+            DonorExperienceEvent.logAction("webpay_click", activeInterface, campaignId = campaignId)
             onDonateClicked()
         }
 
         binding.donateGooglePayButton.setOnClickListener {
             invalidateCampaign()
-            DonorExperienceEvent.logAction("gpay_click", if (campaignId.isNullOrEmpty()) "setting" else "article_banner", campaignId = campaignId)
+            DonorExperienceEvent.logAction("gpay_click", activeInterface, campaignId = campaignId)
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
                 GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId, arguments?.getString(ARG_DONATE_URL)))
         }
@@ -96,7 +102,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onDonateClicked() {
-        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL))
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId)
         invalidateCampaign()
         dismiss()
     }
@@ -147,13 +153,15 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
         const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
+        const val ARG_FROM_YIR = "fromYiR"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false): DonateDialog {
+        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false, fromYiR: Boolean = false): DonateDialog {
             return DonateDialog().apply {
                 arguments = bundleOf(
                     ARG_CAMPAIGN_ID to campaignId,
                     ARG_DONATE_URL to donateUrl,
-                    ARG_FROM_DONATION_REMINDER to fromDonationReminder
+                    ARG_FROM_DONATION_REMINDER to fromDonationReminder,
+                    ARG_FROM_YIR to fromYiR,
                 )
             }
         }

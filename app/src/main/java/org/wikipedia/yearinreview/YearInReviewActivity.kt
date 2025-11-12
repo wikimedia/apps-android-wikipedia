@@ -16,9 +16,11 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.donate.DonateDialog
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
@@ -69,18 +71,19 @@ class YearInReviewActivity : BaseActivity() {
                                     finish()
                                 }
                             },
-                            onDonateClick = {
+                            onDonateClick = { currentSlide ->
                                 EventPlatformClient.submit(
                                     BreadCrumbLogEvent(
                                         screen_name = "year_in_review",
                                         action = "donate_click")
                                 )
-                                DonorExperienceEvent.logAction(
+                                YearInReviewViewModel.currentCampaignId = "appmenu_yir_$currentSlide"
+                                YearInReviewEvent.submit(
                                     action = "donate_start_click_yir",
-                                    activeInterface = "wiki_yir",
-                                    campaignId = "yir"
+                                    slide = currentSlide,
+                                    campaignId = YearInReviewViewModel.currentCampaignId
                                 )
-                                launchDonateDialog("yir")
+                                ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = YearInReviewViewModel.currentCampaignId, fromYiR = true))
                             },
                             onRetryClick = {
                                 viewModel.fetchPersonalizedData()

@@ -1759,6 +1759,7 @@
   <string name="donate_gpay_help_faq">Label for a link to a FAQ page about donating.</string>
   <string name="donate_gpay_help_tax">Label for a link to documentation about making donations tax-deductible.</string>
   <string name="donation_history_deleted_message_snackbar">Success message shown briefly at the bottom of the screen after donation history has been deleted</string>
+  <string name="donation_history_no_history_message_snackbar">Message shown briefly at the bottom of the screen when user attempts to clear donation history but no history exists.</string>
   <string name="places_title">Title for the Places screen.</string>
   <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
