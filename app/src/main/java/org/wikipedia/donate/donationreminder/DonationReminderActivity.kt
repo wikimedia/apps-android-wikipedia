@@ -30,7 +30,6 @@ class DonationReminderActivity : BaseActivity() {
                     },
                     onConfirmButtonClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true
-                        // TODO: update with AB test
                         setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },

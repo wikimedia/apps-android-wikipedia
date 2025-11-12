@@ -910,7 +910,7 @@ private fun CustomInputDialogPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun DonationReminderAppBarPreview() {
     BaseTheme(
