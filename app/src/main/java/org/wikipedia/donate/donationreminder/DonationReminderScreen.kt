@@ -95,8 +95,8 @@ fun DonationReminderScreen(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel,
     wikiErrorClickEvents: WikiErrorClickEvents? = null,
-    onBackBtnClick: () -> Unit,
-    onConfirmBtnClick: (String) -> Unit,
+    onBackButtonClick: () -> Unit,
+    onConfirmButtonClick: (String) -> Unit,
     onFooterButtonClick: () -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
@@ -110,7 +110,7 @@ fun DonationReminderScreen(
                     if (viewModel.isFromSettings && !isNavigatingToExternalUrl && viewModel.hasValueChanged()) {
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmBtnClick(message)
+                        onConfirmButtonClick(message)
                     }
                 }
                 Lifecycle.Event.ON_RESUME -> {
@@ -139,7 +139,7 @@ fun DonationReminderScreen(
                     .statusBarsPadding()
                     .padding(top = 12.dp)
                     .padding(horizontal = 16.dp),
-                onBackBtnClick = onBackBtnClick
+                onBackButtonClick = onBackButtonClick
             )
         },
         containerColor = WikipediaTheme.colors.paperColor,
@@ -182,7 +182,7 @@ fun DonationReminderScreen(
                 .fillMaxSize(),
             viewModel = viewModel,
             uiState = uiState,
-            onConfirmBtnClick = onConfirmBtnClick,
+            onConfirmButtonClick = onConfirmButtonClick,
             onFooterButtonClick = {
                 isNavigatingToExternalUrl = true
                 onFooterButtonClick()
@@ -194,7 +194,7 @@ fun DonationReminderScreen(
 @Composable
 fun DonationReminderAppBar(
     modifier: Modifier = Modifier,
-    onBackBtnClick: () -> Unit,
+    onBackButtonClick: () -> Unit,
     menuItems: List<DonationReminderDropDownMenuItem> = emptyList()
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -209,7 +209,7 @@ fun DonationReminderAppBar(
         ) {
             Icon(
                 modifier = Modifier
-                    .clickable(onClick = onBackBtnClick),
+                    .clickable(onClick = onBackButtonClick),
                 tint = WikipediaTheme.colors.primaryColor,
                 painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
                 contentDescription = null
@@ -286,7 +286,7 @@ fun DonationReminderContent(
     modifier: Modifier = Modifier,
     viewModel: DonationReminderViewModel,
     uiState: DonationReminderUiState,
-    onConfirmBtnClick: (String) -> Unit,
+    onConfirmButtonClick: (String) -> Unit,
     onFooterButtonClick: () -> Unit
 ) {
     val isDonationReminderEnabled = uiState.isDonationReminderEnabled
@@ -446,7 +446,7 @@ fun DonationReminderContent(
                         viewModel.toggleDonationReminders(true)
                         viewModel.saveReminder()
                         val message = DonationReminderHelper.thankYouMessageForSettings()
-                        onConfirmBtnClick(message)
+                        onConfirmButtonClick(message)
                     },
                     content = {
                         Text(
@@ -922,7 +922,7 @@ private fun DonationReminderAppBarPreview() {
                 .statusBarsPadding()
                 .padding(top = 12.dp)
                 .padding(horizontal = 16.dp),
-            onBackBtnClick = {},
+            onBackButtonClick = {},
             menuItems = listOf(
                 DonationReminderDropDownMenuItem(
                     text = "Learn more",

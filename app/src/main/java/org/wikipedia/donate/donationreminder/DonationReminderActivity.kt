@@ -25,10 +25,10 @@ class DonationReminderActivity : BaseActivity() {
             BaseTheme {
                 DonationReminderScreen(
                     viewModel = viewModel,
-                    onBackBtnClick = {
+                    onBackButtonClick = {
                         onBackPressedDispatcher.onBackPressed()
                     },
-                    onConfirmBtnClick = { message ->
+                    onConfirmButtonClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true
                         // TODO: update with AB test
                         setResult(RESULT_OK_FROM_DONATION_REMINDER)
