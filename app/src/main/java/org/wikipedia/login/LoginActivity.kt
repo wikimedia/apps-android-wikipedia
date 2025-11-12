@@ -25,7 +25,6 @@ import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
-import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -73,6 +72,8 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
             submitButtonText = null, isModal = false)
@@ -131,8 +132,8 @@ class LoginActivity : BaseActivity() {
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
         binding.footerContainer.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
-            visitInExternalBrowser(this, title.uri.toUri())
+            val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
+            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
     }
 
@@ -208,13 +209,14 @@ class LoginActivity : BaseActivity() {
 
         if (uiPromptResult == null && captchaResult == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
-        } else if (captchaResult != null) {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
-                captchaId = captchaHandler.captchaId(), captchaWord = captchaHandler.captchaWord(), cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
+                captchaId = if (captchaResult != null) captchaHandler.captchaId() else null,
+                captchaWord = if (captchaResult != null) captchaHandler.captchaWord() else null,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
-                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null, isContinuation = true, cb = loginCallback)
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                isContinuation = uiPromptResult != null,
+                cb = loginCallback)
         }
     }
 
@@ -235,22 +237,21 @@ class LoginActivity : BaseActivity() {
         override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token
-
-            if (captchaId.isNullOrEmpty()) {
+            if (captchaId != null) {
+                if (captchaResult != null) {
+                    FeedbackUtil.showError(this@LoginActivity, caught)
+                }
+                captchaResult = CaptchaResult(captchaId)
+                captchaHandler.handleCaptcha(token, captchaResult!!)
+            }
+            if (result is LoginEmailAuthResult || result is LoginOATHResult) {
                 uiPromptResult = result
-
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
                 binding.login2faText.visibility = View.VISIBLE
                 binding.login2faText.editText?.setText("")
                 binding.login2faText.requestFocus()
                 FeedbackUtil.showError(this@LoginActivity, caught)
-            } else {
-                if (captchaResult != null) {
-                    FeedbackUtil.showError(this@LoginActivity, caught)
-                }
-                captchaResult = CaptchaResult(captchaId)
-                captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         }
@@ -298,6 +299,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
         const val SOURCE_ACTIVITY_TAB = "activity_tab"
+        const val SOURCE_YEAR_IN_REVIEW = "yir"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

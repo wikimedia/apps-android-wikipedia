@@ -88,9 +88,13 @@
 
         <activity
             android:name=".main.MainActivity"
-            android:icon="@mipmap/launcher"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
+            android:exported="true" />
+        <activity-alias
+            android:name=".DefaultIcon"
+            android:targetActivity=".main.MainActivity"
+            android:icon="@mipmap/launcher"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -103,7 +107,26 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+        <activity-alias
+            android:name=".YIR25Icon"
+            android:targetActivity=".main.MainActivity"
+            android:icon="@mipmap/launcher_yir25"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wikipedia" />
+            </intent-filter>
+        </activity-alias>
+
         <activity
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
@@ -167,20 +190,17 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.LoginActivity"
-            android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            android:label="@string/create_account_activity_title"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
-            android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -372,6 +392,9 @@
 
         <activity
             android:name=".settings.dev.playground.CategoryDeveloperPlayGround"/>
+
+        <activity
+            android:name=".yearinreview.YearInReviewOnboardingActivity"/>
 
         <activity
             android:name=".yearinreview.YearInReviewActivity"/>

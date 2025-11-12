@@ -1,7 +1,5 @@
 package org.wikipedia.json
 
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.wikipedia.util.log.L
 
@@ -16,7 +14,7 @@ object JsonUtil {
     }
 
     inline fun <reified T> decodeFromString(string: String?): T? {
-        if (string == null) {
+        if (string.isNullOrEmpty()) {
             return null
         }
         try {

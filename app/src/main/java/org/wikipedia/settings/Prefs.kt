@@ -29,6 +29,8 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
+import org.wikipedia.yearinreview.YearInReviewModel
+import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -391,10 +393,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_description_edit_success_prompt, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_description_edit_success_prompt, value)
 
-    var showSuggestedEditsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
-
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -494,10 +492,6 @@ object Prefs {
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
-
-    var showOneTimeSequentialUserStatsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, value)
 
     var showSearchTabTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_search_tab_tooltip, true)
@@ -783,9 +777,15 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
-    var yirSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_survey_shown, value)
+    var yearInReviewVisited: Boolean
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_visited, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_visited, value)
+
+    var yearInReviewSurveyState: YearInReviewSurveyState
+        get() = PrefsIoUtil.getString(R.string.preference_key_yir_survey_state, null)?.let {
+            YearInReviewSurveyState.valueOf(it)
+        } ?: YearInReviewSurveyState.NOT_TRIGGERED
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_yir_survey_state, value.name)
 
     var isRecommendedReadingListEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_enabled, false)
@@ -831,10 +831,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
-    var activityTabRedDotShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
-
     var impactLastQueryTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
@@ -858,4 +854,21 @@ object Prefs {
     var isActivityTabOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_onboarding_shown, value)
+
+    var yearInReviewModelData
+        get() = JsonUtil.decodeFromString<Map<Int, YearInReviewModel>>(PrefsIoUtil.getString(R.string.preference_key_yir_model_data, null))
+            ?: emptyMap()
+        set(modelDataWithYear) = PrefsIoUtil.setString(R.string.preference_key_yir_model_data, JsonUtil.encodeToString(modelDataWithYear))
+
+    var selectedAppIcon
+        get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
+
+    var yearInReviewReadingListVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
+
+    var yearInReviewReadingListSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
 }

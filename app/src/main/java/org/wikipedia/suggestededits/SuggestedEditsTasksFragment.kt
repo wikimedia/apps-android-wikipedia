@@ -12,7 +12,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
-import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -24,11 +23,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activitytab.ActivityTabABTest
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -42,12 +37,9 @@ import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.main.MainActivity
-import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -78,22 +70,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
 
-    private val inActivityAbTestGroup = ActivityTabABTest().isInTestGroup()
-
-    private val sequentialTooltipRunnable = Runnable {
-        if (!isAdded) {
-            return@Runnable
-        }
-        val contributionContainer = binding.layoutContributionsContainer
-        val balloon = FeedbackUtil.getTooltip(requireContext(), contributionContainer.editsCountStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
-        balloon.showAlignBottom(contributionContainer.editsCountStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), contributionContainer.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), contributionContainer.pageViewStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), contributionContainer.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), contributionContainer.editStreakStatsView.getDescriptionView())
-            .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), contributionContainer.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), contributionContainer.editQualityStatsView.getDescriptionView())
-        Prefs.showOneTimeSequentialUserStatsTooltip = false
-        BreadCrumbLogEvent.logTooltipShown(requireActivity(), contributionContainer.editsCountStatsView)
-    }
-
     private val requestAddLanguage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         binding.layoutTasksContainer.tasksRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -111,6 +87,11 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         }
     }
 
+    private val learnMoreClickListener = View.OnClickListener {
+        ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
+        UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.edit_screen_learn_more_url).toUri())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsTasksBinding.inflate(inflater, container, false)
@@ -120,24 +101,14 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
-        if (inActivityAbTestGroup) {
-            notificationButtonView = NotificationButtonView(requireContext())
-            requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        }
+        notificationButtonView = NotificationButtonView(requireContext())
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        binding.layoutTasksContainer.whatIsTitleText.text = getString(R.string.edits_screen_what_is_title)
+        binding.layoutTasksContainer.whatIsBodyText.text = getString(R.string.edits_screen_what_is_body)
 
-        binding.layoutContributionsContainer.contributionsContainer.setOnClickListener {
-            startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName))
-        }
         val tasksContainer = binding.layoutTasksContainer
-        tasksContainer.learnMoreCard.setOnClickListener {
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-        }
-        tasksContainer.learnMoreButton.setOnClickListener {
-            if (ActivityTabABTest().isInTestGroup()) {
-                ActivityTabEvent.submit(activeInterface = "edit_home", action = "learn_more_click", editCount = viewModel.totalContributions)
-            }
-            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-        }
+        tasksContainer.learnMoreCard.setOnClickListener(learnMoreClickListener)
+        tasksContainer.learnMoreButton.setOnClickListener(learnMoreClickListener)
 
         binding.swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
@@ -146,12 +117,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
 
-        binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-            if (inActivityAbTestGroup) {
-                return@OnScrollChangeListener
-            }
-            (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
-        })
         tasksContainer.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksContainer.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
         tasksContainer.tasksContainer.isVisible = false
@@ -181,9 +146,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     }
 
     fun refreshContents() {
-        if (!inActivityAbTestGroup) {
-            (requireActivity() as MainActivity).onTabChanged(NavTab.EDITS)
-        }
         requireActivity().invalidateOptionsMenu()
         viewModel.fetchData()
     }
@@ -239,7 +201,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
 
     override fun onDestroyView() {
         binding.layoutTasksContainer.tasksRecyclerView.adapter = null
-        binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -255,8 +216,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
             requestLogin.launch(LoginActivity.newIntent(requireContext(), LoginActivity.SOURCE_SUGGESTED_EDITS))
         }
         binding.messageCard.isVisible = true
-        binding.layoutContributionsContainer.contributionsContainer.isVisible = false
-        binding.layoutContributionsContainer.statsDivider.isVisible = false
     }
 
     private fun clearContents(shouldScrollToTop: Boolean = true) {
@@ -266,8 +225,6 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         binding.layoutTasksContainer.tasksContainer.isVisible = false
         binding.errorView.isVisible = false
         binding.messageCard.isVisible = false
-        binding.layoutContributionsContainer.contributionsContainer.isVisible = false
-        binding.layoutContributionsContainer.statsDivider.isVisible = false
         if (shouldScrollToTop) {
             binding.suggestedEditsScrollView.scrollTo(0, 0)
         }
@@ -281,10 +238,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
     }
 
     private fun setFinalUIState() {
-        if (inActivityAbTestGroup) {
-            ActivityTabEvent.submit(activeInterface = "edit_home", action = "impression", editCount = viewModel.totalContributions)
-        }
-
+        ActivityTabEvent.submit(activeInterface = "edit_home", action = "impression", editCount = viewModel.totalContributions)
         clearContents(false)
 
         if (maybeSetPausedOrDisabled()) {
@@ -300,70 +254,13 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         }
 
         binding.layoutTasksContainer.tasksRecyclerView.adapter!!.notifyDataSetChanged()
-        setUserStatsViewsAndTooltips()
-        val contributionContainer = binding.layoutContributionsContainer
-        contributionContainer.pageViewStatsView.setDescription(viewModel.totalPageviews.toString())
-
-        if (viewModel.latestEditStreak < 2) {
-            contributionContainer.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_last_edited))
-            contributionContainer.editStreakStatsView.setDescription(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-        } else {
-            contributionContainer.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-            contributionContainer.editStreakStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
-                viewModel.latestEditStreak, viewModel.latestEditStreak))
-        }
 
         if (viewModel.totalContributions == 0) {
-            contributionContainer.contributionsContainer.isVisible = false
-            contributionContainer.statsDivider.isVisible = false
             binding.messageCard.isVisible = true
             binding.messageCard.setOnboarding(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
-        } else {
-            contributionContainer.contributionsContainer.isVisible = true
-            contributionContainer.statsDivider.isVisible = true
-            contributionContainer.editsCountStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_contribution, viewModel.totalContributions))
-            contributionContainer.editsCountStatsView.setDescription(viewModel.totalContributions.toString())
-            if (Prefs.showOneTimeSequentialUserStatsTooltip) {
-                 showOneTimeSequentialUserStatsTooltips()
-            }
         }
-
         binding.swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         binding.layoutTasksContainer.tasksContainer.isVisible = true
-    }
-
-    private fun setUserStatsViewsAndTooltips() {
-        val contributionContainer = binding.layoutContributionsContainer
-
-        if (inActivityAbTestGroup) {
-            contributionContainer.root.isVisible = false
-            binding.layoutTasksContainer.contributeSubtitleView.isVisible = false
-            return
-        }
-
-        contributionContainer.editsCountStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        contributionContainer.editsCountStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
-
-        contributionContainer.editStreakStatsView.setTitle(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        contributionContainer.editStreakStatsView.setImageDrawable(R.drawable.ic_icon_revision_history_apps)
-        contributionContainer.editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-
-        contributionContainer.pageViewStatsView.setTitle(getString(R.string.suggested_edits_views_label_text))
-        contributionContainer.pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-        contributionContainer.pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
-
-       contributionContainer.editQualityStatsView.setGoodnessState(viewModel.revertSeverity)
-       contributionContainer.editQualityStatsView.setTitle(getString(R.string.suggested_edits_quality_label_text))
-       contributionContainer.editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContribStats.totalReverts)
-    }
-
-    private fun showOneTimeSequentialUserStatsTooltips() {
-        if (inActivityAbTestGroup) {
-            return
-        }
-        binding.suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
-        binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
-        binding.suggestedEditsScrollView.postDelayed(sequentialTooltipRunnable, 500)
     }
 
     private fun setIPBlockedStatus() {
@@ -493,27 +390,15 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
 
             when (task) {
                 addDescriptionsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
-                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
-                    } else {
-                        ImageRecommendationsEvent.logAction(if (secondary) "add_desc_translate_start" else "add_desc_start", "suggested_edits_dialog")
-                    }
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "desc_translate_click" else "desc_add_click", editCount = viewModel.totalContributions)
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
                 }
                 addImageCaptionsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
-                        ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
-                    } else {
-                        ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog")
-                    }
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = if (secondary) "caption_translate_click" else "caption_add_click", editCount = viewModel.totalContributions)
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION))
                 }
                 addImageTagsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
-                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
-                    } else {
-                        ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog")
-                    }
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_tag_add_click", editCount = viewModel.totalContributions)
                     if (Prefs.showImageTagsOnboarding) {
                         requestAddImageTags.launch(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
                     } else {
@@ -521,19 +406,11 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
                     }
                 }
                 imageRecommendationsTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
-                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
-                    } else {
-                        ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
-                    }
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "image_add_click", editCount = viewModel.totalContributions)
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS))
                 }
                 vandalismPatrolTask -> {
-                    if (ActivityTabABTest().isInTestGroup()) {
-                        ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
-                    } else {
-                        PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
-                    }
+                    ActivityTabEvent.submit(activeInterface = "edit_home", action = "edit_patrol_click", editCount = viewModel.totalContributions)
                     startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
                 }
             }

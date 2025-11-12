@@ -973,7 +973,7 @@
   <string name="donation_campaign_go_back_button">Йуханехьа</string>
   <string name="menu_single_webview_open_external">Системин браузерехь схьайелла</string>
   <string name="donate_gpay_help_problems">Цатарло ахча дӀадахьийта?</string>
-  <string name="donate_gpay_help_other_ways">Ахча дохьуьйту кхин таронаш</string>
+  <string name="donate_gpay_help_other_ways">ГӀодан кхин таронаш</string>
   <string name="donate_gpay_help_faq">Дукха луш долу хаттарш</string>
   <string name="donate_gpay_help_tax">ГӀодечаран тӀера налог дӀаяккхарах лаьцна хаам</string>
   <string name="places_title">Меттигаш</string>
@@ -1025,9 +1025,8 @@
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">ДӀадайа уьш</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">ХӀаъ, латаде уьш</string>
   <string name="on_this_day_game_notification_undo">Йухайаккха</string>
-  <string name="year_in_review_learn_more">Цул совнаха хаа</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Цул совнаха хаа</string>
   <string name="year_in_review_donate">ГӀодар</string>
-  <string name="year_in_review_entry_dialog_continue">Кхин дӀа</string>
   <string name="year_in_review_survey_very_satisfied">ЧӀогӀа реза</string>
   <string name="year_in_review_survey_satisfied">Реза</string>
   <string name="year_in_review_survey_neutral">ХӀумма а ца дина</string>

@@ -51,11 +51,7 @@ class LoginClient {
                     }
                     cb.success(loginResult)
                 } else {
-                    // Make a call to authmanager to see if we need to provide a captcha.
-                    val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
-                    if (!captchaId.isNullOrEmpty()) {
-                        cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
-                    } else if (LoginResult.STATUS_UI == loginResult.status) {
+                    if (LoginResult.STATUS_UI == loginResult.status) {
                         val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
                         when {
                             loginResult is LoginOATHResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
@@ -71,7 +67,13 @@ class LoginClient {
                             else -> cb.error(LoginFailedException(parsedMessage))
                         }
                     } else {
-                        cb.error(LoginFailedException(loginResult.message))
+                        // Make a call to authmanager to see if we need to provide a captcha.
+                        val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+                        if (!captchaId.isNullOrEmpty()) {
+                            cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
+                        } else {
+                            cb.error(LoginFailedException(loginResult.message))
+                        }
                     }
                 }
                 break

@@ -29,6 +29,7 @@
 * Patrik L.
 * Pavreh
 * Robins7
+* SaldırganSincap
 * Segoulas
 * Spotter
 * Tereza
@@ -55,6 +56,7 @@
   <string name="search_icon_content_description">Hledat</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_suggested_edits">Editace</string>
+  <string name="nav_item_activity">Aktivita</string>
   <string name="nav_item_more">Více</string>
   <string name="nav_item_search">Vyhledávání</string>
   <string name="nav_item_contribute">Přispět</string>
@@ -188,7 +190,7 @@
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
   <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
+  <string name="login_2fa_other_workflow_error_msg">Vyžaduje se dvoufaktorové ověřování! Přihlaste se prosím z hlavní obrazovky a zadejte kód z vašeho 2FA tokenu.</string>
   <string name="login_email_auth_hint">Ověřovací kód z e-mailu</string>
   <string name="login_email_auth_other_workflow_error_msg">Je vyžadováno ověření e-mailu! Přihlaste se prosím z hlavní strany a zadejte ověřovací kód z e-mailu.</string>
   <string name="login_background_error_msg">Nelze se znovu přihlásit. Vraťte se prosím na hlavní stranu a přihlaste se ručně.</string>
@@ -214,6 +216,7 @@
   <string name="logged_out_in_background_cancel">Storno</string>
   <string name="account_vanish_request_title">Nechat zmizet účet</string>
   <string name="account_vanish_request_confirm_title">Varování zmizení účtu</string>
+  <string name="account_vanish_request_confirm">Zmizení je &lt;b&gt;poslední možnost&lt;/b&gt; a mělo by &lt;b&gt;se používat pouze tehdy, když chcete úpravy navždy ukončit&lt;/b&gt; a také skrýt co nejvíce svých minulých asociací.&lt;br/&gt;&lt;br/&gt; Smazání účtu na Wikipedii se provádí změnou uživatelského jména tak, aby ostatní nemohli rozpoznat vaše příspěvky, a to procesem zvaným zmizení účtu. &lt;b&gt;Zmizení nezaručuje úplnou anonymitu ani odstranění příspěvků k projektům&lt;/b&gt; .</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -284,7 +287,6 @@
   <string name="offline_reading_and_data_url">https://mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/cs</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="about_libraries_heading">Použité knihovny</string>
@@ -296,6 +298,7 @@
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
+  <string name="about_logo_content_description">Logotyp puzzle globu Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="edit_abandon_confirm_yes">Ano</string>
   <string name="edit_abandon_confirm_no">Ne</string>
@@ -311,6 +314,7 @@
   <string name="edit_rollback">Vrátit zpět</string>
   <string name="edit_warn">Varovat</string>
   <string name="edit_damage">Poškozeno %s</string>
+  <string name="edit_intent">Záměr %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte.</item>
     <item quantity="few">%s byty.</item>
@@ -479,6 +483,7 @@
   <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
+  <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
   <string name="temp_account_dialog_ok">Rozumím</string>
   <string name="temp_account_using_title">Využíváte dočasný účet</string>
   <string name="temp_account_dialog_discard">Zahodit změny a přihlásit se</string>
@@ -1099,6 +1104,12 @@
     <item quantity="many">Příspěvky</item>
     <item quantity="other">Příspěvky</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Editace</item>
+    <item quantity="few">Editace</item>
+    <item quantity="many">Editace</item>
+    <item quantity="other">Editací</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d den</item>
     <item quantity="few">%d dny</item>
@@ -1177,7 +1188,64 @@
   <string name="edit_summary_added_caption">Přidán popisek</string>
   <string name="edit_summary_added_image_and_caption">Přidán obrázek a popisek</string>
   <string name="edit_published_view">Zobrazit</string>
+  <string name="activity_tab_user_reading">%s čtení</string>
+  <string name="activity_tab_on_wikipedia_android">Na Wikipedii Android</string>
+  <string name="activity_tab_weekly_time_spent">Čas strávený čtením tento týden</string>
+  <string name="activity_tab_monthly_articles_read">Články přečtené tento měsíc</string>
+  <string name="activity_tab_monthly_articles_saved">Články uložené tento měsíc</string>
+  <string name="activity_tab_monthly_top_categories">Nejčtenější kategorie tento měsíc</string>
+  <string name="activity_tab_total_edits_all_projects">Editací celkem napříč projekty</string>
   <string name="activity_tab_menu_feedback">Problém s funkcí</string>
+  <string name="activity_tab_menu_info">Další informace</string>
+  <string name="activity_tab_menu_customize">Přizpůsobit</string>
+  <string name="activity_tab_impact">Váš vliv</string>
+  <string name="activity_tab_impact_most_viewed">Nejvíce viděno od vaší editace</string>
+  <string name="activity_tab_impact_contributions_this_month">Příspěvky tento měsíc</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">editace tento měsíc</item>
+    <item quantity="few">editace tento měsíc</item>
+    <item quantity="many">editace tento měsíc</item>
+    <item quantity="other">editací tento měsíc</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">editace minulý měsíc</item>
+    <item quantity="few">editace minulý měsíc</item>
+    <item quantity="many">editace minulý měsíc</item>
+    <item quantity="other">editací minulý měsíc</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Vliv za celou dobu</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">editace celkem</item>
+    <item quantity="few">editace celkem</item>
+    <item quantity="many">editace celkem</item>
+    <item quantity="other">editací celkem</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">poděkování</item>
+    <item quantity="few">poděkování</item>
+    <item quantity="many">poděkování</item>
+    <item quantity="other">poděkování</item>
+  </plurals>
+  <string name="activity_tab_impact_last_edited">Poslední editace</string>
+  <string name="activity_tab_impact_recent_activity">Vaše nedávná aktivita (posledních 30 dní)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Editace</item>
+    <item quantity="few">Editace</item>
+    <item quantity="many">Editace</item>
+    <item quantity="other">Editací</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Zobrazení článků, které jste editovali</item>
+    <item quantity="few">Zobrazení článků, které jste editovali</item>
+    <item quantity="many">Zobrazení článků, které jste editovali</item>
+    <item quantity="other">Zobrazení článků, které jste editovali</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Čas strávený čtením</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiky čtení</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Statistiky editací</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Vliv za celou dobu</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Poslední dar v aplikaci</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Časová osa chování</string>
   <string name="activity_tab_timeline_today">Dnes</string>
   <string name="activity_tab_timeline_yesterday">Včera</string>
   <string name="file_page_activity_title">Stránka souboru</string>
@@ -1622,7 +1690,11 @@
   <string name="on_this_day_game_notification_undo">Zpět</string>
   <string name="on_this_day_game_sound_on">Zapnout zvuk</string>
   <string name="on_this_day_game_sound_off">Vypnout zvuk</string>
-  <string name="year_in_review_get_started">Začít</string>
+  <string name="year_in_review_learn_more">Další informace</string>
+  <string name="year_in_review_get_started" fuzzy="true">Začít</string>
+  <string name="year_in_review_get_started_headline">Prozkoumejte svůj Rok na Wikipedii</string>
+  <string name="year_in_review_share_subject">Můj rok na Wikipedii</string>
+  <string name="year_in_review_share_body">Tady je Můj rok na Wikipedii. Vytvořeno pomocí aplikace Wikipedie pro Android %1$s %2$s</string>
   <string name="recommended_reading_list_title">Objevit</string>
   <string name="recommended_reading_list_onboarding_card_title">Objevte články vybrané právě pro vás</string>
   <string name="recommended_reading_list_onboarding_card_message">Váš týdenní seznam článků na Wikipedii, sestavený právě pro vás.</string>

@@ -22,6 +22,7 @@
   <string name="search_icon_content_description">Пошук</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтраваць мае сьпісы</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
+  <string name="nav_item_activity">Актыўнасьць</string>
   <string name="nav_item_more">Болей</string>
   <string name="nav_item_search">Шукаць</string>
   <string name="nav_item_contribute">Зрабіць унёсак</string>
@@ -34,7 +35,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Вярнуцца</string>
   <string name="error_next">Далей</string>
-  <string name="menu_clear_all_history" fuzzy="true">Ачысьціць гісторыю</string>
+  <string name="menu_clear_all_history">Ачысьціць гісторыю чытаньня</string>
   <string name="history_item_deleted">Артыкул %s выдалены з гісторыі</string>
   <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі</string>
   <string name="history_item_delete_undo">Аднавіць</string>
@@ -47,7 +48,7 @@
   <string name="wikimedia_commons">ВікіСховішча</string>
   <string name="wikidata">ВікіЗьвесткі</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
+  <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду. Вы ўпэўненыя?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>
@@ -152,6 +153,7 @@
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Неабходная двухфактарная аўтэнтыфікацыя! Калі ласка, увайдзіце на галоўным экране і ўвядзіце код з свайго ключа 2FA.</string>
   <string name="login_email_auth_hint">Код пацьверджаньня электроннай пошты</string>
+  <string name="login_email_auth_other_workflow_error_msg">Патрэбнае пацьверджаньне электроннай пошты! Увайдзіце з галоўнага экрану і ўвядзіце праверачны код з электроннай пошты.</string>
   <string name="onboarding_card_login">Увайсьці</string>
   <string name="page_editing_login">Увайсьці</string>
   <string name="reading_lists_sync_login">Увайсьці</string>
@@ -375,6 +377,7 @@
   <string name="reading_list_split_dialog_ok_button_text">Добра</string>
   <string name="user_option_sync_label">Налады</string>
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="places_card_action">Болей месцаў побач</string>
 </resources>

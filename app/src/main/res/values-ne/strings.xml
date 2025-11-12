@@ -251,7 +251,7 @@
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
-  <string name="edit_done">प्रकाशन गर्नुहोस्</string>
+  <string name="edit_done">प्रकाशित गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
@@ -598,7 +598,7 @@
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
+  <string name="view_static_card_save_button_label">सङ्ग्रह गर्नुहोस्</string>
   <string name="feed_configure_activity_title">फिडलाई अनुकूलित गर्नुहोस्</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
@@ -636,7 +636,7 @@
   <string name="description_edit_add_caption_hint">तस्वीर व्याख्याहरू</string>
   <string name="description_edit_translate_caption_label_per_language">तस्वीर व्याख्याहरू (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">तस्वीर व्याख्याहरू (%s)</string>
-  <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
+  <string name="description_edit_save">प्रकाशित गर्नुहोस्</string>
   <string name="description_edit_read">पढ्नुहोस्</string>
   <string name="description_edit_add_description">लेख वर्णन थप्नुहोस्</string>
   <string name="description_edit_translate_description">लेख वर्णन अनुवाद गर्नुहोस्</string>
@@ -857,6 +857,7 @@
   <string name="watchlist_page_moved">सारियो</string>
   <string name="watchlist_page_protected">सुरक्षित</string>
   <string name="watchlist_filter_contribution_authorship_header">योगदान लेखकत्व</string>
+  <string name="watchlist_filter_latest_revisions_header">नवीनतम संशोधनहरू</string>
   <string name="action_item_categories">श्रेणीहरू</string>
   <string name="category_tab_articles">लेखहरू</string>
   <string name="category_tab_subcategories">उपश्रेणीहरू</string>

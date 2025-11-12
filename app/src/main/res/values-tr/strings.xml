@@ -36,6 +36,7 @@
 * Okkerem
 * Oyuncu
 * Rapsar
+* Sakblue
 * SaldırganSincap
 * Sayginer
 * Sezgin İbiş
@@ -69,6 +70,7 @@
   <string name="search_icon_content_description">Ara</string>
   <string name="filter_hint_filter_my_lists_and_articles">Listelerimi filtrele</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
+  <string name="nav_item_activity">Etkinlik</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="nav_item_search">Ara</string>
   <string name="nav_item_contribute">Katkıda bulun</string>
@@ -81,7 +83,7 @@
   <string name="page_error_back_to_main">Geri dön</string>
   <string name="error_back">Geri dön</string>
   <string name="error_next">Sonraki</string>
-  <string name="menu_clear_all_history" fuzzy="true">Geçmişi temizle</string>
+  <string name="menu_clear_all_history">Okuma geçmişini temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
   <string name="history_item_delete_undo">Geri al</string>
@@ -94,7 +96,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiveri</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
+  <string name="dialog_message_clear_history">Bu işlem tüm tarama geçmişinizi silecektir. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
   <string name="dialog_message_clear_history_no">Hayır</string>
   <string name="share_via">Şununla paylaş:</string>
@@ -291,9 +293,7 @@
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
@@ -468,7 +468,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
   <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
   <string name="preference_summary_prefer_offline_content">Bir maddenin son sürümünü yüklemek yerine her daim çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Yerel bağış geçmişini sil</string>
+  <string name="preference_title_delete_local_donation_history">Bağış geçmişini sil</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
@@ -483,6 +483,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Araç çubuğunuzu özelleştirin</string>
   <string name="error_blocked_footer_no_blocker">Engellemeyi görüşmek için bir &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Hizmetliler#Hizmetliler_listesi\"&gt;hizmetli&lt;/a&gt; ile iletişime geçebilirsiniz.</string>
   <string name="temp_account_not_logged_in">Oturum açmadınız</string>
+  <string name="temp_account_anon_ip_dialog_body">Bir değişiklik yaptığınızda, IP adresiniz değişikliklerinizle ilişkilendirilecektir.\n&lt;br /&gt;&lt;br /&gt;Gelecekteki düzenlemelerinizi kaydetmek ve diğer özelliklere erişmek için &lt;a href=\"https://#login\"&gt;Giriş yapın&lt;/a&gt; veya &lt;a href=\"https://#createaccount\"&gt;hesap oluşturun&lt;/a&gt;.</string>
   <string name="temp_account_dialog_ok">Anladım</string>
   <string name="temp_account_using_title">Geçici bir hesap kullanıyorsunuz</string>
   <string name="temp_account_dialog_discard">Değişiklikleri silin ve oturum açın</string>
@@ -961,6 +962,7 @@
   <string name="customize_toolbar_reset_to_default_button">Varsayılana sıfırla</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Ögeyi taşımak için sürükle simgesine basılı tutun</string>
   <string name="customize_toolbar_item_default_tooltip">Yeniden konumlandırmak için bir ögeye basın ve sürükleyin</string>
+  <string name="suggested_edits_activity_title">Düzenle</string>
   <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
   <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
@@ -1170,6 +1172,52 @@
   <string name="edit_summary_added_caption">Alt yazı eklendi</string>
   <string name="edit_summary_added_image_and_caption">Görsel ve alt yazı eklendi</string>
   <string name="edit_published_view">Görüntüle</string>
+  <string name="activity_tab_on_wikipedia_android">Vikipedi Android\'de</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
+  <string name="activity_tab_weekly_time_spent">Bu hafta okumaya harcanan zaman</string>
+  <string name="activity_tab_monthly_articles_read">Bu ay okunan maddeler</string>
+  <string name="activity_tab_monthly_articles_saved">Bu ay saklanan maddeler</string>
+  <string name="activity_tab_monthly_top_categories">Bu ay en çok okunan kategoriler</string>
+  <string name="activity_tab_explore_wikipedia">Vikipedi\'yle keşfedin</string>
+  <string name="activity_tab_discover_encourage">Okuyacak yeni bir şeyler mi arıyorsunuz?</string>
+  <string name="activity_tab_donation_unknown">Bilinmiyor</string>
+  <string name="activity_tab_donation_last_donation">Uygulamadaki &lt;b&gt;son bağış&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">Projelerdeki toplam düzenlemeler</string>
+  <string name="activity_tab_game_stats">Oyun istatistikleri</string>
+  <string name="activity_tab_game_stats_best_streak">En iyi seri</string>
+  <string name="activity_tab_play_wiki_games">VikiOyunlar\'ı oyna</string>
+  <string name="activity_tab_report_email_subject">Sorun bildirimi - Etkinlik Sekmesi</string>
+  <string name="activity_tab_report_email_body">Etkinlik Sekmesi özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli sorunu açıklayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü açıklayın]</string>
+  <string name="activity_tab_menu_feedback">Özellikle ilgili sorun</string>
+  <string name="activity_tab_menu_info">Daha fazla bilgi</string>
+  <string name="activity_tab_menu_customize">Özelleştir</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Okuma geçmişi</string>
+  <string name="activity_tab_impact">Etkiniz</string>
+  <string name="activity_tab_impact_most_viewed">Düzenlemenizden bu yana en çok görüntülenen</string>
+  <string name="activity_tab_impact_contributions_this_month">Bu ayki katkılar</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">bu ayki düzenleme</item>
+    <item quantity="other">bu ayki düzenlemeler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">geçen ayki düzenleme</item>
+    <item quantity="other">geçen ayki düzenlemeler</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Tüm zamanların etkisi</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">toplam düzenleme</item>
+    <item quantity="other">toplam düzenlemeler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">teşekkür</item>
+    <item quantity="other">teşekkürler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">En iyi seri</string>
+  <string name="activity_tab_impact_last_edited">Son düzenleme</string>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
@@ -1697,9 +1745,43 @@
   <string name="survey_dialog_general_maybe">Belki</string>
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
+  <string name="on_this_day_game_entry_dialog_button">Bugünün oyununu oyna</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
   <string name="on_this_day_game_pause_title">Oyun durdurulsun mu?</string>
   <string name="on_this_day_game_your_stats">İstatistikleriniz</string>
   <string name="on_this_day_game_notification_undo">Geri al</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Okuma listenizden memnun musunuz?</string>
+  <string name="year_in_review_slide_geo_body">Okuduğunuz birçok makaleye en yakın ülke &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; gibi makalelere bakılarak %1$s gibi görünüyor.</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">İngilizce Vikipedi\'nin en çok okunan makaleleri</string>
+  <string name="year_in_review_reading_list_dialog_title">Yıl Sonu Değerlendirmenizi Oluşturun %d okuma listesi?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedia Yıl Sonu İncelemesi, %1$d içinde en çok zaman geçirdiğiniz makalelerin bir okuma listesini oluşturacaktır. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_description">%1$s için yapıldı. %2$d içinde en çok zaman harcadığınız makaleler.</string>
+  <string name="year_in_review_highlights_thank_you_message">Yılınızı Vikipedi ile geçirdiğiniz için teşekkür ederiz</string>
+  <string name="year_in_review_highlights_looking_forward_message">Gelecek yılı sabırsızlıkla bekliyoruz!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">İngilizce Vikipedi\'de en çok okunan makale</item>
+    <item quantity="other">İngilizce Vikipedi\'de en çok okunan makaleler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Görüntülenen makale sayısı</item>
+    <item quantity="other">Görüntülenen makale sayısı</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Vikipedi ne sıklıkla düzenlendi?</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Okumak için en sevdiğim gün</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Makale okundu</item>
+    <item quantity="other">Makaleler okundu</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">İlgimi çeken kategori</item>
+    <item quantity="other">İlgimi çeken kategoriler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">Makale düzenlendi</item>
+    <item quantity="other">Makaleler düzenlendi</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Önemli noktaları paylaşın</string>
+  <string name="year_in_review_highlights_logo_description">Wikipedia logosu</string>
 </resources>

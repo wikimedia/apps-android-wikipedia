@@ -74,6 +74,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE lang = :lang ORDER BY RANDOM() LIMIT 1")
     suspend fun getRandomPage(lang: String): ReadingListPage?
 
+    @Query("SELECT displayTitle FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getRandomPageTitlesBetween(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<String?>
+
     @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     suspend fun findPageBySearchTerm(term: String): List<ReadingListPage>
 
@@ -86,8 +89,8 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     suspend fun getAllPagesToBeSynced(): List<ReadingListPage>
 
-    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp")
-    suspend fun getTotalLocallySavedPagesSince(timestamp: Long): Int?
+    @Query("SELECT COUNT(*) FROM ReadingListPage WHERE atime > 0 AND atime BETWEEN :startMillis AND :endMillis")
+    suspend fun getTotalLocallySavedPagesBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Int?
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY atime DESC LIMIT :limit")
     suspend fun getLocallySavedPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
@@ -96,7 +99,7 @@ interface ReadingListPageDao {
     suspend fun getMostRecentLocallySavedPage(): ReadingListPage?
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
-    suspend fun getPagesByLocalySavedTime(limit: Int, offset: Int): List<ReadingListPage>
+    suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>
 
     suspend fun getAllPagesToBeSaved() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
 

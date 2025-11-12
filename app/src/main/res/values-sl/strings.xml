@@ -8,7 +8,9 @@
 * Pickle12
 * P̲̳l̳eo
 * SHaran (WMF)
+* SaldırganSincap
 * Upwinxp
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
@@ -251,14 +253,12 @@
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/sl</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/sl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
   <string name="about_libraries_heading">Uporabljene knjižnice</string>
   <string name="about_contributors_heading">Sodelavci</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
@@ -449,7 +449,7 @@
   <string name="error_blocked_footer_no_blocker">Za pogovor o blokiranju se lahko obrnete na &lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Administratorji\"&gt;administratorja&lt;/a&gt;.</string>
   <string name="temp_account_not_logged_in">Niste prijavljeni</string>
   <string name="temp_account_anon_ip_dialog_body">Po urejanju bo pri vašem urejanju naveden vaš IP-nasloⱱ&lt;br /&gt;&lt;br /&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
-  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;ɓ&gt;začasen račʊn&lt;b/&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
+  <string name="temp_account_anon_dialog_body">Po urejanju bo za zaščito vaše zasebnosti ustvarjen &lt;b&gt;začasen račʊn&lt;/b&gt;. &lt;a href=\"%1$s\"&gt;Izvedite več.&lt;/a&gt;Za priznanje prihodnjih urejanj in dostop do drugih možnosti &lt;a href=\"https://#login\"&gt;se prijavite&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si ustvarite račun&lt;/a&gt;.</string>
   <string name="temp_account_temp_dialog_body">Vaše urejanje bo pripisano %1$s. Vaš IP-naslov bo viden administratorjem.&lt;br /&gt;&lt;br /&gt; Če &lt;a href=\"https://#login\"&gt;se boste prijavili&lt;/a&gt; ali &lt;a href=\"https://#createaccount\"&gt;si boste ustvarili račun&lt;/a&gt;, bodo poleg drugih ugodnosti vaša urejanja pripisana izbranemu imenu.</string>
   <string name="temp_account_dialog_ok">Razumem</string>
   <string name="temp_account_using_title">Uporabljate začasni račun</string>
@@ -467,8 +467,8 @@
     <item quantity="other">Račun bo potekel čez %d dni.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Ob urejanju bo z vašimi urejanji povezan vaš IP-naslov.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Več o tem&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Več o tem&lt;/a&gt;.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"%1$s\"&gt;Več o tem&lt;/a&gt;</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s. &lt;a href=\"%2$s\"&gt;Več o tem&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Trenutno uporabljate začasni račun.&lt;/b&gt; Urejanja, opravljena z začasnim računom %1$s, po prijavi ne bodo prenesena k vašemu trajnemu računu. Prijavite se ali si ustvarite račun, da boste med drugimi ugodnostmi pridobili priznanje avtorstva vašemu uporabniškemu imenu.</string>
   <string name="temp_account_end_session">Končaj sejo</string>
   <string name="temp_account_end_session_confirm">S tem se boste odjavili iz svojega začasnega računa. Želite nadaljevati?</string>
@@ -1351,7 +1351,7 @@
   <string name="templates_learn_more_link">Več o tem</string>
   <string name="templates_description_incomplete">Predloge ustvarijo uporabniki in morda nimajo popolnih opisov.</string>
   <string name="templates_description_empty">Predloga »%s« še nima opisa.</string>
-  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
+  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"%2$s\"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / pridružite se Wikipediji</string>
   <string name="main_tooltip_text">Pozdravljeni, %s, ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>

@@ -69,11 +69,11 @@
   <string name="nav_item_search">جستجو</string>
   <string name="nav_item_contribute">مشارکت</string>
   <string name="error_network_error">نمی‌توان به اینترنت متصل شد.</string>
-  <string name="page_error_retry">سعى دوباره</string>
-  <string name="card_offline_error_retry">تلاش مجدد</string>
-  <string name="storage_access_error_retry">تلاش مجدد</string>
-  <string name="article_load_error_retry">تلاش مجدد</string>
-  <string name="offline_load_error_retry">تلاش مجدد</string>
+  <string name="page_error_retry">تلاش دوباره</string>
+  <string name="card_offline_error_retry">تلاش دوباره</string>
+  <string name="storage_access_error_retry">تلاش دوباره</string>
+  <string name="article_load_error_retry">تلاش دوباره</string>
+  <string name="offline_load_error_retry">تلاش دوباره</string>
   <string name="page_error_back_to_main">برگرد</string>
   <string name="error_back">برگرد</string>
   <string name="error_next">بعدی</string>
@@ -169,7 +169,7 @@
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
   <string name="stub_article_edit_saved_successfully">ویرایش منتشر شد! اعمال تغییرات ممکن است زمان ببرد.</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
-  <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
+  <string name="dialog_message_edit_failed_retry">تلاش دوباره</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
   <string name="dialog_message_leaving_edit">ویرایش شما هنوز ذخیره نشده است. آیا واقعاً می‌خواهید از این صفحه خارج شوید؟</string>
   <string name="dialog_message_leaving_edit_leave">ترک‌کردن</string>
@@ -188,8 +188,8 @@
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
-  <string name="login_password_hint">رمز عبور</string>
-  <string name="account_creation_password_hint">رمز عبور</string>
+  <string name="login_password_hint">گذرواژه</string>
+  <string name="account_creation_password_hint">گذرواژه</string>
   <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
@@ -229,7 +229,7 @@
   <string name="create_account_activity_title">ایجاد حساب</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (اختیاری)</string>
-  <string name="create_account_password_repeat_hint">تکرار رمز عبور</string>
+  <string name="create_account_password_repeat_hint">تکرار گذرواژه</string>
   <string name="create_account_password_is_username">گذرواژه نمی‌تواند با نام کاربری شما یکسان باشد</string>
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
   <string name="create_account_email_error">آدرس ایمیل نامعتبر است</string>
@@ -289,7 +289,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fa</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده است.</string>
   <string name="about_app_license_heading">مجوز</string>
@@ -1152,7 +1152,7 @@
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
   <string name="onboarding_got_it">فهمیدم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد(های) زیر را بر روی دستگاه شما یافتیم:</string>
-  <string name="onboarding_multilingual_add_language_text">ویرایش یا اضافه کردن زبان</string>
+  <string name="onboarding_multilingual_add_language_text">افزودن یا ویرایش زبان</string>
   <string name="onboarding_welcome_title_v2">دانشنامهٔ آزاد\n...به بیش از ۳۰۰ زبان</string>
   <string name="app_shortcuts_random">تصادفی</string>
   <string name="app_shortcuts_continue_reading">ادامه دادن به مطالعه</string>
@@ -1338,7 +1338,7 @@
   <string name="view_user_page">نمایش صفحهٔ کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
   <string name="thank_dialog_text">«تشکر» راهی آسان برای نشان دادن قدردانی از کار یک ویرایشگر در ویکی‌پدیا است. «تشکر» قابل واگرد نیست و به‌صورت عمومی قابل مشاهده است</string>
-  <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
+  <string name="thank_dialog_positive_button_text">فرستادن تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
   <string name="menu_option_view_user_profile">مشاهدهٔ صفحهٔ کاربر</string>
@@ -1585,10 +1585,5 @@
   <string name="on_this_day_game_menu_info">اطلاعات بیشتر</string>
   <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
   <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
-  <string name="year_in_review_entry_dialog_continue">ادامه</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">شما امسال %d مقاله را مطالعه کرده‌اید</item>
-    <item quantity="other">شما امسال %d مقاله را مطالعه کرده‌اید</item>
-  </plurals>
   <string name="year_in_review_survey_submit">ثبت</string>
 </resources>

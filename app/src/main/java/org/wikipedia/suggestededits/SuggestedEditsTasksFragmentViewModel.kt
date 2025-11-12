@@ -12,14 +12,12 @@ import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.settings.Prefs
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
 import java.time.Instant
 import java.time.temporal.ChronoUnit
-import java.util.Date
 
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
@@ -36,12 +34,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var blockMessageWikidata: String? = null
     var blockMessageCommons: String? = null
 
-    var totalPageviews = 0L
     var totalContributions = 0
     var homeContributions = 0
-    var latestEditDate = Date()
-    var latestEditStreak = 0
-    var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
     var allowToPatrolEdits = false
@@ -60,8 +54,6 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             blockMessageWikidata = null
             blockMessageCommons = null
             totalContributions = 0
-            latestEditStreak = 0
-            revertSeverity = 0
 
             val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 50, null, null) }
             // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
@@ -112,26 +104,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += commonsResponse.query?.userInfo!!.editCount
             totalContributions += homeContributions
 
-            latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
-
-            if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
-            }
-
-            if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
-            }
-
             val totalContributionsList = homeSiteResponse.query!!.userContributions +
                     wikidataResponse.query!!.userContributions +
                     commonsResponse.query!!.userContributions
 
-            latestEditStreak = getEditStreak(totalContributionsList)
-
             UserContribStats.verifyEditCountsAndPauseState(totalContributionsList)
-            revertSeverity = UserContribStats.getRevertSeverity()
-
-            totalPageviews = UserContribStats.getPageViews(homeSiteResponse.query!!.userContributions, wikidataResponse.query!!.userContributions)
 
             if (Prefs.overrideSuggestedEditContribution > 0) {
                 totalContributions = Prefs.overrideSuggestedEditContribution
@@ -139,18 +116,6 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             _uiState.value = Resource.Success(Unit)
         }
-    }
-
-    private fun getEditStreak(contributions: List<UserContribution>): Int {
-        if (contributions.isEmpty()) {
-            return 0
-        }
-        val dates = contributions.map { it.parsedDateTime.toLocalDate() }
-            .toSortedSet(Comparator.reverseOrder())
-        return dates.asSequence()
-            .zipWithNext { date1, date2 -> date2.until(date1, ChronoUnit.DAYS) }
-            .takeWhile { it == 1L }
-            .count()
     }
 
     class RequireLogin : Resource<Unit>()

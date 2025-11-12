@@ -222,6 +222,7 @@
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
   <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont späichert</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater, andeems Dir se an Ärem Wikipedia-Benotzerkont „%s“ späichert</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchroniséiert Lieslëschte vum „%s“ ewechhuelen?</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe  engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
@@ -240,8 +241,8 @@
   <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team-Säit&lt;/a&gt;</string>
@@ -355,6 +356,7 @@
   <string name="tab_item_closed">%s zougemaach.</string>
   <string name="all_tab_items_closed">All Tabs zougemaach.</string>
   <string name="tool_tip_bookmark_icon_title">Op d\'Lieslëscht setzen</string>
+  <string name="tool_tip_bookmark_icon_text">Tippt op d\'Lieszeeche-Symbol fir den Artikel op enger Lieslëscht ze ofzespäicheren.</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="tool_tip_toc_title">Inhaltsverzeechnes-Schnellzougrëff</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
@@ -890,6 +892,7 @@
   <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Haalt d\'Zéiesymbol gedréckt, fir d\'Element ze réckelen</string>
   <string name="customize_toolbar_item_default_tooltip">Dréck an zitt en Element fir et nei ze positionéieren</string>
+  <string name="suggested_edits_activity_title">Änneren</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Biller beschrëften</string>
   <string name="suggested_edits_tag_images">Biller markéieren</string>
@@ -1091,16 +1094,26 @@
   <string name="edit_summary_added_caption">Beschrëftung derbäigesat</string>
   <string name="edit_summary_added_image_and_caption">Bild a Beschrëftung derbäigesat</string>
   <string name="edit_published_view">Weisen</string>
+  <string name="activity_tab_user_reading">Lektür vum %s</string>
+  <string name="activity_tab_on_wikipedia_android">an der Wikipedia-App</string>
+  <string name="activity_tab_weekly_time_spent">Lieszäit dës Woch</string>
+  <string name="activity_tab_monthly_articles_read">Artikelen, déi dëse Mount gelies goufen</string>
+  <string name="activity_tab_monthly_articles_saved">Artikelen, déi dëse Mount gespäichert goufen</string>
+  <string name="activity_tab_explore_wikipedia">Mat Wikipedia entdecken</string>
+  <string name="activity_tab_discover_encourage">Dir sicht no eppes Neiem fir ze liesen?</string>
   <string name="activity_tab_donation_unknown">Onbekannt</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Leschten Don&lt;/b&gt; an der App</string>
   <string name="activity_tab_game_stats">Spillstatistiken</string>
   <string name="activity_tab_game_stats_best_streak">Bescht Serie</string>
   <string name="activity_tab_play_wiki_games">WikiGames spillen</string>
   <string name="activity_tab_menu_feedback">Problem mat der Funktioun</string>
   <string name="activity_tab_menu_info">Méi gewuer ginn</string>
   <string name="activity_tab_menu_customize">Upassen</string>
+  <string name="activity_tab_highlights">Highlights</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lies-Historique</string>
   <string name="activity_tab_impact">Ären Impakt</string>
-  <string name="activity_tab_impact_contributions_this_month">Kontributiounen dësem Mount</string>
+  <string name="activity_tab_impact_most_viewed">Meeschtgekuckt zanter Ärer Ännerung</string>
+  <string name="activity_tab_impact_contributions_this_month">Kontributiounen dëse Mount</string>
   <plurals name="activity_tab_impact_edits_this_month">
     <item quantity="one">Ännerung dëse Mount</item>
     <item quantity="other">Ännerungen dëse Mount</item>
@@ -1109,6 +1122,7 @@
     <item quantity="one">Ännerung leschte Mount</item>
     <item quantity="other">Ännerunge leschte Mount</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">Gesamtimpakt</string>
   <plurals name="activity_tab_impact_thanks">
     <item quantity="one">Merci</item>
     <item quantity="other">Mercien</item>
@@ -1118,17 +1132,31 @@
     <item quantity="other">%d Deeg</item>
   </plurals>
   <string name="activity_tab_impact_best_streak">Bescht Serie</string>
+  <string name="activity_tab_impact_last_edited">lescht Ännerung</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 rezent Ännerungen un Artikelen</string>
+  <string name="activity_tab_impact_suggested_edits_message">Et schéngt, datt Dir dëse Mount nach keng Ännerung gemaach hutt. Erweidert d\'fräit Wëssen, andeems Dir zu Theemen, déi Iech interesséieren, bäidrot.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Eng Ännerung maachen</string>
   <string name="activity_tab_impact_recent_activity">Är rezent Aktivitéit (lescht 30 Deeg)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
     <item quantity="one">Ännerung</item>
     <item quantity="other">Ännerungen</item>
   </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Opruff vun Artikelen, déi Dir geännert hutt</item>
+    <item quantity="other">Opriff vun Artikelen, déi Dir geännert hutt</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Lieszäit</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Gesamtimpakt</string>
   <string name="activity_tab_customize_screen_games_switch_title">Spillstatistiken</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Leschten Don iwwer d\'App</string>
   <string name="activity_tab_timeline_today">Haut</string>
   <string name="activity_tab_timeline_yesterday">Gëschter</string>
   <string name="activity_tab_timeline_empty_state_title">Näischt fir ze weisen</string>
   <string name="activity_tab_timeline_view_changes_button">Ännerunge weisen</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Liesgewunnechten</string>
+  <string name="activity_tab_onboarding_impact_title">Impakt-Highlights</string>
+  <string name="edits_screen_what_is_title">Änneren an der Wikipedia-App</string>
+  <string name="edits_screen_what_is_body">Dir sidd net sécher, wou Dir ufänke sollt fir Ännerungen ze maachen? Probéiert d\'Ännerungsvirschléi, eng Funktioun, déi d\'Méiglechkeet bitt fir kleng awer wichteg Bäiträg fir d\'Wikipedia ze maachen. Dir kënnt awer och direkt op en Artikel goen, deen Iech interesséiert, an Ännerungen am Wikitext maachen.</string>
   <string name="file_page_activity_title">Dateisäit</string>
   <string name="file_page_add_image_caption_button">Bildbeschrëftung derbäisetzen</string>
   <string name="file_page_add_image_tags_button">Bildmarkéierungen derbäisetzen</string>
@@ -1423,7 +1451,7 @@
   <string name="watchlist_filter_type_of_change_category_changes">Kategorienännerungen</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Ännerungen</string>
   <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
-  <string name="watchlist_filter_reset_button">Zrécksetzen</string>
+  <string name="watchlist_filter_reset_button">Zerécksetzen</string>
   <string name="watchlist_search_bar_hint">Iwwerwaachungslëscht duerchsichen oder filteren</string>
   <string name="watchlist_search_bar_filter_hint">Iwwerwaachungslëschtfilter</string>
   <string name="watchlist_empty_search_message">Keng Resultater, probéiert %s ewechzeloosse fir méi ze gesinn.</string>
@@ -1506,7 +1534,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Ännerungszuel: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
   <string name="patroller_tasks_filters_title">Filteren</string>
-  <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
+  <string name="patroller_tasks_filters_reset">Zerécksetzen</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">All</string>
   <string name="patroller_tasks_filters_user_status_header">Benotzerumeldung an -erfarung</string>
@@ -1679,24 +1707,13 @@
   <string name="year_in_review_get_started">Ufänken</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia-W-Symbol</string>
   <string name="year_in_review_navigate_left">No lénks navigéieren</string>
+  <string name="year_in_review_close">Zoumaachen</string>
   <string name="year_in_review_share_icon">Deelen-Symbol</string>
   <string name="year_in_review_heart_icon">Häerzsymbol</string>
   <string name="year_in_review_navigate_right">No riets navigéieren</string>
   <string name="year_in_review_donate">En Don maachen</string>
   <string name="year_in_review_information_icon">Informatiounssymbol</string>
   <string name="year_in_review_get_started_headline">Entdeckt Äre Wikipedia-Joresréckbléck</string>
-  <string name="year_in_review_entry_dialog_title">Entdeckt Äre Wikipediaréckbléck</string>
-  <string name="year_in_review_entry_dialog_continue">Weider</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Dir hutt dëst Joer %d Artikel gelies</item>
-    <item quantity="other">Dir hutt dëst Joer %d Artikele gelies</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Dir hutt %d Ännerung op der Wikipedia gemaach</item>
-    <item quantity="other">Dir hutt %d Ännerungen op der Wikipedia gemaach</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Wikipedia war a méi wéi 300 Sproochen disponibel</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Editeuren an der iOS-App hu méi wéi 452.257 Ännerunge gemaach</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
@@ -1707,12 +1724,46 @@
   <string name="year_in_review_survey_placeholder_text">Wëllt Dir nach eppes soen?</string>
   <string name="year_in_review_survey_cancel">Ofbriechen</string>
   <string name="year_in_review_survey_submit">Ofschécken</string>
+  <string name="year_in_review_disable_positive_button">Jo, ech si mer sécher</string>
+  <string name="year_in_review_disable_negative_button">Nee, merci</string>
   <string name="year_in_review_screenshot_error">Et konnt kee Screenshot gemaach ginn: %s</string>
-  <string name="year_in_review_share_subject">Bild a Link fir de Joresréckbléck</string>
+  <string name="year_in_review_share_subject">Mäi Wikipedia-Joresréckbléck</string>
+  <string name="year_in_review_share_body">Hei ass mäi Wikipedia-Joresréckbléck. Mat der Wikipedia-Android-App erstallt %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Globussymbol</string>
+  <string name="settings_app_icon_title">App-Symbol</string>
+  <string name="settings_app_icon_updated">Äert App-Symbol gouf aktualiséiert.</string>
+  <string name="year_in_review_login_dialog_negative">Virufueren ouni anzeloggen</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Ären Topartikel</item>
+    <item quantity="other">Är Topartikelen</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d Byte derbäigesat</item>
+    <item quantity="other">%,d Byte derbäigesat</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d Mol pro Minutt</item>
+    <item quantity="other">%d Mol pro Minutt</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minutt gelies</item>
+    <item quantity="other">Minutte gelies</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Liblingsdag fir ze liesen</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Artikel gelies</item>
+    <item quantity="other">Artikele gelies</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">Artikel geännert</item>
+    <item quantity="other">Artikele geännert</item>
+  </plurals>
+  <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdeckt Artikelen, déi just fir Iech erausgesicht goufen</string>
+  <string name="recommended_reading_list_onboarding_card_message">Är wéchentlech Lieslëscht mat Wikipedia-Artikelen, déi speziell fir Iech zesummegestallt goufen.</string>
   <string name="recommended_reading_list_onboarding_card_new">Nei!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Ufänken</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nee, merci</string>
   <string name="recommended_reading_list_interest_pick_title">Wat interesséiert Iech?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">No engem Artikel sichen</string>
@@ -1726,6 +1777,7 @@
     <item quantity="one">• %d Artikel</item>
     <item quantity="other">• %d Artikelen</item>
   </plurals>
+  <string name="recommended_reading_list_page_description_weekly">Är wéchentlech Lieslëscht. Gitt méi iwwer Theeme gewuer, déi speziell fir Iech erausgesicht goufen. Aktualiséierungen um Ufank vun der Woch.</string>
   <string name="recommended_reading_list_page_overflow_customize">Personaliséieren</string>
   <string name="recommended_reading_list_page_overflow_about">Iwwer dës Funktioun</string>
   <string name="recommended_reading_list_page_snackbar_day">Dag</string>
@@ -1755,6 +1807,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nee, aktivéiert loossen</string>
   <string name="donation_reminders_initial_prompt_label">Experiment</string>
   <string name="donation_reminders_initial_prompt_title">Wikipedia wärend dem Liesen ënnerstëtzen</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Ufänken</string>
   <string name="donation_reminders_initial_prompt_negative_button">Net elo</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Erënnerunge fir Done kënnen zu all Moment an den Astellunge geännert ginn.</string>
   <string name="donation_settings_section_header">Donen</string>

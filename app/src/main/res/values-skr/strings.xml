@@ -166,7 +166,6 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="about_contributors_heading">ونگاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
@@ -741,9 +740,8 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
-  <string name="year_in_review_get_started">شروع کرو</string>
+  <string name="year_in_review_get_started" fuzzy="true">شروع کرو</string>
   <string name="year_in_review_donate">عطیہ ݙیوو</string>
-  <string name="year_in_review_entry_dialog_continue">جاری</string>
   <string name="year_in_review_survey_cancel">منسوخ</string>
   <string name="recommended_reading_list_page_snackbar_day">ݙین٘ہ</string>
   <string name="recommended_reading_list_page_snackbar_week">ہفتہ</string>

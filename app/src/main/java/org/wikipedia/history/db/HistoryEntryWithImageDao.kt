@@ -17,6 +17,10 @@ import java.util.TimeZone
 
 @Dao
 interface HistoryEntryWithImageDao {
+    @Query("SELECT HistoryEntry.*, PageImage.* FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry WHERE timestamp BETWEEN :startMillis AND :endMillis GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.lang = LatestEntries.lang AND HistoryEntry.timestamp = LatestEntries.max_timestamp WHERE PageImage.timeSpentSec > 0 ORDER BY PageImage.timeSpentSec DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getLongestReadArticlesInPeriod(startMillis: Long, endMillis: Long, limit: Int): List<HistoryEntryWithImage>
+
     @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) INNER JOIN (SELECT lang, apiTitle, MAX(timestamp) as max_timestamp FROM HistoryEntry GROUP BY lang, apiTitle) LatestEntries ON HistoryEntry.apiTitle = LatestEntries.apiTitle AND HistoryEntry.timestamp = LatestEntries.max_timestamp ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
     suspend fun getHistoryEntriesWithOffset(
         limit: Int,
@@ -37,9 +41,15 @@ interface HistoryEntryWithImageDao {
     @Query("SELECT SUM(timeSpentSec) FROM (" +
             "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
             "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
-            "  WHERE timestamp > :timeStamp" +
+            "  WHERE timestamp BETWEEN :startMillis AND :endMillis" +
             ")")
-    suspend fun getTimeSpentSinceTimeStamp(timeStamp: Long): Long
+    suspend fun getTimeSpentBetween(startMillis: Long, endMillis: Long = System.currentTimeMillis()): Long
+
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry" +
+            "  LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang)" +
+            "  WHERE PageImage.geoLat IS NOT 0.0 AND PageImage.geoLon IS NOT 0.0 AND timestamp BETWEEN :startMillis AND :endMillis ORDER BY timestamp DESC LIMIT :limit")
+    @RewriteQueriesToDropUnusedColumns
+    suspend fun getEntriesWithCoordinates(limit: Int, startMillis: Long, endMillis: Long = System.currentTimeMillis()): List<HistoryEntryWithImage>
 
     suspend fun findHistoryItem(wikiSite: WikiSite, searchQuery: String): SearchResults {
         var normalizedQuery = StringUtils.stripAccents(searchQuery)
