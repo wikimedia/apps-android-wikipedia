@@ -25,8 +25,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        fun donationReminderCardPositiveClicked() // TODO: remove after the experiment
-        fun donationReminderCardNegativeClicked() // TODO: remove after the experiment
+        fun donationReminderCardPositiveClicked()
+        fun donationReminderCardNegativeClicked()
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -121,26 +121,16 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         Prefs.donationReminderConfig.let { config ->
-            val titleText = run {
-                val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-                )
-                val donationAmount =
-                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                context.getString(R.string.donation_reminders_prompt_title, articleText, donationAmount)
-            }
-            val messageText = run {
-                val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
-                val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-                )
-                val donationAmount =
-                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
-            }
+            val articleText = context.resources.getQuantityString(
+                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
+            )
+            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            val titleText = context.getString(R.string.donation_reminders_prompt_title, articleText, donationAmount)
+
+            val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
+            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
             val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
             val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
-
             binding.donationReminderCardView.setTitle(titleText)
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
@@ -181,6 +171,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         val canShowFinalDonationReminder = DonationReminderHelper.maybeShowDonationReminder(true)
+
         if (canShowFinalDonationReminder) {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
