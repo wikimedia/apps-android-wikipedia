@@ -126,7 +126,15 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 true
             }
         findPreference(R.string.preference_key_delete_local_donation_history).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            val messageResId = if (Prefs.donationResults.isNotEmpty()) R.string.donation_history_deleted_message_snackbar else R.string.donation_history_no_history_message_snackbar
+            val hasDonations = Prefs.donationResults.isNotEmpty()
+
+            if (hasDonations) {
+                Prefs.donationResults = emptyList()
+            }
+
+            val messageResId = if (hasDonations) {
+                R.string.donation_history_deleted_message_snackbar
+            } else R.string.donation_history_no_history_message_snackbar
             FeedbackUtil.makeNavigationAwareSnackbar(activity, activity.resources.getString(messageResId)).show()
             true
         }

@@ -1855,7 +1855,7 @@
     <string name="donate_gpay_help_other_ways">Other ways to give</string>
     <string name="donate_gpay_help_faq">Frequently asked questions</string>
     <string name="donate_gpay_help_tax">Tax deductibility information</string>
-    <string name="donation_history_deleted_message_snackbar">Donor history cleared.</string>
+    <string name="donation_history_deleted_message_snackbar">Donation history cleared.</string>
     <string name="donation_history_no_history_message_snackbar">You have no donation history to clear.</string>
     <!-- Donor experience -->
 
