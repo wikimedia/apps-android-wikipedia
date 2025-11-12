@@ -28,9 +28,8 @@ class DonationReminderActivity : BaseActivity() {
                     onBackButtonClick = {
                         onBackPressedDispatcher.onBackPressed()
                     },
-                    onConfirmButtonClick = { message ->
+                    onConfirmBtnClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true
-                        // TODO: update with AB test
                         setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },
