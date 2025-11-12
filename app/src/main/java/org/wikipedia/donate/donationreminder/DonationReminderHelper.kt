@@ -20,7 +20,7 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
-    private val isInEligibleCountry = enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
+    val isInEligibleCountry get() = enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
