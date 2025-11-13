@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50555
+        versionCode 50556
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
