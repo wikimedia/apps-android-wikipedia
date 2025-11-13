@@ -145,7 +145,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             val messageResId = if (hasDonations) {
                 R.string.donation_history_deleted_message_snackbar
             } else R.string.donation_history_no_history_message_snackbar
-            FeedbackUtil.makeNavigationAwareSnackbar(activity, activity.resources.getString(messageResId)).show()
+            FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
             true
         }
     }
