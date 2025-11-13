@@ -2071,7 +2071,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maksimum %s icazə verilir</string>
   <string name="donation_reminders_settings_option_custom">Fərdi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
-  <string name="donation_reminders_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
   <string name="donation_reminders_prompt_message">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
   <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
   <string name="donation_reminders_prompt_negative_button">İndi yox</string>

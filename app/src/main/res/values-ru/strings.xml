@@ -2175,7 +2175,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Допустимо максимум %s</string>
   <string name="donation_reminders_settings_option_custom">Произвольная...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Спасибо! Мы напомним вам о необходимости пожертвовать %1$s, когда вы прочтёте %2$s статей во время этого эксперимента.</string>
-  <string name="donation_reminders_prompt_title">Вы прочитали %1$s с тех пор, как закладывались в %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Вы прочитали %1$s с тех пор, как закладывались в %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s вы просили напомнить вам о пожертвовании после прочтения %2$s. Если Википедия дала вам знаний на %3$s, то присоединяйтесь к 2 %% читателей, которые уже жертвуют, и реализуйте своё обещание сегодня.</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвовать сейчас</string>
   <string name="donation_reminders_prompt_negative_button">Не сейчас</string>

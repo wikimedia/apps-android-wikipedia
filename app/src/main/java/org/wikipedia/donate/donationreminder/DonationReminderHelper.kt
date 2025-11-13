@@ -20,14 +20,15 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
+    private val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
     val isEnabled
-        get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
+        get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
                         LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive
+    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
@@ -101,7 +102,8 @@ object DonationReminderHelper {
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptActive = true,
                     finalPromptCount = 0,
-                    articleVisit = 0
+                    articleVisit = 0,
+                    goalReachedCount = config.goalReachedCount + 1
                 )
             }
         }
@@ -117,5 +119,6 @@ data class DonationReminderConfig(
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
     val articleFrequency: Int = 0,
-    val donateAmount: Float = 0f
+    val donateAmount: Float = 0f,
+    val goalReachedCount: Int = 0
 )

@@ -952,16 +952,12 @@ private fun DonationReminderAppBarPreview() {
                 DonationReminderDropDownMenuItem(
                     text = "Learn more",
                     icon = R.drawable.ic_info_outline_black_24dp,
-                    onClick = {
-                        println("orange learn more clicked.")
-                    }
+                    onClick = {}
                 ),
                 DonationReminderDropDownMenuItem(
                     text = "Problem with feature",
                     icon = R.drawable.ic_report_flag,
-                    onClick = {
-                        println("orange problem with feature is clicked.")
-                    }
+                    onClick = {}
                 )
             )
         )

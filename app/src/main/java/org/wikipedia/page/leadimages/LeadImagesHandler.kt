@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.donate.DonateDialog
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -85,7 +86,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp(
-        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(activity) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
                 getDonationReminderCardViewHeight(true)
     )
     val callToActionEditLang get() =
@@ -221,12 +222,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     activeInterface = "reminder_milestone",
                     action = "notnow_click"
                 )
-                if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                    FeedbackUtil.showMessage(
-                        parentFragment,
-                        R.string.donation_reminders_prompt_dismiss_snackbar
-                    )
-                }
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                    .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                        activity.startActivity(DonationReminderActivity.newIntent(activity))
+                    }.show()
             }
         }
     }
