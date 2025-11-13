@@ -29,7 +29,6 @@ import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
-/** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences)
@@ -229,7 +228,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
-    private inner class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
+    private class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface, which: Int) {
             (preference as SwitchPreferenceCompat).isChecked = false
             Prefs.isReadingListSyncEnabled = false

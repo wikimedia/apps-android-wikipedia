@@ -4,19 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.json.JsonUtil
 
-class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
+class SettingsActivity : BaseSettingsActivity<SettingsFragment>() {
     private lateinit var initialLanguageList: String
     private lateinit var initialFeedCardsEnabled: List<Boolean>
     private lateinit var initialFeedCardsOrder: List<Int>
     private val app = WikipediaApp.instance
 
-    public override fun createFragment(): SettingsFragment {
-        return SettingsFragment.newInstance()
-    }
+    public override fun createFragment() = SettingsFragment.newInstance()
+    override val title = R.string.settings_activity_title
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +41,6 @@ class SettingsActivity : SingleFragmentActivity<SettingsFragment>() {
         const val ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED = 2
         const val ACTIVITY_RESULT_LOG_OUT = 3
 
-        fun newIntent(ctx: Context): Intent {
-            return Intent(ctx, SettingsActivity::class.java)
-        }
+        fun newIntent(ctx: Context) = Intent(ctx, SettingsActivity::class.java)
     }
 }
