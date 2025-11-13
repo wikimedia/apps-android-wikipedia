@@ -1178,8 +1178,6 @@
   <string name="templates_description_empty">Το πρότυπο \"%s\" δεν έχει ακόμη περιγραφή.</string>
   <string name="main_drawer_help">Βοήθεια</string>
   <string name="main_drawer_login">Σύνδεση / εγγραφή στη Βικιπαίδεια</string>
-  <string name="main_tooltip_text">Γεια σας %s, γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
-  <string name="main_tooltip_text_v2">Γνωρίζετε ότι όλοι μπορούν να επεξεργαστούν την Βικιπαίδεια;</string>
   <string name="main_tooltip_action_button">Ξεκινήστε</string>
   <string name="main_tooltip_watchlist_title">Λίστα παρακολούθησης</string>
   <string name="custom_date_picker_dialog_ok_button_text">Εντάξει</string>

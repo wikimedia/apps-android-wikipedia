@@ -19,6 +19,7 @@
 * SaldırganSincap
 * SimondR
 * Tomato Cream
+* Ucukor
 * Unomano
 * ZlyiLev
 * Zmicier21
@@ -1340,8 +1341,6 @@
   <string name="templates_description_missing_data">У гэтым шаблоне адсутнічаюць &lt;a href=\"%1$s\"&gt;звесткі пра шаблон&lt;/a&gt;, а ягоныя параметры былі &lt;a href=\"%2$s\"&gt;аўтаматычна створаныя&lt;/a&gt;. У выніку ў шаблона і ягоных параметраў адсутнічаюць апісанні.</string>
   <string name="main_drawer_help">Даведка</string>
   <string name="main_drawer_login">Увайсці / далучыцца да Вікіпедыі</string>
-  <string name="main_tooltip_text">Вітаем %s! Ці вы ведалі, што кожны можа правіць у Вікіпедыі?</string>
-  <string name="main_tooltip_text_v2">Ці ведаеце вы, што кожны можа правіць Вікіпедыю?</string>
   <string name="main_tooltip_action_button">Пачаць</string>
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
   <string name="main_tooltip_watchlist_text">Знайдзіце артыкулы і старонкі, якія вы раней дадавалі ў свой спіс назірання, у меню Дадаткова ў раздзеле &lt;b&gt;Спіс назірання&lt;/b&gt;.</string>
@@ -1685,7 +1684,7 @@
   <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
-  <string name="patroller_diff_tooltip_two">Намер прадказвае верагоднасць добрасумленнага захавання праўкі.</string>
+  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасць добрасумленнага захавання праўкі.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Як мы можам палепшыць функцыю?</string>
   <string name="patroller_diff_menu_edit_history_title">Гісторыя праўкі артыкула</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Зваротная сувязь</string>

@@ -1279,8 +1279,6 @@
   <string name="templates_description_missing_data">Denne skabelon mangler &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, og dens parametre er blevet &lt;a href=\"%2$s\"&gt;autogenereret&lt;/a&gt;. Som et resultat heraf mangler skabelonen og dens parametre beskrivelser.</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
-  <string name="main_tooltip_text">Hej %s , vidste du, at alle kan redigere Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Vidste du, at alle kan redigere Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="main_tooltip_watchlist_title">Overvågningsliste</string>
   <string name="main_tooltip_watchlist_text">Find artikler og sider, du tidligere har føjet til din overvågningsliste, i menuen Mere under &lt;b&gt;Overvågningsliste&lt;/b&gt; .</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Carlosedepaula
+* Dbrant
 * Julian Mendez
 * Karmwiki
 * Macofe
@@ -1348,8 +1349,6 @@
   <string name="templates_description_missing_data">Iste patrono non ha &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e su parametros ha essite &lt;a href=\"%2$s\"&gt;generate automaticamente&lt;/a&gt;. Como resultato, le patrono e su parametros non ha descriptiones.</string>
   <string name="main_drawer_help">Adjuta</string>
   <string name="main_drawer_login">Aperir session / crear conto sur Wikipedia</string>
-  <string name="main_tooltip_text">Salute %s, sapeva tu que omnes pote modificar Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Sapeva tu que omnes pote modificar Wikipedia?</string>
   <string name="main_tooltip_action_button">Comenciar</string>
   <string name="main_tooltip_watchlist_title">Observatorio</string>
   <string name="main_tooltip_watchlist_text">Le articulos e paginas que tu ha ja addite a tu observatorio se trova in le menu Plus sub &lt;b&gt;Observatorio&lt;/b&gt;.</string>

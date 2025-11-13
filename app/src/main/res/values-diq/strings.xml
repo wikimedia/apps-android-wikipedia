@@ -634,7 +634,6 @@
   <string name="wikitext_preview_link">Gırey verqayti</string>
   <string name="main_drawer_help">Peşti</string>
   <string name="main_drawer_login">Wikipedia rê qeyd bıbê / ronıştış akerê</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, tı zanê herg kes şeno Wikipediya bıvurno?</string>
   <string name="main_tooltip_action_button">Ravêr serkewtış</string>
   <string name="custom_date_picker_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_ok_button_text">TEMAM</string>
