@@ -2004,7 +2004,7 @@
     <string name="year_in_review_slide_app_icon_title_unlocked">New app icon unlocked for your home screen</string>
     <string name="year_in_review_slide_app_icon_title_unlock">Unlock your contributor reward for next year!</string>
     <string name="year_in_review_slide_app_icon_body_unlocked"><![CDATA[Activate your new app icon in Settings under App icon. Thank you for investing in the future of free knowledge. Your contributions as %1$s in %2$d are helping pave the way to a world of free information, and as a result you have unlocked a custom contributor icon for Wikipedia on your home screen.]]></string>
-    <string name="year_in_review_slide_app_icon_body_unlock"><![CDATA[We\'re glad Wikipedia was part of your %1$d! Unlock a special reward in your %2$d Year in Review by becoming a contributor—whether by <a href="%3$s">editing Wikipedia</a> or by donating to the <a href="%4$s">Wikimedia Foundation</a>, the nonprofit behind it. If Wikipedia is useful to you, please consider donating to help sustain its future and keep it free, ad-free, trustworthy, and accessible to all.]]></string>
+    <string name="year_in_review_slide_app_icon_body_unlock"><![CDATA[We\'re glad Wikipedia was part of your %1$d! Unlock a special reward in your %2$d Year in Review by becoming a contributor—whether by <a href="%3$s">editing Wikipedia</a> or by donating from the app to the <a href="%4$s">Wikimedia Foundation</a>, the nonprofit behind it. If Wikipedia is useful to you, please consider donating to help sustain its future and keep it free, ad-free, trustworthy, and accessible to all. If you donated elsewhere, your support is deeply appreciated.]]></string>
     <string name="year_in_review_slide_app_icon_donor">a donor</string>
     <string name="year_in_review_slide_app_icon_editor">an editor</string>
     <string name="year_in_review_slide_app_icon_donor_and_editor">a donor and editor</string>
@@ -2026,8 +2026,8 @@
     <string name="year_in_review_slide_top_categories_body"><![CDATA[Categories group articles on similar subjects together. In %1$d, you visited articles in these interesting categories multiple times: %2$s]]></string>
     <string name="year_in_review_slide_most_read_english_articles_headline">English Wikipedia\'s most read articles</string>
     <plurals name="year_in_review_slide_most_read_english_articles_body">
-        <item quantity="one"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited article on English Wikipedia was: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
-        <item quantity="other"><![CDATA[When people want to learn about our world—the good, bad, weird, and wild alike—they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
+        <item quantity="one"><![CDATA[When people want to learn about our world, they turn to Wikipedia. The top %1$d visited article on English Wikipedia was: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
+        <item quantity="other"><![CDATA[When people want to learn about our world, they turn to Wikipedia. The top %1$d visited articles on English Wikipedia were: %2$s <br />Read more in our <a href=\"%3$s\">dedicated blog post</a>.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edits_viewed_times_headline">
         <item quantity="one">Your edit has been viewed more than %,d times recently</item>
