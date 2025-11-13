@@ -12,7 +12,7 @@
   <string name="search_hint">Википедиялда цӀехесе</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
-  <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарих бацӀцӀине</string>
   <string name="page_content_description">Гьумер: %s</string>
   <string name="dialog_title_clear_history" fuzzy="true">Тарих бацӀцӀилищ?</string>
   <string name="share_via">Сундалъун рехселе?</string>

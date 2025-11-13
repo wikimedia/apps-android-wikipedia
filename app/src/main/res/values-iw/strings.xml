@@ -44,6 +44,7 @@
   <string name="search_icon_content_description">חיפוש</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
   <string name="nav_item_suggested_edits">עריכות</string>
+  <string name="nav_item_activity">פעילות</string>
   <string name="nav_item_more">עוד</string>
   <string name="nav_item_search">חיפוש</string>
   <string name="nav_item_contribute">תרומה</string>
@@ -56,7 +57,7 @@
   <string name="page_error_back_to_main">חזרה</string>
   <string name="error_back">לחזור</string>
   <string name="error_next">הבא</string>
-  <string name="menu_clear_all_history">ניקוי היסטוריה</string>
+  <string name="menu_clear_all_history">ניקוי היסטוריית הקריאה</string>
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
@@ -69,7 +70,7 @@
   <string name="wikimedia_commons">ויקישיתוף</string>
   <string name="wikidata">ויקינתונים</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
-  <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
+  <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
   <string name="share_via">שיתוף באמצעות</string>
@@ -86,7 +87,7 @@
   <string name="page_edit_history_filter_by_bot">עריכות בוט (%s)</string>
   <string name="page_edit_history_metrics_content_description">מדדים מאז %1$s עד %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">עריכה %1$d מאז %2$s</item>
+    <item quantity="one">עריכה אחת מאז %2$s</item>
     <item quantity="two">%1$d עריכות מאז %2$s</item>
     <item quantity="many">%1$d עריכות מאז %2$s</item>
     <item quantity="other">%1$d עריכות מאז %2$s</item>
@@ -179,6 +180,7 @@
   <string name="login_2fa_other_workflow_error_msg">נדרש אימות דו־שלבי! נא להתחבר מהמסך הראשי ולהזין את קוד האימות הדו־שלבי (2FA) שלך.</string>
   <string name="login_email_auth_hint">קוד אימות בדוא״ל</string>
   <string name="login_email_auth_other_workflow_error_msg">נדרש אימות דוא\"ל! נא להתחבר מהמסך הראשי ולהזין את קוד אימות הדוא\"ל שלך.</string>
+  <string name="login_background_error_msg">לא ניתן להתחבר מחדש. נא לחזור למסך הראשי ולהתחבר ידנית.</string>
   <string name="onboarding_card_login">כניסה</string>
   <string name="page_editing_login">כניסה</string>
   <string name="reading_lists_sync_login">כניסה</string>
@@ -267,17 +269,14 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
+  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/WP:ABOUT</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
@@ -423,6 +422,7 @@
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
   <string name="nav_item_donate">לתרום</string>
+  <string name="nav_item_year_in_review">סקירה שנתית</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
@@ -452,7 +452,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">להעדיף תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
-  <string name="preference_title_delete_local_donation_history">מחיקת היסטוריית תרומות מקומית</string>
+  <string name="preference_title_delete_local_donation_history">ניקוי היסטוריית תרומות</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
@@ -627,8 +627,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">אפשר לסנכרן רשימות קריאה במכשירים שונים. יש להיכנס לחשבון הוויקיפדיה שלך ולאפשר לרשימת להישמר. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרון רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
@@ -1002,6 +1002,7 @@
   <string name="customize_toolbar_reset_to_default_button">איפוס</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">יש להחזיק את סמל הגרירה כדי להזיז את הפריט</string>
   <string name="customize_toolbar_item_default_tooltip">יש להחזיק את ולגרור את הפריט כיד להעביר אותו</string>
+  <string name="suggested_edits_activity_title">עריכה</string>
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
@@ -1234,6 +1235,34 @@
   <string name="edit_summary_added_caption">נוסף כיתוב</string>
   <string name="edit_summary_added_image_and_caption">נוספו תמונה וכיתוב</string>
   <string name="edit_published_view">הצגה</string>
+  <string name="activity_tab_logged_out_title">יש להיכנס לחשבון או ליצור חשבון כדי לצפות בפעילות של ביישום ויקיפדיה</string>
+  <string name="activity_tab_user_reading">הקריאה של %s</string>
+  <string name="activity_tab_on_wikipedia_android">בוויקיפדיה באנדרואיד</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d שעות, %2$d דקות</string>
+  <string name="activity_tab_weekly_time_spent">זמן הקריאה השבוע</string>
+  <string name="activity_tab_monthly_articles_read">ערכים שנקראו החודש</string>
+  <string name="activity_tab_monthly_articles_saved">ערכים שנשמרו החודש</string>
+  <string name="activity_tab_monthly_top_categories">הקטגוריות המובילות שקראת החודש</string>
+  <string name="activity_tab_explore_wikipedia">גילוי דרך ויקיפדיה</string>
+  <string name="activity_tab_discover_encourage">מחפש משהו חדש לקרוא?</string>
+  <string name="activity_tab_donation_unknown">לא ידוע</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;תרומה אחרונה&lt;/b&gt; ביישום</string>
+  <string name="activity_tab_total_edits_all_projects">סך העריכות בכל המיזמים</string>
+  <string name="activity_tab_game_stats">סטטיסטיקות משחקים</string>
+  <string name="activity_tab_game_stats_best_streak">הרצף הטוב ביותר</string>
+  <string name="activity_tab_play_wiki_games">לשחק במשחקי ויקי</string>
+  <string name="activity_tab_report_email_subject">דיווח בעיה - לשונית פעילות</string>
+  <string name="activity_tab_report_email_body">נתקלתי בבעיה בתכונת לשונית פעילות:\n- [נא לתאר בעיה פרטנית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="activity_tab_menu_feedback">בעיה עם תכונה</string>
+  <string name="activity_tab_menu_info">מידע נוסף</string>
+  <string name="activity_tab_menu_customize">התאמה אישית</string>
+  <string name="activity_tab_menu_customize_description">תבנות הקריאה מבוססות על השפות שלך בהגדרות, ותובנות העריכה מבוססות מוגבלות לשפת היישום העיקרית שלך. התובנות משתמשות בנתונית מקומיים, מלבד עריכות, שהן פומביות.</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">עריכה אחת החודש</item>
+    <item quantity="two">$2 עריכות החודש</item>
+    <item quantity="many">$2 עריכות החודש</item>
+    <item quantity="other">$2 עריכות החודש</item>
+  </plurals>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>

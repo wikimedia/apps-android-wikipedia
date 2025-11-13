@@ -34,37 +34,49 @@ class LoginClient {
                 enqueueForceEmailAuth = true
             }
             val loginToken = token ?: getLoginToken(wiki)
-            val loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
+            var loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
                 twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
                 captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
                 loginContinue = if (isContinuation == true) true else null,
                 returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL).toLoginResult(wiki, password)
-            if (loginResult == null) {
-                throw IOException("Login failed. Unexpected response.")
-            }
-            if (loginResult.pass() && userName.isNotEmpty()) {
-                ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
-                    loginResult.userId = it.id
-                    loginResult.groups = it.groups()
-                    L.v("Found user ID " + it.id + " for " + wiki.subdomain())
+            for (attempt in 0..1) {
+                if (loginResult == null) {
+                    throw IOException("Login failed. Unexpected response.")
                 }
-                cb.success(loginResult)
-            } else {
-                // Make a call to authmanager to see if we need to provide a captcha.
-                val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
-                if (!captchaId.isNullOrEmpty()) {
-                    cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
-                } else if (LoginResult.STATUS_UI == loginResult.status) {
-                    val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
-                    when (loginResult) {
-                        is LoginOAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
-                        is LoginEmailAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
-                        is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
-                        else -> cb.error(LoginFailedException(parsedMessage))
+                if (loginResult.pass() && userName.isNotEmpty()) {
+                    ServiceFactory.get(wiki).getUserInfo().query?.userInfo?.let {
+                        loginResult.userId = it.id
+                        loginResult.groups = it.groups()
+                        L.v("Found user ID " + it.id + " for " + wiki.subdomain())
                     }
+                    cb.success(loginResult)
                 } else {
-                    cb.error(LoginFailedException(loginResult.message))
+                    if (LoginResult.STATUS_UI == loginResult.status) {
+                        val parsedMessage = loginResult.message?.let { ServiceFactory.get(wiki).parseText(it) }?.text ?: loginResult.message
+                        when {
+                            loginResult is LoginOATHResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
+                            loginResult is LoginEmailAuthResult -> cb.uiPrompt(loginResult, LoginFailedException(parsedMessage), token = loginToken)
+                            loginResult is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
+                            loginResult is LoginModuleSelectResult && attempt == 0 -> {
+                                // User has multi-factor authentication, and we're allowed to select the module to use.
+                                // Make an attempt to select TOTP, since this is the only MFA we support for now.
+                                loginResult = ServiceFactory.get(wiki).postLogIn(loginToken = loginToken, loginContinue = true,
+                                    newModule = "totp").toLoginResult(wiki, password)
+                                continue
+                            }
+                            else -> cb.error(LoginFailedException(parsedMessage))
+                        }
+                    } else {
+                        // Make a call to authmanager to see if we need to provide a captcha.
+                        val captchaId = ServiceFactory.get(wiki).getAuthManagerForLogin().query?.captchaId()
+                        if (!captchaId.isNullOrEmpty()) {
+                            cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
+                        } else {
+                            cb.error(LoginFailedException(loginResult.message))
+                        }
+                    }
                 }
+                break
             }
         }
     }
@@ -76,8 +88,8 @@ class LoginClient {
         val loginResponse = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password,
             twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
             captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
-            loginContinue = if (isContinuation == true) true else null,
-            returnUrl = if (isContinuation == true) null else Service.WIKIPEDIA_URL)
+            loginContinue = if (isContinuation) true else null,
+            returnUrl = if (isContinuation) null else Service.WIKIPEDIA_URL)
         val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
         if (loginResult.pass() && !loginResult.userName.isNullOrEmpty()) {
             return loginResult
@@ -88,7 +100,7 @@ class LoginClient {
             // TODO: Find a better way to boil up the warning about Captcha
             showToast(R.string.login_background_error_msg)
         } else if (LoginResult.STATUS_UI == loginResult.status) {
-            if (loginResult is LoginOAuthResult) {
+            if (loginResult is LoginOATHResult || loginResult is LoginModuleSelectResult) {
                 // TODO: Find a better way to boil up the warning about 2FA
                 showToast(R.string.login_2fa_other_workflow_error_msg)
             } else if (loginResult is LoginEmailAuthResult) {

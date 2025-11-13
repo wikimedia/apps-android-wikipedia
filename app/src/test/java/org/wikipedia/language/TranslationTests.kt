@@ -20,8 +20,9 @@ class TranslationTests {
         // Check for multiple single (non-sequential) parameters
         baseMap.forEach { (key, list) ->
             val singleIntParam = POSSIBLE_PARAMS.indexOf("%d")
+            val singleIntSepParam = POSSIBLE_PARAMS.indexOf("%,d")
             val singleStrParam = POSSIBLE_PARAMS.indexOf("%s")
-            if ((list[singleIntParam] + list[singleStrParam] > 1) && !key.contains('[')) {
+            if ((list[singleIntParam] + list[singleIntSepParam] + list[singleStrParam] > 1) && !key.contains('[')) {
                 mismatches.append("Too many single parameters in ")
                     .append(STRINGS_XML_NAME).append(": ")
                     .append(key).append(" \n")
@@ -98,6 +99,31 @@ class TranslationTests {
             })
         }
 
+        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+    }
+
+    @Test
+    @Throws(Throwable::class)
+    fun testPluralsHaveItems() {
+        val mismatches = StringBuilder()
+
+        // Step 1: collect all items in en/strings.xml
+        val basePluralsList = findStringItemInXML(baseFile, "plurals")
+
+        // Step 2: check qq/strings.xml for plurals without items
+        val document = Jsoup.parse(qQFile, "UTF-8")
+        val pluralsElements = document.select("plurals")
+        for (element in pluralsElements) {
+            val name = element.attr("name")
+            val items = element.select("> item")
+            // Check if this plural exists in base and has no items in qq
+            if (basePluralsList.contains(name) && items.isEmpty()) {
+                mismatches
+                    .append("Plurals has no <item> element in qq/strings/xml: ")
+                    .append(name)
+                    .append("\n")
+            }
+        }
         MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
     }
 
@@ -254,9 +280,10 @@ class TranslationTests {
 
         /** Add more if needed, but then also add some tests.  */
         private val POSSIBLE_PARAMS = listOf(
-            "%s", "%1\$s", "%2\$s", "%3\$s",
-            "%d", "%1\$d", "%2\$d", "%3\$d",
-            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f",
+            "%s", "%1\$s", "%2\$s", "%3\$s", "%4\$s",
+            "%d", "%1\$d", "%2\$d", "%3\$d", "%4\$d",
+            "%,d", "%1$,d", "%2$,d", "%3$,d", "%4$,d",
+            "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "%4$.2f",
             "^1"
         )
         private val UNSUPPORTED_TEXTS_REGEX = listOf(
@@ -264,7 +291,7 @@ class TranslationTests {
             "\\[\\[.*?\\]\\]",
             "\\*\\*.*?\\*\\*",
             "''.*?''",
-            "[^%]%[ .,;?]"
+            "[^%]%[ .,;?][^d]"
         )
         private val BAD_NAMES = listOf("ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night")
 

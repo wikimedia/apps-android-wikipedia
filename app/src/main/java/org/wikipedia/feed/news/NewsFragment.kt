@@ -1,7 +1,6 @@
 package org.wikipedia.feed.news
 
 import android.app.ActivityOptions
-import android.os.Build
 import android.os.Bundle
 import android.util.Pair
 import android.view.Gravity
@@ -70,9 +69,7 @@ class NewsFragment : Fragment() {
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), binding.toolbar, true)
         binding.appBarLayout.addOnOffsetChangedListener(offsetChangedListener)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
+        binding.toolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
 
         binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())

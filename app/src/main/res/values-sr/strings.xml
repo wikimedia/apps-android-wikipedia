@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aca
 * Acamicamacaraca
+* Aceydot
 * Aktron
 * BadDog
 * Bjankuloski06
@@ -36,6 +37,7 @@
   <string name="search_icon_content_description">Претрага</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирај моје листе</string>
   <string name="nav_item_suggested_edits">Измене</string>
+  <string name="nav_item_activity">Активност</string>
   <string name="nav_item_more">Више</string>
   <string name="nav_item_search">Претрага</string>
   <string name="nav_item_contribute">Допринесите</string>
@@ -61,7 +63,7 @@
   <string name="wikimedia_commons">Викимедијина остава</string>
   <string name="wikidata">Википодаци</string>
   <string name="dialog_title_clear_history">Брисање историје прегледања</string>
-  <string name="dialog_message_clear_history">Желите ли заиста да избришете сву историју прегледања и затворите све отворене картице?</string>
+  <string name="dialog_message_clear_history">Желите ли заиста да избришете сву историју прегледања?</string>
   <string name="dialog_message_clear_history_yes">Избриши</string>
   <string name="dialog_message_clear_history_no">Откажи</string>
   <string name="share_via">Делите помоћу…</string>
@@ -147,6 +149,7 @@
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="dialog_confirm_delete_donation_history_title">Потврди брисање</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ово ће се односити само на донације направљене са овог уређаја.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Обриши</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Садржај</string>
@@ -166,6 +169,8 @@
   <string name="login_2fa_hint">Двофакторски аутентификациони код</string>
   <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
   <string name="login_email_auth_hint">Имејл верификациони код</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потребна је верификација имејлом! Молимо пријавите се са главног екрана и унесите имејл код за верификацију.</string>
+  <string name="login_background_error_msg">Поновно пријављивање није могуће. Вратите се на главни екран и пријавите се ручно.</string>
   <string name="onboarding_card_login">Пријава</string>
   <string name="page_editing_login">Пријава</string>
   <string name="reading_lists_sync_login">Пријава</string>
@@ -203,7 +208,7 @@
   <string name="create_account_already_have">Већ имате налог?</string>
   <string name="create_account_activity_title">Отварање налога</string>
   <string name="dialog_create_account_checking_progress">Потврђујем</string>
-  <string name="create_account_email_hint">Имејл (опционално)</string>
+  <string name="create_account_email_hint">Имејл (необавезно)</string>
   <string name="create_account_password_repeat_hint">Поновите лозинку</string>
   <string name="create_account_password_is_username">Лозинка не може бити иста као корисничко име</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
@@ -248,6 +253,7 @@
   <string name="page_protected_can_not_edit_anon">Ова страница се тренутно не може уређивати анонимно.</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај на списак надгледања</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Пратите шта се дешава са чланцима који вас занимају. Додирните додатни мени и изаберите &lt;b&gt;Додај на листу праћења&lt;/b&gt; да бисте видели измене у чланку.</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
   <string name="about_description">О апликацији Википедија</string>
@@ -256,10 +262,10 @@
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
   <string name="about_contributors_heading">Сарадници</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели волонтери &lt;a href=\"https://translatewiki.net\"&gt;Транслејтвикија&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
@@ -400,6 +406,7 @@
   <string name="preference_title_collapse_tables">Скупљање табела</string>
   <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референци и напомена.</string>
   <string name="nav_item_donate">Донирај</string>
+  <string name="nav_item_year_in_review">Преглед године</string>
   <string name="error_voice_search_not_available">Препознавање гласа није доступно.</string>
   <string name="location_service_disabled">Услуге локације су онемогућене.</string>
   <string name="enable_location_service">Омогући</string>
@@ -535,7 +542,7 @@
   <string name="reading_list_action_menu_move_to_another_list">Премести на другу листу</string>
   <string name="reading_list_name_sample">Моја листа за читање</string>
   <string name="reading_list_name_hint">Име ове листе</string>
-  <string name="reading_list_description_hint">Опис (опционално)</string>
+  <string name="reading_list_description_hint">Опис (необавезно)</string>
   <string name="reading_list_item_deleted">Чланак „%s” је уклоњен са листе</string>
   <string name="reading_list_item_deleted_from_list">%1$s је уклоњен са списка %2$s</string>
   <plurals name="reading_list_articles_deleted">
@@ -899,6 +906,7 @@
   <string name="description_edit_tutorial_machine_suggestions_description">Предлози су машински генерисани! Не од стране волонтера или Задужбине Викимедија</string>
   <string name="customize_toolbar_category_menu">Мени</string>
   <string name="customize_toolbar_reset_to_default_button">Врати на подразумевано</string>
+  <string name="suggested_edits_activity_title">Уреди</string>
   <string name="suggested_edits_describe_articles">Опис чланака</string>
   <string name="suggested_edits_caption_images">Опис слике</string>
   <string name="suggested_edits_tag_images">Означавање слика</string>
@@ -1107,6 +1115,16 @@
   <string name="edit_summary_added_caption">Додат натпис</string>
   <string name="edit_summary_added_image_and_caption">Додата слика и натпис</string>
   <string name="edit_published_view">Прикажи</string>
+  <string name="activity_tab_logged_out_title">Пријавите се или отворите налог да видите Вашу активност</string>
+  <string name="activity_tab_on_wikipedia_android">На Википедији за Андроид</string>
+  <string name="activity_tab_donation_unknown">Непознато</string>
+  <string name="activity_tab_menu_info">Сазнајте више</string>
+  <string name="activity_tab_menu_customize">Прилагоди</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
+  <string name="activity_tab_impact_last_edited">Последње уређивање</string>
+  <string name="activity_tab_timeline_today">Данас</string>
+  <string name="activity_tab_timeline_yesterday">Јуче</string>
+  <string name="activity_tab_timeline_view_changes_button">Види измене</string>
   <string name="file_page_activity_title">Страница датотеке</string>
   <string name="file_page_add_image_caption_button">Додај натпис слике</string>
   <string name="file_page_add_image_tags_button">Додај ознаке за слику</string>
@@ -1601,6 +1619,7 @@
   <string name="donate_gpay_dialog_pay_button">Донирајте путем Google Pay-а</string>
   <string name="donate_gpay_dialog_other_button">Други начини донирања</string>
   <string name="donate_gpay_activity_title">Изаберите износ</string>
+  <string name="donate_gpay_activity_title_with_currency">Изаберите износ (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Платићу и провизију (%s), да би добили цео износ моје донације.</string>
   <string name="donate_gpay_check_recurring">Донирај аутоматски сваког месеца.</string>
   <string name="donate_gpay_check_send_email">Да, нека ми Задужбина Викимедија периодично шаље имејлове.</string>
@@ -1670,12 +1689,33 @@
   <string name="on_this_day_game_sound_on">Искључи звук</string>
   <string name="on_this_day_game_sound_off">Укључи звук</string>
   <string name="year_in_review_learn_more">Сазнајте више</string>
+  <string name="year_in_review_get_started">Почнимо</string>
+  <string name="year_in_review_close">Затвори</string>
   <string name="year_in_review_donate">Донирај</string>
-  <string name="year_in_review_entry_dialog_continue">Настави</string>
+  <string name="year_in_review_survey_very_satisfied">Веома задовољан</string>
+  <string name="year_in_review_survey_satisfied">Задовољан</string>
+  <string name="year_in_review_survey_neutral">Неутрално</string>
+  <string name="year_in_review_survey_unsatisfied">Незадовољан</string>
+  <string name="year_in_review_survey_very_unsatisfied">Веома незадовољан</string>
   <string name="year_in_review_survey_cancel">Откажи</string>
   <string name="year_in_review_survey_submit">Проследи</string>
+  <string name="year_in_review_disable_positive_button">Да, сигуран сам</string>
+  <string name="year_in_review_disable_negative_button">Не, хвала</string>
+  <string name="year_in_review_login_dialog_positive">Пријава / Придружите се Википедији</string>
+  <string name="year_in_review_login_dialog_negative">Настави без пријављивања</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Имате јасне обрасце читања</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Јутро</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Послеподне</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Вече</string>
+  <string name="year_in_review_slide_reading_pattern_night">Ноћ</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Касно увече</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Направи</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Не, хвала</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колико често је Википедија уређивана</string>
+  <string name="year_in_review_highlights_logo_description">Логотип Википедије</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Почнимо</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Нема везе</string>
@@ -1697,6 +1737,12 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
   <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
   <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
+  <string name="donation_settings_section_header">Донације</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
+  <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Највише дозвољено %s</string>
+  <string name="donation_reminders_settings_option_custom">Прилагођено…</string>
+  <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
+  <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
 </resources>

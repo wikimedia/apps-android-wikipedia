@@ -24,6 +24,7 @@
   <string name="search_icon_content_description">Пребарување</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
+  <string name="nav_item_activity">Активност</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="nav_item_search">Пребарај</string>
   <string name="nav_item_contribute">Учествувајте</string>
@@ -36,7 +37,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
   <string name="error_next">Следно</string>
-  <string name="menu_clear_all_history">Исчисти историја</string>
+  <string name="menu_clear_all_history">Исчисти историја на читање</string>
   <string name="history_item_deleted">%s е отстранета од историјата</string>
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
@@ -49,7 +50,7 @@
   <string name="wikimedia_commons">Ризница</string>
   <string name="wikidata">Википодатоци</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
-  <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
+  <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Сподели преку</string>
@@ -246,10 +247,7 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
@@ -424,7 +422,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
-  <string name="preference_title_delete_local_donation_history">Избришете историја на месно дарување</string>
+  <string name="preference_title_delete_local_donation_history">Исчисти историја на дарување</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Според системскиот изглед</string>
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
@@ -925,6 +923,7 @@
   <string name="customize_toolbar_reset_to_default_button">Врати по основно</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Придржете и довлечете ја иконата за да ја преместите ставката</string>
   <string name="customize_toolbar_item_default_tooltip">Стиснете и довлечете ја ставката за да ѝ го смените местото</string>
+  <string name="suggested_edits_activity_title">Уреди</string>
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
@@ -1137,6 +1136,92 @@
   <string name="edit_summary_added_caption">Додаден опис</string>
   <string name="edit_summary_added_image_and_caption">Додадени слика и опис</string>
   <string name="edit_published_view">Погледај</string>
+  <string name="activity_tab_logged_out_title">Најавете се или направете сметка за да ги гледате вашите активности на Википедииниот прилог</string>
+  <string name="activity_tab_user_reading">Читање на %s</string>
+  <string name="activity_tab_on_wikipedia_android">На Википедија Андроид</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Време поминато во читање неделава</string>
+  <string name="activity_tab_monthly_articles_read">Прочитани статии овој месец</string>
+  <string name="activity_tab_monthly_articles_saved">Зачувани статии овој месец</string>
+  <string name="activity_tab_monthly_top_categories">Најпосетени категории овој месец</string>
+  <string name="activity_tab_explore_wikipedia">Откријте преку Википедија</string>
+  <string name="activity_tab_discover_encourage">Барате нешто ново за читање?</string>
+  <string name="activity_tab_donation_unknown">Непознато</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Последен дар&lt;/b&gt; во прилог</string>
+  <string name="activity_tab_total_edits_all_projects">Вкупно уредувања низ проектите</string>
+  <string name="activity_tab_game_stats">Статистика за игри</string>
+  <string name="activity_tab_game_stats_best_streak">Најдобра тура</string>
+  <string name="activity_tab_play_wiki_games">Играјте Викиигри</string>
+  <string name="activity_tab_report_email_subject">Пријава на проблем — Јазиче за активности</string>
+  <string name="activity_tab_report_email_body">Наидов на проблем со функцијата Јазиче за активности:\n- [Опишете го конкретниот проблем]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
+  <string name="activity_tab_menu_feedback">Проблем со функција</string>
+  <string name="activity_tab_menu_info">Дознајте повеќе</string>
+  <string name="activity_tab_menu_customize">Прилагоди</string>
+  <string name="activity_tab_menu_customize_description">Сознанијата за читање се засновани н јазиците на вашиот прилог во нагодувањата, а сознанијата за уредување се ограничени на вашиот главен јазик на прилогот. Сознанијата ги користат месните податоци, со ислучок на уредувањата кои се јавни.</string>
+  <string name="activity_tab_highlights">Најважно</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Историја на читање</string>
+  <string name="activity_tab_impact">Вашето влијание</string>
+  <string name="activity_tab_impact_most_viewed">Најгледано од вашето уредување</string>
+  <string name="activity_tab_impact_contributions_this_month">Придонеси за овој месец</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">уредување месецов</item>
+    <item quantity="other">уредувања месецов</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">уредување минатиот месец</item>
+    <item quantity="other">уредувања минатиот месец</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Севкупно влијание</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">вкупно уредување</item>
+    <item quantity="other">вкупно уредувања</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">благодарница</item>
+    <item quantity="other">благодарници</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d ден</item>
+    <item quantity="other">%d дена</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Најдобра тура</string>
+  <string name="activity_tab_impact_last_edited">Последно уредување</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 уредувања на статии во последно време</string>
+  <string name="activity_tab_impact_suggested_edits_message">Изгледа дека немате направено уредување овој месец. Проширете го слободното знаење уредувајќи на теми што највеќе ве интересираат.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Направете уредување</string>
+  <string name="activity_tab_impact_recent_activity">Ваша скорешна активност (изминатите 30 дена)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Уредување</item>
+    <item quantity="other">Уредувања</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Преглед на статии што сте ги уредиле</item>
+    <item quantity="other">Прегледи на статии што сте ги уредиле</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Време поминато во читање</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Сознанија за читање</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Сознанија за уредување</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Севкупно влијание</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Статистика за игри</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Последно дарување од прилог</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Времеслед на поведение</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Модулите за активности се исклучени. &lt;a href=\"#\"&gt;Вклучете ги&lt;/a&gt; за да ги погледате новостите во ова јазиче.</string>
+  <string name="activity_tab_timeline_today">Денес</string>
+  <string name="activity_tab_timeline_yesterday">Вчера</string>
+  <string name="activity_tab_timeline_empty_state_title">Нема што да се прикаже</string>
+  <string name="activity_tab_timeline_empty_state_message">Почнете да читате и уредувате за да ја изградите вашата историја</string>
+  <string name="activity_tab_timeline_view_changes_button">Погл. промени</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Читачки навики</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Погледајте колку време сте провеле читајќи, и кои статии или теми сте ги истражувале со текот на времето.</string>
+  <string name="activity_tab_onboarding_screen_title">Вовед во Активност</string>
+  <string name="activity_tab_onboarding_impact_title">Најважни моменти од влијанието</string>
+  <string name="activity_tab_onboarding_impact_message">Откријте сознанија за вашите придоенси и досегот на знаењето што сте го споделиле.</string>
+  <string name="activity_tab_onboarding_engage_title">Повеќе начини на вклучување</string>
+  <string name="activity_tab_onboarding_engage_message">Истражете статистика за игри, зачувани статии и други активности што ве поврзуваат подлабоко со Википедија.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Останете во контрола</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Изберете кои модули да се прикажуваат. Сите лични податоци остануваат доверливи на вашиот уред, а историјата на прелистување може да се исчисти во секое време.</string>
+  <string name="edits_screen_what_is_title">Уредување во прилгот на Википедија</string>
+  <string name="edits_screen_what_is_body">Не знаете каде да почнете со уредување? Пробајте ги Предложените уредувања, функција која дава прилики за мали, но важни придонеси на Википедија. Друга можност е да одите право на статијата што ве интересира и да направите измена користејќи викитекст.</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -1612,7 +1697,7 @@
   <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
   <string name="patroller_saved_message_title_npov">Неутрална гледна точка</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматски превод</string>
-  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротиставеност на интереси</string>
+  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротивставеност на интереси</string>
   <string name="patroller_saved_message_title_final_warning">Последна опомена</string>
   <string name="patroller_saved_message_title_copy_vio">Напомена за нарушено авторско право</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">Ставете опис на уредувањето</string>
@@ -1648,6 +1733,7 @@
   <string name="donate_gpay_dialog_pay_button">Дарувај со Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Друг начин на плаќање</string>
   <string name="donate_gpay_activity_title">Изберете износ</string>
+  <string name="donate_gpay_activity_title_with_currency">Изберете износ (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Великодушно ќе додадам %s за да ја покријам трансакциската провизија за да задржите 100%% од мојот дар.</string>
   <string name="donate_gpay_check_recurring">Повторувај го овој дар секој месец.</string>
   <string name="donate_gpay_check_send_email">Да, Фондацијата Викимедија може повремено да ми испраќа е-пошта.</string>
@@ -1760,38 +1846,20 @@
   <string name="year_in_review_get_started">Започнете</string>
   <string name="year_in_review_topbar_w_icon">Икона W на Википедија</string>
   <string name="year_in_review_navigate_left">Оди лево</string>
+  <string name="year_in_review_close">Затвори</string>
   <string name="year_in_review_share_icon">Икона за споделување</string>
   <string name="year_in_review_heart_icon">Икона на срце</string>
   <string name="year_in_review_navigate_right">Оди десно</string>
   <string name="year_in_review_donate">Дарувајте</string>
   <string name="year_in_review_information_icon">Икона за информации</string>
   <string name="year_in_review_get_started_headline">Истражете го вашиот Преглед на годината на Википедија</string>
-  <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите. Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
-  <string name="year_in_review_entry_dialog_title">Истражете ја вашата ретроспектива на Википедија</string>
-  <string name="year_in_review_entry_dialog_bodytext">Погледајте сознанија за тоа какви статии читавме и уредувавме, и споделете ги најважните моменти во нашата година на Википедија.</string>
-  <string name="year_in_review_entry_dialog_continue">Продолжи</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">Годинава прочитавте %d статија</item>
-    <item quantity="other">Годинава прочитавте %d статии</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">Годинава прочитавте %1$d статија, меѓу кои %2$s, %3$s и %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
-    <item quantity="other">Годинава прочитавте %1$d статии, меѓу кои %2$s, %3$s и and %4$s. Википедија има преку 63 милиони статии на над 300 јазици. Станавте дел од милиони лица кои учествуваат во проширување на знаењата и истражуваат разновидни теми</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">Википедија ја уредивте еднаш</item>
-    <item quantity="other">Википедија ја уредивте %d пати</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">Википедија ја уредивте еднаш. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
-    <item quantity="other">Википедија ја уредивте %d пати. Ви благодариме што сте меѓу доброволните уредници што оставаат свој белег на Викимедиините проекти ширум светот.</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">Википедија беше достапна на преку 300 јазици</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">Годинава Википедија имаше преку 63 милиони статии на над 300 активни јазици. Се придруживте на милиони луѓе во проширување на знаењето и истражувањето на разновидни теми.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">Уредниците од прилогот за iOS направија преку 452.257 уредувања</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">Википедиината заедница на доброволни уредници направи преку 452.257 уредувања на прилогот за iOS. Сржта на Википедија е нашата глобална заедница на доброволни учесници, дарители и милијарди читатели како вас — сите обединети во напорот за споделување на неограничен пристап до проверени информации.</string>
+  <string name="year_in_review_get_started_bodytext">Добијте сознанија за тоа кои статии ги читате на прилогот на Википедија и кои уредувања ги правите.</string>
+  <string name="year_in_review_get_started_info">Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
+  <string name="year_in_review_get_started_later">Можете да го отворите вашиот Преглед на годината во менито Повеќе.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
   <string name="year_in_review_survey_subtitle">Дали сте задоволни со оваа функција?</string>
+  <string name="year_in_review_reading_list_survey_title">Помогнете да се подобри списокот за читање на Преглед на годината %d од прегледот на годината.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Дали сте задоволни од вашиот список за читање?</string>
   <string name="year_in_review_survey_very_satisfied">Многу задоволен</string>
   <string name="year_in_review_survey_satisfied">Задоволен</string>
   <string name="year_in_review_survey_neutral">Воздржан</string>
@@ -1800,11 +1868,229 @@
   <string name="year_in_review_survey_placeholder_text">Имате други размисли?</string>
   <string name="year_in_review_survey_cancel">Откажи</string>
   <string name="year_in_review_survey_submit">Поднеси</string>
+  <string name="year_in_review_disable_title">Дали сигурно сакате да го ислкучите Прегледот на годината?</string>
+  <string name="year_in_review_disable_positive_button">Да, сигурен сум</string>
+  <string name="year_in_review_disable_negative_button">Не, благодарам</string>
+  <string name="year_in_review_setting_subtitle">Ако го исклучите Прегледот на годината, тоа ќе ги исчисти сите складирани персонализирани увиди и ќе го скрие Прегледот на годината.</string>
   <string name="year_in_review_screendeck_image_content_description">Сликовен ресурс за главниот екран за Преглед на годината</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">Сликовен ресурс за екранот со дијалог за Преглед на годината</string>
   <string name="year_in_review_screenshot_error">Не можев да ја создадам екранската снимка: %s</string>
-  <string name="year_in_review_share_subject">Слика и врска за Преглед на годината</string>
+  <string name="year_in_review_share_subject">Мој Преглед на годината на Википедија</string>
+  <string name="year_in_review_share_body">Еве го мојот Преглед на годината. Созаден со прилогот на Википедија за Андроид %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Икона на глобус</string>
+  <string name="settings_app_icon_title">Икона на прилогот</string>
+  <string name="settings_app_icon_subtitle">Придобивка на учесник</string>
+  <string name="settings_app_icon_preference_subtitle">Имате пристап до прилагодлива икона која ги чествува вашите придонеси кон Википедија во %d г направени во прилог. Ќе остане сè до следниот Преглед на годината.</string>
+  <string name="settings_app_icon_updated">Вашиата икона на прилогот е подновена.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Отклучена нова икона на прилог за вашиот почетен екран</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Отклучeте ја вашата награда за придонеси за следната година!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Активирајте ја вашата нова икона на прилогот во нагодувањата под „Икона на прилогот“. Ви благодариме што вложувате во иднината на слободното знаење. Вашите приронеси како %1$s во %2$d г. ни помагаат да го отвориме патот кон свет на слободни информации. Поради придонесите, отклучивте прилагодлива учесничка икона за Википедија на вашиот почетен екран.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Драго ни е што Википедија беше дел од вашата %1$d година! Отклучете специјална награда во вашиот преглед на годината %2$d со тоа што ќе станете учесник — било со &lt;a href=\"%3$s\"&gt;уредување на Википедија&lt;/a&gt; или со дарување на паричен прилог за &lt;a href=\"%4$s\"&gt;Фондацијата Викимедија&lt;/a&gt;($4), непрофитната организација што стои зад неа. Ако Википедија ви е корисна, би ве замолиле да дарувате за да ја зачуваме за во иднина, и таа да биде слободна, без реклами, меродавна и пристапна за сите.</string>
+  <string name="year_in_review_slide_app_icon_donor">дарител</string>
+  <string name="year_in_review_slide_app_icon_editor">уредник</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">дарител и уредник</string>
+  <string name="year_in_review_slide_geo_headline">Статиите што ги читавте се најблиску до: %s</string>
+  <string name="year_in_review_slide_geo_body">Земјата најблиску до многу статии што ги прочитавте е: %1$s, судејќи по статии како &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Се најавувате за лични прилагодувања?</string>
+  <string name="year_in_review_login_dialog_body">Најавувањето ви дава пристап до лично прилагодени сознанија. Збирните сознанија можете да ги гледате и без најава.</string>
+  <string name="year_in_review_login_dialog_positive">Најавете се / Зачленете се на Википедија</string>
+  <string name="year_in_review_login_dialog_negative">Продолжи без најава</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Вашата најпосетена статија</item>
+    <item quantity="other">Вашите најпосетени статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Еве ја статијата што највеќе ја посетувавте во %1$d година: %2$s</item>
+    <item quantity="other">Еве ги статиите што највеќе ги посетувавте во %1$d година: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Вашите најинтересни категории</string>
+  <string name="year_in_review_slide_top_categories_body">Категориите ги групираат статиите со слична тематика. Во %1$d г. на повеќе наврати посетувавте статии во овие интересни категории: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Најполуларни статии на англиската Википедија</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетената статија на англиската Википедија беше: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
+    <item quantity="other">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетените %1$d статии на англиската Википедија беа: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Вашето уредување беше посетено преку %,d пати во последно време</item>
+    <item quantity="other">Вашите уредувања беа посетени преку %,d пати во последно време</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Читателите ширум светот ги ценат вашите придонеси. Во изминативе 2 месеца, статиите што ги уредивте беа посетени вкупно еднаш.  Благодарение на уредниците како вас Википедија постепено се подобрува како фактографски и веродостоен ресурс на знаења за светот.</item>
+    <item quantity="other">Читателите ширум светот ги ценат вашите придонеси. Во изминативе 2 месеца, статиите што ги уредивте беа посетени вкупно %,d пати. Благодарение на уредниците како вас Википедија постепено се подобрува како фактографски и веродостоен ресурс на знаења за светот.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Википедија беше уредувана еднаш во минута</item>
+    <item quantity="other">Википедија беше уредувана %,d пати во минута</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Статиите се соработно создадени и подобрени со сигурни извори. Сите ние имаме знаења за споделување. &lt;a href=\"%s\"&gt;Дознајте како да учествувате.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">Додаден %,d бајт</item>
+    <item quantity="other">Додадени %,d бајти</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">Во %1$d доброволците додадоа %2$,d бајт на англиската Википедија. Збирот на сета нивна заедничка работа е дар за светот кој води до веродостоен и фактографски извор на знаење кој постојано се подобрува. Сите ние имаме знаење за споделување, па затоа &lt;a href=\"%3$s\"&gt;дознајте како да учествувате&lt;/a&gt;.</item>
+    <item quantity="other">Во %1$d, доброволците додадоа %2$,d бајти to English Wikipedia. на англиската Википедија. Збирот на сета нивна заедничка работа е дар за светот кој води до веродостоен и фактографски извор на знаење кој постојано се подобрува. Сите ние имаме знаење за споделување, па затоа &lt;a href=\"%3$s\"&gt;дознајте како да учествувате&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Ја уредивте Википедија еднаш</item>
+    <item quantity="other">Ја уредивте Википедија %s пати</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Ви благодариме што сте меѓу доброволците кои оставаат свој печат на Викимедиините проекти ширум светот. Доброволците како вас направија %,d промена на 300 различни јазични изданија на Википедија.</item>
+    <item quantity="other">Ви благодариме што сте меѓу доброволците кои оставаат свој печат на Викимедиините проекти ширум светот. Доброволците како вас направија %,d промени на 300 различни јазични изданија на Википедија.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">Уредниците од официјалните прилози на Википедија направија %,d уредување</item>
+    <item quantity="other">Уредниците од официјалните прилози на Википедија направија %,d уредувања</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Сржта на Википедија е нашата глобална заедница на доброволни учесници, дарители и милијарди читатели како вас — сите обединети во напорот за споделување на неограничен пристап до проверени информации.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">Годинава уредниците направија %,d промена</item>
+    <item quantity="other">Годинава уредниците направија %,d промени</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">Доброволците како вас направија %,d промена на 300 различни јазични изданија на Википедија.</item>
+    <item quantity="other">Доброволците како вас направија %,d промени на 300 различни јазични изданија на Википедија.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">На англиската Википедија беше направена %,d промена. Секој час од секој ден, доброволците работат на подобрување на Википедија.</item>
+    <item quantity="other">На англиската Википедија беа направени %,d промени. Секој час од секој ден, доброволците работат на подобрување на Википедија..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Зачувавте %,d статија</item>
+    <item quantity="other">Зачувавте %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Во тие статии спаѓаат &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt;, and &lt;b&gt;%3$s&lt;/b&gt;. Секоја зачувана статија ги одразува вашите интереси и гради лично прилагодена база на знаења на Википедија.&lt;br /&gt;&lt;br /&gt;Активните корисници на прилозите годинава имаа %4$,d зачувана статија.</item>
+    <item quantity="other">Во тие статии спаѓаат &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt;, and &lt;b&gt;%3$s&lt;/b&gt;. Секоја зачувана статија ги одразува вашите интереси и гради лично прилагодена база на знаења на Википедија.&lt;br /&gt;&lt;br /&gt;Активните корисници на прилозите годинава имаа %4$,d зачувани статии.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Корисниците на прилогот зачуваа %,d статија</item>
+    <item quantity="other">Корисниците на прилогот зачуваа %,d статии</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Ставањето на статии во списоци за читање ви овозможува пристап до статии дури и кога немате линија. Можете и да се најавите за да ги усогласите списоците за читање на повеќе уреди.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Имате јасна закономерност на читањето</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Омилено време за читање</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Омилен ден за читање</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Месецот кога највеќе читавте</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Наутро</string>
+  <string name="year_in_review_slide_reading_pattern_midday">На пладне</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Попладне</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Навечер</string>
+  <string name="year_in_review_slide_reading_pattern_night">Ноќно време</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Доцна вечер</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Проведовме %,d час читајќи</item>
+    <item quantity="other">Проведовме %,d часа читајќи</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">Според проценката, луѓето проведоа %,d час</item>
+    <item quantity="other">Според проценката, луѓето проведоа %,d часа</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—околу %1$,d година!—читајќи ја англиската Википедија во %2$d г. Википедија ви стои на располагање кога сакате да дознаете нешто за нашиот променлив свет, да добиете облог со пријателите или да одговорите прашање на љубопитно дете.</item>
+    <item quantity="other">—околу %1$,d години!—читајќи ја англиската Википедија во %2$d г. Википедија ви стои на располагање кога сакате да дознаете нешто за нашиот променлив свет, да добиете облог со пријателите или да одговорите прашање на љубопитно дете.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Википедија беше достапна на преку %,d јазик</item>
+    <item quantity="other">Википедија беше достапна на преку %,d јазици</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Википедија имаше %,d статија</item>
+    <item quantity="other">Википедија имаше %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">на преку %,d активен јазик. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми.</item>
+    <item quantity="other">на преку %,d активни јазици. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Проведовте %,d минута</item>
+    <item quantity="other">Проведовте %,d минути</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">читајќи %1$,d статија на %2$d</item>
+    <item quantity="other">читајќи %1$,d статии на %2$d</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Проценуваме дека ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$,d статија годишно.</item>
+    <item quantity="other">Проценуваме дека ова ве става во првите %1$s%% од читателите на Википедија глобално. Просечниот човек чита %2$,d статии годишно.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Годинава Википедија имаше %,d статија</item>
+    <item quantity="other">Годинава Википедија имаше %,d статии</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">на преку %,d активен јазик. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми.</item>
+    <item quantity="other">на преку %,d активни јазици. Се придруживте на милиони луѓе во проширувањето на знаењето и истражувањето на различни теми..</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Според проценката, луѓето проведоа %,d час</item>
+    <item quantity="other">Според проценката, луѓето проведоа %,d часа</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—околу %1$,d година!—читајќи ја англиската Википедија во %2$d г.</item>
+    <item quantity="other">—околу %1$,d години!—читајќи ја англиската Википедија во %2$d г.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Корисниците на прилогот посетија Википедиини статии еднаш</item>
+    <item quantity="other">Корисниците на прилогот посетија Википедиини статии %,d пати</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">За луѓето ширум светот Википедија е главна место за добивање на одговори на прашања, проверка на информации за училиште или работа, или за добивање на некое ново сознание.</string>
+  <string name="year_in_review_reading_list_dialog_title">Сакате да создадете ваш список за читање на Преглед на годината %d?</string>
+  <string name="year_in_review_reading_list_dialog_message">Преглед на годината на Википедија ќе создаде список за читање на статии на кои сте провеле највеќе време во %1$d г. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Создај</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Не, благодарам</string>
+  <string name="year_in_review_reading_list_title">Преглед на годината %d</string>
+  <string name="year_in_review_reading_list_description">Направено за %1$s. Статиите на кои проведовте највеќе време во %2$d г.</string>
+  <string name="year_in_review_highlights_thank_you_message">Ви благодариме што ја поминавте вашата година со Википедија.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Со нетрпение ја очекуваме следната година!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">Најчитана статија на англиската Википедија</item>
+    <item quantity="other">Најчитани статии на англиската Википедија</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Час поминат во читање</item>
+    <item quantity="other">Часови поминати во читање</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Промена направена од уредниците</item>
+    <item quantity="other">Промени направени од уредниците</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Број на посетена статија</item>
+    <item quantity="other">Број на посетени статии</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Уредување во прилог</item>
+    <item quantity="other">Уредувања во прилог</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колку често се уредувала Википедија</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">еднаш во минута</item>
+    <item quantity="other">%d пати во минута</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Статијата што највеќе ја читав</item>
+    <item quantity="other">Статиите што највеќе ги читав</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Минута читање</item>
+    <item quantity="other">Минути читање</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Омилен ден за читање</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Прочитана статија</item>
+    <item quantity="other">Прочитани статии</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Категорија што ме интересираше</item>
+    <item quantity="other">Категории што ме интересираа</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">Уредена статија</item>
+    <item quantity="other">Уредени статии</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Сподели најважни моменти</string>
+  <string name="year_in_review_highlights_logo_description">Лого на Википедија</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_title">Откријте статии избрани токму за вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Вашиот неделен список за читање на википедиски статии, подготвен токму за вас.</string>
@@ -1904,6 +2190,7 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">статии</string>
   <string name="donation_reminders_settings_warning_min_amount">Внесете барем %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Дозволено е највеќе %s</string>
+  <string name="donation_reminders_settings_option_custom">Прилагодено…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
   <string name="donation_reminders_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
   <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
@@ -1916,7 +2203,6 @@
   <string name="donation_reminders_settings_description_on">Потсетниците за дарување се вклучени. Википедија ќе ве потсетува да дарувате %1$s на секои %2$s што ќе ги прочитате додека трае опитот.</string>
   <string name="donation_reminders_settings_description_off">Потсетниците за дарување се исклучени.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Бројот на статии се складира месно на вашиот уред</string>
-  <string name="donation_reminders_prompt_success_snackbar">Ви благодариме! Вашата великодушност кон Википедија многу ни значи.</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">%d статија</item>
     <item quantity="other">%d статии</item>

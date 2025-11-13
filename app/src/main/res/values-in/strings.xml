@@ -60,6 +60,7 @@
   <string name="search_icon_content_description">Cari</string>
   <string name="filter_hint_filter_my_lists_and_articles">Saring daftar saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
+  <string name="nav_item_activity">Aktivitas</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="nav_item_search">Cari</string>
   <string name="nav_item_contribute">Berkontribusi</string>
@@ -72,7 +73,7 @@
   <string name="page_error_back_to_main">Kembali</string>
   <string name="error_back">Kembali</string>
   <string name="error_next">Berikutnya</string>
-  <string name="menu_clear_all_history">Hapus riwayat</string>
+  <string name="menu_clear_all_history">Hapus riwayat bacaan</string>
   <string name="history_item_deleted">%s dihapus dari riwayat</string>
   <string name="history_items_deleted">%d artikel dihapus dari riwayat</string>
   <string name="history_item_delete_undo">Urungkan</string>
@@ -85,7 +86,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Hapus riwayat pencarian</string>
-  <string name="dialog_message_clear_history">Tindakan ini akan menghapus semua riwayat pencarian Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
+  <string name="dialog_message_clear_history">Tindakan ini akan menghapus semua riwayat penjelajahan Anda. Apakah Anda yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Tidak</string>
   <string name="share_via">Bagikan lewat</string>
@@ -279,7 +280,6 @@
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
   <string name="about_wikipedia_url">https://id.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_secara_luring_dan_data</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
@@ -287,7 +287,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
@@ -451,7 +451,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
   <string name="preference_summary_prefer_offline_content">Menghemat penggunaan data dengan memuat artikel yang tersedia secara luring daripada selalu memuat versi terbaru artikel</string>
-  <string name="preference_title_delete_local_donation_history">Hapus riwayat donasi lokal</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Hapus riwayat donasi lokal</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Cocokkan dengan tema sistem</string>
   <string name="page_footer_license_text">Konten tersedia di bawah $1 kecuali dinyatakan lain</string>
   <string name="empty_tab_title">Tab baru</string>
@@ -479,6 +479,8 @@
     <item quantity="other">Akun ini akan kedaluwarsa dalam %d hari.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Anda tidak masuk log.&lt;/b&gt; Setelah Anda membuat suntingan, alamat IP Anda akan diasosiasikan dengan suntingan Anda.</string>
+  <string name="temp_account_end_session">Akhiri sesi</string>
+  <string name="temp_account_end_session_confirm">Ini akan mengeluarkan Anda dari akun sementara Anda. Ingin melanjutkan?</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
@@ -856,6 +858,9 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_text">Anda telah mencapai bagian bawah umpan.</string>
   <string name="feed_accessibility_card_load_more_button">Baca lebih lanjut</string>
+  <string name="feed_language_variants_removal_dialog_save">Simpan</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Harap perbarui bahasa kedua Anda</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Pergi ke Pengaturan</string>
   <string name="top_read_activity_title">Baca terus %s</string>
   <string name="tabs_activity_title">Tab</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
@@ -920,6 +925,7 @@
   <string name="customize_toolbar_reset_to_default_button">Kembalikan seperti semula</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Tekan ikon geser untuk memindahkan item</string>
   <string name="customize_toolbar_item_default_tooltip">Tekan dan geser item untuk mengubah posisinya</string>
+  <string name="suggested_edits_activity_title">Sunting</string>
   <string name="suggested_edits_describe_articles">Jelaskan artikel</string>
   <string name="suggested_edits_caption_images">Takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
@@ -1107,6 +1113,29 @@
   <string name="edit_summary_added_caption">Takarir yang ditambahkan</string>
   <string name="edit_summary_added_image_and_caption">Gambar dan keterangan yang ditambahkan</string>
   <string name="edit_published_view">Lihat</string>
+  <string name="activity_tab_weekly_time_spent">Waktu yang dihabiskan untuk membaca minggu ini</string>
+  <string name="activity_tab_monthly_articles_read">Artikel yang dibaca bulan ini</string>
+  <string name="activity_tab_monthly_articles_saved">Artikel yang disimpan bulan ini</string>
+  <string name="activity_tab_monthly_top_categories">Kategori teratas yang dibaca bulan ini</string>
+  <string name="activity_tab_explore_wikipedia">Temukan melalui Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Mencari sesuatu yang baru untuk dibaca?</string>
+  <string name="activity_tab_donation_unknown">Tidak diketahui</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Donasi terakhir&lt;/b&gt; di aplikasi</string>
+  <string name="activity_tab_game_stats">Statistik permainan</string>
+  <string name="activity_tab_game_stats_best_streak">Rentetan terbaik</string>
+  <string name="activity_tab_play_wiki_games">Mainkan WikiGames</string>
+  <string name="activity_tab_report_email_subject">Laporan Masalah - Tab Aktivitas</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Riwayat bacaan</string>
+  <string name="activity_tab_impact">Dampak Anda</string>
+  <string name="activity_tab_impact_most_viewed">Paling banyak dilihat sejak Anda menyuntingnya</string>
+  <string name="activity_tab_impact_contributions_this_month">Kontribusi bulan ini</string>
+  <string name="activity_tab_impact_all_time">Dampak sepanjang masa</string>
+  <string name="activity_tab_impact_last_edited">Terakhir diubah</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 suntingan pada artikel baru-baru ini</string>
+  <string name="activity_tab_impact_suggested_edits_button">Lakukan suntingan</string>
+  <string name="activity_tab_impact_recent_activity">Aktivitas terbaru Anda (30 hari terakhir)</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Waktu yang dihabiskan untuk membaca</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Wawasan bacaan</string>
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>

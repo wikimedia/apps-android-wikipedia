@@ -34,12 +34,13 @@
   <string name="page_error_back_to_main">Йуханехьа</string>
   <string name="error_back">Йуханехьа</string>
   <string name="error_next">Кхидӏа</string>
-  <string name="menu_clear_all_history">ДӀацӀанйе истори?</string>
+  <string name="menu_clear_all_history" fuzzy="true">ДӀацӀанйе истори?</string>
   <string name="history_item_deleted">\"%s\" йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_items_deleted">%d йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_item_delete_undo">Йухайаккха</string>
   <string name="notification_archive_undo">Йухайаккха</string>
   <string name="app_settings">Программин параметраш</string>
+  <string name="search_tab_tooltip">Йуха а иконкин тӀетаӀайае, хьайн лехаман дехар дӀадоло.</string>
   <string name="history_list_title">Истори</string>
   <string name="image_content_description">Сурт: %s</string>
   <string name="page_content_description">АгӀо: %s</string>
@@ -144,6 +145,7 @@
   <string name="logged_out_in_background_dialog">Википедин аккаунтан чуьра хьо ара ваьлла(йаьлла). Лаьий хьуна йуха чувала(йалла)</string>
   <string name="logged_out_in_background_login">ЧугӀо</string>
   <string name="logged_out_in_background_cancel">Йухайаккха</string>
+  <string name="account_vanish_request_title">Аккаунт дӀайаккха</string>
   <string name="history_empty_title">Кеста хьаьжжина агӀонаш йац.</string>
   <string name="history_empty_message">Кхузахь хьой бешна болу йаззамашка хьажа.</string>
   <string name="delete_selected_items">Хаьржина элементаш дӀайаха</string>
@@ -201,7 +203,7 @@
   <string name="edit_abandon_confirm_no">ХӀан-хӀа</string>
   <string name="user_blocked_from_editing_title">Блоктоьхна</string>
   <string name="edit_next">Кхин дӀа</string>
-  <string name="edit_done" fuzzy="true">Ӏалашдан</string>
+  <string name="edit_done">ДӀайазйан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
   <string name="edit_undo">Йухайаккха</string>
   <string name="edit_redo">Йухадан</string>
@@ -219,14 +221,20 @@
   <string name="edit_summary_tag_grammar">Нийса йаздар</string>
   <string name="edit_summary_tag_links">Хьажоргаш тӀетоьхна</string>
   <string name="edit_summary_tag_other">Кхийерг</string>
+  <string name="edit_conflict_title">Тадарна дойнаш</string>
   <string name="edit_notices">Тадаран билгалонаш</string>
+  <string name="find_next">Караде рогӀера</string>
+  <string name="find_previous">Караде хьалхарнаш</string>
+  <string name="find_last_occurence">Иза тӀаьхьара нисдалар ду</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
+  <string name="search_did_you_mean">Хила мега ахьа лоьхарг «%s»?</string>
   <string name="search_recent_header">ТӀаьххьара лехамаш:</string>
   <string name="search_results_count_zero">ХӀумма а ца карийна</string>
   <plurals name="search_results_count">
     <item quantity="one">1 жамӀ</item>
     <item quantity="other">%d жамӀ</item>
   </plurals>
+  <string name="button_clear_all_recent_searches">ТӀаьххьара лехначу дехарийн могӀам дӀабаккха</string>
   <string name="clear_recent_searches_confirm_yes">ХӀаъ</string>
   <string name="clear_recent_searches_confirm_no">ХӀан-хӀа</string>
   <string name="table_infobox">Боца факташ</string>
@@ -235,6 +243,8 @@
   <string name="wiktionary_no_definitions_found">Цхьаа къастам цакарий.</string>
   <string name="alpha_update_notification_text">ТӀетаӀайe схьаэцархьама</string>
   <string name="dialog_close_description">ДӀачӀагӀа</string>
+  <string name="preference_title_show_images">Суьрташ гайтар</string>
+  <string name="preference_title_download_only_over_wifi">Wi-Fi чухула бен схьа ма эца</string>
   <string name="dialog_title_download_only_over_wifi_allow">Магаде</string>
   <string name="read_more_section">Йозуш йолу агlонаш</string>
   <string name="about_article_section">ХӀокху агӀонах лаьцна</string>
@@ -247,6 +257,7 @@
   <string name="gallery_add_image_caption_button">Суьртах лаьцна тӀетоха</string>
   <string name="gallery_add_image_caption_in_language_button">Суьртах лаьцна тӀетоха (%s)</string>
   <string name="captcha_image">Капча-сурт</string>
+  <string name="gallery_fair_use_license">Дикачу ойланца лелор</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">ДӀачӀагӀа</string>
   <string name="menu_new_tab">Керла вкладка</string>
   <string name="menu_close_all_tabs">Массо а вкладкаш дӀакъовла</string>
@@ -962,7 +973,7 @@
   <string name="donation_campaign_go_back_button">Йуханехьа</string>
   <string name="menu_single_webview_open_external">Системин браузерехь схьайелла</string>
   <string name="donate_gpay_help_problems">Цатарло ахча дӀадахьийта?</string>
-  <string name="donate_gpay_help_other_ways">Ахча дохьуьйту кхин таронаш</string>
+  <string name="donate_gpay_help_other_ways">ГӀодан кхин таронаш</string>
   <string name="donate_gpay_help_faq">Дукха луш долу хаттарш</string>
   <string name="donate_gpay_help_tax">ГӀодечаран тӀера налог дӀаяккхарах лаьцна хаам</string>
   <string name="places_title">Меттигаш</string>
@@ -1014,9 +1025,8 @@
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">ДӀадайа уьш</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">ХӀаъ, латаде уьш</string>
   <string name="on_this_day_game_notification_undo">Йухайаккха</string>
-  <string name="year_in_review_learn_more">Цул совнаха хаа</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Цул совнаха хаа</string>
   <string name="year_in_review_donate">ГӀодар</string>
-  <string name="year_in_review_entry_dialog_continue">Кхин дӀа</string>
   <string name="year_in_review_survey_very_satisfied">ЧӀогӀа реза</string>
   <string name="year_in_review_survey_satisfied">Реза</string>
   <string name="year_in_review_survey_neutral">ХӀумма а ца дина</string>
