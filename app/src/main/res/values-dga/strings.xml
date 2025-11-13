@@ -1148,8 +1148,6 @@
   <string name="templates_param_suggested_value">Aseŋ %s</string>
   <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
-  <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
-  <string name="main_tooltip_text_v2">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="main_tooltip_action_button">De piiloŋ</string>
   <string name="main_tooltip_watchlist_title">Kaa gama</string>
   <string name="main_tooltip_watchlist_text">Bɔ atekele ane peegyiri fo naŋ paale a fo kaabo pɛllɛ ka a ba kɔɔre a yaga menu poɔ a puli kyɛ &lt;b&gt;watchlist&lt;/b&gt;.</string>

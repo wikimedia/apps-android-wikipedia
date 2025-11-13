@@ -29,7 +29,6 @@ import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
-/** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences)
@@ -146,7 +145,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             val messageResId = if (hasDonations) {
                 R.string.donation_history_deleted_message_snackbar
             } else R.string.donation_history_no_history_message_snackbar
-            FeedbackUtil.makeNavigationAwareSnackbar(activity, activity.resources.getString(messageResId)).show()
+            FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
             true
         }
     }
@@ -217,7 +216,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
-    private inner class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
+    private class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface, which: Int) {
             (preference as SwitchPreferenceCompat).isChecked = false
             Prefs.isReadingListSyncEnabled = false

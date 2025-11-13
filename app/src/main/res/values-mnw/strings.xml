@@ -975,8 +975,6 @@
   <string name="wikitext_preview_link">လေန် ကိုပ်ဗဗဵု</string>
   <string name="main_drawer_help">ရီု</string>
   <string name="main_drawer_login">လုပ်ဇၟိက်/ ပါလုပ် ဝဳကဳပဳဒဳယာ</string>
-  <string name="main_tooltip_text">ဟာဲ %s, ဝဳကဳပဳဒဳယာဂှ် ဇၟာပ်မၞိဟ် အခေါင်လုပ်ပလေဝ်ဒါန် နွံဒၟံင်ဂှ် မၞးတီဒၟံင်ရဟာ?</string>
-  <string name="main_tooltip_text_v2">မၞးတီဟာ ဒဒှ်ရ ဇၟာပ်မၞိဟ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာဂွံဒၟံင်ဂှ်။</string>
   <string name="main_tooltip_action_button">စဂွံရ၊၊</string>
   <string name="main_tooltip_watchlist_title">စရင်မမင်မဲ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ခိုဟ်</string>

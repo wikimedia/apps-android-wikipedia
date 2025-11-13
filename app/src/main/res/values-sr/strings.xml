@@ -1256,8 +1256,6 @@
   <string name="templates_description_empty">Шаблон „%s” још увек нема опис.</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="main_tooltip_text">Здраво, %s! Јесте ли знали да свако може да уређује Википедију?</string>
-  <string name="main_tooltip_text_v2">Јесте ли знали да свако може да уређује Википедију?</string>
   <string name="main_tooltip_action_button">Почнимо</string>
   <string name="main_tooltip_watchlist_title">Списак надгледања</string>
   <string name="main_tooltip_watchlist_text">Пронађите чланке и странице које сте претходно додали у свој списак надгледања, у менију Више под &lt;b&gt;Списак надгледања&lt;/b&gt;.</string>

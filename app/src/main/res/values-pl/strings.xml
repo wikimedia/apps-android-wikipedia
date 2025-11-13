@@ -1348,8 +1348,6 @@
   <string name="templates_description_empty">Szablon „%s” nie ma jeszcze swojego opisu.</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
-  <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
-  <string name="main_tooltip_text_v2">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="main_tooltip_watchlist_title">Obserwowane</string>
   <string name="main_tooltip_watchlist_text">Znajdź artykuły i strony dodane wcześniej do listy obserwowanych w menu Więcej w sekcji &lt;b&gt;Lista obserwowanych&lt;/b&gt;.</string>

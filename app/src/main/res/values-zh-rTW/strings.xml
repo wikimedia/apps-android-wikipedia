@@ -1386,8 +1386,6 @@
   <string name="templates_description_missing_data">此模板缺少&lt;a href=\"%1$s\"&gt;模板資料&lt;/a&gt;，且參數已&lt;a href=\"%2$s\"&gt;自動產生&lt;/a&gt;。因此模板及參數都缺乏描述。</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
-  <string name="main_tooltip_text_v2">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_action_button">入門</string>
   <string name="main_tooltip_watchlist_title">監視清單</string>
   <string name="main_tooltip_watchlist_text">在&lt;b&gt;監視清單&lt;/b&gt;下的更多選單裡，尋找您之前新增到監視清單的條目與頁面。</string>

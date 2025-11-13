@@ -1138,8 +1138,6 @@
   <string name="templates_description_missing_data">ਇਸ ਫਰਮੇ ਵਿੱਚ &lt;a href=\"%1$s\"&gt;ਫਰਮਾ-ਡਾਟਾ&lt;/a&gt; ਮੌਜੂਦ ਨਹੀਂ ਹੈ, ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡ &lt;a href=\"%2$s\"&gt;ਆਪਣੇ-ਆਪ-ਬਣਾਏ&lt;/a&gt; ਗਏ ਹਨ। ਨਤੀਜੇ ਵਜੋਂ ਫਰਮੇ ਅਤੇ ਇਸਦੇ ਮਾਪਦੰਡਾਂ ਵਿੱਚ ਵੇਰਵੇ ਦੀ ਘਾਟ ਹੈ।</string>
   <string name="main_drawer_help">ਮਦਦ</string>
   <string name="main_drawer_login">ਵਿਕੀਪੀਡੀਆ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਵੋ / ਨਾਲ ਜੁੜੋ</string>
-  <string name="main_tooltip_text">ਕਿਦਾਂ %s, ਕੀ ਤੁਸੀਂ ਜਾਣਦੇ ਹੋ ਕਿ ਹਰ ਕੋਈ ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸੋਧ ਸਕਦਾ ਹੈ?</string>
-  <string name="main_tooltip_text_v2">ਕੀ ਤੁਸੀਂ ਜਾਣਦੇ ਹੋ ਕਿ ਹਰ ਕੋਈ ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸੋਧ ਸਕਦਾ ਹੈ?</string>
   <string name="main_tooltip_action_button">ਸ਼ੁਰੂ ਕਰੋ</string>
   <string name="main_tooltip_watchlist_title">ਨਿਗਰਾਨ-ਸੂਚੀ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ਠੀਕ ਹੈ</string>
