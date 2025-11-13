@@ -1211,8 +1211,6 @@
   <string name="insert_media_insert_button">Zaŋ kpɛhi</string>
   <string name="main_drawer_help">Bɔmi sɔŋsim</string>
   <string name="main_drawer_login">kpɛmi Wikipedia puuni/pahimi Wikipedia nim\' zuɣu</string>
-  <string name="main_tooltip_text">N-zo %s! Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu bee?</string>
-  <string name="main_tooltip_text_v2">Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu?</string>
   <string name="main_tooltip_action_button">Piligima</string>
   <string name="main_tooltip_watchlist_title">Anilihiri shɛli</string>
   <string name="main_tooltip_watchlist_text">Bomi atikilnima ni paaginima shɛŋa a ni min pun zaŋ pahi a nini ni pa yu-shɛŋa zuɣu din pahi bii zuɣu din jɛndi &lt;b&gt;A nini ni pa shɛli zuɣu&lt;/b&gt;</string>

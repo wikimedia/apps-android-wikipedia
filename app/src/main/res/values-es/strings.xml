@@ -1357,8 +1357,6 @@
   <string name="templates_description_missing_data">Esta plantilla carece de &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, y sus parámetros han sido &lt;a href=\"%2$s\"&gt;generados automáticamente&lt;/a&gt;. En consecuencia, la plantilla y sus parámetros carecen de descripciones.</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
-  <string name="main_tooltip_text">Hola, %s, ¿sabías que todos pueden editar Wikipedia?</string>
-  <string name="main_tooltip_text_v2">¿Sabías que todos pueden editar Wikipedia?</string>
   <string name="main_tooltip_action_button">\nEmpezar</string>
   <string name="main_tooltip_watchlist_title">Lista de seguimiento</string>
   <string name="main_tooltip_watchlist_text">Encuentra artículos y páginas que previamente has añadido a tu lista de seguimiento en el menú Más bajo &lt;b&gt;Lista de seguimiento&lt;/b&gt;.</string>

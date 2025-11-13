@@ -913,8 +913,6 @@
   <string name="insert_media_insert_button">Kpɛn\'ɛsim</string>
   <string name="main_drawer_help">Sʋŋir</string>
   <string name="main_drawer_login">Kpɛn\'ɛm pʋʋgin/ paasim Wikipedia ni</string>
-  <string name="main_tooltip_text">Agoo %s, fʋ mi\'i ye sɔ\' wʋsa tʋn\'e dɛmisim Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Fʋ mi\'i ye sɔ\' wʋsa tʋn\'e dɛmisim Wikipedia?</string>
   <string name="main_tooltip_action_button">Pin\'ilim</string>
   <string name="main_tooltip_watchlist_title">Fʋn na gɔt si\'el</string>
   <string name="custom_date_picker_dialog_ok_button_text">Awɔɔ</string>

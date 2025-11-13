@@ -1347,8 +1347,6 @@
   <string name="templates_description_missing_data">このテンプレートは &lt;a href=\"%1$s\"&gt;テンプレートデータ&lt;/a&gt; が欠落しており、パラメータが &lt;a href=\"%2$s\"&gt;自動生成&lt;/a&gt; されています。結果として、テンプレートおよびそのパラメータの説明が欠けています。</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
-  <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
-  <string name="main_tooltip_text_v2">ウィキペディアは誰もが編集できることをご存知ですか?</string>
   <string name="main_tooltip_action_button">始める</string>
   <string name="main_tooltip_watchlist_title">ウォッチリスト</string>
   <string name="main_tooltip_watchlist_text">以前ウォッチリストに追加した記事やページは、「もっと見る」メニューの&lt;b&gt;ウォッチリスト&lt;/b&gt;から探してみましょう。</string>

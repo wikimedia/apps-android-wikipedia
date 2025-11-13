@@ -1369,8 +1369,6 @@
   <string name="templates_description_missing_data">Ennek a sablonnak nincs &lt;a href=\"%1$s\"&gt;TemplateData-leírása&lt;/a&gt;, és a paraméterlistája &lt;a href=\"%2$s\"&gt;automatikusan generált&lt;/a&gt;. Ezért a sablonnak és paramétereinek nincs leírása.</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés / regisztrálás a Wikipédiába</string>
-  <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
-  <string name="main_tooltip_text_v2">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="main_tooltip_action_button">Kezdés</string>
   <string name="main_tooltip_watchlist_title">Figyelőlista</string>
   <string name="main_tooltip_watchlist_text">A korábban figyelőlistádhoz adott szócikkeket és lapokat Több menü &lt;b&gt;Figyelőlista&lt;/b&gt; opciójával érheted el.</string>

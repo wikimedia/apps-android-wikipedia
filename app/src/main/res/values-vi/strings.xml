@@ -1325,8 +1325,6 @@
   <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"%1$s\"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"%2$s\"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
   <string name="main_drawer_help">Trợ giúp</string>
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
-  <string name="main_tooltip_text">Xin chào %s, bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
   <string name="main_tooltip_action_button">Bắt đầu</string>
   <string name="main_tooltip_watchlist_title">Danh sách theo dõi</string>
   <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong trình đơn Khác trong&lt;b&gt; Danh sách theo dõi&lt;/b&gt;</string>

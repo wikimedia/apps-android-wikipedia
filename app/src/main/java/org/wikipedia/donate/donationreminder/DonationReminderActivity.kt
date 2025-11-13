@@ -13,6 +13,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 
 class DonationReminderActivity : BaseActivity() {
@@ -53,7 +54,15 @@ class DonationReminderActivity : BaseActivity() {
                         retryClickListener = {
                             viewModel.loadData()
                         }
-                    )
+                    ),
+                    onLearnMoreClick = {
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
+                    },
+                    onReportClick = {
+                        FeedbackUtil.composeEmail(this,
+                            subject = getString(R.string.donation_reminders_settings_report_email_subject),
+                            body = getString(R.string.donation_reminders_settings_report_email_body))
+                    }
                 )
             }
         }

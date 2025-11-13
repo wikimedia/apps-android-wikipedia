@@ -1234,7 +1234,7 @@
   <string name="activity_tab_onboarding_stay_in_control_title">Title for the section about privacy and control.</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
   <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
-  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app.</string>
+  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app. \"Suggested Edits\" is {{msg-wm|Wikipedia-android-strings-suggested edits feed card title}}</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1974,10 +1974,7 @@
   <string name="year_in_review_highlights_logged_in_minutes_read_title">Title of the second highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Title of the third highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_read_title">Title of the fourth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
-  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
-    <item quantity="one">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</item>
-    <item quantity="other">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</item>
-  </plurals>
+  <string name="year_in_review_highlights_logged_in_articles_interested_categories_title">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_edited_articles_title">Title of the sixth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_share_button_title">Title for the button that shares the Highlights screen.</string>
   <string name="year_in_review_highlights_logo_description">Text for for the Wikipedia logo in year-in-review highlights.</string>
@@ -2057,11 +2054,6 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
-  <string name="donation_reminders_initial_prompt_label">Label text for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_title">Title for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_message">Message for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Positive button for the donation reminder initial prompt that takes the users to the donation reminder setting screen.</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Negative button for the donation reminder initial prompt to close the prompt.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Snackbar message that indicates the donation reminder is available in the Settings screen.</string>
   <string name="donation_settings_section_header">Text of the section in the settings screen for donation.</string>
   <string name="donation_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
@@ -2093,4 +2085,8 @@
     <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">No thanks button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_experiment_label">Experiment lable for the donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_learn_more_button">Button text for overflow menu option that opens the learn more page.</string>
+  <string name="donation_reminders_settings_report_button">Menu label for providing feedback on the overflow menu in the Donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
+  <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
 </resources>

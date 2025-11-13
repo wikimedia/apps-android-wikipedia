@@ -1354,8 +1354,6 @@
   <string name="templates_description_missing_data">A questo modello mancano &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e i suoi parametri sono stati &lt;a href=\"%2$s\"&gt;autogenerati&lt;/a&gt;. Di conseguenza, il modello e i suoi parametri non hanno descrizioni.</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
-  <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_action_button">Inizia</string>
   <string name="main_tooltip_watchlist_title">Osservati speciali</string>
   <string name="main_tooltip_watchlist_text">Trova voci e pagine che hai aggiunto precedentemente alla tua lista di osservati speciali nel menu Altro sotto &lt;b&gt;Osservati speciali&lt;/b&gt;.</string>

@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textColor="?attr/primary_color"
-            android:text="@string/donation_reminders_initial_prompt_title"/>
+            android:textColor="?attr/primary_color"/>
 
         <TextView
             android:id="@+id/messageTextView"
@@ -28,7 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?attr/secondary_color"
-            android:text="@string/donation_reminders_initial_prompt_message"
             android:layout_marginBottom="4dp" />
 
         <com.google.android.flexbox.FlexboxLayout
