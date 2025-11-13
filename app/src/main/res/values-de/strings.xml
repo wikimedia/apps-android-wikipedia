@@ -52,6 +52,7 @@
 * Umherirrender
 * Umlaut
 * Vogone
+* Wangombe
 * Wnme
 * Wolfdietmann
 * Xqt
@@ -1406,8 +1407,6 @@
   <string name="templates_description_missing_data">Dieser Vorlage fehlen &lt;a href=\"%1$s\"&gt;Vorlagendaten&lt;/a&gt;, und ihre Parameter wurden &lt;a href=\"%2$s\"&gt;automatisch generiert&lt;/a&gt;. Infolgedessen fehlen der Vorlage und ihren Parametern Beschreibungen.</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
-  <string name="main_tooltip_text">%s, wusstest du, dass jeder Wikipedia editieren kann?</string>
-  <string name="main_tooltip_text_v2">Wusstest du, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="main_tooltip_action_button">Loslegen</string>
   <string name="main_tooltip_watchlist_title">Beobachtungsliste</string>
   <string name="main_tooltip_watchlist_text">Artikel und Seiten, die du zuvor zu deiner Beobachtungsliste hinzugefügt hast, findest du im Mehr-Menü unter &lt;b&gt;Beobachtungsliste&lt;/b&gt;.</string>
@@ -1956,6 +1955,10 @@
   <string name="year_in_review_slide_top_categories_headline">Deine interessantesten Kategorien</string>
   <string name="year_in_review_slide_top_categories_body">Kategorien fassen Artikel zu ähnlichen Themen zusammen. %1$d hast du Artikel in diesen interessanten Kategorien mehrfach besucht: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Am häufigsten gelesene Artikel der Englischsprachigen Wikipedia</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten — wenden sie sich an Wikipedia. Der %1$d am häufigsten besuchte Artikel der Englischsprachigen Wikipedia war: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
+    <item quantity="other">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten — wenden sie sich an Wikipedia. Die %1$d am häufigsten besuchten Artikel der Englischsprachigen Wikipedia waren: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
+  </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Deine Bearbeitung wurde in letzter Zeit mehr als %,d Mal angesehen</item>
     <item quantity="other">Deine Bearbeitungen wurden in letzter Zeit mehr als %,d Mal angesehen</item>
@@ -1972,6 +1975,10 @@
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="one">%,d Byte hinzugefügt</item>
     <item quantity="other">%,d Bytes hinzugefügt</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">Im Jahr %1$d haben Freiwillige %2$,d Byte zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
+    <item quantity="other">Im Jahr %1$d haben Freiwillige %2$,d Bytes zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Du hast Wikipedia %s Mal bearbeitet</item>
@@ -2073,6 +2080,67 @@
     <item quantity="one">— etwa %1$,d Jahr! — die Englischsprachige Wikipedia %2$d zu lesen.</item>
     <item quantity="other">— etwa %1$,d Jahre! — die Englischsprachige Wikipedia %2$d zu lesen.</item>
   </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">App-Nutzer haben Wikipedia-Artikel %,d Mal aufgerufen</item>
+    <item quantity="other">App-Nutzer haben Wikipedia-Artikel %,d Mal aufgerufen</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Für Menschen auf der ganzen Welt ist Wikipedia die erste Anlaufstelle, wenn es darum geht, eine Frage zu beantworten, Informationen für Schule oder Arbeit nachzuschlagen oder sich neues Wissen anzueignen.</string>
+  <string name="year_in_review_reading_list_dialog_title">Deine Leseliste für den Jahresrückblick %d erstellen?</string>
+  <string name="year_in_review_reading_list_dialog_message">Der Wikipedia-Jahresrückblick erstellt eine Leseliste der Artikel, mit denen du dich %1$d am meisten beschäftigt hast. &lt;a href=\"%2$s\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Erstellen</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nein danke</string>
+  <string name="year_in_review_reading_list_title">Jahresrückblick %d</string>
+  <string name="year_in_review_reading_list_description">Erstellt für %1$s. Artikel, mit denen du dich %2$d am meisten beschäftigt hast.</string>
+  <string name="year_in_review_highlights_thank_you_message">Vielen Dank, dass du dein Jahr mit Wikipedia verbracht hast.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Wir freuen uns auf das nächste Jahr!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">Am häufigsten gelesener Artikel in der Englischsprachigen Wikipedia</item>
+    <item quantity="other">Am häufigsten gelesene Artikel in der Englischsprachigen Wikipedia</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Stunde mit Lesen verbracht</item>
+    <item quantity="other">Stunden mit Lesen verbracht</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Von Autoren vorgenommene Änderung</item>
+    <item quantity="other">Von Autoren vorgenommene Änderungen</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Anzahl des angesehenen Artikels</item>
+    <item quantity="other">Anzahl der angesehenen Artikel</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Bearbeitung in der App</item>
+    <item quantity="other">Bearbeitungen in der App</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Wie oft Wikipedia bearbeitet wurde</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d Mal pro Minute</item>
+    <item quantity="other">%d Mal pro Minute</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Artikel, den ich am häufigsten gelesen habe</item>
+    <item quantity="other">Artikel, die ich am häufigsten gelesen habe</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minute gelesen</item>
+    <item quantity="other">Minuten gelesen</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Lieblings-Lesetag</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Artikel gelesen</item>
+    <item quantity="other">Artikel gelesen</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Kategorie, die mich interessiert</item>
+    <item quantity="other">Kategorien, die mich interessieren</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">Artikel bearbeitet</item>
+    <item quantity="other">Artikel bearbeitet</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Highlights teilen</string>
+  <string name="year_in_review_highlights_logo_description">Wikipedia-Logo</string>
   <string name="recommended_reading_list_title">Entdecken</string>
   <string name="recommended_reading_list_onboarding_card_title">Entdecke für dich ausgewählte Artikel</string>
   <string name="recommended_reading_list_onboarding_card_message">Deine wöchentliche Leseliste mit Wikipedia-Artikeln, nur für dich zusammengestellt.</string>
@@ -2130,9 +2198,63 @@
   <string name="recommended_reading_list_settings_updates_frequency_monthly">monatlich</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Täglich</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Jede Woche</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Jeden Monat</string>
   <string name="recommended_reading_list_settings_updates_base_title">Wie \"Entdecken\" erstellt wird</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Basierend auf deinen Interessen</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Basierend auf deinen gespeicherten Artikeln</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Basierend auf deinem Leseverlauf</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_title">Anpassen, wie \"Entdecken\" erstellt wurde?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Wenn du die Art und Weise änderst, wie Empfehlungen generiert werden, werden deine aktuellen Empfehlungen ersetzt.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Anpassen</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Egal</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Deine Empfehlungen basieren nun auf deinen Interessen.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">Deine Empfehlungen basieren nun auf deinen gespeicherten Artikeln.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">Deine Empfehlungen basieren nun auf deiner Lesehistorie.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Rückgängig</string>
+  <string name="recommended_reading_list_settings_interests">Interessen</string>
+  <string name="recommended_reading_list_settings_notifications_title">Benachrichtigungen</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedia sendet dir keine Benachrichtigung, wenn Empfehlungen aktualisiert werden.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Benachrichtigungen für Empfehlungen sind deaktiviert. Du erhältst keine Benachrichtigung, wenn Empfehlungen aktualisiert werden.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Benachrichtigungen deaktivieren?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Wenn du die Benachrichtigungen deaktivierst, erhältst du keine Erinnerungen mehr, wenn Empfehlungen aktualisiert werden.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Deaktivieren</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nein, aktiviert lassen</string>
+  <string name="recommended_reading_list_notification_title">Deine %s Empfehlungs-Leseliste ist fertig.</string>
+  <string name="recommended_reading_list_notification_subtitle">Tippe, um deine neuesten Empfehlungen zu sehen.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Wenn deine Empfehlungen aktualisiert werden, erhältst du von Wikipedia eine Benachrichtigung.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Empfehlungen sind aktiviert. Wikipedia empfiehlt dir Artikel zum Lesen.</string>
+  <string name="donation_reminders_initial_prompt_label">Experiment</string>
+  <string name="donation_reminders_initial_prompt_title">Unterstütze Wikipedia, während du liest</string>
+  <string name="donation_reminders_initial_prompt_message">Richte eine Spendenerinnerung basierend auf der Anzahl der von dir gelesenen Artikel ein, um Wikipedia werbefrei, aktuell und für alle verfügbar zu halten.</string>
+  <string name="donation_reminders_initial_prompt_positive_button">Anfangen</string>
+  <string name="donation_reminders_initial_prompt_negative_button">Nicht jetzt</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Spendenerinnerungen können jederzeit in den Einstellungen angepasst werden.</string>
+  <string name="donation_settings_section_header">Spenden</string>
+  <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
+  <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 % der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
+  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
+  <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Über dieses Experiment</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">Artikel</string>
+  <string name="donation_reminders_settings_warning_min_amount">Bitte gib mindestens %s ein</string>
+  <string name="donation_reminders_settings_warning_max_amount">Es sind maximal %s erlaubt</string>
+  <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
+  <string name="donation_reminders_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
+  <string name="donation_reminders_prompt_message">Am %1$s hast du uns gebeten, dich nach dem Lesen von %2$s daran zu erinnern, zu spenden. Wenn dir Wikipedia Wissen für %3$s vermittelt hat, gehöre bitte zu den 2 % der Leser, die spenden, und erfülle deine Zusage noch heute.</string>
+  <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
+  <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>
+  <string name="donation_reminders_gpay_text">Mit Google Pay %s spenden</string>
+  <string name="donation_reminders_gpay_different_amount_text">Mit Google Pay einen anderen Betrag spenden</string>
+  <string name="donation_reminders_survey_dialog_title">Hilf mit, Spendenerinnerungen zu verbessern.</string>
+  <string name="donation_reminders_survey_dialog_message">Bist du mit dieser Erfahrung zufrieden?</string>
+  <string name="donation_reminders_settings_description_on">Spendenerinnerungen sind aktiviert. Wikipedia erinnert dich während der Laufzeit dieses Experiments alle %2$s, die du liest, daran, %1$s zu spenden.</string>
+  <string name="donation_reminders_settings_description_off">Spendenerinnerungen sind deaktiviert.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Die Anzahl der Artikel wird lokal auf deinem Gerät gespeichert</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d Artikel</item>
+    <item quantity="other">%d Artikel</item>
+  </plurals>
 </resources>

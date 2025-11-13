@@ -1372,8 +1372,6 @@
   <string name="templates_description_missing_data">Tästä mallineesta puuttuu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, joten sen parametrit on &lt;a href=\"%2$s\"&gt;luotu automaattisesti&lt;/a&gt;. Tämän vuoksi mallineelta ja sen parametreilta puuttuvat kuvaukset.</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="main_tooltip_text">Hei %s, tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
-  <string name="main_tooltip_text_v2">Tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="main_tooltip_watchlist_title">Tarkkailulista</string>
   <string name="main_tooltip_watchlist_text">Tutustu viimeksi tarkkailulistalle lisäämäsi artikkeleihin valitsemalla Lisää-valikko ja &lt;b&gt;Tarkkailulista&lt;/b&gt;.</string>

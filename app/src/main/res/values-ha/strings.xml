@@ -1193,8 +1193,6 @@
   <string name="insert_media_insert_button">Saka</string>
   <string name="main_drawer_help">Taimako</string>
   <string name="main_drawer_login">Shiga / shiga Wikipedia</string>
-  <string name="main_tooltip_text">Hi %s, shin kun san cewa kowa zai iya gyara Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Shin kun san cewa kowa zai iya gyara Wikipedia?</string>
   <string name="main_tooltip_action_button">Fara</string>
   <string name="main_tooltip_watchlist_title">Jerina na bin sawu</string>
   <string name="main_tooltip_watchlist_text">Neman labarai da shafuka da ka kara a baya a cikin jerin abubuwan kallo a cikin More menu a ƙarƙashin Watchlist.</string>
