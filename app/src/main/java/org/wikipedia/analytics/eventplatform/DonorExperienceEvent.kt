@@ -33,20 +33,14 @@ open class DonorExperienceEvent {
             campaignId: String? = null,
             articleFrequency: Int? = null,
             donateAmount: Float? = null,
-            settingSelect: Boolean? = null,
-            feedbackSelect: Int? = null,
-            feedbackText: String? = null,
-            userGroup: String? = null
+            settingSelect: Boolean? = null
         ) {
             val actionData = DonationRemindersActionData(
                 defaultMilestone = defaultMilestone,
                 campaignId = campaignId?.let { CampaignCollection.getFormattedCampaignId(campaignId) },
                 articleFrequency = articleFrequency,
                 donateAmount = donateAmount,
-                settingSelect = settingSelect,
-                feedbackSelect = feedbackSelect,
-                feedbackText = feedbackText,
-                userGroup = userGroup
+                settingSelect = settingSelect
             )
             submit(
                 action,
@@ -82,8 +76,6 @@ open class DonorExperienceEvent {
         @SerialName("read_freq") val articleFrequency: Int? = null,
         @SerialName("donate_amount") val donateAmount: Float? = null,
         @SerialName("setting_select") val settingSelect: Boolean? = null,
-        @SerialName("feedback_select") val feedbackSelect: Int? = null,
-        @SerialName("feedback_text") val feedbackText: String? = null,
         @SerialName("user_group") val userGroup: String? = null
     )
 }

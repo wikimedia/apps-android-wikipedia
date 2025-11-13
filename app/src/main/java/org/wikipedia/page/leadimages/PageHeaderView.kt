@@ -25,8 +25,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     interface Callback {
         fun onImageClicked()
         fun onCallToActionClicked()
-        fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) // TODO: remove after the experiment
-        fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) // TODO: remove after the experiment
+        fun donationReminderCardPositiveClicked()
+        fun donationReminderCardNegativeClicked()
     }
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
@@ -121,54 +121,30 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         Prefs.donationReminderConfig.let { config ->
-            val isInitialPrompt = DonationReminderHelper.maybeShowInitialDonationReminder(false)
-            val labelText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminders_initial_prompt_label)
+            val articleText = context.resources.getQuantityString(
+                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
+            )
+            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            val titleText = if (config.goalReachedCount == 1) {
+                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
             } else {
-                null
+                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
             }
-            val titleText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminders_initial_prompt_title)
-            } else {
-                val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-                )
-                val donationAmount =
-                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                context.getString(R.string.donation_reminders_prompt_title, articleText, donationAmount)
-            }
-            val messageText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminders_initial_prompt_message)
-            } else {
-                val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
-                val articleText = context.resources.getQuantityString(
-                    R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-                )
-                val donationAmount =
-                    DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-                context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
-            }
-            val positiveButtonText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminders_initial_prompt_positive_button)
-            } else {
-                context.getString(R.string.donation_reminders_prompt_positive_button)
-            }
-            val negativeButtonText = if (isInitialPrompt) {
-                context.getString(R.string.donation_reminders_initial_prompt_negative_button)
-            } else {
-                context.getString(R.string.donation_reminders_prompt_negative_button)
-            }
-            binding.donationReminderCardView.setLabel(labelText)
+
+            val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
+            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
+            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
+            val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
             binding.donationReminderCardView.setTitle(titleText)
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
-                callback?.donationReminderCardPositiveClicked(isInitialPrompt)
-                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
+                callback?.donationReminderCardPositiveClicked()
+                DonationReminderHelper.donationReminderDismissed()
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
-                callback?.donationReminderCardNegativeClicked(isInitialPrompt)
+                callback?.donationReminderCardNegativeClicked()
                 binding.donationReminderCardView.isVisible = false
-                if (!isInitialPrompt && Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
+                if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
                     // Give the user one more chance to see the donation reminder
                     Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
                         finalPromptCount = 1,
@@ -176,7 +152,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                     )
                     return@setNegativeButton
                 }
-                DonationReminderHelper.donationReminderDismissed(isInitialPrompt)
+                DonationReminderHelper.donationReminderDismissed()
             }
 
             binding.donationReminderCardView.isVisible = true
@@ -198,14 +174,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         if (!DonationReminderHelper.hasActiveReminder) {
             return
         }
-        val canShowInitialDonationReminder = DonationReminderHelper.maybeShowInitialDonationReminder(true)
         val canShowFinalDonationReminder = DonationReminderHelper.maybeShowDonationReminder(true)
-        if (canShowInitialDonationReminder) {
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_start",
-                action = "impression"
-            )
-        }
 
         if (canShowFinalDonationReminder) {
             DonorExperienceEvent.logDonationReminderAction(
@@ -213,6 +182,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 action = "impression"
             )
         }
-        binding.donationReminderCardView.isVisible = canShowInitialDonationReminder || canShowFinalDonationReminder
+        binding.donationReminderCardView.isVisible = canShowFinalDonationReminder
     }
 }

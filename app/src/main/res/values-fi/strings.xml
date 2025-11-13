@@ -1975,7 +1975,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Sallittu enimmäismäärä on %s</string>
   <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
-  <string name="donation_reminders_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s pyysit meitä muistuttamaan sinua lahjoituksesta luettuasi %2$s. Jos Wikipedia on tarjonnut sinulle %3$s arvosta tietoa, liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat ja täytä lupauksesi tänään.</string>
   <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
   <string name="donation_reminders_prompt_negative_button">Ei nyt</string>

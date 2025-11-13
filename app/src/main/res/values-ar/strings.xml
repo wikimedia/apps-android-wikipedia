@@ -2411,7 +2411,7 @@
   <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
   <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
-  <string name="donation_reminders_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
   <string name="donation_reminders_prompt_message">في %1$s ، طلبتَ منا تذكيرك بالتبرع بعد قراءة %2$s . إذا زودتك ويكيبيديا بـ %3$s من المعرفة، فنرجو منك الانضمام إلى الـ 2%% من القراء المتبرعين وإتمام تبرعك اليوم.</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
