@@ -1262,8 +1262,6 @@
   <string name="templates_description_missing_data">Dán málles váilu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, ja dan parameterat leat &lt;a href=\"%2$s\"&gt;autoráhkaduvvon&lt;/a&gt;. Dát dagaha ahte málles ja paramehteriin váilot čilgehusat.</string>
   <string name="main_drawer_help">Veahkki</string>
   <string name="main_drawer_login">Čálit sisa / searvva Wikipediai</string>
-  <string name="main_tooltip_text">Bures %s, dihtet go don ahte vaikko gii sáhttá rievdadit Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Dihtet go ahte vaikko gii sáhttá rievdadit Wikipedias?</string>
   <string name="main_tooltip_action_button">Boađe johtui</string>
   <string name="main_tooltip_watchlist_title">Čuovvunlistu</string>
   <string name="main_tooltip_watchlist_text">Gávnnat artihkkaliid ja siidduid mat ovdal leat bidjan iežat čuovvunlistui, fálus nammaduvvon «Eambbo», &lt;b&gt;Čuovvunlisttu&lt;/b&gt; vuolde.</string>

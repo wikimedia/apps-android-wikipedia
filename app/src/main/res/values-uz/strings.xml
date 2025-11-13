@@ -1203,8 +1203,6 @@
   <string name="insert_media_insert_button">Qoʻyish</string>
   <string name="main_drawer_help">Yordam</string>
   <string name="main_drawer_login">Vikipediaga kirmoq</string>
-  <string name="main_tooltip_text">Salom %s, Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
-  <string name="main_tooltip_text_v2">Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="main_tooltip_action_button">Boshladik</string>
   <string name="main_tooltip_watchlist_title">Kuzatuv roʻyxati</string>
   <string name="main_tooltip_watchlist_text">Oldin kuzatuv roʻyxatiga qoʻshgan maqolalar va sahifalarni izlab topish uchun Qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxati&lt;/b&gt; boʻlimini tanlang.</string>

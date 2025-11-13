@@ -1234,7 +1234,7 @@
   <string name="activity_tab_onboarding_stay_in_control_title">Title for the section about privacy and control.</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
   <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
-  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app.</string>
+  <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app. \"Suggested Edits\" is {{msg-wm|Wikipedia-android-strings-suggested edits feed card title}}</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1974,10 +1974,7 @@
   <string name="year_in_review_highlights_logged_in_minutes_read_title">Title of the second highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Title of the third highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_read_title">Title of the fourth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
-  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
-    <item quantity="one">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</item>
-    <item quantity="other">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</item>
-  </plurals>
+  <string name="year_in_review_highlights_logged_in_articles_interested_categories_title">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_edited_articles_title">Title of the sixth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_share_button_title">Title for the button that shares the Highlights screen.</string>
   <string name="year_in_review_highlights_logo_description">Text for for the Wikipedia logo in year-in-review highlights.</string>

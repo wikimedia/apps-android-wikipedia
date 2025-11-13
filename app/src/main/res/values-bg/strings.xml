@@ -1178,8 +1178,6 @@
   <string name="templates_learn_more_link">Научете повече</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
-  <string name="main_tooltip_text">Здравейте %s, знаехте ли, че всеки може да редактира Уикипедия?</string>
-  <string name="main_tooltip_text_v2">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Начало</string>
   <string name="main_tooltip_watchlist_title">Списък за наблюдение</string>
   <string name="main_tooltip_watchlist_text">Намерете статии и страници, които преди сте добавили към вашия списък за наблюдение, в менюто Още под &lt;b&gt;Списък за наблюдение&lt;/b&gt;.</string>

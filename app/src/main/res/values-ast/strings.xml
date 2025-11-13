@@ -783,7 +783,6 @@
   <string name="wikitext_preview_link">Entever enllaz</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Aniciar sesión / xunise a Wikipedia</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, ¿sabíes que toos puen editar Wikipedia?</string>
   <string name="main_tooltip_action_button">Primeros pasos</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_ok_button_text">Aceutar</string>

@@ -855,8 +855,6 @@
   <string name="wikitext_preview_link">Pretpregled poveznice</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavite se na Wikipediju / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text">Pozdrav, %s, jeste li znali da svatko može uređivati Wikipediju?</string>
-  <string name="main_tooltip_text_v2">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="main_tooltip_action_button">Krenimo</string>
   <string name="main_tooltip_watchlist_title">Popis praćenih stranica</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>

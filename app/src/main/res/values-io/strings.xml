@@ -1098,8 +1098,6 @@
   <string name="insert_media_insert_button">Insertar</string>
   <string name="main_drawer_help">Helpo</string>
   <string name="main_drawer_login">Enirar / partoprenar Wikipedio</string>
-  <string name="main_tooltip_text">Saluto, %s! Ka tu savis ke omni povas redaktar Wikipedio?</string>
-  <string name="main_tooltip_text_v2">Ka tu savis ke omni povas redaktar Wikipedio?</string>
   <string name="main_tooltip_action_button">Quale komencar</string>
   <string name="main_tooltip_watchlist_title">Surveyaji</string>
   <string name="main_tooltip_watchlist_text">Serchez artikli e pagini quin vu antee adjuntis a vua surveyo-listo en la menuo \"Pluse\" (\'\'More\'\') sub la &lt;b&gt;Listo di surveyado&lt;/b&gt;.</string>

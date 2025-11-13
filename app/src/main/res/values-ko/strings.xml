@@ -1289,8 +1289,6 @@
   <string name="templates_description_missing_data">이 틀은 &lt;a href=\"%1$s\"&gt;틀 데이터&lt;/a&gt;가 없어졌으며, 그 매개 변수는 &lt;a href=\"%2$s\"&gt;자동 생성&lt;/a&gt;되었습니다. 그 결과, 틀과 그 매개 변수는 설명이 부족하다.</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="main_tooltip_text">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
-  <string name="main_tooltip_text_v2">당신은 누구나 위키백과를 편집할 수 있다는 것을 알고 계셨나요?</string>
   <string name="main_tooltip_action_button">시작하기</string>
   <string name="main_tooltip_watchlist_title">주시문서 목록</string>
   <string name="main_tooltip_watchlist_text">이전에 주시문서 목록에 추가한 글과 페이지는 &lt;b&gt;주시문서 목록&lt;/b&gt;의 더 보기 메뉴에서 보십시오.</string>
