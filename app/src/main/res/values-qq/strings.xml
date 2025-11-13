@@ -2054,11 +2054,6 @@
   <string name="recommended_reading_list_notification_subtitle">Shortened subtitle for the notification when the topic list is short.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Subtitle explaining that notifications for the recommended reading list are turned on.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Message displayed below the toggle when recommended reading list is enabled.</string>
-  <string name="donation_reminders_initial_prompt_label">Label text for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_title">Title for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_message">Message for the donation reminder initial prompt.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Positive button for the donation reminder initial prompt that takes the users to the donation reminder setting screen.</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Negative button for the donation reminder initial prompt to close the prompt.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Snackbar message that indicates the donation reminder is available in the Settings screen.</string>
   <string name="donation_settings_section_header">Text of the section in the settings screen for donation.</string>
   <string name="donation_reminders_settings_title">Title of the donations reminder feature in the settings screen.</string>
@@ -2088,4 +2083,8 @@
   <string name="donation_reminders_text_articles">Indicating the number of articles that was set by the user. %d is replaced by the count.</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">No thanks button label for the donation reminders settings screen.</string>
   <string name="donation_reminders_experiment_label">Experiment lable for the donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_learn_more_button">Button text for overflow menu option that opens the learn more page.</string>
+  <string name="donation_reminders_settings_report_button">Menu label for providing feedback on the overflow menu in the Donation reminders settings screen.</string>
+  <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
+  <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
 </resources>
