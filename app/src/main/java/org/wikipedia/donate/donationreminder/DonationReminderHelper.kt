@@ -20,7 +20,7 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
-    val isInEligibleCountry get() = enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
+    private val isInEligibleCountry get() = enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
@@ -103,7 +103,7 @@ object DonationReminderHelper {
                     finalPromptActive = true,
                     finalPromptCount = 0,
                     articleVisit = 0,
-                    cycleCount = config.cycleCount + 1
+                    goalReachedCount = config.goalReachedCount + 1
                 )
             }
         }
@@ -120,5 +120,5 @@ data class DonationReminderConfig(
     val articleVisit: Int = 0,
     val articleFrequency: Int = 0,
     val donateAmount: Float = 0f,
-    val cycleCount: Int = 0
+    val goalReachedCount: Int = 0
 )

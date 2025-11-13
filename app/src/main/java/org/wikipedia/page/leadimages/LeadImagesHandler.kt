@@ -222,8 +222,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     activeInterface = "reminder_milestone",
                     action = "notnow_click"
                 )
-                val context = parentFragment.requireContext()
-                FeedbackUtil.makeSnackbar(parentFragment.requireActivity(), context.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                val context = parentFragment.requireActivity()
+                FeedbackUtil.makeSnackbar(context, context.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
                     .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
                         parentFragment.requireActivity().startActivity(DonationReminderActivity.newIntent(context))
                     }.show()

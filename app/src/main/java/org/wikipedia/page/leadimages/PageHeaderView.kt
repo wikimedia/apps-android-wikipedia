@@ -125,7 +125,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
             val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-            val titleText = if (config.cycleCount == 1) {
+            val titleText = if (config.goalReachedCount == 1) {
                 context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
             } else {
                 context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
