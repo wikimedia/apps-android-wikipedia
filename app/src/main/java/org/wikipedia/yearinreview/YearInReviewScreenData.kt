@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -45,11 +44,12 @@ fun Modifier.yearInReviewHeaderBackground(): Modifier {
     return this.background(
         brush = Brush.linearGradient(
             colorStops = arrayOf(
-                0.265f to Color(0xFF0D0D0D),
-                0.385f to Color(0xFF092D60),
-                0.515f to Color(0xFF1171C8),
-                0.585f to Color(0xFF3DB2FF),
-                0.775f to Color(0xFFD3F1F3)
+                0.125f to Color(0xFF171717),
+                0.225f to Color(0xFF003F45),
+                0.285f to Color(0xFF00807A),
+                0.440f to Color(0xFF2AECA6),
+                0.525f to Color(0xFF86FFAC),
+                0.650f to Color(0xFFFFFFFF)
             ),
             start = Offset(0f, 0f),
             end = Offset(0f, Float.POSITIVE_INFINITY)
@@ -59,7 +59,8 @@ fun Modifier.yearInReviewHeaderBackground(): Modifier {
 
 sealed class YearInReviewScreenData(
     val allowDonate: Boolean = true,
-    val showDonateInToolbar: Boolean = true
+    val showDonateInToolbar: Boolean = true,
+    val slideName: String
 ) {
 
     @Composable
@@ -68,13 +69,17 @@ sealed class YearInReviewScreenData(
 
     open class StandardScreen(
         allowDonate: Boolean = true,
-        val animatedImageResource: Int = 0,
+        val imageResource: Int = 0,
+        val imageModifier: Modifier = Modifier.size(200.dp),
         val headlineText: Any? = null,
         val bodyText: Any? = null,
+        slideName: String,
         showDonateInToolbar: Boolean = true
-    ) : YearInReviewScreenData(allowDonate, showDonateInToolbar) {
-
-        open val imageModifier = Modifier.fillMaxSize()
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        showDonateInToolbar = showDonateInToolbar,
+        slideName = slideName
+    ) {
 
         @Composable
         open fun Header(context: Context,
@@ -94,7 +99,7 @@ sealed class YearInReviewScreenData(
                 ) {
                     SubcomposeAsyncImage(
                         model = ImageRequest.Builder(context)
-                            .data(animatedImageResource)
+                            .data(imageResource)
                             .allowHardware(false)
                             .build(),
                         loading = { LoadingIndicator() },
@@ -126,51 +131,58 @@ sealed class YearInReviewScreenData(
         val highlightColor: Color = ComposeColors.Gray700
     )
 
-    data class HighlightsScreen(
-        val highlights: List<HighlightItem>
-    ) : YearInReviewScreenData()
+    open class HighlightsScreen(
+        val highlights: List<HighlightItem>,
+        val screenshotUrl: String,
+        slideName: String
+    ) : YearInReviewScreenData(
+        slideName = slideName
+    )
 
-    class GeoScreen(
+    open class GeoScreen(
         allowDonate: Boolean = true,
-        val largestClusterLatitude: Double,
-        val largestClusterLongitude: Double,
         val largestClusterTopLeft: Pair<Double, Double>,
         val largestClusterBottomRight: Pair<Double, Double>,
         val pagesWithCoordinates: List<HistoryEntryWithImage>,
         val headlineText: String? = null,
-        val bodyText: String? = null
-    ) : YearInReviewScreenData(allowDonate)
+        val bodyText: String? = null,
+        slideName: String
+    ) : YearInReviewScreenData(
+        allowDonate = allowDonate,
+        slideName = slideName
+    )
 
     class ReadingPatterns(
         allowDonate: Boolean = true,
-        animatedImageResource: Int = 0,
+        imageResource: Int = 0,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val favoriteTimeText: String,
         val favoriteDayText: String,
-        val favoriteMonthText: String
+        val favoriteMonthText: String,
     ) : StandardScreen(
         allowDonate,
-        animatedImageResource = animatedImageResource,
+        imageResource = imageResource,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName
     )
 
     class CustomIconScreen(
         allowDonate: Boolean = true,
         headlineText: Any? = null,
         bodyText: Any? = null,
+        slideName: String,
         val showDonateButton: Boolean = false
     ) : StandardScreen(
         allowDonate = allowDonate,
-        animatedImageResource = R.drawable.launcher_foreground_yir25,
+        imageResource = R.drawable.launcher_foreground_yir25,
         headlineText = headlineText,
         bodyText = bodyText,
+        slideName = slideName,
         showDonateInToolbar = !showDonateButton
     ) {
-
-        override val imageModifier: Modifier = Modifier.size(200.dp)
-
         @Composable
         override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
             if (showDonateButton) {
@@ -207,7 +219,9 @@ private fun CustomIconScreenHeaderPreview() {
         Box(
             modifier = Modifier.size(400.dp, 300.dp)
         ) {
-            CustomIconScreen().Header(
+            CustomIconScreen(
+                slideName = "test"
+            ).Header(
                 context = LocalContext.current,
                 screenCaptureMode = false,
                 aspectRatio = 1f
@@ -223,7 +237,11 @@ private fun CustomIconScreenButtonPreview() {
         Box(
             modifier = Modifier.size(400.dp, 200.dp)
         ) {
-            CustomIconScreen(allowDonate = true, showDonateButton = true).BottomButton(
+            CustomIconScreen(
+                allowDonate = true,
+                showDonateButton = true,
+                slideName = "test"
+            ).BottomButton(
                 context = LocalContext.current,
                 onButtonClick = {}
             )

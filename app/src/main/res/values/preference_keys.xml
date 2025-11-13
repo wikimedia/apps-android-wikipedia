@@ -92,7 +92,6 @@
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
-    <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
@@ -174,7 +173,6 @@
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
     <string name="preference_key_otd_notification_state">otdNotificationState</string>
     <string name="preference_key_otd_game_first_played_shown">otdGameFirstPlayedShown</string>
-    <string name="preference_key_activity_tab_red_dot_shown">activityTabRedDotShown</string>
     <string name="preference_key_impact_last_query_time">impactLastQueryTime</string>
     <string name="preference_key_impact_last_response_body">impactLastResponseBody</string>
     <string name="preference_key_default_places_location_latlng">placesDefaultLocationLatLng</string>
@@ -206,5 +204,7 @@
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data">yirModelData</string>
+    <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
+    <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
 
 </resources>

@@ -1268,8 +1268,6 @@
   <string name="templates_description_empty">Templat %s belum memiliki deskripsi.</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Masuk log / gabung ke Wikipedia</string>
-  <string name="main_tooltip_text">Halo %s, tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="main_tooltip_action_button">Memulai</string>
   <string name="main_tooltip_watchlist_title">Daftar pantauan</string>
   <string name="main_tooltip_watchlist_text">Temukan artikel dan halaman yang sebelumnya Anda tambahkan ke daftar pantauan Anda di menu Lainnya di bawah &lt;b&gt;Daftar Pantauan&lt;/b&gt;.</string>

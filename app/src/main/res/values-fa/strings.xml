@@ -1249,8 +1249,6 @@
   <string name="templates_insert_button">درج</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
-  <string name="main_tooltip_text_v2">آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_action_button">شروع کن</string>
   <string name="main_tooltip_watchlist_title">فهرست پیگیری</string>
   <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پیگیری&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پیگیری‌‌تان افزودید را بیابید.</string>

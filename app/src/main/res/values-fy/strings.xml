@@ -896,8 +896,6 @@
   <string name="wikitext_preview_link">Proefbyld keppeling</string>
   <string name="main_drawer_help">Help</string>
   <string name="main_drawer_login">Oanmelde / kom by de Wikipedy</string>
-  <string name="main_tooltip_text">Goeie, %s. Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
-  <string name="main_tooltip_text_v2">Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
   <string name="main_tooltip_action_button">Begjinne</string>
   <string name="main_tooltip_watchlist_title">Folchlist</string>
   <string name="main_tooltip_watchlist_text">Fyn de siden werom dy\'t jo op jo folchlist set hawwe, yn it Mear-menu ûnder &lt;b&gt;Folchlist&lt;/b&gt;.</string>

@@ -960,8 +960,6 @@
   <string name="templates_description_incomplete">Templat tersebut dijana oleh pengguna dan mungkin kekurangan penerangan yang lengkap.</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Log masuk / gabung Wikipedia</string>
-  <string name="main_tooltip_text">%s, tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
   <string name="main_tooltip_action_button">Mulakan</string>
   <string name="main_tooltip_watchlist_title">Senarai pantau</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

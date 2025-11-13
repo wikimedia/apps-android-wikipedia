@@ -393,10 +393,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_description_edit_success_prompt, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_description_edit_success_prompt, value)
 
-    var showSuggestedEditsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
-
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -835,10 +831,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
-    var activityTabRedDotShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
-
     var impactLastQueryTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
@@ -871,4 +863,12 @@ object Prefs {
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
+
+    var yearInReviewReadingListVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
+
+    var yearInReviewReadingListSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
 }

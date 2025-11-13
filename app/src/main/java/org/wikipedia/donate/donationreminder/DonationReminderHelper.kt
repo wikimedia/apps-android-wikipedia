@@ -1,15 +1,9 @@
 package org.wikipedia.donate.donationreminder
 
 import android.app.Activity
-import android.widget.ScrollView
-import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
-import org.wikipedia.auth.AccountUtil
-import org.wikipedia.databinding.DialogFeedbackOptionsBinding
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -19,32 +13,22 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val CAMPAIGN_ID = "appmenu_reminder"
-    const val MAX_INITIAL_REMINDER_PROMPTS = 5
     const val MAX_REMINDER_PROMPTS = 2
     private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
+
+    private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
-        "IT"
+        "GB", "AU", "CA"
     )
+    private val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
 
-    private val enabledLanguages = listOf(
-        "it", "en"
-    )
+    val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
-    val currencyAmountPresets = mapOf(
-        "IT" to listOf(1f, 2f, 3f)
-    )
-
-    val defaultReadFrequencyOptions = listOf(5, 10, 15)
-
-    // TODO: update the end date when before release to production for 30-day experiment
     val isEnabled
-        get() = ReleaseUtil.isDevRelease ||
-                (enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty()) &&
-                        enabledLanguages.contains(WikipediaApp.Companion.instance.languageState.appLanguageCode) &&
-                        LocalDate.now() <= LocalDate.of(2025, 9, 26) && !AccountUtil.isLoggedIn)
+        get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
+                        LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.initialPromptActive ||
-            (Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive)
+    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
@@ -61,7 +45,7 @@ object DonationReminderHelper {
 
     fun maybeShowSettingSnackbar(activity: Activity) {
         if (shouldShowSettingSnackbar) {
-            FeedbackUtil.makeNavigationAwareSnackbar(activity, thankYouMessageForSettings()).show()
+            FeedbackUtil.showMessage(activity, thankYouMessageForSettings())
             shouldShowSettingSnackbar = false
         }
     }
@@ -83,33 +67,9 @@ object DonationReminderHelper {
         }
     }
 
-    fun donationReminderDismissed(isInitialPrompt: Boolean) {
+    fun donationReminderDismissed() {
         val config = Prefs.donationReminderConfig
-        Prefs.donationReminderConfig = if (isInitialPrompt) {
-            config.copy(initialPromptActive = false)
-        } else {
-            config.copy(finalPromptActive = false)
-        }
-    }
-
-    fun maybeShowInitialDonationReminder(update: Boolean = false): Boolean {
-        if (!isEnabled) return false
-        return Prefs.donationReminderConfig.let { config ->
-            val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
-            if (config.setupTimestamp > 0L || !config.initialPromptActive ||
-                config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS ||
-                daysOfLastSeen <= 0
-            ) {
-                return@let false
-            }
-            if (update) {
-                Prefs.donationReminderConfig = config.copy(
-                    initialPromptCount = config.initialPromptCount + 1,
-                    promptLastSeen = LocalDate.now().toEpochDay()
-                )
-            }
-            return true
-        }
+        Prefs.donationReminderConfig = config.copy(finalPromptActive = false)
     }
 
     fun maybeShowDonationReminder(update: Boolean = false): Boolean {
@@ -137,108 +97,15 @@ object DonationReminderHelper {
     private fun activateDonationReminder() {
         Prefs.donationReminderConfig.let { config ->
             if (config.articleVisit > 0 && config.articleFrequency > 0 &&
-                config.articleVisit % config.articleFrequency == 0 &&
-                !config.initialPromptActive) {
+                config.articleVisit % config.articleFrequency == 0) {
                 // When reaching the article frequency, activate the reminder and reset the count and visits
                 Prefs.donationReminderConfig = config.copy(
                     finalPromptActive = true,
                     finalPromptCount = 0,
-                    articleVisit = 0
+                    articleVisit = 0,
+                    goalReachedCount = config.goalReachedCount + 1
                 )
             }
-        }
-    }
-
-    fun maybeShowSurveyDialog(activity: Activity) {
-        if (!isEnabled) return
-
-        val config = Prefs.donationReminderConfig
-        if (config.isSurveyShown) return
-
-        // when user sets up the reminder
-        val hasSetupReminder = config.donateAmount > 0 && config.articleFrequency > 0
-        if (hasSetupReminder) {
-            val userGroup = getUserGroup()
-            when (userGroup) {
-                "A" -> {
-                    // Group A: Show survey on next article visit after setting up reminder
-                    showFeedbackOptionsDialog(activity, "reminder_setup_next_article")
-                }
-                "B" -> {
-                    // Group B: Show survey on the next article visit after seeing reminder impressions
-                    if (config.finalPromptCount >= 1) {
-                        showFeedbackOptionsDialog(activity, "reminder_impression_next_article")
-                    }
-                }
-            }
-            return
-        }
-
-        // User has not taken any action on the initial prompt
-        // Show survey on next article visit if this continues for continuous 5 times
-        if (config.initialPromptCount >= MAX_INITIAL_REMINDER_PROMPTS) {
-            showFeedbackOptionsDialog(activity, "impression_next_article")
-            return
-        }
-    }
-
-    private fun getUserGroup(): String {
-        return if (Prefs.appInstallId.hashCode() % 2 == 0) "A" else "B"
-    }
-
-    private fun showFeedbackOptionsDialog(activity: Activity, userGroup: String) {
-        val binding = DialogFeedbackOptionsBinding.inflate(activity.layoutInflater)
-        binding.titleText.text = activity.getString(R.string.donation_reminders_survey_dialog_title)
-        binding.messageText.text = activity.getString(R.string.donation_reminders_survey_dialog_message)
-        binding.feedbackInputContainer.isVisible = true
-
-        val dialog = AlertDialog.Builder(activity)
-            .setView(binding.root)
-            .setCancelable(false)
-            .create()
-
-        binding.cancelButton.setOnClickListener {
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_feedback",
-                action = "feedback_close_click",
-                userGroup = userGroup
-            )
-            dialog.dismiss()
-        }
-        binding.submitButton.setOnClickListener {
-            val selectedOption = getSelectedOption(binding)
-            val feedbackText = binding.feedbackInput.text.toString()
-            DonorExperienceEvent.logDonationReminderAction(
-                activeInterface = "reminder_feedback",
-                action = "feedback_submit_click",
-                feedbackSelect = selectedOption,
-                feedbackText = feedbackText,
-                userGroup = userGroup
-            )
-            dialog.dismiss()
-        }
-
-        binding.feedbackInput.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.dialogContainer.postDelayed({
-                    if (!activity.isDestroyed) {
-                        binding.dialogContainer.fullScroll(ScrollView.FOCUS_DOWN)
-                    }
-                }, 200)
-            }
-        }
-        DonorExperienceEvent.logDonationReminderAction(activeInterface = "reminder_feedback", action = "impression", userGroup = userGroup)
-        dialog.show()
-        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isSurveyShown = true)
-    }
-
-    private fun getSelectedOption(binding: DialogFeedbackOptionsBinding): Int? {
-        val selectedId = binding.feedbackRadioGroup.checkedRadioButtonId
-        return when (selectedId) {
-            R.id.optionSatisfied -> 1
-            R.id.optionNeutral -> 2
-            R.id.optionUnsatisfied -> 3
-            else -> null
         }
     }
 }
@@ -246,14 +113,12 @@ object DonationReminderHelper {
 @Serializable
 data class DonationReminderConfig(
     val isEnabled: Boolean = false,
-    val initialPromptCount: Int = 0,
-    val initialPromptActive: Boolean = true,
     val finalPromptCount: Int = 0,
     val finalPromptActive: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
-    val isSurveyShown: Boolean = false,
     val articleFrequency: Int = 0,
-    val donateAmount: Float = 0f
+    val donateAmount: Float = 0f,
+    val goalReachedCount: Int = 0
 )

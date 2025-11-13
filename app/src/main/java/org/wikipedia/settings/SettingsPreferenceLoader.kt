@@ -12,6 +12,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.donate.DonateUtil
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
@@ -28,7 +29,6 @@ import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
-/** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences)
@@ -69,18 +69,31 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
         findPreference(R.string.preference_key_year_in_review_is_enabled).let {
             it.isVisible = YearInReviewViewModel.isAccessible
+            if (it.isVisible) {
+                YearInReviewEvent.submit(action = "impression", slide = "setting")
+            }
             it.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
                 if (newValue as Boolean) {
+                    YearInReviewEvent.submit(action = "yir_on_click", slide = "setting")
                     return@OnPreferenceChangeListener true
                 }
+                YearInReviewEvent.submit(action = "yir_off_click", slide = "setting")
                 MaterialAlertDialogBuilder(activity)
                     .setTitle(R.string.year_in_review_disable_title)
                     .setMessage(R.string.year_in_review_setting_subtitle)
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
+                        YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
+                        YearInReviewViewModel.updateYearInReviewModel { model ->
+                            model.copy(slideViewedCount = 0)
+                        }
+                        Prefs.yearInReviewReadingListSurveyShown = false
+                        Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
                     }
-                    .setNegativeButton(R.string.year_in_review_disable_negative_button, null)
+                    .setNegativeButton(R.string.year_in_review_disable_negative_button) { _, _ ->
+                        YearInReviewEvent.submit(action = "yir_off_cancel_click", slide = "setting")
+                    }
                     .show()
                 false
             }
@@ -122,35 +135,23 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                 activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                 true
             }
-        if (Prefs.donationResults.isNotEmpty()) {
-            setupDeleteLocalDonationHistoryPreference()
+        findPreference(R.string.preference_key_delete_local_donation_history).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            val hasDonations = Prefs.donationResults.isNotEmpty()
+
+            if (hasDonations) {
+                Prefs.donationResults = emptyList()
+            }
+
+            val messageResId = if (hasDonations) {
+                R.string.donation_history_deleted_message_snackbar
+            } else R.string.donation_history_no_history_message_snackbar
+            FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
+            true
         }
     }
 
     private fun deviceInformation(): String {
         return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
-    }
-
-    private fun setupDeleteLocalDonationHistoryPreference() {
-        findPreference(R.string.preference_key_delete_local_donation_history).let {
-            it.isVisible = true
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
-                MaterialAlertDialogBuilder(activity)
-                    .setTitle(activity.getString(R.string.dialog_confirm_delete_donation_history_title))
-                    .setMessage(activity.getString(R.string.dialog_confirm_delete_donation_history_message))
-                    .setPositiveButton(R.string.dialog_confirm_delete_donation_history_delete) { _, _ ->
-                        Prefs.donationResults = emptyList()
-                        FeedbackUtil.showMessage(
-                            activity,
-                            R.string.donation_history_deleted_message_snackbar
-                        )
-                        preference.isVisible = false
-                    }
-                    .setNegativeButton(R.string.dialog_confirm_delete_donation_history_cancel, null)
-                    .show()
-                true
-            }
-        }
     }
 
     fun updateLanguagePrefSummary() {
@@ -215,7 +216,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
-    private inner class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
+    private class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface, which: Int) {
             (preference as SwitchPreferenceCompat).isChecked = false
             Prefs.isReadingListSyncEnabled = false

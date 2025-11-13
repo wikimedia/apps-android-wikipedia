@@ -465,10 +465,17 @@
   <string name="temp_account_dialog_ok">Percebi</string>
   <string name="temp_account_using_title">Está a usar uma conta temporária</string>
   <string name="temp_account_dialog_discard">Rejeitar alterações e iniciar a sessão</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">A conta temporária %1$s foi criada depois da sua edição ter sido publicada. Esta expirará em %2$d dia.</item>
+    <item quantity="other">A conta temporária %1$s foi criada depois da sua edição ter sido publicada. Esta expirará em %2$d dias.</item>
+  </plurals>
   <plurals name="temp_account_expiry">
     <item quantity="one">Conta irá expirar em %d dia.</item>
     <item quantity="other">Conta irá expirar em %d dias.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Não está autenticado.&lt;/b&gt; Assim que efetuar uma edição, o seu endereço de IP será associado com as suas edições.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Não está autenticado.&lt;/b&gt; Assim que efetuar uma edição, será criada uma conta temporária para proteger a sua privacidade. &lt;a href=\"%1$s\"Saiba mais&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Está a utilizar uma conta temporária.&lt;/b&gt; A sua edição será atribuída a %1$s. &lt;a href=\"%2$s2Saiba mais&lt;/a&gt;.</string>
   <string name="temp_account_end_session">Terminar sessão</string>
   <string name="temp_account_end_session_confirm">Isto irá terminar a sessão da sua conta temporária. Deseja continuar?</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
@@ -1151,6 +1158,12 @@
   <string name="activity_tab_user_reading">Leitura de %s</string>
   <string name="activity_tab_on_wikipedia_android">Na Wikipédia Android</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Tempo gasto a ler esta semana</string>
+  <string name="activity_tab_monthly_articles_read">Artigos lidos este mês</string>
+  <string name="activity_tab_monthly_articles_saved">Artigos guardados este mês</string>
+  <string name="activity_tab_monthly_top_categories">Melhores categorias lidas este mês</string>
+  <string name="activity_tab_explore_wikipedia">Descubra através da Wikipédia</string>
+  <string name="activity_tab_discover_encourage">Estás à procura de algo novo para ler?</string>
   <string name="activity_tab_donation_unknown">Desconhecido</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; na aplicação</string>
   <string name="activity_tab_total_edits_all_projects">Total de edições em todos os projetos</string>
@@ -1168,6 +1181,22 @@
   <plurals name="activity_tab_impact_edits_this_month">
     <item quantity="one">edição deste mês</item>
     <item quantity="other">edições deste mês</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">edição mês passado</item>
+    <item quantity="other">edições mês passado</item>
+  </plurals>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">total de edição</item>
+    <item quantity="other">total de edições</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">obrigado</item>
+    <item quantity="other">obrigados</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dias</item>
   </plurals>
   <string name="activity_tab_impact_last_edited">Última edição</string>
   <string name="activity_tab_impact_suggested_edits_title">Recentemente 0 edições nos artigos</string>
@@ -1321,8 +1350,6 @@
   <string name="templates_description_missing_data">Este modelo tem os &lt;a href=\"%1$s\"&gt;Dados do Modelo&lt;/a&gt; em falta e os seus parâmetros foram &lt;a href=\"%2$s\"&gt;gerados automaticamente&lt;/a&gt;. Como resultado, o modelo e os seus parâmetros não possuem descrições.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Iniciar sessão / registar-se na Wikipédia</string>
-  <string name="main_tooltip_text">Olá %s, sabia que todos podem editar a Wikipédia?</string>
-  <string name="main_tooltip_text_v2">Sabia que qualquer pessoa pode editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
   <string name="main_tooltip_watchlist_title">Páginas vigiadas</string>
   <string name="main_tooltip_watchlist_text">Encontrar os artigos e páginas que adicionou anteriormente à sua lista de páginas vigiadas no menu Mais, em &lt;b&gt;Páginas vigiadas&lt;/b&gt;.</string>

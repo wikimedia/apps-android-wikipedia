@@ -242,6 +242,7 @@
   <string name="about_app_license" fuzzy="true">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
   <string name="about_wmf"> ߥߟߏߒߘߐ ߣߌ߲߬ ߦߋ߫ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; ߕߊ ߟߋ߬ ߘߌ߫</string>
   <string name="about_activity_title">ߡߊ߬ߘߎ߮</string>
+  <string name="about_logo_content_description">ߥߞߌߔߋߘߌߦߊ ߘߏ߯ߞߏ ߜߟߎߞߘߎ ߛߌ߲ߞߐ߲</string>
   <string name="edit_abandon_confirm">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫. ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߓߐ߫ ߞߵߊ߬ ߕߘߍ߬ ߌ ߡߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߞߎ߲߬ߘߎ߫؟</string>
   <string name="edit_abandon_confirm_yes">ߐ߲߬ߐ߲߬ߐ߲߫</string>
   <string name="edit_abandon_confirm_no">ߊ߬ߦߌ߫</string>
@@ -407,6 +408,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">ߌ ߟߊ߫ ߖߐ߯ߙߊ߲߫ ߝߙߊߕߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
   <string name="error_blocked_footer_no_blocker">ߌ ߘߌ߫ ߛߋ߫ ߓߌ߬ߟߊ߬ߢߐ߲߰ߡߊ ߢߌߣߌ߲߫ ߠߊ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ߟߥߊ߬ߟߌ߬ߟߊ&lt;/a&gt; ߘߏ߫ ߝߍ߬ ߞߊ߬ ߘߊߘߐߖߊߥߏ ߞߍ߫ ߓߊ߬ߟߌ߬ߟߌ ߞߊ߲߬.</string>
   <string name="temp_account_not_logged_in">ߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߫ ߕߍ߫</string>
+  <string name="temp_account_anon_ip_dialog_body">ߣߴߌ ߓߊ߲߫ ߘߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߏ߫ ߞߍ߫ ߟߊ߫، ߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߘߌ߫ ߓߌ߬ߟߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫. &lt;a href=\"https://#ߌ ߜߊ߲߬ߞߎ߲߫\"&gt;&lt;/a&gt; ߥߟߊ߫ &lt;a href=\"https://#ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߛߌ߲ߘߌ߫\"&gt;&lt;/a&gt; ߛߴߌ ߘߌ߫ ߟߊ߲ߘߦߊ߫ ߛߐ߬ߘߐ߲߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߣߊ߬ߕߐ ߟߎ߬ ߘߐ߫ ߊ߬ ߣߌ߫ ߞߊ߬ ߗߋߘߊ߫ ߜߘߍ߫ ߟߎ߫ ߛߐ߬ߘߐ߲߬.</string>
+  <string name="temp_account_anon_dialog_body">ߣߴߌ ߓߊ߲߫ ߘߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍ߫ ߟߊ߫، &lt;b&gt;ߥߊ߯ߕߌ߫ ߟߕߊߡߌ߲߫ ߖߊߕߋߘߊ&lt;/b&gt; ߘߏ߫ ߘߌ߫ ߟߊߘߊ߲߫ ߌ ߢߍ߫ ߞߵߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ߞߏ ߟߎ߬ ߟߊߞߊ߲ߘߊ߫. &lt;a href=\"%1$s\"&gt;ߘߏ߫ ߜߘߍ ߟߎ߬ ߘߐߞߊ߬ߙߊ߲߫&lt;/a&gt;. &lt;a href=\"https://#login\"&gt;ߌ ߜߊ߲߬ߞߎ߲߫&lt;/a&gt; ߤߊߡߊ߲߫ &lt;a href=\"https://#login\"&gt;ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߟߊߞߊ߬&lt;/a&gt; ߞߊ߬ ߟߊ߲ߠߦߊ ߛߐ߬ߘߐ߲߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߣߊ߬ߕߐ ߟߎ߫ ߘߐ߫ ߊ߬ ߣߌ߫ ߞߊ߬ ߗߋߘߊ߫ ߜߘߍ߫ ߟߎ߫ ߟߊߛߐ߬ߘߐ߲߫.</string>
   <string name="temp_account_dialog_ok">ߒ ߓߘߴߊ߬ ߢߊߦߋ߫</string>
   <string name="temp_account_using_title">ߌ ߦߋ߫ ߥߊ߯ߕߌ߫ ߟߕߊߡߌ߲߫ ߖߊߕߋߘߊ ߟߋ߬ ߟߊߓߊ߯ߙߊ ߞߊ߲߬ ߣߌ߲߬</string>
   <string name="temp_account_dialog_discard">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߕߊ߲߬ߞߌ߲߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߫</string>
@@ -1015,6 +1018,8 @@
   <string name="activity_tab_timeline_empty_state_title">ߝߏߦߌ߬ ߦߌ߬ߘߊ߬ߕߊ߫ ߕߍ߫</string>
   <string name="activity_tab_timeline_empty_state_message">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߣߌ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߘߊߡߌ߬ߣߊ߫ ߞߵߌ ߟߊ߫ ߘߐ߬ߝߐ ߟߐ߭ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="activity_tab_timeline_view_changes_button">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߫ ߦߋ߫</string>
+  <string name="activity_tab_onboarding_engage_title">ߕߘߍߒߘߐߟߌ ߢߊ߫ ߜߘߍ ߟߎ߫</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">ߕߏ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲ ߘߊߞߘߐ߫</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -1141,8 +1146,6 @@
   <string name="templates_description_empty">ߞߊ߲߬ߛߓߍ߬ߟߌ߫ ߕߍ߫ ߞߙߊߞߏ %s ߟߊ߫ ߡߎߣߎ߲߬.</string>
   <string name="main_drawer_help">ߘߍ߬ߡߍ߲߬ߠߌ߲</string>
   <string name="main_drawer_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߌ ߕߐ߮ ߛߓߍ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
-  <string name="main_tooltip_text">ߌ ߣߌ߫ ߕߎ߬ߡߊ߬ %s߸ ߌ ߞߵߊ߬ ߟߐ߲߫ ߓߊ߬ ߡߍ߲ ߦߴߊ߬ ߞߍ߫ ߟߊ߫ ߓߍ߯ ߦߋ߫ ߥߞߌߡߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫؟</string>
-  <string name="main_tooltip_text_v2">ߊ߬ ߝߐ߫ ߌ ߦߴߊ߬ ߞߊ߬ߟߊߡߊ߬ ߓߊ߬ ߞߏ߫ ߡߐ߱ ߓߍ߯ ߘߌ߫ ߛߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫؟</string>
   <string name="main_tooltip_action_button">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="main_tooltip_watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="main_tooltip_watchlist_text">ߞߎߡߘߊ ߟߎ߬ ߣߌ߫ ߞߐߜߍ ߟߎ߬ ߢߌߣߌ߲߫ ߌ ߕߎ߲߬ ߓߘߊ߫ ߡߍ߲ ߓߌ߬ߟߊ߬ ߌ ߟߊ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ ߡߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬ ߛߙߍߘߍ ߘߐ߫ &lt;b&gt;ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ&lt;/b&gt; ߘߐ߫.</string>

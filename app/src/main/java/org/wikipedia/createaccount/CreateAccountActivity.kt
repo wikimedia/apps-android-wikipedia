@@ -24,11 +24,13 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.CreateAccountEvent
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -47,6 +49,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var createAccountEvent: CreateAccountEvent
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
+    private var requestSource: String = ""
     private val viewModel: CreateAccountActivityViewModel by viewModels()
 
     private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
@@ -73,7 +76,8 @@ class CreateAccountActivity : BaseActivity() {
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
-        createAccountEvent = CreateAccountEvent(intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty())
+        requestSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
+        createAccountEvent = CreateAccountEvent(requestSource)
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             createAccountEvent.logStart()
@@ -168,12 +172,18 @@ class CreateAccountActivity : BaseActivity() {
         }
         binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
+            if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
+                YearInReviewEvent.submit(action = "create_account_click", slide = "explore_prompt")
+            }
             validateThenCreateAccount()
         }
         binding.captchaContainer.captchaSubmitButton.setOnClickListener {
             validateThenCreateAccount()
         }
         binding.createAccountLoginButton.setOnClickListener {
+            if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
+                YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
+            }
             // This assumes that the CreateAccount activity was launched from the Login activity
             // (since there's currently no other mechanism to invoke CreateAccountActivity),
             // so finishing this activity will implicitly go back to Login.

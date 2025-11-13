@@ -36,6 +36,7 @@
 * Okkerem
 * Oyuncu
 * Rapsar
+* Sakblue
 * SaldırganSincap
 * Sayginer
 * Sezgin İbiş
@@ -961,6 +962,7 @@
   <string name="customize_toolbar_reset_to_default_button">Varsayılana sıfırla</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Ögeyi taşımak için sürükle simgesine basılı tutun</string>
   <string name="customize_toolbar_item_default_tooltip">Yeniden konumlandırmak için bir ögeye basın ve sürükleyin</string>
+  <string name="suggested_edits_activity_title">Düzenle</string>
   <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
   <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
@@ -1170,6 +1172,52 @@
   <string name="edit_summary_added_caption">Alt yazı eklendi</string>
   <string name="edit_summary_added_image_and_caption">Görsel ve alt yazı eklendi</string>
   <string name="edit_published_view">Görüntüle</string>
+  <string name="activity_tab_on_wikipedia_android">Vikipedi Android\'de</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$ds %2$dd</string>
+  <string name="activity_tab_weekly_time_spent">Bu hafta okumaya harcanan zaman</string>
+  <string name="activity_tab_monthly_articles_read">Bu ay okunan maddeler</string>
+  <string name="activity_tab_monthly_articles_saved">Bu ay saklanan maddeler</string>
+  <string name="activity_tab_monthly_top_categories">Bu ay en çok okunan kategoriler</string>
+  <string name="activity_tab_explore_wikipedia">Vikipedi\'yle keşfedin</string>
+  <string name="activity_tab_discover_encourage">Okuyacak yeni bir şeyler mi arıyorsunuz?</string>
+  <string name="activity_tab_donation_unknown">Bilinmiyor</string>
+  <string name="activity_tab_donation_last_donation">Uygulamadaki &lt;b&gt;son bağış&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">Projelerdeki toplam düzenlemeler</string>
+  <string name="activity_tab_game_stats">Oyun istatistikleri</string>
+  <string name="activity_tab_game_stats_best_streak">En iyi seri</string>
+  <string name="activity_tab_play_wiki_games">VikiOyunlar\'ı oyna</string>
+  <string name="activity_tab_report_email_subject">Sorun bildirimi - Etkinlik Sekmesi</string>
+  <string name="activity_tab_report_email_body">Etkinlik Sekmesi özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli sorunu açıklayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü açıklayın]</string>
+  <string name="activity_tab_menu_feedback">Özellikle ilgili sorun</string>
+  <string name="activity_tab_menu_info">Daha fazla bilgi</string>
+  <string name="activity_tab_menu_customize">Özelleştir</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Okuma geçmişi</string>
+  <string name="activity_tab_impact">Etkiniz</string>
+  <string name="activity_tab_impact_most_viewed">Düzenlemenizden bu yana en çok görüntülenen</string>
+  <string name="activity_tab_impact_contributions_this_month">Bu ayki katkılar</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">bu ayki düzenleme</item>
+    <item quantity="other">bu ayki düzenlemeler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">geçen ayki düzenleme</item>
+    <item quantity="other">geçen ayki düzenlemeler</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Tüm zamanların etkisi</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">toplam düzenleme</item>
+    <item quantity="other">toplam düzenlemeler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">teşekkür</item>
+    <item quantity="other">teşekkürler</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">En iyi seri</string>
+  <string name="activity_tab_impact_last_edited">Son düzenleme</string>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
@@ -1302,8 +1350,6 @@
   <string name="templates_description_empty">\" %s \" şablonunun henüz bir açıklaması yok.</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
-  <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
-  <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
   <string name="main_tooltip_watchlist_title">İzleme listesi</string>
   <string name="main_tooltip_watchlist_text">Daha önce izleme listenize eklediğiniz maddeleri ve sayfaları &lt;b&gt;İzleme listesi&lt;/b&gt; altındaki Daha fazla menüsünde bulun.</string>
@@ -1704,4 +1750,36 @@
   <string name="on_this_day_game_pause_title">Oyun durdurulsun mu?</string>
   <string name="on_this_day_game_your_stats">İstatistikleriniz</string>
   <string name="on_this_day_game_notification_undo">Geri al</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Okuma listenizden memnun musunuz?</string>
+  <string name="year_in_review_slide_geo_body">Okuduğunuz birçok makaleye en yakın ülke &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; gibi makalelere bakılarak %1$s gibi görünüyor.</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">İngilizce Vikipedi\'nin en çok okunan makaleleri</string>
+  <string name="year_in_review_reading_list_dialog_title">Yıl Sonu Değerlendirmenizi Oluşturun %d okuma listesi?</string>
+  <string name="year_in_review_reading_list_dialog_message">Vikipedi Yıl Sonu İncelemesi, %1$d yılında en çok zaman geçirdiğiniz maddelerin bir okuma listesini oluşturacaktır. &lt;a href=\"%2$s\"&gt;Daha fazla öğrenin&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_description">%1$s için yapıldı. %2$d içinde en çok zaman harcadığınız makaleler.</string>
+  <string name="year_in_review_highlights_thank_you_message">Yılınızı Vikipedi ile geçirdiğiniz için teşekkür ederiz</string>
+  <string name="year_in_review_highlights_looking_forward_message">Gelecek yılı sabırsızlıkla bekliyoruz!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">İngilizce Vikipedi\'de en çok okunan makale</item>
+    <item quantity="other">İngilizce Vikipedi\'de en çok okunan makaleler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Görüntülenen makale sayısı</item>
+    <item quantity="other">Görüntülenen makale sayısı</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Vikipedi ne sıklıkla düzenlendi?</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Okumak için en sevdiğim gün</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Makale okundu</item>
+    <item quantity="other">Makaleler okundu</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">İlgimi çeken kategori</item>
+    <item quantity="other">İlgimi çeken kategoriler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">Makale düzenlendi</item>
+    <item quantity="other">Makaleler düzenlendi</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Önemli noktaları paylaşın</string>
+  <string name="year_in_review_highlights_logo_description">Wikipedia logosu</string>
 </resources>

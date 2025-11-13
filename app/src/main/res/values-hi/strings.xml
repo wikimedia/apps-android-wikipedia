@@ -1287,8 +1287,6 @@
   <string name="templates_description_missing_data">इस टेम्पलेट में &lt;a href=\"%1$s\"&gt;टेम्पलेटडेटा&lt;/a&gt; का अभाव है, और इसके पैरामीटर्स &lt;a href=\"%2$s\"&gt;स्वचालित रूप से जनरेट किए गए&lt;/a&gt; हैं। परिणामस्वरूप, टेम्पलेट और इसके पैरामीटर्स में विवरण का अभाव है।</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">लॉग इन करें / विकिपीडिया से जुड़ें</string>
-  <string name="main_tooltip_text">नमस्ते %s , क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
-  <string name="main_tooltip_text_v2">क्या आप जानते हैं कि हर कोई विकिपीडिया को संपादित कर सकता है?</string>
   <string name="main_tooltip_action_button">शुरू करें</string>
   <string name="main_tooltip_watchlist_title">ध्यानसूची</string>
   <string name="main_tooltip_watchlist_text">&lt;b&gt;ध्यानसूची&lt;/b&gt; के अंतर्गत अधिक मेनू में उन लेखों और पृष्ठों को ढूंढें जिन्हें आपने पहले अपनी ध्यानसूची में जोड़ा था।</string>

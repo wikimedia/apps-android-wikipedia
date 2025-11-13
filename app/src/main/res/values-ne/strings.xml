@@ -251,7 +251,7 @@
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
-  <string name="edit_done">प्रकाशन गर्नुहोस्</string>
+  <string name="edit_done">प्रकाशित गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
@@ -497,7 +497,7 @@
   <string name="notifications_view_unread">नपढिएको हेर्नुहोस्</string>
   <string name="notifications_view_archived">अभिलेख हेर्नुहोस्</string>
   <string name="notifications_prefs">जानकारी अभिरुचीहरू</string>
-  <string name="notifications_archive">पढिएको र अभिलेख गरिएको चिन्ह लगाउनुहोस्</string>
+  <string name="notifications_archive">पढिएको र अभिलेख गरिएको चिह्न लगाउनुहोस्</string>
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_negative">अहिले हैन</string>
@@ -509,15 +509,15 @@
   <string name="notifications_direct_reply_action">जवाफ दिनुहोस्</string>
   <string name="notifications_direct_reply_success">जवाफ प्रकाशित गरियो।</string>
   <string name="notifications_direct_reply_error">स्वचालित रूपमा जवाफ दिन सकिएन।</string>
-  <string name="notifications_mark_all_as_read_message">%d पढिएको भनी चिन्ह लगाइयो</string>
-  <string name="notifications_mark_all_as_unread_message">%d नपढिएको रूपमा चिन्ह लगाइयो</string>
+  <string name="notifications_mark_all_as_read_message">%d पढिएको भनी चिह्न लगाइयो</string>
+  <string name="notifications_mark_all_as_unread_message">%d नपढिएको रूपमा चिह्न लगाइयो</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="one">1 पढिएको रूपमा चिन्ह लगाइयो </item>
-    <item quantity="other"> %d पढिएको रूपमा चिन्ह लगाइयो</item>
+    <item quantity="one">1 पढिएको रूपमा चिह्न लगाइयो </item>
+    <item quantity="other"> %d पढिएको रूपमा चिह्न लगाइयो</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="one">1 नपढिएको रूपमा चिन्ह लगाइयो </item>
-    <item quantity="other"> %d नपढिएको रूपमा चिन्ह लगाइयो</item>
+    <item quantity="one">1 नपढिएको रूपमा चिह्न लगाइयो </item>
+    <item quantity="other"> %d नपढिएको रूपमा चिह्न लगाइयो</item>
   </plurals>
   <string name="watchlist_title">अवलोकनसूची</string>
   <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
@@ -598,7 +598,7 @@
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
+  <string name="view_static_card_save_button_label">सङ्ग्रह गर्नुहोस्</string>
   <string name="feed_configure_activity_title">फिडलाई अनुकूलित गर्नुहोस्</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
@@ -636,7 +636,7 @@
   <string name="description_edit_add_caption_hint">तस्वीर व्याख्याहरू</string>
   <string name="description_edit_translate_caption_label_per_language">तस्वीर व्याख्याहरू (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">तस्वीर व्याख्याहरू (%s)</string>
-  <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
+  <string name="description_edit_save">प्रकाशित गर्नुहोस्</string>
   <string name="description_edit_read">पढ्नुहोस्</string>
   <string name="description_edit_add_description">लेख वर्णन थप्नुहोस्</string>
   <string name="description_edit_translate_description">लेख वर्णन अनुवाद गर्नुहोस्</string>
@@ -750,7 +750,7 @@
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="description_edit_login_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
-  <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
+  <string name="onboarding_continue">जारी राख्नुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
   <string name="onboarding_maybe_later">पछि हुनसक्छ</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
@@ -808,8 +808,6 @@
   <string name="templates_learn_more_link">अधिक जानकारी</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
-  <string name="main_tooltip_text">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
-  <string name="main_tooltip_text_v2">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="main_tooltip_watchlist_title">अवलोकनसूची</string>
   <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
@@ -879,4 +877,7 @@
   <string name="places_card_enable_location_card_button">स्थान सक्षम पार्नुहोस्</string>
   <string name="survey_dialog_cancel">रद्द गर्नुहोस्</string>
   <string name="survey_dialog_input_hint">अतिरिक्त प्रतिक्रिया</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">सृजना गर्नुहोस्</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">पर्दैन, धन्यवाद</string>
+  <string name="year_in_review_highlights_logo_description">विकिपिडिया लोगो</string>
 </resources>

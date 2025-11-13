@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -73,6 +74,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
@@ -144,6 +146,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageRequestAddImageTags(mwQueryPage: MwQueryPage, invokeSource: InvokeSource)
         fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
+    }
+
+    private var campaignDialog: CampaignDialog? = null
+    private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == DonationReminderActivity.RESULT_OK_FROM_DONATION_REMINDER) {
+            campaignDialog?.dismiss()
+        }
     }
 
     private var _binding: FragmentPageBinding? = null
@@ -256,9 +265,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
-
-        // adding this here, so that this call would always be before any donation reminder config updates
-        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -699,9 +705,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
                         if (!Prefs.announcementShownDialogs.contains(campaignId)) {
                             DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
-                            val dialog = CampaignDialog(requireActivity(), it)
-                            dialog.setCancelable(false)
-                            dialog.show()
+                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = { campaignId ->
+                                Prefs.announcementShownDialogs = setOf(campaignId)
+                                donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
+                            })
+                            campaignDialog?.setCancelable(false)
+                            campaignDialog?.show()
                         }
                     }
                 }

@@ -910,8 +910,6 @@
   <string name="wikitext_preview_link">ထွားကျိုႏနမူႏနာႏ လိဉ့်</string>
   <string name="main_drawer_help">အကူႏညီႏ</string>
   <string name="main_drawer_login">နွို့အကောက်/ဆွိုက် ဝီခီပီးဒီးယား</string>
-  <string name="main_tooltip_text">ဟွေ့ %s၊ လိုꩻတွိုင်ꩻစွုမ်ႏဖြာꩻ မွဉ်းဖျင်နွောင်ꩻဒျာႏ ဝီခီပီးဒီးယားကရိုꩻနဝ်ꩻ သေနေဟောင်း?</string>
-  <string name="main_tooltip_text_v2">လိုꩻတွိုင်ꩻစွုမ်ႏဖြာꩻ မွဉ်းဖျင်နွောင်ꩻဒျာႏ ဝီခီပီးဒီးယားနဝ်ꩻ သေနေဟောင်း?</string>
   <string name="main_tooltip_action_button">မာꩻစခန်း</string>
   <string name="main_tooltip_watchlist_title">ပွေားထွားစာႏရင်ꩻ</string>
   <string name="custom_date_picker_dialog_ok_button_text">မွေးသွူ</string>

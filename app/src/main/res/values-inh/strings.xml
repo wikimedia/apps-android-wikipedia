@@ -1171,8 +1171,6 @@
   <string name="insert_media_insert_button">ДӀачудаккха</string>
   <string name="main_drawer_help">ГӀо</string>
   <string name="main_drawer_login">Чувала Википеде чу</string>
-  <string name="main_tooltip_text">Моаршал да хьога, %s, хой хьона, моллагIа саг Википеди тоае йиш йолаш волга?</string>
-  <string name="main_tooltip_text_v2">Хой шоана, хӀара саго Википеди тоае мегаш йолга?</string>
   <string name="main_tooltip_action_button">ДIадоладе</string>
   <string name="main_tooltip_watchlist_title">Зем-листам</string>
   <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-листамá тӀатеха йола статьяши оагӀонаши хьалаха &lt;b&gt;«Зем-листам»&lt;/b&gt; яхача раздела чу («Кхы а» яхача меню чу).</string>

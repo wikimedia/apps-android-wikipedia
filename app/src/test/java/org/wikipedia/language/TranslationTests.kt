@@ -104,6 +104,31 @@ class TranslationTests {
 
     @Test
     @Throws(Throwable::class)
+    fun testPluralsHaveItems() {
+        val mismatches = StringBuilder()
+
+        // Step 1: collect all items in en/strings.xml
+        val basePluralsList = findStringItemInXML(baseFile, "plurals")
+
+        // Step 2: check qq/strings.xml for plurals without items
+        val document = Jsoup.parse(qQFile, "UTF-8")
+        val pluralsElements = document.select("plurals")
+        for (element in pluralsElements) {
+            val name = element.attr("name")
+            val items = element.select("> item")
+            // Check if this plural exists in base and has no items in qq
+            if (basePluralsList.contains(name) && items.isEmpty()) {
+                mismatches
+                    .append("Plurals has no <item> element in qq/strings/xml: ")
+                    .append(name)
+                    .append("\n")
+            }
+        }
+        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+    }
+
+    @Test
+    @Throws(Throwable::class)
     fun testUnsupportedTexts() {
         val mismatches = StringBuilder()
 

@@ -1158,13 +1158,17 @@
   <string name="edit_summary_added_caption">Lisätty kuvateksti</string>
   <string name="edit_summary_added_image_and_caption">Lisätty kuva ja kuvateksti</string>
   <string name="edit_published_view">Näytä</string>
+  <string name="activity_tab_logged_out_title">Kirjaudu sisään tai luo tunnus nähdäksesi toimintasi Wikimedia-sovelluksessa</string>
+  <string name="activity_tab_on_wikipedia_android">Wikipedia Android -sovelluksessa</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dmin</string>
   <string name="activity_tab_weekly_time_spent">Lukemiseen käytetty aika tällä viikolla</string>
   <string name="activity_tab_monthly_articles_read">Tässä kuussa luettuja artikkeleita</string>
   <string name="activity_tab_monthly_articles_saved">Tässä kuussa tallennettuja artikkeleita</string>
+  <string name="activity_tab_monthly_top_categories">Luetuimmat luokat tässä kuussa</string>
   <string name="activity_tab_discover_encourage">Etsitkö uutta luettavaa?</string>
   <string name="activity_tab_donation_unknown">Tuntematon</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Viimeisin lahjoitus&lt;/b&gt; sovelluksessa</string>
+  <string name="activity_tab_total_edits_all_projects">Muokkauksia yhteensä kaikissa hankkeissa</string>
   <string name="activity_tab_game_stats">Pelitilastot</string>
   <string name="activity_tab_game_stats_best_streak">Paras putki</string>
   <string name="activity_tab_play_wiki_games">Pelaa Wikipelejä</string>
@@ -1177,7 +1181,7 @@
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lukuhistoria</string>
   <string name="activity_tab_impact">Vaikutuksesi</string>
   <string name="activity_tab_impact_most_viewed">Katsotuimmat muokkauksesi jälkeen</string>
-  <string name="activity_tab_impact_contributions_this_month">Muokkauksia tässä kuussa</string>
+  <string name="activity_tab_impact_contributions_this_month">Muokkaukset tässä kuussa</string>
   <plurals name="activity_tab_impact_edits_this_month">
     <item quantity="one">muokkaus tässä kuussa</item>
     <item quantity="other">muokkausta tässä kuussa</item>
@@ -1186,9 +1190,14 @@
     <item quantity="one">muokkaus tässä kuussa</item>
     <item quantity="other">muokkausta tässä kuussa</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">Vaikutus koko ajalta</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">muokkaus yhteensä</item>
     <item quantity="other">muokkausta yhteensä</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">kiitos</item>
+    <item quantity="other">kiitosta</item>
   </plurals>
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="one">%d päivä</item>
@@ -1209,12 +1218,25 @@
     <item quantity="other">Muokaamiesi artikkelien katselukerrat</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Lukemiseen käytetty aika</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Lukutilastot</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Muokkaustilastot</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Vaikutus koko ajalta</string>
   <string name="activity_tab_customize_screen_games_switch_title">Pelitilastot</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Viimeisin sovelluksen sisäinen lahjoitus</string>
   <string name="activity_tab_timeline_today">Tänään</string>
   <string name="activity_tab_timeline_yesterday">Eilen</string>
   <string name="activity_tab_timeline_empty_state_title">Ei mitään näytettävää</string>
+  <string name="activity_tab_timeline_empty_state_message">Aloita lukeminen ja muokkaaminen rakentaaksesi historiaasi</string>
   <string name="activity_tab_timeline_view_changes_button">Näytä muutokset</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Lukutilastot</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Katso, kuinka paljon olet käyttänyt aikaa lukemiseen ja mitä artikkeleita ta aiheita olet selaillut.</string>
+  <string name="activity_tab_onboarding_screen_title">Esittelyssä Toiminta-välilehti</string>
+  <string name="activity_tab_onboarding_impact_title">Vaikutustilastot</string>
+  <string name="activity_tab_onboarding_impact_message">Tutustu tilastoihin muokkauksistasi sekä jakamasi tiedon saavuttamista katselukerroista.</string>
+  <string name="activity_tab_onboarding_engage_title">Lisää tapoja osallista</string>
+  <string name="activity_tab_onboarding_engage_message">Tutki tilastoja peleistä, tallennetusta artikkeleista ja muista toiminnoista, jotka yhdistävät sinut syvällisemmin Wikipediaan.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Pidä ohjat käsissäsi</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Valitse näytettävät moduulit. Kaikki henkilötiedot pysyvät yksityisinä laitteellasi, ja selaushistorian voi tyhjentää milloin tahansa.</string>
   <string name="edits_screen_what_is_title">Muokkaaminen Wikipedia-sovelluksessa</string>
   <string name="edits_screen_what_is_body">Oletko epävarma, miten aloittaa muokkaaminen? Kokeile ehdotettuja muokkauksia. Tämä ominaisuus luo mahdollisuuksia pienille mutta tärkeille Wikipedian muokkauksille. Vaihtoehtoisesti voit mennä suoraan sinua kiinnostavaan artikkeliin ja tehdä muokkauksen wikitekstin kautta.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
@@ -1350,8 +1372,6 @@
   <string name="templates_description_missing_data">Tästä mallineesta puuttuu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, joten sen parametrit on &lt;a href=\"%2$s\"&gt;luotu automaattisesti&lt;/a&gt;. Tämän vuoksi mallineelta ja sen parametreilta puuttuvat kuvaukset.</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
-  <string name="main_tooltip_text">Hei %s, tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
-  <string name="main_tooltip_text_v2">Tiesitkö, että kuka tahansa voi muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="main_tooltip_watchlist_title">Tarkkailulista</string>
   <string name="main_tooltip_watchlist_text">Tutustu viimeksi tarkkailulistalle lisäämäsi artikkeleihin valitsemalla Lisää-valikko ja &lt;b&gt;Tarkkailulista&lt;/b&gt;.</string>
@@ -1852,6 +1872,11 @@
   <string name="year_in_review_disable_negative_button">Ei kiitos</string>
   <string name="year_in_review_screenshot_error">Kuvakaappauksen luominen epäonnistui: %s</string>
   <string name="year_in_review_globe_icon">Maapallo-kuvake</string>
+  <string name="year_in_review_login_dialog_positive">Kirjaudu sisään / Liity Wikipediaan</string>
+  <string name="year_in_review_login_dialog_negative">Jatka kirjautumatta</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Luo</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Ei kiitos</string>
+  <string name="year_in_review_reading_list_title">Vuosikatsaus %d</string>
   <string name="recommended_reading_list_title">Löydä artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_title">Löydä juuri sinulle valittuja artikkeleita</string>
   <string name="recommended_reading_list_onboarding_card_message">Viikoittainen Wikipedia-artikkeleiden lukulistasi, kuratoitu juuri sinulle.</string>
@@ -1950,7 +1975,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Sallittu enimmäismäärä on %s</string>
   <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
-  <string name="donation_reminders_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s pyysit meitä muistuttamaan sinua lahjoituksesta luettuasi %2$s. Jos Wikipedia on tarjonnut sinulle %3$s arvosta tietoa, liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat ja täytä lupauksesi tänään.</string>
   <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
   <string name="donation_reminders_prompt_negative_button">Ei nyt</string>

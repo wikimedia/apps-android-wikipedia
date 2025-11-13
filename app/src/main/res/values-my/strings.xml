@@ -932,8 +932,6 @@
   <string name="templates_learn_more_link">ပိုမို လေ့လာရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
-  <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
-  <string name="main_tooltip_text_v2">ဝီကီပီဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
   <string name="main_tooltip_action_button">စတင်ပါ</string>
   <string name="main_tooltip_watchlist_title">စောင့်ကြည့်စာရင်း</string>
   <string name="custom_date_picker_dialog_ok_button_text">အိုကေ</string>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aca
 * Acamicamacaraca
+* Aceydot
 * Aktron
 * BadDog
 * Bjankuloski06
@@ -148,6 +149,7 @@
   <string name="dialog_message_leaving_edit_leave">Напусти</string>
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="dialog_confirm_delete_donation_history_title">Потврди брисање</string>
+  <string name="dialog_confirm_delete_donation_history_message">Ово ће се односити само на донације направљене са овог уређаја.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Обриши</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Откажи</string>
   <string name="menu_show_toc">Садржај</string>
@@ -167,6 +169,8 @@
   <string name="login_2fa_hint">Двофакторски аутентификациони код</string>
   <string name="login_2fa_other_workflow_error_msg">Неопходна је двофакторска потврда идентитета. Вратите се на главну активност и пријавите се са својим 2FA токеном, па покушајте поново.</string>
   <string name="login_email_auth_hint">Имејл верификациони код</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потребна је верификација имејлом! Молимо пријавите се са главног екрана и унесите имејл код за верификацију.</string>
+  <string name="login_background_error_msg">Поновно пријављивање није могуће. Вратите се на главни екран и пријавите се ручно.</string>
   <string name="onboarding_card_login">Пријава</string>
   <string name="page_editing_login">Пријава</string>
   <string name="reading_lists_sync_login">Пријава</string>
@@ -249,6 +253,7 @@
   <string name="page_protected_can_not_edit_anon">Ова страница се тренутно не може уређивати анонимно.</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај на списак надгледања</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Пратите шта се дешава са чланцима који вас занимају. Додирните додатни мени и изаберите &lt;b&gt;Додај на листу праћења&lt;/b&gt; да бисте видели измене у чланку.</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
   <string name="about_description">О апликацији Википедија</string>
@@ -260,6 +265,7 @@
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
   <string name="about_contributors_heading">Сарадници</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели волонтери &lt;a href=\"https://translatewiki.net\"&gt;Транслејтвикија&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
@@ -1250,8 +1256,6 @@
   <string name="templates_description_empty">Шаблон „%s” још увек нема опис.</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="main_tooltip_text">Здраво, %s! Јесте ли знали да свако може да уређује Википедију?</string>
-  <string name="main_tooltip_text_v2">Јесте ли знали да свако може да уређује Википедију?</string>
   <string name="main_tooltip_action_button">Почнимо</string>
   <string name="main_tooltip_watchlist_title">Списак надгледања</string>
   <string name="main_tooltip_watchlist_text">Пронађите чланке и странице које сте претходно додали у свој списак надгледања, у менију Више под &lt;b&gt;Списак надгледања&lt;/b&gt;.</string>
@@ -1703,6 +1707,10 @@
   <string name="year_in_review_slide_reading_pattern_evening">Вече</string>
   <string name="year_in_review_slide_reading_pattern_night">Ноћ</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Касно увече</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Направи</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Не, хвала</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Колико често је Википедија уређивана</string>
+  <string name="year_in_review_highlights_logo_description">Логотип Википедије</string>
   <string name="recommended_reading_list_title">Откриј</string>
   <string name="recommended_reading_list_onboarding_card_new">Ново!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Почнимо</string>

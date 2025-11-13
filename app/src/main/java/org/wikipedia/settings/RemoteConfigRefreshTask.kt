@@ -20,10 +20,7 @@ class RemoteConfigRefreshTask() : RecurringTask() {
 
         if (AccountUtil.isLoggedIn) {
             val userInfo = ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserInfo()
-            // This clumsy comparison is necessary because the field is an integer value when enabled, but an empty string when disabled.
-            // Since we want the default to lean towards opt-in, we check very specifically for an empty string, to make sure the user has opted out.
-            val fundraisingOptOut = userInfo.query?.userInfo?.options?.fundraisingOptIn?.toString()?.replace("\"", "")?.isEmpty()
-            Prefs.donationBannerOptIn = fundraisingOptOut != true
+            Prefs.donationBannerOptIn = userInfo.query?.userInfo?.options?.optedInToFundraising == true
         }
     }
 }

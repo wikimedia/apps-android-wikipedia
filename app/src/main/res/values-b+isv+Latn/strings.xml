@@ -1367,8 +1367,6 @@
   <string name="templates_description_empty">Šablon «%s» ješče ne imaje opis.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / prisjedinite se do Vikipedije</string>
-  <string name="main_tooltip_text">Zdravo %s, jeste li znali, že vsekto može praviti Vikipediju?</string>
-  <string name="main_tooltip_text_v2">Znajete li vy, že vsekto može praviti Vikipediju?</string>
   <string name="main_tooltip_action_button">Razpočeti</string>
   <string name="main_tooltip_watchlist_title">Spisok slědovanyh stranic</string>
   <string name="main_tooltip_watchlist_text">Najdti članky i stranice, ktore vy raněje jeste dodali v svoj spisok slědovanyh stranic v menju «Veče» v razdělu &lt;b&gt;Spisok slědovanyh stranic&lt;/b&gt;.</string>

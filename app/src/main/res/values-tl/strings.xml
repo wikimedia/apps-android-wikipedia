@@ -1122,8 +1122,6 @@
   <string name="wikitext_preview_link">Link sa pagsilip</string>
   <string name="main_drawer_help">Tulong</string>
   <string name="main_drawer_login">Mag-login / Sumali sa Wikipedia</string>
-  <string name="main_tooltip_text">Kumusta %s, alam mo bang maaring baguhin ninuman ang Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Alam mo bang pwedeng baguhin ng kahit sinuman ang Wikipedia?</string>
   <string name="main_tooltip_action_button">Magsimula</string>
   <string name="main_tooltip_watchlist_title">Binabantayan</string>
   <string name="main_tooltip_watchlist_text">Maghanap ng mga artikulo at pahinang dati mong dinagdag sa Mga Binabantayan mo sa Karagdagan sa ilalim ng &lt;b&gt;Binabantayan&lt;/b&gt;.</string>

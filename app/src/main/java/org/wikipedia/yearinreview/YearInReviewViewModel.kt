@@ -15,12 +15,16 @@ import org.maplibre.android.geometry.LatLngBounds
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
+import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.GeoUtil.LocationClusterer
 import org.wikipedia.util.StringUtil
@@ -28,6 +32,7 @@ import org.wikipedia.util.UiState
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
@@ -42,8 +47,6 @@ class YearInReviewViewModel() : ViewModel() {
     val uiScreenListState = _uiScreenListState.asStateFlow()
 
     var screenshotHeaderBitmap = createBitmap(1, 1)
-
-    var slideViewedCount = 1
 
     init {
         fetchPersonalizedData()
@@ -101,16 +104,19 @@ class YearInReviewViewModel() : ViewModel() {
                         .take(MAX_TOP_CATEGORY)
                 }
 
-                val impactDataJob = async {
-                    if (AccountUtil.isLoggedIn) {
-                        val wikiSite = WikipediaApp.instance.wikiSite
+                var totalPageViews = 0L
+                var editCount = 0
+                if (AccountUtil.isLoggedIn) {
+                    val wikiSite = WikipediaApp.instance.wikiSite
+                    val userInfoResponse = ServiceFactory.get(wikiSite).getLocalAndGlobalUserInfo()
+
+                    val impactDataJob = async {
                         val now = Instant.now().epochSecond
                         val impact: GrowthUserImpact
                         val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
                         val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
                         if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                            val userId =
-                                ServiceFactory.get(wikiSite).getUserInfo().query?.userInfo?.id!!
+                            val userId = userInfoResponse.query?.userInfo?.id ?: 0
                             impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
                             impactLastResponseBodyMap[wikiSite.languageCode] =
                                 JsonUtil.encodeToString(impact).orEmpty()
@@ -138,23 +144,26 @@ class YearInReviewViewModel() : ViewModel() {
 
                         impact.topViewedArticlesWithPageTitle = pageMap
                         impact
-                    } else {
-                        GrowthUserImpact()
                     }
-                }
 
-                var editCount = 0
-                if (AccountUtil.isLoggedIn) {
-                    val homeSiteCall = async {
-                        ServiceFactory.get(WikipediaApp.instance.wikiSite)
-                            .getUserContribsByTimeFrame(
-                                username = AccountUtil.userName,
-                                maxCount = 500,
-                                startDate = dataEndInstant,
-                                endDate = dataStartInstant
-                            )
+                    val editCountCall = async {
+                        var response = UserEdits()
+                        // This is an experimental-ish API, so guard it with an explicit try-catch,
+                        // and proceed if it fails.
+                        try {
+                            response = ServiceFactory.getRest(WikiSite(Service.WIKIMEDIA_URL))
+                                .getEditsPerGlobalUserMonthly(
+                                    userInfoResponse.query?.globalUserInfo?.id ?: 0,
+                                    DateUtil.getYMDDateString(LocalDate.of(YIR_YEAR, 1, 1)),
+                                    DateUtil.getYMDDateString(LocalDate.of(YIR_YEAR, 12, 31))
+                                )
+                        } catch (e: IOException) {
+                            L.e(e)
+                        }
+                        response
                     }
-                    editCount = homeSiteCall.await().query?.userInfo?.editCount ?: 0
+                    totalPageViews = impactDataJob.await().totalPageviewsCount
+                    editCount = editCountCall.await().items.sumOf { it.editCount }
                 }
 
                 val favoriteTimeToRead = async {
@@ -235,12 +244,12 @@ class YearInReviewViewModel() : ViewModel() {
                     largestClusterCountryName = largestClusterCountryName,
                     largestClusterArticles = largestClusterArticles,
                     userEditsCount = editCount,
-                    userEditsViewedTimes = impactDataJob.await().totalPageviewsCount,
+                    userEditsViewedTimes = totalPageViews,
                     isCustomIconUnlocked = editCount > 0 || Prefs.donationResults.isNotEmpty()
                 )
 
                 Prefs.yearInReviewModelData = yearInReviewModelMap
-                YearInReviewSurvey.resetYearInReviewSurveyState()
+                YearInReviewDialog.resetYearInReviewSurveyState()
             }
 
             val yearInReviewModel = yearInReviewModelMap[YIR_YEAR]!!
@@ -284,6 +293,12 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
         const val MIN_SLIDES_BEFORE_SURVEY = 2
+        const val MIN_SLIDES_FOR_CREATING_YIR_READING_LIST = 1
+        const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
+        const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
+        const val MAX_LONGEST_READ_ARTICLES = 25
+        const val ARTICLES_2025_PATH = "2025articles"
+        const val YIR_2025_PATH = "yir25"
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)
@@ -299,8 +314,22 @@ class YearInReviewViewModel() : ViewModel() {
                     now.isBefore(config.activeEndDate))
         }
 
+        var currentCampaignId: String? = null
+
         val isCustomIconAllowed get(): Boolean {
             return Prefs.yearInReviewModelData[YIR_YEAR]?.isCustomIconUnlocked == true
+        }
+
+        fun updateYearInReviewModel(year: Int = YIR_YEAR, update: (YearInReviewModel) -> YearInReviewModel) {
+            val currentData = Prefs.yearInReviewModelData.toMutableMap()
+            currentData[year]?.let { model ->
+                currentData[year] = update(model)
+                Prefs.yearInReviewModelData = currentData
+            }
+        }
+
+        fun getYearInReviewModel(year: Int = YIR_YEAR): YearInReviewModel? {
+            return Prefs.yearInReviewModelData[year]
         }
     }
 }
