@@ -258,6 +258,7 @@
   <string name="about_wmf">د &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; یو تولید (product) دی.</string>
   <string name="about_activity_title">په اړه</string>
   <string name="about_logo_content_description">د ویکي‌ پیډیا (Wikipedia) د معمايي نړۍ (puzzle globe) لوګو (logo)</string>
+  <string name="edit_abandon_confirm">پاڼه بدله شوې ده. ايا تاسو ډاډه ياست چې د خپلو بدلونونو خوندي‌کولو پرته ووځئ؟</string>
   <string name="edit_abandon_confirm_yes">هو</string>
   <string name="edit_abandon_confirm_no">نه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
@@ -297,6 +298,7 @@
   <string name="find_first_occurence">دا لومړۍ پېښه ده</string>
   <string name="find_last_occurence">دا وروستۍ پېښه ده</string>
   <string name="article_opened_in_background_tab">ليکنه په شاليد ريښکه کې پرانېستل شوې ده.</string>
+  <string name="abusefilter_title_warn">دا ښايي چې يو نارغنده سمون وي، ايا تاسو ډاډه ياست چې دا خپور کړئ؟</string>
   <string name="page_similar_titles">ورته مخونه</string>
   <string name="search_did_you_mean">\"%s\" مو موخه وه؟</string>
   <string name="search_recent_header">وروستنۍ پلټنې:</string>

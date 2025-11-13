@@ -1350,8 +1350,6 @@
   <string name="templates_description_empty">\" %s \" şablonunun henüz bir açıklaması yok.</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
-  <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
-  <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
   <string name="main_tooltip_watchlist_title">İzleme listesi</string>
   <string name="main_tooltip_watchlist_text">Daha önce izleme listenize eklediğiniz maddeleri ve sayfaları &lt;b&gt;İzleme listesi&lt;/b&gt; altındaki Daha fazla menüsünde bulun.</string>
@@ -1756,7 +1754,7 @@
   <string name="year_in_review_slide_geo_body">Okuduğunuz birçok makaleye en yakın ülke &lt;b&gt;%2$s&lt;/b&gt; ve &lt;b&gt;%3$s&lt;/b&gt; gibi makalelere bakılarak %1$s gibi görünüyor.</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">İngilizce Vikipedi\'nin en çok okunan makaleleri</string>
   <string name="year_in_review_reading_list_dialog_title">Yıl Sonu Değerlendirmenizi Oluşturun %d okuma listesi?</string>
-  <string name="year_in_review_reading_list_dialog_message">Wikipedia Yıl Sonu İncelemesi, %1$d içinde en çok zaman geçirdiğiniz makalelerin bir okuma listesini oluşturacaktır. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_message">Vikipedi Yıl Sonu İncelemesi, %1$d yılında en çok zaman geçirdiğiniz maddelerin bir okuma listesini oluşturacaktır. &lt;a href=\"%2$s\"&gt;Daha fazla öğrenin&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_description">%1$s için yapıldı. %2$d içinde en çok zaman harcadığınız makaleler.</string>
   <string name="year_in_review_highlights_thank_you_message">Yılınızı Vikipedi ile geçirdiğiniz için teşekkür ederiz</string>
   <string name="year_in_review_highlights_looking_forward_message">Gelecek yılı sabırsızlıkla bekliyoruz!</string>

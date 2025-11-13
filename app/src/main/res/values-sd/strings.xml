@@ -1138,8 +1138,6 @@
   <string name="templates_description_empty">\" %s \" سانچي ۾ اڃا تائين ڪا تشريح ناهي.</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
-  <string name="main_tooltip_text">سلام %s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگهي ٿو؟</string>
-  <string name="main_tooltip_text_v2">ڇا توھان ڄاڻو ٿا تہ ھرڪوئي وڪيپيڊيا کي سنواري سگهي ٿا؟</string>
   <string name="main_tooltip_action_button">شروع ڪريو</string>
   <string name="main_tooltip_watchlist_title">نظر۾فھرست</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>

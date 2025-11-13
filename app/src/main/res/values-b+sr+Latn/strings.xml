@@ -1163,8 +1163,6 @@
   <string name="insert_media_insert_button">Umetni</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavi me / pridruži me Vikipediji</string>
-  <string name="main_tooltip_text">Zdravo, %s! Jeste li znali da svako može da uređuje Vikipediju?</string>
-  <string name="main_tooltip_text_v2">Jeste li znali da svako može da uređuje Vikipediju?</string>
   <string name="main_tooltip_action_button">Počnimo</string>
   <string name="main_tooltip_watchlist_title">Spisak nadgledanja</string>
   <string name="main_tooltip_watchlist_text">Pronađite članke i stranice koje ste prethodno dodali u svoj spisak nadgledanja, u meniju Više pod &lt;b&gt;Spisak nadgledanja&lt;/b&gt;.</string>

@@ -946,8 +946,6 @@
   <string name="insert_media_advanced_settings_image_size_custom_px">พิกเซล</string>
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
-  <string name="main_tooltip_text">สวัสดี %s คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
-  <string name="main_tooltip_text_v2">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="main_tooltip_action_button">เริ่มต้นใช้งาน</string>
   <string name="main_tooltip_watchlist_title">รายการเฝ้าดู</string>
   <string name="custom_date_picker_dialog_ok_button_text">ตกลง</string>

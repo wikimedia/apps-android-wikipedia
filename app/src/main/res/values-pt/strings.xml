@@ -1350,8 +1350,6 @@
   <string name="templates_description_missing_data">Este modelo tem os &lt;a href=\"%1$s\"&gt;Dados do Modelo&lt;/a&gt; em falta e os seus parâmetros foram &lt;a href=\"%2$s\"&gt;gerados automaticamente&lt;/a&gt;. Como resultado, o modelo e os seus parâmetros não possuem descrições.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Iniciar sessão / registar-se na Wikipédia</string>
-  <string name="main_tooltip_text">Olá %s, sabia que todos podem editar a Wikipédia?</string>
-  <string name="main_tooltip_text_v2">Sabia que qualquer pessoa pode editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
   <string name="main_tooltip_watchlist_title">Páginas vigiadas</string>
   <string name="main_tooltip_watchlist_text">Encontrar os artigos e páginas que adicionou anteriormente à sua lista de páginas vigiadas no menu Mais, em &lt;b&gt;Páginas vigiadas&lt;/b&gt;.</string>
