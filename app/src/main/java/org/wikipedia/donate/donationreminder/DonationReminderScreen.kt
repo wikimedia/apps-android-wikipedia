@@ -269,7 +269,10 @@ fun DonationReminderAppBar(
                                         contentDescription = null
                                     )
                                 },
-                                onClick = item.onClick
+                                onClick = {
+                                    item.onClick.invoke()
+                                    expanded = false
+                                }
                             )
                         }
                     }

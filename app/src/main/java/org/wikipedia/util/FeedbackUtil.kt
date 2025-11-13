@@ -93,34 +93,34 @@ object FeedbackUtil {
     }
 
     fun showPrivacyPolicy(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.privacy_policy_url).toUri())
     }
 
     fun showTermsOfUse(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.terms_of_use_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.terms_of_use_url).toUri())
     }
 
     fun showOfflineReadingAndData(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.offline_reading_and_data_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.offline_reading_and_data_url).toUri())
     }
 
     fun showAboutWikipedia(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.about_wikipedia_url).toUri())
     }
 
     fun showAndroidAppFAQ(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_faq_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.android_app_faq_url).toUri())
     }
 
     fun showAndroidAppRequestAnAccount(context: Context) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_request_an_account_url)))
+        UriUtil.visitInExternalBrowser(context, context.getString(R.string.android_app_request_an_account_url).toUri())
     }
 
     fun showAndroidAppEditingFAQ(
         context: Context,
         @StringRes urlStr: Int = R.string.android_app_edit_help_url,
     ) {
-        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
+        UriUtil.visitInExternalBrowser(context, context.getString(urlStr).toUri())
     }
 
     fun composeEmail(
