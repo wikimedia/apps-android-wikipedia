@@ -86,7 +86,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp(
-        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(activity) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
                 getDonationReminderCardViewHeight(true)
     )
     val callToActionEditLang get() =
@@ -222,10 +222,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     activeInterface = "reminder_milestone",
                     action = "notnow_click"
                 )
-                val context = parentFragment.requireActivity()
-                FeedbackUtil.makeSnackbar(context, context.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
                     .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
-                        parentFragment.requireActivity().startActivity(DonationReminderActivity.newIntent(context))
+                        activity.startActivity(DonationReminderActivity.newIntent(activity))
                     }.show()
             }
         }
