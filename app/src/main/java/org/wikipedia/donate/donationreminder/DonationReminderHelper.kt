@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.donationreminder.DonationReminderHelper.MAX_REMINDER_PROMPTS
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -28,7 +29,7 @@ object DonationReminderHelper {
         get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
                         LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.finalPromptActive && isInEligibleCountry
+    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
@@ -51,74 +52,74 @@ object DonationReminderHelper {
     }
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
-        var config = Prefs.donationReminderConfig
-        if (timeSpentSec >= validReadCountOnSeconds && !config.finalPromptActive && config.setupTimestamp != 0L) {
-            Prefs.donationReminderConfig = config.copy(
-                articleVisit = config.articleVisit + 1
-            )
-            activateDonationReminder()
-        }
-        config = Prefs.donationReminderConfig
-        if (config.finalPromptActive && config.finalPromptCount == MAX_REMINDER_PROMPTS) {
-            // When user reaches the maximum reminder prompts, then turn off the final prompt
-            Prefs.donationReminderConfig = config.copy(
-                finalPromptActive = false
-            )
-        }
-    }
+        if (timeSpentSec < validReadCountOnSeconds) return
 
-    fun donationReminderDismissed() {
         val config = Prefs.donationReminderConfig
-        Prefs.donationReminderConfig = config.copy(finalPromptActive = false)
+        if (!isEnabled || !config.isSetup) return
+
+        val newArticleCount = config.articleVisit + 1
+        if (newArticleCount >= config.articleFrequency) {
+            // Activate reminder, reset counters and increment goal reached
+            Prefs.donationReminderConfig = config.copy(
+                articleVisit = 0,
+                isReminderReady = true,
+                timesReminderShown = 0,
+                goalReachedCount = config.goalReachedCount + 1
+            )
+        } else {
+            // Just increment articleVisit counter
+            Prefs.donationReminderConfig = config.copy(
+                articleVisit = newArticleCount
+            )
+        }
     }
 
-    fun maybeShowDonationReminder(update: Boolean = false): Boolean {
+    fun shouldShowReminderNow(): Boolean {
         if (!isEnabled) return false
-        return Prefs.donationReminderConfig.let { config ->
-            val daysOfLastSeen = (LocalDate.now().toEpochDay() - config.promptLastSeen)
-            if (!config.isEnabled || config.setupTimestamp == 0L || !config.finalPromptActive ||
-                config.finalPromptCount > MAX_REMINDER_PROMPTS ||
-                daysOfLastSeen <= 0
-            ) {
-                return@let false
-            }
 
-            if (update) {
-                val finalPromptCount = config.finalPromptCount + 1
-                Prefs.donationReminderConfig = config.copy(
-                    finalPromptCount = finalPromptCount,
-                    promptLastSeen = LocalDate.now().toEpochDay()
-                )
-            }
-            return true
-        }
+        val config = Prefs.donationReminderConfig
+        return config.shouldShowNow()
     }
 
-    private fun activateDonationReminder() {
-        Prefs.donationReminderConfig.let { config ->
-            if (config.articleVisit > 0 && config.articleFrequency > 0 &&
-                config.articleVisit % config.articleFrequency == 0) {
-                // When reaching the article frequency, activate the reminder and reset the count and visits
-                Prefs.donationReminderConfig = config.copy(
-                    finalPromptActive = true,
-                    finalPromptCount = 0,
-                    articleVisit = 0,
-                    goalReachedCount = config.goalReachedCount + 1
-                )
-            }
-        }
+    fun recordReminderShown() {
+        val config = Prefs.donationReminderConfig
+        val newCount = config.timesReminderShown + 1
+
+        Prefs.donationReminderConfig = config.copy(
+            timesReminderShown = newCount,
+            promptLastSeen = LocalDate.now().toEpochDay(),
+            // Deactivate reminder if we've shown it max times
+            isReminderReady = newCount < MAX_REMINDER_PROMPTS
+        )
+    }
+
+    fun dismissReminder() {
+        val config = Prefs.donationReminderConfig
+        Prefs.donationReminderConfig = config.copy(
+            isReminderReady = false
+        )
     }
 }
 
 @Serializable
 data class DonationReminderConfig(
     val isEnabled: Boolean = false,
-    val finalPromptCount: Int = 0,
-    val finalPromptActive: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
     val articleFrequency: Int = 0,
     val donateAmount: Float = 0f,
+    val isReminderReady: Boolean = false,
+    val timesReminderShown: Int = 0,
     val goalReachedCount: Int = 0
-)
+) {
+    val isSetup: Boolean get() = isEnabled && setupTimestamp != 0L && articleFrequency > 0
+
+    fun shouldShowNow(): Boolean {
+        if (!isSetup || !isReminderReady) return false
+        if (timesReminderShown >= MAX_REMINDER_PROMPTS) return false
+
+        val daysSinceLastShown = LocalDate.now().toEpochDay() - promptLastSeen
+        return daysSinceLastShown > 0
+    }
+}
