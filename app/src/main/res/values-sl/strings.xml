@@ -1354,8 +1354,6 @@
   <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"%2$s\"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text">Pozdravljeni, %s, ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
-  <string name="main_tooltip_text_v2">Ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
   <string name="main_tooltip_action_button">Začnimo</string>
   <string name="main_tooltip_watchlist_title">Nadzorni seznam</string>
   <string name="main_tooltip_watchlist_text">Članke in strani, ki ste jih dodali na svoj nadzorni seznam, lahko spremljate v meniju Več pod &lt;b&gt;Nadzorni seznam&lt;/b&gt;.</string>

@@ -1365,8 +1365,6 @@
   <string name="templates_description_missing_data">Denne malen mangler &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, og parametrene dens har blitt &lt;a href=\"%2$s\"&gt;autogenererte&lt;/a&gt;. Som et resultat av dette mangler malen og parametrene dens beskrivelser.</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
-  <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="main_tooltip_watchlist_title">Overvåkningsliste</string>
   <string name="main_tooltip_watchlist_text">Finn artikler og sider du tidligere har lagt til overvåkningslisten din i menyen «Mer» under &lt;b&gt;Overvåkningsliste&lt;/b&gt;.</string>

@@ -1351,8 +1351,6 @@
   <string name="templates_description_missing_data">Bu şablonda &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; yoxdur və onun parametrləri &lt;a href=\"%2$s\"&gt;avtomatik yaradılıb&lt;/a&gt;. Nəticədə şablon və onun parametrlərində təsvirlər yoxdur.</string>
   <string name="main_drawer_help">Kömək</string>
   <string name="main_drawer_login">Daxil ol / Vikipediyaya qoşul</string>
-  <string name="main_tooltip_text">Salam %s, hər kəsin Vikipediyada düzəliş edə biləcəyini bilirdiniz?</string>
-  <string name="main_tooltip_text_v2">Hər kəsin Vikipediyada düzəliş edə biləcəyini bilirdiniz?</string>
   <string name="main_tooltip_action_button">Başla</string>
   <string name="main_tooltip_watchlist_title">İzləmə siyahısı</string>
   <string name="main_tooltip_watchlist_text">Daha əvvəl izləmə siyahınıza əlavə etdiyiniz məqalələri və səhifələri &lt;b&gt;İzləmə siyahısının&lt;/b&gt; altındakı daha çox menyusunda tapın.</string>
@@ -1937,12 +1935,41 @@
     <item quantity="one">Könüllülər Vikipediyanın 300-dən çox müxtəlif dil nəşrlərində %,d dəyişiklik ediblər.</item>
     <item quantity="other">Könüllülər Vikipediyanın 300-dən çox müxtəlif dildə nəşrlərində %,d dəyişiklik ediblər.</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">İngiliscə Vikipediyada %,d redaktə edilib. Hər günün hər saatında könüllülər Vikipediyanı təkmilləşdirmək üçün çalışırlar.</item>
+    <item quantity="other">İngiliscə Vikipediyada %,d redaktə edilib. Hər günün hər saatında könüllülər Vikipediyanı təkmilləşdirmək üçün çalışırlar.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">%,d məqalə yadda saxlamısınız</item>
+    <item quantity="other">%,d məqalə yadda saxlamısınız</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">Bu məqalələr arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; var idi. Saxladığın hər məqalə sənin maraqlarını əks etdirir və Vikipediyada fərdiləşdirilmiş bilik bazasının formalaşmasına kömək edir.&lt;br /&gt;&lt;br /&gt;Fəal tətbiq istifadəçiləri bu il %4$,d məqalə saxlayıb.\n</item>
+    <item quantity="other">Bu məqalələr arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; var idi. Saxladığın hər məqalə sənin maraqlarını əks etdirir və Vikipediyada fərdiləşdirilmiş bilik bazasının formalaşmasına kömək edir.&lt;br /&gt;&lt;br /&gt;Fəal tətbiq istifadəçiləri bu il %4$,d məqalə saxlayıb.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">Tətbiq istifadəçilərinin %,d yadda saxlanmış məqaləsi olub idi</item>
+    <item quantity="other">Tətbiq istifadəçilərinin %,d yadda saxlanmış məqaləsi olub</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">Oxuma siyahılarına məqalələr əlavə etmək hətta oflayn olarkən məqalələri oxumaq imkanı verir. Siz həmçinin cihazlar arasında oxuma siyahılarını sinxronlaşdırmaq üçün hesabınıza daxil ola bilərsiniz.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Aydın oxuma üslubunuz var</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Oxumaq üçün sevimli vaxtınız</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Oxumaq üçün sevimli gününüz</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Ən çox oxuduğunuz ay</string>
   <string name="year_in_review_slide_reading_pattern_morning">Səhər</string>
   <string name="year_in_review_slide_reading_pattern_midday">Günorta</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Günorta</string>
   <string name="year_in_review_slide_reading_pattern_evening">Axşam</string>
   <string name="year_in_review_slide_reading_pattern_night">Gecə</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Gecə</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Oxumağa %,d saat sərf etmişik</item>
+    <item quantity="other">Oxumağa %,d saat sərf etmişik</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">İnsanlar təxminən %,d saat sərf edib</item>
+    <item quantity="other">İnsanlar təxminən %,d saat sərf edib</item>
+  </plurals>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
@@ -2044,7 +2071,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maksimum %s icazə verilir</string>
   <string name="donation_reminders_settings_option_custom">Fərdi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
-  <string name="donation_reminders_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
   <string name="donation_reminders_prompt_message">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
   <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
   <string name="donation_reminders_prompt_negative_button">İndi yox</string>

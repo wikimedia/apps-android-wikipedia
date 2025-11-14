@@ -44,7 +44,6 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.ZoneOffset
 import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
@@ -172,7 +171,7 @@ class ActivityTabViewModel() : ViewModel() {
 
     fun loadDonationResults() {
         val lastDonationTime = Prefs.donationResults.lastOrNull()?.dateTime?.let {
-            val timestampInLong = LocalDateTime.parse(it).toInstant(ZoneOffset.UTC).epochSecond
+            val timestampInLong = LocalDateTime.parse(it).atZone(ZoneId.systemDefault()).toInstant().epochSecond
             val relativeTime = DateUtils.getRelativeTimeSpanString(
                 timestampInLong * 1000, // Convert seconds to milliseconds
                 System.currentTimeMillis(),

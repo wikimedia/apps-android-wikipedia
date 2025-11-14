@@ -1355,8 +1355,6 @@
   <string name="templates_description_missing_data">На оваа предлошка ѝ недостасуваат &lt;a href=\"%1$s\"&gt;Предложни податоци&lt;/a&gt;, и нејзините параметри се &lt;a href=\"%2$s\"&gt;автосоздадени&lt;/a&gt;. Поради тоа, предлошката и нејзините параметри немаат описи.</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
-  <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
-  <string name="main_tooltip_text_v2">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_action_button">Започнете</string>
   <string name="main_tooltip_watchlist_title">Набљудувања</string>
   <string name="main_tooltip_watchlist_text">Најдете статии и страници кои претходно сте ги ставиле во набљудуваните во мените Повеќе под &lt;b&gt;Набљудувани&lt;/b&gt;.</string>
@@ -2192,7 +2190,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Дозволено е највеќе %s</string>
   <string name="donation_reminders_settings_option_custom">Прилагодено…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
-  <string name="donation_reminders_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
   <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
   <string name="donation_reminders_prompt_positive_button">Дарувајте сега</string>
   <string name="donation_reminders_prompt_negative_button">Не сега</string>

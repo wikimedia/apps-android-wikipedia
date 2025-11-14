@@ -1266,8 +1266,6 @@
   <string name="templates_insert_button">Inserează</string>
   <string name="main_drawer_help">Ajutor</string>
   <string name="main_drawer_login">Autentificare / alăturare Wikipedia</string>
-  <string name="main_tooltip_text">Bună, %s, știați că toată lumea poate edita Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Știați că toată lumea poate edita Wikipedia?</string>
   <string name="main_tooltip_action_button">Începe</string>
   <string name="main_tooltip_watchlist_title">Pagini urmărite</string>
   <string name="main_tooltip_watchlist_text">Găsiți articole și pagini pe care le-ați adăugat anterior la lista de urmărire a dvs. în meniul Mai mult de sub &lt;b&gt;Pagini urmărite&lt;/b&gt;.</string>

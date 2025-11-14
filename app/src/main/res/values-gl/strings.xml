@@ -815,7 +815,6 @@
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
-  <string name="main_tooltip_text">Ola %s, sabía que todo o mundo pode editar a Wikipedia?</string>
   <string name="main_tooltip_action_button">Comezar</string>
   <string name="main_tooltip_watchlist_title">Lista de vixilancia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

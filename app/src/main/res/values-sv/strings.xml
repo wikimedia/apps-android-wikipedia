@@ -1366,8 +1366,6 @@
   <string name="templates_description_missing_data">Den här mallen saknar &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; och dess parametrar har &lt;a href=\"%2$s\"&gt;genererats automatiskt&lt;/a&gt;. Därför saknar mallen och dess parametrar beskrivningar.</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
-  <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom igång</string>
   <string name="main_tooltip_watchlist_title">Bevakningslista</string>
   <string name="main_tooltip_watchlist_text">Hitta artiklar och sidor du tidigare lade till i din bevakningslista i Fler-menyn under &lt;b&gt;Bevakningslista&lt;/b&gt;.</string>
@@ -2128,7 +2126,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Maximalt %s är tillåtet</string>
   <string name="donation_reminders_settings_option_custom">Anpassad…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Tack! Vi påminner dig om att donera %1$s när du har läst %2$s medan experimentet pågår.</string>
-  <string name="donation_reminders_prompt_title">Du har läst %1$s sedan du lovade %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har läst %1$s sedan du lovade %2$s</string>
   <string name="donation_reminders_prompt_positive_button">Donera nu</string>
   <string name="donation_reminders_prompt_negative_button">Inte nu</string>
   <string name="donation_reminders_gpay_text">Donera %s med Google Pay</string>
