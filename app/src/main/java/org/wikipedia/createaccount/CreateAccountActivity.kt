@@ -112,6 +112,7 @@ class CreateAccountActivity : BaseActivity() {
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
                                 showProgressBar(true)
+                                hCaptchaHelper.cleanup()
                                 hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
@@ -225,11 +226,6 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun doCreateAccount(token: String, hCaptchaToken: String? = null) {
-        if (!hCaptchaToken.isNullOrEmpty()) {
-            FeedbackUtil.showMessage(this, "HCaptcha success!\nAccount would have been created at this point.")
-            return
-        }
-
         showProgressBar(true)
         val email = getText(binding.createAccountEmail).ifEmpty { null }
         val password = getText(binding.createAccountPasswordInput)

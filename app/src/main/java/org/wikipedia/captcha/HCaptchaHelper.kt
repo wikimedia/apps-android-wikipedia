@@ -4,6 +4,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.FragmentActivity
 import com.hcaptcha.sdk.HCaptcha
 import com.hcaptcha.sdk.HCaptchaConfig
+import com.hcaptcha.sdk.HCaptchaDialogFragment
 import com.hcaptcha.sdk.HCaptchaTheme
 import com.hcaptcha.sdk.HCaptchaTokenResponse
 import org.wikipedia.WikipediaApp
@@ -34,6 +35,8 @@ class HCaptchaHelper(
         siteKey = "e11698d6-51ca-4980-875c-72309c6678cc"
     )
 
+    private val dialogCancelableRunnable = MakeHCaptchaDialogCancelable()
+
     fun show() {
         if (hCaptcha == null) {
             val config = RemoteConfig.config.androidv1?.hCaptcha ?: configDefault
@@ -49,8 +52,9 @@ class HCaptchaHelper(
                     .imghost(config.imgHost)
                     .reportapi(config.reportApi)
                     .sentry(config.sentry)
-                    .loading(true)
-                    .build())
+                    .loading(false)
+                    .build()
+            )
 
             hCaptcha?.addOnSuccessListener { response ->
                 tokenResponse = response
@@ -64,10 +68,34 @@ class HCaptchaHelper(
             }
         }
         hCaptcha?.verifyWithHCaptcha()
+
+        // This works around an issue in the hCaptcha library where the "loading" dialog, even when
+        // it's not visible, still allows itself to be "canceled" by touching anywhere outside its
+        // bounds. We work around this by explicitly finding its DialogFragment and setting it to
+        // be non-cancelable, and then setting it back to cancelable after a short delay, so that
+        // the user doesn't accidentally tap the screen while hCaptcha is loading.
+        activity.window.decorView.post(MakeHCaptchaDialogCancelable(false))
+        activity.window.decorView.postDelayed(dialogCancelableRunnable, 10000)
     }
 
     fun cleanup() {
+        if (!activity.isDestroyed) {
+            activity.window.decorView.removeCallbacks(dialogCancelableRunnable)
+        }
+        hCaptcha?.removeAllListeners()
         hCaptcha?.reset()
         hCaptcha = null
+    }
+
+    inner class MakeHCaptchaDialogCancelable(val cancelable: Boolean = true) : Runnable {
+        override fun run() {
+            if (!activity.isDestroyed) {
+                activity.supportFragmentManager.fragments.forEach {
+                    if (it is HCaptchaDialogFragment) {
+                        it.isCancelable = cancelable
+                    }
+                }
+            }
+        }
     }
 }
