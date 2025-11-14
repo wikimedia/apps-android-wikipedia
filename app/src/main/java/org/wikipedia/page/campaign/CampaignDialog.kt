@@ -25,7 +25,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         val campaignView = CampaignDialogView(context)
         campaignView.callback = this
         val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
-        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
+        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true || Prefs.ignoreDateForAnnouncements
         campaignView.setupViews(campaignId, campaign.getAssetsForLang(WikipediaApp.instance.appOrSystemLanguageCode))
         setView(campaignView)
     }
