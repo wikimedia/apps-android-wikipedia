@@ -42,7 +42,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
                 it.copy(
                     readFrequency = readFrequencyOptions,
                     donationAmount = donationAmountOptions,
-                    isDonationReminderEnabled = Prefs.donationReminderConfig.isEnabled,
+                    isDonationReminderEnabled = Prefs.donationReminderConfig.userEnabled,
                     isLoading = false,
                     error = null
                 )
@@ -57,7 +57,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 
     fun hasValueChanged(): Boolean {
         val currentValue = _uiState.value
-        return Prefs.donationReminderConfig.isEnabled && (currentValue.donationAmount.selectedValue != Prefs.donationReminderConfig.donateAmount || currentValue.readFrequency.selectedValue != Prefs.donationReminderConfig.articleFrequency)
+        return Prefs.donationReminderConfig.userEnabled && (currentValue.donationAmount.selectedValue != Prefs.donationReminderConfig.donateAmount || currentValue.readFrequency.selectedValue != Prefs.donationReminderConfig.articleFrequency)
     }
 
     fun saveReminder() {
@@ -87,7 +87,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
     }
 
     fun toggleDonationReminders(enabled: Boolean) {
-        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isEnabled = enabled)
+        Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(userEnabled = enabled)
         if (enabled) {
             Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(isReminderReady = false)
         } else {
@@ -160,7 +160,7 @@ class DonationReminderViewModel(savedStateHandle: SavedStateHandle) : ViewModel(
 }
 
 data class DonationReminderUiState(
-    val isDonationReminderEnabled: Boolean = Prefs.donationReminderConfig.isEnabled,
+    val isDonationReminderEnabled: Boolean = Prefs.donationReminderConfig.userEnabled,
     val readFrequency: SelectableOption<Int> = SelectableOption(
         selectedValue = Prefs.donationReminderConfig.articleFrequency,
         options = emptyList(),

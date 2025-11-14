@@ -29,7 +29,7 @@ object DonationReminderHelper {
         get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
                         LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
-    val hasActiveReminder get() = Prefs.donationReminderConfig.isEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
+    val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
     var shouldShowSettingSnackbar = false
 
@@ -78,19 +78,17 @@ object DonationReminderHelper {
         if (!isEnabled) return false
 
         val config = Prefs.donationReminderConfig
-        return config.shouldShowNow()
-    }
-
-    fun recordReminderShown() {
-        val config = Prefs.donationReminderConfig
-        val newCount = config.timesReminderShown + 1
-
-        Prefs.donationReminderConfig = config.copy(
-            timesReminderShown = newCount,
-            promptLastSeen = LocalDate.now().toEpochDay(),
-            // Deactivate reminder if we've shown it max times
-            isReminderReady = newCount < MAX_REMINDER_PROMPTS
-        )
+        val shouldShowNow = config.shouldShowNow()
+        if (shouldShowNow) {
+            val newCount = config.timesReminderShown + 1
+            Prefs.donationReminderConfig = config.copy(
+                timesReminderShown = newCount,
+                promptLastSeen = LocalDate.now().toEpochDay(),
+                // Deactivate reminder if we've shown it max times
+                isReminderReady = newCount < MAX_REMINDER_PROMPTS
+            )
+        }
+        return shouldShowNow
     }
 
     fun dismissReminder() {
@@ -103,7 +101,7 @@ object DonationReminderHelper {
 
 @Serializable
 data class DonationReminderConfig(
-    val isEnabled: Boolean = false,
+    val userEnabled: Boolean = false,
     val promptLastSeen: Long = 0,
     val setupTimestamp: Long = 0,
     val articleVisit: Int = 0,
@@ -113,11 +111,10 @@ data class DonationReminderConfig(
     val timesReminderShown: Int = 0,
     val goalReachedCount: Int = 0
 ) {
-    val isSetup: Boolean get() = isEnabled && setupTimestamp != 0L && articleFrequency > 0
+    val isSetup: Boolean get() = userEnabled && setupTimestamp != 0L && articleFrequency > 0
 
     fun shouldShowNow(): Boolean {
-        if (!isSetup || !isReminderReady) return false
-        if (timesReminderShown >= MAX_REMINDER_PROMPTS) return false
+        if (!isSetup || !isReminderReady || timesReminderShown >= MAX_REMINDER_PROMPTS) return false
 
         val daysSinceLastShown = LocalDate.now().toEpochDay() - promptLastSeen
         return daysSinceLastShown > 0
