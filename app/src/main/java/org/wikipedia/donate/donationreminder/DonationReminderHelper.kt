@@ -52,10 +52,10 @@ object DonationReminderHelper {
     }
 
     fun increaseArticleVisitCount(timeSpentSec: Int) {
-        if (timeSpentSec < validReadCountOnSeconds) return
+        if (!isEnabled || timeSpentSec < validReadCountOnSeconds) return
 
         val config = Prefs.donationReminderConfig
-        if (!isEnabled || !config.isSetup) return
+        if (!config.isSetup) return
 
         val newArticleCount = config.articleVisit + 1
         if (newArticleCount >= config.articleFrequency) {
