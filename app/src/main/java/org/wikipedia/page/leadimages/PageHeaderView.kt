@@ -139,20 +139,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             binding.donationReminderCardView.setMessage(messageText)
             binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
                 callback?.donationReminderCardPositiveClicked()
-                DonationReminderHelper.donationReminderDismissed()
+                DonationReminderHelper.dismissReminder()
             }
             binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
                 callback?.donationReminderCardNegativeClicked()
                 binding.donationReminderCardView.isVisible = false
-                if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                    // Give the user one more chance to see the donation reminder
-                    Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                        finalPromptCount = 1,
-                        finalPromptActive = true
-                    )
-                    return@setNegativeButton
-                }
-                DonationReminderHelper.donationReminderDismissed()
+                DonationReminderHelper.dismissReminder()
             }
 
             binding.donationReminderCardView.isVisible = true
@@ -171,17 +163,12 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
     }
 
     fun maybeShowDonationReminderCard() {
-        if (!DonationReminderHelper.hasActiveReminder) {
-            return
-        }
-        val canShowFinalDonationReminder = DonationReminderHelper.maybeShowDonationReminder(true)
-
-        if (canShowFinalDonationReminder) {
+        if (DonationReminderHelper.shouldShowReminderNow()) {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "impression"
             )
+            binding.donationReminderCardView.isVisible = true
         }
-        binding.donationReminderCardView.isVisible = canShowFinalDonationReminder
     }
 }
