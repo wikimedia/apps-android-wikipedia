@@ -16,6 +16,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.children
+import androidx.core.view.isEmpty
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -302,7 +303,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
+    override fun onCheckedChanged(button: CompoundButton, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
             chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))
@@ -342,7 +343,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun publish() {
-        if (publishing || publishSuccess || binding.tagsChipGroup.childCount == 0) {
+        if (publishing || publishSuccess || binding.tagsChipGroup.isEmpty()) {
             return
         }
 

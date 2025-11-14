@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -22,7 +21,7 @@ class SuggestedEditsImageRecsOnboardingActivity : BaseActivity() {
 
         findViewById<View>(R.id.onboarding_done_button).setOnClickListener {
             ImageRecommendationsEvent.logAction("next", "onboarding_step_1_dialog")
-            setResult(Activity.RESULT_OK)
+            setResult(RESULT_OK)
             finish()
         }
     }

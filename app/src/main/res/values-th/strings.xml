@@ -43,7 +43,7 @@
   <string name="page_error_back_to_main">ย้อนกลับ</string>
   <string name="error_back">ย้อนกลับ</string>
   <string name="error_next">ถัดไป</string>
-  <string name="menu_clear_all_history">ล้างประวัติ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ล้างประวัติ</string>
   <string name="history_item_deleted">ลบ %s ออกจากประวัติแล้ว</string>
   <string name="history_items_deleted">ลบบทความ %d เรื่องออกจากประวัติแล้ว</string>
   <string name="history_item_delete_undo">เลิกทำ</string>
@@ -56,7 +56,7 @@
   <string name="wikimedia_commons">วิกิมีเดียคอมมอนส์</string>
   <string name="wikidata">วิกิสนเทศ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
-  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
   <string name="dialog_message_clear_history_no">ไม่</string>
   <string name="share_via">แบ่งปันผ่าน</string>
@@ -229,13 +229,11 @@
   <string name="terms_of_use_description">ข้อกำหนดการใช้งาน</string>
   <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
   <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
   <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
@@ -948,8 +946,6 @@
   <string name="insert_media_advanced_settings_image_size_custom_px">พิกเซล</string>
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
-  <string name="main_tooltip_text">สวัสดี %s คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
-  <string name="main_tooltip_text_v2">คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
   <string name="main_tooltip_action_button">เริ่มต้นใช้งาน</string>
   <string name="main_tooltip_watchlist_title">รายการเฝ้าดู</string>
   <string name="custom_date_picker_dialog_ok_button_text">ตกลง</string>

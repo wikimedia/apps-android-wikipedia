@@ -41,7 +41,7 @@
   <string name="page_error_back_to_main">پیچھے جائیں</string>
   <string name="error_back">پیچھے جائیں</string>
   <string name="error_next">اگلا</string>
-  <string name="menu_clear_all_history">تاریخچہ مٹائیں</string>
+  <string name="menu_clear_all_history">پڑھنے کا تاریخچہ مٹائیں</string>
   <string name="history_item_deleted">%s کو تاریخچے سے حذف کر دیا گیا</string>
   <string name="history_items_deleted">%d مضامین تاریخچے سے حذف کر دیے گئے</string>
   <string name="history_item_delete_undo">رد ترمیم</string>
@@ -54,7 +54,7 @@
   <string name="wikimedia_commons">ویکی ذخائر</string>
   <string name="wikidata">ویکی ڈیٹا</string>
   <string name="dialog_title_clear_history">تاریخچہ مٹائیں</string>
-  <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
+  <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
   <string name="dialog_message_clear_history_no">نہیں</string>
   <string name="share_via">ارسال بذریعہ</string>
@@ -100,8 +100,8 @@
   <string name="map_view_link_text">نقشے پر دیکھیں</string>
   <string name="other_languages_indication_text">دوسری زبان میں پڑھیں</string>
   <string name="language_count_link_text">%d دیگر زبانوں میں دستیاب ہے</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
+  <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
+  <string name="edit_save_action_license_anon">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
   <string name="preference_title_language">ویکیپیڈیا کی زبانیں</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
@@ -130,8 +130,8 @@
   <string name="login_username_hint">صارف نام</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="account_creation_password_hint">پاس ورڈ</string>
-  <string name="login_2fa_hint" fuzzy="true">دوہری تصدیق کا کوڈ</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">دوہری تصدیق درکار ہے! براہ کرم واپس لوٹیں، اپنے ٹوکن کے ذریعہ داخل ہوں اور پھر کوشش کریں۔</string>
+  <string name="login_2fa_hint">دوہری تصدیق کا کوڈ</string>
+  <string name="login_2fa_other_workflow_error_msg">دوہری تصدیق درکار ہے! براہ کرم اسکرین کے ذریعہ داخل ہوں اور 2FA ٹوکن سے کوڈ درج کریں۔</string>
   <string name="onboarding_card_login">لاگ ان</string>
   <string name="page_editing_login">لاگ ان</string>
   <string name="reading_lists_sync_login">لاگ ان</string>
@@ -171,7 +171,7 @@
   <string name="create_account_passwords_mismatch_error">دونوں پاس ورڈ یکساں نہیں ہیں</string>
   <string name="create_account_email_error">ای۔میل پتہ درست نہیں</string>
   <string name="create_account_username_error">صارف نام میں نادرست حروف</string>
-  <string name="create_account_password_error" fuzzy="true">پاس ورڈ درست نہیں</string>
+  <string name="create_account_password_error">پاسورڈ کم از کم آٹھ حروف پر مشتمل ہونا چاہیے</string>
   <string name="create_account_generic_error">کھاتا نہیں بن سکا۔</string>
   <string name="create_account_next">آگے جائیں</string>
   <string name="email_recommendation_dialog_title">برقی پتے کے بغیر کے کھاتہ بنائیں؟</string>
@@ -215,12 +215,11 @@
   <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
   <string name="about_wikipedia_url">https://ur.wikipedia.org/wiki/ویکیپیڈیا:تعارف</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
   <string name="about_contributors_heading">مشارکت کنندگان</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ٹیم page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;ٹیم page&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;ٹرانسلیٹ ویکی ڈاٹ نیٹ&lt;/a&gt; کے رضاکار مترجمین اس اطلاقیہ کا ترجمہ کیا ہے۔</string>
   <string name="about_app_license_heading">اجازت نامہ</string>
@@ -507,6 +506,7 @@
   <string name="preference_title_notification_login_fail">لاگ ان</string>
   <string name="preference_title_notification_mention">بنام ذکر</string>
   <string name="preference_title_notification_user_talk">تبادلۂ خیال صفحہ</string>
+  <string name="notifications_filter_label">اطلاعات فلٹر</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
   <string name="view_next_random_article">ایک اور بے ترتیب مضمون لوڈ کریں</string>
@@ -584,6 +584,7 @@
   <string name="suggested_edits_edit_caption_button">وضاحت میں ترمیم کریں</string>
   <string name="suggested_edits_review_image_caption">تصویر کی وضاحت پر نظر ثانی کریں</string>
   <string name="suggested_edits_my_contributions">میری شراکتیں</string>
+  <string name="suggested_edits_task_multilingual_positive">زبانیں شامل کریں</string>
   <string name="suggested_edits_image_caption_summary_title_image">تصویر</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فن کار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
@@ -632,7 +633,7 @@
   <string name="suggested_edits_ip_blocked_title">آئی پی مسدود</string>
   <string name="suggested_edits_last_edited">آخری ترمیم</string>
   <string name="suggested_edits_last_edited_never">کبھی نہیں</string>
-  <string name="suggested_edits_task_new" fuzzy="true">نیا</string>
+  <string name="suggested_edits_task_new">نیا</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_type_label">شراکت کی قسم</string>
   <string name="suggested_edits_contribution_image_label">تصویر</string>
@@ -718,5 +719,5 @@
   <string name="survey_dialog_option_very_satisfied">بہت مطمئن</string>
   <string name="survey_dialog_option_very_unsatisfied">بہت غیر مطمئن</string>
   <string name="survey_dialog_submit">جمع کریں</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">رائے دی گئ۔ شکریہ!</string>
+  <string name="survey_dialog_submitted_snackbar">رائے درج ہوگئی۔ شکریہ!</string>
 </resources>

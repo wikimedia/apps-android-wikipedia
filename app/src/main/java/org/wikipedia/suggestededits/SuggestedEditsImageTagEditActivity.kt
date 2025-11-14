@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -28,6 +29,13 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
         super.onCreate(savedInstanceState)
         binding = ActivitySuggestedEditsFeedCardImageTagsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback(this) {
+            if (!suggestedEditsImageTagsFragment.onBackPressed()) {
+                return@addCallback
+            }
+            finish()
+        }
 
         page = JsonUtil.decodeFromString(intent.getStringExtra(ARG_PAGE))
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -80,13 +88,6 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFra
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(this))
         }
-    }
-
-    override fun onBackPressed() {
-        if (!suggestedEditsImageTagsFragment.onBackPressed()) {
-            return
-        }
-        super.onBackPressed()
     }
 
     companion object {

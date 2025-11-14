@@ -17,9 +17,9 @@
   <string name="error_network_error">ନେଟୱର୍କ ସହ ସଂଯୋଗ ହୋଇ ପାରିବ ନାହିଁ।</string>
   <string name="page_error_retry">ପୁଣି ଚେଷ୍ଟାକରନ୍ତୁ</string>
   <string name="page_error_back_to_main">ପଛକୁ ଫେରିବେ</string>
-  <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="dialog_title_clear_history">ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାନ୍ତୁ</string>
-  <string name="dialog_message_clear_history">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
   <string name="search_redirect_from">%s‌‌ରୁ ଲେଉଟିଆସିଛି</string>
   <string name="menu_page_show_tabs">ଟ୍ୟାବସବୁ ଦେଖାନ୍ତୁ</string>

@@ -274,7 +274,6 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     private inner class RecentEditsDiffCallback : DiffUtil.ItemCallback<SuggestedEditsRecentEditsViewModel.RecentEditsItemModel>() {
         override fun areContentsTheSame(oldItem: SuggestedEditsRecentEditsViewModel.RecentEditsItemModel, newItem: SuggestedEditsRecentEditsViewModel.RecentEditsItemModel): Boolean {
             if (oldItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator && newItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {

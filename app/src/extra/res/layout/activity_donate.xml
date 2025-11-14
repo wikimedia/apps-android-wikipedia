@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         style="@style/ToolbarStyle.Small"
-        app:title="@string/donate_gpay_activity_title"
+        app:title="@string/donate_gpay_activity_title_with_currency"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp" />
 

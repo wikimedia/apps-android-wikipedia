@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">पीछू जा</string>
   <string name="error_back">पीछू जा</string>
   <string name="error_next">आगू</string>
-  <string name="menu_clear_all_history">इतिहास मेटाबौ</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहास मेटाबौ</string>
   <string name="history_item_deleted">%s क इतिहास सँ हटैलौ गेलै</string>
   <string name="history_items_deleted">%d लेख इतिहास सँ हटैलौ गेलै</string>
   <string name="history_item_delete_undo">पहलकरौ जैसनौ करौ</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">विकिमीडिया कॉमन्स</string>
   <string name="wikidata">विकिडाटा</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करौ</string>
-  <string name="dialog_message_clear_history">ई आपनै के सब्भे ब्राउज़िंग इतिहास क हटाय देतै, आरू अखनको खुललो कोय भी टैब क बंद करी देतै। आपनै निश्चिंत छियै?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ई आपनै के सब्भे ब्राउज़िंग इतिहास क हटाय देतै, आरू अखनको खुललो कोय भी टैब क बंद करी देतै। आपनै निश्चिंत छियै?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नै</string>
   <string name="share_via">के माध्यम सँ साझा करौ</string>
@@ -179,12 +179,10 @@
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग केरौ शर्त सिनी</string>
   <string name="about_wikipedia_url">https://anp.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_केरौ_बारै_मँ</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://anp.wikipedia.org/wiki/विकिपीडिया:एगो_खाता_केरौ_अनुरोध</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ क प्रयोग होलै</string>
   <string name="about_contributors_heading">योगदानकर्ता सिनी</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_app_license_heading">लाइसेंस</string>
   <string name="about_activity_title">बारै मँ</string>

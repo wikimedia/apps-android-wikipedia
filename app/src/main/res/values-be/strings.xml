@@ -11,12 +11,15 @@
 * Kareyac
 * Liashko
 * Maksim L.
+* McDutchie
 * Mechanizatar
 * MuratTheTurkish
 * Pavel200071
 * Plaga med
+* SaldırganSincap
 * SimondR
 * Tomato Cream
+* Ucukor
 * Unomano
 * ZlyiLev
 * Zmicier21
@@ -48,7 +51,7 @@
   <string name="page_error_back_to_main">Вярнуцца</string>
   <string name="error_back">Вярнуцца</string>
   <string name="error_next">Далей</string>
-  <string name="menu_clear_all_history">Ачысціць гісторыю</string>
+  <string name="menu_clear_all_history" fuzzy="true">Ачысціць гісторыю</string>
   <string name="history_item_deleted">Артыкул \"%s\" выдалены з гісторыі праглядаў</string>
   <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі праглядаў</string>
   <string name="history_item_delete_undo">Вярнуць</string>
@@ -61,7 +64,7 @@
   <string name="wikimedia_commons">Вікісховішча</string>
   <string name="wikidata">Вікіданыя</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
-  <string name="dialog_message_clear_history">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Гэта выдаліць усю гісторыю праглядаў і закрые ўсе адкрытыя ўкладкі. Вы ўпэўнены ў гэтым?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Не</string>
   <string name="share_via">Падзяліцца праз</string>
@@ -187,7 +190,7 @@
   <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="account_vanish_request_title">Выдаліць уліковы запіс</string>
   <string name="account_vanish_request_confirm_title">Папярэджанне аб выдаленні ўліковага запісу</string>
-  <string name="account_vanish_request_confirm">Выдаленне з’яўляецца &lt;b&gt;апошнім сродкам/b&gt; і мусіць &lt;b&gt; выкарыстоўвацца толькі ў тым выпадку, калі вы хочаце назаўсёды спыніць праўленне, а таксама схаваць як мага больш сваіх мінулых сувязяў.&lt;br/&gt;&lt;br/&gt;Выдаленне ўліковага запісу ў Вікіпедыі здзяйсняецца шляхам змянення: пазначце імя вашага ўліковага запісу, каб іншыя карыстальнікі не маглі спазнаць ваш унёсак у працэсе, які мае назву выдаленне ўліковага запісу. &lt;b&gt;Выдаленне не гарантуе поўнай ананімнасці і не выдаляе ўнёскі ў праекты&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Выдаленне з’яўляецца &lt;b&gt;апошнім сродкам&lt;/b&gt; і мусіць &lt;b&gt;выкарыстоўвацца толькі ў тым выпадку&lt;/b&gt;, калі вы хочаце назаўсёды спыніць праўленне, а таксама схаваць як мага больш сваіх мінулых сувязяў.&lt;br/&gt;&lt;br/&gt;Выдаленне ўліковага запісу ў Вікіпедыі здзяйсняецца шляхам змянення: пазначце імя вашага ўліковага запісу, каб іншыя карыстальнікі не маглі спазнаць ваш унёсак у працэсе, які мае назву выдаленне ўліковага запісу. &lt;b&gt;Выдаленне не гарантуе поўнай ананімнасці і не выдаляе ўнёскі ў праекты&lt;/b&gt;.</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Сачыць за тым, што вы ўжо прачыталі.</string>
   <string name="history_offline_articles_toast">Некаторыя артыкулы ў гісторыі могуць быць недаступныя па-за сеткай.</string>
@@ -254,14 +257,11 @@
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
   <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
   <string name="about_contributors_heading">Суаўтары</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Старонка каманды&lt;/a&gt;</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэта праграма была перакладзена валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
@@ -466,8 +466,8 @@
     <item quantity="many">Тэрмін дзеяння вашага ўліковага запісу скончыцца праз %d дзён..</item>
     <item quantity="other">Тэрмін дзеяння вашага ўліковага запісу скончыцца праз %d дзён..</item>
   </plurals>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Вы не ўвайшлі ў сістэму.&lt;/b&gt; Пасля ўнясення змяненняў для вас будзе створаны часовы ўліковы запіс для абароны вашай канфідэнцыяльнасці. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Даведацца больш&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Вы выкарыстоўваеце часовы ўліковы запіс.&lt;/b&gt; Вашае змяненне будзе аднесена да %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Даведацца больш&lt;/a&gt; .</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Вы не ўвайшлі ў сістэму.&lt;/b&gt; Пасля ўнясення змяненняў для вас будзе створаны часовы ўліковы запіс для абароны вашай канфідэнцыяльнасці. &lt;a href=\"%1$s\"&gt;Даведацца больш&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Вы выкарыстоўваеце часовы ўліковы запіс.&lt;/b&gt; Вашае змяненне будзе аднесена да %1$s . &lt;a href=\"%2$s\"&gt;Даведацца больш&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;На бягучы момант вы выкарыстоўваеце часовы ўліковы запіс.&lt;/b&gt; Змяненні, якія ўносяцца з дапамогай часовага ўліковага запісу %1$s не будуць перанесенымі ў ваш пастаянны ўліковы запіс пры ўваходзе ў сістэму. Увайдзіце ў сістэму або стварыце ўліковы запіс, каб уносіць змяненні пад сваім імем, апроч іншых пераваг.</string>
   <string name="temp_account_end_session">Скончыць сеанс</string>
   <string name="temp_account_end_session_confirm">Гэта прывядзе да выхаду з вашага часовага ўліковага запісу. Вы хочаце працягнуць?</string>
@@ -1338,11 +1338,9 @@
   <string name="templates_learn_more_link">Даведацца больш</string>
   <string name="templates_description_incomplete">Шаблоны ствараюцца карыстальнікамі і могуць не мець поўнага апісання.</string>
   <string name="templates_description_empty">Шаблон \"%s\" яшчэ не мае апісання.</string>
-  <string name="templates_description_missing_data">У гэтым шаблоне адсутнічаюць &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;звесткі пра шаблон&lt;/a&gt;, а ягоныя параметры былі &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;аўтаматычна створаныя&lt;/a&gt;. У выніку ў шаблона і ягоных параметраў адсутнічаюць апісанні.</string>
+  <string name="templates_description_missing_data">У гэтым шаблоне адсутнічаюць &lt;a href=\"%1$s\"&gt;звесткі пра шаблон&lt;/a&gt;, а ягоныя параметры былі &lt;a href=\"%2$s\"&gt;аўтаматычна створаныя&lt;/a&gt;. У выніку ў шаблона і ягоных параметраў адсутнічаюць апісанні.</string>
   <string name="main_drawer_help">Даведка</string>
   <string name="main_drawer_login">Увайсці / далучыцца да Вікіпедыі</string>
-  <string name="main_tooltip_text">Вітаем %s! Ці вы ведалі, што кожны можа правіць у Вікіпедыі?</string>
-  <string name="main_tooltip_text_v2">Ці ведаеце вы, што кожны можа правіць Вікіпедыю?</string>
   <string name="main_tooltip_action_button">Пачаць</string>
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
   <string name="main_tooltip_watchlist_text">Знайдзіце артыкулы і старонкі, якія вы раней дадавалі ў свой спіс назірання, у меню Дадаткова ў раздзеле &lt;b&gt;Спіс назірання&lt;/b&gt;.</string>
@@ -1686,7 +1684,7 @@
   <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
-  <string name="patroller_diff_tooltip_two">Намер прадказвае верагоднасць добрасумленнага захавання праўкі.</string>
+  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасць добрасумленнага захавання праўкі.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Як мы можам палепшыць функцыю?</string>
   <string name="patroller_diff_menu_edit_history_title">Гісторыя праўкі артыкула</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Зваротная сувязь</string>
@@ -1704,7 +1702,7 @@
   <string name="patroller_saved_message_body_vandalism">Прывітанне {{{username}}}, я хачу паведаміць вам, што я вярнуў адну або болей вашых [{{{diffLink}}}|нядаўніх унёскаў], бо яны не выглядаюць канструктыўнымі. Калі вы думаеце, што я памыліўся або ў вас ёсць пытанні, вы можаце пакінуць паведамленне ў [[User talk:{{{senderUserName}}}|маёй старонцы абмеркаванняў]]. Звярніце ўвагу, што працяг вандалізму можа прывесці да абмежаванняў.</string>
   <string name="patroller_saved_message_body_editing_tests">Прывітанне, {{{username}}}, я рады, што Вікіпедыя прыцягнула вашу ўвагу і што вам было цікава навучыцца правіць у ёй. Праведзены вамі тэст правак спрацаваў; аднак вы павінны мець на ўвазе, што мэта гэтага праекта — распрацаваць надзейную і поўную энцыклапедыю, з якой кожны можа азнаёміцца. Ваша праўка паўплывала на змесціва, таму яно было выдалена.\nКалі вы хочаце навучыцца рабіць праўкі ў Вікіпедыі, у вашым распараджэнні [[Wikipedia:Sandbox|пясочніца]]. Калі вашы каментары датычыліся артыкула, правільным месцам будзе старонка абмеркавання гэтага артыкула.</string>
   <string name="patroller_saved_message_body_npov">Прывітанне, {{{username}}}, некаторыя зробленыя вамі ўнёскі не адпавядаюць патрабаванням нейтральнасці, неабходным для захавання [[Wikipedia:NPOV|нейтральнага пункту гледжання]] палітыкі Вікіпедыі. Па гэтай прычыне некаторае змесціва было зменена або выдалена. Калі ласка, змяніце абзацы або раздзелы, якія паказваюць асобны пункт гледжання, замяніўшы іх больш нейтральным і аб’ектыўным тэкстам у адпаведнасці з тым, што чакаецца ў энцыклапедыі.</string>
-  <string name="patroller_saved_message_body_auto_trans">Прывітанне, {{{username}}}, некаторыя вашыя ўнёскі, магчыма, з’яўляюцца машыннымі перакладамі, таму яны былі зменены або пазначаны шаблонам. Калі ў артыкул не ўнесены паляпшэнні, ён можа быць выдалены.\n\nКалі, нягледзячы на ўсю гэтую інфармацыю, у вас застаюцца пытанні, не саромейцеся пакінуць паведамленне на [[User talk:{{{senderUserName} }}|маёй старонцы абмеркаванняў]]. Не адчайвайцеся ад гэтага невялікага здарэння. Ваш унёсак вельмі важны для Вікіпедыі.</string>
+  <string name="patroller_saved_message_body_auto_trans">Прывітанне, {{{username}}}, некаторыя вашыя ўнёскі, магчыма, з’яўляюцца машыннымі перакладамі, таму яны былі зменены або пазначаны шаблонам. Калі ў артыкул не ўнесены паляпшэнні, ён можа быць выдалены.\n\nКалі, нягледзячы на ўсю гэтую інфармацыю, у вас застаюцца пытанні, не саромейцеся пакінуць паведамленне на [[User talk:{{{senderUserName}}}|маёй старонцы абмеркаванняў]]. Не адчайвайцеся ад гэтага невялікага здарэння. Ваш унёсак вельмі важны для Вікіпедыі.</string>
   <string name="patroller_saved_message_body_coi_rem">Вітаю, {{{username}}}, я цаню ваш удзел у Вікіпедыі; Аднак, заўважыў, што ў вас ёсць [[Wikipedia:Conflict_of_interest|канфлікт інтарэсаў]]. Канфлікт інтарэсаў — несумяшчальнасць мэт Вікіпедыі па нейтральнасці і надзейнасці з прыватнымі мэтамі некаторых удзельнікаў, асоб, арганізацый або кампаній розных тыпаў.\n\nУвесь унёсак у асноўную прастору мусіць адпавядаць палітыцы крытэрыяў зместу гэтай Вікіпедыі ([[Вікіпедыя:Чым не з’яўляецца Вікіпедыя|Чым не з’яўляецца Вікіпедыя]]), энцыклапедычнай якасці (быць [[Вікіпедыя:Правяральнасць|правяральным]] і не быць [[Вікіпедыя:Не ўласнае даследаванне|уласным даследаваннем]]), рэдактарскаму метаду (адпавядаць [[Вікіпедыя:Нейтральны пункт гледжання|нейтральнаму пункту гледжання]]) і быць законным (не парушаць [[Вікіпедыя:Аўтарскія правы|аўтарскія правы]]). Усе ўдзельнікі павінны трымацца гэтых палітык пры стварэнні і ацэнцы зместу, а таксама паважаць і зыходзіць з сумленнасці іншых удзельнікаў, каб гарантаваць трыманне гэтым палітыкам.\n\nКалі вы рэдагуеце ва ўмовах канфлікту інтарэсаў, то павінны трымацца адпаведных палітык з асаблівай пільнасцю; у адваротным выпадку ваш уліковы запіс можа быць прызнаны ўжываным у прыватных мэтах і заблакіраваны. Не саромейцеся звяртацца на маю старонку размоў, калі ў вас ёсць якія-небудзь пытанні.</string>
   <string name="patroller_saved_message_body_final_warning">Паколькі вы зрабілі некалькі дэструктыўных правак, гэта будзе вашым апошнім папярэджаннем. Калі вы зноў будзеце бясчынстваваць ў Вікіпедыі, вам будзе забаронена рабіць праўкі.</string>
   <string name="patroller_saved_message_body_copy_vio">Ваша нядаўняя праўка, здаецца, уключае матэрыялы, абароненыя аўтарскім правам, без дазволу. Пераканайцеся, што ўвесь кантэнт адпавядае палітыцы [[Wikipedia:Copyrights|аўтарскіх правоў]] гэтай Вікіпедыі, каб пазбегнуць выдалення.</string>

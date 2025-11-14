@@ -21,6 +21,8 @@
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
+  <string name="search_clear_query_content_description">Көрдөбүлү ыраастаа</string>
+  <string name="search_icon_content_description">Бул</string>
   <string name="filter_hint_filter_my_lists_and_articles">Мин испииһэктэрбин сиидэлээ</string>
   <string name="nav_item_suggested_edits">Уларытыылар</string>
   <string name="nav_item_more">Эбии</string>
@@ -35,7 +37,7 @@
   <string name="page_error_back_to_main">Төнүн</string>
   <string name="error_back">Төнүн</string>
   <string name="error_next">Аныгыскы</string>
-  <string name="menu_clear_all_history">Устуоруйатын сот</string>
+  <string name="menu_clear_all_history" fuzzy="true">Устуоруйатын сот</string>
   <string name="history_item_deleted">\"%s\" ыстатыйа көрүү устуоруйатыттан сотулунна</string>
   <string name="history_items_deleted">%d ыстатыйа көрүү устуоруйатыттан сотулунна</string>
   <string name="history_item_delete_undo">Төннөр</string>
@@ -48,7 +50,7 @@
   <string name="wikimedia_commons">Биики Хааһах</string>
   <string name="wikidata">Биики Тиһик</string>
   <string name="dialog_title_clear_history">Устуоруйатын сотуу</string>
-  <string name="dialog_message_clear_history">Урут сылдьыбытыҥ устуоруйата сотуллуо уонна аһаҕас кыбытыктар сабыллыахтара. Салгыыгын дуо?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Урут сылдьыбытыҥ устуоруйата сотуллуо уонна аһаҕас кыбытыктар сабыллыахтара. Салгыыгын дуо?</string>
   <string name="dialog_message_clear_history_yes">Сөп</string>
   <string name="dialog_message_clear_history_no">Суох</string>
   <string name="share_via">Бу нөҥүө тарҕат</string>
@@ -57,9 +59,18 @@
   <string name="page_edit_history_activity_title">Уларытыы устуоруйата: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Уларытыы туһунан кураанах</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Көннөрүүлэри көрдөөһүн эбэтэр сиидэлээһин</string>
+  <string name="page_edit_history_filter_by">Манан сиидэлээ</string>
+  <string name="page_edit_history_filter_by_all">Бары уларытыылар (%s)</string>
+  <string name="page_edit_history_filter_by_user">Кыттааччылар уларытыылара (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Аноним уларытыылар (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Боттар уларытыылара (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Миэтирикэлэр, мантан %1$s манна %2$s диэри</string>
+  <string name="page_edit_history_empty_search_message">&lt;a href=\"#\"&gt;Сиидэлэри&lt;/a&gt; уларытан көр, оччоҕо элбэх уларытыы тахсыа</string>
   <string name="menu_page_show_tabs">Кыбытыктары көрдөр</string>
   <string name="menu_page_other_languages">Атын тылынан</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Бу сирэйгэ булуу</string>
+  <string name="menu_page_find_in_page">Ыстатыйаҕа булуу</string>
+  <string name="menu_page_add_to_watchlist">Кэтэбил испииһэгэр киллэр</string>
   <string name="menu_page_watch">Кэтээ</string>
   <string name="menu_page_unwatch">Кэтээмэ</string>
   <string name="menu_page_view_talk">Ырытар сири көрүү</string>
@@ -221,7 +232,6 @@
   <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
   <string name="about_contributors_heading">Оҥорсооччулар</string>
@@ -776,7 +786,6 @@
   <string name="wikitext_preview_link">Сигэни көрүү</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
   <string name="main_tooltip_action_button">Саҕалыырга</string>
   <string name="custom_date_picker_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_ok_button_text">Сөп</string>

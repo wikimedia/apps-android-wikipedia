@@ -35,6 +35,7 @@
 * 沈澄心
 * 漢黑玉
 * 烈羽
+* 臺灣象象
 * 阿南之人
 -->
 <resources>
@@ -53,6 +54,7 @@
   <string name="search_icon_content_description">搜尋</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
   <string name="nav_item_suggested_edits">編輯</string>
+  <string name="nav_item_activity">活動</string>
   <string name="nav_item_more">更多</string>
   <string name="nav_item_search">搜尋</string>
   <string name="nav_item_contribute">貢獻</string>
@@ -65,7 +67,7 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
   <string name="error_next">下一個</string>
-  <string name="menu_clear_all_history">清除歷史</string>
+  <string name="menu_clear_all_history">清除閱讀歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d篇條目已從歷史移除</string>
   <string name="history_item_delete_undo">撤銷</string>
@@ -78,7 +80,7 @@
   <string name="wikimedia_commons">維基共享資源</string>
   <string name="wikidata">維基數據</string>
   <string name="dialog_title_clear_history">清除瀏覽紀錄</string>
-  <string name="dialog_message_clear_history">這樣做會刪除您所有的瀏覽記錄，並且關閉所有目前開啟的索引標籤。您確定嗎？</string>
+  <string name="dialog_message_clear_history">這樣做會刪除您所有的瀏覽記錄，您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
   <string name="share_via">共用方式</string>
@@ -274,10 +276,9 @@
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
@@ -453,7 +454,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗佈景主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-  <string name="preference_title_delete_local_donation_history">刪除本地捐款紀錄</string>
+  <string name="preference_title_delete_local_donation_history">清除捐款紀錄</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統佈景主題</string>
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
@@ -909,7 +910,7 @@
   <string name="description_edit_help_title">資訊：條目描述</string>
   <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">關於編寫描述的維基數據指引</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/zh</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">感謝您對編輯條目描述有長期興趣！要繼續編輯，請登入維基百科。</string>
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
@@ -953,6 +954,7 @@
   <string name="customize_toolbar_reset_to_default_button">重設成預設值</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">壓住拖拉圖標來移動項目</string>
   <string name="customize_toolbar_item_default_tooltip">按下並拖拉一個要重新定位的項目</string>
+  <string name="suggested_edits_activity_title">編輯</string>
   <string name="suggested_edits_describe_articles">描述條目</string>
   <string name="suggested_edits_caption_images">說明圖片</string>
   <string name="suggested_edits_tag_images">標記圖片</string>
@@ -1165,6 +1167,92 @@
   <string name="edit_summary_added_caption">已新增說明</string>
   <string name="edit_summary_added_image_and_caption">添加圖片與說明</string>
   <string name="edit_published_view">檢視</string>
+  <string name="activity_tab_logged_out_title">登入或建立帳號來查看您在維基百科應用程式上的活動</string>
+  <string name="activity_tab_user_reading">%s的閱讀</string>
+  <string name="activity_tab_on_wikipedia_android">在維基百科 Android 上</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d 時 %2$d 分</string>
+  <string name="activity_tab_weekly_time_spent">本週閱讀時間</string>
+  <string name="activity_tab_monthly_articles_read">本月閱讀的條目</string>
+  <string name="activity_tab_monthly_articles_saved">本月儲存的條目</string>
+  <string name="activity_tab_monthly_top_categories">本月的熱門分類</string>
+  <string name="activity_tab_explore_wikipedia">透過維基百科發現</string>
+  <string name="activity_tab_discover_encourage">想讀一些新東西嗎？</string>
+  <string name="activity_tab_donation_unknown">不明</string>
+  <string name="activity_tab_donation_last_donation">應用程式裡的&lt;b&gt;最後一次捐款&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">跨專案總編輯數</string>
+  <string name="activity_tab_game_stats">遊戲統計數據</string>
+  <string name="activity_tab_game_stats_best_streak">最長連續時間</string>
+  <string name="activity_tab_play_wiki_games">遊玩 WikiGames</string>
+  <string name="activity_tab_report_email_subject">問題報告 - 活動分頁</string>
+  <string name="activity_tab_report_email_body">我遇到了活動分頁功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
+  <string name="activity_tab_menu_feedback">功能問題</string>
+  <string name="activity_tab_menu_info">了解更多</string>
+  <string name="activity_tab_menu_customize">自訂</string>
+  <string name="activity_tab_menu_customize_description">閱讀分析基於應用程式設定中所設定的主要語言，編輯分析僅限於您的主要應用程式語言。分析利用了本地端資料（公開的編輯除外）。</string>
+  <string name="activity_tab_highlights">亮點</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">閱讀歷史</string>
+  <string name="activity_tab_impact">您的影響</string>
+  <string name="activity_tab_impact_most_viewed">自您編輯以來最多瀏覽次數</string>
+  <string name="activity_tab_impact_contributions_this_month">本月貢獻</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">本月編輯</item>
+    <item quantity="other">本月編輯</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">上個月編輯</item>
+    <item quantity="other">上個月編輯</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">所有時間影響</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">總編輯數</item>
+    <item quantity="other">總編輯數</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">感謝</item>
+    <item quantity="other">感謝</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d 天</item>
+    <item quantity="other">%d 天</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">最長連續時間</string>
+  <string name="activity_tab_impact_last_edited">上一次編輯</string>
+  <string name="activity_tab_impact_suggested_edits_title">最近對條目進行了 0 次編輯</string>
+  <string name="activity_tab_impact_suggested_edits_message">您似乎本月尚未做過任何編輯。您可以編輯您感興趣的主題，來擴充可自由取得的知識。</string>
+  <string name="activity_tab_impact_suggested_edits_button">進行編輯</string>
+  <string name="activity_tab_impact_recent_activity">您最近的活動（過去 30 天）</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">編輯</item>
+    <item quantity="other">編輯</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">查看您編輯過的條目</item>
+    <item quantity="other">查看您編輯過的條目</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">閱讀時間</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">閱讀分析</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">編輯分析</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">所有時間影響</string>
+  <string name="activity_tab_customize_screen_games_switch_title">遊戲統計數據</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">最後一次用應用程式捐款</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">行為時間軸</string>
+  <string name="activity_tab_customize_screen_no_modules_message">已關閉活動模組。&lt;a href=\"#\"&gt;來開啟&lt;/a&gt;以查看在此分頁上的更新。</string>
+  <string name="activity_tab_timeline_today">今日</string>
+  <string name="activity_tab_timeline_yesterday">昨日</string>
+  <string name="activity_tab_timeline_empty_state_title">沒有可顯示的內容</string>
+  <string name="activity_tab_timeline_empty_state_message">開始閱讀與編輯來建立您的歷史</string>
+  <string name="activity_tab_timeline_view_changes_button">檢視變更</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">閱讀模式</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">查看您花了多少時間閱讀，以及您在一段時間內探索了哪些條目或主題。</string>
+  <string name="activity_tab_onboarding_screen_title">介紹活動</string>
+  <string name="activity_tab_onboarding_impact_title">影響亮點</string>
+  <string name="activity_tab_onboarding_impact_message">探索對於您的貢獻、以及您所分享知識的影響的分析。</string>
+  <string name="activity_tab_onboarding_engage_title">更多參與方式</string>
+  <string name="activity_tab_onboarding_engage_message">探索遊戲、已儲存條目和其他活動的統計數據，讓您能與維基百科有更深入的聯繫。</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">保持控制</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">選擇要顯示的模組。所有個人資料在您的裝置上都會保持隱私，並且可以隨時清除瀏覽紀錄。</string>
+  <string name="edits_screen_what_is_title">在維基百科應用程式中編輯</string>
+  <string name="edits_screen_what_is_body">不確定從哪裡開始編輯嗎？請試試「建議編輯」，這功能可讓您有機會為維基百科做出變動不多；但至關重要的貢獻。或者，您也可以直接前往您感興趣的條目，使用 wikitext 進行修改。</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
@@ -1298,8 +1386,6 @@
   <string name="templates_description_missing_data">此模板缺少&lt;a href=\"%1$s\"&gt;模板資料&lt;/a&gt;，且參數已&lt;a href=\"%2$s\"&gt;自動產生&lt;/a&gt;。因此模板及參數都缺乏描述。</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
-  <string name="main_tooltip_text_v2">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_action_button">入門</string>
   <string name="main_tooltip_watchlist_title">監視清單</string>
   <string name="main_tooltip_watchlist_text">在&lt;b&gt;監視清單&lt;/b&gt;下的更多選單裡，尋找您之前新增到監視清單的條目與頁面。</string>
@@ -1664,9 +1750,9 @@
   <string name="page_issues_title">頁面問題</string>
   <string name="generic_release_notes">小錯誤修正和改善</string>
   <string name="email_report_image_recommendations_subject">問題報告 - 圖片推薦功能</string>
-  <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
+  <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
-  <string name="email_report_patroller_tasks_body">我遇到了編輯巡查功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[截圖或是連結]</string>
+  <string name="email_report_patroller_tasks_body">我遇到了編輯巡查功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]\n\n[截圖或是連結]</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我們會再次提醒您。</string>
   <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
@@ -1676,6 +1762,7 @@
   <string name="donate_gpay_dialog_pay_button">使用 Google Pay 捐款</string>
   <string name="donate_gpay_dialog_other_button">其他支付方式</string>
   <string name="donate_gpay_activity_title">選擇金額</string>
+  <string name="donate_gpay_activity_title_with_currency">選擇金額（%s）</string>
   <string name="donate_gpay_check_transaction_fee">我願意慷慨地添加 %s 來支付手續費，這樣維基百科就可以保有我的 100%% 捐款。</string>
   <string name="donate_gpay_check_recurring">將此作為每月定期捐款。</string>
   <string name="donate_gpay_check_send_email">是的，維基媒體基金會可以臨時對我發送電子郵件。</string>
@@ -1769,7 +1856,7 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">遊戲通知開啟。</string>
   <string name="on_this_day_game_notification_text">今天的「猜先後」遊戲已準備好開始。</string>
   <string name="on_this_day_game_report_email_subject">問題報告 - 維基百科遊戲</string>
-  <string name="on_this_day_game_report_email_body">我遇到了維基百科遊戲功能的問題：\n- [描述具體問題]\n\n我希望看到的結果是：\n- [描述建議的解決方案]</string>
+  <string name="on_this_day_game_report_email_body">我遇到了維基百科遊戲功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="on_this_day_game_notification_undo">撤銷</string>
   <string name="on_this_day_game_share_link_message">我正在遊玩維基百科 Android 應用程式上的每日小知識遊戲「猜先後」%s</string>
   <string name="on_this_day_game_share_screen_title">我今天在「猜先後」遊戲答對了 %1$d 題（全部 %2$d 題）。</string>
@@ -1788,38 +1875,20 @@
   <string name="year_in_review_get_started">入門</string>
   <string name="year_in_review_topbar_w_icon">維基百科 W 圖示</string>
   <string name="year_in_review_navigate_left">向左導覽</string>
+  <string name="year_in_review_close">關閉</string>
   <string name="year_in_review_share_icon">分享圖示</string>
   <string name="year_in_review_heart_icon">心形圖示</string>
   <string name="year_in_review_navigate_right">向右導覽</string>
   <string name="year_in_review_donate">捐款</string>
   <string name="year_in_review_information_icon">資訊圖示</string>
   <string name="year_in_review_get_started_headline">探索您的維基百科年度回顧</string>
-  <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過的條目，以及您做過的編輯。您的閱讀歷史不會洩露出去，閱讀洞察資訊是使用儲存在您裝置上本機資料所計算出的。</string>
-  <string name="year_in_review_entry_dialog_title">探索您的維基百科回顧</string>
-  <string name="year_in_review_entry_dialog_bodytext">查看我們閱讀與編輯的條目，並分享我們這一年的精采時刻。</string>
-  <string name="year_in_review_entry_dialog_continue">繼續</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">您今年閱讀了 %d 篇條目</item>
-    <item quantity="other">您今年閱讀了 %d 篇條目</item>
-  </plurals>
-  <plurals name="year_in_review_read_count_bodytext">
-    <item quantity="one">今年，您閱讀了 %1$d 篇條目，包括%2$s、%3$s、和%4$s。維基百科擁有超過 6,300 萬篇條目，涵蓋 300 多種語言。您加入了數百萬人的行列來一同拓展知識，探索不同的主題</item>
-    <item quantity="other">今年，您閱讀了 %1$d 篇條目，包括%2$s、%3$s、和%4$s。維基百科擁有超過 6,300 萬篇條目，涵蓋 300 多種語言。您加入了數百萬人的行列來一同拓展知識，探索不同的主題</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_headline">
-    <item quantity="one">您編輯了維基百科 %d 次</item>
-    <item quantity="other">您編輯了維基百科 %d 次</item>
-  </plurals>
-  <plurals name="year_in_review_edit_count_bodytext">
-    <item quantity="one">您編輯了維基百科 %d 次。感謝您成為志願編輯者之一，為世界各地的維基媒體計畫做出改變。</item>
-    <item quantity="other">您編輯了維基百科 %d 次。感謝您成為志願編輯者之一，為世界各地的維基媒體計畫做出改變。</item>
-  </plurals>
-  <string name="year_in_review_non_english_collective_readcount_headline">維基百科提供超過 300 種語言版本</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">維基百科在今年擁有超過 6300 萬篇條目，涵蓋超過 300 種活躍的語言版本。您與數百萬人一同拓展知識，探索多元主題。</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">iOS 應用程式上的編輯者進行了超過 452,257 次編輯。</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">維基百科社群的志願編輯者社群今年在 iOS 應用程式上編輯了超過 452,257 次。維基百科的核心與靈魂是在我們的全球志願編輯者社群、捐款者，以及像您一樣的數十億讀者——大家一同齊心協力，分享無限取用且可靠的資訊。</string>
+  <string name="year_in_review_get_started_bodytext">查看您在維基百科應用程式上閱讀過條目以及所做過編輯的分析。</string>
+  <string name="year_in_review_get_started_info">您的閱讀歷史記錄會受到保護。閱讀分析是基於您裝置上所儲存資料計算。</string>
+  <string name="year_in_review_get_started_later">您可以稍後在更多選單中取得您的年度回顧。</string>
   <string name="year_in_review_survey_title">協助改善年度回顧</string>
   <string name="year_in_review_survey_subtitle">您滿意這個功能嗎？</string>
+  <string name="year_in_review_reading_list_survey_title">協助改善 %d 年度回顧閱讀清單。</string>
+  <string name="year_in_review_reading_list_survey_subtitle">您滿意您的閱讀清單嗎？</string>
   <string name="year_in_review_survey_very_satisfied">非常滿意</string>
   <string name="year_in_review_survey_satisfied">滿意</string>
   <string name="year_in_review_survey_neutral">普通</string>
@@ -1828,11 +1897,229 @@
   <string name="year_in_review_survey_placeholder_text">您還有其他想法嗎？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_survey_submit">提交</string>
+  <string name="year_in_review_disable_title">您確定要關閉年度回顧嗎？</string>
+  <string name="year_in_review_disable_positive_button">是的，我確定</string>
+  <string name="year_in_review_disable_negative_button">不用了，謝謝！</string>
+  <string name="year_in_review_setting_subtitle">關閉年度回顧將清除所有儲存的個人化分析資訊，並隱藏年度回顧功能。</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顧主畫面圖片資源</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">年度回顧輸入對話框畫面的圖片資源</string>
   <string name="year_in_review_screenshot_error">無法產生螢幕截圖：%s</string>
-  <string name="year_in_review_share_subject">年度回顧圖片和連結</string>
+  <string name="year_in_review_share_subject">我的維基百科年度回顧</string>
+  <string name="year_in_review_share_body">這是我的 Wikipedia 年度回顧，由 Wikipedia Android 應用程式製作。 %1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球圖示</string>
+  <string name="settings_app_icon_title">應用程式圖示</string>
+  <string name="settings_app_icon_subtitle">貢獻者福利</string>
+  <string name="settings_app_icon_preference_subtitle">您取得了自訂圖示，以表彰您於 %d 年在應用程式裡對維基百科做出的貢獻。該圖示會保留至下一次年度回顧。</string>
+  <string name="settings_app_icon_updated">您的應用程式圖示已更新。</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">已為您的主畫面解鎖新的應用程式圖示</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">解鎖您明年的貢獻者獎勵！</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">請在設定中的「應用程式圖示」裡啟動您的新應用程式圖示。感謝您投入自由知識的未來，您作為 %2$d 年%1$s的貢獻，幫助到鋪往自由資訊世界的道路，因此您在主畫面上解鎖了維基百科的自訂貢獻者圖示。</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">我們很高興維基百科成為您在 %1$d 年參與的活動！透過成為貢獻者，即可在您的 %2$d 年度回顧解鎖特別獎勵—無論是藉由&lt;a href=\"%3$s\"&gt;編輯維基百科&lt;/a&gt;，或是對其背後的非營利組織&lt;a href=\"%4$s\"&gt;維基媒體基金會&lt;/a&gt;捐款。如果維基百科對您有所幫助，歡迎您考慮捐款，來幫助維基百科維持其未來發展，並保持免費、無廣告、值得信賴、且人人皆可用的運作狀態。</string>
+  <string name="year_in_review_slide_app_icon_donor">捐款者</string>
+  <string name="year_in_review_slide_app_icon_editor">編輯者</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
+  <string name="year_in_review_slide_geo_headline">您閱讀過的條目裡，最靠近您的地點是%s</string>
+  <string name="year_in_review_slide_geo_body">根據條目&lt;b&gt;%2$s&lt;/b&gt;與&lt;b&gt;%3$s&lt;/b&gt;來看，與您所閱讀過多個條目最接近的國家應是：%1$s。</string>
+  <string name="year_in_review_login_dialog_title">登入來進行個人化設定？</string>
+  <string name="year_in_review_login_dialog_body">登入後即可查看個人化分析。若不登入您仍可以查看匯總分析。</string>
+  <string name="year_in_review_login_dialog_positive">登入/註冊維基百科</string>
+  <string name="year_in_review_login_dialog_negative">以不登入來繼續</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">您的年度熱門條目</item>
+    <item quantity="other">您的年度熱門條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">此為您在 %1$d 年期間瀏覽最多次的條目：%2$s</item>
+    <item quantity="other">此為您在 %1$d 年期間瀏覽最多次的條目：%2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">您最感興趣的分類</string>
+  <string name="year_in_review_slide_top_categories_body">分類會把主題相似的條目歸類在一起。在 %1$d 年，您多次閱讀過以下這些您感興趣分類裡的條目：%2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">中文維基百科最受歡迎的條目</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+    <item quantity="other">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">您的編輯內容最近已被瀏覽超過 %,d 次</item>
+    <item quantity="other">您的編輯內容最近已被瀏覽超過 %,d 次</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">全球的讀者感謝您的貢獻。在過去兩個月中，您編輯過的條目被瀏覽了 %,d 次。正因為有像您這樣的編輯者，維基百科才能持續改進，成為一個以事實為基礎且值得信賴的全球知識資源。</item>
+    <item quantity="other">全球的讀者感謝您的貢獻。在過去兩個月中，您編輯過的條目被瀏覽了 %,d 次。正因為有像您這樣的編輯者，維基百科才能持續改進，成為一個以事實為基礎且值得信賴的全球知識資源。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">維基百科每分鐘有 %,d 次編輯</item>
+    <item quantity="other">維基百科每分鐘有 %,d 次編輯</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">條目是由多人協作且不斷用可靠來源改善。我們每個人都有知識可以分享，&lt;a href=\"%s\"&gt;歡迎學習如何參與其中&lt;/a&gt;。</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">新增 %,d 位元組</item>
+    <item quantity="other">新增 %,d 位元組</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+    <item quantity="other">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">您編輯了維基百科%s次</item>
+    <item quantity="other">您編輯了維基百科%s次</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
+    <item quantity="other">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">官方維基百科應用程式上的編輯者做出了 %,d 次編輯</item>
+    <item quantity="other">官方維基百科應用程式上的編輯者做出了 %,d 次編輯</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">維基百科的一心一意都是在我們的全球志願者社群，包括貢獻者、捐款者，以及像您一樣的數十億讀者——大家齊心協力，共同提供無限且可靠的資訊存取。</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">編輯者們今年做出了 %,d 次更改</item>
+    <item quantity="other">編輯者們今年做出了 %,d 次更改</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">志工們對超過 300 種不同語言版本的維基百科做出了 %,d 次更改。</item>
+    <item quantity="other">志工們對超過 300 種不同語言版本的維基百科做出了 %,d 次更改。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="one">在英文維基百科上做出了 %,d 次更改。每一天的時時刻刻，志工們都在努力改善維基百科。</item>
+    <item quantity="other">在英文維基百科上做出了 %,d 次更改。每一天的時時刻刻，志工們都在努力改善維基百科。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">您儲存了 %,d 篇條目</item>
+    <item quantity="other">您儲存了 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">這些條目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每篇儲存的條目都反應了您的興趣，並有助於在維基百科上建立個人化的知識庫。&lt;br /&gt;&lt;br /&gt; 今年，活躍的應用程式使用者已儲存了 %4$,d 篇條目。</item>
+    <item quantity="other">這些條目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每篇儲存的條目都反應了您的興趣，並有助於在維基百科上建立個人化的知識庫。&lt;br /&gt;&lt;br /&gt; 今年，活躍的應用程式使用者已儲存了 %4$,d 篇條目。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">應用程式使用者已儲存 %,d 篇條目</item>
+    <item quantity="other">應用程式使用者已儲存 %,d 篇條目</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">將條目增加到閱讀清單，可以讓您即使在離線時也能存取條目。此外，您還可以登入帳號，將閱讀清單同步到不同裝置。</string>
+  <string name="year_in_review_slide_reading_patterns_headline">您有明確的閱讀規律</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜歡的閱讀時間</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜歡閱讀的日子</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">您閱讀最多次的月份</string>
+  <string name="year_in_review_slide_reading_pattern_morning">早晨</string>
+  <string name="year_in_review_slide_reading_pattern_midday">中午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">下午</string>
+  <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
+  <string name="year_in_review_slide_reading_pattern_night">晚間</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">我們用了 %,d 小時閱讀</item>
+    <item quantity="other">我們用了 %,d 小時閱讀</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">人們估計花了 %,d 小時</item>
+    <item quantity="other">人們估計花了 %,d 小時</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！當您想了解我們不斷變化的世界、在朋友之間贏得對事物了解的賭注、或是回答孩子好奇的問題時，維基百科都在您身邊。</item>
+    <item quantity="other">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！當您想了解我們不斷變化的世界、在朋友之間贏得對事物了解的賭注、或是回答孩子好奇的問題時，維基百科都在您身邊。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">維基百科提供超過 %,d 種語言版本</item>
+    <item quantity="other">維基百科提供超過 %,d 種語言版本</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">維基百科有 %,d 篇條目</item>
+    <item quantity="other">維基百科有 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+    <item quantity="other">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">您用了 %,d 分鐘</item>
+    <item quantity="other">您用了 %,d 分鐘</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">在 %2$d 閱讀了 %1$,d 篇條目</item>
+    <item quantity="other">在 %2$d 閱讀了 %1$,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">我們估計這讓您躋身至維基百科全球讀者的前 %1$s%%（一般人每年閱讀 %2$,d 篇條目）。</item>
+    <item quantity="other">我們估計這讓您躋身至維基百科全球讀者的前 %1$s%%（一般人每年閱讀 %2$,d 篇條目）。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">維基百科有 %,d 篇條目</item>
+    <item quantity="other">維基百科有 %,d 篇條目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+    <item quantity="other">今年涵蓋超過 %,d 種活躍的語言。您與數百萬人一起擴展知識，探索多元主題。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">人們估計花了 %,d 小時</item>
+    <item quantity="other">人們估計花了 %,d 小時</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">–在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！</item>
+    <item quantity="other">—在 %2$d 年閱讀英文維基百科用上了約 %1$,d 年時間！</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">應用程式使用者瀏覽了維基百科條目 %,d次 次</item>
+    <item quantity="other">應用程式使用者瀏覽了維基百科條目 %,d 次</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">對於全球各地的人們來說，維基百科是解答問題、查詢學校或工作相關資訊、或學習新知的第一站。</string>
+  <string name="year_in_review_reading_list_dialog_title">建立您的 %d 年度回顧閱讀清單？</string>
+  <string name="year_in_review_reading_list_dialog_message">維基百科年度回顧會產生一份閱讀清單，列出您在 %1$d 年用上最多時間的條目。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">建立</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">不用了，謝謝</string>
+  <string name="year_in_review_reading_list_title">%d 年度回顧</string>
+  <string name="year_in_review_reading_list_description">專為%1$s您打造。這是您在%2$d年裡用上最多時間的條目。</string>
+  <string name="year_in_review_highlights_thank_you_message">感謝您與維基百科共度的這一年。</string>
+  <string name="year_in_review_highlights_looking_forward_message">我們期待明年！</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">英文維基百科閱讀次數最高的條目</item>
+    <item quantity="other">英文維基百科閱讀次數最高的條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">閱讀小時數</item>
+    <item quantity="other">閱讀小時數</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">編輯者做過的更改</item>
+    <item quantity="other">編輯者們做過的更改</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">條目瀏覽數</item>
+    <item quantity="other">條目瀏覽數</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">應用程式上的編輯}</item>
+    <item quantity="other">應用程式上的編輯}</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">維基百科的編輯頻率</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">每分鐘 %d 次</item>
+    <item quantity="other">每分鐘 %d 次</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">我閱讀最多次的條目</item>
+    <item quantity="other">我閱讀最多次的條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">閱讀分鐘數</item>
+    <item quantity="other">閱讀分鐘數</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">最喜歡閱讀的日子</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">已閱讀條目</item>
+    <item quantity="other">已閱讀條目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">我感興趣的分類</item>
+    <item quantity="other">我感興趣的分類</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+    <item quantity="one">已編輯條目</item>
+    <item quantity="other">已編輯條目</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">分享精彩內容</string>
+  <string name="year_in_review_highlights_logo_description">維基百科標誌</string>
   <string name="recommended_reading_list_title">發現</string>
   <string name="recommended_reading_list_onboarding_card_title">發現專為您挑選的條目</string>
   <string name="recommended_reading_list_onboarding_card_message">您的每週維基百科條目閱讀清單，專為您精心挑選。</string>
@@ -1915,4 +2202,38 @@
   <string name="recommended_reading_list_notification_subtitle">輕觸來查看您的最新推薦。</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">當您的 Discover 更新時，維基百科會對您發送通知。</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">已開啟 Discover 功能。維基百科會為您推薦值得閱讀的條目。</string>
+  <string name="donation_reminders_initial_prompt_label">實驗功能</string>
+  <string name="donation_reminders_initial_prompt_title">閱讀時支持維基百科</string>
+  <string name="donation_reminders_initial_prompt_message">根據您閱讀的條目數量設定捐款提醒，來幫助維基百科遠離廣告、持續更新、且可讓所有人都能使用。</string>
+  <string name="donation_reminders_initial_prompt_positive_button">入門</string>
+  <string name="donation_reminders_initial_prompt_negative_button">現在不要</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">您可以在設定中隨時修改捐款提醒。</string>
+  <string name="donation_settings_section_header">捐款</string>
+  <string name="donation_reminders_settings_title">捐款提醒</string>
+  <string name="donation_reminders_settings_thank_you_message">加入那 2%% 盡一份心力的讀者行列，來幫助維基百科遠離廣告、持續更新，且可讓所有人都能使用。立即設定您的捐款提醒。</string>
+  <string name="donation_reminders_settings_donation_info">捐款會轉到維基媒體基金會及其附屬機構，他們是維基百科與相關姊妹網站驕傲的主辦者。</string>
+  <string name="donation_reminders_settings_article_frequency_label">當我閱讀</string>
+  <string name="donation_reminders_settings_amount_label">提醒我捐款</string>
+  <string name="donation_reminders_settings_confirm_btn_label">確認提醒</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">關於此實驗功能</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">條目</string>
+  <string name="donation_reminders_settings_warning_min_amount">請最少輸入 %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">最多只允許 %s</string>
+  <string name="donation_reminders_settings_option_custom">自訂…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">感謝您！在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">自從您承諾捐款 %2$s，您已閱讀了 %1$s 篇條目</string>
+  <string name="donation_reminders_prompt_message">在 %1$s，您向我們提出當您閱讀了 %2$s 篇條目後，提醒您進行捐款。如果維基百科能以您的 %3$s 來提供知識，請加入 2%% 的讀者行列，來在今日完成您的捐贈承諾。</string>
+  <string name="donation_reminders_prompt_positive_button">立即捐款</string>
+  <string name="donation_reminders_prompt_negative_button">現在不要</string>
+  <string name="donation_reminders_gpay_text">使用 Google Pay 捐款 %s</string>
+  <string name="donation_reminders_gpay_different_amount_text">使用 Google Pay 捐款不同金額</string>
+  <string name="donation_reminders_survey_dialog_title">協助改善捐款提醒。</string>
+  <string name="donation_reminders_survey_dialog_message">您對這次體驗滿意嗎？</string>
+  <string name="donation_reminders_settings_description_on">已開啟捐款提醒。在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
+  <string name="donation_reminders_settings_description_off">捐款提醒已關閉。</string>
+  <string name="donation_reminders_settings_tooltip_info_label">條目次數儲存在您的本地端裝置</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d 篇條目</item>
+    <item quantity="other">%d 篇條目</item>
+  </plurals>
 </resources>

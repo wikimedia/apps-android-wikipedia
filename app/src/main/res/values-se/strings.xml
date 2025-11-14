@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Ruovttoluotta</string>
   <string name="error_back">Ruovttoluotta</string>
   <string name="error_next">Čuovvovaš</string>
-  <string name="menu_clear_all_history">Gurre historjjá</string>
+  <string name="menu_clear_all_history" fuzzy="true">Gurre historjjá</string>
   <string name="history_item_deleted">%s sihkkojuvvon historjjás</string>
   <string name="history_items_deleted">%d ártihkkala sihkkojuvvon historjjás</string>
   <string name="history_item_delete_undo">Gáđa</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Gurre neahttalohkki historjjá</string>
-  <string name="dialog_message_clear_history">Dát sihkku visot du neahttalohkki historjjá, ja gidde visot rabas leavggaid. Leatgo sihkkár?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dát sihkku visot du neahttalohkki historjjá, ja gidde visot rabas leavggaid. Leatgo sihkkár?</string>
   <string name="dialog_message_clear_history_yes">Jua</string>
   <string name="dialog_message_clear_history_no">Ii</string>
   <string name="share_via">Juoge bálvalusas</string>
@@ -239,7 +239,7 @@
   <string name="about_wikipedia_url">https://se.wikipedia.org/wiki/Wikipedia:Birra</string>
   <string name="about_libraries_heading">Girjerádju geavahuvvon</string>
   <string name="about_contributors_heading">Čálusveahkit</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Teama siidu&lt;/a&gt;</string>
   <string name="about_translators_heading">Jorgaleaddjit</string>
   <string name="about_translators_translatewiki">Áppa jorgaluvvui eaktodáhtolaš jorgaleddjiin &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;:s.</string>
   <string name="about_app_license_heading">Liseansa</string>
@@ -1262,8 +1262,6 @@
   <string name="templates_description_missing_data">Dán málles váilu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, ja dan parameterat leat &lt;a href=\"%2$s\"&gt;autoráhkaduvvon&lt;/a&gt;. Dát dagaha ahte málles ja paramehteriin váilot čilgehusat.</string>
   <string name="main_drawer_help">Veahkki</string>
   <string name="main_drawer_login">Čálit sisa / searvva Wikipediai</string>
-  <string name="main_tooltip_text">Bures %s, dihtet go don ahte vaikko gii sáhttá rievdadit Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Dihtet go ahte vaikko gii sáhttá rievdadit Wikipedias?</string>
   <string name="main_tooltip_action_button">Boađe johtui</string>
   <string name="main_tooltip_watchlist_title">Čuovvunlistu</string>
   <string name="main_tooltip_watchlist_text">Gávnnat artihkkaliid ja siidduid mat ovdal leat bidjan iežat čuovvunlistui, fálus nammaduvvon «Eambbo», &lt;b&gt;Čuovvunlisttu&lt;/b&gt; vuolde.</string>

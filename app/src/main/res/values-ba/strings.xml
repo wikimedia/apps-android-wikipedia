@@ -47,7 +47,7 @@
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="error_back">Кире ҡайтырға</string>
   <string name="error_next">Артабан</string>
-  <string name="menu_clear_all_history">Тарихты таҙартырға</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихты таҙартырға</string>
   <string name="history_item_deleted">\"%s\" ҡарау тарихынан юйылған</string>
   <string name="history_items_deleted">%d мәҡәлә ҡарау тарихынан юйылған</string>
   <string name="history_item_delete_undo">Кире алырға</string>
@@ -60,7 +60,7 @@
   <string name="wikimedia_commons">Викимилек</string>
   <string name="wikidata">Викимәғлүмәт</string>
   <string name="dialog_title_clear_history">Ҡаралған биттәр тарихын таҙартырға</string>
-  <string name="dialog_message_clear_history">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
   <string name="dialog_message_clear_history_no">Юҡ</string>
   <string name="share_via">Уртаҡлашырға</string>
@@ -246,12 +246,9 @@
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
   <string name="about_wikipedia_url">https://ba.wikipedia.org/wiki/Википедия:Тасуирлама</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -1250,8 +1247,6 @@
   <string name="templates_description_missing_data">Был ҡалыпта &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; юҡ, һәм уның параметрҙары &lt;a href=\"%2$s\"&gt;автоматик рәүештә булдырылған&lt;/a&gt;. Шуға күрә ҡалыптың һәм уның параметрҙарының тасуирламалары юҡ.</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Танылығыҙ / Википедияға ҡушылығыҙ</string>
-  <string name="main_tooltip_text">Сәләм %s, Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
-  <string name="main_tooltip_text_v2">Википедияны һәр кем мөхәррирләй алғанын беләһегеҙме?</string>
   <string name="main_tooltip_action_button">Башларға</string>
   <string name="main_tooltip_watchlist_title">Күҙәтеү исемлеге</string>
   <string name="main_tooltip_watchlist_text">Өҫтәмә менюла &lt;b&gt;Күҙәтеү исемлегендә&lt;/b&gt; элек өҫтәгән мәҡәләләрҙе һәм биттәрҙе табығыҙ.</string>
