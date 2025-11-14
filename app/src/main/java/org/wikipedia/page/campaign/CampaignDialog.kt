@@ -19,7 +19,11 @@ import java.util.Date
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
-    private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
+    private val campaignId = if (DonationReminderHelper.isInEligibleCountry) {
+        DonationReminderHelper.campaignId
+    } else {
+        campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
+    }
 
     init {
         val campaignView = CampaignDialogView(context)
@@ -28,6 +32,8 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true || Prefs.ignoreDateForAnnouncements
         campaignView.setupViews(campaignId, campaign.getAssetsForLang(WikipediaApp.instance.appOrSystemLanguageCode))
         setView(campaignView)
+
+        DonorExperienceEvent.logAction("impression", "article_banner", campaignId = campaignId)
     }
 
     override fun show(): AlertDialog {
