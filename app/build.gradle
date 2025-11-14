@@ -202,7 +202,6 @@ dependencies {
     implementation libs.metrics.platform
 
     implementation libs.appauth
-    implementation libs.scribejava
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
     implementation libs.retrofit

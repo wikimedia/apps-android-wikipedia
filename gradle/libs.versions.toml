@@ -44,7 +44,6 @@ recyclerview = "1.4.0"
 retrofitVersion = "3.0.0"
 robolectric = "4.16"
 roomVersion = "2.8.3"
-scribejava = "8.3.3"
 swiperefreshlayout = "1.1.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
@@ -117,7 +116,6 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 retrofit2-kotlinx-serialization-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "roomVersion" }
-scribejava = { module = "com.github.scribejava:scribejava-apis", version.ref = "scribejava" }
 swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
