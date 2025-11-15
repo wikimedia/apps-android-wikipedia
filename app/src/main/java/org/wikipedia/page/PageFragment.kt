@@ -709,7 +709,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = { campaignId ->
                                 DonorExperienceEvent.logDonationReminderAction(
                                     action = "group_assigned",
-                                    activeInterface = "article_banner", // TODO: verify with Shay
+                                    activeInterface = "article_banner",
                                     groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
                                     campaignId = DonationReminderHelper.campaignId
                                 )
