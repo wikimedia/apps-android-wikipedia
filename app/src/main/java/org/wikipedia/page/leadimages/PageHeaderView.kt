@@ -11,6 +11,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -121,6 +122,24 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         Prefs.donationReminderConfig.let { config ->
+            updateDonationReminderCardContent(config)
+            binding.donationReminderCardView.isVisible = true
+            visibility = INVISIBLE
+            binding.donationReminderCardView.post {
+                val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
+                val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+
+                binding.donationReminderCardView.measure(widthSpec, heightSpec)
+                // HACK: Manually adjust the height of the message card view
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+                binding.donationReminderCardView.isVisible = false
+                visibility = GONE
+            }
+        }
+    }
+
+    private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
+        config?.let { config ->
             val articleText = context.resources.getQuantityString(
                 R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
             )
@@ -146,19 +165,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 binding.donationReminderCardView.isVisible = false
                 DonationReminderHelper.dismissReminder()
             }
-
-            binding.donationReminderCardView.isVisible = true
-            visibility = INVISIBLE
-            binding.donationReminderCardView.post {
-                val widthSpec = MeasureSpec.makeMeasureSpec(resources.displayMetrics.widthPixels, MeasureSpec.EXACTLY)
-                val heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-
-                binding.donationReminderCardView.measure(widthSpec, heightSpec)
-                // HACK: Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
-                binding.donationReminderCardView.isVisible = false
-                visibility = GONE
-            }
         }
     }
 
@@ -168,7 +174,10 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 activeInterface = "reminder_milestone",
                 action = "impression"
             )
+            updateDonationReminderCardContent(Prefs.donationReminderConfig)
             binding.donationReminderCardView.isVisible = true
+        } else {
+            binding.donationReminderCardView.isVisible = false
         }
     }
 }
