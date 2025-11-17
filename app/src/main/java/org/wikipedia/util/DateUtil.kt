@@ -14,7 +14,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
-import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
@@ -62,6 +61,14 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
+    fun getMonthOnlyDateStringFromTimeString(dateStr: String): String {
+        return getMonthOnlyDateString(SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(dateStr)!!)
+    }
+
+    fun getMonthOnlyDateString(date: LocalDate): String {
+        return getDateStringWithSkeletonPattern(date, "MMMM d")
+    }
+
     fun getMonthOnlyWithoutDayDateString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "MMMM")
     }
@@ -70,12 +77,13 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 
-    fun getYMDDateString(date: Date): String {
-        return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
+    fun getYMDDateString(date: LocalDate): String {
+        return getCachedDateTimeFormatter("yyyyMMdd", Locale.getDefault(), utc = false, skeleton = false)
+            .format(date)
     }
 
-    fun getMMMMdYYYY(date: Date): String {
-        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), true).format(date)
+    fun getMMMMdYYYY(date: Date, utc: Boolean = true): String {
+        return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), utc).format(date)
     }
 
     private fun getExtraShortDateString(date: Date): String {
@@ -190,20 +198,5 @@ object DateUtil {
             return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
-    }
-
-    fun startOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 1, 1)
-        return localDate.atStartOfDay(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun endOfYearInMillis(year: Int, zoneId: ZoneId = ZoneId.systemDefault()): Long {
-        val localDate = LocalDate.of(year, 12, 31)
-        return localDate.atTime(0, 0, 0).atZone(zoneId).toInstant().toEpochMilli()
-    }
-
-    fun epochMilliToYear(epochMilli: Long, zoneId: ZoneId = ZoneId.systemDefault()): Int {
-        val zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), zoneId)
-        return zonedDateTime.year
     }
 }

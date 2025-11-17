@@ -1,6 +1,12 @@
 package org.wikipedia.readinglist.db
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
+import androidx.room.Update
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
@@ -12,16 +18,16 @@ import org.wikipedia.util.log.L
 @Dao
 interface ReadingListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertReadingList(list: ReadingList): Long
+    suspend fun insertReadingList(list: ReadingList): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateReadingList(list: ReadingList)
+    suspend fun updateReadingList(list: ReadingList)
 
     @Delete
-    fun deleteReadingList(list: ReadingList)
+    suspend fun deleteReadingList(list: ReadingList)
 
     @Query("SELECT * FROM ReadingList")
-    fun getListsWithoutContents(): List<ReadingList>
+    suspend fun getListsWithoutContents(): List<ReadingList>
 
     @Query("SELECT * FROM ReadingList WHERE id = :id")
     suspend fun getListById(id: Long): ReadingList?
@@ -30,9 +36,9 @@ interface ReadingListDao {
     suspend fun getListsByIds(readingListIds: Set<Long>): List<ReadingList>
 
     @Query("UPDATE ReadingList SET remoteId = -1")
-    fun markAllListsUnsynced()
+    suspend fun markAllListsUnsynced()
 
-    fun getAllLists(): List<ReadingList> {
+    suspend fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()
         lists.forEach {
             AppDatabase.instance.readingListPageDao().populateListPages(it)
@@ -48,7 +54,7 @@ interface ReadingListDao {
         }
     }
 
-    fun getAllListsWithUnsyncedPages(): List<ReadingList> {
+    suspend fun getAllListsWithUnsyncedPages(): List<ReadingList> {
         val lists = getListsWithoutContents()
         val pages = AppDatabase.instance.readingListPageDao().getAllPagesToBeSynced()
         pages.forEach { page ->
@@ -57,11 +63,12 @@ interface ReadingListDao {
         return lists
     }
 
-    fun updateList(list: ReadingList, queueForSync: Boolean) {
+    suspend fun updateList(list: ReadingList, queueForSync: Boolean) {
         updateLists(listOf(list), queueForSync)
     }
 
-    fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
+    @Transaction
+    suspend fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
         for (list in lists) {
             if (queueForSync) {
                 list.dirty = true
@@ -74,7 +81,7 @@ interface ReadingListDao {
         }
     }
 
-    fun deleteList(list: ReadingList, queueForSync: Boolean = true) {
+    suspend fun deleteList(list: ReadingList, queueForSync: Boolean = true) {
         if (list.isDefault) {
             L.w("Attempted to delete the default list.")
             return
@@ -93,7 +100,7 @@ interface ReadingListDao {
         return lists
     }
 
-    fun createList(title: String, description: String?): ReadingList {
+    suspend fun createList(title: String, description: String?): ReadingList {
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")
             return getDefaultList()
@@ -101,14 +108,14 @@ interface ReadingListDao {
         return createNewList(title, description)
     }
 
-    fun getDefaultList(): ReadingList {
+    suspend fun getDefaultList(): ReadingList {
         return getListsWithoutContents().find { it.isDefault } ?: run {
             L.w("(Re)creating default list.")
             createNewList("", L10nUtil.getString(R.string.default_reading_list_description))
         }
     }
 
-    private fun createNewList(title: String, description: String?): ReadingList {
+    private suspend fun createNewList(title: String, description: String?): ReadingList {
         val protoList = ReadingList(title, description)
         protoList.id = insertReadingList(protoList)
         return protoList

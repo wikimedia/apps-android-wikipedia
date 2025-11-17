@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -28,22 +29,30 @@ import org.wikipedia.util.Resource
 class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogDonateBinding? = null
     private val binding get() = _binding!!
+    private var campaignId: String? = null
 
     private val viewModel: DonateViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
+        campaignId = arguments?.getString(ARG_CAMPAIGN_ID)
+
+        val activeInterface = if (arguments?.getBoolean(ARG_FROM_YIR) == true) {
+            "wiki_yir"
+        } else {
+            if (campaignId.isNullOrEmpty()) "setting" else "article_banner"
+        }
 
         binding.donateOtherButton.setOnClickListener {
-            DonorExperienceEvent.logAction("webpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
+            DonorExperienceEvent.logAction("webpay_click", activeInterface, campaignId = campaignId)
             onDonateClicked()
         }
 
         binding.donateGooglePayButton.setOnClickListener {
             invalidateCampaign()
-            DonorExperienceEvent.logAction("gpay_click", if (arguments?.getString(ARG_CAMPAIGN_ID).isNullOrEmpty()) "setting" else "article_banner")
+            DonorExperienceEvent.logAction("gpay_click", activeInterface, campaignId = campaignId)
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), arguments?.getString(ARG_CAMPAIGN_ID), arguments?.getString(ARG_DONATE_URL)))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId, arguments?.getString(ARG_DONATE_URL)))
         }
 
         lifecycleScope.launch {
@@ -93,13 +102,13 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun onDonateClicked() {
-        launchDonateLink(requireContext(), arguments?.getString(ARG_DONATE_URL))
+        launchDonateLink(requireContext(), url = arguments?.getString(ARG_DONATE_URL), campaignId = campaignId)
         invalidateCampaign()
         dismiss()
     }
 
     private fun invalidateCampaign() {
-        arguments?.getString(ARG_CAMPAIGN_ID)?.let {
+        campaignId?.let {
             Prefs.announcementShownDialogs = setOf(it)
         }
     }
@@ -144,19 +153,24 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
         const val ARG_CAMPAIGN_ID = "campaignId"
         const val ARG_DONATE_URL = "donateUrl"
         const val ARG_FROM_DONATION_REMINDER = "fromDonationReminder"
+        const val ARG_FROM_YIR = "fromYiR"
 
-        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false): DonateDialog {
+        fun newInstance(campaignId: String? = null, donateUrl: String? = null, fromDonationReminder: Boolean = false, fromYiR: Boolean = false): DonateDialog {
             return DonateDialog().apply {
                 arguments = bundleOf(
                     ARG_CAMPAIGN_ID to campaignId,
                     ARG_DONATE_URL to donateUrl,
-                    ARG_FROM_DONATION_REMINDER to fromDonationReminder
+                    ARG_FROM_DONATION_REMINDER to fromDonationReminder,
+                    ARG_FROM_YIR to fromYiR,
                 )
             }
         }
 
-        fun launchDonateLink(context: Context, url: String? = null) {
-            val donateUrl = url ?: context.getString(R.string.donate_url,
+        fun launchDonateLink(context: Context, url: String? = null, campaignId: String? = "appmenu") {
+            val formattedCampaignId = campaignId?.let {
+                return@let CampaignCollection.getFormattedCampaignId(it)
+            }.orEmpty()
+            val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
                 WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }

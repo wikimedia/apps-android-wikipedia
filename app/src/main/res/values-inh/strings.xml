@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">ТIехьашкахьа</string>
   <string name="error_back">ЮхагIо</string>
   <string name="error_next">ДӀахо</string>
-  <string name="menu_clear_all_history">IоцIенде тархьар</string>
+  <string name="menu_clear_all_history" fuzzy="true">IоцIенде тархьар</string>
   <string name="history_item_deleted">Статья \"%s\" дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_items_deleted">%d статья дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_item_delete_undo">Юхадаккха</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Викиларма</string>
   <string name="wikidata">Викидараш</string>
   <string name="dialog_title_clear_history">ЦIенде хьалха даь хьажараш</string>
-  <string name="dialog_message_clear_history">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Iа хьалха хьа мел йийла хинна оагIонаш дIяргья исторе чура, еррига вкладкаш а дIакъовлалургья. ДIахо дIаяхийтта вай?</string>
   <string name="dialog_message_clear_history_yes">XӀаъу</string>
   <string name="dialog_message_clear_history_no">A</string>
   <string name="share_via">Кхычахьа дIаяхийтта...</string>
@@ -231,14 +231,12 @@
   <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
   <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/inh</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
   <string name="about_contributors_heading">Автораш</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>

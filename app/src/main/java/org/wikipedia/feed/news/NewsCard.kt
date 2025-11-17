@@ -20,7 +20,7 @@ class NewsCard(private val news: List<NewsItem>,
     }
 
     override fun dismissHashCode(): Int {
-        return DateUtil.getRequestDateForAge(age).toEpochDay().toInt() + wikiSite().hashCode()
+        return DateUtil.getRequestDateForAge(age).hashCode() + wikiSite().hashCode()
     }
 
     fun news(): List<NewsItem> {

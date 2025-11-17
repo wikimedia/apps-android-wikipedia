@@ -21,8 +21,12 @@
   <string name="search_hint">Википедиядә эзләү</string>
   <string name="search_hint_voice_search">Тавыш белән эзләү</string>
   <string name="search_hint_search_languages">Тел буенча эзләү</string>
+  <string name="search_back_button_content_description">Артка</string>
+  <string name="search_clear_query_content_description">Сорауны бетер</string>
+  <string name="search_icon_content_description">Эзлә</string>
   <string name="filter_hint_filter_my_lists_and_articles">Минем исемлекләрне аеру</string>
   <string name="nav_item_suggested_edits">Төзәтмәләр</string>
+  <string name="nav_item_activity">Активлык</string>
   <string name="nav_item_more">Тагын</string>
   <string name="nav_item_search">Эзләү</string>
   <string name="nav_item_contribute">Кертем</string>
@@ -35,7 +39,7 @@
   <string name="page_error_back_to_main">Кире</string>
   <string name="error_back">Кире кайту</string>
   <string name="error_next">Алга</string>
-  <string name="menu_clear_all_history">Тарихны бушату</string>
+  <string name="menu_clear_all_history">Карау тарихын чистарт</string>
   <string name="history_item_deleted">«%s» мәкаләсе карау тарихыннан бетерелгән</string>
   <string name="history_items_deleted">%d мәкалә карау тарихыннан бетерелгән</string>
   <string name="history_item_delete_undo">Кире кайтару</string>
@@ -48,7 +52,7 @@
   <string name="wikimedia_commons">Викиҗыентык</string>
   <string name="wikidata">Викимәгълүмат</string>
   <string name="dialog_title_clear_history">Карау тарихын бушату</string>
-  <string name="dialog_message_clear_history">Бу сезнең барлык карау тарихыгызны бетерәчәк һәм хәзерге вакытта ачылган салынмаларны ябачак. Дәвам итәргәме?</string>
+  <string name="dialog_message_clear_history">Бу сезнең барлык карау тарихыгызны бетерәчәк. Дәвам итәргәме?</string>
   <string name="dialog_message_clear_history_yes">Әйе</string>
   <string name="dialog_message_clear_history_no">Юк</string>
   <string name="share_via">Уртаклашу</string>
@@ -100,6 +104,7 @@
   <string name="menu_page_recently_viewed">Күптән түгел карап чыгарылган</string>
   <string name="menu_page_archive">Архив</string>
   <string name="menu_long_press_open_page">Ачу</string>
+  <string name="menu_long_press_open_in_places">Places коралында ач</string>
   <string name="menu_long_press_open_in_new_tab">Битне яңа өстәмәдә ачу</string>
   <string name="menu_long_press_copy_page">Сылтама адресыннан күчермә алу</string>
   <string name="menu_text_select_define">Билгеләү</string>
@@ -132,6 +137,7 @@
   <string name="dialog_message_leaving_edit_leave">Ташлап китү</string>
   <string name="dialog_message_leaving_edit_stay">Калу</string>
   <string name="dialog_confirm_delete_donation_history_title">Берерүне раслау</string>
+  <string name="dialog_confirm_delete_donation_history_message">Бу гамәл бу җайланмадан башкарылган акчалата иганәләр өчен генә эшләнеләчәк.</string>
   <string name="dialog_confirm_delete_donation_history_delete">Бетер</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Артка</string>
   <string name="menu_show_toc">Эчтәлек</string>
@@ -148,8 +154,11 @@
   <string name="login_username_hint">Кулланучы исеме</string>
   <string name="login_password_hint">Серсүз</string>
   <string name="account_creation_password_hint">Серсүз</string>
-  <string name="login_2fa_hint" fuzzy="true">Ике факторлы аутентификация коды</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Ике факторлы аутентификация таләп ителә! Зинһар, төп гамәлгә кире кайтыгыз, үзегезнең 2FA токены ярдәмендә системага керегез һәм аннан соң омтылышны кабатлагыз.</string>
+  <string name="login_2fa_hint">Ике факторлы аутентификация коды</string>
+  <string name="login_2fa_other_workflow_error_msg">Ике факторлы аутентификация таләп ителә! Зинһар, системага төп экраннан керегез һәм 2FA токеныгызның кодын кертегез.</string>
+  <string name="login_email_auth_hint">Электрон почтаны раслау коды</string>
+  <string name="login_email_auth_other_workflow_error_msg">Электрон почта аша раслау таләп ителә! Зинһар, төп экраннан керегез һәм электрон почта аша раслау кодын кертегез.</string>
+  <string name="login_background_error_msg">Кабат кереп булмый. Төп экранга кайтыгыз һәм кирәкле мәгълүматны яңадан кертеп керүне кабатлагыз.</string>
   <string name="onboarding_card_login">Керү</string>
   <string name="page_editing_login">Керү</string>
   <string name="reading_lists_sync_login">Керү</string>
@@ -239,17 +248,16 @@
   <string name="terms_of_use_description">Куллану шартлары</string>
   <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
   <string name="about_contributors_heading">Авторлар</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Команда бите&lt;/a&gt;</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
   <string name="about_app_license" fuzzy="true">Башлангыч кодны &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Викимедиа Фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Кушымта турында</string>
+  <string name="about_logo_content_description">Википедиянең puzzle башваткычлы глобус кыяфәтендәге логотибы</string>
   <string name="edit_abandon_confirm">Бит үзгәртелгән. Сез үзгәрешләрне сакламыйча чыгарга телисезме?</string>
   <string name="edit_abandon_confirm_yes">Әйе</string>
   <string name="edit_abandon_confirm_no">Юк</string>
@@ -384,6 +392,7 @@
   <string name="preference_title_collapse_tables">Таблицаларны яшерергә</string>
   <string name="preference_summary_collapse_tables">Мәкаләләрдә мәгълүмат бокслары, сылтамалар һәм искәрмәләр кебек таблица блокларын автомат рәвештә яшерергә.</string>
   <string name="nav_item_donate">Иганә итү</string>
+  <string name="nav_item_year_in_review">Еллык күзәтү</string>
   <string name="error_voice_search_not_available">Кызганычка каршы, тавышны тану мөмкин түгел.</string>
   <string name="location_service_disabled">Урынны билгеләү хезмәтләре өзеп куелган.</string>
   <string name="enable_location_service">Кабызу</string>
@@ -411,6 +420,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Сурәтнең караңгылатылуы (караңгы темада)</string>
   <string name="preference_title_prefer_offline_content">Офлайн-эчтәлек өстенлеге</string>
   <string name="preference_summary_prefer_offline_content">Мәкаләнең соңгы версиясен һәрвакыт йөкләү урынына, автоном режимда булган мәкаләләрне  йөкләп, мәгълүмат куллану трафигын саклагыз.</string>
+  <string name="preference_title_delete_local_donation_history">Акчалата иганәләрнең локаль тарихын бетер</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Туры килү системасы темасы</string>
   <string name="page_footer_license_text">Әгәр башкасы күрсәтелмәсә, эчтәлек $1 нигезендә бар.</string>
   <string name="empty_tab_title">Яңа салынма</string>

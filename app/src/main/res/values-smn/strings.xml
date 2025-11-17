@@ -28,7 +28,7 @@
   <string name="page_error_back_to_main">Maacâ</string>
   <string name="error_back">Maacâ</string>
   <string name="error_next">Čuávuvâš</string>
-  <string name="menu_clear_all_history">Kuorrii historjá</string>
+  <string name="menu_clear_all_history" fuzzy="true">Kuorrii historjá</string>
   <string name="history_item_deleted">%s sikkum historjást</string>
   <string name="history_item_delete_undo">Koomeet</string>
   <string name="notification_archive_undo">Koomeet</string>
@@ -39,7 +39,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Kuorrii laađđâmhistorjá</string>
-  <string name="dialog_message_clear_history">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
   <string name="dialog_message_clear_history_yes">Joo</string>
   <string name="dialog_message_clear_history_no">Ij</string>
   <string name="share_via">Jyevi palvâlusâst</string>
@@ -383,6 +383,7 @@
   <string name="watchlist_filter_talk">Savâstâllâmsiijđoh</string>
   <string name="watchlist_filter_pages">Siijđoh</string>
   <string name="watchlist_page_deleted">Sikkum</string>
+  <string name="watchlist_filter_user_status_registered">Registeristum</string>
   <string name="preview_edit_watch_this_page">Tarkkuu taam siijđo</string>
   <string name="action_item_categories">Luokah</string>
   <string name="category_tab_subcategories">Vyeliluokah</string>
@@ -391,6 +392,7 @@
   <string name="talk_templates_new_message_dialog_title">Vuorkkii nubástusâid</string>
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registeristum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
   <string name="places_toggle_buttons_map">Kárttá</string>

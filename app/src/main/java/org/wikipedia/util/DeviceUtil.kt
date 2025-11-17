@@ -71,10 +71,8 @@ object DeviceUtil {
     }
 
     fun setContextClickAsLongClick(vararg views: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            views.forEach {
-                it.setOnContextClickListener { obj -> obj.performLongClick() }
-            }
+        views.forEach {
+            it.setOnContextClickListener { obj -> obj.performLongClick() }
         }
     }
 

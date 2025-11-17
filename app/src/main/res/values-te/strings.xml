@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
   <string name="error_back">వెనక్కి వెళ్ళు</string>
   <string name="error_next">తరువాతి</string>
-  <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
+  <string name="menu_clear_all_history" fuzzy="true">చరిత్రను తుడిచివెయ్యి</string>
   <string name="history_item_deleted">%s ని చరిత్ర నుండి తీసేసాం</string>
   <string name="history_items_deleted">%d వ్యాసాలను చరిత్ర నుండి తీసేసాం</string>
   <string name="history_item_delete_undo">వెనక్కి తిప్పు</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">వికీమీడియా కామన్స్</string>
   <string name="wikidata">వికీడేటా</string>
   <string name="dialog_title_clear_history">బ్రౌజరు చరిత్రను తుడిచివేయి</string>
-  <string name="dialog_message_clear_history">దీంతో మీ బ్రౌజింగు చరిత్రంతా పోతుంది, ప్రస్తుతం తెరిచి ఉన్న ట్యాబులన్నీ మూసుకుపోతాయి. చేసెయ్యమంటారా?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">దీంతో మీ బ్రౌజింగు చరిత్రంతా పోతుంది, ప్రస్తుతం తెరిచి ఉన్న ట్యాబులన్నీ మూసుకుపోతాయి. చేసెయ్యమంటారా?</string>
   <string name="dialog_message_clear_history_yes">అవును</string>
   <string name="dialog_message_clear_history_no">కాదు</string>
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
@@ -233,12 +233,11 @@
   <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy/te</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data/te</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;బృందం పేజీ&lt;/a&gt;</string>
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>

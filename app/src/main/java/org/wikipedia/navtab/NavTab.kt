@@ -4,17 +4,13 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
+import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 
-enum class NavTab constructor(
-    @StringRes val text: Int,
-    val id: Int,
-    @DrawableRes val icon: Int,
-    ) : EnumCode {
+enum class NavTab(@StringRes val text: Int, val id: Int, @DrawableRes val icon: Int) : EnumCode {
 
     EXPLORE(R.string.feed, R.id.nav_tab_explore, R.drawable.selector_nav_explore) {
         override fun newInstance(): Fragment {
@@ -31,11 +27,9 @@ enum class NavTab constructor(
             return HistoryFragment.newInstance()
         }
     },
-    EDITS(
-        R.string.nav_item_suggested_edits, R.id.nav_tab_edits, R.drawable.selector_nav_edits
-    ) {
+    EDITS(R.string.nav_item_activity, R.id.nav_tab_edits, R.drawable.selector_nav_activity) {
         override fun newInstance(): Fragment {
-            return SuggestedEditsTasksFragment.newInstance()
+            return ActivityTabFragment.newInstance()
         }
     },
     MORE(R.string.nav_item_more, R.id.nav_tab_more, R.drawable.ic_menu_white_24dp) {

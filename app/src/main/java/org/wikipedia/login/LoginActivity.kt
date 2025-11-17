@@ -4,11 +4,11 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
@@ -19,11 +19,12 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
+import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
+import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
-import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
@@ -71,11 +72,13 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
             submitButtonText = null, isModal = false)
 
-        binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
 
         // Don't allow user to attempt login until they've put in a username and password
@@ -114,11 +117,6 @@ class LoginActivity : BaseActivity() {
         setResult(RESULT_LOGIN_FAIL)
     }
 
-    override fun onBackPressed() {
-        DeviceUtil.hideSoftKeyboard(this)
-        super.onBackPressed()
-    }
-
     override fun onStop() {
         binding.viewProgressBar.visibility = View.GONE
         super.onStop()
@@ -134,8 +132,8 @@ class LoginActivity : BaseActivity() {
         binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
         binding.footerContainer.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            val title = PageTitle("Special:PasswordReset", WikipediaApp.instance.wikiSite)
-            visitInExternalBrowser(this, Uri.parse(title.uri))
+            val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
+            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
     }
 
@@ -199,6 +197,7 @@ class LoginActivity : BaseActivity() {
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false
         updateSubscription()
+        FlowEventBus.post(LoggedInEvent())
         finish()
     }
 
@@ -210,13 +209,14 @@ class LoginActivity : BaseActivity() {
 
         if (uiPromptResult == null && captchaResult == null) {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, cb = loginCallback)
-        } else if (captchaResult != null) {
-            loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
-                captchaId = captchaHandler.captchaId(), captchaWord = captchaHandler.captchaWord(), cb = loginCallback)
         } else {
             loginClient.login(lifecycleScope, WikipediaApp.instance.wikiSite, username, password, token = firstStepToken,
-                twoFactorCode = if (uiPromptResult is LoginOAuthResult) twoFactorCode else null,
-                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null, isContinuation = true, cb = loginCallback)
+                captchaId = if (captchaResult != null) captchaHandler.captchaId() else null,
+                captchaWord = if (captchaResult != null) captchaHandler.captchaWord() else null,
+                twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
+                emailAuthCode = if (uiPromptResult is LoginEmailAuthResult) twoFactorCode else null,
+                isContinuation = uiPromptResult != null,
+                cb = loginCallback)
         }
     }
 
@@ -237,22 +237,21 @@ class LoginActivity : BaseActivity() {
         override fun uiPrompt(result: LoginResult, caught: Throwable, captchaId: String?, token: String?) {
             showProgressBar(false)
             firstStepToken = token
-
-            if (captchaId.isNullOrEmpty()) {
+            if (captchaId != null) {
+                if (captchaResult != null) {
+                    FeedbackUtil.showError(this@LoginActivity, caught)
+                }
+                captchaResult = CaptchaResult(captchaId)
+                captchaHandler.handleCaptcha(token, captchaResult!!)
+            }
+            if (result is LoginEmailAuthResult || result is LoginOATHResult) {
                 uiPromptResult = result
-
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
                 binding.login2faText.visibility = View.VISIBLE
                 binding.login2faText.editText?.setText("")
                 binding.login2faText.requestFocus()
                 FeedbackUtil.showError(this@LoginActivity, caught)
-            } else {
-                if (captchaResult != null) {
-                    FeedbackUtil.showError(this@LoginActivity, caught)
-                }
-                captchaResult = CaptchaResult(captchaId)
-                captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         }
@@ -299,6 +298,8 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_LOGOUT_BACKGROUND = "logout_background"
         const val SOURCE_SUGGESTED_EDITS = "suggestededits"
         const val SOURCE_TALK = "talk"
+        const val SOURCE_ACTIVITY_TAB = "activity_tab"
+        const val SOURCE_YEAR_IN_REVIEW = "yir"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)
