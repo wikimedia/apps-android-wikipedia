@@ -253,6 +253,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private fun maybeShowYearInReview() {
         if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
+            !Prefs.isInitialOnboardingEnabled &&
             YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
             yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
         }
