@@ -84,9 +84,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        YearInReviewViewModel.updateYearInReviewModel { model ->
-                            model.copy(slideViewedCount = 0)
-                        }
                         Prefs.yearInReviewReadingListSurveyShown = false
                         Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
