@@ -104,7 +104,7 @@ fun YearInReviewHighlightsScreen(
         ) {
             Text(
                 text = stringResource(R.string.year_in_review_highlights_share_button_title),
-                color = WikipediaTheme.colors.paperColor,
+                color = ComposeColors.White,
                 style = MaterialTheme.typography.labelLarge
             )
         }
