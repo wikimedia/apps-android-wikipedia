@@ -84,9 +84,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        YearInReviewViewModel.updateYearInReviewModel { model ->
-                            model.copy(slideViewedCount = 0)
-                        }
                         Prefs.yearInReviewReadingListSurveyShown = false
                         Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
@@ -168,7 +165,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateDonationRemindersDescription() {
         val articleFrequency = activity.resources.getQuantityString(R.plurals.donation_reminders_text_articles, Prefs.donationReminderConfig.articleFrequency, Prefs.donationReminderConfig.articleFrequency)
-        val description = if (Prefs.donationReminderConfig.isEnabled) activity.getString(R.string.donation_reminders_settings_description_on,
+        val description = if (Prefs.donationReminderConfig.userEnabled) activity.getString(R.string.donation_reminders_settings_description_on,
             DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), articleFrequency) else
                 activity.getString(R.string.donation_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description

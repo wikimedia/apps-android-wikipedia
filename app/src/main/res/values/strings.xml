@@ -1834,7 +1834,7 @@
 
     <!-- Donor experience -->
     <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
-    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and other free knowledge projects thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
@@ -2302,7 +2302,7 @@
     <string name="donation_reminders_settings_title">How should we remind you?</string>
     <string name="donation_reminders_settings_option_title">Donation reminders</string>
     <string name="donation_reminders_settings_thank_you_message">Your generosity helps keep Wikipedia thriving. Set up a donation reminder based on the number of articles you read.</string>
-    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
+    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and other free knowledge projects.</string>
     <string name="donation_reminders_settings_article_frequency_label">When I read</string>
     <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
     <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>

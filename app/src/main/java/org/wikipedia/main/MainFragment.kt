@@ -80,6 +80,7 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -412,7 +413,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeedSeCardFooterClicked() {
-        onNavigateTo(NavTab.EDITS)
+        startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity()))
     }
 
     override fun onFeedShareImage(card: FeaturedImageCard) {
