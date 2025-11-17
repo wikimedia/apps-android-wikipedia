@@ -224,6 +224,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 )
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
                     .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_milestone",
+                            action = "setting_click"
+                        )
                         activity.startActivity(DonationReminderActivity.newIntent(activity))
                     }.show()
             }
