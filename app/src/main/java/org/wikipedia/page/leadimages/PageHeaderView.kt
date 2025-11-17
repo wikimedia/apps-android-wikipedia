@@ -169,6 +169,8 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 action = "impression"
             )
             binding.donationReminderCardView.isVisible = true
+        } else {
+            binding.donationReminderCardView.isVisible = false
         }
     }
 }
