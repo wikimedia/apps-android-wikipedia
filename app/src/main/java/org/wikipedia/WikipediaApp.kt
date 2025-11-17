@@ -259,6 +259,7 @@ class WikipediaApp : Application() {
         Prefs.tempAccountDialogShown = false
         Prefs.impactLastQueryTime = 0
         Prefs.impactLastResponseBody = emptyMap()
+        Prefs.yearInReviewModelData = emptyMap()
         SharedPreferenceCookieManager.instance.clearAllCookies()
         MainScope().launch {
             AppDatabase.instance.notificationDao().deleteAll()
