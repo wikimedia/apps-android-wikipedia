@@ -178,8 +178,18 @@ fun YearInReviewScreenDeck(
                                 is YearInReviewScreenData.HighlightsScreen -> {}
                             }
                         },
-                        onDonateClick = {
-                            onDonateClick(pages[pagerState.currentPage].slideName)
+                        onBottomBtnClick = { screenData ->
+                            when (screenData) {
+                                is YearInReviewScreenData.HighlightsScreen -> {
+                                    YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
+                                    captureRequest =
+                                        YearInReviewCaptureRequest.HighlightsScreen(screenData)
+                                }
+                                is YearInReviewScreenData.StandardScreen -> {
+                                    onDonateClick(pages[pagerState.currentPage].slideName)
+                                }
+                                else -> {}
+                            }
                         }
                     )
                 },
@@ -203,12 +213,7 @@ fun YearInReviewScreenDeck(
                                 .padding(paddingValues)
                                 .verticalScroll(rememberScrollState()),
                             requestScreenshotBitmap = requestScreenshotBitmap,
-                            screenData = pages[page],
-                            onShareHighlightsBtnClick = { highlights ->
-                                YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
-                                captureRequest =
-                                    YearInReviewCaptureRequest.HighlightsScreen(highlights)
-                            }
+                            screenData = pages[page]
                         )
                     }
                 }
@@ -241,7 +246,7 @@ fun MainBottomBar(
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
     onShareClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onBottomBtnClick: (YearInReviewScreenData) -> Unit
 ) {
     val context = LocalContext.current
     val currentScreen = pages[pagerState.currentPage]
@@ -253,7 +258,7 @@ fun MainBottomBar(
             color = WikipediaTheme.colors.borderColor
         )
         Box {
-            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
+            pages[pagerState.currentPage].BottomButton(context, onBottomBtnClick)
         }
         Box(
             modifier = Modifier
@@ -401,7 +406,6 @@ fun YearInReviewScreenContent(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
-    onShareHighlightsBtnClick: ((YearInReviewScreenData.HighlightsScreen) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     when (screenData) {
@@ -429,10 +433,7 @@ fun YearInReviewScreenContent(
                     .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                     .yearInReviewHeaderBackground()
                     .padding(horizontal = 18.dp),
-                screenData = screenData,
-                onShareHighlightsBtnClick = {
-                    onShareHighlightsBtnClick?.invoke(screenData)
-                }
+                screenData = screenData
             )
         }
     }

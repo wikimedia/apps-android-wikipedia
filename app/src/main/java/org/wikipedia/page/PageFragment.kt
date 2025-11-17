@@ -614,7 +614,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
             MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
-                AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
+                AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, 60000)
             }
 
             // Update the article visit for Donation Reminder
