@@ -2333,6 +2333,6 @@
     <string name="donation_reminders_settings_learn_more_button">Learn more</string>
     <string name="donation_reminders_settings_report_button">Problem with feature</string>
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
-    <string name="donation_reminders_settings_report_email_body">I have encountered a problem with Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
 </resources>
