@@ -206,5 +206,6 @@
     <string name="preference_key_yir_model_data">yirModelData</string>
     <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
+    <string name="preference_key_explore_feed_survey_shown">exploreFeedSurveyShown</string>
 
 </resources>
