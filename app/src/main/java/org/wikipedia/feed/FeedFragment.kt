@@ -390,7 +390,7 @@ class FeedFragment : Fragment() {
             val startDate = LocalDate.of(2025, 11, 24)
             val endDate = LocalDate.of(2025, 11, 30)
 
-            if (currentDate < startDate || currentDate > endDate) {
+            if (currentDate !in startDate..endDate) {
                 return
             }
 
