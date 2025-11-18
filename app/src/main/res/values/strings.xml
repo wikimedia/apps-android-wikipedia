@@ -2206,9 +2206,9 @@
         <item quantity="one">Category that interested me</item>
         <item quantity="other">Categories that interested me</item>
     </plurals>
-    <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
-        <item quantity="one">Article edited</item>
-        <item quantity="other">Articles edited</item>
+    <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+        <item quantity="one">Time edited</item>
+        <item quantity="other">Times edited</item>
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
