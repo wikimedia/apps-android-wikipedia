@@ -384,7 +384,7 @@ class FeedFragment : Fragment() {
         }
 
         fun maybeShowExploreFeedSurvey(activity: Activity) {
-            if (Prefs.exploreFeedSurveyShown) return
+            if (Prefs.exploreFeedSurveyShown || WikipediaApp.instance.languageState.systemLanguageCode != "en") return
 
             val currentDate = LocalDate.now()
             val startDate = LocalDate.of(2025, 11, 24)
