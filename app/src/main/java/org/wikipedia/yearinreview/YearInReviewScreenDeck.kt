@@ -178,7 +178,7 @@ fun YearInReviewScreenDeck(
                                 is YearInReviewScreenData.HighlightsScreen -> {}
                             }
                         },
-                        onBottomBtnClick = { screenData ->
+                        onBottomButtonClick = { screenData ->
                             when (screenData) {
                                 is YearInReviewScreenData.HighlightsScreen -> {
                                     YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
@@ -246,7 +246,7 @@ fun MainBottomBar(
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
     onShareClick: () -> Unit,
-    onBottomBtnClick: (YearInReviewScreenData) -> Unit
+    onBottomButtonClick: (YearInReviewScreenData) -> Unit
 ) {
     val context = LocalContext.current
     val currentScreen = pages[pagerState.currentPage]
@@ -258,7 +258,7 @@ fun MainBottomBar(
             color = WikipediaTheme.colors.borderColor
         )
         Box {
-            pages[pagerState.currentPage].BottomButton(context, onBottomBtnClick)
+            pages[pagerState.currentPage].BottomButton(context, onBottomButtonClick)
         }
         Box(
             modifier = Modifier
@@ -432,7 +432,7 @@ fun YearInReviewScreenContent(
                 modifier = modifier
                     .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                     .yearInReviewHeaderBackground()
-                    .padding(horizontal = 18.dp),
+                    .padding(horizontal = 18.dp, vertical = 8.dp),
                 screenData = screenData
             )
         }
