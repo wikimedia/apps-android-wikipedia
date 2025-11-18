@@ -25,8 +25,9 @@ object DonationReminderHelper {
 
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
+    // TODO: remove the feature flag before Dec 1 2025.
     val isEnabled
-        get() = ReleaseUtil.isDevRelease || isInEligibleCountry &&
+        get() = ReleaseUtil.isDevRelease || !ReleaseUtil.isProdRelease && isInEligibleCountry &&
                         LocalDate.now() <= LocalDate.of(2026, 3, 15) && isTestGroupUser
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
