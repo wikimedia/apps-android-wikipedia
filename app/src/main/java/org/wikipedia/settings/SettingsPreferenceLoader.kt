@@ -125,13 +125,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
 
-        val donationCategory = findPreference(R.string.preference_category_donations)
-        donationCategory.isVisible = DonationReminderHelper.isEnabled
-        findPreference(R.string.preference_key_donation_reminders).onPreferenceClickListener =
-            Preference.OnPreferenceClickListener {
-                activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
-                true
-            }
+        findPreference(R.string.preference_key_donation_reminders).apply {
+            isVisible = DonationReminderHelper.isEnabled
+            onPreferenceClickListener =
+                Preference.OnPreferenceClickListener {
+                    activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
+                    true
+                }
+        }
         findPreference(R.string.preference_key_delete_local_donation_history).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             val hasDonations = Prefs.donationResults.isNotEmpty()
 
