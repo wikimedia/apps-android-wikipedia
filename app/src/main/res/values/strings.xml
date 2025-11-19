@@ -1834,7 +1834,7 @@
 
     <!-- Donor experience -->
     <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
-    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and other free knowledge projects thriving.</string>
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <string name="donate_gpay_dialog_title">Donate with Google Pay?</string>
@@ -2051,8 +2051,8 @@
         <item quantity="other"><![CDATA[In %1$d, volunteers added %2$,d bytes to English Wikipedia. The sum of all their work together leads to a steadily improving, fact-based, and reliable knowledge resource that they give to the world. All of us have knowledge to share, <a href="%3$s">learn how to participate</a>.]]></item>
     </plurals>
     <plurals name="year_in_review_slide_edited_times_headline">
-        <item quantity="one">You edited Wikipedia %s time</item>
-        <item quantity="other">You edited Wikipedia %s times</item>
+        <item quantity="one">You edited %s time</item>
+        <item quantity="other">You edited %s times</item>
     </plurals>
     <plurals name="year_in_review_slide_edited_times_body">
         <item quantity="one">Thank you for being one of the volunteer editors making a difference on Wikimedia projects around the world. Volunteers like you made %,d change across over 300 different language editions of Wikipedia.</item>
@@ -2206,9 +2206,9 @@
         <item quantity="one">Category that interested me</item>
         <item quantity="other">Categories that interested me</item>
     </plurals>
-    <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
-        <item quantity="one">Article edited</item>
-        <item quantity="other">Articles edited</item>
+    <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+        <item quantity="one">Time edited</item>
+        <item quantity="other">Times edited</item>
     </plurals>
     <string name="year_in_review_highlights_share_button_title">Share highlights</string>
     <string name="year_in_review_highlights_logo_description">Wikipedia logo</string>
@@ -2302,7 +2302,7 @@
     <string name="donation_reminders_settings_title">How should we remind you?</string>
     <string name="donation_reminders_settings_option_title">Donation reminders</string>
     <string name="donation_reminders_settings_thank_you_message">Your generosity helps keep Wikipedia thriving. Set up a donation reminder based on the number of articles you read.</string>
-    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and its sister sites.</string>
+    <string name="donation_reminders_settings_donation_info">Donations go to the Wikimedia Foundation and affiliates, proud hosts of Wikipedia and other free knowledge projects.</string>
     <string name="donation_reminders_settings_article_frequency_label">When I read</string>
     <string name="donation_reminders_settings_amount_label">Remind me to donate</string>
     <string name="donation_reminders_settings_confirm_btn_label">Confirm reminder</string>
@@ -2333,6 +2333,11 @@
     <string name="donation_reminders_settings_learn_more_button">Learn more</string>
     <string name="donation_reminders_settings_report_button">Problem with feature</string>
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
-    <string name="donation_reminders_settings_report_email_body">I have encountered a problem with Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
+    <string name="explore_feed_survey_dialog_title">Help us improve Explore</string>
+    <string name="explore_feed_survey_dialog_message">Please take a short survey about the Explore feed. Your feedback will help shape upcoming app improvements.</string>
+    <string name="explore_feed_survey_dialog_positive_button_label">Take survey</string>
+    <string name="explore_feed_survey_dialog_negative_button_label">No Thanks</string>
+
 </resources>

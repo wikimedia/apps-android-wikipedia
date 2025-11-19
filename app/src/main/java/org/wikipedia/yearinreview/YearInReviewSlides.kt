@@ -360,7 +360,7 @@ class YearInReviewSlides(
                 if (isEditor) {
                     add(
                         HighlightItem(
-                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_edited_articles_title, yearInReviewModel.userEditsCount),
+                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_total_edits_title, yearInReviewModel.userEditsCount),
                             singleValue = numberFormatter.format(yearInReviewModel.userEditsCount)
                         )
                     )

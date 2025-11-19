@@ -18,8 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -51,14 +49,12 @@ import androidx.compose.ui.util.fastForEachIndexed
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 @Composable
 fun YearInReviewHighlightsScreen(
     modifier: Modifier = Modifier,
-    screenData: YearInReviewScreenData.HighlightsScreen,
-    onShareHighlightsBtnClick: () -> Unit
+    screenData: YearInReviewScreenData.HighlightsScreen
 ) {
     Column(
         modifier = modifier
@@ -92,22 +88,6 @@ fun YearInReviewHighlightsScreen(
                 .padding(horizontal = 8.dp),
             data = screenData
         )
-
-        Button(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 32.dp, bottom = 16.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = WikipediaTheme.colors.progressiveColor
-            ),
-            onClick = onShareHighlightsBtnClick
-        ) {
-            Text(
-                text = stringResource(R.string.year_in_review_highlights_share_button_title),
-                color = WikipediaTheme.colors.paperColor,
-                style = MaterialTheme.typography.labelLarge
-            )
-        }
     }
 }
 
@@ -313,8 +293,7 @@ private fun YearInReviewHighlightsScreenPreview() {
                 ),
                 slideName = "test",
                 screenshotUrl = "#wikimediafoundation"
-            ),
-            onShareHighlightsBtnClick = {}
+            )
         )
     }
 }
