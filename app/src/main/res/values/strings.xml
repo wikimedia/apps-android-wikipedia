@@ -2338,6 +2338,6 @@
     <string name="explore_feed_survey_dialog_title">Help us improve Explore</string>
     <string name="explore_feed_survey_dialog_message">Please take a short survey about the Explore feed. Your feedback will help shape upcoming app improvements.</string>
     <string name="explore_feed_survey_dialog_positive_button_label">Take survey</string>
-    <string name="explore_feed_survey_dialog_negative_button_label">No Thanks</string>
+    <string name="explore_feed_survey_dialog_negative_button_label">No thanks</string>
 
 </resources>
