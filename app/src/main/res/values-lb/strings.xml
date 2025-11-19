@@ -1796,7 +1796,7 @@
     <item quantity="one">Kategorie, déi mech interesséiert huet</item>
     <item quantity="other">Kategorien, déi mech interesséiert hunn</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Artikel geännert</item>
     <item quantity="other">Artikele geännert</item>
   </plurals>

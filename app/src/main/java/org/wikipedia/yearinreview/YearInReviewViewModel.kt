@@ -221,7 +221,9 @@ class YearInReviewViewModel() : ViewModel() {
                             if (!results.isNullOrEmpty()) {
                                 largestClusterCountryName = results.first().countryName
                             }
-                            pagesWithCoordinates = largestCluster.locations.plus(pagesWithCoordinates.minus(largestCluster.locations))
+                            pagesWithCoordinates = largestCluster.locations.plus(pagesWithCoordinates.minus(
+                                largestCluster.locations.toSet()
+                            ))
                         }
                     } catch (_: IOException) {
                         // could be thrown by Geocoder, and safe to ignore.
@@ -266,7 +268,6 @@ class YearInReviewViewModel() : ViewModel() {
                 yearInReviewModel = yearInReviewModel
             ).finalSlides()
 
-            // TODO: make sure return enough slides here
             _uiScreenListState.value = UiState.Success(
                 data = finalRoute
             )
@@ -297,8 +298,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
         const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
         const val MAX_LONGEST_READ_ARTICLES = 25
-        const val ARTICLES_2025_PATH = "2025articles"
-        const val YIR_2025_PATH = "yir25"
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)

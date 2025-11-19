@@ -2019,7 +2019,7 @@
     <item quantity="one">Kategori som intresserade mig</item>
     <item quantity="other">Kategorier som intresserade mig</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Redigerad artikel</item>
     <item quantity="other">Redigerade artiklar</item>
   </plurals>
