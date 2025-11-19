@@ -2114,7 +2114,7 @@
     <item quantity="one">我感興趣的分類</item>
     <item quantity="other">我感興趣的分類</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">已編輯條目</item>
     <item quantity="other">已編輯條目</item>
   </plurals>
