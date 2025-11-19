@@ -75,6 +75,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
@@ -710,6 +711,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         if (!Prefs.announcementShownDialogs.contains(campaignId)) {
                             DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
                             campaignDialog = CampaignDialog(requireActivity(), it, onNeutralBtnClick = { campaignId ->
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    action = "group_assigned",
+                                    activeInterface = "article_banner",
+                                    groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
+                                    campaignId = DonationReminderHelper.campaignId
+                                )
                                 Prefs.announcementShownDialogs = setOf(campaignId)
                                 donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
                             })
