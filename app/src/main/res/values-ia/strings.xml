@@ -2077,7 +2077,7 @@
     <item quantity="one">Categoria de mi interesse</item>
     <item quantity="other">Categorias de mi interesse</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Articulo modificate</item>
     <item quantity="other">Articulos modificate</item>
   </plurals>
