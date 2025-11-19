@@ -395,10 +395,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_description_edit_success_prompt, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_description_edit_success_prompt, value)
 
-    var showSuggestedEditsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
-
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -881,4 +877,8 @@ object Prefs {
     var yearInReviewReadingListSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
+
+    var exploreFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_survey_shown, value)
 }

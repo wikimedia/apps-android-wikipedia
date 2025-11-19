@@ -1170,8 +1170,6 @@
   <string name="templates_learn_more_link">Ďalšie informácie</string>
   <string name="main_drawer_help">Pomocník</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
-  <string name="main_tooltip_text">Ahoj %s, vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
-  <string name="main_tooltip_text_v2">Vedeli ste, že Wikipédiu môže upravovať hocikto?</string>
   <string name="main_tooltip_action_button">Začíname</string>
   <string name="main_tooltip_watchlist_title">Zoznam sledovaných</string>
   <string name="main_tooltip_watchlist_text">Nájsť články a stránky, ktoré ste predtým pridali do zoznamu sledovaných v ponuke &lt;b&gt;Zoznam sledovaných&lt;/b&gt;.</string>

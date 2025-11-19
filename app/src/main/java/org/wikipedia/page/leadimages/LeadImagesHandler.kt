@@ -86,7 +86,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp(
-        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
+        ((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(activity) else parentFragment.toolbarMargin.toFloat()).toFloat()) +
                 getDonationReminderCardViewHeight(true)
     )
     val callToActionEditLang get() =
@@ -206,43 +206,26 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 }
             }
 
-            override fun donationReminderCardPositiveClicked(isInitialPrompt: Boolean) {
+            override fun donationReminderCardPositiveClicked() {
                 hideDonationReminderCard()
-                if (isInitialPrompt) {
-                    DonorExperienceEvent.logDonationReminderAction(
-                        activeInterface = "reminder_start",
-                        action = "start_click"
-                    )
-                    activity.startActivity(DonationReminderActivity.newIntent(activity))
-                } else {
-                    DonorExperienceEvent.logDonationReminderAction(
-                        activeInterface = "reminder_milestone",
-                        action = "donate_start_click",
-                        campaignId = DonationReminderHelper.CAMPAIGN_ID
-                    )
-                    ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
-                }
+                DonorExperienceEvent.logDonationReminderAction(
+                    activeInterface = "reminder_milestone",
+                    action = "donate_start_click",
+                    campaignId = DonationReminderHelper.CAMPAIGN_ID
+                )
+                ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
             }
 
-            override fun donationReminderCardNegativeClicked(isInitialPrompt: Boolean) {
+            override fun donationReminderCardNegativeClicked() {
                 hideDonationReminderCard()
-                if (isInitialPrompt) {
-                    DonorExperienceEvent.logDonationReminderAction(
-                        activeInterface = "reminder_start",
-                        action = "nothanks_click"
-                    )
-                } else {
-                    DonorExperienceEvent.logDonationReminderAction(
-                        activeInterface = "reminder_milestone",
-                        action = "notnow_click"
-                    )
-                }
-                if (isInitialPrompt || Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                    FeedbackUtil.showMessage(
-                        parentFragment,
-                        R.string.donation_reminders_prompt_dismiss_snackbar
-                    )
-                }
+                DonorExperienceEvent.logDonationReminderAction(
+                    activeInterface = "reminder_milestone",
+                    action = "notnow_click"
+                )
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
+                    .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                        activity.startActivity(DonationReminderActivity.newIntent(activity))
+                    }.show()
             }
         }
     }

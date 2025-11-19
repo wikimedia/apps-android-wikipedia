@@ -1386,8 +1386,6 @@
   <string name="templates_description_missing_data">此模板缺少&lt;a href=\"%1$s\"&gt;模板資料&lt;/a&gt;，且參數已&lt;a href=\"%2$s\"&gt;自動產生&lt;/a&gt;。因此模板及參數都缺乏描述。</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
-  <string name="main_tooltip_text_v2">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_action_button">入門</string>
   <string name="main_tooltip_watchlist_title">監視清單</string>
   <string name="main_tooltip_watchlist_text">在&lt;b&gt;監視清單&lt;/b&gt;下的更多選單裡，尋找您之前新增到監視清單的條目與頁面。</string>
@@ -2116,7 +2114,7 @@
     <item quantity="one">我感興趣的分類</item>
     <item quantity="other">我感興趣的分類</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">已編輯條目</item>
     <item quantity="other">已編輯條目</item>
   </plurals>
@@ -2223,7 +2221,7 @@
   <string name="donation_reminders_settings_warning_max_amount">最多只允許 %s</string>
   <string name="donation_reminders_settings_option_custom">自訂…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">感謝您！在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
-  <string name="donation_reminders_prompt_title">自從您承諾捐款 %2$s，您已閱讀了 %1$s 篇條目</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">自從您承諾捐款 %2$s，您已閱讀了 %1$s 篇條目</string>
   <string name="donation_reminders_prompt_message">在 %1$s，您向我們提出當您閱讀了 %2$s 篇條目後，提醒您進行捐款。如果維基百科能以您的 %3$s 來提供知識，請加入 2%% 的讀者行列，來在今日完成您的捐贈承諾。</string>
   <string name="donation_reminders_prompt_positive_button">立即捐款</string>
   <string name="donation_reminders_prompt_negative_button">現在不要</string>

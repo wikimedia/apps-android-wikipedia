@@ -1051,8 +1051,6 @@
   <string name="templates_learn_more_link">আরও জানুন</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
-  <string name="main_tooltip_text">সুধী %s, আপনি জানেন কি উইকিপিডিয়ায় যে কেউ সম্পাদনা করতে পারে?</string>
-  <string name="main_tooltip_text_v2">আপনি কি জানেন যে যে-কেউ উইকিপিডিয়া সম্পাদনা করতে পারে?</string>
   <string name="main_tooltip_action_button">শুরু করুন</string>
   <string name="main_tooltip_watchlist_title">নজরতালিকা</string>
   <string name="custom_date_picker_dialog_ok_button_text">ঠিক আছে</string>

@@ -1197,9 +1197,11 @@
   <string name="activity_tab_discover_encourage">Procurando algo novo para ler?</string>
   <string name="activity_tab_donation_unknown">Desconhecido</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Última doação&lt;/b&gt; no aplicativo</string>
+  <string name="activity_tab_total_edits_all_projects">Total de edições em todos os projetos</string>
   <string name="activity_tab_game_stats">Estatísticas do jogo</string>
   <string name="activity_tab_game_stats_best_streak">Melhor sequência</string>
   <string name="activity_tab_play_wiki_games">Jogar wikiJogos</string>
+  <string name="activity_tab_report_email_subject">Relatório de problemas - Guia de Atividade</string>
   <string name="activity_tab_menu_feedback">Problema com a funcionalidade</string>
   <string name="activity_tab_menu_info">Saber mais</string>
   <string name="activity_tab_menu_customize">Personalizar</string>
@@ -1213,9 +1215,29 @@
     <item quantity="one">edição deste mês</item>
     <item quantity="other">edições deste mês</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">Impacto de todos os tempos</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">total de edição</item>
+    <item quantity="other">total de edições</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">obrigado</item>
+    <item quantity="other">obrigados</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dias</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Melhor sequência</string>
   <string name="activity_tab_impact_last_edited">Última edição</string>
   <string name="activity_tab_impact_suggested_edits_title">Recentemente 0 edições nos artigos</string>
   <string name="activity_tab_impact_suggested_edits_message">Parece que você não fez nenhuma edição este mês. Amplie o conhecimento gratuito editando tópicos que lhe interessam.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Faça uma edição</string>
+  <string name="activity_tab_impact_recent_activity">Sua atividade recente (últimos 30 dias)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Edição</item>
+    <item quantity="other">Edições</item>
+  </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Tempo dedicado à leitura</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Insights de leitura</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">Insights sobre edição</string>
@@ -1371,8 +1393,6 @@
   <string name="templates_description_missing_data">Este predefinição não possui &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt; e seus parâmetros foram &lt;a href=\"%2$s\"&gt;gerados automaticamente&lt;/a&gt;. Como resultado, o modelo e seus parâmetros não possuem descrições.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / juntar-se à Wikipédia</string>
-  <string name="main_tooltip_text">Olá %s, Você sabia que todos podem editar a Wikipédia?</string>
-  <string name="main_tooltip_text_v2">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
   <string name="main_tooltip_watchlist_title">Lista de páginas vigiadas</string>
   <string name="main_tooltip_watchlist_text">Encontre artigos e páginas que você adicionou anteriormente à sua lista de páginas vigiadas no menu Mais em &lt;b&gt;lista de páginas vigiadas&lt;/b&gt;.</string>
@@ -1856,17 +1876,20 @@
   <string name="on_this_day_game_continue_playing_btn_text">Continuar jogando</string>
   <string name="on_this_day_game_sound_on">Ativar som</string>
   <string name="on_this_day_game_sound_off">Desativar som</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Saiba mais</string>
-  <string name="year_in_review_get_started" fuzzy="true">Começar</string>
+  <string name="year_in_review_learn_more">Saiba mais</string>
+  <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Navegar para a esquerda</string>
+  <string name="year_in_review_navigate_left">Navegar para a esquerda</string>
+  <string name="year_in_review_close">Fechar</string>
   <string name="year_in_review_share_icon">Ícone de compartilhar</string>
   <string name="year_in_review_heart_icon">Ícone de Coração</string>
   <string name="year_in_review_navigate_right">Navegar para a direita</string>
   <string name="year_in_review_donate">Doar</string>
   <string name="year_in_review_information_icon">Ícone de informação</string>
   <string name="year_in_review_get_started_headline">Explore sua Wikipédia: Resumo do ano</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="year_in_review_get_started_bodytext">Veja informações sobre os artigos que você leu no aplicativo da Wikipédia e as edições que você fez. Seu histórico de leitura é mantido protegido.</string>
+  <string name="year_in_review_get_started_info">Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="year_in_review_get_started_later">Você pode acessar sua retrospectiva do ano mais tarde no menu Mais.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
@@ -1877,10 +1900,40 @@
   <string name="year_in_review_survey_placeholder_text">Alguma observação adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Enviar</string>
+  <string name="year_in_review_disable_positive_button">Sim, tenho certeza</string>
+  <string name="year_in_review_disable_negative_button">Não, obrigado</string>
   <string name="year_in_review_screendeck_image_content_description">Recursos de imagem para a tela principal do resumo do ano</string>
   <string name="year_in_review_screenshot_error">Não foi possível gerar captura de tela: %s</string>
   <string name="year_in_review_share_subject" fuzzy="true">Imagem e link do resumo do ano</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Ícone de globo</string>
+  <string name="year_in_review_globe_icon">Ícone de globo</string>
+  <string name="settings_app_icon_title">Ícone do aplicativo</string>
+  <string name="settings_app_icon_subtitle">Benefício para o colaborador</string>
+  <string name="settings_app_icon_updated">O ícone do seu aplicativo foi atualizado.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Novo ícone do aplicativo desbloqueado para sua tela inicial</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Desbloqueie sua recompensa de colaborador para o próximo ano!</string>
+  <string name="year_in_review_slide_app_icon_donor">um doador</string>
+  <string name="year_in_review_slide_app_icon_editor">um editor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
+  <string name="year_in_review_login_dialog_title">Entrar para personalização?</string>
+  <string name="year_in_review_login_dialog_positive">Entrar / Cadastrar-se na Wikipédia</string>
+  <string name="year_in_review_login_dialog_negative">Continuar sem entrar</string>
+  <string name="year_in_review_slide_top_categories_headline">Suas categorias mais interessantes</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorita para ler</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Dia favorito para ler</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mês em que você mais leu</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Manhã</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Meio-dia</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Tarde</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_night">Noite</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Tarde da noite</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Criar</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Não, obrigado</string>
+  <string name="year_in_review_reading_list_title">Resumo do ano %d</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Com que frequência a Wikipédia foi editada</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Dia favorito para ler</string>
+  <string name="year_in_review_highlights_share_button_title">Compartilhar destaques</string>
+  <string name="year_in_review_highlights_logo_description">Logotipo da Wikipédia</string>
   <string name="recommended_reading_list_title">Descobrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubra artigos selecionados especialmente para você</string>
   <string name="recommended_reading_list_onboarding_card_message">Sua lista semanal de artigos da Wikipedia selecionados especialmente para você.</string>
@@ -1982,7 +2035,7 @@
   <string name="donation_reminders_settings_warning_max_amount">O máximo permitido é %s</string>
   <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
-  <string name="donation_reminders_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
   <string name="donation_reminders_prompt_message">Em %1$s, você nos pediu para lembrá-lo de fazer uma doação após ler %2$s. Se a Wikipédia lhe proporcionou %3$s de conhecimento, junte-se aos 2%% dos leitores que fazem doações e cumpra sua promessa hoje mesmo.</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
   <string name="donation_reminders_prompt_negative_button">Agora não</string>

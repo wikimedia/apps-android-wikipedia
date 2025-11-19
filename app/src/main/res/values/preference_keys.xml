@@ -92,7 +92,6 @@
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>
     <string name="preference_key_show_description_edit_success_prompt">showDescriptionEditSuccessPrompt</string>
-    <string name="preference_key_show_suggested_edits_tooltip">showSuggestedEditsTooltip</string>
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
@@ -207,5 +206,6 @@
     <string name="preference_key_yir_model_data">yirModelData</string>
     <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
+    <string name="preference_key_explore_feed_survey_shown">exploreFeedSurveyShown</string>
 
 </resources>

@@ -1476,8 +1476,6 @@
   <string name="templates_description_missing_data">У шаблоні відсутні &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, а його параметри було &lt;a href=\"%2$s\"&gt;автозгенеровано&lt;/a&gt;. Як наслідок, у шаблону і його параметрів немає опису.</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
-  <string name="main_tooltip_text">Привіт, %s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
-  <string name="main_tooltip_text_v2">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="main_tooltip_watchlist_title">Список спостереження</string>
   <string name="main_tooltip_watchlist_text">Статті та сторінки, які ви раніше додали до свого списку спостереження, можна знайти в меню Більше, в пункті &lt;b&gt;Список спостереження&lt;/b&gt;.</string>
@@ -2045,11 +2043,11 @@
   <string name="year_in_review_slide_top_categories_headline">Ваші найцікавіші категорії</string>
   <string name="year_in_review_slide_top_categories_body">Категорії об\'єднують статті на схожі теми. У %1$d ви не раз переглядали статті в цих цікавих категоріях: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Найпопулярніші статті англійської Вікіпедії</string>
-  <plurals name="year_in_review_slide_most_read_english_articles_body" fuzzy="true">
-    <item quantity="one"><![CDATA[Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. На %1$d-му місці за відвідуваністю в англійській Вікіпедії була ця стаття: %2$s<br /><a href=\"%3$s\">Дізнатися більше</a>]]></item>
-    <item quantity="few"><![CDATA[Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідувані статті в англійській Вікіпедії були такими: %2$s<br /><a href=\"%3$s\">Дізнатися більше</a>]]></item>
-    <item quantity="many"><![CDATA[Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідуваних статей в англійській Вікіпедії були такими: %2$s<br /><a href=\"%3$s\">Дізнатися більше</a>]]></item>
-    <item quantity="other"><![CDATA[Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідуваних статей в англійській Вікіпедії були такими: %2$s<br /><a href=\"%3$s\">Дізнатися більше</a>]]></item>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. На %1$d-му місці за відвідуваністю в англійській Вікіпедії була ця стаття: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
+    <item quantity="few">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідувані статті в англійській Вікіпедії були такими: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
+    <item quantity="many">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідуваних статей в англійській Вікіпедії були такими: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
+    <item quantity="other">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідуваних статей в англійській Вікіпедії були такими: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Ваше редагування нещодавно переглянули понад %,d раз</item>
@@ -2076,11 +2074,11 @@
     <item quantity="many">%,d байтів додано</item>
     <item quantity="other">%,d байтів додано</item>
   </plurals>
-  <plurals name="year_in_review_slide_bytes_added_body" fuzzy="true">
-    <item quantity="one">У %1$d волонтери додали %2$,d байт до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь.</item>
-    <item quantity="few">У %1$d волонтери додали %2$,d байти до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь.</item>
-    <item quantity="many">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь.</item>
-    <item quantity="other">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь.</item>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">У %1$d волонтери додали %2$,d байт до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь.&lt;/a&gt;</item>
+    <item quantity="few">У %1$d волонтери додали %2$,d байти до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь&lt;/a&gt;.</item>
+    <item quantity="many">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь&lt;/a&gt;.</item>
+    <item quantity="other">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Ви редагували Вікіпедію %s раз</item>
@@ -2125,7 +2123,7 @@
     <item quantity="many">Ви зберегли %,d статей</item>
     <item quantity="other">Ви зберегли %,d статей</item>
   </plurals>
-  <plurals name="year_in_review_slide_saved_articles_body" fuzzy="true">
+  <plurals name="year_in_review_slide_saved_articles_body">
     <item quantity="one">Серед цих статей були &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; та &lt;b&gt;%3$s&lt;/b&gt;. Кожна збережена стаття відображає ваші інтереси та допомагає створити персоналізовану базу знань у Вікіпедії.&lt;br /&gt;&lt;br /&gt; Активні користувачі програми зберегли %4$,d статтю цього року.</item>
     <item quantity="few">Серед цих статей були &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; та &lt;b&gt;%3$s&lt;/b&gt;. Кожна збережена стаття відображає ваші інтереси та допомагає створити персоналізовану базу знань у Вікіпедії.&lt;br /&gt;&lt;br /&gt; Активні користувачі програми зберегли %4$,d статті цього року.</item>
     <item quantity="many">Серед цих статей були &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; та &lt;b&gt;%3$s&lt;/b&gt;. Кожна збережена стаття відображає ваші інтереси та допомагає створити персоналізовану базу знань у Вікіпедії.&lt;br /&gt;&lt;br /&gt; Активні користувачі програми зберегли %4$,d статей цього року.</item>
@@ -2233,6 +2231,84 @@
     <item quantity="other">Користувачі програми переглянули статті Вікіпедії %,d разів</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">По всьому світу люди починають з Вікіпедії, коли шукають відповідь на запитання, інформацію для навчання чи роботи, або ж дізнаються новий факт.</string>
+  <string name="year_in_review_reading_list_dialog_title">Створити список для читання зі свого Огляду %d року?</string>
+  <string name="year_in_review_reading_list_dialog_message">Огляд року у Вікіпедії створить список для читання зі статей, на які ви витратили найбільше часу у %1$d. &lt;a href=\"%2$s\"&gt;Дізнатися більше&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Створити</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Ні, дякую</string>
+  <string name="year_in_review_reading_list_title">Огляд %d року</string>
+  <string name="year_in_review_reading_list_description">Створено для %1$s. Статті, на які ви витратили найбільше часу за %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">Дякуємо, що провели цей рік з Вікіпедією.</string>
+  <string name="year_in_review_highlights_looking_forward_message">З нетерпінням чекаємо наступного року!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">Найбільш читана стаття в англійській Вікіпедії</item>
+    <item quantity="few">Найбільш читані статті в англійській Вікіпедії</item>
+    <item quantity="many">Найбільш читані статті в англійській Вікіпедії</item>
+    <item quantity="other">Найбільш читані статті в англійській Вікіпедії</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Година, витрачена на читання</item>
+    <item quantity="few">Години, витрачені на читання</item>
+    <item quantity="many">Годин, витрачених на читання</item>
+    <item quantity="other">Години, витрачені на читання</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Зміна, внесена редакторами</item>
+    <item quantity="few">Зміни, внесені редакторами</item>
+    <item quantity="many">Змін, внесених редакторами</item>
+    <item quantity="other">Зміни, внесені редакторами</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Кількість переглянутих статей</item>
+    <item quantity="few">Кількість переглянутих статей</item>
+    <item quantity="many">Кількість переглянутих статей</item>
+    <item quantity="other">Кількість переглянутих статей</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Редагування в програмці</item>
+    <item quantity="few">Редагування в програмці</item>
+    <item quantity="many">Редагування в програмці</item>
+    <item quantity="other">Редагування в програмці</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Як часто редагували Вікіпедію</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d раз на хвилину</item>
+    <item quantity="few">%d рази на хвилину</item>
+    <item quantity="many">%d разів на хвилину</item>
+    <item quantity="other">%d разів на хвилину</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Стаття, яку мені читалося найчастіше</item>
+    <item quantity="few">Статті, які мені читалося найчастіше</item>
+    <item quantity="many">Статті, які мені читалося найчастіше</item>
+    <item quantity="other">Статті, які мені читалося найчастіше</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Хвилина читання</item>
+    <item quantity="few">Хвилини читання</item>
+    <item quantity="many">Хвилини читання</item>
+    <item quantity="other">Хвилини читання</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Улюблений день для читання</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Прочитана стаття</item>
+    <item quantity="few">Прочитані статті</item>
+    <item quantity="many">Прочитані статті</item>
+    <item quantity="other">Прочитані статті</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Категорія, яка мене зацікавила</item>
+    <item quantity="few">Категорії, які мене зацікавили</item>
+    <item quantity="many">Категорії, які мене зацікавили</item>
+    <item quantity="other">Категорії, які мене зацікавили</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Відредагована стаття</item>
+    <item quantity="few">Відредаговані статті</item>
+    <item quantity="many">Відредаговані статті</item>
+    <item quantity="other">Відредаговані статті</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Поділитися підсумками</string>
+  <string name="year_in_review_highlights_logo_description">Логотип Вікіпедії</string>
   <string name="recommended_reading_list_title">Рекомендації</string>
   <string name="recommended_reading_list_onboarding_card_title">Відкрийте статті, підібрані спеціально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш щотижневий список статей Вікіпедії для читання, підібраний спеціально для вас.</string>
@@ -2338,7 +2414,7 @@
   <string name="donation_reminders_settings_warning_max_amount">Дозволено максимум %s</string>
   <string name="donation_reminders_settings_option_custom">Користувацький…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Дякуємо! Ми нагадаємо вам пожертвувати %1$s, коли ви прочитаєте %2$s під час цього експерименту.</string>
-  <string name="donation_reminders_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
   <string name="donation_reminders_prompt_message">%1$s ви попросили нас нагадати вам про пожертву після прочитання %2$s. Якщо Вікіпедія надала вам %3$s знань, будь ласка, приєднайтесь до 2%% читачів, які роблять пожертви, та виконайте свою обіцянку.</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвувати зараз</string>
   <string name="donation_reminders_prompt_negative_button">Не зараз</string>

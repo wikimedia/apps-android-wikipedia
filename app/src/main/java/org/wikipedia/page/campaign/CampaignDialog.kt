@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
@@ -16,8 +17,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.util.Date
 
-class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
-
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
     private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
 
@@ -25,7 +25,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         val campaignView = CampaignDialogView(context)
         campaignView.callback = this
         val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
-        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
+        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true || Prefs.ignoreDateForAnnouncements
         campaignView.setupViews(campaignId, campaign.getAssetsForLang(WikipediaApp.instance.appOrSystemLanguageCode))
         setView(campaignView)
     }
@@ -33,6 +33,10 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun show(): AlertDialog {
         dialog = super.show()
         return dialog!!
+    }
+
+    fun dismiss() {
+        dialog?.dismiss()
     }
 
     private fun dismissDialog(skipCampaign: Boolean = true) {
@@ -63,10 +67,14 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
-        Prefs.announcementPauseTime = Date().time
-        FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
-        dismissDialog(false)
+        Prefs.announcementPauseTime = Date().time
+        if (!DonationReminderHelper.isEnabled) {
+            FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+            dismissDialog(false)
+            return
+        }
+        onNeutralBtnClick?.invoke(campaignId)
     }
 
     override fun onClose() {

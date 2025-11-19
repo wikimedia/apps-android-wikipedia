@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50555
+        versionCode 50557
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -98,12 +98,12 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testProguardFiles 'test-proguard-rules.pro'
         }
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testProguardFiles 'test-proguard-rules.pro'
         }
     }
@@ -209,8 +209,8 @@ dependencies {
     implementation libs.retrofit2.kotlinx.serialization.converter
     implementation(libs.paging.compose)
 
-    implementation libs.android.sdk
-    implementation libs.android.plugin.annotation.v9
+    implementation libs.maplibre
+    implementation libs.maplibre.annotation
 
     implementation libs.androidx.room.runtime
     annotationProcessor libs.androidx.room.compiler

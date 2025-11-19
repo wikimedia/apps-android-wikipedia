@@ -363,10 +363,6 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_suggested_edits_tooltip"
-            android:title="@string/preference_key_show_suggested_edits_tooltip" />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_suggested_edits_pause_date"
@@ -448,6 +444,10 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_feed_yir_onboarding_card_enabled"
             android:title="Year-in-review Feed Card" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_explore_feed_survey_shown"
+            android:title="@string/preference_key_explore_feed_survey_shown"/>
 
     </PreferenceCategory>
 
@@ -555,6 +555,11 @@
             style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_donation_reminder_config"
             android:title="@string/preference_key_donation_reminder_config"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_donationReminder"
+            android:title="Donation Reminder test group (require restart)"/>
 
     </PreferenceCategory>
 

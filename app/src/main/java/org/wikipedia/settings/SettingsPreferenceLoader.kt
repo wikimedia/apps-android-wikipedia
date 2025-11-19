@@ -29,7 +29,6 @@ import org.wikipedia.theme.ThemeFittingRoomActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.yearinreview.YearInReviewViewModel
 
-/** UI code for app settings used by PreferenceFragment.  */
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences)
@@ -85,9 +84,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     .setPositiveButton(R.string.year_in_review_disable_positive_button) { _, _ ->
                         YearInReviewEvent.submit(action = "yir_off_confirm_click", slide = "setting")
                         Prefs.yearInReviewModelData = emptyMap()
-                        YearInReviewViewModel.updateYearInReviewModel { model ->
-                            model.copy(slideViewedCount = 0)
-                        }
                         Prefs.yearInReviewReadingListSurveyShown = false
                         Prefs.yearInReviewReadingListVisitCount = 0
                         (preference as SwitchPreferenceCompat).isChecked = false
@@ -129,42 +125,31 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
         }
 
-        val donationCategory = findPreference(R.string.preference_category_donations)
-        donationCategory.isVisible = DonationReminderHelper.isEnabled
-        findPreference(R.string.preference_key_donation_reminders).onPreferenceClickListener =
-            Preference.OnPreferenceClickListener {
-                activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
-                true
+        findPreference(R.string.preference_key_donation_reminders).apply {
+            isVisible = DonationReminderHelper.isEnabled
+            onPreferenceClickListener =
+                Preference.OnPreferenceClickListener {
+                    activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
+                    true
+                }
+        }
+        findPreference(R.string.preference_key_delete_local_donation_history).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            val hasDonations = Prefs.donationResults.isNotEmpty()
+
+            if (hasDonations) {
+                Prefs.donationResults = emptyList()
             }
-        if (Prefs.donationResults.isNotEmpty()) {
-            setupDeleteLocalDonationHistoryPreference()
+
+            val messageResId = if (hasDonations) {
+                R.string.donation_history_deleted_message_snackbar
+            } else R.string.donation_history_no_history_message_snackbar
+            FeedbackUtil.showMessage(activity, activity.resources.getString(messageResId))
+            true
         }
     }
 
     private fun deviceInformation(): String {
         return "\n\nVersion: ${BuildConfig.VERSION_NAME} \nDevice: ${Build.BRAND} ${Build.MODEL} (SDK: ${Build.VERSION.SDK_INT})\n"
-    }
-
-    private fun setupDeleteLocalDonationHistoryPreference() {
-        findPreference(R.string.preference_key_delete_local_donation_history).let {
-            it.isVisible = true
-            it.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
-                MaterialAlertDialogBuilder(activity)
-                    .setTitle(activity.getString(R.string.dialog_confirm_delete_donation_history_title))
-                    .setMessage(activity.getString(R.string.dialog_confirm_delete_donation_history_message))
-                    .setPositiveButton(R.string.dialog_confirm_delete_donation_history_delete) { _, _ ->
-                        Prefs.donationResults = emptyList()
-                        FeedbackUtil.showMessage(
-                            activity,
-                            R.string.donation_history_deleted_message_snackbar
-                        )
-                        preference.isVisible = false
-                    }
-                    .setNegativeButton(R.string.dialog_confirm_delete_donation_history_cancel, null)
-                    .show()
-                true
-            }
-        }
     }
 
     fun updateLanguagePrefSummary() {
@@ -181,7 +166,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
 
     fun updateDonationRemindersDescription() {
         val articleFrequency = activity.resources.getQuantityString(R.plurals.donation_reminders_text_articles, Prefs.donationReminderConfig.articleFrequency, Prefs.donationReminderConfig.articleFrequency)
-        val description = if (Prefs.donationReminderConfig.isEnabled) activity.getString(R.string.donation_reminders_settings_description_on,
+        val description = if (Prefs.donationReminderConfig.userEnabled) activity.getString(R.string.donation_reminders_settings_description_on,
             DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount), articleFrequency) else
                 activity.getString(R.string.donation_reminders_settings_description_off)
         findPreference(R.string.preference_key_donation_reminders).summary = description
@@ -229,7 +214,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         }
     }
 
-    private inner class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
+    private class DeleteRemoteListsYesListener(private val preference: Preference) : DialogInterface.OnClickListener {
         override fun onClick(dialog: DialogInterface, which: Int) {
             (preference as SwitchPreferenceCompat).isChecked = false
             Prefs.isReadingListSyncEnabled = false
