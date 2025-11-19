@@ -211,7 +211,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 DonorExperienceEvent.logDonationReminderAction(
                     activeInterface = "reminder_milestone",
                     action = "donate_start_click",
-                    campaignId = DonationReminderHelper.CAMPAIGN_ID
+                    campaignId = DonationReminderHelper.campaignId
                 )
                 ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
             }
@@ -224,6 +224,10 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 )
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.donation_reminders_prompt_dismiss_snackbar))
                     .setAction(R.string.donation_reminders_snackbar_modify_button_label) {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = "reminder_milestone",
+                            action = "setting_click"
+                        )
                         activity.startActivity(DonationReminderActivity.newIntent(activity))
                     }.show()
             }
