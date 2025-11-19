@@ -30,11 +30,9 @@ object DonationReminderHelper {
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
-    var shouldShowSettingSnackbar = false
+    val campaignId = "appmenu_" + (if (isTestGroupUser) "reminderB" else "reminderA")
 
-    fun getCampaignId(campaignId: String = "appmenu"): String {
-        return campaignId + if (isInEligibleCountry) (if (isTestGroupUser) "_reminderB" else "_reminderA") else ""
-    }
+    var shouldShowSettingSnackbar = false
 
     fun thankYouMessageForSettings(): String {
         val context = WikipediaApp.instance

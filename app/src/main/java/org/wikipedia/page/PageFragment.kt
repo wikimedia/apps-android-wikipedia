@@ -715,7 +715,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                     action = "group_assigned",
                                     activeInterface = "article_banner",
                                     groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
-                                    campaignId = DonationReminderHelper.getCampaignId(campaignId)
+                                    campaignId = DonationReminderHelper.campaignId
                                 )
                                 Prefs.announcementShownDialogs = setOf(campaignId)
                                 donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))

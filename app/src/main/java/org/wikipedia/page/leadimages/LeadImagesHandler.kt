@@ -211,7 +211,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                 DonorExperienceEvent.logDonationReminderAction(
                     activeInterface = "reminder_milestone",
                     action = "donate_start_click",
-                    campaignId = DonationReminderHelper.getCampaignId()
+                    campaignId = DonationReminderHelper.campaignId
                 )
                 ExclusiveBottomSheetPresenter.show(parentFragment.parentFragmentManager, DonateDialog.newInstance(fromDonationReminder = true))
             }

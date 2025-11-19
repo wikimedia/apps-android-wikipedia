@@ -19,9 +19,11 @@ import java.util.Date
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
-    private val campaignId = DonationReminderHelper.getCampaignId(
-            campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
-        )
+    private val campaignId = if (DonationReminderHelper.isInEligibleCountry) {
+        DonationReminderHelper.campaignId
+    } else {
+        campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
+    }
 
     init {
         val campaignView = CampaignDialogView(context)
