@@ -274,7 +274,7 @@ fun ShareHighlightsScreenCapture(
 
 @Preview(device = Devices.PIXEL_9)
 @Composable
-private fun YearInReviewHighlightsScreenPreview() {
+private fun YearInReviewHighlightsScreenContentPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
