@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
@@ -19,11 +20,10 @@ import java.util.Date
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
-    private val campaignId = if (DonationReminderHelper.isInEligibleCountry) {
-        DonationReminderHelper.campaignId
-    } else {
-        campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
-    }
+    private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode) +
+            if (DonationReminderHelper.isInEligibleCountry) {
+                if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
+            } else ""
 
     init {
         val campaignView = CampaignDialogView(context)
