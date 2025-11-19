@@ -73,11 +73,16 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
             windowInsets
         }
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource), null)
-            .addToBackStack(null)
-            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragmentContainer,
+                    OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource),
+                    null
+                )
+                .addToBackStack(null)
+                .commit()
+        }
         hideAppBarDateText()
     }
 

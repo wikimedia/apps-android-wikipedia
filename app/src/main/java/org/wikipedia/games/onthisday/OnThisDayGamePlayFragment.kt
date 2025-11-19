@@ -163,6 +163,7 @@ class OnThisDayGamePlayFragment : Fragment() {
     }
 
     private fun onCurrentQuestionCorrect(gameState: OnThisDayGameViewModel.GameState) {
+        updateInitialScores(gameState)
         updateGameState(gameState)
 
         updateQuestionEndLayout()
@@ -183,6 +184,7 @@ class OnThisDayGamePlayFragment : Fragment() {
     }
 
     private fun onCurrentQuestionIncorrect(gameState: OnThisDayGameViewModel.GameState) {
+        updateInitialScores(gameState)
         updateGameState(gameState)
 
         updateQuestionEndLayout()
