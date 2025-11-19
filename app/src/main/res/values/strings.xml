@@ -2319,8 +2319,6 @@
     <string name="donation_reminders_prompt_negative_button">Not now</string>
     <string name="donation_reminders_gpay_text">Donate %s with Google Pay</string>
     <string name="donation_reminders_gpay_different_amount_text">Donate a different amount with Google Pay</string>
-    <string name="donation_reminders_survey_dialog_title">Help improve donation reminders.</string>
-    <string name="donation_reminders_survey_dialog_message">Are you satisfied with this experience?</string>
     <string name="donation_reminders_settings_description_on">Donation reminders are on. Wikipedia will remind you to donate %1$s every %2$s you read while this experiment runs.</string>
     <string name="donation_reminders_settings_description_off">Donation reminders are off.</string>
     <string name="donation_reminders_settings_tooltip_info_label">Article count is stored locally on your device</string>
