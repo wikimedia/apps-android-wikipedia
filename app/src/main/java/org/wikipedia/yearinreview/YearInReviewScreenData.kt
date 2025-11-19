@@ -64,7 +64,7 @@ sealed class YearInReviewScreenData(
 ) {
 
     @Composable
-    open fun BottomButton(context: Context, onButtonClick: () -> Unit) {
+    open fun BottomButton(context: Context, onButtonClick: (YearInReviewScreenData) -> Unit) {
     }
 
     open class StandardScreen(
@@ -137,7 +137,26 @@ sealed class YearInReviewScreenData(
         slideName: String
     ) : YearInReviewScreenData(
         slideName = slideName
-    )
+    ) {
+        @Composable
+        override fun BottomButton(context: Context, onButtonClick: (YearInReviewScreenData) -> Unit) {
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp, top = 8.dp).fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor
+                ),
+                onClick = { onButtonClick(this) }
+            ) {
+                Text(
+                    text = stringResource(R.string.year_in_review_highlights_share_button_title),
+                    color = ComposeColors.White,
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
+        }
+    }
 
     open class GeoScreen(
         allowDonate: Boolean = true,
@@ -184,7 +203,7 @@ sealed class YearInReviewScreenData(
         showDonateInToolbar = !showDonateButton
     ) {
         @Composable
-        override fun BottomButton(context: Context, onButtonClick: () -> Unit) {
+        override fun BottomButton(context: Context, onButtonClick: (YearInReviewScreenData) -> Unit) {
             if (showDonateButton) {
                 Button(
                     modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp).fillMaxWidth(),
@@ -192,7 +211,7 @@ sealed class YearInReviewScreenData(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.progressiveColor
                     ),
-                    onClick = onButtonClick,
+                    onClick = { onButtonClick(this) },
                 ) {
                     Icon(
                         modifier = Modifier.size(20.dp),

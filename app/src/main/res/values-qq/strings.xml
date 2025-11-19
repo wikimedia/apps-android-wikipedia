@@ -1975,7 +1975,7 @@
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Title of the third highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_read_title">Title of the fourth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_logged_in_articles_interested_categories_title">Title of the fifth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
-  <string name="year_in_review_highlights_logged_in_articles_edited_articles_title">Title of the sixth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
+  <string name="year_in_review_highlights_logged_in_total_edits_title">Title of the sixth highlight shown on the Year in Review highlights screen for logged-in Wikipedia users.</string>
   <string name="year_in_review_highlights_share_button_title">Title for the button that shares the Highlights screen.</string>
   <string name="year_in_review_highlights_logo_description">Text for for the Wikipedia logo in year-in-review highlights.</string>
   <string name="recommended_reading_list_title">Title for the recommended reading list feature.</string>
@@ -2089,4 +2089,8 @@
   <string name="donation_reminders_settings_report_button">Menu label for providing feedback on the overflow menu in the Donation reminders settings screen.</string>
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
+  <string name="explore_feed_survey_dialog_title">Title label for the explore feed survey dialog.</string>
+  <string name="explore_feed_survey_dialog_message">Message label for the explore feed survey dialog.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Positive label for the button that confirms taking explore feed survey.</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Negative label for the button that dismisses explore feed survey.</string>
 </resources>

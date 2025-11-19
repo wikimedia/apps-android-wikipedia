@@ -2135,7 +2135,7 @@
     <item quantity="one">Kategorie, die mich interessiert</item>
     <item quantity="other">Kategorien, die mich interessieren</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Artikel bearbeitet</item>
     <item quantity="other">Artikel bearbeitet</item>
   </plurals>
