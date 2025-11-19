@@ -183,8 +183,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener false
             }
             val fragment = currentFragment
-            if (fragment is FeedFragment && item.order == 0) {
-                fragment.scrollToTop()
+            if (item.order == NavTab.EXPLORE.code()) {
+                FeedFragment.maybeShowExploreFeedSurvey(requireActivity())
+                if (fragment is FeedFragment) {
+                    fragment.scrollToTop()
+                }
             }
             if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
