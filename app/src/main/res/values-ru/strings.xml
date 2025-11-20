@@ -1909,7 +1909,7 @@
   <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
   <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
-  <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
+  <string name="donation_campaign_donated_snackbar">Спасибо, дорогой жертвователь! Ваша щедрость помогает процветать Википедии и другим проектам, предоставляющим бесплатные знания.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
   <string name="donate_gpay_dialog_title">Пожертвовать через Google Pay?</string>
@@ -1928,7 +1928,8 @@
   <string name="donate_gpay_help_other_ways">Другие способы сделать пожертвование</string>
   <string name="donate_gpay_help_faq">Часто задаваемые вопросы</string>
   <string name="donate_gpay_help_tax">Информация об освобождении пожертвований от налогов</string>
-  <string name="donation_history_deleted_message_snackbar">История пожертвований удалена</string>
+  <string name="donation_history_deleted_message_snackbar">История пожертвований очищена.</string>
+  <string name="donation_history_no_history_message_snackbar">У вас нет истории пожертвований для очистки.</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Чтобы увидеть ваше местоположение на карте, требуется разрешение на определение местоположения. Пожалуйста, попробуйте ещё раз.</string>
   <string name="places_search_hint">Поиск мест</string>
@@ -2070,6 +2071,17 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Разблокирован новый значок приложения для вашего домашнего экрана</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Откройте награду за вклад в следующем году!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Активируйте новый значок приложения в Настройках в разделе «Значок приложения». Благодарим вас за вклад в будущее свободных знаний. Ваш вклад в роли «%1$s» в %2$d помогает проложить путь к миру свободной информации, и, как результат, вы разблокировали специальный значок участника Википедии на домашнем экране.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Мы рады, что Википедия была частью вашего %1$d! Получите специальную награду в следующем «Обзоре года %2$d», став участником, будь то &lt;a href=\"%3$s\"&gt;редактирование Википедии&lt;/a&gt; или пожертвование из приложения &lt;a href=\"%4$s\"&gt;Фонду Викимедиа&lt;/a&gt; — некоммерческой организации, стоящей за ней. Если Википедия вам полезна, пожалуйста, рассмотрите возможность пожертвования, чтобы поддержать будущее энциклопедии, помочь ей оставаться бесплатной, без рекламы, надёжной и доступной для всех. Если вы сделали пожертвование в другом месте, мы высоко ценим вашу поддержку.</string>
+  <string name="year_in_review_slide_app_icon_donor">жертвователь</string>
+  <string name="year_in_review_slide_app_icon_editor">редактор</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">жертвователь и редактор</string>
+  <string name="year_in_review_slide_geo_headline">Статьи, которые вы читаете, наиболее близки к следующей стране: %s</string>
+  <string name="year_in_review_slide_geo_body">Похоже, что страна, которая ближе всего к большинству прочитанных вами статей: %1$s, судя по таким статьям, как &lt;b&gt;%2$s&lt;/b&gt; и &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Авторизоваться для персонализации?</string>
+  <string name="year_in_review_login_dialog_body">Авторизация открывает вам доступ к персонализированным данным. Вы по-прежнему сможете просматривать общие данные без авторизации.</string>
+  <string name="year_in_review_login_dialog_positive">Войти / Присоединиться к Википедии</string>
+  <string name="year_in_review_login_dialog_negative">Продолжить без авторизации</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Создать</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш еженедельный список для чтения, отобранный специально для вас.</string>
@@ -2156,16 +2168,11 @@
   <string name="recommended_reading_list_notification_subtitle">Нажмите, чтобы увидеть последние из рекомендаций.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Когда список «Открытий» обновится, Википедия пришлёт вам уведомление.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">«Открытия» включены. Википедия будет рекомендовать вам статьи для чтения.</string>
-  <string name="donation_reminders_initial_prompt_label">Эксперимент</string>
-  <string name="donation_reminders_initial_prompt_title">Поддержите Википедию, пока читаете</string>
-  <string name="donation_reminders_initial_prompt_message">Настройте напоминание о пожертвовании, исходя из количества прочитанных вами статей, чтобы Википедия оставалась актуальной, доступной для всех и свободной от рекламы.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Начать</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Не сейчас</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Напоминания о пожертвованиях можно изменить в любое время в настройках.</string>
   <string name="donation_settings_section_header">Пожертвования</string>
-  <string name="donation_reminders_settings_title">Напоминания о пожертвованиях</string>
-  <string name="donation_reminders_settings_thank_you_message">Присоединяйтесь к 2%% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
-  <string name="donation_reminders_settings_donation_info">Пожертвования направляются в Фонд Викимедиа и его филиалы, которые с гордостью являются владельцами Википедии и родственных ей сайтов.</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Напоминания о пожертвованиях</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Присоединяйтесь к 2%% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертвования направляются в Фонд Викимедиа и его филиалы, которые с гордостью являются владельцами Википедии и родственных ей сайтов.</string>
   <string name="donation_reminders_settings_article_frequency_label">Когда я читаю</string>
   <string name="donation_reminders_settings_amount_label">Напомнить мне сделать пожертвование</string>
   <string name="donation_reminders_settings_confirm_btn_label">Подтвердить напоминание</string>
@@ -2176,13 +2183,11 @@
   <string name="donation_reminders_settings_option_custom">Произвольная...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Спасибо! Мы напомним вам о необходимости пожертвовать %1$s, когда вы прочтёте %2$s статей во время этого эксперимента.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Вы прочитали %1$s с тех пор, как закладывались в %2$s</string>
-  <string name="donation_reminders_prompt_message">%1$s вы просили напомнить вам о пожертвовании после прочтения %2$s. Если Википедия дала вам знаний на %3$s, то присоединяйтесь к 2 %% читателей, которые уже жертвуют, и реализуйте своё обещание сегодня.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s вы просили напомнить вам о пожертвовании после прочтения %2$s. Если Википедия дала вам знаний на %3$s, то присоединяйтесь к 2 %% читателей, которые уже жертвуют, и реализуйте своё обещание сегодня.</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвовать сейчас</string>
   <string name="donation_reminders_prompt_negative_button">Не сейчас</string>
   <string name="donation_reminders_gpay_text">Пожертвовать %s через Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Пожертвовать другую сумму через Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Помогите улучшить напоминания о пожертвованиях.</string>
-  <string name="donation_reminders_survey_dialog_message">Вы довольны этой функцией?</string>
   <string name="donation_reminders_settings_description_on">Напоминания о пожертвованиях включены. Википедия будет напоминать вам о необходимости пожертвовать %1$s каждые %2$s пока проходит этот эксперимент.</string>
   <string name="donation_reminders_settings_description_off">Напоминания о пожертвованиях отключены.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Счётчик количества статей хранится локально на вашем устройстве.</string>
@@ -2192,4 +2197,5 @@
     <item quantity="many">%d статей</item>
     <item quantity="other">%d статей</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Эксперимент</string>
 </resources>

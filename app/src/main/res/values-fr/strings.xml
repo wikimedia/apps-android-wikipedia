@@ -1793,7 +1793,7 @@
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
-  <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
   <string name="donate_gpay_dialog_title">Faire un don avec Google Pay ?</string>
@@ -1812,7 +1812,7 @@
   <string name="donate_gpay_help_other_ways">Autres moyens de donner</string>
   <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="donate_gpay_help_tax">Informations sur les conditions de déductibilité fiscale</string>
-  <string name="donation_history_deleted_message_snackbar">Historique des donateurs supprimé</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Historique des donateurs supprimé</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
@@ -2033,16 +2033,11 @@
   <string name="recommended_reading_list_notification_subtitle">Appuyez pour voir vos dernières recommandations.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Lorsque votre Découverte est mise à jour, Wikipédia vous enverra une notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
-  <string name="donation_reminders_initial_prompt_label">Expérimentation</string>
-  <string name="donation_reminders_initial_prompt_title">Soutenez Wikipédia en fonction de vos lectures</string>
-  <string name="donation_reminders_initial_prompt_message">Configurez un rappel de don en fonction du nombre d\'articles que vous lisez pour aider à maintenir Wikipédia sans publicité et accessible à tous.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Commencer</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Pas maintenant</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Les rappels de don peuvent être modifiés à tout moment dans les paramètres.</string>
   <string name="donation_settings_section_header">Dons</string>
-  <string name="donation_reminders_settings_title">Rappels de dons</string>
-  <string name="donation_reminders_settings_thank_you_message">Rejoignez les 2%% de lecteurs qui donnent pour que Wikipédia reste sans publicité et accessible à tous. Configurez votre rappel de don dès maintenant.</string>
-  <string name="donation_reminders_settings_donation_info">Les dons sont destinés à la Fondation Wikimédia et à ses filiales, hôtes de Wikipédia et de ses sites frères.</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Rappels de dons</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Rejoignez les 2%% de lecteurs qui donnent pour que Wikipédia reste sans publicité et accessible à tous. Configurez votre rappel de don dès maintenant.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Les dons sont destinés à la Fondation Wikimédia et à ses filiales, hôtes de Wikipédia et de ses sites frères.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quand je lis</string>
   <string name="donation_reminders_settings_amount_label">Me rappeler de faire un don</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmer le rappel</string>
@@ -2053,13 +2048,11 @@
   <string name="donation_reminders_settings_option_custom">Personnalisé</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci ! Nous vous rappellerons de faire un don de %1$s lorsque vous lirez %2$s pendant la durée de cette expérience.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
-  <string name="donation_reminders_prompt_message">Le %1$s, vous nous avez demandé de vous rappeler de faire un don après avoir lu %2$s. Si Wikipédia vous a fourni %3$s de connaissances, rejoignez les 2%% de lecteurs qui donnent et complétez votre engagement dès aujourd\'hui.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">Le %1$s, vous nous avez demandé de vous rappeler de faire un don après avoir lu %2$s. Si Wikipédia vous a fourni %3$s de connaissances, rejoignez les 2%% de lecteurs qui donnent et complétez votre engagement dès aujourd\'hui.</string>
   <string name="donation_reminders_prompt_positive_button">Faire un don maintenant</string>
   <string name="donation_reminders_prompt_negative_button">Pas maintenant</string>
   <string name="donation_reminders_gpay_text">Faire un don de %s avec Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Faire un don d\'un autre montant avec Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Aider à améliorer le rappel de donation.</string>
-  <string name="donation_reminders_survey_dialog_message">Êtes-vous satisfait de cette expérience</string>
   <string name="donation_reminders_settings_description_on">Les rappels de dons sont activés. Wikipédia vous rappellera de faire un don de %1$s tous les %2$s lus pendant la durée de cette expérience.</string>
   <string name="donation_reminders_settings_description_off">Les rappels de dons sont désactivés.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Le nombre d\'articles est enregistré localement sur votre appareil</string>
@@ -2067,4 +2060,5 @@
     <item quantity="one">%d article</item>
     <item quantity="other">%d articles</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Expérimentation</string>
 </resources>

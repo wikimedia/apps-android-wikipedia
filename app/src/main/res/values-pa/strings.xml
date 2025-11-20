@@ -1441,7 +1441,7 @@
   <string name="page_issues_title">ਸਫ਼ੇ ਸੰਬੰਧੀ ਮੁੱਦੇ</string>
   <string name="generic_release_notes">ਛੋਟੇ ਮਾਂਙਣੂ ਕੱਢੇ ਅਤੇ ਹੋਰ ਸੁਧਾਰ ਕੀਤਾ</string>
   <string name="donation_campaign_maybe_later_snackbar">ਅਸੀਂ ਤੁਹਾਨੂੰ ਕੱਲ੍ਹ ਮੁੜ ਯਾਦ ਕਰਾਵਾਂਗੇ।</string>
-  <string name="donation_campaign_donated_snackbar">ਧੰਨਵਾਦ, ਪਿਆਰੇ ਦਾਨੀ! ਤੁਹਾਡੀ ਉਦਾਰਤਾ ਵਿਕੀਪੀਡੀਆ ਅਤੇ ਇਸ ਦੀਆਂ ਸਹਾਇਕ ਸਾਈਟਾਂ ਨੂੰ ਵਧਣ-ਫੁੱਲਣ ਰੱਖਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੀ ਹੈ।</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">ਧੰਨਵਾਦ, ਪਿਆਰੇ ਦਾਨੀ! ਤੁਹਾਡੀ ਉਦਾਰਤਾ ਵਿਕੀਪੀਡੀਆ ਅਤੇ ਇਸ ਦੀਆਂ ਸਹਾਇਕ ਸਾਈਟਾਂ ਨੂੰ ਵਧਣ-ਫੁੱਲਣ ਰੱਖਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦੀ ਹੈ।</string>
   <string name="donation_campaign_go_back_button">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="donate_gpay_dialog_title">ਗੂਗਲ ਪੇ ਨਾਲ ਦਾਨ ਕਰਨਾ ਹੈ?</string>
   <string name="donate_gpay_dialog_description">ਗੂਗਲ ਪੇ ਨਾਲ ਦਾਨ ਕਰੋ ਜਾਂ ਭੁਗਤਾਨ ਦਾ ਕੋਈ ਹੋਰ ਤਰੀਕਾ ਚੁਣੋ।</string>
@@ -1454,7 +1454,7 @@
   <string name="donate_gpay_help_problems">ਦਾਨ ਕਰਨ ਵਿੱਚ ਸਮੱਸਿਆਵਾਂ?</string>
   <string name="donate_gpay_help_other_ways">ਦੇਣ ਦੇ ਹੋਰ ਤਰੀਕੇ</string>
   <string name="donate_gpay_help_faq">ਅਕਸਰ ਪੁੱਛੇ ਜਾਂਦੇ ਸੁਆਲ</string>
-  <string name="donation_history_deleted_message_snackbar">ਦਾਨੀ ਇਤਿਹਾਸ ਮਿਟਾਇਆ ਗਿਆ</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">ਦਾਨੀ ਇਤਿਹਾਸ ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="places_title">ਥਾਂਵਾਂ</string>
   <string name="places_permissions_denied">ਨਕਸ਼ੇ ਉੱਤੇ ਤੁਹਾਡਾ ਟਿਕਾਣਾ ਦੇਖਣ ਲਈ ਟਿਕਾਣੇ ਦੀ ਆਗਿਆ ਦੀ ਲੋਡ਼ ਹੁੰਦੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="places_search_hint">ਥਾਵਾਂ ਲੱਭੋ</string>

@@ -1707,7 +1707,7 @@
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de Edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de Edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
   <string name="donation_campaign_maybe_later_snackbar">Iremos lembrá-lo novamente amanhã.</string>
-  <string name="donation_campaign_donated_snackbar">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no \'\'browser\'\' do sistema</string>
   <string name="donate_gpay_dialog_title">Doar com Google Pay?</string>
@@ -1725,7 +1725,7 @@
   <string name="donate_gpay_help_other_ways">Outras formas de contribuir</string>
   <string name="donate_gpay_help_faq">Perguntas mais frequentes</string>
   <string name="donate_gpay_help_tax">Informação sobre dedução fiscal</string>
-  <string name="donation_history_deleted_message_snackbar">Histórico de doadores eliminados</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Histórico de doadores eliminados</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Por favor, tente novamente.</string>
   <string name="places_search_hint">Procurar por lugares</string>

@@ -1619,7 +1619,7 @@
   <string name="email_report_patroller_tasks_subject">Laporan Masalah - Fitur Patroli Suntingan</string>
   <string name="email_report_patroller_tasks_body">Saya mengalami masalah dengan fitur Patroli Suntingan:\n- [Jelaskan masalah spesifik]\n\nPerilaku yang ingin saya lihat adalah:\n- [Jelaskan solusi yang diusulkan]\n\n[Tangkapan Layar atau Tautan]</string>
   <string name="donation_campaign_maybe_later_snackbar">Kami akan mengingatkan Anda lagi besok.</string>
-  <string name="donation_campaign_donated_snackbar">Terima kasih, donatur yang terhormat! Kemurahan hati Anda akan membantu Wikipedia dan situs sejenisnya untuk terus berkembang.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Terima kasih, donatur yang terhormat! Kemurahan hati Anda akan membantu Wikipedia dan situs sejenisnya untuk terus berkembang.</string>
   <string name="donation_campaign_go_back_button">Kembali</string>
   <string name="menu_single_webview_open_external">Buka di penjelajah sistem</string>
   <string name="places_title">Tempat</string>

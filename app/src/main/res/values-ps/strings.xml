@@ -1415,7 +1415,7 @@
   <string name="donate_gpay_help_problems">د بسپنه ورکولو ستونزې؟</string>
   <string name="donate_gpay_help_other_ways">د ورکولو نورې لارې</string>
   <string name="donate_gpay_help_faq">ډېر ځليزې پوښتنې</string>
-  <string name="donation_history_deleted_message_snackbar">بسپنه‌ورکوونکي پېښليک ړنگ‌شو</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">بسپنه‌ورکوونکي پېښليک ړنگ‌شو</string>
   <string name="places_title">ځايونه</string>
   <string name="places_search_hint">ځايونه پلټل</string>
   <string name="places_filter_title">ژبه چاڼول</string>
@@ -1578,13 +1578,9 @@
   <string name="recommended_reading_list_settings_notifications_dialog_title">خبرتياوې گولې کړي؟</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">دوی بندول</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">نه، بل يې وساتئ</string>
-  <string name="donation_reminders_initial_prompt_label">ازمېښتي</string>
-  <string name="donation_reminders_initial_prompt_title">د ويکيپېډيا ملاتړ کول لکه څنگه يې چې لولئ</string>
-  <string name="donation_reminders_initial_prompt_positive_button">پيلول</string>
-  <string name="donation_reminders_initial_prompt_negative_button">اوس نه</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">د بسپنې يادونې هروخت په اوڼنو کې بدلېدلای شي.</string>
   <string name="donation_settings_section_header">بسپنې</string>
-  <string name="donation_reminders_settings_title">د بسپنې يادونې</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">د بسپنې يادونې</string>
   <string name="donation_reminders_settings_article_frequency_label">کله چې ما لوستل</string>
   <string name="donation_reminders_settings_amount_label">د بسپنې ورکولو يادونه راته وکړه</string>
   <string name="donation_reminders_settings_confirm_btn_label">يادگر تاييدول</string>
@@ -1597,8 +1593,6 @@
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
   <string name="donation_reminders_gpay_text">له گوگل پی سره %s  بسپنه‌ورکول</string>
   <string name="donation_reminders_gpay_different_amount_text">له گوگل پی سره يو توپيري رقم بسپنه ورکول</string>
-  <string name="donation_reminders_survey_dialog_title">د بسپنې يادوونکي ښه کولو کې مرسته وکړئ.</string>
-  <string name="donation_reminders_survey_dialog_message">ايا تاسو له دې ازمېښته خوښ ياست؟</string>
   <string name="donation_reminders_settings_description_on">د بسپنې يادونې بلې دي. ويکيپېډيا به تاسو ته درياد کړي چې د دې ازمېښت پرمهال د هر %2$s لوستلو وروسته %1$s بسپنه ورکړئ.</string>
   <string name="donation_reminders_settings_description_off">د بسپنې يادونې گولې دي.</string>
   <string name="donation_reminders_settings_tooltip_info_label">ليکنې شمېر په ځايي توگه ستاسو سولگر کې ساتل‌شوی</string>
@@ -1606,4 +1600,5 @@
     <item quantity="one">%d ليکنه</item>
     <item quantity="other">%d ليکنې</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">ازمېښتي</string>
 </resources>
