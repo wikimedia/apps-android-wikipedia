@@ -983,6 +983,7 @@
   <string name="edit_summary_added_caption">ߝߍ߬ߛߓߍߟߌ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
   <string name="edit_summary_added_image_and_caption">ߖߌ߬ߦߊ߬ߓߍ ߣߌ߫ ߝߍ߬ߛߓߍߟߌ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
   <string name="edit_published_view">ߦߌ߬ߘߊ߬ߟߌ</string>
+  <string name="activity_tab_logged_out_title">ߌߟߋ ߜߊ߲߬ߞߎ߲߫ ߥߟߊ߫ ߞߊ߬ ߖߊ߬ߕߋ߬ߘߊ ߘߏ߫ ߟߊߞߊ߬ ߞߵߌ ߟߊ߫ ߓߊ߯ߙߊ ߟߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲߬</string>
   <string name="activity_tab_user_reading">%s ߡߊߦߟߍ߬ߡߊ߲</string>
   <string name="activity_tab_on_wikipedia_android">ߊ߲ߘߙߏߌߘ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$dߕ %2$dߡ</string>
@@ -994,8 +995,11 @@
   <string name="activity_tab_discover_encourage"> ߞߊ߬ߞߏ߫ ߞߎߘߊ ߘߏ߫ ߢߌߣߌ߲߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬؟</string>
   <string name="activity_tab_donation_unknown">ߡߊߟߐ߲ߓߊߟߌ</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;ߣߌ߬ߟߌ߫ ߞߐ߯ߟߕߊ&lt;/b&gt; ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
+  <string name="activity_tab_total_edits_all_projects">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߙߎߞߍ߬ߙߍ ߖߊ߬ߕߋ߬ߘߐ߬ߛߌ߮ ߟߎ߫ ߞߊ߲߬</string>
+  <string name="activity_tab_game_stats">ߕߏߟߏ߲ ߟߌ߬ߤߟߊ ߟߎ߬</string>
   <string name="activity_tab_play_wiki_games">ߥߞߌ߫ ߕߏߟߏ߲ ߟߊߕߏߟߏ߲߫</string>
   <string name="activity_tab_report_email_subject">ߝߙߋߞߋ ߘߊ߲߬ߕߍ߰ߟߌ - ߘߎ߲ߛߓߍ ߟߥߊߟߌ ߞߊ߲߬</string>
+  <string name="activity_tab_report_email_body">ߒߠߋ ߓߘߊ߫ ߝߙߋߞߋ ߛߐ߬ߘߐ߲߬ ߥߞߌߔߋߘߌߦߊ߫ ߕߏߟߏ߲ ߗߋߘߊ ߟߊ߫: \n- [ߝߙߋߞߋ߫ ߞߙߍߞߙߍߣߍ߲ ߛߓߍ߫]\n\nߞߏ߫ ߞߍ߫ ߢߊ ߡߍ߲ ߦߋ ߞߊ߫ ߘߌ߫ ߒߠߋ ߢߍ߫߸ ߏ߬ ߟߋ ߦߋ߫:\n- [ߞߏ߫ ߢߊߓߐߕߊ߫ ߞߏߝߐߣߍ߲ ߛߓߍ߫]</string>
   <string name="activity_tab_menu_feedback">ߝߙߋߞߋ ߦߋ߫ ߗߋߞߍߘߊ ߟߊ߫</string>
   <string name="activity_tab_menu_info">ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="activity_tab_menu_customize">ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
@@ -1012,12 +1016,16 @@
   <string name="activity_tab_customize_screen_reading_insights_switch_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߛߍ߲߬ߛߍ߲߬ߠߌ߲ ߠߎ߬</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߛߍ߲߬ߛߍ߲߬ߠߌ߲</string>
   <string name="activity_tab_customize_screen_impact_switch_title">ߥߎ߬ߛߎ ߓߍ߯ ߓߍ߲߬ߢߐ߲߰ߦߊ</string>
+  <string name="activity_tab_customize_screen_games_switch_title">ߕߏߟߏ߲ ߟߌ߬ߤߟߊ ߟߎ߬</string>
   <string name="activity_tab_customize_screen_donations_switch_title">ߣߌ߬ߟߌ߫ ߟߊ߬ߓߊ߲ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߠߊ߫</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">ߝߏ߲߬ߝߏ߲ ߕߎ߬ߡߘߊ߬ߟߐ߲</string>
+  <string name="activity_tab_customize_screen_no_modules_message">ߝߏ߲߬ߝߏ߲ ߞߙߊߞߏ ߓߘߊ߫ ߓߐ߫ ߊ߬ ߟߊ߫. &lt;a href=\"#\"&gt;ߊ߬ߟߎ߫ ߓߌ߬ߟߵߊ߬ ߟߊ߫&lt;/a&gt; ߞߊ߬ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߟߎ߬ ߦߋ߫ ߘߎ߲ߛߓߍ ߣߌ߲߬ ߠߊ߫.</string>
   <string name="activity_tab_timeline_today">ߓߌ߬</string>
   <string name="activity_tab_timeline_yesterday">ߞߎߣߎ߲߬</string>
   <string name="activity_tab_timeline_empty_state_title">ߝߏߦߌ߬ ߦߌ߬ߘߊ߬ߕߊ߫ ߕߍ߫</string>
   <string name="activity_tab_timeline_empty_state_message">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߣߌ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߘߊߡߌ߬ߣߊ߫ ߞߵߌ ߟߊ߫ ߘߐ߬ߝߐ ߟߐ߭ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="activity_tab_timeline_view_changes_button">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߫ ߦߋ߫</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߝߊߘߌߦߊߓߐ ߟߎ߫</string>
   <string name="activity_tab_onboarding_engage_title">ߕߘߍߒߘߐߟߌ ߢߊ߫ ߜߘߍ ߟߎ߫</string>
   <string name="activity_tab_onboarding_stay_in_control_title">ߕߏ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲ ߘߊߞߘߐ߫</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
@@ -1473,7 +1481,7 @@
   <string name="email_report_patroller_tasks_subject">ߝߙߋߞߋ ߘߊ߲߬ߕߍ߰ߟߌ - ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߌ߬ߓߌ߬ߟߌ߫ ߗߋߘߊ</string>
   <string name="email_report_patroller_tasks_body">ߒߠߋ ߓߘߊ߫ ߝߙߋߞߋ ߛߐ߬ߘߐ߲߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߌ߬ߓߌ߬ߟߌ߫ ߗߋߘߊ ߟߊ߫: \n- [ߝߙߋߞߋ߫ ߞߙߍߞߙߍߣߍ߲ ߛߓߍ߫]\n\nߞߏ߫ ߞߍ߫ ߢߊ ߡߍ߲ ߦߋ ߞߊ߫ ߘߌ߫ ߒߠߋ ߢߍ߫߸ ߏ߬ ߟߋ ߦߋ߫:\n- [ߞߏ߫ ߢߊߓߐ߫ ߢߊ߫ ߞߏߝߐߣߍ߲ ߛߓߍ߫]</string>
   <string name="donation_campaign_maybe_later_snackbar">ߊ߲ ߘߴߌ ߖߊ߲߬ߘߐߓߌ߬ߟߊ߬ ߛߌߣߌ߲߫.</string>
-  <string name="donation_campaign_donated_snackbar">ߌ ߣߌ߫ ߗߋ߫ ߛߟߊߕߌ߮ ߣߟߌ߬ߟߊ߹ ߌ ߟߊ߫ ߝߏߣߌ߲ߛߙߋߦߊ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߣߴߊ߬ ߡߊ߬ߡߛߏ߬ ߞߍߦߙߐ ߟߎ߬ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߕߏߟߌ ߘߐ߫ ߝߊ߲߬ߞߊ ߣߌ߫ ߢߊߛߎߡߊ ߘߐ߫ ߟߋ߬.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">ߌ ߣߌ߫ ߗߋ߫ ߛߟߊߕߌ߮ ߣߟߌ߬ߟߊ߹ ߌ ߟߊ߫ ߝߏߣߌ߲ߛߙߋߦߊ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߣߴߊ߬ ߡߊ߬ߡߛߏ߬ ߞߍߦߙߐ ߟߎ߬ ߡߊߘߍ߬ߡߍ߲߬ ߠߊ߫ ߕߏߟߌ ߘߐ߫ ߝߊ߲߬ߞߊ ߣߌ߫ ߢߊߛߎߡߊ ߘߐ߫ ߟߋ߬.</string>
   <string name="donation_campaign_go_back_button">ߌ ߞߐߛߊ߬ߦߌ߬</string>
   <string name="menu_single_webview_open_external">ߊ߬ ߘߊߦߟߍ߬ ߛߏ߲߯ߓߊߟߊ߲߫ ߞߊ߲ߞߋ ߘߐ߫</string>
   <string name="donate_gpay_dialog_title">ߞߊ߬ ߣߌ߬ߟߌ ߞߍ߫ ߜ߭ߎߜ߭ߏߟ ߔߋߦ ߟߊ߫؟</string>
@@ -1484,7 +1492,7 @@
   <string name="donate_gpay_help_problems">ߝߙߋߞߋ ߟߋ߬ ߦߋ߫ ߣߌ߬ߟߌ ߘߐ߫؟</string>
   <string name="donate_gpay_help_other_ways">ߛߐߟߌ ߞߍ߫ ߢߊ߫ ߜߘߍ߫</string>
   <string name="donate_gpay_help_faq">ߢߌ߬ߣߌ߲߬ߞߊ߬ߟߌ߫ ߡߊߛߊ߬ߦߌ߬ߣߍ߲ ߠߎ߬</string>
-  <string name="donation_history_deleted_message_snackbar">ߣߌ߬ߟߌߟߊ ߟߊ߫ ߘߐ߬ߝߐ ߓߘߊ߫ ߖߏ߲߫</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">ߣߌ߬ߟߌߟߊ ߟߊ߫ ߘߐ߬ߝߐ ߓߘߊ߫ ߖߏ߲߫</string>
   <string name="places_title">ߦߙߐ ߟߎ߬</string>
   <string name="places_permissions_denied">ߦߌߟߊߟߐ߲ߠߌ߲ ߘߌ߬ߢߍ߬ߒ߬ߡߊ߬ߟߌ ߢߌ߬ߣߌ߲߬ߞߊ߬ߣߍ߲߫ ߦߋ߫ ߞߵߌ ߘߌ߲߬ߞߌߙߊ ߟߐ߲߫ ߔߊ߬ߔߘߊ ߞߊ߲߬. ߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐ߫ ߖߊ߰ߣߌ߲߫.</string>
   <string name="places_search_hint">ߦߙߐ ߟߎ߬ ߢߌߣߌ߲߫</string>
@@ -1661,12 +1669,8 @@
   <string name="recommended_reading_list_notification_title">ߌ ߟߊ߫ ߞߎ߲߬ߠߞߊ߬ߟߌ߫ %s ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ ߓߘߊ߫ ߓߌ߫.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">ߣߴߌ ߟߊ߫ ߞߎ߲߬ߠߞߊ߬ߟߌ ߟߊߞߎߘߦߊ߫ ߘߊ߫، ߥߞߌߔߋߘߌߦߊ ߘߌ߫ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߘߏ߫ ߗߋ߫ ߌ ߡߊ߬.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">ߞߎ߲߬ߠߞߊ߬ߟߌ ߦߴߊ߬ ߟߊ߫. ߥߞߌߔߋߘߌߦߊ ߘߴߌ ߟߊ߫ ߞߎߡߘߊ ߟߎ߬ ߖߡߊ߬ߙߌ߬ߦߊ߫ ߘߐߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߊ߫. ߠߊ߫.</string>
-  <string name="donation_reminders_initial_prompt_label">ߡߊߝߍߣߍ߲ߕߊ</string>
-  <string name="donation_reminders_initial_prompt_title">ߥߞߌߔߋߘߌߦߊ ߡߊߘߍ߬ߡߍ߲߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߊ߫</string>
-  <string name="donation_reminders_initial_prompt_positive_button">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
-  <string name="donation_reminders_initial_prompt_negative_button">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="donation_settings_section_header">ߣߌ߬ߟߌ</string>
-  <string name="donation_reminders_settings_title">ߣߌ߬ߟߌ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">ߣߌ߬ߟߌ ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ</string>
   <string name="donation_reminders_settings_article_frequency_label">ߣߌ߫ ߒ ߞߵߊ߬ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="donation_reminders_settings_amount_label">ߒ ߖߊ߲߬ߓߌ߬ߟߊ߫ ߣߌ߬ߟߌ߬ߞߏ ߟߊ߫</string>
   <string name="donation_reminders_settings_confirm_btn_label">ߖߊ߲߬ߓߌ߬ߟߊ߬ߟߌ ߟߊߛߙߋߦߊ߫</string>
@@ -1674,4 +1678,5 @@
   <string name="donation_reminders_settings_warning_min_amount">ߤߊߟߌ߬ ߣߴߊ߬ ߞߍ߫ ߘߊ߫ %s ߘߌ߫، ߏ߬ ߟߊߘߏ߲߬ ߖߊ߰ߣߌ߲߫</string>
   <string name="donation_reminders_settings_warning_max_amount">ߞߐߘߊ߲ %s ߖߡߊ߬ߙߌ߬ߣߍ߲߫</string>
   <string name="donation_reminders_settings_option_custom">ߊ߬ ߘߎ߲߬ߘߎ߬ߡߊ߬ߦߊ߫</string>
+  <string name="donation_reminders_experiment_label" fuzzy="true">ߡߊߝߍߣߍ߲ߕߊ</string>
 </resources>

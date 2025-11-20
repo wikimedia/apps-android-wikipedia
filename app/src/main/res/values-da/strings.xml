@@ -1647,7 +1647,7 @@
   <string name="email_report_patroller_tasks_subject">Problemrapport - Rediger Patruljefunktion</string>
   <string name="email_report_patroller_tasks_body">Jeg har stødt på et problem med Rediger Patruljefunktion:\n- [Beskriv specifikt problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv foreslået løsning]\n\n[Skærmbilleder eller links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vi vil minde dig om det igen i morgen.</string>
-  <string name="donation_campaign_donated_snackbar">Tak, kære donor! Din generøsitet hjælper med at holde Wikipedia og dets søsterwebsteder i gang.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Tak, kære donor! Din generøsitet hjælper med at holde Wikipedia og dets søsterwebsteder i gang.</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>
   <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
   <string name="donate_gpay_dialog_title">Donér med Google Pay?</string>
@@ -1665,7 +1665,7 @@
   <string name="donate_gpay_help_other_ways">Andre måder at give på</string>
   <string name="donate_gpay_help_faq">Ofte stillede spørgsmål</string>
   <string name="donate_gpay_help_tax">Information om skattefradrag</string>
-  <string name="donation_history_deleted_message_snackbar">Donorhistorik slettet</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Donorhistorik slettet</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Placeringstilladelse er påkrævet for at se din placering på kortet. Prøv igen.</string>
   <string name="places_search_hint">Søg steder</string>

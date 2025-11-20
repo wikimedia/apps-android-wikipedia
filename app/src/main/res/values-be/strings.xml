@@ -1721,7 +1721,7 @@
   <string name="email_report_patroller_tasks_subject">Справаздача аб праблеме - функцыя патрулявання правак</string>
   <string name="email_report_patroller_tasks_body">Я сутыкнуўся з праблемай функцыі патрулявання правак:\n- [Апішыце канкрэтную праблему]\n\nДзеянні, якія я хацеў бы бачыць:\n- [Апішыце прапанаванае рашэнне]\n\n [Здыкі экрану або спасылкі]</string>
   <string name="donation_campaign_maybe_later_snackbar">Заўтра нагадаем яшчэ раз.</string>
-  <string name="donation_campaign_donated_snackbar">Дзякуй, дарагі донар! Ваша шчодрасць дапамагае Вікіпедыі і роднасным сайтам развівацца.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Дзякуй, дарагі донар! Ваша шчодрасць дапамагае Вікіпедыі і роднасным сайтам развівацца.</string>
   <string name="donation_campaign_go_back_button">Вярнуцца</string>
   <string name="menu_single_webview_open_external">Адкрыць у сістэмным браўзеры</string>
   <string name="donate_gpay_dialog_title">Ахвяраваць з дапамогай Google Pay?</string>

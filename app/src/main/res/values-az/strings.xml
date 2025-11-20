@@ -1717,7 +1717,7 @@
   <string name="email_report_patroller_tasks_subject">Problemin bildirişi - Redaktə patrulu</string>
   <string name="email_report_patroller_tasks_body">Redaktə Patrulu ilə bağlı problemlə qarşılaşdım:\n- [Spesifik problemi təsvir edin]\n\n Görmək istədiyim davranış:\n- [Təklif olunan həlli təsvir edin]\n\n[Skrinşotlar və ya Linklər]</string>
   <string name="donation_campaign_maybe_later_snackbar">Sabah bir daha xatırladacağıq.</string>
-  <string name="donation_campaign_donated_snackbar">Təşəkkür edirəm, əziz donor! Səxavətiniz Vikipediya və onun digər saytlarını inkişaf etdirməyə kömək edir.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Təşəkkür edirəm, əziz donor! Səxavətiniz Vikipediya və onun digər saytlarını inkişaf etdirməyə kömək edir.</string>
   <string name="donation_campaign_go_back_button">Geri qayıt</string>
   <string name="menu_single_webview_open_external">Sistem brauzerində aç</string>
   <string name="donate_gpay_dialog_title">Google Pay ilə ianə edilsin?</string>
@@ -1736,7 +1736,8 @@
   <string name="donate_gpay_help_other_ways">İanə etməyin digər yolları</string>
   <string name="donate_gpay_help_faq">Tez-tez soruşulan suallar</string>
   <string name="donate_gpay_help_tax">Vergi endirimi haqqında məlumat</string>
-  <string name="donation_history_deleted_message_snackbar">Donor tarixçəsi silindi</string>
+  <string name="donation_history_deleted_message_snackbar">İanə tarixçəsi təmizləndi.</string>
+  <string name="donation_history_no_history_message_snackbar">Təmizlənəcək ianə tarixçəniz yoxdur.</string>
   <string name="places_title">Yerlər</string>
   <string name="places_permissions_denied">Xəritədə yerinizi görmək üçün məkan icazəsi tələb olunur. Yenidən cəhd edin.</string>
   <string name="places_search_hint">Yerlərdə axtar</string>
@@ -1876,7 +1877,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Əsas ekranınız üçün yeni tətbiq ikonası açıldı</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Tətbiq ikonasının altındakı Parametrlərdə yeni tətbiq ikonanızı aktivləşdirin. Açıq biliyin gələcəyinə sərmayə qoyduğunuz üçün təşəkkür edirik. %2$dda %1$s kimi verdiyiniz töhfələriniz azad məlumat dünyasına yol açmağa kömək edir və nəticədə siz ana ekranınızda Vikipediya üçün fərdi töhfəçi ikonasını açdınız.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirt.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock" fuzzy="true">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirt.</string>
   <string name="year_in_review_slide_app_icon_donor">donor</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donor və redaktor</string>
@@ -1914,7 +1915,7 @@
     <item quantity="one">%,d bayt əlavə edildi</item>
     <item quantity="other">%,d bayt əlavə edildi</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
     <item quantity="one">Vikipediyanı %s dəfə redaktə etmisiniz</item>
     <item quantity="other">Vikipediyanı %s dəfə redaktə etmisiniz</item>
   </plurals>
@@ -1944,7 +1945,7 @@
     <item quantity="other">%,d məqalə yadda saxlamısınız</item>
   </plurals>
   <plurals name="year_in_review_slide_saved_articles_body">
-    <item quantity="one">Bu məqalələr arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; var idi. Saxladığın hər məqalə sənin maraqlarını əks etdirir və Vikipediyada fərdiləşdirilmiş bilik bazasının formalaşmasına kömək edir.&lt;br /&gt;&lt;br /&gt;Fəal tətbiq istifadəçiləri bu il %4$,d məqalə saxlayıb.\n</item>
+    <item quantity="one">Bu məqalələr arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; var idi. Saxladığın hər məqalə sənin maraqlarını əks etdirir və Vikipediyada fərdiləşdirilmiş bilik bazasının formalaşmasına kömək edir.&lt;br /&gt;&lt;br /&gt;Fəal tətbiq istifadəçiləri bu il %4$,d məqalə saxlayıb.</item>
     <item quantity="other">Bu məqalələr arasında &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; və &lt;b&gt;%3$s&lt;/b&gt; var idi. Saxladığın hər məqalə sənin maraqlarını əks etdirir və Vikipediyada fərdiləşdirilmiş bilik bazasının formalaşmasına kömək edir.&lt;br /&gt;&lt;br /&gt;Fəal tətbiq istifadəçiləri bu il %4$,d məqalə saxlayıb.</item>
   </plurals>
   <plurals name="year_in_review_slide_global_saved_articles_headline">
@@ -2052,16 +2053,11 @@
   <string name="recommended_reading_list_notification_subtitle">Ən son tövsiyələrinizə baxmaq üçün toxunun.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Kəşf et bölməsi yeniləndikdə, Vikipediya sizə bildiriş göndərəcək.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Kəşf etmə aktivdir. Vikipediya sizə oxumağınız üçün məqalələr tövsiyə edəcək.</string>
-  <string name="donation_reminders_initial_prompt_label">Eksperimental</string>
-  <string name="donation_reminders_initial_prompt_title">Oxuduğunuz zaman Vikipediyaya dəstək olun</string>
-  <string name="donation_reminders_initial_prompt_message">Vikipediyanın reklamsız, aktual və hamı üçün əlçatan olmasına kömək etmək üçün oxuduğunuz məqalələrin sayına əsasən ianə xatırladıcısı qurun.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Başla</string>
-  <string name="donation_reminders_initial_prompt_negative_button">İndi yox</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">İanə xatırlatmaları istənilən vaxt Parametrlərdə dəyişdirilə bilər.</string>
   <string name="donation_settings_section_header">İanələr</string>
-  <string name="donation_reminders_settings_title">İanə xatırlatmaları</string>
-  <string name="donation_reminders_settings_thank_you_message">Vikipediyanı reklamsız, aktual və hamı üçün əlçatan saxlamaq üçün əllərindən gələni edən oxucuların 2%%-nə qoşulun. İanə xatırladıcınızı indi qurun.</string>
-  <string name="donation_reminders_settings_donation_info">İanələr Vikimedia Fonduna, filiallarına və onun digər saytlarına gedir.</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">İanə xatırlatmaları</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Vikipediyanı reklamsız, aktual və hamı üçün əlçatan saxlamaq üçün əllərindən gələni edən oxucuların 2%%-nə qoşulun. İanə xatırladıcınızı indi qurun.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">İanələr Vikimedia Fonduna, filiallarına və onun digər saytlarına gedir.</string>
   <string name="donation_reminders_settings_article_frequency_label">Mən oxuyanda</string>
   <string name="donation_reminders_settings_amount_label">Mənə ianə etməyi xatırlat</string>
   <string name="donation_reminders_settings_confirm_btn_label">Xatırlatmanı təsdiqlə</string>
@@ -2072,13 +2068,11 @@
   <string name="donation_reminders_settings_option_custom">Fərdi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
-  <string name="donation_reminders_prompt_message">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
   <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
   <string name="donation_reminders_prompt_negative_button">İndi yox</string>
   <string name="donation_reminders_gpay_text">Google Pay ilə %s ianə et</string>
   <string name="donation_reminders_gpay_different_amount_text">Google Pay ilə fərqli məbləğdə ianə et</string>
-  <string name="donation_reminders_survey_dialog_title">İanə xatırlatmalarını təkmilləşdirməyə kömək edin.</string>
-  <string name="donation_reminders_survey_dialog_message">Bu funksiya sizi qane edir?</string>
   <string name="donation_reminders_settings_description_on">İanə xatırlatmaları aktivdir. Vikipediya sizə bu eksperiment zamanı oxuduğunuz hər %2$s məqalədə %1$s ianə etməyi xatırladacaq.</string>
   <string name="donation_reminders_settings_description_off">İanə xatırlatmaları deaktivdir.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Məqalələrin sayı cihazınızda lokal olaraq saxlanılır</string>
@@ -2086,4 +2080,5 @@
     <item quantity="one">%d məqalə</item>
     <item quantity="other">%d məqalə</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Eksperimental</string>
 </resources>

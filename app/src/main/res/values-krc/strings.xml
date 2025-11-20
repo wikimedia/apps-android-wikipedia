@@ -1599,7 +1599,7 @@
   <string name="email_report_patroller_tasks_subject">Джетишмегенлик Билдирим - Тюзетиу Патруль Функция</string>
   <string name="email_report_patroller_tasks_body">Тюзетиу Патруль Функция бла байламлы проблемагъа тюбедим:\n- [Белгили проблеманы таныт]\n\nКёрюрге излеген джууаблау:\n-[Теджелген оноуну таныт]\n\n[Скриншотла неда джибериуле]</string>
   <string name="donation_campaign_maybe_later_snackbar">Тамбла да сизге эсгертирикбиз.</string>
-  <string name="donation_campaign_donated_snackbar">Сау бол, багъалы багъышчы! Чомартлыгъыгъыз Википедияны эмда эгеч сайтланы маджаллашдырыуларны болушурукъду.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Сау бол, багъалы багъышчы! Чомартлыгъыгъыз Википедияны эмда эгеч сайтланы маджаллашдырыуларны болушурукъду.</string>
   <string name="donation_campaign_go_back_button">Кери къайт</string>
   <string name="menu_single_webview_open_external">Система браузерде ач</string>
   <string name="places_title">Джерле</string>
