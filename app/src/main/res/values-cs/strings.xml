@@ -1652,7 +1652,7 @@
   <string name="donate_gpay_dialog_other_button">Jiný způsob platby</string>
   <string name="donate_gpay_activity_title">Vyberte množství</string>
   <string name="donate_gpay_help_problems">Máte problémy s finančním darem?</string>
-  <string name="donation_history_deleted_message_snackbar">Historie finančních darů smazaná</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Historie finančních darů smazaná</string>
   <string name="places_title">Místa</string>
   <string name="places_permissions_denied">Vyžaduje se oprávnění polohy, abyste viděli vaši polohu na mapě. Zkuste to prosím znovu.</string>
   <string name="places_search_hint">Hledat místa</string>
@@ -1749,11 +1749,8 @@
   <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedie vám nezašle upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Začít</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Darovat jinou částku pomocí Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Pomozte vylepšit připomenutí darů.</string>
 </resources>

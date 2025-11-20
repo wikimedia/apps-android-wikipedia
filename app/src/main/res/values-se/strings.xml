@@ -1621,7 +1621,7 @@
   <string name="email_report_patroller_tasks_subject">Váttisvuođaraporta - Rievdadandárkkistandoaibma</string>
   <string name="email_report_patroller_tasks_body">Mus lea čuožžilan váttisvuohta rievdadandárkkistandoaimmain:\n- [Čilge dihto váttisvuođa]\n\nLáhtten man háliidan oaidnit:- [Čilge čoavddusevttohusa]\n\n[Šearbmagovat dahje liŋkkat]</string>
   <string name="donation_campaign_maybe_later_snackbar">Mii muittuhit ihttin fas du.</string>
-  <string name="donation_campaign_donated_snackbar">Giitu, ráhkis skeŋkejeaddji! Du árvvasvuohta veahkeha Wikipedia ja dan oabbáprošeavttaid lihkostuvvat.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Giitu, ráhkis skeŋkejeaddji! Du árvvasvuohta veahkeha Wikipedia ja dan oabbáprošeavttaid lihkostuvvat.</string>
   <string name="donation_campaign_go_back_button">Ruovttoluotta</string>
   <string name="menu_single_webview_open_external">Raba vuogádatneahttalohkkis</string>
   <string name="donate_gpay_dialog_title">Donere Google Pay:in</string>

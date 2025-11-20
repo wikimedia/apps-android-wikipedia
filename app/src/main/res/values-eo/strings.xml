@@ -759,6 +759,10 @@
     <item quantity="one">Kontribuo</item>
     <item quantity="other">Kontribuoj</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Redakto</item>
+    <item quantity="other">Redaktoj</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d tago</item>
     <item quantity="other">%d tagoj</item>

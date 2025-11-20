@@ -560,5 +560,8 @@
   <string name="talk_templates_new_message_save">சேமி</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">பயனர் பக்கத்தைப் பார்</string>
   <string name="places_card_title">அருகிலுள்ள இடங்கள்</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">உருவாக்கு</string>
+  <string name="donation_reminders_settings_option_title">நன்கொடை நினைவூட்டல்கள்</string>
   <string name="donation_reminders_prompt_negative_button">தற்போது இல்லை</string>
+  <string name="donation_reminders_experiment_label">பரிசோதனை</string>
 </resources>

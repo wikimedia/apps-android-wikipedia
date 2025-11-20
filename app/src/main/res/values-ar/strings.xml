@@ -443,7 +443,7 @@
   <string name="error_unknown">حدث خطأ غير معروف.</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
   <string name="address_copied">نُسخ المسار إلى الحافظة.</string>
-  <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
+  <string name="text_copied">نُسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">اقرأ المقالة</string>
   <string name="button_continue_to_talk_page">اعرض صفحة النقاش</string>
   <string name="button_continue_to_disambiguation">عرض صفحات مشابهة</string>
@@ -1988,7 +1988,7 @@
   <string name="email_report_patroller_tasks_subject">تقرير المشكلة - تعديل ميزة الدورية</string>
   <string name="email_report_patroller_tasks_body">لقد واجهت مشكلة مع ميزة تحرير الدورية:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]\n\n[لقطات الشاشة أو الروابط]</string>
   <string name="donation_campaign_maybe_later_snackbar">سنذكركم مرة أخرى غدا.</string>
-  <string name="donation_campaign_donated_snackbar">شكرًا لك أيها المتبرع العزيز! كرمك يساعد في استمرار ازدهار ويكيبيديا والمواقع الشقيقة لها.</string>
+  <string name="donation_campaign_donated_snackbar">شكراً لك أيها المتبرع العزيز! كرمك يُسهم في ازدهار ويكيبيديا وغيرها من مشاريع المعرفة المجانية.</string>
   <string name="donation_campaign_go_back_button">رجوع</string>
   <string name="menu_single_webview_open_external">افتح في متصفح النظام</string>
   <string name="donate_gpay_dialog_title">التبرع باستخدام Google Pay؟</string>
@@ -2007,7 +2007,8 @@
   <string name="donate_gpay_help_other_ways">طرق أخرى للعطاء</string>
   <string name="donate_gpay_help_faq">الأسئلة الأكثر تكرارا</string>
   <string name="donate_gpay_help_tax">معلومات حول إمكانية خصم الضرائب</string>
-  <string name="donation_history_deleted_message_snackbar">تم حذف تاريخ المتبرع</string>
+  <string name="donation_history_deleted_message_snackbar">تم مسح سجل التبرعات.</string>
+  <string name="donation_history_no_history_message_snackbar">ليس لديك سجل تبرعات لمسحه.</string>
   <string name="places_title">أماكن</string>
   <string name="places_permissions_denied">يلزم الحصول على إذن تحديد الموقع الجغرافي لرؤية موقعك على الخريطة. يُرجى المحاولة مرة أخرى.</string>
   <string name="places_search_hint">ابحث عن أماكن</string>
@@ -2151,7 +2152,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">فتحت أيقونة التطبيق الجديدة على الشاشة الرئيسية</string>
   <string name="year_in_review_slide_app_icon_title_unlock">احصل على مكافأة المساهم الخاصة بك للعام القادم!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">فعّل أيقونة تطبيقك الجديدة في الإعدادات ضمن أيقونة التطبيق. شكرًا لاستثمارك في مستقبل المعرفة المجانية. مساهماتك، كـ %1$s من %2$d ، تُمهّد الطريق لعالم من المعلومات المجانية، ونتيجةً لذلك، حصلت على أيقونة مُخصّصة للمساهمين في ويكيبيديا على شاشتك الرئيسية.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">نحن سعداء أن ويكيبيديا كانت جزءا من %1$d الخاص بك! افتح مكافأة خاصة في عامك في %2$d في المراجعة عن طريق أن تصبح مساهمة - سواء عن طريق &lt;a href=\"%3$s\"&gt;تحرير ويكيبيديا&lt;/a&gt; أو عن طريق التبرع إلى &lt;a href=\"%4$s\"&gt;مؤسسة ويكيميديا&lt;/a&gt; ، وهي منظمة غير ربحية وراء ذلك. إذا كانت ويكيبيديا مفيدة لك، يرجى النظر في التبرع للمساعدة في الحفاظ على مستقبلها والحفاظ على مجاناً، خالياً من الإعلانات، وموثوق بها، ويمكن الوصول إليها للجميع.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">نحن سعداء أن ويكيبيديا كانت جزءا من %1$d الخاص بك! قم بتحويل مكافأة خاصة في عامك في %2$d في المراجعة من خلال أن تصبح مساهمة - سواء من خلال &lt;a href=\"%3$s\"&gt;تحرير ويكيبيديا&lt;/a&gt; أو عن طريق التبرع من التطبيق إلى &lt;a href=\"%4$s\"&gt;مؤسسة ويكيميديا&lt;/a&gt; ، وهي منظمة غير ربحية وراءها. إذا كانت ويكيبيديا مفيدة لك، يرجى النظر في التبرع للمساعدة في الحفاظ على مستقبلها والحفاظ على مجاناً، خالياً من الإعلانات، وموثوق بها، ويمكن الوصول إليها للجميع. إذا كنت قدمتِ التبرع في مكان آخر، فإن دعمك يقدّر بشدة.</string>
   <string name="year_in_review_slide_app_icon_donor">متبرع</string>
   <string name="year_in_review_slide_app_icon_editor">محرر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">متبرع ومحرر</string>
@@ -2205,7 +2206,7 @@
     <item quantity="many">أضيف %,d بايت</item>
     <item quantity="other"> أضيف %,d بايت</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
     <item quantity="zero">لم تعدّل ويكيبيديا ولا مرة</item>
     <item quantity="one">عدّلت ويكيبيديا مرة واحدة</item>
     <item quantity="two">عدّلت ويكيبيديا مرتين</item>
@@ -2392,16 +2393,12 @@
   <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>
-  <string name="donation_reminders_initial_prompt_label">تجربة</string>
-  <string name="donation_reminders_initial_prompt_title">ادعم ويكيبيديا أثناء قراءتك</string>
-  <string name="donation_reminders_initial_prompt_message">قم بإعداد تذكير بالتبرعات استنادًا إلى عدد المقالات التي تقرأها للمساعدة في إبقاء ويكيبيديا خالية من الإعلانات ومحدثة ومتاحة للجميع.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">البدء</string>
-  <string name="donation_reminders_initial_prompt_negative_button">ليس الآن</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">يمكن تعديل تذكيرات التبرع في أي وقت من خلال الإعدادات.</string>
   <string name="donation_settings_section_header">التبرعات</string>
-  <string name="donation_reminders_settings_title">تذكيرات التبرع</string>
-  <string name="donation_reminders_settings_thank_you_message">انضم إلى ٢٪ من القراء الذين يبذلون قصارى جهدهم لإبقاء ويكيبيديا خالية من الإعلانات، ومُحدَّثة، ومتاحة للجميع. فعِّل تذكيرك بالتبرعات الآن.</string>
-  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والمؤسسات التابعة لها، المضيفين الفخورين لموقع ويكيبيديا ومواقعها الشقيقة.</string>
+  <string name="donation_reminders_settings_title">كيف نذكرك؟</string>
+  <string name="donation_reminders_settings_option_title">تذكيرات التبرع</string>
+  <string name="donation_reminders_settings_thank_you_message">كرمكم يُسهم في ازدهار ويكيبيديا. أنشئوا تذكيرًا بالتبرعات بناءً على عدد المقالات التي تقرأونها.</string>
+  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
   <string name="donation_reminders_settings_article_frequency_label">عندما أقرأ</string>
   <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
@@ -2412,13 +2409,12 @@
   <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
-  <string name="donation_reminders_prompt_message">في %1$s ، طلبتَ منا تذكيرك بالتبرع بعد قراءة %2$s . إذا زودتك ويكيبيديا بـ %3$s من المعرفة، فنرجو منك الانضمام إلى الـ 2%% من القراء المتبرعين وإتمام تبرعك اليوم.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">لقد قرأت %1$s آخر</string>
+  <string name="donation_reminders_prompt_message">لقد فعّلتَ تذكيرًا بالتبرعات على %1$s للتبرع %3$s كل %2$s تقرأها. هل أنت مستعدٌّ للوفاء بتعهدك بدعم ويكيبيديا؟</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
   <string name="donation_reminders_gpay_text">تبرع بـ %s باستخدام Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">التبرع بمبلغ مختلف باستخدام Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">ساعد في تحسين تذكيرات التبرع.</string>
-  <string name="donation_reminders_survey_dialog_message">هل أنت راض عن هذه التجربة؟</string>
   <string name="donation_reminders_settings_description_on">تذكيرات التبرع مُفعّلة. ستُذكّرك ويكيبيديا بالتبرع %1$s كل %2$s تقرأها أثناء هذه التجربة.</string>
   <string name="donation_reminders_settings_description_off">تم إيقاف تذكير التبرعات.</string>
   <string name="donation_reminders_settings_tooltip_info_label">يتم تخزين عدد المقالات محليًا على جهازك</string>
@@ -2430,4 +2426,11 @@
     <item quantity="many">مقالات كثيرة</item>
     <item quantity="other">%d مقالات</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">ًلا شكرا</string>
+  <string name="donation_reminders_experiment_label">تجربة</string>
+  <string name="donation_reminders_settings_learn_more_button">معرفة المزيد</string>
+  <string name="donation_reminders_settings_report_button">مشكلة مع الميزة</string>
+  <string name="donation_reminders_settings_report_email_subject">تقرير المشكلة - تذكيرات التبرع</string>
+  <string name="donation_reminders_settings_report_email_body" fuzzy="true">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
 </resources>
