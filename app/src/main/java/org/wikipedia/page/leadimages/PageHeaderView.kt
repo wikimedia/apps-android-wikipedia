@@ -32,9 +32,10 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     private val binding = ViewPageHeaderBinding.inflate(LayoutInflater.from(context), this)
     private var messageCardViewHeight: Int = 0
+    private val extraHeightForDonationReminder = DimenUtil.dpToPx(40f).toInt()
     val donationReminderCardViewHeight get() = if (binding.donationReminderCardView.isVisible) {
         // HACK: adjust the height for the message card to handle image/no image scenarios to make sure have better margins
-        messageCardViewHeight + if (binding.headerImageContainer.isVisible) 0 else DimenUtil.dpToPx(20f).toInt()
+        messageCardViewHeight + if (binding.headerImageContainer.isVisible) 0 else extraHeightForDonationReminder
     } else 0
     var callToActionText: String? = null
         set(value) {
@@ -116,7 +117,6 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    // TODO: remove after the experiment
     private fun setDonationReminderCard() {
         if (!DonationReminderHelper.isEnabled && !DonationReminderHelper.hasActiveReminder) {
             return
@@ -131,7 +131,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
                 binding.donationReminderCardView.measure(widthSpec, heightSpec)
                 // HACK: Manually adjust the height of the message card view
-                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + DimenUtil.dpToPx(64f).toInt()
+                messageCardViewHeight = binding.donationReminderCardView.measuredHeight + extraHeightForDonationReminder
                 binding.donationReminderCardView.isVisible = false
                 visibility = GONE
             }
