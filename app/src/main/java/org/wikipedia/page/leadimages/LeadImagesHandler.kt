@@ -228,7 +228,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                             activeInterface = "reminder_milestone",
                             action = "setting_click"
                         )
-                        activity.startActivity(DonationReminderActivity.newIntent(activity))
+                        activity.startActivity(DonationReminderActivity.newIntent(activity, isFromSettings = true))
                     }.show()
             }
         }
