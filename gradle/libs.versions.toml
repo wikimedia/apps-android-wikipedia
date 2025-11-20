@@ -48,7 +48,7 @@ uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.11.0"
 composeBom = "2025.11.01"
-composeActivity = "1.11.0"
+composeActivity = "1.12.0"
 composeViewModel = "2.10.0"
 
 
