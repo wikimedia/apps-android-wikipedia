@@ -3,7 +3,6 @@ package org.wikipedia.createaccount
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.util.Patterns
@@ -216,7 +215,7 @@ class CreateAccountActivity : BaseActivity() {
             FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
                         visitInExternalBrowser(this,
-                                Uri.parse(getString(R.string.create_account_ip_block_help_url)))
+                            getString(R.string.create_account_ip_block_help_url).toUri())
                     }
                     .show()
         } else {
@@ -231,9 +230,14 @@ class CreateAccountActivity : BaseActivity() {
         val password = getText(binding.createAccountPasswordInput)
         val repeat = getText(binding.createAccountPasswordRepeat)
         val userName = getText(binding.createAccountUsername)
-        viewModel.doCreateAccount(token, captchaHandler.captchaId(),
-            if (hCaptchaToken.isNullOrEmpty()) captchaHandler.captchaWord() else hCaptchaToken,
-            userName, password, repeat, email)
+        viewModel.doCreateAccount(
+            token = token,
+            captchaId = captchaHandler.captchaId(),
+            captchaWord = if (hCaptchaToken.isNullOrEmpty()) captchaHandler.captchaWord() else hCaptchaToken,
+            userName = userName,
+            password = password,
+            repeat = repeat,
+            email = email)
     }
 
     public override fun onStop() {

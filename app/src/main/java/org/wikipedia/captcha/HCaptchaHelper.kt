@@ -6,7 +6,6 @@ import com.hcaptcha.sdk.HCaptcha
 import com.hcaptcha.sdk.HCaptchaConfig
 import com.hcaptcha.sdk.HCaptchaDialogFragment
 import com.hcaptcha.sdk.HCaptchaTheme
-import com.hcaptcha.sdk.HCaptchaTokenResponse
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.log.L
@@ -22,7 +21,6 @@ class HCaptchaHelper(
     }
 
     private var hCaptcha: HCaptcha? = null
-    private var tokenResponse: HCaptchaTokenResponse? = null
 
     private val configDefault get() = RemoteConfig.RemoteConfigHCaptcha(
         baseURL = "https://meta.wikimedia.org",
@@ -57,10 +55,8 @@ class HCaptchaHelper(
             )
 
             hCaptcha?.addOnSuccessListener { response ->
-                tokenResponse = response
                 callback.onSuccess(response.tokenResult)
             }?.addOnFailureListener { e ->
-                tokenResponse = null
                 L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
                 callback.onError(e)
             }?.addOnOpenListener {
