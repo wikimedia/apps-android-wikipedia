@@ -57,12 +57,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -113,7 +115,7 @@ fun YearInReviewScreenDeck(
                 containerColor = WikipediaTheme.colors.paperColor,
                 topBar = {
                     TopAppBar(
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        colors = TopAppBarDefaults.topAppBarColors(
                             containerColor = WikipediaTheme.colors.paperColor
                         ),
                         title = { },
@@ -640,6 +642,35 @@ fun PreviewScreenDeckError() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
             state = UiState.Error(Exception("Error")),
+            requestScreenshotBitmap = null
+        )
+    }
+}
+
+@Preview(device = Devices.PIXEL_9)
+@Composable
+private fun PreviewHighlightsScreen() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        YearInReviewScreenDeck(
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.HighlightsScreen(
+                    highlights = listOf(
+                        YearInReviewScreenData.HighlightItem(
+                            title = "Articles I read the longest",
+                            items = listOf(
+                                "Pamela Anderson",
+                                "Pamukkale",
+                                "History of US science fiction and fantasy magazines to 1950"
+                            ),
+                            highlightColor = ComposeColors.Blue600
+                        )
+                    ),
+                    slideName = "test",
+                    screenshotUrl = "#wikimediafoundation"
+                )
+            )),
             requestScreenshotBitmap = null
         )
     }
