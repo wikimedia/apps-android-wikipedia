@@ -748,9 +748,7 @@
   <string name="recommended_reading_list_page_snackbar_month">مہینہ</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">روزانہ</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ہفتہ وار</string>
-  <string name="donation_reminders_initial_prompt_label">تجربہ</string>
-  <string name="donation_reminders_initial_prompt_positive_button">شروع کرو</string>
-  <string name="donation_reminders_initial_prompt_negative_button">ہُݨ نہ</string>
   <string name="donation_settings_section_header">عطیے</string>
   <string name="donation_reminders_prompt_negative_button">ہُݨ نہ</string>
+  <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
 </resources>

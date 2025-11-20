@@ -1695,7 +1695,7 @@
   <string name="email_report_patroller_tasks_subject">问题报告 - 编辑巡查功能</string>
   <string name="email_report_patroller_tasks_body">我遇到了编辑巡查功能的问题：\n- [描述具体问题]\n\n我希望实现的效果是：\n- [描述建议的解决方案]\n\n[屏幕截图或链接]</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我们会再次提醒您。</string>
-  <string name="donation_campaign_donated_snackbar">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系统浏览器中打开</string>
   <string name="donate_gpay_dialog_title">使用Google Pay捐款？</string>
@@ -1713,7 +1713,7 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
-  <string name="donation_history_deleted_message_snackbar">捐赠者历史已删除</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">捐赠者历史已删除</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>

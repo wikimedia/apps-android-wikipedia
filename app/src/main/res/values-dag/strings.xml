@@ -1552,7 +1552,7 @@
   <string name="email_report_patroller_tasks_subject">Yɛlmuɣisirili lahabali - Malimi maliniŋ kaabu yaɣili niŋ</string>
   <string name="email_report_patroller_tasks_body">N tɔla gbirili ni maliniŋ kaabu yaɣili:\n- [Buɣisim lala yɛlmuɣisirili maa]\n\nNi bori ni n-nya biɛhi shɛli n-nyɛ:\n- [Buɣisim a ni tɛhi di maligu shɛm] \n\n\n[dihi ŋmaa di daanfooni bee linkinima]</string>
   <string name="donation_campaign_maybe_later_snackbar">Ti sa ni teegi a biɛɣu ni yaha</string>
-  <string name="donation_campaign_donated_snackbar">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
   <string name="donation_campaign_go_back_button">Labimi nyaaŋa</string>
   <string name="menu_single_webview_open_external">Yoomi li sistɛm browza puuni</string>
   <string name="places_title">Zaashɛhi</string>
