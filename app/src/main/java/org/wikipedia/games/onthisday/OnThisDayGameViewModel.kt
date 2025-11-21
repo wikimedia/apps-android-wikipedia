@@ -27,9 +27,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
-import java.time.Instant
 import java.time.LocalDate
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 import kotlin.math.max
@@ -49,7 +47,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     private lateinit var currentState: GameState
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
-    var currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
+    var currentDate: LocalDate = savedStateHandle.get<LocalDate>(EXTRA_DATE) ?: LocalDate.now()
     val currentMonth get() = currentDate.monthValue
     val currentDay get() = currentDate.dayOfMonth
     var isArchiveGame = false
@@ -312,13 +310,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
-    suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
+    suspend fun getDataForArchiveCalendar(
+        gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal,
+        language: String
+    ): Map<LocalDate, Int> {
         val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
-        val map = history.associate {
-            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
-           scoreKey to it.score
-        }
-        return map
+        return history.associate { it.date to it.score }
     }
 
     fun getCurrentGameState(): GameState {
