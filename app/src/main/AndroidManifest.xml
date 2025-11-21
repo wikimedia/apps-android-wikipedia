@@ -407,6 +407,9 @@
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".activity.CustomTabProxyActivity" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

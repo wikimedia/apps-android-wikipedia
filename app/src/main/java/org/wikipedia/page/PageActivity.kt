@@ -37,6 +37,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.activity.CustomTabProxyActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -560,8 +561,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                             } ?: run {
                                 DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
                             }
-                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, pageContentInfo))
+                            val thanksIntent = SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                                true, pageFragment.title, pageContentInfo)
+                            startActivity(CustomTabProxyActivity.newCancelingIntent(this, thanksIntent))
                             finish()
                             return
                         }
