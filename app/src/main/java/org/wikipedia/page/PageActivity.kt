@@ -37,6 +37,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.activity.CustomTabProxyActivity
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -552,7 +553,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
 
-                        if (campaign != null && campaign == "Android") {
+                        if (campaign != null) { // && campaign == "Android") {
                             var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
                             YearInReviewViewModel.currentCampaignId?.let { campaignId ->
                                 YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
@@ -560,8 +561,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                             } ?: run {
                                 DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
                             }
-                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, pageContentInfo))
+                            val thanksIntent = SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                                true, pageFragment.title, pageContentInfo)
+                            startActivity(CustomTabProxyActivity.newCancelingIntent(this, thanksIntent))
                             finish()
                             return
                         }
