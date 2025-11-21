@@ -14,7 +14,7 @@ import java.time.LocalDate
 
 object DonationReminderHelper {
     const val MAX_REMINDER_PROMPTS = 2
-    private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 15
+    private val validReadCountOnSeconds = if (ReleaseUtil.isDevRelease) 1 else 5
 
     private val isTestGroupUser = DonationReminderAbTest().isTestGroupUser()
     private val enabledCountries = listOf(
