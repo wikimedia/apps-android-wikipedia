@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.CustomTabProxyActivity
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
@@ -81,11 +80,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     override fun loadPreferences() {
         loadPreferences(R.xml.developer_preferences)
         setUpMediaWikiSettings()
-        findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            // throw TestException("User tested crash functionality.")
-            fragment.requireActivity().startActivity(CustomTabProxyActivity.newIntent(fragment.requireActivity(), "http://rivendell.dmitrybrant.com/stl.html"))
-            true
-        }
+        findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             val intValue = newValue.toIntOrDefault()
             if (intValue != 0) {
