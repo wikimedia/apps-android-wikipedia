@@ -328,7 +328,34 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!bridge.isLoading && !errorState) {
+            // Capture scroll percentage before layout changes
+            val currentScrollY = webView.scrollY
+            val contentHeight = webView.contentHeight * DimenUtil.densityScalar
+            val viewportHeight = webView.height
+            val scrollableHeight = contentHeight - viewportHeight
+
+            val scrollPercentage = if (scrollableHeight > 0 && currentScrollY > 0) {
+                currentScrollY.toFloat() / scrollableHeight
+            } else {
+                0f
+            }
+
+            // Perform the configuration change
             pageFragmentLoadState.onConfigurationChanged()
+
+            // Restore scroll position after layout settles
+            if (scrollPercentage > 0) {
+                webView.postDelayed({
+                    if (isAdded) {
+                        val newContentHeight = webView.contentHeight * DimenUtil.densityScalar
+                        val newViewportHeight = webView.height
+                        val newScrollableHeight = newContentHeight - newViewportHeight
+                        val targetScrollY = (newScrollableHeight * scrollPercentage).toInt()
+
+                        webView.scrollY = targetScrollY.coerceAtLeast(0)
+                    }
+                }, 300)
+            }
         }
     }
 
