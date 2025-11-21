@@ -553,7 +553,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                         // show it in a SingleWebViewActivity.
                         val campaign = uri.getQueryParameter("wmf_campaign")
 
-                        if (campaign != null) { // && campaign == "Android") {
+                        if (campaign != null && campaign == "Android") {
                             var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
                             YearInReviewViewModel.currentCampaignId?.let { campaignId ->
                                 YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
