@@ -165,7 +165,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     postalCode = billingObj.optString("postalCode", ""),
                     stateProvince = billingObj.optString("administrativeArea", ""),
                     streetAddress = billingObj.optString("address1", ""),
-                    appInstallId =  WikipediaApp.instance.appInstallID
+                    appInstallId = WikipediaApp.instance.appInstallID
                 )
 
             L.d("Payment response: $response")
