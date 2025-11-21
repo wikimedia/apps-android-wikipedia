@@ -318,25 +318,35 @@ class YearInReviewSlides(
         )
     }
 
-    private fun loggedInHighlightScreen(): HighlightsScreen {
-        return HighlightsScreen(
-            highlights = buildList {
-                if (yearInReviewModel.localTopVisitedArticles.isNotEmpty()) {
-                    val topVisitedArticles = yearInReviewModel.localTopVisitedArticles.take(3)
-                    add(
-                        HighlightItem(
-                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_most_read_article_title, topVisitedArticles.size),
-                            items = topVisitedArticles,
-                            highlightColor = ComposeColors.Blue600
-                        )
+    private fun loggedInHighlightScreen(): HighlightsScreen? {
+        val highlights = buildList {
+            // Top visited articles
+            if (yearInReviewModel.localTopVisitedArticles.isNotEmpty()) {
+                val topVisitedArticles = yearInReviewModel.localTopVisitedArticles.take(3)
+                add(
+                    HighlightItem(
+                        title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_most_read_article_title, topVisitedArticles.size),
+                        items = topVisitedArticles,
+                        highlightColor = ComposeColors.Blue600
                     )
-                }
+                )
+            }
+
+            val hasMinimumReadingActivity = yearInReviewModel.localReadingArticlesCount > YearInReviewViewModel.MIN_READING_ARTICLES ||
+                    yearInReviewModel.totalReadingTimeMinutes > YearInReviewViewModel.MIN_READING_MINUTES
+
+            // Reading time
+            if (hasMinimumReadingActivity && yearInReviewModel.totalReadingTimeMinutes > 0) {
                 add(
                     HighlightItem(
                         title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_minutes_read_title, yearInReviewModel.totalReadingTimeMinutes.toInt()),
                         singleValue = numberFormatter.format(yearInReviewModel.totalReadingTimeMinutes)
                     )
                 )
+            }
+
+            // Favorite day
+            if (yearInReviewModel.localReadingArticlesCount > YearInReviewViewModel.MIN_READING_ARTICLES) {
                 add(
                     HighlightItem(
                         title = context.resources.getString(R.string.year_in_review_highlights_logged_in_favorite_day_title),
@@ -344,31 +354,49 @@ class YearInReviewSlides(
                             .getDisplayName(TextStyle.FULL, Locale.getDefault())
                     )
                 )
+            }
+
+            // Articles read count
+            if (hasMinimumReadingActivity && yearInReviewModel.localReadingArticlesCount > 0) {
                 add(
                     HighlightItem(
                         title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_read_title, yearInReviewModel.localReadingArticlesCount),
                         singleValue = numberFormatter.format(yearInReviewModel.localReadingArticlesCount)
                     )
                 )
-                val topCategories = yearInReviewModel.localTopCategories.take(3)
+            }
+
+            // Top categories
+            if (yearInReviewModel.localTopCategories.size > YearInReviewViewModel.MIN_TOP_CATEGORY) {
+                val topCategories = yearInReviewModel.localTopCategories.take(YearInReviewViewModel.MIN_TOP_CATEGORY)
                 add(
                     HighlightItem(
                         title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_interested_categories_title, topCategories.size),
                         items = topCategories
                     )
                 )
-                if (isEditor) {
-                    add(
-                        HighlightItem(
-                            title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_total_edits_title, yearInReviewModel.userEditsCount),
-                            singleValue = numberFormatter.format(yearInReviewModel.userEditsCount)
-                        )
+            }
+
+            // Editor stats
+            if (isEditor) {
+                add(
+                    HighlightItem(
+                        title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_total_edits_title, yearInReviewModel.userEditsCount),
+                        singleValue = numberFormatter.format(yearInReviewModel.userEditsCount)
                     )
-                }
-            },
-            slideName = if (isEnglishWiki) "li_en_summary" else "li_non_summary",
-            screenshotUrl = context.getString(R.string.year_in_highlights_screenshot_url)
-        )
+                )
+            }
+        }
+
+        return if (highlights.size < 2) {
+            null
+        } else {
+            HighlightsScreen(
+                highlights = highlights,
+                slideName = if (isEnglishWiki) "li_en_summary" else "li_non_summary",
+                screenshotUrl = context.getString(R.string.year_in_highlights_screenshot_url)
+            )
+        }
     }
 
     private fun enWikiLoggedOutHighlightsScreen(): HighlightsScreen {
