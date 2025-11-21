@@ -332,8 +332,8 @@ class YearInReviewSlides(
                 )
             }
 
-            val hasMinimumReadingActivity = yearInReviewModel.localReadingArticlesCount > YearInReviewViewModel.MIN_READING_ARTICLES ||
-                    yearInReviewModel.totalReadingTimeMinutes > YearInReviewViewModel.MIN_READING_MINUTES
+            val hasMinimumReadingActivity = yearInReviewModel.localReadingArticlesCount >= YearInReviewViewModel.MIN_READING_ARTICLES ||
+                    yearInReviewModel.totalReadingTimeMinutes >= YearInReviewViewModel.MIN_READING_MINUTES
 
             // Reading time
             if (hasMinimumReadingActivity && yearInReviewModel.totalReadingTimeMinutes > 0) {
@@ -346,7 +346,7 @@ class YearInReviewSlides(
             }
 
             // Favorite day
-            if (yearInReviewModel.localReadingArticlesCount > YearInReviewViewModel.MIN_READING_ARTICLES) {
+            if (yearInReviewModel.localReadingArticlesCount >= YearInReviewViewModel.MIN_READING_ARTICLES) {
                 add(
                     HighlightItem(
                         title = context.resources.getString(R.string.year_in_review_highlights_logged_in_favorite_day_title),
