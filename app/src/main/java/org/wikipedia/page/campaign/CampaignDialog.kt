@@ -18,7 +18,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.util.Date
 
-class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralButtonClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
     private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode) +
             if (DonationReminderHelper.isInEligibleCountry) {
@@ -74,13 +74,15 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
-        Prefs.announcementPauseTime = Date().time
         if (!DonationReminderHelper.isEnabled) {
+            Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
             dismissDialog(false)
             return
         }
-        onNeutralBtnClick?.invoke(campaignId)
+        // Important! This will make sure that the campaign id is the original one.
+        Prefs.announcementShownDialogs = setOf(campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode))
+        onNeutralButtonClick?.invoke(campaignId)
     }
 
     override fun onClose() {
