@@ -1614,7 +1614,8 @@
   <string name="donate_gpay_help_other_ways">Aner Méiglechkeete fir en Don ze maachen</string>
   <string name="donate_gpay_help_faq">Dacks gestallte Froen</string>
   <string name="donate_gpay_help_tax">Informatiounen iwwer d\'Konditioune fir Done vun de Steieren ofzesetzen</string>
-  <string name="donation_history_deleted_message_snackbar">Historique vun den Done geläscht</string>
+  <string name="donation_history_deleted_message_snackbar">Historique vun den Done eidel gemaach.</string>
+  <string name="donation_history_no_history_message_snackbar">Dir hutt keen Historique vun Done fir eidel ze maachen.</string>
   <string name="places_title">Plazen</string>
   <string name="places_search_hint">Plaze sichen</string>
   <string name="places_filter_title">Sprooch filteren</string>
@@ -1763,6 +1764,9 @@
     <item quantity="one">Mir hunn %,d Stonn mat Liese verbruecht</item>
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
   </plurals>
+  <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Uleeën</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nee, merci</string>
   <string name="year_in_review_reading_list_title">Joresréckbléck fir %d</string>
   <string name="year_in_review_highlights_thank_you_message">Merci, datt Dir Äert Joer mat Wikipedia verbruecht hutt.</string>
   <string name="year_in_review_highlights_looking_forward_message">Mir freeën eis op d\'nächst Joer!</string>
@@ -1826,6 +1830,7 @@
   <string name="recommended_reading_list_interest_pick_random_dialog_message">Doduerch gëtt Är aktuell Auswiel opgehuewen an et ginn nei Artikelen zoufälleg erausgesicht.</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Jo, wielt fir mech aus</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Léiwer net</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Erstallt fir: %s</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Fir Iech gemaach</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
     <item quantity="one">• %d Artikel</item>
@@ -1845,6 +1850,8 @@
   <string name="recommended_reading_list_settings_toggle_disable_message">Entdecken ass desaktivéiert. Wikipedia recommandéiert Iech keng Artikele fir ze liesen.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Entdecken desaktivéieren?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Wann Dir Entdecken desaktivéiert, kritt Dir keng %s Liesrecommandatioune méi vu Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desaktivéieren</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nee, aktivéiert loossen</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">Entdecke gouf desaktivéiert. Dir kënnt et zu all Zäit erëm an den Astellungen aktivéieren.</string>
   <string name="recommended_reading_list_settings_articles">Artikelen</string>
   <string name="recommended_reading_list_settings_updates_frequency">Aktualiséierungen %s</string>
@@ -1877,13 +1884,10 @@
   <string name="recommended_reading_list_notification_title">Är %s Entdecken-Lieslëscht ass prett.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Wann Är Entdecke-Recommandatiounen aktualiséiert ginn, schéckt Wikipedia Iech eng Notifikatioun.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Entdecken ass aktivéiert. Wikipedia recommandéiert Iech Artikele fir ze liesen.</string>
-  <string name="donation_reminders_initial_prompt_label">Experiment</string>
-  <string name="donation_reminders_initial_prompt_title">Wikipedia wärend dem Liesen ënnerstëtzen</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Ufänken</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Net elo</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Erënnerunge fir Done kënnen zu all Moment an den Astellunge geännert ginn.</string>
   <string name="donation_settings_section_header">Donen</string>
-  <string name="donation_reminders_settings_title">Erënnerunge fir Donen</string>
+  <string name="donation_reminders_settings_title">Wéi solle mir Iech erënneren?</string>
+  <string name="donation_reminders_settings_option_title">Donerënnerungen</string>
   <string name="donation_reminders_settings_article_frequency_label">Nodeems ech esouvill Artikele gelies hunn</string>
   <string name="donation_reminders_settings_amount_label">Erënnert mech dru fir en Don vun esouvill ze maachen</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erënnerung confirméieren</string>
@@ -1897,8 +1901,6 @@
   <string name="donation_reminders_prompt_negative_button">Net elo</string>
   <string name="donation_reminders_gpay_text">En Don vu(n) %s mat Google Pay maachen</string>
   <string name="donation_reminders_gpay_different_amount_text">En Don vun engem anere Betrag mat Google Pay maachen</string>
-  <string name="donation_reminders_survey_dialog_title">Hëlleft dobäi fir d\'Erënnerunge fir Donen ze verbesseren.</string>
-  <string name="donation_reminders_survey_dialog_message">Sidd Dir mat dëser Erfarung zefridden?</string>
   <string name="donation_reminders_settings_description_on">Erënnerunge fir Done sinn aktivéiert. Wikipedia erënnert Iech no all %2$s, déi Dir wärend dësem Experiment liest, dorunner fir en Don vu(n) %1$s ze maachen.</string>
   <string name="donation_reminders_settings_description_off">Erënnerunge fir Done sinn desaktivéiert.</string>
   <string name="donation_reminders_settings_tooltip_info_label">D\'Artikelzuel ass lokal op Ärem Apparat gespäichert</string>
@@ -1906,4 +1908,14 @@
     <item quantity="one">%d Artikel</item>
     <item quantity="other">%d Artikelen</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nee, merci</string>
+  <string name="donation_reminders_experiment_label">EXPERIMENT</string>
+  <string name="donation_reminders_settings_learn_more_button">Méi gewuer ginn</string>
+  <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
+  <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
+  <string name="explore_feed_survey_dialog_title">Hëlleft eis Entdecken ze verbesseren</string>
+  <string name="explore_feed_survey_dialog_message">Maacht wgl. bei enger kuerzer Ëmfro iwwer den Entdecke-Feed mat. Äre Feedback hëlleft eis fir zukünfteg Verbesserungen un der App ze maachen.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Bei der Ëmfro matmaachen</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Nee, merci</string>
 </resources>

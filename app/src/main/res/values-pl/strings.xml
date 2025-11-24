@@ -1658,7 +1658,7 @@
   <string name="generic_release_notes">Drobne poprawki błędów i ulepszenia</string>
   <string name="email_report_image_recommendations_subject">Raport o problemie — funkcja rekomendacji obrazów</string>
   <string name="donation_campaign_maybe_later_snackbar">Jutro przypomnimy Ci ponownie.</string>
-  <string name="donation_campaign_donated_snackbar">Dziękuję, drogi darczyńco! Twoja hojność pomaga w rozwoju Wikipedii i jej siostrzanych witryn.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Dziękuję, drogi darczyńco! Twoja hojność pomaga w rozwoju Wikipedii i jej siostrzanych witryn.</string>
   <string name="donation_campaign_go_back_button">Wróć</string>
   <string name="menu_single_webview_open_external">Otwórz w przeglądarce systemowej</string>
   <string name="donate_gpay_dialog_title">Przekazać darowiznę za pomocą usługi Google Pay?</string>
@@ -1676,7 +1676,7 @@
   <string name="donate_gpay_help_other_ways">Inne sposoby zrobienia darowizny</string>
   <string name="donate_gpay_help_faq">Często zadawane pytania</string>
   <string name="donate_gpay_help_tax">Informacje o możliwości odliczenia od podatku</string>
-  <string name="donation_history_deleted_message_snackbar">Usunięto historię darczyńcy</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Usunięto historię darczyńcy</string>
   <string name="places_title">Lokalizacja</string>
   <string name="places_permissions_denied">Aby zobaczyć swoją lokalizację na mapie, wymagane jest zezwolenie na lokalizację. Proszę spróbować jeszcze raz.</string>
   <string name="places_search_hint">Szukaj miejsc</string>

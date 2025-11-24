@@ -1609,7 +1609,7 @@
   <string name="email_report_patroller_tasks_subject">Пријава проблема - Могућност патролирања измена</string>
   <string name="email_report_patroller_tasks_body">Наишао/ла сам на проблем са могућношћу Патролирања измена:\n- [Опишите специфичан проблем]\n\nПонашање које желим да видим је:\n- [Опишите предложено решење]\n\n[Слике екрана или везе]</string>
   <string name="donation_campaign_maybe_later_snackbar">Подсетићемо вас поново сутра.</string>
-  <string name="donation_campaign_donated_snackbar">Хвала, драги донаторе! Ваша великодушност помаже да Википедија и њени сестрински сајтови буду успешни.</string>
+  <string name="donation_campaign_donated_snackbar">Хвала, драги донаторе! Ваша великодушност помаже да Википедија и њени сестрински сајтови даље напредују.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори у прегледачу</string>
   <string name="donate_gpay_dialog_title">Донирајте путем Google Pay-а?</string>
@@ -1733,8 +1733,6 @@
   <string name="recommended_reading_list_settings_notifications_title">Обавештења</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Искључи их</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Нека их укљученим</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Почнимо</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Не сада</string>
   <string name="donation_settings_section_header">Донације</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">О експерименту</string>
   <string name="donation_reminders_settings_warning_min_amount">Молимо унесите барем %s</string>
@@ -1743,4 +1741,6 @@
   <string name="donation_reminders_prompt_positive_button">Донирајте сада</string>
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
   <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Не, хвала</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Не, хвала</string>
 </resources>

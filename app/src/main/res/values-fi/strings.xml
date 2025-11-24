@@ -316,7 +316,7 @@
   <string name="edit_summary_tag_other">Muu</string>
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="edit_summary_added_short_description">Lyhyt kuvaus lisätty</string>
-  <string name="edit_summary_updated_short_description">Lyhyttä kuvausta päivitetty</string>
+  <string name="edit_summary_updated_short_description">Päivitetty lyhyt kuvaus</string>
   <string name="edit_conflict_title">Päällekkäinen muokkaus.</string>
   <string name="edit_conflict_message">Toinen käyttäjä on jo muokannut sivua, ja se on ristiriidassa muokkauksesi kanssa. Kopioi muokkauksesi, palaa takaisin ja päivitä sivu, yritä sitten muokata uudelleen.</string>
   <string name="edit_notices">Muokkausilmoitukset</string>
@@ -1730,7 +1730,7 @@
   <string name="email_report_patroller_tasks_subject">Ongelmailmoitus – Muokkausten tarkistaminen -ominaisuus</string>
   <string name="email_report_patroller_tasks_body">Olen huomannut ongelman Muokkausten tarkistaminen -ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_campaign_maybe_later_snackbar">Muistutamme sinua jälleen huomenna.</string>
-  <string name="donation_campaign_donated_snackbar">Kiitos, lahjoittaja! Anteliaisuutesi auttaa pitämään Wikipedian ja sen sisarsivustot menestyvinä.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Kiitos, lahjoittaja! Anteliaisuutesi auttaa pitämään Wikipedian ja sen sisarsivustot menestyvinä.</string>
   <string name="donation_campaign_go_back_button">Takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
   <string name="donate_gpay_dialog_title">Lahjoitetaanko Google Paylla?</string>
@@ -1749,7 +1749,8 @@
   <string name="donate_gpay_help_other_ways">Muut tavat antaa</string>
   <string name="donate_gpay_help_faq">Usein kysytyt kysymykset</string>
   <string name="donate_gpay_help_tax">Verovähennystiedot</string>
-  <string name="donation_history_deleted_message_snackbar">Lahjoitushistoria poistettu</string>
+  <string name="donation_history_deleted_message_snackbar">Lahjoitushistoria tyhjennetty.</string>
+  <string name="donation_history_no_history_message_snackbar">Sinulla ei ole lahjoitushistoriaa tyhjennettäväksi.</string>
   <string name="places_title">Paikat</string>
   <string name="places_permissions_denied">Sijaintisi näyttäminen kartalla edellyttää sijaintilupaa. Yritä uudelleen.</string>
   <string name="places_search_hint">Hae paikkoja</string>
@@ -1858,7 +1859,8 @@
   <string name="year_in_review_donate">Lahjoita</string>
   <string name="year_in_review_information_icon">Tietoa-kuvake</string>
   <string name="year_in_review_get_started_headline">Tutustu Wikipedia-vuoteesi</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa. Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
+  <string name="year_in_review_get_started_bodytext">Tutustu kohokohtiin lukemastasi ja muokkaamastasi sisällöstä Wikipedia-sovelluksessa.</string>
+  <string name="year_in_review_get_started_info">Lukuhistoria säilytetään suojattuna. Kohokohdat muodostetaan laitteellesi tallennettujen perusteella.</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
   <string name="year_in_review_survey_satisfied">Tyytyväinen</string>
@@ -1957,15 +1959,11 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ei, pidä ne päällä</string>
   <string name="recommended_reading_list_notification_title">%s Löydä artikkeleita -lukulistasi on valmis.</string>
   <string name="recommended_reading_list_notification_subtitle">Napauta nähdäksesi uusimmat suosituksesi.</string>
-  <string name="donation_reminders_initial_prompt_label">Kokeellinen</string>
-  <string name="donation_reminders_initial_prompt_title">Tue Wikipediaa lukiessasi</string>
-  <string name="donation_reminders_initial_prompt_message">Aseta lahjoitusmuistutus lukemiesi artikkelien määrän perusteella. Tämä auttaa pitämään Wikipedian mainoksettomana, ajantasaisena ja kaikkien saatavilla.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Aloita</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Ei nyt</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Lahjoitusmuistutuksia voi muokata milloin tahansa asetuksissa.</string>
   <string name="donation_settings_section_header">Lahjoitukset</string>
-  <string name="donation_reminders_settings_title">Lahjoitusmuistutukset</string>
-  <string name="donation_reminders_settings_thank_you_message">Liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat pitääkseen Wikipedian mainoksettomana, ajantasaisena ja kaikkien saatavilla. Ota lahjoitusmuistutus käyttöön nyt.</string>
+  <string name="donation_reminders_settings_title">Miten meidän tulisi muistuttaa sinua?</string>
+  <string name="donation_reminders_settings_option_title">Lahjoitusmuistutukset</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat pitääkseen Wikipedian mainoksettomana, ajantasaisena ja kaikkien saatavilla. Ota lahjoitusmuistutus käyttöön nyt.</string>
   <string name="donation_reminders_settings_article_frequency_label">Kun luen</string>
   <string name="donation_reminders_settings_amount_label">Muistuta minua lahjoittamaan</string>
   <string name="donation_reminders_settings_confirm_btn_label">Vahvista muistutus</string>
@@ -1976,13 +1974,11 @@
   <string name="donation_reminders_settings_option_custom">Mukautettu…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Kiitos! Muistutamme sinua lahjoittamaan %1$s, kun luet %2$s tämän kokeilun aikana.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Olet lukenut %1$s sen jälkeen, kun lupasit lahjoittaa %2$s</string>
-  <string name="donation_reminders_prompt_message">%1$s pyysit meitä muistuttamaan sinua lahjoituksesta luettuasi %2$s. Jos Wikipedia on tarjonnut sinulle %3$s arvosta tietoa, liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat ja täytä lupauksesi tänään.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s pyysit meitä muistuttamaan sinua lahjoituksesta luettuasi %2$s. Jos Wikipedia on tarjonnut sinulle %3$s arvosta tietoa, liity lukijoiden 2 prosentin joukkoon, jotka lahjoittavat ja täytä lupauksesi tänään.</string>
   <string name="donation_reminders_prompt_positive_button">Lahjoita nyt</string>
   <string name="donation_reminders_prompt_negative_button">Ei nyt</string>
   <string name="donation_reminders_gpay_text">Lahjoita %s Google Paylla</string>
   <string name="donation_reminders_gpay_different_amount_text">Lahjoita eri summa Google Paylla</string>
-  <string name="donation_reminders_survey_dialog_title">Auta parantamaan lahjoitusmuistutuksia.</string>
-  <string name="donation_reminders_survey_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="donation_reminders_settings_description_on">Lahjoitusmuistutukset ovat käytössä. Wikipedia muistuttaa sinua lahjoittamaan %1$s jokaista lukemaasi %2$s tämän kokeilun aikana.</string>
   <string name="donation_reminders_settings_description_off">Lahjoitusmuistutukset ovat pois käytöstä.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Artikkelimäärä tallennetaan paikallisesti laitteellesi</string>
@@ -1990,4 +1986,11 @@
     <item quantity="one">%d artikkeli</item>
     <item quantity="other">%d artikkelia</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Ei kiitos</string>
+  <string name="donation_reminders_experiment_label">KOKEELLINEN</string>
+  <string name="donation_reminders_settings_learn_more_button">Lisätietoja</string>
+  <string name="donation_reminders_settings_report_button">Ongelma ominaisuudessa</string>
+  <string name="donation_reminders_settings_report_email_subject">Ongelmaraportti – Lahjoitusmuistutukset</string>
+  <string name="donation_reminders_settings_report_email_body" fuzzy="true">Olen huomannut seuraavan ongelman Lahjoitusmuistutuset-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n- [Kuvakaappaukset tai linkit)\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Muuta</string>
 </resources>

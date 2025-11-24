@@ -1584,4 +1584,7 @@
   <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
   <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
   <string name="year_in_review_survey_submit">ثبت</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">نه ممنون</string>
+  <string name="donation_reminders_settings_learn_more_button">بیشتر بدانید</string>
+  <string name="donation_reminders_settings_report_button">مشکل با ویژگی</string>
 </resources>

@@ -1656,7 +1656,7 @@
   <string name="generic_release_notes">Sửa lỗi nhỏ và cải thiện</string>
   <string name="email_report_image_recommendations_subject">Báo cáo sự cố - Tính năng Đề xuất Hình ảnh</string>
   <string name="donation_campaign_maybe_later_snackbar">Chúng tôi sẽ nhắc lại với bạn vào ngày mai.</string>
-  <string name="donation_campaign_donated_snackbar">Cảm ơn người quyên góp! Sự hào phóng của bạn giúp Wikipedia và các dự án liên quan phát triển mạnh mẽ.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Cảm ơn người quyên góp! Sự hào phóng của bạn giúp Wikipedia và các dự án liên quan phát triển mạnh mẽ.</string>
   <string name="donation_campaign_go_back_button">Quay lại</string>
   <string name="menu_single_webview_open_external">Mở trong trình duyệt hệ thống</string>
   <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
@@ -1671,7 +1671,7 @@
   <string name="donate_gpay_help_other_ways">Thêm cách để quyên góp</string>
   <string name="donate_gpay_help_faq">Câu hỏi thường gặp</string>
   <string name="donate_gpay_help_tax">Thông tin khấu trừ thuế</string>
-  <string name="donation_history_deleted_message_snackbar">Lịch sử quyên góp bị xóa</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Lịch sử quyên góp bị xóa</string>
   <string name="places_title">Địa điểm</string>
   <string name="places_permissions_denied">Cần có quyền truy cập vị trí để xem vị trí của bạn trên bản đồ. Xin hãy thử lại.</string>
   <string name="places_search_hint">Chỗ tìm kiếm</string>
@@ -1780,11 +1780,8 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Dựa trên những bài viết đã lưu của bạn</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Dựa trên lịch sử đọc bài viết của bạn</string>
   <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
-  <string name="donation_reminders_initial_prompt_label">Thử nghiệm</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Bắt đầu</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Không phải bây giờ</string>
   <string name="donation_settings_section_header">Khoản quyên góp</string>
-  <string name="donation_reminders_settings_title">Lời nhắc quyên góp</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
   <string name="donation_reminders_settings_article_frequency_label">Khi tôi đọc</string>
   <string name="donation_reminders_settings_amount_label">Nhắc tôi quyên góp</string>
   <string name="donation_reminders_settings_confirm_btn_label">Xác nhận lời nhắc</string>
@@ -1796,6 +1793,5 @@
   <string name="donation_reminders_prompt_positive_button">Quyên góp ngay</string>
   <string name="donation_reminders_prompt_negative_button">Để sau</string>
   <string name="donation_reminders_gpay_text">Quyên góp %s bằng Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Giúp cải thiện lời nhắc quyên góp.</string>
-  <string name="donation_reminders_survey_dialog_message">Bạn có hài lòng với trải nghiệm này không?</string>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Thử nghiệm</string>
 </resources>

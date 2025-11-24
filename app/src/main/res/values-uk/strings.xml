@@ -1857,7 +1857,7 @@
   <string name="email_report_patroller_tasks_subject">Звіт про проблему – функція патрулювання редагувань</string>
   <string name="email_report_patroller_tasks_body">У мене виникла проблема з функцією патрулювання редагувань:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[Скріншоти чи посилання]</string>
   <string name="donation_campaign_maybe_later_snackbar">Завтра ми ще раз нагадаємо.</string>
-  <string name="donation_campaign_donated_snackbar">Дякуємо, шановний доноре! Ваша щедрість допомагає Вікіпедії та її сестринським сайтам процвітати.</string>
+  <string name="donation_campaign_donated_snackbar">Дякуємо, шановний доноре! Ваша щедрість допомагає процвітати Вікіпедії та іншим проєктам, які надають безкоштовні знання.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Відкрити в системному браузері</string>
   <string name="donate_gpay_dialog_title">Пожертвувати за допомогою Google Pay?</string>
@@ -1876,7 +1876,8 @@
   <string name="donate_gpay_help_other_ways">Способи пожертвувати кошти</string>
   <string name="donate_gpay_help_faq">Часті запитання</string>
   <string name="donate_gpay_help_tax">Про звільнення від податків</string>
-  <string name="donation_history_deleted_message_snackbar">Історію пожертв вилучено</string>
+  <string name="donation_history_deleted_message_snackbar">Історію пожертв очищено.</string>
+  <string name="donation_history_no_history_message_snackbar">У вас немає історії пожертв для очищення.</string>
   <string name="places_title">Місця</string>
   <string name="places_permissions_denied">Щоб побачити ваше місце розташування на карті, потрібно надати дозвіл на визначення місця розташування. Спробуйте ще раз.</string>
   <string name="places_search_hint">Шукати місця</string>
@@ -2018,7 +2019,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Нову іконку програми розблоковано для вашого головного екрана</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Розблокуйте свою винагороду за внесок на наступний рік!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Активуйте нову іконку програми в налаштуваннях у розділі «Іконка програми». Дякуємо, що вкладаєтеся в майбутнє вільних знань. Ваш внесок як %1$s у %2$d допомагає прокласти шлях до світу вільної інформації, і тому для вас розблоковано спеціальну іконку для Вікіпедії на вашому головному екрані.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Ми раді, що Вікіпедія була частиною вашого %1$d року! Розблокуйте спеціальну винагороду у своєму «Огляді року %2$d», зробивши внесок — чи то шляхом &lt;a href=\"%3$s\"&gt;редагування Вікіпедії&lt;/a&gt;, чи то шляхом пожертви у &lt;a href=\"%4$s\"&gt;Фонд Вікімедіа&lt;/a&gt;, некомерційну організацію, яка стоїть за нею. Якщо Вікіпедія корисна для вас, розгляньте можливість пожертвувати на підтримку її майбутнього та збереження її безкоштовною, без реклами, надійною та доступною для всіх.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Ми раді, що Вікіпедія була частиною вашого %1$d року! Розблокуйте спеціальну нагороду у своєму «Огляді року %2$d», ставши учасником — чи то шляхом &lt;a href=\"%3$s\"&gt;редагування Вікіпедії&lt;/a&gt;, чи то шляхом пожертви з додатку на некомерційний &lt;a href=\"%4$s\"&gt;Фонд Вікімедіа&lt;/a&gt;. Якщо Вікіпедія корисна для вас, розгляньте, будь ласка, можливість пожертви на підтримку її майбутнього, щоб вона залишалася безкоштовною, без реклами, надійною та доступною для всіх. Якщо ви зробили пожертву деінде, ваша підтримка дуже цінується.</string>
   <string name="year_in_review_slide_app_icon_donor">донора</string>
   <string name="year_in_review_slide_app_icon_editor">редактора</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">донора і редактора</string>
@@ -2043,7 +2044,7 @@
   <string name="year_in_review_slide_top_categories_headline">Ваші найцікавіші категорії</string>
   <string name="year_in_review_slide_top_categories_body">Категорії об\'єднують статті на схожі теми. У %1$d ви не раз переглядали статті в цих цікавих категоріях: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Найпопулярніші статті англійської Вікіпедії</string>
-  <plurals name="year_in_review_slide_most_read_english_articles_body">
+  <plurals name="year_in_review_slide_most_read_english_articles_body" fuzzy="true">
     <item quantity="one">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. На %1$d-му місці за відвідуваністю в англійській Вікіпедії була ця стаття: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
     <item quantity="few">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідувані статті в англійській Вікіпедії були такими: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
     <item quantity="many">Коли люди хочуть дізнатися про наш світ — хороший, поганий, дивний і дикий водночас — вони звертаються до Вікіпедії. %1$d найбільш відвідуваних статей в англійській Вікіпедії були такими: %2$s &lt;br /&gt;Детальніше про це читайте у &lt;a href=\"%3$s\"&gt;нашому дописі блогу&lt;/a&gt;.</item>
@@ -2080,7 +2081,7 @@
     <item quantity="many">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь&lt;/a&gt;.</item>
     <item quantity="other">У %1$d волонтери додали %2$,d байтів до англійської Вікіпедії. Уся їхня спільна робота разом веде до постійно вдосконалюваного, заснованого на фактах та надійного ресурсу знань, який вони надають світові. Усі ми маємо знання, якими можемо поділитися, &lt;a href=\"%3$s\"&gt;дізнайтеся, як узяти участь&lt;/a&gt;.</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
     <item quantity="one">Ви редагували Вікіпедію %s раз</item>
     <item quantity="few">Ви редагували Вікіпедію %s рази</item>
     <item quantity="many">Ви редагували Вікіпедію %s разів</item>
@@ -2395,16 +2396,11 @@
   <string name="recommended_reading_list_notification_subtitle">Натисніть, щоб переглянути свої останні рекомендації.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Коли рекомендації оновляться, Вікіпедія надішле вам сповіщення.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Рекомендації увімкнено. Вікіпедія підказуватиме вам статті для читання.</string>
-  <string name="donation_reminders_initial_prompt_label">Експеримент</string>
-  <string name="donation_reminders_initial_prompt_title">Підтримуйте Вікіпедію, читаючи</string>
-  <string name="donation_reminders_initial_prompt_message">Налаштуйте нагадування про пожертвування на основі кількості прочитаних вами статей, щоб Вікіпедія залишалася актуальною, без реклами та доступною для всіх.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Розпочати</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Не зараз</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Нагадування про пожертви можна змінити будь-коли в налаштуваннях.</string>
   <string name="donation_settings_section_header">Пожертви</string>
-  <string name="donation_reminders_settings_title">Нагадування про пожертви</string>
-  <string name="donation_reminders_settings_thank_you_message">Приєднуйтесь до 2%% читачів, які жертвують скільки можуть, щоб Вікіпедія була безкоштовною, актуальною та доступною для всіх. Налаштуйте нагадування про пожертву зараз.</string>
-  <string name="donation_reminders_settings_donation_info">Пожертви надходять до Фонду Вікімедіа та його афілійованих організацій, які мають честь уможливлювати існування Вікіпедії та її дочірніх сайтів.</string>
+  <string name="donation_reminders_settings_title">Як вам нагадати?</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Приєднуйтесь до 2%% читачів, які жертвують скільки можуть, щоб Вікіпедія була безкоштовною, актуальною та доступною для всіх. Налаштуйте нагадування про пожертву зараз.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертви надходять до Фонду Вікімедіа та його афілійованих організацій, які мають честь уможливлювати існування Вікіпедії та її дочірніх сайтів.</string>
   <string name="donation_reminders_settings_article_frequency_label">Коли я читаю</string>
   <string name="donation_reminders_settings_amount_label">Нагадати мені зробити пожертву</string>
   <string name="donation_reminders_settings_confirm_btn_label">Підтвердити нагадування</string>
@@ -2415,13 +2411,11 @@
   <string name="donation_reminders_settings_option_custom">Користувацький…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Дякуємо! Ми нагадаємо вам пожертвувати %1$s, коли ви прочитаєте %2$s під час цього експерименту.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Ви прочитали %1$s з моменту, як пообіцяли %2$s</string>
-  <string name="donation_reminders_prompt_message">%1$s ви попросили нас нагадати вам про пожертву після прочитання %2$s. Якщо Вікіпедія надала вам %3$s знань, будь ласка, приєднайтесь до 2%% читачів, які роблять пожертви, та виконайте свою обіцянку.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s ви попросили нас нагадати вам про пожертву після прочитання %2$s. Якщо Вікіпедія надала вам %3$s знань, будь ласка, приєднайтесь до 2%% читачів, які роблять пожертви, та виконайте свою обіцянку.</string>
   <string name="donation_reminders_prompt_positive_button">Пожертвувати зараз</string>
   <string name="donation_reminders_prompt_negative_button">Не зараз</string>
   <string name="donation_reminders_gpay_text">Пожертвувати %s за допомогою Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Пожертвуйте іншу суму за допомогою Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Допоможіть покращити нагадування про пожертви.</string>
-  <string name="donation_reminders_survey_dialog_message">Ви задоволені цією функцією?</string>
   <string name="donation_reminders_settings_description_on">Нагадування про пожертви ввімкнено. Вікіпедія нагадуватиме вам пожертвувати %1$s кожні %2$s, які ви прочитали, поки триває цей експеримент.</string>
   <string name="donation_reminders_settings_description_off">Нагадування про пожертви вимкнено.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Кількість статей зберігається локально на вашому пристрої</string>
@@ -2431,4 +2425,5 @@
     <item quantity="many">%d статей</item>
     <item quantity="other">%d статей</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Експеримент</string>
 </resources>

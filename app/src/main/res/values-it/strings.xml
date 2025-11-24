@@ -4,6 +4,7 @@
 * Albe Albe 460
 * Albe Albe460
 * Antonino Faro
+* Ayub Abdulla
 * Beta16
 * Black Sky83
 * Bsitzmann
@@ -1722,7 +1723,7 @@
   <string name="email_report_patroller_tasks_subject">Segnala un problema - Funzione di verifica delle modifiche</string>
   <string name="email_report_patroller_tasks_body">Ho riscontrato un problema con la funzione Verifica delle modifiche:\n- [Descrivi il problema specifico]\n\nIl comportamento che vorrei vedere è:\n- [Descrivi la soluzione proposta]\n\n[Schermate o collegamenti]</string>
   <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
-  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità ci aiuta a sostenere Wikipedia ed i suoi siti correlati.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità ci aiuta a sostenere Wikipedia e altri progetti di conoscenza libera.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
   <string name="donate_gpay_dialog_title">Donare con Google Pay?</string>
@@ -1741,7 +1742,7 @@
   <string name="donate_gpay_help_other_ways">Altri modi per donare</string>
   <string name="donate_gpay_help_faq">Domande frequenti</string>
   <string name="donate_gpay_help_tax">Informazioni di deducibilità fiscale</string>
-  <string name="donation_history_deleted_message_snackbar">Cronologia dei donatori cancellata</string>
+  <string name="donation_history_deleted_message_snackbar">Cronologia delle donazioni cancellata.</string>
   <string name="places_title">Luoghi</string>
   <string name="places_permissions_denied">Per vedere la tua posizione sulla mappa è richiesta l\'autorizzazione alla posizione. Riprova.</string>
   <string name="places_search_hint">Cerca luoghi</string>
@@ -1868,6 +1869,10 @@
     <item quantity="one">%,d byte aggiunto</item>
     <item quantity="other">%,d byte aggiunti</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Hai modificato %s volta</item>
+    <item quantity="other">Hai modificato %s volte</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">Il cuore e l\'anima di Wikipedia sono la nostra comunità globale di collaboratori volontari, donatori e miliardi di lettori come te, tutti uniti per condividere un accesso illimitato a informazioni affidabili.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Hai schemi di lettura chiari</string>
   <string name="year_in_review_slide_reading_pattern_midday">Mezzogiorno</string>
@@ -1958,16 +1963,12 @@
   <string name="recommended_reading_list_notification_title">Il tuo elenco di lettura %s Discover è pronto.</string>
   <string name="recommended_reading_list_notification_subtitle">Tocca per vedere le tue ultime raccomandazioni.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando il tuo Discover sarà aggiornato, Wikipedia ti invierà una notifica.</string>
-  <string name="donation_reminders_initial_prompt_label">Esperimento</string>
-  <string name="donation_reminders_initial_prompt_title">Sostieni Wikipedia durante la lettura</string>
-  <string name="donation_reminders_initial_prompt_message">Imposta un promemoria per fare una donazione in base al numero di voci che leggi e per contribuire a mantenere Wikipedia priva di pubblicità, aggiornata e accessibile a tutti.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Inizia ora</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Non ora</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">I promemoria per fare una donazione possono essere modificati in qualsiasi momento nelle Impostazioni.</string>
   <string name="donation_settings_section_header">Donazioni</string>
-  <string name="donation_reminders_settings_title">Promemoria di donazione</string>
-  <string name="donation_reminders_settings_thank_you_message">Unisciti al 2%% dei lettori che donano ciò che possono per mantenere Wikipedia priva di pubblicità, aggiornata e accessibile a tutti. Imposta ora il tuo promemoria di donazione:</string>
-  <string name="donation_reminders_settings_donation_info">Le donazioni sono destinate alla Wikimedia Foundation e alle sue organizzazioni affiliate, che gestiscono orgogliosamente Wikipedia e i siti correlati.</string>
+  <string name="donation_reminders_settings_title">Come dovremmo ricordartelo?</string>
+  <string name="donation_reminders_settings_option_title">Ricordi di donazione</string>
+  <string name="donation_reminders_settings_thank_you_message">La tua generosità contribuisce a far prosperare Wikipedia. Imposta un promemoria per le donazioni in base al numero di voci che leggi.</string>
+  <string name="donation_reminders_settings_donation_info">Le donazioni sono destinate alla Wikimedia Foundation e alle sue organizzazioni affiliate, che gestiscono orgogliosamente Wikipedia e altri progetti di conoscenza libera.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quando leggo</string>
   <string name="donation_reminders_settings_amount_label">Ricordami di donare</string>
   <string name="donation_reminders_settings_confirm_btn_label">Conferma il promemoria</string>
@@ -1975,13 +1976,11 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">voci</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Grazie! Ti ricorderemo di donare %1$s\ndopo aver letto %2$s voci nel corso di questo esperimento.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Hai letto %1$s voci da quando hai promesso di donare %2$s!</string>
-  <string name="donation_reminders_prompt_message">Il giorno %1$s ci hai chiesto di ricordarti di effettuare una donazione dopo aver letto %2$s. Se Wikipedia ti ha fornito %3$s di conoscenza in più, unisciti al 2%% dei lettori che donano abitualmente e dai seguito alla tua promessa.</string>
+  <string name="donation_reminders_prompt_message">Hai impostato un promemoria per le donazioni su %1$s per donare %3$s ogni %2$s che leggi. Pronto a mantenere il tuo impegno di sostenere Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Dona ora</string>
   <string name="donation_reminders_prompt_negative_button">Non ora</string>
   <string name="donation_reminders_gpay_text">Dona %s con Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Dona un importo diverso con Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Aiutaci a migliorare i promemoria di donazione.</string>
-  <string name="donation_reminders_survey_dialog_message">Come giudichi il tuo livello di soddisfazione in relazione a questa esperienza?</string>
   <string name="donation_reminders_settings_description_on">I promemoria di donazione sono attivi. Wikipedia ti ricorderà\ndi donare %1$s ogni %2$s voci lette durante\nquesto esperimento.</string>
   <string name="donation_reminders_settings_description_off">I promemoria di donazione non sono attivi.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Il conteggio delle voci è salvato in locale sul tuo dispositivo</string>
@@ -1989,4 +1988,7 @@
     <item quantity="one">%d voce</item>
     <item quantity="other">%d voci</item>
   </plurals>
+  <string name="donation_reminders_experiment_label">SPERIMENTARE</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Rispondi sondaggio</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">No, grazie</string>
 </resources>
