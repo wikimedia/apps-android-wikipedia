@@ -1519,6 +1519,10 @@
   <string name="year_in_review_survey_cancel">ناگارل</string>
   <string name="year_in_review_survey_submit">سپارل</string>
   <string name="year_in_review_globe_icon" fuzzy="true">نړۍ نښه</string>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">ځل سم‌شوی</item>
+    <item quantity="other">ځله سم‌شوی</item>
+  </plurals>
   <string name="recommended_reading_list_title">موندل</string>
   <string name="recommended_reading_list_onboarding_card_title">ستاسو لپاره غوره‌شوې ليکنې ومومئ</string>
   <string name="recommended_reading_list_onboarding_card_new">نوی!</string>
@@ -1601,4 +1605,8 @@
     <item quantity="other">%d ليکنې</item>
   </plurals>
   <string name="donation_reminders_experiment_label" fuzzy="true">ازمېښتي</string>
+  <string name="donation_reminders_snackbar_modify_button_label">بدلول</string>
+  <string name="explore_feed_survey_dialog_title">د ښه والي لپاره له موږ سره مرسته وکړئ</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">سروې ترسره کول</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">نه مننه</string>
 </resources>
