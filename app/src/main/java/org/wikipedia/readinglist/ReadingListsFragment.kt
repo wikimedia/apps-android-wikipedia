@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -62,7 +63,6 @@ import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.database.RecommendedPage
-import org.wikipedia.readinglist.recommended.RecommendedReadingListAbTest
 import org.wikipedia.readinglist.recommended.RecommendedReadingListHelper
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity
 import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequency
@@ -83,6 +83,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.ReadingListsOverflowView
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
     private var _binding: FragmentReadingListsBinding? = null
@@ -174,7 +175,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onResume() {
         super.onResume()
-
         updateLists()
         ReadingListsAnalyticsHelper.logListsShown(requireContext(), displayedLists.size)
         requireActivity().invalidateOptionsMenu()
@@ -187,7 +187,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onToggleItemOffline(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.togglePageOffline(requireActivity() as AppCompatActivity, page) { this.updateLists() }
+        ReadingListBehaviorsUtil.togglePageOffline(requireActivity(), page) { this.updateLists() }
     }
 
     override fun onShareItem(pageId: Long) {
@@ -213,7 +213,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
 
     override fun onDeleteItem(pageId: Long) {
         val page = getPageById(pageId) ?: return
-        ReadingListBehaviorsUtil.deletePages(requireActivity() as AppCompatActivity, ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
+        ReadingListBehaviorsUtil.deletePages(requireActivity(), ReadingListBehaviorsUtil.getListsContainPage(page), page, { this.updateLists() }) { this.updateLists() }
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
@@ -231,8 +231,12 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles, callback = object : ReadingListTitleDialog.Callback {
                     override fun onSuccess(text: String, description: String) {
-                        AppDatabase.instance.readingListDao().createList(text, description)
-                        updateLists()
+                        viewLifecycleOwner.lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                            L.w(throwable)
+                        }) {
+                            AppDatabase.instance.readingListDao().createList(text, description)
+                            updateLists()
+                        }
                     }
                 }).show()
         }
@@ -341,8 +345,15 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                     result.dispatchUpdatesTo(adapter)
                 }
 
-                recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
-                    .find { it.id == Prefs.readingListRecentReceivedId }?.also { shouldShowImportedSnackbar = true }
+                if (recentPreviewSavedReadingList == null) {
+                    recentPreviewSavedReadingList = displayedLists.filterIsInstance<ReadingList>()
+                        .find { it.id == Prefs.readingListRecentReceivedId }
+                        ?.also { shouldShowImportedSnackbar = true }
+                        ?: run {
+                            shouldShowImportedSnackbar = false
+                            null
+                        }
+                }
 
                 binding.swipeRefreshLayout.isRefreshing = false
                 maybeShowListLimitMessage()
@@ -501,6 +512,14 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 toggleSelectList(readingList)
             } else {
                 actionMode?.finish()
+                if (recentPreviewSavedReadingList != null) {
+                    recentPreviewSavedReadingList = null
+                    Prefs.readingListRecentReceivedId = -1
+                    val pos = displayedLists.indexOfFirst { it is ReadingList && it.id == readingList.id }
+                    if (pos != -1) {
+                        adapter.notifyItemChanged(pos)
+                    }
+                }
                 RecommendedReadingListEvent.submit("open_list_click", "rrl_saved")
                 startActivity(ReadingListActivity.newIntent(requireContext(), readingList))
             }
@@ -511,7 +530,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 L.w("Attempted to rename default list.")
                 return
             }
-            ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
+            ReadingListBehaviorsUtil.renameReadingList(requireActivity() as AppCompatActivity, readingList) {
                 ReadingListSyncAdapter.manualSync()
                 updateLists(currentSearchQuery, true)
             }
@@ -576,7 +595,6 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             item?.let {
                 val title = ReadingListPage.toPageTitle(it)
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
-                it.touch()
                 ReadingListBehaviorsUtil.updateReadingListPage(item)
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
@@ -787,7 +805,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
     }
 
     private fun maybeShowPreviewSavedReadingListsSnackbar() {
-        if (shouldShowImportedSnackbar) {
+        val yirReadingListTitle = requireContext().getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR)
+        val isReadingListCreatedFromYir = recentPreviewSavedReadingList?.listTitle?.equals(yirReadingListTitle, ignoreCase = true) == true
+        if (shouldShowImportedSnackbar && !isReadingListCreatedFromYir) {
             ReadingListsAnalyticsHelper.logReceiveFinish(requireContext(), recentPreviewSavedReadingList)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.reading_lists_preview_saved_snackbar))
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) {
@@ -807,7 +827,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             binding.onboardingView.isVisible = false
             return
         }
-        if (RecommendedReadingListAbTest().isTestGroupUser() && !Prefs.isRecommendedReadingListOnboardingShown) {
+        if (!Prefs.isRecommendedReadingListOnboardingShown) {
             RecommendedReadingListEvent.submit("impression", "rrl_saved_prompt")
             binding.onboardingView.setMessageLabel(getString(R.string.recommended_reading_list_onboarding_card_new))
             binding.onboardingView.setMessageTitle(getString(R.string.recommended_reading_list_onboarding_card_title))
@@ -862,7 +882,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         binding.swipeRefreshLayout.isRefreshing = true
         activity?.contentResolver?.openInputStream(uri)?.use { inputStream ->
             val inputString = inputStream.bufferedReader().use { it.readText() }
-            ReadingListsExportImportHelper.importLists(activity as BaseActivity, inputString)
+            ReadingListsExportImportHelper.importLists(activity as AppCompatActivity, inputString)
             importMode = true
         }
     }

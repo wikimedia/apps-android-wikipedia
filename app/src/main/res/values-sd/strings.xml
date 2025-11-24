@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">پوئتي وڃو</string>
   <string name="error_back">پوئتي وڃو</string>
   <string name="error_next">اڳيون</string>
-  <string name="menu_clear_all_history">سوانح ڊاهيو</string>
+  <string name="menu_clear_all_history" fuzzy="true">سوانح ڊاهيو</string>
   <string name="history_item_deleted">%s کي سوانح مان ڪڍيو ويو</string>
   <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيا ويا</string>
   <string name="history_item_delete_undo">اڻڪريو</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">وڪيميڊيا العام</string>
   <string name="wikidata">وڪيڊيٽا</string>
   <string name="dialog_title_clear_history">برائوزر سوانح مٽايو</string>
-  <string name="dialog_message_clear_history">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
   <string name="dialog_message_clear_history_yes">ھا</string>
   <string name="dialog_message_clear_history_no">نہ</string>
   <string name="share_via">ونڊيو بذريعہ</string>
@@ -232,11 +232,10 @@
   <string name="terms_of_use_description">استعمال جا شرط</string>
   <string name="about_wikipedia_url">https://sd.wikipedia.org/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
   <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
   <string name="about_contributors_heading">ڀاڱيدارَ</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;جٿي جو صفحو&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;جٿي جو صفحو&lt;/a&gt;</string>
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
@@ -1139,8 +1138,6 @@
   <string name="templates_description_empty">\" %s \" سانچي ۾ اڃا تائين ڪا تشريح ناهي.</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
-  <string name="main_tooltip_text">سلام %s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگهي ٿو؟</string>
-  <string name="main_tooltip_text_v2">ڇا توھان ڄاڻو ٿا تہ ھرڪوئي وڪيپيڊيا کي سنواري سگهي ٿا؟</string>
   <string name="main_tooltip_action_button">شروع ڪريو</string>
   <string name="main_tooltip_watchlist_title">نظر۾فھرست</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>
@@ -1465,7 +1462,7 @@
   <string name="page_issues_title">صفحي جا مسئلا</string>
   <string name="generic_release_notes">معمولي بگ جي اصلاح ۽ واڌارا</string>
   <string name="donation_campaign_maybe_later_snackbar">اسان توهان کي سڀاڻي ٻيھر ياد ڏيارينداسين.</string>
-  <string name="donation_campaign_donated_snackbar">مھرباني، پيارا مدد ڪندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ان جي ڀينر سائيٽن کي ترقي وٺرائڻ ۾ مدد ڪري ٿي.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">مھرباني، پيارا مدد ڪندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ان جي ڀينر سائيٽن کي ترقي وٺرائڻ ۾ مدد ڪري ٿي.</string>
   <string name="donation_campaign_go_back_button">واپس وڃو</string>
   <string name="menu_single_webview_open_external">سسٽم برائوزر ۾ کوليو</string>
   <string name="donate_gpay_dialog_title">گوگل پي ذريعي امداد ڏجي؟</string>

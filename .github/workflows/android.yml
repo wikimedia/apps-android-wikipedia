@@ -8,8 +8,8 @@ jobs:
   build_alpha:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
+    - uses: actions/checkout@v5
+    - uses: actions/setup-java@v5
       with:
         distribution: 'temurin'
         java-version: '17'
@@ -48,7 +48,7 @@ jobs:
     - name: Sleep for 30 seconds, to allow the tag to be deleted
       run: sleep 30s
       shell: bash
-    - uses: ncipollo/release-action@v1.18.0
+    - uses: ncipollo/release-action@v1.20.0
       name: Create new tag and release and upload artifacts
       with:
         name: latest

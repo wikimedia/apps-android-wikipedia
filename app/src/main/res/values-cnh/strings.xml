@@ -9,7 +9,7 @@
   <string name="search_hint">Wikipedia ah kawl</string>
   <string name="error_network_error" fuzzy="true">Network connection a um lo,</string>
   <string name="page_error_retry">Tuah than</string>
-  <string name="menu_clear_all_history">Cakhumh hloh ding</string>
+  <string name="menu_clear_all_history" fuzzy="true">Cakhumh hloh ding</string>
   <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
   <string name="share_via">in hrawmh</string>
   <string name="last_updated_text">Hnubik tharchuah %s</string>

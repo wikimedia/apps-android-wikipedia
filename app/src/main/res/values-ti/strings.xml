@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">ተመለስ</string>
   <string name="error_back">ተመለስ</string>
   <string name="error_next">ዝቕጽል</string>
-  <string name="menu_clear_all_history">ታሪኽ ኣጽርይ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ታሪኽ ኣጽርይ</string>
   <string name="history_item_deleted">%s ካብ ታሪኽ ተኣልዩ</string>
   <string name="history_items_deleted">%d ጽሑፋት ካብ ታሪኽ ተኣልዩ</string>
   <string name="history_item_delete_undo">ምለስ</string>
@@ -695,8 +695,6 @@
   <string name="templates_learn_more_link">ተወሳኺ ፍለጥ</string>
   <string name="main_drawer_help">ሓገዝ</string>
   <string name="main_drawer_login">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
-  <string name="main_tooltip_text">ሰላም %s፣ ኩሉ ሰብ ንዊኪፐድያ ከርትዕ ከም ዝኽእል ትፈልጥ ዶ?</string>
-  <string name="main_tooltip_text_v2">ኩሉ ሰብ ንዊኪፐድያ ከርትዕ ከም ዝኽእል ትፈልጥ ዶ?</string>
   <string name="main_tooltip_action_button">ጀምር</string>
   <string name="custom_date_picker_dialog_ok_button_text">ሕራይ</string>
   <string name="text_input_dialog_ok_button_text">ሕራይ</string>

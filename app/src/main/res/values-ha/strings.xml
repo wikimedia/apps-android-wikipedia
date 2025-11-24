@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Koma baya</string>
   <string name="error_back">Koma baya</string>
   <string name="error_next">Gaba</string>
-  <string name="menu_clear_all_history">Share tarihi</string>
+  <string name="menu_clear_all_history" fuzzy="true">Share tarihi</string>
   <string name="history_item_deleted">%s cire daga tarihi</string>
   <string name="history_items_deleted">%d maƙalolin da aka cire daga tarihi</string>
   <string name="history_item_delete_undo">Warware</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Goge tarihin browsing</string>
-  <string name="dialog_message_clear_history">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Wannan zai share dukkan tarihin binciken ka, kuma zai kulle shafukan da ka buɗe gaba ɗaya a halin yanzu. Ka tabbata?</string>
   <string name="dialog_message_clear_history_yes">Eh</string>
   <string name="dialog_message_clear_history_no">A\'a</string>
   <string name="share_via">Aika ta</string>
@@ -231,12 +231,9 @@
   <string name="privacy_policy_description">Manufofin kariya</string>
   <string name="terms_of_use_description">Sharuɗɗan amfani</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Laburaren da aka yi amfani da su</string>
   <string name="about_contributors_heading">Gudummuwa</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Shafin tawaga&lt;/a&gt;</string>
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
@@ -1196,8 +1193,6 @@
   <string name="insert_media_insert_button">Saka</string>
   <string name="main_drawer_help">Taimako</string>
   <string name="main_drawer_login">Shiga / shiga Wikipedia</string>
-  <string name="main_tooltip_text">Hi %s, shin kun san cewa kowa zai iya gyara Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Shin kun san cewa kowa zai iya gyara Wikipedia?</string>
   <string name="main_tooltip_action_button">Fara</string>
   <string name="main_tooltip_watchlist_title">Jerina na bin sawu</string>
   <string name="main_tooltip_watchlist_text">Neman labarai da shafuka da ka kara a baya a cikin jerin abubuwan kallo a cikin More menu a ƙarƙashin Watchlist.</string>
@@ -1535,7 +1530,7 @@
   <string name="email_report_patroller_tasks_subject">Rahoton fitowa- Gyara Patrol Feature</string>
   <string name="email_report_patroller_tasks_body">Na gamu da matsala tare da Gyara Patrol Feature: - [Bayyana takamaiman matsala] __hau____hau____hau__ Halin da nake so in gani shine: - [Bayyana mafita da aka tsara] __hau____hau____hau__ [Screenshots ko Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Za mu sake tunatar da ku gobe.</string>
-  <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
   <string name="places_title">Wajaje</string>

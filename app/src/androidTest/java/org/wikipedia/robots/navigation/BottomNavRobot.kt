@@ -74,6 +74,15 @@ class BottomNavRobot : BaseRobot() {
         }
     }
 
+    fun clickEditsMenuItem() = apply {
+        try {
+            click.onViewWithId(R.id.main_drawer_edit_container)
+            delay(TestConfig.DELAY_MEDIUM)
+        } catch (e: Exception) {
+            Log.e("BottomNavRobotError:", "Cannot find edits container.")
+        }
+    }
+
     fun gotoWatchList() = apply {
         click.onViewWithId(R.id.main_drawer_watchlist_container)
         delay(TestConfig.DELAY_SHORT)

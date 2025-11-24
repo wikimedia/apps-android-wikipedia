@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">واپس ڄُلو</string>
   <string name="error_back">واپس ڄُلو</string>
   <string name="error_next">اڳلا</string>
-  <string name="menu_clear_all_history">تاریخچہ مٹاؤ</string>
+  <string name="menu_clear_all_history" fuzzy="true">تاریخچہ مٹاؤ</string>
   <string name="history_item_deleted">%s تاریخ توں مٹا ݙتن</string>
   <string name="history_items_deleted">%d ورقے تاریخ توں ہٹا ݙتن</string>
   <string name="history_item_delete_undo">واپس</string>
@@ -166,7 +166,6 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="about_contributors_heading">ونگاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
@@ -741,13 +740,15 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
-  <string name="year_in_review_get_started">شروع کرو</string>
+  <string name="year_in_review_get_started" fuzzy="true">شروع کرو</string>
   <string name="year_in_review_donate">عطیہ ݙیوو</string>
-  <string name="year_in_review_entry_dialog_continue">جاری</string>
   <string name="year_in_review_survey_cancel">منسوخ</string>
   <string name="recommended_reading_list_page_snackbar_day">ݙین٘ہ</string>
   <string name="recommended_reading_list_page_snackbar_week">ہفتہ</string>
   <string name="recommended_reading_list_page_snackbar_month">مہینہ</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">روزانہ</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ہفتہ وار</string>
+  <string name="donation_settings_section_header">عطیے</string>
+  <string name="donation_reminders_prompt_negative_button">ہُݨ نہ</string>
+  <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
 </resources>

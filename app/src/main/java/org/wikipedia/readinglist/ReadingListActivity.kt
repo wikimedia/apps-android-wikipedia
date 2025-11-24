@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -17,6 +18,8 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.yearinreview.YearInReviewDialog
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {
 
@@ -25,8 +28,15 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         updateStatusBarColor(false)
-        title = getString(R.string.reading_list_activity_title, intent.getStringExtra(EXTRA_READING_LIST_TITLE))
+        val listTitle = intent.getStringExtra(EXTRA_READING_LIST_TITLE)
+        title = getString(R.string.reading_list_activity_title, listTitle)
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         callback = this
+
+        if (readingListMode == ReadingListMode.YEAR_IN_REVIEW || listTitle.equals(getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR), ignoreCase = true)) {
+            YearInReviewDialog.maybeShowYirReadingListSurveyDialog(this)
+            incrementYiReadingListVisitCount()
+        }
     }
 
     public override fun createFragment(): ReadingListFragment {
@@ -47,17 +57,18 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (readingListMode == ReadingListMode.DEFAULT) {
-            ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
-        }
-        if (!WikipediaApp.instance.haveMainActivity) {
-            startActivity(MainActivity.newIntent(this)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
-                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code())
-            )
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (readingListMode == ReadingListMode.DEFAULT) {
+                ReadingListsAnalyticsHelper.logReceiveCancel(this@ReadingListActivity, fragment.readingList)
+            }
+            if (!WikipediaApp.instance.haveMainActivity) {
+                startActivity(MainActivity.newIntent(this@ReadingListActivity)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                    .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code())
+                )
+            }
             finish()
         }
     }
@@ -70,6 +81,12 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
             Prefs.isRecommendedReadingListNotificationEnabled = false
         }
         fragment.updateNotificationIcon()
+    }
+
+    private fun incrementYiReadingListVisitCount() {
+        if (!Prefs.yearInReviewReadingListSurveyShown) {
+            Prefs.yearInReviewReadingListVisitCount += 1
+        }
     }
 
     companion object {

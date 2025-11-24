@@ -1,10 +1,13 @@
 package org.wikipedia.dataclient
 
+import okhttp3.ResponseBody
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
+import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
@@ -16,6 +19,7 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteIdResponseBatch
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntryBatch
+import org.wikipedia.settings.RemoteConfig
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
@@ -183,6 +187,29 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): Metrics
+
+    @GET("metrics/edits/v3/per_editor/{globalUserId}/all_page_types/monthly/{fromDate}/{toDate}")
+    suspend fun getEditsPerGlobalUserMonthly(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): UserEdits
+
+    @GET("metrics/edits/v3/per_editor/{globalUserId}/all_page_types/daily/{fromDate}/{toDate}")
+    suspend fun getEditsPerGlobalUserDaily(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): UserEdits
+
+    @POST("transform/wikitext/to/mobile-html/{title}")
+    suspend fun getHtmlPreviewFromWikitext(
+        @Path("title") title: String,
+        @Body body: PreviewRequest
+    ): ResponseBody
+
+    @GET("feed/configuration")
+    suspend fun getConfiguration(): RemoteConfig.RemoteConfigImpl
 
     companion object {
         const val REST_API_PREFIX = "/api/rest_v1"

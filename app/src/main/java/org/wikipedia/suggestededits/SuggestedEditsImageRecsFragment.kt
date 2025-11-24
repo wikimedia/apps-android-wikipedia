@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.content.pm.ActivityInfo
 import android.graphics.drawable.GradientDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -17,6 +16,7 @@ import android.widget.LinearLayout
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -244,9 +244,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        binding.imageView.loadImage(Uri.parse(thumbUrl),
+        binding.imageView.loadImage(thumbUrl.toUri(),
             listener = object : ImageLoadListener {
-                override fun onSuccess(image: Any, bmpWidth: Int, bmpHeight: Int) {
+                override fun onSuccess(image: Any, width: Int, height: Int) {
                     if (isAdded) {
                         val palette = Palette.from(ImageService.getBitmap(image)).generate()
                         var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.gray600))
@@ -261,13 +261,13 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
                         val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
                         val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
-                        val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+                        val bmpAspect = width.toFloat() / height.toFloat()
 
                         if (bmpAspect > containerAspect) {
                             params.marginEnd = DimenUtil.roundedDpToPx(8f)
                         } else {
-                            val width = binding.imageViewContainer.height.toFloat() * bmpAspect
-                            params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                            val containerWidth = binding.imageViewContainer.height.toFloat() * bmpAspect
+                            params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - containerWidth.toInt() / 2)
                         }
                         binding.imageInfoButton.layoutParams = params
                     }
@@ -438,8 +438,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         publish()
     }
 
-    private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
-                                            revisionId: Long? = null, addTimeSpent: Boolean = false): String {
+    private fun getActionStringForAnalytics(
+        acceptanceState: String? = null, rejectionReasons: String? = null,
+        revisionId: Long? = null, addTimeSpent: Boolean = false,
+    ): String {
         val recommendedImage = if (viewModel.uiState.value is Resource.Success) viewModel.recommendation.images[0] else null
         return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage?.image,
             recommendationSource = recommendedImage?.source,

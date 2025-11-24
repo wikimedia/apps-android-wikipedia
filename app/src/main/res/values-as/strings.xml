@@ -33,7 +33,7 @@
   <string name="page_error_back_to_main">ঘূৰি যাওক</string>
   <string name="error_back">পাছলৈ যাওক</string>
   <string name="error_next">পৰৱৰ্তী</string>
-  <string name="menu_clear_all_history">ইতিহাস মোহাৰক</string>
+  <string name="menu_clear_all_history" fuzzy="true">ইতিহাস মোহাৰক</string>
   <string name="history_item_deleted">ইতিহাসৰ পৰা %s আঁতৰোৱা হৈছে</string>
   <string name="history_items_deleted">ইতিহাসৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হৈছে</string>
   <string name="history_item_delete_undo">পূৰ্ববত কৰক</string>
@@ -46,7 +46,7 @@
   <string name="wikimedia_commons">ৱিকিমিডিয়া কমঞ্চ</string>
   <string name="wikidata">ৱিকিডাটা</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
-  <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_clear_history_yes">হয়</string>
   <string name="dialog_message_clear_history_no">নহয়</string>
   <string name="share_via">শ্বেয়াৰ</string>
@@ -210,8 +210,6 @@
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যৱহাৰৰ চৰ্তাৱলী</string>
   <string name="about_wikipedia_url">https://as.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
   <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
   <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
@@ -769,7 +767,6 @@
   <string name="wikitext_preview_link">সংযোগ প্ৰাক্‌দৰ্শন কৰক</string>
   <string name="main_drawer_help">সহায়</string>
   <string name="main_drawer_login">ৱিকিপিডিয়াত প্ৰৱেশ/যোগদান কৰক</string>
-  <string name="main_tooltip_text_v2"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
   <string name="main_tooltip_action_button">আৰম্ভ কৰক</string>
   <string name="main_tooltip_watchlist_title">লক্ষ্য-তালিকা</string>
   <string name="custom_date_picker_dialog_ok_button_text">বাৰু</string>

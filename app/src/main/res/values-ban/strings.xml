@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">Balik</string>
   <string name="error_back">Balik</string>
   <string name="error_next">Selanturné</string>
-  <string name="menu_clear_all_history">Apus lelintihan</string>
+  <string name="menu_clear_all_history" fuzzy="true">Apus lelintihan</string>
   <string name="history_item_deleted">%s kaapus saking lelintihan</string>
   <string name="history_items_deleted">%d suratan kaapus saking lelintihan</string>
   <string name="history_item_delete_undo">ulihang</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Wikimédia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Apus leliltihan parerehan</string>
-  <string name="dialog_message_clear_history">Puniki pacang ngapus sinamian lelintihan parerehan Ida, miwah minutup tab sané mangkin kantun kabuka. Napiké Ida seken?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Puniki pacang ngapus sinamian lelintihan parerehan Ida, miwah minutup tab sané mangkin kantun kabuka. Napiké Ida seken?</string>
   <string name="dialog_message_clear_history_yes">Inggih</string>
   <string name="dialog_message_clear_history_no">Nénten</string>
   <string name="share_via">Wagiang lumantar</string>
@@ -133,7 +133,7 @@
   <string name="dialog_confirm_delete_donation_history_delete">Apus</string>
   <string name="dialog_confirm_delete_donation_history_cancel">Wangdé</string>
   <string name="menu_show_toc">Lis Isi</string>
-  <string name="search_no_results_found">Nénten wénten asil sané katemu</string>
+  <string name="search_no_results_found">Nénten wénten asil sané kacunduk</string>
   <string name="search_reading_list_no_results">Nénten wénten hasil katemu ring \"%s\"</string>
   <string name="search_reading_lists_no_results">Nénten wenten asil katemu ring lis wacaan</string>
   <string name="search_history_no_results">Nenten wénten asil katemu ring lelintihan</string>
@@ -241,8 +241,6 @@
   <string name="terms_of_use_description">Katentuan pawigunaan</string>
   <string name="about_wikipedia_url">https://ban.wikipedia.org/wiki/Wikipedia:Indik</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special\n:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special\n:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ban.wikipedia.org/wiki/Wikipedia:Pinunas_satunggal_akun</string>
   <string name="about_libraries_heading">Kapustakaan kaanggén</string>
@@ -511,7 +509,7 @@
   <string name="default_reading_list_name">Karaksa</string>
   <string name="reading_lists_menu_create_list">Kardi lis anyar</string>
   <string name="reading_lists_menu_import_list">Impor lis</string>
-  <string name="reading_lists_menu_sort_by">Bacak mawit</string>
+  <string name="reading_lists_menu_sort_by">Urut manut</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Manjing log / kardi akun</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -804,9 +802,9 @@
   <string name="insert_media_title">Sisipang média</string>
   <string name="insert_media_search_description">Pilih berkas saking Wikimédia Commons</string>
   <string name="insert_media_search_hint">Rereh média</string>
-  <string name="insert_media_settings" fuzzy="true">Setélan média</string>
+  <string name="insert_media_settings">Weweh rerincian gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar kaunggah</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Sesirah</string>
+  <string name="insert_media_settings_caption">Sesirah gambar</string>
   <string name="insert_media_advanced_settings">Setélan lantur</string>
   <string name="insert_media_advanced_settings_image_position">Genah gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Tengen</string>
@@ -827,8 +825,6 @@
   <string name="insert_media_insert_button">Sisipang</string>
   <string name="main_drawer_help">Wantuan</string>
   <string name="main_drawer_login">Manjing log / sarengin Wikipédia</string>
-  <string name="main_tooltip_text">Halo %s, napiké ragané uning sinamian jadma prasida nguahin Wikipédia?</string>
-  <string name="main_tooltip_text_v2">Napiké ragané uning sinamian jadma prasida nguahin Wikipédia?</string>
   <string name="main_tooltip_action_button">Kawitin</string>
   <string name="main_tooltip_watchlist_title">Pangawasan</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
@@ -856,7 +852,7 @@
   <string name="talk_snackbar_undo">Ulihang</string>
   <string name="talk_last_modified">&lt;b&gt;Untat kauah %1$s&lt;/b&gt; olih %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kawitin</string>
-  <string name="talk_overflow_sort_by">Bacak mawit</string>
+  <string name="talk_overflow_sort_by">Urut manut</string>
   <string name="talk_overflow_sort_date_published">Tanggal kawedar</string>
   <string name="talk_overflow_sort_date_updated">Tanggal kaanyarin</string>
   <string name="talk_overflow_sort_topic_name">Adan topik</string>
@@ -961,9 +957,8 @@
   <string name="survey_dialog_general_no">Nénten</string>
   <string name="survey_dialog_general_maybe">Minab</string>
   <string name="on_this_day_game_your_stats">Stats ragané</string>
-  <string name="year_in_review_learn_more">Pelajahin Malih</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Pelajahin Malih</string>
   <string name="year_in_review_donate">Mapunia</string>
-  <string name="year_in_review_entry_dialog_continue">Lanturang</string>
   <string name="year_in_review_survey_cancel">Wangdé</string>
   <string name="year_in_review_survey_submit">Kumpulang</string>
   <string name="recommended_reading_list_onboarding_card_new">Anyar!</string>

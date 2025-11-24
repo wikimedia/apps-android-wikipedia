@@ -32,7 +32,11 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import java.io.IOException
@@ -66,7 +70,11 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                     shouldSendSyncEvent = true
                 }
                 if (pagesToUnSave.isNotEmpty()) {
-                    AppDatabase.instance.readingListPageDao().resetUnsavedPageStatus()
+                    AppDatabase.instance.readingListPageDao().updateStatus(
+                        oldStatus = ReadingListPage.STATUS_SAVED,
+                        newStatus = ReadingListPage.STATUS_QUEUE_FOR_SAVE,
+                        offline = false
+                    )
                     shouldSendSyncEvent = true
                 }
             }
@@ -188,12 +196,19 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                 // download thumbnail and lead image
                 if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
                     page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.thumbnailUrl.orEmpty())
+                    val existingPageImage = AppDatabase.instance.pageImagesDao()
+                        .findItemsBy(pageTitle.wikiSite.languageCode, pageTitle.namespace, pageTitle.prefixedText)
+                        .firstOrNull()
+
                     AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(
-                        pageTitle,
+                        pageTitle.wikiSite.languageCode,
+                        pageTitle.namespace,
+                        page.apiTitle,
                         page.thumbUrl.orEmpty(),
                         summaryResponse.description,
-                        summaryResponse.coordinates?.latitude,
-                        summaryResponse.coordinates?.longitude
+                        existingPageImage?.timeSpentSec ?: 0,
+                        summaryResponse.coordinates?.latitude ?: 0.0,
+                        summaryResponse.coordinates?.longitude ?: 0.0
                     ))
                     fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
                         ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), DimenUtil.calculateLeadImageWidth())))

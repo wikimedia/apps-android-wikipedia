@@ -18,6 +18,7 @@
 * Paloi Sciurala
 * Rapiteanu
 * SHaran (WMF)
+* SZ475
 * Strainu
 * Trotinel Iftode
 * WebSourceContentRO
@@ -35,10 +36,12 @@
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="search_back_button_content_description">Înapoi</string>
+  <string name="search_clear_query_content_description">Șterge interogarea</string>
   <string name="search_icon_content_description">Caută</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrează lista</string>
   <string name="nav_item_suggested_edits">Editări</string>
-  <string name="nav_item_more">Mai mult</string>
+  <string name="nav_item_activity">Activitate</string>
+  <string name="nav_item_more">Mai multe</string>
   <string name="nav_item_search">Caută</string>
   <string name="nav_item_contribute">Contribuie</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
@@ -50,7 +53,7 @@
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="error_back">Înapoi</string>
   <string name="error_next">Următorul</string>
-  <string name="menu_clear_all_history">Curăță istoricul</string>
+  <string name="menu_clear_all_history">Curăță istoricul de navigare</string>
   <string name="history_item_deleted">%s îndepărtate din istoric</string>
   <string name="history_items_deleted">%d articole îndepărtate din istoric</string>
   <string name="history_item_delete_undo">Anulează</string>
@@ -63,7 +66,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
-  <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
+  <string name="dialog_message_clear_history">Asta va șterge tot istoricul tău de navigare. Ești sigur?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Nu</string>
   <string name="share_via">Distribuire prin</string>
@@ -81,8 +84,8 @@
   <string name="page_edit_history_metrics_content_description">Valori de la %1$s la %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d modificări de la %2$s</item>
-    <item quantity="few">%1$d modificări de la%2$s</item>
-    <item quantity="other">%1$d modificări de la%2$s</item>
+    <item quantity="few">%1$d modificări din %2$s</item>
+    <item quantity="other">%1$d modificări din %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d editări de la %2$s (%3$s)</item>
@@ -230,7 +233,7 @@
   <string name="create_account_ip_block_details">Detalii</string>
   <string name="preferences_general_heading">General</string>
   <string name="preferences_account_heading">Cont</string>
-  <string name="wikipedia_app_faq">Într. frecv. aplicația Wikipedia</string>
+  <string name="wikipedia_app_faq">Întrebări frecvente</string>
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>
   <string name="create_account_account_created_toast">Cont creat!</string>
   <string name="preferences_heading_syncing">Sincronizare</string>
@@ -261,16 +264,13 @@
   <string name="privacy_policy_description">Politica de confidențialitate</string>
   <string name="terms_of_use_description">Termeni de utilizare</string>
   <string name="about_wikipedia_url">https://ro.wikipedia.org/wiki/Wikipedia:Despre_Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="privacy_policy_url">https\n://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pagina echipă&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pagina echipei&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licență</string>
@@ -401,7 +401,7 @@
   <string name="button_continue_to_disambiguation">Pagini foarte similare.</string>
   <string name="link_preview_disambiguation_description">Acest titlu se referă la mai multe pagini:</string>
   <string name="button_add_to_reading_list">Adăugați la lista de citire</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Articolul nu poate fi încărcat în timp ce nu este conectat.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Articolul nu poate fi încărcat în timp ce sunteți offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Sugestie: adăugați articolul la o listă de citire și va fi descărcat după ce reveniți online.</string>
   <string name="page_offline_notice_last_date">Citiți o versiune offline a acestui articol salvată pe %s.</string>
   <string name="redirected_from_snackbar">Redirecționat de la \"%s\"</string>
@@ -412,7 +412,7 @@
   <string name="preference_summary_customize_explore_feed">Personalizează Explore Feed</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
-  <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
+  <string name="preference_summary_collapse_tables">Ascunde automat tabele în articole, cum ar fi infocasete, referințe și note.</string>
   <string name="nav_item_donate">Donați</string>
   <string name="nav_item_year_in_review">An În Retrospectivă</string>
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
@@ -426,7 +426,7 @@
     <item quantity="few">%d selectaţi</item>
     <item quantity="other">%d selectaţi</item>
   </plurals>
-  <string name="multi_select_items_selected">%d selectat</string>
+  <string name="multi_select_items_selected">%d selectate</string>
   <string name="error_message_generic">O eroare a apărut</string>
   <string name="view_link_preview_error_button_dismiss">Renunțare</string>
   <string name="link_preview_dialog_read_button">Citește</string>
@@ -462,6 +462,7 @@
   <string name="temp_account_anon_dialog_body">Odată ce faceți o editare, un &lt;b&gt;cont temporar&lt;/b&gt; va fi creat pentru dvs. pentru a vă proteja confidențialitatea. &lt;a href=\"%1$s\"&gt;Află mai multe&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Autentificați-vă&lt;/a&gt; sau &lt;a href=\"https://#createaccount\"&gt;Creați-vă un cont&lt;/a&gt; pentru a primi credit pentru modificările viitoare și pentru a accesa alte funcționalități.</string>
   <string name="temp_account_dialog_ok">Am înțeles</string>
   <string name="temp_account_using_title">Dvs. utilizați un cont temporar</string>
+  <string name="temp_account_dialog_discard">Anulați modificările și conectați-vă</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
@@ -495,7 +496,7 @@
   <string name="editing_line_numbers_label">Arată numerele rândurilor</string>
   <string name="editing_monospace_font_label">Utilizează font monospațiat</string>
   <string name="editing_typing_suggestions">Arată sugestie de tastare</string>
-  <string name="nav_item_saved">Salvat</string>
+  <string name="nav_item_saved">Salvate</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_move_to">Accesați lista de citire</string>
   <string name="reading_list_create_new">Creează una nouă</string>
@@ -507,6 +508,11 @@
   <string name="reading_list_articles_already_exist_message">Toate bune! %s conține deja toate articolele.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_add_to_list_button">Adaugă la listă</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 articol</item>
+    <item quantity="few">%d articole</item>
+    <item quantity="other">%d articole</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 articol, %2$.2f MB</item>
     <item quantity="few">%1$d articole, %2$.2f MB</item>
@@ -527,6 +533,7 @@
   <string name="reading_list_sort_by_created_desc">Sortează după data creată (cea mai veche)</string>
   <string name="reading_list_menu_delete">Șterge lista</string>
   <string name="reading_list_menu_export">Exportați lista</string>
+  <string name="reading_list_menu_select">Selectează</string>
   <string name="reading_list_menu_rename">Editați numele/descrierea</string>
   <string name="reading_list_action_menu_remove_from_offline">Eliminați din offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvați pentru offline</string>
@@ -581,6 +588,7 @@
   <string name="reading_list_articles_added_to_named">Adăugat %1$d articole la %2$s</string>
   <string name="reading_list_articles_moved_to_named">Mutat %1$d articole la %2$s</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Ștergeți lista/listele selectate?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Conectați-vă pentru a activa sincronizarea</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Conectați-vă pentru a permite salvarea listelor de citire în cont.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Anulare</string>
@@ -594,7 +602,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nu-mi mai arată asta</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activați sincronizarea</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nu, mulțumesc</string>
-  <string name="default_reading_list_name">Salvat</string>
+  <string name="default_reading_list_name">Salvate</string>
   <string name="default_reading_list_description">Lista implicită pentru articolele salvate</string>
   <string name="no_user_lists_title">Organizați articole în liste</string>
   <string name="no_user_lists_msg">Creați liste pentru locuri în care să călătoriți, subiecte preferate și multe altele</string>
@@ -604,6 +612,7 @@
   <string name="reading_list_article_limit_message">Nu se poate adăuga la această listă. Ați atins limita de articole %2$d pe listă pentru „%1$s”.</string>
   <string name="reading_lists_limit_message">Nu pot crea o altă listă. Ați atins limita de 100 de liste de citire pe cont.</string>
   <string name="reading_lists_menu_create_list">Creați o listă nouă</string>
+  <string name="reading_lists_menu_import_list">Importă lista</string>
   <string name="reading_lists_menu_sort_by">Sortare după</string>
   <string name="reading_lists_refresh_sync_option">Reîncarcă sincronizarea</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Autentificare / înregistrare</string>
@@ -628,7 +637,15 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Șterge</string>
   <string name="reading_list_activity_title">Lista de citit: %s</string>
+  <string name="reading_list_notification_title">Lista/listele de lectură au fost exportate</string>
+  <string name="reading_list_notification_text">%d Listă/liste de lectură au fost exportate ca \'reading_lists export.json\' în dosarul dvs. de descărcări (downloads)</string>
+  <string name="reading_lists_action_menu_export_lists">Exportă</string>
+  <string name="reading_lists_preview_save_button">Salvează</string>
+  <string name="reading_lists_preview_save_dialog_title">Salvează lista</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titlu</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Revocare</string>
+  <string name="reading_lists_preview_save_dialog_save">Salvează</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Vizualizează</string>
   <string name="user_option_sync_label">Preferințe</string>
   <string name="notification_reverted_title">Modificare anulată</string>
   <string name="notification_channel_title">Descărcarea articolelor</string>
@@ -750,6 +767,7 @@
   <string name="notifications_select_all_filters">Selectați toate filtrele</string>
   <string name="notifications_tab_filter_all">Toate</string>
   <string name="notifications_tab_filter_mentions">Menționări</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Căutați sau filtrați notificări</string>
   <string name="notifications_search_bar_filter_hint">Filtru de notificări</string>
   <string name="notifications_menu_mark_as_read">Marchează ca citită</string>
@@ -760,8 +778,8 @@
   <string name="notifications_menu_uncheck_all">Debifează toate elementele</string>
   <string name="notifications_wiki_filter_header">Filtru wiki</string>
   <string name="notifications_type_filter_header">Tipul filtrului</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Toate „wiki”</string>
-  <string name="notifications_all_types_text" fuzzy="true">Toate „tipurile”</string>
+  <string name="notifications_all_wikis_text">Toate „wikiurile”</string>
+  <string name="notifications_all_types_text">Toate „tipurile”</string>
   <string name="notifications_menu_user_talk_page">Pagina de discuție a lui %s</string>
   <string name="notifications_offline_disable_message">Funcția nu este disponibilă când sunteți off-line.</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
@@ -821,6 +839,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Anulare</string>
   <string name="feed_accessibility_card_text">Ați ajuns în partea de jos a fluxului.</string>
   <string name="feed_accessibility_card_load_more_button">Încarcă mai mult</string>
+  <string name="feed_language_variants_removal_dialog_save">Salvează</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Vă rugăm să actualizați limbile tale secundare</string>
   <string name="top_read_activity_title">Cele mai citite pe %s</string>
   <string name="tabs_activity_title">File</string>
   <string name="description_edit_text_hint">Descriere articol</string>
@@ -882,9 +902,12 @@
   <string name="customize_toolbar_reset_to_default_button">Resetare la valorile implicite</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Țineți apăsată pictograma de glisare pentru a muta elementul</string>
   <string name="customize_toolbar_item_default_tooltip">Apăsați și trageți un element pentru a-l repoziționa</string>
+  <string name="suggested_edits_activity_title">Editează</string>
   <string name="suggested_edits_describe_articles">Descrie articole</string>
   <string name="suggested_edits_caption_images">Descrie imaginile</string>
   <string name="suggested_edits_tag_images">Etichetați imaginile</string>
+  <string name="suggested_edits_edit_patrol">Patrula editărilor</string>
+  <string name="suggested_edits_edit_patrol_review">Revizuire</string>
   <string name="suggested_edits_review_description">Examinați descrierea articolului</string>
   <string name="suggested_edits_add_description_button">Adaugă descriere</string>
   <string name="suggested_edits_edit_description_button">Modifică descriere</string>
@@ -1065,6 +1088,18 @@
   <string name="suggested_edits_image_recommendations_task_title">Imaginile articolelor</string>
   <string name="suggested_edits_image_recommendations_task_detail">Adăugați imaginile sugerate în articolele Wikipedia pentru a îmbunătăți înțelegerea.</string>
   <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Da</string>
+  <string name="image_recommendation_reject">Nu</string>
+  <string name="image_recommendation_notsure">Nu sunt sigur</string>
+  <string name="image_recommendation_reject_title">Motivul respingerii</string>
+  <string name="image_recommendation_reject_subtitle">Motivul respingerii este anonim și va îmbunătăți sugestiile viitoare de imagini.</string>
+  <string name="image_recommendation_reject_not_relevant">Imaginea nu este relevantă</string>
+  <string name="image_recommendation_reject_no_info">Insuficiente informații pentru a decide</string>
+  <string name="image_recommendation_reject_offensive">Imaginea este ofensivă</string>
+  <string name="image_recommendation_reject_low_quality">Imaginea are calitate joasă</string>
+  <string name="image_recommendation_reject_dont_know">Nu cunosc acest subiect</string>
+  <string name="image_recommendation_reject_other">Altceva</string>
+  <string name="image_recommendation_reject_submit">Trimite</string>
   <string name="image_recommendation_onboarding_1">Imaginile îi ajută pe oameni să înțeleagă, dar multe articole nu le au.</string>
   <string name="image_recommendation_onboarding_2">Dumneavoastră veți decide dacă o imagine sugerată ar trebui plasată într-un articol Wikipedia.</string>
   <string name="image_recommendation_onboarding_3">Sugestiile sunt generate automat și veți folosi propria judecată pentru a decide dacă le acceptați sau le respingeți.</string>
@@ -1075,6 +1110,38 @@
   <string name="image_recommendation_depleted">Ne pare rău, nu există alte imagini sugerate disponibile în acest moment. Explorați alte &lt;a href=\"#\"&gt;modificări sugerate&lt;/a&gt; sau reveniți mai târziu.</string>
   <string name="suggested_edits_report_feature_subject">Problemă cu modificările sugerate</string>
   <string name="edit_summary_added_image">Imagine adăugată</string>
+  <string name="edit_published_view">Vizualizare</string>
+  <string name="activity_tab_logged_out_title">Autentificați-vă sau creați un cont pentru a vă viziualiza activitatea în aplicația Wikipedia</string>
+  <string name="activity_tab_user_reading">Lecturile utilizatorului %s</string>
+  <string name="activity_tab_on_wikipedia_android">Pe aplicația Wikipedia pentru Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Timp petrecut citind în această săptămână</string>
+  <string name="activity_tab_monthly_articles_read">Articole citite în această lună</string>
+  <string name="activity_tab_monthly_articles_saved">Articole salvate în această lună</string>
+  <string name="activity_tab_monthly_top_categories">Cele mai citite categorii în această lună</string>
+  <string name="activity_tab_explore_wikipedia">Descoperă prin Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Căutați ceva nou de citit?</string>
+  <string name="activity_tab_donation_unknown">Necunoscut</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Ultima donație&lt;/b&gt; în aplicație</string>
+  <string name="activity_tab_total_edits_all_projects">Editări totale de-a lungul proiectelor</string>
+  <string name="activity_tab_game_stats">Statul jocului</string>
+  <string name="activity_tab_game_stats_best_streak">Cea mai bună serie</string>
+  <string name="activity_tab_play_wiki_games">Joacă WikiGames</string>
+  <string name="activity_tab_report_email_subject">Raportare problemă - Fila Activitate</string>
+  <string name="activity_tab_menu_feedback">Problemă cu funcția</string>
+  <string name="activity_tab_menu_info">Află mai multe</string>
+  <string name="activity_tab_menu_customize">Personalizare</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Istoria citirii</string>
+  <string name="activity_tab_impact">Impactul dvs.</string>
+  <string name="activity_tab_impact_most_viewed">Cele mai vizionate după editarea dumneavoastră</string>
+  <string name="activity_tab_impact_contributions_this_month">Contribuții în această lună</string>
+  <string name="activity_tab_impact_all_time">Impactul tuturor timpurilor</string>
+  <string name="activity_tab_impact_best_streak">Cea mai bună serie</string>
+  <string name="activity_tab_impact_suggested_edits_button">Faceți o editare</string>
+  <string name="activity_tab_timeline_today">Astăzi</string>
+  <string name="activity_tab_timeline_yesterday">Ieri</string>
+  <string name="activity_tab_timeline_empty_state_title">Nimic de afișat</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Păstrează controlul</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1107,6 +1174,7 @@
   <string name="app_shortcuts_random">Aleatoriu</string>
   <string name="app_shortcuts_continue_reading">Continuați să citiți</string>
   <string name="app_shortcuts_search">Caută</string>
+  <string name="app_shortcuts_places">Locuri</string>
   <string name="on_this_day_card_title">Astăzi în istorie</string>
   <string name="more_events_text">Mai mult în această zi</string>
   <string name="events_count_text">%1$s evenimente din %2$s–%3$d</string>
@@ -1195,10 +1263,9 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Înălțime</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserare</string>
+  <string name="templates_insert_button">Inserează</string>
   <string name="main_drawer_help">Ajutor</string>
   <string name="main_drawer_login">Autentificare / alăturare Wikipedia</string>
-  <string name="main_tooltip_text">Bună, %s, știați că toată lumea poate edita Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Știați că toată lumea poate edita Wikipedia?</string>
   <string name="main_tooltip_action_button">Începe</string>
   <string name="main_tooltip_watchlist_title">Pagini urmărite</string>
   <string name="main_tooltip_watchlist_text">Găsiți articole și pagini pe care le-ați adăugat anterior la lista de urmărire a dvs. în meniul Mai mult de sub &lt;b&gt;Pagini urmărite&lt;/b&gt;.</string>
@@ -1210,10 +1277,15 @@
   <string name="talk_user_title">Discuție: %s</string>
   <string name="talk_new_topic">Subiect nou</string>
   <string name="talk_new_topic_submitted">Subiect postat.</string>
+  <string name="talk_warn">Avertizează</string>
   <string name="talk_warn_save_dialog_title">Salvați modificările?</string>
   <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
+  <string name="talk_warn_save_dialog_publish">Publică</string>
+  <string name="talk_warn_save_dialog_cancel">Revocare</string>
+  <string name="talk_warn_save_dialog_dont_save">Nu salvați</string>
   <string name="talk_warn_submitted">Mesajul a fost publicat pe pagina de discuții a editorului</string>
   <string name="talk_warn_submitted_and_saved">Mesajul a fost salvat și apoi publicat pe pagina de discuții a editorului</string>
+  <string name="talk_warn_saved_messages">Mesaje salvate</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
   <string name="talk_page_empty_title">Conversația începe aici</string>
   <string name="talk_page_empty_content">Paginile de discuții sunt locurile în care oamenii discută despre cum să facă conținutul Wikipedia să fie cât mai bun posibil. Începeți prin a adăuga un subiect nou de discuție pentru a vă conecta și colabora cu o comunitate de Wikipediști.</string>
@@ -1239,6 +1311,7 @@
   <string name="talk_overflow_sort_date_published">Data publicării</string>
   <string name="talk_overflow_sort_date_updated">Data actualizată</string>
   <string name="talk_overflow_sort_topic_name">Nume subiect</string>
+  <string name="talk_new_topic_exit_dialog_title">Sigur doriți să închideți?</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Afișează răspunsul</item>
     <item quantity="few">Afișați răspunsurile (%d)</item>
@@ -1305,10 +1378,10 @@
   <string name="revision_compare_two_only">Trebuie selectate doar două modificări</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">pentru 1 săptămână</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">pentru 1 lună</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">pentru 3 luni</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">pentru 6 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">o săptămână</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">o lună</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 luni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 luni</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
@@ -1323,6 +1396,10 @@
   <string name="watchlist_page_moved">Mutat</string>
   <string name="watchlist_page_protected">Protejat</string>
   <string name="watchlist_page_deleted">Șters</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tot</string>
+  <string name="watchlist_filter_user_status_unregistered">Neînregistrat</string>
+  <string name="watchlist_filter_user_status_registered">Înregistrat</string>
   <string name="watchlist_filter_user_status_newcomers">Nou-veniți</string>
   <string name="watchlist_filter_user_status_learners">Cursanți</string>
   <string name="watchlist_filter_user_status_experienced">Utilizatori experimentați</string>
@@ -1337,6 +1414,11 @@
   <string name="watchlist_filter_latest_revisions_header">Ultimele versiuni</string>
   <string name="watchlist_filter_type_of_change_new_users">Utilizatori noi</string>
   <string name="watchlist_filter_reset_button">Resetează</string>
+  <string name="preview_edit_summarize_edit_title">Descrieți modificarea</string>
+  <string name="preview_edit_summarize_edit_hint">Cum ați îmbunătățit această pagină?</string>
+  <string name="preview_edit_minor_edit">Aceasta este o modificare minoră</string>
+  <string name="preview_edit_watch_this_page">Urmărește această pagină</string>
+  <string name="preview_edit_learn_more">Aflați mai multe despre descrierea modificărilor</string>
   <string name="action_item_categories">Categorii</string>
   <string name="page_no_categories">Această pagină nu aparține niciunei categorii.</string>
   <string name="category_tab_articles">Articole</string>
@@ -1402,4 +1484,58 @@
   <string name="survey_dialog_general_no">Nu</string>
   <string name="survey_dialog_general_maybe">Pot fi</string>
   <string name="on_this_day_game_completed_message">Vă mulțumesc că ați jucat. Un nou joc \"Care a venit primul?\" este disponibil zilnic în feedul Explore.</string>
+  <string name="on_this_day_game_article_read_button">Citiți articolul</string>
+  <string name="recommended_reading_list_title">Discover</string>
+  <string name="recommended_reading_list_interest_source_interests">Lasă-mă să aleg potrivit intereselor mele</string>
+  <string name="recommended_reading_list_interest_source_saved">Alege pentru mine pe baza articolelor mele salvate</string>
+  <string name="recommended_reading_list_interest_source_history">Alege pentru mine pe baza istoricului meu de lectură</string>
+  <string name="recommended_reading_list_interest_pick_title">Ce vă interesează?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Caută un articol</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="one">%d selectat</item>
+    <item quantity="few">%d selectate</item>
+    <item quantity="other">%d selectate</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Am selectat aleatoriu câteva articole pentru dvs.</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Nu mai contează</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Făcută pentru %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Făcută pentru dvs.</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="one">• %d articol</item>
+    <item quantity="few">• %d articole</item>
+    <item quantity="other">• %d articole</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_weekly">Lista dvs. săptămânală de lectură. Aflați despre subiecte noi, alese doar pentru dvs. Lista se actualizează la începutul săptămânii.</string>
+  <string name="recommended_reading_list_page_overflow_customize">Personalizează</string>
+  <string name="recommended_reading_list_page_overflow_about">Despre această funcție</string>
+  <string name="recommended_reading_list_page_snackbar_action">Personalizează „Discover“</string>
+  <string name="recommended_reading_list_settings_title">Setări Discover</string>
+  <string name="recommended_reading_list_settings_toggle">Lista de lectură „Discover”</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">„Discover“ este dezactivat. Wikipedia nu vă va recomanda articole de citit.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Dezactivați „Discover“?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">Dacă dezactivați „Descoperă“, nu veți mai primi recomandări de lectură %s de la Wikipedia.</string>
+  <string name="recommended_reading_list_settings_articles">articole</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Se actualizează %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">zilnic</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">săptămânal</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">lunar</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">În fiecare zi</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">În fiecare săptămână</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">În fiecare lună</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Cum este făcut Discover</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Bazat pe interesele dvs.</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Bazat pe articolele dvs. salvate</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Bazat pe istoria dvs. de lectură</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">Ajustați cum este făcut Discover?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">Dacă ajustați modul în care Discover generează recomandările, recomandările dvs. actuale vor fi înlocuite.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">Ajustează</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">Nu mai contează</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">Acum, recomandările sunt bazate pe interesele dvs.</string>
+  <string name="recommended_reading_list_settings_interests">Interese</string>
+  <string name="recommended_reading_list_settings_notifications_title">Notificări</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">Notificările pentru Discover sunt dezactivate. Nu veți primi o notificare când Discover este actualizat.</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_title">Dezactivați notificările?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când „Discover” este actualizat.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
 </resources>

@@ -73,7 +73,7 @@
   <string name="page_error_back_to_main">Wróć</string>
   <string name="error_back">Wróć</string>
   <string name="error_next">Dalej</string>
-  <string name="menu_clear_all_history">Wyczyść historię</string>
+  <string name="menu_clear_all_history" fuzzy="true">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_items_deleted">%d artykułów usunięto z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
@@ -86,7 +86,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
-  <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Udostępnij przez</string>
@@ -287,14 +287,12 @@
   <string name="about_wikipedia_url">https://pl.wikipedia.org/wiki/Wikipedia:O_Wikipedii</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
@@ -466,7 +464,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
   <string name="preference_title_prefer_offline_content">Preferuj zawartość offline</string>
   <string name="preference_summary_prefer_offline_content">Zaoszczędź wykorzystanie danych, ładując artykuły dostępne offline, zamiast zawsze ładować najnowszą wersję artykułu</string>
-  <string name="preference_title_delete_local_donation_history">Usuń lokalną historię darowizn</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">Usuń lokalną historię darowizn</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
@@ -1350,8 +1348,6 @@
   <string name="templates_description_empty">Szablon „%s” nie ma jeszcze swojego opisu.</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
-  <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
-  <string name="main_tooltip_text_v2">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="main_tooltip_watchlist_title">Obserwowane</string>
   <string name="main_tooltip_watchlist_text">Znajdź artykuły i strony dodane wcześniej do listy obserwowanych w menu Więcej w sekcji &lt;b&gt;Lista obserwowanych&lt;/b&gt;.</string>
@@ -1662,7 +1658,7 @@
   <string name="generic_release_notes">Drobne poprawki błędów i ulepszenia</string>
   <string name="email_report_image_recommendations_subject">Raport o problemie — funkcja rekomendacji obrazów</string>
   <string name="donation_campaign_maybe_later_snackbar">Jutro przypomnimy Ci ponownie.</string>
-  <string name="donation_campaign_donated_snackbar">Dziękuję, drogi darczyńco! Twoja hojność pomaga w rozwoju Wikipedii i jej siostrzanych witryn.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Dziękuję, drogi darczyńco! Twoja hojność pomaga w rozwoju Wikipedii i jej siostrzanych witryn.</string>
   <string name="donation_campaign_go_back_button">Wróć</string>
   <string name="menu_single_webview_open_external">Otwórz w przeglądarce systemowej</string>
   <string name="donate_gpay_dialog_title">Przekazać darowiznę za pomocą usługi Google Pay?</string>
@@ -1680,7 +1676,7 @@
   <string name="donate_gpay_help_other_ways">Inne sposoby zrobienia darowizny</string>
   <string name="donate_gpay_help_faq">Często zadawane pytania</string>
   <string name="donate_gpay_help_tax">Informacje o możliwości odliczenia od podatku</string>
-  <string name="donation_history_deleted_message_snackbar">Usunięto historię darczyńcy</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Usunięto historię darczyńcy</string>
   <string name="places_title">Lokalizacja</string>
   <string name="places_permissions_denied">Aby zobaczyć swoją lokalizację na mapie, wymagane jest zezwolenie na lokalizację. Proszę spróbować jeszcze raz.</string>
   <string name="places_search_hint">Szukaj miejsc</string>

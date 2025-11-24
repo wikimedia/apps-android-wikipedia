@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Rudi nyuma</string>
   <string name="error_back">Rudi nyuma</string>
   <string name="error_next">Endelea</string>
-  <string name="menu_clear_all_history">Futa historia</string>
+  <string name="menu_clear_all_history" fuzzy="true">Futa historia</string>
   <string name="history_item_deleted">%s imeondolewa kwenye historia</string>
   <string name="history_items_deleted">Makala %d yameondolewa kwenye historia</string>
   <string name="history_item_delete_undo">Tengua</string>
@@ -203,4 +203,5 @@
   <string name="talk_message_hint">Tunga ujumbe</string>
   <string name="talk_message_empty">Ujumbe hauwezi kuwa tupu.</string>
   <string name="talk_subject_empty">Mada haiwezi kuwa tupu</string>
+  <string name="year_in_review_login_dialog_negative">Endelea bila kuingia</string>
 </resources>

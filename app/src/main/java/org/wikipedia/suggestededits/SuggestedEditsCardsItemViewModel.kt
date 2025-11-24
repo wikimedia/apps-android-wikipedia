@@ -1,6 +1,6 @@
 package org.wikipedia.suggestededits
 
-import android.net.Uri
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -69,7 +69,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
                         val title = if (imageInfo.commonsUrl.isEmpty()) {
                             page.title
                         } else {
-                            PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), Constants.commonsWikiSite).prefixedText
+                            PageTitle.titleForUri(imageInfo.commonsUrl.toUri(), Constants.commonsWikiSite).prefixedText
                         }
 
                         sourceSummaryForEdit = PageSummaryForEdit(
@@ -104,7 +104,7 @@ class SuggestedEditsCardsItemViewModel : ViewModel() {
                         val title = if (imageInfo.commonsUrl.isEmpty()) {
                             page.title
                         } else {
-                            PageTitle.titleForUri(Uri.parse(imageInfo.commonsUrl), Constants.commonsWikiSite).prefixedText
+                            PageTitle.titleForUri(imageInfo.commonsUrl.toUri(), Constants.commonsWikiSite).prefixedText
                         }
 
                         sourceSummaryForEdit = PageSummaryForEdit(

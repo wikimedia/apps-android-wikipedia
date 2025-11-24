@@ -19,14 +19,17 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
@@ -74,6 +77,9 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
+import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
@@ -151,6 +157,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
 
+    private var campaignDialog: CampaignDialog? = null
+    private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == DonationReminderActivity.RESULT_OK_FROM_DONATION_REMINDER) {
+            campaignDialog?.dismiss()
+        }
+    }
+
     private var _binding: FragmentPageBinding? = null
     val binding get() = _binding!!
 
@@ -183,6 +196,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup
     override val selectedReferenceIndex get() = references?.selectedIndex ?: 0
+    override val messageCardHeight get() = leadImagesHandler.getDonationReminderCardViewHeight()
 
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
@@ -310,6 +324,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         articleInteractionEvent?.resume()
         metricsPlatformArticleEventToolbarInteraction.resume()
+        DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -421,6 +436,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.onPcsReady()
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(DimenUtil.roundedPxToDp(((requireActivity() as AppCompatActivity).supportActionBar?.height ?: 0).toFloat()),
                             DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
+
+                        // In the case of certain types of namespaces, especially pages with a lot of interactivity
+                        // that we can't control, we need to bounce them out explicitly to an external
+                        // browser, even after the page is fully loaded into our WebView. This is because
+                        // we can determine the namespace only after the loading sequence is in progress.
+                        if (model.page?.pageProperties?.namespace == Namespace.EVENT) {
+                            model.title?.let {
+                                UriUtil.visitInExternalBrowser(requireActivity(), it.uri.toUri())
+                                binding.root.post {
+                                    if (isAdded) {
+                                        requireActivity().onBackPressedDispatcher.onBackPressed()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -538,6 +568,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             MainScope().launch(CoroutineExceptionHandler { _, throwable -> L.e(throwable) }) {
                 AppDatabase.instance.pageImagesDao().upsertForTimeSpent(it, timeSpentSec)
             }
+
+            // Update the article visit for Donation Reminder
+            DonationReminderHelper.increaseArticleVisitCount(timeSpentSec)
         }
     }
 
@@ -613,19 +646,31 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowAnnouncement() {
+        if (!lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+            return
+        }
         title?.let { pageTitle ->
             // Check if the pause time is older than 1 day.
             val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
             if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     val campaignList = CampaignCollection.getActiveCampaigns()
-                    val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
+                    val availableCampaign = campaignList.find { campaign -> campaign.getAssetsForLang(app.appOrSystemLanguageCode) != null }
                     availableCampaign?.let {
-                        if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
-                            val dialog = CampaignDialog(requireActivity(), it)
-                            dialog.setCancelable(false)
-                            dialog.show()
+                        val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
+                        if (!Prefs.announcementShownDialogs.contains(campaignId)) {
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
+                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralButtonClick = { campaignIdForAnalytics ->
+                                DonorExperienceEvent.logDonationReminderAction(
+                                    action = "group_assigned",
+                                    activeInterface = "article_banner",
+                                    groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
+                                    campaignId = campaignIdForAnalytics
+                                )
+                                donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
+                            })
+                            campaignDialog?.setCancelable(false)
+                            campaignDialog?.show()
                         }
                     }
                 }
@@ -861,7 +906,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     L.e(t)
                 }) {
                     if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
-                        AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
+                        AppDatabase.instance.readingListPageDao().updateThumbAndDescriptionByName(
+                            lang = page.wiki.languageCode,
+                            apiTitle = page.apiTitle,
+                            thumbUrl = title.thumbUrl,
+                            description = title.description
+                        )
                     }
                 }
             }
@@ -870,6 +920,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
         maybeShowAnnouncement()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(),
             InvokeSource.PAGE_ACTIVITY, model.title?.wikiSite ?: WikipediaApp.instance.wikiSite)
@@ -924,13 +975,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().invalidateOptionsMenu()
     }
 
-    fun updateBookmarkAndMenuOptionsFromDao() {
+    suspend fun updateBookmarkAndMenuOptionsFromDao() {
         title?.let {
-            lifecycleScope.launch {
-                model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
-                updateQuickActionsAndMenuOptions()
-                requireActivity().invalidateOptionsMenu()
-            }
+            model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it)
+            updateQuickActionsAndMenuOptions()
+            requireActivity().invalidateOptionsMenu()
         }
     }
 
@@ -1041,11 +1090,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 errorState = false
                 model.curEntry = HistoryEntry(title, HistoryEntry.SOURCE_HISTORY)
                  loadPage(title, entry, options = PageLoadOptions(pushBackStack = false, stagedScrollY = stagedScrollY, isRefresh = app.isOnline))
-                loadPage(title, entry, PageLoadOptions(
-                    pushBackStack = false,
-                    isRefresh = app.isOnline,
-                    stagedScrollY = stagedScrollY
-                ))
             }
         }
     }
