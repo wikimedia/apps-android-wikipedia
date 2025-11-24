@@ -20,10 +20,10 @@ import java.util.Date
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralButtonClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
-    private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode) +
-            if (DonationReminderHelper.isInEligibleCountry) {
-                if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
-            } else ""
+    private val campaignIdOriginal = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
+    private val campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
+        if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
+    } else ""
 
     init {
         val campaignView = CampaignDialogView(context)
@@ -48,7 +48,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     private fun dismissDialog(skipCampaign: Boolean = true) {
         // "Maybe later" option will show up the campaign after one day.
         if (skipCampaign) {
-            Prefs.announcementShownDialogs = setOf(campaignId)
+            Prefs.announcementShownDialogs = setOf(campaignIdOriginal)
         }
         dialog?.dismiss()
     }
@@ -80,8 +80,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
             dismissDialog(false)
             return
         }
-        // Important! This will make sure that the campaign id is the original one.
-        Prefs.announcementShownDialogs = setOf(campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode))
+        Prefs.announcementShownDialogs = setOf(campaignIdOriginal)
         onNeutralButtonClick?.invoke(campaignId)
     }
 
