@@ -316,7 +316,7 @@
   <string name="edit_summary_tag_other">Muu</string>
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="edit_summary_added_short_description">Lyhyt kuvaus lisätty</string>
-  <string name="edit_summary_updated_short_description">Lyhyttä kuvausta päivitetty</string>
+  <string name="edit_summary_updated_short_description">Päivitetty lyhyt kuvaus</string>
   <string name="edit_conflict_title">Päällekkäinen muokkaus.</string>
   <string name="edit_conflict_message">Toinen käyttäjä on jo muokannut sivua, ja se on ristiriidassa muokkauksesi kanssa. Kopioi muokkauksesi, palaa takaisin ja päivitä sivu, yritä sitten muokata uudelleen.</string>
   <string name="edit_notices">Muokkausilmoitukset</string>
