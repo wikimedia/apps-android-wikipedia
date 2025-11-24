@@ -1704,7 +1704,7 @@
   <string name="email_report_patroller_tasks_subject">Sorun Bildirimi - Değişiklik Kolluğu Özelliği</string>
   <string name="email_report_patroller_tasks_body">Değişiklik Kolluğu özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]\n\n[Ekran görüntüleri ya da Bağlantılar]</string>
   <string name="donation_campaign_maybe_later_snackbar">Yarın yine hatırlatacağız.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Teşekkürler sevgili bağışçı! Cömertliğiniz Vikipedi\'nin ve kardeş sitelerinin gelişmesine yardımcı oluyor.</string>
+  <string name="donation_campaign_donated_snackbar">Teşekkürler sevgili bağışçı! Cömertliğiniz Vikipedi\'nin ve diğer özgür bilgi projelerinin gelişmesine yardımcı oluyor.</string>
   <string name="donation_campaign_go_back_button">Geri dön</string>
   <string name="menu_single_webview_open_external">Sistem tarayıcısında aç</string>
   <string name="donate_gpay_dialog_title">Google Pay ile bağış yapmak ister misiniz?</string>

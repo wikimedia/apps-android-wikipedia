@@ -12,10 +12,14 @@
   <string name="search_hint">Ooʒʒ Wikipediast</string>
   <string name="search_hint_voice_search">Jiõnnooccmõš</string>
   <string name="search_hint_search_languages">Ooʒʒ ǩiõl</string>
+  <string name="search_back_button_content_description">Mååusat</string>
+  <string name="search_clear_query_content_description">Kuârad kõjldõõzz</string>
+  <string name="search_icon_content_description">Ooccmõš</string>
   <string name="filter_hint_filter_my_lists_and_articles">Siʹlle muu liistid:</string>
   <string name="nav_item_suggested_edits">Muttâz</string>
   <string name="nav_item_more">Lââʹzz</string>
   <string name="nav_item_search">Ooʒʒ</string>
+  <string name="nav_item_contribute">Muuʹtt</string>
   <string name="error_network_error">Vââʹǩǩ: Internetta õhttummuš ij oʹnnstam.</string>
   <string name="page_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="card_offline_error_retry">Ǩiččlõõđ oʹđđest</string>
@@ -24,7 +28,7 @@
   <string name="offline_load_error_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="page_error_back_to_main">Mååusat</string>
   <string name="error_back">Mååusat</string>
-  <string name="menu_clear_all_history" fuzzy="true">Kuârad historia</string>
+  <string name="menu_clear_all_history">Kuârad lookkâmhistoria</string>
   <string name="history_item_delete_undo">Kååʹmet</string>
   <string name="notification_archive_undo">Kååʹmet</string>
   <string name="history_list_title">Historia</string>
@@ -33,11 +37,16 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="page_edit_history_activity_title">Muʹttemhistoria: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;u&lt;/b&gt; %s</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Ooʒʒ leʹbe siʹlle muttsid</string>
+  <string name="page_edit_history_filter_by">Siʹlle</string>
+  <string name="page_edit_history_filter_by_all">Puk muttâz (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bottimuttâz (%s)</string>
   <string name="menu_page_show_tabs">Čuäʹjet kõskklõõstid</string>
   <string name="menu_page_other_languages">Vaajât ǩiõl</string>
   <string name="menu_page_find_in_page">Ooʒʒ artikkeeʹlest</string>
   <string name="menu_page_add_to_watchlist">Lââʹzzet valvvâmliʹstte</string>
+  <string name="menu_page_watch">Vaalv</string>
   <string name="menu_page_unwatch">Jõõsk valvvmest</string>
   <string name="menu_page_view_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="menu_page_talk_page">Saǥstõõllâmseidd</string>
@@ -45,6 +54,7 @@
   <string name="menu_page_edit_history">Muʹttemhistoria</string>
   <string name="menu_page_remove_from_watchlist">Jaukkâd valvvâmliistâst</string>
   <string name="edit_section_find_in_page">Ooʒʒ seeidast</string>
+  <string name="menu_page_font_and_theme">Fontt da teeʹmm</string>
   <string name="menu_page_add_to_list">Lââʹzzet lookkâmliʹstte</string>
   <string name="menu_page_add_to_default_list">Ruõkk</string>
   <string name="feed_card_add_to_list">Lââʹzzet lookkâmliʹstte</string>
@@ -182,9 +192,11 @@
   <string name="article_menu_bar_save_button">Ruõkk</string>
   <string name="article_menu_bar_language_button">Ǩiõll</string>
   <string name="article_menu_bar_search_button">Ooʒʒ</string>
+  <string name="article_menu_bar_theme_button">Teeʹmm</string>
   <string name="article_menu_bar_contents_button">Siiskâžlooǥǥtõs</string>
   <string name="article_header_edit_hint">Muuʹtt…</string>
   <string name="article_header_edit_description">Muuʹtt artikeeʹl deskriipt</string>
+  <string name="color_theme_select">Teeʹmm</string>
   <string name="text_style_title">Fontt</string>
   <string name="nav_item_saved">Ruõkkum</string>
   <string name="reading_list_save_to">Ruõkk lookkâmliʹstte</string>
@@ -419,4 +431,5 @@
   <string name="places_toggle_buttons_map">Mäddkartt</string>
   <string name="places_toggle_buttons_list">Listt</string>
   <string name="survey_dialog_submit">Vuõlttâd</string>
+  <string name="on_this_day_game_share_button">Jueʹjj</string>
 </resources>
