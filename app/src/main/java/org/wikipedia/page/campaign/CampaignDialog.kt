@@ -18,12 +18,12 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.util.Date
 
-class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralBtnClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralButtonClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
-    private val campaignId = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode) +
-            if (DonationReminderHelper.isInEligibleCountry) {
-                if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
-            } else ""
+    private val campaignIdOriginal = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
+    private val campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
+        if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
+    } else ""
 
     init {
         val campaignView = CampaignDialogView(context)
@@ -48,7 +48,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     private fun dismissDialog(skipCampaign: Boolean = true) {
         // "Maybe later" option will show up the campaign after one day.
         if (skipCampaign) {
-            Prefs.announcementShownDialogs = setOf(campaignId)
+            Prefs.announcementShownDialogs = setOf(campaignIdOriginal)
         }
         dialog?.dismiss()
     }
@@ -74,13 +74,14 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
-        Prefs.announcementPauseTime = Date().time
         if (!DonationReminderHelper.isEnabled) {
+            Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
             dismissDialog(false)
             return
         }
-        onNeutralBtnClick?.invoke(campaignId)
+        Prefs.announcementShownDialogs = setOf(campaignIdOriginal)
+        onNeutralButtonClick?.invoke(campaignId)
     }
 
     override fun onClose() {
