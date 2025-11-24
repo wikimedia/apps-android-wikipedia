@@ -264,7 +264,8 @@ interface Service {
         @Field("payment_network") paymentNetwork: String,
         @Field("postal_code") postalCode: String,
         @Field("state_province") stateProvince: String,
-        @Field("street_address") streetAddress: String
+        @Field("street_address") streetAddress: String,
+        @Field("app_install_id") appInstallId: String
     ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------

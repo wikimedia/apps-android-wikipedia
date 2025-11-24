@@ -4,6 +4,7 @@
 * Albe Albe 460
 * Albe Albe460
 * Antonino Faro
+* Ayub Abdulla
 * Beta16
 * Black Sky83
 * Bsitzmann
@@ -1965,6 +1966,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">I promemoria per fare una donazione possono essere modificati in qualsiasi momento nelle Impostazioni.</string>
   <string name="donation_settings_section_header">Donazioni</string>
   <string name="donation_reminders_settings_title">Come dovremmo ricordartelo?</string>
+  <string name="donation_reminders_settings_option_title">Ricordi di donazione</string>
   <string name="donation_reminders_settings_thank_you_message">La tua generosità contribuisce a far prosperare Wikipedia. Imposta un promemoria per le donazioni in base al numero di voci che leggi.</string>
   <string name="donation_reminders_settings_donation_info">Le donazioni sono destinate alla Wikimedia Foundation e alle sue organizzazioni affiliate, che gestiscono orgogliosamente Wikipedia e altri progetti di conoscenza libera.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quando leggo</string>

@@ -72,6 +72,7 @@
 * VitalKanev
 * Vlad5250
 * Vonavy
+* Well very well
 * Wikisaurus
 * Wileyfoxyx
 * WindEwriX
@@ -222,7 +223,7 @@
   <string name="search_reading_list_no_results">Не найдено результатов в \"%s\"</string>
   <string name="search_reading_lists_no_results">Не найдено результатов в списках для чтения</string>
   <string name="search_history_no_results">Не найдено результатов в истории</string>
-  <string name="edit_section_captcha_message">Для того, что бы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, которые показаны ниже</string>
+  <string name="edit_section_captcha_message">Для того, чтобы помочь нам защититься от автоматизированного спама, пожалуйста, введите слова, показанные ниже</string>
   <string name="edit_section_captcha_request_an_account_message">Не видите изображений капчи? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Запросите учётную запись&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Повторите слова, показанные выше</string>
   <string name="title_captcha">Введите CAPTCHA</string>
@@ -1724,7 +1725,7 @@
     <item quantity="other">%d фильтров</item>
   </plurals>
   <string name="preview_edit_title">Предпросмотр правки</string>
-  <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
+  <string name="preview_edit_summarize_edit_title">Опишите изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
   <string name="preview_edit_minor_edit">Это малая правка</string>
   <string name="preview_edit_watch_this_page">Наблюдать за этой страницей</string>
@@ -2081,6 +2082,7 @@
   <string name="year_in_review_login_dialog_body">Авторизация открывает вам доступ к персонализированным данным. Вы по-прежнему сможете просматривать общие данные без авторизации.</string>
   <string name="year_in_review_login_dialog_positive">Войти / Присоединиться к Википедии</string>
   <string name="year_in_review_login_dialog_negative">Продолжить без авторизации</string>
+  <string name="year_in_review_slide_top_categories_headline">Ваши самые интересные категории</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Создать</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
