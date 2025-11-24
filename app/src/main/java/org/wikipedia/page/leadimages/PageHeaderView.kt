@@ -140,18 +140,15 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
         config?.let { config ->
-            val articleText = context.resources.getQuantityString(
-                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-            )
             val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
             val titleText = if (config.goalReachedCount == 1) {
-                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
+                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, getArticleTextForDonationReminder(true), donationAmount)
             } else {
-                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
+                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, getArticleTextForDonationReminder(true))
             }
 
             val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
-            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
+            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, getArticleTextForDonationReminder(false), donationAmount)
             val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
             val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
             binding.donationReminderCardView.setTitle(titleText)
@@ -166,6 +163,13 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
                 DonationReminderHelper.dismissReminder()
             }
         }
+    }
+
+    private fun getArticleTextForDonationReminder(isForTitle: Boolean): String {
+        val articlesRead = Prefs.donationReminderConfig.articleFrequency + if (isForTitle) Prefs.donationReminderConfig.articleVisit else 0
+        return context.resources.getQuantityString(
+            R.plurals.donation_reminders_text_articles, articlesRead, articlesRead
+        )
     }
 
     fun maybeShowDonationReminderCard() {
