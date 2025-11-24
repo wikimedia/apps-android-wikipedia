@@ -332,11 +332,8 @@ class YearInReviewSlides(
                 )
             }
 
-            val hasMinimumReadingActivity = yearInReviewModel.localReadingArticlesCount >= YearInReviewViewModel.MIN_READING_ARTICLES ||
-                    yearInReviewModel.totalReadingTimeMinutes >= YearInReviewViewModel.MIN_READING_MINUTES
-
             // Reading time
-            if (hasMinimumReadingActivity && yearInReviewModel.totalReadingTimeMinutes > 0) {
+            if (yearInReviewModel.totalReadingTimeMinutes >= YearInReviewViewModel.MIN_READING_MINUTES) {
                 add(
                     HighlightItem(
                         title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_minutes_read_title, yearInReviewModel.totalReadingTimeMinutes.toInt()),
@@ -345,8 +342,8 @@ class YearInReviewSlides(
                 )
             }
 
-            // Favorite day
             if (yearInReviewModel.localReadingArticlesCount >= YearInReviewViewModel.MIN_READING_ARTICLES) {
+                // Favorite day
                 add(
                     HighlightItem(
                         title = context.resources.getString(R.string.year_in_review_highlights_logged_in_favorite_day_title),
@@ -354,10 +351,7 @@ class YearInReviewSlides(
                             .getDisplayName(TextStyle.FULL, Locale.getDefault())
                     )
                 )
-            }
-
-            // Articles read count
-            if (hasMinimumReadingActivity && yearInReviewModel.localReadingArticlesCount > 0) {
+                // Articles read count
                 add(
                     HighlightItem(
                         title = context.resources.getQuantityString(R.plurals.year_in_review_highlights_logged_in_articles_read_title, yearInReviewModel.localReadingArticlesCount),
