@@ -1764,6 +1764,9 @@
     <item quantity="one">Mir hunn %,d Stonn mat Liese verbruecht</item>
     <item quantity="other">Mir hu(nn) %,d Stonne mat Liese verbruecht</item>
   </plurals>
+  <string name="year_in_review_reading_list_dialog_title">Är Lieslëscht fir de Joresréckbléck %d uleeën?</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Uleeën</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nee, merci</string>
   <string name="year_in_review_reading_list_title">Joresréckbléck fir %d</string>
   <string name="year_in_review_highlights_thank_you_message">Merci, datt Dir Äert Joer mat Wikipedia verbruecht hutt.</string>
   <string name="year_in_review_highlights_looking_forward_message">Mir freeën eis op d\'nächst Joer!</string>
@@ -1847,6 +1850,8 @@
   <string name="recommended_reading_list_settings_toggle_disable_message">Entdecken ass desaktivéiert. Wikipedia recommandéiert Iech keng Artikele fir ze liesen.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Entdecken desaktivéieren?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Wann Dir Entdecken desaktivéiert, kritt Dir keng %s Liesrecommandatioune méi vu Wikipedia.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Desaktivéieren</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Nee, aktivéiert loossen</string>
   <string name="recommended_reading_list_settings_turn_off_snackbar">Entdecke gouf desaktivéiert. Dir kënnt et zu all Zäit erëm an den Astellungen aktivéieren.</string>
   <string name="recommended_reading_list_settings_articles">Artikelen</string>
   <string name="recommended_reading_list_settings_updates_frequency">Aktualiséierungen %s</string>
@@ -1907,5 +1912,10 @@
   <string name="donation_reminders_experiment_label">EXPERIMENT</string>
   <string name="donation_reminders_settings_learn_more_button">Méi gewuer ginn</string>
   <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
+  <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
+  <string name="explore_feed_survey_dialog_title">Hëlleft eis Entdecken ze verbesseren</string>
+  <string name="explore_feed_survey_dialog_message">Maacht wgl. bei enger kuerzer Ëmfro iwwer den Entdecke-Feed mat. Äre Feedback hëlleft eis fir zukünfteg Verbesserungen un der App ze maachen.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Bei der Ëmfro matmaachen</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Nee, merci</string>
 </resources>

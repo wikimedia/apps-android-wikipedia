@@ -2206,13 +2206,13 @@
     <item quantity="many">أضيف %,d بايت</item>
     <item quantity="other"> أضيف %,d بايت</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
-    <item quantity="zero">لم تعدّل ويكيبيديا ولا مرة</item>
-    <item quantity="one">عدّلت ويكيبيديا مرة واحدة</item>
-    <item quantity="two">عدّلت ويكيبيديا مرتين</item>
-    <item quantity="few">عدّلت ويكيبيديا %s مرات</item>
-    <item quantity="many">عدّلت ويكيبيديا %s مرة</item>
-    <item quantity="other"> عدّلت ويكيبيديا %s مرة</item>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="zero">لم تعدّل ولا مرة</item>
+    <item quantity="one">عدّلت مرة واحدة</item>
+    <item quantity="two">عدّلت مرتين</item>
+    <item quantity="few">عدّلت %s مرات</item>
+    <item quantity="many">عدّلت %s مرة</item>
+    <item quantity="other"> عدّلت %s مرة</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="zero">لم يجرِ المحررون على تطبيقات ويكيبيديا الرسمية ولا تعديل</item>
@@ -2431,6 +2431,10 @@
   <string name="donation_reminders_settings_learn_more_button">معرفة المزيد</string>
   <string name="donation_reminders_settings_report_button">مشكلة مع الميزة</string>
   <string name="donation_reminders_settings_report_email_subject">تقرير المشكلة - تذكيرات التبرع</string>
-  <string name="donation_reminders_settings_report_email_body" fuzzy="true">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="donation_reminders_settings_report_email_body">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
+  <string name="explore_feed_survey_dialog_title">ساعدنا على تحسين</string>
+  <string name="explore_feed_survey_dialog_message">من فضلكم قموا بإجراء مسح قصير حول إرسال \"إكسبلور\". ردود الفعل الخاصة بك ستساعد على تشكيل التحسينات القادمة للتطبيق.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">إجراء مسح</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">لا شكراً</string>
 </resources>
