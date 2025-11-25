@@ -6,6 +6,10 @@ import org.wikipedia.R
 
 class DialogRobot : BaseRobot() {
 
+    fun dismissSurveyDialog() = apply {
+        click.ifDialogShown("No thanks", errorString = "No Survey Dialog dialog shown.")
+    }
+
     fun dismissContributionDialog() = apply {
         click.ifDialogShown("No thanks", errorString = "No Contribution dialog shown.")
     }

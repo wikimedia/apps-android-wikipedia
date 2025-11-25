@@ -40,6 +40,8 @@ data class DataInjector(
     val readingListShareTooltipShown: Boolean = true,
     val otdEntryDialogShown: Boolean = true,
     val enableYearInReview: Boolean = false,
+    val yearInReviewReadingListSurveyShown: Boolean = false,
+    val exploreFeedSurveyShown: Boolean = false
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -67,11 +69,15 @@ abstract class BaseTest<T : AppCompatActivity>(
     init {
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
-        Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
-        Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
-        Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
-        Prefs.otdEntryDialogShown = dataInjector.otdEntryDialogShown
-        Prefs.isYearInReviewEnabled = dataInjector.enableYearInReview
+        Prefs.apply {
+            isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+            showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
+            readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
+            otdEntryDialogShown = dataInjector.otdEntryDialogShown
+            isYearInReviewEnabled = dataInjector.enableYearInReview
+            yearInReviewReadingListSurveyShown = dataInjector.yearInReviewReadingListSurveyShown
+            exploreFeedSurveyShown = dataInjector.exploreFeedSurveyShown
+        }
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
