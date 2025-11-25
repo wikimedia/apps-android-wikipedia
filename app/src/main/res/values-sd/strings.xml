@@ -1462,7 +1462,7 @@
   <string name="page_issues_title">صفحي جا مسئلا</string>
   <string name="generic_release_notes">معمولي بگ جي اصلاح ۽ واڌارا</string>
   <string name="donation_campaign_maybe_later_snackbar">اسان توهان کي سڀاڻي ٻيھر ياد ڏيارينداسين.</string>
-  <string name="donation_campaign_donated_snackbar">مھرباني، پيارا مدد ڪندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ان جي ڀينر سائيٽن کي ترقي وٺرائڻ ۾ مدد ڪري ٿي.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">مھرباني، پيارا مدد ڪندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ان جي ڀينر سائيٽن کي ترقي وٺرائڻ ۾ مدد ڪري ٿي.</string>
   <string name="donation_campaign_go_back_button">واپس وڃو</string>
   <string name="menu_single_webview_open_external">سسٽم برائوزر ۾ کوليو</string>
   <string name="donate_gpay_dialog_title">گوگل پي ذريعي امداد ڏجي؟</string>

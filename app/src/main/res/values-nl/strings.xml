@@ -1762,7 +1762,7 @@
   <string name="email_report_patroller_tasks_subject">Probleemmelding: functie bewerkingscontrole</string>
   <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie bewerkingscontrole:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]\n\n[Schermafbeeldingen of koppelingen]</string>
   <string name="donation_campaign_maybe_later_snackbar">Morgen herinneren wij u er nogmaals aan.</string>
-  <string name="donation_campaign_donated_snackbar">Bedankt, beste donateur! Dankzij uw bijdrage kunnen Wikipedia en haar zustersites zich blijven ontwikkelen.</string>
+  <string name="donation_campaign_donated_snackbar">Bedankt, beste donateur! Dankzij uw bijdrage kunnen Wikipedia en andere projecten voor vrije kennis zich blijven ontwikkelen.</string>
   <string name="donation_campaign_go_back_button">Terug</string>
   <string name="menu_single_webview_open_external">Openen in systeembrowser</string>
   <string name="donate_gpay_dialog_title">Doneren met Google Pay?</string>
@@ -1781,7 +1781,8 @@
   <string name="donate_gpay_help_other_ways">Andere manieren om te geven</string>
   <string name="donate_gpay_help_faq">Veelgestelde vragen</string>
   <string name="donate_gpay_help_tax">Informatie over fiscale aftrekbaarheid</string>
-  <string name="donation_history_deleted_message_snackbar">Donateurgeschiedenis verwijderd</string>
+  <string name="donation_history_deleted_message_snackbar">Donatiegeschiedenis gewist</string>
+  <string name="donation_history_no_history_message_snackbar">Er is geen donatiegeschiedenis die gewist kan worden.</string>
   <string name="places_title">Plaatsen</string>
   <string name="places_permissions_denied">Locatietoestemming is vereist om uw locatie op de kaart te zien. Probeer het opnieuw.</string>
   <string name="places_search_hint">Plaatsen zoeken</string>
@@ -1921,7 +1922,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Nieuw apppictogram ontgrendeld voor uw startscherm</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Ontgrendel uw bijdragersbeloning voor volgend jaar!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Activeer uw nieuwe apppictogram in de Instellingen onder Apppictogram. Bedankt voor het investeren in de toekomst van de vrije kennis. Uw bijdragen als %1$s in %2$d helpen de weg vrij te maken naar een wereld van vrije informatie. Daarom is nu voor u een eigen bijdragerspictogram ontsloten voor Wikipedia op uw startscherm.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Wat fijn dat Wikipedia deel uitmaakte van uw jaar %1$d! Ontgrendel met uw bijdragen een speciale beloning in uw Jaaroverzicht %2$d. Dat doet u door &lt;a href=\"%3$s\"&gt;Wikipedia te bewerken&lt;/a&gt; of door vanuit de app te doneren aan de &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, de non-profitorganisatie erachter. Als Wikipedia dit jaar voor u behulpzaam is geweest, overweeg dan te doneren zodat Wikipedia ook in de toekomst voor iedereen gratis, advertentievrij, betrouwbaar en toegankelijk blijft. Als u ergens anders hebt gedoneerd, stellen we uw steun zeer op prijs.</string>
   <string name="year_in_review_slide_app_icon_donor">donateur</string>
   <string name="year_in_review_slide_app_icon_editor">redacteur</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donateur en redacteur</string>
@@ -1967,7 +1968,7 @@
     <item quantity="one">In %1$d voegden vrijwilligers %2$,d byte toe aan de Engelstalige Wikipedia. De som van al hun gezamenlijke werk leidt tot een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron die ze aan de wereld aanbieden. We hebben allemaal kennis om te delen. &lt;a href=\"%3$s\"&gt;Lees hier hoe u kunt deelnemen&lt;/a&gt;.</item>
     <item quantity="other">In %1$d voegden vrijwilligers %2$,d byte toe aan de Engelstalige Wikipedia. De som van al hun gezamenlijke werk leidt tot een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron die ze aan de wereld aanbieden. We hebben allemaal kennis om te delen. &lt;a href=\"%3$s\"&gt;Lees hier hoe u kunt deelnemen&lt;/a&gt;.</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
     <item quantity="one">U hebt Wikipedia één keer bewerkt</item>
     <item quantity="other">U hebt Wikipedia %s keer bewerkt</item>
   </plurals>
@@ -2210,16 +2211,12 @@
   <string name="recommended_reading_list_notification_subtitle">Tik om uw laatste aanbevelingen te bekijken.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Wanneer uw Ontdekken wordt bijgewerkt, stuurt Wikipedia u een melding.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Ontdekken staat aan. Wikipedia beveelt u pagina\'s aan om te lezen.</string>
-  <string name="donation_reminders_initial_prompt_label">Experiment</string>
-  <string name="donation_reminders_initial_prompt_title">Steun Wikipedia terwijl u leest</string>
-  <string name="donation_reminders_initial_prompt_message">Stel een donatieherinnering in op basis van het aantal pagina\'s dat u leest. Zo houdt u Wikipedia advertentievrij, actueel en voor iedereen toegankelijk.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Aan de slag</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Nu niet</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">U kunt donatieherinneringen altijd wijzigen via Instellingen.</string>
   <string name="donation_settings_section_header">Donaties</string>
-  <string name="donation_reminders_settings_title">Donatieherinneringen</string>
-  <string name="donation_reminders_settings_thank_you_message">Sluit u aan bij de 2%% van de lezers die hun steentje bijdragen om Wikipedia advertentievrij, actueel en voor iedereen beschikbaar te houden. Stel nu uw donatieherinnering in.</string>
-  <string name="donation_reminders_settings_donation_info">Donaties gaan naar de Wikimedia Foundation en aangesloten organisaties, de trotse beheerders van Wikipedia en aanverwante sites.</string>
+  <string name="donation_reminders_settings_title">Hoe moeten wij u hieraan herinneren?</string>
+  <string name="donation_reminders_settings_option_title">Donatieherinneringen</string>
+  <string name="donation_reminders_settings_thank_you_message">Uw vrijgevigheid helpt Wikipedia te blijven bloeien. Stel een donatieherinnering in op basis van het aantal pagina\'s dat u leest.</string>
+  <string name="donation_reminders_settings_donation_info">Donaties gaan naar de Wikimedia Foundation en aangesloten organisaties, de trotse beheerders van Wikipedia en andere projecten voor vrije kennis.</string>
   <string name="donation_reminders_settings_article_frequency_label">Als ik lees</string>
   <string name="donation_reminders_settings_amount_label">Herinner mij eraan om te doneren</string>
   <string name="donation_reminders_settings_confirm_btn_label">Herinnering bevestigen</string>
@@ -2230,13 +2227,12 @@
   <string name="donation_reminders_settings_option_custom">Anders…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Bedankt! We herinneren u eraan om %1$s te doneren wanneer u %2$s leest terwijl dit experiment loopt.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
-  <string name="donation_reminders_prompt_message">Op %1$s vroeg u ons u eraan te herinneren te doneren na het lezen van %2$s. Als Wikipedia u %3$s aan kennis heeft gegeven, sluit u dan aan bij de 2%% van de lezers die doneren en voltooi vandaag nog uw donatie.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt nog %1$s gelezen</string>
+  <string name="donation_reminders_prompt_message">U hebt een donatieherinnering ingesteld op %1$s om %3$s te doneren voor elke %2$s die u leest. Klaar om uw belofte om Wikipedia te steunen na te komen?</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>
   <string name="donation_reminders_gpay_text">Doneer %s met Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Doneer een ander bedrag met Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Help mee om donatieherinneringen te verbeteren.</string>
-  <string name="donation_reminders_survey_dialog_message">Bent u tevreden met deze ervaring?</string>
   <string name="donation_reminders_settings_description_on">Donatieherinneringen zijn ingeschakeld. Wikipedia zal u eraan herinneren om %1$s te doneren voor elke %2$s die u leest terwijl dit experiment loopt.</string>
   <string name="donation_reminders_settings_description_off">Herinneringen voor donaties zijn uitgeschakeld.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Het aantal pagina\'s wordt lokaal op uw apparaat opgeslagen</string>
@@ -2244,4 +2240,11 @@
     <item quantity="one">%d pagina</item>
     <item quantity="other">%d pagina\'s</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nee, bedankt</string>
+  <string name="donation_reminders_experiment_label">EXPERIMENT</string>
+  <string name="donation_reminders_settings_learn_more_button">Meer lezen</string>
+  <string name="donation_reminders_settings_report_button">Probleem met functie</string>
+  <string name="donation_reminders_settings_report_email_subject">Probleemrapport - Donatieherinneringen</string>
+  <string name="donation_reminders_settings_report_email_body" fuzzy="true">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Wijzigen</string>
 </resources>

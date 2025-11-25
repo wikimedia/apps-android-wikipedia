@@ -1754,7 +1754,7 @@
   <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
   <string name="email_report_patroller_tasks_body">我遇到了編輯巡查功能的問題：\n- [描述具體問題]\n\n我預期看到的結果是：\n- [描述建議的解決方案]\n\n[截圖或是連結]</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我們會再次提醒您。</string>
-  <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
+  <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與其他自由知識專案網站蓬勃發展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系統瀏覽器開啟</string>
   <string name="donate_gpay_dialog_title">使用 Google Pay 捐款？</string>
@@ -1773,7 +1773,8 @@
   <string name="donate_gpay_help_other_ways">其他給予方式</string>
   <string name="donate_gpay_help_faq">常見問題</string>
   <string name="donate_gpay_help_tax">減稅資訊</string>
-  <string name="donation_history_deleted_message_snackbar">已刪除捐款紀錄</string>
+  <string name="donation_history_deleted_message_snackbar">已清除捐款紀錄。</string>
+  <string name="donation_history_no_history_message_snackbar">您沒有需要清除的捐款歷史紀錄。</string>
   <string name="places_title">地點</string>
   <string name="places_permissions_denied">需要位置權限才能在地圖上查看您的位置。請再試一次。</string>
   <string name="places_search_hint">搜尋地點</string>
@@ -1913,7 +1914,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">已為您的主畫面解鎖新的應用程式圖示</string>
   <string name="year_in_review_slide_app_icon_title_unlock">解鎖您明年的貢獻者獎勵！</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">請在設定中的「應用程式圖示」裡啟動您的新應用程式圖示。感謝您投入自由知識的未來，您作為 %2$d 年%1$s的貢獻，幫助到鋪往自由資訊世界的道路，因此您在主畫面上解鎖了維基百科的自訂貢獻者圖示。</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">我們很高興維基百科成為您在 %1$d 年參與的活動！透過成為貢獻者，即可在您的 %2$d 年度回顧解鎖特別獎勵—無論是藉由&lt;a href=\"%3$s\"&gt;編輯維基百科&lt;/a&gt;，或是對其背後的非營利組織&lt;a href=\"%4$s\"&gt;維基媒體基金會&lt;/a&gt;捐款。如果維基百科對您有所幫助，歡迎您考慮捐款，來幫助維基百科維持其未來發展，並保持免費、無廣告、值得信賴、且人人皆可用的運作狀態。</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">我們很高興維基百科成為您在 %1$d 年參與的活動！透過成為貢獻者，即可在您的 %2$d 年度回顧解鎖特別獎勵—無論是藉由應用程式&lt;a href=\"%3$s\"&gt;編輯維基百科&lt;/a&gt;，或是對其背後的非營利組織&lt;a href=\"%4$s\"&gt;維基媒體基金會&lt;/a&gt;捐款。如果維基百科對您有所幫助，歡迎您考慮捐款，來幫助維基百科維持其未來發展，並保持免費、無廣告、值得信賴、且人人皆可用的運作狀態。如果您是透過其他管道捐款，我們由衷感謝您的支持。</string>
   <string name="year_in_review_slide_app_icon_donor">捐款者</string>
   <string name="year_in_review_slide_app_icon_editor">編輯者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐款者與編輯者</string>
@@ -1935,8 +1936,8 @@
   <string name="year_in_review_slide_top_categories_body">分類會把主題相似的條目歸類在一起。在 %1$d 年，您多次閱讀過以下這些您感興趣分類裡的條目：%2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">中文維基百科最受歡迎的條目</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
-    <item quantity="one">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
-    <item quantity="other">當人們想要了解我們的世界—無論是好的、壞的、奇怪的還是狂野的—他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+    <item quantity="one">當人們想要了解我們的世界 — 他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
+    <item quantity="other">當人們想要了解我們的世界 — 他們都會求助於維基百科。英文維基百科瀏覽量排名前 %1$d 的條目是：%2$s&lt;br /&gt;要閱讀更多內容，請參訪我們的&lt;a href=\"%3$s\"&gt;專題部落格文章&lt;/a&gt;。</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">您的編輯內容最近已被瀏覽超過 %,d 次</item>
@@ -1960,8 +1961,8 @@
     <item quantity="other">在 %1$d 年，志工們為英文維基百科添加了多達 %2$,d 位元組內容。他們共同的努力，為世界帶來了不斷改進、基於事實、可靠的知識資源。我們每一個人，都有可分享的知識，&lt;a href=\"%3$s\"&gt;了解如何參與&lt;/a&gt;。</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
-    <item quantity="one">您編輯了維基百科%s次</item>
-    <item quantity="other">您編輯了維基百科%s次</item>
+    <item quantity="one">您編輯了 %s 次</item>
+    <item quantity="other">您編輯了 %s 次</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">感謝您成為編輯者志工之一，為世界各地的維基媒體專案做出改變。像您一樣的志工對維基百科的 300 多個不同語言版本進行了 %,d 次修改。</item>
@@ -2202,16 +2203,12 @@
   <string name="recommended_reading_list_notification_subtitle">輕觸來查看您的最新推薦。</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">當您的 Discover 更新時，維基百科會對您發送通知。</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">已開啟 Discover 功能。維基百科會為您推薦值得閱讀的條目。</string>
-  <string name="donation_reminders_initial_prompt_label">實驗功能</string>
-  <string name="donation_reminders_initial_prompt_title">閱讀時支持維基百科</string>
-  <string name="donation_reminders_initial_prompt_message">根據您閱讀的條目數量設定捐款提醒，來幫助維基百科遠離廣告、持續更新、且可讓所有人都能使用。</string>
-  <string name="donation_reminders_initial_prompt_positive_button">入門</string>
-  <string name="donation_reminders_initial_prompt_negative_button">現在不要</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">您可以在設定中隨時修改捐款提醒。</string>
   <string name="donation_settings_section_header">捐款</string>
-  <string name="donation_reminders_settings_title">捐款提醒</string>
-  <string name="donation_reminders_settings_thank_you_message">加入那 2%% 盡一份心力的讀者行列，來幫助維基百科遠離廣告、持續更新，且可讓所有人都能使用。立即設定您的捐款提醒。</string>
-  <string name="donation_reminders_settings_donation_info">捐款會轉到維基媒體基金會及其附屬機構，他們是維基百科與相關姊妹網站驕傲的主辦者。</string>
+  <string name="donation_reminders_settings_title">我們應如何提醒您？</string>
+  <string name="donation_reminders_settings_option_title">捐款提醒</string>
+  <string name="donation_reminders_settings_thank_you_message">您的慷慨幫助維基百科持續蓬勃發展。歡迎依照您閱讀過的條目數量，來設定您的捐款提醒。</string>
+  <string name="donation_reminders_settings_donation_info">捐款會轉到維基媒體基金會及其附屬機構，他們是維基百科與其他自由知識專案網站驕傲的主辦者。</string>
   <string name="donation_reminders_settings_article_frequency_label">當我閱讀</string>
   <string name="donation_reminders_settings_amount_label">提醒我捐款</string>
   <string name="donation_reminders_settings_confirm_btn_label">確認提醒</string>
@@ -2222,13 +2219,12 @@
   <string name="donation_reminders_settings_option_custom">自訂…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">感謝您！在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">自從您承諾捐款 %2$s，您已閱讀了 %1$s 篇條目</string>
-  <string name="donation_reminders_prompt_message">在 %1$s，您向我們提出當您閱讀了 %2$s 篇條目後，提醒您進行捐款。如果維基百科能以您的 %3$s 來提供知識，請加入 2%% 的讀者行列，來在今日完成您的捐贈承諾。</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">讀過 %1$s 篇條目後提醒</string>
+  <string name="donation_reminders_prompt_message">您於 %1$s 設定了捐款提醒，每當您閱讀了 %2$s 篇條目後，就捐贈 %3$s。準備好履行您支持維基百科的承諾了嗎？</string>
   <string name="donation_reminders_prompt_positive_button">立即捐款</string>
   <string name="donation_reminders_prompt_negative_button">現在不要</string>
   <string name="donation_reminders_gpay_text">使用 Google Pay 捐款 %s</string>
   <string name="donation_reminders_gpay_different_amount_text">使用 Google Pay 捐款不同金額</string>
-  <string name="donation_reminders_survey_dialog_title">協助改善捐款提醒。</string>
-  <string name="donation_reminders_survey_dialog_message">您對這次體驗滿意嗎？</string>
   <string name="donation_reminders_settings_description_on">已開啟捐款提醒。在此實驗功能運作期間，當您閱讀了 %2$s 篇條目時，我們會提醒您捐贈 %1$s。</string>
   <string name="donation_reminders_settings_description_off">捐款提醒已關閉。</string>
   <string name="donation_reminders_settings_tooltip_info_label">條目次數儲存在您的本地端裝置</string>
@@ -2236,4 +2232,15 @@
     <item quantity="one">%d 篇條目</item>
     <item quantity="other">%d 篇條目</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">不用了，謝謝</string>
+  <string name="donation_reminders_experiment_label">實驗功能</string>
+  <string name="donation_reminders_settings_learn_more_button">了解更多</string>
+  <string name="donation_reminders_settings_report_button">功能問題</string>
+  <string name="donation_reminders_settings_report_email_subject">問題報告 - 捐款提醒</string>
+  <string name="donation_reminders_settings_report_email_body">我遇到了維基百科捐款提醒功能的問題：\n- [描述具體問題]\n- [截圖或連結]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">修改</string>
+  <string name="explore_feed_survey_dialog_title">協助我們改進探索功能</string>
+  <string name="explore_feed_survey_dialog_message">請填寫一份關於探索摘要的簡短問卷。您的回饋將有助於我們改善往後的應用程式。</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">參加調查</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">不用了，謝謝</string>
 </resources>

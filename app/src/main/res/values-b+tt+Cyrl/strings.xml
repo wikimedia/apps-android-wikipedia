@@ -945,7 +945,7 @@
     <item quantity="one">бер генә төзәтмә</item>
     <item quantity="other">%d төзәтмә</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_feed_card_title">Тәкъдим ителгән төзәтмәләр</string>
   <string name="suggested_edits_feed_card_add_description_button">Мәкаләләргә тасвирлама өстәргә</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Мәкаләләргә (%s) тасвирлама өстәргә</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Башларга</string>
@@ -1010,7 +1010,7 @@
   <string name="suggested_edits_quality_sufficient_text">Җитәрлек</string>
   <string name="suggested_edits_quality_poor_text">Сыйфатсыз</string>
   <string name="suggested_edits_quality_bad_text">Начар</string>
-  <string name="suggested_edits_label">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_label">Тәкъдим ителгән төзәтмәләр</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Кертем</item>
     <item quantity="other">Кертемнәр</item>
@@ -1033,7 +1033,7 @@
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
   <string name="suggested_edits_task_new">Яңа</string>
   <string name="suggested_edits_cc0_notice">Бастырып чыгарганда &lt;a href=\"%1$s\"&gt;куллану шартлары&lt;/a&gt; белән килешәсез һәм бу керемне &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; лицензиясе нигезендә кире кайтара алмаслык рәвештә бастырасыз.</string>
-  <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән төзәтмәләр</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Википедияне мөхәррирләгән өчен рәхмәт! Нигә сез тукталган урыннан дәвам итмәскә?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Википедияне яхшырту өчен бер минут вакытыгыз бармы? Мөхәррирләү буенча әлеге тәкъдимнәр белән танышыгыз.</string>
   <string name="suggested_edits_contributions_screen_title">%s кертемнәре</string>
@@ -1594,7 +1594,7 @@
   <string name="email_report_image_recommendations_subject">Проблема турында хисап - «Рәсемнәрне тәкъдим итү» функциясе</string>
   <string name="email_report_patroller_tasks_subject">Проблема турында хисап - патрульләштерү функциясен үзгәртү</string>
   <string name="donation_campaign_maybe_later_snackbar">Иртәгә тагын бер тапкыр исегезгә төшерербез.</string>
-  <string name="donation_campaign_donated_snackbar">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
   <string name="places_toggle_buttons_map">Харита</string>

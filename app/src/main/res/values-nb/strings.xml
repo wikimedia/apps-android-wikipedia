@@ -1728,7 +1728,7 @@
   <string name="email_report_patroller_tasks_subject">Problemrapport – Redigeringspatruljeringsfunksjon</string>
   <string name="email_report_patroller_tasks_body">Jeg har støtt på et problam med redigeringspatruljeringsfunksjonen:\n- [Beskriv spesifikt problem]\n\nAdferden jeg vil se:\n- [Beskriv løsningsforslag]\n\n[Skjermbilder eller lenker]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vi påminner deg igjen i morgen.</string>
-  <string name="donation_campaign_donated_snackbar">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og søsterprosjektene.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og søsterprosjektene.</string>
   <string name="donation_campaign_go_back_button">Tilbake</string>
   <string name="menu_single_webview_open_external">Åpne i systemnettleseren</string>
   <string name="donate_gpay_dialog_title">Donere med Google Pay?</string>
@@ -1746,7 +1746,7 @@
   <string name="donate_gpay_help_other_ways">Andre måter å gi</string>
   <string name="donate_gpay_help_faq">Ofte stilte spørsmål</string>
   <string name="donate_gpay_help_tax">Informasjon om skattefradrag</string>
-  <string name="donation_history_deleted_message_snackbar">Donorhistorikk slettet</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Donorhistorikk slettet</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Posisjonstillatelse kreves for å se din posisjon på kartet. Prøv igjen.</string>
   <string name="places_search_hint">Søk i steder</string>
