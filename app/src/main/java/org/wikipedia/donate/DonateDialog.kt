@@ -16,13 +16,13 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.activity.CustomTabProxyActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 
@@ -172,7 +172,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             }.orEmpty()
             val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
                 WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)
-            CustomTabsUtil.openInCustomTab(context, donateUrl)
+            context.startActivity(CustomTabProxyActivity.newIntent(context, donateUrl))
         }
     }
 }
