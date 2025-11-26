@@ -32,9 +32,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
-import java.time.LocalDate
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
 
 class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
@@ -219,18 +216,10 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
     companion object {
         fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
-            val intent = Intent(context, OnThisDayGameActivity::class.java)
+            return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            if (Prefs.lastOtdGameDateOverride.isNotEmpty()) {
-                val date = try {
-                    LocalDate.parse(Prefs.lastOtdGameDateOverride, DateTimeFormatter.ISO_LOCAL_DATE)
-                } catch (_: Exception) {
-                    LocalDate.now()
-                }
-                intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
-            }
-            return intent
+                .putExtra(OnThisDayGameViewModel.EXTRA_DATE, Prefs.lastOtdGameDateOverride)
         }
     }
 }
