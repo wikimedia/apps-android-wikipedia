@@ -7,7 +7,7 @@ env:
 
 jobs:
   instrumentation-tests:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
@@ -18,6 +18,12 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - uses: gradle/gradle-build-action@v3
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
 
       - name: Instrumentation Tests
         uses: reactivecircus/android-emulator-runner@v2

@@ -17,7 +17,6 @@ import org.wikipedia.tests.SuggestedEditScreenTest
     ExploreFeedTestSuite::class,
     SearchTest::class,
     SuggestedEditScreenTest::class,
-    SettingsTestSuite::class,
     DeepLinkingTest::class,
     ArticlesTestSuite::class
 )

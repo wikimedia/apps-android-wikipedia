@@ -68,6 +68,9 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .pressBack()
         bottomNavRobot
             .navigateToExploreFeed()
+        dialogRobot
+            .dismissSurveyDialog()
+        bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot
             .clickItemOnTheList(0)
