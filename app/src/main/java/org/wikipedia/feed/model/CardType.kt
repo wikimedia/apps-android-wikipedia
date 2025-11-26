@@ -117,11 +117,6 @@ enum class CardType(
             return WikiGamesCardView(ctx)
         }
     },
-    YEAR_IN_REVIEW_ANNOUNCEMENT(96) {
-        override fun newView(ctx: Context): FeedCardView<*> {
-            return AnnouncementCardView(ctx)
-        }
-    },
     DAY_HEADER(97) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return DayHeaderCardView(ctx)
