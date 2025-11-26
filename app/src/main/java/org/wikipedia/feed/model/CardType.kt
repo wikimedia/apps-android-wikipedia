@@ -23,8 +23,10 @@ import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.feed.wikigames.WikiGamesCardView
 import org.wikipedia.model.EnumCode
 
-enum class CardType constructor(private val code: Int,
-                                private val contentType: FeedContentType? = null) : EnumCode {
+enum class CardType(
+    private val code: Int,
+    private val contentType: FeedContentType? = null
+) : EnumCode {
     SEARCH_BAR(0) {
         override fun newView(ctx: Context): FeedCardView<*> {
             return SearchCardView(ctx)
