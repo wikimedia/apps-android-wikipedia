@@ -190,18 +190,24 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_SWIPE_TO_REFRESH)
     }
 
-    fun scrollToItem(
+    fun scrollToAndPerform(
         recyclerViewId: Int = R.id.feed_view,
         title: String,
         textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200
+        verticalOffset: Int = 200,
+        action: (ExploreFeedRobot.() -> Unit)? = null
     ) = apply {
-        list.scrollToRecyclerView(
-            recyclerViewId,
-            title,
-            textViewId,
-            verticalOffset
-        )
+        if (list.isItemPresent(title = title)) {
+            list.scrollToRecyclerView(
+                recyclerViewId,
+                title,
+                textViewId,
+                verticalOffset
+            )
+            action?.invoke(this@ExploreFeedRobot)
+        } else {
+            Log.i("ExploreFeed", "$title not present today - skipping test")
+        }
     }
 
     fun assertFeaturedArticleTitleColor(theme: Theme) = apply {

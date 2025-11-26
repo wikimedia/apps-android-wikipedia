@@ -10,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
@@ -25,6 +26,7 @@ import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import junit.framework.AssertionFailedError
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -221,6 +223,25 @@ class ListActions {
                     )
                 )
             )
+    }
+
+    fun isItemPresent(
+        recyclerViewId: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title
+    ): Boolean {
+        return try {
+            onView(withId(recyclerViewId))
+                .check(matches(hasDescendant(allOf(
+                    withId(textViewId),
+                    withText(title)
+                ))))
+            true
+        } catch (_: NoMatchingViewException) {
+            false
+        } catch (_: AssertionFailedError) {
+            false
+        }
     }
 
     private fun verifyItemAtPosition(

@@ -38,9 +38,11 @@ class ShowImageTest : BaseTest<MainActivity>(
             .toggleShowImages()
         exploreFeedRobot
             .pressBack()
-            .scrollToItem(title = "Featured article")
-            .verifyFeaturedArticleImageIsNotVisible()
-            .scrollToItem(title = "Top read")
-            .verifyTopReadArticleIsGreyedOut(theme = Theme.LIGHT)
+            .scrollToAndPerform(title = "Featured article") {
+                verifyFeaturedArticleImageIsNotVisible()
+            }
+            .scrollToAndPerform(title = "Top read") {
+                verifyTopReadArticleIsGreyedOut(theme = Theme.LIGHT)
+            }
     }
 }

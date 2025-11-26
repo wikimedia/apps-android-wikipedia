@@ -42,11 +42,11 @@ class FeedScreenTest : BaseTest<MainActivity>(
 
         // Feed Test flow
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
+            .scrollToAndPerform(title = FEATURED_ARTICLE)
             .assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
             .clickOnFeaturedArticle()
             .pressBack()
-            .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
+            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
             .clickTodayOnWikipedia()
         dialogRobot
             .dismissBigEnglishDialog()
@@ -56,23 +56,23 @@ class FeedScreenTest : BaseTest<MainActivity>(
         systemRobot
             .enableDarkMode(context)
         exploreFeedRobot
-            .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
-            .scrollToItem(title = TOP_READ_ARTICLES, verticalOffset = 400)
+            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
+            .scrollToAndPerform(title = TOP_READ_ARTICLES, verticalOffset = 400)
             .assertTopReadTitleColor(theme = Theme.DARK)
             .clickTopReadArticle()
-            .scrollToItem(title = PICTURE_OF_DAY)
+            .scrollToAndPerform(title = PICTURE_OF_DAY)
             .clickPictureOfTheDay()
             .pressBack()
         systemRobot
             .enableDarkMode(context)
         exploreFeedRobot
-            .scrollToItem(title = NEWS_CARD)
+            .scrollToAndPerform(title = NEWS_CARD)
             .clickNewsArticle()
             .pressBack()
-            .scrollToItem(title = ON_THIS_DAY_CARD)
+            .scrollToAndPerform(title = ON_THIS_DAY_CARD)
             .clickOnThisDayCard()
             .pressBack()
-            .scrollToItem(title = RANDOM_CARD)
+            .scrollToAndPerform(title = RANDOM_CARD)
             .clickRandomArticle()
             .pressBack()
     }

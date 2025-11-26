@@ -47,7 +47,7 @@ class SavedArticleTest : BaseTest<MainActivity>(
                 }
             })
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
+            .scrollToAndPerform(title = FEATURED_ARTICLE)
             .longClickFeaturedArticleCardContainer()
             .clickSave()
         setDeviceOrientation(isLandscape = true)
