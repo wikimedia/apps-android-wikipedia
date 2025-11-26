@@ -1,13 +1,16 @@
 package org.wikipedia.feed.topread
 
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 
-class TopReadItemCard internal constructor(private val page: PageSummary,
-                                           private val wiki: WikiSite) : Card() {
+class TopReadItemCard(
+    private val page: PageSummary,
+    private val wiki: WikiSite,
+) : Card() {
 
     override fun title(): String {
         return page.displayTitle
@@ -18,7 +21,7 @@ class TopReadItemCard internal constructor(private val page: PageSummary,
     }
 
     override fun image(): Uri? {
-        return if (page.thumbnailUrl.isNullOrEmpty()) null else Uri.parse(page.thumbnailUrl)
+        return page.thumbnailUrl?.toUri()
     }
 
     override fun type(): CardType {
