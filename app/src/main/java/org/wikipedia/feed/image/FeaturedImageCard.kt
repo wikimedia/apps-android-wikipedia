@@ -9,9 +9,11 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
-class FeaturedImageCard(private val featuredImage: FeaturedImage,
-                        private val age: Int,
-                        wiki: WikiSite) : WikiSiteCard(wiki) {
+class FeaturedImageCard(
+    private val featuredImage: FeaturedImage,
+    private val age: Int,
+    wiki: WikiSite
+) : WikiSiteCard(wiki) {
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_image_card_title)

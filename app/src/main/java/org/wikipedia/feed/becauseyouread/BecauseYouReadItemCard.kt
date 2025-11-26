@@ -1,6 +1,7 @@
 package org.wikipedia.feed.becauseyouread
 
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.page.PageTitle
@@ -20,7 +21,7 @@ class BecauseYouReadItemCard(private val title: PageTitle) : Card() {
     }
 
     override fun image(): Uri? {
-        return if (title.thumbUrl.isNullOrEmpty()) null else Uri.parse(title.thumbUrl)
+        return title.thumbUrl?.toUri()
     }
 
     override fun type(): CardType {
