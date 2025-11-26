@@ -12,14 +12,12 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
 import org.junit.Assert.assertTrue
@@ -86,18 +84,12 @@ class SettingsRobot : BaseRobot() {
 
     fun clickDeveloperMode() = apply {
         // Assert that developer mode is activated
-        onView(allOf(withId(R.id.developer_settings), withContentDescription("Developer settings"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
-            .perform(click())
+        click.onDisplayedViewWithIdAnContentDescription(R.id.developer_settings, "Developer settings")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun assertWeAreInDeveloperSettings() = apply {
-        onView(allOf(withText("Developer settings"),
-            withParent(allOf(withId(androidx.appcompat.R.id.action_bar),
-                withParent(withId(androidx.appcompat.R.id.action_bar_container))
-            )), isDisplayed()))
-            .check(matches(withText("Developer settings")))
+        verify.viewWithTextDisplayed("Developer settings")
         delay(TestConfig.DELAY_MEDIUM)
     }
 
