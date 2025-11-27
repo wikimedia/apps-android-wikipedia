@@ -309,7 +309,7 @@
   <string name="clear_recent_searches_confirm_yes">Jo</string>
   <string name="clear_recent_searches_confirm_no">Nee</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng Browser-App fonnt).</string>
-  <string name="table_infobox">Séier Fakten</string>
+  <string name="table_infobox">Op ee Bléck</string>
   <string name="table_other">Méi Informatiounen</string>
   <string name="table_close">Zoumaachen</string>
   <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
