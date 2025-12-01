@@ -2083,7 +2083,15 @@
   <string name="year_in_review_login_dialog_positive">Войти / Присоединиться к Википедии</string>
   <string name="year_in_review_login_dialog_negative">Продолжить без авторизации</string>
   <string name="year_in_review_slide_top_categories_headline">Ваши самые интересные категории</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Утро</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Середина дня</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Вторая половина дня</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Вечер</string>
+  <string name="year_in_review_slide_reading_pattern_night">Ночь</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Поздняя ночь</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Создать</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Нет, спасибо</string>
+  <string name="year_in_review_highlights_logo_description">Логотип Википедии</string>
   <string name="recommended_reading_list_title">Открытия</string>
   <string name="recommended_reading_list_onboarding_card_title">Исследуйте статьи, подобранные специально для вас</string>
   <string name="recommended_reading_list_onboarding_card_message">Ваш еженедельный список для чтения, отобранный специально для вас.</string>
@@ -2172,7 +2180,7 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">«Открытия» включены. Википедия будет рекомендовать вам статьи для чтения.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Напоминания о пожертвованиях можно изменить в любое время в настройках.</string>
   <string name="donation_settings_section_header">Пожертвования</string>
-  <string name="donation_reminders_settings_title" fuzzy="true">Напоминания о пожертвованиях</string>
+  <string name="donation_reminders_settings_title">Как нам вам об этом напомнить?</string>
   <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Присоединяйтесь к 2%% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
   <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертвования направляются в Фонд Викимедиа и его филиалы, которые с гордостью являются владельцами Википедии и родственных ей сайтов.</string>
   <string name="donation_reminders_settings_article_frequency_label">Когда я читаю</string>
@@ -2199,5 +2207,7 @@
     <item quantity="many">%d статей</item>
     <item quantity="other">%d статей</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Нет, спасибо</string>
   <string name="donation_reminders_experiment_label" fuzzy="true">Эксперимент</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Изменить</string>
 </resources>
