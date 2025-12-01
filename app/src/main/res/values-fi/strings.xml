@@ -1591,7 +1591,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Miten haluat nimetä tämän kanssasi jaetun lukulistan?</string>
   <string name="shareable_reading_lists_new_indicator">* uusi *</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Sinun kanssasi on jaettu lukulista</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla linkkiä uudestaan.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Huomasimme, että sinulle on jaettu lukulista. Voit tarkastella tätä luetteloa sovelluksessa palaamalla alkuperäiseen viestiin ja napauttamalla linkkiä uudelleen.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Selvä</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Lukulista tuotu</string>
   <string name="reading_list_share_menu_label">Jaa...</string>
