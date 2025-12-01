@@ -86,10 +86,8 @@ class HCaptchaHelper(
     inner class MakeHCaptchaDialogCancelable(val cancelable: Boolean = true) : Runnable {
         override fun run() {
             if (!activity.isDestroyed) {
-                activity.supportFragmentManager.fragments.forEach {
-                    if (it is HCaptchaDialogFragment) {
-                        it.isCancelable = cancelable
-                    }
+                activity.supportFragmentManager.fragments.filterIsInstance<HCaptchaDialogFragment>().forEach {
+                    it.isCancelable = cancelable
                 }
             }
         }
