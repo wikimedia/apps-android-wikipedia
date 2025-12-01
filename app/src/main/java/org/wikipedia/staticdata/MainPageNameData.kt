@@ -318,6 +318,7 @@ object MainPageNameData {
             "tly" to "Sərlovhə",
             "tn" to "Tsebe ya konokono",
             "to" to "Peesi tali fiefia",
+            "tok" to "lipu open",
             "tpi" to "Fran pes",
             "tr" to "Anasayfa",
             "trv" to "Ruwahan patas",
