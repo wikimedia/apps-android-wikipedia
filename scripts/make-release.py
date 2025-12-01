@@ -41,7 +41,6 @@ import sys
 import time
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-VERSION_START = '2.7'
 
 def git_tag_and_push(target, version_name, push=False):
     """Creates an annotated git tag for this release and optionally pushes it"""
@@ -158,7 +157,7 @@ def copy_build_artifact(artifact_type, flavor, version_name, build_type='release
 
 def find_output_apk_for(label, version_code):
     folder_path = 'releases'
-    file_pattern = '%s/wikipedia-%s.%s-%s-*.apk' % (folder_path, VERSION_START, version_code, label)
+    file_pattern = '%s/wikipedia-%s-%s-*.apk' % (folder_path, version_code, label)
     apk_files = glob.glob(file_pattern)
     if len(apk_files) == 1:
         return apk_files[0]
