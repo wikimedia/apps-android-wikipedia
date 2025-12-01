@@ -26,8 +26,6 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
 
     @Test
     fun runTest() {
-        searchRobot
-            .clickSearchInsideSearchFragment()
         if (!isOnline()) {
             systemRobot
                 .turnOffAirplaneMode()
