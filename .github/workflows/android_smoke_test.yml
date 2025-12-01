@@ -9,6 +9,17 @@ jobs:
   instrumentation-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - api-level: 23
+            target: google_apis
+            arch: x86_64
+
+          - api-level: 36
+            target: google_apis
+            arch: x86_64
 
     steps:
     - uses: actions/checkout@v6
@@ -28,12 +39,15 @@ jobs:
     - name: Instrumentation Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: 29
+        api-level: ${{ matrix.api-level }}
+        target: ${{ matrix.target }}
+        arch: ${{ matrix.arch }}
+        disable-animations: true
         script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.TestSuite
 
     - name: Upload results
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
-        name: instrumentation-test-results ${{ matrix.api-level }}
+        name: instrumentation-test-results${{ matrix.api-level }}
         path: ./**/build/reports/androidTests/connected/**
