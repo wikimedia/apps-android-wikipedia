@@ -3,6 +3,7 @@ package org.wikipedia.base
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.IdlingPolicies
@@ -58,9 +59,11 @@ abstract class BaseTest<T : AppCompatActivity>(
     var composeTestRule = createComposeRule()
 
     @get:Rule
-    val permissionRule: GrantPermissionRule = GrantPermissionRule.grant(
-        Manifest.permission.POST_NOTIFICATIONS
-    )
+    val permissionRule: GrantPermissionRule = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        GrantPermissionRule.grant(Manifest.permission.POST_NOTIFICATIONS)
+    } else {
+        GrantPermissionRule.grant()
+    }
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice

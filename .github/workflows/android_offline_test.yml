@@ -9,6 +9,19 @@ jobs:
   instrumentation-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - api-level: 29
+            target: google_apis
+            arch: x86_64
+            profile: pixel_2
+
+          - api-level: 36
+            target: google_apis
+            arch: x86_64
+            profile: pixel_9
 
     steps:
       - uses: actions/checkout@v6
@@ -25,15 +38,19 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      - name: Instrumentation Tests
+      - name: run instrumentation tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: ${{ matrix.arch }}
+          profile: ${{ matrix.profile }}
+          disable-animations: true
           script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.tests.offline.SavedArticleOnlineOfflineTest
 
       - name: Upload results
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: instrumentation-test-results ${{ matrix.api-level }}
+          name: instrumentation-test-results${{ matrix.api-level }}
           path: ./**/build/reports/androidTests/connected/**

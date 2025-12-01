@@ -13,6 +13,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import junit.framework.AssertionFailedError
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -145,6 +146,23 @@ class SearchRobot : BaseRobot() {
         pressBack()
         pressBack()
         pressBack()
+    }
+
+    fun pressBackUntilExploreFeed() = apply {
+        val maxAttempts = 3
+        var attempts = 0
+        while (attempts < maxAttempts) {
+            try {
+                verify.viewWithIdDoesNotExist(R.id.feed_view)
+                pressBack()
+                delay(TestConfig.DELAY_SHORT)
+                attempts++
+            } catch (_: AssertionFailedError) {
+                break
+            } catch (_: Exception) {
+                break
+            }
+        }
     }
 
     fun swipeToDelete(position: Int, title: String) = apply {

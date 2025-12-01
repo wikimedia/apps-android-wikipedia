@@ -134,9 +134,9 @@ class ClickActions {
                 .inRoot(isDialog())
                 .perform(click())
         } catch (e: NoMatchingViewException) {
-            Log.e("BaseRobot", "$errorString")
+            Log.e("DialogRobot", errorString)
         } catch (e: Exception) {
-            Log.e("BaseRobot", "Unexpected Error: ${e.message}")
+            Log.e("DialogRobot", "Unexpected Error: ${e.message}")
         }
     }
 }
