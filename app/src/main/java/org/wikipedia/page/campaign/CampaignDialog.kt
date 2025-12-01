@@ -18,7 +18,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.util.Date
 
-class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralButtonClick: ((campaignId: String) -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign, val onNeutralButtonClick: (() -> Unit)? = null) : AlertDialog.Builder(context), CampaignDialogView.Callback {
     private var dialog: AlertDialog? = null
     private val campaignIdOriginal = campaign.getIdForLang(WikipediaApp.instance.appOrSystemLanguageCode)
     private val campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
@@ -74,6 +74,14 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaignId)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaignId)
+        if (DonationReminderHelper.isInEligibleCountry) {
+            DonorExperienceEvent.logDonationReminderAction(
+                action = "group_assigned",
+                activeInterface = "article_banner",
+                groupAssigned = if (DonationReminderAbTest().isTestGroupUser()) "android_remind_b" else "android_remind_a",
+                campaignId = campaignId
+            )
+        }
         if (!DonationReminderHelper.isEnabled) {
             Prefs.announcementPauseTime = Date().time
             FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
@@ -81,7 +89,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
             return
         }
         Prefs.announcementShownDialogs = setOf(campaignIdOriginal)
-        onNeutralButtonClick?.invoke(campaignId)
+        onNeutralButtonClick?.invoke()
     }
 
     override fun onClose() {
