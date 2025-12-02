@@ -1248,12 +1248,18 @@
   <string name="activity_tab_impact_best_streak">最长连续时间</string>
   <string name="activity_tab_impact_last_edited">上次编辑</string>
   <string name="activity_tab_impact_suggested_edits_title">最近对条目进行了0次编辑</string>
+  <string name="activity_tab_impact_suggested_edits_message">您似乎本月尚未做过任何编辑。您可以编辑您感兴趣的主题，来扩充可自由取得的知识。</string>
   <string name="activity_tab_impact_suggested_edits_button">进行编辑</string>
   <string name="activity_tab_impact_recent_activity">您最近的活动（过去30天）</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
     <item quantity="one">编辑</item>
     <item quantity="other">编辑</item>
   </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">查看您编辑过的条目</item>
+    <item quantity="other">查看您编辑过的条目</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">阅读时间</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">阅读分析</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">编辑分析</string>
   <string name="activity_tab_customize_screen_impact_switch_title">所有时间影响</string>
