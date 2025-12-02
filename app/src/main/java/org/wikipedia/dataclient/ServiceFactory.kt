@@ -35,7 +35,7 @@ object ServiceFactory {
     })
 
     private val ANALYTICS_REST_SERVICE_CACHE = lruCache<DestinationEventService, EventService>(SERVICE_CACHE_SIZE, create = {
-        val intakeBaseUriOverride = Prefs.eventPlatformIntakeUriOverride.ifEmpty { it.baseUri }
+        val intakeBaseUriOverride = Prefs.eventPlatformIntakeUriOverride.orEmpty().ifEmpty { it.baseUri }
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
     })
 

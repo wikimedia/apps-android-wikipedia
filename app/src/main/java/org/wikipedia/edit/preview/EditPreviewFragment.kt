@@ -98,7 +98,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 // Workaround for T363781
                 // The preview endpoint requires the target page to exist, so if it doesn't exist yet,
                 // we will base the preview on the Main Page of the wiki.
-                val previewTitle = if (callback().isNewPage() || title.prefixedText.contains("/")) MainPageNameData.valueFor(title.wikiSite.languageCode) else title.prefixedText
+                val previewTitle = if (callback().isNewPage()) MainPageNameData.valueFor(title.wikiSite.languageCode) else title.prefixedText
                 ServiceFactory.getRest(model.title!!.wikiSite).getHtmlPreviewFromWikitext(previewTitle, PreviewRequest(wikiText)).use {
                     html = it.string()
                 }

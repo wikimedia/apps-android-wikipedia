@@ -86,6 +86,13 @@
             android:key="@string/preference_key_app_channel"
             android:title="@string/preference_key_app_channel" />
 
+        <ListPreference
+            android:key="@string/preference_key_event_platform_intake_base_uri_list"
+            android:title="@string/preference_developer_event_platform_intake_base_uri_list_title"
+            android:entries="@array/preference_values_event_platform_intake_debug_titles"
+            android:entryValues="@array/preference_values_event_platform_intake_debug_values"
+            android:summary="%s" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_event_platform_intake_base_uri"
