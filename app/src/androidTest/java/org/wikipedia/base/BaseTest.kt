@@ -102,6 +102,16 @@ abstract class BaseTest<T : AppCompatActivity>(
         WikipediaApp.instance.languageState.let {
             it.removeAppLanguageCodes(it.appLanguageCodes.filter { it != "en" })
         }
+        // Disable animations
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global window_animation_scale 0"
+        )
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global transition_animation_scale 0"
+        )
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global animator_duration_scale 0"
+        )
     }
 
     protected fun setDeviceOrientation(isLandscape: Boolean) {

@@ -42,38 +42,44 @@ class FeedScreenTest : BaseTest<MainActivity>(
 
         // Feed Test flow
         exploreFeedRobot
-            .scrollToAndPerform(title = FEATURED_ARTICLE)
-            .assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
-            .clickOnFeaturedArticle()
-            .pressBack()
-            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
-            .clickTodayOnWikipedia()
-        dialogRobot
-            .dismissBigEnglishDialog()
-            .dismissContributionDialog()
-        exploreFeedRobot
-            .pressBack()
+            .scrollToAndPerform(title = FEATURED_ARTICLE, shouldSwipeMore = true) {
+                assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
+                clickOnFeaturedArticle()
+                pressBack()
+            }
+            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE) {
+                clickTodayOnWikipedia()
+                dialogRobot
+                    .dismissBigEnglishDialog()
+                    .dismissContributionDialog()
+                pressBack()
+            }
         systemRobot
             .enableDarkMode(context)
         exploreFeedRobot
-            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
-            .scrollToAndPerform(title = TOP_READ_ARTICLES, verticalOffset = 400)
-            .assertTopReadTitleColor(theme = Theme.DARK)
-            .clickTopReadArticle()
-            .scrollToAndPerform(title = PICTURE_OF_DAY)
-            .clickPictureOfTheDay()
-            .pressBack()
+            .scrollToAndPerform(title = TOP_READ_ARTICLES) {
+                assertTopReadTitleColor(theme = Theme.DARK)
+                clickTopReadArticle()
+                pressBack()
+            }
+            .scrollToAndPerform(title = PICTURE_OF_DAY) {
+                clickPictureOfTheDay()
+                pressBack()
+            }
         systemRobot
-            .enableDarkMode(context)
+            .disableDarkMode(context)
         exploreFeedRobot
-            .scrollToAndPerform(title = NEWS_CARD)
-            .clickNewsArticle()
-            .pressBack()
-            .scrollToAndPerform(title = ON_THIS_DAY_CARD)
-            .clickOnThisDayCard()
-            .pressBack()
-            .scrollToAndPerform(title = RANDOM_CARD)
-            .clickRandomArticle()
-            .pressBack()
+            .scrollToAndPerform(title = NEWS_CARD) {
+                clickNewsArticle()
+                pressBack()
+            }
+            .scrollToAndPerform(title = ON_THIS_DAY_CARD, shouldSwipeMore = true) {
+                clickOnThisDayCard()
+                pressBack()
+            }
+            .scrollToAndPerform(title = RANDOM_CARD, shouldSwipeMore = true) {
+                clickRandomArticle()
+                pressBack()
+            }
     }
 }

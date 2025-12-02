@@ -7,18 +7,21 @@ import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.contrib.RecyclerViewActions.scrollTo
 import androidx.test.espresso.matcher.BoundedMatcher
-import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
-import androidx.test.espresso.matcher.ViewMatchers.hasSibling
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
+import androidx.test.uiautomator.UiScrollable
+import androidx.test.uiautomator.UiSelector
 import com.google.android.material.imageview.ShapeableImageView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -35,17 +38,11 @@ import org.wikipedia.theme.Theme
 
 class ExploreFeedRobot : BaseRobot() {
     fun clickOnThisDayCard() = apply {
-        onView(
-            allOf(
-                withId(R.id.on_this_day_page), childAtPosition(
-                    allOf(
-                        withId(R.id.event_layout),
-                        childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)
-                    ), 3
-                ), isDisplayed()
-            )
-        )
-            .perform(click())
+        onView(allOf(
+            withId(R.id.on_this_day_card_view_click_container),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )).perform(scrollTo(), click())
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -58,10 +55,7 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun clickRandomArticle() = apply {
         // Random article card seen and saved to reading lists
-        scroll.toViewAndMakeVisibleAndClick(
-            viewId = R.id.view_featured_article_card_content_container,
-            parentViewId = R.id.feed_view
-        )
+        click.onViewWithId(R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -75,28 +69,15 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickTopReadArticle() = apply {
-        try {
-            onView(
-                allOf(
-                    withId(R.id.view_list_card_list),
-                    hasSibling(
-                        allOf(
-                            withId(R.id.view_list_card_header),
-                            hasDescendant(
-                                allOf(
-                                    withId(R.id.view_card_header_title),
-                                    withText("Top read")
-                                )
-                            )
-                        )
-                    )
-                )).perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
-                .perform()
-            pressBack()
-            delay(TestConfig.DELAY_MEDIUM)
-        } catch (e: NoMatchingViewException) {
-            Log.e("clickError", "")
-        }
+        val nestedListMatcher = allOf(
+            withId(R.id.view_list_card_list),
+            isDescendantOfA(withId(R.id.feed_view)),
+            isDisplayed()
+        )
+        onView(nestedListMatcher).check(matches(isDisplayed()))
+        onView(nestedListMatcher).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+        )
     }
 
     fun clickBecauseYouReadArticle() = apply {
@@ -135,20 +116,17 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun clickPictureOfTheDay() = apply {
-        click.onViewWithId(R.id.view_featured_image_card_content_container)
+        click.onViewWithId(R.id.view_featured_image_card_image)
         delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickTodayOnWikipedia() = apply {
-        click.onViewWithIdAndContainsString(R.id.footerActionButton, text = "View main page")
+        click.onViewWithIdAndContainsString(R.id.footerActionButton, text = "Today on Wikipedia")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun clickOnFeaturedArticle() = apply {
-        scroll.toViewAndMakeVisibleAndClick(
-            viewId = R.id.view_featured_article_card_content_container,
-            parentViewId = R.id.feed_view
-        )
+        click.onViewWithId(R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -170,20 +148,6 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    fun scrollToCardWithTitle(title: String, @IdRes viewId: Int = R.id.view_card_header_title) =
-        apply {
-            onView(withId(R.id.feed_view))
-                .perform(
-                    scrollTo<RecyclerView.ViewHolder>(
-                        hasDescendant(
-                            scrollToCardViewWithTitle(title, viewId)
-                        )
-                    )
-                )
-                .perform()
-            delay(TestConfig.DELAY_MEDIUM)
-        }
-
     fun swipeToRefresh() = apply {
         onView(withId(R.id.swipe_refresh_layout))
             .perform(ViewActions.swipeDown())
@@ -191,23 +155,31 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun scrollToAndPerform(
-        recyclerViewId: Int = R.id.feed_view,
         title: String,
-        textViewId: Int = R.id.view_card_header_title,
-        verticalOffset: Int = 200,
+        shouldSwipeMore: Boolean = false,
         action: (ExploreFeedRobot.() -> Unit)? = null
     ) = apply {
-        if (list.isItemPresent(title = title)) {
-            list.scrollToRecyclerView(
-                recyclerViewId,
-                title,
-                textViewId,
-                verticalOffset
-            )
-            action?.invoke(this@ExploreFeedRobot)
-        } else {
-            Log.i("ExploreFeed", "$title not present today - skipping test")
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+
+        val appScrollable = UiScrollable(UiSelector().scrollable(true))
+        appScrollable.setMaxSearchSwipes(10)
+        try {
+            appScrollable.setAsVerticalList()
+            appScrollable.scrollIntoView(UiSelector().text(title))
+            if (shouldSwipeMore) {
+                device.swipe(
+                    device.displayWidth / 2,
+                    device.displayHeight * 3 / 5,
+                    device.displayWidth / 2,
+                    device.displayHeight * 2 / 5,
+                    15
+                )
+            }
+        } catch (e: Exception) {
+            Log.e("ExploreFeed", "Scroll attempt failed: ${e.message}")
         }
+        Thread.sleep(500)
+        action?.invoke(this@ExploreFeedRobot)
     }
 
     fun assertFeaturedArticleTitleColor(theme: Theme) = apply {
