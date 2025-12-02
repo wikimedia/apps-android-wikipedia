@@ -12,6 +12,7 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.doubleClick
 import androidx.test.espresso.matcher.RootMatchers.isDialog
+import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
@@ -49,7 +50,7 @@ class ClickActions {
         onView(allOf(withContentDescription(description), isDisplayed())).perform(click())
     }
 
-    fun onDisplayedViewWithIdAnContentDescription(
+    fun onDisplayedViewWithIdAndContentDescription(
         @IdRes viewId: Int,
         description: String
     ) {
@@ -60,6 +61,20 @@ class ClickActions {
 
     fun onViewWithText(text: String) {
         onView(withText(text)).perform(click())
+    }
+
+    fun onParentViewWithChildIdAndText(@IdRes childId: Int, text: String) {
+        onView(
+            allOf(
+                hasDescendant(
+                    allOf(
+                        withId(childId),
+                        withText(text)
+                    )
+                ),
+                isDisplayed()
+            )
+        ).perform(click())
     }
 
     fun doubleClickOnViewWithId(@IdRes viewId: Int) {

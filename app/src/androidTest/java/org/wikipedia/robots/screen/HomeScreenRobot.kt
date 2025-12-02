@@ -23,7 +23,7 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun navigateToNotifications() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
+        click.onDisplayedViewWithIdAndContentDescription(viewId = R.id.menu_notifications, "Notifications")
         delay(TestConfig.DELAY_LARGE)
     }
 

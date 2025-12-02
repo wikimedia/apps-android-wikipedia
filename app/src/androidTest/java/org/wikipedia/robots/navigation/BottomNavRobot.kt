@@ -2,6 +2,8 @@ package org.wikipedia.robots.navigation
 
 import BaseRobot
 import android.util.Log
+import androidx.compose.ui.test.isDisplayed
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -44,13 +46,17 @@ class BottomNavRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
-    fun navigateToSuggestedEdits() = apply {
+    fun navigateToActivityTab() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_edits), withContentDescription(R.string.nav_item_suggested_edits),
+                withId(R.id.nav_tab_edits), withContentDescription(R.string.nav_item_activity),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )
         ).perform(click())
+        val isOnboardingActivity = composeTestRule.onNodeWithText("Introducing Activity").isDisplayed()
+        if (isOnboardingActivity) {
+            pressBack()
+        }
         delay(TestConfig.DELAY_LARGE)
     }
 

@@ -84,7 +84,7 @@ class SettingsRobot : BaseRobot() {
 
     fun clickDeveloperMode() = apply {
         // Assert that developer mode is activated
-        click.onDisplayedViewWithIdAnContentDescription(R.id.developer_settings, "Developer settings")
+        click.onDisplayedViewWithIdAndContentDescription(R.id.developer_settings, "Developer settings")
         delay(TestConfig.DELAY_MEDIUM)
     }
 

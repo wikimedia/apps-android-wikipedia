@@ -18,7 +18,7 @@ class DialogRobot : BaseRobot() {
 
     fun dismissBigEnglishDialog() = apply {
         try {
-            click.onDisplayedViewWithIdAnContentDescription(R.id.closeButton, "Close")
+            click.onDisplayedViewWithIdAndContentDescription(R.id.closeButton, "Close")
         } catch (e: NoMatchingViewException) {
             Log.e("DialogRobot", "No Big English Dialog shown.")
         } catch (e: Exception) {

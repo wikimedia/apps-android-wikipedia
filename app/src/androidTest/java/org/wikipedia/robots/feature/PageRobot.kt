@@ -265,11 +265,11 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun openLanguageSelector() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
+        click.onDisplayedViewWithIdAndContentDescription(R.id.page_language, context.getString(R.string.article_menu_bar_language_button))
     }
 
     fun openFindInArticle() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
+        click.onDisplayedViewWithIdAndContentDescription(R.id.page_find_in_article, context.getString(R.string.menu_page_find_in_page))
     }
 
     fun verifyFindInArticleCount(count: String) = apply {
@@ -281,11 +281,11 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun openThemeSelector() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
+        click.onDisplayedViewWithIdAndContentDescription(R.id.page_theme, context.getString(R.string.article_menu_bar_theme_button))
     }
 
     fun openTableOfContents() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
+        click.onDisplayedViewWithIdAndContentDescription(R.id.page_contents, context.getString(R.string.article_menu_bar_contents_button))
         delay(TestConfig.DELAY_SHORT)
     }
 

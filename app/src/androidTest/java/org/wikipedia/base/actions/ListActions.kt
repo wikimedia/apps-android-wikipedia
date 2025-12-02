@@ -26,6 +26,7 @@ import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import com.google.android.material.tabs.TabLayout
 import junit.framework.AssertionFailedError
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -242,6 +243,31 @@ class ListActions {
         } catch (_: AssertionFailedError) {
             false
         }
+    }
+
+    fun selectTabWithText(@IdRes viewId: Int, text: String) {
+        onView(withId(viewId))
+            .perform(object : ViewAction {
+                override fun getConstraints(): Matcher<View?> = isDisplayed()
+
+                override fun getDescription(): String = "Select tab with text: $text"
+
+                override fun perform(
+                    uiController: UiController,
+                    view: View
+                ) {
+                    val tabLayout = view as TabLayout
+                    for (i in 0 until tabLayout.tabCount) {
+                        val tab = tabLayout.getTabAt(i)
+                        val labelView = tab?.customView?.findViewById<TextView>(R.id.language_label)
+                        if (labelView?.text == text) {
+                            tab.select()
+                            break
+                        }
+                    }
+                    uiController.loopMainThreadUntilIdle()
+                }
+            })
     }
 
     private fun verifyItemAtPosition(

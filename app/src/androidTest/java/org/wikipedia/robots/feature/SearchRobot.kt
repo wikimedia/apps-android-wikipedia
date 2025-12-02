@@ -113,7 +113,7 @@ class SearchRobot : BaseRobot() {
 
     fun clickLanguage(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
-        click.onDisplayedViewWithText(viewId = R.id.language_label, text = language)
+        list.selectTabWithText(R.id.horizontal_scroll_languages, language)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
