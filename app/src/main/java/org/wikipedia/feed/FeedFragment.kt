@@ -9,23 +9,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentFeedBinding
-import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView
 import org.wikipedia.feed.configure.LanguageItemAdapter
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.feed.random.RandomCardView
@@ -49,12 +52,11 @@ class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: FeedViewModel by viewModels()
     private lateinit var feedAdapter: FeedAdapter<View>
     private val feedCallback = FeedCallback()
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
-    private var app: WikipediaApp = WikipediaApp.instance
-    private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
 
     interface Callback {
@@ -75,7 +77,7 @@ class FeedFragment : Fragment() {
 
     private val requestFeedConfigurationLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-            coordinator.updateHiddenCards()
+            viewModel.updateHiddenCards()
             refresh()
         }
     }
@@ -86,51 +88,45 @@ class FeedFragment : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        coordinator.more(app.wikiSite)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        feedAdapter = FeedAdapter(coordinator, feedCallback)
+
+        feedAdapter = FeedAdapter(viewModel.getCoordinator(), feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
+
         binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
         binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
-        coordinator.setFeedUpdateListener(object : FeedUpdateListener {
-            override fun insert(card: Card, pos: Int) {
-                if (isAdded) {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    feedAdapter.notifyItemInserted(pos)
-                }
-            }
 
-            override fun remove(card: Card, pos: Int) {
-                if (isAdded) {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    feedAdapter.notifyItemRemoved(pos)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.cards.collect { cards ->
+                        feedAdapter.notifyDataSetChanged()
+                    }
                 }
-            }
 
-            override fun finished(shouldUpdatePreviousCard: Boolean) {
-                if (!isAdded) {
-                    return
+                launch {
+                    viewModel.isLoading.collect { isLoading ->
+                        binding.swipeRefreshLayout.isRefreshing = isLoading
+                    }
                 }
-                if (feedAdapter.itemCount < 2) {
-                    binding.emptyContainer.visibility = View.VISIBLE
-                } else {
-                    binding.emptyContainer.visibility = View.GONE
-                    if (shouldUpdatePreviousCard) {
-                        feedAdapter.notifyItemChanged(feedAdapter.itemCount - 1)
+
+                launch {
+                    viewModel.isEmpty.collect { isEmpty ->
+                        binding.emptyContainer.isVisible = isEmpty
                     }
                 }
             }
-        })
+        }
+
+        viewModel.loadInitialFeed()
+
         callback?.updateToolbarElevation(shouldElevateToolbar())
         ReadingListSyncAdapter.manualSync()
         Prefs.incrementExploreFeedVisitCount()
+
         return binding.root
     }
 
@@ -138,25 +134,15 @@ class FeedFragment : Fragment() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
-
-        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices.
-        // https://issuetracker.google.com/issues/188096921
         feedAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
-        coordinator.setFeedUpdateListener(null)
         binding.swipeRefreshLayout.setOnRefreshListener(null)
         binding.feedView.removeOnScrollListener(feedScrollListener)
         binding.feedView.adapter = null
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        coordinator.reset()
     }
 
     fun shouldElevateToolbar(): Boolean {
@@ -169,34 +155,28 @@ class FeedFragment : Fragment() {
 
     fun onGoOffline() {
         feedAdapter.notifyDataSetChanged()
-        coordinator.requestOfflineCard()
+        viewModel.requestOfflineCard()
     }
 
     fun onGoOnline() {
         feedAdapter.notifyDataSetChanged()
-        coordinator.removeOfflineCard()
-        coordinator.incrementAge()
-        coordinator.more(app.wikiSite)
+        viewModel.removeOfflineCard()
+        viewModel.loadMore()
     }
 
     fun refresh() {
-        binding.emptyContainer.visibility = View.GONE
-        coordinator.reset()
-        feedAdapter.notifyDataSetChanged()
-        WikipediaApp.instance.resetWikiSite()
-        coordinator.more(WikipediaApp.instance.wikiSite)
+        viewModel.refresh()
     }
 
     fun updateHiddenCards() {
-        coordinator.updateHiddenCards()
+        viewModel.updateHiddenCards()
     }
 
     private inner class FeedCallback : FeedAdapter.Callback {
         override fun onRequestMore() {
             binding.feedView.post {
                 if (isAdded) {
-                    coordinator.incrementAge()
-                    coordinator.more(app.wikiSite)
+                    viewModel.loadMore()
                 }
             }
         }
@@ -234,10 +214,8 @@ class FeedFragment : Fragment() {
         }
 
         override fun onRequestDismissCard(card: Card): Boolean {
-            val position = coordinator.dismissCard(card)
-            if (position < 0) {
-                return false
-            }
+            val position = viewModel.dismissCard(card)
+            if (position < 0) return false
             showDismissCardUndoSnackbar(card, position)
             return true
         }
@@ -314,7 +292,9 @@ class FeedFragment : Fragment() {
 
     private fun showDismissCardUndoSnackbar(card: Card, position: Int) {
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
-        snackbar.setAction(R.string.reading_list_item_delete_undo) { coordinator.undoDismissCard(card, position) }
+        snackbar.setAction(R.string.reading_list_item_delete_undo) {
+            viewModel.undoDismissCard(card, position)
+        }
         snackbar.show()
     }
 
@@ -345,7 +325,7 @@ class FeedFragment : Fragment() {
             remove(primaryLanguage)
         }
         if (deprecatedLanguageCodes.contains(primaryLanguage)) {
-             val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
+            val dialog = RegionalLanguageVariantSelectionDialog(requireContext()).show()
             dialog.setOnDismissListener {
                 refresh()
             }
@@ -370,10 +350,6 @@ class FeedFragment : Fragment() {
 
     private fun showLanguagesActivity(invokeSource: InvokeSource) {
         requestLanguageChangeLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource))
-    }
-
-    private fun getCardLanguageCode(card: Card?): String? {
-        return if (card is WikiSiteCard) card.wikiSite().languageCode else null
     }
 
     companion object {
