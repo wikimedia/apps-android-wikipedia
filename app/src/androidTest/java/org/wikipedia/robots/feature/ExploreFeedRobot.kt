@@ -2,18 +2,12 @@ package org.wikipedia.robots.feature
 
 import BaseRobot
 import android.util.Log
-import android.view.View
-import android.widget.TextView
-import androidx.annotation.IdRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.scrollTo
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -23,8 +17,6 @@ import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiScrollable
 import androidx.test.uiautomator.UiSelector
 import com.google.android.material.imageview.ShapeableImageView
-import org.hamcrest.Description
-import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestConstants
@@ -37,12 +29,80 @@ import org.wikipedia.base.utils.ColorAssertions
 import org.wikipedia.theme.Theme
 
 class ExploreFeedRobot : BaseRobot() {
-    fun clickOnThisDayCard() = apply {
-        onView(allOf(
-            withId(R.id.on_this_day_card_view_click_container),
-            isDescendantOfA(withId(R.id.feed_view)),
-            isDisplayed()
-        )).perform(scrollTo(), click())
+    fun clickOnFeaturedArticle(position: Int = 0) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.moveClickIntoViewAndClick(R.id.view_featured_article_card_content_container)
+                )
+            )
+
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickTodayOnWikipedia(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.moveClickIntoViewAndClick(R.id.footerActionButton)
+                )
+            )
+        delay(TestConfig.DELAY_LARGE)
+    }
+
+    fun clickTopReadArticle(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.clickNestedItem(R.id.view_list_card_list, 0)
+                )
+            )
+    }
+
+    fun clickPictureOfTheDay(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.moveClickIntoViewAndClick(R.id.view_featured_image_card_content_container)
+                )
+            )
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun clickNewsArticle(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.clickNestedItem(R.id.news_cardview_recycler_view, 0)
+                )
+            )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickOnThisDayCard(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.moveClickIntoViewAndClick(R.id.on_this_day_card_view_click_container)
+                )
+            )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
+    fun clickRandomArticle(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.moveClickIntoViewAndClick(R.id.view_featured_article_card_content_container)
+                )
+            )
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -51,12 +111,6 @@ class ExploreFeedRobot : BaseRobot() {
             viewId = R.id.feed_view,
             expectedCount = expectedCount
         )
-    }
-
-    fun clickRandomArticle() = apply {
-        // Random article card seen and saved to reading lists
-        click.onViewWithId(R.id.articleImage)
-        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun pressBack() = apply {
@@ -68,18 +122,6 @@ class ExploreFeedRobot : BaseRobot() {
         click.onDisplayedViewWithContentDescription("Navigate up")
     }
 
-    fun clickTopReadArticle() = apply {
-        val nestedListMatcher = allOf(
-            withId(R.id.view_list_card_list),
-            isDescendantOfA(withId(R.id.feed_view)),
-            isDisplayed()
-        )
-        onView(nestedListMatcher).check(matches(isDisplayed()))
-        onView(nestedListMatcher).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
-        )
-    }
-
     fun clickBecauseYouReadArticle() = apply {
         onView(
             allOf(
@@ -88,17 +130,6 @@ class ExploreFeedRobot : BaseRobot() {
             )
         )
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-    }
-
-    fun clickNewsArticle() = apply {
-        onView(
-            allOf(
-                withId(R.id.news_cardview_recycler_view),
-                childAtPosition(withId(R.id.rtl_container), 1)
-            )
-        )
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-        delay(TestConfig.DELAY_MEDIUM)
     }
 
     fun clickAddArticleDescription() = apply {
@@ -112,21 +143,6 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
         verify.viewWithIdIsNotVisible(viewId = R.id.articleImage)
-        delay(TestConfig.DELAY_MEDIUM)
-    }
-
-    fun clickPictureOfTheDay() = apply {
-        click.onViewWithId(R.id.view_featured_image_card_image)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun clickTodayOnWikipedia() = apply {
-        click.onViewWithIdAndContainsString(R.id.footerActionButton, text = "Today on Wikipedia")
-        delay(TestConfig.DELAY_LARGE)
-    }
-
-    fun clickOnFeaturedArticle() = apply {
-        click.onViewWithId(R.id.articleImage)
         delay(TestConfig.DELAY_MEDIUM)
     }
 
@@ -184,22 +200,29 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun assertFeaturedArticleTitleColor(theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme, colorType = TestThemeColorType.PRIMARY)
-        onView(allOf(
-            withId(R.id.view_card_header_title),
-            withText(TestConstants.FEATURED_ARTICLE)
-        )).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
+        onView(
+            allOf(
+                withId(R.id.view_card_header_title),
+                withText(TestConstants.FEATURED_ARTICLE)
+            )
+        ).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
     }
 
     fun assertTopReadTitleColor(theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme, colorType = TestThemeColorType.PRIMARY)
-        onView(allOf(
-            withId(R.id.view_card_header_title),
-            withText(TestConstants.TOP_READ_ARTICLES)
-        )).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
+        onView(
+            allOf(
+                withId(R.id.view_card_header_title),
+                withText(TestConstants.TOP_READ_ARTICLES)
+            )
+        ).check(ColorAssertions.hasColor(color, ColorAssertions.ColorType.TextColor))
     }
 
     fun longClickFeaturedArticleCardContainer() = apply {
-        scroll.toViewAndMakeVisibleAndLongClick(viewId = R.id.view_featured_article_card_content_container, parentViewId = R.id.feed_view)
+        scroll.toViewAndMakeVisibleAndLongClick(
+            viewId = R.id.view_featured_article_card_content_container,
+            parentViewId = R.id.feed_view
+        )
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -212,47 +235,36 @@ class ExploreFeedRobot : BaseRobot() {
         }
     }
 
-    private fun scrollToCardViewWithTitle(
+    fun scrollAndPerform(
+        viewIdRes: Int = R.id.feed_view,
         title: String,
-        @IdRes textViewId: Int = R.id.view_card_header_title,
-    ): Matcher<View> {
-        var currentOccurrence = 0
-        return object : BoundedMatcher<View, View>(View::class.java) {
-            override fun describeTo(description: Description?) {
-                description?.appendText("Scroll to Card View with title: $title")
-            }
-
-            override fun matchesSafely(item: View?): Boolean {
-                val titleView = item?.findViewById<TextView>(textViewId)
-                if (titleView?.text?.toString() == title) {
-                    if (currentOccurrence == 0) {
-                        currentOccurrence++
-                        return true
-                    }
-                    currentOccurrence++
-                }
-                return false
-            }
+        action: ExploreFeedRobot.(Int) -> Unit = {}
+    ) = apply {
+        list.scrollAndPerform(viewIdRes, title) { position ->
+            action(position)
         }
     }
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
         delay(TestConfig.DELAY_MEDIUM)
-        onView(allOf(
-            withId(R.id.view_list_card_list),
-            isDescendantOfA(withId(R.id.feed_view)),
-            isDisplayed()
-        )).check { view, _ ->
-                val recyclerView = view as RecyclerView
-                val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
-                    ?: throw AssertionError("No viewHolder found at position 0")
-                val imageView = viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
+        onView(
+            allOf(
+                withId(R.id.view_list_card_list),
+                isDescendantOfA(withId(R.id.feed_view)),
+                isDisplayed()
+            )
+        ).check { view, _ ->
+            val recyclerView = view as RecyclerView
+            val viewHolder = recyclerView.findViewHolderForAdapterPosition(1)
+                ?: throw AssertionError("No viewHolder found at position 0")
+            val imageView =
+                viewHolder.itemView.findViewById<ShapeableImageView>(R.id.view_list_card_item_image)
                     ?: throw AssertionError("No ImageView found with id view_list_card_item_image")
-                val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.BORDER)
-                ColorAssertions.hasColor(
-                    colorResId = color,
-                    colorType = ColorAssertions.ColorType.ShapeableImageViewColor
-                ).check(imageView, null)
-            }
+            val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.BORDER)
+            ColorAssertions.hasColor(
+                colorResId = color,
+                colorType = ColorAssertions.ColorType.ShapeableImageViewColor
+            ).check(imageView, null)
+        }
     }
 }

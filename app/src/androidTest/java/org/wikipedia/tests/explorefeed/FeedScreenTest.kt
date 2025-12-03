@@ -42,13 +42,13 @@ class FeedScreenTest : BaseTest<MainActivity>(
 
         // Feed Test flow
         exploreFeedRobot
-            .scrollToAndPerform(title = FEATURED_ARTICLE, shouldSwipeMore = true) {
+            .scrollAndPerform(title = FEATURED_ARTICLE) { position ->
                 assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
-                clickOnFeaturedArticle()
+                clickOnFeaturedArticle(position)
                 pressBack()
             }
-            .scrollToAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE) {
-                clickTodayOnWikipedia()
+            .scrollAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE) { position ->
+                clickTodayOnWikipedia(position)
                 dialogRobot
                     .dismissBigEnglishDialog()
                     .dismissContributionDialog()
@@ -57,28 +57,28 @@ class FeedScreenTest : BaseTest<MainActivity>(
         systemRobot
             .enableDarkMode(context)
         exploreFeedRobot
-            .scrollToAndPerform(title = TOP_READ_ARTICLES) {
+            .scrollAndPerform(title = TOP_READ_ARTICLES) { position ->
                 assertTopReadTitleColor(theme = Theme.DARK)
-                clickTopReadArticle()
+                clickTopReadArticle(position)
                 pressBack()
             }
-            .scrollToAndPerform(title = PICTURE_OF_DAY) {
-                clickPictureOfTheDay()
+            .scrollAndPerform(title = PICTURE_OF_DAY) { position ->
+                clickPictureOfTheDay(position)
                 pressBack()
             }
         systemRobot
             .disableDarkMode(context)
         exploreFeedRobot
-            .scrollToAndPerform(title = NEWS_CARD) {
-                clickNewsArticle()
+            .scrollAndPerform(title = NEWS_CARD) { position ->
+                clickNewsArticle(position)
                 pressBack()
             }
-            .scrollToAndPerform(title = ON_THIS_DAY_CARD, shouldSwipeMore = true) {
-                clickOnThisDayCard()
+            .scrollAndPerform(title = ON_THIS_DAY_CARD) { position ->
+                clickOnThisDayCard(position)
                 pressBack()
             }
-            .scrollToAndPerform(title = RANDOM_CARD, shouldSwipeMore = true) {
-                clickRandomArticle()
+            .scrollAndPerform(title = RANDOM_CARD) { position ->
+                clickRandomArticle(position)
                 pressBack()
             }
     }
