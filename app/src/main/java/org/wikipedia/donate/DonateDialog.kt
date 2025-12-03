@@ -176,7 +176,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 return@let CampaignCollection.getFormattedCampaignId(it)
             }.orEmpty()
             val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
-                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)
+                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME, Prefs.appInstallId)
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }
     }
