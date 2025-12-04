@@ -32,17 +32,9 @@ import org.wikipedia.base.TestConfig
 import org.wikipedia.base.utils.AssertJavascriptAction
 
 class PageRobot(private val context: Context) : BaseRobot() {
-
-    fun clickEditPencilAtTopOfArticle() = apply {
-        onWebView()
-            .withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
-            .perform(webClick())
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun clickLink(linkTitle: String) = apply {
         web.clickWebLink(linkTitle)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyArticleTitle(expectedTitle: String) = apply {
@@ -51,12 +43,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun verifyPreviewArticleDialogAppears() = apply {
         click.onDisplayedView(R.id.link_preview_toolbar)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun openPreviewLinkInNewTab() = apply {
         click.onDisplayedView(R.id.link_preview_secondary_button)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -71,17 +63,17 @@ class PageRobot(private val context: Context) : BaseRobot() {
     fun clickLeadImage() = apply {
         delay(TestConfig.DELAY_SHORT)
         click.onDisplayedView(R.id.view_page_header_image)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickOverflowMenu(description: String) = apply {
         click.onDisplayedViewWithContentDescription(description)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun visitImagePage() = apply {
         click.onDisplayedViewWithText(viewId = R.id.title, text = "Go to image page")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyLeadImageIsNotVisible() = apply {
@@ -90,12 +82,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun swipePagerLeft() = apply {
         swipe.left(R.id.pager)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun swipeLeftToShowTableOfContents() = apply {
         swipe.left(R.id.page_web_view)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun pressBack() = apply {
@@ -105,12 +97,12 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun goBackToGalleryView() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun goBackToOriginalArticle() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun enableJavaScript() = apply {
@@ -139,23 +131,23 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun swipeTableOfContentsAllTheWayToBottom() = apply {
         swipe.up(R.id.toc_list)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickAboutThisArticleTextInTOC() = apply {
         click.onViewWithText("About this article")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun goToTalkPage() = apply {
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
             .perform(webClick())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickThirdTopic() = apply {
         list.clickRecyclerViewItemAtPosition(R.id.talkRecyclerView, 2)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun openOverflowMenu() = apply {
@@ -165,7 +157,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun navigateBackToExploreFeed() = apply {
         click.onViewWithText("Explore")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun removeArticleFromReadingList() = apply {
@@ -208,14 +200,14 @@ class PageRobot(private val context: Context) : BaseRobot() {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
             .perform(webScrollIntoView())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickToExpandQuickFactsTable() = apply {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, ".pcs-table-infobox"))
             .perform(webClick())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     @SuppressLint("CheckResult")
@@ -299,28 +291,28 @@ class PageRobot(private val context: Context) : BaseRobot() {
         onWebView()
             .withElement(findElement(Locator.ID, "pcs-footer-container-menu-heading"))
             .perform(webScrollIntoView())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun goToViewEditHistory() = apply {
         onWebView()
             .withElement(findElement(Locator.CSS_SELECTOR, "a[title='View edit history']"))
             .perform(webClick())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToLegalSection() = apply {
         onWebView()
             .withElement(findElement(Locator.ID, "pcs-footer-container-legal"))
             .perform(webScrollIntoView())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToAdministrativeDivisionOfIndiaArticle() = apply {
         onWebView()
             .withElement(findElement(Locator.ID, "Administrative_divisions"))
             .perform(webClick())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun scrollToAndhraPradeshOnIndiaArticle() = apply {
@@ -328,7 +320,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
             .withElement(findElement(Locator.CSS_SELECTOR, "a[title='Andhra Pradesh']"))
             .perform(webScrollIntoView())
             .perform(webClick())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickLegalLink() = apply {

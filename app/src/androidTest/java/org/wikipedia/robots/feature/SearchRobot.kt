@@ -73,7 +73,7 @@ class SearchRobot : BaseRobot() {
 
     fun clickFilterHistoryButton() = apply {
         click.onViewWithId(R.id.history_filter)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun closeFilterList() = apply {
@@ -85,7 +85,7 @@ class SearchRobot : BaseRobot() {
         onView(withId(androidx.appcompat.R.id.search_close_btn))
             .check(matches(isDisplayed()))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifySearchTermIsCleared() = apply {
@@ -119,7 +119,7 @@ class SearchRobot : BaseRobot() {
     fun clickLanguage(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
         list.selectTabWithText(R.id.horizontal_scroll_languages, language)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun checkSearchListItemHasRTLDirection() = apply {
@@ -178,7 +178,7 @@ class SearchRobot : BaseRobot() {
                     ViewActions.swipeLeft()
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyArticleRemoved(title: String) = apply {

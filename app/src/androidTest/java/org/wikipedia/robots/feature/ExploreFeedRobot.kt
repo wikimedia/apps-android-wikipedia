@@ -36,7 +36,7 @@ class ExploreFeedRobot : BaseRobot() {
                 )
             )
 
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickTodayOnWikipedia(position: Int) = apply {
@@ -79,7 +79,7 @@ class ExploreFeedRobot : BaseRobot() {
                     list.clickNestedItem(R.id.news_cardview_recycler_view, 0)
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickOnThisDayCard(position: Int) = apply {
@@ -90,7 +90,7 @@ class ExploreFeedRobot : BaseRobot() {
                     list.moveClickIntoViewAndClick(R.id.on_this_day_card_view_click_container)
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickRandomArticle(position: Int) = apply {
@@ -101,7 +101,7 @@ class ExploreFeedRobot : BaseRobot() {
                     list.moveClickIntoViewAndClick(R.id.view_featured_article_card_content_container)
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickBecauseYouReadArticle(position: Int) = apply {
@@ -112,7 +112,7 @@ class ExploreFeedRobot : BaseRobot() {
                     list.clickNestedItem(R.id.view_list_card_list, 0)
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyFeedViewSize(expectedCount: Int) = apply {
@@ -142,7 +142,7 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun verifyFeaturedArticleImageIsNotVisible() = apply {
         verify.viewWithIdIsNotVisible(viewId = R.id.articleImage)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun stayOnFeaturedArticleFor(milliseconds: Long) = apply {
@@ -245,7 +245,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun verifyTopReadArticleIsGreyedOut(theme: Theme) = apply {
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         onView(
             allOf(
                 withId(R.id.view_list_card_list),

@@ -56,7 +56,7 @@ class MoreMenuRobot : BaseRobot() {
 
     fun clickTalk() = apply {
         click.onViewWithId(R.id.main_drawer_talk_container)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickWatchList() = apply {

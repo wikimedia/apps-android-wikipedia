@@ -60,7 +60,7 @@ class SavedScreenRobot : BaseRobot() {
                     ViewActions.swipeLeft()
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifySavedArticleIsRemoved(title: String) = apply {
@@ -96,7 +96,7 @@ class SavedScreenRobot : BaseRobot() {
 
     fun clickFilterList() = apply {
         click.onViewWithId(R.id.menu_search_lists)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun pressBack() = apply {
