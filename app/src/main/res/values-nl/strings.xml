@@ -2227,7 +2227,7 @@
   <string name="donation_reminders_settings_option_custom">Anders…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Bedankt! We herinneren u eraan om %1$s te doneren wanneer u %2$s leest terwijl dit experiment loopt.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt nog %1$s gelezen</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt er nog %1$s gelezen</string>
   <string name="donation_reminders_prompt_message">U hebt een donatieherinnering ingesteld op %1$s om %3$s te doneren voor elke %2$s die u leest. Klaar om uw belofte om Wikipedia te steunen na te komen?</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>

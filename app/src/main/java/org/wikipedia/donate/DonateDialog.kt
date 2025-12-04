@@ -19,6 +19,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
+import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -29,13 +30,17 @@ import org.wikipedia.util.Resource
 class DonateDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogDonateBinding? = null
     private val binding get() = _binding!!
+    private var campaignIdOriginal: String? = null
     private var campaignId: String? = null
 
     private val viewModel: DonateViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
-        campaignId = arguments?.getString(ARG_CAMPAIGN_ID)
+        campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID)
+        campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
+            if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
+        } else ""
 
         val activeInterface = if (arguments?.getBoolean(ARG_FROM_YIR) == true) {
             "wiki_yir"
@@ -108,7 +113,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun invalidateCampaign() {
-        campaignId?.let {
+        campaignIdOriginal?.let {
             Prefs.announcementShownDialogs = setOf(it)
         }
     }
@@ -171,7 +176,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
                 return@let CampaignCollection.getFormattedCampaignId(it)
             }.orEmpty()
             val donateUrl = url ?: context.getString(R.string.donate_url, formattedCampaignId,
-                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)
+                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME, Prefs.appInstallId)
             CustomTabsUtil.openInCustomTab(context, donateUrl)
         }
     }

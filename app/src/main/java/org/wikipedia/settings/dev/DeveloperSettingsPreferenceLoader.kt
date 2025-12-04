@@ -267,6 +267,12 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
                 true
             }
         }
+        (findPreference(R.string.preference_key_event_platform_intake_base_uri_list) as ListPreference).setOnPreferenceChangeListener { _, newValue ->
+            val selectedState = newValue as String
+            Prefs.eventPlatformIntakeUriOverride = selectedState
+            findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
+            true
+        }
     }
 
     private fun setUpMediaWikiSettings() {

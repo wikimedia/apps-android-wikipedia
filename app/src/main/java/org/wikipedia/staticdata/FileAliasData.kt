@@ -318,6 +318,7 @@ object FileAliasData {
             "tly" to "Fajl",
             "tn" to "Setshwantsho",
             "to" to "File",
+            "tok" to "sitelen",
             "tpi" to "Fail",
             "tr" to "Dosya",
             "trv" to "Patas bntasan",
