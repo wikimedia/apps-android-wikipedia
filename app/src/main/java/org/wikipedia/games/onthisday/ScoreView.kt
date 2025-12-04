@@ -38,20 +38,12 @@ class ScoreView(
         }
     }
 
-    fun updateScore(answerState: List<Boolean>, currentQuestionIndex: Int, gotToNext: Boolean) {
-        if (currentQuestionIndex >= answerState.size) {
-            return
-        }
-        updateScoreViewAppearance(
-            scoreView = scoreViews[currentQuestionIndex],
-            isCorrect = answerState[currentQuestionIndex],
-            isAnswered = gotToNext // when false, user has not answered
-        )
-    }
-
-    fun updateInitialScores(answerState: List<Boolean>, currentQuestionIndex: Int) {
+    fun updateScores(answerState: List<Boolean>, currentQuestionIndex: Int, goToNext: Boolean) {
         for (i in answerState.indices) {
-            val isAnswered = i < currentQuestionIndex
+            // Question is answered if:
+            // 1. It's before the current question (i < currentQuestionIndex), OR
+            // 2. It's the current question AND user has submitted answer (goToNext)
+            val isAnswered = i < currentQuestionIndex || (i == currentQuestionIndex && goToNext)
             val isCorrect = isAnswered && answerState[i]
             updateScoreViewAppearance(scoreViews[i], isCorrect, isAnswered)
         }
