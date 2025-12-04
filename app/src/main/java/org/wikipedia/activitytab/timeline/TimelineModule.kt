@@ -219,10 +219,9 @@ fun TimelineDateSeparator(
     date: Date,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
     val (dateHeaderText, showSecondaryDate) = when {
-        date.isToday() -> context.getString(R.string.activity_tab_timeline_today) to true
-        date.isYesterday() -> context.getString(R.string.activity_tab_timeline_yesterday) to true
+        date.isToday() -> stringResource(R.string.activity_tab_timeline_today) to true
+        date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday) to true
         else -> DateUtil.getMMMMdYYYY(date, false) to false
     }
 

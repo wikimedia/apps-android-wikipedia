@@ -86,6 +86,7 @@ fun GeoScreenContent(
     val markerPaintSrcIn: Paint = remember { PlacesFragment.getMarkerPaintSrcIn() }
     val markerBorderPaint: Paint = remember { PlacesFragment.getMarkerBorderPaint(context) }
     val markerBitmapBase: Bitmap = remember { PlacesFragment.getMarkerBitmapBase(context) }
+    val mediaWikiFaqUrl = stringResource(R.string.year_in_review_media_wiki_faq_url)
 
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -230,7 +231,7 @@ fun GeoScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
+                                uri = mediaWikiFaqUrl.toUri()
                             )
                         }) {
                         Icon(
