@@ -267,7 +267,7 @@
   <string name="preferences_general_heading">Allgemein</string>
   <string name="preferences_account_heading">Benutzerkonto</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
-  <string name="send_feedback">App-Rückmeldung senden</string>
+  <string name="send_feedback">Feedback geben</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preferences_heading_syncing">Synchronisierung</string>
   <string name="preferences_heading_data_usage">Datennutzung</string>
@@ -305,10 +305,10 @@
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/de\"&gt;Team-Seite&lt;/a&gt;</string>
-  <string name="about_translators_heading">Übersetzer</string>
-  <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
+  <string name="about_translators_heading">Übersetzung</string>
+  <string name="about_translators_translatewiki">Diese App wurde von Freiwilligen auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.de\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
+  <string name="about_app_license">Der Quellcode ist auf &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; verfügbar. Sofern nicht anders angegeben, stehen die Inhalte unter einer &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.de\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
   <string name="about_wmf">Ein Produkt der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="about_logo_content_description">Wikipedia-Puzzle-Globus-Logo</string>
@@ -527,7 +527,7 @@
   <string name="color_theme_black">Schwarz</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Beispieltext</string>
-  <string name="color_theme_test_text">Ziehe den Schieber, um die Größe des Textes zu ändern, der für das Lesen von Artikeln verwendet wird. Um die Textgröße auch für den Rest der App festzulegen, ändere die Systemtextgröße.</string>
+  <string name="color_theme_test_text">Passe die Größe des Artikeltextes mit dem Schieberegler an. Um die Textgröße in der gesamten App zu ändern, passe in den Systemeinstellungen die Systemtextgröße an.</string>
   <string name="preference_title_app_theme">Farbschema der App</string>
   <string name="preference_summary_color_theme">Wechsle zur Verwendung der App in einem dunklen Farbschema</string>
   <string name="text_size_increase">Text vergrößern</string>
@@ -968,7 +968,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Computergenerierte Vorschläge</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Die Vorschläge werden von einem Computer generiert, nicht von Freiwilligen oder der Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
-  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste mit 5 Tastaturkürzeln an, die du am hilfreichsten findest.</string>
+  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste an, indem du fünf Tastaturkürzel auswählst, die dir am nützlichsten erscheinen.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehe deine Lieblingsobjekte hierher 👋</string>
