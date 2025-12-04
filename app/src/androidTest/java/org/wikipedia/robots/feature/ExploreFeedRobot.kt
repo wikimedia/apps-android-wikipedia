@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
@@ -21,7 +20,6 @@ import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.TestConstants
 import org.wikipedia.TestConstants.SUGGESTED_EDITS
-import org.wikipedia.TestUtil.childAtPosition
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
@@ -106,6 +104,17 @@ class ExploreFeedRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun clickBecauseYouReadArticle(position: Int) = apply {
+        onView(withId(R.id.feed_view))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    list.clickNestedItem(R.id.view_list_card_list, 0)
+                )
+            )
+        delay(TestConfig.DELAY_MEDIUM)
+    }
+
     fun verifyFeedViewSize(expectedCount: Int) = apply {
         list.verifyRecyclerViewItemCount(
             viewId = R.id.feed_view,
@@ -120,16 +129,6 @@ class ExploreFeedRobot : BaseRobot() {
 
     fun navigateUp() = apply {
         click.onDisplayedViewWithContentDescription("Navigate up")
-    }
-
-    fun clickBecauseYouReadArticle() = apply {
-        onView(
-            allOf(
-                withId(R.id.view_list_card_list),
-                childAtPosition(withId(R.id.view_list_card_list_container), 0)
-            )
-        )
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
     }
 
     fun clickAddArticleDescription() = apply {

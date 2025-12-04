@@ -76,6 +76,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_MEDIUM)
     }
 
+    fun closeFilterList() = apply {
+        onView(withId(androidx.appcompat.R.id.action_mode_close_button)).perform(click())
+        delay(TestConfig.DELAY_SHORT)
+    }
+
     fun removeTextByTappingTrashIcon() = apply {
         onView(withId(androidx.appcompat.R.id.search_close_btn))
             .check(matches(isDisplayed()))

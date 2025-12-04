@@ -37,19 +37,17 @@ class SavedArticleTest : BaseTest<MainActivity>(
             .clickSave(action = { isSaved ->
                 if (isSaved) {
                     searchRobot
-                        .pressBack()
-                        .pressBack()
+                        .pressBackUntilExploreFeed()
                 } else {
                     searchRobot
-                        .pressBack()
-                        .pressBack()
-                        .pressBack()
+                        .pressBackUntilExploreFeed()
                 }
             })
         exploreFeedRobot
-            .scrollToAndPerform(title = FEATURED_ARTICLE)
-            .longClickFeaturedArticleCardContainer()
-            .clickSave()
+            .scrollAndPerform(title = FEATURED_ARTICLE) {
+                longClickFeaturedArticleCardContainer()
+                clickSave()
+            }
         setDeviceOrientation(isLandscape = true)
         bottomNavRobot
             .navigateToSavedPage()
@@ -57,7 +55,7 @@ class SavedArticleTest : BaseTest<MainActivity>(
             .clickFilterList()
         searchRobot
             .typeTextInView(TestConstants.SEARCH_TERM)
-            .pressBack()
+        savedScreenRobot
             .pressBack()
         setDeviceOrientation(isLandscape = false)
         savedScreenRobot
@@ -69,8 +67,7 @@ class SavedArticleTest : BaseTest<MainActivity>(
         savedScreenRobot
             .clickItemOnReadingList(0)
             .pressBack()
-            .pressBack()
-            .pressBack()
+            .closeFilterList()
             .swipeToDelete(2)
             .verifySavedArticleIsRemoved(TestConstants.SEARCH_TERM)
     }
