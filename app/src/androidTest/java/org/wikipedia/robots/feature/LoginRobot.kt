@@ -4,11 +4,8 @@ import BaseRobot
 import android.content.Context
 import android.util.Log
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Matchers
@@ -59,7 +56,7 @@ class LoginRobot : BaseRobot() {
                     Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))
             )
         )
-            .perform(replaceText("orange2026"), closeSoftKeyboard())
+            .perform(replaceText("orange2024"), closeSoftKeyboard())
     }
 
     private fun setPasswordFromBuildConfig() = apply {
@@ -70,14 +67,7 @@ class LoginRobot : BaseRobot() {
     private fun loginUser() = apply {
         scroll.toViewAndClick(R.id.login_button)
         delay(TestConfig.DELAY_LARGE)
-        try {
-            onView(withId(R.id.captcha_image)).check(matches(isDisplayed()))
-            println("LoginRobot: Captcha challenge is present.")
-        } catch (e: NoMatchingViewException) {
-            println("LoginRobotError: Captcha not found: ${e.message}")
-        } catch (e: AssertionError) {
-            println("LoginRobotError: Captcha not found: ${e.message}")
-        }
+        verify.viewWithIdDoesNotExist(R.id.captcha_image)
     }
 
     fun verifyLoginFailed() = apply {
