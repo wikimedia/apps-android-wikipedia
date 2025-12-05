@@ -47,7 +47,7 @@ class LoginRobot : BaseRobot() {
 
     private fun clickLoginButton() = apply {
         click.onDisplayedViewWithText(viewId = R.id.create_account_login_button, text = "Log in")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun setLoginUserNameFromBuildConfig() = apply {

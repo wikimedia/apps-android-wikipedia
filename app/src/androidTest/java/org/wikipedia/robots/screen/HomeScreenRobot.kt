@@ -23,19 +23,19 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun navigateToNotifications() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
+        click.onDisplayedViewWithIdAndContentDescription(viewId = R.id.menu_notifications, "Notifications")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun pressBack() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertAllFeedCardsAreHidden() = apply {
         onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
             .check(matches(isDisplayed()))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertEmptyMessageIsNotVisible() = apply {
@@ -48,7 +48,7 @@ class HomeScreenRobot : BaseRobot() {
         // Assert that images arent shown anymore
         onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
             withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun dismissTooltip(activity: Activity) = apply {

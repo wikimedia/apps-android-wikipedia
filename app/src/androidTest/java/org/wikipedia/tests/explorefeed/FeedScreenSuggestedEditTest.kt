@@ -28,6 +28,7 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
         // Following test requires login
         // 1. Notification click
         // 2. Suggested Edit Visibility
+        setDeviceOrientation(isLandscape = false)
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         loginRobot
