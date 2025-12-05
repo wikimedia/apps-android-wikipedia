@@ -2,20 +2,19 @@ package org.wikipedia.feed
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.Card
 
 class FeedViewModel : ViewModel() {
-
-    private val _cards = MutableStateFlow<List<Card>>(emptyList())
-    val cards: StateFlow<List<Card>> = _cards.asStateFlow()
-
-    private val _isLoading = MutableStateFlow(false)
-    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
-
     private val _isEmpty = MutableStateFlow(false)
     val isEmpty: StateFlow<Boolean> = _isEmpty.asStateFlow()
 
@@ -23,80 +22,40 @@ class FeedViewModel : ViewModel() {
 
     init {
         FeedContentType.restoreState()
-        setupCoordinator()
     }
 
-    private fun setupCoordinator() {
-        coordinator.setFeedUpdateListener(object : FeedCoordinatorBase.FeedUpdateListener {
-            override fun insert(card: Card, pos: Int) {
-                _cards.value = coordinator.cards.toList()
-                _isLoading.value = false
-                updateEmptyState()
-            }
+    private val _reloadTrigger = MutableStateFlow(0)
 
-            override fun remove(card: Card, pos: Int) {
-                _cards.value = coordinator.cards.toList()
-                _isLoading.value = false
-                updateEmptyState()
-            }
+    // Paging 3 integration: expose a Flow\<PagingData\<Card\>\> that reacts to `refresh()`.
+    val pagingData: Flow<PagingData<Card>> = _reloadTrigger.flatMapLatest {
+        Pager(
+            config = PagingConfig(pageSize = 20, enablePlaceholders = false),
+            pagingSourceFactory = { FeedPagingSource() }
+        ).flow
+    }.cachedIn(viewModelScope)
 
-            override fun finished(shouldUpdatePreviousCard: Boolean) {
-                _cards.value = coordinator.cards.toList()
-                _isLoading.value = false
-                updateEmptyState()
-            }
-        })
+    // Keep existing coordinator helpers if needed; otherwise they can be removed
+    fun dismissCard(card: Card): Int = coordinator.dismissCard(card)
+    fun undoDismissCard(card: Card, position: Int) {
+        coordinator.undoDismissCard(card, position)
     }
-
-    private fun updateEmptyState() {
-        _isEmpty.value = coordinator.cards.size < 2
+    fun updateHiddenCards() {
+        coordinator.updateHiddenCards()
     }
-
-    fun loadInitialFeed() {
-        _isLoading.value = true
-        coordinator.more(WikipediaApp.instance.wikiSite)
+    fun requestOfflineCard() {
+        coordinator.requestOfflineCard()
     }
-
-    fun loadMore() {
-        _isLoading.value = true
-        coordinator.incrementAge()
-        coordinator.more(WikipediaApp.instance.wikiSite)
+    fun removeOfflineCard() {
+        coordinator.removeOfflineCard()
     }
 
     fun refresh() {
-        _isLoading.value = true
-        _isEmpty.value = false
-        coordinator.reset()
-        _cards.value = emptyList()
-        WikipediaApp.instance.resetWikiSite()
-        coordinator.more(WikipediaApp.instance.wikiSite)
+        _reloadTrigger.value += 1
     }
 
-    fun dismissCard(card: Card): Int {
-        return coordinator.dismissCard(card)
+    fun loadMore() {
+        refresh()
     }
-
-    fun undoDismissCard(card: Card, position: Int) {
-        coordinator.undoDismissCard(card, position)
-        _cards.value = coordinator.cards.toList()
-    }
-
-    fun updateHiddenCards() {
-        coordinator.updateHiddenCards()
-        _cards.value = coordinator.cards.toList()
-    }
-
-    fun requestOfflineCard() {
-        coordinator.requestOfflineCard()
-        _cards.value = coordinator.cards.toList()
-    }
-
-    fun removeOfflineCard() {
-        coordinator.removeOfflineCard()
-        _cards.value = coordinator.cards.toList()
-    }
-
-    fun getCoordinator(): FeedCoordinator = coordinator
 
     override fun onCleared() {
         super.onCleared()

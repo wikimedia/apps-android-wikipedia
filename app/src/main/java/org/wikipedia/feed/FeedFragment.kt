@@ -9,14 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -40,7 +41,6 @@ import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -49,16 +49,6 @@ import org.wikipedia.util.UriUtil
 import java.time.LocalDate
 
 class FeedFragment : Fragment() {
-    private var _binding: FragmentFeedBinding? = null
-    private val binding get() = _binding!!
-
-    private val viewModel: FeedViewModel by viewModels()
-    private lateinit var feedAdapter: FeedAdapter<View>
-    private val feedCallback = FeedCallback()
-    private val feedScrollListener = FeedScrollListener()
-    private val callback get() = getCallback(this, Callback::class.java)
-    private var shouldElevateToolbar = false
-
     interface Callback {
         fun onFeedSearchRequested(view: View)
         fun onFeedVoiceSearchRequested()
@@ -77,7 +67,6 @@ class FeedFragment : Fragment() {
 
     private val requestFeedConfigurationLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-            viewModel.updateHiddenCards()
             refresh()
         }
     }
@@ -88,46 +77,60 @@ class FeedFragment : Fragment() {
         }
     }
 
+    private var _binding: FragmentFeedBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel: FeedViewModel by viewModels()
+    private lateinit var feedAdapter: FeedPagingAdapter
+    private val feedCallback = FeedCallback()
+    private val callback get() = getCallback(this, Callback::class.java)
+    private var shouldElevateToolbar = false
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
 
-        feedAdapter = FeedAdapter(viewModel.getCoordinator(), feedCallback)
+        // FeedPagingAdapter must extend PagingDataAdapter<Card, RecyclerView.ViewHolder>
+        feedAdapter = FeedPagingAdapter()
+        feedAdapter.callback = feedCallback
         binding.feedView.adapter = feedAdapter
-        binding.feedView.addOnScrollListener(feedScrollListener)
 
-        binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
-        binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            feedAdapter.refresh() // trigger Paging to reload
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // submit paging data to adapter
                 launch {
-                    viewModel.cards.collect { cards ->
-                        feedAdapter.notifyDataSetChanged()
+                    viewModel.pagingData.collectLatest { pagingData ->
+                        feedAdapter.submitData(pagingData)
                     }
                 }
-
+                // drive swipe refresh by loadState
                 launch {
-                    viewModel.isLoading.collect { isLoading ->
-                        binding.swipeRefreshLayout.isRefreshing = isLoading
-                    }
-                }
-
-                launch {
-                    viewModel.isEmpty.collect { isEmpty ->
-                        binding.emptyContainer.isVisible = isEmpty
+                    feedAdapter.loadStateFlow.collectLatest { loadStates ->
+                        val isRefreshing = when {
+                            loadStates.refresh is LoadState.Loading -> true
+                            loadStates.source.refresh is LoadState.Loading -> true
+                            loadStates.mediator?.refresh is LoadState.Loading -> true
+                            else -> false
+                        }
+                        binding.swipeRefreshLayout.isRefreshing = isRefreshing
                     }
                 }
             }
         }
 
-        viewModel.loadInitialFeed()
-
+        // remove old manual trigger; paging will load automatically
         callback?.updateToolbarElevation(shouldElevateToolbar())
-        ReadingListSyncAdapter.manualSync()
-        Prefs.incrementExploreFeedVisitCount()
-
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        binding.swipeRefreshLayout.setOnRefreshListener(null)
+        binding.feedView.adapter = null
+        _binding = null
+        super.onDestroyView()
     }
 
     override fun onResume() {
@@ -135,14 +138,6 @@ class FeedFragment : Fragment() {
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
         feedAdapter.notifyDataSetChanged()
-    }
-
-    override fun onDestroyView() {
-        binding.swipeRefreshLayout.setOnRefreshListener(null)
-        binding.feedView.removeOnScrollListener(feedScrollListener)
-        binding.feedView.adapter = null
-        _binding = null
-        super.onDestroyView()
     }
 
     fun shouldElevateToolbar(): Boolean {
