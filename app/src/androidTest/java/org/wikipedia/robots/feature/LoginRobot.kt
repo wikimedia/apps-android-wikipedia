@@ -13,6 +13,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
@@ -59,12 +60,12 @@ class LoginRobot : BaseRobot() {
                     Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))
             )
         )
-            .perform(replaceText("Foo"), closeSoftKeyboard())
+            .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
     }
 
     private fun setPasswordFromBuildConfig() = apply {
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
-            .perform(replaceText("Bar"), closeSoftKeyboard())
+            .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
     }
 
     private fun loginUser() = apply {
