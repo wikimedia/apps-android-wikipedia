@@ -58,7 +58,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.Placeholder
@@ -318,8 +317,11 @@ fun DonationReminderContent(
     var showReadFrequencyCustomDialog by remember { mutableStateOf(false) }
     var showDonationAmountCustomDialog by remember { mutableStateOf(false) }
     var customDialogErrorMessage by remember { mutableStateOf("") }
-    val context = LocalContext.current
 
+    val warningMinAmount = stringResource(R.string.donation_reminders_settings_warning_min_amount)
+    val warningMaxAmount = stringResource(R.string.donation_reminders_settings_warning_max_amount)
+    val donateGooglePayMinAmount = stringResource(R.string.donate_gpay_minimum_amount)
+    val donateGooglePayMaxAmount = stringResource(R.string.donate_gpay_maximum_amount)
     Column(
         modifier = modifier
     ) {
@@ -384,14 +386,14 @@ fun DonationReminderContent(
                         val amount = DonateUtil.getAmountFloat(value)
                         customDialogErrorMessage = when {
                             amount <= minimumAmount -> {
-                                context.getString(
-                                    R.string.donation_reminders_settings_warning_min_amount,
+                                String.format(
+                                    warningMinAmount,
                                     uiState.readFrequency.displayFormatter(minimumAmount + 1)
                                 )
                             }
                             amount >= maximumAmount -> {
-                                context.getString(
-                                    R.string.donation_reminders_settings_warning_max_amount,
+                                String.format(
+                                    warningMaxAmount,
                                     uiState.readFrequency.displayFormatter(maximumAmount - 1)
                                 )
                             }
@@ -442,14 +444,14 @@ fun DonationReminderContent(
                         val maximumAmount = uiState.donationAmount.maximumAmount
                         customDialogErrorMessage = when {
                             amount < minimumAmount -> {
-                                context.getString(
-                                    R.string.donate_gpay_minimum_amount,
+                                String.format(
+                                    donateGooglePayMinAmount,
                                     uiState.donationAmount.displayFormatter(minimumAmount)
                                 )
                             }
                             maximumAmount > 0 && amount >= maximumAmount -> {
-                                context.getString(
-                                    R.string.donate_gpay_maximum_amount,
+                                String.format(
+                                    donateGooglePayMaxAmount,
                                     uiState.donationAmount.displayFormatter(maximumAmount)
                                 )
                             }
