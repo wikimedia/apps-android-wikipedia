@@ -13,7 +13,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withClassName
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.auth.AccountUtil
@@ -60,12 +59,12 @@ class LoginRobot : BaseRobot() {
                     Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))
             )
         )
-            .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
+            .perform(replaceText("orange2026"), closeSoftKeyboard())
     }
 
     private fun setPasswordFromBuildConfig() = apply {
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
-            .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
+            .perform(replaceText("apple12345"), closeSoftKeyboard())
     }
 
     private fun loginUser() = apply {
@@ -73,11 +72,11 @@ class LoginRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
         try {
             onView(withId(R.id.captcha_image)).check(matches(isDisplayed()))
-            Log.d("LoginRobot: ", "Captcha challenge is present.")
+            println("LoginRobot: Captcha challenge is present.")
         } catch (e: NoMatchingViewException) {
-            Log.e("LoginRobotError: ", "Captcha not found: ${e.message}")
+            println("LoginRobotError: Captcha not found: ${e.message}")
         } catch (e: AssertionError) {
-            Log.e("LoginRobotError: ", "Captcha not found: ${e.message}")
+            println("LoginRobotError: Captcha not found: ${e.message}")
         }
     }
 
