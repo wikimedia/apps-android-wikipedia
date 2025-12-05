@@ -11,14 +11,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
-import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.Card
 
 class FeedViewModel : ViewModel() {
     private val _isEmpty = MutableStateFlow(false)
     val isEmpty: StateFlow<Boolean> = _isEmpty.asStateFlow()
 
-    private val coordinator = FeedCoordinator(viewModelScope, WikipediaApp.instance)
+//    private val coordinator = FeedCoordinator(viewModelScope, WikipediaApp.instance)
 
     init {
         FeedContentType.restoreState()
@@ -35,31 +34,31 @@ class FeedViewModel : ViewModel() {
     }.cachedIn(viewModelScope)
 
     // Keep existing coordinator helpers if needed; otherwise they can be removed
-    fun dismissCard(card: Card): Int = coordinator.dismissCard(card)
-    fun undoDismissCard(card: Card, position: Int) {
-        coordinator.undoDismissCard(card, position)
-    }
-    fun updateHiddenCards() {
-        coordinator.updateHiddenCards()
-    }
-    fun requestOfflineCard() {
-        coordinator.requestOfflineCard()
-    }
-    fun removeOfflineCard() {
-        coordinator.removeOfflineCard()
-    }
-
-    fun refresh() {
-        _reloadTrigger.value += 1
-    }
+//    fun dismissCard(card: Card): Int = coordinator.dismissCard(card)
+//    fun undoDismissCard(card: Card, position: Int) {
+//        coordinator.undoDismissCard(card, position)
+//    }
+//    fun updateHiddenCards() {
+//        coordinator.updateHiddenCards()
+//    }
+//    fun requestOfflineCard() {
+//        coordinator.requestOfflineCard()
+//    }
+//    fun removeOfflineCard() {
+//        coordinator.removeOfflineCard()
+//    }
+//
+//    fun refresh() {
+//        _reloadTrigger.value += 1
+//    }
 
     fun loadMore() {
-        refresh()
+//        refresh()
     }
 
     override fun onCleared() {
         super.onCleared()
-        coordinator.setFeedUpdateListener(null)
-        coordinator.reset()
+//        coordinator.setFeedUpdateListener(null)
+//        coordinator.reset()
     }
 }

@@ -150,21 +150,21 @@ class FeedFragment : Fragment() {
 
     fun onGoOffline() {
         feedAdapter.notifyDataSetChanged()
-        viewModel.requestOfflineCard()
+//        viewModel.requestOfflineCard()
     }
 
     fun onGoOnline() {
         feedAdapter.notifyDataSetChanged()
-        viewModel.removeOfflineCard()
+//        viewModel.removeOfflineCard()
         viewModel.loadMore()
     }
 
     fun refresh() {
-        viewModel.refresh()
+//        viewModel.refresh()
     }
 
     fun updateHiddenCards() {
-        viewModel.updateHiddenCards()
+//        viewModel.updateHiddenCards()
     }
 
     private inner class FeedCallback : FeedAdapter.Callback {
@@ -209,9 +209,9 @@ class FeedFragment : Fragment() {
         }
 
         override fun onRequestDismissCard(card: Card): Boolean {
-            val position = viewModel.dismissCard(card)
-            if (position < 0) return false
-            showDismissCardUndoSnackbar(card, position)
+//            val position = viewModel.dismissCard(card)
+//            if (position < 0) return false
+//            showDismissCardUndoSnackbar(card, position)
             return true
         }
 
@@ -288,7 +288,7 @@ class FeedFragment : Fragment() {
     private fun showDismissCardUndoSnackbar(card: Card, position: Int) {
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
         snackbar.setAction(R.string.reading_list_item_delete_undo) {
-            viewModel.undoDismissCard(card, position)
+//            viewModel.undoDismissCard(card, position)
         }
         snackbar.show()
     }

@@ -9,11 +9,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
+import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
+import org.wikipedia.feed.mainpage.MainPageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.searchbar.SearchCard
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
 
@@ -27,6 +30,16 @@ class FeedPagingSource : PagingSource<Int, Card>() {
             val date = DateUtil.getUtcRequestDateFor(age)
             val appLangCodes = WikipediaApp.instance.languageState.appLanguageCodes
             val defaultFeaturedWiki = WikiSite.forLanguageCode(appLangCodes.firstOrNull() ?: "en")
+
+            if (age == 0) {
+                cards.add(SearchCard())
+            }
+
+            cards.add(DayHeaderCard(age))
+
+            if (age == 0) {
+//                AnnouncementCard.getActiveCard()?.let { cards.add(it) }
+            }
 
             // Fetch all languages concurrently and collect responses into a map.
             val responses: Map<String, AggregatedFeedContent> = coroutineScope {
@@ -72,12 +85,22 @@ class FeedPagingSource : PagingSource<Int, Card>() {
                         cards.add(TopReadListCard(it, WikiSite.forLanguageCode(appLangCode)))
                     }
                 }
+
+                // Add main page card for each language
+                if (!FeedContentType.MAIN_PAGE.langCodesDisabled.contains(appLangCode)) {
+                    cards.add(MainPageCard(WikiSite.forLanguageCode(appLangCode)))
+                }
             }
 
             // Featured image: follow previous behavior of using the provided wiki; here use defaultFeaturedWiki.
             responses[defaultFeaturedWiki.languageCode]?.potd?.let {
                 cards.add(FeaturedImageCard(it, age, defaultFeaturedWiki))
             }
+
+            // Add random card
+//            if (Prefs.feedCardsEnabled.contains(FeedContentType.RANDOM)) {
+//                cards.add(RandomCard(defaultFeaturedWiki))
+//            }
 
             LoadResult.Page(
                 data = cards,
