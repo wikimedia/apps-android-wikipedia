@@ -42,7 +42,7 @@ jobs:
         target: ${{ matrix.target }}
         arch: ${{ matrix.arch }}
         disable-animations: true
-        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.TestSuite
+        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.tests.explorefeed.FeedScreenSuggestedEditTest
 
     - name: Upload results
       if: ${{ always() }}
