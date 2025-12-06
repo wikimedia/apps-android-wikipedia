@@ -50,7 +50,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
                 binding.dropDownToolbar.visibility = View.VISIBLE
             }
-            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
+            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date) else ""
             if (newText != binding.toolbarDay.text.toString()) {
                 appBarLayout.post { binding.toolbarDay.text = newText }
             }
@@ -138,7 +138,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
             ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color)
         )
-        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
+        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date)
         maybeHideDateIndicator()
         binding.appBar.addOnOffsetChangedListener(offsetChangedListener)
     }
@@ -161,7 +161,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     override fun onDatePicked(calendar: Calendar) {
         binding.eventsRecycler.visibility = View.GONE
         viewModel.date[CustomDatePicker.LEAP_YEAR, calendar[Calendar.MONTH], calendar[Calendar.DATE], 0] = 0
-        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
+        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date)
         binding.appBar.setExpanded(true)
         viewModel.loadOnThisDay(calendar)
         maybeHideDateIndicator()

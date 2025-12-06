@@ -222,7 +222,7 @@ fun TimelineDateSeparator(
     val (dateHeaderText, showSecondaryDate) = when {
         date.isToday() -> stringResource(R.string.activity_tab_timeline_today) to true
         date.isYesterday() -> stringResource(R.string.activity_tab_timeline_yesterday) to true
-        else -> DateUtil.getMMMMdYYYY(date, false) to false
+        else -> DateUtil.getMediumDateString(date) to false
     }
 
     Column(
@@ -237,7 +237,7 @@ fun TimelineDateSeparator(
         )
         if (showSecondaryDate) {
             Text(
-                text = DateUtil.getMMMMdYYYY(date, false),
+                text = DateUtil.getMediumDateString(date),
                 style = MaterialTheme.typography.bodySmall,
                 color = WikipediaTheme.colors.secondaryColor
             )

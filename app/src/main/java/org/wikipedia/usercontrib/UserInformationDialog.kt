@@ -81,7 +81,7 @@ class UserInformationDialog : DialogFragment() {
         binding.dialogProgressBar.isVisible = false
         binding.dialogErrorView.isVisible = false
         val localDate = LocalDateTime.ofInstant(registrationDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-        val dateStr = DateUtil.getShortDateString(localDate)
+        val dateStr = DateUtil.getMediumDateString(localDate)
         binding.userTenure.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_joined_date_text, dateStr))
         binding.editCount.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_edit_count_text, editCount))
     }

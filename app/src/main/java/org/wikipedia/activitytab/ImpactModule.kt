@@ -166,7 +166,7 @@ fun AllTimeImpactCard(
                     statLabel = pluralStringResource(R.plurals.activity_tab_impact_thanks, totalThanks)
                 )
                 val lastEditedDateString = if (lastEditTimestamp > 0) {
-                    DateUtil.getMDYDateString(Date(lastEditTimestamp * 1000))
+                    DateUtil.getMediumDateString(Date(lastEditTimestamp * 1000))
                 } else {
                     "-"
                 }

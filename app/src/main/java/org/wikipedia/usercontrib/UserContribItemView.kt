@@ -50,6 +50,6 @@ class UserContribItemView(context: Context) : FrameLayout(context) {
             StringUtil.setHighlightedAndBoldenedText(binding.editSummary, editSummary, currentQuery)
         }
         binding.currentIndicator.isVisible = contrib.top
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, contrib.parsedDateTime)
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(contrib.parsedDateTime)
     }
 }

@@ -69,7 +69,7 @@ class CustomDatePicker : DialogFragment() {
     }
 
     private fun setMonthString() {
-        binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.time)
+        binding.currentMonth.text = DateUtil.getMonthOnlyDateString(selectedDay)
         binding.calendarGrid.adapter?.notifyDataSetChanged()
     }
 
