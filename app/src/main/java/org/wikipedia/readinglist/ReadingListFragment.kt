@@ -80,7 +80,6 @@ import org.wikipedia.views.PageItemView
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.yearinreview.YearInReviewViewModel
 import java.time.LocalDateTime
-import java.util.Date
 import java.util.Locale
 
 class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDialog.Callback {

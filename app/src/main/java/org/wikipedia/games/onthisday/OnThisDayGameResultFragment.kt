@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,8 +57,6 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.MonthDay
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
