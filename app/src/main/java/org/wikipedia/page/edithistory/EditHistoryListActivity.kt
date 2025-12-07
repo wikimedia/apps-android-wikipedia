@@ -53,6 +53,7 @@ import org.wikipedia.views.EditHistoryFilterOverflowView
 import org.wikipedia.views.EditHistoryStatsView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.WikiErrorView
+import java.time.format.FormatStyle
 
 class EditHistoryListActivity : BaseActivity() {
 
@@ -166,12 +167,12 @@ class EditHistoryListActivity : BaseActivity() {
         binding.compareFromCard.isVisible = viewModel.selectedRevisionFrom != null
         if (viewModel.selectedRevisionFrom != null) {
             binding.compareFromText.text =
-                DateUtil.getDateAndTimeString(viewModel.selectedRevisionFrom!!.localDateTime)
+                DateUtil.getDateAndTimeString(viewModel.selectedRevisionFrom!!.localDateTime, dateStyle = FormatStyle.SHORT)
         }
         binding.compareToCard.isVisible = viewModel.selectedRevisionTo != null
         if (viewModel.selectedRevisionTo != null) {
             binding.compareToText.text =
-                DateUtil.getDateAndTimeString(viewModel.selectedRevisionTo!!.localDateTime)
+                DateUtil.getDateAndTimeString(viewModel.selectedRevisionTo!!.localDateTime, dateStyle = FormatStyle.SHORT)
         }
         enableCompareButton(binding.compareConfirmButton, viewModel.selectedRevisionFrom != null && viewModel.selectedRevisionTo != null)
     }

@@ -84,9 +84,8 @@ object DateUtil {
         return getDateAndTimeString(iso8601LocalDateTimeParse(dateStr))
     }
 
-    fun getDateAndTimeString(dateTime: LocalDateTime): String {
-        return DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.SHORT)
-            .format(dateTime)
+    fun getDateAndTimeString(dateTime: LocalDateTime, dateStyle: FormatStyle = FormatStyle.MEDIUM): String {
+        return DateTimeFormatter.ofLocalizedDateTime(dateStyle, FormatStyle.SHORT).format(dateTime)
     }
 
     fun getDateAndTimeString(date: Date): String {
