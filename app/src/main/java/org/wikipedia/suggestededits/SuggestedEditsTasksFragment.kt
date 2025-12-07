@@ -293,7 +293,7 @@ class SuggestedEditsTasksFragment : Fragment(), MenuProvider {
         } else if (pauseEndDate != null) {
             clearContents()
             val localDateTime = LocalDateTime.ofInstant(pauseEndDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getMediumDateString(localDateTime), AccountUtil.userName))
+            binding.messageCard.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getDateString(localDateTime), AccountUtil.userName))
             binding.messageCard.isVisible = true
             return true
         }

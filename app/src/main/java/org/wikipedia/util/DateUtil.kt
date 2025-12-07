@@ -44,12 +44,16 @@ object DateUtil {
     }
 
     fun getFeedCardDateString(age: Int): String {
-        return getMediumDateString(LocalDate.now().minusDays(age.toLong()))
+        return getDateString(LocalDate.now().minusDays(age.toLong()))
     }
 
-    fun getFeedCardShortDateString(calendar: Calendar): String {
-        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMM d"))
-            .format(LocalDate.ofInstant(calendar.toInstant(), ZoneId.systemDefault()))
+    fun getMediumMonthDayString(calendar: Calendar): String {
+        val date = LocalDate.ofInstant(calendar.toInstant(), ZoneId.systemDefault())
+        return getFormatterForSkeleton("MMM d").format(date)
+    }
+
+    fun getLongMonthDayString(localDate: LocalDate): String {
+        return getFormatterForSkeleton("MMMM d").format(localDate)
     }
 
     fun getMonthOnlyDateString(localDate: LocalDate): String {
@@ -89,12 +93,12 @@ object DateUtil {
         return getDateAndTimeString(LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()))
     }
 
-    fun getMediumDateString(localDate: LocalDate): String {
-        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
+    fun getDateString(localDate: LocalDate, style: FormatStyle = FormatStyle.MEDIUM): String {
+        return DateTimeFormatter.ofLocalizedDate(style).format(localDate)
     }
 
-    fun getMediumDateString(date: Date): String {
-        return getMediumDateString(LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()))
+    fun getDateString(date: Date, style: FormatStyle = FormatStyle.MEDIUM): String {
+        return getDateString(LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault()), style)
     }
 
     fun getUtcRequestDateFor(age: Int): UtcDate {
@@ -108,9 +112,7 @@ object DateUtil {
     }
 
     fun yearToStringWithEra(year: Int): String {
-        val skeleton = if (year < 0) "y GG" else "y"
-        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton))
-            .format(Year.of(year))
+        return getFormatterForSkeleton(if (year < 0) "y GG" else "y").format(Year.of(year))
     }
 
     fun getYearDifferenceString(context: Context, year: Int, languageCode: String): String {
@@ -128,5 +130,9 @@ object DateUtil {
             return if (diffInYears == 0) context.getString(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
+    }
+
+    private fun getFormatterForSkeleton(skeleton: String): DateTimeFormatter {
+        return DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton))
     }
 }

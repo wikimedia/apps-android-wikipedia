@@ -119,7 +119,7 @@ class CustomDatePicker : DialogFragment() {
     }
 
     private fun setDayString() {
-        binding.calendarDay.text = DateUtil.getFeedCardShortDateString(selectedDay)
+        binding.calendarDay.text = DateUtil.getMediumMonthDayString(selectedDay)
     }
 
     fun setSelectedDay(month: Int, day: Int) {

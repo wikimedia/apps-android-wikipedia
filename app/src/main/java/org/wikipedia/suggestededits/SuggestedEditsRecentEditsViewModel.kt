@@ -59,7 +59,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
             val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
             if (dateAfter != null && dateAfter != dateBefore) {
-                RecentEditsSeparator(DateUtil.getMediumDateString(dateAfter))
+                RecentEditsSeparator(DateUtil.getDateString(dateAfter))
             } else {
                 null
             }

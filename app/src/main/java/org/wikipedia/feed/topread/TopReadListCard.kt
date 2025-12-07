@@ -21,7 +21,7 @@ class TopReadListCard(
     }
 
     override fun subtitle(): String {
-        return DateUtil.getMediumDateString(articles.localDate)
+        return DateUtil.getDateString(articles.localDate)
     }
 
     override fun type(): CardType {

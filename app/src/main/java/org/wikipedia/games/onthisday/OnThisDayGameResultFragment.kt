@@ -43,6 +43,7 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -174,10 +175,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, gameStatistics: OnThisDayGameViewModel.GameStatistics) {
         mainActivity?.showAppBarDateText()
-        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
-            val text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
-            mainActivity?.updateAppBarDateText(text)
-        }
+        mainActivity?.updateAppBarDateText(DateUtil.getLongMonthDayString(viewModel.currentDate))
 
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false

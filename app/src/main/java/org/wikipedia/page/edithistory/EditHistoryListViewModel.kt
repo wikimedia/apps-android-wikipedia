@@ -81,7 +81,7 @@ class EditHistoryListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val dateBefore = before?.item?.localDateTime?.toLocalDate()
             val dateAfter = after?.item?.localDateTime?.toLocalDate()
             if (dateAfter != null && dateAfter != dateBefore) {
-                EditHistorySeparator(DateUtil.getMediumDateString(dateAfter))
+                EditHistorySeparator(DateUtil.getDateString(dateAfter))
             } else {
                 null
             }

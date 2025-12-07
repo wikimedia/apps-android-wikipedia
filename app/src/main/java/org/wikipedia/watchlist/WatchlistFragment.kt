@@ -213,7 +213,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
             val localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            textView.text = DateUtil.getMediumDateString(localDateTime)
+            textView.text = DateUtil.getDateString(localDateTime)
         }
     }
 

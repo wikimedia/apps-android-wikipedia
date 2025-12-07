@@ -55,7 +55,7 @@ class UserContribListViewModel(savedStateHandle: SavedStateHandle) : ViewModel()
             val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
             val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
             if (dateAfter != null && dateAfter != dateBefore) {
-                UserContribSeparator(DateUtil.getMediumDateString(dateAfter))
+                UserContribSeparator(DateUtil.getDateString(dateAfter))
             } else {
                 null
             }

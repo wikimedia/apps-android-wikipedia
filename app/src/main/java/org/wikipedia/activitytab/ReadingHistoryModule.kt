@@ -1,6 +1,5 @@
 package org.wikipedia.activitytab
 
-import android.text.format.DateFormat
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -56,11 +55,11 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 @Composable
@@ -253,25 +252,9 @@ private fun ArticleReadThisMonthCard(
                 showChevron = true,
                 subtitle = if (readingHistory.lastArticleReadTime != null) {
                     if (todayDate == readingHistory.lastArticleReadTime.toLocalDate())
-                        readingHistory.lastArticleReadTime
-                            .format(
-                                DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "hhmm a"
-                                    )
-                                )
-                            )
+                        DateUtil.getTimeString(readingHistory.lastArticleReadTime)
                     else
-                        readingHistory.lastArticleReadTime
-                            .format(
-                                DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "MMMM d"
-                                    )
-                                )
-                            )
+                        DateUtil.getLongMonthDayString(readingHistory.lastArticleReadTime.toLocalDate())
                 } else null
             )
 
@@ -326,25 +309,9 @@ private fun ArticleSavedThisMonthCard(
                 showChevron = true,
                 subtitle = if (readingHistory.lastArticleSavedTime != null) {
                     if (todayDate == readingHistory.lastArticleSavedTime.toLocalDate())
-                        readingHistory.lastArticleSavedTime
-                            .format(
-                                DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "hhmm a"
-                                    )
-                                )
-                            )
+                        DateUtil.getTimeString(readingHistory.lastArticleSavedTime)
                     else
-                        readingHistory.lastArticleSavedTime
-                            .format(
-                                DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "MMMM d"
-                                    )
-                                )
-                            )
+                        DateUtil.getLongMonthDayString(readingHistory.lastArticleSavedTime.toLocalDate())
                 } else null
             )
 
