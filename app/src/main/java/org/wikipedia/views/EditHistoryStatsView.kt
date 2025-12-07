@@ -16,7 +16,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -34,14 +34,14 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
         editHistoryStats?.let { stats ->
             val timestamp = stats.revision.timeStamp
             if (timestamp.isNotBlank()) {
-                val createdYear = DateUtil.getYearOnlyDateString(DateUtil.iso8601DateParse(timestamp))
-                val localDateTime = LocalDateTime.now()
-                val today = DateUtil.getDateString(localDateTime.toLocalDate())
-                val lastYear = DateUtil.getDateString(localDateTime.minusYears(1).toLocalDate())
+                val createdYear = stats.revision.localDateTime.year.toString()
+                val today = LocalDate.now()
+                val todayStr = DateUtil.getDateString(today)
+                val lastYear = DateUtil.getDateString(today.minusYears(1))
                 binding.editCountsView.text = context.resources.getQuantityString(R.plurals.page_edit_history_article_edits_since_year,
                     stats.allEdits.count, stats.allEdits.count, createdYear)
                 binding.statsGraphView.setData(stats.metrics.map { it.edits.toFloat() })
-                binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
+                binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, todayStr)
                 FeedbackUtil.setButtonTooltip(binding.statsGraphView)
             }
         }
