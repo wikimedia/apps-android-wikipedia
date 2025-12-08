@@ -10,7 +10,6 @@ import org.wikipedia.analytics.eventplatform.DestinationEventService
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.donate.GooglePayComponent
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import retrofit2.Retrofit
@@ -41,8 +40,6 @@ object ServiceFactory {
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
     })
 
-    private var DONATE_SERVICE_CACHE: Service? = null
-
     fun get(wiki: WikiSite): Service {
         return SERVICE_CACHE[wiki]!!
     }
@@ -59,23 +56,12 @@ object ServiceFactory {
         return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
     }
 
-    fun getDonate(): Service {
-        if (DONATE_SERVICE_CACHE == null) {
-            val wikiSite = WikiSite(GooglePayComponent.PAYMENTS_API_URL)
-            // https://phabricator.wikimedia.org/T412059
-            // Explicitly increase the timeout for the donation API, since the payment processor
-            // could occasionally take an increased amount of time to process transactions.
-            DONATE_SERVICE_CACHE = createRetrofit(wikiSite, getBasePath(wikiSite), readTimeoutSec = 60L).create<Service>()
-        }
-        return DONATE_SERVICE_CACHE!!
-    }
-
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>): T {
         val r = createRetrofit(wiki, baseUrl.orEmpty().ifEmpty { wiki.url() + "/" })
         return r.create(service)
     }
 
-    private fun getBasePath(wiki: WikiSite): String {
+    fun getBasePath(wiki: WikiSite): String {
         var path = wiki.url()
         if (!path.endsWith("/")) {
             path += "/"
@@ -92,7 +78,7 @@ object ServiceFactory {
         return path
     }
 
-    private fun createRetrofit(wiki: WikiSite?, baseUrl: String, readTimeoutSec: Long = OkHttpConnectionFactory.DEFAULT_READ_TIMEOUT_SEC): Retrofit {
+    fun createRetrofit(wiki: WikiSite?, baseUrl: String, readTimeoutSec: Long = OkHttpConnectionFactory.DEFAULT_READ_TIMEOUT_SEC): Retrofit {
         val builder = OkHttpConnectionFactory.client.newBuilder()
         builder.readTimeout(readTimeoutSec, TimeUnit.SECONDS)
         builder.interceptors().add(builder.interceptors().indexOfFirst { it is HttpLoggingInterceptor }, LanguageVariantHeaderInterceptor(wiki))

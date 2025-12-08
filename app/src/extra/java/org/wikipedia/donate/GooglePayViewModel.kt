@@ -22,6 +22,7 @@ import org.wikipedia.dataclient.donate.DonationConfigHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import retrofit2.create
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
@@ -144,7 +145,13 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // any localized format, e.g. comma as decimal separator.
             val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode, true)
 
-            val response = ServiceFactory.getDonate().submitPayment(
+            // https://phabricator.wikimedia.org/T412059
+            // Explicitly increase the timeout for the donation API, since the payment processor
+            // could occasionally take an increased amount of time to process transactions.
+            val wikiSite = WikiSite(GooglePayComponent.PAYMENTS_API_URL)
+            val retrofit = ServiceFactory.createRetrofit(wikiSite, ServiceFactory.getBasePath(wikiSite), readTimeoutSec = GooglePayComponent.PAYMENTS_API_TIMEOUT_SEC).create<Service>()
+
+            val response = retrofit.submitPayment(
                 amount = decimalFormatCanonical.format(finalAmount),
                 appVersion = BuildConfig.VERSION_NAME,
                 banner = CampaignCollection.getFormattedCampaignId(campaignId),
