@@ -2226,7 +2226,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Spendenerinnerungen können jederzeit in den Einstellungen angepasst werden.</string>
   <string name="donation_settings_section_header">Spenden</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Spendenerinnerungen</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Schließe dich den 2 % der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
+  <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
   <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
   <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
