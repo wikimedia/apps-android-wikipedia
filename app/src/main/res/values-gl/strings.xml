@@ -805,7 +805,7 @@
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="content_description_for_page_indicator">Páxina %1$d de %2$d</string>
-  <string name="wikitext_bold">Negra</string>
+  <string name="wikitext_bold">Grosa</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Ligazón</string>
   <string name="wikitext_bulleted_list">Lista de puntos</string>
