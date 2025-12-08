@@ -144,29 +144,28 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // any localized format, e.g. comma as decimal separator.
             val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode, true)
 
-            val response = ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                .submitPayment(
-                    amount = decimalFormatCanonical.format(finalAmount),
-                    appVersion = BuildConfig.VERSION_NAME,
-                    banner = CampaignCollection.getFormattedCampaignId(campaignId),
-                    city = billingObj.optString("locality", ""),
-                    country = DonateUtil.currentCountryCode,
-                    currency = DonateUtil.currencyCode,
-                    donorCountry = billingObj.optString("countryCode", DonateUtil.currentCountryCode),
-                    email = paymentDataObj.optString("email", ""),
-                    fullName = billingObj.optString("name", ""),
-                    language = WikipediaApp.instance.appOrSystemLanguageCode,
-                    recurring = if (recurring) "1" else "0",
-                    paymentToken = token,
-                    optIn = if (optInEmail) "1" else "0",
-                    payTheFee = if (payTheFee) "1" else "0",
-                    paymentMethod = GooglePayComponent.PAYMENT_METHOD_NAME,
-                    paymentNetwork = infoObj.optString("cardNetwork", ""),
-                    postalCode = billingObj.optString("postalCode", ""),
-                    stateProvince = billingObj.optString("administrativeArea", ""),
-                    streetAddress = billingObj.optString("address1", ""),
-                    appInstallId = WikipediaApp.instance.appInstallID
-                )
+            val response = ServiceFactory.getDonate().submitPayment(
+                amount = decimalFormatCanonical.format(finalAmount),
+                appVersion = BuildConfig.VERSION_NAME,
+                banner = CampaignCollection.getFormattedCampaignId(campaignId),
+                city = billingObj.optString("locality", ""),
+                country = DonateUtil.currentCountryCode,
+                currency = DonateUtil.currencyCode,
+                donorCountry = billingObj.optString("countryCode", DonateUtil.currentCountryCode),
+                email = paymentDataObj.optString("email", ""),
+                fullName = billingObj.optString("name", ""),
+                language = WikipediaApp.instance.appOrSystemLanguageCode,
+                recurring = if (recurring) "1" else "0",
+                paymentToken = token,
+                optIn = if (optInEmail) "1" else "0",
+                payTheFee = if (payTheFee) "1" else "0",
+                paymentMethod = GooglePayComponent.PAYMENT_METHOD_NAME,
+                paymentNetwork = infoObj.optString("cardNetwork", ""),
+                postalCode = billingObj.optString("postalCode", ""),
+                stateProvince = billingObj.optString("administrativeArea", ""),
+                streetAddress = billingObj.optString("address1", ""),
+                appInstallId = WikipediaApp.instance.appInstallID
+            )
 
             L.d("Payment response: $response")
 
