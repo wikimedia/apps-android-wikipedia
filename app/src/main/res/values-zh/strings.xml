@@ -213,7 +213,7 @@
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动化垃圾信息，请输入下方显示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%B4%A6%E5%8F%B7%E8%AF%B7%E6%B1%82\"&gt;申请账号&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:维基百科:账号请求\"&gt;申请账号&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入上方的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
