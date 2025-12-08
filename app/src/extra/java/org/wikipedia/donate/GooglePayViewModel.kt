@@ -58,8 +58,16 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     var finalAmount = 0f
 
+    private val service: Service
+
     init {
         DonateUtil.currencyFormat.minimumFractionDigits = 0
+        val wikiSite = WikiSite(GooglePayComponent.PAYMENTS_API_URL)
+
+        // https://phabricator.wikimedia.org/T412059
+        // Explicitly increase the timeout for the donation API, since the payment processor
+        // could occasionally take an increased amount of time to process transactions.
+        service = ServiceFactory.createRetrofit(wikiSite, ServiceFactory.getBasePath(wikiSite), readTimeoutSec = GooglePayComponent.PAYMENTS_API_TIMEOUT_SEC).create<Service>()
         load()
     }
 
@@ -87,8 +95,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 Prefs.paymentMethodsGatewayId = ""
 
                 val paymentMethodsCall = async {
-                    ServiceFactory.get(WikiSite(GooglePayComponent.PAYMENTS_API_URL))
-                        .getPaymentMethods(DonateUtil.currentCountryCode)
+                    service.getPaymentMethods(DonateUtil.currentCountryCode)
                 }
                 paymentMethodsCall.await().response?.let { response ->
                     Prefs.paymentMethodsLastQueryTime = now
@@ -145,13 +152,7 @@ class GooglePayViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // any localized format, e.g. comma as decimal separator.
             val decimalFormatCanonical = GooglePayComponent.getDecimalFormat(DonateUtil.currencyCode, true)
 
-            // https://phabricator.wikimedia.org/T412059
-            // Explicitly increase the timeout for the donation API, since the payment processor
-            // could occasionally take an increased amount of time to process transactions.
-            val wikiSite = WikiSite(GooglePayComponent.PAYMENTS_API_URL)
-            val retrofit = ServiceFactory.createRetrofit(wikiSite, ServiceFactory.getBasePath(wikiSite), readTimeoutSec = GooglePayComponent.PAYMENTS_API_TIMEOUT_SEC).create<Service>()
-
-            val response = retrofit.submitPayment(
+            val response = service.submitPayment(
                 amount = decimalFormatCanonical.format(finalAmount),
                 appVersion = BuildConfig.VERSION_NAME,
                 banner = CampaignCollection.getFormattedCampaignId(campaignId),
