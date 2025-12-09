@@ -2,7 +2,6 @@ package org.wikipedia.login
 
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.core.net.toUri
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -34,9 +33,8 @@ class LoginClient {
             if (Prefs.loginForceEmailAuth) {
                 enqueueForceEmailAuth = true
             }
-            val wikiSite = WikiSite(uri = "https://test.wikipedia.org".toUri(), languageCode = "test")
-            val loginToken = token ?: getLoginToken(wikiSite)
-            var loginResult = ServiceFactory.get(wikiSite).postLogIn(user = userName, pass = password, retype = retypedPassword,
+            val loginToken = token ?: getLoginToken(wiki)
+            var loginResult = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password, retype = retypedPassword,
                 twoFactorCode = twoFactorCode, emailAuthToken = emailAuthCode,
                 captchaId = captchaId, captchaWord = captchaWord, loginToken = loginToken,
                 loginContinue = if (isContinuation == true) true else null,
