@@ -479,9 +479,9 @@
   <string name="error_blocked_start">Začátek blokování: %s</string>
   <string name="error_blocked_expiry">Konec blokování: %s</string>
   <string name="error_blocked_id">ID blokování: %s</string>
-  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%%3ASpr%%C3%%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
+  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Správci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Přizpůsobte si panel nástrojů</string>
-  <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
+  <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Správci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
   <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
