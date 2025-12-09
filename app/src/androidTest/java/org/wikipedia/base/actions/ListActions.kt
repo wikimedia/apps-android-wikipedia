@@ -33,6 +33,7 @@ import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
 import org.hamcrest.Matchers.containsString
+import org.hamcrest.Matchers.hasToString
 import org.hamcrest.Matchers.not
 import org.junit.Assert.assertEquals
 import org.wikipedia.R
@@ -45,6 +46,12 @@ class ListActions {
             .inAdapterView(withId(viewId))
             .atPosition(position)
             .onChildView(withId(childView))
+            .perform(click())
+    }
+
+    fun clickOnListViewWithText(@IdRes viewId: Int, text: String) {
+        onData(hasToString(containsString(text)))
+            .inAdapterView(withId(R.id.toc_list))
             .perform(click())
     }
 

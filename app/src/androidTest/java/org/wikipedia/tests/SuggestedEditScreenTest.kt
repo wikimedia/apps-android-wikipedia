@@ -12,6 +12,7 @@ import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.SuggestedEditsScreenRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class SuggestedEditScreenTest : BaseTest<MainActivity>(

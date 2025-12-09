@@ -16,6 +16,7 @@ import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.LanguageListRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class ArticleEditingTest : BaseTest<MainActivity>(

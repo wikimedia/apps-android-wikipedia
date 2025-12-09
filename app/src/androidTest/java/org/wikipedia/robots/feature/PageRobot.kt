@@ -135,7 +135,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
     }
 
     fun clickAboutThisArticleTextInTOC() = apply {
-        click.onViewWithText("About this article")
+        list.clickOnListViewWithText(viewId = R.id.toc_list, "About this article")
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -341,7 +341,7 @@ class PageRobot(private val context: Context) : BaseRobot() {
 
     fun clickOutside() = apply {
         onView(withId(R.id.navigation_drawer))
-            .perform(click.xyPosition(800, 500))
+            .perform(click.xyPosition(context.resources.displayMetrics.widthPixels / 10, context.resources.displayMetrics.heightPixels / 2))
         delay(TestConfig.DELAY_SHORT)
     }
 

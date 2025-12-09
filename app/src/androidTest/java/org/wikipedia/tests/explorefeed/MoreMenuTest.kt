@@ -13,6 +13,7 @@ import org.wikipedia.robots.feature.MoreMenuRobot
 import org.wikipedia.robots.feature.SettingsRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class MoreMenuTest : BaseTest<MainActivity>(

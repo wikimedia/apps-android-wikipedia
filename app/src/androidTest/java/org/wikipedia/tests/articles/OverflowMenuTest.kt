@@ -15,6 +15,7 @@ import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
 import org.wikipedia.theme.Theme
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class OverflowMenuTest : BaseTest<MainActivity>(
