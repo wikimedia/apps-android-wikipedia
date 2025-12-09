@@ -32,8 +32,10 @@ class BecauseYouReadTest : BaseTest<MainActivity>(
 
         // Because you read, requires users to read some article for 30 seconds
         exploreFeedRobot
-            .scrollAndPerform(title = FEATURED_ARTICLE)
-            .stayOnFeaturedArticleFor(milliseconds = 30000)
+            .scrollAndPerform(title = FEATURED_ARTICLE) { position ->
+                clickOnFeaturedArticle(position)
+                stayOnFeaturedArticleFor(30000)
+            }
             .pressBack()
             .swipeToRefresh()
             .scrollAndPerform(title = BECAUSE_YOU_READ) { position ->

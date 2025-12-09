@@ -7,6 +7,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -35,7 +36,6 @@ class ExploreFeedRobot : BaseRobot() {
                     list.moveClickIntoViewAndClick(R.id.view_featured_article_card_content_container)
                 )
             )
-
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -146,10 +146,6 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun stayOnFeaturedArticleFor(milliseconds: Long) = apply {
-        scroll.toViewAndMakeVisibleAndClick(
-            viewId = R.id.view_featured_article_card_content_container,
-            parentViewId = R.id.feed_view
-        )
         Thread.sleep(milliseconds)
     }
 
@@ -164,6 +160,7 @@ class ExploreFeedRobot : BaseRobot() {
     }
 
     fun swipeToRefresh() = apply {
+        onView(withId(R.id.feed_view)).perform(scrollToPosition<RecyclerView.ViewHolder>(0))
         onView(withId(R.id.swipe_refresh_layout))
             .perform(ViewActions.swipeDown())
         delay(TestConfig.DELAY_SWIPE_TO_REFRESH)
