@@ -1,7 +1,7 @@
 package org.wikimedia.testkitchen
 
-import android.util.Log
 import androidx.core.net.toUri
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -84,6 +84,7 @@ class EventProcessor(
         return streamConfig?.destinationEventService ?: DestinationEventService.ANALYTICS
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun sendEventsToDestination(
         destinationEventService: DestinationEventService,
         pendingValidEvents: List<EventProcessed>
@@ -91,7 +92,7 @@ class EventProcessor(
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    //TODO!
+                    //TODO: add hasty parameter conditionally
                     eventSender.sendEvents((destinationEventService.baseUri + "/v1/events").toUri(), pendingValidEvents)
                 } catch (e: UnknownHostException) {
                     logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
@@ -101,7 +102,6 @@ class EventProcessor(
                     eventQueue.addAll(pendingValidEvents)
                 } catch (e: Exception) {
                     logger.error("Failed to send " + pendingValidEvents.size + " events.", e)
-                    Log.d("EventProcessor", "Failed to send $pendingValidEvents events.")
                 }
             }
         }
