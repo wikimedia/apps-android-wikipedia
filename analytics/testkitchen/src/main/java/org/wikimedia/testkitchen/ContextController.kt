@@ -79,16 +79,16 @@ class ContextController {
          * @see [Metrics Platform/Contextual attributes](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Contextual_attributes)
          */
         private val REQUIRED_PROPERTIES = listOf(
-            "agent_app_flavor",
-            "agent_app_install_id",
-            "agent_app_theme",
-            "agent_app_version",
-            "agent_app_version_name",
-            "agent_client_platform",
-            "agent_client_platform_family",
-            "agent_device_family",
-            "agent_device_language",
-            "agent_release_status"
+            ContextValue.AGENT_APP_FLAVOR,
+            ContextValue.AGENT_APP_INSTALL_ID,
+            ContextValue.AGENT_APP_THEME,
+            ContextValue.AGENT_APP_VERSION,
+            ContextValue.AGENT_APP_VERSION_NAME,
+            ContextValue.AGENT_CLIENT_PLATFORM,
+            ContextValue.AGENT_CLIENT_PLATFORM_FAMILY,
+            ContextValue.AGENT_DEVICE_FAMILY,
+            ContextValue.AGENT_DEVICE_LANGUAGE,
+            ContextValue.AGENT_RELEASE_STATUS
         )
     }
 }
