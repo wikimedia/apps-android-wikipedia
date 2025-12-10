@@ -16,12 +16,14 @@ open class Event(@Transient val _stream: String = "") {
 
     @SerialName("dt") var timestamp: String? = null
 
+    // TODO
     //@SerialName("custom_data")
     @Transient
     var customData: Map<String, String>? = null
 
     protected val meta = Meta(_stream)
 
+    // TODO
     //@SerialName("client_data")
     @Transient
     var clientData: ClientData = ClientData()

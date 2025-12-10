@@ -2,6 +2,7 @@ package org.wikipedia.analytics.testkitchen
 
 import android.os.Build
 import org.wikimedia.testkitchen.EventSenderDefault
+import org.wikimedia.testkitchen.LogAdapterImpl
 import org.wikimedia.testkitchen.TestKitchenClient
 import org.wikimedia.testkitchen.context.AgentData
 import org.wikimedia.testkitchen.context.ClientData
@@ -41,10 +42,13 @@ object TestKitchenAdapter {
         domain
     )
 
+    val logger = LogAdapterImpl()
+
     val client = TestKitchenClient(
         clientData,
-        EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client),
+        EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client, logger),
         null,
-        queueCapacity = Prefs.analyticsQueueSize
+        queueCapacity = Prefs.analyticsQueueSize,
+        logger = logger
     )
 }

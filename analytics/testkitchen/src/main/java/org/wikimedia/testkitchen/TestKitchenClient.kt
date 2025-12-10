@@ -18,7 +18,8 @@ class TestKitchenClient(
     clientData: ClientData,
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
-    val queueCapacity: Int = 100
+    val queueCapacity: Int = 100,
+    val logger: LogAdapter = LogAdapterImpl()
 ) {
 
     private var sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
@@ -47,7 +48,8 @@ class TestKitchenClient(
         sourceConfig,
         samplingController,
         eventSender,
-        eventQueue
+        eventQueue,
+        logger
     )
 
     /**
@@ -96,11 +98,11 @@ class TestKitchenClient(
         if (sourceConfig.get() != null) {
             streamConfig = sourceConfig.get().getStreamConfigByName(streamName)
             if (streamConfig == null) {
-                //log.log(Level.FINE, "No stream config exists for this stream, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("No stream config exists for this stream, the submitMetricsEvent event is ignored and dropped.")
                 return
             }
             if (!samplingController.isInSample(streamConfig)) {
-                //log.log(Level.FINE, "Not in sample, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("Not in sample, the submitMetricsEvent event is ignored and dropped.")
                 return
             }
         }
@@ -240,12 +242,7 @@ class TestKitchenClient(
     }
 
     /**
-     * Convenience method to be called when
-     * [
- * the onPause() activity lifecycle callback](https://developer.android.com/guide/components/activities/activity-lifecycle#onpause) is called.
-     *
-     *
-     * Touches the session so that we can determine whether it's session has expired if and when the
+     * Touches the session so that we can determine whether its session has expired if and when the
      * application is resumed.
      */
     fun onAppPause() {
@@ -254,11 +251,6 @@ class TestKitchenClient(
     }
 
     /**
-     * Convenience method to be called when
-     * [
- * the onResume() activity lifecycle callback](https://developer.android.com/guide/components/activities/activity-lifecycle#onresume) is called.
-     *
-     *
      * Touches the session so that we can determine whether it has expired.
      */
     fun onAppResume() {
@@ -291,7 +283,7 @@ class TestKitchenClient(
      */
     private fun addRequiredMetadata(event: EventProcessed) {
         event.performerData?.let { it.sessionId = sessionController.sessionId }
-        event.timestamp = DATE_FORMAT.format(ZonedDateTime.now(ZONE_Z))
+        event.timestamp = DateTimeFormatter.ISO_DATE_TIME.format(ZonedDateTime.now(ZONE_Z))
         event.setDomain(event.clientData.domain)
     }
 
@@ -312,19 +304,17 @@ class TestKitchenClient(
         while (!eventQueue.offer(event)) {
             val removedEvent = eventQueue.remove()
             if (removedEvent != null) {
-                //log.log(Level.FINE, removedEvent.name + " was dropped so that a newer event could be added to the queue.")
+                logger.warn(removedEvent.name + " was dropped so that a newer event could be added to the queue.")
             }
             if (eventQueueAppendAttempts-- <= 0) break
         }
     }
 
     companion object {
-        val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
-        val ZONE_Z: ZoneId? = ZoneId.of("Z")
+        private val ZONE_Z: ZoneId? = ZoneId.of("Z")
 
         const val LIBRARY_VERSION: String = "1.0.0"
         const val SCHEMA_APP_BASE_VERSION: String = "1.4.2"
-
         const val SCHEMA_APP_BASE: String = "/analytics/product_metrics/app/base/$SCHEMA_APP_BASE_VERSION"
     }
 }

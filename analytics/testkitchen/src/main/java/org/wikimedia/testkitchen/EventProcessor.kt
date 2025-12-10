@@ -21,7 +21,8 @@ class EventProcessor(
     private val sourceConfig: AtomicReference<SourceConfig>,
     private val samplingController: SamplingController,
     private val eventSender: EventSender,
-    private val eventQueue: BlockingQueue<EventProcessed>
+    private val eventQueue: BlockingQueue<EventProcessed>,
+    private val logger: LogAdapter
 ) {
 
     /**
@@ -37,7 +38,7 @@ class EventProcessor(
     fun sendEnqueuedEvents() {
         val config: SourceConfig? = sourceConfig.get()
         if (config == null) {
-            //log.log(Level.FINE, "Configuration is missing, enqueued events are not sent.")
+            logger.warn("Configuration is missing, enqueued events are not sent.")
             return
         }
 
@@ -95,13 +96,13 @@ class EventProcessor(
                     //TODO!
                     eventSender.sendEvents((destinationEventService.baseUri + "/v1/events").toUri(), pendingValidEvents)
                 } catch (e: UnknownHostException) {
-                    //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
+                    logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
                     eventQueue.addAll(pendingValidEvents)
                 } catch (e: SocketTimeoutException) {
-                    //log.log(Level.WARNING, "Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
+                    logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
                     eventQueue.addAll(pendingValidEvents)
                 } catch (e: Exception) {
-                    //log.log(Level.WARNING, "Failed to send " + pendingValidEvents.size + " events.", e)
+                    logger.error("Failed to send " + pendingValidEvents.size + " events.", e)
                     Log.d("EventProcessor", "Failed to send $pendingValidEvents events.")
                 }
             }

@@ -11,7 +11,8 @@ import java.io.IOException
 
 class EventSenderDefault(
     private val json: Json,
-    private val httpClient: OkHttpClient
+    private val httpClient: OkHttpClient,
+    private val logger: LogAdapter
 ) : EventSender {
     override fun sendEvents(baseUri: Uri, events: List<EventProcessed>) {
 
@@ -37,6 +38,6 @@ class EventSenderDefault(
             // the normal response body.
             throw IOException(body?.string().orEmpty())
         }
-        //log.log(java.util.logging.Level.INFO, "Sent " + events.size + " events successfully.")
+        logger.info("Sent " + events.size + " events successfully.")
     }
 }

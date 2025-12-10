@@ -60,7 +60,7 @@ class ContextController {
                 ContextValue.PERFORMER_LANGUAGE_GROUPS -> {
                     var languageGroups = clientData.performerData?.languageGroups
                     if (languageGroups != null && languageGroups.length > 255) {
-                        languageGroups = languageGroups.substring(0, 255)
+                        languageGroups = languageGroups.take(255)
                     }
                     newPerformerData.languageGroups = languageGroups
                 }
