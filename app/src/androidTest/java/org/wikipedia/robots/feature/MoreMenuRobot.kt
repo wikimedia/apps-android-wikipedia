@@ -89,7 +89,8 @@ class MoreMenuRobot : BaseRobot() {
             val customTabIntentMatcher = allOf(
                 hasAction(Intent.ACTION_VIEW),
                 hasData(context.getString(R.string.donate_url, CampaignCollection.getFormattedCampaignId("appmenu"),
-                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
+                    WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME,
+                    WikipediaApp.instance.appInstallID))
             )
             intended(customTabIntentMatcher)
         } catch (e: AssertionError) {

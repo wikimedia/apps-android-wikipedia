@@ -107,6 +107,13 @@ class ListActions {
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     position,
+                    ViewActions.scrollTo()
+                )
+            )
+        onView(withId(recyclerViewId))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
                     viewAction
                 )
             )
@@ -327,9 +334,10 @@ class ListActions {
     fun scrollAndPerform(
         viewIdRes: Int = R.id.feed_view,
         title: String,
+        textViewId: Int = R.id.view_card_header_title,
         action: (Int) -> Unit = {}
     ) {
-        val matcher = withCardTitle(title)
+        val matcher = withCardTitle(title, textViewId)
         val position = getPosition(viewIdRes, matcher)
         if (position != -1) {
             onView(withId(viewIdRes))
@@ -351,7 +359,7 @@ class ListActions {
         }
     }
 
-    private fun withCardTitle(title: String): Matcher<RecyclerView.ViewHolder> {
+    private fun withCardTitle(title: String, textViewId: Int = R.id.view_card_header_title): Matcher<RecyclerView.ViewHolder> {
         return object : BoundedMatcher<RecyclerView.ViewHolder, DefaultViewHolder<*>>(
             DefaultViewHolder::class.java
         ) {
@@ -363,7 +371,7 @@ class ListActions {
                 val view = item?.view ?: return false
                 val matcher = hasDescendant(
                     allOf(
-                        withId(R.id.view_card_header_title),
+                        withId(textViewId),
                         withText(containsString(title))
                     )
                 )

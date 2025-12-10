@@ -105,7 +105,7 @@ class EditorRobot : BaseRobot() {
     }
 
     fun applySmallTextFormat() = apply {
-        click.onViewWithId(R.id.wikitext_button_text_small)
+        scroll.toViewAndClick(R.id.wikitext_button_text_small)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -180,7 +180,7 @@ class EditorRobot : BaseRobot() {
     }
 
     fun clickInsertLinkButton() = apply {
-        click.onViewWithId(R.id.wikitext_button_link)
+        scroll.toViewAndClick(R.id.wikitext_button_link)
         delay(TestConfig.DELAY_SHORT)
     }
 

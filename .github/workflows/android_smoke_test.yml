@@ -16,6 +16,7 @@ jobs:
           - api-level: 36
             target: google_apis
             arch: x86_64
+            profile: pixel_7_pro
 
     steps:
     - uses: actions/checkout@v6
@@ -41,6 +42,7 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: ${{ matrix.arch }}
+        profile: ${{ matrix.profile }}
         disable-animations: true
         script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.TestSuite
 

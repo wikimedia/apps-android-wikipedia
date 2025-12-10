@@ -7,6 +7,7 @@ import org.junit.runner.RunWith
 import org.wikipedia.base.BaseTest
 import org.wikipedia.main.MainActivity
 import org.wikipedia.robots.DialogRobot
+import org.wikipedia.robots.SystemRobot
 import org.wikipedia.robots.feature.EditorRobot
 import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.feature.PageActionItemRobot
@@ -21,7 +22,7 @@ import org.wikipedia.robots.screen.LanguageListRobot
 @RunWith(AndroidJUnit4::class)
 class ArticleEditingTest : BaseTest<MainActivity>(
  activityClass = MainActivity::class.java) {
-
+    private val systemRobot = SystemRobot()
     private val editorRobot = EditorRobot()
     private val dialogRobot = DialogRobot()
     private val pageRobot = PageRobot(context)
@@ -75,6 +76,8 @@ class ArticleEditingTest : BaseTest<MainActivity>(
             .clickLoginMenuItem()
         loginRobot
             .logInUser()
+        systemRobot
+            .clickOnSystemDialogWithText("Allow")
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()
