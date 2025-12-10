@@ -4,7 +4,7 @@ import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
-import org.wikimedia.metricsplatform.config.StreamConfig
+import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp

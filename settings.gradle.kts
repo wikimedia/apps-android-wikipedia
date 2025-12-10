@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 include(":app")
-include(":analytics:metricsplatform")
+include(":analytics:testkitchen")

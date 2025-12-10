@@ -9,11 +9,11 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.wikimedia.metricsplatform.config.StreamConfig
-import org.wikimedia.metricsplatform.config.sampling.SampleConfig
+import org.wikimedia.testkitchen.config.StreamConfig
+import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.metricsplatform.MetricsPlatform
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
@@ -120,7 +120,7 @@ object EventPlatformClient {
         // Ensure that serialization of configs is done off the main thread
         withContext(Dispatchers.Default) {
             Prefs.streamConfigs = STREAM_CONFIGS
-            MetricsPlatform.client.updateSourceConfig(STREAM_CONFIGS)
+            TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
         }
     }
 

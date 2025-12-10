@@ -177,7 +177,7 @@ dependencies {
 
     coreLibraryDesugaring libs.desugar.jdk.libs
 
-    implementation project(':analytics:metricsplatform')
+    implementation project(':analytics:testkitchen')
 
     implementation libs.kotlin.stdlib.jdk8
     implementation libs.kotlinx.coroutines.core

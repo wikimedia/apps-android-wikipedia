@@ -1,6 +1,6 @@
 package org.wikipedia.dataclient
 
-import org.wikimedia.metricsplatform.config.StreamConfigCollection
+import org.wikimedia.testkitchen.config.StreamConfigCollection
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
