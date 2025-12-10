@@ -55,19 +55,14 @@ class TestKitchenClient(
     /**
      * Submit an event to be enqueued and sent to the Event Platform.
      *
-     *
      * If stream configs are not yet fetched, the event will be held temporarily in the input
      * buffer (provided there is space to do so).
-     *
      *
      * If stream configs are available, the event will be validated and enqueued for submission
      * to the configured event platform intake service.
      *
-     *
      * Supplemental metadata is added immediately on intake, regardless of the presence or absence
      * of stream configs, so that the event timestamp is recorded accurately.
-     *
-     * @param event  event data
      */
     fun submit(event: Event) {
         val eventProcessed = EventProcessed.fromEvent(event)
@@ -78,12 +73,6 @@ class TestKitchenClient(
     /**
      * Construct and submits a Metrics Platform Event from the schema id, event name, page metadata, and custom data for
      * the stream that is interested in those events.
-     *
-     * @param streamName stream name
-     * @param schemaId  schema id
-     * @param eventName event name
-     * @param clientData client context data
-     * @param customData custom data
      */
     fun submitMetricsEvent(
         streamName: String,
@@ -128,16 +117,6 @@ class TestKitchenClient(
     /**
      * Submit an interaction event to a stream.
      *
-     *
-     * See above - takes additional parameters (custom data + custom schema id) to submit an interaction event.
-     *
-     * @param streamName stream name
-     * @param schemaId schema id
-     * @param eventName event name
-     * @param clientData client context data
-     * @param interactionData common data for the base interaction schema
-     * @param customData custom data for the interaction
-     *
      * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
      */
     fun submitInteraction(
@@ -147,96 +126,6 @@ class TestKitchenClient(
         clientData: ClientData? = null,
         interactionData: InteractionData? = null,
         customData: Map<String, Any>? = null
-    ) {
-        submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
-    }
-
-    /**
-     * Submit a click event to a stream.
-     *
-     * @param streamName stream name
-     * @param clientData client context data
-     * @param interactionData common data for the base interaction schema
-     *
-     * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
-     */
-    fun submitClick(
-        streamName: String,
-        clientData: ClientData,
-        interactionData: InteractionData
-    ) {
-        submitMetricsEvent(
-            streamName,
-            SCHEMA_APP_BASE,
-            "click",
-            clientData,
-            null,
-            interactionData
-        )
-    }
-
-    /**
-     * Submit a click event to a stream with custom data.
-     *
-     * @param streamName stream name
-     * @param schemaId schema id
-     * @param eventName event name
-     * @param clientData client context data
-     * @param customData custom data for the interaction
-     * @param interactionData common data for the base interaction schema
-     *
-     * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
-     */
-    fun submitClick(
-        streamName: String,
-        schemaId: String,
-        eventName: String,
-        clientData: ClientData,
-        customData: Map<String, String>?,
-        interactionData: InteractionData
-    ) {
-        submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
-    }
-
-    /**
-     * Submit a view event to a stream.
-     *
-     * @param streamName stream name
-     * @param clientData client context data
-     * @param interactionData common data for the base interaction schema
-     */
-    fun submitView(
-        streamName: String,
-        clientData: ClientData,
-        interactionData: InteractionData
-    ) {
-        submitMetricsEvent(
-            streamName,
-            SCHEMA_APP_BASE,
-            "view",
-            clientData,
-            null,
-            interactionData
-        )
-    }
-
-    /**
-     * Submit a view event to a stream with custom data.
-     *
-     * @param streamName stream name
-     * @param schemaId schema id
-     * @param eventName event name
-     * @param clientData client context data
-     * @param customData custom data for the interaction
-     * @param interactionData common data for the base interaction schema
-     */
-    fun submitView(
-        streamName: String,
-        schemaId: String,
-        eventName: String,
-        clientData: ClientData,
-        customData: Map<String, String>?,
-        interactionData: InteractionData
     ) {
         submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
     }

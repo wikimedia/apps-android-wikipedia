@@ -15,11 +15,7 @@ class EventSenderDefault(
     private val logger: LogAdapter
 ) : EventSender {
     override fun sendEvents(baseUri: Uri, events: List<EventProcessed>) {
-
-
         val eventStr = json.encodeToString(events)
-
-
         val request = Request.Builder()
             .url(baseUri.toString())
             .header("Accept", "application/json")

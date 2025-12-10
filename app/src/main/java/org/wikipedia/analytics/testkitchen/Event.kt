@@ -15,7 +15,7 @@ import org.wikipedia.page.PageTitle
 open class Event {
 
     /**
-     * Submit an event to the Metrics Platform using a base interaction schema
+     * Submit an event to the Metrics Platform using the base interaction schema
      *
      * @param streamName the name of the stream
      * @param eventName the name of the event
@@ -32,34 +32,6 @@ open class Event {
             EVENT_NAME_BASE + eventName,
             clientData = getClientData(pageData),
             interactionData = interactionData)
-    }
-
-    /**
-     * Submit an event to the Metrics Platform using a custom schema
-     *
-     * @param streamName the name of the stream
-     * @param schemaId the custom schema ID
-     * @param eventName the name of the event
-     * @param customData the custom data key-value pairs that are top-level properties
-     * @param interactionData a data object that conforms to core interactions
-     * @param pageData dynamic page data that should be added to the ClientData object
-     */
-    protected fun submitEvent(
-        streamName: String,
-        schemaId: String,
-        eventName: String,
-        customData: Map<String, Any>,
-        interactionData: InteractionData?,
-        pageData: PageData? = null
-    ) {
-        TestKitchenAdapter.client.submitInteraction(
-            streamName = streamName,
-            eventName = EVENT_NAME_BASE + eventName,
-            schemaId = schemaId,
-            clientData = getClientData(pageData),
-            interactionData,
-            customData
-        )
     }
 
     private fun getClientData(pageData: PageData?): ClientData {

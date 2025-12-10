@@ -28,12 +28,9 @@ class EventProcessor(
     /**
      * Send all events currently in the output buffer.
      *
-     *
-     * A shallow clone of the output buffer is created and passed to the integration layer for
-     * submission by the client. If the event submission succeeds, the events are removed from the
-     * output buffer. (Note that the shallow copy created by clone() retains pointers to the original
-     * Event objects.) If the event submission fails, a client error is produced, and the events remain
-     * in buffer to be retried on the next submission attempt.
+     * If the event submission succeeds, the events are removed from the output buffer. If the event
+     * submission fails, a client error is produced, and the events remain in the buffer to be
+     * retried on the next submission attempt.
      */
     fun sendEnqueuedEvents() {
         val config: SourceConfig? = sourceConfig.get()
@@ -70,10 +67,7 @@ class EventProcessor(
         event: EventProcessed,
         streamConfigMap: Map<String, StreamConfig>
     ): Boolean {
-        val streamConfig = streamConfigMap[event.stream]
-        if (streamConfig == null) {
-            return false
-        }
+        val streamConfig = streamConfigMap[event.stream] ?: return false
         contextController.enrichEvent(event, streamConfig)
         return curationController.shouldProduceEvent(event, streamConfig)
     }
