@@ -67,7 +67,6 @@ class EventProcessed : Event {
         schema: String,
         stream: String,
         name: String?,
-        customData: Map<String, String>?,
         clientData: ClientData,
         sample: SampleConfig?,
         interactionData: InteractionData
@@ -79,10 +78,9 @@ class EventProcessed : Event {
         this.pageData = clientData.pageData
         this.mediawikiData = clientData.mediawikiData
         this.performerData = clientData.performerData
-        this.customData = customData
         this.sample = sample
         this.interactionData = interactionData
-        this.action = interactionData.action
+        applyInteractionData(interactionData)
     }
 
     fun applyClientData(clientData: ClientData) {
@@ -110,7 +108,6 @@ class EventProcessed : Event {
                 event.schema,
                 event.stream,
                 event.name,
-                event.customData,
                 event.clientData,
                 event.sample,
                 event.interactionData

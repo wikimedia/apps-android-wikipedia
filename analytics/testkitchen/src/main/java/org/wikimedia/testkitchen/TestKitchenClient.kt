@@ -79,7 +79,6 @@ class TestKitchenClient(
         schemaId: String,
         eventName: String,
         clientData: ClientData? = null,
-        customData: Map<String, Any>? = null,
         interactionData: InteractionData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
@@ -102,9 +101,6 @@ class TestKitchenClient(
         if (clientData != null) {
             event.clientData = clientData
         }
-        if (customData != null) {
-            event.customData = customData.mapValues { it.value.toString() }
-        }
         if (interactionData != null) {
             event.interactionData = interactionData
         }
@@ -124,10 +120,9 @@ class TestKitchenClient(
         eventName: String,
         schemaId: String = SCHEMA_APP_BASE,
         clientData: ClientData? = null,
-        interactionData: InteractionData? = null,
-        customData: Map<String, Any>? = null
+        interactionData: InteractionData? = null
     ) {
-        submitMetricsEvent(streamName, schemaId, eventName, clientData, customData, interactionData)
+        submitMetricsEvent(streamName, schemaId, eventName, clientData, interactionData)
     }
 
     /**

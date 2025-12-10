@@ -11,27 +11,17 @@ import org.wikimedia.testkitchen.context.InteractionData
 open class Event(@Transient val _stream: String = "") {
     @Transient var name: String? = null
 
-    @SerialName("\$schema")
-    var schema: String = ""
+    @SerialName("\$schema") var schema: String = ""
 
     @SerialName("dt") var timestamp: String? = null
 
-    // TODO
-    //@SerialName("custom_data")
-    @Transient
-    var customData: Map<String, String>? = null
-
     protected val meta = Meta(_stream)
 
-    @Transient
-    @SerialName("client_data")
-    var clientData: ClientData = ClientData()
-
+    // TODO
     @SerialName("sample") var sample: SampleConfig? = null
 
-    @Transient
-    @SerialName("interaction_data")
-    var interactionData: InteractionData = InteractionData()
+    @Transient var clientData: ClientData = ClientData()
+    @Transient var interactionData: InteractionData = InteractionData()
 
     var stream
         get() = meta.stream
