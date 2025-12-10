@@ -207,5 +207,6 @@
     <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
     <string name="preference_key_explore_feed_survey_shown">exploreFeedSurveyShown</string>
+    <string name="preference_key_age_signals">ageSignals</string>
 
 </resources>

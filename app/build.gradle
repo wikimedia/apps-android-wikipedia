@@ -286,6 +286,9 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+
+    // Age Signals
+    implementation(libs.google.play.age.signals)
 }
 
 private setSigningConfigKey(config, Properties props) {
