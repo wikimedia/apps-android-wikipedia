@@ -25,7 +25,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
-import org.wikipedia.analytics.testkitchen.ArticleLinkPreviewInteraction
+import org.wikipedia.analytics.testkitchen.ArticleEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
@@ -72,7 +72,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val dismissCallback get() = getCallback(this, DismissCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
-    private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
+    private var linkPreviewInteraction: ArticleEvent? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private val viewModel: LinkPreviewViewModel by viewModels()
@@ -227,7 +227,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         )
         articleLinkPreviewInteractionEvent?.logLinkClick()
 
-        linkPreviewInteraction = ArticleLinkPreviewInteraction(
+        linkPreviewInteraction = ArticleEvent(
             viewModel.pageTitle,
             summary,
             viewModel.historyEntry.source

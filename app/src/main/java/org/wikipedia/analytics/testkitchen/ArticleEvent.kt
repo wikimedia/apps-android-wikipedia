@@ -10,7 +10,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ActiveTimer
 
-open class ArticleLinkPreviewInteraction : Event {
+open class ArticleEvent : Event {
     private val timer = ActiveTimer()
     private val pageData: PageData?
     var source: Int
