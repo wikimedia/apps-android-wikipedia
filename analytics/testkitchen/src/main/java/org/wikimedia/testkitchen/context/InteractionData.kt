@@ -1,6 +1,5 @@
 package org.wikimedia.testkitchen.context
 
-
 /**
  * Interaction data fields.
  *

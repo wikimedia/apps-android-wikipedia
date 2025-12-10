@@ -11,5 +11,5 @@ import org.wikimedia.testkitchen.BuildConfig
 enum class DestinationEventService(val id: String, val baseUri: String) {
     ANALYTICS("eventgate-analytics-external", BuildConfig.EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI),
     LOGGING("eventgate-logging-external", BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI),
-    LOCAL("eventgate-logging-local", "http://localhost:8192");
+    LOCAL("eventgate-logging-local", "http://localhost:8192")
 }

@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
  * to avoid unexpected default values from being used where the true value is null.
  */
 @Serializable
-open class ClientData (
+open class ClientData(
     @SerialName("agent") val agentData: AgentData? = null,
     @SerialName("page") val pageData: PageData? = null,
     @SerialName("mediawiki") val mediawikiData: MediawikiData? = null,

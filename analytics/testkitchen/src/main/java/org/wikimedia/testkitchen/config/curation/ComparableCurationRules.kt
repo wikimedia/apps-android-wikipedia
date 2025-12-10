@@ -24,13 +24,13 @@ class ComparableCurationRules<T : Comparable<T>?> : Predicate<T> {
 
     override fun test(value: T): Boolean {
         if (value == null) return false
-        return (isEquals == null || isEquals == value)
-                && (isNotEquals == null || isNotEquals != value)
-                && (greaterThan == null || greaterThan!!.compareTo(value) < 0)
-                && (lessThan == null || lessThan!!.compareTo(value) > 0)
-                && (greaterThanOrEquals == null || greaterThanOrEquals!!.compareTo(value) <= 0)
-                && (lessThanOrEquals == null || lessThanOrEquals!!.compareTo(value) >= 0)
-                && (isIn == null || isIn!!.contains(value))
-                && (isNotIn == null || !isNotIn!!.contains(value))
+        return (isEquals == null || isEquals == value) &&
+                (isNotEquals == null || isNotEquals != value) &&
+                (greaterThan == null || greaterThan!! < value) &&
+                (lessThan == null || lessThan!! > value) &&
+                (greaterThanOrEquals == null || greaterThanOrEquals!! <= value) &&
+                (lessThanOrEquals == null || lessThanOrEquals!! >= value) &&
+                (isIn == null || isIn!!.contains(value)) &&
+                (isNotIn == null || !isNotIn!!.contains(value))
     }
 }

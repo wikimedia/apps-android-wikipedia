@@ -14,7 +14,7 @@ import java.time.Instant
  * unexpected default values from being used where the true value is null.
  */
 @Serializable
-data class PerformerData (
+data class PerformerData(
     var id: Int? = null,
     @SerialName("name") var name: String? = null,
     @SerialName("is_logged_in") var isLoggedIn: Boolean? = null,

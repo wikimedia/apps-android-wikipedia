@@ -17,7 +17,7 @@ class ContextController {
         // Check stream config for which contextual values should be added to the event.
         val requestedValuesFromConfig = streamConfig.producerConfig?.metricsPlatformClientConfig?.requestedValues.orEmpty()
         // Add required properties.
-        val requestedValues= mutableSetOf<String>()
+        val requestedValues = mutableSetOf<String>()
         requestedValues.addAll(requestedValuesFromConfig)
         requestedValues.addAll(REQUIRED_PROPERTIES)
         val filteredData = filterClientData(event.clientData, requestedValues)

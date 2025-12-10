@@ -16,9 +16,9 @@ class CurationRules<T> : Predicate<T?> {
 
     override fun test(value: T?): Boolean {
         if (value == null) return false
-        return (isEquals == null || isEquals == value)
-                && (isNotEquals == null || isNotEquals != value)
-                && (isIn == null || isIn!!.contains(value))
-                && (isNotIn == null || !isNotIn!!.contains(value))
+        return (isEquals == null || isEquals == value) &&
+                (isNotEquals == null || isNotEquals != value) &&
+                (isIn == null || isIn!!.contains(value)) &&
+                (isNotIn == null || !isNotIn!!.contains(value))
     }
 }

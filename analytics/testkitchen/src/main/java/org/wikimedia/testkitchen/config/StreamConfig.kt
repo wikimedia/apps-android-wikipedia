@@ -70,33 +70,4 @@ class StreamConfig {
         }
         return false
     }
-
-    companion object {
-        /**
-         * The context attributes that the Metrics Platform Client can add to an event.
-         */
-        val CONTEXTUAL_ATTRIBUTES = arrayOf<String>(
-            // Agent
-            "agent_app_install_id",
-            "agent_client_platform",
-            "agent_client_platform_family",  // Page
-            "page_id",
-            "page_title",
-            "page_namespace_id",
-            "page_namespace_name",
-            "page_revision_id",
-            "page_wikidata_qid",
-            "page_content_language",  // MediaWiki
-            "mediawiki_database",  // Performer
-            "performer_is_logged_in",
-            "performer_id",
-            "performer_name",
-            "performer_session_id",
-            "performer_pageview_id",
-            "performer_groups",
-            "performer_language_primary",
-            "performer_language_groups",
-            "performer_registration_dt",
-        )
-    }
 }

@@ -8,9 +8,6 @@ import kotlinx.serialization.Serializable
  *
  * PageData are dynamic context fields that change with every request. PageData is submitted with each event
  * by the client and then queued for processing by EventProcessor.
- *
- * All fields are nullable, and boxed types are used in place of their equivalent primitive types to avoid
- * unexpected default values from being used where the true value is null.
  */
 @Serializable
 class PageData(

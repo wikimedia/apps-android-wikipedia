@@ -92,7 +92,7 @@ class EventProcessor(
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    //TODO: add hasty parameter conditionally
+                    // TODO: add hasty parameter conditionally
                     eventSender.sendEvents((destinationEventService.baseUri + "/v1/events").toUri(), pendingValidEvents)
                 } catch (e: UnknownHostException) {
                     logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)

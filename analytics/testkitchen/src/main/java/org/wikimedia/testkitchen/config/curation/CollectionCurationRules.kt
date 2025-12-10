@@ -16,9 +16,9 @@ class CollectionCurationRules<T> : Predicate<Collection<T>?> {
 
     override fun test(value: Collection<T>?): Boolean {
         if (value == null) return false
-        return (contains == null || value.contains(contains))
-                && (doesNotContain == null || !value.contains(doesNotContain))
-                && (containsAll == null || value.containsAll(containsAll!!))
-                && (containsAny == null || value.count { v: T? -> containsAny!!.contains(v) } > 0)
+        return (contains == null || value.contains(contains)) &&
+                (doesNotContain == null || !value.contains(doesNotContain)) &&
+                (containsAll == null || value.containsAll(containsAll!!)) &&
+                (containsAny == null || value.count { v: T? -> containsAny!!.contains(v) } > 0)
     }
 }
