@@ -203,7 +203,7 @@ class TestKitchenClient(
         private val ZONE_Z: ZoneId? = ZoneId.of("Z")
 
         const val LIBRARY_VERSION: String = "1.0.0"
-        const val SCHEMA_APP_BASE_VERSION: String = "1.4.2"
+        const val SCHEMA_APP_BASE_VERSION: String = "1.6.0"
         const val SCHEMA_APP_BASE: String = "/analytics/product_metrics/app/base/$SCHEMA_APP_BASE_VERSION"
     }
 }

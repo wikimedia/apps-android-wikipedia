@@ -23,15 +23,14 @@ open class Event(@Transient val _stream: String = "") {
 
     protected val meta = Meta(_stream)
 
-    // TODO
-    //@SerialName("client_data")
     @Transient
+    @SerialName("client_data")
     var clientData: ClientData = ClientData()
 
     @SerialName("sample") var sample: SampleConfig? = null
 
-    //@SerialName("interaction_data")
     @Transient
+    @SerialName("interaction_data")
     var interactionData: InteractionData = InteractionData()
 
     var stream

@@ -56,8 +56,12 @@ class EventProcessor(
                     samplingController.isInSample(cfg)
                 }
             }
-            .filter { event -> eventPassesCurationRules(event, streamConfigsMap) }
-            .groupBy { event -> destinationEventService(event, streamConfigsMap) }
+            .filter { event ->
+                eventPassesCurationRules(event, streamConfigsMap)
+            }
+            .groupBy { event ->
+                destinationEventService(event, streamConfigsMap)
+            }
             .forEach { (destinationEventService, pendingValidEvents) ->
                 sendEventsToDestination(destinationEventService, pendingValidEvents)
             }
