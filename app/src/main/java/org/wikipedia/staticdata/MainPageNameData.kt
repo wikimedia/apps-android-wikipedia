@@ -259,6 +259,7 @@ object MainPageNameData {
             "pt" to "Wikipédia:Página principal",
             "pwn" to "sitjumaq na sapitj",
             "qu" to "Qhapaq p'anqa",
+            "rki" to "အဓိကစာမျက်နှာ",
             "rm" to "Wikipedia:Pagina principala",
             "rmy" to "Sherutni patrin",
             "rn" to "Urupapuro nyamukuru",
@@ -317,6 +318,7 @@ object MainPageNameData {
             "tly" to "Sərlovhə",
             "tn" to "Tsebe ya konokono",
             "to" to "Peesi tali fiefia",
+            "tok" to "lipu open",
             "tpi" to "Fran pes",
             "tr" to "Anasayfa",
             "trv" to "Ruwahan patas",
@@ -357,5 +359,6 @@ object MainPageNameData {
             "zh-yue" to "頭版",
             "zu" to "Ikhasi Elikhulu",
             "test" to "Main Page",
+            "test2" to "Main Page",
     )
 }

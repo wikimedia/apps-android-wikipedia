@@ -21,6 +21,7 @@ import java.util.Locale
 internal object GooglePayComponent {
 
     const val PAYMENTS_API_URL = "https://payments.wikimedia.org/"
+    const val PAYMENTS_API_TIMEOUT_SEC = 60L
     const val PAYMENT_METHOD_NAME = "paywithgoogle"
     const val CURRENCY_FALLBACK = "USD"
     const val TRANSACTION_FEE_PERCENTAGE = 0.04f

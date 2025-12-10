@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
@@ -28,6 +29,7 @@ import androidx.core.net.toUri
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -54,8 +56,6 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
-import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
-import org.wikipedia.analytics.metricsplatform.ArticleToolbarInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -73,6 +73,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
+import org.wikipedia.donate.donationreminder.DonationReminderActivity
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.gallery.GalleryActivity
@@ -146,6 +147,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                          targetSummary: PageSummaryForEdit?, action: DescriptionEditActivity.Action, invokeSource: InvokeSource)
     }
 
+    private var campaignDialog: CampaignDialog? = null
+    private val donationReminderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == DonationReminderActivity.RESULT_OK_FROM_DONATION_REMINDER) {
+            campaignDialog?.dismiss()
+        }
+    }
+
     private var _binding: FragmentPageBinding? = null
     val binding get() = _binding!!
 
@@ -162,7 +170,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private lateinit var pageFragmentLoadState: PageFragmentLoadState
     private lateinit var bottomBarHideHandler: ViewHideHandler
     internal var articleInteractionEvent: ArticleInteractionEvent? = null
-    internal var metricsPlatformArticleEventToolbarInteraction = ArticleToolbarInteraction(this)
     private var pageRefreshed = false
     private var errorState = false
     private var scrolledUpForThemeChange = false
@@ -256,9 +263,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
-
-        // adding this here, so that this call would always be before any donation reminder config updates
-        DonationReminderHelper.maybeShowSurveyDialog(requireActivity())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -296,7 +300,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
         Prefs.pageLastShown = time
         articleInteractionEvent?.pause()
-        metricsPlatformArticleEventToolbarInteraction.pause()
     }
 
     override fun onResume() {
@@ -311,7 +314,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             leadImagesHandler.loadLeadImage()
         }
         articleInteractionEvent?.resume()
-        metricsPlatformArticleEventToolbarInteraction.resume()
         DonationReminderHelper.maybeShowSettingSnackbar(requireActivity())
     }
 
@@ -326,7 +328,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onBackPressed(): Boolean {
         articleInteractionEvent?.logBackClick()
-        metricsPlatformArticleEventToolbarInteraction.logBackClick()
         if (sidePanelHandler.isVisible) {
             sidePanelHandler.hide()
             return true
@@ -688,19 +689,25 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowAnnouncement() {
+        if (!lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+            return
+        }
         title?.let { pageTitle ->
             // Check if the pause time is older than 1 day.
             val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
             if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     val campaignList = CampaignCollection.getActiveCampaigns()
-                    val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
+                    val availableCampaign = campaignList.find { campaign -> campaign.getAssetsForLang(app.appOrSystemLanguageCode) != null }
                     availableCampaign?.let {
-                        if (!Prefs.announcementShownDialogs.contains(it.id)) {
-                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, it.id)
-                            val dialog = CampaignDialog(requireActivity(), it)
-                            dialog.setCancelable(false)
-                            dialog.show()
+                        val campaignId = it.getIdForLang(app.appOrSystemLanguageCode)
+                        if (!Prefs.announcementShownDialogs.contains(campaignId)) {
+                            DonorExperienceEvent.logAction("impression", "article_banner", pageTitle.wikiSite.languageCode, campaignId)
+                            campaignDialog = CampaignDialog(requireActivity(), it, onNeutralButtonClick = {
+                                donationReminderLauncher.launch(DonationReminderActivity.newIntent(requireContext()))
+                            })
+                            campaignDialog?.setCancelable(false)
+                            campaignDialog?.show()
                         }
                     }
                 }
@@ -770,7 +777,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
-            metricsPlatformArticleEventToolbarInteraction.logLoaded()
             callback()?.onPageLoadComplete()
 
             // do we have a URL fragment to scroll to?
@@ -851,14 +857,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 when (payload["itemType"]?.jsonPrimitive?.content) {
                     "talkPage" -> model.title?.run {
                         articleInteractionEvent?.logTalkPageArticleClick()
-                        metricsPlatformArticleEventToolbarInteraction.logTalkPageArticleClick()
                         startTalkTopicsActivity(this, true)
                     }
                     "languages" -> startLangLinksActivity()
                     "lastEdited" -> {
                         model.title?.run {
                             articleInteractionEvent?.logEditHistoryArticleClick()
-                            metricsPlatformArticleEventToolbarInteraction.logEditHistoryArticleClick()
                             startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
                         }
                     }
@@ -1114,8 +1118,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
-                val articleFindInPageInteractionEventMetricsPlatform = ArticleFindInPageInteraction(this)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent, articleFindInPageInteractionEventMetricsPlatform)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1140,8 +1143,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.logDone()
-                        articleFindInPageInteractionEventMetricsPlatform.pageHeight = webView.contentHeight
-                        articleFindInPageInteractionEventMetricsPlatform.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
                         callback()?.onPageSetToolbarElevationEnabled(true)
@@ -1387,24 +1388,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
             }
             articleInteractionEvent?.logSaveClick()
-            metricsPlatformArticleEventToolbarInteraction.logSaveClick()
         }
 
         override fun onLanguageSelected() {
             startLangLinksActivity()
             articleInteractionEvent?.logLanguageClick()
-            metricsPlatformArticleEventToolbarInteraction.logLanguageClick()
         }
 
         override fun onFindInArticleSelected() {
             showFindInPage()
             articleInteractionEvent?.logFindInArticleClick()
-            metricsPlatformArticleEventToolbarInteraction.logFindInArticleClick()
         }
 
         override fun onThemeSelected() {
             articleInteractionEvent?.logThemeClick()
-            metricsPlatformArticleEventToolbarInteraction.logThemeClick()
 
             // If we're looking at the top of the article, then scroll down a bit so that at least
             // some of the text is shown.
@@ -1425,24 +1422,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onContentsSelected() {
             sidePanelHandler.showToC()
             articleInteractionEvent?.logContentsClick()
-            metricsPlatformArticleEventToolbarInteraction.logContentsClick()
         }
 
         override fun onShareSelected() {
             sharePageLink()
             articleInteractionEvent?.logShareClick()
-            metricsPlatformArticleEventToolbarInteraction.logShareClick()
         }
 
         override fun onAddToWatchlistSelected() {
             if (model.isWatched) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logUnWatchClick()
-                metricsPlatformArticleEventToolbarInteraction.logUnWatchClick()
             } else {
                 WatchlistAnalyticsHelper.logAddedToWatchlist(model.title, requireContext())
                 articleInteractionEvent?.logWatchClick()
-                metricsPlatformArticleEventToolbarInteraction.logWatchClick()
             }
             updateWatchlist()
         }
@@ -1452,7 +1445,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startTalkTopicsActivity(it, true)
             }
             articleInteractionEvent?.logTalkPageClick()
-            metricsPlatformArticleEventToolbarInteraction.logTalkPageClick()
         }
 
         override fun onViewEditHistorySelected() {
@@ -1460,19 +1452,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 startActivity(EditHistoryListActivity.newIntent(requireContext(), this))
             }
             articleInteractionEvent?.logEditHistoryClick()
-            metricsPlatformArticleEventToolbarInteraction.logEditHistoryClick()
         }
 
         override fun onNewTabSelected() {
             startActivity(PageActivity.newIntentForNewTab(requireContext()))
             articleInteractionEvent?.logNewTabClick()
-            metricsPlatformArticleEventToolbarInteraction.logNewTabClick()
         }
 
         override fun onExploreSelected() {
             goToMainActivity(tab = NavTab.EXPLORE, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
             articleInteractionEvent?.logExploreClick()
-            metricsPlatformArticleEventToolbarInteraction.logExploreClick()
         }
 
         override fun onCategoriesSelected() {
@@ -1480,13 +1469,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, CategoryDialog.newInstance(it))
             }
             articleInteractionEvent?.logCategoriesClick()
-            metricsPlatformArticleEventToolbarInteraction.logCategoriesClick()
         }
 
         override fun onEditArticleSelected() {
             editHandler.startEditingArticle()
             articleInteractionEvent?.logEditArticleClick()
-            metricsPlatformArticleEventToolbarInteraction.logEditArticleClick()
         }
 
         override fun onViewOnMapSelected() {
@@ -1504,7 +1491,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun forwardClick() {
             goForward()
             articleInteractionEvent?.logForwardClick()
-            metricsPlatformArticleEventToolbarInteraction.logForwardClick()
         }
     }
 

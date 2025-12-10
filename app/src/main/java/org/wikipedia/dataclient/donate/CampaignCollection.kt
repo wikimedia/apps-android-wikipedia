@@ -16,10 +16,12 @@ import java.time.LocalDateTime
 
 object CampaignCollection {
 
-    private const val CAMPAIGN_VERSION = 1
+    private const val CAMPAIGN_VERSION = 2
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
     private const val CAMPAIGNS_URL_DEBUG = "https://test.wikipedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
+
+    private const val DAYS_TO_HIDE_AFTER_DONATION = 250L
 
     suspend fun getActiveCampaigns(): List<Campaign> {
         val campaignList = mutableListOf<Campaign>()
@@ -29,6 +31,10 @@ object CampaignCollection {
             val request = Request.Builder().url(url).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
             val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
+            val now = LocalDateTime.now()
+            val mostRecentDonateDateTime = (Prefs.donationResults.maxByOrNull { it.dateTime })?.let {
+                LocalDateTime.parse(it.dateTime)
+            }
 
             campaignList.addAll(campaigns.filter {
                 val proto = JsonUtil.json.decodeFromJsonElement<CampaignProto>(it)
@@ -38,7 +44,8 @@ object CampaignCollection {
             }.filter {
                 it.hasPlatform("Android") &&
                         it.countries.contains(GeoUtil.geoIPCountry) &&
-                        (Prefs.ignoreDateForAnnouncements || (it.startDateTime?.isBefore(LocalDateTime.now()) == true && it.endDateTime?.isAfter(LocalDateTime.now()) == true))
+                        (Prefs.ignoreDateForAnnouncements || (it.startDateTime?.isBefore(now) == true && it.endDateTime?.isAfter(now) == true)) &&
+                        (mostRecentDonateDateTime == null || mostRecentDonateDateTime.isBefore(now.minusDays(DAYS_TO_HIDE_AFTER_DONATION)))
             })
         }
         return campaignList

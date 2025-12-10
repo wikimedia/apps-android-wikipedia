@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Йуханехьа</string>
   <string name="error_back">Йуханехьа</string>
   <string name="error_next">Кхидӏа</string>
-  <string name="menu_clear_all_history">ДӀацӀанйе истори?</string>
+  <string name="menu_clear_all_history" fuzzy="true">ДӀацӀанйе истори?</string>
   <string name="history_item_deleted">\"%s\" йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_items_deleted">%d йаззам дӀабаьккхина хьан хьажаран истори йукъара</string>
   <string name="history_item_delete_undo">Йухайаккха</string>
@@ -168,7 +168,7 @@
   <string name="create_account_button">Аккаунт кхолла</string>
   <string name="create_account_name_unavailable">Декъашхочун цӀе \"%s\" мегаш йац. Кхечу кепара цӀе йазйе.</string>
   <string name="create_account_ip_block_message">Бехк ма билла, хьан IP-адрес блоктоьхна ду керла аккаунт кхолларх.</string>
-  <string name="create_account_ip_block_help_url">https://ce.wikipedia.org/w/index.php?title=%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8:%D0%91%D0%BB%D0%BE%D0%BA%D1%82%D0%BE%D1%85%D0%B0%D1%80%D1%88&amp;action=edit&amp;redlink=1</string>
+  <string name="create_account_ip_block_help_url">https://ce.wikipedia.org/wiki/Википеди:Блоктохарш</string>
   <string name="create_account_ip_block_details">Мадарра</string>
   <string name="preferences_general_heading">Йукъара</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -973,7 +973,7 @@
   <string name="donation_campaign_go_back_button">Йуханехьа</string>
   <string name="menu_single_webview_open_external">Системин браузерехь схьайелла</string>
   <string name="donate_gpay_help_problems">Цатарло ахча дӀадахьийта?</string>
-  <string name="donate_gpay_help_other_ways">Ахча дохьуьйту кхин таронаш</string>
+  <string name="donate_gpay_help_other_ways">ГӀодан кхин таронаш</string>
   <string name="donate_gpay_help_faq">Дукха луш долу хаттарш</string>
   <string name="donate_gpay_help_tax">ГӀодечаран тӀера налог дӀаяккхарах лаьцна хаам</string>
   <string name="places_title">Меттигаш</string>
@@ -1025,9 +1025,8 @@
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">ДӀадайа уьш</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">ХӀаъ, латаде уьш</string>
   <string name="on_this_day_game_notification_undo">Йухайаккха</string>
-  <string name="year_in_review_learn_more">Цул совнаха хаа</string>
+  <string name="year_in_review_learn_more" fuzzy="true">Цул совнаха хаа</string>
   <string name="year_in_review_donate">ГӀодар</string>
-  <string name="year_in_review_entry_dialog_continue">Кхин дӀа</string>
   <string name="year_in_review_survey_very_satisfied">ЧӀогӀа реза</string>
   <string name="year_in_review_survey_satisfied">Реза</string>
   <string name="year_in_review_survey_neutral">ХӀумма а ца дина</string>

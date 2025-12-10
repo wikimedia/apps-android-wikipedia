@@ -35,7 +35,7 @@
   <string name="page_error_back_to_main">Ortga</string>
   <string name="error_back">Ortga</string>
   <string name="error_next">Keyingi</string>
-  <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalamoq</string>
+  <string name="menu_clear_all_history" fuzzy="true">Oldingi ro\'yxatni tozalamoq</string>
   <string name="history_item_deleted">%s tarixdan o‘chirildi</string>
   <string name="history_items_deleted">%d ta maqola tarixdan o‘chirildi</string>
   <string name="history_item_delete_undo">Bekor qilish</string>
@@ -48,7 +48,7 @@
   <string name="wikimedia_commons">Vikiombor</string>
   <string name="wikidata">Vikimaʼlumot</string>
   <string name="dialog_title_clear_history">Ko‘rish tarixini o‘chirasizmi?</string>
-  <string name="dialog_message_clear_history">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bu sizning barcha brauzer tarixingizni o‘chirib tashlaydi va hozirda ochilgan yorliqlarni yopadi. Ishonchingiz komilmi?</string>
   <string name="dialog_message_clear_history_yes">Ha</string>
   <string name="dialog_message_clear_history_no">Yo‘q</string>
   <string name="share_via">Quyidagida ulashmoq</string>
@@ -234,13 +234,11 @@
   <string name="about_wikipedia_url">https://uz.wikipedia.org/wiki/Vikipediya</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
@@ -1205,8 +1203,6 @@
   <string name="insert_media_insert_button">Qoʻyish</string>
   <string name="main_drawer_help">Yordam</string>
   <string name="main_drawer_login">Vikipediaga kirmoq</string>
-  <string name="main_tooltip_text">Salom %s, Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
-  <string name="main_tooltip_text_v2">Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="main_tooltip_action_button">Boshladik</string>
   <string name="main_tooltip_watchlist_title">Kuzatuv roʻyxati</string>
   <string name="main_tooltip_watchlist_text">Oldin kuzatuv roʻyxatiga qoʻshgan maqolalar va sahifalarni izlab topish uchun Qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxati&lt;/b&gt; boʻlimini tanlang.</string>
@@ -1544,7 +1540,7 @@
   <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuv funksiyasini tahrirlash</string>
   <string name="email_report_patroller_tasks_body">Men tahrirlash kuzatuvchisi funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tasvirlab bering]\n\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n [Skrinshotlar yoki havolalar]</string>
   <string name="donation_campaign_maybe_later_snackbar">Ertaga yana eslatib oʻtamiz.</string>
-  <string name="donation_campaign_donated_snackbar">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
   <string name="donation_campaign_go_back_button">Ortga</string>
   <string name="menu_single_webview_open_external">Tizim brauzerida ochish</string>
   <string name="places_title">Joylar</string>

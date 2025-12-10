@@ -31,7 +31,7 @@
   <string name="page_error_back_to_main">Артқа қайту</string>
   <string name="error_back">Артқа қайту</string>
   <string name="error_next">Келесі</string>
-  <string name="menu_clear_all_history">Тарихын тазалау</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарихын тазалау</string>
   <string name="history_item_deleted">\"%s\" тарихтан жойылды</string>
   <string name="history_items_deleted">%d мақала тарихтан жойылды</string>
   <string name="history_item_delete_undo">Болдырмау</string>
@@ -44,7 +44,7 @@
   <string name="wikimedia_commons">Уикимедиа Ортаққоры</string>
   <string name="wikidata">Уикидерек</string>
   <string name="dialog_title_clear_history">Шолу тарихын тазарту</string>
-  <string name="dialog_message_clear_history">Бұл бүкіл шолу тарихын тазартып, ашылып тұрған қойындыларды жабады. Жалғастырғыңыз келе ме?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Бұл бүкіл шолу тарихын тазартып, ашылып тұрған қойындыларды жабады. Жалғастырғыңыз келе ме?</string>
   <string name="dialog_message_clear_history_yes">Иә</string>
   <string name="dialog_message_clear_history_no">Жоқ</string>
   <string name="share_via">Арқылы бөлісу:</string>

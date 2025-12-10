@@ -83,7 +83,7 @@ object SpecialAliasData {
             "de" to "Spezial",
             "dga" to "Be o yoŋ",
             "din" to "Këcëweek",
-            "diq" to "Bağse",
+            "diq" to "Xısusi",
             "dsb" to "Specialne",
             "dtp" to "Poimbida",
             "dty" to "बिशेष",
@@ -259,6 +259,7 @@ object SpecialAliasData {
             "pt" to "Especial",
             "pwn" to "pinakisumaljiyan",
             "qu" to "Sapaq",
+            "rki" to "အထူး",
             "rm" to "Spezial",
             "rmy" to "Uzalutno",
             "rn" to "Vyisangije",
@@ -317,6 +318,7 @@ object SpecialAliasData {
             "tly" to "Xususi",
             "tn" to "Faphegileng",
             "to" to "Special",
+            "tok" to "ilo",
             "tpi" to "Sipesol",
             "tr" to "Özel",
             "trv" to "Kingal nanaq",
@@ -357,5 +359,6 @@ object SpecialAliasData {
             "zh-yue" to "Special",
             "zu" to "Special",
             "test" to "Special",
+            "test2" to "Special",
     )
 }

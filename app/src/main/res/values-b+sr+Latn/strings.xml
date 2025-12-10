@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Nazad</string>
   <string name="error_back">Nazad</string>
   <string name="error_next">Dalje</string>
-  <string name="menu_clear_all_history">Obriši istoriju</string>
+  <string name="menu_clear_all_history" fuzzy="true">Obriši istoriju</string>
   <string name="history_item_deleted">Članak „%s” je uklonjen iz istorije</string>
   <string name="history_items_deleted">Članaka uklonjeno iz istorije: %d</string>
   <string name="history_item_delete_undo">Opozovi</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Vikimedijina ostava</string>
   <string name="wikidata">Vikipodaci</string>
   <string name="dialog_title_clear_history">Brisanje istorije pregledanja</string>
-  <string name="dialog_message_clear_history">Želite li zaista da izbrišete svu istoriju pregledanja i zatvorite sve otvorene kartice?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Želite li zaista da izbrišete svu istoriju pregledanja i zatvorite sve otvorene kartice?</string>
   <string name="dialog_message_clear_history_yes">Izbriši</string>
   <string name="dialog_message_clear_history_no">Otkaži</string>
   <string name="share_via">Delite pomoću…</string>
@@ -225,7 +225,6 @@
   <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Vikipedija:O_nama</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/sr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sr_LATN</string>
   <string name="about_libraries_heading">Korišćene biblioteke</string>
@@ -1164,8 +1163,6 @@
   <string name="insert_media_insert_button">Umetni</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavi me / pridruži me Vikipediji</string>
-  <string name="main_tooltip_text">Zdravo, %s! Jeste li znali da svako može da uređuje Vikipediju?</string>
-  <string name="main_tooltip_text_v2">Jeste li znali da svako može da uređuje Vikipediju?</string>
   <string name="main_tooltip_action_button">Počnimo</string>
   <string name="main_tooltip_watchlist_title">Spisak nadgledanja</string>
   <string name="main_tooltip_watchlist_text">Pronađite članke i stranice koje ste prethodno dodali u svoj spisak nadgledanja, u meniju Više pod &lt;b&gt;Spisak nadgledanja&lt;/b&gt;.</string>
@@ -1489,7 +1486,7 @@
   <string name="email_report_patroller_tasks_subject">Prijava problema - Mogućnost patroliranja izmena</string>
   <string name="email_report_patroller_tasks_body">Naišao/la sam na problem sa mogućnošću Patroliranja izmena:\n- [Opišite specifičan problem]\n\nPonašanje koje želim da vidim je:\n- [Opišite predloženo rešenje]\n\n[Slike ekrana ili veze]</string>
   <string name="donation_campaign_maybe_later_snackbar">Podsetićemo vas ponovo sutra.</string>
-  <string name="donation_campaign_donated_snackbar">Hvala, dragi donatore! Vaša velikodušnost pomaže da Vikipedija i njeni sestrinski sajtovi budu uspešni.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Hvala, dragi donatore! Vaša velikodušnost pomaže da Vikipedija i njeni sestrinski sajtovi budu uspešni.</string>
   <string name="donation_campaign_go_back_button">Nazad</string>
   <string name="menu_single_webview_open_external">Otvori u pregledaču</string>
   <string name="survey_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>

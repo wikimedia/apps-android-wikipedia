@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Awdsweq123
+* Bapham123
 * Bluetpp
 * Băng Tỏa
 * Dinhxuanduyet
@@ -27,6 +28,7 @@
 * Phungminh141
 * Quenhitran
 * Quoclinh94
+* SaldırganSincap
 * SongNgu.xyz
 * TARGET6tidiem
 * Thanhtai2009
@@ -43,14 +45,15 @@
   <string name="page_tabs_back">Quay lại</string>
   <string name="nav_item_forward">Chuyển tiếp</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
-  <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
+  <string name="search_hint_voice_search">Tìm kiếm bằng giọng nói</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="search_back_button_content_description">Quay lại</string>
-  <string name="search_clear_query_content_description">Xóa sạch truy vấn</string>
+  <string name="search_clear_query_content_description">Xóa truy vấn</string>
   <string name="search_icon_content_description">Tìm kiếm</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi</string>
   <string name="nav_item_suggested_edits">Sửa đổi</string>
-  <string name="nav_item_more">Mở rộng.</string>
+  <string name="nav_item_activity">Hoạt động</string>
+  <string name="nav_item_more">Mở rộng</string>
   <string name="nav_item_search">Tìm kiếm</string>
   <string name="nav_item_contribute">Đóng góp</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
@@ -62,7 +65,7 @@
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="error_back">Quay lại</string>
   <string name="error_next">Tiếp</string>
-  <string name="menu_clear_all_history">Xóa lịch sử</string>
+  <string name="menu_clear_all_history">Xóa lịch sử đọc</string>
   <string name="history_item_deleted">%s đã được xóa khỏi lịch sử</string>
   <string name="history_items_deleted">%d bài viết đã được xóa khỏi lịch sử</string>
   <string name="history_item_delete_undo">Hoàn tác</string>
@@ -75,7 +78,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
-  <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
+  <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang.</string>
   <string name="dialog_message_clear_history_yes">Có</string>
   <string name="dialog_message_clear_history_no">Không</string>
   <string name="share_via">Chia sẻ qua</string>
@@ -139,7 +142,7 @@
   <string name="map_view_link_text">Xem trên bản đồ</string>
   <string name="other_languages_indication_text">Đọc trong ngôn ngữ khác</string>
   <string name="language_count_link_text">Có sẵn trong %d ngôn ngữ khác</string>
-  <string name="edit_save_action_license_logged_in">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Với việc xuất bản, bạn chấp nhận &lt;a href=\"%1$s\"&gt;Điều khoản Sử dụng&lt;/a&gt; và đồng ý phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Các sửa đổi của bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Nếu bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt;, bạn có thể có thêm riêng tư.</string>
   <string name="edit_anon_warning">Các sửa đổi sẽ ghi rõ địa chỉ IP thiết bị của bạn. &lt;a href=\"https://#login\"&gt;Đăng nhập&lt;/a&gt; để giúp bảo vệ quyền riêng tư của bạn.</string>
   <string name="preference_title_language">Ngôn ngữ của Wikipedia</string>
@@ -157,6 +160,10 @@
   <string name="dialog_message_leaving_edit">Thay đổi của bạn vẫn chưa được đăng lên. Bạn có chắc chắn muốn rời khỏi trang này không?</string>
   <string name="dialog_message_leaving_edit_leave">Rời</string>
   <string name="dialog_message_leaving_edit_stay">Ở lại</string>
+  <string name="dialog_confirm_delete_donation_history_title">Xác nhận xóa</string>
+  <string name="dialog_confirm_delete_donation_history_message">Điều này chỉ áp dụng cho các khoản quyên góp được thực hiện từ thiết bị này.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Xóa</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Hủy bỏ</string>
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="search_reading_list_no_results">Không tìm thấy kết quả trong “%s”</string>
@@ -171,8 +178,11 @@
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
   <string name="account_creation_password_hint">Mật khẩu</string>
-  <string name="login_2fa_hint" fuzzy="true">Mã Xác thực Hai yếu tố</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Yêu cầu xác thực dùng hai nhân tố! Xin hãy quay lại hoạt động chính, đăng nhập bằng mã xác thực dùng hai nhân tố, và thử lại.</string>
+  <string name="login_2fa_hint">Mã xác thực hai yếu tố</string>
+  <string name="login_2fa_other_workflow_error_msg">Yêu cầu xác thực dùng hai nhân tố! Xin hãy đăng nhập từ màn hình chính và nhập mã xác thực từ ứng dụng tạo mã xác thực hai yếu tố.</string>
+  <string name="login_email_auth_hint">Mã xác minh email</string>
+  <string name="login_email_auth_other_workflow_error_msg">Yêu cầu xác minh email! Vui lòng đăng nhập từ màn hình chính và nhập mã xác minh email của bạn.</string>
+  <string name="login_background_error_msg">Không thể đăng nhập lại. Vui lòng quay lại màn hình chính và đăng nhập thủ công.</string>
   <string name="onboarding_card_login">Đăng nhập</string>
   <string name="page_editing_login">Đăng nhập</string>
   <string name="reading_lists_sync_login">Đăng nhập</string>
@@ -263,20 +273,19 @@
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
   <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/vi</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.vi</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
   <string name="about_contributors_heading">Người đóng góp</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Đội ngũ&lt;/a&gt;&lt;/a&gt;</string>
   <string name="about_translators_heading">Biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Giấy phép</string>
   <string name="about_app_license">Mã nguồn có sẵn tại &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
   <string name="about_wmf">Một sản phẩm của &lt;a href=\"https://wikimediafoundation.org\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
+  <string name="about_logo_content_description">Biểu tượng quả địa cầu của Wikipedia</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
   <string name="edit_abandon_confirm_yes">Có</string>
   <string name="edit_abandon_confirm_no">Không</string>
@@ -291,6 +300,8 @@
   <string name="edit_redo">Làm lại</string>
   <string name="edit_rollback">Lùi tất cả</string>
   <string name="edit_warn">Cảnh báo</string>
+  <string name="edit_damage">%s gây hại</string>
+  <string name="edit_intent">%s thiện ý</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%s byte</item>
   </plurals>
@@ -315,7 +326,7 @@
   <string name="find_last_occurence">Đầy là lần cuối cùng</string>
   <string name="article_opened_in_background_tab">Bài viết đã được mở trong một tab nền.</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không mang tính xây dựng. Bạn có chắc chắn muốn đăng nó lên?</string>
-  <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và chỉnh sửa nó.</string>
+  <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và sửa nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
   <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
   <string name="page_similar_titles">Trang tương tự</string>
@@ -408,6 +419,7 @@
   <string name="preference_title_collapse_tables">Thu gọn các bảng</string>
   <string name="preference_summary_collapse_tables">Tự động thu gọn các bảng trong bài viết, chẳng hạn như hộp thông tin, danh sách chú thích, và danh sách chú thích tham khảo.</string>
   <string name="nav_item_donate">Quyên góp</string>
+  <string name="nav_item_year_in_review">Nhìn lại một năm</string>
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
   <string name="enable_location_service">Kích hoạt</string>
@@ -435,6 +447,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Hình ảnh mờ (trong giao diện Tối)</string>
   <string name="preference_title_prefer_offline_content">Tải nội dung ngoại tuyến nếu có thể</string>
   <string name="preference_summary_prefer_offline_content">Tiết kiệm dữ liệu bằng cách tải các bài viết có sẵn ngoại tuyến thay vì luôn tải phiên bản mới nhất của bài viết</string>
+  <string name="preference_title_delete_local_donation_history">Xóa lịch sử quyên góp</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Phù hợp với chủ đề hệ thống.</string>
   <string name="page_footer_license_text">Nội dung được phát hành theo $1, trừ khi có ghi chú khác.</string>
   <string name="empty_tab_title">Thẻ mới</string>
@@ -495,7 +508,7 @@
   <string name="theme_category_reading">Đọc</string>
   <string name="theme_category_editing">Sửa đổi</string>
   <string name="reading_focus_mode">Chế độ tập trung đọc</string>
-  <string name="reading_focus_mode_detail">Ẩn các tính năng chỉnh sửa và thanh công cụ dưới cùng khi cuộn</string>
+  <string name="reading_focus_mode_detail">Ẩn các tính năng sửa đổi và thanh công cụ dưới cùng khi cuộn</string>
   <string name="editing_syntax_highlight_label">Tô màu Cú pháp</string>
   <string name="editing_line_numbers_label">Đánh số dòng</string>
   <string name="editing_monospace_font_label">Sử dụng phông chữ monospace</string>
@@ -585,8 +598,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Bài nằm trong nhiều danh sách</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s hiện không còn có sẵn ngoại tuyến cho danh sách đọc nào:</string>
   <string name="reading_lists_sync_reminder_title">Bật đồng bộ hóa danh sách đọc?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Các bài viết được lưu vào danh sách đọc bây giờ đã có thể được đồng bộ hóa vào tài khoản Wikipedia của bạn. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Danh sách đọc có thể được đồng bộ hóa. Đăng nhập vào tài khoản của bạn, chắc chắn rằng danh sách đọc của riêng bạn đã được lưu.</string>
+  <string name="reading_lists_sync_reminder_text">Các bài viết được lưu vào danh sách đọc bây giờ đã có thể được đồng bộ hóa vào tài khoản Wikipedia của bạn. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Danh sách đọc có thể được đồng bộ hóa. Đăng nhập tài khoản Wikipedia của bạn, chắc chắn rằng danh sách đọc của riêng bạn đã được lưu. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Bật đồng bộ hóa</string>
   <string name="reading_list_login_reminder_title">Đồng bộ hóa các danh sách đọc</string>
   <string name="reading_lists_login_reminder_text">Danh sách đọc bây giờ đã có thể được đồng bộ hóa xuyên suốt các thiết bị. Hãy đăng nhập vào tài khoản Wikipedia của bạn để cho phép các danh sách của bạn được lưu.</string>
@@ -839,7 +852,7 @@
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
-  <string name="feed_item_type_suggested_edits">Đề xuất thêm nội dung vào Wikipedia</string>
+  <string name="feed_item_type_suggested_edits">Gợi ý thêm nội dung vào Wikipedia</string>
   <string name="feed_item_type_places">Các bài viết liên quan dựa trên vị trí hiện tại</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
@@ -886,14 +899,15 @@
   <string name="description_edit_learn_more">Tìm hiểu thêm về lời miêu tả bài viết</string>
   <string name="description_edit_image_caption_learn_more">Tìm hiểu thêm về chú thích hình ảnh</string>
   <string name="description_too_short">Văn bản quá ngắn.</string>
+  <string name="description_too_long">Hãy cố gắng giữ phần mô tả ngắn gọn để người đọc có thể hiểu chủ đề của bài viết ngay lập tức.</string>
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
   <string name="description_starts_with_article">Không bắt đầu với các loại từ như “cái”, “chiếc”, …</string>
   <string name="description_starts_with_uppercase">Bắt đầu bằng một chữ cái thường trừ khi từ đầu tiên là danh từ riêng.</string>
   <string name="description_starts_with_lowercase">Tránh chữ hoa ở đầu lời tóm lược.</string>
   <string name="description_is_in_different_language">Văn bản có vẻ bằng một ngôn ngữ sai. Ngôn ngữ phải là %s.</string>
   <string name="description_verification_notice">Vui lòng xác nhận rằng mô tả của bạn có bằng %1$s không. Bạn có thể bỏ qua cảnh báo này nếu mô tả bạn viết bằng %2$s.</string>
-  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được đề xuất</string>
-  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do máy đề xuất</string>
+  <string name="description_edit_suggested_description_button_text">Hiển thị mô tả được gợi ý</string>
+  <string name="description_edit_suggested_description_button_tooltip">Dùng thử mô tả bài viết do phần mềm gợi ý</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
   <string name="description_edit_success_saved_snackbar">Đã đăng lời miêu tả bài viết!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
@@ -911,8 +925,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
-  <string name="description_edit_tutorial_machine_suggestions_title">Đề xuất của máy</string>
-  <string name="description_edit_tutorial_machine_suggestions_description">Các đề xuất do máy tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Gợi ý của phần mềm</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Các gợi ý do phần mềm tạo ra chứ không phải tình nguyện viên hoặc Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Tùy chỉnh thanh công cụ</string>
   <string name="customize_toolbar_shortcut_description_text">Tùy chỉnh thanh công cụ phía dưới bằng 5 phím tắt mà bạn thấy hữu ích nhất.</string>
   <string name="customize_toolbar_category_toolbar">Thanh công cụ</string>
@@ -921,6 +935,7 @@
   <string name="customize_toolbar_reset_to_default_button">Đặt lại về mặc định</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Giữ biểu tượng kéo để di chuyển mục</string>
   <string name="customize_toolbar_item_default_tooltip">Nhấn và kéo một mục để định vị lại nó</string>
+  <string name="suggested_edits_activity_title">Sửa đổi</string>
   <string name="suggested_edits_describe_articles">Mô tả các bài viết</string>
   <string name="suggested_edits_caption_images">Chú thích hình ảnh</string>
   <string name="suggested_edits_tag_images">Thể loại hình ảnh.</string>
@@ -1075,11 +1090,11 @@
   <string name="suggested_edits_contribution_type_image_tag">Thẻ cho hình ảnh</string>
   <string name="suggested_edits_contribution_current_revision_text">Sửa đổi của bạn đang hiện tại ở Wikipedia</string>
   <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
-  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả được đề xuất</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Mô tả gợi ý</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Bạn muốn báo cáo điều gì?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Không đủ thông tin</string>
-  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được đề xuất</string>
-  <string name="suggested_edits_inappropriate_suggestion">Đề xuất không phù hợp</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tôi không thể xem mô tả được gợi ý</string>
+  <string name="suggested_edits_inappropriate_suggestion">Gợi ý không phù hợp</string>
   <string name="suggested_edits_do_not_understand_suggestion">Tôi không hiểu nhiệm vụ</string>
   <string name="suggested_edits_report_suggestion">Báo cáo</string>
   <string name="suggested_edits_suggestion_report_submitted">Đã gửi báo cáo</string>
@@ -1107,7 +1122,7 @@
   <string name="image_recommendation_reject">Không</string>
   <string name="image_recommendation_notsure">Không chắc chắn</string>
   <string name="image_recommendation_reject_title">Lý do từ chối</string>
-  <string name="image_recommendation_reject_subtitle">Lý do từ chối sẽ được ẩn danh và sẽ cải thiện các đề xuất hình ảnh trong tương lai.</string>
+  <string name="image_recommendation_reject_subtitle">Lý do từ chối sẽ được ẩn danh và sẽ được sử dụng để cải thiện các gợi ý hình ảnh trong tương lai.</string>
   <string name="image_recommendation_reject_not_relevant">Hình ảnh không liên quan</string>
   <string name="image_recommendation_reject_no_info">Không đủ thông tin để quyết định</string>
   <string name="image_recommendation_reject_offensive">Hình ảnh mang tính xúc phạm</string>
@@ -1115,7 +1130,7 @@
   <string name="image_recommendation_reject_dont_know">Tôi không biết chủ đề này</string>
   <string name="image_recommendation_reject_other">Khác</string>
   <string name="image_recommendation_reject_submit">Gửi</string>
-  <string name="image_recommendation_tooltip_main">Thêm hình ảnh còn thiếu vào bài viết trong mục đề xuất sửa đổi</string>
+  <string name="image_recommendation_tooltip_main">Thêm hình ảnh còn thiếu vào bài viết trong mục sửa đổi gợi ý</string>
   <string name="image_recommendation_onboarding_1">Hình ảnh giúp mọi người hiểu rõ hơn, nhưng nhiều bài viết lại không có hình ảnh.</string>
   <string name="image_recommendation_onboarding_2">Bạn sẽ quyết định xem hình ảnh được gợi ý có nên được đưa vào bài viết Wikipedia hay không.</string>
   <string name="image_recommendation_onboarding_3">Các gợi ý được tạo ra bằng máy và bạn sẽ sử dụng khả năng phán đoán của mình để quyết định chấp nhận hay từ chối chúng.</string>
@@ -1127,15 +1142,60 @@
   <string name="image_recommendation_tooltip_warning">Vui lòng xem lại bài viết để hiểu chủ đề và kiểm tra hình ảnh</string>
   <string name="image_recommendation_depleted">Xin lỗi, hiện tại không có thêm hình ảnh gợi ý nào. Vui lòng khám phá &lt;a href=\"#\"&gt;các gợi ý sửa đổi&lt;/a&gt; khác hoặc quay lại sau.</string>
   <string name="suggested_edits_report_feature">Vấn đề với tính năng</string>
-  <string name="suggested_edits_report_feature_subject">Vấn đề với Đề xuất sửa đổi</string>
+  <string name="suggested_edits_report_feature_subject">Vấn đề với sửa đổi gợi ý</string>
   <string name="edit_summary_added_image">Đã thêm hình mới</string>
   <string name="edit_summary_added_caption">Đã thêm chú thích</string>
   <string name="edit_summary_added_image_and_caption">Đã thêm hình ảnh và chú thích</string>
   <string name="edit_published_view">Xem</string>
+  <string name="activity_tab_logged_out_title">Đăng nhập hoặc tạo tài khoản để xem hoạt động của bạn trên ứng dụng Wikipedia.</string>
+  <string name="activity_tab_user_reading">Thời gian đọc của %s</string>
+  <string name="activity_tab_on_wikipedia_android">Trên Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dg %2$dp</string>
+  <string name="activity_tab_weekly_time_spent">Lượng thời gian trong tuần đã dành ra để đọc bài viết</string>
+  <string name="activity_tab_monthly_articles_read">Lượng bài viết đã đọc trong tháng này</string>
+  <string name="activity_tab_monthly_articles_saved">Lượng bài viết đã lưu trong tháng này</string>
+  <string name="activity_tab_monthly_top_categories">Những trang thể loại được xem nhiều nhất trong tháng này</string>
+  <string name="activity_tab_explore_wikipedia">Khám phá thông qua Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Bạn đang muốn tìm thứ gì đó mới mẻ để đọc?</string>
+  <string name="activity_tab_donation_unknown">Không rõ</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Lần quyên góp cuối cùng&lt;/b&gt; trong ứng dụng</string>
+  <string name="activity_tab_total_edits_all_projects">Tổng số lần sửa đổi trên toàn bộ dự án</string>
+  <string name="activity_tab_play_wiki_games">Chơi WikiGames</string>
+  <string name="activity_tab_report_email_subject">Báo cáo sự cố - Tab Hoạt động</string>
+  <string name="activity_tab_menu_feedback">Vấn đề với tính năng</string>
+  <string name="activity_tab_menu_info">Tìm hiểu thêm</string>
+  <string name="activity_tab_menu_customize">Tùy chỉnh</string>
+  <string name="activity_tab_highlights">Điểm nổi bật</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Lịch sử đọc</string>
+  <string name="activity_tab_impact">Hoạt động của bạn</string>
+  <string name="activity_tab_impact_contributions_this_month">Đóng góp trong tháng này</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">tổng số lượt sửa đổi</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d ngày</item>
+  </plurals>
+  <string name="activity_tab_impact_suggested_edits_button">Làm một sửa đổi</string>
+  <string name="activity_tab_impact_recent_activity">Hoạt động gần đây của bạn (30 ngày qua)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="other">Sửa đổi</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="other">Lượt xem bài viết mà bạn đã sửa đổi</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Thời gian dành cho việc đọc</string>
+  <string name="activity_tab_timeline_today">Hôm nay</string>
+  <string name="activity_tab_timeline_yesterday">Hôm qua</string>
+  <string name="activity_tab_timeline_empty_state_title">Không có gì để hiển thị</string>
+  <string name="activity_tab_timeline_view_changes_button">Xem thay đổi</string>
+  <string name="activity_tab_onboarding_screen_title">Giới thiệu Hoạt động</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Giữ quyền kiểm soát</string>
+  <string name="edits_screen_what_is_title">Sửa đổi trong ứng dụng Wikipedia</string>
+  <string name="edits_screen_what_is_body">Bạn chưa biết bắt đầu sửa đổi từ đâu? Hãy thử tính năng sửa đổi gợi ý, một tính năng tạo cơ hội cho những đóng góp nhỏ nhưng thiết thực cho Wikipedia. Hoặc, bạn có thể truy cập trực tiếp vào bài viết mà bạn quan tâm và thực hiện thay đổi bằng mã wiki.</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ cho hình ảnh</string>
-  <string name="file_page_edit_button_content_description">Chỉnh sửa %s</string>
+  <string name="file_page_edit_button_content_description">Sửa đổi %s</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
@@ -1262,11 +1322,9 @@
   <string name="templates_learn_more_link">Tìm hiểu thêm</string>
   <string name="templates_description_incomplete">Bản mẫu do người dùng tạo ra và có thể chưa có mô tả đầy đủ.</string>
   <string name="templates_description_empty">Bản mẫu \"%s\" vẫn chưa có mô tả.</string>
-  <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
+  <string name="templates_description_missing_data">Bản mẫu này bị thiếu &lt;a href=\"%1$s\"&gt;dữ liệu bản mẫu&lt;/a&gt; và các tham số của nó đã được &lt;a href=\"%2$s\"&gt;tự động tạo&lt;/a&gt;. Do đó, cả bản mẫu và các tham số của nó đều thiếu mô tả.</string>
   <string name="main_drawer_help">Trợ giúp</string>
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
-  <string name="main_tooltip_text">Xin chào %s, bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
   <string name="main_tooltip_action_button">Bắt đầu</string>
   <string name="main_tooltip_watchlist_title">Danh sách theo dõi</string>
   <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong trình đơn Khác trong&lt;b&gt; Danh sách theo dõi&lt;/b&gt;</string>
@@ -1291,8 +1349,8 @@
   <string name="talk_warn_submitted_and_saved">Lời nhắn đã được lưu và xuất bản vào trang thảo luận của người dùng</string>
   <string name="talk_warn_saved_messages">Lời nhắn đã lưu</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
-  <string name="talk_page_empty_title">Cuộc trò chuyện bắt đầu từ đây</string>
-  <string name="talk_page_empty_content">Các trang thảo luận là nơi mọi người thảo luận về cách làm cho nội dung Wikipedia trở nên tốt nhất có thể. Bắt đầu bằng cách thêm chủ đề thảo luận mới để kết nối và cộng tác với cộng đồng thành viên Wikipedia.</string>
+  <string name="talk_page_empty_title">Cuộc thảo luận bắt đầu ở đây</string>
+  <string name="talk_page_empty_content">Trang thảo luận là nơi để mọi người cùng nhau thảo luận để giúp nội dung trên Wikipedia trở nên tốt nhất có thể. Hãy bắt đầu bằng cách thêm một chủ đề thảo luận mới để kết nối và cộng tác với cộng đồng thành viên Wikipedia.</string>
   <string name="talk_add_reply">Trả lời</string>
   <string name="talk_no_subject">(Không tiêu đề)</string>
   <string name="talk_reply_subject">Tiêu đề</string>
@@ -1316,13 +1374,21 @@
   <string name="talk_overflow_sort_date_published">Ngày xuất bản</string>
   <string name="talk_overflow_sort_date_updated">Ngày cập nhật</string>
   <string name="talk_overflow_sort_topic_name">Tên chủ đề</string>
-  <string name="talk_new_topic_exit_dialog_title">Bạn có chắc bạn muốn thoát?</string>
-  <string name="talk_new_topic_exit_dialog_message">Chủ đề và văn bản nội dung sẽ không được lưu.</string>
+  <string name="talk_new_topic_exit_dialog_title">Bạn có chắc chắn muốn thoát không?</string>
+  <string name="talk_new_topic_exit_dialog_message">Tiêu đề và nội dung văn bản sẽ không được lưu.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="other">Hiện trả lời (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Đã theo dõi \"%s\"</string>
+  <string name="talk_thread_unsubscribed_from">Đã hủy theo dõi \"%s\"</string>
   <string name="talk_list_item_overflow_subscribe">Theo dõi</string>
   <string name="talk_list_item_overflow_subscribed">Đã theo dõi</string>
   <string name="talk_list_item_overflow_mark_as_read">Đánh dấu là đã đọc</string>
   <string name="talk_list_item_overflow_mark_as_unread">Đánh dấu là chưa đọc</string>
   <string name="talk_list_item_overflow_share">Chia sẻ</string>
+  <string name="talk_list_item_last_comment_date">Bình luận mới nhất: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Tổng số câu trả lời</string>
+  <string name="talk_list_item_user_icon_content_description">Biểu tượng người dùng</string>
   <string name="talk_list_item_swipe_mark_as_read">Đọc</string>
   <string name="talk_list_item_swipe_mark_as_unread">Chưa đọc</string>
   <string name="talk_login_to_subscribe_dialog_title">Đăng nhập để theo dõi chủ đề</string>
@@ -1372,10 +1438,10 @@
   <string name="revision_compare_two_only">Chỉ được phép chọn hai phiên bản sửa đổi cùng một lúc.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 tuần</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 tháng</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 tháng</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 tháng</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 tuần</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 tháng</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 tháng</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 tháng</string>
   <string name="watchlist_expiry_dialog_title">Chọn khoảng thời gian trong danh sách theo dõi</string>
   <string name="watchlist_expiry_dialog_permanent">Vô hạn</string>
   <string name="watchlist_expiry_dialog_one_week">1 tuần</string>
@@ -1412,11 +1478,13 @@
   <string name="watchlist_filter_user_status_newcomers">Người mới tham gia</string>
   <string name="watchlist_filter_user_status_learners">Người tập sự</string>
   <string name="watchlist_filter_user_status_experienced">Thành viên có kinh nghiệm</string>
+  <string name="watchlist_filter_contribution_authorship_header">Người đóng góp</string>
   <string name="watchlist_filter_contribution_authorship_own">Sửa đổi do bạn thực hiện</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Sửa đổi do thành viên khác thực hiện</string>
   <string name="watchlist_filter_automated_contributions_header">Sửa đổi tự động</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="watchlist_filter_significance_header">Sự quan trọng</string>
   <string name="watchlist_filter_significance_minor">Sửa đổi nhỏ</string>
   <string name="watchlist_filter_significance_edits">Sửa đổi không nhỏ</string>
   <string name="watchlist_filter_latest_revisions_header">Phiên bản mới nhất</string>
@@ -1433,6 +1501,9 @@
   <string name="watchlist_search_bar_hint">Tìm kiếm hoặc lọc danh sách theo dõi</string>
   <string name="watchlist_search_bar_filter_hint">Lọc danh sách theo dõi</string>
   <string name="watchlist_empty_search_message">Không có kết quả nào, thử xóa %s để xem thêm kết quả.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="other">%d bộ lọc</item>
+  </plurals>
   <string name="preview_edit_title">Xem trước sửa đổi</string>
   <string name="preview_edit_summarize_edit_title">Tóm tắt sửa đổi</string>
   <string name="preview_edit_summarize_edit_hint">Bạn đã cải thiện trang này ở điểm nào?</string>
@@ -1458,11 +1529,12 @@
   <string name="user_contrib_menu_label">Đóng góp</string>
   <string name="user_contrib_filter_activity_title">Lọc đóng góp</string>
   <string name="action_item_view_on_map">Xem trên bản đồ</string>
+  <string name="action_item_view_on_map_unavailable">Tọa độ địa lý không có sẵn cho trang này</string>
   <string name="shareable_reading_lists_import_dialog_title">Nhập danh sách đọc được chia sẻ</string>
-  <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách đã được chia sẻ với bạn như thế nào?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Bạn muốn đặt tên cho danh sách được chia sẻ với bạn là gì?</string>
   <string name="shareable_reading_lists_new_indicator">*mới*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Một danh sách đọc đã được chia sẻ với bạn</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Chúng tôi nhận thấy rằng một danh sách đọc đã được chia sẻ với bạn. Để xem danh sách này trong ứng dụng, hãy quay lại tin nhắn gốc và nhấn lại vào liên kết đó.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Đã hiểu</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Đã xuất danh sách đọc</string>
   <string name="reading_list_share_menu_label">Chia sẻ…</string>
@@ -1484,6 +1556,9 @@
   <string name="talk_templates_edit_message_dialog_delete">Xóa</string>
   <string name="talk_templates_edit_message_updated">Thông điệp đã được cập nhật</string>
   <string name="talk_templates_menu_remove_message">Gỡ bỏ thông điệp</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">Tin nhắn đã bị xóa</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Tựa đề không được để trống.</string>
   <string name="talk_templates_your_messages_tab_title">Thông điệp của bạn.</string>
   <string name="talk_templates_example_messages_tab_title">Thông điệp mẫu</string>
@@ -1496,16 +1571,227 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Xem đóng góp thành viên</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Cảm ơn</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Thông tin người dùng</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Tài khoản từ:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Số sửa đổi: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Đóng</string>
   <string name="patroller_tasks_filters_title">Bộ lọc</string>
   <string name="patroller_tasks_filters_reset">Đặt lại</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tất cả</string>
+  <string name="patroller_tasks_filters_user_status_header">Trạng thái đăng nhập và trình độ của người dùng</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Vô danh</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Người dùng chưa đăng nhập.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Đã đăng ký</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Người dùng đã đăng nhập.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Người mới tham gia</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Người dùng đã đăng nhập có ít hơn 10 sửa đổi trong 4 ngày hoạt động.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Người tập sự</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Người dùng đã đăng nhập có kinh nghiệm ở mức “Người mới tham gia” và “Người có kinh nghiệm”.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Thành viên có kinh nghiệm</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Người dùng đã đăng nhập có hơn 500 sửa đổi và 30 ngày hoạt động.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Phiên bản mới nhất</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Phiên bản mới nhất</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Không phải phiên bản mới nhất</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Đóng góp tự động</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Con người (không phải bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Sự quan trọng</string>
   <string name="patroller_tasks_filters_significance_minor">Sửa đổi nhỏ</string>
+  <string name="patroller_tasks_filters_significance_edits">Sửa đổi không nhỏ</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Dự đoán chất lượng đóng góp</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Chắc chắn là tốt</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Có thể có vấn đề</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Tìm ra hầu hết các sửa đổi có lỗi hoặc gây hại nhưng với độ chính xác thấp hơn.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Có lẽ có vấn đề</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Chắc chắn có vấn đề</string>
+  <string name="patroller_tasks_filters_user_intent_header">Dự đoán ý định người dùng</string>
+  <string name="patroller_tasks_filters_user_intent_good">Chắc chắn có ý tốt</string>
+  <string name="patroller_tasks_filters_empty_search_message">Hãy thử xóa %s để xem thêm các sửa đổi</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="other">bộ lọc %d</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Lịch sử sửa đổi bài viết</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Lùi lại thành công</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Bạn có chắc chắn muốn hoàn tác không?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Hoàn tác thành công</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Xem</string>
+  <string name="patroller_tasks_overflow_report">Vấn đề với tính năng</string>
+  <string name="patroller_tasks_overflow_learn">Tìm hiểu thêm</string>
+  <string name="patroller_onboarding_one_title">Góp phần giám sát và phê duyệt các sửa đổi trên Wikipedia.</string>
   <string name="patroller_onboarding_two_thank_title">Cảm ơn</string>
+  <string name="patroller_onboarding_two_thank_content">Bạn thấy một sửa đổi hữu ích? Cảm ơn người dùng vì sự đóng góp của họ.</string>
+  <string name="patroller_onboarding_two_watch_title">Theo dõi</string>
+  <string name="patroller_onboarding_two_watch_content">Bạn muốn theo dõi các sửa đổi bài viết? Hãy thêm vào Danh sách theo dõi. Xem trong mục \"Thêm\".</string>
+  <string name="patroller_onboarding_two_talk_title">Thảo luận</string>
+  <string name="patroller_onboarding_two_undo_title">Lùi lại/Hoàn tác</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Làm thế nào để chúng tôi có thể cải thiện tính năng này?</string>
+  <string name="patroller_diff_menu_edit_history_title">Lịch sử sửa đổi bài viết</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Phản hồi</string>
+  <string name="patroller_saved_message_title_vandalism">Cảnh báo về việc phá hoại</string>
+  <string name="patroller_saved_message_title_editing_tests">Sửa đổi thử nghiệm</string>
+  <string name="patroller_saved_message_title_npov">Quan điểm trung lập</string>
+  <string name="patroller_saved_message_title_auto_trans">Bản dịch tự động</string>
+  <string name="patroller_saved_message_title_coi_rem">Nhắc nhở về mâu thuẫn</string>
+  <string name="patroller_saved_message_title_final_warning">Cảnh cáo cuối cùng</string>
+  <string name="patroller_saved_message_title_copy_vio">Cảnh báo vi phạm bản quyền</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Hãy để lại tóm lược sửa đổi</string>
+  <string name="patroller_saved_message_title_do_not_censor">Không kiểm duyệt</string>
+  <string name="patroller_saved_message_title_art_imp">Gợi ý cải thiện bài viết</string>
+  <string name="patroller_saved_message_body_vandalism">Xin chào {{{username}}}, tôi muốn thông báo cho bạn biết rằng một hoặc nhiều [{{{diffLink}}}|sửa đổi gần đây của bạn] không mang tính chất xây dựng và đã bị lùi lại. Nếu bạn nghĩ rằng tôi đã sai hay bạn có bất kỳ câu hỏi nào, bạn có thể để lại lời nhắn trên [[Thảo luận Thành viên:{{{senderUserName}}}|trang thảo luận của tôi]]. Hãy lưu ý rằng, việc liên tục sửa đổi gây hại có thể dẫn đến việc cấm sửa đổi. Cảm ơn bạn.</string>
+  <string name="patroller_saved_message_body_editing_tests">Xin chào {{{username}}}, tôi rất vui khi biết Wikipedia đã thu hút được sự chú ý của bạn và bạn đang quan tâm đến việc tìm hiểu cách sửa đổi tại đây. Thử nghiệm của bạn đã thực sự hoạt động. Tuy nhiên, bạn cần lưu ý rằng mục tiêu của dự án này là xây dựng một bách khoa toàn thư, nơi có đầy đủ thông tin và đáng tin cậy mà mọi người đều có thể tra cứu. Sửa đổi của bạn đã làm ảnh hưởng đến nội dung bài viết, vì vậy nó đã bị gỡ bỏ.\n\nNếu bạn muốn học cách sửa đổi tại Wikipedia, bạn có thể sử dụng [[Wikipedia:Chỗ thử|chỗ thử]]. Nếu bạn có ý kiến liên quan đến một bài viết cụ thể, thì nơi thích hợp nhất để đăng ý kiến của bạn là trang thảo luận của bài viết đó.</string>
+  <string name="patroller_saved_message_body_npov">Xin chào {{{username}}}, một số đóng góp của bạn chưa đáp ứng tính trung lập theo quy định [[Wikipedia:NPOV|quan điểm trung lập]] của Wikipedia. Vì lý do này, một số nội dung đã được sửa đổi hoặc gỡ bỏ. Vui lòng điều chỉnh lại các đoạn hoặc mục thể hiện quan điểm thiên lệch, thay thế chúng bằng văn bản trung lập và khách quan hơn, phù hợp với những gì được kỳ vọng trong một bách khoa toàn thư.</string>
+  <string name="patroller_saved_message_body_auto_trans">Xin chào {{{username}}}. Hoan nghênh bạn đã đóng góp cho Wikipedia nhưng những đóng góp gần đây của bạn cho thấy rằng bạn có thể đã lạm dụng công cụ dịch máy mà chưa được biên tập kỹ, nên những đóng góp này đã được sửa đổi hoặc đánh dấu bằng bản mẫu. Nếu như không có sự cải thiện nào được thực hiện đối với đoạn văn hoặc bài viết đó, chúng có thể bị lùi sửa hoặc bị xóa.\n\nNếu bạn vẫn còn thắc mắc, bạn có thể để lại lời nhắn trên [[User talk:{{{senderUserName}}}|trang thảo luận của tôi]]. Đừng nản lòng vì sự cố nhỏ này. Những đóng góp của bạn rất quan trọng đối với Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Xin chào {{{username}}}, chúng tôi trân trọng những đóng góp của bạn trên Wikipedia. Tuy nhiên, tôi nhận thấy bạn đang gặp phải tình huống [[Wikipedia:Xung đột lợi ích|xung đột lợi ích]]. Xung đột lợi ích là sự mâu thuẫn giữa mục tiêu về tính trung lập và độ tin cậy của Wikipedia với những mục tiêu riêng của một số biên tập viên, cá nhân, tổ chức hay doanh nghiệp thuộc bất kỳ loại hình nào.\n\nMọi đóng góp trong không gian bài viết chính đều phải tuân thủ các chính sách về tiêu chí nội dung của Wikipedia ([[Wikipedia:Những gì không phải là Wikipedia|Những gì không phải là Wikipedia]]), ([[Wikipedia:Thông tin kiểm chứng được|khả năng kiểm chứng]] thông tin và [[Wikipedia:Không đăng nghiên cứu chưa được công bố|nghiên cứu chưa được công bố]]), cách thức biên tập theo ([[Wikipedia:Thái độ trung lập|quan điểm trung lập]]) và tính hợp pháp của nội dung ([[Wikipedia:Quyền tác giả|bản quyền]]). Tất cả các biên tập viên đều được kỳ vọng tuân thủ những chính sách này khi tạo lập và đánh giá nội dung, đồng thời tôn trọng và hành xử thiện chí với những đóng góp của người khác để bảo đảm các chính sách được thực hiện.\n\nNếu bạn đang trong tình huống có thể xung đột lợi ích, bạn cần đặc biệt tuân thủ chính sách liên quan. Nếu không, tài khoản của bạn có thể bị coi là phục vụ cho mục đích cá nhân và sẽ bị cấm. Nếu bạn có thắc mắc, bạn có thể để lại lời nhắn trên trang thảo luận của tôi.</string>
+  <string name="patroller_saved_message_body_final_warning">Vì bạn đã thực hiện nhiều sửa đổi mang tính phá hoại, đây sẽ được coi là cảnh cáo cuối cùng dành cho bạn. Nếu bạn tiếp tục phá hoại Wikipedia, bạn sẽ bị cấm sửa đổi.</string>
+  <string name="patroller_saved_message_body_copy_vio">Sửa đổi gần đây của bạn dường như có chứa nội dung vi phạm bản quyền mà chưa được cho phép. Xin hãy đảm bảo mọi nội dung đều tuân thủ chính sách [[Wikipedia:Quyền tác giả|bản quyền]] của Wikipedia để tránh bị gỡ bỏ.</string>
+  <string name="patroller_saved_message_body_edit_summary">Xin chào {{{username}}}, có vẻ như bạn đã xóa bỏ nội dung khỏi Wikipedia mà không để lại tóm lược sửa đổi. Vui lòng ghi tóm lược sửa đổi mỗi khi bạn thêm hoặc xóa nội dung trên Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Xin chào {{{username}}}, có vẻ như bạn đã xóa bỏ nội dung mà không thông qua thảo luận tại trang thảo luận của bài viết. Xin lưu ý rằng Wikipedia không bị kiểm duyệt, và nội dung không nên bị gỡ bỏ chỉ vì chúng gây tranh cãi. Nếu bạn cho rằng thông tin chưa chính xác, hãy trao đổi để đạt được đồng thuận trên trang thảo luận của bài viết.</string>
+  <string name="talk_warn_learn_more_label">Tìm hiểu thêm về các tham số trong thông điệp</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Hãy sử dụng một thông điệp mẫu dưới đây để tùy chỉnh, gửi và lưu vào mục thông điệp của bạn.</string>
+  <string name="patroller_saved_message_body_art_imp">Xin chào {{{username}}}. Bài viết của bạn là một khởi đầu tuyệt vời! Để làm cho nó hoàn thiện hơn, bạn nên bổ sung thêm các nguồn tham khảo đáng tin cậy. Điều này giúp xác minh thông tin và nâng cao chất lượng của bài viết. Bạn có thể tham khảo hướng dẫn của Wikipedia về [[ Wikipedia:Nguồn đáng tin cậy|nguồn đáng tin cậy]] để biết thêm chi tiết.</string>
+  <string name="talk_templates_menu_edit_title">Sửa đổi</string>
+  <string name="data_opt_in_accept">Chấp nhận</string>
+  <string name="data_opt_in_reject">Từ chối</string>
+  <string name="page_issues_title">Vấn đề trang</string>
+  <string name="generic_release_notes">Sửa lỗi nhỏ và cải thiện</string>
+  <string name="email_report_image_recommendations_subject">Báo cáo sự cố - Tính năng Đề xuất Hình ảnh</string>
+  <string name="donation_campaign_maybe_later_snackbar">Chúng tôi sẽ nhắc lại với bạn vào ngày mai.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Cảm ơn người quyên góp! Sự hào phóng của bạn giúp Wikipedia và các dự án liên quan phát triển mạnh mẽ.</string>
+  <string name="donation_campaign_go_back_button">Quay lại</string>
+  <string name="menu_single_webview_open_external">Mở trong trình duyệt hệ thống</string>
   <string name="donate_gpay_dialog_title">Quyên góp bằng Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Quyên góp bằng Google Pay hoặc chọn phương thức thanh toán khác.</string>
+  <string name="donate_gpay_dialog_pay_button">Quyên góp bằng Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Phương thức thanh toán khác</string>
+  <string name="donate_gpay_activity_title">Chọn số tiền</string>
+  <string name="donate_gpay_check_recurring">Biến đây thành khoản quyên góp định kỳ hàng tháng.</string>
+  <string name="donate_gpay_check_send_email">Vâng, Quỹ Wikimedia có thể gửi cho tôi email thường xuyên.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Cảm ơn bạn!&lt;/b&gt; Sự hào phóng của bạn dành cho Wikipedia có ý nghĩa rất lớn đối với chúng tôi.</string>
+  <string name="donate_gpay_help_problems">Có trục trặc khi quyên góp?</string>
+  <string name="donate_gpay_help_other_ways">Thêm cách để quyên góp</string>
+  <string name="donate_gpay_help_faq">Câu hỏi thường gặp</string>
+  <string name="donate_gpay_help_tax">Thông tin khấu trừ thuế</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Lịch sử quyên góp bị xóa</string>
   <string name="places_title">Địa điểm</string>
+  <string name="places_permissions_denied">Cần có quyền truy cập vị trí để xem vị trí của bạn trên bản đồ. Xin hãy thử lại.</string>
+  <string name="places_search_hint">Chỗ tìm kiếm</string>
+  <string name="places_filter_title">Bộ lọc ngôn ngữ</string>
+  <string name="places_toggle_buttons_map">Bản đồ</string>
+  <string name="places_toggle_buttons_list">Danh sách</string>
+  <string name="places_card_title">Địa điểm gần đây</string>
+  <string name="places_card_enable_location_card_button">Kích hoạt vị trí</string>
+  <string name="places_card_distance_suffix">cách đây %s</string>
+  <string name="places_card_distance_unknown">Khoảng cách không rõ</string>
+  <string name="places_empty_message_snackbar">Không có bài viết nào gần đó. Hãy thử thu nhỏ và di chuyển bản đồ.</string>
+  <string name="survey_dialog_title">Hãy giúp chúng tôi cải thiện tính năng này</string>
+  <string name="survey_dialog_message">Bạn có hài lòng với tính năng này không?</string>
+  <string name="survey_dialog_option_satisfied">Hài lòng</string>
+  <string name="survey_dialog_option_neutral">Trung lập</string>
+  <string name="survey_dialog_option_unsatisfied">Không hài lòng</string>
+  <string name="survey_dialog_cancel">Hủy bỏ</string>
+  <string name="survey_dialog_submit">Gửi</string>
+  <string name="survey_dialog_next">Kế tiếp</string>
+  <string name="survey_dialog_general_yes">Có</string>
+  <string name="survey_dialog_general_no">Không</string>
+  <string name="survey_dialog_general_maybe">Có lẽ</string>
+  <string name="survey_dialog_input_hint">Phản hồi bổ sung</string>
+  <string name="survey_dialog_submitted_snackbar">Đã gửi phản hồi. Cảm ơn bạn!</string>
+  <string name="on_this_day_game_dialog_button">Chơi</string>
+  <string name="on_this_day_game_splash_message">Hãy đoán xem sự kiện nào diễn ra trước vào ngày này năm xưa.</string>
+  <string name="on_this_day_game_submit">Gửi</string>
+  <string name="on_this_day_game_correct">Chính xác!</string>
+  <string name="on_this_day_game_incorrect">Không chính xác!</string>
+  <string name="on_this_day_game_point">+1 điểm</string>
+  <string name="on_this_day_game_next">Câu hỏi tiếp theo</string>
+  <string name="on_this_day_game_finish">Kết quả cuối cùng</string>
+  <string name="on_this_day_game_share_button">Chia sẻ</string>
+  <string name="on_this_day_game_pause_title">Dừng trò chơi?</string>
+  <string name="on_this_day_game_pause_negative">Tiếp tục chơi</string>
+  <string name="on_this_day_game_pause_positive">Đã hiểu</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Trò chơi Wikipedia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Cái nào có trước?</string>
+  <string name="on_this_day_game_feed_entry_card_subtitle">Hãy đoán xem sự kiện nào diễn ra trước vào ngày này năm xưa.</string>
+  <string name="on_this_day_game_result">Bạn trả lời đúng %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Lần chơi kế tiếp bắt đầu trong %s</string>
+  <string name="on_this_day_game_stats_average_score">Điểm số trung bình</string>
+  <string name="on_this_day_game_stats_streak">Chuỗi hiện tại</string>
+  <string name="on_this_day_game_result_subtitle">Những bài viết liên quan đến lượt chơi hôm nay</string>
+  <string name="on_this_day_game_menu_info">Tìm hiểu thêm</string>
+  <string name="on_this_day_game_menu_feedback">Gặp vấn đề với tính năng này</string>
+  <string name="on_this_day_game_article_read_button">Đọc bài viết</string>
+  <string name="on_this_day_game_article_related_event_title">Sự kiện liên quan đến bài viết này</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Bạn đã trả lời đúng câu hỏi này</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Bạn đã trả lời sai câu hỏi này</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Tắt thông báo về trò chơi này?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Nếu bạn tắt thông báo đẩy, bạn sẽ không còn nhận được lời nhắc mỗi ngày khi có trò chơi mới để chơi nữa.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Bật thông báo về trò chơi này?</string>
+  <string name="on_this_day_game_notification_undo">Lùi lại</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Tiếp tục chơi</string>
+  <string name="on_this_day_game_sound_on">Bật âm thanh</string>
+  <string name="on_this_day_game_sound_off">Tắt âm thanh</string>
+  <string name="year_in_review_learn_more">Tìm hiểu thêm</string>
+  <string name="year_in_review_get_started">Bắt đầu</string>
+  <string name="year_in_review_topbar_w_icon">Biểu tượng W của Wikipedia</string>
+  <string name="year_in_review_survey_subtitle">Bạn có hài lòng với tính năng này không?</string>
+  <string name="year_in_review_survey_very_satisfied">Rất hài lòng</string>
+  <string name="year_in_review_survey_satisfied">Hài lòng</string>
+  <string name="year_in_review_survey_neutral">Trung lập</string>
+  <string name="year_in_review_survey_unsatisfied">Không hài lòng</string>
+  <string name="year_in_review_survey_very_unsatisfied">Rất không hài lòng</string>
+  <string name="year_in_review_survey_placeholder_text">Bạn có suy nghĩ nào muốn chia sẻ không?</string>
+  <string name="year_in_review_survey_cancel">Hủy bỏ</string>
+  <string name="year_in_review_survey_submit">Gửi</string>
+  <string name="recommended_reading_list_title">Khám phá</string>
+  <string name="recommended_reading_list_onboarding_card_title">Khám phá các bài viết được chọn lọc dành riêng cho bạn</string>
+  <string name="recommended_reading_list_onboarding_card_new">Mới!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Bắt đầu</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Không, cảm ơn</string>
+  <string name="recommended_reading_list_interest_pick_title">Bạn quan tâm đến điều gì?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Tìm kiếm một bài viết</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">Chọn ngẫu nhiên</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">Chúng tôi đã chọn ngẫu nhiên một vài bài viết dành cho bạn.</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">Lùi lại</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Được, chọn giúp tôi</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Được tạo ra dành cho %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Dành cho bạn</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="other">• %d bài viết</item>
+  </plurals>
+  <string name="recommended_reading_list_page_overflow_customize">Tùy chỉnh</string>
+  <string name="recommended_reading_list_page_overflow_about">Về tính năng này</string>
+  <string name="recommended_reading_list_page_snackbar_day">Ngày</string>
+  <string name="recommended_reading_list_page_snackbar_week">Tuần</string>
+  <string name="recommended_reading_list_page_snackbar_month">Tháng</string>
+  <string name="recommended_reading_list_settings_section_header">Gợi ý</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">Tắt tính năng Khám phá?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">Tắt nó đi</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">Không, giữ nguyên</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">Tính năng Khám phá đã bị tắt. Bạn có thể bật lại bất cứ lúc nào trong phần cài đặt.</string>
+  <string name="recommended_reading_list_settings_articles">bài viết</string>
+  <string name="recommended_reading_list_settings_updates_frequency">Cập nhật %s</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">hàng ngày</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">hàng tuần</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">hàng tháng</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Mỗi ngày</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Mỗi tuần</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Mỗi tháng</string>
+  <string name="recommended_reading_list_settings_updates_base_title">Tính năng Khám phá được phát triển như thế nào?</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Dựa trên sở thích của bạn</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Dựa trên những bài viết đã lưu của bạn</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">Dựa trên lịch sử đọc bài viết của bạn</string>
+  <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
+  <string name="donation_settings_section_header">Khoản quyên góp</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
+  <string name="donation_reminders_settings_article_frequency_label">Khi tôi đọc</string>
+  <string name="donation_reminders_settings_amount_label">Nhắc tôi quyên góp</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Xác nhận lời nhắc</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Về thử nghiệm này</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">bài viết</string>
+  <string name="donation_reminders_settings_warning_min_amount">Vui lòng nhập ít nhất %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Tối đa %s được phép</string>
+  <string name="donation_reminders_settings_option_custom">Tùy chỉnh...</string>
+  <string name="donation_reminders_prompt_positive_button">Quyên góp ngay</string>
+  <string name="donation_reminders_prompt_negative_button">Để sau</string>
+  <string name="donation_reminders_gpay_text">Quyên góp %s bằng Google Pay</string>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Thử nghiệm</string>
 </resources>

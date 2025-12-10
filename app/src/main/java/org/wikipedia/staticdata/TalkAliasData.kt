@@ -83,7 +83,7 @@ object TalkAliasData {
             "de" to "Diskussion",
             "dga" to "Yeli",
             "din" to "Jam",
-            "diq" to "Vaten",
+            "diq" to "Werênayış",
             "dsb" to "Diskusija",
             "dtp" to "Pibarasan",
             "dty" to "कुरणि",
@@ -259,6 +259,7 @@ object TalkAliasData {
             "pt" to "Discussão",
             "pwn" to "kakaljavaran",
             "qu" to "Rimanakuy",
+            "rki" to "ဆွီးနွီးချက်",
             "rm" to "Discussiun",
             "rmy" to "Vakyarimata",
             "rn" to "Ikiyago",
@@ -317,6 +318,7 @@ object TalkAliasData {
             "tly" to "Nopegət",
             "tn" to "Puisano",
             "to" to "Talk",
+            "tok" to "toki",
             "tpi" to "Toktok",
             "tr" to "Tartışma",
             "trv" to "Mpprngaw",
@@ -357,5 +359,6 @@ object TalkAliasData {
             "zh-yue" to "Talk",
             "zu" to "Talk",
             "test" to "Talk",
+            "test2" to "Talk",
     )
 }

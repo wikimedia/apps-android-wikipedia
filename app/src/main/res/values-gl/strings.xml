@@ -41,7 +41,7 @@
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
   <string name="error_next">Seguinte</string>
-  <string name="menu_clear_all_history">Limpar o historial</string>
+  <string name="menu_clear_all_history" fuzzy="true">Limpar o historial</string>
   <string name="history_item_deleted">%s eliminado do historial</string>
   <string name="history_items_deleted">%d artigos eliminados do historial</string>
   <string name="history_item_delete_undo">Desfacer</string>
@@ -54,7 +54,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
-  <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="dialog_message_clear_history_yes">Si</string>
   <string name="dialog_message_clear_history_no">Non</string>
   <string name="share_via">Compartir mediante…</string>
@@ -228,15 +228,13 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://gl.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/gl</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/gl</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
   <string name="about_libraries_heading">Bibliotecas empregadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina do equipo&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Páxina do equipo&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
@@ -807,7 +805,7 @@
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="content_description_for_page_indicator">Páxina %1$d de %2$d</string>
-  <string name="wikitext_bold">Negra</string>
+  <string name="wikitext_bold">Grosa</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Ligazón</string>
   <string name="wikitext_bulleted_list">Lista de puntos</string>
@@ -817,7 +815,6 @@
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
-  <string name="main_tooltip_text">Ola %s, sabía que todo o mundo pode editar a Wikipedia?</string>
   <string name="main_tooltip_action_button">Comezar</string>
   <string name="main_tooltip_watchlist_title">Lista de vixilancia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

@@ -22,6 +22,7 @@
 * Hhaboh162002
 * HitomiAkane
 * Hocinend1
+* Hubaishan
 * Kassem789
 * Kassem7899
 * MRidhaAJ
@@ -29,6 +30,7 @@
 * Meno25
 * Michel Bakni
 * Mido
+* Mohammed Qays
 * Mojackjutaily
 * Mr. Ibrahem
 * MuratTheTurkish
@@ -37,6 +39,7 @@
 * Ola.mahadi
 * PhiberOptik
 * SHaran (WMF)
+* SaldırganSincap
 * Sandra Hanbo
 * Shbib Al-Subaie
 * Sonic N800
@@ -72,6 +75,7 @@
   <string name="search_icon_content_description">بحث</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
   <string name="nav_item_suggested_edits">تعديلات</string>
+  <string name="nav_item_activity">نشاط</string>
   <string name="nav_item_more">المزيد</string>
   <string name="nav_item_search">بحث</string>
   <string name="nav_item_contribute">ساهم</string>
@@ -84,7 +88,7 @@
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="error_back">رجوع</string>
   <string name="error_next">التالي</string>
-  <string name="menu_clear_all_history">امسح التاريخ</string>
+  <string name="menu_clear_all_history">مسح تاريخ القراءة</string>
   <string name="history_item_deleted">أزيلت %s من التاريخ</string>
   <string name="history_items_deleted">أُزيلت مقالات %d من السجل</string>
   <string name="history_item_delete_undo">تراجع</string>
@@ -97,7 +101,7 @@
   <string name="wikimedia_commons">ويكيميديا كومنز</string>
   <string name="wikidata">ويكي بيانات</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
-  <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
+  <string name="dialog_message_clear_history">سيؤدي هذا إلى حذف سجل تصفحك بالكامل. هل أنت متأكد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>
   <string name="dialog_message_clear_history_no">لا</string>
   <string name="share_via">مشاركة عبر</string>
@@ -303,15 +307,12 @@
   <string name="terms_of_use_description">شروط الاستخدام</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ar</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use/ar</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ar</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
@@ -323,7 +324,7 @@
   <string name="edit_abandon_confirm_yes">نعم</string>
   <string name="edit_abandon_confirm_no">لا</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
-  <string name="user_logged_in_blocked_from_editing">تم منع حسابك من تعديل هذه الويكي.</string>
+  <string name="user_logged_in_blocked_from_editing">مُنع حسابك من تعديل هذه الويكي.</string>
   <string name="user_anon_blocked_from_editing">تم منع عنوان الآي بي الخاص بك من التعديل.</string>
   <string name="edit_how_page_improved">كيف حسّنت الصفحة؟</string>
   <string name="edit_next">التالي</string>
@@ -442,7 +443,7 @@
   <string name="error_unknown">حدث خطأ غير معروف.</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
   <string name="address_copied">نُسخ المسار إلى الحافظة.</string>
-  <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
+  <string name="text_copied">نُسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">اقرأ المقالة</string>
   <string name="button_continue_to_talk_page">اعرض صفحة النقاش</string>
   <string name="button_continue_to_disambiguation">عرض صفحات مشابهة</string>
@@ -493,7 +494,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="preference_title_prefer_offline_content">تفضيل المحتوى دون اتصال</string>
   <string name="preference_summary_prefer_offline_content">حفظ استخدام البيانات بتحميل المقالات المتاحة في وضع عدم الاتصال بدلا من تحميل أحدث إصدار من مقالة دائما</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">حذف سجل التبرعات المحلية</string>
+  <string name="preference_title_delete_local_donation_history">مسح سجل التبرعات</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">تبويب جديد</string>
@@ -509,7 +510,7 @@
   <string name="error_blocked_footer_no_blocker">يمكنك التواصل مع أحد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;الإداريين&lt;/a&gt; لمناقشة المنع.</string>
   <string name="temp_account_not_logged_in">أنت غير مسجل الدخول</string>
   <string name="temp_account_anon_ip_dialog_body">بمجرد إجراء تعديل، سيتم ربط عنوان IP الخاص بك بتعديلاتك.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
-  <string name="temp_account_anon_dialog_body">بمجرد إجراء تعديل، سيتم إنشاء &lt;b&gt;حساب مؤقت&lt;/b&gt; لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
+  <string name="temp_account_anon_dialog_body">بمجرد إجراء تعديل، سيتم إنشاء &lt;b&gt;حساب مؤقت&lt;/b&gt; لك لحماية خصوصيتك. &lt;&lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;. قم بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; للحصول على رصيد للتعديلات المستقبلية وللوصول إلى ميزات أخرى.</string>
   <string name="temp_account_temp_dialog_body">سيتم نسب تعديلك إلى %1$s . سيكون عنوان IP الخاص بك مرئيًا للمسؤولين.&lt;br /&gt;&lt;br /&gt; إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; أو &lt;a href=\"https://#createaccount\"&gt;إنشاء حساب&lt;/a&gt; ، فسيتم نسب تعديلاتك إلى الاسم الذي تختاره، من بين مزايا أخرى.</string>
   <string name="temp_account_dialog_ok">عُلِم</string>
   <string name="temp_account_using_title">أنت تستخدم حساباً مؤقتاً</string>
@@ -531,8 +532,8 @@
     <item quantity="other">سوف تنتهي صلاحية الحساب خلال %d يوم.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;أنت لستُ مُسجلًا.&lt;/b&gt; بمجرد إصدارها، سيتم ربط عنوان IP الخاص بك مع التحريرات الخاصة بك.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;لم تسجل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سينشأ حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;أنت تستخدم حسابًا مؤقتًا.&lt;/b&gt; سيتم نسب تعديلك إلى %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;لم تسجل الدخول.&lt;/b&gt; بمجرد إجراء تعديل، سينشأ حساب مؤقت لك لحماية خصوصيتك. &lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;أنت تستخدم حساب مؤقت&lt;/b&gt; سيتم إصدارك إلى %1$s. &lt;a href=\"%2$s\"&gt;تعلم المزيد&lt;/a&gt;</string>
   <string name="temp_account_login_status">&lt;b&gt;أنت تستخدم حاليًا حسابًا مؤقتًا.&lt;/b&gt; لن يتم نقل التعديلات التي أجريتها باستخدام الحساب المؤقت %1$s إلى حسابك الدائم عند تسجيل الدخول. قم بتسجيل الدخول أو إنشاء حساب للحصول على رصيد باسم المستخدم الخاص بك، من بين مزايا أخرى.</string>
   <string name="temp_account_end_session">أنه الجلسة</string>
   <string name="temp_account_end_session_confirm">سيؤدي هذا إلى تسجيل خروجك من حسابك المؤقت. هل تريد الاستمرار؟</string>
@@ -1086,6 +1087,7 @@
   <string name="customize_toolbar_reset_to_default_button">إعادة التعيين إلى الافتراضي</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">اضغط باستمرار على أيقونة السحب لتحريك العنصر</string>
   <string name="customize_toolbar_item_default_tooltip">اضغط واسحب عنصرًا لتغيير موضعه</string>
+  <string name="suggested_edits_activity_title">تعديل</string>
   <string name="suggested_edits_describe_articles">صِف المقالات</string>
   <string name="suggested_edits_caption_images">تعليقات الصور</string>
   <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
@@ -1338,6 +1340,120 @@
   <string name="edit_summary_added_caption">إضافة شرح لصورة</string>
   <string name="edit_summary_added_image_and_caption">إضافة صورة وشرح</string>
   <string name="edit_published_view">عرض</string>
+  <string name="activity_tab_logged_out_title">قم بتسجيل الدخول أو إنشاء حساب لعرض نشاطك على تطبيق ويكيبيديا</string>
+  <string name="activity_tab_user_reading">قراءة %s</string>
+  <string name="activity_tab_on_wikipedia_android">على ويكيبيديا أندرويد</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d ساعة %2$d دقيقة</string>
+  <string name="activity_tab_weekly_time_spent">الوقت المستغرق في القراءة هذا الأسبوع</string>
+  <string name="activity_tab_monthly_articles_read">المقالات المقروءة هذا الشهر</string>
+  <string name="activity_tab_monthly_articles_saved">المقالات المحفوظة هذا الشهر</string>
+  <string name="activity_tab_monthly_top_categories">أفضل الفئات التي تمت قراءتها هذا الشهر</string>
+  <string name="activity_tab_explore_wikipedia">اكتشف من خلال ويكيبيديا</string>
+  <string name="activity_tab_discover_encourage">هل تبحث عن شيء جديد للقراءة؟</string>
+  <string name="activity_tab_donation_unknown">مجهول</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;آخر تبرع&lt;/b&gt; في التطبيق</string>
+  <string name="activity_tab_total_edits_all_projects">إجمالي التعديلات عبر المشاريع</string>
+  <string name="activity_tab_game_stats">إحصائيات اللعبة</string>
+  <string name="activity_tab_game_stats_best_streak">أفضل سلسلة</string>
+  <string name="activity_tab_play_wiki_games">العب ألعاب ويكي</string>
+  <string name="activity_tab_report_email_subject">تقرير المشكلة - علامة التبويب النشاط</string>
+  <string name="activity_tab_report_email_body">لقد واجهت مشكلة مع ميزة علامة التبويب \"النشاط\":\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="activity_tab_menu_feedback">مشكلة مع الميزة</string>
+  <string name="activity_tab_menu_info">معرفة المزيد</string>
+  <string name="activity_tab_menu_customize">تخصيص</string>
+  <string name="activity_tab_menu_customize_description">تعتمد رؤى القراءة على لغات تطبيقك في الإعدادات، بينما تقتصر رؤى التحرير على لغة تطبيقك الأساسية. تعتمد الرؤى على البيانات المحلية، باستثناء التعديلات العامة.</string>
+  <string name="activity_tab_highlights">أبرز الأحداث</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">قراءة التاريخ</string>
+  <string name="activity_tab_impact">تأثيرك</string>
+  <string name="activity_tab_impact_most_viewed">الأكثر مشاهدة منذ تعديلك</string>
+  <string name="activity_tab_impact_contributions_this_month">المساهمات هذا الشهر</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="zero">لا تعديلات هذا الشهر</item>
+    <item quantity="one">تعديل هذا الشهر</item>
+    <item quantity="two">تعديلان هذا الشهر</item>
+    <item quantity="few">تعديلات قليلة ها الشهر</item>
+    <item quantity="many">تعديلات كثيرة هذا الشهر</item>
+    <item quantity="other">تعديلات هذا الشهر</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="zero">لا تعديلات الشهر الماضي</item>
+    <item quantity="one">تعديل الشهر الماضي</item>
+    <item quantity="two">تعديلان الشهر الماضي</item>
+    <item quantity="few">تعديلات قليلة الشهر الماضي</item>
+    <item quantity="many">تعديلات كثيرة الشهر الماضي</item>
+    <item quantity="other">تعديلات الشهر الماضي</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">التأثير في كل الأوقات</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="zero">لا تعديلات</item>
+    <item quantity="one">تعديل إجمالي</item>
+    <item quantity="two">تعديلان إجماليان</item>
+    <item quantity="few">تعديلات إجمالية قليلة</item>
+    <item quantity="many">تعديلات إجمالية كثيرة</item>
+    <item quantity="other">تعديلات إجمالية</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="zero">لا شكر</item>
+    <item quantity="one">شكر</item>
+    <item quantity="two">شكران</item>
+    <item quantity="few">شكر قليل</item>
+    <item quantity="many">شكر كثير</item>
+    <item quantity="other">شكرًا</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="zero">و لا يوم</item>
+    <item quantity="one">يوم واحدة</item>
+    <item quantity="two">يومان</item>
+    <item quantity="few">%d يوم</item>
+    <item quantity="many">%d يوم</item>
+    <item quantity="other">%d يوم</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">أفضل سلسلة</string>
+  <string name="activity_tab_impact_last_edited">تم التعديل الأخير</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 تعديلات على المقالات مؤخرًا</string>
+  <string name="activity_tab_impact_suggested_edits_message">يبدو أنك لم تُجرِ أي تعديل هذا الشهر. وسّع آفاق معرفتك المجانية بتعديل المواضيع التي تهمك.</string>
+  <string name="activity_tab_impact_suggested_edits_button">إجراء تعديل</string>
+  <string name="activity_tab_impact_recent_activity">نشاطك الأخير (آخر 30 يومًا)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="zero">لا تعديلات</item>
+    <item quantity="one">تحرير</item>
+    <item quantity="two">تعديلان</item>
+    <item quantity="few">تعديلات قليلة</item>
+    <item quantity="many">تعديلات كثيرة</item>
+    <item quantity="other">تعديلات</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="zero">لا عرض للمقالات التي قمت بتحريرها</item>
+    <item quantity="one">عرض المقالات التي قمت بتحريرها</item>
+    <item quantity="two">عرض المقالتين التين قمت بتحريرهما</item>
+    <item quantity="few">عرض للمقالات القليلة التي قمت بتحريرها</item>
+    <item quantity="many">عرض للمقالات الكثيرة التي قمت بتحريرها</item>
+    <item quantity="other">عرض المقالات التي قمت بتحريرها</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">الوقت المستغرق في القراءة</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">رؤى القراءة</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">رؤى التحرير</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">التأثير في كل الأوقات</string>
+  <string name="activity_tab_customize_screen_games_switch_title">إحصائيات اللعبة</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">آخر تبرع في التطبيق</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">الجدول الزمني للسلوك</string>
+  <string name="activity_tab_customize_screen_no_modules_message">وحدات النشاط مُعطّلة. &lt;a href=\"#\"&gt;شغّلها&lt;/a&gt; لعرض التحديثات في هذه علامة التبويب.</string>
+  <string name="activity_tab_timeline_today">اليوم</string>
+  <string name="activity_tab_timeline_yesterday">أمس</string>
+  <string name="activity_tab_timeline_empty_state_title">لا يوجد شيء لإظهاره</string>
+  <string name="activity_tab_timeline_empty_state_message">ابدأ القراءة والتحرير لبناء تاريخك</string>
+  <string name="activity_tab_timeline_view_changes_button">عرض التغييرات</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">أنماط القراءة</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">انظر إلى مقدار الوقت الذي قضيته في القراءة والمقالات أو المواضيع التي استكشفتها بمرور الوقت.</string>
+  <string name="activity_tab_onboarding_screen_title">تقديم النشاط</string>
+  <string name="activity_tab_onboarding_impact_title">أبرز النقاط المؤثرة</string>
+  <string name="activity_tab_onboarding_impact_message">اكتشف رؤى حول مساهماتك ومدى المعرفة التي شاركتها.</string>
+  <string name="activity_tab_onboarding_engage_title">مزيد من الطرق للمشاركة</string>
+  <string name="activity_tab_onboarding_engage_message">استكشف إحصائيات الألعاب والمقالات المحفوظة والأنشطة الأخرى التي تربطك بشكل أعمق مع ويكيبيديا.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">البقاء في السيطرة</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">اختر الوحدات التي ترغب في عرضها. جميع بياناتك الشخصية تبقى سرية على جهازك، ويمكنك مسح سجل التصفح في أي وقت.</string>
+  <string name="edits_screen_what_is_title">التحرير في تطبيق ويكيبيديا</string>
+  <string name="edits_screen_what_is_body">لست متأكدًا من أين تبدأ بالتعديل؟ جرّب ميزة \"التعديلات المقترحة\"، وهي ميزة تتيح لك تقديم مساهمات صغيرة لكنها جوهرية في ويكيبيديا. أو انتقل مباشرةً إلى مقالة تهمك وأجرِ تعديلًا باستخدام ويكي تيكست.</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1476,11 +1592,9 @@
   <string name="templates_learn_more_link">تعلم المزيد</string>
   <string name="templates_description_incomplete">القوالب هي من إنشاء المستخدم وقد تفتقر إلى الأوصاف الكاملة.</string>
   <string name="templates_description_empty">لا يوجد وصف للقالب \"%s\" حتى الآن.</string>
-  <string name="templates_description_missing_data">هذا القالب يفتقد &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; ، وتم إنشاء معلماته &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerated&lt;/a&gt; . ونتيجة لذلك، يفتقر القالب ومعلماته إلى الأوصاف.</string>
+  <string name="templates_description_missing_data">هذا القالب يفتقد &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;، وتم إنشاء معلماته &lt;a href=\"%2$s\"&gt;autogenerated&lt;/a&gt;. ونتيجة لذلك، يفتقر القالب ومعلماته إلى الأوصاف.</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
-  <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
-  <string name="main_tooltip_text_v2">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="main_tooltip_action_button">ابدأ</string>
   <string name="main_tooltip_watchlist_title">قائمة المراقبة</string>
   <string name="main_tooltip_watchlist_text">طالع المقالات والصفحات التي أضفتها سابقًا إلى قائمة مراقبتك في قائمة \"المزيد\" ضمن &lt;b&gt;قائمة المراقبة&lt;/b&gt;.</string>
@@ -1528,7 +1642,7 @@
   <string name="talk_search_find_in_talk_topics_hint">تجد في موضوع صفحة الحديث</string>
   <string name="talk_overflow_sort_by">رتب حسب</string>
   <string name="talk_overflow_sort_date_published">تاريخ النشر</string>
-  <string name="talk_overflow_sort_date_updated">تم تحديث التاريخ</string>
+  <string name="talk_overflow_sort_date_updated">حُدثَ التاريخ</string>
   <string name="talk_overflow_sort_topic_name">اسم الموضوع</string>
   <string name="talk_new_topic_exit_dialog_title">هل أنت متأكد أنك تريد الخروج؟</string>
   <string name="talk_new_topic_exit_dialog_message">لن يتم حفظ الموضوع و نص المحتوى.</string>
@@ -1698,9 +1812,9 @@
   <string name="revision_initial_none">لا شيء (هذه هي المراجعة الأولى)</string>
   <string name="user_contrib_activity_title">مساهمات %s</string>
   <string name="archive_empty">لم يتم العثور على صفحات مؤرشفة.</string>
-  <string name="user_contrib_filter_ns">تصفية حسب مساحة الاسم</string>
+  <string name="user_contrib_filter_ns">تصفية حسب النطاق</string>
   <string name="user_contrib_filter_all">جميع النطاقات</string>
-  <string name="user_contrib_filter_ns_header">مرشح مساحة الاسم</string>
+  <string name="user_contrib_filter_ns_header">مرشح النطاق</string>
   <string name="namespace_article">المقالات</string>
   <string name="user_contrib_current">حالي</string>
   <string name="media_playback_error">خطأ في تشغيل الوسائط.</string>
@@ -1874,7 +1988,7 @@
   <string name="email_report_patroller_tasks_subject">تقرير المشكلة - تعديل ميزة الدورية</string>
   <string name="email_report_patroller_tasks_body">لقد واجهت مشكلة مع ميزة تحرير الدورية:\n- [وصف المشكلة المحددة]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]\n\n[لقطات الشاشة أو الروابط]</string>
   <string name="donation_campaign_maybe_later_snackbar">سنذكركم مرة أخرى غدا.</string>
-  <string name="donation_campaign_donated_snackbar">شكرًا لك أيها المتبرع العزيز! كرمك يساعد في استمرار ازدهار ويكيبيديا والمواقع الشقيقة لها.</string>
+  <string name="donation_campaign_donated_snackbar">شكراً لك أيها المتبرع العزيز! كرمك يُسهم في ازدهار ويكيبيديا وغيرها من مشاريع المعرفة المجانية.</string>
   <string name="donation_campaign_go_back_button">رجوع</string>
   <string name="menu_single_webview_open_external">افتح في متصفح النظام</string>
   <string name="donate_gpay_dialog_title">التبرع باستخدام Google Pay؟</string>
@@ -1882,6 +1996,7 @@
   <string name="donate_gpay_dialog_pay_button">التبرع باستخدام Google Pay</string>
   <string name="donate_gpay_dialog_other_button">طريقة الدفع الأخرى</string>
   <string name="donate_gpay_activity_title">حدد المبلغ</string>
+  <string name="donate_gpay_activity_title_with_currency">حدد المبلغ ( %s )</string>
   <string name="donate_gpay_check_transaction_fee">سأضيف بسخاء %s لتغطية رسوم المعاملة حتى تتمكن من الاحتفاظ بـ 100٪ من تبرعي.</string>
   <string name="donate_gpay_check_recurring">اجعل هذا تبرعًا متكررًا شهريًا.</string>
   <string name="donate_gpay_check_send_email">نعم، يمكن لمؤسسة ويكيميديا أن ترسل لي بريدًا إلكترونيًا من حين لآخر.</string>
@@ -1892,7 +2007,8 @@
   <string name="donate_gpay_help_other_ways">طرق أخرى للعطاء</string>
   <string name="donate_gpay_help_faq">الأسئلة الأكثر تكرارا</string>
   <string name="donate_gpay_help_tax">معلومات حول إمكانية خصم الضرائب</string>
-  <string name="donation_history_deleted_message_snackbar">تم حذف تاريخ المتبرع</string>
+  <string name="donation_history_deleted_message_snackbar">تم مسح سجل التبرعات.</string>
+  <string name="donation_history_no_history_message_snackbar">ليس لديك سجل تبرعات لمسحه.</string>
   <string name="places_title">أماكن</string>
   <string name="places_permissions_denied">يلزم الحصول على إذن تحديد الموقع الجغرافي لرؤية موقعك على الخريطة. يُرجى المحاولة مرة أخرى.</string>
   <string name="places_search_hint">ابحث عن أماكن</string>
@@ -1994,26 +2110,24 @@
   <string name="on_this_day_game_continue_playing_btn_text">استمر باللعب</string>
   <string name="on_this_day_game_sound_on">تشغيل الصوت</string>
   <string name="on_this_day_game_sound_off">إيقاف الصوت</string>
-  <string name="year_in_review_learn_more">معرفة المزيد</string>
-  <string name="year_in_review_get_started">ابدأ</string>
+  <string name="year_in_review_learn_more">يتعلم أكثر</string>
+  <string name="year_in_review_get_started">البدء</string>
   <string name="year_in_review_topbar_w_icon">أيقونة ويكيبيديا W</string>
   <string name="year_in_review_navigate_left">التنقل إلى اليسار</string>
+  <string name="year_in_review_close">أغلق</string>
   <string name="year_in_review_share_icon">أيقونة المشاركة</string>
   <string name="year_in_review_heart_icon">أيقونة القلب</string>
   <string name="year_in_review_navigate_right">التنقل إلى اليمين</string>
   <string name="year_in_review_donate">تبرع</string>
   <string name="year_in_review_information_icon">أيقونة المعلومات</string>
   <string name="year_in_review_get_started_headline">استكشف مراجعة العام على ويكيبيديا</string>
-  <string name="year_in_review_get_started_bodytext">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها. سجل قراءتك محمي. تُحسب رؤى القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
-  <string name="year_in_review_entry_dialog_title">استكشف ويكيبيديا الخاصة بك في المراجعة</string>
-  <string name="year_in_review_entry_dialog_bodytext">اطلع على رؤى حول المقالات التي قرأناها وحررناها، وشارك أبرز أحداث عامنا على ويكيبيديا.</string>
-  <string name="year_in_review_entry_dialog_continue">استمرار</string>
-  <string name="year_in_review_non_english_collective_readcount_headline">كانت ويكيبيديا متاحة بأكثر من 300 لغة</string>
-  <string name="year_in_review_non_english_collective_readcount_bodytext">احتوت ويكيبيديا على أكثر من 63 مليون مقالة بأكثر من 300 لغة نشطة هذا العام. انضممتَ إلى ملايين في توسيع المعرفة واستكشاف مواضيع متنوعة.</string>
-  <string name="year_in_review_non_english_collective_editcount_headline">قام المحررون على تطبيق iOS بإجراء تعديلات تزيد قيمتها عن $1</string>
-  <string name="year_in_review_non_english_collective_editcount_bodytext">أجرى مجتمع محرري ويكيبيديا المتطوعين أكثر من 452,257 تعديلاً على تطبيق iOS حتى الآن هذا العام. جوهر ويكيبيديا هو مجتمعنا العالمي من المساهمين المتطوعين والمتبرعين ومليارات القراء مثلك - جميعهم متحدون لمشاركة وصول غير محدود إلى معلومات موثوقة.</string>
+  <string name="year_in_review_get_started_bodytext">اطلع على رؤى حول المقالات التي تقرأها على تطبيق ويكيبيديا والتعديلات التي أجريتها.</string>
+  <string name="year_in_review_get_started_info">سجل قراءتك محمي. تُحسب إحصاءات القراءة باستخدام البيانات المخزنة محليًا على جهازك.</string>
+  <string name="year_in_review_get_started_later">يمكنك الوصول إلى \"مراجعة العام\" لاحقًا في قائمة \"المزيد\".</string>
   <string name="year_in_review_survey_title">ساعد في تحسين مراجعة العام</string>
   <string name="year_in_review_survey_subtitle">هل أنت راض عن هذه الميزة؟</string>
+  <string name="year_in_review_reading_list_survey_title">ساعد في تحسين قائمة قراءة مراجعة العام لسنة %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">هل أنت راضٍ عن قائمة القراءة الخاصة بك؟</string>
   <string name="year_in_review_survey_very_satisfied">راضٍ جدًا</string>
   <string name="year_in_review_survey_satisfied">راضي</string>
   <string name="year_in_review_survey_neutral">محايد</string>
@@ -2022,11 +2136,173 @@
   <string name="year_in_review_survey_placeholder_text">أي أفكار إضافية؟</string>
   <string name="year_in_review_survey_cancel">إلغاء</string>
   <string name="year_in_review_survey_submit">إرسال</string>
+  <string name="year_in_review_disable_title">هل أنت متأكد أنك تريد إيقاف تشغيل \"مراجعة العام\"؟</string>
+  <string name="year_in_review_disable_positive_button">نعم انا متأكد</string>
+  <string name="year_in_review_disable_negative_button">ًلا شكرا</string>
+  <string name="year_in_review_setting_subtitle">سيؤدي إيقاف تشغيل \"مراجعة العام\" إلى مسح جميع الرؤى الشخصية المخزنة وإخفاء \"مراجعة العام\".</string>
   <string name="year_in_review_screendeck_image_content_description">مصدر الصورة لشاشة العرض الرئيسية لمراجعة العام</string>
-  <string name="year_in_review_entry_dialog_screen_image_content_description">مصدر الصورة لشاشة حوار إدخال مراجعة العام</string>
   <string name="year_in_review_screenshot_error">لم يتمكن من إنشاء لقطة شاشة: %s</string>
-  <string name="year_in_review_share_subject">مراجعة العام - الصورة والرابط</string>
+  <string name="year_in_review_share_subject">مراجعة عامي على ويكيبيديا</string>
+  <string name="year_in_review_share_body">إليكم مراجعة ويكيبيديا لهذا العام. تم الإنشاء باستخدام تطبيق ويكيبيديا لأجهزة أندرويد %1$s %2$s</string>
   <string name="year_in_review_globe_icon">أيقونة الكرة الأرضية</string>
+  <string name="settings_app_icon_title">أيقونة التطبيق</string>
+  <string name="settings_app_icon_subtitle">فائدة المساهم</string>
+  <string name="settings_app_icon_preference_subtitle">لديك إمكانية الوصول إلى أيقونة مخصصة للاحتفال بمساهماتك %d داخل التطبيق في ويكيبيديا. ستبقى هذه الأيقونة حتى مراجعة العام المقبل.</string>
+  <string name="settings_app_icon_updated">لقد تم تحديث أيقونة التطبيق الخاص بك.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">فتحت أيقونة التطبيق الجديدة على الشاشة الرئيسية</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">احصل على مكافأة المساهم الخاصة بك للعام القادم!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">فعّل أيقونة تطبيقك الجديدة في الإعدادات ضمن أيقونة التطبيق. شكرًا لاستثمارك في مستقبل المعرفة المجانية. مساهماتك، كـ %1$s من %2$d ، تُمهّد الطريق لعالم من المعلومات المجانية، ونتيجةً لذلك، حصلت على أيقونة مُخصّصة للمساهمين في ويكيبيديا على شاشتك الرئيسية.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">نحن سعداء أن ويكيبيديا كانت جزءا من %1$d الخاص بك! قم بتحويل مكافأة خاصة في عامك في %2$d في المراجعة من خلال أن تصبح مساهمة - سواء من خلال &lt;a href=\"%3$s\"&gt;تحرير ويكيبيديا&lt;/a&gt; أو عن طريق التبرع من التطبيق إلى &lt;a href=\"%4$s\"&gt;مؤسسة ويكيميديا&lt;/a&gt; ، وهي منظمة غير ربحية وراءها. إذا كانت ويكيبيديا مفيدة لك، يرجى النظر في التبرع للمساعدة في الحفاظ على مستقبلها والحفاظ على مجاناً، خالياً من الإعلانات، وموثوق بها، ويمكن الوصول إليها للجميع. إذا كنت قدمتِ التبرع في مكان آخر، فإن دعمك يقدّر بشدة.</string>
+  <string name="year_in_review_slide_app_icon_donor">متبرع</string>
+  <string name="year_in_review_slide_app_icon_editor">محرر</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">متبرع ومحرر</string>
+  <string name="year_in_review_slide_geo_headline">المقالات التي تقرأها هي الأقرب إلى: %s</string>
+  <string name="year_in_review_slide_geo_body">نظن أن الدولة الأقرب للمقالات العديدة التي قرأتها هي: %1$s، استنادا إلى مقالات مثل &lt;b&gt;%2$s&lt;/b&gt; و&lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">تسجيل الدخول للتخصيص؟</string>
+  <string name="year_in_review_login_dialog_body">يتيح لك تسجيل الدخول الوصول إلى رؤى مخصصة. ولا يزال بإمكانك الاطلاع على الرؤى الجماعية دون الحاجة إلى تسجيل الدخول.</string>
+  <string name="year_in_review_login_dialog_positive">تسجيل الدخول / الانضمام إلى ويكيبيديا</string>
+  <string name="year_in_review_login_dialog_negative">متابعة بدون تسجيل الدخول</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="zero">لا مقالة أعلى ترتيبا</item>
+    <item quantity="one">مقالتك الأعلى ترتيبا</item>
+    <item quantity="two">مقالتيك الأعلى ترتيبا</item>
+    <item quantity="few">مقالاتك الأعلى ترتيبا</item>
+    <item quantity="many">مقالة الأعلى ترتيبا</item>
+    <item quantity="other">مقالاتك الأعلى ترتيبا</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="zero">لا مقالة زرتها أكثر من غيرها في %1$d: %2$s</item>
+    <item quantity="one">مقالة زرتها أكثر من غيرها في %1$d: %2$s </item>
+    <item quantity="two">مقالتين زرتهن أكثر من غيرهن في %1$d: %2$s </item>
+    <item quantity="few">مقالات زرتها أكثر من غيرها في %1$d: %2$s </item>
+    <item quantity="many">مقالة زرتها أكثر من غيرها في %1$d: %2$s </item>
+    <item quantity="other">مقالة زرتها أكثر من غيرها في %1$d: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">فئاتك الأكثر إثارة للاهتمام</string>
+  <string name="year_in_review_slide_top_categories_body">الفئات مجموعة المقالات حول الموضوعات المماثلة معا. في %1$d، قمت بزيارة المقالات في هذه الفئات المثيرة للاهتمام مرات عديدة: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">المقالات الأكثر شعبية في ويكيبيديا الإنجليزية</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="zero">جرى الاطلاع على تعديلك أكثر من %,d مرة مؤخرا</item>
+    <item quantity="one">جرى الاطلاع على تعديلك أكثر من %,d مرة مؤخرا</item>
+    <item quantity="two">جرى الاطلاع على تعديليك أكثر من %,d مرة مؤخرا</item>
+    <item quantity="few">جرى الاطلاع على تعديلاتك أكثر من %,d مرة مؤخرا</item>
+    <item quantity="many">جرى الاطلاع على تعديلاتك أكثر من %,d مرة مؤخرا</item>
+    <item quantity="other"> جرى الاطلاع على تعديلاتك أكثر من %,d مرة مؤخرا</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="zero">جرى تعديل ويكيبيديا %,d مرة في الدقيقة</item>
+    <item quantity="one">جرى تعديل ويكيبيديا مرة واحدة في الدقيقة </item>
+    <item quantity="two">جرى تعديل ويكيبيديا مرتين في الدقيقة </item>
+    <item quantity="few">جرى تعديل ويكيبيديا %,d مرات في الدقيقة </item>
+    <item quantity="many">جرى تعديل ويكيبيديا %,d مرة في الدقيقة</item>
+    <item quantity="other">جرى تعديل ويكيبيديا %,d مرة في الدقيقة</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">يتم إنشاء المقالات بالتعاون وتحسينها باستخدام مصادر موثوقة. كلنا لدينا معرفة نتشاركها، نتعلم كيف نتشارك.&lt;a href=\"%s\"&gt;تعلم كيفية المشاركة.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="zero">لم تضف أية بايتات</item>
+    <item quantity="one">أضيف بايت واحد</item>
+    <item quantity="two">أضيف بايتين اثنين</item>
+    <item quantity="few">أضيف %,d بايتات</item>
+    <item quantity="many">أضيف %,d بايت</item>
+    <item quantity="other"> أضيف %,d بايت</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="zero">لم تعدّل ولا مرة</item>
+    <item quantity="one">عدّلت مرة واحدة</item>
+    <item quantity="two">عدّلت مرتين</item>
+    <item quantity="few">عدّلت %s مرات</item>
+    <item quantity="many">عدّلت %s مرة</item>
+    <item quantity="other"> عدّلت %s مرة</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="zero">لم يجرِ المحررون على تطبيقات ويكيبيديا الرسمية ولا تعديل</item>
+    <item quantity="one">أجرى المحررون على تطبيقات ويكيبيديا الرسمية تعديل واحد</item>
+    <item quantity="two">أجرى المحررون على تطبيقات ويكيبيديا الرسمية تعديلين اثنين</item>
+    <item quantity="few">أجرى المحررون على تطبيقات ويكيبيديا الرسمية %,d تعديلات</item>
+    <item quantity="many">أجرى المحررون على تطبيقات ويكيبيديا الرسمية %,d تعديل</item>
+    <item quantity="other">أجرى المحررون على تطبيقات ويكيبيديا الرسمية %,d تعديل</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">إن قلب وروح ويكيبيديا هو مجتمعنا العالمي من المساهمين المتطوعين والمانحين ومليارات القراء مثلك - كلهم متحدون لمشاركة الوصول غير المحدود إلى المعلومات الموثوقة.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="zero">لم يجرِ المحررون أية تغييرات السنة الجارية</item>
+    <item quantity="one">أجرى المحررون تغييرا واحدا السنة الجارية</item>
+    <item quantity="two">أجرى المحررون تغييرين اثنين السنة الجارية</item>
+    <item quantity="few">أجرى المحررون %,d تغييرات السنة الجارية</item>
+    <item quantity="many">أجرى المحررون %,d تغيير السنة الجارية</item>
+    <item quantity="other">أجرى المحررون %,d تغيير السنة الجارية</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="zero">لم تحفظ أية مقالات</item>
+    <item quantity="one">حفظت مقالة واحدة</item>
+    <item quantity="two">حفظت مقالتين اثنتين</item>
+    <item quantity="few">حفظت %,d مقالات</item>
+    <item quantity="many">حفظت %,d مقالة</item>
+    <item quantity="other">حفظت %,d مقالة</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="zero">لم يحفظ مستخدمي التطبيق أية مقالات</item>
+    <item quantity="one">حفظ مستخدمو التطبيق مقالة واحدة</item>
+    <item quantity="two">حفظ مستخدمو التطبيق مقالتين اثنتين</item>
+    <item quantity="few">حفظ مستخدمو التطبيق %,d مقالات</item>
+    <item quantity="many">حفظ مستخدمو التطبيق %,d مقالة</item>
+    <item quantity="other">حفظ مستخدمو التطبيق %,d مقالة</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">تتيح لك إضافة المقالات إلى قوائم القراءة الوصول إليها حتى في وضع عدم الاتصال. كما يمكنك تسجيل الدخول لمزامنة قوائم القراءة عبر الأجهزة.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">لديك أنماط قراءة واضحة</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">الوقت المفضل للقراءة</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">اليوم المفضل للقراءة</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">الشهر الذي قرأت فيه أكثر</string>
+  <string name="year_in_review_slide_reading_pattern_morning">صباح</string>
+  <string name="year_in_review_slide_reading_pattern_midday">منتصف النهار</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">بعد الظهر</string>
+  <string name="year_in_review_slide_reading_pattern_evening">مساء</string>
+  <string name="year_in_review_slide_reading_pattern_night">ليلة</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">في وقت متأخر من الليل</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="zero">لم نمضِ أي ساعة في القراءة</item>
+    <item quantity="one">أمضينا ساعة واحدة في القراءة</item>
+    <item quantity="two">أمضينا ساعتين اثنتين في القراءة</item>
+    <item quantity="few">أمضينا %,d ساعات في القراءة</item>
+    <item quantity="many">أمضينا %,d ساعة في القراءة</item>
+    <item quantity="other">أمضينا %,d ساعة في القراءة</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="zero">لم يمضِ الأفراد أي ساعة</item>
+    <item quantity="one">أمضى الأفراد حوالي ساعة واحدة</item>
+    <item quantity="two">أمضى الأفراد حوالي ساعتين اثنتين</item>
+    <item quantity="few">أمضى الأفراد حوالي %,d ساعات</item>
+    <item quantity="many">أمضى الأفراد حوالي %,d ساعة</item>
+    <item quantity="other">أمضى الأفراد حوالي %,d ساعة</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="zero">لم تكن ويكيبيديا متاحة بأي لغة</item>
+    <item quantity="one">ويكيبيديا كانت متاحة بلغة واحدة</item>
+    <item quantity="two">ويكيبيديا كانت متاحة بلغتين اثنتين</item>
+    <item quantity="few">ويكيبيديا كانت متاحة بعدد %,d لغات</item>
+    <item quantity="many">ويكيبيديا كانت متاحة بعدد %,d لغة</item>
+    <item quantity="other">ويكيبيديا كانت متاحة بعدد %,d لغة</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="zero">لم تشتمل ويكيبيديا على أي مقالة</item>
+    <item quantity="one">اشتملت ويكيبيديا على مقالة واحدة</item>
+    <item quantity="two">اشتملت ويكيبيديا على مقالتين اثنتين</item>
+    <item quantity="few">اشتملت ويكيبيديا على عدد %,d مقالات</item>
+    <item quantity="many">اشتملت ويكيبيديا على عدد %,d مقالة</item>
+    <item quantity="other">اشتملت ويكيبيديا على عدد %,d مقالة</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">بالنسبة للأشخاص في جميع أنحاء العالم، تعد ويكيبيديا هي المحطة الأولى للإجابة على سؤال، أو البحث عن معلومات للمدرسة أو العمل، أو تعلم حقيقة جديدة.</string>
+  <string name="year_in_review_reading_list_dialog_title">هل تريد إنشاء قائمة قراءة مراجعة السنة لسنة %d؟</string>
+  <string name="year_in_review_reading_list_dialog_message">سوف تنشئ مراجعة العام على ويكيبيديا قائمة قراءة تشتمل على المقالات التي أمضيت أطول وقت في مطالعتها سنة %1$d. &lt;a href=\"%2$s\"&gt;تعرفوا على المزيد&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">أنشئ</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">لا، شكرًا</string>
+  <string name="year_in_review_reading_list_title">مراجعة السنة لسنة %d</string>
+  <string name="year_in_review_reading_list_description">أنشأت لأجل %1$s. المقالات التي أمضيت أطول وقت في مطالعتها سنة %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">شكرا لك على قضاء عامك مع ويكيبيديا.</string>
+  <string name="year_in_review_highlights_looking_forward_message">نحن نتطلع إلى العام القادم!</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">كم مرة تم تحرير ويكيبيديا</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">اليوم المفضل للقراءة</string>
+  <string name="year_in_review_highlights_share_button_title">مشاركة النقاط البارزة</string>
+  <string name="year_in_review_highlights_logo_description">شعار ويكيبيديا</string>
   <string name="recommended_reading_list_title">يكتشف</string>
   <string name="recommended_reading_list_onboarding_card_title">اكتشف المقالات المختارة خصيصًا لك</string>
   <string name="recommended_reading_list_onboarding_card_message">قائمة القراءة الأسبوعية الخاصة بك لمقالات ويكيبيديا، والتي تم اختيارها خصيصًا لك.</string>
@@ -2117,16 +2393,12 @@
   <string name="recommended_reading_list_notification_subtitle">انقر هنا لرؤية أحدث توصياتك.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">عندما يتم تحديث Discover الخاص بك، سوف ترسل لك Wikipedia إشعارًا.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">اكتشف الآن. ستقترح عليك ويكيبيديا مقالات للقراءة.</string>
-  <string name="donation_reminders_initial_prompt_label">تجربة</string>
-  <string name="donation_reminders_initial_prompt_title">ادعم ويكيبيديا أثناء قراءتك</string>
-  <string name="donation_reminders_initial_prompt_message">قم بإعداد تذكير بالتبرعات استنادًا إلى عدد المقالات التي تقرأها للمساعدة في إبقاء ويكيبيديا خالية من الإعلانات ومحدثة ومتاحة للجميع.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">البدء</string>
-  <string name="donation_reminders_initial_prompt_negative_button">ليس الآن</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">يمكن تعديل تذكيرات التبرع في أي وقت من خلال الإعدادات.</string>
   <string name="donation_settings_section_header">التبرعات</string>
-  <string name="donation_reminders_settings_title">تذكيرات التبرع</string>
-  <string name="donation_reminders_settings_thank_you_message">انضم إلى ٢٪ من القراء الذين يبذلون قصارى جهدهم لإبقاء ويكيبيديا خالية من الإعلانات، ومُحدَّثة، ومتاحة للجميع. فعِّل تذكيرك بالتبرعات الآن.</string>
-  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والمؤسسات التابعة لها، المضيفين الفخورين لموقع ويكيبيديا ومواقعها الشقيقة.</string>
+  <string name="donation_reminders_settings_title">كيف نذكرك؟</string>
+  <string name="donation_reminders_settings_option_title">تذكيرات التبرع</string>
+  <string name="donation_reminders_settings_thank_you_message">كرمكم يُسهم في ازدهار ويكيبيديا. أنشئوا تذكيرًا بالتبرعات بناءً على عدد المقالات التي تقرأونها.</string>
+  <string name="donation_reminders_settings_donation_info">تذهب التبرعات إلى مؤسسة ويكيميديا والشركات التابعة لها، المضيفين الفخورين لويكيبيديا ومشاريع المعرفة المجانية الأخرى.</string>
   <string name="donation_reminders_settings_article_frequency_label">عندما أقرأ</string>
   <string name="donation_reminders_settings_amount_label">ذكّرني بالتبرع</string>
   <string name="donation_reminders_settings_confirm_btn_label">تأكيد التذكير</string>
@@ -2134,16 +2406,35 @@
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">مقالات</string>
   <string name="donation_reminders_settings_warning_min_amount">الرجاء إدخال ما لا يقل عن %s</string>
   <string name="donation_reminders_settings_warning_max_amount">الحد الأقصى المسموح به %s</string>
+  <string name="donation_reminders_settings_option_custom">مُخصَّص…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">شكرًا لك! سنذكرك بالتبرع %1$s عند قراءة %2$s أثناء إجراء هذه التجربة.</string>
-  <string name="donation_reminders_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
-  <string name="donation_reminders_prompt_message">في %1$s ، طلبتَ منا تذكيرك بالتبرع بعد قراءة %2$s . إذا زودتك ويكيبيديا بـ %3$s من المعرفة، فنرجو منك الانضمام إلى الـ 2%% من القراء المتبرعين وإتمام تبرعك اليوم.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">لقد قرأت %1$s منذ أن تعهدت بـ %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">لقد قرأت %1$s آخر</string>
+  <string name="donation_reminders_prompt_message">لقد فعّلتَ تذكيرًا بالتبرعات على %1$s للتبرع %3$s كل %2$s تقرأها. هل أنت مستعدٌّ للوفاء بتعهدك بدعم ويكيبيديا؟</string>
   <string name="donation_reminders_prompt_positive_button">تبرع الآن</string>
   <string name="donation_reminders_prompt_negative_button">ليس الآن</string>
   <string name="donation_reminders_gpay_text">تبرع بـ %s باستخدام Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">التبرع بمبلغ مختلف باستخدام Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">ساعد في تحسين تذكيرات التبرع.</string>
-  <string name="donation_reminders_survey_dialog_message">هل أنت راض عن هذه التجربة؟</string>
   <string name="donation_reminders_settings_description_on">تذكيرات التبرع مُفعّلة. ستُذكّرك ويكيبيديا بالتبرع %1$s كل %2$s تقرأها أثناء هذه التجربة.</string>
   <string name="donation_reminders_settings_description_off">تم إيقاف تذكير التبرعات.</string>
   <string name="donation_reminders_settings_tooltip_info_label">يتم تخزين عدد المقالات محليًا على جهازك</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="zero">لا مقال</item>
+    <item quantity="one">%d مقال</item>
+    <item quantity="two">مقالان</item>
+    <item quantity="few">مقالات قليلة</item>
+    <item quantity="many">مقالات كثيرة</item>
+    <item quantity="other">%d مقالات</item>
+  </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">ًلا شكرا</string>
+  <string name="donation_reminders_experiment_label">تجربة</string>
+  <string name="donation_reminders_settings_learn_more_button">معرفة المزيد</string>
+  <string name="donation_reminders_settings_report_button">مشكلة مع الميزة</string>
+  <string name="donation_reminders_settings_report_email_subject">تقرير المشكلة - تذكيرات التبرع</string>
+  <string name="donation_reminders_settings_report_email_body">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
+  <string name="explore_feed_survey_dialog_title">ساعدنا على تحسين</string>
+  <string name="explore_feed_survey_dialog_message">من فضلكم قموا بإجراء مسح قصير حول إرسال \"إكسبلور\". ردود الفعل الخاصة بك ستساعد على تشكيل التحسينات القادمة للتطبيق.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">إجراء مسح</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">لا شكراً</string>
 </resources>

@@ -259,6 +259,7 @@ object UserAliasData {
             "pt" to "Usuário(a)",
             "pwn" to "avan a kipakamanguanguaq",
             "qu" to "Ruraq",
+            "rki" to "အသုံးပြုလူ",
             "rm" to "Utilisader",
             "rmy" to "Jeno",
             "rn" to "Uwukoresha",
@@ -317,6 +318,7 @@ object UserAliasData {
             "tly" to "Okoədə",
             "tn" to "Modirisi",
             "to" to "User",
+            "tok" to "jan",
             "tpi" to "Yusa",
             "tr" to "Kullanıcı",
             "trv" to "Empduuy",
@@ -357,5 +359,6 @@ object UserAliasData {
             "zh-yue" to "User",
             "zu" to "User",
             "test" to "User",
+            "test2" to "User",
     )
 }

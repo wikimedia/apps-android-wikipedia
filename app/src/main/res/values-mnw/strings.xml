@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">ကလေင် ဂတး</string>
   <string name="error_back">ကလေင် ဂတး</string>
   <string name="error_next">ဆက်အာ</string>
-  <string name="menu_clear_all_history">ဖအး အရာမဗှ်လဝ်တုဲ</string>
+  <string name="menu_clear_all_history" fuzzy="true">ဖအး အရာမဗှ်လဝ်တုဲ</string>
   <string name="history_item_deleted">%s ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_items_deleted">%d လိက်ပရေင်ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_item_delete_undo">ဟွံပ</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">ဝဳကဳမဳဒဳယာ ခမ်မောန်</string>
   <string name="wikidata">တင်ဂၞင်ဝဳကဳ</string>
   <string name="dialog_title_clear_history">ဖအး စရင်လိက် မၞးမဗှ်လဝ်</string>
-  <string name="dialog_message_clear_history">ဣဏအ်ဂှ် ဒှ်အရာ မဖအးဇိုတ်ထောအ် အရာမၞး မဗှ်လဝ်တုဲဂမၠိုင်၊ တုဲပၠန် မုက်လိက် မပံက်လဝ် လၟုဟ်တအ်ဂှ်လေဝ် ကၟာတ်အာ သီုဖအိုတ်ရောင်၊၊ မၞး ချိုတ်ပၠိုတ် ဟာ？</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ဣဏအ်ဂှ် ဒှ်အရာ မဖအးဇိုတ်ထောအ် အရာမၞး မဗှ်လဝ်တုဲဂမၠိုင်၊ တုဲပၠန် မုက်လိက် မပံက်လဝ် လၟုဟ်တအ်ဂှ်လေဝ် ကၟာတ်အာ သီုဖအိုတ်ရောင်၊၊ မၞး ချိုတ်ပၠိုတ် ဟာ？</string>
   <string name="dialog_message_clear_history_yes">ယွံ</string>
   <string name="dialog_message_clear_history_no">ဟအှ်ေ</string>
   <string name="share_via">ပါ်ပရအ် နကဵု</string>
@@ -228,12 +228,8 @@
   <string name="privacy_policy_description">ပဝ်လသဳ မဆေင်ကဵု အခေါင်အရာပူဂဵု</string>
   <string name="terms_of_use_description">Terms of use</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
   <string name="about_contributors_heading">ညးမချူလိက်ဂမၠိုၚ်</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ညးတြာဲဘာသာဂမၠိုင်</string>
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
@@ -979,8 +975,6 @@
   <string name="wikitext_preview_link">လေန် ကိုပ်ဗဗဵု</string>
   <string name="main_drawer_help">ရီု</string>
   <string name="main_drawer_login">လုပ်ဇၟိက်/ ပါလုပ် ဝဳကဳပဳဒဳယာ</string>
-  <string name="main_tooltip_text">ဟာဲ %s, ဝဳကဳပဳဒဳယာဂှ် ဇၟာပ်မၞိဟ် အခေါင်လုပ်ပလေဝ်ဒါန် နွံဒၟံင်ဂှ် မၞးတီဒၟံင်ရဟာ?</string>
-  <string name="main_tooltip_text_v2">မၞးတီဟာ ဒဒှ်ရ ဇၟာပ်မၞိဟ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာဂွံဒၟံင်ဂှ်။</string>
   <string name="main_tooltip_action_button">စဂွံရ၊၊</string>
   <string name="main_tooltip_watchlist_title">စရင်မမင်မဲ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ခိုဟ်</string>
@@ -1004,6 +998,7 @@
   <string name="thank_dialog_positive_button_text">ပလံင် ဂလာန်တင်ဂုန်</string>
   <string name="thank_dialog_negative_button_text">တးပဲါ</string>
   <string name="thank_success_message">ဂလာန်တင်ဂုန်မၞးဂှ် ပလံင်ဏာ ဇရေင် %s 👍</string>
+  <string name="revision_compare_button">ပတဝ်ပတုပ်ရံၚ်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြံင်လှာဲ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ထာဝရ</string>
 </resources>

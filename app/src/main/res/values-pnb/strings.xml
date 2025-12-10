@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">پچھے جاؤ</string>
   <string name="error_back">پچھے جاؤ</string>
   <string name="error_next">اگلا</string>
-  <string name="menu_clear_all_history">آتی سافٹ کرو</string>
+  <string name="menu_clear_all_history" fuzzy="true">آتی سافٹ کرو</string>
   <string name="history_item_deleted">%s نون اِتیہاس وچوں ہٹائا گیا</string>
   <string name="history_items_deleted">%d لیکھاں نون اِتیہاس وچوں ہٹائا گیا</string>
   <string name="history_item_delete_undo">واپس</string>
@@ -39,7 +39,7 @@
   <string name="wikimedia_commons">وِکیمیڈیا کامنز</string>
   <string name="wikidata">وِکیڈیٹا</string>
   <string name="dialog_title_clear_history">اتیت سافٹ کرو</string>
-  <string name="dialog_message_clear_history">ایہ تہاڈا سارا براؤزنگ اِتیہاس سافٹ کرو دیویگا آتے اِس ویلی کھلے ہوۓ کوئی وی ٹیب بند کر دیویگا۔ کی تہانوں یکین اے؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ایہ تہاڈا سارا براؤزنگ اِتیہاس سافٹ کرو دیویگا آتے اِس ویلی کھلے ہوۓ کوئی وی ٹیب بند کر دیویگا۔ کی تہانوں یکین اے؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
   <string name="dialog_message_clear_history_no">نہیں</string>
   <string name="share_via">اِس راہیں سانجھا کرو</string>

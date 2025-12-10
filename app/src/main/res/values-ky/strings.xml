@@ -20,7 +20,7 @@
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="page_error_back_to_main">Артка кайтуу</string>
   <string name="error_next">Кийинки</string>
-  <string name="menu_clear_all_history">Тарыхты тазалоо</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарыхты тазалоо</string>
   <string name="history_item_delete_undo">Жокко чыгаруу</string>
   <string name="notification_archive_undo">Жокко чыгаруу</string>
   <string name="history_list_title">Тарых</string>
@@ -191,6 +191,7 @@
   <string name="description_edit_read">Окуу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
   <string name="description_edit_success_done">Даяр</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_image_caption_summary_title_source">Булак</string>
   <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>

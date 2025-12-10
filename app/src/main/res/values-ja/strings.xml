@@ -20,6 +20,7 @@
 * Kokage si
 * Kokoko-H
 * LaMagiaaa
+* Largestone
 * Los688
 * M1660661
 * MagicAho
@@ -82,6 +83,7 @@
   <string name="search_icon_content_description">検索</string>
   <string name="filter_hint_filter_my_lists_and_articles">マイリストをフィルター</string>
   <string name="nav_item_suggested_edits">編集</string>
+  <string name="nav_item_activity">活動</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="nav_item_search">検索</string>
   <string name="nav_item_contribute">投稿</string>
@@ -94,7 +96,7 @@
   <string name="page_error_back_to_main">戻る</string>
   <string name="error_back">戻る</string>
   <string name="error_next">次へ</string>
-  <string name="menu_clear_all_history">履歴を消去</string>
+  <string name="menu_clear_all_history">閲覧履歴を消去</string>
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
@@ -107,7 +109,7 @@
   <string name="wikimedia_commons">ウィキメディア・コモンズ</string>
   <string name="wikidata">ウィキデータ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
-  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか?</string>
+  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去します。本当によろしいですか?</string>
   <string name="dialog_message_clear_history_yes">はい</string>
   <string name="dialog_message_clear_history_no">いいえ</string>
   <string name="share_via">共有する</string>
@@ -318,6 +320,7 @@
   <string name="about_app_license">ソースコードは&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下に&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能です。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;クリエイティブ・コモンズ 表示-継承ライセンス&lt;/a&gt;の下で、利用可能です。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
+  <string name="about_logo_content_description">ウィキペディアパズル地球儀ロゴ</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="edit_abandon_confirm_yes">はい</string>
   <string name="edit_abandon_confirm_no">いいえ</string>
@@ -450,6 +453,7 @@
   <string name="preference_title_collapse_tables">表を閉じる</string>
   <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
   <string name="nav_item_donate">寄付</string>
+  <string name="nav_item_year_in_review">一年の振り返り</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="location_service_disabled">位置情報サービスが無効です。</string>
   <string name="enable_location_service">有効にする</string>
@@ -466,6 +470,7 @@
   <string name="link_preview_dialog_save_button">保存</string>
   <string name="link_preview_dialog_saved_button">保存済み</string>
   <string name="link_preview_dialog_share_button">共有</string>
+  <string name="link_preview_stub_placeholder_text">この記事はスタブです。つまり、プレビューを生成するのに十分なコンテンツがありません。しかし、あなたがそれを変えられます。</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
   <string name="error_user_page_does_not_exist">ウィキペディアには正確にこの名前に一致する&lt;a href=\"%1$s\"&gt;利用者ページ&lt;/a&gt;がありません。一般的には、このページは&lt;b&gt;%2$s&lt;/b&gt;によって作成され編集されるべきです。疑問があるならば、「%3$s」が存在することを確かめてください。</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
@@ -475,7 +480,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">ローカル寄付履歴を削除</string>
+  <string name="preference_title_delete_local_donation_history">寄付履歴を消去</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">システムのテーマに合わせる</string>
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
@@ -496,6 +501,12 @@
   <string name="temp_account_dialog_ok">わかりました</string>
   <string name="temp_account_using_title">あなたは仮アカウントを使用しています</string>
   <string name="temp_account_dialog_discard">変更を破棄してログインする</string>
+  <plurals name="temp_account_created">
+    <item quantity="other">仮アカウント %1$s があなたの編集公開後に作成されました。 %2$d日で期限切れになります。</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="other">アカウントは%d日で期限切れになります。</item>
+  </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのIPアドレスと編集が紐付けられます。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;ログインしていません。&lt;/b&gt;編集を行うと、あなたのプライバシーを保護するために仮アカウントが作成されます。&lt;a href=\"%1$s\"&gt;詳細&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;仮アカウントを使用しています。&lt;/b&gt;あなたの編集は%1$sに帰属します。&lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;。</string>
@@ -836,7 +847,7 @@
   <string name="view_top_read_card_title">よく読まれている記事</string>
   <string name="view_top_read_card_action">よく読まれている記事をもっと見る</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
-  <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d百万</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
@@ -953,6 +964,7 @@
   <string name="customize_toolbar_reset_to_default_button">初期状態にリセットする</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">ドラッグアイコンを長押しして項目を移動します</string>
   <string name="customize_toolbar_item_default_tooltip">項目を押してドラッグすることで再配置します</string>
+  <string name="suggested_edits_activity_title">編集</string>
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
@@ -1064,6 +1076,9 @@
     <item quantity="one">投稿</item>
     <item quantity="other">投稿</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="other">編集</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d日</item>
     <item quantity="other">%d日</item>
@@ -1161,6 +1176,63 @@
   <string name="edit_summary_added_caption">キャプションを追加しました</string>
   <string name="edit_summary_added_image_and_caption">画像とキャプションを追加しました</string>
   <string name="edit_published_view">閲覧</string>
+  <string name="activity_tab_user_reading">%sの閲覧</string>
+  <string name="activity_tab_on_wikipedia_android">Android版ウィキペディアで</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d時間%2$d分</string>
+  <string name="activity_tab_weekly_time_spent">今週の閲覧に費やした時間</string>
+  <string name="activity_tab_monthly_articles_read">今月読んだ記事</string>
+  <string name="activity_tab_monthly_articles_saved">今月保存した記事</string>
+  <string name="activity_tab_monthly_top_categories">今週の閲覧の上位カテゴリ</string>
+  <string name="activity_tab_explore_wikipedia">ウィキペディアで発見</string>
+  <string name="activity_tab_discover_encourage">新しく読む物をお探しですか?</string>
+  <string name="activity_tab_donation_unknown">不明</string>
+  <string name="activity_tab_donation_last_donation">アプリでの&lt;b&gt;最近の寄付&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">全プロジェクトの総編集数</string>
+  <string name="activity_tab_menu_feedback">機能の問題</string>
+  <string name="activity_tab_menu_info">詳細</string>
+  <string name="activity_tab_menu_customize">カスタマイズ</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">閲覧履歴</string>
+  <string name="activity_tab_impact">あなたの影響力</string>
+  <string name="activity_tab_impact_most_viewed">あなたの編集以降に最も閲覧されたもの</string>
+  <string name="activity_tab_impact_contributions_this_month">今月の投稿</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="other">今月の編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="other">先月の編集</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">全期間の影響</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">総編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">感謝</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d日</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">最高連続</string>
+  <string name="activity_tab_impact_last_edited">最終編集</string>
+  <string name="activity_tab_impact_suggested_edits_title">最近の記事への編集は0件です</string>
+  <string name="activity_tab_impact_suggested_edits_message">今月は編集をしていないようです。興味のあるトピックを編集して、フリーな知識を広げましょう。</string>
+  <string name="activity_tab_impact_suggested_edits_button">編集する</string>
+  <string name="activity_tab_impact_recent_activity">あなたの最近の活動 (過去30日)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="other">編集</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="other">あなたが編集した記事の閲覧数</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">閲覧に費やした時間</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">閲覧についての洞察</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">編集についての洞察</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">全期間の影響</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">行動のタイムライン</string>
+  <string name="activity_tab_timeline_today">今日</string>
+  <string name="activity_tab_timeline_yesterday">昨日</string>
+  <string name="activity_tab_timeline_empty_state_title">表示するものはありません</string>
+  <string name="activity_tab_timeline_view_changes_button">変更を表示</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">閲覧パターン</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -1293,8 +1365,6 @@
   <string name="templates_description_missing_data">このテンプレートは &lt;a href=\"%1$s\"&gt;テンプレートデータ&lt;/a&gt; が欠落しており、パラメータが &lt;a href=\"%2$s\"&gt;自動生成&lt;/a&gt; されています。結果として、テンプレートおよびそのパラメータの説明が欠けています。</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
-  <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
-  <string name="main_tooltip_text_v2">ウィキペディアは誰もが編集できることをご存知ですか?</string>
   <string name="main_tooltip_action_button">始める</string>
   <string name="main_tooltip_watchlist_title">ウォッチリスト</string>
   <string name="main_tooltip_watchlist_text">以前ウォッチリストに追加した記事やページは、「もっと見る」メニューの&lt;b&gt;ウォッチリスト&lt;/b&gt;から探してみましょう。</string>
@@ -1647,7 +1717,7 @@
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
   <string name="donation_campaign_maybe_later_snackbar">明日、再度お知らせいたします。</string>
-  <string name="donation_campaign_donated_snackbar">ご支援いただきましてありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその姉妹サイトの繁栄を支えています。</string>
+  <string name="donation_campaign_donated_snackbar">ご支援いただきましてありがとうございます！あなたの寛大なご寄付が、ウィキペディアとその他のフリーナレッジプロジェクトの繁栄を支えています。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">規定のブラウザで開く</string>
   <string name="donate_gpay_dialog_title">Google Payで寄付しますか?</string>
@@ -1662,6 +1732,8 @@
   <string name="donate_gpay_help_other_ways">その他の寄付方法</string>
   <string name="donate_gpay_help_faq">よくある質問</string>
   <string name="donate_gpay_help_tax">税金の控除について</string>
+  <string name="donation_history_deleted_message_snackbar">寄付履歴が消去されました。</string>
+  <string name="donation_history_no_history_message_snackbar">消去する寄付履歴がありません。</string>
   <string name="places_title">場所</string>
   <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
   <string name="places_search_hint">場所を検索</string>
@@ -1703,9 +1775,23 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">はい、オンにします</string>
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">オフのまま</string>
   <string name="on_this_day_game_notification_undo">取り消す</string>
+  <string name="on_this_day_game_sound_on">サウンドをオンにする</string>
+  <string name="on_this_day_game_sound_off">サウンドをオフにする</string>
+  <string name="year_in_review_learn_more">詳細</string>
+  <string name="year_in_review_get_started">始める</string>
+  <string name="year_in_review_topbar_w_icon">ウィキペディア W アイコン</string>
+  <string name="year_in_review_navigate_left">左へ移動</string>
+  <string name="year_in_review_close">閉じる</string>
+  <string name="year_in_review_share_icon">共有アイコン</string>
+  <string name="year_in_review_heart_icon">ハートアイコン</string>
+  <string name="year_in_review_navigate_right">右へ移動</string>
   <string name="year_in_review_donate">寄付</string>
   <string name="year_in_review_information_icon">情報アイコン</string>
+  <string name="year_in_review_get_started_headline">ウィキペディアでの一年を振り返って見てみましょう</string>
+  <string name="year_in_review_survey_title">一年の振り返りの改善に協力</string>
   <string name="year_in_review_survey_subtitle">この機能に満足しましたか?</string>
+  <string name="year_in_review_reading_list_survey_title">%d年の振り返りあとで読むリストの改善に協力します。</string>
+  <string name="year_in_review_reading_list_survey_subtitle">あとで読むリストに満足していますか?</string>
   <string name="year_in_review_survey_very_satisfied">非常に満足</string>
   <string name="year_in_review_survey_satisfied">満足</string>
   <string name="year_in_review_survey_neutral">どちらともいえない</string>
@@ -1714,11 +1800,125 @@
   <string name="year_in_review_survey_placeholder_text">他に何かご意見はありますか?</string>
   <string name="year_in_review_survey_cancel">キャンセル</string>
   <string name="year_in_review_survey_submit">送信</string>
+  <string name="year_in_review_disable_title">本当に一年の振り返りをオフにしますか？</string>
+  <string name="year_in_review_disable_positive_button">はい、そうします</string>
+  <string name="year_in_review_disable_negative_button">いいえ、結構です</string>
+  <string name="year_in_review_setting_subtitle">一年の振り返りをオフにすると、保存済みのパーソナライズされた洞察がすべて消去され、一年の振り返りが非表示になります。</string>
+  <string name="year_in_review_screenshot_error">スクリーンショットを生成できません: %s</string>
+  <string name="year_in_review_share_subject">私のウィキペディア一年の振り返り</string>
+  <string name="year_in_review_share_body">私のウィキペディア一年の振り返りはこちら。ウィキペディアAndroidアプリで作成 %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">地球儀アイコン</string>
+  <string name="settings_app_icon_title">アプリアイコン</string>
+  <string name="year_in_review_slide_app_icon_donor">寄付者</string>
+  <string name="year_in_review_slide_app_icon_editor">編集者</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">寄付者かつ編集者</string>
+  <string name="year_in_review_login_dialog_positive">ログイン / ウィキペディアに参加する</string>
+  <string name="year_in_review_login_dialog_negative">ログインしないで続ける</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,dバイト追加</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_patterns_headline">あなたには明確な閲覧パターンがあります</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">お気に入りの閲覧時間</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">お気に入りの閲覧日</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">最も閲覧した月</string>
+  <string name="year_in_review_slide_reading_pattern_morning">朝</string>
+  <string name="year_in_review_slide_reading_pattern_midday">正午</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">午後</string>
+  <string name="year_in_review_slide_reading_pattern_evening">夕方</string>
+  <string name="year_in_review_slide_reading_pattern_night">夜</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="other">私たちは閲覧に%,d時間費やしました</item>
+  </plurals>
+  <string name="year_in_review_reading_list_dialog_title">%d年を振り返るあとで読むリストを作成しますか?</string>
+  <string name="year_in_review_reading_list_dialog_message">ウィキペディア一年の振り返りは%1$d年にあなたが最も時間を費やした記事のあとで読むリストを作成します。 &lt;a href=\"%2$s\"&gt;詳細&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">作成</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">いいえ、結構です</string>
+  <string name="year_in_review_reading_list_title">%d年の振り返り</string>
+  <string name="year_in_review_reading_list_description">%1$sさんのために作成。%2$d年に最も時間を費やした記事。</string>
+  <string name="year_in_review_highlights_thank_you_message">ウィキペディアで一年を過ごしていただきありがとうございます。</string>
+  <string name="year_in_review_highlights_looking_forward_message">来年も楽しみにしています！</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="other">英語版ウィキペディアで最も読まれている記事</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="other">閲覧に費やした時間</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="other">編集者が行った変更</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="other">閲覧された記事の数</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="other">アプリでの編集</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">ウィキペディアが編集された頻度</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="other">毎分%d回</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="other">私が最も読んだ記事</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="other">分閲覧</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">お気に入りの閲覧日</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="other">読んだ記事</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="other">興味を持ったカテゴリ</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">ハイライトを共有</string>
+  <string name="year_in_review_highlights_logo_description">ウィキペディアロゴ</string>
+  <string name="recommended_reading_list_title">発見</string>
+  <string name="recommended_reading_list_onboarding_card_title">あなただけのために選ばれた記事を発見</string>
+  <string name="recommended_reading_list_onboarding_card_message">ウィキペディア記事の週刊あとで読むリストが、あなただけのために収集されます。</string>
+  <string name="recommended_reading_list_onboarding_card_new">New!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">始める</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">いいえ、結構です</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">後でお勧めのあとで読むリストを設定するには、設定に行ってください。</string>
+  <string name="recommended_reading_list_interest_source_message">どのようにお勧めのあとで読むリストを構築すべきですか？</string>
+  <string name="recommended_reading_list_interest_source_interests">自分の興味に基づいて選ばせてください</string>
+  <string name="recommended_reading_list_interest_source_saved">保存済み記事に基づいて選んでください</string>
+  <string name="recommended_reading_list_interest_source_history">閲覧履歴に基づいて選んでください</string>
+  <string name="recommended_reading_list_interest_pick_title">何に興味がありますか？</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">記事を検索</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="other">%d 件選択済み</item>
+  </plurals>
+  <string name="recommended_reading_list_interest_select_minimum">少なくともひとつの興味を選択してください</string>
+  <string name="recommended_reading_list_interest_pick_random_button_content_description">ランダムに選択</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">いくつかの記事をランダムに選択しました。</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar_action">取り消す</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_title">本当に選択をランダム化したいですか？</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">これは現在の選択をクリアして新しい記事をランダムに選択します。</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">はい、私のために選んで</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">結構です</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">%s さんのために作成</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">あなたのために作成</string>
+  <plurals name="recommended_reading_list_page_subtitle_articles">
+    <item quantity="other">• %d記事</item>
+  </plurals>
+  <string name="recommended_reading_list_page_description_daily">あなたの日刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。深夜に更新。</string>
+  <string name="recommended_reading_list_page_description_weekly">あなたの週刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。週の初めに更新。</string>
+  <string name="recommended_reading_list_page_description_monthly">あなたの月刊あとで読むリスト。あなただけのために選ばれた新しいトピックについて学びましょう。毎月1日に更新。</string>
   <string name="recommended_reading_list_page_overflow_customize">カスタマイズ</string>
   <string name="recommended_reading_list_page_overflow_about">この機能について</string>
+  <string name="recommended_reading_list_page_snackbar_action">発見をカスタマイズ</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">週</string>
   <string name="recommended_reading_list_page_snackbar_month">月</string>
+  <string name="recommended_reading_list_settings_section_header">お勧め</string>
+  <string name="recommended_reading_list_settings_title">発見の設定</string>
+  <string name="recommended_reading_list_settings_toggle">あとで読むリストを発見</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">発見はオフです。ウィキペディアは読む記事をお勧めしません。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">発見をオフにしますか？</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">発見をオフにすると、%sウィキペディアから届くお勧めを停止します。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">オフにする</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">いいえ、オンのままにします</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">発見がオフになっています。いつでも設定でオンに戻せます。</string>
   <string name="recommended_reading_list_settings_articles">記事</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">毎日</string>
@@ -1727,19 +1927,47 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">毎日</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">毎週</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">毎月</string>
+  <string name="recommended_reading_list_settings_updates_base_title">発見を構築する方法</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">興味に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">保存済み記事に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">閲覧履歴に基づいて</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">発見を構築する方法を調整しますか？</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">発見がお勧めを生成する方法を調整する場合、現在のお勧めは置き換えられます。</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">調整する</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">結構です</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">興味に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">保存済み記事に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">閲覧履歴に基づいてお勧めするようになりました。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">取り消す</string>
+  <string name="recommended_reading_list_settings_interests">興味</string>
   <string name="recommended_reading_list_settings_notifications_title">通知</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">発見が更新されてもウィキペディアから通知を送信しません。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">発見の通知がオフになっています。発見が更新されたときに通知が届きません。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">通知をオフにしますか?</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">通知をオフにした場合、発見が更新されたときにリマインダーが届かなくなります。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">オフにする</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">いいえ、そのままにします</string>
-  <string name="donation_reminders_initial_prompt_positive_button">始める</string>
-  <string name="donation_reminders_initial_prompt_negative_button">今はしない</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">寄付リマインダーは設定でいつでも変更できます。</string>
   <string name="donation_settings_section_header">寄付</string>
-  <string name="donation_reminders_settings_title">寄付のリマインダー</string>
+  <string name="donation_reminders_settings_title">どのようにリマインドすべきですか?</string>
+  <string name="donation_reminders_settings_option_title">寄付リマインダー</string>
+  <string name="donation_reminders_settings_amount_label">寄付をリマインドする</string>
+  <string name="donation_reminders_settings_confirm_btn_label">リマインダーを確認</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">記事</string>
+  <string name="donation_reminders_settings_option_custom">カスタム…</string>
   <string name="donation_reminders_prompt_positive_button">今すぐ寄付する</string>
   <string name="donation_reminders_prompt_negative_button">今はしない</string>
   <string name="donation_reminders_gpay_text">Google Payで %s 寄付する</string>
   <string name="donation_reminders_gpay_different_amount_text">Google Payで別の金額を寄付する</string>
-  <string name="donation_reminders_survey_dialog_title">寄付リマインダーの改善にご協力ください。</string>
   <string name="donation_reminders_settings_description_off">寄付リマインダーはオフです。</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="other">%d記事</item>
+  </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">いいえ、結構です</string>
+  <string name="donation_reminders_settings_learn_more_button">詳細</string>
+  <string name="donation_reminders_settings_report_button">機能の問題</string>
+  <string name="donation_reminders_settings_report_email_subject">寄付リマインダーの問題を報告</string>
+  <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">変更</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">いいえ、結構です</string>
 </resources>

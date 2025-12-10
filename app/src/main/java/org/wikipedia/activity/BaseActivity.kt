@@ -2,7 +2,6 @@ package org.wikipedia.activity
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -24,7 +23,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
@@ -52,6 +50,9 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.yearinreview.YearInReviewActivity
+import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -74,6 +75,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         // TODO: Show message(s) to the user if they deny the permission
+    }
+
+    private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_CANCELED) {
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,6 +117,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
+        maybeShowYearInReview()
 
         Prefs.localClassName = localClassName
 
@@ -169,14 +177,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onPause() {
         super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
-        MetricsPlatform.client.onAppPause()
         EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
-        MetricsPlatform.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
     }
 
@@ -217,9 +223,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     protected fun setStatusBarColor(@ColorInt color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.statusBarColor = color
-        }
+        window.statusBarColor = color
     }
 
     protected fun setNavigationBarColor(@ColorInt color: Int) {
@@ -242,6 +246,14 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun launchDonateActivity(intent: Intent) {
         requestDonateActivity.launch(intent)
+    }
+
+    private fun maybeShowYearInReview() {
+        if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
+            !Prefs.isInitialOnboardingEnabled &&
+            YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
+            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+        }
     }
 
     private fun removeSplashBackground() {

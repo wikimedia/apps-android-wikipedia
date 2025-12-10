@@ -259,6 +259,7 @@ object ContributionsNameData {
             "pt" to "Contribuições",
             "pwn" to "使用者貢獻",
             "qu" to "Rurasqakuna",
+            "rki" to "Contributions",
             "rm" to "Beiträge",
             "rmy" to "Contribuții",
             "rn" to "Contributions",
@@ -317,6 +318,7 @@ object ContributionsNameData {
             "tly" to "Contributions",
             "tn" to "Contributions",
             "to" to "Contributions",
+            "tok" to "pali_jan",
             "tpi" to "Ol_senis_bilong_yusa",
             "tr" to "Katkılar",
             "trv" to "使用者貢獻",
@@ -353,9 +355,10 @@ object ContributionsNameData {
             "zh-hans" to "用户贡献",
             "zh-hant" to "用户贡献",
             "zh-classical" to "功績",
-            "zh-min-nan" to "使用者貢獻",
+            "zh-min-nan" to "貢獻",
             "zh-yue" to "貢獻",
             "zu" to "Contributions",
             "test" to "Contributions",
+            "test2" to "Contributions",
     )
 }

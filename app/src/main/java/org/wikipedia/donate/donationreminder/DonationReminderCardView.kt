@@ -1,8 +1,6 @@
 package org.wikipedia.donate.donationreminder
 
 import android.content.Context
-import android.graphics.Typeface
-import android.os.Build
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ImageSpan
@@ -49,20 +47,5 @@ class DonationReminderCardView(context: Context, attrs: AttributeSet? = null) : 
     fun setNegativeButton(text: String, listener: OnClickListener) {
         binding.negativeButton.text = text
         binding.negativeButton.setOnClickListener(listener)
-    }
-
-    fun setLabel(message: String?) {
-        if (message.isNullOrEmpty()) {
-            binding.messageLabel.visibility = GONE
-            return
-        }
-        val typeface = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            Typeface.create(Typeface.MONOSPACE, 500, false)
-        } else {
-            Typeface.create(Typeface.MONOSPACE, Typeface.BOLD)
-        }
-        binding.messageLabel.text = message
-        binding.messageLabel.typeface = typeface
-        binding.messageLabel.letterSpacing = 0.1f
     }
 }

@@ -86,6 +86,13 @@
             android:key="@string/preference_key_app_channel"
             android:title="@string/preference_key_app_channel" />
 
+        <ListPreference
+            android:key="@string/preference_key_event_platform_intake_base_uri_list"
+            android:title="@string/preference_developer_event_platform_intake_base_uri_list_title"
+            android:entries="@array/preference_values_event_platform_intake_debug_titles"
+            android:entryValues="@array/preference_values_event_platform_intake_debug_values"
+            android:summary="%s" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_event_platform_intake_base_uri"
@@ -363,10 +370,6 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
 
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_suggested_edits_tooltip"
-            android:title="@string/preference_key_show_suggested_edits_tooltip" />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_suggested_edits_pause_date"
@@ -408,10 +411,6 @@
             android:summary="The first local notification for editor reactivation has shown."/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_show_sequential_user_stats_tooltip"
-            android:title="@string/preference_key_show_sequential_user_stats_tooltip" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
             android:title="seMachineGeneratedDescriptionsTooltipShown" />
 
@@ -450,8 +449,8 @@
             android:dialogMessage="Example: [{&quot;dateTime&quot;:&quot;2024-10-22T00:00:00.000&quot;}]"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_feed_yir_onboarding_card_enabled"
-            android:title="Year-in-review Feed Card" />
+            android:key="@string/preference_key_explore_feed_survey_shown"
+            android:title="@string/preference_key_explore_feed_survey_shown"/>
 
     </PreferenceCategory>
 
@@ -520,14 +519,28 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Year in Review">
-        
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_year_in_review_is_enabled"
-            android:title="@string/preference_key_year_in_review_is_enabled" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_yir_survey_shown"
-            android:title="@string/preference_key_yir_survey_shown" />
+            android:key="@string/preference_key_year_in_review_visited"
+            android:title="@string/preference_key_year_in_review_visited" />
+
+        <ListPreference
+            android:key="@string/preference_key_yir_survey_state"
+            android:title="Yir Survey State"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_yir_reading_list_visit_count"
+            android:title="Yir Reading List Visit Count" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_yir_reading_list_survey_shown"
+            android:title="@string/preference_key_yir_reading_list_survey_shown" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_yirReadingList"
+            android:title="Yir Reading List test group (require restart)" />
 
     </PreferenceCategory>
 
@@ -545,6 +558,18 @@
             style="@style/EditTextAutoSummarizePreference"
             android:key="@string/preference_key_donation_reminder_config"
             android:title="@string/preference_key_donation_reminder_config"/>
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_donationReminder"
+            android:title="Donation Reminder test group (require restart)"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Activity tab">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_activity_tab_onboarding_shown"
+            android:title="@string/preference_key_activity_tab_onboarding_shown" />
 
     </PreferenceCategory>
 </PreferenceScreen>

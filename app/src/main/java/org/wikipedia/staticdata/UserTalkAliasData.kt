@@ -83,7 +83,7 @@ object UserTalkAliasData {
             "de" to "Benutzer Diskussion",
             "dga" to "Toma daana yeli",
             "din" to "Jam kekë dulooi",
-            "diq" to "Karber vaten",
+            "diq" to "Werênayışê karberi",
             "dsb" to "Diskusija wužywarja",
             "dtp" to "Pibarasan moomomoguno",
             "dty" to "प्रयोगकर्ता कुरणि",
@@ -259,6 +259,7 @@ object UserTalkAliasData {
             "pt" to "Usuário(a) Discussão",
             "pwn" to "kipakamanguanguaq kakaljavaran",
             "qu" to "Ruraq rimanakuy",
+            "rki" to "အသုံးပြုလူ ဆွီးနွီးချက်",
             "rm" to "Utilisader discussiun",
             "rmy" to "Jeno vakyarimata",
             "rn" to "Ikiyago c'uwukoresha",
@@ -317,6 +318,7 @@ object UserTalkAliasData {
             "tly" to "Okoədəj nopegət",
             "tn" to "Puisano ya modirisi",
             "to" to "User talk",
+            "tok" to "jan la toki",
             "tpi" to "Toktok bilong yusa",
             "tr" to "Kullanıcı mesaj",
             "trv" to "Pprngagun empduuy",
@@ -357,5 +359,6 @@ object UserTalkAliasData {
             "zh-yue" to "User talk",
             "zu" to "User talk",
             "test" to "User talk",
+            "test2" to "User talk",
     )
 }
