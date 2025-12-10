@@ -58,6 +58,8 @@ android {
     }
 }
 
+apply from: '../../gradle/src/ktlint.gradle'
+
 dependencies {
     coreLibraryDesugaring libs.desugar.jdk.libs
 
