@@ -1,8 +1,6 @@
 package org.wikimedia.testkitchen
 
 import android.net.Uri
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
@@ -26,7 +24,7 @@ class EventSenderDefault(
             .header("Accept", "application/json")
             .header(
                 "User-Agent",
-                "Metrics Platform Client/Java " + MetricsClient.METRICS_PLATFORM_LIBRARY_VERSION
+                "TestKitchenClient/Kotlin " + TestKitchenClient.LIBRARY_VERSION
             )
             .post(eventStr.toRequestBody("application/json".toMediaTypeOrNull()))
             .build()

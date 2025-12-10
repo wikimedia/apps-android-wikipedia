@@ -14,7 +14,7 @@ import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
 
-class MetricsClient(
+class TestKitchenClient(
     clientData: ClientData,
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
@@ -141,7 +141,7 @@ class MetricsClient(
     fun submitInteraction(
         streamName: String,
         eventName: String,
-        schemaId: String = METRICS_PLATFORM_SCHEMA_BASE,
+        schemaId: String = SCHEMA_APP_BASE,
         clientData: ClientData? = null,
         interactionData: InteractionData? = null,
         customData: Map<String, Any>? = null
@@ -165,7 +165,7 @@ class MetricsClient(
     ) {
         submitMetricsEvent(
             streamName,
-            METRICS_PLATFORM_SCHEMA_BASE,
+            SCHEMA_APP_BASE,
             "click",
             clientData,
             null,
@@ -210,7 +210,7 @@ class MetricsClient(
     ) {
         submitMetricsEvent(
             streamName,
-            METRICS_PLATFORM_SCHEMA_BASE,
+            SCHEMA_APP_BASE,
             "view",
             clientData,
             null,
@@ -322,9 +322,9 @@ class MetricsClient(
         val DATE_FORMAT: DateTimeFormatter = DateTimeFormatter.ISO_DATE_TIME
         val ZONE_Z: ZoneId? = ZoneId.of("Z")
 
-        const val METRICS_PLATFORM_LIBRARY_VERSION: String = "2.8"
-        const val METRICS_PLATFORM_BASE_VERSION: String = "1.4.2"
+        const val LIBRARY_VERSION: String = "1.0.0"
+        const val SCHEMA_APP_BASE_VERSION: String = "1.4.2"
 
-        const val METRICS_PLATFORM_SCHEMA_BASE: String = "/analytics/product_metrics/app/base/$METRICS_PLATFORM_BASE_VERSION"
+        const val SCHEMA_APP_BASE: String = "/analytics/product_metrics/app/base/$SCHEMA_APP_BASE_VERSION"
     }
 }

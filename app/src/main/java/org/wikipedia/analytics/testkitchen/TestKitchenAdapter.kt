@@ -2,7 +2,7 @@ package org.wikipedia.analytics.testkitchen
 
 import android.os.Build
 import org.wikimedia.testkitchen.EventSenderDefault
-import org.wikimedia.testkitchen.MetricsClient
+import org.wikimedia.testkitchen.TestKitchenClient
 import org.wikimedia.testkitchen.context.AgentData
 import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.MediawikiData
@@ -41,7 +41,7 @@ object TestKitchenAdapter {
         domain
     )
 
-    val client: MetricsClient = MetricsClient(
+    val client = TestKitchenClient(
         clientData,
         EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client),
         null,
