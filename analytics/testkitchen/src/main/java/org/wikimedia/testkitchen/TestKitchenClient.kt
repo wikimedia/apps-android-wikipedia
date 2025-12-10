@@ -5,7 +5,6 @@ import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.event.Event
-import org.wikimedia.testkitchen.event.EventProcessed
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -40,7 +39,7 @@ class TestKitchenClient(
      */
     private val samplingController = SamplingController(clientData, sessionController)
 
-    private val eventQueue: BlockingQueue<EventProcessed> = LinkedBlockingQueue(queueCapacity)
+    private val eventQueue: BlockingQueue<Event> = LinkedBlockingQueue(queueCapacity)
 
     private val eventProcessor: EventProcessor = EventProcessor(
         ContextController(),
@@ -53,31 +52,12 @@ class TestKitchenClient(
     )
 
     /**
-     * Submit an event to be enqueued and sent to the Event Platform.
-     *
-     * If stream configs are not yet fetched, the event will be held temporarily in the input
-     * buffer (provided there is space to do so).
-     *
-     * If stream configs are available, the event will be validated and enqueued for submission
-     * to the configured event platform intake service.
-     *
-     * Supplemental metadata is added immediately on intake, regardless of the presence or absence
-     * of stream configs, so that the event timestamp is recorded accurately.
-     */
-    fun submit(event: Event) {
-        val eventProcessed = EventProcessed.fromEvent(event)
-        addRequiredMetadata(eventProcessed)
-        addToEventQueue(eventProcessed)
-    }
-
-    /**
      * Construct and submits a Metrics Platform Event from the schema id, event name, page metadata, and custom data for
      * the stream that is interested in those events.
      */
     fun submitMetricsEvent(
         streamName: String,
         schemaId: String,
-        eventName: String,
         clientData: ClientData? = null,
         interactionData: InteractionData? = null
     ) {
@@ -95,19 +75,17 @@ class TestKitchenClient(
             }
         }
 
-        val event = Event(streamName)
-        event.schema = schemaId
-        event.name = eventName
-        if (clientData != null) {
-            event.clientData = clientData
-        }
-        if (interactionData != null) {
-            event.interactionData = interactionData
-        }
-        if (streamConfig?.sampleConfig != null) {
-            event.sample = streamConfig.sampleConfig
-        }
-        submit(event)
+        val event = Event(
+            schemaId,
+            streamName,
+            DateTimeFormatter.ISO_DATE_TIME.format(ZonedDateTime.now(ZONE_Z)),
+            clientData ?: ClientData(),
+            interactionData ?: InteractionData(),
+            streamConfig?.sampleConfig
+        )
+        event.performerData?.let { it.sessionId = sessionController.sessionId }
+
+        addToEventQueue(event)
     }
 
     /**
@@ -117,12 +95,11 @@ class TestKitchenClient(
      */
     fun submitInteraction(
         streamName: String,
-        eventName: String,
         schemaId: String = SCHEMA_APP_BASE,
         clientData: ClientData? = null,
         interactionData: InteractionData? = null
     ) {
-        submitMetricsEvent(streamName, schemaId, eventName, clientData, interactionData)
+        submitMetricsEvent(streamName, schemaId, clientData, interactionData)
     }
 
     /**
@@ -157,28 +134,13 @@ class TestKitchenClient(
     }
 
     /**
-     * Supplement the outgoing event with additional metadata.
-     * These include:
-     * - app_session_id: the current session ID
-     * - dt: ISO 8601 timestamp
-     * - domain: hostname
-     *
-     * @param event event
-     */
-    private fun addRequiredMetadata(event: EventProcessed) {
-        event.performerData?.let { it.sessionId = sessionController.sessionId }
-        event.timestamp = DateTimeFormatter.ISO_DATE_TIME.format(ZonedDateTime.now(ZONE_Z))
-        event.setDomain(event.clientData.domain)
-    }
-
-    /**
      * Append an enriched event to the queue.
      * If the queue is full, we remove the oldest events from the queue to add the current event.
      * Number of attempts to add to the queue is 1/50 of the number queue capacity but at least 10
      *
      * @param event a processed event
      */
-    private fun addToEventQueue(event: EventProcessed?) {
+    private fun addToEventQueue(event: Event?) {
         var eventQueueAppendAttempts = max(eventQueue.size / 50, 10)
 
         if (eventQueue.size > queueCapacity / 2) {
@@ -188,7 +150,7 @@ class TestKitchenClient(
         while (!eventQueue.offer(event)) {
             val removedEvent = eventQueue.remove()
             if (removedEvent != null) {
-                logger.warn(removedEvent.name + " was dropped so that a newer event could be added to the queue.")
+                logger.warn(removedEvent.action + " was dropped so that a newer event could be added to the queue.")
             }
             if (eventQueueAppendAttempts-- <= 0) break
         }

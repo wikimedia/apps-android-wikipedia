@@ -1,7 +1,7 @@
 package org.wikimedia.testkitchen
 
 import android.net.Uri
-import org.wikimedia.testkitchen.event.EventProcessed
+import org.wikimedia.testkitchen.event.Event
 
 fun interface EventSender {
     /**
@@ -10,5 +10,5 @@ fun interface EventSender {
      * @param baseUri base uri of destination intake service
      * @param events events to be sent
      */
-    fun sendEvents(baseUri: Uri, events: List<EventProcessed>)
+    fun sendEvents(baseUri: Uri, events: List<Event>)
 }

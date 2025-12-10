@@ -50,7 +50,6 @@ open class ArticleLinkPreviewInteraction : Event {
     protected fun submitEvent(action: String, contextData: ContextData) {
         submitEvent(
             "product_metrics.app_base",
-            "article_link_preview_interaction",
             getInteractionData(
                 action,
                 null,

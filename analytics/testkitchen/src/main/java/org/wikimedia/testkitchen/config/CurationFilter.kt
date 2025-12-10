@@ -13,12 +13,12 @@ import org.wikimedia.testkitchen.context.InstantSerializer
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
-import org.wikimedia.testkitchen.event.EventProcessed
+import org.wikimedia.testkitchen.event.Event
 import java.time.Instant
 import java.util.function.Predicate
 
 @Serializable
-class CurationFilter : Predicate<EventProcessed> {
+class CurationFilter : Predicate<Event> {
     @SerialName("agent_app_install_id") var agentAppInstallIdRules: CurationRules<String>? = null
     @SerialName("agent_client_platform") var agentClientPlatformRules: CurationRules<String>? = null
     @SerialName("agent_client_platform_family") var agentClientPlatformFamilyRules: CurationRules<String>? = null
@@ -45,7 +45,7 @@ class CurationFilter : Predicate<EventProcessed> {
     @SerialName("performer_language_primary")
     var performerLanguagePrimaryRules: CurationRules<String>? = null
 
-    override fun test(event: EventProcessed): Boolean {
+    override fun test(event: Event): Boolean {
         return applyAgentRules(event.agentData)
                 && applyMediaWikiRules(event.mediawikiData)
                 && applyPageRules(event.pageData)

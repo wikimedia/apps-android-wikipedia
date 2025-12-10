@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikimedia.testkitchen.config.SourceConfig
 import org.wikimedia.testkitchen.config.StreamConfig
-import org.wikimedia.testkitchen.event.EventProcessed
+import org.wikimedia.testkitchen.event.Event
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.BlockingQueue
@@ -21,7 +21,7 @@ class EventProcessor(
     private val sourceConfig: AtomicReference<SourceConfig>,
     private val samplingController: SamplingController,
     private val eventSender: EventSender,
-    private val eventQueue: BlockingQueue<EventProcessed>,
+    private val eventQueue: BlockingQueue<Event>,
     private val logger: LogAdapter
 ) {
 
@@ -39,16 +39,16 @@ class EventProcessor(
             return
         }
 
-        val pending = mutableListOf<EventProcessed>()
+        val pending = mutableListOf<Event>()
         synchronized(eventQueue) {
             eventQueue.drainTo(pending)
         }
 
         val streamConfigsMap = config.streamConfigs
 
-        pending.filter { event -> streamConfigsMap.containsKey(event.stream) }
+        pending.filter { event -> streamConfigsMap.containsKey(event.meta.stream) }
             .filter { event ->
-                val cfg = streamConfigsMap[event.stream]
+                val cfg = streamConfigsMap[event.meta.stream]
                 if (cfg == null) {
                     false
                 } else {
@@ -68,26 +68,26 @@ class EventProcessor(
     }
 
     fun eventPassesCurationRules(
-        event: EventProcessed,
+        event: Event,
         streamConfigMap: Map<String, StreamConfig>
     ): Boolean {
-        val streamConfig = streamConfigMap[event.stream] ?: return false
+        val streamConfig = streamConfigMap[event.meta.stream] ?: return false
         contextController.enrichEvent(event, streamConfig)
         return curationController.shouldProduceEvent(event, streamConfig)
     }
 
     private fun destinationEventService(
-        event: EventProcessed,
+        event: Event,
         streamConfigMap: Map<String, StreamConfig>
     ): DestinationEventService {
-        val streamConfig = streamConfigMap[event.stream]
+        val streamConfig = streamConfigMap[event.meta.stream]
         return streamConfig?.destinationEventService ?: DestinationEventService.ANALYTICS
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     private fun sendEventsToDestination(
         destinationEventService: DestinationEventService,
-        pendingValidEvents: List<EventProcessed>
+        pendingValidEvents: List<Event>
     ) {
         GlobalScope.launch {
             withContext(Dispatchers.IO) {

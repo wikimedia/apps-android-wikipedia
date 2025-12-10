@@ -6,7 +6,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
-import org.wikimedia.testkitchen.event.EventProcessed
+import org.wikimedia.testkitchen.event.Event
 import java.io.IOException
 
 class EventSenderDefault(
@@ -14,7 +14,7 @@ class EventSenderDefault(
     private val httpClient: OkHttpClient,
     private val logger: LogAdapter
 ) : EventSender {
-    override fun sendEvents(baseUri: Uri, events: List<EventProcessed>) {
+    override fun sendEvents(baseUri: Uri, events: List<Event>) {
         val eventStr = json.encodeToString(events)
         val request = Request.Builder()
             .url(baseUri.toString())

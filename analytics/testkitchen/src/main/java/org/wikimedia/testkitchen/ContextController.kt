@@ -7,10 +7,10 @@ import org.wikimedia.testkitchen.context.ContextValue
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
-import org.wikimedia.testkitchen.event.EventProcessed
+import org.wikimedia.testkitchen.event.Event
 
 class ContextController {
-    fun enrichEvent(event: EventProcessed, streamConfig: StreamConfig) {
+    fun enrichEvent(event: Event, streamConfig: StreamConfig) {
         if (!streamConfig.hasRequestedContextValuesConfig()) {
             return
         }

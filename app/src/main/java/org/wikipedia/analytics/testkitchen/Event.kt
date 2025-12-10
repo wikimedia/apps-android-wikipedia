@@ -18,18 +18,15 @@ open class Event {
      * Submit an event to the Metrics Platform using the base interaction schema
      *
      * @param streamName the name of the stream
-     * @param eventName the name of the event
      * @param interactionData a data object that conforms to core interactions
      * @param pageData dynamic page data that should be added to the ClientData object
      */
     protected fun submitEvent(
         streamName: String,
-        eventName: String,
         interactionData: InteractionData? = null,
         pageData: PageData? = null
     ) {
         TestKitchenAdapter.client.submitInteraction(streamName,
-            EVENT_NAME_BASE + eventName,
             clientData = getClientData(pageData),
             interactionData = interactionData)
     }
@@ -118,9 +115,5 @@ open class Event {
             funnelEntryToken,
             funnelEventSequencePosition
         )
-    }
-
-    companion object {
-        private const val EVENT_NAME_BASE = "android.metrics_platform."
     }
 }
