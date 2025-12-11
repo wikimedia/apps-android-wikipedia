@@ -72,7 +72,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val dismissCallback get() = getCallback(this, DismissCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
-    private var linkPreviewInteraction: ArticleEvent? = null
+    private var articleEvent: ArticleEvent? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private val viewModel: LinkPreviewViewModel by viewModels()
@@ -227,12 +227,12 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         )
         articleLinkPreviewInteractionEvent?.logLinkClick()
 
-        linkPreviewInteraction = ArticleEvent(
+        articleEvent = ArticleEvent(
             viewModel.pageTitle,
             summary,
             viewModel.historyEntry.source
         )
-        linkPreviewInteraction?.logLinkClick()
+        articleEvent?.logLinkPreviewClick()
 
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
         if (viewModel.fromPlaces) {
@@ -300,7 +300,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismissCallback?.onLinkPreviewDismiss()
         if (!navigateSuccess) {
             articleLinkPreviewInteractionEvent?.logCancel()
-            linkPreviewInteraction?.logCancel()
+            articleEvent?.logLinkPreviewCancel()
         }
     }
 

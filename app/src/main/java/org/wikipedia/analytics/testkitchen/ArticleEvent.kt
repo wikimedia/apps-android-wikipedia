@@ -35,21 +35,21 @@ open class ArticleEvent : Event {
         pageData = getPageData(pageTitle, summary)
     }
 
-    fun logLinkClick() {
-        submitEvent("linkclick", ContextData(timeSpentMillis = timer.elapsedMillis))
+    fun logLinkPreviewClick() {
+        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, "linkclick", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
     open fun logNavigate() {
-        submitEvent(if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled", ContextData(timeSpentMillis = timer.elapsedMillis))
+        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    fun logCancel() {
-        submitEvent("cancel", ContextData(timeSpentMillis = timer.elapsedMillis))
+    fun logLinkPreviewCancel() {
+        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, "cancel", ContextData(timeSpentMillis = timer.elapsedMillis))
     }
 
-    protected fun submitEvent(action: String, contextData: ContextData) {
+    protected fun submitEvent(streamName: String, action: String, contextData: ContextData) {
         submitEvent(
-            "product_metrics.app_base",
+            streamName,
             getInteractionData(
                 action,
                 null,
@@ -64,4 +64,8 @@ open class ArticleEvent : Event {
     class ContextData(
         @SerialName("time_spent_ms") val timeSpentMillis: Long? = null
     )
+
+    companion object {
+        const val STREAM_LINK_PREVIEW_INTERACTION = "android.product_metrics.article_link_preview_interaction"
+    }
 }

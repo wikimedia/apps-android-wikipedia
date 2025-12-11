@@ -56,11 +56,13 @@ class StreamConfig {
 
     @Serializable
     class MetricsPlatformClientConfig {
+        // TODO: how is this used?
         @SerialName("events") var events: List<String>? = null
         @SerialName("provide_values") var requestedValues: List<String>? = null
         @SerialName("curation") var curationFilter: CurationFilter? = null
     }
 
+    // TODO: how is this used?
     fun isInterestedInEvent(eventName: String): Boolean {
         for (streamEventName in this.events) {
             // Match string prefixes for event names of interested streams.
