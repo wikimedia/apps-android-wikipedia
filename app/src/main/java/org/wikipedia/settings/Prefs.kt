@@ -775,7 +775,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
 
     var isYearInReviewEnabled: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
     var yearInReviewVisited: Boolean
