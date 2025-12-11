@@ -69,4 +69,6 @@ dependencies {
 
     implementation libs.retrofit
     implementation libs.retrofit2.kotlinx.serialization.converter
+
+    testImplementation libs.junit
 }
