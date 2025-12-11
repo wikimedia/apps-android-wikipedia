@@ -26,6 +26,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -42,7 +43,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -57,18 +57,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 import kotlin.math.absoluteValue
@@ -79,7 +81,7 @@ fun YearInReviewScreenDeck(
     modifier: Modifier = Modifier,
     state: UiState<List<YearInReviewScreenData>>,
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
-    onDonateClick: () -> Unit = {},
+    onDonateClick: (String) -> Unit = {},
     onNextButtonClick: (PagerState, YearInReviewScreenData) -> Unit = { _, _ -> },
     onCloseButtonClick: () -> Unit = {},
     onRetryClick: () -> Unit = {}
@@ -90,41 +92,38 @@ fun YearInReviewScreenDeck(
         }
 
         is UiState.Success -> {
-            val coroutineScope = rememberCoroutineScope()
+            LaunchedEffect(Unit) {
+                YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = it.slideViewedCount + 1) }
+            }
+
             val pages = state.data
             val pagerState = rememberPagerState(pageCount = { pages.size })
-            var startCapture by remember { mutableStateOf(false) }
-            val context = LocalContext.current
+            var captureRequest by remember { mutableStateOf<YearInReviewCaptureRequest?>(null) }
 
-            if (startCapture) {
-                CreateScreenShotBitmap(
-                    screenContent = pages[pagerState.currentPage],
-                    requestScreenshotBitmap = requestScreenshotBitmap
-                ) { bitmap ->
-                    val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
-                    val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl, context.getString(R.string.year_in_review_hashtag))
-                    ShareUtil.shareImage(
-                        coroutineScope = coroutineScope,
-                        context = context,
-                        bmp = bitmap,
-                        imageFileName = YearInReviewViewModel.YIR_TAG,
-                        subject = context.getString(R.string.year_in_review_share_subject),
-                        text = bodyText
-                    )
-                    startCapture = false
-                }
+            captureRequest?.let { request ->
+                YearInReviewScreenCaptureHandler(
+                    request = request,
+                    onComplete = {
+                        captureRequest = null
+                    }
+                )
             }
+
             Scaffold(
                 modifier = modifier
                     .safeDrawingPadding(),
                 containerColor = WikipediaTheme.colors.paperColor,
                 topBar = {
                     TopAppBar(
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = WikipediaTheme.colors.paperColor),
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = WikipediaTheme.colors.paperColor
+                        ),
                         title = { },
                         navigationIcon = {
-                            IconButton(onClick = { onCloseButtonClick() }) {
+                            IconButton(onClick = {
+                                YearInReviewEvent.submit(action = "close_click", slide = pages[pagerState.currentPage].slideName)
+                                onCloseButtonClick()
+                            }) {
                                 Icon(
                                     painter = painterResource(R.drawable.ic_close_black_24dp),
                                     tint = WikipediaTheme.colors.primaryColor,
@@ -136,7 +135,9 @@ fun YearInReviewScreenDeck(
                             if (pages[pagerState.currentPage].allowDonate && pages[pagerState.currentPage].showDonateInToolbar) {
                                 Box(
                                     modifier = Modifier
-                                        .clickable(onClick = { onDonateClick() })
+                                        .clickable(onClick = {
+                                            onDonateClick(pages[pagerState.currentPage].slideName)
+                                        })
                                 ) {
                                     Row(
                                         modifier = Modifier
@@ -165,16 +166,44 @@ fun YearInReviewScreenDeck(
                 bottomBar = {
                     MainBottomBar(
                         pages,
-                        onNavigationRightClick = { onNextButtonClick(pagerState, pages[pagerState.currentPage]) },
+                        onNavigationRightClick = {
+                            YearInReviewEvent.submit(action = "next_click", slide = pages[pagerState.currentPage].slideName)
+                            onNextButtonClick(pagerState, pages[pagerState.currentPage])
+                        },
                         pagerState = pagerState,
                         totalPages = pages.size,
                         onShareClick = {
-                            startCapture = true
+                            YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
+                            when (pages[pagerState.currentPage]) {
+                                is YearInReviewScreenData.GeoScreen -> { captureRequest = YearInReviewCaptureRequest.GeoScreen(pages[pagerState.currentPage], requestScreenshotBitmap) }
+                                is YearInReviewScreenData.StandardScreen -> { captureRequest = YearInReviewCaptureRequest.StandardScreen(pages[pagerState.currentPage]) }
+                                is YearInReviewScreenData.HighlightsScreen -> {}
+                            }
                         },
-                        onDonateClick = onDonateClick
+                        onBottomButtonClick = { screenData ->
+                            when (screenData) {
+                                is YearInReviewScreenData.HighlightsScreen -> {
+                                    YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
+                                    captureRequest =
+                                        YearInReviewCaptureRequest.HighlightsScreen(screenData)
+                                }
+                                is YearInReviewScreenData.StandardScreen -> {
+                                    onDonateClick(pages[pagerState.currentPage].slideName)
+                                }
+                                else -> {}
+                            }
+                        }
                     )
                 },
                 content = { paddingValues ->
+
+                    LaunchedEffect(pagerState.currentPage) {
+                        YearInReviewEvent.submit(
+                            action = "impression",
+                            slide = pages[pagerState.currentPage].slideName
+                        )
+                    }
+
                     HorizontalPager(
                         verticalAlignment = Alignment.Top,
                         state = pagerState,
@@ -182,6 +211,7 @@ fun YearInReviewScreenDeck(
                     ) { page ->
                         YearInReviewScreenContent(
                             modifier = Modifier
+                                .fillMaxSize()
                                 .padding(paddingValues)
                                 .verticalScroll(rememberScrollState()),
                             requestScreenshotBitmap = requestScreenshotBitmap,
@@ -218,9 +248,10 @@ fun MainBottomBar(
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
     onShareClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onBottomButtonClick: (YearInReviewScreenData) -> Unit
 ) {
     val context = LocalContext.current
+    val currentScreen = pages[pagerState.currentPage]
     Column {
         HorizontalDivider(
             modifier = Modifier
@@ -229,23 +260,26 @@ fun MainBottomBar(
             color = WikipediaTheme.colors.borderColor
         )
         Box {
-            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
+            pages[pagerState.currentPage].BottomButton(context, onBottomButtonClick)
         }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
         ) {
-            IconButton(
-                onClick = onShareClick,
-                modifier = Modifier.padding(end = 16.dp)
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_share),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = stringResource(R.string.year_in_review_share_icon)
-                )
+            if (currentScreen !is YearInReviewScreenData.HighlightsScreen) {
+                IconButton(
+                    onClick = onShareClick,
+                    modifier = Modifier.padding(end = 16.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = stringResource(R.string.year_in_review_share_icon)
+                    )
+                }
             }
+
             Row(
                 modifier = Modifier
                     .wrapContentHeight()
@@ -281,19 +315,17 @@ fun MainBottomBar(
                     )
                 }
             }
-            if (pagerState.currentPage + 1 < totalPages) {
-                IconButton(
-                    onClick = { onNavigationRightClick() },
-                    modifier = Modifier
-                        .padding(0.dp)
-                        .align(Alignment.CenterEnd)
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                        tint = WikipediaTheme.colors.primaryColor,
-                        contentDescription = stringResource(R.string.year_in_review_navigate_right)
-                    )
-                }
+            IconButton(
+                onClick = { onNavigationRightClick() },
+                modifier = Modifier
+                    .padding(0.dp)
+                    .align(Alignment.CenterEnd)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_navigate_right)
+                )
             }
         }
     }
@@ -398,7 +430,13 @@ fun YearInReviewScreenContent(
             )
         }
         is YearInReviewScreenData.HighlightsScreen -> {
-            // @TODO: has different layout structure based on ios slides
+            YearInReviewHighlightsScreen(
+                modifier = modifier
+                    .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                    .yearInReviewHeaderBackground()
+                    .padding(horizontal = 18.dp, vertical = 8.dp),
+                screenData = screenData
+            )
         }
     }
 }
@@ -413,6 +451,7 @@ private fun StandardScreenContent(
 ) {
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
+    val mediaWikiFaqUrl = stringResource(R.string.year_in_review_media_wiki_faq_url)
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
@@ -437,7 +476,7 @@ private fun StandardScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
+                                uri = mediaWikiFaqUrl.toUri()
                             )
                         }) {
                         Icon(
@@ -547,9 +586,10 @@ fun PreviewScreenShot() {
         CreateScreenShotBitmap(
             screenContent = YearInReviewScreenData.StandardScreen(
                 allowDonate = true,
-                animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                imageResource = R.drawable.yir_puzzle_browser,
                 headlineText = "Over 3 billion bytes added",
-                bodyText = "TBD"
+                bodyText = "TBD",
+                slideName = "test"
             ),
             requestScreenshotBitmap = null
         ) { /* No logic, preview only */ }
@@ -564,9 +604,10 @@ fun PreviewStandardContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.StandardScreen(
                     allowDonate = true,
-                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    imageResource = R.drawable.yir_puzzle_bytes,
                     headlineText = "Over 3 billion bytes added",
-                    bodyText = "TBD"
+                    bodyText = "TBD",
+                    slideName = "test"
                 )
             )),
             requestScreenshotBitmap = null
@@ -582,12 +623,13 @@ fun PreviewReadingPatternsContent() {
             state = UiState.Success(listOf(
                 YearInReviewScreenData.ReadingPatterns(
                     allowDonate = false,
-                    animatedImageResource = R.drawable.year_in_review_puzzle_pieces,
+                    imageResource = R.drawable.yir_puzzle_browser,
                     headlineText = "You have clear reading patterns",
                     bodyText = "",
                     favoriteTimeText = "Afternoon",
                     favoriteDayText = "Wednesday",
-                    favoriteMonthText = "February"
+                    favoriteMonthText = "February",
+                    slideName = "test"
                 )
             )),
             requestScreenshotBitmap = null
@@ -601,6 +643,35 @@ fun PreviewScreenDeckError() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
             state = UiState.Error(Exception("Error")),
+            requestScreenshotBitmap = null
+        )
+    }
+}
+
+@Preview(device = Devices.PIXEL_9)
+@Composable
+private fun PreviewHighlightsScreen() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        YearInReviewScreenDeck(
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.HighlightsScreen(
+                    highlights = listOf(
+                        YearInReviewScreenData.HighlightItem(
+                            title = "Articles I read the longest",
+                            items = listOf(
+                                "Pamela Anderson",
+                                "Pamukkale",
+                                "History of US science fiction and fantasy magazines to 1950"
+                            ),
+                            highlightColor = ComposeColors.Blue600
+                        )
+                    ),
+                    slideName = "test",
+                    screenshotUrl = "#wikimediafoundation"
+                )
+            )),
             requestScreenshotBitmap = null
         )
     }

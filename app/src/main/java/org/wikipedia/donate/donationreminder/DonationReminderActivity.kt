@@ -13,6 +13,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.readinglist.recommended.RecommendedReadingListOnboardingActivity.Companion.EXTRA_FROM_SETTINGS
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 
 class DonationReminderActivity : BaseActivity() {
@@ -28,17 +29,22 @@ class DonationReminderActivity : BaseActivity() {
                     onBackButtonClick = {
                         onBackPressedDispatcher.onBackPressed()
                     },
-                    onConfirmBtnClick = { message ->
+                    onConfirmButtonClick = { message ->
                         DonationReminderHelper.shouldShowSettingSnackbar = true
+                        setResult(RESULT_OK_FROM_DONATION_REMINDER)
                         finish()
                     },
-                    onAboutThisExperimentClick = {
-                        UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                        val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
-                        DonorExperienceEvent.logDonationReminderAction(
-                            activeInterface = activeInterface,
-                            action = "reminder_about_click"
-                        )
+                    onFooterButtonClick = {
+                        if (viewModel.isFromSettings) {
+                            UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
+                            DonorExperienceEvent.logDonationReminderAction(
+                                activeInterface = "global_setting",
+                                action = "reminder_about_click"
+                            )
+                        } else {
+                            setResult(RESULT_OK_FROM_DONATION_REMINDER)
+                            finish()
+                        }
                     },
                     wikiErrorClickEvents = WikiErrorClickEvents(
                         backClickListener = {
@@ -47,7 +53,23 @@ class DonationReminderActivity : BaseActivity() {
                         retryClickListener = {
                             viewModel.loadData()
                         }
-                    )
+                    ),
+                    onLearnMoreClick = {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            action = "overflow_learn_more_click"
+                        )
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
+                    },
+                    onReportClick = {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            action = "overflow_problem_click"
+                        )
+                        FeedbackUtil.composeEmail(this,
+                            subject = getString(R.string.donation_reminders_settings_report_email_subject),
+                            body = getString(R.string.donation_reminders_settings_report_email_body))
+                    }
                 )
             }
         }
@@ -58,12 +80,14 @@ class DonationReminderActivity : BaseActivity() {
         if (!viewModel.isFromSettings) {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_config",
-                action = "impression"
+                action = "impression",
+                campaignId = DonationReminderHelper.campaignId
             )
         }
     }
 
     companion object {
+        const val RESULT_OK_FROM_DONATION_REMINDER = 100
         fun newIntent(context: Context, isFromSettings: Boolean = false): Intent {
             return Intent(context, DonationReminderActivity::class.java)
                 .putExtra(EXTRA_FROM_SETTINGS, isFromSettings)

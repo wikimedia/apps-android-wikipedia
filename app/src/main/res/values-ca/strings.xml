@@ -1244,8 +1244,6 @@
   <string name="templates_description_incomplete">Les plantilles són creacions dels usuaris i poden tenir descripcions incompletes.</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
-  <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
-  <string name="main_tooltip_text_v2">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="main_tooltip_action_button">Primers passos</string>
   <string name="main_tooltip_watchlist_title">Llista de seguiment</string>
   <string name="main_tooltip_watchlist_text">Cerqueu articles i pàgines que havíeu afegit a la vostra llista de seguiment en el menú Més sota la &lt;b&gt;llista de seguiment&lt;/b&gt;.</string>

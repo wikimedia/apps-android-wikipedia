@@ -1182,8 +1182,6 @@
   <string name="insert_media_insert_button">Selesepin</string>
   <string name="main_drawer_help">Pertulungan</string>
   <string name="main_drawer_login">Masup / nimbrung ama Wikipédi</string>
-  <string name="main_tooltip_text">Tabé %s, nyaho kaga\' lu kalo sapa aja bisa mermak Wikipédi?</string>
-  <string name="main_tooltip_text_v2">Nyaho kaga\' lu kalo sapa aja bisa mermak Wikipédi?</string>
   <string name="main_tooltip_action_button">Mulain</string>
   <string name="main_tooltip_watchlist_title">Daptar pantengan</string>
   <string name="main_tooltip_watchlist_text">Temuin makalah èn halaman nyang sebelonnya lu tambahin ke lu punya daptar pantengan di menu Laènnya di bawahnya &lt;b&gt;Daptar Pantengan&lt;/b&gt;.</string>

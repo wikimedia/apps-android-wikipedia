@@ -10,6 +10,7 @@
 * SHaran (WMF)
 * SaldırganSincap
 * Upwinxp
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
@@ -466,8 +467,8 @@
     <item quantity="other">Račun bo potekel čez %d dni.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Ob urejanju bo z vašimi urejanji povezan vaš IP-naslov.</string>
-  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Več o tem&lt;/a&gt;</string>
-  <string name="temp_account_edit_status">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Več o tem&lt;/a&gt;.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Niste prijavljeni.&lt;/b&gt; Po urejanju bo za zaščito vaše zasebnosti ustvarjen začasni račun. &lt;a href=\"%1$s\"&gt;Več o tem&lt;/a&gt;</string>
+  <string name="temp_account_edit_status" fuzzy="true">&lt;b&gt;Uporabljate začasni račun.&lt;/b&gt; Vaše urejanje bo pripisano %1$s. &lt;a href=\"%2$s\"&gt;Več o tem&lt;/a&gt;.</string>
   <string name="temp_account_login_status">&lt;b&gt;Trenutno uporabljate začasni račun.&lt;/b&gt; Urejanja, opravljena z začasnim računom %1$s, po prijavi ne bodo prenesena k vašemu trajnemu računu. Prijavite se ali si ustvarite račun, da boste med drugimi ugodnostmi pridobili priznanje avtorstva vašemu uporabniškemu imenu.</string>
   <string name="temp_account_end_session">Končaj sejo</string>
   <string name="temp_account_end_session_confirm">S tem se boste odjavili iz svojega začasnega računa. Želite nadaljevati?</string>
@@ -1350,11 +1351,9 @@
   <string name="templates_learn_more_link">Več o tem</string>
   <string name="templates_description_incomplete">Predloge ustvarijo uporabniki in morda nimajo popolnih opisov.</string>
   <string name="templates_description_empty">Predloga »%s« še nima opisa.</string>
-  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
+  <string name="templates_description_missing_data">Tej predlogi manjka &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, njeni parametri pa so bili &lt;a href=\"%2$s\"&gt;samodejno generirani&lt;/a&gt;. Predloga in njeni parametri zato nimajo opisov.</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="main_drawer_login">Prijavite se / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text">Pozdravljeni, %s, ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
-  <string name="main_tooltip_text_v2">Ste vedeli, da lahko Wikipedijo ureja vsakdo?</string>
   <string name="main_tooltip_action_button">Začnimo</string>
   <string name="main_tooltip_watchlist_title">Nadzorni seznam</string>
   <string name="main_tooltip_watchlist_text">Članke in strani, ki ste jih dodali na svoj nadzorni seznam, lahko spremljate v meniju Več pod &lt;b&gt;Nadzorni seznam&lt;/b&gt;.</string>
@@ -1736,7 +1735,7 @@
   <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost patruljiranja urejanj</string>
   <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Patruljiranje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Znova vas bomo opomnili jutri.</string>
-  <string name="donation_campaign_donated_snackbar">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
   <string name="donation_campaign_go_back_button">Nazaj</string>
   <string name="menu_single_webview_open_external">Odprtje v sistemskem brskalniku</string>
   <string name="donate_gpay_dialog_title">Želite donirati z Google Pay?</string>
@@ -1754,7 +1753,7 @@
   <string name="donate_gpay_help_other_ways">Drugi načini doniranja</string>
   <string name="donate_gpay_help_faq">Pogosto postavljena vprašanja</string>
   <string name="donate_gpay_help_tax">Podatki o davčnih olajšavah</string>
-  <string name="donation_history_deleted_message_snackbar">Zgodovina doniranja je izbrisana</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Zgodovina doniranja je izbrisana</string>
   <string name="places_title">Kraji</string>
   <string name="places_permissions_denied">Za ogled vaše lokacije na zemljevidu potrebujete dovoljenje za lokacijo. Prosimo, poskusite znova.</string>
   <string name="places_search_hint">Iskanje po krajih</string>

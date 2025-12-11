@@ -654,8 +654,6 @@
   <string name="insert_media_insert_button">دَرٕج کٔرِو</string>
   <string name="main_drawer_help">مَدَتھ</string>
   <string name="main_drawer_login">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمِل گژھُن</string>
-  <string name="main_tooltip_text">خٲرمَقَدم %s، تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
-  <string name="main_tooltip_text_v2">تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
   <string name="main_tooltip_action_button">شۆرواتھ</string>
   <string name="main_tooltip_watchlist_title">نَظَرتَل فِہرِست</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٹھیٖک چھُ</string>

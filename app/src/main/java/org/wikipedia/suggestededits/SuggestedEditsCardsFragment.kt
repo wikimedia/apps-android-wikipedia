@@ -60,10 +60,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         get() {
             val f = topChild()
             return if (viewModel.action == ADD_DESCRIPTION || viewModel.action == ADD_CAPTION) {
-                f?.sourceSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.sourceSummaryForEdit?.pageTitle?.description = f.addedContribution
                 f?.sourceSummaryForEdit?.pageTitle
             } else {
-                f?.targetSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.targetSummaryForEdit?.pageTitle?.description = f.addedContribution
                 f?.targetSummaryForEdit?.pageTitle
             }
         }
@@ -172,7 +172,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     private fun onSuccess(list: List<String>) {
-        if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
+        if (binding.wikiLanguageDropdownContainer.isVisible) {
             initLanguageSpinners(list)
             binding.wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
             binding.wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()

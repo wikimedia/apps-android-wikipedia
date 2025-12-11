@@ -4,6 +4,7 @@
 * Chaduvari
 * Chsasank
 * JVRKPRASAD
+* Kasyap
 * Kiranmayee
 * MuratTheTurkish
 * Praveen Illa
@@ -22,13 +23,17 @@
   <string name="page_tabs_back">వెనక్కి</string>
   <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
+  <string name="search_hint_voice_search">వాయిస్ ఇన్‌పుట్ శోధన</string>
   <string name="search_hint_search_languages">ఏదైనా భాష కోసం వెతకండి</string>
   <string name="search_back_button_content_description">వెనక్కి వెళ్ళు</string>
+  <string name="search_clear_query_content_description">ప్రశ్నను క్లియర్ చేయండి</string>
   <string name="search_icon_content_description">వెతుకు</string>
   <string name="filter_hint_filter_my_lists_and_articles">నా జాబితాలను వడకట్టు</string>
   <string name="nav_item_suggested_edits">దిద్దుబాట్లు</string>
+  <string name="nav_item_activity">కార్యకలాపం</string>
   <string name="nav_item_more">మరిన్ని</string>
   <string name="nav_item_search">వెతుకులాట</string>
+  <string name="nav_item_contribute">తోడ్పడండి</string>
   <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="card_offline_error_retry">మళ్ళీ ప్రయత్నించు</string>
@@ -38,7 +43,7 @@
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
   <string name="error_back">వెనక్కి వెళ్ళు</string>
   <string name="error_next">తరువాతి</string>
-  <string name="menu_clear_all_history" fuzzy="true">చరిత్రను తుడిచివెయ్యి</string>
+  <string name="menu_clear_all_history">పఠన చరిత్రను తుడిచివెయ్యి</string>
   <string name="history_item_deleted">%s ని చరిత్ర నుండి తీసేసాం</string>
   <string name="history_items_deleted">%d వ్యాసాలను చరిత్ర నుండి తీసేసాం</string>
   <string name="history_item_delete_undo">వెనక్కి తిప్పు</string>
@@ -51,7 +56,7 @@
   <string name="wikimedia_commons">వికీమీడియా కామన్స్</string>
   <string name="wikidata">వికీడేటా</string>
   <string name="dialog_title_clear_history">బ్రౌజరు చరిత్రను తుడిచివేయి</string>
-  <string name="dialog_message_clear_history" fuzzy="true">దీంతో మీ బ్రౌజింగు చరిత్రంతా పోతుంది, ప్రస్తుతం తెరిచి ఉన్న ట్యాబులన్నీ మూసుకుపోతాయి. చేసెయ్యమంటారా?</string>
+  <string name="dialog_message_clear_history">ఇది మీ మొత్తం బ్రౌజింగ్ చరిత్రను తొలగిస్తుంది. చేసెయ్యమంటారా?</string>
   <string name="dialog_message_clear_history_yes">అవును</string>
   <string name="dialog_message_clear_history_no">కాదు</string>
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
@@ -1040,8 +1045,6 @@
   <string name="insert_media_settings_alternative_text_description">దృష్టి లోపం ఉన్న పాఠకుల కోసం వివరణ</string>
   <string name="main_drawer_help">సహాయం</string>
   <string name="main_drawer_login">వికీపీడియాలో లాగినవండి / చేరండి</string>
-  <string name="main_tooltip_text">%s గారూ, వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
-  <string name="main_tooltip_text_v2">వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
   <string name="main_tooltip_action_button">మొదలు పెట్టు</string>
   <string name="main_tooltip_watchlist_title">వీక్షణ జాబితా</string>
   <string name="custom_date_picker_dialog_ok_button_text">సరే</string>

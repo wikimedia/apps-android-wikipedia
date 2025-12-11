@@ -1289,8 +1289,6 @@
   <string name="templates_description_missing_data">이 틀은 &lt;a href=\"%1$s\"&gt;틀 데이터&lt;/a&gt;가 없어졌으며, 그 매개 변수는 &lt;a href=\"%2$s\"&gt;자동 생성&lt;/a&gt;되었습니다. 그 결과, 틀과 그 매개 변수는 설명이 부족하다.</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="main_tooltip_text">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
-  <string name="main_tooltip_text_v2">당신은 누구나 위키백과를 편집할 수 있다는 것을 알고 계셨나요?</string>
   <string name="main_tooltip_action_button">시작하기</string>
   <string name="main_tooltip_watchlist_title">주시문서 목록</string>
   <string name="main_tooltip_watchlist_text">이전에 주시문서 목록에 추가한 글과 페이지는 &lt;b&gt;주시문서 목록&lt;/b&gt;의 더 보기 메뉴에서 보십시오.</string>
@@ -1653,7 +1651,7 @@
   <string name="email_report_patroller_tasks_subject">문제 보고 - 편집 점검 기능</string>
   <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다.\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
   <string name="donation_campaign_maybe_later_snackbar">내일 다시 알려드리겠습니다.</string>
-  <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
   <string name="donate_gpay_dialog_title">구글 페이로 기부하시겠습니까?</string>
@@ -1670,7 +1668,7 @@
   <string name="donate_gpay_help_other_ways">다른 기부 방법</string>
   <string name="donate_gpay_help_faq">자주 묻는 질문</string>
   <string name="donate_gpay_help_tax">세금 공제 정보</string>
-  <string name="donation_history_deleted_message_snackbar">기부자 역사가 삭제되었습니다</string>
+  <string name="donation_history_deleted_message_snackbar">기부 기록이 삭제되었습니다</string>
   <string name="places_title">장소</string>
   <string name="places_permissions_denied">지도에서 내 위치를 보려면 위치 권한이 필요합니다. 다시 시도해 주십시오.</string>
   <string name="places_search_hint">장소 검색</string>
@@ -1798,8 +1796,6 @@
   <string name="recommended_reading_list_settings_notifications_dialog_title">알림을 끄시겠습니까?</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">끕니다</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
-  <string name="donation_reminders_initial_prompt_positive_button">시작하기</string>
-  <string name="donation_reminders_initial_prompt_negative_button">지금은 괜찮습니다</string>
   <string name="donation_settings_section_header">기부</string>
   <string name="donation_reminders_settings_option_custom">사용자 지정…</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>

@@ -94,7 +94,7 @@ class SuggestedEditsImageRecsFragmentViewModel(savedStateHandle: SavedStateHandl
                             .post(body)
                             .build()
                         OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
-                            val previewHtml = response.body?.string().orEmpty()
+                            val previewHtml = response.body.string()
                             attemptInsertInfobox = true
 
                             if (previewHtml.contains("with unknown parameter", true)) {

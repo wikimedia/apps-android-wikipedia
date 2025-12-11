@@ -6,4 +6,12 @@
         <item>HEADERS</item>
         <item>BODY</item>
     </string-array>
+    <string-array name="preference_values_event_platform_intake_debug_titles">
+        <item>Production</item>
+        <item>Beta</item>
+    </string-array>
+    <string-array name="preference_values_event_platform_intake_debug_values">
+        <item>https://intake-analytics.wikimedia.org</item>
+        <item>https://intake-analytics-beta.wmflabs.org</item>
+    </string-array>
 </resources>

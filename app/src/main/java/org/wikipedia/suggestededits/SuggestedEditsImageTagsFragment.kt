@@ -16,6 +16,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.children
+import androidx.core.view.isEmpty
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -342,7 +343,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun publish() {
-        if (publishing || publishSuccess || binding.tagsChipGroup.childCount == 0) {
+        if (publishing || publishSuccess || binding.tagsChipGroup.isEmpty()) {
             return
         }
 

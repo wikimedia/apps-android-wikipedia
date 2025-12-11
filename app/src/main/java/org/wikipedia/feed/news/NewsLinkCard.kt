@@ -1,6 +1,7 @@
 package org.wikipedia.feed.news
 
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -9,7 +10,10 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 
-class NewsLinkCard(private val page: PageSummary, private val wiki: WikiSite) : Card() {
+class NewsLinkCard(
+    private val page: PageSummary,
+    private val wiki: WikiSite,
+) : Card() {
 
     override fun title(): String {
         return page.displayTitle
@@ -20,8 +24,9 @@ class NewsLinkCard(private val page: PageSummary, private val wiki: WikiSite) : 
     }
 
     override fun image(): Uri? {
-        val thumbUrl = page.thumbnailUrl
-        return if (thumbUrl.isNullOrEmpty()) null else Uri.parse(ImageUrlUtil.getUrlForPreferredSize(thumbUrl, Service.PREFERRED_THUMB_SIZE))
+        return page.thumbnailUrl?.let {
+            ImageUrlUtil.getUrlForPreferredSize(it, Service.PREFERRED_THUMB_SIZE).toUri()
+        }
     }
 
     override fun type(): CardType {

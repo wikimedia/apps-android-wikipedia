@@ -5,6 +5,7 @@
 * Nieszczarda2
 * Red Winged Duck
 * Renessaince
+* Ucukor
 -->
 <resources>
   <string name="app_name_prod">Вікіпэдыя</string>
@@ -379,5 +380,6 @@
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
+  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
   <string name="places_card_action">Болей месцаў побач</string>
 </resources>

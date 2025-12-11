@@ -1106,8 +1106,6 @@
   <string name="insert_media_insert_button">تێخستن</string>
   <string name="main_drawer_help">یارمەتی</string>
   <string name="main_drawer_login">چوونە ژوورەوە/ ببە ئەندامی ویکیپیدیا</string>
-  <string name="main_tooltip_text">%s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
-  <string name="main_tooltip_text_v2">ئایا دەزانیت هەموو کەسێک دەتوانێت دەستکاری ویکیپیدیا بکات؟</string>
   <string name="main_tooltip_action_button">دەست پێ بکە</string>
   <string name="main_tooltip_watchlist_title">پێڕستی چاودێری</string>
   <string name="main_tooltip_watchlist_text">وتار و پەڕەکان بدۆزەرەوە کە پێشووتر زیادت کردوون بۆ پێڕستی چاودێرییەکەت لە پێڕستی زیاتر لەژێر &lt;b&gt;پێڕستی چاودێری&lt;/b&gt;</string>

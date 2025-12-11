@@ -203,4 +203,5 @@
   <string name="talk_message_hint">Tunga ujumbe</string>
   <string name="talk_message_empty">Ujumbe hauwezi kuwa tupu.</string>
   <string name="talk_subject_empty">Mada haiwezi kuwa tupu</string>
+  <string name="year_in_review_login_dialog_negative">Endelea bila kuingia</string>
 </resources>

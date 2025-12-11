@@ -26,7 +26,7 @@ final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
 final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
 
 static def computeVersionName(versionCode, label) {
-    return "2.7.${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
+    return "${versionCode}-${label}-${(new Date()).format('yyyy-MM-dd')}"
 }
 
 android {
@@ -49,7 +49,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50553
+        versionCode 50563
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -120,12 +120,12 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testProguardFiles 'test-proguard-rules.pro'
         }
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             testProguardFiles 'test-proguard-rules.pro'
         }
     }
@@ -222,7 +222,6 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
-    implementation libs.metrics.platform
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
@@ -234,8 +233,8 @@ dependencies {
     implementation libs.retrofit2.kotlinx.serialization.converter
     implementation(libs.paging.compose)
 
-    implementation libs.android.sdk
-    implementation libs.android.plugin.annotation.v9
+    implementation libs.maplibre
+    implementation libs.maplibre.annotation
 
     implementation libs.androidx.room.runtime
     annotationProcessor libs.androidx.room.compiler

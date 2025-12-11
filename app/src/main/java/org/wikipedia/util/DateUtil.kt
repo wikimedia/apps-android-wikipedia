@@ -82,8 +82,9 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "yyyy")
     }
 
-    fun getYMDDateString(date: Date): String {
-        return getCachedDateFormat("yyyyMMdd", Locale.ROOT, true).format(date)
+    fun getYMDDateString(date: LocalDate): String {
+        return getCachedDateTimeFormatter("yyyyMMdd", Locale.getDefault(), utc = false, skeleton = false)
+            .format(date)
     }
 
     fun getMMMMdYYYY(date: Date, utc: Boolean = true): String {

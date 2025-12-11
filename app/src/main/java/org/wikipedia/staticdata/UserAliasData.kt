@@ -318,6 +318,7 @@ object UserAliasData {
             "tly" to "Okoədə",
             "tn" to "Modirisi",
             "to" to "User",
+            "tok" to "jan",
             "tpi" to "Yusa",
             "tr" to "Kullanıcı",
             "trv" to "Empduuy",

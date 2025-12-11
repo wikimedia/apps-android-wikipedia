@@ -174,8 +174,9 @@ object Prefs {
     val mediaWikiBaseUriSupportsLangCode
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true)
 
-    val eventPlatformIntakeUriOverride
-        get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")!!
+    var eventPlatformIntakeUriOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_intake_base_uri, value)
 
     fun getLastRunTime(task: String): Long {
         return PrefsIoUtil.getLong(getLastRunTimeKey(task), 0)
@@ -393,10 +394,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_description_edit_success_prompt, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_description_edit_success_prompt, value)
 
-    var showSuggestedEditsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_suggested_edits_tooltip, value)
-
     var hasVisitedArticlePage
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_visited_article_page, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_visited_article_page, value)
@@ -496,10 +493,6 @@ object Prefs {
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
-
-    var showOneTimeSequentialUserStatsTooltip
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, value)
 
     var showSearchTabTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_search_tab_tooltip, true)
@@ -782,7 +775,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
 
     var isYearInReviewEnabled: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
     var yearInReviewVisited: Boolean
@@ -839,10 +832,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_recommended_reading_list_reset, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recommended_reading_list_reset, value)
 
-    var activityTabRedDotShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_activity_tab_red_dot_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_activity_tab_red_dot_shown, value)
-
     var impactLastQueryTime
         get() = PrefsIoUtil.getLong(R.string.preference_key_impact_last_query_time, 0)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_impact_last_query_time, value)
@@ -875,4 +864,16 @@ object Prefs {
     var selectedAppIcon
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
+
+    var yearInReviewReadingListVisitCount
+        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
+
+    var yearInReviewReadingListSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
+
+    var exploreFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_survey_shown, value)
 }

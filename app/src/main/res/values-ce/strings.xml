@@ -168,7 +168,7 @@
   <string name="create_account_button">Аккаунт кхолла</string>
   <string name="create_account_name_unavailable">Декъашхочун цӀе \"%s\" мегаш йац. Кхечу кепара цӀе йазйе.</string>
   <string name="create_account_ip_block_message">Бехк ма билла, хьан IP-адрес блоктоьхна ду керла аккаунт кхолларх.</string>
-  <string name="create_account_ip_block_help_url">https://ce.wikipedia.org/w/index.php?title=%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8:%D0%91%D0%BB%D0%BE%D0%BA%D1%82%D0%BE%D1%85%D0%B0%D1%80%D1%88&amp;action=edit&amp;redlink=1</string>
+  <string name="create_account_ip_block_help_url">https://ce.wikipedia.org/wiki/Википеди:Блоктохарш</string>
   <string name="create_account_ip_block_details">Мадарра</string>
   <string name="preferences_general_heading">Йукъара</string>
   <string name="preferences_account_heading">Аккаунт</string>

@@ -825,8 +825,6 @@
   <string name="insert_media_insert_button">Sisipang</string>
   <string name="main_drawer_help">Wantuan</string>
   <string name="main_drawer_login">Manjing log / sarengin Wikipédia</string>
-  <string name="main_tooltip_text">Halo %s, napiké ragané uning sinamian jadma prasida nguahin Wikipédia?</string>
-  <string name="main_tooltip_text_v2">Napiké ragané uning sinamian jadma prasida nguahin Wikipédia?</string>
   <string name="main_tooltip_action_button">Kawitin</string>
   <string name="main_tooltip_watchlist_title">Pangawasan</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

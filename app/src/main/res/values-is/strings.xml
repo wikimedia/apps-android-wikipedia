@@ -1184,8 +1184,6 @@
   <string name="insert_media_insert_button">Setja inn</string>
   <string name="main_drawer_help">Hjálp</string>
   <string name="main_drawer_login">Skrá inn / nýskrá á Wikipedia</string>
-  <string name="main_tooltip_text">Hæ %s, vissir þú að allir geta breytt efni á Wikipedia?</string>
-  <string name="main_tooltip_text_v2">Vissir þú að allir geta breytt efni á Wikipedia?</string>
   <string name="main_tooltip_action_button">Komast í gang</string>
   <string name="main_tooltip_watchlist_title">Vaktlisti</string>
   <string name="main_tooltip_watchlist_text">Finndu greinar og síður sem þú hefur áður bætt við vaktlistann þinn í valmyndinni \"Meira\" undir &lt;b&gt;Vaktlisti&lt;/b&gt;.</string>

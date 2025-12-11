@@ -1014,4 +1014,6 @@
   <string name="places_title">Vyron</string>
   <string name="places_toggle_buttons_map">Xəritə</string>
   <string name="places_toggle_buttons_list">Sijohi</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Soxtej</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Ne, səǧbi</string>
 </resources>

@@ -33,6 +33,7 @@ class ArticleTabTest : BaseTest<MainActivity>(
     fun runTest() {
         systemRobot
             .clickOnSystemDialogWithText("Allow")
+            .disableDarkMode(context)
         exploreFeedRobot
             .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
             .clickOnFeaturedArticle()

@@ -191,6 +191,7 @@
   <string name="description_edit_read">Окуу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
   <string name="description_edit_success_done">Даяр</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_image_caption_summary_title_source">Булак</string>
   <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>

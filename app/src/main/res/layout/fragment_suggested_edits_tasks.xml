@@ -34,10 +34,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <include
-                        android:id="@+id/layoutContributionsContainer"
-                        layout="@layout/suggested_edits_tasks_contribution_container" />
-
                     <org.wikipedia.views.MessageCardView
                         android:id="@+id/messageCard"
                         android:layout_width="match_parent"

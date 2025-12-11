@@ -264,7 +264,8 @@ interface Service {
         @Field("payment_network") paymentNetwork: String,
         @Field("postal_code") postalCode: String,
         @Field("state_province") stateProvince: String,
-        @Field("street_address") streetAddress: String
+        @Field("street_address") streetAddress: String,
+        @Field("app_install_id") appInstallId: String
     ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
@@ -318,6 +319,9 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
     suspend fun getUserInfo(): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo|globaluserinfo&guiprop=editcount&uiprop=groups|blockinfo|editcount|latestcontrib|hasmsg|options")
+    suspend fun getLocalAndGlobalUserInfo(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=editcount|groups|registration|rights")
     suspend fun userInfo(@Query("ususers") userName: String): MwQueryResponse
@@ -709,6 +713,7 @@ interface Service {
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"
+        const val WIKIMEDIA_URL = "https://wikimedia.org/"
         const val WIKIDATA_URL = "https://www.wikidata.org/"
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"

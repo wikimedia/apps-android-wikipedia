@@ -510,8 +510,6 @@
   <string name="wikitext_reference">ಉಲ್ಲೇಖ</string>
   <string name="main_drawer_help">ಸಹಾಯ</string>
   <string name="main_drawer_login">ವಿಕಿಪೀಡಿಯಗೆ ಲಾಗ್ ಇನ್ ಆಗಿ / ಸೇರಿ</string>
-  <string name="main_tooltip_text">ನಮಸ್ಕಾರ %s, ವಿಕಿಪೀಡಿಯ ಅನ್ನು ಎಲ್ಲರೂ ಸಂಪಾದಿಸಬಹುದೆಂದು ನಿಮಗೆ ಗೊತ್ತಿತ್ತೇ?</string>
-  <string name="main_tooltip_text_v2">ವಿಕಿಪೀಡಿಯ ಅನ್ನು ಎಲ್ಲರೂ ಸಂಪಾದಿಸಬಹುದೆಂದು ನಿಮಗೆ ಗೊತ್ತಿತ್ತೇ?</string>
   <string name="main_tooltip_watchlist_title">ವೀಕ್ಷಣಾಪಟ್ಟಿ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ಸರಿ</string>
   <string name="text_input_dialog_ok_button_text">ಸರಿ</string>

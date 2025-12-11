@@ -16,7 +16,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemSuggestedEditsRecentEditsFilterBinding
 import org.wikipedia.util.ResourceUtil
 
-class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class SuggestedEditsRecentEditsFilterItemView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
         fun onCheckedChanged(filter: SuggestedEditsRecentEditsFilterActivity.Filter?)
@@ -27,7 +27,7 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
     var callback: Callback? = null
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         setOnClickListener {

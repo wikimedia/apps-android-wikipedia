@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.PreviewRequest
 import org.wikipedia.dataclient.restbase.RbDefinition
+import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
@@ -186,6 +187,20 @@ interface RestService {
         @Path("fromDate") fromDate: String,
         @Path("toDate") toDate: String
     ): Metrics
+
+    @GET("metrics/edits/v3/per_editor/{globalUserId}/all_page_types/monthly/{fromDate}/{toDate}")
+    suspend fun getEditsPerGlobalUserMonthly(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): UserEdits
+
+    @GET("metrics/edits/v3/per_editor/{globalUserId}/all_page_types/daily/{fromDate}/{toDate}")
+    suspend fun getEditsPerGlobalUserDaily(
+        @Path("globalUserId") globalUserId: Int,
+        @Path("fromDate") fromDate: String,
+        @Path("toDate") toDate: String
+    ): UserEdits
 
     @POST("transform/wikitext/to/mobile-html/{title}")
     suspend fun getHtmlPreviewFromWikitext(

@@ -38,7 +38,8 @@ data class DataInjector(
     val intentBuilder: (Intent.() -> Unit)? = null,
     val showOneTimeCustomizeToolbarTooltip: Boolean = false,
     val readingListShareTooltipShown: Boolean = true,
-    val otdEntryDialogShown: Boolean = true
+    val otdEntryDialogShown: Boolean = true,
+    val enableYearInReview: Boolean = false,
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -70,6 +71,7 @@ abstract class BaseTest<T : AppCompatActivity>(
         Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
         Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
         Prefs.otdEntryDialogShown = dataInjector.otdEntryDialogShown
+        Prefs.isYearInReviewEnabled = dataInjector.enableYearInReview
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }

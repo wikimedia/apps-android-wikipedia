@@ -16,9 +16,11 @@ import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.donate.DonateDialog
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.settings.Prefs
 
 class YearInReviewActivity : BaseActivity() {
@@ -51,13 +53,14 @@ class YearInReviewActivity : BaseActivity() {
                             state = screenState,
                             requestScreenshotBitmap = { width, height -> viewModel.requestScreenshotHeaderBitmap(width, height) },
                             onCloseButtonClick = {
-                                if (viewModel.slideViewedCount >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
+                                if ((YearInReviewViewModel.getYearInReviewModel()?.slideViewedCount ?: 0) >= YearInReviewViewModel.MIN_SLIDES_BEFORE_SURVEY && Prefs.yearInReviewSurveyState == YearInReviewSurveyState.NOT_TRIGGERED) {
                                     Prefs.yearInReviewSurveyState = YearInReviewSurveyState.SHOULD_SHOW
                                 }
                                 finish()
                             },
                             onNextButtonClick = { pagerState, currentSlideData ->
-                                viewModel.slideViewedCount += 1
+                                YearInReviewViewModel.updateYearInReviewModel { it.copy(slideViewedCount = it.slideViewedCount + 1) }
+
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(pagerState.currentPage + 1)
                                 }
@@ -68,18 +71,19 @@ class YearInReviewActivity : BaseActivity() {
                                     finish()
                                 }
                             },
-                            onDonateClick = {
+                            onDonateClick = { currentSlide ->
                                 EventPlatformClient.submit(
                                     BreadCrumbLogEvent(
                                         screen_name = "year_in_review",
                                         action = "donate_click")
                                 )
-                                DonorExperienceEvent.logAction(
+                                YearInReviewViewModel.currentCampaignId = "appmenu_yir_$currentSlide"
+                                YearInReviewEvent.submit(
                                     action = "donate_start_click_yir",
-                                    activeInterface = "wiki_yir",
-                                    campaignId = "yir"
+                                    slide = currentSlide,
+                                    campaignId = YearInReviewViewModel.currentCampaignId
                                 )
-                                launchDonateDialog("yir")
+                                ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId = YearInReviewViewModel.currentCampaignId, fromYiR = true))
                             },
                             onRetryClick = {
                                 viewModel.fetchPersonalizedData()

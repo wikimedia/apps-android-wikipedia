@@ -786,7 +786,6 @@
   <string name="wikitext_preview_link">Сигэни көрүү</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
   <string name="main_tooltip_action_button">Саҕалыырга</string>
   <string name="custom_date_picker_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_ok_button_text">Сөп</string>

@@ -37,6 +37,7 @@ class ResetPasswordActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
 
         binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }

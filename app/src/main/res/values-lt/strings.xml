@@ -1025,8 +1025,6 @@
   <string name="insert_media_insert_button">Įterpti</string>
   <string name="main_drawer_help">Pagalba</string>
   <string name="main_drawer_login">Prisijunkite / užsiregistruokite prie Vikipedijos</string>
-  <string name="main_tooltip_text">Sveiki, %s, ar žinojote, kad visi gali redaguoti Vikipediją?</string>
-  <string name="main_tooltip_text_v2">Ar žinojote, kad visi gali redaguoti Vikipediją?</string>
   <string name="main_tooltip_action_button">Pradėkite</string>
   <string name="main_tooltip_watchlist_title">Stebimųjų sąrašas</string>
   <string name="main_tooltip_watchlist_text">Ankščiau pridėtus į stebimųjų sąrašą straipsnius ir puslapius rasite Daugiau meniu &lt;b&gt;Stebimųjų sąraše&lt;/b&gt;.</string>

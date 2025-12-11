@@ -1,9 +1,9 @@
 package org.wikipedia.util
 
 import android.content.Context
-import android.net.Uri
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import org.wikipedia.R
 
 object CustomTabsUtil {
@@ -18,6 +18,6 @@ object CustomTabsUtil {
         CustomTabsIntent.Builder()
                 .setDefaultColorSchemeParams(colors)
                 .build()
-                .launchUrl(context, Uri.parse(url))
+                .launchUrl(context, url.toUri())
     }
 }

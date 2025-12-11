@@ -761,8 +761,6 @@
   <string name="wikitext_preview_link">Tabhair réamhamharc ar nasc</string>
   <string name="main_drawer_help">Cabhair</string>
   <string name="main_drawer_login">Logáil isteach / cláraigh le Vicipéid</string>
-  <string name="main_tooltip_text">Haigh %s, an bhfios duit go bhfuil gach duine in ann Vicipéid a chur in eaga?</string>
-  <string name="main_tooltip_text_v2">An bhfios duit go bhfuil gach duine in ann Vicipéid a chur in eagar?</string>
   <string name="main_tooltip_action_button">Tosaigh</string>
   <string name="main_tooltip_watchlist_title">Liosta Faire</string>
   <string name="text_input_dialog_cancel_button_text">Cealaigh</string>

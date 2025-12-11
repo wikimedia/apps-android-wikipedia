@@ -1,6 +1,7 @@
 package org.wikipedia.feed.featured
 
 import android.net.Uri
+import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -10,8 +11,10 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
-open class FeaturedArticleCard(private val page: PageSummary,
-                               private val age: Int, wiki: WikiSite) : WikiSiteCard(wiki) {
+open class FeaturedArticleCard(
+    private val page: PageSummary,
+    private val age: Int, wiki: WikiSite,
+) : WikiSiteCard(wiki) {
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_article_card_title)
@@ -22,7 +25,7 @@ open class FeaturedArticleCard(private val page: PageSummary,
     }
 
     override fun image(): Uri? {
-        return if (page.thumbnailUrl.isNullOrEmpty()) null else Uri.parse(page.thumbnailUrl)
+        return page.thumbnailUrl?.toUri()
     }
 
     override fun extract(): String? {

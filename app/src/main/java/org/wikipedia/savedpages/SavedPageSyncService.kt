@@ -196,12 +196,19 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                 // download thumbnail and lead image
                 if (!summaryResponse.thumbnailUrl.isNullOrEmpty()) {
                     page.thumbUrl = UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, summaryResponse.thumbnailUrl.orEmpty())
+                    val existingPageImage = AppDatabase.instance.pageImagesDao()
+                        .findItemsBy(pageTitle.wikiSite.languageCode, pageTitle.namespace, pageTitle.prefixedText)
+                        .firstOrNull()
+
                     AppDatabase.instance.pageImagesDao().insertPageImage(PageImage(
-                        pageTitle,
+                        pageTitle.wikiSite.languageCode,
+                        pageTitle.namespace,
+                        page.apiTitle,
                         page.thumbUrl.orEmpty(),
                         summaryResponse.description,
-                        summaryResponse.coordinates?.latitude,
-                        summaryResponse.coordinates?.longitude
+                        existingPageImage?.timeSpentSec ?: 0,
+                        summaryResponse.coordinates?.latitude ?: 0.0,
+                        summaryResponse.coordinates?.longitude ?: 0.0
                     ))
                     fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
                         ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), DimenUtil.calculateLeadImageWidth())))

@@ -678,8 +678,6 @@
   <string name="wikitext_preview_link">A̱fwop nwuana̱son</string>
   <string name="main_drawer_help">Beang</string>
   <string name="main_drawer_login">Nwuo/Shyia̱ nwuai Wikipidya</string>
-  <string name="main_tooltip_text">La̱u %s, a wa lyen nyia̱ konyan wa maai jhyuk Wikipidya a?</string>
-  <string name="main_tooltip_text_v2">A wa lyen nyia̱ konyan wa maai jhyuk Wikipidya a?</string>
   <string name="main_tooltip_action_button">Ka̱di zi̱ tsa</string>
   <string name="main_tooltip_watchlist_title">Lis saai-a̱ghyi</string>
   <string name="custom_date_picker_dialog_ok_button_text">Ndei</string>

@@ -5,7 +5,7 @@
 
     <!-- URLs -->
     <string name="support_email">android-support@wikimedia.org</string>
-    <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=appmenu&amp;uselang=%1$s&amp;app_version=%2$s</string>
+    <string name="donate_url">https://donate.wikimedia.org/?wmf_medium=WikipediaApp&amp;wmf_campaign=Android&amp;wmf_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s&amp;app_install_id=%4$s</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
@@ -28,12 +28,18 @@
     <string name="year_in_review_media_wiki_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review</string>
     <string name="year_in_review_media_wiki_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#Frequently_asked_questions</string>
     <string name="year_in_review_hashtag">#WikipediaYearInReview</string>
+    <string name="year_in_review_most_read_english_articles_blog_url">https://wikimediafoundation.org/news/2025/12/01/announcing-english-wikipedias-most-read-articles-of-2025</string>
+    <string name="year_in_highlights_screenshot_url">wikimediafoundation.org/yir25</string>
+    <string name="year_in_highlights_screenshot_articles_url">wikimediafoundation.org/2025articles</string>
+    <string name="year_in_review_reading_list_learn_more">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Wikipedia_Year_in_Review/Frequently_Asked_Questions#How_does_the_Year_in_Review_reading_list_work?</string>
     <string name="recommended_reading_list_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Rabbit_Holes</string>
     <string name="donation_reminders_experiment_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Customizable_Donation_Reminder_Experiment</string>
     <string name="activity_tab_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Activity_Tab_Experiment</string>
     <string name="edit_screen_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#General_2</string>
     <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
+    <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
+    <string name="explore_feed_survey_url">https://wikimedia.qualtrics.com/jfe/form/SV_4V0kURVL6q5Da6y</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
@@ -98,8 +104,5 @@
     <string name="sender_username_wikitext">{{{senderUserName}}}</string>
     <string name="diff_link_wikitext">{{{diffLink}}}</string>
     <string name="wikiText_replace_url">[[%1$s|%2$s]]</string>
-
-    <string name="year_in_review_action_positive">Take me there</string>
-    <string name="year_in_review_text"><![CDATA[<strong>Wikipedia 2024 Year in Review</strong><br/><br/>Wikipedia is the largest knowledge resource ever assembled in the history of the world, and it’s freely available to everyone everywhere. Here’s a review of 2024 through the lens of Wikipedia.]]></string>
 
 </resources>

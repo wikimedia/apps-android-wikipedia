@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -67,13 +68,21 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.searchResultsFlow.collectLatest {
-                        binding.searchResultsList.visibility = View.VISIBLE
+                        binding.searchResultsList.isVisible = true
+                        binding.searchErrorView.isVisible = false
                         searchResultsAdapter.submitData(lifecycleScope, it)
                     }
                 }
                 launch {
                     searchResultsAdapter.loadStateFlow.collectLatest {
                         callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
+                        if (it.refresh is LoadState.Error) {
+                            binding.searchErrorView.setError((it.refresh as LoadState.Error).error)
+                            binding.searchErrorView.isVisible = true
+                            binding.searchResultsList.isVisible = false
+                            return@collectLatest
+                        }
+                        binding.searchErrorView.isVisible = false
                         val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
                         if (showEmpty) {
                             searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)

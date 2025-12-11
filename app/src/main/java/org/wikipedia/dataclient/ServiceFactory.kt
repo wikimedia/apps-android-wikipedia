@@ -16,6 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 object ServiceFactory {
 
@@ -35,7 +36,7 @@ object ServiceFactory {
     })
 
     private val ANALYTICS_REST_SERVICE_CACHE = lruCache<DestinationEventService, EventService>(SERVICE_CACHE_SIZE, create = {
-        val intakeBaseUriOverride = Prefs.eventPlatformIntakeUriOverride.ifEmpty { it.baseUri }
+        val intakeBaseUriOverride = Prefs.eventPlatformIntakeUriOverride.orEmpty().ifEmpty { it.baseUri }
         createRetrofit(null, intakeBaseUriOverride).create<EventService>()
     })
 
@@ -60,7 +61,7 @@ object ServiceFactory {
         return r.create(service)
     }
 
-    private fun getBasePath(wiki: WikiSite): String {
+    fun getBasePath(wiki: WikiSite): String {
         var path = wiki.url()
         if (!path.endsWith("/")) {
             path += "/"
@@ -77,8 +78,9 @@ object ServiceFactory {
         return path
     }
 
-    private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
+    fun createRetrofit(wiki: WikiSite?, baseUrl: String, readTimeoutSec: Long = OkHttpConnectionFactory.DEFAULT_READ_TIMEOUT_SEC): Retrofit {
         val builder = OkHttpConnectionFactory.client.newBuilder()
+        builder.readTimeout(readTimeoutSec, TimeUnit.SECONDS)
         builder.interceptors().add(builder.interceptors().indexOfFirst { it is HttpLoggingInterceptor }, LanguageVariantHeaderInterceptor(wiki))
 
         return Retrofit.Builder()

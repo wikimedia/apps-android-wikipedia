@@ -10,10 +10,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.onboarding.YIROnboardingCard
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
@@ -106,10 +104,6 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     )
                     binding.viewAnnouncementContainer.radius = 0f
                 }
-            }
-
-            if (value is YIROnboardingCard) {
-                BreadCrumbLogEvent.logImpression(context, "YIR2024")
             }
         }
 
