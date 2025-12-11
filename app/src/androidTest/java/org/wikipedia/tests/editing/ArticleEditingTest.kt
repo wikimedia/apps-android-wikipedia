@@ -71,13 +71,20 @@ class ArticleEditingTest : BaseTest<MainActivity>(
     }
 
     private fun proceedToTestArticle() {
-        bottomNavRobot
-            .navigateToMoreMenu()
-            .clickLoginMenuItem()
         loginRobot
-            .logInUser()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
+            .loginState(
+                loggedIn = {},
+                loggedOut = {
+                    bottomNavRobot
+                        .navigateToMoreMenu()
+                        .clickLoginMenuItem()
+                    loginRobot
+                        .logInUser()
+                    systemRobot
+                        .clickOnSystemDialogWithText("Allow")
+                }
+            )
+
         bottomNavRobot
             .navigateToMoreMenu()
             .goToSettings()

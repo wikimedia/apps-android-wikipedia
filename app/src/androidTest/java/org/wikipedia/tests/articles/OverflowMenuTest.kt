@@ -35,13 +35,20 @@ class OverflowMenuTest : BaseTest<MainActivity>(
         setDeviceOrientation(isLandscape = false)
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        bottomNavRobot
-            .navigateToMoreMenu()
-            .clickLoginMenuItem()
+
         loginRobot
-            .logInUser()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
+            .loginState(
+                loggedIn = {},
+                loggedOut = {
+                    bottomNavRobot
+                        .navigateToMoreMenu()
+                        .clickLoginMenuItem()
+                    loginRobot
+                        .logInUser()
+                    systemRobot
+                        .clickOnSystemDialogWithText("Allow")
+                }
+            )
         searchRobot
             .tapSearchView()
             .typeTextInView(SEARCH_TERM)

@@ -31,13 +31,19 @@ class SuggestedEditScreenTest : BaseTest<MainActivity>(
     fun runTest() {
         systemRobot
             .clickOnSystemDialogWithText("Allow")
-        navRobot
-            .navigateToMoreMenu()
-            .clickLoginMenuItem()
         loginRobot
-            .logInUser()
-        systemRobot
-            .clickOnSystemDialogWithText("Allow")
+            .loginState(
+                loggedIn = {},
+                loggedOut = {
+                    navRobot
+                        .navigateToMoreMenu()
+                        .clickLoginMenuItem()
+                    loginRobot
+                        .logInUser()
+                    systemRobot
+                        .clickOnSystemDialogWithText("Allow")
+                }
+            )
         navRobot
             .navigateToMoreMenu()
             .clickEditsMenuItem()
