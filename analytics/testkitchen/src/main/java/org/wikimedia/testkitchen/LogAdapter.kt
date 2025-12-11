@@ -9,7 +9,7 @@ interface LogAdapter {
 /**
  * Stub implementation of LogAdapter (intended to be overridden by clients.)
  */
-class LogAdapterImpl : LogAdapter {
+class DefaultLogAdapterImpl : LogAdapter {
     override fun info(message: String, vararg args: Any) {
     }
 

@@ -18,7 +18,7 @@ class TestKitchenClient(
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
     val queueCapacity: Int = 100,
-    val logger: LogAdapter = LogAdapterImpl()
+    val logger: LogAdapter = DefaultLogAdapterImpl()
 ) {
 
     private var sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
@@ -30,7 +30,7 @@ class TestKitchenClient(
 
     /**
      * Handles logging session management. A new session begins (and a new session ID is created)
-     * if the app has been inactive for 15 minutes or more.
+     * if the app has been inactive for a predefined time.
      */
     private val sessionController = SessionController()
 
@@ -51,10 +51,6 @@ class TestKitchenClient(
         logger
     )
 
-    /**
-     * Construct and submits a Metrics Platform Event from the schema id, event name, page metadata, and custom data for
-     * the stream that is interested in those events.
-     */
     fun submitMetricsEvent(
         streamName: String,
         schemaId: String,
