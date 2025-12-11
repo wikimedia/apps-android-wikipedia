@@ -9,6 +9,7 @@ import org.wikimedia.testkitchen.config.curation.CollectionCurationRules
 import org.wikimedia.testkitchen.config.curation.ComparableCurationRules
 import org.wikimedia.testkitchen.config.curation.CurationRules
 import org.wikimedia.testkitchen.context.AgentData
+import org.wikimedia.testkitchen.context.ContextValue
 import org.wikimedia.testkitchen.context.InstantSerializer
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
@@ -19,31 +20,34 @@ import java.util.function.Predicate
 
 @Serializable
 class CurationFilter : Predicate<Event> {
-    @SerialName("agent_app_install_id") var agentAppInstallIdRules: CurationRules<String>? = null
-    @SerialName("agent_client_platform") var agentClientPlatformRules: CurationRules<String>? = null
-    @SerialName("agent_client_platform_family") var agentClientPlatformFamilyRules: CurationRules<String>? = null
-    @SerialName("mediawiki_database") var mediawikiDatabase: CurationRules<String>? = null
-    @SerialName("page_id") var pageIdRules: ComparableCurationRules<Int>? = null
-    @SerialName("page_namespace_id") var pageNamespaceIdRules: ComparableCurationRules<Int>? = null
-    @SerialName("page_namespace_name") var pageNamespaceNameRules: CurationRules<String>? = null
-    @SerialName("page_title") var pageTitleRules: CurationRules<String>? = null
-    @SerialName("page_revision_id") var pageRevisionIdRules: ComparableCurationRules<Long>? = null
-    @SerialName("page_wikidata_qid") var pageWikidataQidRules: CurationRules<String>? = null
-    @SerialName("page_content_language") var pageContentLanguageRules: CurationRules<String>? = null
-    @SerialName("performer_id") var performerIdRules: ComparableCurationRules<Int>? = null
-    @SerialName("performer_name") var performerNameRules: CurationRules<String>? = null
-    @SerialName("performer_session_id") var performerSessionIdRules: CurationRules<String>? = null
-    @SerialName("performer_pageview_id") var performerPageviewIdRules: CurationRules<String>? = null
-    @SerialName("performer_groups") var performerGroupsRules: CollectionCurationRules<String>? = null
-    @SerialName("performer_is_logged_in") var performerIsLoggedInRules: CurationRules<Boolean>? = null
-    @SerialName("performer_is_temp") var performerIsTempRules: CurationRules<Boolean>? = null
-    @SerialName("performer_registration_dt") var performerRegistrationDtRules: ComparableCurationRules<Instant>? = null
-
-    @SerialName("performer_language_groups")
-    var performerLanguageGroupsRules: CurationRules<String>? = null
-
-    @SerialName("performer_language_primary")
-    var performerLanguagePrimaryRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_APP_INSTALL_ID) var agentAppInstallIdRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_CLIENT_PLATFORM) var agentClientPlatformRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_CLIENT_PLATFORM_FAMILY) var agentClientPlatformFamilyRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_APP_FLAVOR) var agentAppFlavorRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_APP_THEME) var agentAppThemeRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_APP_VERSION) var agentAppVersionRules: CurationRules<Int>? = null
+    @SerialName(ContextValue.AGENT_APP_VERSION_NAME) var agentAppVersionNameRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_DEVICE_FAMILY) var agentDeviceFamilyRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_DEVICE_LANGUAGE) var agentDeviceLanguageRules: CurationRules<String>? = null
+    @SerialName(ContextValue.AGENT_RELEASE_STATUS) var agentReleaseStatusRules: CurationRules<String>? = null
+    @SerialName(ContextValue.MEDIAWIKI_DATABASE) var mediawikiDatabase: CurationRules<String>? = null
+    @SerialName(ContextValue.PAGE_ID) var pageIdRules: ComparableCurationRules<Int>? = null
+    @SerialName(ContextValue.PAGE_NAMESPACE_ID) var pageNamespaceIdRules: ComparableCurationRules<Int>? = null
+    @SerialName(ContextValue.PAGE_NAMESPACE_NAME) var pageNamespaceNameRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PAGE_TITLE) var pageTitleRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PAGE_REVISION_ID) var pageRevisionIdRules: ComparableCurationRules<Long>? = null
+    @SerialName(ContextValue.PAGE_WIKIDATA_QID) var pageWikidataQidRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PAGE_CONTENT_LANGUAGE) var pageContentLanguageRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_ID) var performerIdRules: ComparableCurationRules<Int>? = null
+    @SerialName(ContextValue.PERFORMER_NAME) var performerNameRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_SESSION_ID) var performerSessionIdRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_PAGEVIEW_ID) var performerPageviewIdRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_GROUPS) var performerGroupsRules: CollectionCurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_IS_LOGGED_IN) var performerIsLoggedInRules: CurationRules<Boolean>? = null
+    @SerialName(ContextValue.PERFORMER_IS_TEMP) var performerIsTempRules: CurationRules<Boolean>? = null
+    @SerialName(ContextValue.PERFORMER_REGISTRATION_DT) var performerRegistrationDtRules: ComparableCurationRules<Instant>? = null
+    @SerialName(ContextValue.PERFORMER_LANGUAGE_GROUPS) var performerLanguageGroupsRules: CurationRules<String>? = null
+    @SerialName(ContextValue.PERFORMER_LANGUAGE_PRIMARY) var performerLanguagePrimaryRules: CurationRules<String>? = null
 
     override fun test(event: Event): Boolean {
         return applyAgentRules(event.agentData) &&
@@ -55,7 +59,14 @@ class CurationFilter : Predicate<Event> {
     private fun applyAgentRules(data: AgentData?): Boolean {
         return applyPredicate(this.agentAppInstallIdRules, data?.appInstallId) &&
                 applyPredicate(this.agentClientPlatformRules, data?.clientPlatform) &&
-                applyPredicate(this.agentClientPlatformFamilyRules, data?.clientPlatformFamily)
+                applyPredicate(this.agentClientPlatformFamilyRules, data?.clientPlatformFamily) &&
+                applyPredicate(this.agentAppFlavorRules, data?.appFlavor) &&
+                applyPredicate(this.agentAppThemeRules, data?.appTheme) &&
+                applyPredicate(this.agentAppVersionRules, data?.appVersion) &&
+                applyPredicate(this.agentAppVersionNameRules, data?.appVersionName) &&
+                applyPredicate(this.agentDeviceFamilyRules, data?.deviceFamily) &&
+                applyPredicate(this.agentDeviceLanguageRules, data?.deviceLanguage) &&
+                applyPredicate(this.agentReleaseStatusRules, data?.releaseStatus)
     }
 
     private fun applyMediaWikiRules(data: MediawikiData?): Boolean {
