@@ -31,7 +31,7 @@ internal class EventTest {
         val json = JsonUtil.encodeToString(event)
 
         assertEquals("{" +
-                $$"\"$schema\":\"test/event/1.0.0\"," +
+                "\"\$schema\":\"test/event/1.0.0\"," +
                 "\"dt\":\"2021-08-27T12:00:00Z\"," +
                 "\"meta\":{\"stream\":\"test.event\",\"domain\":\"en.wikipedia.org\"}," +
                 "\"agent\":{" +
