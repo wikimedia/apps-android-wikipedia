@@ -19,7 +19,7 @@ class EditorRobot : BaseRobot() {
 
     fun replaceTextInEditWindow(text: String) = apply {
         input.replaceTextInView(R.id.edit_section_text, text)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickEditWindow() = apply {
@@ -43,12 +43,12 @@ class EditorRobot : BaseRobot() {
     fun tapNext() = apply {
         // can be flaky
         click.onDisplayedView(R.id.edit_actionbar_button_text)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickDefaultEditSummaryChoices() = apply {
         scroll.toTextAndClick("Fixed typo")
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun navigateUp() = apply {
@@ -105,7 +105,7 @@ class EditorRobot : BaseRobot() {
     }
 
     fun applySmallTextFormat() = apply {
-        click.onViewWithId(R.id.wikitext_button_text_small)
+        scroll.toViewAndClick(R.id.wikitext_button_text_small)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -176,11 +176,11 @@ class EditorRobot : BaseRobot() {
 
     fun clickInsertMediaButton() = apply {
         click.onViewWithId(R.id.wikitext_button_insert_media)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickInsertLinkButton() = apply {
-        click.onViewWithId(R.id.wikitext_button_link)
+        scroll.toViewAndClick(R.id.wikitext_button_link)
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -223,7 +223,7 @@ class EditorRobot : BaseRobot() {
     }
 
     fun verifyEditPublished(context: Context) = apply {
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
         val rawText = context.getString(R.string.edit_saved_successfully)
         val processedText = StringUtil.fromHtml(rawText).trim().toString()
         verify.messageOfSnackbar(processedText)

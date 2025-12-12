@@ -35,13 +35,15 @@ class ArticleTabTest : BaseTest<MainActivity>(
             .clickOnSystemDialogWithText("Allow")
             .disableDarkMode(context)
         exploreFeedRobot
-            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
+            .scrollAndPerform(title = TestConstants.FEATURED_ARTICLE) { position ->
+                clickOnFeaturedArticle(position)
+            }
         pageRobot
             .navigateUp()
         exploreFeedRobot
-            .scrollToItem(title = TestConstants.FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
+            .scrollAndPerform(title = TestConstants.FEATURED_ARTICLE) { position ->
+                clickOnFeaturedArticle(position)
+            }
         dialogRobot
             .dismissBigEnglishDialog()
             .dismissContributionDialog()

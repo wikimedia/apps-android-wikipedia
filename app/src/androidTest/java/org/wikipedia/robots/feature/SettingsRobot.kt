@@ -12,14 +12,12 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
 import org.junit.Assert.assertTrue
@@ -42,7 +40,7 @@ class SettingsRobot : BaseRobot() {
         )
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
 
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun openMoreOptionsToolbar() = apply {
@@ -51,7 +49,7 @@ class SettingsRobot : BaseRobot() {
             childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()
         ))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun hideAllExploreFeeds() = apply {
@@ -59,19 +57,19 @@ class SettingsRobot : BaseRobot() {
         onView(allOf(withId(R.id.title), withText("Hide all"),
             childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun showAllExploreFeeds() = apply {
         onView(allOf(withId(R.id.title), withText("Show all"),
             childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.content), 0), 0), isDisplayed()))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickAboutWikipediaAppOptionItem() = apply {
         scrollToSettingsPreferenceItem(R.string.about_description, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun activateDeveloperMode(context: Context) = apply {
@@ -79,43 +77,37 @@ class SettingsRobot : BaseRobot() {
         for (i in 1 until 8) {
             composeTestRule.onNodeWithContentDescription(context.getString(R.string.about_logo_content_description))
                 .performClick()
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         }
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickDeveloperMode() = apply {
         // Assert that developer mode is activated
-        onView(allOf(withId(R.id.developer_settings), withContentDescription("Developer settings"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
-            .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        click.onDisplayedViewWithIdAndContentDescription(R.id.developer_settings, "Developer settings")
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertWeAreInDeveloperSettings() = apply {
-        onView(allOf(withText("Developer settings"),
-            withParent(allOf(withId(androidx.appcompat.R.id.action_bar),
-                withParent(withId(androidx.appcompat.R.id.action_bar_container))
-            )), isDisplayed()))
-            .check(matches(withText("Developer settings")))
-        delay(TestConfig.DELAY_MEDIUM)
+        verify.viewWithTextDisplayed("Developer settings")
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickLanguages() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_language, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickExploreFeed() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_customize_explore_feed, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickLogOut(context: Context) = apply {
         try {
             scrollToSettingsPreferenceItem(R.string.preference_title_logout, scrollTo())
             click.onViewWithText(context.getString(R.string.preference_title_logout))
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("SettingsRobotError:", "User is not logged in.")
         }
@@ -123,27 +115,27 @@ class SettingsRobot : BaseRobot() {
 
     fun toggleShowLinkPreviews() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_link_previews, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun toggleCollapseTables() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_collapse_tables, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickAppTheme() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_app_theme, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun toggleDownloadReadingList() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_download_reading_list_articles, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun toggleShowImages() = apply {
         scrollToSettingsPreferenceItem(R.string.preference_title_show_images, click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyExploreFeedIsEmpty(context: Context) = apply {
@@ -173,7 +165,7 @@ class SettingsRobot : BaseRobot() {
 
     fun pressBack() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     private fun scrollToSettingsPreferenceItem(@IdRes preferenceTitle: Int, viewAction: ViewAction) = apply {
@@ -181,6 +173,6 @@ class SettingsRobot : BaseRobot() {
             .perform(
                 RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
                     (hasDescendant(withText(preferenceTitle)), viewAction))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 }
