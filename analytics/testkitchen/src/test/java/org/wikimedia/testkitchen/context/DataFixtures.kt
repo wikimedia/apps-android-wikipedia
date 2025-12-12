@@ -36,13 +36,15 @@ object DataFixtures {
     }
 */
 
-    val testClientData get() = ClientData(
-        testAgentData,
-        testPageData,
-        testMediawikiData,
-        testPerformerData,
-        "en.wikipedia.org"
-    )
+    fun getTestClientData(agentData: AgentData = testAgentData): ClientData {
+        return ClientData(
+            agentData,
+            testPageData,
+            testMediawikiData,
+            testPerformerData,
+            "en.wikipedia.org"
+        )
+    }
 
     val testAgentData get() = AgentData(
         appInstallId = "ffffffff-ffff-ffff-ffff-ffffffffffff",
