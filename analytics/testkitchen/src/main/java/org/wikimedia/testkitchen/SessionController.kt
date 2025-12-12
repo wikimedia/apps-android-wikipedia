@@ -5,13 +5,13 @@ import java.time.Instant
 import java.util.Random
 
 /**
- * Manages sessions and session IDs for the Metrics Platform Client.
+ * Manages sessions and session IDs.
  *
  * A session begins when the application is launched and expires when the app is in the background
- * for 30 minutes or more.
+ * for SESSION_LENGTH time or more.
  */
 class SessionController internal constructor(
-    private var sessionTouched: Instant? = Instant.now()
+    private var sessionTouched: Instant = Instant.now()
 ) {
     @get:Synchronized
     var sessionId = generateSessionId()
