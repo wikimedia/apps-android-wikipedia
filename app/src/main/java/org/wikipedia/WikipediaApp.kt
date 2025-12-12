@@ -149,10 +149,7 @@ class WikipediaApp : Application() {
         Logger.start(
             // update local.properties to include BITDRIFT_API_KEY
             apiKey = BuildConfig.BITDRIFT_API_KEY,
-            sessionStrategy = SessionStrategy.Fixed(),
-            configuration = Configuration(enableNativeCrashReporting = true),
-            // apiURL defaults to prod. Delete the following line unless you are a bitdrift employee
-            apiUrl = "https://api.bitdrift.dev".toHttpUrl()
+            sessionStrategy = SessionStrategy.Fixed()
         )
 
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
