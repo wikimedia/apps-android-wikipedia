@@ -9,10 +9,15 @@ import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -27,14 +32,31 @@ class SearchResultsViewModel : ViewModel() {
     private val batchSize = 20
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
-    var searchTerm: String? = null
-    var languageCode: String? = null
+
     lateinit var invokeSource: Constants.InvokeSource
 
-    @OptIn(FlowPreview::class) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow = Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-        SearchResultsPagingSource(searchTerm, languageCode, countsPerLanguageCode, invokeSource)
-    }.flow.debounce(delayMillis).cachedIn(viewModelScope)
+    private val _searchTerm = MutableStateFlow<String?>(null)
+    var searchTerm = _searchTerm.asStateFlow()
+
+    private var _languageCode = MutableStateFlow<String?>(null)
+    var languageCode = _languageCode.asStateFlow()
+
+    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class) // TODO: revisit if the debounce method changed.
+    val searchResultsFlow = combine(_searchTerm, _languageCode) { term, lang ->
+        Pair(term, lang)
+    }.debounce(delayMillis).flatMapLatest { (term, lang) ->
+        Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+            SearchResultsPagingSource(term, lang, countsPerLanguageCode, invokeSource)
+        }.flow
+    }.cachedIn(viewModelScope)
+
+    fun updateSearchTerm(term: String?) {
+        _searchTerm.value = term
+    }
+
+    fun updateLanguageCode(code: String) {
+        _languageCode.value = code
+    }
 
     class SearchResultsPagingSource(
         private val searchTerm: String?,

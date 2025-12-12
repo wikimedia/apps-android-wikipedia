@@ -5,38 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.LoadState
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
-import org.wikipedia.LongPressHandler
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.adapter.PagingDataAdapterPatched
-import org.wikipedia.analytics.eventplatform.PlacesEvent
-import org.wikipedia.databinding.FragmentSearchResultsBinding
-import org.wikipedia.databinding.ItemSearchNoResultsBinding
-import org.wikipedia.databinding.ItemSearchResultBinding
-import org.wikipedia.extensions.setLayoutDirectionByLang
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.StringUtil
-import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.ViewUtil
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
@@ -47,210 +25,44 @@ class SearchResultsFragment : Fragment() {
         fun setSearchText(text: CharSequence)
     }
 
-    private var _binding: FragmentSearchResultsBinding? = null
-    private val binding get() = _binding!!
+    private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
-    private val searchResultsAdapter = SearchResultsAdapter()
-    private val noSearchResultAdapter = NoSearchResultAdapter()
-    private val searchResultsConcatAdapter = ConcatAdapter(searchResultsAdapter)
+
+    val isShowing get() = composeView?.visibility == View.VISIBLE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
-        binding.searchResultsList.layoutManager = LinearLayoutManager(requireActivity())
-        binding.searchResultsList.adapter = searchResultsConcatAdapter
-        binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
-        binding.searchErrorView.retryClickListener = View.OnClickListener {
-            binding.searchErrorView.visibility = View.GONE
-            startSearch(viewModel.searchTerm, true)
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.CREATED) {
-                launch {
-                    viewModel.searchResultsFlow.collectLatest {
-                        binding.searchResultsList.isVisible = true
-                        binding.searchErrorView.isVisible = false
-                        searchResultsAdapter.submitData(lifecycleScope, it)
+        return ComposeView(requireActivity()).apply {
+            composeView = this
+            setContent {
+                SearchResultsScreen(
+                    modifier = Modifier.fillMaxSize(),
+                    onNavigateToTitle = { title, inNewTab, position, location ->
+                        callback()?.navigateToTitle(title, inNewTab, position, location)
                     }
-                }
-                launch {
-                    searchResultsAdapter.loadStateFlow.collectLatest {
-                        callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
-                        if (it.refresh is LoadState.Error) {
-                            binding.searchErrorView.setError((it.refresh as LoadState.Error).error)
-                            binding.searchErrorView.isVisible = true
-                            binding.searchResultsList.isVisible = false
-                            return@collectLatest
-                        }
-                        binding.searchErrorView.isVisible = false
-                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
-                        if (showEmpty) {
-                            searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
-                        } else {
-                            searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
-                        }
-                    }
-                }
+                )
             }
         }
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        binding.searchErrorView.retryClickListener = null
-        _binding = null
-        super.onDestroyView()
     }
 
     fun show() {
-        binding.searchResultsDisplay.visibility = View.VISIBLE
+        composeView?.visibility = View.VISIBLE
     }
 
     fun hide() {
-        binding.searchResultsDisplay.visibility = View.GONE
-    }
-
-    val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
-
-    fun setLayoutDirection(langCode: String) {
-        binding.searchResultsList.setLayoutDirectionByLang(langCode)
+        composeView?.visibility = View.GONE
     }
 
     fun startSearch(term: String?, force: Boolean) {
-        if (!force && viewModel.searchTerm == term && viewModel.languageCode == searchLanguageCode) {
+        if (!force && viewModel.searchTerm.value == term && viewModel.languageCode.value == searchLanguageCode) {
             return
         }
 
-        viewModel.searchTerm = term
-        viewModel.languageCode = searchLanguageCode
+        viewModel.updateSearchTerm(term)
+        viewModel.updateLanguageCode(searchLanguageCode)
 
         if (term.isNullOrBlank()) {
-            clearResults()
+            viewModel.updateSearchTerm("")
             return
-        }
-
-        binding.searchResultsList.scrollToPosition(0)
-        searchResultsAdapter.refresh()
-    }
-
-    private fun clearResults() {
-        binding.searchResultsList.visibility = View.GONE
-        binding.searchErrorView.visibility = View.GONE
-        binding.searchErrorView.visibility = View.GONE
-    }
-
-    private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
-        override fun onOpenLink(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, false, lastPositionRequested)
-        }
-
-        override fun onOpenInNewTab(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, true, lastPositionRequested)
-        }
-
-        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-            callback()?.onSearchAddPageToList(entry, addToDefault)
-        }
-
-        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-            page.let {
-                callback()?.onSearchMovePageToList(page!!.listId, entry)
-            }
-        }
-    }
-
-    private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
-        override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return false
-        }
-
-        override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return areItemsTheSame(oldItem, newItem)
-        }
-    }
-
-    private inner class SearchResultsAdapter : PagingDataAdapterPatched<SearchResult, DefaultViewHolder<View>>(SearchResultsDiffCallback()) {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<View> {
-            return SearchResultItemViewHolder(ItemSearchResultBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun onBindViewHolder(holder: DefaultViewHolder<View>, pos: Int) {
-            if (pos in 0..<itemCount) {
-                getItem(pos)?.let {
-                    (holder as SearchResultItemViewHolder).bindItem(pos, it)
-                }
-            }
-        }
-    }
-
-    private inner class NoSearchResultAdapter : RecyclerView.Adapter<NoSearchResultItemViewHolder>() {
-        override fun onBindViewHolder(holder: NoSearchResultItemViewHolder, position: Int) {
-            holder.bindItem(viewModel.countsPerLanguageCode[position])
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoSearchResultItemViewHolder {
-            return NoSearchResultItemViewHolder(ItemSearchNoResultsBinding.inflate(layoutInflater, parent, false))
-        }
-
-        override fun getItemCount(): Int { return viewModel.countsPerLanguageCode.size }
-    }
-
-    private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
-        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
-        fun bindItem(resultPair: Pair<String, Int>) {
-            val langCode = resultPair.first
-            val resultCount = resultPair.second
-            if (resultCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
-                PlacesEvent.logAction("no_results_impression", "search_view")
-            }
-            itemBinding.resultsText.text = if (resultCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultCount, resultCount)
-            itemBinding.resultsText.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.visibility = if (viewModel.countsPerLanguageCode.size == 1) View.GONE else View.VISIBLE
-            itemBinding.languageCode.setLangCode(langCode)
-            itemBinding.languageCode.setTextColor(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            itemBinding.languageCode.setBackgroundTint(if (resultCount == 0) secondaryColorStateList else accentColorStateList)
-            view.isEnabled = resultCount > 0
-            view.setOnClickListener {
-                if (!isAdded) {
-                    return@setOnClickListener
-                }
-                (requireParentFragment() as SearchFragment).setUpLanguageScroll(position)
-            }
-        }
-    }
-
-    private inner class SearchResultItemViewHolder(val itemBinding: ItemSearchResultBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        fun bindItem(position: Int, searchResult: SearchResult) {
-            val (pageTitle, redirectFrom, type) = searchResult
-            if (redirectFrom.isNullOrEmpty()) {
-                itemBinding.pageListItemRedirect.visibility = View.GONE
-                itemBinding.pageListItemRedirectArrow.visibility = View.GONE
-                itemBinding.pageListItemDescription.text = pageTitle.description
-            } else {
-                itemBinding.pageListItemRedirect.visibility = View.VISIBLE
-                itemBinding.pageListItemRedirectArrow.visibility = View.VISIBLE
-                itemBinding.pageListItemRedirect.text = getString(R.string.search_redirect_from, redirectFrom)
-                itemBinding.pageListItemDescription.visibility = View.GONE
-            }
-
-            if (type === SearchResult.SearchResultType.SEARCH) {
-                itemBinding.pageListIcon.visibility = View.GONE
-            } else {
-                itemBinding.pageListIcon.visibility = View.VISIBLE
-                itemBinding.pageListIcon.setImageResource(if (type === SearchResult.SearchResultType.HISTORY) R.drawable.ic_history_24 else if (type === SearchResult.SearchResultType.TAB_LIST) R.drawable.ic_tab_one_24px else R.drawable.ic_bookmark_white_24dp)
-            }
-            // highlight search term within the text
-            StringUtil.boldenKeywordText(itemBinding.pageListItemTitle, pageTitle.displayText, viewModel.searchTerm)
-            itemBinding.pageListItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
-            ViewUtil.loadImage(itemBinding.pageListItemImage, pageTitle.thumbUrl)
-
-            view.isLongClickable = true
-            view.setOnClickListener {
-                callback()?.navigateToTitle(searchResult.pageTitle, false, position, searchResult.location)
-            }
-            view.setOnCreateContextMenuListener(LongPressHandler(view,
-                    HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
         }
     }
 
