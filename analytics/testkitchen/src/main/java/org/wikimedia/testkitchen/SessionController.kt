@@ -1,9 +1,7 @@
 package org.wikimedia.testkitchen
 
-import java.security.SecureRandom
 import java.time.Duration
 import java.time.Instant
-import java.util.Locale
 import java.util.Random
 
 /**
@@ -46,13 +44,10 @@ class SessionController internal constructor(
 
     companion object {
         private val SESSION_LENGTH = Duration.ofMinutes(30)
-        private val RANDOM = SecureRandom()
 
         private fun generateSessionId(): String {
-            val random: Random = RANDOM
-            return String.format(Locale.US, "%08x", random.nextInt()) +
-                    String.format(Locale.US, "%08x", random.nextInt()) +
-                    String.format(Locale.US, "%04x", random.nextInt() and 0xFFFF)
+            val random = Random()
+            return String.format("%08x", random.nextInt()) + String.format("%08x", random.nextInt()) + String.format("%04x", random.nextInt() and 0xFFFF)
         }
     }
 }
