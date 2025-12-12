@@ -129,6 +129,10 @@ class TestKitchenClient(
         sessionController.beginSession()
     }
 
+    fun flushEventQueue() {
+        eventProcessor.sendEnqueuedEvents()
+    }
+
     /**
      * Append an enriched event to the queue.
      * If the queue is full, we remove the oldest events from the queue to add the current event.
