@@ -44,9 +44,7 @@ class StreamConfig {
     val curationFilter get() = producerConfig?.metricsPlatformClientConfig?.curationFilter ?: CurationFilter()
 
     init {
-        try {
-            destinationEventService = DestinationEventService.valueOf(destinationEventServiceKey)
-        } catch (_: Exception) { }
+        destinationEventService = DestinationEventService.entries.find { it.id == destinationEventServiceKey } ?: DestinationEventService.ANALYTICS
     }
 
     @Serializable
