@@ -16,11 +16,11 @@ object EventFixtures {
     }
 
     fun getEvent(
-        id: Int?,
-        namespaceName: String?,
-        groups: List<String>,
-        isLoggedIn: Boolean,
-        editCount: String?
+        id: Int = 0,
+        namespaceName: String? = null,
+        groups: List<String> = emptyList(),
+        isLoggedIn: Boolean = false,
+        editCount: String? = null
     ): Event {
         return Event("test/event", "test.event", dt,
             ClientData(

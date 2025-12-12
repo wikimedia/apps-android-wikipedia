@@ -3,39 +3,6 @@ package org.wikimedia.testkitchen.context
 import java.time.Instant
 
 object DataFixtures {
-    /*
-    fun getTestClientData(expectedEvent: String?): ClientData {
-        val dataMap: MutableMap<String?, Any?> = HashMap<String?, Any?>()
-
-        val jsonElement: JsonElement = JsonParser.parseString(expectedEvent)
-        val expectedEventJson: JsonObject =
-            if (jsonElement.isJsonArray()) jsonElement.getAsJsonArray().get(0)
-                .getAsJsonObject() else jsonElement.getAsJsonObject()
-
-        val dataObjectNames: MutableSet<String?> =
-            Stream.of<String?>("agent", "page", "mediawiki", "performer")
-                .collect(Collectors.toCollection(Supplier { HashSet() }))
-
-        for (dataObjectName in dataObjectNames) {
-            val metaData: JsonObject = expectedEventJson.getAsJsonObject(dataObjectName)
-            val keys: MutableSet<String?> = metaData.keySet()
-            val dataMapEach: MutableMap<String?, Any?> = HashMap<String?, Any?>()
-            for (key in keys) {
-                dataMapEach.put(key, metaData.get(key))
-            }
-            dataMap.put(dataObjectName, dataMapEach)
-        }
-
-        val domain: String? =
-            expectedEventJson.get("meta").getAsJsonObject().get("domain").getAsString()
-        dataMap.put("domain", domain)
-
-        val gson: Gson = GsonHelper.getGson()
-        val jsonClientData: JsonElement? = gson.toJsonTree(dataMap)
-        return gson.fromJson(jsonClientData, ClientData::class.java)
-    }
-*/
-
     fun getTestClientData(agentData: AgentData = testAgentData): ClientData {
         return ClientData(
             agentData,
