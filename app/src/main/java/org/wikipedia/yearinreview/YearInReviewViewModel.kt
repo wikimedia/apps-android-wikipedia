@@ -21,7 +21,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
@@ -110,40 +109,28 @@ class YearInReviewViewModel() : ViewModel() {
                     val wikiSite = WikipediaApp.instance.wikiSite
                     val userInfoResponse = ServiceFactory.get(wikiSite).getLocalAndGlobalUserInfo()
 
-                    val impactDataJob = async {
-                        val now = Instant.now().epochSecond
-                        val impact: GrowthUserImpact
-                        val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
-                        val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
-                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                            val userId = userInfoResponse.query?.userInfo?.id ?: 0
-                            impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
-                            impactLastResponseBodyMap[wikiSite.languageCode] =
-                                JsonUtil.encodeToString(impact).orEmpty()
-                            Prefs.impactLastResponseBody = impactLastResponseBodyMap
-                            Prefs.impactLastQueryTime = now
-                        } else {
-                            impact = JsonUtil.decodeFromString(impactResponse)!!
+                    val totalPageViewsJob = async {
+                        var pageViewsFromImpactApi = 0L
+                        try {
+                            val now = Instant.now().epochSecond
+                            val impact: GrowthUserImpact
+                            val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+                            val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+                            if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
+                                val userId = userInfoResponse.query?.userInfo?.id ?: 0
+                                impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                                impactLastResponseBodyMap[wikiSite.languageCode] =
+                                    JsonUtil.encodeToString(impact).orEmpty()
+                                Prefs.impactLastResponseBody = impactLastResponseBodyMap
+                                Prefs.impactLastQueryTime = now
+                            } else {
+                                impact = JsonUtil.decodeFromString(impactResponse)!!
+                            }
+                            pageViewsFromImpactApi = impact.totalPageviewsCount
+                        } catch (e: IOException) {
+                            L.e(e)
                         }
-
-                        val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
-                            titles = impact.topViewedArticles.keys.joinToString(separator = "|")
-                        )
-
-                        // Transform the response to a map of PageTitle to ArticleViews
-                        val pageMap = pagesResponse.query?.pages?.associate { page ->
-                            val pageTitle = PageTitle(
-                                text = page.title,
-                                wiki = wikiSite,
-                                thumbUrl = page.thumbUrl(),
-                                description = page.description,
-                                displayText = page.displayTitle(wikiSite.languageCode)
-                            )
-                            pageTitle to impact.topViewedArticles[pageTitle.text]!!
-                        } ?: emptyMap()
-
-                        impact.topViewedArticlesWithPageTitle = pageMap
-                        impact
+                        pageViewsFromImpactApi
                     }
 
                     val editCountCall = async {
@@ -162,7 +149,7 @@ class YearInReviewViewModel() : ViewModel() {
                         }
                         response
                     }
-                    totalPageViews = impactDataJob.await().totalPageviewsCount
+                    totalPageViews = totalPageViewsJob.await()
                     editCount = editCountCall.await().items.sumOf { it.editCount }
                 }
 

@@ -266,6 +266,7 @@
   <string name="edit_summary_tag_other">Alia</string>
   <string name="edit_summary_tag_other_hint">Aliaj manieroj en kiuj vi plibonigis la paĝon</string>
   <string name="edit_summary_added_short_description">Aldonita eta priskribo</string>
+  <string name="edit_summary_updated_short_description">Ĝisdatigita eta priskribo</string>
   <string name="edit_conflict_title">Redakto-konflikto.</string>
   <string name="edit_conflict_message">La paĝo jam estas modifita de malsama uzanto kaj konfliktas kun via redakto. Bonvolu kopii viajn redaktojn, reiru kaj aktualigu la paĝon, tiam provu redakti denove.</string>
   <string name="edit_notices_please_read">Bonvolu legi antaŭ redaktado</string>
@@ -475,6 +476,7 @@
   <string name="reading_lists_sync_reminder_action">Ŝalti sinkronigadon</string>
   <string name="reading_list_login_reminder_title">Sinkronigi la legolistojn</string>
   <string name="reading_lists_login_reminder_text">Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
+  <string name="reading_lists_login_button">Ensaluti en / aliĝi al Vikipedio</string>
   <string name="reading_lists_ignore_button">Ne nun</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
@@ -607,7 +609,11 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">Vikipedio</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Sciigoj de Vikipedio</string>
   <string name="notifications_empty_search_message">Provu forigi %s por vidi pliajn sciigojn</string>
+  <string name="notifications_tab_filter_all">Ĉiuj</string>
   <string name="notifications_tab_filter_mentions">Mencioj</string>
+  <string name="notifications_all_wikis_text">Ĉiuj vikioj</string>
+  <string name="notifications_all_types_text">Ĉiuj tipoj</string>
+  <string name="notifications_menu_user_talk_page">Diskutpaĝo de %s</string>
   <string name="view_because_you_read_card_title">Ĉar vi legas</string>
   <string name="view_random_card_title">Hazardumilo</string>
   <string name="view_random_article_card_title">Hazarda artikolo</string>
