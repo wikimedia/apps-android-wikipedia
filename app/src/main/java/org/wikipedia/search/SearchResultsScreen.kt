@@ -16,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,10 +28,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -38,8 +37,10 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.extensions.toAnnotatedString
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
@@ -71,10 +72,7 @@ fun SearchResultsList(
 ) {
     LazyColumn {
         items(
-            count = searchResults.itemCount,
-            key = { index ->
-                searchResults[index]?.pageTitle?.prefixedText ?: index
-            }
+            count = searchResults.itemCount
         ) { index ->
             searchResults[index]?.let { result ->
                 SearchResultItem(
@@ -115,6 +113,9 @@ fun SearchResultItem(
 
     val showImage = !pageTitle.thumbUrl.isNullOrEmpty() && type != SearchResult.SearchResultType.SEARCH
 
+    val boldenTitle = remember(pageTitle.displayText, searchTerm) {
+        boldenAnnotatedString(pageTitle.displayText, searchTerm)
+    }
     Row(
         modifier = modifier
             .clickable(onClick = onClick),
@@ -127,7 +128,7 @@ fun SearchResultItem(
         ) {
             // Title with bold style
             Text(
-                text = boldenAnnotatedString(pageTitle.displayText, searchTerm),
+                text = boldenTitle,
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyLarge
             )
@@ -210,31 +211,17 @@ fun boldenAnnotatedString(
     text: String,
     query: String?
 ): AnnotatedString {
-    return buildAnnotatedString {
-        if (query.isNullOrEmpty()) {
-            append(text)
-            return@buildAnnotatedString
-        }
-
-        // Strip HTML tags first to get plain text
-        val plainText = text.replace(Regex("<[^>]*>"), "")
-
-        val startIndex = plainText.indexOf(query, ignoreCase = true)
-
-        if (startIndex >= 0) {
-            // Append text before the match
-            append(plainText.substring(0, startIndex))
-
-            // Append the matched text with bold style
-            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                append(plainText.substring(startIndex, startIndex + query.length))
-            }
-
-            // Append text after the match
-            append(plainText.substring(startIndex + query.length))
-        } else {
-            // No match found, append the plain text as-is
-            append(plainText)
-        }
+    val spanned = StringUtil.fromHtml(text)
+    val annotated = spanned.toAnnotatedString()
+    if (query.isNullOrEmpty()) {
+        return annotated
     }
+
+    val startIndex = annotated.text.indexOf(query, ignoreCase = true)
+    if (startIndex >= 0) {
+        val builder = AnnotatedString.Builder(annotated)
+        builder.addStyle(SpanStyle(fontWeight = FontWeight.Bold), startIndex, startIndex + query.length)
+        return builder.toAnnotatedString()
+    }
+    return annotated
 }
