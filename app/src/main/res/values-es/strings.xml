@@ -1821,7 +1821,7 @@
   <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
   <string name="donate_gpay_activity_title">Selecciona un importe</string>
-  <string name="donate_gpay_activity_title_with_currency" fuzzy="true">Selecciona un importe</string>
+  <string name="donate_gpay_activity_title_with_currency">Selecciona un importe (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Generosamente, acepto añadir %s a la donación para cubrir los gastos bancarios y que Wikimedia reciba el 100 %% de mi donación.</string>
   <string name="donate_gpay_check_recurring">Quiero hacer una donación recurrente.</string>
   <string name="donate_gpay_check_send_email">Sí, acepto que Wikimedia Foundation me envíe correos ocasionalmente.</string>
@@ -1964,7 +1964,7 @@
   <string name="year_in_review_screendeck_image_content_description">Recurso de imagen para la pantalla principal del Resumen del año</string>
   <string name="year_in_review_screenshot_error">No se pudo generar captura de pantalla: %s</string>
   <string name="year_in_review_share_subject">Mi año en Wikipedia en resumen</string>
-  <string name="year_in_review_share_body" fuzzy="true">Este es mi resumen anual de Wikipedia. Creado con la aplicación de Wikipedia para iOS (https://apps.apple.com/app/wikipedia/id324715238) #ResumenAnualDeWikipedia</string>
+  <string name="year_in_review_share_body">Este es mi resumen anual de Wikipedia. Creado con la aplicación de Wikipedia para Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Icono del globo</string>
   <string name="settings_app_icon_title">Icono de la aplicación</string>
   <string name="settings_app_icon_subtitle">Beneficio del contribuyente</string>
