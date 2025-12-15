@@ -59,6 +59,15 @@ class SearchResultsFragment : Fragment() {
                             composeView?.let {
                                 LongPressMenu(it, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
                             }
+                        },
+                        onCloseSearch = { requireActivity().finish() },
+                        onRetrySearch = {
+                            startSearch(viewModel.searchTerm.value, true)
+                        },
+                        onLanguageClick = { position ->
+                            if (isAdded && position >= 0) {
+                                (requireParentFragment() as SearchFragment).setUpLanguageScroll(position)
+                            }
                         }
                     )
                 }

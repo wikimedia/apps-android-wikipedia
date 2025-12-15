@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,10 +34,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedString
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
@@ -48,19 +52,60 @@ fun SearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel = viewModel(),
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onItemLongClick: (SearchResult, Int) -> Unit
+    onItemLongClick: (SearchResult, Int) -> Unit,
+    onLanguageClick: (Int) -> Unit,
+    onCloseSearch: () -> Unit,
+    onRetrySearch: () -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
+    val loadState = searchResults.loadState
+    val countsPerLanguageCode = viewModel.countsPerLanguageCode
+
     Box(
         modifier = modifier
     ) {
-        SearchResultsList(
-            searchResults = searchResults,
-            searchTerm = searchTerm.value,
-            onItemClick = onNavigateToTitle,
-            onItemLongClick = onItemLongClick
-        )
+        when {
+            loadState.refresh is LoadState.Loading -> {
+                CircularProgressIndicator(
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(24.dp),
+                    color = WikipediaTheme.colors.progressiveColor
+                )
+            }
+
+            loadState.refresh is LoadState.Error -> {
+                val error = (loadState.refresh as LoadState.Error).error
+                WikiErrorView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.Center),
+                    caught = error,
+                    errorClickEvents = WikiErrorClickEvents(
+                        backClickListener = { onCloseSearch() },
+                        retryClickListener = { onRetrySearch() }
+                    )
+                )
+            }
+
+            loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
+                NoSearchResults(
+                    countsPerLanguageCode = countsPerLanguageCode,
+                    invokeSource = viewModel.invokeSource,
+                    onLanguageClick = onLanguageClick
+                )
+            }
+
+            else -> {
+                SearchResultsList(
+                    searchResults = searchResults,
+                    searchTerm = searchTerm.value,
+                    onItemClick = onNavigateToTitle,
+                    onItemLongClick = onItemLongClick
+                )
+            }
+        }
     }
 }
 
