@@ -2,7 +2,7 @@ package org.wikipedia.search
 
 import android.location.Location
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -47,17 +47,19 @@ import org.wikipedia.views.imageservice.ImageService
 fun SearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel = viewModel(),
-    onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit
+    onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onItemLongClick: (SearchResult, Int) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
-    Box {
+    Box(
+        modifier = modifier
+    ) {
         SearchResultsList(
-            modifier = modifier,
             searchResults = searchResults,
             searchTerm = searchTerm.value,
             onItemClick = onNavigateToTitle,
-            onItemLongClick = { result, position -> }
+            onItemLongClick = onItemLongClick
         )
     }
 }
@@ -70,7 +72,9 @@ fun SearchResultsList(
     onItemLongClick: (SearchResult, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn {
+    LazyColumn(
+        modifier = modifier
+    ) {
         items(
             count = searchResults.itemCount
         ) { index ->
@@ -78,15 +82,14 @@ fun SearchResultsList(
                 SearchResultItem(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .combinedClickable(onClick = {
+                            onItemClick(result.pageTitle, false, index, result.location)
+                        }, onLongClick = {
+                            onItemLongClick(result, index)
+                        })
                         .padding(16.dp),
                     searchResult = result,
-                    searchTerm = searchTerm,
-                    onClick = {
-                        onItemClick(result.pageTitle, false, index, result.location)
-                    },
-                    onLongClick = {
-                        onItemLongClick(result, index)
-                    }
+                    searchTerm = searchTerm
                 )
             }
         }
@@ -97,9 +100,7 @@ fun SearchResultsList(
 fun SearchResultItem(
     searchResult: SearchResult,
     searchTerm: String?,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-    onLongClick: (SearchResult) -> Unit = {}
+    modifier: Modifier = Modifier
 ) {
     val (pageTitle, redirectFrom, type) = searchResult
 
@@ -111,14 +112,14 @@ fun SearchResultItem(
         else -> R.drawable.ic_bookmark_border_white_24dp
     }
 
-    val showImage = !pageTitle.thumbUrl.isNullOrEmpty() && type != SearchResult.SearchResultType.SEARCH
+    val showImage =
+        !pageTitle.thumbUrl.isNullOrEmpty() && type != SearchResult.SearchResultType.SEARCH
 
     val boldenTitle = remember(pageTitle.displayText, searchTerm) {
         boldenAnnotatedString(pageTitle.displayText, searchTerm)
     }
     Row(
-        modifier = modifier
-            .clickable(onClick = onClick),
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -220,7 +221,11 @@ fun boldenAnnotatedString(
     val startIndex = annotated.text.indexOf(query, ignoreCase = true)
     if (startIndex >= 0) {
         val builder = AnnotatedString.Builder(annotated)
-        builder.addStyle(SpanStyle(fontWeight = FontWeight.Bold), startIndex, startIndex + query.length)
+        builder.addStyle(
+            SpanStyle(fontWeight = FontWeight.Bold),
+            startIndex,
+            startIndex + query.length
+        )
         return builder.toAnnotatedString()
     }
     return annotated

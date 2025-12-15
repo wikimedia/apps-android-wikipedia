@@ -13,15 +13,24 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.database.ReadingListPage
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
         fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
         fun onSearchProgressBar(enabled: Boolean)
-        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location? = null)
+        fun navigateToTitle(
+            item: PageTitle,
+            inNewTab: Boolean,
+            position: Int,
+            location: Location? = null
+        )
+
         fun setSearchText(text: CharSequence)
     }
 
@@ -30,16 +39,29 @@ class SearchResultsFragment : Fragment() {
 
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return ComposeView(requireActivity()).apply {
             composeView = this
             setContent {
-                SearchResultsScreen(
-                    modifier = Modifier.fillMaxSize(),
-                    onNavigateToTitle = { title, inNewTab, position, location ->
-                        callback()?.navigateToTitle(title, inNewTab, position, location)
-                    }
-                )
+                BaseTheme {
+                    SearchResultsScreen(
+                        modifier = Modifier.fillMaxSize(),
+                        onNavigateToTitle = { title, inNewTab, position, location ->
+                            callback()?.navigateToTitle(title, inNewTab, position, location)
+                        },
+                        onItemLongClick = { searchResult, position ->
+                            println("orange onItemLongClick -> ${searchResult.pageTitle} pos: $position")
+                            val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                            composeView?.let {
+                                LongPressMenu(it, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
+                            }
+                        }
+                    )
+                }
             }
         }
     }
@@ -74,6 +96,28 @@ class SearchResultsFragment : Fragment() {
         viewModel.invokeSource = invokeSource
     }
 
-    private val searchLanguageCode get() =
-        if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
+    private val searchLanguageCode
+        get() =
+            if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
+
+    private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) :
+        LongPressMenu.Callback {
+        override fun onOpenLink(entry: HistoryEntry) {
+            callback()?.navigateToTitle(entry.title, false, lastPositionRequested)
+        }
+
+        override fun onOpenInNewTab(entry: HistoryEntry) {
+            callback()?.navigateToTitle(entry.title, true, lastPositionRequested)
+        }
+
+        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+            callback()?.onSearchAddPageToList(entry, addToDefault)
+        }
+
+        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+            page.let {
+                callback()?.onSearchMovePageToList(page!!.listId, entry)
+            }
+        }
+    }
 }
