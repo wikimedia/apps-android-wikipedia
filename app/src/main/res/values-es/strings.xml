@@ -88,6 +88,7 @@
 * SpikeShroom
 * Sporeunai
 * SrCerberus
+* SrGarga
 * Suecarmol
 * Sukanya121
 * Tiberius1701
@@ -115,6 +116,7 @@
   <string name="search_icon_content_description">Buscar</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mis listas</string>
   <string name="nav_item_suggested_edits">Ediciones</string>
+  <string name="nav_item_activity">Actividad</string>
   <string name="nav_item_more">Más</string>
   <string name="nav_item_search">Buscar</string>
   <string name="nav_item_contribute">Contribuir</string>
@@ -127,7 +129,7 @@
   <string name="page_error_back_to_main">Volver</string>
   <string name="error_back">Volver</string>
   <string name="error_next">Siguiente</string>
-  <string name="menu_clear_all_history" fuzzy="true">Borrar el historial</string>
+  <string name="menu_clear_all_history">Borrar el historial de navegación</string>
   <string name="history_item_deleted">\n%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
   <string name="history_item_delete_undo">Deshacer</string>
@@ -140,7 +142,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
-  <string name="dialog_message_clear_history" fuzzy="true">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
+  <string name="dialog_message_clear_history">Esto borrará todo su historial de navegación. ¿Está seguro que quiere hacerlo?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Compartir por</string>
@@ -1012,6 +1014,7 @@
   <string name="customize_toolbar_reset_to_default_button">Restablecer configuración predeterminada</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
+  <string name="suggested_edits_activity_title">Editar</string>
   <string name="suggested_edits_describe_articles">Describir artículos</string>
   <string name="suggested_edits_caption_images">Subtitular imágenes</string>
   <string name="suggested_edits_tag_images">Etiquetar imágenes</string>
@@ -1224,6 +1227,92 @@
   <string name="edit_summary_added_caption">Leyenda agregada</string>
   <string name="edit_summary_added_image_and_caption">Imagen y pie de foto añadidos</string>
   <string name="edit_published_view">Ver</string>
+  <string name="activity_tab_logged_out_title">Ingrese o cree una cuenta para ver su actividad en la aplicación de Wikipedia</string>
+  <string name="activity_tab_user_reading">Se está leyendo %s</string>
+  <string name="activity_tab_on_wikipedia_android">En Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dm %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Tiempo dedicado a la lectura esta semana</string>
+  <string name="activity_tab_monthly_articles_read">Artículos leídos este mes</string>
+  <string name="activity_tab_monthly_articles_saved">Artículos guardados este mes</string>
+  <string name="activity_tab_monthly_top_categories">Categorías principales leídas este mes</string>
+  <string name="activity_tab_explore_wikipedia">Descubra a través de Wikipedia</string>
+  <string name="activity_tab_discover_encourage">¿Buscas algo nuevo para leer?</string>
+  <string name="activity_tab_donation_unknown">Desconocido</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Última donación&lt;/b&gt; en la aplicación</string>
+  <string name="activity_tab_total_edits_all_projects">Total de ediciones en todos los proyectos</string>
+  <string name="activity_tab_game_stats">Estado de partida</string>
+  <string name="activity_tab_game_stats_best_streak">Mejor racha</string>
+  <string name="activity_tab_play_wiki_games">Jugar a WikiGames</string>
+  <string name="activity_tab_report_email_subject">Informe de problemas - Pestaña de actividad</string>
+  <string name="activity_tab_report_email_body">Tuve un problema con la función Wikipedia juegos:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]</string>
+  <string name="activity_tab_menu_feedback">Reportar problema</string>
+  <string name="activity_tab_menu_info">Más información</string>
+  <string name="activity_tab_menu_customize">Personalizar</string>
+  <string name="activity_tab_menu_customize_description">Los conocimientos de lectura se basan en los idiomas de la aplicación en las configuraciones, y los conocimientos de edición se limitan a su idioma principal de la aplicación. Los datos locales se aprovechan para obtener información, excepto las ediciones que son públicas.</string>
+  <string name="activity_tab_highlights">Destacados</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Historial de lectura</string>
+  <string name="activity_tab_impact">Su impacto</string>
+  <string name="activity_tab_impact_most_viewed">Lo más visto desde tu edición</string>
+  <string name="activity_tab_impact_contributions_this_month">Contribuciones de este mes</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">edit this month</item>
+    <item quantity="other">edits this month</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">edit last month</item>
+    <item quantity="other">edits last month</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Impacto en todo el tiempo</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">total edit</item>
+    <item quantity="other">total edits</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">thank</item>
+    <item quantity="other">thanks</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d day</item>
+    <item quantity="other">%d days</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Mejor racha</string>
+  <string name="activity_tab_impact_last_edited">Última edición</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 ediciones recientes de artículos</string>
+  <string name="activity_tab_impact_suggested_edits_message">Parece que no has hecho ninguna edición este mes. Expande el conocimiento libre editando temas que te interesen.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Hacer una edición</string>
+  <string name="activity_tab_impact_recent_activity">Su actividad reciente (últimos 30 días)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Edit</item>
+    <item quantity="other">Edits</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">View on articles you\'ve edited</item>
+    <item quantity="other">Views on articles you\'ve edited</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Tiempo dedicado a la lectura</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Leer información</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Editar las ideas</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Impacto en todo el tiempo</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Estado de partida</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Última donación en la aplicación</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Cronología del comportamiento</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Los módulos de actividad están desactivados. &lt;a href=\"#\"&gt;Actívalos&lt;/a&gt; para ver las actualizaciones en esta pestaña.</string>
+  <string name="activity_tab_timeline_today">Hoy</string>
+  <string name="activity_tab_timeline_yesterday">Ayer</string>
+  <string name="activity_tab_timeline_empty_state_title">¡Nada que mostrar!</string>
+  <string name="activity_tab_timeline_empty_state_message">Empieza a leer y editar para construir tu historia</string>
+  <string name="activity_tab_timeline_view_changes_button">Mostrar cambios</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Patrones de lectura</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Vea cuánto tiempo ha pasado leyendo y qué artículos o temas ha explorado a lo largo del tiempo.</string>
+  <string name="activity_tab_onboarding_screen_title">Introducción de la actividad</string>
+  <string name="activity_tab_onboarding_impact_title">Destaques del impacto</string>
+  <string name="activity_tab_onboarding_impact_message">Descubra información sobre sus contribuciones y el alcance del conocimiento que ha compartido.</string>
+  <string name="activity_tab_onboarding_engage_title">Más formas de participar</string>
+  <string name="activity_tab_onboarding_engage_message">Explora estadísticas de juegos, artículos guardados y otras actividades que te conectan más profundamente con Wikipedia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Mantén el control</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Elige qué módulos quieres mostrar. Todos tus datos personales se mantienen privados en tu dispositivo y puedes borrar el historial de navegación en cualquier momento.</string>
+  <string name="edits_screen_what_is_title">Edición en la aplicación Wikipedia</string>
+  <string name="edits_screen_what_is_body">¿No sabes por dónde empezar a editar? Prueba las Ediciones Sugeridas, una función que te permite hacer pequeñas pero importantes contribuciones a Wikipedia. También puedes ir directamente a un artículo de interés y modificarlo usando el wikitexto.</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
@@ -1724,7 +1813,7 @@
   <string name="email_report_patroller_tasks_subject">Informe de problemas - Función Patrullaje de ediciones</string>
   <string name="email_report_patroller_tasks_body">Tuve un problema con la función Patrullaje de ediciones:\n- [Describe un problema específico]\n\nLo que me gustaría que la función haga:\n- [Describe la posible solución]\n\n[Capturas de pantalla o enlaces]</string>
   <string name="donation_campaign_maybe_later_snackbar">Volveremos a intentarlo mañana.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">¡Gracias por tu donación! Tu generosidad mantiene viva la Wikipedia y otros proyectos relacionados.</string>
+  <string name="donation_campaign_donated_snackbar">¡Gracias por tu donación! Tu generosidad mantiene viva la Wikipedia y otros proyectos relacionados.</string>
   <string name="donation_campaign_go_back_button">Atrás</string>
   <string name="menu_single_webview_open_external">Abrir en el navegador del sistema</string>
   <string name="donate_gpay_dialog_title">¿Donar con Google Pay?</string>
@@ -1732,6 +1821,7 @@
   <string name="donate_gpay_dialog_pay_button">Donar con Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Otro método de pago</string>
   <string name="donate_gpay_activity_title">Selecciona un importe</string>
+  <string name="donate_gpay_activity_title_with_currency" fuzzy="true">Selecciona un importe</string>
   <string name="donate_gpay_check_transaction_fee">Generosamente, acepto añadir %s a la donación para cubrir los gastos bancarios y que Wikimedia reciba el 100 %% de mi donación.</string>
   <string name="donate_gpay_check_recurring">Quiero hacer una donación recurrente.</string>
   <string name="donate_gpay_check_send_email">Sí, acepto que Wikimedia Foundation me envíe correos ocasionalmente.</string>
@@ -1742,7 +1832,8 @@
   <string name="donate_gpay_help_other_ways">Otras maneras de donar</string>
   <string name="donate_gpay_help_faq">Preguntas frecuentes</string>
   <string name="donate_gpay_help_tax">Información sobre desgravación de impuestos</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Historial de donantes eliminado</string>
+  <string name="donation_history_deleted_message_snackbar">Historial de donantes eliminado</string>
+  <string name="donation_history_no_history_message_snackbar">No tienes historial de donaciones para borrar.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">Se requiere permiso de Ubicación para ver tu ubicación en el mapa.  Por favor, inténtalo de nuevo.</string>
   <string name="places_search_hint">Buscar lugares</string>
@@ -1840,19 +1931,24 @@
   <string name="on_this_day_game_continue_playing_btn_text">Seguir jugando</string>
   <string name="on_this_day_game_sound_on">Activar el sonido</string>
   <string name="on_this_day_game_sound_off">Desactivar el sonido</string>
-  <string name="year_in_review_learn_more" fuzzy="true">Más información</string>
-  <string name="year_in_review_get_started" fuzzy="true">Comenzar</string>
+  <string name="year_in_review_learn_more">Más información</string>
+  <string name="year_in_review_get_started">Comenzar</string>
   <string name="year_in_review_topbar_w_icon">Icono W de Wikipedia</string>
-  <string name="year_in_review_navigate_left" fuzzy="true">Navegar a la izquierda</string>
+  <string name="year_in_review_navigate_left">Navegar a la izquierda</string>
+  <string name="year_in_review_close">Cerrar</string>
   <string name="year_in_review_share_icon">Icono para compartir</string>
   <string name="year_in_review_heart_icon">Icono de corazón</string>
   <string name="year_in_review_navigate_right">Navegar a la derecha</string>
   <string name="year_in_review_donate">Donar</string>
   <string name="year_in_review_information_icon">Icono de información</string>
   <string name="year_in_review_get_started_headline">Explora tu Wikipedia: Resumen del año</string>
-  <string name="year_in_review_get_started_bodytext" fuzzy="true">Consulta información sobre los artículos que leíste en la app de Wikipedia y las modificaciones que realizaste. Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
+  <string name="year_in_review_get_started_bodytext">Consulta información sobre los artículos que leíste en la aplicación Wikipedia y las ediciones que realizaste.</string>
+  <string name="year_in_review_get_started_info">Tu historial de lectura está protegido. La información de lectura se calcula con datos almacenados localmente en tu dispositivo.</string>
+  <string name="year_in_review_get_started_later">Podrás acceder a tu Resumen Anual más tarde en el menú Más.</string>
   <string name="year_in_review_survey_title">Ayude a mejorar Resumen del año</string>
   <string name="year_in_review_survey_subtitle">¿Estás satisfecho con esta función?</string>
+  <string name="year_in_review_reading_list_survey_title">Ayude a mejorar la lista de lectura de Resumen del año %d .</string>
+  <string name="year_in_review_reading_list_survey_subtitle">¿Estás satisfecho con tu lista de lectura?</string>
   <string name="year_in_review_survey_very_satisfied">Muy satisfecho</string>
   <string name="year_in_review_survey_satisfied">Satisfecho</string>
   <string name="year_in_review_survey_neutral">Neutral</string>
@@ -1861,10 +1957,20 @@
   <string name="year_in_review_survey_placeholder_text">¿Alguna idea adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Enviar</string>
+  <string name="year_in_review_disable_title">¿Estás seguro que deseas desactivar tu Resumen Anual?</string>
+  <string name="year_in_review_disable_positive_button">Sí, estoy seguro.</string>
+  <string name="year_in_review_disable_negative_button">No, gracias</string>
+  <string name="year_in_review_setting_subtitle">Al desactivar el resumen anual, se borrarán todos los datos personalizados almacenados y se ocultará el resumen anual.</string>
   <string name="year_in_review_screendeck_image_content_description">Recurso de imagen para la pantalla principal del Resumen del año</string>
   <string name="year_in_review_screenshot_error">No se pudo generar captura de pantalla: %s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">Imagen y enlace del Resumen del año</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">Icono del globo</string>
+  <string name="year_in_review_share_subject">Mi año en Wikipedia en resumen</string>
+  <string name="year_in_review_share_body" fuzzy="true">Este es mi resumen anual de Wikipedia. Creado con la aplicación de Wikipedia para iOS (https://apps.apple.com/app/wikipedia/id324715238) #ResumenAnualDeWikipedia</string>
+  <string name="year_in_review_globe_icon">Icono del globo</string>
+  <string name="settings_app_icon_title">Icono de la aplicación</string>
+  <string name="settings_app_icon_subtitle">Beneficio del contribuyente</string>
+  <string name="settings_app_icon_preference_subtitle">Tienes acceso a un icono personalizado que celebra tus %d contribuciones a Wikipedia desde la aplicación. Permanecerá hasta el próximo Resumen del Año.</string>
+  <string name="settings_app_icon_updated">Tu lista de seguimiento se ha actualizado.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nuevo ícono de aplicación desbloqueado para tu pantalla de inicio</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
