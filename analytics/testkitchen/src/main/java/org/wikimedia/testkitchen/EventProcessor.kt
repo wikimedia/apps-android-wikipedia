@@ -22,7 +22,8 @@ class EventProcessor(
     private val samplingController: SamplingController,
     private val eventSender: EventSender,
     private val eventQueue: BlockingQueue<Event>,
-    private val logger: LogAdapter
+    private val logger: LogAdapter,
+    private val isDebug: Boolean = false
 ) {
 
     /**
@@ -92,8 +93,7 @@ class EventProcessor(
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    // TODO: add hasty parameter conditionally
-                    eventSender.sendEvents((destinationEventService.baseUri + "/v1/events").toUri(), pendingValidEvents)
+                    eventSender.sendEvents((destinationEventService.baseUri + "/v1/events" + (if (!isDebug) "?hasty=true" else "")).toUri(), pendingValidEvents)
                 } catch (e: UnknownHostException) {
                     logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
                     eventQueue.addAll(pendingValidEvents)

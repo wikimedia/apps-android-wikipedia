@@ -18,7 +18,8 @@ class TestKitchenClient(
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
     val queueCapacity: Int = 100,
-    val logger: LogAdapter = DefaultLogAdapterImpl()
+    val logger: LogAdapter = DefaultLogAdapterImpl(),
+    val isDebug: Boolean = false
 ) {
 
     private var sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
@@ -48,7 +49,8 @@ class TestKitchenClient(
         samplingController,
         eventSender,
         eventQueue,
-        logger
+        logger,
+        isDebug
     )
 
     fun submitMetricsEvent(

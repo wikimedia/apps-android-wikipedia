@@ -48,6 +48,7 @@ object TestKitchenAdapter {
         EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client, logger),
         null,
         queueCapacity = Prefs.analyticsQueueSize,
-        logger = logger
+        logger = logger,
+        isDebug = ReleaseUtil.isDevRelease
     )
 }
