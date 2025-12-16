@@ -54,7 +54,6 @@ class SearchResultsFragment : Fragment() {
                             callback()?.navigateToTitle(title, inNewTab, position, location)
                         },
                         onItemLongClick = { searchResult, position ->
-                            println("orange onItemLongClick -> ${searchResult.pageTitle} pos: $position")
                             val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
                             composeView?.let {
                                 LongPressMenu(it, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
@@ -91,12 +90,11 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
-        viewModel.updateSearchTerm(term)
-        viewModel.updateLanguageCode(searchLanguageCode)
-
-        if (term.isNullOrBlank()) {
-            viewModel.updateSearchTerm("")
-            return
+        if (force) {
+            viewModel.refreshSearchResults()
+        } else {
+            viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
+            viewModel.updateLanguageCode(searchLanguageCode)
         }
     }
 

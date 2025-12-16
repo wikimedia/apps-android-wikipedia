@@ -41,8 +41,10 @@ class SearchResultsViewModel : ViewModel() {
     private var _languageCode = MutableStateFlow<String?>(null)
     var languageCode = _languageCode.asStateFlow()
 
+    private var _refreshSearchResults = MutableStateFlow(0)
+
     @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow = combine(_searchTerm, _languageCode) { term, lang ->
+    val searchResultsFlow = combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
         Pair(term, lang)
     }.debounce(delayMillis).flatMapLatest { (term, lang) ->
         Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
@@ -56,6 +58,10 @@ class SearchResultsViewModel : ViewModel() {
 
     fun updateLanguageCode(code: String) {
         _languageCode.value = code
+    }
+
+    fun refreshSearchResults() {
+        _refreshSearchResults.value += 1
     }
 
     class SearchResultsPagingSource(
