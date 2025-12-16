@@ -68,6 +68,9 @@ class SearchResultsFragment : Fragment() {
                             if (isAdded && position >= 0) {
                                 (requireParentFragment() as SearchFragment).setUpLanguageScroll(position)
                             }
+                        },
+                        onLoading = { enabled ->
+                            callback()?.onSearchProgressBar(enabled)
                         }
                     )
                 }

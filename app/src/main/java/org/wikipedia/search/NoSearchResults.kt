@@ -42,7 +42,7 @@ fun NoSearchResults(
         }
     }
 
-    if (countsPerLanguageCode.size > 1) {
+    if (countsPerLanguageCode.isNotEmpty()) {
         LazyColumn(
             modifier = modifier
         ) {

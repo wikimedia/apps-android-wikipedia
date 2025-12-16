@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -55,7 +54,8 @@ fun SearchResultsScreen(
     onItemLongClick: (SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
-    onRetrySearch: () -> Unit
+    onRetrySearch: () -> Unit,
+    onLoading: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -66,16 +66,12 @@ fun SearchResultsScreen(
         modifier = modifier
     ) {
         when {
-            loadState.refresh is LoadState.Loading -> {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(24.dp),
-                    color = WikipediaTheme.colors.progressiveColor
-                )
+            loadState.append is LoadState.Loading || loadState.refresh is LoadState.Loading -> {
+                onLoading(true)
             }
 
             loadState.refresh is LoadState.Error -> {
+                onLoading(false)
                 val error = (loadState.refresh as LoadState.Error).error
                 WikiErrorView(
                     modifier = Modifier
@@ -90,6 +86,7 @@ fun SearchResultsScreen(
             }
 
             loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
+                onLoading(false)
                 NoSearchResults(
                     countsPerLanguageCode = countsPerLanguageCode,
                     invokeSource = viewModel.invokeSource,
@@ -98,6 +95,7 @@ fun SearchResultsScreen(
             }
 
             else -> {
+                onLoading(false)
                 SearchResultsList(
                     searchResults = searchResults,
                     searchTerm = searchTerm.value,
