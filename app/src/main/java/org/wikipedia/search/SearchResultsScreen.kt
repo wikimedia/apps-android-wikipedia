@@ -261,8 +261,8 @@ fun boldenAnnotatedString(
     text: String,
     query: String?
 ): AnnotatedString {
-    val spanned = StringUtil.fromHtml(text)
-    val annotated = spanned.toAnnotatedString()
+    val hasHtml = text.contains("<") || text.contains("&")
+    val annotated = if (hasHtml) StringUtil.fromHtml(text).toAnnotatedString() else AnnotatedString(text)
     if (query.isNullOrEmpty()) {
         return annotated
     }
