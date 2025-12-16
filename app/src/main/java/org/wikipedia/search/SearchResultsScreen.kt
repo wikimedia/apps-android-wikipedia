@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -25,11 +26,13 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -43,6 +46,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedString
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
@@ -62,46 +66,48 @@ fun SearchResultsScreen(
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
-    Box(
-        modifier = modifier
-    ) {
-        when {
-            loadState.append is LoadState.Loading || loadState.refresh is LoadState.Loading -> {
-                onLoading(true)
-            }
+    val languageCode = viewModel.languageCode.collectAsState()
+    val layoutDirection = if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-            loadState.refresh is LoadState.Error -> {
-                onLoading(false)
-                val error = (loadState.refresh as LoadState.Error).error
-                WikiErrorView(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .align(Alignment.Center),
-                    caught = error,
-                    errorClickEvents = WikiErrorClickEvents(
-                        backClickListener = { onCloseSearch() },
-                        retryClickListener = { onRetrySearch() }
+    // this is a callback to show loading indicator in the SearchFragment.
+    // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
+    onLoading(loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading)
+
+    CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+        Box(
+            modifier = modifier
+        ) {
+            when {
+                loadState.refresh is LoadState.Error -> {
+                    val error = (loadState.refresh as LoadState.Error).error
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.Center),
+                        caught = error,
+                        errorClickEvents = WikiErrorClickEvents(
+                            backClickListener = { onCloseSearch() },
+                            retryClickListener = { onRetrySearch() }
+                        )
                     )
-                )
-            }
+                }
 
-            loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                onLoading(false)
-                NoSearchResults(
-                    countsPerLanguageCode = countsPerLanguageCode,
-                    invokeSource = viewModel.invokeSource,
-                    onLanguageClick = onLanguageClick
-                )
-            }
+                loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
+                    NoSearchResults(
+                        countsPerLanguageCode = countsPerLanguageCode,
+                        invokeSource = viewModel.invokeSource,
+                        onLanguageClick = onLanguageClick
+                    )
+                }
 
-            else -> {
-                onLoading(false)
-                SearchResultsList(
-                    searchResults = searchResults,
-                    searchTerm = searchTerm.value,
-                    onItemClick = onNavigateToTitle,
-                    onItemLongClick = onItemLongClick
-                )
+                else -> {
+                    SearchResultsList(
+                        searchResults = searchResults,
+                        searchTerm = searchTerm.value,
+                        onItemClick = onNavigateToTitle,
+                        onItemLongClick = onItemLongClick
+                    )
+                }
             }
         }
     }
@@ -156,7 +162,7 @@ fun SearchResultItem(
     }
 
     val showImage =
-        !pageTitle.thumbUrl.isNullOrEmpty() && type != SearchResult.SearchResultType.SEARCH
+        !pageTitle.thumbUrl.isNullOrEmpty()
 
     val boldenTitle = remember(pageTitle.displayText, searchTerm) {
         boldenAnnotatedString(pageTitle.displayText, searchTerm)

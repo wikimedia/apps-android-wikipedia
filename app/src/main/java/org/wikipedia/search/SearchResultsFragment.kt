@@ -61,7 +61,7 @@ class SearchResultsFragment : Fragment() {
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {
-                            startSearch(viewModel.searchTerm.value, true)
+                            viewModel.refreshSearchResults()
                         },
                         onLanguageClick = { position ->
                             if (isAdded && position >= 0) {
@@ -129,5 +129,10 @@ class SearchResultsFragment : Fragment() {
                 callback()?.onSearchMovePageToList(page!!.listId, entry)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        composeView = null
     }
 }
