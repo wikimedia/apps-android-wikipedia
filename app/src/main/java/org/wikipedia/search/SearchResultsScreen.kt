@@ -1,8 +1,9 @@
 package org.wikipedia.search
 
 import android.location.Location
+import android.view.View
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,13 +18,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -35,6 +40,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -55,7 +61,7 @@ fun SearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel = viewModel(),
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onItemLongClick: (SearchResult, Int) -> Unit,
+    onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -67,7 +73,8 @@ fun SearchResultsScreen(
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
 
     val languageCode = viewModel.languageCode.collectAsState()
-    val layoutDirection = if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
+    val layoutDirection =
+        if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
@@ -118,7 +125,7 @@ fun SearchResultsList(
     searchResults: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onItemLongClick: (SearchResult, Int) -> Unit,
+    onItemLongClick: (View, SearchResult, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -131,14 +138,15 @@ fun SearchResultsList(
                 SearchResultItem(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .combinedClickable(onClick = {
-                            onItemClick(result.pageTitle, false, index, result.location)
-                        }, onLongClick = {
-                            onItemLongClick(result, index)
-                        })
                         .padding(16.dp),
                     searchResult = result,
-                    searchTerm = searchTerm
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result.pageTitle, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    }
                 )
             }
         }
@@ -149,9 +157,12 @@ fun SearchResultsList(
 fun SearchResultItem(
     searchResult: SearchResult,
     searchTerm: String?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: () -> Unit,
+    onItemLongClick: (View) -> Unit,
 ) {
     val (pageTitle, redirectFrom, type) = searchResult
+    var anchorView by remember { mutableStateOf<View?>(null) }
 
     val isRedirect = !redirectFrom.isNullOrEmpty()
 
@@ -167,93 +178,116 @@ fun SearchResultItem(
     val boldenTitle = remember(pageTitle.displayText, searchTerm) {
         boldenAnnotatedString(pageTitle.displayText, searchTerm)
     }
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .weight(1f)
-        ) {
-            // Title with bold style
-            Text(
-                text = boldenTitle,
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.bodyLarge
-            )
-
-            if (isRedirect) {
-                Row(
-                    modifier = Modifier.padding(top = 2.dp)
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .size(16.dp),
-                        painter = painterResource(R.drawable.ic_subdirectory_arrow_right_black_24dp),
-                        colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor),
-                        contentDescription = null
-                    )
-                    Text(
-                        text = "Redirect from...",
-                        color = WikipediaTheme.colors.secondaryColor,
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontSize = 14.sp
-                        ),
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
-            } else {
-                val description = pageTitle.description
-                if (!description.isNullOrEmpty()) {
-                    Text(
-                        modifier = Modifier
-                            .padding(top = 2.dp),
-                        text = description,
-                        color = WikipediaTheme.colors.secondaryColor,
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontSize = 14.sp
-                        ),
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                }
-            }
-        }
-
+    Box {
         Row(
+            modifier = modifier
+                .pointerInput(pageTitle.displayText) {
+                    detectTapGestures(
+                        onLongPress = {
+                            anchorView?.let { onItemLongClick(it) }
+                        },
+                        onTap = {
+                            onItemClick()
+                        }
+                    )
+                },
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            if (type != SearchResult.SearchResultType.SEARCH) {
-                Image(
-                    modifier = Modifier
-                        .size(20.dp),
-                    painter = painterResource(iconResId),
-                    colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor),
-                    contentDescription = null
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                // Title with bold style
+                Text(
+                    text = boldenTitle,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.bodyLarge
                 )
+
+                if (isRedirect) {
+                    Row(
+                        modifier = Modifier.padding(top = 2.dp)
+                    ) {
+                        Image(
+                            modifier = Modifier
+                                .size(16.dp),
+                            painter = painterResource(R.drawable.ic_subdirectory_arrow_right_black_24dp),
+                            colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor),
+                            contentDescription = null
+                        )
+                        Text(
+                            text = "Redirect from...",
+                            color = WikipediaTheme.colors.secondaryColor,
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontSize = 14.sp
+                            ),
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                } else {
+                    val description = pageTitle.description
+                    if (!description.isNullOrEmpty()) {
+                        Text(
+                            modifier = Modifier
+                                .padding(top = 2.dp),
+                            text = description,
+                            color = WikipediaTheme.colors.secondaryColor,
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontSize = 14.sp
+                            ),
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                }
             }
 
-            if (showImage) {
-                val request =
-                    ImageService.getRequest(
-                        LocalContext.current,
-                        url = pageTitle.thumbUrl
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                if (type != SearchResult.SearchResultType.SEARCH) {
+                    Image(
+                        modifier = Modifier
+                            .size(20.dp),
+                        painter = painterResource(iconResId),
+                        colorFilter = ColorFilter.tint(color = WikipediaTheme.colors.placeholderColor),
+                        contentDescription = null
                     )
-                AsyncImage(
-                    model = request,
-                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(56.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                )
+                }
+
+                if (showImage) {
+                    val request =
+                        ImageService.getRequest(
+                            LocalContext.current,
+                            url = pageTitle.thumbUrl
+                        )
+                    AsyncImage(
+                        model = request,
+                        placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                        error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                        contentScale = ContentScale.Crop,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(56.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                }
             }
         }
+
+        AndroidView(
+            factory = { ctx ->
+                View(ctx).apply {
+                    anchorView = this
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(0.dp)
+        )
     }
 }
 
@@ -262,7 +296,8 @@ fun boldenAnnotatedString(
     query: String?
 ): AnnotatedString {
     val hasHtml = text.contains("<") || text.contains("&")
-    val annotated = if (hasHtml) StringUtil.fromHtml(text).toAnnotatedString() else AnnotatedString(text)
+    val annotated =
+        if (hasHtml) StringUtil.fromHtml(text).toAnnotatedString() else AnnotatedString(text)
     if (query.isNullOrEmpty()) {
         return annotated
     }
