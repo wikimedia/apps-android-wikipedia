@@ -1198,6 +1198,7 @@
   <string name="activity_tab_explore_wikipedia">Objevte na Wikipedii</string>
   <string name="activity_tab_discover_encourage">Hledáte něco nového ke čtení?</string>
   <string name="activity_tab_total_edits_all_projects">Editací celkem napříč projekty</string>
+  <string name="activity_tab_game_stats_best_streak">Nejdelší řada</string>
   <string name="activity_tab_menu_feedback">Problém s funkcí</string>
   <string name="activity_tab_menu_info">Další informace</string>
   <string name="activity_tab_menu_customize">Přizpůsobit</string>
@@ -1235,6 +1236,7 @@
     <item quantity="many">%d dne</item>
     <item quantity="other">%d dní</item>
   </plurals>
+  <string name="activity_tab_impact_best_streak">Nejdelší řada</string>
   <string name="activity_tab_impact_last_edited">Poslední editace</string>
   <string name="activity_tab_impact_recent_activity">Vaše nedávná aktivita (posledních 30 dní)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1749,6 +1751,7 @@
   <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedie vám nezašle upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
+  <string name="donation_settings_section_header">Dary</string>
   <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>
