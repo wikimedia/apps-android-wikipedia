@@ -33,6 +33,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -217,7 +218,7 @@ fun SearchResultItem(
                             contentDescription = null
                         )
                         Text(
-                            text = "Redirect from...",
+                            text = stringResource(R.string.search_redirect_from, redirectFrom),
                             color = WikipediaTheme.colors.secondaryColor,
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontSize = 14.sp
