@@ -206,7 +206,7 @@ class YearInReviewViewModel() : ViewModel() {
                             val geocoder = Geocoder(WikipediaApp.instance)
                             val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
                             if (!results.isNullOrEmpty()) {
-                                largestClusterCountryName = results.first().countryName
+                                largestClusterCountryName = results.first().countryName.orEmpty()
                             }
                             pagesWithCoordinates = largestCluster.locations.plus(pagesWithCoordinates.minus(
                                 largestCluster.locations.toSet()
