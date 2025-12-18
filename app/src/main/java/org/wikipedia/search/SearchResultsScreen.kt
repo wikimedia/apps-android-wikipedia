@@ -283,6 +283,9 @@ fun SearchResultItem(
             }
         }
 
+        // invisible anchor view for LongPressMenu
+        // using view based PopupMenu (vs pure Compose): Compose DropdownMenu does not have reliable
+        // positioning with LazyColumn items and does not anchor properly with the parent layout.
         AndroidView(
             factory = { ctx ->
                 View(ctx).apply {
