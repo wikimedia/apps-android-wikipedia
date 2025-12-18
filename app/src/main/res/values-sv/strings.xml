@@ -996,7 +996,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
   <string name="suggested_edits_article_cta_image_tags">Lägg till bildtaggar</string>
-  <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
@@ -2095,8 +2095,8 @@
     <item quantity="one">Redigerad artikel</item>
     <item quantity="other">Redigerade artiklar</item>
   </plurals>
-  <string name="year_in_review_highlights_share_button_title">Dela höjdpunkter</string>
-  <string name="year_in_review_highlights_logo_description">Wikipedia-logotyp</string>
+  <string name="year_in_review_highlights_share_button_title">Dela höjdpunkterna</string>
+  <string name="year_in_review_highlights_logo_description">Wikipedias logotyp</string>
   <string name="recommended_reading_list_title">Upptäck</string>
   <string name="recommended_reading_list_onboarding_card_title">Upptäck artiklar utvalda för just dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Veckans läslista av Wikipediaartiklar, utvalda för dig.</string>

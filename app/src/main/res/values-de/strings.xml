@@ -1775,7 +1775,7 @@
   <string name="email_report_patroller_tasks_subject">Problembericht – Funktion „Patrouille bearbeiten“</string>
   <string name="email_report_patroller_tasks_body">Ich habe ein Problem mit der Funktion „Patrouille bearbeiten“ festgestellt:\n- [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n- [Lösungsvorschlag beschreiben]\n\n[Screenshots oder Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
+  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
@@ -1794,7 +1794,8 @@
   <string name="donate_gpay_help_other_ways">Andere Möglichkeiten zu spenden</string>
   <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
   <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Spenderhistorie gelöscht</string>
+  <string name="donation_history_deleted_message_snackbar">Spenderhistorie gelöscht</string>
+  <string name="donation_history_no_history_message_snackbar">Sie haben keine Spendenhistorie, die gelöscht werden kann.</string>
   <string name="places_title">Orte</string>
   <string name="places_permissions_denied">Um deinen Standort auf der Karte anzeigen zu können, ist die Standortberechtigung erforderlich. Bitte versuche es erneut.</string>
   <string name="places_search_hint">Orte suchen</string>
@@ -2251,4 +2252,8 @@
     <item quantity="other">%d Artikel</item>
   </plurals>
   <string name="donation_reminders_experiment_label" fuzzy="true">Experiment</string>
+  <string name="explore_feed_survey_dialog_title">Gib uns Feedback, um den Entdecken-Feed zu verbessern.</string>
+  <string name="explore_feed_survey_dialog_message">Nimm bitte an einer kurzen Umfrage zum Entdecken-Feed teil. Dein Feedback hilft uns, die App zu verbessern.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">An der Umfrage teilnehmen</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Nein danke</string>
 </resources>

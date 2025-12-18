@@ -998,7 +998,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Fájllap a Wikipédián</string>
   <string name="suggested_edits_article_cta_image_tags">Képcímkék hozzáadása</string>
-  <string name="suggested_edits_article_cta_image_caption">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Képaláírás hozzáadása</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>

@@ -37,6 +37,7 @@
 * Jhammock
 * KATRINE1992
 * Kimyungjog
+* Lenchanteur
 * Linedwell
 * Lofhi
 * Ltrlg
@@ -321,6 +322,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -1793,7 +1795,7 @@
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
+  <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à d\'autres sites contenant des connaissances libres de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
   <string name="donate_gpay_dialog_title">Faire un don avec Google Pay ?</string>
@@ -1812,7 +1814,8 @@
   <string name="donate_gpay_help_other_ways">Autres moyens de donner</string>
   <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="donate_gpay_help_tax">Informations sur les conditions de déductibilité fiscale</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Historique des donateurs supprimé</string>
+  <string name="donation_history_deleted_message_snackbar">Historique des donations supprimé.</string>
+  <string name="donation_history_no_history_message_snackbar">Vous n\'avez aucun historique de donation à supprimer.</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
@@ -1951,6 +1954,7 @@
   <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Activez votre nouvelle icône d\'application dans les paramètres en dessous de l\'icône de l\'application. Merci d\'avoir investi dans le futur du savoir gratuit. Vos contributions en tant que %1$s dans %2$d aident à bâtir un monde d\'information gratuite, et grâce à ça, vous avez débloqué une icône customisée de contributeur pour Wikipedia sur votre écran d\'accueil.</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
