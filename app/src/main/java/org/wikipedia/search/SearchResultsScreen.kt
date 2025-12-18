@@ -1,9 +1,11 @@
 package org.wikipedia.search
 
+import android.content.Context
 import android.location.Location
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,7 +30,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -137,9 +138,6 @@ fun SearchResultsList(
         ) { index ->
             searchResults[index]?.let { result ->
                 SearchResultItem(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
                     searchResult = result,
                     searchTerm = searchTerm,
                     onItemClick = {
@@ -158,7 +156,6 @@ fun SearchResultsList(
 fun SearchResultItem(
     searchResult: SearchResult,
     searchTerm: String?,
-    modifier: Modifier = Modifier,
     onItemClick: () -> Unit,
     onItemLongClick: (View) -> Unit,
 ) {
@@ -179,19 +176,26 @@ fun SearchResultItem(
     val boldenTitle = remember(pageTitle.displayText, searchTerm) {
         boldenAnnotatedString(pageTitle.displayText, searchTerm)
     }
+
+    val context = LocalContext.current
+
     Box {
         Row(
-            modifier = modifier
-                .pointerInput(pageTitle.displayText) {
-                    detectTapGestures(
-                        onLongPress = {
-                            anchorView?.let { onItemLongClick(it) }
-                        },
-                        onTap = {
-                            onItemClick()
+            modifier = Modifier
+                .fillMaxWidth()
+                .combinedClickable(
+                    onLongClick = {
+                        anchorView?.let {
+                            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                            imm.hideSoftInputFromWindow(it.windowToken, 0)
+                            onItemLongClick(it)
                         }
-                    )
-                },
+                    },
+                    onClick = {
+                        onItemClick()
+                    }
+                )
+                .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
