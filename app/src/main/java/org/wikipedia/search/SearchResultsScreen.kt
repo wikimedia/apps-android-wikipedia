@@ -87,6 +87,8 @@ fun SearchResultsScreen(
             modifier = modifier
         ) {
             when {
+                loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
+
                 loadState.refresh is LoadState.Error -> {
                     val error = (loadState.refresh as LoadState.Error).error
                     WikiErrorView(
