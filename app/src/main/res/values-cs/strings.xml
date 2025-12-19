@@ -1057,7 +1057,7 @@
   <string name="suggested_edits_feed_card_add_image_tags">Přidat značky obrázků</string>
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
-  <string name="suggested_edits_image_captions">Titulky obrázků</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Titulky obrázků</string>
   <string name="suggested_edits_image_tags">Značky obrázků</string>
   <string name="suggested_edits_image_tags_publishing">Zveřejňuje se</string>
   <string name="suggested_edits_image_tags_published">Zveřejněno</string>
