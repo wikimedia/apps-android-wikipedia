@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
-    <!-- https://github.com/square/okio/issues/58 -->
-    <issue id="InvalidPackage">
-        <!--<ignore regexp="okio-1.0.1.jar" />-->
-        <ignore regexp="okio-\d+\.\d+\.\d+\.jar" />
-    </issue>
-
-    <!-- Ignore the IconLocation issue in the given files -->
-    <issue id="IconLocation">
-        <!-- big images we don't want to duplicate multiple times: -->
-        <ignore path="res/drawable/wp_wordmark.png" />
-    </issue>
-
-    <issue id="UnusedResources">
-        <ignore regexp="crash_report_dialog_[a-z_]+" />
-        <ignore regexp="tool_tip_arrow_[updown]+" />
-    </issue>
-
-    <issue id="InvalidPackage" severity="ignore" /> <!-- Required by Butter Knife -->
-
     <issue id="MissingTranslation" severity="ignore" />
     <issue id="ExtraTranslation" severity="warning" />
     <issue id="UnusedQuantity" severity="ignore" />
