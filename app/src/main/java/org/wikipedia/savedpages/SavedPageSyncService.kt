@@ -188,7 +188,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
 
             val fileUrls = mutableSetOf<String>()
             // download css and javascript assets
-            mobileHTMLResponse.body?.let {
+            mobileHTMLResponse.body.use {
                 fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
                     pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
             }
@@ -279,7 +279,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
         withContext(Dispatchers.IO) {
             OkHttpConnectionFactory.client.newCall(request).execute().use { response ->
                 // Read the entirety of the response, so that it's written to cache by the interceptor.
-                response.body?.source()?.readAll(object : Sink {
+                response.body.source().readAll(object : Sink {
                     override fun write(source: Buffer, byteCount: Long) {}
                     override fun flush() {}
                     override fun timeout(): Timeout {
