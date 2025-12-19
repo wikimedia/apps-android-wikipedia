@@ -17,6 +17,7 @@
 * Pon44695
 * Ppnplus
 * Prame Tan
+* Thailand2763
 * Trisorn Triboon
 -->
 <resources>
@@ -30,10 +31,13 @@
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
+  <string name="search_back_button_content_description">ย้อนกลับ</string>
+  <string name="search_icon_content_description">ค้นหา</string>
   <string name="filter_hint_filter_my_lists_and_articles">กรองรายการของฉัน</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="nav_item_search">ค้นหา</string>
+  <string name="nav_item_contribute">ส่วนร่วม</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -127,6 +131,8 @@
   <string name="dialog_message_leaving_edit">การเปลี่ยนแปลงของคุณยังไม่ได้ถูกเผยแพร่ คุณแน่ใจหรือไม่ว่าต้องการออกจากหน้านี้?</string>
   <string name="dialog_message_leaving_edit_leave">ออก</string>
   <string name="dialog_message_leaving_edit_stay">อยู่ต่อ</string>
+  <string name="dialog_confirm_delete_donation_history_delete">ลบ</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ยกเลิก</string>
   <string name="menu_show_toc">สารบัญ</string>
   <string name="search_no_results_found">ไม่พบผลลัพธ์</string>
   <string name="search_reading_list_no_results">ไม่พบผลลัพธ์ใน \"%s\"</string>
@@ -260,6 +266,8 @@
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
   <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
+  <string name="edit_summary_added_short_description">เพิ่มคำอธิบายแบบสั้น</string>
+  <string name="edit_summary_updated_short_description">อัปเดตคำอธิบายแบบสั้น</string>
   <string name="edit_conflict_title">แก้ไขชนกัน</string>
   <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="edit_notices_please_read">โปรดอ่านก่อนแก้ไข</string>
@@ -1004,4 +1012,48 @@
   <string name="category_empty">ไม่พบบทความในหมวดหมู่นี้</string>
   <string name="subcategory_empty">ไม่พบหมวดหมู่ย่อยในหมวดหมู่นี้</string>
   <string name="revision_initial_none">ไม่มี (นี่คือรุ่นแก้ไขแรก)</string>
+  <string name="year_in_review_learn_more">เรียนรู้เพิ่มเติม</string>
+  <string name="year_in_review_get_started">เริ่มต้น</string>
+  <string name="year_in_review_topbar_w_icon">ไอคอน W ของวิกิพีเดีย</string>
+  <string name="year_in_review_navigate_left">ไปทางซ้าย</string>
+  <string name="year_in_review_close">ปิด</string>
+  <string name="year_in_review_share_icon">ไอคอนแชร์</string>
+  <string name="year_in_review_heart_icon">ไอคอนหัวใจ</string>
+  <string name="year_in_review_navigate_right">ไปทางขวา</string>
+  <string name="year_in_review_donate">บริจาค</string>
+  <string name="year_in_review_information_icon">ไอคอนข้อมูล</string>
+  <string name="year_in_review_get_started_headline">สำรวจสรุปรอบปีวิกิพีเดีย</string>
+  <string name="year_in_review_get_started_bodytext">ดูข้อมูลเชิงลึกเกี่ยวกับบทความที่คุณอ่านบนแอปวิกิพีเดียและการแก้ไขที่คุณทำ</string>
+  <string name="year_in_review_get_started_info">ประวัติการอ่านของคุณถูกเก็บรักษาอย่างดีและข้อมูลเชิงลึกต่าง ๆ ถูกคำนวนและเก็บไว้ในอุปกรณ์ของคุณเท่านั้น</string>
+  <string name="year_in_review_get_started_later">คุณสามารถเข้าถึงสรุปรอบปีนี้ได้ทุกเมื่อในเมนูเพิ่มเติม</string>
+  <string name="year_in_review_survey_title">ช่วยเราปรับปรุงสรุปรอบปี</string>
+  <string name="year_in_review_survey_subtitle">คุณรู้สึกอย่างไรบ้างกับฟีเจอร์นี้</string>
+  <string name="year_in_review_reading_list_survey_title">ช่วยปรับปรุงรายการอ่านของสรุปรอบปี %d</string>
+  <string name="year_in_review_reading_list_survey_subtitle">คุณพอใจกับรายการอ่านของคุณหรือไม่</string>
+  <string name="year_in_review_survey_very_satisfied">พึงพอใจมาก</string>
+  <string name="year_in_review_survey_satisfied">พึงพอใจ</string>
+  <string name="year_in_review_survey_neutral">เฉย ๆ</string>
+  <string name="year_in_review_survey_unsatisfied">ไม่พึงพอใจ</string>
+  <string name="year_in_review_survey_very_unsatisfied">ไม่พึงพอใจมาก</string>
+  <string name="year_in_review_survey_placeholder_text">มีความเห็นเพิ่มเติมหรือไม่</string>
+  <string name="year_in_review_survey_cancel">ยกเลิก</string>
+  <string name="year_in_review_survey_submit">ส่ง</string>
+  <string name="year_in_review_disable_title">คุณแน่ใจหรือไม่ว่าต้องการปิดสรุปรอบปี?</string>
+  <string name="year_in_review_disable_positive_button">ใช่ แน่ใจ</string>
+  <string name="year_in_review_disable_negative_button">ไม่ต้อง ขอบคุณ</string>
+  <string name="year_in_review_setting_subtitle">การปิดสรุปรอบปีจะล้างข้อมูลเชิงลึกส่วนบุคคลที่บันทึกไว้และซ่อนสรุปรอบปีของคุณ</string>
+  <string name="year_in_review_screendeck_image_content_description">แหล่งข้อมูลภาพสำหรับหน้าจอหลัก Year in Review</string>
+  <string name="year_in_review_screenshot_error">ไม่สามารถสร้างภาพหน้าจอได้: %s</string>
+  <string name="year_in_review_share_subject">สรุปรอบปีวิกิพีเดียของฉัน</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">วิกิพีเดียถูกแก้ไขบ่อยแค่ไหน</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">{{PLURAL|%d ครั้งต่อนาที</string>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="other">นาทีที่ใช้อ่าน</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">วันที่คุณชอบอ่าน</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="other">บทความที่อ่าน</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">แบ่งปันไฮไลต์</string>
+  <string name="year_in_review_highlights_logo_description">โลโก้วิกิพีเดีย</string>
 </resources>

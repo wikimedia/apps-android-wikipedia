@@ -892,7 +892,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica slike na Vikimedijinoj ostavi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stranica datoteke na Vikipediji</string>
   <string name="suggested_edits_article_cta_image_tags">Dodaj oznake slika</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj natpis slike</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Dodaj natpis slike</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj natpis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj natpis slike</string>
@@ -1486,7 +1486,7 @@
   <string name="email_report_patroller_tasks_subject">Prijava problema - Mogućnost patroliranja izmena</string>
   <string name="email_report_patroller_tasks_body">Naišao/la sam na problem sa mogućnošću Patroliranja izmena:\n- [Opišite specifičan problem]\n\nPonašanje koje želim da vidim je:\n- [Opišite predloženo rešenje]\n\n[Slike ekrana ili veze]</string>
   <string name="donation_campaign_maybe_later_snackbar">Podsetićemo vas ponovo sutra.</string>
-  <string name="donation_campaign_donated_snackbar">Hvala, dragi donatore! Vaša velikodušnost pomaže da Vikipedija i njeni sestrinski sajtovi budu uspešni.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Hvala, dragi donatore! Vaša velikodušnost pomaže da Vikipedija i njeni sestrinski sajtovi budu uspešni.</string>
   <string name="donation_campaign_go_back_button">Nazad</string>
   <string name="menu_single_webview_open_external">Otvori u pregledaču</string>
   <string name="survey_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>

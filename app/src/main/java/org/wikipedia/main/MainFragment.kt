@@ -80,6 +80,7 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.SuggestedEditsTasksActivity
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
@@ -194,8 +195,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener false
             }
             val fragment = currentFragment
-            if (fragment is FeedFragment && item.order == 0) {
-                fragment.scrollToTop()
+            if (item.order == NavTab.EXPLORE.code()) {
+                FeedFragment.maybeShowExploreFeedSurvey(requireActivity())
+                if (fragment is FeedFragment) {
+                    fragment.scrollToTop()
+                }
             }
             if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
                 openSearchActivity(InvokeSource.NAV_MENU, null, null)
@@ -424,7 +428,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeedSeCardFooterClicked() {
-        onNavigateTo(NavTab.EDITS)
+        startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity()))
     }
 
     override fun onFeedShareImage(card: FeaturedImageCard) {

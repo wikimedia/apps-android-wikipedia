@@ -37,9 +37,8 @@ class DonationReminderActivity : BaseActivity() {
                     onFooterButtonClick = {
                         if (viewModel.isFromSettings) {
                             UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
-                            val activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config"
                             DonorExperienceEvent.logDonationReminderAction(
-                                activeInterface = activeInterface,
+                                activeInterface = "global_setting",
                                 action = "reminder_about_click"
                             )
                         } else {
@@ -56,9 +55,17 @@ class DonationReminderActivity : BaseActivity() {
                         }
                     ),
                     onLearnMoreClick = {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            action = "overflow_learn_more_click"
+                        )
                         UriUtil.visitInExternalBrowser(this, getString(R.string.donation_reminders_experiment_url).toUri())
                     },
                     onReportClick = {
+                        DonorExperienceEvent.logDonationReminderAction(
+                            activeInterface = if (viewModel.isFromSettings) "global_setting" else "reminder_config",
+                            action = "overflow_problem_click"
+                        )
                         FeedbackUtil.composeEmail(this,
                             subject = getString(R.string.donation_reminders_settings_report_email_subject),
                             body = getString(R.string.donation_reminders_settings_report_email_body))
@@ -73,7 +80,8 @@ class DonationReminderActivity : BaseActivity() {
         if (!viewModel.isFromSettings) {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_config",
-                action = "impression"
+                action = "impression",
+                campaignId = DonationReminderHelper.campaignId
             )
         }
     }

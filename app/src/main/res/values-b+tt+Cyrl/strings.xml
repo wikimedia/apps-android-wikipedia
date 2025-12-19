@@ -774,8 +774,8 @@
   <string name="notifications_swipe_action_unread">Укылмаган</string>
   <string name="notifications_menu_check_all">Барлык элементларны да тикшерегез</string>
   <string name="notifications_menu_uncheck_all">Барлык элементлардан да тамгаларны алыгыз</string>
-  <string name="notifications_wiki_filter_header">Вики-фильтр</string>
-  <string name="notifications_type_filter_header">Фильтр төре</string>
+  <string name="notifications_wiki_filter_header">Вики-сөзгеч</string>
+  <string name="notifications_type_filter_header">Сөзгеч төре</string>
   <string name="notifications_all_wikis_text">Барлык викиләр</string>
   <string name="notifications_all_types_text" fuzzy="true">Барлык \"төрләр\"</string>
   <string name="notifications_menu_user_talk_page">%s фикер алышу бите</string>
@@ -945,7 +945,7 @@
     <item quantity="one">бер генә төзәтмә</item>
     <item quantity="other">%d төзәтмә</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_feed_card_title">Тәкъдим ителгән төзәтмәләр</string>
   <string name="suggested_edits_feed_card_add_description_button">Мәкаләләргә тасвирлама өстәргә</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Мәкаләләргә (%s) тасвирлама өстәргә</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Башларга</string>
@@ -1010,7 +1010,7 @@
   <string name="suggested_edits_quality_sufficient_text">Җитәрлек</string>
   <string name="suggested_edits_quality_poor_text">Сыйфатсыз</string>
   <string name="suggested_edits_quality_bad_text">Начар</string>
-  <string name="suggested_edits_label">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_label">Тәкъдим ителгән төзәтмәләр</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Кертем</item>
     <item quantity="other">Кертемнәр</item>
@@ -1033,7 +1033,7 @@
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
   <string name="suggested_edits_task_new">Яңа</string>
   <string name="suggested_edits_cc0_notice">Бастырып чыгарганда &lt;a href=\"%1$s\"&gt;куллану шартлары&lt;/a&gt; белән килешәсез һәм бу керемне &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; лицензиясе нигезендә кире кайтара алмаслык рәвештә бастырасыз.</string>
-  <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән төзәтмәләр</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Википедияне мөхәррирләгән өчен рәхмәт! Нигә сез тукталган урыннан дәвам итмәскә?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Википедияне яхшырту өчен бер минут вакытыгыз бармы? Мөхәррирләү буенча әлеге тәкъдимнәр белән танышыгыз.</string>
   <string name="suggested_edits_contributions_screen_title">%s кертемнәре</string>
@@ -1430,7 +1430,7 @@
   <string name="watchlist_filter_contribution_authorship_except_own">Башка кулланучылар ясаган үзгәрешләр</string>
   <string name="watchlist_filter_automated_contributions_header">Автоматлаштырылган кертемнәр</string>
   <string name="watchlist_filter_automated_contributions_bot">Бот</string>
-  <string name="watchlist_filter_automated_contributions_human">Кеше (бот түгел)</string>
+  <string name="watchlist_filter_automated_contributions_human">Кеше (робот түгел)</string>
   <string name="watchlist_filter_significance_header">Әһәмиятлелек</string>
   <string name="watchlist_filter_significance_minor">Зур булмаган төзәтмәләр</string>
   <string name="watchlist_filter_significance_edits">Кече булмаган төзәтмәләр</string>
@@ -1449,8 +1449,8 @@
   <string name="watchlist_search_bar_filter_hint">Күзәтү исемлегенең фильтры</string>
   <string name="watchlist_empty_search_message">Нәтиҗәләр юк, күбрәк күрер өчен %s фильтр санын бетереп карагыз.</string>
   <plurals name="watchlist_number_of_filters">
-    <item quantity="one">%d фильтр</item>
-    <item quantity="other">%d фильтр</item>
+    <item quantity="one">%d сөзгеч</item>
+    <item quantity="other">%d сөзгеч</item>
   </plurals>
   <string name="preview_edit_title">Төзәтмәне алдан карау</string>
   <string name="preview_edit_summarize_edit_title">Мөхәррирләүне гомумиләштерергә</string>
@@ -1468,8 +1468,8 @@
   <string name="revision_initial_none">Юк (бу беренче редакция)</string>
   <string name="user_contrib_activity_title">%s исемле кулланучының авторлык кертемнәре</string>
   <string name="archive_empty">Архивланган битләр табылмады.</string>
-  <string name="user_contrib_filter_ns">Исемнәр пространствосы буенча фильтрлау</string>
-  <string name="user_contrib_filter_all">Барлык исемнәр пространствосы</string>
+  <string name="user_contrib_filter_ns">Исемара буенча сөзү</string>
+  <string name="user_contrib_filter_all">Барлык исемаралар</string>
   <string name="user_contrib_filter_ns_header">Исемнәр пространствосы фильтры</string>
   <string name="namespace_article">Мәкалә</string>
   <string name="user_contrib_current">гамәлдәге</string>
@@ -1543,8 +1543,8 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Соңгы юрама</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Соңгы булмаган юрама</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Автоматлаштырылган кертемнәр</string>
-  <string name="patroller_tasks_filters_automated_contributions_bot">Бот</string>
-  <string name="patroller_tasks_filters_automated_contributions_human">Кеше (бот түгел)</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Робот</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Кеше (робот түгел)</string>
   <string name="patroller_tasks_filters_significance_header">Мәгънәсе</string>
   <string name="patroller_tasks_filters_significance_minor">Кече төзәтмәләр</string>
   <string name="patroller_tasks_filters_significance_edits">Кече булмаган төзәтмәләр</string>
@@ -1564,8 +1564,8 @@
   <string name="patroller_tasks_filters_user_intent_bad">Мөгаен, намуссызлык</string>
   <string name="patroller_tasks_filters_empty_search_message">Үзгәрешләрне күбрәк күрү өчен %s фильтрны бетерегез</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
-    <item quantity="one">%d фильтр</item>
-    <item quantity="other">%d фильтр</item>
+    <item quantity="one">%d сөзгеч</item>
+    <item quantity="other">%d сөзгеч</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире кайтару тәмамланды</string>
@@ -1594,7 +1594,7 @@
   <string name="email_report_image_recommendations_subject">Проблема турында хисап - «Рәсемнәрне тәкъдим итү» функциясе</string>
   <string name="email_report_patroller_tasks_subject">Проблема турында хисап - патрульләштерү функциясен үзгәртү</string>
   <string name="donation_campaign_maybe_later_snackbar">Иртәгә тагын бер тапкыр исегезгә төшерербез.</string>
-  <string name="donation_campaign_donated_snackbar">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
   <string name="places_toggle_buttons_map">Харита</string>

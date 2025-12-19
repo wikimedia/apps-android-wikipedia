@@ -34,7 +34,7 @@
   <string name="page_error_back_to_main">Ruovttoluotta</string>
   <string name="error_back">Ruovttoluotta</string>
   <string name="error_next">Čuovvovaš</string>
-  <string name="menu_clear_all_history" fuzzy="true">Gurre historjjá</string>
+  <string name="menu_clear_all_history">Gurre lohkanhistorjjá</string>
   <string name="history_item_deleted">%s sihkkojuvvon historjjás</string>
   <string name="history_items_deleted">%d ártihkkala sihkkojuvvon historjjás</string>
   <string name="history_item_delete_undo">Gáđa</string>
@@ -47,7 +47,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Gurre neahttalohkki historjjá</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Dát sihkku visot du neahttalohkki historjjá, ja gidde visot rabas leavggaid. Leatgo sihkkár?</string>
+  <string name="dialog_message_clear_history">Dát sihkku visot du neahttalohkki historjjá. Leatgo sihkkár?</string>
   <string name="dialog_message_clear_history_yes">Jua</string>
   <string name="dialog_message_clear_history_no">Ii</string>
   <string name="share_via">Juoge bálvalusas</string>
@@ -87,7 +87,7 @@
   <string name="menu_page_remove_from_watchlist">Sihko čuovvunlisttus</string>
   <string name="menu_page_watched">Čuvvojuvvo</string>
   <string name="edit_section_find_in_page">Oza siiddus</string>
-  <string name="menu_page_font_and_theme">Fonta ja hápmi</string>
+  <string name="menu_page_font_and_theme">Fonta ja fárda</string>
   <string name="menu_page_add_to_list">Lasit lohkanlistui</string>
   <string name="menu_page_add_to_default_list">Vurke</string>
   <string name="feed_card_add_to_list">Lasit lohkanlistui</string>
@@ -147,7 +147,7 @@
   <string name="login_username_hint">Geavaheaddjinamma</string>
   <string name="login_password_hint">Beassansátni</string>
   <string name="account_creation_password_hint">Beassansátni</string>
-  <string name="login_2fa_hint" fuzzy="true">Guovtteceahkat autentiserenkoda</string>
+  <string name="login_2fa_hint">Guovtteceahkat autentiserenkoda</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Guovtteceahkat autentiseren gáibiduvvo! Máhca mat iežat váldodoibmii ja čálit sisa iežat guovtteceahkat čoavdagiin, ja geahččal ođđasit.</string>
   <string name="onboarding_card_login">Čálit sisa</string>
   <string name="page_editing_login">Čálit sisa</string>
@@ -406,7 +406,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Govaid sevnnjodahttin (sevdnjes fárddas)</string>
   <string name="preference_title_prefer_offline_content">Vállje offline-sisdoalu</string>
   <string name="preference_summary_prefer_offline_content">Unnit dáhtageavaheami čájehanbokte artihkkaliid mat leat logahahttin offline, ovdalii go álohii viežžat maŋemus veršuvnna ovtta artihkkalis</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Heivet vuogádaga stiilii</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Heivet vuogádatfárdii</string>
   <string name="page_footer_license_text">Sisdoalu sáhttá geavahit liseanssain $1, jus ii boađe eará diehtu.</string>
   <string name="empty_tab_title">Ođđa leavga</string>
   <string name="menu_save_all_tabs">Vurke buot leavggaid</string>
@@ -447,19 +447,19 @@
   <string name="article_menu_bar_save_button">Vurke</string>
   <string name="article_menu_bar_language_button">Giella</string>
   <string name="article_menu_bar_search_button">Oza</string>
-  <string name="article_menu_bar_theme_button">Temá</string>
+  <string name="article_menu_bar_theme_button">Fárda</string>
   <string name="article_menu_bar_contents_button">Sisdoallu</string>
   <string name="article_header_edit_hint">Rievdat…</string>
   <string name="article_header_edit_description">Rievdat artihkkala govvádusa</string>
   <string name="article_header_edit_lead_section">Rievdat álggahusa</string>
   <string name="color_theme_select">Fárda</string>
-  <string name="color_theme_light">Čuovga</string>
+  <string name="color_theme_light">Čuvges fárda</string>
   <string name="color_theme_dark">Seavdnjat</string>
   <string name="color_theme_black">Vástiduvvon</string>
   <string name="color_theme_test_title">Ovdamearkateaksta</string>
   <string name="color_theme_test_text">Gaikko luottobotkkona rievdadan dihte teakstasturrodaga artihkkaliin. Teakstasturrodat muđui áppas ferte rievdaduvvot du vuogádatheivehusain.</string>
   <string name="preference_title_app_theme">Áppafárda</string>
-  <string name="preference_summary_color_theme">Lonut áppa sevdnjes ivdnefáddái</string>
+  <string name="preference_summary_color_theme">Lonut áppa sevdnjes ivdnefárdii</string>
   <string name="text_size_increase">Stuorit teakstasturrodaga</string>
   <string name="text_size_decrease">Vuolit teakstasturrodaga</string>
   <string name="text_size_percent_default">%s (Dábálaš)</string>
@@ -567,8 +567,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">Sihko báikkálaš máŋgema</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artihkal gávdno máŋgga listtus</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ii šat boađe leat olámuttos offline guđege lohkanlisttu bokte:</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artihkkalat vurkejuvvon lohkanlisttuide sáhttet synkroniserejuvvot du Wikipedia-dovddaldagain. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Lohkanlisttut sáhttet sihkkarismáŋgejuvvot ja synkroniserejuvvot ovttadagaid rastá. Čálit sisa iežat Wikipedia-dovddaldagain jus háliidat váldit atnui dán. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Oza eambbo&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Váldde synkroniserema atnui</string>
   <string name="reading_list_login_reminder_title">Synkronisere lohkanlisttuid</string>
   <string name="reading_lists_login_button">Čálit sisa / searvva Wikipediai</string>
@@ -1621,7 +1621,7 @@
   <string name="email_report_patroller_tasks_subject">Váttisvuođaraporta - Rievdadandárkkistandoaibma</string>
   <string name="email_report_patroller_tasks_body">Mus lea čuožžilan váttisvuohta rievdadandárkkistandoaimmain:\n- [Čilge dihto váttisvuođa]\n\nLáhtten man háliidan oaidnit:- [Čilge čoavddusevttohusa]\n\n[Šearbmagovat dahje liŋkkat]</string>
   <string name="donation_campaign_maybe_later_snackbar">Mii muittuhit ihttin fas du.</string>
-  <string name="donation_campaign_donated_snackbar">Giitu, ráhkis skeŋkejeaddji! Du árvvasvuohta veahkeha Wikipedia ja dan oabbáprošeavttaid lihkostuvvat.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Giitu, ráhkis skeŋkejeaddji! Du árvvasvuohta veahkeha Wikipedia ja dan oabbáprošeavttaid lihkostuvvat.</string>
   <string name="donation_campaign_go_back_button">Ruovttoluotta</string>
   <string name="menu_single_webview_open_external">Raba vuogádatneahttalohkkis</string>
   <string name="donate_gpay_dialog_title">Donere Google Pay:in</string>
@@ -1654,4 +1654,5 @@
   <string name="survey_dialog_cancel">Gaskkalduhte</string>
   <string name="survey_dialog_submit">Sádde</string>
   <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon. Giitu!</string>
+  <string name="on_this_day_game_share_button">Juoge</string>
 </resources>

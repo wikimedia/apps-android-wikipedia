@@ -1023,7 +1023,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">As etiquetas não publicadas não serão gravadas</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
-  <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, encontra abaixo algumas formas rápidas e divertidas de ajudar a melhorar a Wikipédia. Verá a diferença que está a fazer logo que começar. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
@@ -1707,7 +1707,7 @@
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de Edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de Edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
   <string name="donation_campaign_maybe_later_snackbar">Iremos lembrá-lo novamente amanhã.</string>
-  <string name="donation_campaign_donated_snackbar">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no \'\'browser\'\' do sistema</string>
   <string name="donate_gpay_dialog_title">Doar com Google Pay?</string>
@@ -1725,7 +1725,7 @@
   <string name="donate_gpay_help_other_ways">Outras formas de contribuir</string>
   <string name="donate_gpay_help_faq">Perguntas mais frequentes</string>
   <string name="donate_gpay_help_tax">Informação sobre dedução fiscal</string>
-  <string name="donation_history_deleted_message_snackbar">Histórico de doadores eliminados</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Histórico de doadores eliminados</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Por favor, tente novamente.</string>
   <string name="places_search_hint">Procurar por lugares</string>

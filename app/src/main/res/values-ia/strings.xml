@@ -1717,7 +1717,7 @@
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
   <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[Capturas de schermo o ligamines]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nos te lo recordara de novo deman.</string>
-  <string name="donation_campaign_donated_snackbar">Gratias, car donator! Tu generositate adjuta Wikipedia e su sitos fratres a prosperar.</string>
+  <string name="donation_campaign_donated_snackbar">Gratias, car donator! Tu generositate adjuta Wikipedia e altere projectos de cognoscentia libere a prosperar.</string>
   <string name="donation_campaign_go_back_button">Retornar</string>
   <string name="menu_single_webview_open_external">Aperir in le navigator del systema</string>
   <string name="donate_gpay_dialog_title">Donar con Google Pay?</string>
@@ -1736,7 +1736,8 @@
   <string name="donate_gpay_help_other_ways">Altere modos de donation</string>
   <string name="donate_gpay_help_faq">Folio a questiones</string>
   <string name="donate_gpay_help_tax">Information sur le deductibilitate fiscal</string>
-  <string name="donation_history_deleted_message_snackbar">Historia del donator delite</string>
+  <string name="donation_history_deleted_message_snackbar">Historia de donationes radite.</string>
+  <string name="donation_history_no_history_message_snackbar">Tu non ha un historia de donationes a rader.</string>
   <string name="places_title">Locos</string>
   <string name="places_permissions_denied">Le permission de localisation es necessari pro vider tu position sur le carta. Per favor tenta lo de novo.</string>
   <string name="places_search_hint">Cercar locos</string>
@@ -1876,7 +1877,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Nove icone del app disvelate pro tu schermo initial</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Disvela tu recompensa de contributor pro le proxime anno!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Activa tu nove icone del app in le Parametros sub Icone del app. Gratias pro investir in le futuro del cognoscentia libere. Tu contributiones como %1$s in %2$d adjuta a aperir le via verso un mundo de information libere. Como regratiamento, te ha essite concedite un icone personal de contributor pro Wikipedia sur tu schermo initial.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Nos es felice que Wikipedia ha facite parte de tu anno %1$d! Disvela un recompensa special in tu Summario del anno %2$d deveniente contributor: &lt;a href=\"%3$s\"&gt;modifica Wikipedia&lt;/a&gt; o dona al &lt;a href=\"%4$s\"&gt;Fundation Wikimedia&lt;/a&gt;, le organisation sin scopo lucrative detra Wikipedia. Si Wikipedia te es utile, per favor considera donar pro adjutar a sustener su futuro e mantener lo libere, sin publicitate, digne de fide e accessibile pro omnes.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Nos es felice que Wikipedia ha facite parte de tu anno %1$d! Disvela un recompensa special in tu Summario del anno %2$d deveniente contributor: &lt;a href=\"%3$s\"&gt;modifica Wikipedia&lt;/a&gt; o dona desde le app al &lt;a href=\"%4$s\"&gt;Fundation Wikimedia&lt;/a&gt;, le organisation sin scopo lucrative detra Wikipedia. Si Wikipedia te es utile, per favor considera donar pro adjutar a sustener su futuro e mantener lo libere, sin publicitate, digne de fide e accessibile pro omnes. Si tu ha ja donate in altere loco, tu appoio es profundemente appreciate.</string>
   <string name="year_in_review_slide_app_icon_donor">donator</string>
   <string name="year_in_review_slide_app_icon_editor">redactor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donator e redactor</string>
@@ -1898,8 +1899,8 @@
   <string name="year_in_review_slide_top_categories_body">Le categorias reuni articulos sur subjectos similar. In %1$d, tu ha visitate articulos in iste categorias interessante plure vices: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Le articulos le plus popular de Wikipedia in anglese</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
-    <item quantity="one">Quando le gente vole apprender sur nostre mundo – lo bon, lo mal, lo estranie e lo salvage – illes se refere a Wikipedia. Le articulo le plus visitate in Wikipedia in anglese esseva: %2$s&lt;br /&gt;Lege plus in nostre &lt;a href=\"%3$s\"&gt;articulo de blog dedicate al thema&lt;/a&gt;.</item>
-    <item quantity="other">Quando le gente vole apprender sur nostre mundo – lo bon, lo mal, lo estranie e lo salvage – illes se refere a Wikipedia. Le %1$d articulos le plus visitate in Wikipedia in anglese esseva: %2$s&lt;br /&gt;Lege plus in nostre &lt;a href=\"%3$s\"&gt;articulo de blog dedicate al thema&lt;/a&gt;.</item>
+    <item quantity="one">Quando le gente vole apprender sur nostre mundo, illes se refere a Wikipedia. Le articulo le plus visitate in Wikipedia in anglese esseva: %2$s&lt;br /&gt;Lege plus in nostre &lt;a href=\"%3$s\"&gt;articulo de blog dedicate al thema&lt;/a&gt;.</item>
+    <item quantity="other">Quando le gente vole apprender sur nostre mundo, illes se refere a Wikipedia. Le %1$d articulos le plus visitate in Wikipedia in anglese esseva: %2$s&lt;br /&gt;Lege plus in nostre &lt;a href=\"%3$s\"&gt;articulo de blog dedicate al thema&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Tu modification ha essite vidite plus de %,d vices recentemente</item>
@@ -1923,8 +1924,8 @@
     <item quantity="other">In %1$d, le voluntarios ha addite %2$,d bytes al Wikipedia in anglese. Le summa de tote lor travalio commun resulta in un ressource de cognoscimento in constante melioramento, basate sur factos e digne de fide, que illes mitte al disposition del mundo. Tote nos ha cognoscentias a condivider. &lt;a href=\"%3$s\"&gt;Apprende como participar&lt;/a&gt;!</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
-    <item quantity="one">Tu ha modificate Wikipedia %s vice</item>
-    <item quantity="other">Tu ha modificate Wikipedia %s vices</item>
+    <item quantity="one">Tu ha modificate %s vice</item>
+    <item quantity="other">Tu ha modificate %s vices</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">Gratias pro esser un del redactores voluntari qui face le differentia sur le projectos de Wikimedia in tote le mundo. Voluntarios como tu ha apportate %,d modification sur plus de 300 editiones de Wikipedia in linguas differente.</item>
@@ -2077,7 +2078,7 @@
     <item quantity="one">Categoria de mi interesse</item>
     <item quantity="other">Categorias de mi interesse</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Articulo modificate</item>
     <item quantity="other">Articulos modificate</item>
   </plurals>
@@ -2165,16 +2166,12 @@
   <string name="recommended_reading_list_notification_subtitle">Tocca pro vider tu ultime recommendationes.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Quando tu “Discoperir” se actualisa, Wikipedia te inviara un notification.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">“Discoperir” es activate. Wikipedia te recommendara articulos a leger.</string>
-  <string name="donation_reminders_initial_prompt_label">Experimento</string>
-  <string name="donation_reminders_initial_prompt_title">Appoia Wikipedia durante que tu lege</string>
-  <string name="donation_reminders_initial_prompt_message">Configura un rememoration de donation basate sur le numero de articulos que tu lege pro adjutar a mantener Wikipedia sin publicitate, actual e disponibile pro omnes.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Comenciar</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Non ora</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Le rememorationes de donation pote esser modificate a omne momento in le Parametros.</string>
   <string name="donation_settings_section_header">Donationes</string>
-  <string name="donation_reminders_settings_title">Rememorationes de donation</string>
-  <string name="donation_reminders_settings_thank_you_message">Junge te al 2%% de lectores que dona lo que illes pote pro mantener Wikipedia sin publicitate, actual e disponibile pro omnes. Configura ora tu rememoration de donation.</string>
-  <string name="donation_reminders_settings_donation_info">Le donationes se destina al Fundation Wikimedia e su affiliatos, orgoliose hospites de Wikipedia e su sitos fratres.</string>
+  <string name="donation_reminders_settings_title">Como deberea nos rememorar te de isto?</string>
+  <string name="donation_reminders_settings_option_title">Rememorationes de donation</string>
+  <string name="donation_reminders_settings_thank_you_message">Tu generositate adjuta Wikipedia a prosperar. Crea un rememoration de donation basate sur le numero de articulos que tu lege.</string>
+  <string name="donation_reminders_settings_donation_info">Le donationes se destina al Fundation Wikimedia e su affiliatos, orgoliose hospites de Wikipedia e de altere projectos de cognoscentia libere.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quando io lege</string>
   <string name="donation_reminders_settings_amount_label">Rememorar me de donar</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar rememoration</string>
@@ -2185,13 +2182,12 @@
   <string name="donation_reminders_settings_option_custom">Personalisar…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Gratias! Nos te rememorara de donar %1$s quando tu lege %2$s durante iste experimento.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Tu ha legite %1$s desde que tu promitteva %2$s</string>
-  <string name="donation_reminders_prompt_message">Le %1$s, tu nos demandava de rememorar te de donar post leger %2$s. Si Wikipedia te ha fornite %3$s de cognoscentia, per favor junge te al 2%% de lectores que dona e completa tu promissa hodie.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Tu ha legite %1$s alteres</string>
+  <string name="donation_reminders_prompt_message">Le %1$s, tu ha create un rememoration de donar %3$s pro cata %2$s articulos que tu lege. Es tu preste a complir tu promissa de appoiar Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Donar ora</string>
   <string name="donation_reminders_prompt_negative_button">Non ora</string>
   <string name="donation_reminders_gpay_text">Donar %s con Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Donar un altere amonta con Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Adjuta a meliorar le rememorationes de donation.</string>
-  <string name="donation_reminders_survey_dialog_message">Es tu satisfacite de iste experientia?</string>
   <string name="donation_reminders_settings_description_on">Le rememorationes de donation es active. Wikipedia te rememorara de donar %1$s cata %2$s que tu lege durante iste experimento.</string>
   <string name="donation_reminders_settings_description_off">Le rememorationes de donation es inactive.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Le contage de articulos se immagazina localmente sur tu apparato</string>
@@ -2199,4 +2195,8 @@
     <item quantity="one">%d articulo</item>
     <item quantity="other">%d articulo</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">No, gratias</string>
+  <string name="donation_reminders_experiment_label">EXPERIMENTO</string>
+  <string name="donation_reminders_settings_learn_more_button">Leger plus</string>
+  <string name="donation_reminders_settings_report_button">Problema de functionalitate</string>
 </resources>

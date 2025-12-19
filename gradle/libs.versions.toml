@@ -4,7 +4,7 @@ appcompat = "1.7.1"
 balloon = "1.6.13"
 browser = "1.9.0"
 coilCompose = "3.3.0"
-commonsLang3 = "3.19.0"
+commonsLang3 = "3.20.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.17.0"
 desugar_jdk_libs = "2.1.5"
@@ -15,25 +15,24 @@ flexbox = "3.0.0"
 fragmentKtx = "1.8.9"
 googlePayVersion = "19.5.0"
 googleServices = "4.4.4"
-gradle = "8.13.1"
+gradle = "8.13.2"
 hamcrest = "3.0"
 installreferrer = "2.2"
 jsoup = "1.21.2"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 kotlinCoroutinesVersion = "1.10.2"
-kotlinStdlibJdk8 = "2.2.21"
+kotlinStdlibJdk8 = "2.3.0"
 kotlinxSerializationJson = "1.9.0"
-kspPlugin = "2.3.2"
+kspPlugin = "2.3.4"
 leakCanaryVersion = "2.14"
-mapLibre = "12.1.0"
+mapLibre = "12.2.2"
 mapLibreAnnotation = "3.0.2"
 material = "1.13.0"
-metricsVersion = "2.9"
 mlKitVersion = "17.0.6"
 mockitoVersion = "5.2.0"
 navigationCompose = "2.9.6"
-okHttpVersion = "5.3.0"
+okHttpVersion = "5.3.2"
 orchestrator = "1.6.1"
 pagingCompose = "3.3.6"
 pagingRuntimeKtx = "3.3.6"
@@ -43,14 +42,14 @@ preferenceKtx = "1.2.1"
 recyclerview = "1.4.0"
 retrofitVersion = "3.0.0"
 robolectric = "4.16"
-roomVersion = "2.8.3"
-swiperefreshlayout = "1.1.0"
+roomVersion = "2.8.4"
+swiperefreshlayout = "1.2.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.11.0"
-composeBom = "2025.11.00"
-composeActivity = "1.11.0"
-composeViewModel = "2.9.4"
+composeBom = "2025.12.01"
+composeActivity = "1.12.2"
+composeViewModel = "2.10.0"
 
 
 [libraries]
@@ -83,14 +82,10 @@ espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref =
 espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "espressoVersion" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
-google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinStdlibJdk8" }
-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlinStdlibJdk8" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutinesVersion" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutinesVersion" }
@@ -99,7 +94,6 @@ leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", ve
 maplibre = { module = "org.maplibre.gl:android-sdk", version.ref = "mapLibre" }
 maplibre-annotation = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "mapLibreAnnotation" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
-metrics-platform = { module = "org.wikimedia.metrics:metrics-platform", version.ref = "metricsVersion" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoVersion" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okHttpVersion" }
 okhttp-tls = { module = "com.squareup.okhttp3:okhttp-tls", version.ref = "okHttpVersion" }

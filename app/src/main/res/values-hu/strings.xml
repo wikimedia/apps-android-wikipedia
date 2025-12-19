@@ -998,7 +998,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Fájllap a Wikipédián</string>
   <string name="suggested_edits_article_cta_image_tags">Képcímkék hozzáadása</string>
-  <string name="suggested_edits_article_cta_image_caption">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Képaláírás hozzáadása</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
@@ -1737,7 +1737,7 @@
   <string name="email_report_patroller_tasks_subject">Problémajelentés – Járőr szerkesztés funkció</string>
   <string name="email_report_patroller_tasks_body">Problémába ütköztem az járőr szerkesztés funkcióval kapcsolatban:\n- [Írd le a konkrét problémát]\n\nA viselkedés, amit látni szeretnék:\n- [A javasolt megoldás leírása]\n\n [Képernyőképek vagy linkek]</string>
   <string name="donation_campaign_maybe_later_snackbar">Holnap újra emlékeztetünk.</string>
-  <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
   <string name="donation_campaign_go_back_button">Visszalépés</string>
   <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
   <string name="donate_gpay_dialog_title">Adományozás Google Pay-jel?</string>
@@ -1755,7 +1755,7 @@
   <string name="donate_gpay_help_other_ways">Egyéb adományozási módok</string>
   <string name="donate_gpay_help_faq">Gyakran ismételt kérdések</string>
   <string name="donate_gpay_help_tax">Adózással kapcsolatos információk</string>
-  <string name="donation_history_deleted_message_snackbar">Az adományozói előzmények törölve</string>
+  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Az adományozói előzmények törölve</string>
   <string name="places_title">Helyek</string>
   <string name="places_permissions_denied">Helyadat hozzáférés szükséges a hely térképen történő megjelenítéséhez. Próbáld újra!</string>
   <string name="places_search_hint">Helyek keresése</string>
@@ -1970,16 +1970,11 @@
   <string name="recommended_reading_list_notification_subtitle">Koppints ide a legújabb ajánlások megtekintéséhez.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Amikor a Felfedezés frissül, a Wikipédia értesítést küld számodra.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">A Felfedezés be van kapcsolva. A Wikipédia ajánlani fog számodra olvasnivaló szócikkeket.</string>
-  <string name="donation_reminders_initial_prompt_label">Kísérlet</string>
-  <string name="donation_reminders_initial_prompt_title">Támogasd a Wikipédiát olvasás közben</string>
-  <string name="donation_reminders_initial_prompt_message">Állíts be egy adományozási emlékeztetőt az elolvasott cikkek száma alapján, hogy a Wikipédia hirdetésmentes, naprakész és mindenki számára elérhető maradjon.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Kezdés</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Ne most</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Az adományemlékeztetők bármikor módosíthatók a Beállításokban.</string>
   <string name="donation_settings_section_header">Adományok</string>
-  <string name="donation_reminders_settings_title">Adományemlékeztetők</string>
-  <string name="donation_reminders_settings_thank_you_message">Csatlakozz az olvasók azon 2%%-ához, akik mindent megtesznek azért, hogy a Wikipédia hirdetésmentes, naprakész és mindenki számára elérhető legyen. Állítsd be az adományozási emlékeztetődet most.</string>
-  <string name="donation_reminders_settings_donation_info">Az adományok a Wikimedia Alapítványhoz és partnereihez kerülnek, akik a Wikipédia és testvéroldalai büszke üzemeltetői.</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Adományemlékeztetők</string>
+  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Csatlakozz az olvasók azon 2%%-ához, akik mindent megtesznek azért, hogy a Wikipédia hirdetésmentes, naprakész és mindenki számára elérhető legyen. Állítsd be az adományozási emlékeztetődet most.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Az adományok a Wikimedia Alapítványhoz és partnereihez kerülnek, akik a Wikipédia és testvéroldalai büszke üzemeltetői.</string>
   <string name="donation_reminders_settings_article_frequency_label">Amikor olvasok</string>
   <string name="donation_reminders_settings_amount_label">Emlékeztess az adományozásra</string>
   <string name="donation_reminders_settings_confirm_btn_label">Emlékeztető megerősítése</string>
@@ -1990,13 +1985,11 @@
   <string name="donation_reminders_settings_option_custom">Egyedi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Köszönjük! Emlékeztetni fogjuk, hogy adományozz %1$s összeget, amikor elolvastál %2$s a kísérlet futása alatt.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél</string>
-  <string name="donation_reminders_prompt_message">%1$s napon arra kértél minket, hogy emlékeztessük az adományozásra, miután elolvastad %2$s . Ha a Wikipédia %3$s tudást adott neked, kérjük, csatlakozz az olvasók 2%%-ához, akik adományoznak, és teljesítsd a fogadalmadat még ma.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s napon arra kértél minket, hogy emlékeztessük az adományozásra, miután elolvastad %2$s . Ha a Wikipédia %3$s tudást adott neked, kérjük, csatlakozz az olvasók 2%%-ához, akik adományoznak, és teljesítsd a fogadalmadat még ma.</string>
   <string name="donation_reminders_prompt_positive_button">Adományozz most!</string>
   <string name="donation_reminders_prompt_negative_button">Ne most</string>
   <string name="donation_reminders_gpay_text">Adományozz %s összeget Google Payjel</string>
   <string name="donation_reminders_gpay_different_amount_text">Más összegű adományozás a Google Payjel</string>
-  <string name="donation_reminders_survey_dialog_title">Segítsen az adományozási emlékeztetők fejlesztésében.</string>
-  <string name="donation_reminders_survey_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
   <string name="donation_reminders_settings_description_on">Az adományozási emlékeztetők be vannak kapcsolva. A Wikipédia emlékeztetni fog arra, hogy minden elolvasott %2$s %1$s összeget adományozzál, amíg ez a kísérlet fut.</string>
   <string name="donation_reminders_settings_description_off">Az adományemlékeztetők ki vannak kapcsolva.</string>
   <string name="donation_reminders_settings_tooltip_info_label">A cikkek száma helyben tárolódik az eszközén</string>
@@ -2004,4 +1997,5 @@
     <item quantity="one">%d szócikk</item>
     <item quantity="other">%d szócikk</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Kísérlet</string>
 </resources>

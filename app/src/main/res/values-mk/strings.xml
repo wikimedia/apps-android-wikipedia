@@ -1157,7 +1157,7 @@
   <string name="activity_tab_menu_feedback">Проблем со функција</string>
   <string name="activity_tab_menu_info">Дознајте повеќе</string>
   <string name="activity_tab_menu_customize">Прилагоди</string>
-  <string name="activity_tab_menu_customize_description">Сознанијата за читање се засновани н јазиците на вашиот прилог во нагодувањата, а сознанијата за уредување се ограничени на вашиот главен јазик на прилогот. Сознанијата ги користат месните податоци, со ислучок на уредувањата кои се јавни.</string>
+  <string name="activity_tab_menu_customize_description">Сознанијата за читање се засновани на јазиците на вашиот прилог во нагодувањата, а сознанијата за уредување се ограничени на вашиот главен јазик на прилогот. Сознанијата ги користат месните податоци, со ислучок на уредувањата кои се јавни.</string>
   <string name="activity_tab_highlights">Најважно</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја на читање</string>
   <string name="activity_tab_impact">Вашето влијание</string>
@@ -1723,7 +1723,7 @@
   <string name="email_report_patroller_tasks_subject">Пријава на проблем — Функцијата „Патрола на уредувања“</string>
   <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата „Патрола на уредувања“:\n— [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n— [Опишете го предложеното решение]\n\n[Екрански снимки или врски]</string>
   <string name="donation_campaign_maybe_later_snackbar">Утре пак ќе ве потсетиме.</string>
-  <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
+  <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и другите проекти за слободно знаење напредуваат благодарение на вашата великодушност.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
   <string name="donate_gpay_dialog_title">Дарувате со Google Pay?</string>
@@ -1742,7 +1742,8 @@
   <string name="donate_gpay_help_other_ways">Други начини на дарување</string>
   <string name="donate_gpay_help_faq">Често поставувани прашања</string>
   <string name="donate_gpay_help_tax">Информации за даночното олеснување</string>
-  <string name="donation_history_deleted_message_snackbar">Историјата на дарување е избришана</string>
+  <string name="donation_history_deleted_message_snackbar">Историјата на дарување е исчистена.</string>
+  <string name="donation_history_no_history_message_snackbar">Немате историја на дарување за да ја исчистите.</string>
   <string name="places_title">Места</string>
   <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
   <string name="places_search_hint">Пребарај места</string>
@@ -1758,7 +1759,7 @@
   <string name="places_card_distance_unknown">Непозната оддалеченост</string>
   <string name="places_empty_message_snackbar">Нема статии во близина. Оддалечете ја картата и поместете ја на друго место.</string>
   <string name="survey_dialog_title">Помогнете ни да и подобриме Разговорните страници</string>
-  <string name="survey_dialog_message">Дали сте задоволни со оваа функција?</string>
+  <string name="survey_dialog_message">Дали сте задоволни од оваа функција?</string>
   <string name="survey_dialog_option_satisfied">Задоволителна е</string>
   <string name="survey_dialog_option_neutral">Неутрално</string>
   <string name="survey_dialog_option_unsatisfied">Незадоволителна е</string>
@@ -1855,7 +1856,7 @@
   <string name="year_in_review_get_started_info">Вашата историја на читање е заштитена. Сознанијата за читањето се пресметуваат со месно складирани податоци на вашиот уред.</string>
   <string name="year_in_review_get_started_later">Можете да го отворите вашиот Преглед на годината во менито Повеќе.</string>
   <string name="year_in_review_survey_title">Помогнете ни да го подобриме Прегледот на годината</string>
-  <string name="year_in_review_survey_subtitle">Дали сте задоволни со оваа функција?</string>
+  <string name="year_in_review_survey_subtitle">Дали сте задоволни од оваа функција?</string>
   <string name="year_in_review_reading_list_survey_title">Помогнете да се подобри списокот за читање на Преглед на годината %d од прегледот на годината.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Дали сте задоволни од вашиот список за читање?</string>
   <string name="year_in_review_survey_very_satisfied">Многу задоволен</string>
@@ -1882,7 +1883,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Отклучена нова икона на прилог за вашиот почетен екран</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Отклучeте ја вашата награда за придонеси за следната година!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Активирајте ја вашата нова икона на прилогот во нагодувањата под „Икона на прилогот“. Ви благодариме што вложувате во иднината на слободното знаење. Вашите приронеси како %1$s во %2$d г. ни помагаат да го отвориме патот кон свет на слободни информации. Поради придонесите, отклучивте прилагодлива учесничка икона за Википедија на вашиот почетен екран.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Драго ни е што Википедија беше дел од вашата %1$d година! Отклучете специјална награда во вашиот преглед на годината %2$d со тоа што ќе станете учесник — било со &lt;a href=\"%3$s\"&gt;уредување на Википедија&lt;/a&gt; или со дарување на паричен прилог за &lt;a href=\"%4$s\"&gt;Фондацијата Викимедија&lt;/a&gt;($4), непрофитната организација што стои зад неа. Ако Википедија ви е корисна, би ве замолиле да дарувате за да ја зачуваме за во иднина, и таа да биде слободна, без реклами, меродавна и пристапна за сите.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Драго ни е што Википедија беше дел од вашата %1$d година! Отклучете специјална награда во вашиот преглед на годината %2$d со тоа што ќе станете учесник — било со &lt;a href=\"%3$s\"&gt;уредување на Википедија&lt;/a&gt; или со дарување од прилогот за &lt;a href=\"%4$s\"&gt;Фондацијата Викимедија&lt;/a&gt;($4), непрофитната организација што стои зад неа. Ако Википедија ви е корисна, би ве замолиле да дарувате за да ја зачуваме за во иднина, и таа да биде слободна, без реклами, меродавна и пристапна за сите. Ако дарувавте на друго место, вашата поддршка длабоко се цени.</string>
   <string name="year_in_review_slide_app_icon_donor">дарител</string>
   <string name="year_in_review_slide_app_icon_editor">уредник</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">дарител и уредник</string>
@@ -1904,8 +1905,8 @@
   <string name="year_in_review_slide_top_categories_body">Категориите ги групираат статиите со слична тематика. Во %1$d г. на повеќе наврати посетувавте статии во овие интересни категории: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Најполуларни статии на англиската Википедија</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
-    <item quantity="one">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетената статија на англиската Википедија беше: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
-    <item quantity="other">Кога луѓето сакаат дознаат нешта за нашиот свет — добрите, лошите, чудните и лудите — тие се обраќаат кон Википедија. Најпосетените %1$d статии на англиската Википедија беа: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
+    <item quantity="one">Кога луѓето сакаат дознаат нешта за нашиот свет, тие се обраќаат кон Википедија. Најпосетената статија на англиската Википедија беше: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
+    <item quantity="other">Кога луѓето сакаат дознаат нешта за нашиот свет, тие се обраќаат кон Википедија. Најпосетените %1$d статии на англиската Википедија беа: %2$s. &lt;br /&gt;Прочитајте повеќе &lt;a href=\"%3$s\"&gt;на нашиот блоговска објава за ова&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Вашето уредување беше посетено преку %,d пати во последно време</item>
@@ -1929,8 +1930,8 @@
     <item quantity="other">Во %1$d, доброволците додадоа %2$,d бајти to English Wikipedia. на англиската Википедија. Збирот на сета нивна заедничка работа е дар за светот кој води до веродостоен и фактографски извор на знаење кој постојано се подобрува. Сите ние имаме знаење за споделување, па затоа &lt;a href=\"%3$s\"&gt;дознајте како да учествувате&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_headline">
-    <item quantity="one">Ја уредивте Википедија еднаш</item>
-    <item quantity="other">Ја уредивте Википедија %s пати</item>
+    <item quantity="one">Уредивте еднаш</item>
+    <item quantity="other">Уредивте %s пати</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">Ви благодариме што сте меѓу доброволците кои оставаат свој печат на Викимедиините проекти ширум светот. Доброволците како вас направија %,d промена на 300 различни јазични изданија на Википедија.</item>
@@ -2083,7 +2084,7 @@
     <item quantity="one">Категорија што ме интересираше</item>
     <item quantity="other">Категории што ме интересираа</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Уредена статија</item>
     <item quantity="other">Уредени статии</item>
   </plurals>
@@ -2171,16 +2172,12 @@
   <string name="recommended_reading_list_notification_subtitle">Допрете за да ги видите вашите најнови препораки.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Википедија ќе ви испрати известување кога ќе се поднови вашето Откриј.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Откриј е вклучен. Википедија ќе ви препорачува статии за читање.</string>
-  <string name="donation_reminders_initial_prompt_label">Пробно</string>
-  <string name="donation_reminders_initial_prompt_title">Поддржувајте ја Википедија додека читате</string>
-  <string name="donation_reminders_initial_prompt_message">Поставате потсетник за дарување според бројот на статии што ги читате за да помогнете Википедија да остане без реклами, актуелна и достапна за сите.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Започнете</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Не сега</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Потсетниците за дарување може да се менуваат во Нагодувањата во било кое време.</string>
   <string name="donation_settings_section_header">Дарувања</string>
-  <string name="donation_reminders_settings_title">Потсетници за дарување</string>
-  <string name="donation_reminders_settings_thank_you_message">Придружете им се на 2%% од читателите кои даруваат колку што можат за Википедија да остане без реклами, актуелна и достапна за сите. Поставете потсетник за дарување сега.</string>
-  <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и нејзините братски проекти.</string>
+  <string name="donation_reminders_settings_title">Како да ве потсетиме?</string>
+  <string name="donation_reminders_settings_option_title">Потсетници за дарување</string>
+  <string name="donation_reminders_settings_thank_you_message">Вашата великодушност му помага на напредокот на Википедија. Поставете потсетник за дарување според бројот на статии што ќе ги прочитате.</string>
+  <string name="donation_reminders_settings_donation_info">Дарувања за Фондацијата Викимедија и нејзините подружници, горди вдомувачи на Википедија и други проекти за слободно знаење.</string>
   <string name="donation_reminders_settings_article_frequency_label">Кога читам</string>
   <string name="donation_reminders_settings_amount_label">Потсети ме да дарувам</string>
   <string name="donation_reminders_settings_confirm_btn_label">Потврди го потсетникот</string>
@@ -2191,13 +2188,12 @@
   <string name="donation_reminders_settings_option_custom">Прилагодено…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Ви благодариме! Ќе ве потсетуваме да дарувате %1$s кога ќе прочитате %2$s додека трае овој опит.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Прочитавте %1$s откако дарувавте %2$s</string>
-  <string name="donation_reminders_prompt_message">На %1$s ни побаравте да ве потсетиме да дарувате откако ќе прочитате %2$s. Ако Википедија ви овозможи %3$s знаење, приклучете се на 2%% читатели кои даруваат и исполнете го даденото ветување денес.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Прочитавте уште %1$s</string>
+  <string name="donation_reminders_prompt_message">Поставете потсетник за дарување за %1$s за да дарувате %3$s на секои %2$s што ќе ги прочирате. Дали сте подготвени да го исполните ветувањето за поддршка на Википедија?</string>
   <string name="donation_reminders_prompt_positive_button">Дарувајте сега</string>
   <string name="donation_reminders_prompt_negative_button">Не сега</string>
   <string name="donation_reminders_gpay_text">Дерувајте %s со Google Pay</string>
   <string name="donation_reminders_gpay_different_amount_text">Дарувајте друг износ со Google Pay</string>
-  <string name="donation_reminders_survey_dialog_title">Помогнете ни да ги подобриме потсетниците за дарување.</string>
-  <string name="donation_reminders_survey_dialog_message">Дали сте задоволни со ова?</string>
   <string name="donation_reminders_settings_description_on">Потсетниците за дарување се вклучени. Википедија ќе ве потсетува да дарувате %1$s на секои %2$s што ќе ги прочитате додека трае опитот.</string>
   <string name="donation_reminders_settings_description_off">Потсетниците за дарување се исклучени.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Бројот на статии се складира месно на вашиот уред</string>
@@ -2205,4 +2201,15 @@
     <item quantity="one">%d статија</item>
     <item quantity="other">%d статии</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Не, благодарам</string>
+  <string name="donation_reminders_experiment_label">ПРОБНО</string>
+  <string name="donation_reminders_settings_learn_more_button">Дознајте повеќе</string>
+  <string name="donation_reminders_settings_report_button">Проблем со функцијата</string>
+  <string name="donation_reminders_settings_report_email_subject">Пријава на грешка — Потсетници за дарување</string>
+  <string name="donation_reminders_settings_report_email_body">Наидов на проблем со функцијата Потсетници за дарување:\n- [Опишете го конкрениот проблем]\n- [Екрански снимки или врски]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Измени</string>
+  <string name="explore_feed_survey_dialog_title">Помогнете ни да го подобриме „Истражи“</string>
+  <string name="explore_feed_survey_dialog_message">Пополнете кратка анкета за тековникот „Истражи“. Вашите мислења ќе ни помогнат да го подобриме во иднина.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Пополнете ја анкетата</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Не, благодарам</string>
 </resources>

@@ -453,9 +453,9 @@
   <string name="error_blocked_start">प्रतिबंध की शुरुआत: %s</string>
   <string name="error_blocked_expiry">प्रतिबंध की समाप्ति: %s</string>
   <string name="error_blocked_id">ब्लॉक आईडी: %s</string>
-  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/विकिपीडिया:प्रबन्धक\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपने टूलबार में परिवर्तन करें</string>
-  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/विकिपीडिया:प्रबन्धक\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="temp_account_not_logged_in">आप लॉग इन नहीं हैं</string>
   <string name="temp_account_anon_ip_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपका आईपी पता आपके संपादनों से जुड़ जाएगा।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
   <string name="temp_account_anon_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपकी गोपनीयता की सुरक्षा के लिए एक &lt;b&gt;अस्थायी खाता&lt;/b&gt; बनाया जाएगा। &lt;a href=\"%1$s\"&gt;अधिक जानें&lt;/a&gt;।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
@@ -1559,8 +1559,6 @@
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
   <string name="year_in_review_disable_positive_button">हाँ, मुझे यकीन है</string>
   <string name="year_in_review_slide_reading_pattern_night">रात</string>
-  <string name="donation_reminders_initial_prompt_positive_button">शुरू करें</string>
-  <string name="donation_reminders_initial_prompt_negative_button">अभी नहीं</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
 </resources>

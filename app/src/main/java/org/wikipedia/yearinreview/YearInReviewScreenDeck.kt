@@ -57,12 +57,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -113,7 +115,7 @@ fun YearInReviewScreenDeck(
                 containerColor = WikipediaTheme.colors.paperColor,
                 topBar = {
                     TopAppBar(
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                        colors = TopAppBarDefaults.topAppBarColors(
                             containerColor = WikipediaTheme.colors.paperColor
                         ),
                         title = { },
@@ -178,8 +180,18 @@ fun YearInReviewScreenDeck(
                                 is YearInReviewScreenData.HighlightsScreen -> {}
                             }
                         },
-                        onDonateClick = {
-                            onDonateClick(pages[pagerState.currentPage].slideName)
+                        onBottomButtonClick = { screenData ->
+                            when (screenData) {
+                                is YearInReviewScreenData.HighlightsScreen -> {
+                                    YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
+                                    captureRequest =
+                                        YearInReviewCaptureRequest.HighlightsScreen(screenData)
+                                }
+                                is YearInReviewScreenData.StandardScreen -> {
+                                    onDonateClick(pages[pagerState.currentPage].slideName)
+                                }
+                                else -> {}
+                            }
                         }
                     )
                 },
@@ -203,12 +215,7 @@ fun YearInReviewScreenDeck(
                                 .padding(paddingValues)
                                 .verticalScroll(rememberScrollState()),
                             requestScreenshotBitmap = requestScreenshotBitmap,
-                            screenData = pages[page],
-                            onShareHighlightsBtnClick = { highlights ->
-                                YearInReviewEvent.submit(action = "share_click", slide = pages[pagerState.currentPage].slideName)
-                                captureRequest =
-                                    YearInReviewCaptureRequest.HighlightsScreen(highlights)
-                            }
+                            screenData = pages[page]
                         )
                     }
                 }
@@ -241,7 +248,7 @@ fun MainBottomBar(
     totalPages: Int,
     onNavigationRightClick: () -> Unit,
     onShareClick: () -> Unit,
-    onDonateClick: () -> Unit
+    onBottomButtonClick: (YearInReviewScreenData) -> Unit
 ) {
     val context = LocalContext.current
     val currentScreen = pages[pagerState.currentPage]
@@ -253,7 +260,7 @@ fun MainBottomBar(
             color = WikipediaTheme.colors.borderColor
         )
         Box {
-            pages[pagerState.currentPage].BottomButton(context, onDonateClick)
+            pages[pagerState.currentPage].BottomButton(context, onBottomButtonClick)
         }
         Box(
             modifier = Modifier
@@ -401,7 +408,6 @@ fun YearInReviewScreenContent(
     requestScreenshotBitmap: ((Int, Int) -> Bitmap)?,
     screenCaptureMode: Boolean = false,
     isOnboardingScreen: Boolean = false,
-    onShareHighlightsBtnClick: ((YearInReviewScreenData.HighlightsScreen) -> Unit)? = null,
     isImageResourceLoaded: ((Boolean) -> Unit)? = null
 ) {
     when (screenData) {
@@ -428,11 +434,8 @@ fun YearInReviewScreenContent(
                 modifier = modifier
                     .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
                     .yearInReviewHeaderBackground()
-                    .padding(horizontal = 18.dp),
-                screenData = screenData,
-                onShareHighlightsBtnClick = {
-                    onShareHighlightsBtnClick?.invoke(screenData)
-                }
+                    .padding(horizontal = 18.dp, vertical = 8.dp),
+                screenData = screenData
             )
         }
     }
@@ -448,6 +451,7 @@ private fun StandardScreenContent(
 ) {
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
+    val mediaWikiFaqUrl = stringResource(R.string.year_in_review_media_wiki_faq_url)
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
@@ -472,7 +476,7 @@ private fun StandardScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
+                                uri = mediaWikiFaqUrl.toUri()
                             )
                         }) {
                         Icon(
@@ -639,6 +643,35 @@ fun PreviewScreenDeckError() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         YearInReviewScreenDeck(
             state = UiState.Error(Exception("Error")),
+            requestScreenshotBitmap = null
+        )
+    }
+}
+
+@Preview(device = Devices.PIXEL_9)
+@Composable
+private fun PreviewHighlightsScreen() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        YearInReviewScreenDeck(
+            state = UiState.Success(listOf(
+                YearInReviewScreenData.HighlightsScreen(
+                    highlights = listOf(
+                        YearInReviewScreenData.HighlightItem(
+                            title = "Articles I read the longest",
+                            items = listOf(
+                                "Pamela Anderson",
+                                "Pamukkale",
+                                "History of US science fiction and fantasy magazines to 1950"
+                            ),
+                            highlightColor = ComposeColors.Blue600
+                        )
+                    ),
+                    slideName = "test",
+                    screenshotUrl = "#wikimediafoundation"
+                )
+            )),
             requestScreenshotBitmap = null
         )
     }

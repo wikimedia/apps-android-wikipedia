@@ -11,6 +11,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ViewPageHeaderBinding
 import org.wikipedia.donate.DonateUtil
+import org.wikipedia.donate.donationreminder.DonationReminderConfig
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -121,40 +122,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             return
         }
         Prefs.donationReminderConfig.let { config ->
-            val articleText = context.resources.getQuantityString(
-                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-            )
-            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-            val titleText = if (config.goalReachedCount == 1) {
-                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
-            } else {
-                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
-            }
-
-            val dateText = DateUtil.getShortDateString(Date(config.setupTimestamp))
-            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
-            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
-            val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
-            binding.donationReminderCardView.setTitle(titleText)
-            binding.donationReminderCardView.setMessage(messageText)
-            binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
-                callback?.donationReminderCardPositiveClicked()
-                DonationReminderHelper.donationReminderDismissed()
-            }
-            binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
-                callback?.donationReminderCardNegativeClicked()
-                binding.donationReminderCardView.isVisible = false
-                if (Prefs.donationReminderConfig.finalPromptCount == DonationReminderHelper.MAX_REMINDER_PROMPTS) {
-                    // Give the user one more chance to see the donation reminder
-                    Prefs.donationReminderConfig = Prefs.donationReminderConfig.copy(
-                        finalPromptCount = 1,
-                        finalPromptActive = true
-                    )
-                    return@setNegativeButton
-                }
-                DonationReminderHelper.donationReminderDismissed()
-            }
-
+            updateDonationReminderCardContent(config)
             binding.donationReminderCardView.isVisible = true
             visibility = INVISIBLE
             binding.donationReminderCardView.post {
@@ -170,18 +138,46 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
-    fun maybeShowDonationReminderCard() {
-        if (!DonationReminderHelper.hasActiveReminder) {
-            return
-        }
-        val canShowFinalDonationReminder = DonationReminderHelper.maybeShowDonationReminder(true)
+    private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
+        config?.let { config ->
+            val articleText = context.resources.getQuantityString(
+                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
+            )
+            val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
+            val titleText = if (config.goalReachedCount == 1) {
+                context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
+            } else {
+                context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
+            }
 
-        if (canShowFinalDonationReminder) {
+            val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
+            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
+            val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
+            val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
+            binding.donationReminderCardView.setTitle(titleText)
+            binding.donationReminderCardView.setMessage(messageText)
+            binding.donationReminderCardView.setPositiveButton(positiveButtonText) {
+                callback?.donationReminderCardPositiveClicked()
+                DonationReminderHelper.dismissReminder()
+            }
+            binding.donationReminderCardView.setNegativeButton(negativeButtonText) {
+                callback?.donationReminderCardNegativeClicked()
+                binding.donationReminderCardView.isVisible = false
+                DonationReminderHelper.dismissReminder()
+            }
+        }
+    }
+
+    fun maybeShowDonationReminderCard() {
+        if (DonationReminderHelper.shouldShowReminderNow()) {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "impression"
             )
+            updateDonationReminderCardContent(Prefs.donationReminderConfig)
+            binding.donationReminderCardView.isVisible = true
+        } else {
+            binding.donationReminderCardView.isVisible = false
         }
-        binding.donationReminderCardView.isVisible = canShowFinalDonationReminder
     }
 }

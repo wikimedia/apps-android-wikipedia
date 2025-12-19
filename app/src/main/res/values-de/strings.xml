@@ -78,23 +78,23 @@
   <string name="nav_item_more">Mehr</string>
   <string name="nav_item_search">Suche</string>
   <string name="nav_item_contribute">Beitragen</string>
-  <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
+  <string name="error_network_error">Internetverbindung kann nicht hergestellt werden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
-  <string name="card_offline_error_retry">Wiederholen</string>
-  <string name="storage_access_error_retry">Wiederholen</string>
-  <string name="article_load_error_retry">Wiederholen</string>
-  <string name="offline_load_error_retry">Wiederholen</string>
+  <string name="card_offline_error_retry">Erneut versuchen</string>
+  <string name="storage_access_error_retry">Erneut versuchen</string>
+  <string name="article_load_error_retry">Erneut versuchen</string>
+  <string name="offline_load_error_retry">Erneut versuchen</string>
   <string name="page_error_back_to_main">Zurück</string>
   <string name="error_back">Zurück</string>
-  <string name="error_next">Nächster</string>
-  <string name="menu_clear_all_history">Lesehistorie löschen</string>
+  <string name="error_next">Vorwärts</string>
+  <string name="menu_clear_all_history">Leseverlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
   <string name="history_items_deleted">%d Artikel aus dem Verlauf gelöscht</string>
   <string name="history_item_delete_undo">Rückgängig</string>
   <string name="notification_archive_undo">Rückgängig</string>
   <string name="app_settings">App-Einstellungen</string>
   <string name="search_tab_tooltip">Berühre das Symbol noch einmal, um direkt mit der Eingabe zu beginnen.</string>
-  <string name="history_list_title">Historie</string>
+  <string name="history_list_title">Verlauf</string>
   <string name="image_content_description">Bild: %s</string>
   <string name="page_content_description">Seite: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
@@ -105,7 +105,7 @@
   <string name="dialog_message_clear_history_no">Nein</string>
   <string name="share_via">Teilen über</string>
   <string name="image_share_via">Teilen über</string>
-  <string name="search_redirect_from">Weiterleitung von %s</string>
+  <string name="search_redirect_from">Weitergeleitet von %s</string>
   <string name="page_edit_history_activity_title">Versionsgeschichte: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Keine Zusammenfassung vorhanden</string>
@@ -124,7 +124,7 @@
     <item quantity="one">%1$d Bearbeitung seit %2$s (%3$s)</item>
     <item quantity="other">%1$d Bearbeitungen seit %2$s (%3$s)</item>
   </plurals>
-  <string name="page_edit_history_empty_search_message">Änder die &lt;a href=\"#\"&gt;Filter&lt;/a&gt;, um weitere Bearbeitungen zu sehen.</string>
+  <string name="page_edit_history_empty_search_message">Verändere die &lt;a href=\"#\"&gt;Filter&lt;/a&gt;, um weitere Bearbeitungen zu sehen.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
@@ -138,7 +138,7 @@
   <string name="menu_page_remove_from_watchlist">Von der Beobachtungsliste entfernen</string>
   <string name="menu_page_watched">Beobachtet</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
-  <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
+  <string name="menu_page_font_and_theme">Schriftart und Farbschema</string>
   <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
   <string name="menu_page_add_to_default_list">Speichern</string>
   <string name="feed_card_add_to_list">Zu Leseliste hinzufügen</string>
@@ -267,7 +267,7 @@
   <string name="preferences_general_heading">Allgemein</string>
   <string name="preferences_account_heading">Benutzerkonto</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
-  <string name="send_feedback">App-Rückmeldung senden</string>
+  <string name="send_feedback">Feedback geben</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preferences_heading_syncing">Synchronisierung</string>
   <string name="preferences_heading_data_usage">Datennutzung</string>
@@ -305,10 +305,10 @@
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/de\"&gt;Team-Seite&lt;/a&gt;</string>
-  <string name="about_translators_heading">Übersetzer</string>
-  <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
+  <string name="about_translators_heading">Übersetzung</string>
+  <string name="about_translators_translatewiki">Diese App wurde von Freiwilligen auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.de\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
+  <string name="about_app_license">Der Quellcode ist auf &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; verfügbar. Sofern nicht anders angegeben, stehen die Inhalte unter einer &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.de\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
   <string name="about_wmf">Ein Produkt der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="about_logo_content_description">Wikipedia-Puzzle-Globus-Logo</string>
@@ -527,7 +527,7 @@
   <string name="color_theme_black">Schwarz</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Beispieltext</string>
-  <string name="color_theme_test_text">Ziehe den Schieber, um die Größe des Textes zu ändern, der für das Lesen von Artikeln verwendet wird. Um die Textgröße auch für den Rest der App festzulegen, ändere die Systemtextgröße.</string>
+  <string name="color_theme_test_text">Passe die Größe des Artikeltextes mit dem Schieberegler an. Um die Textgröße in der gesamten App zu ändern, passe in den Systemeinstellungen die Systemtextgröße an.</string>
   <string name="preference_title_app_theme">Farbschema der App</string>
   <string name="preference_summary_color_theme">Wechsle zur Verwendung der App in einem dunklen Farbschema</string>
   <string name="text_size_increase">Text vergrößern</string>
@@ -968,7 +968,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Computergenerierte Vorschläge</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Die Vorschläge werden von einem Computer generiert, nicht von Freiwilligen oder der Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Werkzeugleiste anpassen</string>
-  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste mit 5 Tastaturkürzeln an, die du am hilfreichsten findest.</string>
+  <string name="customize_toolbar_shortcut_description_text">Passe die untere Symbolleiste an, indem du fünf Tastaturkürzel auswählst, die dir am nützlichsten erscheinen.</string>
   <string name="customize_toolbar_category_toolbar">Werkzeugleiste</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Ziehe deine Lieblingsobjekte hierher 👋</string>
@@ -1728,7 +1728,7 @@
   <string name="patroller_tasks_overflow_learn">Mehr erfahren</string>
   <string name="patroller_onboarding_one_title">Trage zur Kontrolle und Freigabe von Bearbeitungen auf Wikipedia bei.</string>
   <string name="patroller_onboarding_one_content">Verbessere die Qualität von Wikipedia-Inhalten, indem du aktiv einen Feed der letzten Bearbeitungen überprüfst und anderen Benutzern Beratung, Qualitätskontrolle und Ermutigung bietest.</string>
-  <string name="patroller_onboarding_two_title">Geben Sie Feedback, überwachen Sie Änderungen und ergreifen Sie Maßnahmen auf dem Diff-Bildschirm</string>
+  <string name="patroller_onboarding_two_title">Gib Feedback, überwache Änderungen und ergreife Maßnahmen auf dem Diff-Bildschirm</string>
   <string name="patroller_onboarding_two_thank_title">Danken</string>
   <string name="patroller_onboarding_two_thank_content">Eine produktive Bearbeitung entdeckt? Danke dem Benutzer für seinen Beitrag.</string>
   <string name="patroller_onboarding_two_watch_title">Beobachten</string>
@@ -1795,6 +1795,7 @@
   <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
   <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
   <string name="donation_history_deleted_message_snackbar">Spenderhistorie gelöscht</string>
+  <string name="donation_history_no_history_message_snackbar">Sie haben keine Spendenhistorie, die gelöscht werden kann.</string>
   <string name="places_title">Orte</string>
   <string name="places_permissions_denied">Um deinen Standort auf der Karte anzeigen zu können, ist die Standortberechtigung erforderlich. Bitte versuche es erneut.</string>
   <string name="places_search_hint">Orte suchen</string>
@@ -1934,7 +1935,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Neues App-Symbol für deinen Startbildschirm freigeschaltet</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Schalte deine Auszeichnung als Beitragender fär das nächste Jahr frei!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Aktiviere dein neues App-Symbol in den Einstellungen unter dem App-Symbol. Vielen Dank für deinen Beitrag zur Zukunft des freien Wissens. Deine %1$s-Beiträge im Jahr %2$d tragen dazu bei, den Weg zu einer Welt freier Informationen zu ebnen, und als Anerkennung hast du ein benutzerdefiniertes Symbol für Beitragende der Wikipedia für deinen Startbildschirm freigeschaltet.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du Beitragender wirst — sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock" fuzzy="true">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du Beitragender wirst — sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt.</string>
   <string name="year_in_review_slide_app_icon_donor">ein Spender</string>
   <string name="year_in_review_slide_app_icon_editor">ein Autor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">ein Spender und Autor</string>
@@ -1956,8 +1957,8 @@
   <string name="year_in_review_slide_top_categories_body">Kategorien fassen Artikel zu ähnlichen Themen zusammen. %1$d hast du Artikel in diesen interessanten Kategorien mehrfach besucht: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Am häufigsten gelesene Artikel der Englischsprachigen Wikipedia</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
-    <item quantity="one">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten — wenden sie sich an Wikipedia. Der %1$d am häufigsten besuchte Artikel der Englischsprachigen Wikipedia war: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
-    <item quantity="other">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten — wenden sie sich an Wikipedia. Die %1$d am häufigsten besuchten Artikel der Englischsprachigen Wikipedia waren: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
+    <item quantity="one">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten —, wenden sie sich an Wikipedia. Der %1$d am häufigsten besuchte Artikel der englischsprachigen Wikipedia war: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
+    <item quantity="other">Wenn Menschen etwas über unsere Welt erfahren möchten — über die guten, die schlechten, die seltsamen und die wilden Seiten —, wenden sie sich an Wikipedia. Die %1$d am häufigsten besuchten Artikel der englischsprachigen Wikipedia waren: %2$s &lt;br /&gt;Lies mehr dazu in unserem &lt;a href=\"%3$s\"&gt;Blogbeitrag&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Deine Bearbeitung wurde in letzter Zeit mehr als %,d Mal angesehen</item>
@@ -1980,7 +1981,7 @@
     <item quantity="one">Im Jahr %1$d haben Freiwillige %2$,d Byte zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
     <item quantity="other">Im Jahr %1$d haben Freiwillige %2$,d Bytes zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline">
+  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
     <item quantity="one">Du hast Wikipedia %s Mal bearbeitet</item>
     <item quantity="other">Du hast Wikipedia %s Mal bearbeitet</item>
   </plurals>
@@ -2061,8 +2062,8 @@
     <item quantity="other">%1$,d Artikel im Jahr %2$d zu lesen</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-    <item quantity="one">Wir schätzen, dass du damit zu den Top %1$s % der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
-    <item quantity="other">Wir schätzen, dass du damit zu den Top %1$s % der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
+    <item quantity="one">Wir schätzen, dass du damit zu den Top %1$s %% der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
+    <item quantity="other">Wir schätzen, dass du damit zu den Top %1$s %% der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Wikipedia hatte %,d Artikel</item>
@@ -2135,7 +2136,7 @@
     <item quantity="one">Kategorie, die mich interessiert</item>
     <item quantity="other">Kategorien, die mich interessieren</item>
   </plurals>
-  <plurals name="year_in_review_highlights_logged_in_articles_edited_articles_title">
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
     <item quantity="one">Artikel bearbeitet</item>
     <item quantity="other">Artikel bearbeitet</item>
   </plurals>
@@ -2223,16 +2224,11 @@
   <string name="recommended_reading_list_notification_subtitle">Tippe, um deine neuesten Empfehlungen zu sehen.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Wenn deine Empfehlungen aktualisiert werden, erhältst du von Wikipedia eine Benachrichtigung.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Empfehlungen sind aktiviert. Wikipedia empfiehlt dir Artikel zum Lesen.</string>
-  <string name="donation_reminders_initial_prompt_label">Experiment</string>
-  <string name="donation_reminders_initial_prompt_title">Unterstütze Wikipedia, während du liest</string>
-  <string name="donation_reminders_initial_prompt_message">Richte eine Spendenerinnerung basierend auf der Anzahl der von dir gelesenen Artikel ein, um Wikipedia werbefrei, aktuell und für alle verfügbar zu halten.</string>
-  <string name="donation_reminders_initial_prompt_positive_button">Anfangen</string>
-  <string name="donation_reminders_initial_prompt_negative_button">Nicht jetzt</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Spendenerinnerungen können jederzeit in den Einstellungen angepasst werden.</string>
   <string name="donation_settings_section_header">Spenden</string>
-  <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
-  <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 % der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
-  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
+  <string name="donation_reminders_settings_title" fuzzy="true">Spendenerinnerungen</string>
+  <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
+  <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
   <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
@@ -2242,14 +2238,12 @@
   <string name="donation_reminders_settings_warning_max_amount">Es sind maximal %s erlaubt</string>
   <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
-  <string name="donation_reminders_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
-  <string name="donation_reminders_prompt_message">Am %1$s hast du uns gebeten, dich nach dem Lesen von %2$s daran zu erinnern, zu spenden. Wenn dir Wikipedia Wissen für %3$s vermittelt hat, gehöre bitte zu den 2 %% der Leser, die spenden, und erfülle deine Zusage noch heute.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
+  <string name="donation_reminders_prompt_message" fuzzy="true">Am %1$s hast du uns gebeten, dich nach dem Lesen von %2$s daran zu erinnern, zu spenden. Wenn dir Wikipedia Wissen für %3$s vermittelt hat, gehöre bitte zu den 2 %% der Leser, die spenden, und erfülle deine Zusage noch heute.</string>
   <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
   <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>
   <string name="donation_reminders_gpay_text">Mit Google Pay %s spenden</string>
   <string name="donation_reminders_gpay_different_amount_text">Mit Google Pay einen anderen Betrag spenden</string>
-  <string name="donation_reminders_survey_dialog_title">Hilf mit, Spendenerinnerungen zu verbessern.</string>
-  <string name="donation_reminders_survey_dialog_message">Bist du mit dieser Erfahrung zufrieden?</string>
   <string name="donation_reminders_settings_description_on">Spendenerinnerungen sind aktiviert. Wikipedia erinnert dich während der Laufzeit dieses Experiments alle %2$s, die du liest, daran, %1$s zu spenden.</string>
   <string name="donation_reminders_settings_description_off">Spendenerinnerungen sind deaktiviert.</string>
   <string name="donation_reminders_settings_tooltip_info_label">Die Anzahl der Artikel wird lokal auf deinem Gerät gespeichert</string>
@@ -2257,4 +2251,9 @@
     <item quantity="one">%d Artikel</item>
     <item quantity="other">%d Artikel</item>
   </plurals>
+  <string name="donation_reminders_experiment_label" fuzzy="true">Experiment</string>
+  <string name="explore_feed_survey_dialog_title">Gib uns Feedback, um den Entdecken-Feed zu verbessern.</string>
+  <string name="explore_feed_survey_dialog_message">Nimm bitte an einer kurzen Umfrage zum Entdecken-Feed teil. Dein Feedback hilft uns, die App zu verbessern.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">An der Umfrage teilnehmen</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Nein danke</string>
 </resources>

@@ -1530,7 +1530,7 @@
   <string name="email_report_patroller_tasks_subject">Rahoton fitowa- Gyara Patrol Feature</string>
   <string name="email_report_patroller_tasks_body">Na gamu da matsala tare da Gyara Patrol Feature: - [Bayyana takamaiman matsala] __hau____hau____hau__ Halin da nake so in gani shine: - [Bayyana mafita da aka tsara] __hau____hau____hau__ [Screenshots ko Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Za mu sake tunatar da ku gobe.</string>
-  <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
   <string name="places_title">Wajaje</string>

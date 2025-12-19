@@ -1540,7 +1540,7 @@
   <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuv funksiyasini tahrirlash</string>
   <string name="email_report_patroller_tasks_body">Men tahrirlash kuzatuvchisi funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tasvirlab bering]\n\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n [Skrinshotlar yoki havolalar]</string>
   <string name="donation_campaign_maybe_later_snackbar">Ertaga yana eslatib oʻtamiz.</string>
-  <string name="donation_campaign_donated_snackbar">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
   <string name="donation_campaign_go_back_button">Ortga</string>
   <string name="menu_single_webview_open_external">Tizim brauzerida ochish</string>
   <string name="places_title">Joylar</string>

@@ -514,6 +514,7 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
+  <string name="activity_tab_timeline_today">இன்று</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>
@@ -522,6 +523,7 @@
   <string name="onboarding_explore_text">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
   <string name="onboarding_reading_list_sync_title">ஒருங்குநிகழ்கவுடன் படிப்பு பட்டியல்கள்</string>
   <string name="onboarding_reading_list_sync_text_v2">நீங்கள் பின்னர் வாசிக்க விரும்பும் கட்டுரைகளிலிருந்து படிப்பு பட்டியல்களை உருவாக்கலாம். அவற்றை நீங்கள் இணைப்பில்லா நிலையிலும் வாசிக்கலாம். &lt;br/&gt;உங்கள் படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்ய உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்க. &lt;a href=\"#login\"&gt;விக்கிபீடியாவில் சேர்க&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">தரவு &amp; தனியுரிமை</string>
   <string name="onboarding_analytics_switch_title">பயன்பாட்டுத் தரவை அனுப்பு</string>
   <string name="onboarding_got_it">புரிந்துகொண்டேன்</string>
   <string name="onboarding_multilingual_secondary_text">உங்கள் சாதனத்தில் பின்வரும் மொழிகளை நாங்கள் கண்டறிந்தோம்:</string>
@@ -548,6 +550,7 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">அனைத்து மொழிகளையும் நீக்க இயலவில்லை</string>
   <string name="more_language_options">மேலும்</string>
   <string name="add_wikipedia_languages_text">விக்கிபீடியா மொழிகளைச் சேர்க்கவும்</string>
+  <string name="wikitext_large">பெரிய உரை</string>
   <string name="insert_media_advanced_settings_image_position_right">வலது</string>
   <string name="main_drawer_help">உதவி</string>
   <string name="main_drawer_login">விக்கிபீடியாவில் புகுபதிக / இணைக</string>
@@ -560,5 +563,10 @@
   <string name="talk_templates_new_message_save">சேமி</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">பயனர் பக்கத்தைப் பார்</string>
   <string name="places_card_title">அருகிலுள்ள இடங்கள்</string>
+  <string name="on_this_day_game_submit">சமர்ப்பி</string>
+  <string name="year_in_review_close">மூடுக</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">உருவாக்கு</string>
+  <string name="donation_reminders_settings_option_title">நன்கொடை நினைவூட்டல்கள்</string>
   <string name="donation_reminders_prompt_negative_button">தற்போது இல்லை</string>
+  <string name="donation_reminders_experiment_label">பரிசோதனை</string>
 </resources>

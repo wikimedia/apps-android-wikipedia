@@ -174,8 +174,9 @@ object Prefs {
     val mediaWikiBaseUriSupportsLangCode
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true)
 
-    val eventPlatformIntakeUriOverride
-        get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")!!
+    var eventPlatformIntakeUriOverride
+        get() = PrefsIoUtil.getString(R.string.preference_key_event_platform_intake_base_uri, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_event_platform_intake_base_uri, value)
 
     fun getLastRunTime(task: String): Long {
         return PrefsIoUtil.getLong(getLastRunTimeKey(task), 0)
@@ -778,7 +779,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
 
     var isYearInReviewEnabled: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
     var yearInReviewVisited: Boolean
@@ -875,4 +876,8 @@ object Prefs {
     var yearInReviewReadingListSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
+
+    var exploreFeedSurveyShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_survey_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_survey_shown, value)
 }
