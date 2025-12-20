@@ -1,0 +1,1934 @@
+{
+  "streams": {
+    "eventlogging_CentralNoticeBannerHistory": {
+      "schema_title": "analytics/legacy/centralnoticebannerhistory",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_CentralNoticeBannerHistory",
+      "topics": [
+        "eventlogging_CentralNoticeBannerHistory"
+      ]
+    },
+    "eventlogging_CentralNoticeImpression": {
+      "schema_title": "analytics/legacy/centralnoticeimpression",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_CentralNoticeImpression",
+      "topics": [
+        "eventlogging_CentralNoticeImpression"
+      ]
+    },
+    "eventlogging_CentralNoticeTiming": {
+      "schema_title": "analytics/legacy/centralnoticetiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_CentralNoticeTiming",
+      "topics": [
+        "eventlogging_CentralNoticeTiming"
+      ]
+    },
+    "eventlogging_CodeMirrorUsage": {
+      "schema_title": "analytics/legacy/codemirrorusage",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_CodeMirrorUsage",
+      "topics": [
+        "eventlogging_CodeMirrorUsage"
+      ]
+    },
+    "eventlogging_ContentTranslationAbuseFilter": {
+      "schema_title": "analytics/legacy/contenttranslationabusefilter",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ContentTranslationAbuseFilter",
+      "topics": [
+        "eventlogging_ContentTranslationAbuseFilter"
+      ]
+    },
+    "eventlogging_CpuBenchmark": {
+      "schema_title": "analytics/legacy/cpubenchmark",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_CpuBenchmark",
+      "topics": [
+        "eventlogging_CpuBenchmark"
+      ]
+    },
+    "eventlogging_DesktopWebUIActionsTracking": {
+      "schema_title": "analytics/legacy/desktopwebuiactionstracking",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_DesktopWebUIActionsTracking",
+      "topics": [
+        "eventlogging_DesktopWebUIActionsTracking"
+      ]
+    },
+    "eventlogging_ElementTiming": {
+      "schema_title": "analytics/legacy/elementtiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ElementTiming",
+      "topics": [
+        "eventlogging_ElementTiming"
+      ]
+    },
+    "eventlogging_EditAttemptStep": {
+      "schema_title": "analytics/legacy/editattemptstep",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_EditAttemptStep",
+      "topics": [
+        "eventlogging_EditAttemptStep"
+      ]
+    },
+    "eventlogging_FeaturePolicyViolation": {
+      "schema_title": "analytics/legacy/featurepolicyviolation",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_FeaturePolicyViolation",
+      "topics": [
+        "eventlogging_FeaturePolicyViolation"
+      ]
+    },
+    "eventlogging_FirstInputTiming": {
+      "schema_title": "analytics/legacy/firstinputtiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_FirstInputTiming",
+      "topics": [
+        "eventlogging_FirstInputTiming"
+      ]
+    },
+    "eventlogging_HelpPanel": {
+      "schema_title": "analytics/legacy/helppanel",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_HelpPanel",
+      "topics": [
+        "eventlogging_HelpPanel"
+      ]
+    },
+    "eventlogging_HomepageModule": {
+      "schema_title": "analytics/legacy/homepagemodule",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_HomepageModule",
+      "topics": [
+        "eventlogging_HomepageModule"
+      ]
+    },
+    "eventlogging_HomepageVisit": {
+      "schema_title": "analytics/legacy/homepagevisit",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_HomepageVisit",
+      "topics": [
+        "eventlogging_HomepageVisit"
+      ]
+    },
+    "eventlogging_InukaPageView": {
+      "schema_title": "analytics/legacy/inukapageview",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_InukaPageView",
+      "topics": [
+        "eventlogging_InukaPageView"
+      ]
+    },
+    "eventlogging_KaiOSAppFirstRun": {
+      "schema_title": "analytics/legacy/kaiosappfirstrun",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_KaiOSAppFirstRun",
+      "topics": [
+        "eventlogging_KaiOSAppFirstRun"
+      ]
+    },
+    "eventlogging_KaiOSAppFeedback": {
+      "schema_title": "analytics/legacy/kaiosappfeedback",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_KaiOSAppFeedback",
+      "topics": [
+        "eventlogging_KaiOSAppFeedback"
+      ]
+    },
+    "eventlogging_LandingPageImpression": {
+      "schema_title": "analytics/legacy/landingpageimpression",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_LandingPageImpression",
+      "topics": [
+        "eventlogging_LandingPageImpression"
+      ]
+    },
+    "eventlogging_LayoutShift": {
+      "schema_title": "analytics/legacy/layoutshift",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_LayoutShift",
+      "topics": [
+        "eventlogging_LayoutShift"
+      ]
+    },
+    "eventlogging_MobileWebUIActionsTracking": {
+      "schema_title": "analytics/legacy/mobilewebuiactionstracking",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_MobileWebUIActionsTracking",
+      "topics": [
+        "eventlogging_MobileWebUIActionsTracking"
+      ]
+    },
+    "eventlogging_NavigationTiming": {
+      "schema_title": "analytics/legacy/navigationtiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_NavigationTiming",
+      "topics": [
+        "eventlogging_NavigationTiming"
+      ]
+    },
+    "eventlogging_NewcomerTask": {
+      "schema_title": "analytics/legacy/newcomertask",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_NewcomerTask",
+      "topics": [
+        "eventlogging_NewcomerTask"
+      ]
+    },
+    "eventlogging_PaintTiming": {
+      "schema_title": "analytics/legacy/painttiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_PaintTiming",
+      "topics": [
+        "eventlogging_PaintTiming"
+      ]
+    },
+    "eventlogging_PrefUpdate": {
+      "schema_title": "analytics/legacy/prefupdate",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_PrefUpdate",
+      "topics": [
+        "eventlogging_PrefUpdate"
+      ]
+    },
+    "eventlogging_WikipediaPortal": {
+      "schema_title": "analytics/legacy/wikipediaportal",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WikipediaPortal",
+      "topics": [
+        "eventlogging_WikipediaPortal"
+      ]
+    },
+    "eventlogging_QuickSurveyInitiation": {
+      "schema_title": "analytics/legacy/quicksurveyinitiation",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_QuickSurveyInitiation",
+      "topics": [
+        "eventlogging_QuickSurveyInitiation"
+      ]
+    },
+    "eventlogging_QuickSurveysResponses": {
+      "schema_title": "analytics/legacy/quicksurveysresponses",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_QuickSurveysResponses",
+      "topics": [
+        "eventlogging_QuickSurveysResponses"
+      ]
+    },
+    "eventlogging_ReferencePreviewsBaseline": {
+      "schema_title": "analytics/legacy/referencepreviewsbaseline",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ReferencePreviewsBaseline",
+      "topics": [
+        "eventlogging_ReferencePreviewsBaseline"
+      ]
+    },
+    "eventlogging_ReferencePreviewsCite": {
+      "schema_title": "analytics/legacy/referencepreviewscite",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ReferencePreviewsCite",
+      "topics": [
+        "eventlogging_ReferencePreviewsCite"
+      ]
+    },
+    "eventlogging_ReferencePreviewsPopups": {
+      "schema_title": "analytics/legacy/referencepreviewspopups",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ReferencePreviewsPopups",
+      "topics": [
+        "eventlogging_ReferencePreviewsPopups"
+      ]
+    },
+    "eventlogging_ResourceTiming": {
+      "schema_title": "analytics/legacy/resourcetiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ResourceTiming",
+      "topics": [
+        "eventlogging_ResourceTiming"
+      ]
+    },
+    "eventlogging_RUMSpeedIndex": {
+      "schema_title": "analytics/legacy/rumspeedindex",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_RUMSpeedIndex",
+      "topics": [
+        "eventlogging_RUMSpeedIndex"
+      ]
+    },
+    "eventlogging_SaveTiming": {
+      "schema_title": "analytics/legacy/savetiming",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_SaveTiming",
+      "topics": [
+        "eventlogging_SaveTiming"
+      ]
+    },
+    "eventlogging_SearchSatisfaction": {
+      "schema_title": "analytics/legacy/searchsatisfaction",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_SearchSatisfaction",
+      "topics": [
+        "eventlogging_SearchSatisfaction"
+      ]
+    },
+    "eventlogging_ServerSideAccountCreation": {
+      "schema_title": "analytics/legacy/serversideaccountcreation",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_ServerSideAccountCreation",
+      "topics": [
+        "eventlogging_ServerSideAccountCreation"
+      ]
+    },
+    "eventlogging_SpecialInvestigate": {
+      "schema_title": "analytics/legacy/specialinvestigate",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_SpecialInvestigate",
+      "topics": [
+        "eventlogging_SpecialInvestigate"
+      ]
+    },
+    "eventlogging_SpecialMuteSubmit": {
+      "schema_title": "analytics/legacy/specialmutesubmit",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_SpecialMuteSubmit",
+      "topics": [
+        "eventlogging_SpecialMuteSubmit"
+      ]
+    },
+    "eventlogging_SuggestedTagsAction": {
+      "schema_title": "analytics/legacy/suggestedtagsaction",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_SuggestedTagsAction",
+      "topics": [
+        "eventlogging_SuggestedTagsAction"
+      ]
+    },
+    "eventlogging_TemplateDataApi": {
+      "schema_title": "analytics/legacy/templatedataapi",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TemplateDataApi",
+      "topics": [
+        "eventlogging_TemplateDataApi"
+      ]
+    },
+    "eventlogging_TemplateDataEditor": {
+      "schema_title": "analytics/legacy/templatedataeditor",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TemplateDataEditor",
+      "topics": [
+        "eventlogging_TemplateDataEditor"
+      ]
+    },
+    "eventlogging_TemplateWizard": {
+      "schema_title": "analytics/legacy/templatewizard",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TemplateWizard",
+      "topics": [
+        "eventlogging_TemplateWizard"
+      ]
+    },
+    "eventlogging_Test": {
+      "schema_title": "analytics/legacy/test",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_Test",
+      "topics": [
+        "eventlogging_Test"
+      ]
+    },
+    "eventlogging_TranslationRecommendationUserAction": {
+      "schema_title": "analytics/legacy/translationrecommendationuseraction",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TranslationRecommendationUserAction",
+      "topics": [
+        "eventlogging_TranslationRecommendationUserAction"
+      ]
+    },
+    "eventlogging_TranslationRecommendationUIRequests": {
+      "schema_title": "analytics/legacy/translationrecommendationuirequests",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TranslationRecommendationUIRequests",
+      "topics": [
+        "eventlogging_TranslationRecommendationUIRequests"
+      ]
+    },
+    "eventlogging_TranslationRecommendationAPIRequests": {
+      "schema_title": "analytics/legacy/translationrecommendationapirequests",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TranslationRecommendationAPIRequests",
+      "topics": [
+        "eventlogging_TranslationRecommendationAPIRequests"
+      ]
+    },
+    "eventlogging_TwoColConflictConflict": {
+      "schema_title": "analytics/legacy/twocolconflictconflict",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TwoColConflictConflict",
+      "topics": [
+        "eventlogging_TwoColConflictConflict"
+      ]
+    },
+    "eventlogging_TwoColConflictExit": {
+      "schema_title": "analytics/legacy/twocolconflictexit",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_TwoColConflictExit",
+      "topics": [
+        "eventlogging_TwoColConflictExit"
+      ]
+    },
+    "eventlogging_UniversalLanguageSelector": {
+      "schema_title": "analytics/legacy/universallanguageselector",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_UniversalLanguageSelector",
+      "topics": [
+        "eventlogging_UniversalLanguageSelector"
+      ]
+    },
+    "eventlogging_VirtualPageView": {
+      "schema_title": "analytics/legacy/virtualpageview",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_VirtualPageView",
+      "topics": [
+        "eventlogging_VirtualPageView"
+      ]
+    },
+    "eventlogging_VisualEditorFeatureUse": {
+      "schema_title": "analytics/legacy/visualeditorfeatureuse",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_VisualEditorFeatureUse",
+      "topics": [
+        "eventlogging_VisualEditorFeatureUse"
+      ]
+    },
+    "eventlogging_VisualEditorTemplateDialogUse": {
+      "schema_title": "analytics/legacy/visualeditortemplatedialoguse",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_VisualEditorTemplateDialogUse",
+      "topics": [
+        "eventlogging_VisualEditorTemplateDialogUse"
+      ]
+    },
+    "eventlogging_WikibaseTermboxInteraction": {
+      "schema_title": "analytics/legacy/wikibasetermboxinteraction",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WikibaseTermboxInteraction",
+      "topics": [
+        "eventlogging_WikibaseTermboxInteraction"
+      ]
+    },
+    "eventlogging_WikidataCompletionSearchClicks": {
+      "schema_title": "analytics/legacy/wikidatacompletionsearchclicks",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WikidataCompletionSearchClicks",
+      "topics": [
+        "eventlogging_WikidataCompletionSearchClicks"
+      ]
+    },
+    "eventlogging_WMDEBannerEvents": {
+      "schema_title": "analytics/legacy/wmdebannerevents",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WMDEBannerEvents",
+      "topics": [
+        "eventlogging_WMDEBannerEvents"
+      ]
+    },
+    "eventlogging_WMDEBannerInteractions": {
+      "schema_title": "analytics/legacy/wmdebannerinteractions",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WMDEBannerInteractions",
+      "topics": [
+        "eventlogging_WMDEBannerInteractions"
+      ]
+    },
+    "eventlogging_WMDEBannerSizeIssue": {
+      "schema_title": "analytics/legacy/wmdebannersizeissue",
+      "topic_prefixes": null,
+      "destination_event_service": "eventgate-analytics-external",
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "eventlogging_legacy",
+          "enabled": true
+        }
+      },
+      "canary_events_enabled": true,
+      "stream": "eventlogging_WMDEBannerSizeIssue",
+      "topics": [
+        "eventlogging_WMDEBannerSizeIssue"
+      ]
+    },
+    "test.instrumentation": {
+      "schema_title": "analytics/test",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "test.instrumentation",
+      "topics": [
+        "eqiad.test.instrumentation",
+        "codfw.test.instrumentation"
+      ]
+    },
+    "test.instrumentation.sampled": {
+      "schema_title": "analytics/test",
+      "destination_event_service": "eventgate-analytics-external",
+      "sample": {
+        "rate": 0.5,
+        "unit": "session"
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "test.instrumentation.sampled",
+      "topics": [
+        "eqiad.test.instrumentation.sampled",
+        "codfw.test.instrumentation.sampled"
+      ]
+    },
+    "mediawiki.client.session_tick": {
+      "schema_title": "analytics/session_tick",
+      "destination_event_service": "eventgate-analytics-external",
+      "sample": {
+        "unit": "session",
+        "rate": 0.1
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.client.session_tick",
+      "topics": [
+        "eqiad.mediawiki.client.session_tick",
+        "codfw.mediawiki.client.session_tick"
+      ]
+    },
+    "ios.edit_history_compare": {
+      "schema_title": "analytics/mobile_apps/ios_edit_history_compare",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "ios.edit_history_compare",
+      "topics": [
+        "eqiad.ios.edit_history_compare",
+        "codfw.ios.edit_history_compare"
+      ]
+    },
+    "ios.notification_interaction": {
+      "schema_title": "analytics/mobile_apps/ios_notification_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "ios.notification_interaction",
+      "topics": [
+        "eqiad.ios.notification_interaction",
+        "codfw.ios.notification_interaction"
+      ]
+    },
+    "android.user_contribution_screen": {
+      "schema_title": "analytics/mobile_apps/android_user_contribution_screen",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.user_contribution_screen",
+      "topics": [
+        "eqiad.android.user_contribution_screen",
+        "codfw.android.user_contribution_screen"
+      ]
+    },
+    "android.notification_interaction": {
+      "schema_title": "analytics/mobile_apps/android_notification_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.notification_interaction",
+      "topics": [
+        "eqiad.android.notification_interaction",
+        "codfw.android.notification_interaction"
+      ]
+    },
+    "android.image_recommendation_interaction": {
+      "schema_title": "analytics/mobile_apps/android_image_recommendation_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.image_recommendation_interaction",
+      "topics": [
+        "eqiad.android.image_recommendation_interaction",
+        "codfw.android.image_recommendation_interaction"
+      ]
+    },
+    "android.daily_stats": {
+      "schema_title": "analytics/mobile_apps/android_daily_stats",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.daily_stats",
+      "topics": [
+        "eqiad.android.daily_stats",
+        "codfw.android.daily_stats"
+      ]
+    },
+    "android.customize_toolbar_interaction": {
+      "schema_title": "analytics/mobile_apps/android_customize_toolbar_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.customize_toolbar_interaction",
+      "topics": [
+        "eqiad.android.customize_toolbar_interaction",
+        "codfw.android.customize_toolbar_interaction"
+      ]
+    },
+    "android.article_toolbar_interaction": {
+      "schema_title": "analytics/mobile_apps/android_article_toolbar_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.article_toolbar_interaction",
+      "topics": [
+        "eqiad.android.article_toolbar_interaction",
+        "codfw.android.article_toolbar_interaction"
+      ]
+    },
+    "android.edit_history_interaction": {
+      "schema_title": "analytics/mobile_apps/android_edit_history_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.edit_history_interaction",
+      "topics": [
+        "eqiad.android.edit_history_interaction",
+        "codfw.android.edit_history_interaction"
+      ]
+    },
+    "android.breadcrumbs_event": {
+      "schema_title": "analytics/mobile_apps/android_breadcrumbs_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "sample": {
+        "unit": "device",
+        "rate": 0.5
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.breadcrumbs_event",
+      "topics": [
+        "eqiad.android.breadcrumbs_event",
+        "codfw.android.breadcrumbs_event"
+      ]
+    },
+    "android.app_appearance_settings_interaction": {
+      "schema_title": "analytics/mobile_apps/android_app_appearance_settings_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.app_appearance_settings_interaction",
+      "topics": [
+        "eqiad.android.app_appearance_settings_interaction",
+        "codfw.android.app_appearance_settings_interaction"
+      ]
+    },
+    "android.article_link_preview_interaction": {
+      "schema_title": "analytics/mobile_apps/android_article_link_preview_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.article_link_preview_interaction",
+      "topics": [
+        "eqiad.android.article_link_preview_interaction",
+        "codfw.android.article_link_preview_interaction"
+      ]
+    },
+    "android.article_page_scroll_interaction": {
+      "schema_title": "analytics/mobile_apps/android_article_page_scroll_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.article_page_scroll_interaction",
+      "topics": [
+        "eqiad.android.article_page_scroll_interaction",
+        "codfw.android.article_page_scroll_interaction"
+      ]
+    },
+    "android.article_toc_interaction": {
+      "schema_title": "analytics/mobile_apps/android_article_toc_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.article_toc_interaction",
+      "topics": [
+        "eqiad.android.article_toc_interaction",
+        "codfw.android.article_toc_interaction"
+      ]
+    },
+    "android.find_in_page_interaction": {
+      "schema_title": "analytics/mobile_apps/android_find_in_page_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "android.find_in_page_interaction",
+      "topics": [
+        "eqiad.android.find_in_page_interaction",
+        "codfw.android.find_in_page_interaction"
+      ]
+    },
+    "mediawiki.mediasearch_interaction": {
+      "schema_title": "analytics/mediawiki/mediasearch_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.mediasearch_interaction",
+      "topics": [
+        "eqiad.mediawiki.mediasearch_interaction",
+        "codfw.mediawiki.mediasearch_interaction"
+      ]
+    },
+    "mediawiki.structured_task.article.link_suggestion_interaction": {
+      "schema_title": "analytics/mediawiki/structured_task/article/link_suggestion_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.structured_task.article.link_suggestion_interaction",
+      "topics": [
+        "eqiad.mediawiki.structured_task.article.link_suggestion_interaction",
+        "codfw.mediawiki.structured_task.article.link_suggestion_interaction"
+      ]
+    },
+    "mediawiki.structured_task.article.image_suggestion_interaction": {
+      "schema_title": "analytics/mediawiki/structured_task/article/image_suggestion_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.structured_task.article.image_suggestion_interaction",
+      "topics": [
+        "eqiad.mediawiki.structured_task.article.image_suggestion_interaction",
+        "codfw.mediawiki.structured_task.article.image_suggestion_interaction"
+      ]
+    },
+    "mediawiki.pref_diff": {
+      "schema_title": "analytics/pref_diff",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.pref_diff",
+      "topics": [
+        "eqiad.mediawiki.pref_diff",
+        "codfw.mediawiki.pref_diff"
+      ]
+    },
+    "mediawiki.skin_diff": {
+      "schema_title": "analytics/pref_diff",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.skin_diff",
+      "topics": [
+        "eqiad.mediawiki.skin_diff",
+        "codfw.mediawiki.skin_diff"
+      ]
+    },
+    "mediawiki.content_translation_event": {
+      "schema_title": "analytics/mediawiki/content_translation_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.content_translation_event",
+      "topics": [
+        "eqiad.mediawiki.content_translation_event",
+        "codfw.mediawiki.content_translation_event"
+      ]
+    },
+    "mediawiki.reading_depth": {
+      "schema_title": "analytics/mediawiki/web_ui_reading_depth",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.reading_depth",
+      "topics": [
+        "eqiad.mediawiki.reading_depth",
+        "codfw.mediawiki.reading_depth"
+      ]
+    },
+    "mediawiki.web_ab_test_enrollment": {
+      "schema_title": "analytics/mediawiki/web_ab_test_enrollment",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.web_ab_test_enrollment",
+      "topics": [
+        "eqiad.mediawiki.web_ab_test_enrollment",
+        "codfw.mediawiki.web_ab_test_enrollment"
+      ]
+    },
+    "mediawiki.web_ui_scroll": {
+      "schema_title": "analytics/mediawiki/web_ui_scroll",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.web_ui_scroll",
+      "topics": [
+        "eqiad.mediawiki.web_ui_scroll",
+        "codfw.mediawiki.web_ui_scroll"
+      ]
+    },
+    "mediawiki.ipinfo_interaction": {
+      "schema_title": "analytics/mediawiki/ipinfo_interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.ipinfo_interaction",
+      "topics": [
+        "eqiad.mediawiki.ipinfo_interaction",
+        "codfw.mediawiki.ipinfo_interaction"
+      ]
+    },
+    "wd_propertysuggester.client_side_property_request": {
+      "schema_title": "analytics/mediawiki/wd_propertysuggester/client_side_property_request",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "wd_propertysuggester.client_side_property_request",
+      "topics": [
+        "eqiad.wd_propertysuggester.client_side_property_request",
+        "codfw.wd_propertysuggester.client_side_property_request"
+      ]
+    },
+    "wd_propertysuggester.server_side_property_request": {
+      "schema_title": "analytics/mediawiki/wd_propertysuggester/server_side_property_request",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "wd_propertysuggester.server_side_property_request",
+      "topics": [
+        "eqiad.wd_propertysuggester.server_side_property_request",
+        "codfw.wd_propertysuggester.server_side_property_request"
+      ]
+    },
+    "mediawiki.mentor_dashboard.visit": {
+      "schema_title": "analytics/mediawiki/mentor_dashboard/visit",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.mentor_dashboard.visit",
+      "topics": [
+        "eqiad.mediawiki.mentor_dashboard.visit",
+        "codfw.mediawiki.mentor_dashboard.visit"
+      ]
+    },
+    "mediawiki.welcomesurvey.interaction": {
+      "schema_title": "analytics/mediawiki/welcomesurvey/interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.welcomesurvey.interaction",
+      "topics": [
+        "eqiad.mediawiki.welcomesurvey.interaction",
+        "codfw.mediawiki.welcomesurvey.interaction"
+      ]
+    },
+    "mediawiki.editgrowthconfig": {
+      "schema_title": "analytics/mediawiki/editgrowthconfig",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.editgrowthconfig",
+      "topics": [
+        "eqiad.mediawiki.editgrowthconfig",
+        "codfw.mediawiki.editgrowthconfig"
+      ]
+    },
+    "mediawiki.accountcreation_block": {
+      "schema_title": "analytics/mediawiki/accountcreation/block",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.accountcreation_block",
+      "topics": [
+        "eqiad.mediawiki.accountcreation_block",
+        "codfw.mediawiki.accountcreation_block"
+      ]
+    },
+    "mediawiki.editattempt_block": {
+      "schema_title": "analytics/mediawiki/editattemptsblocked",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.editattempt_block",
+      "topics": [
+        "eqiad.mediawiki.editattempt_block",
+        "codfw.mediawiki.editattempt_block"
+      ]
+    },
+    "mediawiki.talk_page_edit": {
+      "stream": "mediawiki.talk_page_edit",
+      "schema_title": "analytics/mediawiki/talk_page_edit",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "topics": [
+        "eqiad.mediawiki.talk_page_edit",
+        "codfw.mediawiki.talk_page_edit"
+      ]
+    },
+    "mwcli.command_execute": {
+      "schema_title": "analytics/mwcli/command_execute",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mwcli.command_execute",
+      "topics": [
+        "eqiad.mwcli.command_execute",
+        "codfw.mwcli.command_execute"
+      ]
+    },
+    "mediawiki.web_ui.interactions": {
+      "schema_title": "analytics/mediawiki/client/metrics_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "producers": {
+        "metrics_platform_client": {
+          "events": [
+            "web.ui.",
+            "web_ui."
+          ],
+          "provide_values": [
+            "page_namespace",
+            "performer_is_logged_in",
+            "performer_session_id",
+            "performer_pageview_id",
+            "performer_edit_count_bucket",
+            "mediawiki_skin",
+            "mediawiki_database"
+          ],
+          "curation": {
+            "mediawiki_skin": {
+              "in": [
+                "minerva",
+                "vector",
+                "vector-2022"
+              ]
+            }
+          }
+        }
+      },
+      "sample": {
+        "unit": "pageview",
+        "rate": 0
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.web_ui.interactions",
+      "topics": [
+        "eqiad.mediawiki.web_ui.interactions",
+        "codfw.mediawiki.web_ui.interactions"
+      ]
+    },
+    "mediawiki.edit_attempt": {
+      "schema_title": "analytics/mediawiki/client/metrics_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "producers": {
+        "metrics_platform_client": {
+          "events": [
+            "eas."
+          ],
+          "provide_values": [
+            "agent_client_platform_family",
+            "page_id",
+            "page_title",
+            "page_namespace",
+            "page_revision_id",
+            "mediawiki_version",
+            "mediawiki_is_debug_mode",
+            "mediawiki_database",
+            "performer_is_logged_in",
+            "performer_id",
+            "performer_session_id",
+            "performer_pageview_id",
+            "performer_edit_count"
+          ]
+        }
+      },
+      "sample": {
+        "unit": "pageview",
+        "rate": 1
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.edit_attempt",
+      "topics": [
+        "eqiad.mediawiki.edit_attempt",
+        "codfw.mediawiki.edit_attempt"
+      ]
+    },
+    "mediawiki.visual_editor_feature_use": {
+      "schema_title": "analytics/mediawiki/client/metrics_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "producers": {
+        "metrics_platform_client": {
+          "events": [
+            "vefu."
+          ],
+          "provide_values": [
+            "agent_client_platform_family",
+            "mediawiki_database",
+            "performer_id",
+            "performer_edit_count"
+          ]
+        }
+      },
+      "sample": {
+        "unit": "pageview",
+        "rate": 0
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.visual_editor_feature_use",
+      "topics": [
+        "eqiad.mediawiki.visual_editor_feature_use",
+        "codfw.mediawiki.visual_editor_feature_use"
+      ]
+    },
+    "mediawiki.wikistories_consumption_event": {
+      "schema_title": "analytics/mediawiki/wikistories_consumption_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.wikistories_consumption_event",
+      "topics": [
+        "eqiad.mediawiki.wikistories_consumption_event",
+        "codfw.mediawiki.wikistories_consumption_event"
+      ]
+    },
+    "mediawiki.wikistories_contribution_event": {
+      "schema_title": "analytics/mediawiki/wikistories_contribution_event",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.wikistories_contribution_event",
+      "topics": [
+        "eqiad.mediawiki.wikistories_contribution_event",
+        "codfw.mediawiki.wikistories_contribution_event"
+      ]
+    },
+    "rc0.mediawiki.page_change": {
+      "schema_title": "development/mediawiki/page/change",
+      "message_key_fields": {
+        "wiki_id": "wiki_id",
+        "page_id": "page.page_id"
+      },
+      "destination_event_service": "eventgate-analytics-external",
+      "producers": {
+        "mediawiki_eventbus": {
+          "enabled": false
+        }
+      },
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "rc0.mediawiki.page_change",
+      "topics": [
+        "eqiad.rc0.mediawiki.page_change",
+        "codfw.rc0.mediawiki.page_change"
+      ]
+    },
+    "rc0.mediawiki.page_content_change": {
+      "schema_title": "development/mediawiki/page/change",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "rc0.mediawiki.page_content_change",
+      "topics": [
+        "eqiad.rc0.mediawiki.page_content_change",
+        "codfw.rc0.mediawiki.page_content_change"
+      ]
+    },
+    "mediawiki.maps_interaction": {
+      "schema_title": "analytics/mediawiki/maps/interaction",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "mediawiki.maps_interaction",
+      "topics": [
+        "eqiad.mediawiki.maps_interaction",
+        "codfw.mediawiki.maps_interaction"
+      ]
+    },
+    "eventgate-analytics-external.test.event": {
+      "schema_title": "test/event",
+      "destination_event_service": "eventgate-analytics-external",
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "canary_events_enabled": true,
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "eventgate-analytics-external.test.event",
+      "topics": [
+        "eqiad.eventgate-analytics-external.test.event",
+        "codfw.eventgate-analytics-external.test.event"
+      ]
+    },
+    "eventgate-analytics-external.error.validation": {
+      "schema_title": "error",
+      "destination_event_service": "eventgate-analytics-external",
+      "canary_events_enabled": false,
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "consumers": {
+        "analytics_hadoop_ingestion": {
+          "job_name": "event_default",
+          "enabled": true
+        }
+      },
+      "stream": "eventgate-analytics-external.error.validation",
+      "topics": [
+        "eqiad.eventgate-analytics-external.error.validation",
+        "codfw.eventgate-analytics-external.error.validation"
+      ]
+    }
+  }
+}
