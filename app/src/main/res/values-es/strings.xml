@@ -38,6 +38,7 @@
 * Eulalio
 * Fitoschido
 * Geryescalier
+* GseSro
 * Hal9000wopr
 * Harvest
 * Ihojose
@@ -345,6 +346,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Página del equipo&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
@@ -1072,7 +1074,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página del archivo en Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Página del archivo en Wikipedia</string>
   <string name="suggested_edits_article_cta_image_tags">Añadir etiquetas de imagen</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Añadir leyenda de imagen</string>
+  <string name="suggested_edits_article_cta_image_caption">Agregar leyenda de imagen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Añadir leyenda de imagen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir leyenda de imagen</string>
@@ -1971,6 +1973,29 @@
   <string name="settings_app_icon_preference_subtitle">Tienes acceso a un icono personalizado que celebra tus %d contribuciones a Wikipedia desde la aplicación. Permanecerá hasta el próximo Resumen del Año.</string>
   <string name="settings_app_icon_updated">Tu lista de seguimiento se ha actualizado.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nuevo ícono de aplicación desbloqueado para tu pantalla de inicio</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">¡Desbloquea tu recompensa de colaborador para el próximo año!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked" fuzzy="true">Activa tu nuevo icono de la aplicación en Ajustes, bajo Icono de la aplicación. Gracias por invertir en el futuro del conocimiento libre. Tus contribuciones como %1d en %2$d están ayudando a allanar el camino hacia un mundo de información libre e, incluso, has desbloqueado un icono de colaborador personalizado para Wikipedia en tu pantalla de inicio.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">¡Nos alegra que Wikipedia haya formado parte de tu %1$d! Consigue una recompensa especial en tu Resumen del Año %2$d contribuyéndote, ya sea &lt;a href=\"%3$s\"&gt;editando Wikipedia&lt;/a&gt; o donando desde la app a la &lt;a href=\"%4$s\"&gt;Fundación Wikimedia&lt;/a&gt;, la organización sin ánimo de lucro que la respalda. Si Wikipedia te resulta útil, considera donar para ayudar a mantenerla gratuita, sin publicidad, fiable y accesible para todos. Si donaste a otra plataforma, te agradecemos enormemente tu apoyo.</string>
+  <string name="year_in_review_slide_app_icon_donor">un donante</string>
+  <string name="year_in_review_slide_app_icon_editor">un editor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">un donante y editor</string>
+  <string name="year_in_review_slide_geo_headline">Los artículos che has leído se acercan más a %s</string>
+  <string name="year_in_review_slide_geo_body">El país que más se acerca a muchos de los artículos que has leído parece ser %1$s, según artículos como &lt;b&gt;%2$s&lt;/b&gt; y &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">¿Iniciar sesión para la personalización?</string>
+  <string name="year_in_review_login_dialog_body">Iniciar sesión te da acceso a información personalizada. Aún puedes ver la información colectiva sin iniciar sesión.</string>
+  <string name="year_in_review_login_dialog_positive">Acceder / Unirse a Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Continuar sin iniciar sesión</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Tu artículo principal</item>
+    <item quantity="other">Tus artículos principales</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Este es el artículo que más visitaste en %1$d: %2$s</item>
+    <item quantity="other">Estos son los artículos que más visitaste en %1d: %2$s</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Tus categorías más interesantes</string>
+  <string name="year_in_review_slide_top_categories_body">Las categorías agrupan artículos sobre temas similares. En %1$d has visitado artículos de estas interesantes categorías varias veces: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Los artículos más leídos de Wikipedia en inglés</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
