@@ -144,20 +144,16 @@ fun SearchResultsList(
             count = searchResultsPage.itemCount
         ) { index ->
             searchResultsPage[index]?.let { result ->
-                when (result) {
-                    is SearchResultPage -> {
-                        SearchResultPageItem(
-                            searchResultPage = result,
-                            searchTerm = searchTerm,
-                            onItemClick = {
-                                onItemClick(result.pageTitle, false, index, result.location)
-                            },
-                            onItemLongClick = { view ->
-                                onItemLongClick(view, result, index)
-                            }
-                        )
+                SearchResultPageItem(
+                    searchResultPage = result,
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result.pageTitle, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
                     }
-                }
+                )
             }
         }
     }
@@ -165,7 +161,7 @@ fun SearchResultsList(
 
 @Composable
 fun SearchResultPageItem(
-    searchResultPage: SearchResultPage,
+    searchResultPage: SearchResult,
     searchTerm: String?,
     onItemClick: () -> Unit,
     onItemLongClick: (View) -> Unit,
@@ -176,8 +172,8 @@ fun SearchResultPageItem(
     val isRedirect = !redirectFrom.isNullOrEmpty()
 
     val iconResId = when (type) {
-        SearchResultType.HISTORY -> R.drawable.ic_history_24
-        SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
+        SearchResult.SearchResultType.HISTORY -> R.drawable.ic_history_24
+        SearchResult.SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
         else -> R.drawable.ic_bookmark_border_white_24dp
     }
 
@@ -265,7 +261,7 @@ fun SearchResultPageItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                if (type != SearchResultType.SEARCH) {
+                if (type != SearchResult.SearchResultType.SEARCH) {
                     Image(
                         modifier = Modifier
                             .size(20.dp),

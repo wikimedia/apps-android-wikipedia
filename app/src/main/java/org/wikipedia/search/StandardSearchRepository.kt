@@ -23,7 +23,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         countsPerLanguageCode: MutableList<Pair<String, Int>>?
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
-        val resultList = mutableListOf<SearchResultPage>()
+        val resultList = mutableListOf<SearchResult>()
         var response: MwQueryResponse? = null
         var currentContinuation = continuation
 
@@ -47,7 +47,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         resultList.addAll(response?.query?.pages?.let { list ->
             (if (invokeSource == Constants.InvokeSource.PLACES)
                 list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResultPage(it, wikiSite, it.coordinates) }
+                .map { SearchResult(it, wikiSite, it.coordinates) }
         } ?: emptyList())
 
         if (resultList.size < batchSize) {
@@ -58,7 +58,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             resultList.addAll(response.query?.pages?.let { list ->
                 (if (invokeSource == Constants.InvokeSource.PLACES)
                     list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                    .map { SearchResultPage(it, wikiSite, it.coordinates) }
+                    .map { SearchResult(it, wikiSite, it.coordinates) }
             } ?: emptyList())
         }
 
@@ -92,7 +92,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         WikipediaApp.instance.tabList.forEach { tab ->
             tab.backStackPositionTitle?.let {
                 if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                    return SearchResults(mutableListOf(SearchResultPage(it, SearchResultType.TAB_LIST)))
+                    return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                 }
             }
         }
@@ -101,6 +101,6 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
 }
 
 data class StandardSearchResults(
-    var results: List<SearchResultPage>,
+    var results: List<SearchResult>,
     val continuation: Int?
 )

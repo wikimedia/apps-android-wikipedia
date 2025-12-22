@@ -6,8 +6,7 @@ import androidx.room.RewriteQueriesToDropUnusedColumns
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.search.SearchResultPage
-import org.wikipedia.search.SearchResultType
+import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
@@ -62,7 +61,7 @@ interface HistoryEntryWithImageDao {
                 .filter { wikiSite.languageCode == it.lang && StringUtil.fromHtml(it.displayTitle).contains(normalizedQuery, true) }
 
         return if (entries.isEmpty()) SearchResults()
-        else SearchResults(entries.take(3).map { SearchResultPage(toHistoryEntry(it).title, SearchResultType.HISTORY) }.toMutableList())
+        else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
