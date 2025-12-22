@@ -5,6 +5,7 @@ import android.location.Location
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
@@ -71,6 +75,7 @@ fun SearchResultsScreen(
     onLoading: (Boolean) -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
+    val semanticResult = viewModel.semanticResult.collectAsState()
     val searchTerm = viewModel.searchTerm.collectAsState()
     val loadState = searchResults.loadState
     val countsPerLanguageCode = viewModel.countsPerLanguageCode
@@ -119,6 +124,7 @@ fun SearchResultsScreen(
                 else -> {
                     SearchResultsList(
                         searchResultsPage = searchResults,
+                        semanticResult = semanticResult.value,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick
@@ -132,6 +138,7 @@ fun SearchResultsScreen(
 @Composable
 fun SearchResultsList(
     searchResultsPage: LazyPagingItems<SearchResult>,
+    semanticResult: SemanticResult,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
@@ -141,7 +148,7 @@ fun SearchResultsList(
         modifier = modifier
     ) {
         items(
-            count = searchResultsPage.itemCount
+            count = searchResultsPage.itemSnapshotList.take(3).size
         ) { index ->
             searchResultsPage[index]?.let { result ->
                 when (result) {
@@ -156,6 +163,26 @@ fun SearchResultsList(
                                 onItemLongClick(view, result, index)
                             }
                         )
+                    }
+
+                    is SemanticResult -> {
+                        LazyRow(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
+                        ) {
+                            items(semanticResult.results) { item ->
+                                Box(
+                                    modifier = Modifier
+                                        .size(400.dp)
+                                        .border(width = 2.dp, color = Color.Gray)
+                                ) {
+                                    Text(
+                                        text = item
+                                    )
+                                }
+                            }
+                        }
                     }
                 }
 

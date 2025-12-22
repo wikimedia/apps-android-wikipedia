@@ -12,7 +12,7 @@ sealed interface SearchResult {
 
 @Serializable
 enum class SearchResultType {
-    SEARCH, HISTORY, READING_LIST, TAB_LIST
+    SEARCH, HISTORY, READING_LIST, TAB_LIST, SEMANTIC_SEARCH
 }
 
 @Serializable
@@ -38,3 +38,8 @@ data class SearchResultPage(val pageTitle: PageTitle,
             }
     }
 }
+
+data class SemanticResult(
+    val results: List<String>,
+    override val type: SearchResultType
+): SearchResult

@@ -11,12 +11,20 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.stateIn
 import org.wikipedia.Constants
 
+@OptIn(
+    FlowPreview::class,
+    ExperimentalCoroutinesApi::class
+) // TODO: revisit if the debounce method changed.
 class SearchResultsViewModel : ViewModel() {
 
     private val batchSize = 20
@@ -33,14 +41,12 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    @OptIn(
-        FlowPreview::class,
-        ExperimentalCoroutinesApi::class
-    ) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow =
-        combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
-            Pair(term, lang)
-        }.debounce(delayMillis).flatMapLatest { (term, lang) ->
+
+   private val searchParamsFlow = combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
+       Pair(term, lang)
+   }.debounce(delayMillis)
+
+    val searchResultsFlow = searchParamsFlow.flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -52,6 +58,14 @@ class SearchResultsViewModel : ViewModel() {
                 )
             }.flow
         }.cachedIn(viewModelScope)
+
+    val semanticResult = searchParamsFlow.mapLatest { (term, lang) ->
+        val repository = SemanticSearchRepository()
+        repository.search(term ?: "", lang ?: "", invokeSource)
+    }
+        .filterNotNull()
+        .stateIn(viewModelScope, SharingStarted.Lazily, SemanticResult(listOf(), SearchResultType.SEARCH))
+
 
     fun updateSearchTerm(term: String?) {
         _searchTerm.value = term
@@ -81,7 +95,6 @@ class SearchResultsViewModel : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                println("orange prefixSearch $prefixSearch")
                 val result = repository.search(
                     searchTerm = searchTerm,
                     languageCode = languageCode,

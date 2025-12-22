@@ -59,6 +59,8 @@ class SearchResultsFragment : Fragment() {
                                     val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
                                     LongPressMenu(view, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
                                 }
+
+                                is SemanticResult -> {}
                             }
 
                         },
