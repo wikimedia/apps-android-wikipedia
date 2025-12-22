@@ -8,24 +8,14 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.util.StringUtil
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -43,14 +33,25 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow = combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
-        Pair(term, lang)
-    }.debounce(delayMillis).flatMapLatest { (term, lang) ->
-        Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-            SearchResultsPagingSource(term, lang, countsPerLanguageCode, invokeSource)
-        }.flow
-    }.cachedIn(viewModelScope)
+    @OptIn(
+        FlowPreview::class,
+        ExperimentalCoroutinesApi::class
+    ) // TODO: revisit if the debounce method changed.
+    val searchResultsFlow =
+        combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
+            Pair(term, lang)
+        }.debounce(delayMillis).flatMapLatest { (term, lang) ->
+            val repository = StandardSearchRepository()
+            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+                SearchResultsPagingSource(
+                    term,
+                    lang,
+                    countsPerLanguageCode,
+                    invokeSource,
+                    repository
+                )
+            }.flow
+        }.cachedIn(viewModelScope)
 
     fun updateSearchTerm(term: String?) {
         _searchTerm.value = term
@@ -68,7 +69,8 @@ class SearchResultsViewModel : ViewModel() {
         private val searchTerm: String?,
         private val languageCode: String?,
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
-        private var invokeSource: Constants.InvokeSource
+        private var invokeSource: Constants.InvokeSource,
+        private val repository: SearchRepository<StandardSearchResults>,
     ) : PagingSource<Int, SearchResult>() {
 
         private var prefixSearch = true
@@ -79,68 +81,22 @@ class SearchResultsViewModel : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                var continuation: Int? = null
-                val wikiSite = WikiSite.forLanguageCode(languageCode)
-                var response: MwQueryResponse? = null
-                val resultList = mutableListOf<SearchResultPage>()
-                if (prefixSearch) {
-                    if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
-                        withContext(Dispatchers.IO) {
-                            listOf(async {
-                                getSearchResultsFromTabs(wikiSite, searchTerm)
-                            }, async {
-                                AppDatabase.instance.historyEntryWithImageDao().findHistoryItem(wikiSite, searchTerm)
-                            }, async {
-                                AppDatabase.instance.readingListPageDao().findPageForSearchQueryInAnyList(wikiSite, searchTerm)
-                            }).awaitAll().forEach {
-                                resultList.addAll(it.results.take(1))
-                            }
-                        }
-                    }
-                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, 0)
-                    continuation = 0
-                    prefixSearch = false
-                }
+                println("orange prefixSearch $prefixSearch")
+                val result = repository.search(
+                    searchTerm = searchTerm,
+                    languageCode = languageCode,
+                    invokeSource = invokeSource,
+                    continuation = params.key,
+                    batchSize = params.loadSize,
+                    isPrefixSearch = prefixSearch,
+                    countsPerLanguageCode = countsPerLanguageCode
+                )
 
-                resultList.addAll(response?.query?.pages?.let { list ->
-                    (if (invokeSource == Constants.InvokeSource.PLACES)
-                        list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                        .map { SearchResultPage(it, wikiSite, it.coordinates) }
-                } ?: emptyList())
-
-                if (resultList.size < params.loadSize) {
-                    response = ServiceFactory.get(wikiSite)
-                        .fullTextSearch(searchTerm, params.loadSize, params.key)
-                    continuation = response.continuation?.gsroffset
-
-                    resultList.addAll(response.query?.pages?.let { list ->
-                        (if (invokeSource == Constants.InvokeSource.PLACES)
-                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                            .map { SearchResultPage(it, wikiSite, it.coordinates) }
-                    } ?: emptyList())
-                }
-
-                if (resultList.isEmpty() && response?.continuation == null) {
-                    countsPerLanguageCode.clear()
-                    WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
-                        var countResultSize = 0
-                        if (langCode != languageCode) {
-                            val prefixSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                    .prefixSearch(searchTerm, params.loadSize, 0)
-                            prefixSearchResponse.query?.pages?.let {
-                                countResultSize = it.size
-                            }
-                            if (countResultSize == 0) {
-                                val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearch(searchTerm, params.loadSize, null)
-                                countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
-                            }
-                        }
-                        countsPerLanguageCode.add(langCode to countResultSize)
-                    }
-                }
-
-                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, continuation)
+                return LoadResult.Page(
+                    result.results,
+                    null,
+                    result.continuation
+                )
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
@@ -151,17 +107,6 @@ class SearchResultsViewModel : ViewModel() {
         override fun getRefreshKey(state: PagingState<Int, SearchResult>): Int? {
             prefixSearch = true
             return null
-        }
-
-        private fun getSearchResultsFromTabs(wikiSite: WikiSite, searchTerm: String): SearchResults {
-            WikipediaApp.instance.tabList.forEach { tab ->
-                tab.backStackPositionTitle?.let {
-                    if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                        return SearchResults(mutableListOf(SearchResultPage(it, SearchResultType.TAB_LIST)))
-                    }
-                }
-            }
-            return SearchResults()
         }
     }
 }
