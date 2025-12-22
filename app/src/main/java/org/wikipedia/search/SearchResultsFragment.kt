@@ -60,7 +60,6 @@ class SearchResultsFragment : Fragment() {
                                     LongPressMenu(view, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
                                 }
                             }
-
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {

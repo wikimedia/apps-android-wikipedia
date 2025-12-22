@@ -146,7 +146,7 @@ fun SearchResultsList(
             searchResultsPage[index]?.let { result ->
                 when (result) {
                     is SearchResultPage -> {
-                        SearchResultPageItem (
+                        SearchResultPageItem(
                             searchResultPage = result,
                             searchTerm = searchTerm,
                             onItemClick = {
@@ -158,7 +158,6 @@ fun SearchResultsList(
                         )
                     }
                 }
-
             }
         }
     }

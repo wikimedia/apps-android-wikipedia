@@ -12,7 +12,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
 
-class StandardSearchRepository: SearchRepository<StandardSearchResults> {
+class StandardSearchRepository : SearchRepository<StandardSearchResults> {
     override suspend fun search(
         searchTerm: String,
         languageCode: String,

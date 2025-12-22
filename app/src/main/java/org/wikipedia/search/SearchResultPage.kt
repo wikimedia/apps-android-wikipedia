@@ -19,9 +19,7 @@ enum class SearchResultType {
 data class SearchResultPage(val pageTitle: PageTitle,
                             val redirectFrom: String?,
                             override val type: SearchResultType,
-                            val coordinates: List<MwQueryPage.Coordinates>? = null): SearchResult {
-
-
+                            val coordinates: List<MwQueryPage.Coordinates>? = null) : SearchResult {
 
     constructor(page: MwQueryPage, wiki: WikiSite, coordinates: List<MwQueryPage.Coordinates>? = null) : this(PageTitle(page.title,
             wiki, page.thumbUrl(), page.description, page.displayTitle(wiki.languageCode)),

@@ -81,7 +81,6 @@ class SearchResultsViewModel : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                println("orange prefixSearch $prefixSearch")
                 val result = repository.search(
                     searchTerm = searchTerm,
                     languageCode = languageCode,
