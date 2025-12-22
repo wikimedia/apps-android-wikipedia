@@ -7,9 +7,9 @@ interface SearchRepository<T> {
         searchTerm: String,
         languageCode: String,
         invokeSource: Constants.InvokeSource,
-        continuation: Int?,
-        batchSize: Int,
-        isPrefixSearch: Boolean,
+        continuation: Int? = null,
+        batchSize: Int = 0,
+        isPrefixSearch: Boolean = true,
         countsPerLanguageCode: MutableList<Pair<String, Int>>? = null
     ): T
 }
