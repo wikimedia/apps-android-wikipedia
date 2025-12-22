@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -80,7 +81,11 @@ fun SearchResultsScreen(
 
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
-    onLoading(loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading)
+
+    val isLoading = loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading
+    LaunchedEffect(isLoading) {
+        onLoading(isLoading)
+    }
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         Box(
@@ -113,7 +118,7 @@ fun SearchResultsScreen(
 
                 else -> {
                     SearchResultsList(
-                        searchResults = searchResults,
+                        searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick
@@ -126,7 +131,7 @@ fun SearchResultsScreen(
 
 @Composable
 fun SearchResultsList(
-    searchResults: LazyPagingItems<SearchResult>,
+    searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
@@ -136,39 +141,44 @@ fun SearchResultsList(
         modifier = modifier
     ) {
         items(
-            count = searchResults.itemCount
+            count = searchResultsPage.itemCount
         ) { index ->
-            searchResults[index]?.let { result ->
-                SearchResultItem(
-                    searchResult = result,
-                    searchTerm = searchTerm,
-                    onItemClick = {
-                        onItemClick(result.pageTitle, false, index, result.location)
-                    },
-                    onItemLongClick = { view ->
-                        onItemLongClick(view, result, index)
+            searchResultsPage[index]?.let { result ->
+                when (result) {
+                    is SearchResultPage -> {
+                        SearchResultPageItem (
+                            searchResultPage = result,
+                            searchTerm = searchTerm,
+                            onItemClick = {
+                                onItemClick(result.pageTitle, false, index, result.location)
+                            },
+                            onItemLongClick = { view ->
+                                onItemLongClick(view, result, index)
+                            }
+                        )
                     }
-                )
+                }
+
             }
         }
     }
 }
 
 @Composable
-fun SearchResultItem(
-    searchResult: SearchResult,
+fun SearchResultPageItem(
+    searchResultPage: SearchResultPage,
     searchTerm: String?,
     onItemClick: () -> Unit,
     onItemLongClick: (View) -> Unit,
 ) {
-    val (pageTitle, redirectFrom, type) = searchResult
+    val (pageTitle, redirectFrom, type) = searchResultPage
     var anchorView by remember { mutableStateOf<View?>(null) }
 
     val isRedirect = !redirectFrom.isNullOrEmpty()
 
     val iconResId = when (type) {
-        SearchResult.SearchResultType.HISTORY -> R.drawable.ic_history_24
-        SearchResult.SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
+        SearchResultType.HISTORY -> R.drawable.ic_history_24
+        SearchResultType.TAB_LIST -> R.drawable.ic_tab_one_24px
         else -> R.drawable.ic_bookmark_border_white_24dp
     }
 
@@ -188,7 +198,8 @@ fun SearchResultItem(
                 .combinedClickable(
                     onLongClick = {
                         anchorView?.let {
-                            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                            val imm =
+                                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                             imm.hideSoftInputFromWindow(it.windowToken, 0)
                             onItemLongClick(it)
                         }
@@ -255,7 +266,7 @@ fun SearchResultItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                if (type != SearchResult.SearchResultType.SEARCH) {
+                if (type != SearchResultType.SEARCH) {
                     Image(
                         modifier = Modifier
                             .size(20.dp),

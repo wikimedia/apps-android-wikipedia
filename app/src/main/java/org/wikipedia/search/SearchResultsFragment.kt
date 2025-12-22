@@ -54,8 +54,13 @@ class SearchResultsFragment : Fragment() {
                             callback()?.navigateToTitle(title, inNewTab, position, location)
                         },
                         onItemLongClick = { view, searchResult, position ->
-                            val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
-                            LongPressMenu(view, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
+                            when (searchResult) {
+                                is SearchResultPage -> {
+                                    val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
+                                    LongPressMenu(view, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
+                                }
+                            }
+
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {

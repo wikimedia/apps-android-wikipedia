@@ -17,7 +17,8 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.savedpages.SavedPageSyncService
-import org.wikipedia.search.SearchResult
+import org.wikipedia.search.SearchResultPage
+import org.wikipedia.search.SearchResultType
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 
@@ -164,7 +165,7 @@ interface ReadingListPageDao {
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {
-            SearchResult(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResult.SearchResultType.READING_LIST)
+            SearchResultPage(PageTitle(it.apiTitle, it.wiki, it.thumbUrl, it.description, it.displayTitle), SearchResultType.READING_LIST)
         }.toMutableList())
     }
 

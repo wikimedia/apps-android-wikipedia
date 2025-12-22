@@ -6,16 +6,22 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
-@Serializable
-data class SearchResult(val pageTitle: PageTitle,
-                        val redirectFrom: String?,
-                        val type: SearchResultType,
-                        val coordinates: List<MwQueryPage.Coordinates>? = null) {
+sealed interface SearchResult {
+    val type: SearchResultType
+}
 
-    @Serializable
-    enum class SearchResultType {
-        SEARCH, HISTORY, READING_LIST, TAB_LIST
-    }
+@Serializable
+enum class SearchResultType {
+    SEARCH, HISTORY, READING_LIST, TAB_LIST
+}
+
+@Serializable
+data class SearchResultPage(val pageTitle: PageTitle,
+                            val redirectFrom: String?,
+                            override val type: SearchResultType,
+                            val coordinates: List<MwQueryPage.Coordinates>? = null): SearchResult {
+
+
 
     constructor(page: MwQueryPage, wiki: WikiSite, coordinates: List<MwQueryPage.Coordinates>? = null) : this(PageTitle(page.title,
             wiki, page.thumbUrl(), page.description, page.displayTitle(wiki.languageCode)),

@@ -82,7 +82,7 @@ class SearchResultsViewModel : ViewModel() {
                 var continuation: Int? = null
                 val wikiSite = WikiSite.forLanguageCode(languageCode)
                 var response: MwQueryResponse? = null
-                val resultList = mutableListOf<SearchResult>()
+                val resultList = mutableListOf<SearchResultPage>()
                 if (prefixSearch) {
                     if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
@@ -105,7 +105,7 @@ class SearchResultsViewModel : ViewModel() {
                 resultList.addAll(response?.query?.pages?.let { list ->
                     (if (invokeSource == Constants.InvokeSource.PLACES)
                         list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                        .map { SearchResult(it, wikiSite, it.coordinates) }
+                        .map { SearchResultPage(it, wikiSite, it.coordinates) }
                 } ?: emptyList())
 
                 if (resultList.size < params.loadSize) {
@@ -116,7 +116,7 @@ class SearchResultsViewModel : ViewModel() {
                     resultList.addAll(response.query?.pages?.let { list ->
                         (if (invokeSource == Constants.InvokeSource.PLACES)
                             list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                            .map { SearchResult(it, wikiSite, it.coordinates) }
+                            .map { SearchResultPage(it, wikiSite, it.coordinates) }
                     } ?: emptyList())
                 }
 
@@ -157,7 +157,7 @@ class SearchResultsViewModel : ViewModel() {
             WikipediaApp.instance.tabList.forEach { tab ->
                 tab.backStackPositionTitle?.let {
                     if (wikiSite == it.wikiSite && StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
-                        return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
+                        return SearchResults(mutableListOf(SearchResultPage(it, SearchResultType.TAB_LIST)))
                     }
                 }
             }
