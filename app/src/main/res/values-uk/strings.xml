@@ -1320,7 +1320,7 @@
   <string name="activity_tab_customize_screen_editing_insights_switch_title">Статистика редагування</string>
   <string name="activity_tab_customize_screen_impact_switch_title">Вплив за весь час</string>
   <string name="activity_tab_customize_screen_games_switch_title">Статистика гри</string>
-  <string name="activity_tab_customize_screen_donations_switch_title">Минуле пожертвування в застосунку</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Минула пожертва в застосунку</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Хронологія поведінки</string>
   <string name="activity_tab_customize_screen_no_modules_message">Модулі активності вимкнено. &lt;a href=\"#\"&gt;Увімкніть їх&lt;/a&gt;, щоб переглядати оновлення на цій вкладці.</string>
   <string name="activity_tab_timeline_today">Сьогодні</string>
