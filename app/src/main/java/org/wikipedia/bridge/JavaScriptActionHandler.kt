@@ -10,7 +10,7 @@ import org.wikipedia.extensions.getStrings
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import java.util.Date
@@ -118,7 +118,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.setEditButtons($isEditable, $isProtected)"
     }
 
-    fun setFooter(model: PageViewModel): String {
+    fun setFooter(model: PageViewState): String {
         if (model.page == null) {
             return ""
         }
@@ -152,7 +152,7 @@ object JavaScriptActionHandler {
                 "})"
     }
 
-    fun appendReadMode(model: PageViewModel): String {
+    fun appendReadMode(model: PageViewState): String {
         if (model.page == null) {
             return ""
         }

@@ -186,7 +186,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override lateinit var linkHandler: LinkHandler
     override lateinit var webView: ObservableWebView
-    override var model = PageViewModel()
+    override var model = PageViewState()
     override val toolbarMargin get() = (requireActivity() as PageActivity).getToolbarMargin()
     override val isPreview get() = false
     override val referencesGroup get() = references?.referencesGroup

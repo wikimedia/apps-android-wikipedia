@@ -4,7 +4,7 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingListPage
 
-data class PageViewModel(
+data class PageViewState(
     var page: Page? = null,
     var title: PageTitle? = null,
     var curEntry: HistoryEntry? = null,

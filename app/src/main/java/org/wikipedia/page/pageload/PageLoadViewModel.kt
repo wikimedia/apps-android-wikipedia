@@ -21,7 +21,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.util.Resource
 import org.wikipedia.util.UiState
@@ -43,8 +43,8 @@ class PageLoadViewModel : ViewModel() {
     private val _animateType = MutableSharedFlow<Animate>(replay = 1)
     val animateType = _animateType
 
-    private val _currentPageViewModel = MutableStateFlow<PageViewModel>(PageViewModel())
-    val currentPageViewModel = _currentPageViewModel.asStateFlow()
+    private val _currentPageViewState = MutableStateFlow<PageViewState>(PageViewState())
+    val currentPageViewModel = _currentPageViewState.asStateFlow()
 
     // Internal state
     private var currentTab: Tab = app.tabList.last()
@@ -86,7 +86,7 @@ class PageLoadViewModel : ViewModel() {
         }
         val item = currentTab.backStack[currentTab.backStackPosition]
         item.scrollY = scrollY
-        _currentPageViewModel.value.title?.let {
+        _currentPageViewState.value.title?.let {
             item.title.description = it.description
             item.title.thumbUrl = it.thumbUrl
         }
@@ -106,7 +106,7 @@ class PageLoadViewModel : ViewModel() {
     }
 
     fun saveInformationToDatabase(
-        pageModel: PageViewModel,
+        pageModel: PageViewState,
         pageSummary: PageSummary,
         sendEvent: (HistoryEntry) -> Unit
     ) {
@@ -158,7 +158,7 @@ class PageLoadViewModel : ViewModel() {
     }
 
     fun updateWatchStatusInModel(watchStatus: WatchStatus) {
-        _currentPageViewModel.update { currentModel ->
+        _currentPageViewState.update { currentModel ->
             currentModel.copy(
                 isWatched = watchStatus.isWatched,
                 hasWatchlistExpiry = watchStatus.hasWatchlistExpiry
@@ -176,7 +176,7 @@ class PageLoadViewModel : ViewModel() {
     }
 
     private fun loadInCurrentTab(request: PageLoadRequest, webScrollY: Int) {
-        val model = _currentPageViewModel.value
+        val model = _currentPageViewState.value
         if (currentTab.backStack.isNotEmpty() &&
             request.title == currentTab.backStack[currentTab.backStackPosition].title) {
             if (model.page == null || request.options.isRefresh) {
@@ -261,7 +261,7 @@ class PageLoadViewModel : ViewModel() {
     private suspend fun handlePageSummary(pageSummary: Response<PageSummary>, request: PageLoadRequest) {
         pageSummary.body()?.let { value ->
             val pageModel = createPageModel(request, pageSummary)
-            _currentPageViewModel.value = pageModel
+            _currentPageViewState.value = pageModel
             _pageLoadUiState.value = PageLoadUiState.Success(
                 result = value,
                 title = request.title,
@@ -363,8 +363,8 @@ class PageLoadViewModel : ViewModel() {
                 title == it.backStackPositionTitle }?.let { app.tabList.indexOf(it) } ?: -1
     }
 
-    private suspend fun createPageModel(request: PageLoadRequest, response: Response<PageSummary>): PageViewModel {
-        return PageViewModel().apply {
+    private suspend fun createPageModel(request: PageLoadRequest, response: Response<PageSummary>): PageViewState {
+        return PageViewState().apply {
             curEntry = request.entry
             forceNetwork = request.options.isRefresh
             readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(request.title)
