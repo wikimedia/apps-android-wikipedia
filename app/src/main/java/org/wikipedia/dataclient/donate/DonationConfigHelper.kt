@@ -23,7 +23,7 @@ object DonationConfigHelper {
             val url = CONFIG_URL
             val request = Request.Builder().url(url).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
-            val configs = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
+            val configs = JsonUtil.decodeFromString<List<JsonElement>>(response.body.string()).orEmpty()
 
             campaignList.addAll(configs.filter {
                 val proto = JsonUtil.json.decodeFromJsonElement<ConfigProto>(it)

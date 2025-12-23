@@ -309,7 +309,7 @@
   <string name="clear_recent_searches_confirm_yes">Jo</string>
   <string name="clear_recent_searches_confirm_no">Nee</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng Browser-App fonnt).</string>
-  <string name="table_infobox">Séier Fakten</string>
+  <string name="table_infobox">Op ee Bléck</string>
   <string name="table_other">Méi Informatiounen</string>
   <string name="table_close">Zoumaachen</string>
   <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
@@ -1111,6 +1111,7 @@
   <string name="activity_tab_menu_feedback">Problem mat der Funktioun</string>
   <string name="activity_tab_menu_info">Méi gewuer ginn</string>
   <string name="activity_tab_menu_customize">Upassen</string>
+  <string name="activity_tab_menu_customize_description">D\'Liesablécker ginn op Basis vun Ären App-Sproochen aus den Astellunge generéiert an d\'Ännerungsablécker sinn op d\'Haaptsprooch vun Ärer App limitéiert. D\'Ablécker baséieren op lokalen Donnéeën, mat Ausnam vun den Ännerungen, déi ëffentlech sinn.</string>
   <string name="activity_tab_highlights">Highlights</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lieshistorique</string>
   <string name="activity_tab_impact">Ären Impakt</string>
@@ -1152,6 +1153,8 @@
     <item quantity="other">Opriff vun Artikelen, déi Dir geännert hutt</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Lieszäit</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Liesablécker</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Ännerungsablécker</string>
   <string name="activity_tab_customize_screen_impact_switch_title">Gesamtimpakt</string>
   <string name="activity_tab_customize_screen_games_switch_title">Spillstatistiken</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Leschten Don iwwer d\'App</string>
@@ -1720,6 +1723,8 @@
   <string name="year_in_review_donate">En Don maachen</string>
   <string name="year_in_review_information_icon">Informatiounssymbol</string>
   <string name="year_in_review_get_started_headline">Entdeckt Äre Wikipedia-Joresréckbléck</string>
+  <string name="year_in_review_get_started_bodytext">Kritt een Abléck doriwwer, wat fir Artikelen Dir an der Wikipedia-App gelies hutt a wat fir Ännerungen Dir gemaach hutt.</string>
+  <string name="year_in_review_get_started_info">Äre Lieshistorique bleift geschützt. D\'Ablécker an Äert Liesverhale ginn op Basis vu lokal op Ärem Apparat gespäicherten Donnéeë generéiert.</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
@@ -1753,7 +1758,7 @@
   </plurals>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Liblingszäit fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Liblingsdag fir ze liesen</string>
-  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an de m Dir am meeschte gelies hutt</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an deem Dir am meeschte gelies hutt</string>
   <string name="year_in_review_slide_reading_pattern_morning">Moies</string>
   <string name="year_in_review_slide_reading_pattern_midday">Mëttes</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Nomëttes</string>

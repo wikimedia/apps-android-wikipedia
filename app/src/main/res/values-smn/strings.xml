@@ -15,6 +15,7 @@
   <string name="search_hint">Uusâ Wikipediast</string>
   <string name="search_hint_voice_search">Jienâuuccâm</string>
   <string name="search_hint_search_languages">Uusâ kielâ</string>
+  <string name="search_icon_content_description">Uuccâm</string>
   <string name="filter_hint_filter_my_lists_and_articles">Sillii muu listoid</string>
   <string name="nav_item_suggested_edits">Hammiimeh</string>
   <string name="nav_item_more">Lase</string>
@@ -75,6 +76,7 @@
   <string name="menu_page_open_a_new_tab">Leehâst uđđâ koskâloostâ</string>
   <string name="menu_page_new_tab">Uđđâ koskâlostâ</string>
   <string name="menu_page_reading_lists">Luuhâmlistoh</string>
+  <string name="menu_page_archive">Arkkâdâh</string>
   <string name="menu_long_press_open_page">Leehâst</string>
   <string name="menu_long_press_open_in_new_tab">Leehâst uđđâ koskâloostân</string>
   <string name="menu_long_press_copy_page">Kopijist liiŋkâ čujottâs</string>

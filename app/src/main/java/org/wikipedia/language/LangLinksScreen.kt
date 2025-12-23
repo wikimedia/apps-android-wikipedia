@@ -21,7 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -43,15 +43,18 @@ fun ComposeLangLinksScreen(
     onBackButtonClick: () -> Unit,
     onSearchQueryChange: (String) -> Unit,
     ) {
-    val context = LocalContext.current
     var searchQuery by remember { mutableStateOf("") }
+
+    val title = stringResource(R.string.langlinks_activity_title)
+    val filterHintText = stringResource(R.string.langlinks_filter_hint)
+    val notMatchText = stringResource(R.string.langlinks_no_match)
 
     Scaffold(
         modifier = modifier,
         topBar = {
             WikiTopAppBarWithSearch(
-                appBarTitle = context.getString(R.string.langlinks_activity_title),
-                placeHolderTitle = context.getString(R.string.langlinks_filter_hint),
+                appBarTitle = title,
+                placeHolderTitle = filterHintText,
                 searchQuery = searchQuery,
                 onSearchQueryChange = {
                     searchQuery = it
@@ -103,7 +106,7 @@ fun ComposeLangLinksScreen(
                         SearchEmptyView(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            emptyTexTitle = context.getString(R.string.langlinks_no_match)
+                            emptyTexTitle = notMatchText
                         )
                     }
                     return@Scaffold

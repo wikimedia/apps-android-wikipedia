@@ -378,7 +378,7 @@
   <string name="format_error_server_message">Mesaj: \"%s\"</string>
   <string name="address_copied">Ünvan kopyalandı.</string>
   <string name="text_copied">Mətn buferə kopyalandı.</string>
-  <string name="button_continue_to_article">Məqalə oxu</string>
+  <string name="button_continue_to_article">Məqaləni oxu</string>
   <string name="button_continue_to_talk_page">Müzakirə səhifəsini göstər</string>
   <string name="button_continue_to_disambiguation">Oxşar səhifələrə baxın</string>
   <string name="link_preview_disambiguation_description">Bu başlıq birdən çox səhifəyə aiddir:</string>
@@ -1877,7 +1877,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Əsas ekranınız üçün yeni tətbiq ikonası açıldı</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Gələn il üçün töhfəçi mükafatınızı açın!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Tətbiq ikonasının altındakı Parametrlərdə yeni tətbiq ikonanızı aktivləşdirin. Açıq biliyin gələcəyinə sərmayə qoyduğunuz üçün təşəkkür edirik. %2$dda %1$s kimi verdiyiniz töhfələriniz azad məlumat dünyasına yol açmağa kömək edir və nəticədə siz ana ekranınızda Vikipediya üçün fərdi töhfəçi ikonasını açdınız.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock" fuzzy="true">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirt.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Vikipediyanın %1$d-ci ilinizin bir hissəsi olmasına şadıq! %2$d-cı ilin icmalında xüsusi bir mükafatın kilidini açmaq üçün töhfə verən olun — istər &lt;a href=\"%3$s\"&gt;Vikipediyanı redaktə etməklə&lt;/a&gt;, istərsə də onu dəstəkləyən qeyri-kommersiya təşkilatı &lt;a href=\"%4$s\"&gt;Vikimedia Fondu&lt;/a&gt;na tətbiq vasitəsilə ianə etməklə. Əgər Vikipediya sənin üçün faydalıdırsa, onun gələcəyini qorumaq və onu hər kəs üçün pulsuz, reklamsız, etibarlı və əlçatan saxlamaq üçün ianə etməyi nəzərdən keçirin. Başqa yerdə ianə etmisinizsə, dəstəyiniz üçün dərin minnətdarlığımızı bildiririk.</string>
   <string name="year_in_review_slide_app_icon_donor">donor</string>
   <string name="year_in_review_slide_app_icon_editor">redaktor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">donor və redaktor</string>
@@ -1898,6 +1898,10 @@
   <string name="year_in_review_slide_top_categories_headline">Ən maraqlandığınız kateqoriyalarınız</string>
   <string name="year_in_review_slide_top_categories_body">Kateqoriyalar oxşar mövzularda məqalələri bir yerdə qruplaşdırır. %1$d-ci ildə siz bu kateqoriyalardakı məqalələrə dəfələrlə baş çəkmisiniz: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">İngiliscə Vikipediyanın ən çox oxunan məqalələri</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">İnsanlar dünyamız haqqında öyrənmək istəyəndə, Vikipediyaya üz tuturlar. İngiliscə Vikipediyada ən çox ziyarət olunan %1$d məqalə: %2$s &lt;br /&gt;Daha ətraflı məlumat üçün &lt;a href=\"%3$s\"&gt;xüsusi bloq yazımıza&lt;/a&gt; baxın.</item>
+    <item quantity="other">İnsanlar dünyamız haqqında öyrənmək istəyəndə, Vikipediyaya üz tuturlar. İngiliscə Vikipediyada ən çox ziyarət olunan %1$d məqalə: %2$s &lt;br /&gt;Daha ətraflı məlumat üçün &lt;a href=\"%3$s\"&gt;xüsusi bloq yazımıza&lt;/a&gt; baxın.</item>
+  </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Son vaxtlar redaktənizə %,d dəfədən çox baxılıb</item>
     <item quantity="other">Son vaxtlar redaktələrinizə %,d dəfədən çox baxılıb</item>
@@ -1915,9 +1919,13 @@
     <item quantity="one">%,d bayt əlavə edildi</item>
     <item quantity="other">%,d bayt əlavə edildi</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
-    <item quantity="one">Vikipediyanı %s dəfə redaktə etmisiniz</item>
-    <item quantity="other">Vikipediyanı %s dəfə redaktə etmisiniz</item>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">%1$d-ci ildə könüllülər İngiliscə Vikipediyaya %2$,d bayt əlavə ediblər. Onların bütün bu işi birlikdə dünyaya təqdim olunan, daim yaxşılaşan, faktlara əsaslanan etibarlı bir bilik mənbəyinə çevrilir. Hər birimizin bölüşəcək biliyi var, &lt;a href=\"%3$s\"&gt;iştirak etməyi öyrənin&lt;/a&gt;.</item>
+    <item quantity="other">%1$d-ci ildə könüllülər İngiliscə Vikipediyaya %2$,d bayt əlavə ediblər. Onların bütün bu işi birlikdə dünyaya təqdim olunan, daim yaxşılaşan, faktlara əsaslanan və etibarlı bir bilik mənbəyinə çevrilir. Hər birimizin bölüşəcək biliyi var, &lt;a href=\"%3$s\"&gt;iştirak etməyi öyrənin&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">%s dəfə redaktə etmisiniz</item>
+    <item quantity="other">%s dəfə redaktə etmisiniz</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">Dünyanın hər yerindəki Vikimedia layihələrində fərq yaradan könüllü redaktorlardan biri olduğun üçün təşəkkür edirik. Sənin kimi könüllülər Vikipediyanın 300-dən çox dil versiyasında ümumilikdə %,d redaktə edib.</item>
@@ -1971,6 +1979,111 @@
     <item quantity="one">İnsanlar təxminən %,d saat sərf edib</item>
     <item quantity="other">İnsanlar təxminən %,d saat sərf edib</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—təxminən %1$,d il!—%2$d-ci ildə İngiliscə Vikipediyanın ümumi oxunma müddəti. Dünyamızdakı dəyişikliklər barədə öyrənmək, dostlarla etdiyiniz mərcdə qalib gəlmək və ya maraqlı bir uşağın sualını cavablandırmaq istəyəndə Vikipediya yanınızdadır.</item>
+    <item quantity="other">—təxminən %1$,d il!—%2$d ildə İngiliscə Vikipediyanın ümumi oxunma müddəti. Dünyamızdakı dəyişikliklər barədə öyrənmək, dostlarla mərc qalib gəlmək və ya maraqlı bir uşağın sualını cavablandırmaq istəyəndə Vikipediya yanınızdadır.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Vikipediya %,d+ dildə mövcud idi</item>
+    <item quantity="other">Vikipediya %,d+ dildə mövcud idi</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">Vikipediyada %,d məqalə var olmuşdur</item>
+    <item quantity="other">Vikipediyada %,d məqalə var olmuşdur</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">%,d aktiv dil layihəsi mövcud olmuşdur. Bilikləri genişləndirmək və müxtəlif mövzuları araşdırmaq üçün milyonlara qoşulmusunuz.</item>
+    <item quantity="other">%,d aktiv dil layihəsi olmuşdur. Bilikləri genişləndirmək və müxtəlif mövzuları araşdırmaq üçün milyonlara qoşulmusunuz.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">%,d dəqiqə sərf etmisiniz</item>
+    <item quantity="other">%,d dəqiqə sərf etmisiniz</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">Bu, %2$d-ci ildə %1$,d məqalə deməkdir</item>
+    <item quantity="other">Bu, %2$d-ci ildə %1$,d məqalə deməkdir</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">Biz təxmin edirik ki, bu, sizi qlobal Vikipediya oxucularının %1$s%%-lik hissəsinə daxil edir. Ortalama bir insan ildə %2$,d məqalə oxuyur.</item>
+    <item quantity="other">Biz təxmin edirik ki, bu, sizi qlobal Vikipediya oxucularının %1$s%%-lik hissəsinə daxil edir. Ortalama bir insan ildə %2$,d məqalə oxuyur.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">Vikipediyada %,d məqalə var olmuşdur</item>
+    <item quantity="other">Vikipediyada %,d məqalə var olmuşdur</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">%,d aktiv dil layihəsi mövcud olmuşdur. Bilikləri genişləndirmək və müxtəlif mövzuları araşdırmaq üçün milyonlara qoşulmusunuz.</item>
+    <item quantity="other">%,d aktiv dil layihəsi olmuşdur. Bilikləri genişləndirmək və müxtəlif mövzuları araşdırmaq üçün milyonlara qoşulmusunuz.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">İnsanlar təxminən %,d saat sərf edib</item>
+    <item quantity="other">İnsanlar təxminən %,d saat sərf edib</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—təxminən %1$,d il!—%2$d-ci ildə İngiliscə Vikipediyanın ümumi oxunma müddəti.</item>
+    <item quantity="other">—təxminən %1$,d il!—%2$d ildə İngiliscə Vikipediyanın ümumi oxunma müddəti.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">Tətbiq istifadəçiləri Vikipediya məqalələrini %,d dəfə oxuyublar</item>
+    <item quantity="other">Tətbiq istifadəçiləri Vikipediya məqalələrini %,d dəfə oxuyublar</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">Dünyanın hər yerindən insanlar üçün suala cavab verərkən, məktəb və ya iş üçün məlumat axtararkən və ya yeni fakt öyrənərkən Vikipediya ilk dayanacaqdır.</string>
+  <string name="year_in_review_reading_list_dialog_title">%d İlin İcmalı oxuma siyahınız yaradılsın?</string>
+  <string name="year_in_review_reading_list_dialog_message">Vikipediyanın İlin İcmalı %1$d-ci ildə ən çox vaxt sərf etdiyiniz məqalələrdən ibarət oxuma siyahısı yaradacaq. &lt;a href=\"%2$s\"&gt;Daha çox öyrənin&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Yarat</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Xeyr, təşəkkürlər</string>
+  <string name="year_in_review_reading_list_title">İlin İcmalı %d</string>
+  <string name="year_in_review_reading_list_description">%1$s üçün hazırlanmışdır. %2$d-ci il ərzində ən çox vaxt keçirdiyiniz məqalələr.</string>
+  <string name="year_in_review_highlights_thank_you_message">İlinizi Vikipediya ilə keçirdiyiniz üçün təşəkkür edirik</string>
+  <string name="year_in_review_highlights_looking_forward_message">Gələn ili səbirsizliklə gözləyirik!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">İngiliscə Vikipediyada ən çox oxunan məqalə</item>
+    <item quantity="other">İngiliscə Vikipediyada ən çox oxunan məqalələr</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Oxumağa sərf olunan saat</item>
+    <item quantity="other">Oxumağa sərf olunan saat</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Redaktorların etdiyi dəyişiklik</item>
+    <item quantity="other">Redaktorların etdiyi dəyişikliklər</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Oxunan məqalə sayı</item>
+    <item quantity="other">Oxunan məqalə sayı</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Tətbiqdən edilən redaktələr</item>
+    <item quantity="other">Tətbiqdən edilən redaktələr</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Vikipediya hansı tezlikdə redaktə edilib</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">Dəqiqədə %d dəfə</item>
+    <item quantity="other">Dəqiqədə %d dəfə</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Ən çox oxuduğum məqalə</item>
+    <item quantity="other">Ən çox oxuduğum məqalə</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Oxumağa sərf olunan dəqiqə</item>
+    <item quantity="other">Oxumağa sərf olunan dəqiqə</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Oxumaq üçün sevimli gün</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Oxunan məqalə</item>
+    <item quantity="other">Oxunan məqalə</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Məni maraqlandıran kateqoriya</item>
+    <item quantity="other">Məni maraqlandıran kateqoriyalar</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Redaktə sayı</item>
+    <item quantity="other">Redaktə sayı</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Əsas məqamları paylaş</string>
+  <string name="year_in_review_highlights_logo_description">Vikipediya loqosu</string>
   <string name="recommended_reading_list_title">Kəşf et</string>
   <string name="recommended_reading_list_onboarding_card_title">Yalnız sizin üçün seçilmiş məqalələri kəşf edin</string>
   <string name="recommended_reading_list_onboarding_card_message">Yalnız sizin üçün hazırlanmış Vikipediya məqalələrinin həftəlik oxu siyahısı.</string>
@@ -2055,9 +2168,10 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">Kəşf etmə aktivdir. Vikipediya sizə oxumağınız üçün məqalələr tövsiyə edəcək.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">İanə xatırlatmaları istənilən vaxt Parametrlərdə dəyişdirilə bilər.</string>
   <string name="donation_settings_section_header">İanələr</string>
-  <string name="donation_reminders_settings_title" fuzzy="true">İanə xatırlatmaları</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Vikipediyanı reklamsız, aktual və hamı üçün əlçatan saxlamaq üçün əllərindən gələni edən oxucuların 2%%-nə qoşulun. İanə xatırladıcınızı indi qurun.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">İanələr Vikimedia Fonduna, filiallarına və onun digər saytlarına gedir.</string>
+  <string name="donation_reminders_settings_title">Sizə necə xatırlatmalıyıq?</string>
+  <string name="donation_reminders_settings_option_title">İanə xatırlatmaları</string>
+  <string name="donation_reminders_settings_thank_you_message">Səxavətiniz Vikipediyanın inkişafına kömək edir. Oxuduğunuz məqalələrin sayına əsasən ianə xatırlatması qurun.</string>
+  <string name="donation_reminders_settings_donation_info">İanələr Vikipediyanın fəxri ev sahibləri Vikimedia Fonduna və filiallarına və digər azad bilik layihələrinə verilir.</string>
   <string name="donation_reminders_settings_article_frequency_label">Mən oxuyanda</string>
   <string name="donation_reminders_settings_amount_label">Mənə ianə etməyi xatırlat</string>
   <string name="donation_reminders_settings_confirm_btn_label">Xatırlatmanı təsdiqlə</string>
@@ -2068,7 +2182,8 @@
   <string name="donation_reminders_settings_option_custom">Fərdi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Təşəkkürlər! Bu sınaq davam edərkən %2$s məqalə oxuduğunuz zaman %1$s ianə etməyi sizə xatırladacağıq.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">%2$s vəd etdiyinizdən bəri %1$s məqalə oxumusunuz</string>
-  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s tarixində siz %2$s məqalə oxuduqdan sonra ianə etməyi sizə xatırlatmağımızı xahiş etdiniz. Əgər Vikipediya sizə %3$s dəyərində məlumat veribsə, zəhmət olmasa, bu gün vədinizi yerinə yetirib oxucuların 2%%-nə qoşulun.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">%1$s məqalə oxumusunuz</string>
+  <string name="donation_reminders_prompt_message">Siz oxuduğunuz hər %2$s məqalədə %3$s ianə vermək üçün %1$s tarixində ianə xatırladıcısı quraşdırmısınız. Vikipediyanı dəstəkləmək vədinizə əməl etməyə hazırsınız?</string>
   <string name="donation_reminders_prompt_positive_button">İndi ianə et</string>
   <string name="donation_reminders_prompt_negative_button">İndi yox</string>
   <string name="donation_reminders_gpay_text">Google Pay ilə %s ianə et</string>
@@ -2080,5 +2195,15 @@
     <item quantity="one">%d məqalə</item>
     <item quantity="other">%d məqalə</item>
   </plurals>
-  <string name="donation_reminders_experiment_label" fuzzy="true">Eksperimental</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Xeyr, təşəkkürlər</string>
+  <string name="donation_reminders_experiment_label">Eksperimental</string>
+  <string name="donation_reminders_settings_learn_more_button">Daha ətraflı öyrən</string>
+  <string name="donation_reminders_settings_report_button">Funksiya ilə bağlı problem</string>
+  <string name="donation_reminders_settings_report_email_subject">Problem-İanə xatırladıcısı</string>
+  <string name="donation_reminders_settings_report_email_body">İanə xatırlatmaları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Spesifik problemi təsvir edin]\n- [Skrinşotlar və ya keçidlər]\n\nGörmək istədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Dəyişdir</string>
+  <string name="explore_feed_survey_dialog_title">Kəşf səhifəsini təkmilləşdirməkdə bizə kömək edin</string>
+  <string name="explore_feed_survey_dialog_message">Zəhmət olmasa, Kəşf lenti haqqında qısa sorğuda iştirak edin. Rəyiniz qarşıdan gələn tətbiq təkmilləşdirmələrini formalaşdırmağa kömək edəcək.</string>
+  <string name="explore_feed_survey_dialog_positive_button_label">Sorğuda iştirak et</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Xeyr, təşəkkürlər</string>
 </resources>

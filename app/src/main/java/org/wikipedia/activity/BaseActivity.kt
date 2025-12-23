@@ -23,7 +23,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.metricsplatform.MetricsPlatform
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
@@ -178,14 +177,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onPause() {
         super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
-        MetricsPlatform.client.onAppPause()
         EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
-        MetricsPlatform.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
     }
 

@@ -451,6 +451,7 @@ private fun StandardScreenContent(
 ) {
     val headerAspectRatio = 3f / 2f
     val context = LocalContext.current
+    val mediaWikiFaqUrl = stringResource(R.string.year_in_review_media_wiki_faq_url)
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = modifier
@@ -475,7 +476,7 @@ private fun StandardScreenContent(
                         onClick = {
                             UriUtil.handleExternalLink(
                                 context = context,
-                                uri = context.getString(R.string.year_in_review_media_wiki_faq_url).toUri()
+                                uri = mediaWikiFaqUrl.toUri()
                             )
                         }) {
                         Icon(

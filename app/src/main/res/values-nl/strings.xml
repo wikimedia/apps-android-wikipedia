@@ -1943,9 +1943,9 @@
   <string name="year_in_review_slide_top_categories_headline">Uw interessantste categorieën</string>
   <string name="year_in_review_slide_top_categories_body">In categorieën worden pagina\'s over vergelijkbare onderwerpen gegroepeerd. In %1$d bezocht u meermaals pagina\'s in deze interessante categorieën: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">De meest gelezen pagina\'s op de Engelstalige Wikipedia</string>
-  <plurals name="year_in_review_slide_most_read_english_articles_body" fuzzy="true">
-    <item quantity="one">Als mensen meer willen weten over onze wereld -goed, slecht en opmerkelijk-wenden ze zich tot Wikipedia. De meest bezochte pagina op de Engelstalige Wikipedia was: %2$s &lt;br /&gt;Lees er meer over in onze &lt;a href=\"%3$s\"&gt;blogpost&lt;/a&gt;.</item>
-    <item quantity="other">Als mensen meer willen weten over onze wereld -goed, slecht en opmerkelijk-wenden ze zich tot Wikipedia. De %1$d meest bezochte pagina\'s op de Engelstalige Wikipedia waren: %2$s &lt;br /&gt;Lees er meer over in onze &lt;a href=\"%3$s\"&gt;blogpost&lt;/a&gt;.</item>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Als mensen meer willen weten over onze wereld -goed, slecht en opmerkelijk - wenden ze zich tot Wikipedia. De meest bezochte pagina op de Engelstalige Wikipedia was: %2$s &lt;br /&gt;Lees er meer over in onze &lt;a href=\"%3$s\"&gt;blogpost&lt;/a&gt;.</item>
+    <item quantity="other">Als mensen meer willen weten over onze wereld - goed, slecht en opmerkelijk - wenden ze zich tot Wikipedia. De %1$d meest bezochte pagina\'s op de Engelstalige Wikipedia waren: %2$s &lt;br /&gt;Lees er meer over in onze &lt;a href=\"%3$s\"&gt;blogpost&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Uw bewerking is onlangs meer dan %,d keer bekeken</item>
@@ -1964,13 +1964,13 @@
     <item quantity="one">%,d byte toegevoegd</item>
     <item quantity="other">%,d bytes toegevoegd</item>
   </plurals>
-  <plurals name="year_in_review_slide_bytes_added_body" fuzzy="true">
+  <plurals name="year_in_review_slide_bytes_added_body">
     <item quantity="one">In %1$d voegden vrijwilligers %2$,d byte toe aan de Engelstalige Wikipedia. De som van al hun gezamenlijke werk leidt tot een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron die ze aan de wereld aanbieden. We hebben allemaal kennis om te delen. &lt;a href=\"%3$s\"&gt;Lees hier hoe u kunt deelnemen&lt;/a&gt;.</item>
     <item quantity="other">In %1$d voegden vrijwilligers %2$,d byte toe aan de Engelstalige Wikipedia. De som van al hun gezamenlijke werk leidt tot een gestaag verbeterende, op feiten gebaseerde en betrouwbare kennisbron die ze aan de wereld aanbieden. We hebben allemaal kennis om te delen. &lt;a href=\"%3$s\"&gt;Lees hier hoe u kunt deelnemen&lt;/a&gt;.</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
-    <item quantity="one">U hebt Wikipedia één keer bewerkt</item>
-    <item quantity="other">U hebt Wikipedia %s keer bewerkt</item>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">U hebt één keer bewerkt</item>
+    <item quantity="other">U hebt %s keer bewerkt</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_times_body">
     <item quantity="one">Bedankt dat u een van de vrijwillige redacteuren bent die het verschil maakt in Wikimedia-projecten over de hele wereld. Vrijwilligers zoals u hebben %,d wijziging aangebracht in meer dan 300 verschillende taaledities van Wikipedia.</item>
@@ -2227,7 +2227,7 @@
   <string name="donation_reminders_settings_option_custom">Anders…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Bedankt! We herinneren u eraan om %1$s te doneren wanneer u %2$s leest terwijl dit experiment loopt.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">U hebt %1$s gelezen sinds u %2$s hebt toegezegd</string>
-  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt nog %1$s gelezen</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">U hebt er nog %1$s gelezen</string>
   <string name="donation_reminders_prompt_message">U hebt een donatieherinnering ingesteld op %1$s om %3$s te doneren voor elke %2$s die u leest. Klaar om uw belofte om Wikipedia te steunen na te komen?</string>
   <string name="donation_reminders_prompt_positive_button">Doneer nu</string>
   <string name="donation_reminders_prompt_negative_button">Nu niet</string>
@@ -2245,6 +2245,6 @@
   <string name="donation_reminders_settings_learn_more_button">Meer lezen</string>
   <string name="donation_reminders_settings_report_button">Probleem met functie</string>
   <string name="donation_reminders_settings_report_email_subject">Probleemrapport - Donatieherinneringen</string>
-  <string name="donation_reminders_settings_report_email_body" fuzzy="true">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="donation_reminders_settings_report_email_body">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Wijzigen</string>
 </resources>

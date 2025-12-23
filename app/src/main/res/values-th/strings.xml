@@ -31,10 +31,13 @@
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
+  <string name="search_back_button_content_description">ย้อนกลับ</string>
+  <string name="search_icon_content_description">ค้นหา</string>
   <string name="filter_hint_filter_my_lists_and_articles">กรองรายการของฉัน</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="nav_item_search">ค้นหา</string>
+  <string name="nav_item_contribute">ส่วนร่วม</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -129,6 +132,7 @@
   <string name="dialog_message_leaving_edit_leave">ออก</string>
   <string name="dialog_message_leaving_edit_stay">อยู่ต่อ</string>
   <string name="dialog_confirm_delete_donation_history_delete">ลบ</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">ยกเลิก</string>
   <string name="menu_show_toc">สารบัญ</string>
   <string name="search_no_results_found">ไม่พบผลลัพธ์</string>
   <string name="search_reading_list_no_results">ไม่พบผลลัพธ์ใน \"%s\"</string>
@@ -262,6 +266,8 @@
   <string name="edit_summary_tag_links">เพิ่มลิงก์</string>
   <string name="edit_summary_tag_other">อื่น ๆ</string>
   <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
+  <string name="edit_summary_added_short_description">เพิ่มคำอธิบายแบบสั้น</string>
+  <string name="edit_summary_updated_short_description">อัปเดตคำอธิบายแบบสั้น</string>
   <string name="edit_conflict_title">แก้ไขชนกัน</string>
   <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="edit_notices_please_read">โปรดอ่านก่อนแก้ไข</string>
