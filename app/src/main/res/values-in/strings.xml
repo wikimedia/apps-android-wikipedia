@@ -32,6 +32,7 @@
 * NikolasKHF
 * NoiX180
 * Pebaryan
+* Penyuwangi
 * Polos
 * RaymondSutanto94
 * Relly Komaruzaman
@@ -215,7 +216,7 @@
   <string name="account_vanish_request_confirm_title">Peringatan penghapusan akun</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
-  <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca tanpa koneksi.</string>
+  <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca saat luring.</string>
   <string name="search_empty_message">Cari dan baca ensiklopedia bebas dalam bahasa Anda</string>
   <string name="search_empty_message_multilingual_upgrade">Cari Wikipedia dalam lebih banyak bahasa</string>
   <string name="delete_selected_items">Hapus butir yang dipilih</string>
@@ -404,7 +405,7 @@
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_title">Akses cepat daftar isi</string>
   <string name="tool_tip_toc_text">Sekarang Anda dapat menggesek ke kiri untuk membuka daftar isi, dan juga mengetuk dan menyeret pada tombol penggulung ini untuk dengan cepat melompat ke bagian artikel yang berbeda.</string>
-  <string name="error_response_malformed">Respon dari peladen tidak diformat dengan benar.</string>
+  <string name="error_response_malformed">Tanggapan dari peladen tidak diformat dengan benar.</string>
   <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>
   <string name="format_error_server_message">Pesan: \"%s\"</string>
   <string name="address_copied">Alamat disalin ke papan klip.</string>
@@ -429,8 +430,8 @@
   <string name="nav_item_donate">Menyumbang</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
   <string name="location_service_disabled">Layanan lokasi dinonaktifkan.</string>
-  <string name="enable_location_service">Aktifkan</string>
-  <string name="location_permissions_enable_prompt">Aktifkan izin lokasi untuk melihat tempat di dekat Anda.</string>
+  <string name="enable_location_service">Nyalakan</string>
+  <string name="location_permissions_enable_prompt">Nyalakan izin lokasi untuk melihat tempat di dekat Anda.</string>
   <string name="location_permissions_enable_action">Nyalakan</string>
   <string name="error_webview_updating">TampilanWeb Sistem Android saat ini sedang diperbarui. Silakan coba beberapa saat lagi.</string>
   <string name="multi_items_selected">%d dipilih</string>
@@ -451,7 +452,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
   <string name="preference_summary_prefer_offline_content">Menghemat penggunaan data dengan memuat artikel yang tersedia secara luring daripada selalu memuat versi terbaru artikel</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Hapus riwayat donasi lokal</string>
+  <string name="preference_title_delete_local_donation_history">Hapus riwayat sumbangan</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Cocokkan dengan tema sistem</string>
   <string name="page_footer_license_text">Konten tersedia di bawah $1 kecuali dinyatakan lain</string>
   <string name="empty_tab_title">Tab baru</string>
@@ -592,10 +593,10 @@
   <string name="reading_list_confirm_remove_article_from_offline">Hapus dari luring</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
-  <string name="reading_lists_sync_reminder_title">Aktifkan sinkronisasi daftar bacaan?</string>
+  <string name="reading_lists_sync_reminder_title">Nyalakan sinkronisasi daftar bacaan?</string>
   <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_sync_reminder_action">Aktifkan sinkronisasi</string>
+  <string name="reading_lists_sync_reminder_action">Nyalakan sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
   <string name="reading_lists_login_reminder_text">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_login_button">Masuk log / gabung ke Wikipedia</string>
@@ -610,18 +611,18 @@
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
     <item quantity="other">Apakah Anda yakin ingin menghapus %d daftar?</item>
   </plurals>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk mengaktifkan sinkronisasi</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk nyalakan sinkronisasi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Batal</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Masuk log</string>
   <string name="reading_list_turned_sync_off_dialog_title">Sinkronisasi daftar bacaan dimatikan</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Sinkronisasi daftar baca tidak aktif untuk akun Anda, dan artikel tersimpan di perangkat yang Anda masuk tidak lagi dicadangkan. Aktifkan sinkronisasi daftar bacaan di Pengaturan.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Sinkronisasi daftar baca tidak menyala untuk akun Anda, dan artikel tersimpan di perangkat yang Anda masuk tidak lagi dicadangkan. Nyalakan sinkronisasi daftar bacaan di Pengaturan.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Pengaturan</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_title">Aktifkan sinkronisasi daftar bacaan?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Nyalakan sinkronisasi daftar bacaan?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"#faq\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan ini lagi</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktifkan sinkronisasi</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Nyalakan sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
   <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
@@ -725,7 +726,7 @@
     <item quantity="one">Pemberitahuan diarsipkan</item>
     <item quantity="other">%d pemberitahuan diarsipkan</item>
   </plurals>
-  <string name="notifications_poll_enable_title">Aktifkan pemberitahuan</string>
+  <string name="notifications_poll_enable_title">Nyalakan pemberitahuan</string>
   <string name="notifications_poll_enable_positive">Aktif</string>
   <string name="notifications_poll_enable_negative">Nanti</string>
   <string name="notifications_empty_message">Anda tidak memiliki pemberitahuan!</string>
@@ -764,7 +765,7 @@
   <string name="preference_title_notification_user_talk">Halaman pembicaraan</string>
   <string name="preference_summary_notification_user_talk">Pesan dan balasan dari halaman pembicaraan</string>
   <string name="preference_title_notification_email_user">Email yang diterima</string>
-  <string name="preference_summary_notification_email_user">Seorang editor telah mengirim Anda sebuah email melalui wiki</string>
+  <string name="preference_summary_notification_email_user">Seseorang telah mengirim Anda sebuah surel melalui wiki</string>
   <string name="preference_title_notification_user_rights">Perubahan hak pengguna</string>
   <string name="preference_summary_notification_user_rights">Diterima ketika ada hak pengguna Anda berubah</string>
   <string name="preference_title_notification_article_linked">Pranala ke artikel yang Anda buat</string>
@@ -1063,7 +1064,7 @@
   <string name="suggested_edits_image_tag_contribution_label">Anda telah menambahkan %d tanda</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kemarin</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Penyuntingan yang disarankan adalah cara baru untuk mengedit Wikipedia di Android. Ini membantu Anda memberikan kontribusi kecil yang sangat berharga untuk Wikipedia.\nTujuan kami adalah membuat pengeditan lebih mudah dan lebih bisa diakses untuk semua orang! Masuk atau bergabung dengan Wikipedia untuk memulai.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Penyuntingan yang disarankan adalah cara baru untuk menyunting Wikipedia di Android. Ini membantu Anda memberikan kontribusi kecil yang sangat berharga untuk Wikipedia.\nTujuan kami adalah membuat penyuntingan lebih mudah dan lebih bisa diakses untuk semua orang! Masuk atau bergabung dengan Wikipedia untuk memulai.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Masuk log / gabung ke Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Tag gambar</string>
   <string name="suggested_edits_contribution_current_revision_text">Penyuntingan anda telah diterbitkan di Wikipedia</string>
@@ -1252,7 +1253,7 @@
   <string name="insert_media_advanced_settings_image_type_basic">Dasar</string>
   <string name="insert_media_advanced_settings_image_type_tip">Anda dapat menentukan bagaimana butir media akan ditampilkan pada halaman. Format keluku digunakan agar konsisten dengan kebanyakan halaman lainnya.</string>
   <string name="insert_media_advanced_settings_image_size">Ukuran gambar</string>
-  <string name="insert_media_advanced_settings_image_size_default">Baku</string>
+  <string name="insert_media_advanced_settings_image_size_default">Bawaan</string>
   <string name="insert_media_advanced_settings_image_size_custom">Ubahsuai</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Lebar</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Tinggi</string>

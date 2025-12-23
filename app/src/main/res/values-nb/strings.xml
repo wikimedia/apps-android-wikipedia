@@ -1162,6 +1162,7 @@
   <string name="activity_tab_discover_encourage">Leter du etter noe nytt å lese?</string>
   <string name="activity_tab_donation_unknown">Ukjent</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Siste gave&lt;/b&gt; i appen</string>
+  <string name="activity_tab_total_edits_all_projects">Totalt antall redigeringer på tvers av prosjekter</string>
   <string name="activity_tab_game_stats">Spillstatistikk</string>
   <string name="activity_tab_game_stats_best_streak">Beste rekke</string>
   <string name="activity_tab_play_wiki_games">Spill wikispill</string>
