@@ -29,8 +29,8 @@ import androidx.core.net.toUri
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -53,6 +53,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.PlacesEvent
@@ -1473,8 +1474,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (model.title != null && state.result != null) {
             pageLoadViewModel.saveInformationToDatabase(model, state.result, sendEvent = { entry ->
                 WikipediaApp.instance.appSessionEvent.pageViewed(entry)
-                ArticleLinkPreviewInteractionEvent(model.title!!.wikiSite.dbName(), state.result.pageId, entry.source).logNavigate()
-                ArticleLinkPreviewInteraction(this, entry.source).logNavigate()
+                ArticleLinkPreviewInteractionEvent(
+                    model.title!!.wikiSite.dbName(),
+                    state.result.pageId,
+                    entry.source
+                ).logNavigate()
             })
         }
 
