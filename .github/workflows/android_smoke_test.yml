@@ -46,7 +46,7 @@ jobs:
 
     - name: Upload results
       if: ${{ always() }}
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: instrumentation-test-results${{ matrix.api-level }}
         path: ./**/build/reports/androidTests/connected/**

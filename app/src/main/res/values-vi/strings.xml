@@ -1348,7 +1348,7 @@
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
   <string name="main_tooltip_action_button">Bắt đầu</string>
   <string name="main_tooltip_watchlist_title">Danh sách theo dõi</string>
-  <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong trình đơn Khác trong&lt;b&gt; Danh sách theo dõi&lt;/b&gt;</string>
+  <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong bảng chọn Khác trong &lt;b&gt;Danh sách theo dõi&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Hủy bỏ</string>
