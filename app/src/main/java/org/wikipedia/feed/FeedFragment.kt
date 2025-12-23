@@ -1,6 +1,5 @@
 package org.wikipedia.feed
 
-import android.app.Activity
 import android.net.Uri
 import android.os.Bundle
 import android.util.Pair
@@ -8,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -43,7 +41,6 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
-import java.time.LocalDate
 
 class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
@@ -381,28 +378,6 @@ class FeedFragment : Fragment() {
             return FeedFragment().apply {
                 retainInstance = true
             }
-        }
-
-        fun maybeShowExploreFeedSurvey(activity: Activity) {
-            if (Prefs.exploreFeedSurveyShown || WikipediaApp.instance.languageState.systemLanguageCode != "en") return
-
-            val currentDate = LocalDate.now()
-            val startDate = LocalDate.of(2025, 11, 24)
-            val endDate = LocalDate.of(2025, 11, 30)
-
-            if (currentDate !in startDate..endDate) {
-                return
-            }
-
-            MaterialAlertDialogBuilder(activity)
-                .setTitle(R.string.explore_feed_survey_dialog_title)
-                .setMessage(R.string.explore_feed_survey_dialog_message)
-                .setPositiveButton(R.string.explore_feed_survey_dialog_positive_button_label) { _, _ ->
-                    UriUtil.handleExternalLink(activity, activity.getString(R.string.explore_feed_survey_url).toUri())
-                }
-                .setNegativeButton(R.string.explore_feed_survey_dialog_negative_button_label) { _, _ -> }
-                .show()
-            Prefs.exploreFeedSurveyShown = true
         }
     }
 }
