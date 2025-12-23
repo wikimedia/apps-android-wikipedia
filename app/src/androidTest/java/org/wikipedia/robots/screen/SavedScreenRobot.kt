@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -59,7 +60,7 @@ class SavedScreenRobot : BaseRobot() {
                     ViewActions.swipeLeft()
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifySavedArticleIsRemoved(title: String) = apply {
@@ -95,11 +96,16 @@ class SavedScreenRobot : BaseRobot() {
 
     fun clickFilterList() = apply {
         click.onViewWithId(R.id.menu_search_lists)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun pressBack() = apply {
         goBack()
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun closeFilterList() = apply {
+        onView(withId(androidx.appcompat.R.id.action_mode_close_button)).perform(click())
         delay(TestConfig.DELAY_SHORT)
     }
 }

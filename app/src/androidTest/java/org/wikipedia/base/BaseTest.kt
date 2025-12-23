@@ -3,6 +3,7 @@ package org.wikipedia.base
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.IdlingPolicies
@@ -40,6 +41,10 @@ data class DataInjector(
     val readingListShareTooltipShown: Boolean = true,
     val otdEntryDialogShown: Boolean = true,
     val enableYearInReview: Boolean = false,
+    val yearInReviewReadingListSurveyShown: Boolean = false,
+    val exploreFeedSurveyShown: Boolean = true,
+    val showReadingListSyncEnablePrompt: Boolean = false,
+    val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
 )
 
 abstract class BaseTest<T : AppCompatActivity>(
@@ -56,9 +61,11 @@ abstract class BaseTest<T : AppCompatActivity>(
     var composeTestRule = createComposeRule()
 
     @get:Rule
-    val permissionRule: GrantPermissionRule = GrantPermissionRule.grant(
-        Manifest.permission.POST_NOTIFICATIONS
-    )
+    val permissionRule: GrantPermissionRule = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        GrantPermissionRule.grant(Manifest.permission.POST_NOTIFICATIONS)
+    } else {
+        GrantPermissionRule.grant()
+    }
 
     protected lateinit var activity: T
     protected lateinit var device: UiDevice
@@ -67,11 +74,17 @@ abstract class BaseTest<T : AppCompatActivity>(
     init {
         val intent = Intent(context, activityClass)
         activityScenarioRule = ActivityScenarioRule(intent)
-        Prefs.isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
-        Prefs.showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
-        Prefs.readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
-        Prefs.otdEntryDialogShown = dataInjector.otdEntryDialogShown
-        Prefs.isYearInReviewEnabled = dataInjector.enableYearInReview
+        Prefs.apply {
+            isInitialOnboardingEnabled = dataInjector.isInitialOnboardingEnabled
+            showOneTimeCustomizeToolbarTooltip = dataInjector.showOneTimeCustomizeToolbarTooltip
+            readingListShareTooltipShown = dataInjector.readingListShareTooltipShown
+            otdEntryDialogShown = dataInjector.otdEntryDialogShown
+            isYearInReviewEnabled = dataInjector.enableYearInReview
+            yearInReviewReadingListSurveyShown = dataInjector.yearInReviewReadingListSurveyShown
+            exploreFeedSurveyShown = dataInjector.exploreFeedSurveyShown
+            showReadingListSyncEnablePrompt = dataInjector.showReadingListSyncEnablePrompt
+            isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled
+        }
         dataInjector.overrideEditsContribution?.let {
             Prefs.overrideSuggestedEditContribution = it
         }
@@ -93,6 +106,16 @@ abstract class BaseTest<T : AppCompatActivity>(
         WikipediaApp.instance.languageState.let {
             it.removeAppLanguageCodes(it.appLanguageCodes.filter { it != "en" })
         }
+        // Disable animations
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global window_animation_scale 0"
+        )
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global transition_animation_scale 0"
+        )
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(
+            "settings put global animator_duration_scale 0"
+        )
     }
 
     protected fun setDeviceOrientation(isLandscape: Boolean) {

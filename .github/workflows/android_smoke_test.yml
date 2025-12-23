@@ -7,8 +7,15 @@ env:
 
 jobs:
   instrumentation-tests:
-    runs-on: macos-latest
-    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - api-level: 36
+            target: google_apis
+            arch: x86_64
 
     steps:
     - uses: actions/checkout@v6
@@ -19,15 +26,27 @@ jobs:
         cache: 'gradle'
     - uses: gradle/gradle-build-action@v3
 
+    - name: Enable KVM
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
+
     - name: Instrumentation Tests
       uses: reactivecircus/android-emulator-runner@v2
+      env:
+        TEST_LOGIN_USERNAME: ${{ secrets.TEST_LOGIN_USERNAME }}
+        TEST_LOGIN_PASSWORD: ${{ secrets.TEST_LOGIN_PASSWORD }}
       with:
-        api-level: 29
-        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon
+        api-level: ${{ matrix.api-level }}
+        target: ${{ matrix.target }}
+        arch: ${{ matrix.arch }}
+        disable-animations: true
+        script: ./gradlew connectedDevDebugAndroidTest --stacktrace --no-daemon --info -P android.testInstrumentationRunnerArguments.class=org.wikipedia.testsuites.TestSuite
 
     - name: Upload results
       if: ${{ always() }}
       uses: actions/upload-artifact@v6
       with:
-        name: instrumentation-test-results ${{ matrix.api-level }}
+        name: instrumentation-test-results${{ matrix.api-level }}
         path: ./**/build/reports/androidTests/connected/**

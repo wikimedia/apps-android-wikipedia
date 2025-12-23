@@ -1,5 +1,6 @@
 package org.wikipedia.base.actions
 
+import android.util.Log
 import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ListView
@@ -13,7 +14,6 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.ViewAssertion
-import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
@@ -22,17 +22,23 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import com.google.android.material.tabs.TabLayout
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
+import org.hamcrest.Matchers.containsString
+import org.hamcrest.Matchers.hasToString
 import org.hamcrest.Matchers.not
 import org.junit.Assert.assertEquals
 import org.wikipedia.R
+import org.wikipedia.views.DefaultViewHolder
+import java.util.concurrent.atomic.AtomicInteger
 
 class ListActions {
     fun clickOnListView(@IdRes viewId: Int, @IdRes childView: Int, position: Int) = apply {
@@ -40,6 +46,12 @@ class ListActions {
             .inAdapterView(withId(viewId))
             .atPosition(position)
             .onChildView(withId(childView))
+            .perform(click())
+    }
+
+    fun clickOnListViewWithText(@IdRes viewId: Int, text: String) {
+        onData(hasToString(containsString(text)))
+            .inAdapterView(withId(R.id.toc_list))
             .perform(click())
     }
 
@@ -53,12 +65,7 @@ class ListActions {
             )
     }
 
-    fun clickOnItemInList(textViewId: Int) {
-        onView(withId(textViewId))
-            .perform(click())
-    }
-
-        fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
+    fun longClickOnItemInList(@IdRes listId: Int, position: Int) {
         onView(withId(listId))
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -75,13 +82,6 @@ class ListActions {
                     position,
                     click()
                 )
-            )
-    }
-
-    fun scrollToPositionInRecyclerView(@IdRes viewId: Int, position: Int) {
-        onView(withId(viewId))
-            .perform(
-                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position)
             )
     }
 
@@ -103,6 +103,13 @@ class ListActions {
     ) {
         onView(withId(recyclerViewId))
             .perform(NestedScrollViewExtension())
+        onView(withId(recyclerViewId))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    ViewActions.scrollTo()
+                )
+            )
         onView(withId(recyclerViewId))
             .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
@@ -170,23 +177,6 @@ class ListActions {
             .check(hasItemCount(expectedCount))
     }
 
-    fun verifyItemDoesNotExistAtPosition(
-        recyclerViewId: Int,
-        itemId: Int
-    ) {
-        onView(withId(recyclerViewId))
-            .check(
-                matches(
-                        hasDescendant(
-                            allOf(
-                                withId(itemId),
-                                not(isDisplayed())
-                            )
-                        )
-                )
-            )
-    }
-
     fun verifyItemDoesNotExistWithText(
         recyclerViewId: Int,
         text: String
@@ -223,13 +213,29 @@ class ListActions {
             )
     }
 
-    private fun verifyItemAtPosition(
-        recyclerViewId: Int,
-        position: Int,
-        itemMatcher: Matcher<View>
-    ): ViewInteraction {
-        return onView(withId(recyclerViewId))
-            .check(matches(atPosition(position, itemMatcher)))
+    fun selectTabWithText(@IdRes viewId: Int, text: String) {
+        onView(withId(viewId))
+            .perform(object : ViewAction {
+                override fun getConstraints(): Matcher<View?> = isDisplayed()
+
+                override fun getDescription(): String = "Select tab with text: $text"
+
+                override fun perform(
+                    uiController: UiController,
+                    view: View
+                ) {
+                    val tabLayout = view as TabLayout
+                    for (i in 0 until tabLayout.tabCount) {
+                        val tab = tabLayout.getTabAt(i)
+                        val labelView = tab?.customView?.findViewById<TextView>(R.id.language_label)
+                        if (labelView?.text == text) {
+                            tab.select()
+                            break
+                        }
+                    }
+                    uiController.loopMainThreadUntilIdle()
+                }
+            })
     }
 
     private fun clickChildViewWithId(@IdRes id: Int) = object : ViewAction {
@@ -254,41 +260,151 @@ class ListActions {
         }
     }
 
-    private fun atPosition(
-        position: Int,
-        itemMatcher: Matcher<View>
-    ): BoundedMatcher<View, RecyclerView> {
-        return object : BoundedMatcher<View, RecyclerView>(RecyclerView::class.java) {
-            override fun describeTo(description: Description) {
-                description.appendText("has item at position $position: ")
-                itemMatcher.describeTo(description)
-            }
+    fun moveClickIntoViewAndClick(childId: Int): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> = isAssignableFrom(View::class.java)
+            override fun getDescription(): String = "click child view with id $childId"
+            override fun perform(uiController: UiController, view: View) {
+                val child = view.findViewById<View>(childId)
 
-            override fun matchesSafely(recyclerView: RecyclerView): Boolean {
-                val viewHolder = recyclerView.findViewHolderForAdapterPosition(position)
-                    ?: return false
-                return itemMatcher.matches(viewHolder.itemView)
+                // Find the parent RecyclerView
+                var parent = view.parent
+                while (parent != null && parent !is RecyclerView) {
+                    parent = parent.parent
+                }
+
+                if (parent is RecyclerView) {
+                    // Calculate scroll distance to bring child into view
+                    val childLocation = IntArray(2)
+                    child.getLocationOnScreen(childLocation)
+                    val recyclerLocation = IntArray(2)
+                    parent.getLocationOnScreen(recyclerLocation)
+
+                    val scrollY =
+                        childLocation[1] - recyclerLocation[1] - 100 // -100 for some padding/toolbar
+
+                    if (scrollY != 0) {
+                        parent.smoothScrollBy(0, scrollY)
+                        uiController.loopMainThreadForAtLeast(500)
+                    }
+                } else {
+                    // Fallback if no RecyclerView found (unlikely in this context)
+                    child.requestRectangleOnScreen(
+                        android.graphics.Rect(
+                            0,
+                            0,
+                            child.width,
+                            child.height
+                        ), true
+                    )
+                    uiController.loopMainThreadForAtLeast(300)
+                }
+                child.performClick()
             }
         }
     }
 
-    private fun findItemPosition(recyclerViewId: Int, matcher: Matcher<View>): Int {
-        var foundPosition = -1
+    fun clickNestedItem(nestedRecyclerViewId: Int, position: Int): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View?>? = isAssignableFrom(View::class.java)
 
-        onView(withId(recyclerViewId))
-            .check { view, _ ->
-                val recyclerView = view as RecyclerView
-                val itemCount = recyclerView.adapter?.itemCount ?: 0
+            override fun getDescription(): String? =
+                "click item at position $position in nested RecyclerView with id $nestedRecyclerViewId"
 
-                for (position in 0 until itemCount) {
-                    val viewHolder = recyclerView.findViewHolderForAdapterPosition(position)
-                    if (viewHolder != null && matcher.matches(viewHolder.itemView)) {
-                        foundPosition = position
-                        break
-                    }
-                }
+            override fun perform(
+                uiController: UiController,
+                view: View
+            ) {
+                val nestedRecyclerView =
+                    view.findViewById<RecyclerView>(nestedRecyclerViewId) ?: throw RuntimeException(
+                        "Could not find nested RecyclerView with id $nestedRecyclerViewId"
+                    )
+
+                nestedRecyclerView.scrollToPosition(position)
+                uiController.loopMainThreadForAtLeast(500)
+
+                val holder = nestedRecyclerView.findViewHolderForAdapterPosition(position)
+                    ?: throw RuntimeException("Could not find ViewHolder at position $position in nested list")
+
+                holder.itemView.performClick()
             }
-        return foundPosition
+        }
+    }
+
+    fun scrollAndPerform(
+        viewIdRes: Int = R.id.feed_view,
+        title: String,
+        textViewId: Int = R.id.view_card_header_title,
+        action: (Int) -> Unit = {}
+    ) {
+        val matcher = withCardTitle(title, textViewId)
+        val position = getPosition(viewIdRes, matcher)
+        if (position != -1) {
+            onView(withId(viewIdRes))
+                .perform(scrollToPosition(position))
+            action(position)
+        } else {
+            Log.e("ExploreFeedRobot: ", "Skipping scroll for $title - item not found in adapter.")
+        }
+    }
+
+    private fun scrollToPosition(position: Int): ViewAction {
+        return object : ViewAction {
+            override fun getConstraints() = isAssignableFrom(RecyclerView::class.java)
+            override fun getDescription() = "scroll to position $position"
+            override fun perform(uiController: UiController, view: View) {
+                (view as RecyclerView).scrollToPosition(position)
+                uiController.loopMainThreadForAtLeast(500)
+            }
+        }
+    }
+
+    private fun withCardTitle(title: String, textViewId: Int = R.id.view_card_header_title): Matcher<RecyclerView.ViewHolder> {
+        return object : BoundedMatcher<RecyclerView.ViewHolder, DefaultViewHolder<*>>(
+            DefaultViewHolder::class.java
+        ) {
+            override fun describeTo(description: Description) {
+                description.appendText("ViewHolder with title: $title")
+            }
+
+            override fun matchesSafely(item: DefaultViewHolder<*>?): Boolean {
+                val view = item?.view ?: return false
+                val matcher = hasDescendant(
+                    allOf(
+                        withId(textViewId),
+                        withText(containsString(title))
+                    )
+                )
+                return matcher.matches(view)
+            }
+        }
+    }
+
+    private fun findViewHolderPosition(
+        recyclerView: RecyclerView,
+        matcher: Matcher<RecyclerView.ViewHolder>
+    ): Int {
+        val adapter = recyclerView.adapter ?: return -1
+        for (i in 0 until adapter.itemCount) {
+            val holder = adapter.createViewHolder(recyclerView, adapter.getItemViewType(i))
+            adapter.bindViewHolder(holder, i)
+            if (matcher.matches(holder)) {
+                return i
+            }
+        }
+        return -1
+    }
+
+    private fun getPosition(viewId: Int, matcher: Matcher<RecyclerView.ViewHolder>): Int {
+        val position = AtomicInteger(-1)
+        onView(withId(viewId)).perform(object : ViewAction {
+            override fun getConstraints() = isAssignableFrom(RecyclerView::class.java)
+            override fun getDescription() = "get position"
+            override fun perform(uiController: UiController, view: View) {
+                position.set(findViewHolderPosition(view as RecyclerView, matcher))
+            }
+        })
+        return position.get()
     }
 }
 

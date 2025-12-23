@@ -2,6 +2,8 @@ package org.wikipedia.robots.navigation
 
 import BaseRobot
 import android.util.Log
+import androidx.compose.ui.test.isDisplayed
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -31,7 +33,7 @@ class BottomNavRobot : BaseRobot() {
                 childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 1), isDisplayed()
             )
         ).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun navigateToSearchPage() = apply {
@@ -41,34 +43,38 @@ class BottomNavRobot : BaseRobot() {
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 2), isDisplayed()
             )
         ).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
-    fun navigateToSuggestedEdits() = apply {
+    fun navigateToActivityTab() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_edits), withContentDescription(R.string.nav_item_suggested_edits),
+                withId(R.id.nav_tab_edits), withContentDescription(R.string.nav_item_activity),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 3), isDisplayed()
             )
         ).perform(click())
+        val isOnboardingActivity = composeTestRule.onNodeWithText("Introducing Activity").isDisplayed()
+        if (isOnboardingActivity) {
+            pressBack()
+        }
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun navigateToMoreMenu() = apply {
         onView(allOf(withId(R.id.nav_tab_more), withContentDescription("More"), isDisplayed())).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun goToSettings() = apply {
         // Click on `Settings` option
         onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickLoginMenuItem() = apply {
         try {
             click.onViewWithId(R.id.main_drawer_login_button)
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("BottomNavRobotError:", "User logged in.")
         }
@@ -77,7 +83,7 @@ class BottomNavRobot : BaseRobot() {
     fun clickEditsMenuItem() = apply {
         try {
             click.onViewWithId(R.id.main_drawer_edit_container)
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
         } catch (e: Exception) {
             Log.e("BottomNavRobotError:", "Cannot find edits container.")
         }

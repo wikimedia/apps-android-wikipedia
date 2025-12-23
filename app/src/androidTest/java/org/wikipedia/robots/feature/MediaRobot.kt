@@ -55,12 +55,12 @@ class MediaRobot : BaseRobot() {
     fun verifyOverlayVisibility(isVisible: Boolean) = apply {
         if (isVisible) {
             verify.viewExists(R.id.toolbar_container)
-            delay(TestConfig.DELAY_MEDIUM)
+            delay(TestConfig.DELAY_SHORT)
             return@apply
         }
 
         verify.viewWithIdIsNotVisible(R.id.toolbar_container)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun navigateUp() = apply {
