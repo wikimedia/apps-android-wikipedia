@@ -7,7 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +42,7 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
@@ -57,8 +57,6 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.MonthDay
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameArticleBottomSheet.Callback {
@@ -174,10 +172,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
 
     private fun onGameEnded(gameState: OnThisDayGameViewModel.GameState, gameStatistics: OnThisDayGameViewModel.GameStatistics) {
         mainActivity?.showAppBarDateText()
-        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
-            val text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
-            mainActivity?.updateAppBarDateText(text)
-        }
+        mainActivity?.updateAppBarDateText(DateUtil.getLongMonthDayString(viewModel.currentDate))
 
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
