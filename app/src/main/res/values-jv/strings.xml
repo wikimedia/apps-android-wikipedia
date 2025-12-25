@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arifin.wijaya
+* Bennylin
 * Diki Ananta
 * MuratTheTurkish
 * N219
@@ -327,7 +328,7 @@
   <string name="reading_list_sort_by_created">Urutaké miturut tanggal panggawéné (anyar dhéwé)</string>
   <string name="reading_list_sort_by_created_desc">Urutaké miturut tanggal panggawéné (lawas dhéwé)</string>
   <string name="reading_list_menu_delete">Busak pratélan</string>
-  <string name="reading_list_menu_rename">Besut jeneng/dhèskripsi</string>
+  <string name="reading_list_menu_rename">Besut jeneng/wedharan</string>
   <string name="reading_list_action_menu_remove_from_offline">Busek saka jaban jaringan</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen kanggo ing njaban jaringan</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Busak kabèh ing oflèn</string>

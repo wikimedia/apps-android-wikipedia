@@ -348,7 +348,7 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
-  <string name="text_size_percent_default">%s (дапомна)</string>
+  <string name="text_size_percent_default">%s (перадвызначана)</string>
   <string name="text_style_title">Шрыфт</string>
   <string name="theme_category_reading">Чытаньне</string>
   <string name="reading_focus_mode">Рэжым факусаваньня чытаньня</string>
