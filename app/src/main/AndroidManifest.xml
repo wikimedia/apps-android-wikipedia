@@ -50,6 +50,14 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:required="false" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="false" />
 
+    <!-- Samsung Store Age Signals Permissions   -->
+    <uses-permission android:name="com.sec.android.app.samsungapps.accesspermission.ASAA_PROVIDER.READ" />
+    <queries>
+        <!-- Samsung Store Age Signals Query-->
+        <package android:name="com.sec.android.app.samsungapps"/>
+        <provider android:authorities="com.sec.android.app.samsungapps.provider.ASAA" />
+    </queries>
+
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -85,6 +93,16 @@
 
         <!-- Necessary for Google Pay API -->
         <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true" />
+
+        <!-- Age Signals       -->
+        <activity
+            android:name=".agesignals.AgeSignalsActivity"
+            android:exported="false" />
+
+        <provider
+            android:name=".agesignals.AmazonAgeSignalsTestContentProvider"
+            android:authorities="amzn_test_appstore"
+            android:exported="false" />
 
         <activity
             android:name=".main.MainActivity"

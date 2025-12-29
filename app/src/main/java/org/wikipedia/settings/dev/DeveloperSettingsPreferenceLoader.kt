@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.agesignals.AgeSignalsActivity
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
@@ -271,6 +272,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             val selectedState = newValue as String
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
+            true
+        }
+
+        // Experiments
+        // Age Signals
+        findPreference(R.string.preference_key_age_signals).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            fragment.startActivity(Intent(fragment.requireActivity(), AgeSignalsActivity::class.java))
             true
         }
     }

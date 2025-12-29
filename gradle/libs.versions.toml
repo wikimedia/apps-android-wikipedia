@@ -49,7 +49,7 @@ workRuntimeKtx = "2.11.0"
 composeBom = "2025.12.01"
 composeActivity = "1.12.2"
 composeViewModel = "2.10.0"
-
+googlePlayAgeSignals = "0.0.1"
 
 [libraries]
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
@@ -120,6 +120,7 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+google-play-age-signals = { module = "com.google.android.play:age-signals", version.ref = "googlePlayAgeSignals" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
