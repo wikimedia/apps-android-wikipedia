@@ -42,7 +42,7 @@ android {
         targetSdk = 36
         versionCode 50564
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "io.qameta.allure.android.runners.AllureAndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
@@ -254,7 +254,10 @@ dependencies {
     testImplementation libs.mockwebserver
     testImplementation libs.hamcrest
     testImplementation libs.room.testing
-
+    testImplementation libs.allure.kotlin.model
+    testImplementation libs.allure.kotlin.commons
+    testImplementation libs.allure.kotlin.junit4
+    androidTestImplementation libs.qameta.allure.kotlin.android
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.espresso.contrib
     androidTestImplementation libs.androidx.espresso.intents
