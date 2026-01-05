@@ -34,7 +34,9 @@
   <string name="search_hint">Hľadať na Wikipédii</string>
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať môj zoznam</string>
+  <string name="search_back_button_content_description">Vráť sa späť</string>
+  <string name="search_clear_query_content_description">Vyčistiť poradie</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zoznamy</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>

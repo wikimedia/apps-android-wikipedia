@@ -92,12 +92,14 @@
 * SrGarga
 * Suecarmol
 * Sukanya121
+* Tecbs
 * Tiberius1701
 * VegaDark
 * Warming Hearth
 * Whovian Biologist
 * Whytheonlyone
 * Wifidel
+* Wrai
 * Yllelder
 * ZealousBlaze
 -->
@@ -1979,7 +1981,7 @@
   <string name="year_in_review_slide_app_icon_donor">un donante</string>
   <string name="year_in_review_slide_app_icon_editor">un editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">un donante y editor</string>
-  <string name="year_in_review_slide_geo_headline">Los artículos che has leído se acercan más a %s</string>
+  <string name="year_in_review_slide_geo_headline">Los artículos que lees se parecen más a %s</string>
   <string name="year_in_review_slide_geo_body">El país que más se acerca a muchos de los artículos que has leído parece ser %1$s, según artículos como &lt;b&gt;%2$s&lt;/b&gt; y &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">¿Iniciar sesión para la personalización?</string>
   <string name="year_in_review_login_dialog_body">Iniciar sesión te da acceso a información personalizada. Aún puedes ver la información colectiva sin iniciar sesión.</string>
