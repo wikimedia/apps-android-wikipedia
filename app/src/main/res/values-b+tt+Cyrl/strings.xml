@@ -1427,7 +1427,7 @@
   <string name="watchlist_filter_user_status_experienced">Тәҗрибәле кулланучылар</string>
   <string name="watchlist_filter_contribution_authorship_header">Кертемнең авторлыгы</string>
   <string name="watchlist_filter_contribution_authorship_own">Сез керткән үзгәрешләр</string>
-  <string name="watchlist_filter_contribution_authorship_except_own">Башка кулланучылар ясаган үзгәрешләр</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Башка кулланучылар ясаган үзгәртүләр</string>
   <string name="watchlist_filter_automated_contributions_header">Автоматлаштырылган кертемнәр</string>
   <string name="watchlist_filter_automated_contributions_bot">Бот</string>
   <string name="watchlist_filter_automated_contributions_human">Кеше (робот түгел)</string>

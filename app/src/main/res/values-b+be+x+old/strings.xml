@@ -220,7 +220,7 @@
   <string name="settings_activity_title">Налады</string>
   <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>
   <string name="privacy_policy_description">Правілы адносна прыватнасьці</string>
-  <string name="terms_of_use_description">Умовы выкарыстаньня</string>
+  <string name="terms_of_use_description">Умовы ўжываньня</string>
   <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
@@ -348,7 +348,7 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
-  <string name="text_size_percent_default">%s (дапомна)</string>
+  <string name="text_size_percent_default">%s (перадвызначана)</string>
   <string name="text_style_title">Шрыфт</string>
   <string name="theme_category_reading">Чытаньне</string>
   <string name="reading_focus_mode">Рэжым факусаваньня чытаньня</string>
