@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Ayaat123
+-->
 <resources>
   <string name="app_name_prod">وِکیٖپیٖڈیا</string>
   <string name="app_name_beta">وِکیٖپیٖڈیا آزمائشی</string>
@@ -178,7 +181,7 @@
   <string name="create_account_generic_error">کھاتہٕ ہؠکہِ نہٕ بٕنِتھ</string>
   <string name="create_account_next">اَمہِ پتہٕ</string>
   <string name="email_recommendation_dialog_title">کھاتہٕ بنأوِو مگر برقی خط وغٲر؟</string>
-  <string name="email_recommendation_message">اَہَم! تِکیٛازِ کھاتہٕ ریکوری خٲطرٕ چُھ ای میلٕچ ضرورت۔</string>
+  <string name="email_recommendation_message">اَہَم! تِکیٛازِ کھاتہٕ ریکوری خٲطرٕ چھُ ای میلٕچ ضرورت۔</string>
   <string name="email_recommendation_dialog_create_without_email_action">برقی خط وغٲر تھٲوِو جٲری</string>
   <string name="email_recommendation_dialog_create_with_email_action">برقی خط کٕریٚو شٲمل</string>
   <string name="create_account_button">کھاتہٕ بَنٲیو</string>
@@ -389,7 +392,7 @@
   <string name="reading_list_item_delete_undo">رَد کٕرو</string>
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
   <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
-  <string name="reading_list_article_offline">آفلاین چُھ مَیَسر</string>
+  <string name="reading_list_article_offline">آفلاین چھُ مَیَسر</string>
   <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
   <string name="reading_lists_ignore_button">وُنہِ نہٕ</string>
