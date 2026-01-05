@@ -232,7 +232,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
                     gameHistory.apply {
                         score = currentState.answerState.count { it }
-                        gameData = JsonUtil.encodeToString(currentState.answerState)
+                        gameData = JsonUtil.encodeToString(currentState)
                     }
 
                     // Update or insert the game history in the database.
@@ -404,7 +404,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val currentQuestionState: QuestionState,
 
         var gamePlayDate: String = "",
-        var lastActiveDate: String = ""
+        var lastActiveDate: String = "",
+        var events: List<OnThisDay.Event>? = null
     )
 
     @Serializable

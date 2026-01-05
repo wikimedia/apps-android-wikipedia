@@ -13,5 +13,6 @@ data class DailyGameHistory(
     var day: Int,
     var score: Int,
     var playType: Int,
-    var gameData: String?
+    var gameData: String?, // while game is in progress save all events data, when game is complete save just the results
+    var status: Int = 1, // 0 for game in progress, 1 for game completed
 )
