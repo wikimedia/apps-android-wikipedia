@@ -1,6 +1,6 @@
 [versions]
 appcompat = "1.7.1"
-balloon = "1.6.13"
+balloon = "1.7.0"
 browser = "1.9.0"
 coilCompose = "3.3.0"
 commonsLang3 = "3.20.0"
