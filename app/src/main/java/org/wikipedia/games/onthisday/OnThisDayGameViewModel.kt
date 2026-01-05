@@ -232,7 +232,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
                     gameHistory.apply {
                         score = currentState.answerState.count { it }
-                        gameData = JsonUtil.encodeToString(currentState)
+                        gameData = JsonUtil.encodeToString(currentState.answerState)
                     }
 
                     // Update or insert the game history in the database.
