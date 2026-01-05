@@ -1752,9 +1752,17 @@
     <item quantity="one">%,d Byte derbäigesat</item>
     <item quantity="other">%,d Byte derbäigesat</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Dir hutt %s Ännerung gemaach</item>
+    <item quantity="other">Dir hutt %s Ännerunge gemaach</item>
+  </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">Auteuren hunn %,d Ännerung mat den offizielle Wikipedia-Appe gemaach</item>
     <item quantity="other">Auteuren hu(nn) %,d Ännerunge mat den offizielle Wikipedia-Appe gemaach</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Dir hutt %,d Artikel gespäichert</item>
+    <item quantity="other">Dir hutt %,d Artikele gespäichert</item>
   </plurals>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Liblingszäit fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Liblingsdag fir ze liesen</string>
