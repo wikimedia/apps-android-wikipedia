@@ -37,7 +37,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
-        campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID)
+        campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID) ?: "appmenu"
         campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
             if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
         } else ""
