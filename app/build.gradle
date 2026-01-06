@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50561
+        versionCode 50564
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -197,7 +197,6 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
-    implementation libs.metrics.platform
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor

@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import org.wikipedia.R
 import org.wikipedia.util.ShareUtil
 
@@ -14,16 +15,20 @@ fun YearInReviewScreenCaptureHandler(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val context = LocalContext.current
+    val shareUrl = stringResource(R.string.year_in_review_share_url)
+    val shareBodyFormat = stringResource(R.string.year_in_review_share_body)
+    val hashtag = stringResource(R.string.year_in_review_hashtag)
+    val shareSubject = stringResource(R.string.year_in_review_share_subject)
 
     val shareImageCallback: (Bitmap) -> Unit = { bitmap ->
-        val googlePlayUrl = context.getString(R.string.year_in_review_share_url) + YearInReviewViewModel.YIR_TAG
-        val bodyText = context.getString(R.string.year_in_review_share_body, googlePlayUrl, context.getString(R.string.year_in_review_hashtag))
+        val googlePlayUrl = shareUrl + YearInReviewViewModel.YIR_TAG
+        val bodyText = String.format(shareBodyFormat, googlePlayUrl, hashtag)
         ShareUtil.shareImage(
             coroutineScope = coroutineScope,
             context = context,
             bmp = bitmap,
             imageFileName = YearInReviewViewModel.YIR_TAG,
-            subject = context.getString(R.string.year_in_review_share_subject),
+            subject = shareSubject,
             text = bodyText,
             onShared = onComplete
         )

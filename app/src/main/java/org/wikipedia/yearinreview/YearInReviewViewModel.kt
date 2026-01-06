@@ -21,7 +21,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.dataclient.restbase.UserEdits
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 import org.wikipedia.util.DateUtil
@@ -77,6 +76,7 @@ class YearInReviewViewModel() : ViewModel() {
                     AppDatabase.instance.readingListPageDao()
                         .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
+                        .filter { it.isNotBlank() }
                 }
 
                 val readCountForTheYear = async {
@@ -88,6 +88,7 @@ class YearInReviewViewModel() : ViewModel() {
                     AppDatabase.instance.historyEntryDao()
                         .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
+                        .filter { it.isNotBlank() }
                 }
 
                 val totalReadingTimeMinutes = async {
@@ -98,6 +99,7 @@ class YearInReviewViewModel() : ViewModel() {
                 val topVisitedCategoryForTheYear = async {
                     val categories = AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY * 10)
                         .map { StringUtil.removeNamespace(it.title) }
+                        .filter { it.isNotBlank() }
                     val categoriesWithTwoSpaces = categories.filter { it.count { c -> c == ' ' } >= 2 }
                     val remainingCategories = categories.filter { it.count { c -> c == ' ' } < 2 }
                     categoriesWithTwoSpaces.plus(remainingCategories)
@@ -110,40 +112,28 @@ class YearInReviewViewModel() : ViewModel() {
                     val wikiSite = WikipediaApp.instance.wikiSite
                     val userInfoResponse = ServiceFactory.get(wikiSite).getLocalAndGlobalUserInfo()
 
-                    val impactDataJob = async {
-                        val now = Instant.now().epochSecond
-                        val impact: GrowthUserImpact
-                        val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
-                        val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
-                        if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
-                            val userId = userInfoResponse.query?.userInfo?.id ?: 0
-                            impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
-                            impactLastResponseBodyMap[wikiSite.languageCode] =
-                                JsonUtil.encodeToString(impact).orEmpty()
-                            Prefs.impactLastResponseBody = impactLastResponseBodyMap
-                            Prefs.impactLastQueryTime = now
-                        } else {
-                            impact = JsonUtil.decodeFromString(impactResponse)!!
+                    val totalPageViewsJob = async {
+                        var pageViewsFromImpactApi = 0L
+                        try {
+                            val now = Instant.now().epochSecond
+                            val impact: GrowthUserImpact
+                            val impactLastResponseBodyMap = Prefs.impactLastResponseBody.toMutableMap()
+                            val impactResponse = impactLastResponseBodyMap[wikiSite.languageCode]
+                            if (impactResponse.isNullOrEmpty() || abs(now - Prefs.impactLastQueryTime) > TimeUnit.HOURS.toSeconds(12)) {
+                                val userId = userInfoResponse.query?.userInfo?.id ?: 0
+                                impact = ServiceFactory.getCoreRest(wikiSite).getUserImpact(userId)
+                                impactLastResponseBodyMap[wikiSite.languageCode] =
+                                    JsonUtil.encodeToString(impact).orEmpty()
+                                Prefs.impactLastResponseBody = impactLastResponseBodyMap
+                                Prefs.impactLastQueryTime = now
+                            } else {
+                                impact = JsonUtil.decodeFromString(impactResponse)!!
+                            }
+                            pageViewsFromImpactApi = impact.totalPageviewsCount
+                        } catch (e: IOException) {
+                            L.e(e)
                         }
-
-                        val pagesResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(
-                            titles = impact.topViewedArticles.keys.joinToString(separator = "|")
-                        )
-
-                        // Transform the response to a map of PageTitle to ArticleViews
-                        val pageMap = pagesResponse.query?.pages?.associate { page ->
-                            val pageTitle = PageTitle(
-                                text = page.title,
-                                wiki = wikiSite,
-                                thumbUrl = page.thumbUrl(),
-                                description = page.description,
-                                displayText = page.displayTitle(wikiSite.languageCode)
-                            )
-                            pageTitle to impact.topViewedArticles[pageTitle.text]!!
-                        } ?: emptyMap()
-
-                        impact.topViewedArticlesWithPageTitle = pageMap
-                        impact
+                        pageViewsFromImpactApi
                     }
 
                     val editCountCall = async {
@@ -162,7 +152,7 @@ class YearInReviewViewModel() : ViewModel() {
                         }
                         response
                     }
-                    totalPageViews = impactDataJob.await().totalPageviewsCount
+                    totalPageViews = totalPageViewsJob.await()
                     editCount = editCountCall.await().items.sumOf { it.editCount }
                 }
 
@@ -219,7 +209,7 @@ class YearInReviewViewModel() : ViewModel() {
                             val geocoder = Geocoder(WikipediaApp.instance)
                             val results = geocoder.getFromLocation(largestClusterLatitude, largestClusterLongitude, 2)
                             if (!results.isNullOrEmpty()) {
-                                largestClusterCountryName = results.first().countryName
+                                largestClusterCountryName = results.first().countryName.orEmpty()
                             }
                             pagesWithCoordinates = largestCluster.locations.plus(pagesWithCoordinates.minus(
                                 largestCluster.locations.toSet()

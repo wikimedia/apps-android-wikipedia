@@ -66,6 +66,9 @@ class DescriptionEditView(context: Context, attrs: AttributeSet?) : LinearLayout
         get() = binding.viewDescriptionEditText.text.toString().trim()
         set(text) {
             binding.viewDescriptionEditText.setText(text)
+            if (!text.isNullOrEmpty()) {
+                binding.viewDescriptionEditText.setSelection(text.length)
+            }
         }
 
     init {

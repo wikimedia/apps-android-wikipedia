@@ -479,9 +479,9 @@
   <string name="error_blocked_start">Začátek blokování: %s</string>
   <string name="error_blocked_expiry">Konec blokování: %s</string>
   <string name="error_blocked_id">ID blokování: %s</string>
-  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%%3ASpr%%C3%%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
+  <string name="error_blocked_footer">Můžete kontaktovat &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; nebo jiného &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Správci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Přizpůsobte si panel nástrojů</string>
-  <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie%3ASpr%C3%A1vci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
+  <string name="error_blocked_footer_no_blocker">Můžete kontaktovat &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Správci\"&gt;správce&lt;/a&gt; a prodiskutovat s ním blok.</string>
   <string name="temp_account_not_logged_in">Nejste přihlášen(a)</string>
   <string name="temp_account_anon_ip_dialog_body">Když provedete editaci, vaše IP adresa bude přiřazena k vašim editacím.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo si &lt;a href=\"https://#createaccount\"&gt;vytvořte účet&lt;/a&gt;, abyste získal(a) ocenění za další příspěvky a dostal(a) přístup k dalším funkcím.</string>
   <string name="temp_account_anon_dialog_body">Jakmile provedete úpravu, bude pro vás vytvořen &lt;b&gt;dočasný účet,&lt;/b&gt; který bude chránit vaše soukromí. &lt;a href=\"%1$s\"&gt;Learn more&lt;/a&gt; .&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Přihlaste se&lt;/a&gt; nebo &lt;a href=\"https://#createaccount\"&gt;si vytvořte účet,&lt;/a&gt; abyste získali uznání za budoucí úpravy a přístup k dalším funkcím.</string>
@@ -1057,7 +1057,7 @@
   <string name="suggested_edits_feed_card_add_image_tags">Přidat značky obrázků</string>
   <string name="suggested_edits_task_action_text_add">Přidat</string>
   <string name="suggested_edits_task_action_text_translate">Přeložit</string>
-  <string name="suggested_edits_image_captions">Titulky obrázků</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Titulky obrázků</string>
   <string name="suggested_edits_image_tags">Značky obrázků</string>
   <string name="suggested_edits_image_tags_publishing">Zveřejňuje se</string>
   <string name="suggested_edits_image_tags_published">Zveřejněno</string>
@@ -1198,6 +1198,7 @@
   <string name="activity_tab_explore_wikipedia">Objevte na Wikipedii</string>
   <string name="activity_tab_discover_encourage">Hledáte něco nového ke čtení?</string>
   <string name="activity_tab_total_edits_all_projects">Editací celkem napříč projekty</string>
+  <string name="activity_tab_game_stats_best_streak">Nejdelší řada</string>
   <string name="activity_tab_menu_feedback">Problém s funkcí</string>
   <string name="activity_tab_menu_info">Další informace</string>
   <string name="activity_tab_menu_customize">Přizpůsobit</string>
@@ -1235,7 +1236,11 @@
     <item quantity="many">%d dne</item>
     <item quantity="other">%d dní</item>
   </plurals>
+  <string name="activity_tab_impact_best_streak">Nejdelší řada</string>
   <string name="activity_tab_impact_last_edited">Poslední editace</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 editací článků v poslední době</string>
+  <string name="activity_tab_impact_suggested_edits_message">Vypadá to, že jste tento měsíc neprovedli žádnou editaci. Rozšiřte bezplatné znalosti úpravou témat, která vás zajímají.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Provést editaci</string>
   <string name="activity_tab_impact_recent_activity">Vaše nedávná aktivita (posledních 30 dní)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
     <item quantity="one">Editace</item>
@@ -1266,6 +1271,7 @@
   <string name="activity_tab_onboarding_engage_message">Prozkoumejte statistiky her, uložených článků a dalších aktivit, které vás více spojují s Wikipedií.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Mějte vše pod kontrolou</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Vyberte, které moduly chcete zobrazit. Veškerá osobní data zůstanou soukromá na vašem zařízení a historii prohlížení lze kdykoli vymazat.</string>
+  <string name="edits_screen_what_is_title">Editace v aplikaci Wikipedia</string>
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
@@ -1749,6 +1755,7 @@
   <string name="recommended_reading_list_settings_notifications_subtitle">Wikipedie vám nezašle upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_notifications_subtitle_disable">Upozornění pro Objevit jsou vypnuta. Nebudete dostávat upozornění, když se Objevit aktualizuje.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Objevit je zapnutý. Wikipedie vám bude doporučovat články k přečtení.</string>
+  <string name="donation_settings_section_header">Dary</string>
   <string name="donation_reminders_prompt_positive_button">Přispějte teď</string>
   <string name="donation_reminders_prompt_negative_button">Teď ne</string>
   <string name="donation_reminders_gpay_text">Darovat %s přes Google Pay</string>

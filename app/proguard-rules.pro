@@ -39,9 +39,5 @@
     kotlinx.serialization.KSerializer serializer(...);
 }
 
-# --- Metrics Platform ---
--dontwarn edu.umd.cs.findbugs.annotations.SuppressFBWarnings
--dontwarn java.beans.ConstructorProperties
--dontwarn lombok.Generated
--dontwarn lombok.NonNull
-# --- /Metrics Platform ---
+-dontwarn com.google.re2j.Matcher
+-dontwarn com.google.re2j.Pattern

@@ -33,6 +33,7 @@
 * TARGET6tidiem
 * Thanhtai2009
 * Thingofme
+* Thuylieu
 * Vinhtantran
 * Yosari101
 -->
@@ -1169,8 +1170,17 @@
   <string name="activity_tab_customize_screen_reading_history_switch_title">Lịch sử đọc</string>
   <string name="activity_tab_impact">Hoạt động của bạn</string>
   <string name="activity_tab_impact_contributions_this_month">Đóng góp trong tháng này</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="other">sửa đổi trong tháng này</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="other">sửa đổi trong tháng trước</item>
+  </plurals>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="other">tổng số lượt sửa đổi</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">lượt cảm ơn</item>
   </plurals>
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="other">%d ngày</item>
@@ -1327,7 +1337,7 @@
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
   <string name="main_tooltip_action_button">Bắt đầu</string>
   <string name="main_tooltip_watchlist_title">Danh sách theo dõi</string>
-  <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong trình đơn Khác trong&lt;b&gt; Danh sách theo dõi&lt;/b&gt;</string>
+  <string name="main_tooltip_watchlist_text">Tìm các bài báo và trang bạn đã thêm trước đó vào danh sách theo dõi của mình trong bảng chọn Khác trong &lt;b&gt;Danh sách theo dõi&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Hủy bỏ</string>
@@ -1664,6 +1674,7 @@
   <string name="donate_gpay_dialog_pay_button">Quyên góp bằng Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Phương thức thanh toán khác</string>
   <string name="donate_gpay_activity_title">Chọn số tiền</string>
+  <string name="donate_gpay_activity_title_with_currency">Chọn số tiền (%s)</string>
   <string name="donate_gpay_check_recurring">Biến đây thành khoản quyên góp định kỳ hàng tháng.</string>
   <string name="donate_gpay_check_send_email">Vâng, Quỹ Wikimedia có thể gửi cho tôi email thường xuyên.</string>
   <string name="donate_gpay_success_message">&lt;b&gt;Cảm ơn bạn!&lt;/b&gt; Sự hào phóng của bạn dành cho Wikipedia có ý nghĩa rất lớn đối với chúng tôi.</string>
@@ -1732,6 +1743,9 @@
   <string name="year_in_review_learn_more">Tìm hiểu thêm</string>
   <string name="year_in_review_get_started">Bắt đầu</string>
   <string name="year_in_review_topbar_w_icon">Biểu tượng W của Wikipedia</string>
+  <string name="year_in_review_close">Đóng</string>
+  <string name="year_in_review_share_icon">Biểu tượng Chia sẻ</string>
+  <string name="year_in_review_donate">Quyên góp</string>
   <string name="year_in_review_survey_subtitle">Bạn có hài lòng với tính năng này không?</string>
   <string name="year_in_review_survey_very_satisfied">Rất hài lòng</string>
   <string name="year_in_review_survey_satisfied">Hài lòng</string>
@@ -1741,6 +1755,9 @@
   <string name="year_in_review_survey_placeholder_text">Bạn có suy nghĩ nào muốn chia sẻ không?</string>
   <string name="year_in_review_survey_cancel">Hủy bỏ</string>
   <string name="year_in_review_survey_submit">Gửi</string>
+  <string name="year_in_review_disable_negative_button">Không, cảm ơn</string>
+  <string name="settings_app_icon_title">Biểu tượng ứng dụng</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Không, cảm ơn</string>
   <string name="recommended_reading_list_title">Khám phá</string>
   <string name="recommended_reading_list_onboarding_card_title">Khám phá các bài viết được chọn lọc dành riêng cho bạn</string>
   <string name="recommended_reading_list_onboarding_card_new">Mới!</string>
@@ -1779,6 +1796,7 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">Dựa trên sở thích của bạn</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">Dựa trên những bài viết đã lưu của bạn</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">Dựa trên lịch sử đọc bài viết của bạn</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_action">Lùi lại</string>
   <string name="recommended_reading_list_settings_notifications_title">Thông báo</string>
   <string name="donation_settings_section_header">Khoản quyên góp</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Lời nhắc quyên góp</string>
@@ -1793,5 +1811,9 @@
   <string name="donation_reminders_prompt_positive_button">Quyên góp ngay</string>
   <string name="donation_reminders_prompt_negative_button">Để sau</string>
   <string name="donation_reminders_gpay_text">Quyên góp %s bằng Google Pay</string>
-  <string name="donation_reminders_experiment_label" fuzzy="true">Thử nghiệm</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Không, cảm ơn</string>
+  <string name="donation_reminders_experiment_label">THỬ NGHIỆM</string>
+  <string name="donation_reminders_settings_learn_more_button">Tìm hiểu thêm</string>
+  <string name="donation_reminders_settings_report_button">Vấn đề với tính năng</string>
+  <string name="explore_feed_survey_dialog_negative_button_label">Không, cảm ơn</string>
 </resources>
