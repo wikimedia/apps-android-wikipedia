@@ -1,4 +1,9 @@
 [versions]
+allureKotlinAndroid = "2.4.0"
+allureKotlinJunit4 = "2.4.0"
+allureKotlinCommons = "2.4.0"
+allureKotlinModel = "2.4.0"
+allureGradle = "3.0.1"
 appcompat = "1.7.1"
 balloon = "1.7.0"
 browser = "1.9.0"
@@ -52,6 +57,9 @@ composeViewModel = "2.10.0"
 
 
 [libraries]
+allure-kotlin-model = { module = "io.qameta.allure:allure-kotlin-model", version.ref = "allureKotlinModel" }
+allure-kotlin-commons = { module = "io.qameta.allure:allure-kotlin-commons", version.ref = "allureKotlinCommons" }
+allure-kotlin-junit4 = { module = "io.qameta.allure:allure-kotlin-junit4", version.ref = "allureKotlinJunit4" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
@@ -103,6 +111,7 @@ paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.re
 photoview = { module = "io.getstream:photoview", version.ref = "photoview" }
 plumber-android = { module = "com.squareup.leakcanary:plumber-android", version.ref = "leakCanaryVersion" }
 preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtx" }
+qameta-allure-kotlin-android = { module = "io.qameta.allure:allure-kotlin-android", version.ref = "allureKotlinAndroid" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 retrofit2-kotlinx-serialization-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
@@ -128,3 +137,6 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinStd
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinStdlibJdk8" }
 ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinStdlibJdk8" }
+allure-adapter = { id = "io.qameta.allure-adapter", version.ref = "allureGradle" }
+allure-report = { id = "io.qameta.allure-report", version.ref = "allureGradle" }
+allure-download = { id = "io.qameta.allure-download", version.ref = "allureGradle" }

@@ -56,7 +56,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     var composeTestRule = createComposeRule()
 
     @get:Rule
-    val permissionRule: GrantPermissionRule = GrantPermissionRule.grant(
+    val permissionRule: SafeGrantPermissionRule = SafeGrantPermissionRule.grant(
         Manifest.permission.POST_NOTIFICATIONS
     )
 

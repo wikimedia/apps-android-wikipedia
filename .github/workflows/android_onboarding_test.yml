@@ -1,0 +1,289 @@
+name: Android Onboarding Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'app/src/androidTest/java/org/wikipedia/tests/OnboardingTest.kt'
+      - 'app/src/androidTest/java/org/wikipedia/robots/feature/OnboardingRobot.kt'
+      - '.github/workflows/android_onboarding_test.yml'
+  pull_request:
+    paths:
+      - 'app/src/androidTest/java/org/wikipedia/tests/OnboardingTest.kt'
+      - 'app/src/androidTest/java/org/wikipedia/robots/feature/OnboardingRobot.kt'
+
+env:
+  GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"
+
+jobs:
+  onboarding-tests:
+    name: Run Onboarding Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build debug APK and test APK
+        run: |
+          ./gradlew assembleDevDebug assembleDevDebugAndroidTest --no-daemon --stacktrace
+
+      - name: Enable KVM group perms
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD cache
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-api-31-${{ runner.os }}
+
+      - name: Create AVD and generate snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 31
+          arch: x86_64
+          profile: pixel_6
+          target: google_apis
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: Run Onboarding Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 31
+          arch: x86_64
+          profile: pixel_6
+          target: google_apis
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: |
+            adb wait-for-device
+            adb shell settings put global window_animation_scale 0.0
+            adb shell settings put global transition_animation_scale 0.0
+            adb shell settings put global animator_duration_scale 0.0
+            
+            # Clean up any previous test storage data
+            adb shell rm -rf /sdcard/googletest/test_outputfiles/ || true
+            adb shell rm -rf /sdcard/allure-results || true
+            
+            # Run tests
+            ./gradlew connectedDevDebugAndroidTest --no-daemon --stacktrace -Pandroid.testInstrumentationRunnerArguments.class=org.wikipedia.tests.OnboardingTest || true
+            
+            # Debug: List potential result locations
+            echo "=== Debug: Checking all potential result locations ==="
+            echo "1. TestStorage (googletest):"
+            adb shell ls -laR /sdcard/googletest/ 2>/dev/null || echo "   No googletest dir"
+            
+            echo ""
+            echo "2. SDCard allure-results:"
+            adb shell ls -la /sdcard/allure-results/ 2>/dev/null || echo "   No /sdcard/allure-results"
+            
+            echo ""  
+            echo "3. App internal storage (org.wikipedia.dev):"
+            adb shell run-as org.wikipedia.dev ls -laR files/ 2>/dev/null || echo "   Cannot access"
+            
+            echo ""
+            echo "4. Test app storage (org.wikipedia.test):"
+            adb shell run-as org.wikipedia.test ls -laR files/ 2>/dev/null || echo "   Cannot access"
+            
+            echo ""
+            echo "5. Finding all allure-related files:"
+            adb shell find /sdcard -name "*allure*" -o -name "*result*.json" 2>/dev/null | head -30 || echo "   None found"
+            
+            echo ""
+            echo "6. Gradle output directories:"
+            ls -laR app/build/outputs/connected_android_test_additional_output/ 2>/dev/null || echo "   No connected_android_test_additional_output"
+            ls -laR app/build/outputs/androidTest-results/ 2>/dev/null || echo "   No androidTest-results"
+
+      - name: Pull Allure results from device
+        if: always()
+        run: |
+          chmod +x pull-allure-results.sh
+          
+          # Run the project's pull script (skip report generation, just pull)
+          # We'll generate report separately for better control
+          
+          mkdir -p allure-results
+          
+          echo "=== Searching for Allure results ==="
+          
+          # Check all known locations (from pull-allure-results.sh)  
+          LOCATIONS=(
+            "/sdcard/googletest/test_outputfiles/allure-results"
+            "/storage/emulated/0/googletest/test_outputfiles/allure-results"
+            "/sdcard/allure-results"
+            "/storage/emulated/0/allure-results"
+            "/data/local/tmp/allure-results"
+          )
+          
+          for loc in "${LOCATIONS[@]}"; do
+            echo "Checking: $loc"
+            if adb shell "test -d $loc" 2>/dev/null; then
+              echo "✓ Found directory at $loc"
+              adb shell "ls -la $loc" || true
+              
+              # Pull using tar to handle permissions
+              adb exec-out sh -c "cd $(dirname $loc) && tar cf - $(basename $loc)" 2>/dev/null | tar xvf - -C ./allure-results --strip-components=0 2>/dev/null || {
+                # Fallback to direct pull
+                adb pull "$loc" ./pulled-results/ 2>/dev/null || true
+                if [ -d "./pulled-results" ]; then
+                  cp -r ./pulled-results/* ./allure-results/ 2>/dev/null || true
+                  rm -rf ./pulled-results
+                fi
+              }
+            fi
+          done
+          
+          # Try pulling from app internal storage using run-as
+          echo ""
+          echo "Trying app internal storage with run-as..."
+          for pkg in "org.wikipedia.dev" "org.wikipedia.test"; do
+            echo "Checking $pkg..."
+            adb shell "run-as $pkg ls files/allure-results/" 2>/dev/null && {
+              echo "Found results in $pkg, pulling..."
+              mkdir -p ./pulled-from-app
+              # Use tar through run-as to preserve file structure
+              adb exec-out run-as $pkg sh -c "cd files && tar cf - allure-results" 2>/dev/null | tar xvf - -C ./pulled-from-app 2>/dev/null || true
+              if [ -d "./pulled-from-app/allure-results" ]; then
+                cp -r ./pulled-from-app/allure-results/* ./allure-results/ 2>/dev/null || true
+              fi
+              rm -rf ./pulled-from-app
+            } || true
+          done
+          
+          # Also check connected_android_test_additional_output (Gradle's output)
+          if [ -d "app/build/outputs/connected_android_test_additional_output" ]; then
+            echo "Found Gradle test output directory"
+            find app/build/outputs/connected_android_test_additional_output -name "*.json" -exec cp {} ./allure-results/ \; 2>/dev/null || true
+          fi
+          
+          # Flatten nested directories
+          if [ -d "allure-results/allure-results" ]; then
+            mv allure-results/allure-results/* allure-results/ 2>/dev/null || true
+            rm -rf allure-results/allure-results
+          fi
+          
+          echo ""
+          echo "=== Allure Results Summary ==="
+          ls -la ./allure-results/ 2>/dev/null || echo "No results directory"
+          echo "JSON files: $(find ./allure-results -name '*.json' -type f 2>/dev/null | wc -l)"
+
+      - name: Copy test results for Allure report  
+        if: always()
+        run: |
+          mkdir -p app/build/allure-results
+          
+          # Copy all result files to build directory
+          if [ -d "./allure-results" ]; then
+            cp -r ./allure-results/* app/build/allure-results/ 2>/dev/null || true
+          fi
+          
+          echo "=== Files in app/build/allure-results ==="
+          ls -la app/build/allure-results/ 2>/dev/null || echo "Empty"
+
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          # Download Allure commandline if not present and generate report
+          ./gradlew downloadAllure allureReport --no-daemon || {
+            echo "Gradle allure report failed, trying manual generation..."
+            
+            # Install Allure CLI manually as fallback
+            curl -o allure-2.27.0.tgz -Ls https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+            tar -xzf allure-2.27.0.tgz
+            
+            # Generate report manually
+            ./allure-2.27.0/bin/allure generate app/build/allure-results -o app/build/reports/allure-report --clean || echo "Manual generation also failed"
+          }
+          
+          echo "=== Allure Report Generated ==="
+          ls -la app/build/reports/allure-report/ || echo "Report directory not found"
+
+      - name: Upload Allure Results (Raw)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: |
+            allure-results/
+            app/build/allure-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload Allure HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: app/build/reports/allure-report/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload Android Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-test-results
+          path: |
+            app/build/reports/androidTests/
+            app/build/outputs/androidTest-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload Test APKs (for debugging)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-apks
+          path: |
+            app/build/outputs/apk/dev/debug/*.apk
+            app/build/outputs/apk/androidTest/dev/debug/*.apk
+          retention-days: 7
+
+      - name: Test Summary
+        if: always()
+        run: |
+          echo "## 🧪 Onboarding Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "app/build/reports/allure-report" ]; then
+            echo "✅ Allure report generated successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Download the **allure-report** artifact to view the detailed HTML report." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Allure report generation may have issues" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifacts Available:" >> $GITHUB_STEP_SUMMARY
+          echo "- **allure-results**: Raw Allure JSON results" >> $GITHUB_STEP_SUMMARY
+          echo "- **allure-report**: HTML report (open index.html)" >> $GITHUB_STEP_SUMMARY
+          echo "- **android-test-results**: Standard Android test reports" >> $GITHUB_STEP_SUMMARY
+

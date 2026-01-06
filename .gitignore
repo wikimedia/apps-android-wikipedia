@@ -44,3 +44,7 @@ device*.png
 
 # Log Files
 *.log
+
+# Allure results
+allure-results
+allure-report

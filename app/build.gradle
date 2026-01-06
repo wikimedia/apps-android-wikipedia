@@ -8,6 +8,9 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.allure.adapter)
+    alias(libs.plugins.allure.report)
+    alias(libs.plugins.allure.download)
 }
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
@@ -42,7 +45,7 @@ android {
         targetSdk = 36
         versionCode 50564
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "io.qameta.allure.android.runners.AllureAndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
@@ -254,7 +257,10 @@ dependencies {
     testImplementation libs.mockwebserver
     testImplementation libs.hamcrest
     testImplementation libs.room.testing
-
+    testImplementation libs.allure.kotlin.model
+    testImplementation libs.allure.kotlin.commons
+    testImplementation libs.allure.kotlin.junit4
+    androidTestImplementation libs.qameta.allure.kotlin.android
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.espresso.contrib
     androidTestImplementation libs.androidx.espresso.intents
@@ -286,6 +292,101 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+}
+
+// Allure configuration
+allure {
+    version = "2.34.1"
+    adapter {
+        autoconfigure.set(true)
+        aspectjWeaver.set(true)
+        // Results will be copied to build/allure-results by copyAllureResults task
+    }
+    report {
+        reportDir.set(file("$buildDir/reports/allure-report"))
+        dependsOnTests.set(false)
+    }
+    commandline {
+        // Ensure commandline is downloaded automatically
+    }
+}
+
+// Task to copy pulled results to build directory before report generation
+tasks.register('copyAllureResults') {
+    group = 'reporting'
+    description = 'Copies Allure results from project root to build directory'
+    
+    doLast {
+        def pulledResults = file("${project.rootDir}/allure-results")
+        // Allure Gradle plugin looks for results in build/allure-results by default
+        def buildResults = file("${buildDir}/allure-results")
+        
+        // Handle nested allure-results directory (common when pulling from device)
+        def nestedResults = file("${project.rootDir}/allure-results/allure-results")
+        def sourceDir = pulledResults
+        
+        if (nestedResults.exists() && nestedResults.listFiles()) {
+            sourceDir = nestedResults
+            println "📁 Found nested allure-results directory"
+        }
+        
+        if (sourceDir.exists() && sourceDir.listFiles()) {
+            // Clean and recreate the directory to ensure fresh copy
+            if (buildResults.exists()) {
+                delete buildResults
+            }
+            buildResults.mkdirs()
+            
+            copy {
+                from sourceDir
+                into buildResults
+            }
+            println "✅ Copied ${sourceDir.listFiles().length} result files to ${buildResults.absolutePath}"
+            println "   Files: ${buildResults.listFiles().collect { it.name }.join(', ')}"
+        } else {
+            println "⚠️  No pulled results found at ${pulledResults.absolutePath}"
+        }
+    }
+    
+    outputs.dir("${buildDir}/allure-results").optional()
+    inputs.dir("${project.rootDir}/allure-results").optional()
+}
+
+// Configure allureReport task to use pulled results
+afterEvaluate {
+    def buildResults = file("${buildDir}/allure-results")
+    
+    tasks.named('allureReport') {
+        // Ensure Allure commandline is downloaded first
+        // The allure-download plugin adds downloadAllure task
+        try {
+            dependsOn tasks.named('downloadAllure')
+        } catch (Exception ignored) {
+            // Try alternative task name
+            try {
+                dependsOn tasks.named('allureDownload')
+            } catch (Exception ignored2) {
+                // Task might not exist, that's okay - user will need to run download manually
+            }
+        }
+        
+        // Copy results before generating report
+        dependsOn tasks.named('copyAllureResults')
+        
+        // Ensure results directory exists and has files
+        doFirst {
+            if (!buildResults.exists() || !buildResults.listFiles()) {
+                throw new GradleException("No Allure results found in ${buildResults.absolutePath}. Make sure to run tests and pull results first.")
+            }
+            println "📊 Generating Allure report from ${buildResults.listFiles().length} result files in ${buildResults.absolutePath}"
+            // The Allure plugin should automatically find results in build/allure-results
+        }
+    }
+    
+    // Make allureServe depend on allureReport so it generates the report first
+    tasks.named('allureServe') {
+        dependsOn tasks.named('allureReport')
+    }
 }
 
 private setSigningConfigKey(config, Properties props) {
