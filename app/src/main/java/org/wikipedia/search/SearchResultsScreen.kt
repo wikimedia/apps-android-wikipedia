@@ -5,6 +5,8 @@ import android.location.Location
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,8 +41,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -121,7 +126,8 @@ fun SearchResultsScreen(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick
+                        onItemLongClick = onItemLongClick,
+                        isSemanticSearchExperimentOn = true
                     )
                 }
             }
@@ -135,11 +141,45 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    modifier: Modifier = Modifier
+    isSemanticSearchExperimentOn: Boolean = false
 ) {
-    LazyColumn(
-        modifier = modifier
-    ) {
+
+    if (isSemanticSearchExperimentOn) {
+        Box {
+            LazyColumn(
+                modifier = Modifier
+                    .padding(top = 24.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(searchResultsPage.itemCount) { index ->
+                    searchResultsPage[index]?.let {
+                        SearchResultTitleOnly(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable(onClick = {})
+                                .padding(horizontal = 16.dp),
+                            searchResultPage = it,
+                            searchTerm = searchTerm
+                        )
+                    }
+                }
+            }
+
+            SearchResultTitleOnlyBottomContent(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomStart)
+                    .background(WikipediaTheme.colors.paperColor)
+                    .clickable(
+                        onClick = {}
+                    ),
+                searchTerm = searchTerm
+            )
+        }
+        return
+    }
+
+    LazyColumn {
         items(
             count = searchResultsPage.itemCount
         ) { index ->
@@ -156,6 +196,64 @@ fun SearchResultsList(
                 )
             }
         }
+    }
+}
+
+@Composable
+fun SearchResultTitleOnly(
+    searchResultPage: SearchResult,
+    searchTerm: String?,
+    modifier: Modifier = Modifier
+) {
+    val (pageTitle, redirectFrom, type) = searchResultPage
+    val boldenTitle = remember(pageTitle.displayText, searchTerm) {
+        boldenAnnotatedString(pageTitle.displayText, searchTerm)
+    }
+    Box(
+        modifier = modifier
+    ) {
+        Text(
+            text = boldenTitle,
+            color = WikipediaTheme.colors.primaryColor,
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
+fun SearchResultTitleOnlyBottomContent(
+    modifier: Modifier = Modifier,
+    searchTerm: String?
+) {
+    val suggestionTitle = stringResource(R.string.semantic_search_suggestion_title)
+    Column(
+        modifier = modifier
+    ) {
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth(),
+            color = WikipediaTheme.colors.borderColor,
+        )
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            text = buildAnnotatedString {
+                append(suggestionTitle)
+                withStyle(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                ) {
+                    append(" ")
+                    append(searchTerm)
+                }
+            },
+            style = MaterialTheme.typography.bodySmall.copy(
+                fontWeight = FontWeight.Medium,
+                lineHeight = 18.sp
+            )
+        )
     }
 }
 

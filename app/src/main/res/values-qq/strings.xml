@@ -2091,4 +2091,5 @@
   <string name="explore_feed_survey_dialog_message">Message label for the explore feed survey dialog.</string>
   <string name="explore_feed_survey_dialog_positive_button_label">Positive label for the button that confirms taking explore feed survey.</string>
   <string name="explore_feed_survey_dialog_negative_button_label">Negative label for the button that dismisses explore feed survey.</string>
+  <string name="semantic_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the semantic search experiment is enabled.</string>
 </resources>
