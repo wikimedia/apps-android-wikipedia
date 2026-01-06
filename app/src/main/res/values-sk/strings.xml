@@ -19,6 +19,7 @@
 * Sudo77(new)
 * TWatz
 * TomášPolonec
+* Username1233219128
 * Vegetator
 * Yardom78
 -->
@@ -33,7 +34,9 @@
   <string name="search_hint">Hľadať na Wikipédii</string>
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať môj zoznam</string>
+  <string name="search_back_button_content_description">Vráť sa späť</string>
+  <string name="search_clear_query_content_description">Vyčistiť poradie</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zoznamy</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>
@@ -884,6 +887,7 @@
   <string name="customize_toolbar_reset_to_default_button">Vynulovať na predvolené</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Podržte a potiahnite ikonu pre posunutie položky</string>
   <string name="customize_toolbar_item_default_tooltip">Stlačte a presuňte položku</string>
+  <string name="suggested_edits_activity_title">Upraviť</string>
   <string name="suggested_edits_describe_articles">Popísať články</string>
   <string name="suggested_edits_caption_images">Otitulkovať obrázky</string>
   <string name="suggested_edits_tag_images">Označiť obrázky</string>
@@ -940,7 +944,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka súboru na Wikipédia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stránka súboru na Wikipédii</string>
   <string name="suggested_edits_article_cta_image_tags">Pridať štítky obrázkov</string>
-  <string name="suggested_edits_article_cta_image_caption">Pridať titulok obrázku v jazyku</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Pridať titulok obrázku v jazyku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Pridať titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
   <string name="suggested_edits_feed_card_add_image_caption">Pridať titulok obrázku</string>
@@ -1078,6 +1082,8 @@
   <string name="edit_summary_added_image_and_caption">Pridané obrázok a titulky</string>
   <string name="edit_published_view">Zobraziť</string>
   <string name="activity_tab_menu_info">Ďalšie informácie</string>
+  <string name="activity_tab_timeline_today">Dnes</string>
+  <string name="activity_tab_timeline_yesterday">Včera</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
@@ -1181,6 +1187,10 @@
   <string name="talk_user_title">Diskusia: %s</string>
   <string name="talk_new_topic">Nová téma</string>
   <string name="talk_new_topic_submitted">Téma zverejnená.</string>
+  <string name="talk_warn_save_dialog_title">Chcete uložiť zmeny?</string>
+  <string name="talk_warn_save_dialog_message">Uložiť ako novú správu</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Uložiť ako novú správu do zoznamu</string>
+  <string name="talk_warn_save_dialog_publish">Zverejniť</string>
   <string name="talk_warn_save_dialog_cancel">Zrušiť</string>
   <string name="talk_page_empty">Táto diskusná stránka je prázdna.</string>
   <string name="talk_add_reply">Odpovedať</string>
@@ -1274,10 +1284,10 @@
   <string name="revision_compare_two_only">Vybrané môžu byť len dve revízie.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmeniť</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">natrvalo</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">na 1 týždeň</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">na 1 mesiac</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">na 3 mesiace</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">na 6 mesiacov</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 týždeň</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mesiac</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mesiace</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mesiacov</string>
   <string name="watchlist_expiry_dialog_title">Vybrať dobu sledovania</string>
   <string name="watchlist_expiry_dialog_permanent">Natrvalo</string>
   <string name="watchlist_expiry_dialog_one_week">1 týždeň</string>
@@ -1293,6 +1303,12 @@
   <string name="watchlist_page_protected">Chránené</string>
   <string name="watchlist_page_deleted">Zmazané</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_automated_contributions_human">Človek (nie bot)</string>
+  <string name="watchlist_filter_significance_minor">Drobné úpravy</string>
+  <string name="watchlist_filter_type_of_change_header">Druh zmeny</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Úpravy stránok</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Založenia stránok</string>
+  <string name="watchlist_filter_type_of_change_new_users">Noví používatelia</string>
   <string name="action_item_categories">Kategórie</string>
   <string name="page_no_categories">Táto stránka nepatrí do žiadnej kategórie.</string>
   <string name="category_tab_articles">Články</string>
@@ -1302,14 +1318,21 @@
   <string name="search_namespaces">Menné priestory</string>
   <string name="revision_initial_none">Žiadne (toto je prvá revízia)</string>
   <string name="archive_empty">Nenašli sa žiadne archivované stránky.</string>
+  <string name="user_contrib_filter_all">Všetky menné priestory</string>
   <string name="talk_templates_new_message_save">Uložiť</string>
+  <string name="talk_templates_new_message_dialog_title">Uložiť zmeny</string>
   <string name="talk_templates_new_message_dialog_save">Uložiť</string>
   <string name="talk_templates_new_message_dialog_cancel">Zrušiť</string>
   <string name="talk_templates_edit_message_dialog_save">Uložiť</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zavrieť</string>
   <string name="patroller_tasks_filters_title">Filtre</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrovaní používatelia s viac ako 500 úpravami a 30 dňami aktivity.</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Človek (nie bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Drobné úpravy</string>
   <string name="patroller_tasks_overflow_learn">Ďalšie informácie</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Spätná väzba</string>
+  <string name="patroller_saved_message_title_final_warning">Posledné varovanie</string>
   <string name="talk_templates_menu_edit_title">Upraviť</string>
   <string name="survey_dialog_cancel">Zrušiť</string>
   <string name="survey_dialog_submit">Odoslať</string>
@@ -1328,9 +1351,13 @@
   <string name="year_in_review_learn_more">Ďalšie informácie</string>
   <string name="year_in_review_survey_cancel">Zrušiť</string>
   <string name="year_in_review_survey_submit">Odoslať</string>
+  <string name="year_in_review_disable_negative_button">Nie, vďaka</string>
   <string name="settings_app_icon_title">Ikona aplikácie</string>
   <string name="year_in_review_highlights_logo_description">Logo Wikipédie</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Nie, vďaka</string>
   <string name="recommended_reading_list_settings_section_header">Odporúčania</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Každý deň</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Každý týždeň</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Každé ráno</string>
   <string name="donation_reminders_prompt_negative_button">Teraz nie</string>
 </resources>

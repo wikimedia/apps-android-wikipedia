@@ -115,6 +115,7 @@
     <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
+    <string name="preference_key_event_platform_intake_base_uri_list">eventPlatformIntakeBaseUriList</string>
     <string name="preference_key_event_platform_stored_stream_configs">eventPlatformStoredStreamConfigs</string>
     <string name="preference_key_crash_report_local_class_name">crashReportLocalClassName</string>
     <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
@@ -205,6 +206,4 @@
     <string name="preference_key_yir_model_data">yirModelData</string>
     <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
-    <string name="preference_key_explore_feed_survey_shown">exploreFeedSurveyShown</string>
-
 </resources>

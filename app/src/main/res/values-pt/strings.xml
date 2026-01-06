@@ -1023,7 +1023,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">As etiquetas não publicadas não serão gravadas</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
-  <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, encontra abaixo algumas formas rápidas e divertidas de ajudar a melhorar a Wikipédia. Verá a diferença que está a fazer logo que começar. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>

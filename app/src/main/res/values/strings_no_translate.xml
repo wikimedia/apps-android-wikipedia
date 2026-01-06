@@ -5,7 +5,7 @@
 
     <!-- URLs -->
     <string name="support_email">android-support@wikimedia.org</string>
-    <string name="donate_url">https://donate.wikimedia.org/?wmf_medium=WikipediaApp&amp;wmf_campaign=Android&amp;wmf_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s</string>
+    <string name="donate_url">https://donate.wikimedia.org/?wmf_medium=WikipediaApp&amp;wmf_campaign=Android&amp;wmf_source=%1$s&amp;uselang=%2$s&amp;app_version=%3$s&amp;app_install_id=%4$s</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
@@ -39,7 +39,6 @@
     <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
     <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
-    <string name="explore_feed_survey_url">https://wikimedia.qualtrics.com/jfe/form/SV_4V0kURVL6q5Da6y</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

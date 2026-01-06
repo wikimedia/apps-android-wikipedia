@@ -2,6 +2,7 @@
 <!-- Authors:
 * Alex00728
 * Apzp79
+* Aspere
 * Bisang
 * Bluemersen
 * Codenstory
@@ -273,7 +274,7 @@
   <string name="privacy_policy_description">개인정보보호정책</string>
   <string name="terms_of_use_description">이용 약관</string>
   <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
@@ -887,7 +888,7 @@
   <string name="description_edit_help_title">정보: 문서 설명</string>
   <string name="description_edit_help_about_wikidata">위키데이터 정보</string>
   <string name="description_edit_help_wikidata_guide">설명 작성을 위한 위키데이터 안내서</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">문서 설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_helper_text_lowercase_warning">보통 소문자로 시작합니다</string>
@@ -1156,7 +1157,13 @@
   <string name="activity_tab_customize_screen_reading_history_switch_title">문서 열람 기록</string>
   <string name="activity_tab_impact">당신의 영향력</string>
   <string name="activity_tab_impact_most_viewed">당신의 편집 이후 가장 많이 보여진 항목</string>
-  <string name="activity_tab_impact_contributions_this_month">이번달 동안 한 기여</string>
+  <string name="activity_tab_impact_contributions_this_month">이번 달 동안 한 기여</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="other">이번 달의 편집</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="other">지난 달의 편집</item>
+  </plurals>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -1748,8 +1755,8 @@
   <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
-  <string name="year_in_review_learn_more" fuzzy="true">더 알아보기</string>
-  <string name="year_in_review_get_started" fuzzy="true">시작하기</string>
+  <string name="year_in_review_learn_more">더 알아보기</string>
+  <string name="year_in_review_get_started">시작하기</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
   <string name="year_in_review_share_icon">공유 아이콘</string>
   <string name="year_in_review_heart_icon">하트 아이콘</string>
@@ -1764,7 +1771,7 @@
   <string name="year_in_review_survey_placeholder_text">추가 의견이 있으신가요?</string>
   <string name="year_in_review_survey_cancel">취소</string>
   <string name="year_in_review_survey_submit">제출</string>
-  <string name="year_in_review_globe_icon" fuzzy="true">지구본 아이콘</string>
+  <string name="year_in_review_globe_icon">지구본 아이콘</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>

@@ -39,6 +39,7 @@
   <string name="search_icon_content_description">Søg</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mine lister</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
+  <string name="nav_item_activity">Aktivitet</string>
   <string name="nav_item_more">Mere</string>
   <string name="nav_item_search">Søg</string>
   <string name="nav_item_contribute">Bidrag</string>
@@ -51,7 +52,7 @@
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="error_back">Tilbage</string>
   <string name="error_next">Næste</string>
-  <string name="menu_clear_all_history" fuzzy="true">Ryd historik</string>
+  <string name="menu_clear_all_history">Se læsehistorik</string>
   <string name="history_item_deleted">%s fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler fjernet fra historikken</string>
   <string name="history_item_delete_undo">Fortryd</string>
@@ -64,7 +65,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
+  <string name="dialog_message_clear_history">Dette vil slette hele læsehistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nej</string>
   <string name="share_via">Del via</string>
@@ -408,6 +409,7 @@
   <string name="preference_title_collapse_tables">Fold tabeller sammen</string>
   <string name="preference_summary_collapse_tables">Sammenfold automatisk tabeller i artikler, såsom infobokse, referencer og noter.</string>
   <string name="nav_item_donate">Donér</string>
+  <string name="nav_item_year_in_review">Året i tilbageblik</string>
   <string name="error_voice_search_not_available">Beklager, stemmegenkendelse er ikke tilgængelig.</string>
   <string name="location_service_disabled">Placeringstjenester er slået fra.</string>
   <string name="enable_location_service">Aktiver</string>
@@ -435,7 +437,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
-  <string name="preference_title_delete_local_donation_history" fuzzy="true">Slet lokal donationshistorik</string>
+  <string name="preference_title_delete_local_donation_history">Slet donationshistorik</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Match systemtemaet</string>
   <string name="page_footer_license_text">Indholdet er tilgængeligt under $1 med mindre andet er angivet</string>
   <string name="empty_tab_title">Ny fane</string>
@@ -934,6 +936,7 @@
   <string name="customize_toolbar_reset_to_default_button">Nulstil til standard</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Hold trækikonet nede for at flytte elementet</string>
   <string name="customize_toolbar_item_default_tooltip">Tryk og træk et element for at flytte det</string>
+  <string name="suggested_edits_activity_title">Rediger</string>
   <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_caption_images">Skriv billedtekster</string>
   <string name="suggested_edits_tag_images">Tag billeder</string>
@@ -1146,6 +1149,65 @@
   <string name="edit_summary_added_caption">Tilføjede billedtekst</string>
   <string name="edit_summary_added_image_and_caption">Tilføjede billede og billedtekst</string>
   <string name="edit_published_view">Vis</string>
+  <string name="activity_tab_logged_out_title">Log ind eller opret en konto for at se din aktivitet i Wikipedia-appen</string>
+  <string name="activity_tab_user_reading">%s\'s læsning</string>
+  <string name="activity_tab_on_wikipedia_android">På Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$d t %2$d m</string>
+  <string name="activity_tab_weekly_time_spent">Tid brugt på at læse denne uge</string>
+  <string name="activity_tab_monthly_articles_read">Artikler læst denne måned</string>
+  <string name="activity_tab_monthly_articles_saved">Artikler gemt denne måned</string>
+  <string name="activity_tab_monthly_top_categories">Mest læste kategorier denne måned</string>
+  <string name="activity_tab_explore_wikipedia">Opdag med Wikipedia</string>
+  <string name="activity_tab_discover_encourage">Leder du efter noget nyt at læse?</string>
+  <string name="activity_tab_donation_unknown">Ukendt</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Sidste donation&lt;/b&gt; i appen</string>
+  <string name="activity_tab_total_edits_all_projects">Samlede redigeringer på tværs af projekter</string>
+  <string name="activity_tab_game_stats">Spilstatistik</string>
+  <string name="activity_tab_game_stats_best_streak">Bedste serie</string>
+  <string name="activity_tab_play_wiki_games">Spil WikiGames</string>
+  <string name="activity_tab_report_email_body">Jeg er stødt på et problem med funktionen i fanen Aktivitet:\n- [Beskriv det specifikke problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv den foreslåede løsning]</string>
+  <string name="activity_tab_menu_feedback">Problem med funktion</string>
+  <string name="activity_tab_menu_info">Lær mere</string>
+  <string name="activity_tab_menu_customize">Tilpas</string>
+  <string name="activity_tab_menu_customize_description">Læseindsigt er baseret på dine appsprog i indstillingerne, og redigeringsindsigt er begrænset til dit primære appsprog. Indsigt udnytter lokale data, med undtagelse af redigeringer, som er offentlige.</string>
+  <string name="activity_tab_highlights">Højdepunkter</string>
+  <string name="activity_tab_customize_screen_reading_history_switch_title">Læsehistorik</string>
+  <string name="activity_tab_impact">Din indflydelse</string>
+  <string name="activity_tab_impact_most_viewed">Mest sete siden din redigering</string>
+  <string name="activity_tab_impact_contributions_this_month">Bidrag denne måned</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">redigering denne måned</item>
+    <item quantity="other">redigeringer denne måned</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">redigering sidste måned</item>
+    <item quantity="other">redigeringer sidste måned</item>
+  </plurals>
+  <string name="activity_tab_impact_all_time">Indflydekse gennem tiderne</string>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="one">tak</item>
+    <item quantity="other">tak</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d dag</item>
+    <item quantity="other"> %d dage</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Bedste serie</string>
+  <string name="activity_tab_impact_last_edited">Sidst redigeret</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 redigeringer af artikler for nylig</string>
+  <string name="activity_tab_impact_suggested_edits_message">Det ser ud til, at du ikke har foretaget en redigering i denne måned. Udvid den frie viden ved at redigere emner, der interesserer dig.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Lav en redigering</string>
+  <string name="activity_tab_impact_recent_activity">Din seneste aktivitet (de seneste 30 dage)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Redigering</item>
+    <item quantity="other">Redigeringer</item>
+  </plurals>
+  <string name="activity_tab_timeline_today">I dag</string>
+  <string name="activity_tab_timeline_yesterday">I går</string>
+  <string name="activity_tab_timeline_empty_state_title">Intet at vise</string>
+  <string name="activity_tab_timeline_empty_state_message">Begynd at læse og redigere for at opbygge din historik</string>
+  <string name="activity_tab_timeline_view_changes_button">Vis ændringer</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Læsemønstre</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Tilføj billedtekst</string>
   <string name="file_page_add_image_tags_button">Tilføj billedtags</string>
@@ -1647,7 +1709,7 @@
   <string name="email_report_patroller_tasks_subject">Problemrapport - Rediger Patruljefunktion</string>
   <string name="email_report_patroller_tasks_body">Jeg har stødt på et problem med Rediger Patruljefunktion:\n- [Beskriv specifikt problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv foreslået løsning]\n\n[Skærmbilleder eller links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vi vil minde dig om det igen i morgen.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Tak, kære donor! Din generøsitet hjælper med at holde Wikipedia og dets søsterwebsteder i gang.</string>
+  <string name="donation_campaign_donated_snackbar">Tak, kære donor! Din generøsitet hjælper med at holde Wikipedia og dets søsterwebsteder i gang.</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>
   <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
   <string name="donate_gpay_dialog_title">Donér med Google Pay?</string>
@@ -1665,7 +1727,7 @@
   <string name="donate_gpay_help_other_ways">Andre måder at give på</string>
   <string name="donate_gpay_help_faq">Ofte stillede spørgsmål</string>
   <string name="donate_gpay_help_tax">Information om skattefradrag</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Donorhistorik slettet</string>
+  <string name="donation_history_deleted_message_snackbar">Donorhistorik slettet.</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Placeringstilladelse er påkrævet for at se din placering på kortet. Prøv igen.</string>
   <string name="places_search_hint">Søg steder</string>
@@ -1763,7 +1825,48 @@
   <string name="on_this_day_game_continue_playing_btn_text">Fortsæt med at spille</string>
   <string name="on_this_day_game_sound_on">Tænd for lyden</string>
   <string name="on_this_day_game_sound_off">Sluk for lyden</string>
+  <string name="year_in_review_learn_more">Lær mere</string>
+  <string name="year_in_review_get_started">Kom i gang</string>
+  <string name="year_in_review_topbar_w_icon">Wikipedia W-ikon</string>
+  <string name="year_in_review_navigate_left">Naviger til venstre</string>
+  <string name="year_in_review_close">Luk</string>
+  <string name="year_in_review_share_icon">Del ikon</string>
+  <string name="year_in_review_heart_icon">Hjerteikon</string>
+  <string name="year_in_review_navigate_right">Naviger til højre</string>
+  <string name="year_in_review_donate">Donér</string>
+  <string name="year_in_review_information_icon">Informationsikon</string>
+  <string name="year_in_review_get_started_headline">Udforsk din Wikipedia-årsoversigt</string>
+  <string name="year_in_review_get_started_bodytext">Få indblik i hvilke artikler du har læst i Wikipedia-appen, og hvilke ændringer du har foretaget.</string>
+  <string name="year_in_review_get_started_info">Din læsehistorik holdes beskyttet. Læseindsigt beregnes ved hjælp af lokalt lagrede data på din enhed.</string>
+  <string name="year_in_review_get_started_later">Du kan få adgang til dit årsoverblik senere i menupunktet Mere.</string>
+  <string name="year_in_review_survey_title">Hjælp med at forbedre Årets Oversigt</string>
+  <string name="year_in_review_survey_subtitle">Er du tilfreds med denne funktion?</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Er du tilfreds med din læseliste?</string>
+  <string name="year_in_review_survey_very_satisfied">Meget tilfreds</string>
+  <string name="year_in_review_survey_satisfied">Tilfreds</string>
+  <string name="year_in_review_survey_neutral">Neutral</string>
+  <string name="year_in_review_survey_unsatisfied">Utilfreds</string>
+  <string name="year_in_review_survey_very_unsatisfied">Meget utilfreds</string>
+  <string name="year_in_review_survey_placeholder_text">Yderligere tanker?</string>
+  <string name="year_in_review_survey_cancel">Annullér</string>
+  <string name="year_in_review_survey_submit">Indsend</string>
+  <string name="year_in_review_disable_title">Er du sikker på, at du vil deaktivere Årsoversigt?</string>
+  <string name="year_in_review_disable_positive_button">Ja, jeg er sikker</string>
+  <string name="year_in_review_disable_negative_button">Nej tak</string>
+  <string name="year_in_review_setting_subtitle">Hvis du slår Årsoversigt fra, ryddes alle gemte personlige indsigter, og Årsoversigten skjules.</string>
   <string name="year_in_review_screenshot_error">Kunne ikke generere skærmbillede: %s</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Du har klare læsemønstre</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Yndlingstidspunkt at læse</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Yndlingsdag at læse</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Måned du læste mest</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Morgen</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Middag</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Eftermiddag</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Aften</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nat</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Sent på natten</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
@@ -1846,4 +1949,8 @@
   <string name="recommended_reading_list_notification_subtitle">Tryk for at se dine seneste anbefalinger.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Når din Opdage er opdateret, sender Wikipedia dig en notifikation.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Opdage er slået til. Wikipedia vil anbefale dig artikler at læse.</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nej tak</string>
+  <string name="donation_reminders_experiment_label">EKSPERIMENT</string>
+  <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
+  <string name="donation_reminders_settings_report_button">Problem med funktion</string>
 </resources>
