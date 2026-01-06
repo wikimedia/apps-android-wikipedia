@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,17 +52,26 @@ fun NoSearchResults(
         ) {
             items(countsPerLanguageCode.size) { index ->
                 val (langCode, count) = countsPerLanguageCode[index]
-                val color = if (count == 0) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.progressiveColor
+                val color =
+                    if (count == 0) WikipediaTheme.colors.secondaryColor else WikipediaTheme.colors.progressiveColor
 
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable(onClick = { onLanguageClick(index) })
+                        .then(
+                            if (count > 0) {
+                                Modifier.clickable(onClick = { onLanguageClick(index) })
+                            } else Modifier
+                        )
                         .padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = if (count == 0) stringResource(R.string.search_results_count_zero) else pluralStringResource(R.plurals.search_results_count, count, count),
+                        text = if (count == 0) stringResource(R.string.search_results_count_zero) else pluralStringResource(
+                            R.plurals.search_results_count,
+                            count,
+                            count
+                        ),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
                         ),
@@ -76,14 +89,17 @@ fun NoSearchResults(
                                     color,
                                     RoundedCornerShape(4.dp)
                                 )
+                                .size(21.dp)
                         ) {
-                            Text(
+                            BasicText(
                                 modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
                                 text = langCode.uppercase(),
-                                fontSize = 10.sp,
-                                fontFamily = FontFamily.Monospace,
-                                fontWeight = FontWeight.Bold,
-                                color = color
+                                autoSize = TextAutoSize.StepBased(minFontSize = 1.sp, maxFontSize = 10.sp, stepSize = 1.sp),
+                                style = TextStyle(
+                                    fontFamily = FontFamily.Monospace,
+                                    fontWeight = FontWeight.Bold,
+                                    color = color
+                                )
                             )
                         }
                     }
@@ -104,8 +120,8 @@ private fun NoSearchResultsPreview() {
                 .padding(16.dp),
             countsPerLanguageCode = listOf(
                 "en" to 10,
-                "np" to 5,
-                "es" to 7,
+                "ne" to 5,
+                "ZH-TW" to 7,
             ),
             onLanguageClick = {},
             invokeSource = Constants.InvokeSource.SEARCH,
