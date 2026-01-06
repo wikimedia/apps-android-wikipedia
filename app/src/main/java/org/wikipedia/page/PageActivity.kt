@@ -577,8 +577,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
                 ACTION_LOAD_IN_CURRENT_TAB_SQUASH -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB_SQUASH)
             }
-            if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
-                showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)!!)
+            intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)?.let {
+                showDescriptionEditRevertDialog(it)
             }
         } else if (ACTION_LOAD_FROM_EXISTING_TAB == intent.action && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
