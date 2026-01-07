@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -153,11 +154,12 @@ fun SearchResultsList(
 ) {
 
     if (semanticSearchConfig.isSemanticSearchExperimentOn) {
-        Box {
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
             LazyColumn(
                 modifier = Modifier
                     .padding(top = 24.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(searchResultsPage.itemCount) { index ->
                     searchResultsPage[index]?.let {
@@ -167,7 +169,7 @@ fun SearchResultsList(
                                 .clickable(onClick = {
                                     semanticSearchConfig.onTitleClick(it)
                                 })
-                                .padding(horizontal = 16.dp),
+                                .padding(horizontal = 16.dp, vertical = 8.dp),
                             searchResultPage = it,
                             searchTerm = searchTerm
                         )
