@@ -53,7 +53,6 @@ class CreateAccountActivity : BaseActivity() {
 
     private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
         override fun onSuccess(token: String) {
-            showProgressBar(false)
             doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
         }
 
