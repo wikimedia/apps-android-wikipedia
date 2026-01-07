@@ -14,4 +14,8 @@ class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
     fun isTestGroupUser(): Boolean {
         return group == GROUP_2
     }
+
+    val enabledCountries = listOf(
+        "EN", "FR", "PT"
+    )
 }
