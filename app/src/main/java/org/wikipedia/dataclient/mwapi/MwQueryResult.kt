@@ -79,6 +79,10 @@ class MwQueryResult {
         return amInfo?.requests?.find { it.fields?.containsKey(key) == true }?.fields?.get(key)?.value
     }
 
+    fun hasHCaptchaRequest(): Boolean {
+        return amInfo?.requests?.find { it.provider.orEmpty().lowercase().contains("hcaptcha") } != null
+    }
+
     fun getUserResponse(userName: String): UserInfo? {
         // MediaWiki user names are case sensitive, but the first letter is always capitalized.
         return users?.find { StringUtil.capitalize(userName) == it.name }
