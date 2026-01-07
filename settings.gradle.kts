@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 }
 
 include(":app")
+include(":analytics:testkitchen")
