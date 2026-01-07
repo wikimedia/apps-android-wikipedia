@@ -81,6 +81,7 @@ class SearchResultsViewModel : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
+                prefixSearch = params.key == null
                 val result = repository.search(
                     searchTerm = searchTerm,
                     languageCode = languageCode,

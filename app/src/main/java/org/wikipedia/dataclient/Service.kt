@@ -718,7 +718,7 @@ interface Service {
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
-        const val PREFERRED_THUMB_SIZE = 320
+        const val PREFERRED_THUMB_SIZE = 330
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400

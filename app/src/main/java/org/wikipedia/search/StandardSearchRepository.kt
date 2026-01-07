@@ -42,6 +42,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
                 }
             }
             response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, batchSize, 0)
+            currentContinuation = 0
         }
 
         resultList.addAll(response?.query?.pages?.let { list ->
