@@ -1,0 +1,22 @@
+package org.wikimedia.testkitchen.context
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+/**
+ * Client metadata context fields.
+ *
+ * ClientData includes immutable and mutable contextual data from the client.
+ * This metadata is added to every event submission when queued for processing.
+ *
+ * All fields of nested data objects are nullable, and boxed types are used in place of their equivalent primitive types
+ * to avoid unexpected default values from being used where the true value is null.
+ */
+@Serializable
+open class ClientData(
+    @SerialName("agent") val agentData: AgentData? = null,
+    @SerialName("page") val pageData: PageData? = null,
+    @SerialName("mediawiki") val mediawikiData: MediawikiData? = null,
+    @SerialName("performer") val performerData: PerformerData? = null,
+    val domain: String? = null
+)
