@@ -55,7 +55,7 @@ class StreamConfig {
     @Serializable
     class MetricsPlatformClientConfig {
         // TODO: how is this used?
-        @SerialName("events") var events: List<String>? = null
+        var events: List<String>? = null
         @SerialName("provide_values") var requestedValues: List<String>? = null
         @SerialName("curation") var curationFilter: CurationFilter? = null
     }

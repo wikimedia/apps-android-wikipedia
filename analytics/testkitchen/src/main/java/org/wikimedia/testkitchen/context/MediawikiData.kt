@@ -1,6 +1,5 @@
 package org.wikimedia.testkitchen.context
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -8,5 +7,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 class MediawikiData(
-    @SerialName("database") var database: String? = null
+    var database: String? = null
 )

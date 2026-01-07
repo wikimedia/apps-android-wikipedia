@@ -26,7 +26,7 @@ class Event {
     @SerialName("mediawiki") var mediawikiData: MediawikiData? = null
     @SerialName("performer") var performerData: PerformerData? = null
 
-    @SerialName("action") var action: String? = null
+    var action: String? = null
     @SerialName("action_subtype") private var actionSubtype: String? = null
     @SerialName("action_source") private var actionSource: String? = null
     @SerialName("action_context") private var actionContext: String? = null
@@ -36,7 +36,7 @@ class Event {
     @SerialName("funnel_event_sequence_position") private var funnelEventSequencePosition: Int? = null
 
     // TODO?
-    @SerialName("sample") var sample: SampleConfig? = null
+    var sample: SampleConfig? = null
 
     @Serializable
     class Meta(

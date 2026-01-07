@@ -18,5 +18,5 @@ open class ClientData(
     @SerialName("page") val pageData: PageData? = null,
     @SerialName("mediawiki") val mediawikiData: MediawikiData? = null,
     @SerialName("performer") val performerData: PerformerData? = null,
-    @SerialName("domain") val domain: String? = null
+    val domain: String? = null
 )

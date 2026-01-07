@@ -16,12 +16,12 @@ import java.time.Instant
 @Serializable
 data class PerformerData(
     var id: Int? = null,
-    @SerialName("name") var name: String? = null,
+    var name: String? = null,
     @SerialName("is_logged_in") var isLoggedIn: Boolean? = null,
     @SerialName("is_temp") var isTemp: Boolean? = null,
     @SerialName("session_id") var sessionId: String? = null,
     @SerialName("pageview_id") var pageviewId: String? = null,
-    @SerialName("groups") var groups: Collection<String>? = null,
+    var groups: Collection<String>? = null,
     @SerialName("language_groups") var languageGroups: String? = null,
     @SerialName("language_primary") var languagePrimary: String? = null,
     @SerialName("registration_dt") var registrationDt: Instant? = null
