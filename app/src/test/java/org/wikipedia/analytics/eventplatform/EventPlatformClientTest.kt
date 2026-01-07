@@ -8,10 +8,13 @@ import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.wikimedia.testkitchen.config.DestinationEventService
+import org.wikimedia.testkitchen.config.StreamConfig
+import org.wikimedia.testkitchen.config.StreamConfigCollection
+import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient.SamplingController
 import org.wikipedia.dataclient.ServiceFactory.getAnalyticsRest
-import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.test.TestFileUtil
@@ -34,7 +37,9 @@ class EventPlatformClientTest {
 
     @Test
     fun testGetStream() {
-        EventPlatformClient.setStreamConfig(StreamConfig("test", null, null))
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "test"
+        })
         MatcherAssert.assertThat(
             EventPlatformClient.getStreamConfig("test"), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
@@ -77,7 +82,9 @@ class EventPlatformClientTest {
 
     @Test
     fun testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        EventPlatformClient.setStreamConfig(StreamConfig("configured", null, null))
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "configured"
+        })
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("configured")),
             CoreMatchers.`is`(true)
@@ -86,9 +93,10 @@ class EventPlatformClientTest {
 
     @Test
     fun testAlwaysInSample() {
-        EventPlatformClient.setStreamConfig(
-            StreamConfig("alwaysInSample", SamplingConfig(1.0), null)
-        )
+        EventPlatformClient.setStreamConfig(StreamConfig().also {
+            it.streamName = "alwaysInSample"
+            it.sampleConfig = SampleConfig(1.0)
+        })
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("alwaysInSample")),
             CoreMatchers.`is`(true)
@@ -98,7 +106,10 @@ class EventPlatformClientTest {
     @Test
     fun testNeverInSample() {
         EventPlatformClient.setStreamConfig(
-            StreamConfig("neverInSample", SamplingConfig(0.0), null)
+            StreamConfig().also {
+                it.streamName = "neverInSample"
+                it.sampleConfig = SampleConfig(0.0)
+            }
         )
         MatcherAssert.assertThat(
             SamplingController.isInSample(TestEvent("neverInSample")),
@@ -108,13 +119,13 @@ class EventPlatformClientTest {
 
     @Test
     fun testSamplingControllerGetSamplingValue() {
-        val deviceVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_DEVICE)
+        val deviceVal = SamplingController.getSamplingValue(SampleConfig.UNIT_DEVICE)
         MatcherAssert.assertThat(deviceVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(deviceVal, Matchers.lessThanOrEqualTo(1.0))
-        val pageViewVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_PAGEVIEW)
+        val pageViewVal = SamplingController.getSamplingValue(SampleConfig.UNIT_PAGEVIEW)
         MatcherAssert.assertThat(pageViewVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(pageViewVal, Matchers.lessThanOrEqualTo(1.0))
-        val sessionVal = SamplingController.getSamplingValue(SamplingConfig.UNIT_SESSION)
+        val sessionVal = SamplingController.getSamplingValue(SampleConfig.UNIT_SESSION)
         MatcherAssert.assertThat(sessionVal, Matchers.greaterThanOrEqualTo(0.0))
         MatcherAssert.assertThat(sessionVal, Matchers.lessThanOrEqualTo(1.0))
     }
@@ -122,19 +133,22 @@ class EventPlatformClientTest {
     @Test
     fun testSamplingControllerGetSamplingId() {
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SampleConfig.UNIT_DEVICE), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SampleConfig.UNIT_PAGEVIEW), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
         MatcherAssert.assertThat(
-            SamplingController.getSamplingId(SamplingConfig.UNIT_SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
+            SamplingController.getSamplingId(SampleConfig.UNIT_SESSION), CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
     }
 
     @Test
     fun testGetEventService() {
-        val streamConfig = StreamConfig("test", null, DestinationEventService.LOGGING)
+        val streamConfig = StreamConfig().also {
+            it.streamName = "test"
+            it.destinationEventService = DestinationEventService.LOGGING
+        }
         MatcherAssert.assertThat(
             getAnalyticsRest(streamConfig),
             CoreMatchers.`is`(CoreMatchers.notNullValue())
@@ -143,7 +157,9 @@ class EventPlatformClientTest {
 
     @Test
     fun testGetEventServiceDefaultDestination() {
-        val streamConfig = StreamConfig("test", null, null)
+        val streamConfig = StreamConfig().also {
+            it.streamName = "test"
+        }
         MatcherAssert.assertThat(
             getAnalyticsRest(streamConfig),
             CoreMatchers.`is`(CoreMatchers.notNullValue())
@@ -153,7 +169,7 @@ class EventPlatformClientTest {
     @Ignore("Disabled because of flakiness on CI systems, and only marginally useful.")
     @Test
     fun testStreamConfigMapSerializationDeserialization() {
-        val originalStreamConfigs = JsonUtil.decodeFromString<MwStreamConfigsResponse>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
+        val originalStreamConfigs = JsonUtil.decodeFromString<StreamConfigCollection>(TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE))!!.streamConfigs
         Prefs.streamConfigs = originalStreamConfigs
         val restoredStreamConfigs = Prefs.streamConfigs
         MatcherAssert.assertThat(
