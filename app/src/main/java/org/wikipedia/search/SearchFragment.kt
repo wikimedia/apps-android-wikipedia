@@ -63,6 +63,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
+            // TODO: if semantic search experiment is on start deep search
             return true
         }
 

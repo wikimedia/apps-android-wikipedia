@@ -127,7 +127,15 @@ fun SearchResultsScreen(
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
-                        isSemanticSearchExperimentOn = true
+                        semanticSearchConfig = SemanticSearchConfig(
+                            isSemanticSearchExperimentOn = true,
+                            onTitleClick = { searchResult ->
+                                // TODO: if semantic search experiment is on start deep search
+                            },
+                            onSuggestionTitleClick = { searchTerm ->
+                                // TODO: if semantic search experiment is on start deep search
+                            }
+                        )
                     )
                 }
             }
@@ -141,10 +149,10 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    isSemanticSearchExperimentOn: Boolean = false
+    semanticSearchConfig: SemanticSearchConfig
 ) {
 
-    if (isSemanticSearchExperimentOn) {
+    if (semanticSearchConfig.isSemanticSearchExperimentOn) {
         Box {
             LazyColumn(
                 modifier = Modifier
@@ -156,7 +164,9 @@ fun SearchResultsList(
                         SearchResultTitleOnly(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable(onClick = {})
+                                .clickable(onClick = {
+                                    semanticSearchConfig.onTitleClick(it)
+                                })
                                 .padding(horizontal = 16.dp),
                             searchResultPage = it,
                             searchTerm = searchTerm
@@ -171,7 +181,7 @@ fun SearchResultsList(
                     .align(Alignment.BottomStart)
                     .background(WikipediaTheme.colors.paperColor)
                     .clickable(
-                        onClick = {}
+                        onClick = { semanticSearchConfig.onSuggestionTitleClick(searchTerm) }
                     ),
                 searchTerm = searchTerm
             )

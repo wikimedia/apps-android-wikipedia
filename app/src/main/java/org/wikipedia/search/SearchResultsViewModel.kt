@@ -110,3 +110,9 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 }
+
+data class SemanticSearchConfig(
+    val isSemanticSearchExperimentOn: Boolean = false,
+    val onTitleClick: (SearchResult) -> Unit,
+    val onSuggestionTitleClick: (String?) -> Unit
+)
