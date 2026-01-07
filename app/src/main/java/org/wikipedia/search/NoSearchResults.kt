@@ -3,7 +3,8 @@ package org.wikipedia.search
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,7 +83,7 @@ fun NoSearchResults(
                     )
 
                     if (countsPerLanguageCode.size > 1) {
-                        Box(
+                        Column(
                             modifier = Modifier
                                 .align(Alignment.CenterVertically)
                                 .background(color = WikipediaTheme.colors.paperColor).border(
@@ -89,7 +91,9 @@ fun NoSearchResults(
                                     color,
                                     RoundedCornerShape(4.dp)
                                 )
-                                .size(21.dp)
+                                .size(21.dp),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             BasicText(
                                 modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
@@ -98,8 +102,9 @@ fun NoSearchResults(
                                 style = TextStyle(
                                     fontFamily = FontFamily.Monospace,
                                     fontWeight = FontWeight.Bold,
-                                    color = color
-                                )
+                                    color = color,
+                                    textAlign = TextAlign.Center
+                                ),
                             )
                         }
                     }
