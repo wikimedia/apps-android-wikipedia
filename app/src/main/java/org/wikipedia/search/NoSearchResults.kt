@@ -22,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,6 +32,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -91,16 +91,15 @@ fun NoSearchResults(
                                     color,
                                     RoundedCornerShape(4.dp)
                                 )
-                                .size(21.dp),
+                                .size(20.dp),
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             BasicText(
-                                modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
-                                text = langCode.uppercase(),
+                                modifier = Modifier.padding(0.5.dp),
+                                text = LanguageUtil.formatLangCodeForButton(langCode.uppercase()),
                                 autoSize = TextAutoSize.StepBased(minFontSize = 1.sp, maxFontSize = 10.sp, stepSize = 1.sp),
                                 style = TextStyle(
-                                    fontFamily = FontFamily.Monospace,
                                     fontWeight = FontWeight.Bold,
                                     color = color,
                                     textAlign = TextAlign.Center
