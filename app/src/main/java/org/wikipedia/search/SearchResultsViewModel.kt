@@ -73,22 +73,19 @@ class SearchResultsViewModel : ViewModel() {
         private val repository: SearchRepository<StandardSearchResults>,
     ) : PagingSource<Int, SearchResult>() {
 
-        private var prefixSearch = true
-
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
             return try {
                 if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                prefixSearch = params.key == null
                 val result = repository.search(
                     searchTerm = searchTerm,
                     languageCode = languageCode,
                     invokeSource = invokeSource,
                     continuation = params.key,
                     batchSize = params.loadSize,
-                    isPrefixSearch = prefixSearch,
+                    isPrefixSearch = params.key == null,
                     countsPerLanguageCode = countsPerLanguageCode
                 )
 
@@ -105,7 +102,6 @@ class SearchResultsViewModel : ViewModel() {
         }
 
         override fun getRefreshKey(state: PagingState<Int, SearchResult>): Int? {
-            prefixSearch = true
             return null
         }
     }

@@ -36,15 +36,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -52,17 +48,16 @@ import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.extensions.toAnnotatedString
+import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun SearchResultsScreen(
     modifier: Modifier = Modifier,
-    viewModel: SearchResultsViewModel = viewModel(),
+    viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
@@ -181,7 +176,7 @@ fun SearchResultPageItem(
         !pageTitle.thumbUrl.isNullOrEmpty()
 
     val boldenTitle = remember(pageTitle.displayText, searchTerm) {
-        boldenAnnotatedString(pageTitle.displayText, searchTerm)
+        pageTitle.displayText.toAnnotatedStringWithBoldQuery(searchTerm)
     }
 
     val context = LocalContext.current
@@ -305,28 +300,4 @@ fun SearchResultPageItem(
                 .size(0.dp)
         )
     }
-}
-
-fun boldenAnnotatedString(
-    text: String,
-    query: String?
-): AnnotatedString {
-    val hasHtml = text.contains("<") || text.contains("&")
-    val annotated =
-        if (hasHtml) StringUtil.fromHtml(text).toAnnotatedString() else AnnotatedString(text)
-    if (query.isNullOrEmpty()) {
-        return annotated
-    }
-
-    val startIndex = annotated.text.indexOf(query, ignoreCase = true)
-    if (startIndex >= 0) {
-        val builder = AnnotatedString.Builder(annotated)
-        builder.addStyle(
-            SpanStyle(fontWeight = FontWeight.Bold),
-            startIndex,
-            startIndex + query.length
-        )
-        return builder.toAnnotatedString()
-    }
-    return annotated
 }
