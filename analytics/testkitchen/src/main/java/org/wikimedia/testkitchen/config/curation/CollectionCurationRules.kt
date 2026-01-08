@@ -7,11 +7,8 @@ import java.util.function.Predicate
 @Serializable
 class CollectionCurationRules<T> : Predicate<Collection<T>?> {
     var contains: T? = null
-
     @SerialName("does_not_contain") var doesNotContain: T? = null
-
     @SerialName("contains_all") var containsAll: Collection<T>? = null
-
     @SerialName("contains_any") var containsAny: Collection<T>? = null
 
     override fun test(value: Collection<T>?): Boolean {

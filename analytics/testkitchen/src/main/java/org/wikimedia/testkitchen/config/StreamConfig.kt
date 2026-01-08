@@ -7,26 +7,16 @@ import org.wikimedia.testkitchen.config.sampling.SampleConfig
 
 @Serializable
 class StreamConfig {
-    @SerialName("stream")
-    var streamName: String = ""
-
-    @SerialName("canary_events_enabled")
-    var canaryEventsEnabled = false
-
-    @SerialName("destination_event_service")
-    val destinationEventServiceKey: String = "eventgate-analytics-external"
+    @SerialName("stream") var streamName: String = ""
+    @SerialName("canary_events_enabled") var canaryEventsEnabled = false
+    @SerialName("destination_event_service") val destinationEventServiceKey: String = "eventgate-analytics-external"
+    @SerialName("schema_title") var schemaTitle: String? = null
+    @SerialName("producers") var producerConfig: ProducerConfig? = null
+    @SerialName("sample") var sampleConfig: SampleConfig? = null
+    @SerialName("topic_prefixes") val topicPrefixes: List<String> = emptyList()
 
     @Transient
     var destinationEventService: DestinationEventService = DestinationEventService.ANALYTICS
-
-    @SerialName("schema_title") var schemaTitle: String? = null
-
-    @SerialName("producers") var producerConfig: ProducerConfig? = null
-
-    @SerialName("sample") var sampleConfig: SampleConfig? = null
-
-    @SerialName("topic_prefixes")
-    val topicPrefixes: List<String> = emptyList()
 
     val topics: List<String> = emptyList()
 
