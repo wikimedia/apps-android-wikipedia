@@ -33,6 +33,8 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
+    val isSemanticSearchExperimentOn = SemanticSearchAbTest().isTestGroupUser()
+
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class

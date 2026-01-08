@@ -126,12 +126,12 @@ fun SearchResultsScreen(
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
                         semanticSearchConfig = SemanticSearchConfig(
-                            isSemanticSearchExperimentOn = true,
+                            isSemanticSearchExperimentOn = viewModel.isSemanticSearchExperimentOn,
                             onTitleClick = { searchResult ->
-                                // TODO: if semantic search experiment is on start deep search
+                                // TODO: navigate to deep search screen
                             },
                             onSuggestionTitleClick = { searchTerm ->
-                                // TODO: if semantic search experiment is on start deep search
+                                // TODO: navigate to deep search screen
                             }
                         )
                     )
