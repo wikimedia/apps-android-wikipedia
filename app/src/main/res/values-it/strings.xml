@@ -2081,6 +2081,4 @@
   <string name="donation_reminders_experiment_label">SPERIMENTARE</string>
   <string name="donation_reminders_settings_learn_more_button">Scopri di più</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifica</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Rispondi sondaggio</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">No, grazie</string>
 </resources>

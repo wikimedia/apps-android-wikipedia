@@ -1742,5 +1742,4 @@
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
   <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Не, хвала</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Не, хвала</string>
 </resources>

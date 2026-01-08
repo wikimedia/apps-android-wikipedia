@@ -2224,8 +2224,4 @@
   <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåminnelser</string>
   <string name="donation_reminders_settings_report_email_body">Jag har stött på ett problem med Wikipedias donationspåminnelsefunktion:\n- [Beskriv det specifika problemet]\n- [Skärmdumpar eller länkar]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifiera</string>
-  <string name="explore_feed_survey_dialog_title">Hjälp oss att förbättra Utforska</string>
-  <string name="explore_feed_survey_dialog_message">Gör en kort undersökning om Utforskarflödet. Din återkoppling kommer att bidra till att utforma framtida appförbättringar.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Delta i undersökningen</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Nej tack</string>
 </resources>

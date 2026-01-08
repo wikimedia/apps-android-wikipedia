@@ -9,6 +9,7 @@
 * C13m3n7
 * CKali
 * Cigaryno
+* Codeurluce
 * Cooltey
 * Crochet.david
 * Daniel236
@@ -1955,6 +1956,40 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Activez votre nouvelle icône d\'application dans les paramètres en dessous de l\'icône de l\'application. Merci d\'avoir investi dans le futur du savoir gratuit. Vos contributions en tant que %1$s dans %2$d aident à bâtir un monde d\'information gratuite, et grâce à ça, vous avez débloqué une icône customisée de contributeur pour Wikipedia sur votre écran d\'accueil.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Nous sommes ravis que Wikipédia ait fait partie de votre année %1$d&amp;nbsp;! Débloquez une récompense spéciale dans votre Bilan %2$d en devenant contributeur·rice&amp;nbsp;— que ce soit en &lt;a href=\"%3$s\"&gt;modifiant Wikipédia&lt;/a&gt; ou en faisant un don depuis l’application à la &lt;a href=\"%4$s\"&gt;Fondation Wikimedia&lt;/a&gt;, l’organisme à but non lucratif qui la soutient. Si Wikipédia vous est utile, pensez à faire un don pour aider à préserver son avenir et la garder gratuite, sans publicité, fiable et accessible à toutes et à tous. Si vous avez déjà fait un don ailleurs, votre soutien nous touche profondément.</string>
+  <string name="year_in_review_slide_app_icon_donor">donateur·rice</string>
+  <string name="year_in_review_slide_app_icon_editor">contributeur·rice</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur·rice et contributeur·rice</string>
+  <string name="year_in_review_slide_geo_headline">Les articles que vous avez lus sont principalement liés à %s.</string>
+  <string name="year_in_review_slide_geo_body">Le pays le plus associé aux articles que vous avez lus semble être : %1$s, d’après des articles comme %2$s et %3$s.</string>
+  <string name="year_in_review_login_dialog_title">Vous connecter pour une expérience personnalisée ?</string>
+  <string name="year_in_review_login_dialog_body">La connexion vous donne accès à des statistiques personnalisées. Vous pouvez toutefois consulter les statistiques collectives sans être connecté·e.</string>
+  <string name="year_in_review_login_dialog_positive">Se connecter / Créer un compte</string>
+  <string name="year_in_review_login_dialog_negative">Continuer sans vous connecter</string>
+  <string name="year_in_review_slide_top_categories_headline">Vos catégories les plus intéressantes</string>
+  <string name="year_in_review_slide_top_categories_body">Les catégories regroupent des articles portant sur des sujets similaires. En %1$d, vous avez consulté à plusieurs reprises des articles appartenant à ces catégories intéressantes : %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Les articles les plus lus de Wikipédia en anglais</string>
+  <string name="year_in_review_slide_edited_per_minute_body">Les articles sont créés et améliorés collectivement à partir de sources fiables. Chacun·e a des connaissances à partager : &lt;a href=\"%s\"&gt;apprenez comment participer&lt;/a&gt;.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Ajouter des articles à des listes de lecture vous permet d’y accéder même hors ligne. Vous pouvez aussi vous connecter pour synchroniser vos listes de lecture sur tous vos appareils.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Vos habitudes de lecture sont bien marquées.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Moment préféré pour lire</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Jour préféré pour lire</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mois où vous avez le plus lu</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Matin</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Midi</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Après-midi</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Soir</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nuit</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Tard dans la nuit</string>
+  <string name="year_in_review_slide_viewed_articles_times_body">Pour des millions de personnes à travers le monde, Wikipédia est la première ressource consultée pour répondre à une question, rechercher de l’information pour les études ou le travail, ou découvrir une nouvelle connaissance.</string>
+  <string name="year_in_review_reading_list_dialog_title">Créer votre liste de lecture « Bilan %d » ?</string>
+  <string name="year_in_review_reading_list_dialog_message">Le Bilan Wikipédia créera une liste de lecture des articles avec lesquels vous avez passé le plus de temps en %1$d. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Créer</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Non merci</string>
+  <string name="year_in_review_reading_list_title">Bilan %d</string>
+  <string name="year_in_review_reading_list_description">Créé pour %1$s. Les articles avec lesquels vous avez passé le plus de temps en %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">Merci d’avoir passé votre année avec Wikipédia.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Hâte de vous retrouver l’année prochaine !</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
