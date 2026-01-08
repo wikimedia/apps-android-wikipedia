@@ -1146,6 +1146,7 @@
   <string name="activity_tab_discover_encourage">읽을 거리를 찾고 있나요?</string>
   <string name="activity_tab_donation_unknown">알 수 없음</string>
   <string name="activity_tab_donation_last_donation">앱 내 &lt;b&gt;마지막 기부&lt;/b&gt;</string>
+  <string name="activity_tab_total_edits_all_projects">프로젝트 전체 편집 수</string>
   <string name="activity_tab_game_stats">게임 통계</string>
   <string name="activity_tab_game_stats_best_streak">최고 기록</string>
   <string name="activity_tab_play_wiki_games">위키게임 으로</string>
@@ -1164,6 +1165,13 @@
   <plurals name="activity_tab_impact_edits_last_month">
     <item quantity="other">지난 달의 편집</item>
   </plurals>
+  <string name="activity_tab_impact_suggested_edits_title">최근 문서 편집 수 0회</string>
+  <string name="activity_tab_impact_suggested_edits_button">편집하기</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">읽기에 소요한 시간</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">마지막 인앱 기부</string>
+  <string name="activity_tab_timeline_today">오늘</string>
+  <string name="activity_tab_timeline_yesterday">어제</string>
+  <string name="activity_tab_timeline_empty_state_title">표시할 항목이 없습니다</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -1758,6 +1766,7 @@
   <string name="year_in_review_learn_more">더 알아보기</string>
   <string name="year_in_review_get_started">시작하기</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
+  <string name="year_in_review_close">닫기</string>
   <string name="year_in_review_share_icon">공유 아이콘</string>
   <string name="year_in_review_heart_icon">하트 아이콘</string>
   <string name="year_in_review_donate">기부</string>
@@ -1771,7 +1780,27 @@
   <string name="year_in_review_survey_placeholder_text">추가 의견이 있으신가요?</string>
   <string name="year_in_review_survey_cancel">취소</string>
   <string name="year_in_review_survey_submit">제출</string>
+  <string name="year_in_review_disable_positive_button">네, 확실합니다</string>
+  <string name="year_in_review_disable_negative_button">아니요, 괜찮습니다</string>
   <string name="year_in_review_globe_icon">지구본 아이콘</string>
+  <string name="settings_app_icon_title">앱 아이콘</string>
+  <string name="settings_app_icon_subtitle">기여자 혜택</string>
+  <string name="settings_app_icon_updated">앱 아이콘이 업데이트되었습니다.</string>
+  <string name="year_in_review_login_dialog_title">개인 맞춤 설정을 위해 로그인하시겠습니까?</string>
+  <string name="year_in_review_login_dialog_body">로그인하면 개인 맞춤형 분석 정보를 이용할 수 있습니다. 로그인하지 않아도 전체 분석 정보를 볼 수 있습니다.</string>
+  <string name="year_in_review_login_dialog_positive">위키백과에 로그인 / 가입</string>
+  <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">가장 많이 읽은 달</string>
+  <string name="year_in_review_slide_reading_pattern_morning">아침</string>
+  <string name="year_in_review_slide_reading_pattern_midday">대낮</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">오후</string>
+  <string name="year_in_review_slide_reading_pattern_evening">저녁</string>
+  <string name="year_in_review_slide_reading_pattern_night">밤</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">늦은 밤</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
+  <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
@@ -1792,11 +1821,13 @@
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">끔</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
   <string name="recommended_reading_list_settings_articles">문서</string>
+  <string name="recommended_reading_list_settings_updates_frequency">%s 업데이트</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">매일</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">매주</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">매월</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">매일</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">매주</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">매달</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">실행 취소</string>
   <string name="recommended_reading_list_settings_interests">관심 분야</string>
   <string name="recommended_reading_list_settings_notifications_title">알림</string>
@@ -1810,4 +1841,7 @@
   <plurals name="donation_reminders_text_articles">
     <item quantity="other">문서 %d개</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">괜찮습니다</string>
+  <string name="donation_reminders_settings_learn_more_button">더 알아보기</string>
+  <string name="donation_reminders_snackbar_modify_button_label">수정</string>
 </resources>
