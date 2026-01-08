@@ -332,6 +332,7 @@
   <string name="suggested_edits_last_edited_never">Ij ni kuäʹss</string>
   <string name="suggested_edits_task_new">Ođđ</string>
   <string name="suggested_edits_reactivation_notification_title">Eʹtǩǩuum muttâz</string>
+  <string name="suggested_edits_contributions_screen_title">Õõʹnni %s muttâz</string>
   <string name="suggested_edits_contribution_language_label">Ǩiõll</string>
   <string name="suggested_edits_contribution_image_label">Snimldõk</string>
   <string name="suggested_edits_contribution_article_label">Artikkel</string>
@@ -397,6 +398,7 @@
   <string name="thank_dialog_negative_button_text">Jõõsk</string>
   <string name="menu_option_view_user_profile">Čuäʹjet õõʹnniseeid</string>
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
+  <string name="menu_option_view_user_contributions">Čuäʹjet õõʹnni muttsid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
   <string name="revision_undo_title">Haaʹlääk-a ton tuõđi tän muttâz kååʹmted?</string>
@@ -417,14 +419,18 @@
   <string name="category_tab_subcategories">Vueʹllkategoria</string>
   <string name="category_empty">Tän kategoriast ij käunnʼjam ni õhtt artikkel.</string>
   <string name="subcategory_empty">Tän kategoriast ij käunnʼjam ni õhtt vueʹllkategoria.</string>
+  <string name="user_contrib_activity_title">Õõʹnni %s muttsid</string>
   <string name="archive_empty">Ij käunnʼjam ni õhtt arkiivõsttum seidd.</string>
   <string name="namespace_article">Artikkel</string>
+  <string name="user_contrib_menu_label">Muttâz</string>
+  <string name="user_contrib_filter_activity_title">Siʹlle muttsid</string>
   <string name="shareable_reading_lists_new_indicator">*ođđ*</string>
   <string name="reading_list_share_menu_label">Jueʹjj…</string>
   <string name="talk_templates_new_message_save">Ruõkk</string>
   <string name="talk_templates_new_message_dialog_title">Ruõkk muttsid</string>
   <string name="talk_templates_new_message_dialog_save">Ruõkk</string>
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Čuäʹjet õõʹnni muttsid</string>
   <string name="patroller_tasks_filters_user_status_registered">Rekisterõsttum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>

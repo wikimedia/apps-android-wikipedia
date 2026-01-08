@@ -1927,8 +1927,4 @@
   <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
-  <string name="explore_feed_survey_dialog_title">Hëlleft eis Entdecken ze verbesseren</string>
-  <string name="explore_feed_survey_dialog_message">Maacht wgl. bei enger kuerzer Ëmfro iwwer den Entdecke-Feed mat. Äre Feedback hëlleft eis fir zukünfteg Verbesserungen un der App ze maachen.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Bei der Ëmfro matmaachen</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Nee, merci</string>
 </resources>

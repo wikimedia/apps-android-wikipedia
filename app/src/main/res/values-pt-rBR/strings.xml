@@ -2093,8 +2093,4 @@
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
-  <string name="explore_feed_survey_dialog_title">Ajude-nos a melhorar o feed de Explorar</string>
-  <string name="explore_feed_survey_dialog_message">Responda a uma breve pesquisa sobre o feed Explorar. Seus comentários ajudarão a moldar as próximas melhorias do aplicativo.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Participar da pesquisa</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Não, obrigado</string>
 </resources>
