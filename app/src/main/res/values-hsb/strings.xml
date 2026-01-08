@@ -36,7 +36,7 @@
   <string name="notification_archive_undo">Cofnyć</string>
   <string name="app_settings">Nastajenja za app</string>
   <string name="history_list_title">Stawizny</string>
-  <string name="image_content_description" fuzzy="true">Wobraz: %</string>
+  <string name="image_content_description" fuzzy="true">Wobraz: %s</string>
   <string name="page_content_description">Strona: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
