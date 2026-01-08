@@ -387,6 +387,7 @@
   <string name="preference_summary_customize_explore_feed">د سپړنې ليددړه دوديزول</string>
   <string name="preference_summary_show_link_previews">د ليکنې په تړونو ټوکلو پرمهال د هغې گړندۍ مخکتنه ښودل</string>
   <string name="preference_title_collapse_tables">لښتيال پرځول</string>
+  <string name="preference_summary_collapse_tables">په ليکنو کې په خپلکاري ډول لښتيالونه پرځول لکه مالومات‌بکسونه، سرچينې او يادښتونه.</string>
   <string name="nav_item_donate">بسپنه ورکول</string>
   <string name="nav_item_year_in_review">کال بياکتنه</string>
   <string name="error_voice_search_not_available">په بښنې سره، غږپېژندنه شتون نه لري.</string>
@@ -406,6 +407,7 @@
   <string name="link_preview_dialog_save_button">خوندي‌کول</string>
   <string name="link_preview_dialog_saved_button">خوندي شو</string>
   <string name="link_preview_dialog_share_button">وېشل</string>
+  <string name="link_preview_stub_placeholder_text">دا يوه نيمگړې ليکنه ده، په دې مانا چې د مخکتنې لپاره په دې ليکنې کې کافي منځپانگه نشته. په هر صورت تاسو کولی شئ دا بدل کړئ.</string>
   <string name="error_page_does_not_exist">دا مخشتون نه لري</string>
   <string name="view_wiki_error_message_offline">اينټرنېټ سره نشي نښلېدای</string>
   <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې اړيکه وگورئ، يا وروسته بيا هڅه وکړئ</string>
@@ -1828,7 +1830,4 @@
   <string name="donation_reminders_settings_learn_more_button">نور زده کړئ</string>
   <string name="donation_reminders_settings_report_button">د غوني ستونزه</string>
   <string name="donation_reminders_snackbar_modify_button_label">بدلول</string>
-  <string name="explore_feed_survey_dialog_title">د ښه والي لپاره له موږ سره مرسته وکړئ</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">سروې ترسره کول</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">نه مننه</string>
 </resources>

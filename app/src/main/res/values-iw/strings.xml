@@ -2143,6 +2143,4 @@
   <string name="donation_reminders_settings_learn_more_button">מידע נוסף</string>
   <string name="donation_reminders_settings_report_button">בעיה עם תכונה</string>
   <string name="donation_reminders_snackbar_modify_button_label">שינוי</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">מילוי סקר</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">לא, תודה</string>
 </resources>

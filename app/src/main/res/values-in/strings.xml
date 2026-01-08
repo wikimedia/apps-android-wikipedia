@@ -1657,6 +1657,7 @@
   <string name="year_in_review_share_subject">Tinjauan Tahunan Wikipedia Saya</string>
   <string name="year_in_review_share_body">Inilah Tinjauan Tahunan Wikipedia saya. Dibuat dengan aplikasi Wikipedia Android %1$s %2$s</string>
   <string name="settings_app_icon_preference_subtitle">Anda punya akses ke ikon khusus yang merayakan kontribusi %d Anda dalam aplikasi untuk Wikipedia. Ikon ini akan tetap ada hingga Tinjauan Tahunan berikutnya.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Ikon aplikasi baru tersedia untuk layar beranda Anda</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Kami senang Wikipedia menjadi bagian dari tahun %1$d Anda! Raih hadiah istimewa di Tinjauan Tahunan %2$d Anda dengan menjadi kontributor—baik dengan &lt;a href=\"%3$s\"&gt;menyunting Wikipedia&lt;/a&gt; atau dengan menyumbang dari aplikasi ke &lt;a href=\"%4$s\"&gt;Yayasan Wikimedia&lt;/a&gt;, organisasi nirlaba di baliknya. Jika Wikipedia berguna bagi Anda, pertimbangkan untuk guna membantu keberlanjutannya di masa depan dan menjaganya agar tetap gratis, bebas iklan, tepercaya, dan dapat diakses oleh semua orang. Jika Anda telah menyumbang di tempat lain, dukungan Anda sangat kami hargai.</string>
   <string name="year_in_review_login_dialog_body">Log masuk memberi Anda akses ke wawasan yang dipersonalisasi. Anda tetap dapat melihat wawasan kolektif tanpa perlu masuk.</string>
   <string name="year_in_review_reading_list_dialog_title">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>

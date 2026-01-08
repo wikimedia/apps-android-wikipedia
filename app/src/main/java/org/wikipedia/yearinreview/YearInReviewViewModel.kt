@@ -76,6 +76,7 @@ class YearInReviewViewModel() : ViewModel() {
                     AppDatabase.instance.readingListPageDao()
                         .getRandomPageTitlesBetween(MIN_SAVED_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
+                        .filter { it.isNotBlank() }
                 }
 
                 val readCountForTheYear = async {
@@ -87,6 +88,7 @@ class YearInReviewViewModel() : ViewModel() {
                     AppDatabase.instance.historyEntryDao()
                         .getTopVisitedEntriesBetween(MAX_TOP_ARTICLES, dataStartMillis, dataEndMillis)
                         .map { StringUtil.fromHtml(it).toString() }
+                        .filter { it.isNotBlank() }
                 }
 
                 val totalReadingTimeMinutes = async {
@@ -97,6 +99,7 @@ class YearInReviewViewModel() : ViewModel() {
                 val topVisitedCategoryForTheYear = async {
                     val categories = AppDatabase.instance.categoryDao().getTopCategoriesByYear(year = YIR_YEAR, limit = MAX_TOP_CATEGORY * 10)
                         .map { StringUtil.removeNamespace(it.title) }
+                        .filter { it.isNotBlank() }
                     val categoriesWithTwoSpaces = categories.filter { it.count { c -> c == ' ' } >= 2 }
                     val remainingCategories = categories.filter { it.count { c -> c == ' ' } < 2 }
                     categoriesWithTwoSpaces.plus(remainingCategories)

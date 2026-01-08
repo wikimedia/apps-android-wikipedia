@@ -2192,8 +2192,4 @@
   <string name="donation_reminders_settings_report_email_subject">问题报告：捐赠提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了捐赠提醒功能的问题：\n- [描述具体问题]\n- [截图或链接]\n\n我希望的实现效果是：\n- [描述建议的解决方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">帮助我们改进探索功能</string>
-  <string name="explore_feed_survey_dialog_message">请填写一份关于“探索”信息流的简短调查问卷。您的反馈将有助于我们未来的应用改进。</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">参加调查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，谢谢</string>
 </resources>

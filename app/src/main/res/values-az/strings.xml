@@ -2202,8 +2202,4 @@
   <string name="donation_reminders_settings_report_email_subject">Problem-İanə xatırladıcısı</string>
   <string name="donation_reminders_settings_report_email_body">İanə xatırlatmaları funksiyası ilə bağlı problemlə qarşılaşdım:\n- [Spesifik problemi təsvir edin]\n- [Skrinşotlar və ya keçidlər]\n\nGörmək istədiyim davranış:\n- [Təklif olunan həlli təsvir edin]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Dəyişdir</string>
-  <string name="explore_feed_survey_dialog_title">Kəşf səhifəsini təkmilləşdirməkdə bizə kömək edin</string>
-  <string name="explore_feed_survey_dialog_message">Zəhmət olmasa, Kəşf lenti haqqında qısa sorğuda iştirak edin. Rəyiniz qarşıdan gələn tətbiq təkmilləşdirmələrini formalaşdırmağa kömək edəcək.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Sorğuda iştirak et</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Xeyr, təşəkkürlər</string>
 </resources>

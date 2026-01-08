@@ -2252,8 +2252,4 @@
     <item quantity="other">%d Artikel</item>
   </plurals>
   <string name="donation_reminders_experiment_label" fuzzy="true">Experiment</string>
-  <string name="explore_feed_survey_dialog_title">Gib uns Feedback, um den Entdecken-Feed zu verbessern.</string>
-  <string name="explore_feed_survey_dialog_message">Nimm bitte an einer kurzen Umfrage zum Entdecken-Feed teil. Dein Feedback hilft uns, die App zu verbessern.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">An der Umfrage teilnehmen</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Nein danke</string>
 </resources>

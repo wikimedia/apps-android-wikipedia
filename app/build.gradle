@@ -178,6 +178,8 @@ dependencies {
 
     coreLibraryDesugaring libs.desugar.jdk.libs
 
+    implementation project(':analytics:testkitchen')
+
     implementation libs.kotlin.stdlib.jdk8
     implementation libs.kotlinx.coroutines.core
     implementation libs.kotlinx.coroutines.android
@@ -198,6 +200,7 @@ dependencies {
     implementation libs.drawerlayout
     implementation libs.swiperefreshlayout
     implementation libs.work.runtime.ktx
+    implementation libs.hcaptcha
 
     implementation libs.okhttp.tls
     implementation libs.okhttp3.logging.interceptor
