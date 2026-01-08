@@ -1215,6 +1215,7 @@
   <string name="activity_tab_discover_encourage">Iščete li něčto novo za čitanje?</string>
   <string name="activity_tab_donation_unknown">Neizvěstno</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Poslědnje darovanje&lt;/b&gt; v aplikaciji</string>
+  <string name="activity_tab_total_edits_all_projects">Totalno čislo pravok po vsim projektam</string>
   <string name="activity_tab_game_stats">Statistika igr</string>
   <string name="activity_tab_game_stats_best_streak">Najlěpša serija</string>
   <string name="activity_tab_play_wiki_games">Igrati v VikiIgry</string>
@@ -1241,6 +1242,52 @@
     <item quantity="other">pravok v prošlom měsecu</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Vliv za ves čas</string>
+  <string name="activity_tab_impact_thanks">{{PLULRA|one=poblagodarjenje|few=poblagodarjenja|many=poblagodarjenij|poblagodarjenij}}</string>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d denj</item>
+    <item quantity="few">%d dnja</item>
+    <item quantity="many">%d dnjev</item>
+    <item quantity="other">%d dnjev</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Najlěpša serija</string>
+  <string name="activity_tab_impact_last_edited">Poslědnja pravka</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 pravok v člankah v poslědnjem času</string>
+  <string name="activity_tab_impact_suggested_edits_message">Izgledaje na to, že ne jeste sdělali nijednu pravku v tutom měsecu. Razširjajte svobovno znanje, redaktujuči prědmety, ktore vas interesujut.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Sdělati pravku</string>
+  <string name="activity_tab_impact_recent_activity">Vaša nedavna aktivnost (poslědnje 30 dnjev)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Pravka</item>
+    <item quantity="few">Pravky</item>
+    <item quantity="many">Pravok</item>
+    <item quantity="other">Pravok</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Izobraženje člankov, ktore vy jeste izpravili</item>
+    <item quantity="other">Izobraženij člankov, ktore vy jeste izpravili</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Čas provedeny čitanjem</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiky o čitanju</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Statistiky o pravjenju</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Vliv za ves čas</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statistika igr</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Poslědnje darovanje v aplikaciji</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Hronologija povedenja</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Moduly aktivnosti sut izključene. &lt;a href=\"#\"&gt;Vključite je&lt;/a&gt;, da byste uviděli obnovjenja na tutoj vkladkě.</string>
+  <string name="activity_tab_timeline_today">Dnes</string>
+  <string name="activity_tab_timeline_yesterday">Včera</string>
+  <string name="activity_tab_timeline_empty_state_title">Ničego do pokazanja</string>
+  <string name="activity_tab_timeline_empty_state_message">Načnite čitati i redaktovati, da byste iztvorili svoju historiju</string>
+  <string name="activity_tab_timeline_view_changes_button">Pokazati izměny</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Čitateljske privyčaje</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Pozrite, koliko časa vy jeste provedli čitanjem i kake članky ili prědmety jeste razvědali v tečenju časa.</string>
+  <string name="activity_tab_onboarding_screen_title">Vvod v aktivnost</string>
+  <string name="activity_tab_onboarding_impact_title">Glavne momenty vašego vliva</string>
+  <string name="activity_tab_onboarding_engage_title">Veče sposobov dějanja</string>
+  <string name="activity_tab_onboarding_engage_message">Razvědajte statistiky o igrah, zapisanyh člankah i drugyh aktivnostij, ktore povezajut vas ješče glubje s Vikipedijeju.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Imajte vse pod kontroloju</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Izberite, kake moduly vy hočete izobraziti. Vse osobne dane ostanut dověrnymi na vašem aparatu, a historiju prěgleděnyh vami stranic možno jest izčistiti vo vsakom momentu.</string>
+  <string name="edits_screen_what_is_title">Pravjenje v aplikaciji Vikipedije</string>
+  <string name="edits_screen_what_is_body">Ne znajete li, od čego začeti pravjenje? Poprobujte «Prědložene pravky», funkciju, ktora daje možnosti za maly ale važny vklad v Vikipediju. Abo prějdite bezposrědnje do članka o interesujučem vas prědmetu i sdělajte izměny posrědstvom vikiteksta.</string>
   <string name="file_page_activity_title">Stranica fajla</string>
   <string name="file_page_add_image_caption_button">Dodati nadpis obrazka</string>
   <string name="file_page_add_image_tags_button">Dodati značky obrazku</string>

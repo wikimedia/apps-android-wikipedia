@@ -568,4 +568,13 @@
             android:title="@string/preference_key_activity_tab_onboarding_shown" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Semantic Search">
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_semanticSearch"
+            android:title="Semantic Search test group (require restart)"/>
+
+    </PreferenceCategory>
 </PreferenceScreen>

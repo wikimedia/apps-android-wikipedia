@@ -33,7 +33,7 @@ class SessionController internal constructor(
 
     @Synchronized
     fun closeSession() {
-        // @ToDo Determine how to close the session.
+        // TODO: Determine how to close the session.
         sessionTouched = Instant.now()
     }
 

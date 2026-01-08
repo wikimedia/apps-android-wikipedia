@@ -49,6 +49,7 @@ class SearchResultsFragment : Fragment() {
             setContent {
                 BaseTheme {
                     SearchResultsScreen(
+                        viewModel = viewModel,
                         modifier = Modifier.fillMaxSize(),
                         onNavigateToTitle = { title, inNewTab, position, location ->
                             callback()?.navigateToTitle(title, inNewTab, position, location)

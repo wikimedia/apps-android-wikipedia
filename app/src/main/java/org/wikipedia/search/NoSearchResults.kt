@@ -96,14 +96,14 @@ fun NoSearchResults(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             BasicText(
-                                modifier = Modifier.padding(0.5.dp),
+                                modifier = Modifier.padding(1.dp),
                                 text = LanguageUtil.formatLangCodeForButton(langCode.uppercase()),
                                 autoSize = TextAutoSize.StepBased(minFontSize = 1.sp, maxFontSize = 10.sp, stepSize = 1.sp),
                                 style = TextStyle(
                                     fontWeight = FontWeight.Bold,
                                     color = color,
                                     textAlign = TextAlign.Center
-                                ),
+                                )
                             )
                         }
                     }
