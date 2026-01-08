@@ -1011,6 +1011,4 @@
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
   <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_title">अन्वेषण सुधार गर्न हामीलाई मद्दत गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">पर्दैन, धन्यवाद</string>
 </resources>

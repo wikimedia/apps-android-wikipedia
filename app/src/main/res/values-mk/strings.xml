@@ -2208,8 +2208,4 @@
   <string name="donation_reminders_settings_report_email_subject">Пријава на грешка — Потсетници за дарување</string>
   <string name="donation_reminders_settings_report_email_body">Наидов на проблем со функцијата Потсетници за дарување:\n- [Опишете го конкрениот проблем]\n- [Екрански снимки или врски]\n\nСакам да биде вака:\n- [Опишете го предложеното решение]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Измени</string>
-  <string name="explore_feed_survey_dialog_title">Помогнете ни да го подобриме „Истражи“</string>
-  <string name="explore_feed_survey_dialog_message">Пополнете кратка анкета за тековникот „Истражи“. Вашите мислења ќе ни помогнат да го подобриме во иднина.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Пополнете ја анкетата</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Не, благодарам</string>
 </resources>

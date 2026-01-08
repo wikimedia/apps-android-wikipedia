@@ -2087,8 +2087,4 @@
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
-  <string name="explore_feed_survey_dialog_title">Title label for the explore feed survey dialog.</string>
-  <string name="explore_feed_survey_dialog_message">Message label for the explore feed survey dialog.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Positive label for the button that confirms taking explore feed survey.</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Negative label for the button that dismisses explore feed survey.</string>
 </resources>
