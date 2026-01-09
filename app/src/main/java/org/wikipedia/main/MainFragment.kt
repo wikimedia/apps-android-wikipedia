@@ -73,6 +73,7 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
+import org.wikipedia.search.HybridSearchOnboardingActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -178,6 +179,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     return@setOnItemSelectedListener false
                 }
             }
+
+            if (item.order == NavTab.SEARCH.code()) {
+                // TODO: add conditional to show hybrid search onboarding screen
+                startActivity(HybridSearchOnboardingActivity.newIntent(requireContext()))
+                return@setOnItemSelectedListener false
+            }
+
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
