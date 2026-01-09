@@ -40,7 +40,7 @@
   <string name="page_error_back_to_main">Distreiñ</string>
   <string name="error_back">Distreiñ</string>
   <string name="error_next">War-lerc\'h</string>
-  <string name="menu_clear_all_history" fuzzy="true">Diverkañ an istor</string>
+  <string name="menu_clear_all_history">Diverkañ istor lenn</string>
   <string name="history_item_deleted">%s lamet eus ar roll-istor</string>
   <string name="history_items_deleted">%d pennad tennet eus ar roll-istor</string>
   <string name="history_item_delete_undo">Dizober</string>
@@ -53,7 +53,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
+  <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ. Ha sur oc\'h ?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Ket</string>
   <string name="share_via">Rannañ dre</string>
