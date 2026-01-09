@@ -230,14 +230,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         clearActionBarTitle()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
-            HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode)) {
-            val title = StringUtil.fromHtml(pageFragment.model.title?.displayText)
-            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
-        } else {
-            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
-        }
-
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
@@ -427,6 +419,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
+        updateSearchHint()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -820,6 +813,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     fun onAnonNotification() {
         updateNotificationsButton(true)
+    }
+
+    fun updateSearchHint() {
+        if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
+            HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode)) {
+            val title = StringUtil.fromHtml(pageFragment.title?.displayText)
+            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
+        } else {
+            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
+        }
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {
