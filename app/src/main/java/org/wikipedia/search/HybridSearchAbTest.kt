@@ -2,7 +2,7 @@ package org.wikipedia.search
 
 import org.wikipedia.analytics.ABTest
 
-class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
+class HybridSearchAbTest : ABTest("hybridSearch", GROUP_SIZE_2) {
 
     fun getGroupName(): String {
         return when (group) {
@@ -15,7 +15,8 @@ class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
         return group == GROUP_2
     }
 
-    val enabledCountries = listOf(
-        "EN", "FR", "PT"
+    // TODO: check with PM about countries vs language codes
+    val availableLanguages = listOf(
+        "en", "fr", "pt"
     )
 }
