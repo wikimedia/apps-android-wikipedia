@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -136,6 +137,7 @@ class RecentSearchesFragment : Fragment() {
         binding.searchEmptyContainer.isInvisible = !searchesEmpty
         updateSearchEmptyView(searchesEmpty)
         binding.recentSearches.isInvisible = searchesEmpty
+        binding.namespacesContainer.isVisible = !namespaceMap[langCode].isNullOrEmpty()
     }
 
     private open inner class RecentSearchItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableItemTouchHelperCallback.Callback {
