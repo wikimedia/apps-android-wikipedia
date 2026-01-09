@@ -75,7 +75,7 @@ class TalkThreadItemView(context: Context, attrs: AttributeSet? = null) : Constr
         binding.profileImage.setImageResource(if (AccountUtil.isUserNameTemporary(item.author)) R.drawable.ic_temp_account else R.drawable.ic_user_avatar)
         binding.timeStampText.isVisible = item.date != null
         item.date?.let {
-            val timestamp = DateUtil.getTimeAndDateString(context, it)
+            val timestamp = DateUtil.getDateAndTimeString(it)
             StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }
         val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText).trim()

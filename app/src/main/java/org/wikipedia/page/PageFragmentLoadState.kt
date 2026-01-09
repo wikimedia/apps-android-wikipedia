@@ -225,7 +225,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         val localDate = LocalDate.ofInstant(dateHeader, ZoneId.systemDefault())
-        val dateStr = DateUtil.getShortDateString(localDate)
+        val dateStr = DateUtil.getDateString(localDate)
         Toast.makeText(fragment.requireContext().applicationContext,
             fragment.getString(R.string.page_offline_notice_last_date, dateStr),
             Toast.LENGTH_LONG).show()
