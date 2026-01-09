@@ -569,12 +569,12 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Semantic Search">
+    <PreferenceCategory android:title="Hybrid Search">
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="ab_test_semanticSearch"
-            android:title="Semantic Search test group (require restart)"/>
+            android:key="ab_test_hybridSearch"
+            android:title="Hybrid Search test group (require restart)"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

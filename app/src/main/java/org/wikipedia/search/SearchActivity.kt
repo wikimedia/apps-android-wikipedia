@@ -11,7 +11,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
 
         // TODO: implement the onboardings screen for semantic search
-        if (SemanticSearchAbTest().isTestGroupUser()) {
+        if (HybridSearchAbTest().isTestGroupUser()) {
             // TODO: launch the onboarding screen activity
         }
 
