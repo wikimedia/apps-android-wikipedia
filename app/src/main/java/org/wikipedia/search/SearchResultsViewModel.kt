@@ -33,8 +33,7 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    private val supportedLanguages = listOf("en", "fr", "pt")
-    val isSemanticSearchExperimentOn get() = SemanticSearchAbTest().isTestGroupUser() && supportedLanguages.any { it.equals(languageCode.value, true) }
+    val isSemanticSearchExperimentOn get() = SemanticSearchAbTest().isSemanticSearchEnabled(languageCode.value)
 
     @OptIn(
         FlowPreview::class,
