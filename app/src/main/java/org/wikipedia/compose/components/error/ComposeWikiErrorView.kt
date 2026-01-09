@@ -148,6 +148,7 @@ fun WikiErrorView(
                 modifier = Modifier
                     .padding(horizontal = 16.dp),
                 text = footerErrorMessage,
+                textAlign = TextAlign.Center,
                 color = WikipediaTheme.colors.placeholderColor,
                 fontSize = 14.sp
             )

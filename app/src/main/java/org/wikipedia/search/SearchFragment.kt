@@ -328,7 +328,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             langBtnClicked = false
         }
         searchLanguageCode = selectedLanguageCode
-        searchResultsFragment.setLayoutDirection(searchLanguageCode)
+
         recentSearchesFragment.reloadRecentSearches()
         startSearch(query, false)
     }
