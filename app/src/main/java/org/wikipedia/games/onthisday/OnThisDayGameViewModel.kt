@@ -404,7 +404,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         val currentQuestionState: QuestionState,
 
         var gamePlayDate: String = "",
-        var lastActiveDate: String = ""
+        var lastActiveDate: String = "",
+        var events: List<OnThisDay.Event>? = null
     )
 
     @Serializable
