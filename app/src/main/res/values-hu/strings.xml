@@ -412,7 +412,7 @@
   <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
   <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
   <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
-  <string name="nav_item_year_in_review">Év áttekintése</string>
+  <string name="nav_item_year_in_review">Éves összefoglaló</string>
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
   <string name="enable_location_service">Engedélyezés</string>
@@ -1165,6 +1165,7 @@
   <string name="activity_tab_discover_encourage">Valami újat keresel olvasnivalónak?</string>
   <string name="activity_tab_donation_unknown">Ismeretlen</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Utolsó adomány&lt;/b&gt; az alkalmazásban</string>
+  <string name="activity_tab_total_edits_all_projects">Összes szerkesztés a projektekben</string>
   <string name="activity_tab_game_stats">Játékstatisztikák</string>
   <string name="activity_tab_game_stats_best_streak">Legjobb nyerőszéria</string>
   <string name="activity_tab_play_wiki_games">WikiJátékok indítása</string>
@@ -1173,7 +1174,7 @@
   <string name="activity_tab_menu_feedback">Probléma a funkcióval</string>
   <string name="activity_tab_menu_info">Tudj meg többet</string>
   <string name="activity_tab_menu_customize">Testreszabás</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">A Tevékenység fül áttekintései a beállításokban megadott elsődleges nyelven alapulnak, és helyi adatokra támaszkodnak, kivéve a szerkesztéseket, amelyek nyilvánosak.</string>
+  <string name="activity_tab_menu_customize_description">Az olvasási betekintések az alkalmazás beállításaiban megadott nyelveken alapulnak, a szerkesztési betekintések pedig az elsődleges alkalmazásnyelvre korlátozódnak. A betekintések helyi adatokat használnak, a szerkesztések kivételével, amelyek nyilvánosak.</string>
   <string name="activity_tab_highlights">Kiemelések</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Olvasási előzmények</string>
   <string name="activity_tab_impact">Tevékenységed</string>
@@ -1867,13 +1868,13 @@
   <string name="year_in_review_navigate_right">Navigálás jobbra</string>
   <string name="year_in_review_donate">Adományozás</string>
   <string name="year_in_review_information_icon">Információs ikon</string>
-  <string name="year_in_review_get_started_headline">Fedezd fel a Wikipédia éváttekintését</string>
+  <string name="year_in_review_get_started_headline">Fedezd fel a Wikipédia Éves összefoglalódat</string>
   <string name="year_in_review_get_started_bodytext">Tekintsd meg, hogy mely cikkeket olvastad a Wikipédia alkalmazásban, és milyen módosításokat végeztél.</string>
   <string name="year_in_review_get_started_info">Az olvasási előzményeid védve vannak. Az olvasási statisztikákat az eszközödön helyben tárolt adatok alapján számítjuk ki.</string>
-  <string name="year_in_review_get_started_later">Az éváttekintésedet később a Továbbiak menüben érheted el.</string>
-  <string name="year_in_review_survey_title">Segíts nekünk az Év áttekintésének fejlesztésében</string>
+  <string name="year_in_review_get_started_later">Az Éves összefoglalódat később a Továbbiak menüben is elérheted.</string>
+  <string name="year_in_review_survey_title">Segíts fejleszteni az Éves összefoglalót</string>
   <string name="year_in_review_survey_subtitle">Elégedett vagy ezzel a funkcióval?</string>
-  <string name="year_in_review_reading_list_survey_title">Segíts fejleszteni a %d. évi éváttekintés olvasólistáját.</string>
+  <string name="year_in_review_reading_list_survey_title">Segíts fejleszteni a %d. évi Éves összefoglaló olvasási listáját.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Elégedett vagy az olvasólistáddal?</string>
   <string name="year_in_review_survey_very_satisfied">Nagyon elégedett</string>
   <string name="year_in_review_survey_satisfied">Elégedett</string>
@@ -1883,16 +1884,30 @@
   <string name="year_in_review_survey_placeholder_text">További gondolatod van?</string>
   <string name="year_in_review_survey_cancel">Mégse</string>
   <string name="year_in_review_survey_submit">Elküldés</string>
-  <string name="year_in_review_disable_title">Biztosan ki szeretnéd kapcsolni az éváttekintést?</string>
+  <string name="year_in_review_disable_title">Biztosan ki szeretnéd kapcsolni az Éves összefoglalót?</string>
   <string name="year_in_review_disable_positive_button">Igen, biztos vagyok benne</string>
   <string name="year_in_review_disable_negative_button">Nem, köszönöm</string>
-  <string name="year_in_review_setting_subtitle">Az éváttekintés kikapcsolása törli az összes eltárolt személyre szabott betekintést, és elrejti az éváttekintést.</string>
-  <string name="year_in_review_screendeck_image_content_description">Az Év áttekintése főképernyőjének képforrása</string>
+  <string name="year_in_review_setting_subtitle">Az Éves összefoglaló kikapcsolása törli az összes eltárolt személyre szabott betekintést, és elrejti az Éves összefoglalót.</string>
+  <string name="year_in_review_screendeck_image_content_description">Képi erőforrás az Éves összefoglaló főképernyőjének kártyasorához</string>
   <string name="year_in_review_screenshot_error">Nem sikerült képernyőképet készíteni: %s</string>
-  <string name="year_in_review_share_subject">A Wikipédia-éváttekintésem</string>
-  <string name="year_in_review_share_body">Íme a Wikipédia-éváttekintésem. A Wikipédia Android alkalmazással készült. %1$s %2$s</string>
+  <string name="year_in_review_share_subject">Az én Wikipédia Éves összefoglalóm</string>
+  <string name="year_in_review_share_body">Íme a Wikipédia Éves összefoglalóm. A Wikipédia Android alkalmazással készült. %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Földgömb ikon</string>
   <string name="settings_app_icon_title">App ikon</string>
+  <string name="settings_app_icon_subtitle">Közreműködői előny</string>
+  <string name="settings_app_icon_preference_subtitle">Hozzáférést kapsz egy egyedi ikonhoz, amely a Wikipédia alkalmazásban a %d. évben tett hozzájárulásaidat ünnepli. Az ikon a következő Éves összefoglalóig marad elérhető.</string>
+  <string name="settings_app_icon_updated">Az alkalmazás ikonja frissült.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Új alkalmazásikon vált elérhetővé a kezdőképernyődön</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Oldd fel a közreműködői jutalmadat a jövő évre!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Aktiváld az új alkalmazásikont a Beállításokban, az Alkalmazásikon menüpont alatt. Köszönjük, hogy befektetsz a szabad tudás jövőjébe. A %2$d. évben %1$s szerepben tett hozzájárulásaid hozzájárulnak a szabad információ világának megteremtéséhez, ennek eredményeként pedig feloldottál egy egyedi közreműködői ikont a Wikipédia számára a kezdőképernyődön.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Örülünk, hogy a Wikipédia része volt a(z) %1$d-es évednek! Oldj fel egy különleges jutalmat a(z) %2$d-es Éves összefoglalódban azzal, hogy hozzájárulsz — akár a Wikipédia &lt;a href=\"%3$s\"&gt;szerkesztésével&lt;/a&gt;, akár az alkalmazáson keresztül a mögötte álló nonprofit &lt;a href=\"%4$s\"&gt;Wikimédia Alapítvány&lt;/a&gt; támogatásával. Ha hasznos számodra a Wikipédia, kérjük, fontold meg az adományozást, hogy segíts fenntartani a jövőjét, és megőrizni azt ingyenesnek, reklámmentesnek, megbízhatónak és mindenki számára hozzáférhetőnek. Ha máshol adományoztál, a támogatásodat ezúton is nagyra értékeljük.</string>
+  <string name="year_in_review_slide_app_icon_donor">adományozó</string>
+  <string name="year_in_review_slide_app_icon_editor">szerkesztő</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">adományozó és szerkesztő</string>
+  <string name="year_in_review_slide_geo_headline">Az általad olvasott szócikkek leginkább %s témájához kapcsolódnak</string>
+  <string name="year_in_review_slide_geo_body">Az általad olvasott számos szócikk alapján a leginkább kapcsolódó ország: %1$s — például olyan szócikkek alapján, mint &lt;b&gt;%2$s&lt;/b&gt; és &lt;b&gt;%3$s&lt;/b&gt;.</string>
+  <string name="year_in_review_login_dialog_title">Bejelentkezel a személyre szabáshoz?</string>
+  <string name="year_in_review_login_dialog_body">A bejelentkezés hozzáférést biztosít a személyre szabott betekintésekhez. Bejelentkezés nélkül is megtekintheted az összesített betekintéseket.</string>
   <string name="year_in_review_login_dialog_positive">Bejelentkezés / Regisztrálás a Wikipédiába</string>
   <string name="year_in_review_login_dialog_negative">Folytatás bejelentkezés nélkül</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2036,11 +2051,11 @@
     <item quantity="other">Az alkalmazás felhasználói %,d alkalommal tekintettek meg Wikipédia-szócikkeket</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Az emberek világszerte a Wikipédiához fordulnak először, ha egy kérdésre keresnek választ, iskolai vagy munkahelyi információ után kutatnak, vagy egy új tényt szeretnének megtudni.</string>
-  <string name="year_in_review_reading_list_dialog_title">Létrehozod a %d. évi éváttekintéshez tartozó olvasólistádat?</string>
-  <string name="year_in_review_reading_list_dialog_message">A Wikipédia éváttekintés egy olvasólistát hoz létre azokból a szócikkekből, amelyekkel %1$d-ben a legtöbb időt töltötted. &lt;a href=\"%2$s\"&gt;Tudj meg többet&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_title">Létrehozod a %d. évi Éves össszefoglalóhoz tartozó olvasólistádat?</string>
+  <string name="year_in_review_reading_list_dialog_message">A Wikipédia Éves összefoglaló egy olvasólistát hoz létre azokból a szócikkekből, amelyekkel %1$d-ben a legtöbb időt töltötted. &lt;a href=\"%2$s\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Létrehozás</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nem, köszönöm</string>
-  <string name="year_in_review_reading_list_title">%d. évi éváttekintés</string>
+  <string name="year_in_review_reading_list_title">%d. évi Éves összefoglaló</string>
   <string name="year_in_review_reading_list_description">%1$s számára készült. Azok a szócikkek, amelyekkel %2$d. évben a legtöbb időt töltötted.</string>
   <string name="year_in_review_highlights_thank_you_message">Köszönjük, hogy velünk töltötted az évedet a Wikipédián.</string>
   <string name="year_in_review_highlights_looking_forward_message">Találkozunk jövőre is!</string>
@@ -2072,6 +2087,23 @@
   <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
     <item quantity="one">Legtöbbet olvasott szócikkem</item>
     <item quantity="other">Legtöbbet olvasott szócikkeim</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Olvasással töltött perc</item>
+    <item quantity="other">Olvasással töltött percek</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Kedvenc olvasási napod</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Elolvasott cikk</item>
+    <item quantity="other">Elolvasott cikkek</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Engem érdeklő kategória</item>
+    <item quantity="other">Engem érdeklő kategóriák</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Szerkesztések száma</item>
+    <item quantity="other">Szerkesztések száma</item>
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Oszd meg a legfontosabb pillanatokat</string>
   <string name="year_in_review_highlights_logo_description">Wikipédia logó</string>
@@ -2160,8 +2192,9 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Az adományemlékeztetők bármikor módosíthatók a Beállításokban.</string>
   <string name="donation_settings_section_header">Adományok</string>
   <string name="donation_reminders_settings_title">Hogyan emlékeztessünk?</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Csatlakozz az olvasók azon 2%%-ához, akik mindent megtesznek azért, hogy a Wikipédia hirdetésmentes, naprakész és mindenki számára elérhető legyen. Állítsd be az adományozási emlékeztetődet most.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Az adományok a Wikimedia Alapítványhoz és partnereihez kerülnek, akik a Wikipédia és testvéroldalai büszke üzemeltetői.</string>
+  <string name="donation_reminders_settings_option_title">Adományemlékeztetők</string>
+  <string name="donation_reminders_settings_thank_you_message">Nagylelkűséged segít abban, hogy a Wikipédia továbbra is fejlődjön. Állíts be adományozási emlékeztetőt az általad olvasott szócikkek száma alapján.</string>
+  <string name="donation_reminders_settings_donation_info">Az adományok a Wikimedia Alapítványhoz és partnereihez kerülnek, akik a Wikipédia és más ingyenes tudásprojektek üzemeltetői.</string>
   <string name="donation_reminders_settings_article_frequency_label">Amikor olvasok</string>
   <string name="donation_reminders_settings_amount_label">Emlékeztess az adományozásra</string>
   <string name="donation_reminders_settings_confirm_btn_label">Emlékeztető megerősítése</string>
@@ -2172,7 +2205,8 @@
   <string name="donation_reminders_settings_option_custom">Egyedi…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Köszönjük! Emlékeztetni fogjuk, hogy adományozz %1$s összeget, amikor elolvastál %2$s a kísérlet futása alatt.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">%1$s olvastál el, mióta %2$s összeget ígértél</string>
-  <string name="donation_reminders_prompt_message" fuzzy="true">%1$s napon arra kértél minket, hogy emlékeztessük az adományozásra, miután elolvastad %2$s . Ha a Wikipédia %3$s tudást adott neked, kérjük, csatlakozz az olvasók 2%%-ához, akik adományoznak, és teljesítsd a fogadalmadat még ma.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Még %1$s szócikket olvastál el</string>
+  <string name="donation_reminders_prompt_message">%1$s dátummal beállítottál egy adományozási emlékeztetőt, amely szerint %3$s összeget adományozol minden elolvasott %2$s után. Készen állsz arra, hogy beváltsd a Wikipédiát támogató vállalásodat?</string>
   <string name="donation_reminders_prompt_positive_button">Adományozz most!</string>
   <string name="donation_reminders_prompt_negative_button">Ne most</string>
   <string name="donation_reminders_gpay_text">Adományozz %s összeget Google Payjel</string>
@@ -2184,10 +2218,11 @@
     <item quantity="one">%d szócikk</item>
     <item quantity="other">%d szócikk</item>
   </plurals>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nem, köszönöm</string>
   <string name="donation_reminders_experiment_label">KÍSÉRLET</string>
   <string name="donation_reminders_settings_learn_more_button">Tudj meg többet</string>
   <string name="donation_reminders_settings_report_button">Probléma a funkcióval</string>
   <string name="donation_reminders_settings_report_email_subject">Problémajelentés – Adományemlékeztetők</string>
+  <string name="donation_reminders_settings_report_email_body">Problémát tapasztaltam az adományemlékeztető  funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n– [Képernyőképek vagy hivatkozások]\n\nAz általam elvárt működés a következő lenne:\n\n– [A javasolt megoldás leírása]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Módosít</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Nem, köszönöm</string>
 </resources>

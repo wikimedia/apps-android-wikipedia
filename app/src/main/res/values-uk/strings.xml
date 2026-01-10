@@ -2434,8 +2434,4 @@
   <string name="donation_reminders_settings_report_email_subject">Звіт про проблему – Нагадування про пожертву</string>
   <string name="donation_reminders_settings_report_email_body">У мене виникла проблема з функцією Нагадування про пожертву:\n- [Опишіть конкретну проблему]\n- [Скриншоти чи посилання]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Змінити</string>
-  <string name="explore_feed_survey_dialog_title">Допоможіть нам покращити стрічку</string>
-  <string name="explore_feed_survey_dialog_message">Будь ласка, пройдіть коротке опитування щодо стрічки. Ваш відгук допоможе нам удосконалити програмку в майбутньому.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Пройти опитування</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Ні, дякую</string>
 </resources>

@@ -11,21 +11,19 @@ import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
 
+@Suppress("CanConvertToMultiDollarString")
 @Serializable
 class Event {
-
     @Transient var clientData: ClientData = ClientData()
     @Transient var interactionData: InteractionData = InteractionData()
 
     @SerialName("\$schema") var schema: String = ""
     @SerialName("dt") var timestamp: String? = null
     val meta: Meta
-
     @SerialName("agent") var agentData: AgentData? = null
     @SerialName("page") var pageData: PageData? = null
     @SerialName("mediawiki") var mediawikiData: MediawikiData? = null
     @SerialName("performer") var performerData: PerformerData? = null
-
     var action: String? = null
     @SerialName("action_subtype") private var actionSubtype: String? = null
     @SerialName("action_source") private var actionSource: String? = null
@@ -49,7 +47,7 @@ class Event {
      *
      * @param schema schema id
      * @param stream stream name
-     * @param customData custom data
+     * @param dt timestamp
      * @param clientData agent, mediawiki, page, performer data
      * @param sample sample configuration
      * @param interactionData contextual data of the interaction

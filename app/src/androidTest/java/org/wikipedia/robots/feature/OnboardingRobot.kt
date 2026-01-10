@@ -17,13 +17,13 @@ class OnboardingRobot : BaseRobot() {
     fun checkPrimaryTextViewColor(theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme = theme, colorType = TestThemeColorType.PRIMARY)
         verify.textViewColor(textViewId = R.id.primaryTextView, colorResId = color)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun checkSecondaryTextViewColor(theme: Theme) = apply {
         val color = TestWikipediaColors.getGetColor(theme = theme, colorType = TestThemeColorType.SECONDARY)
         verify.textViewColor(textViewId = R.id.secondaryTextView, colorResId = color)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun moveAllTheWayToEndUsingTapButton() = apply {
