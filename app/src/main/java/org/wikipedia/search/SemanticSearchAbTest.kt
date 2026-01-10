@@ -3,6 +3,10 @@ package org.wikipedia.search
 import org.wikipedia.analytics.ABTest
 
 class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
+    private val supportedLanguages = listOf("en", "fr", "pt")
+    val enabledCountries = listOf(
+        "EN", "FR", "PT"
+    )
 
     fun getGroupName(): String {
         return when (group) {
@@ -15,7 +19,7 @@ class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
         return group == GROUP_2
     }
 
-    val enabledCountries = listOf(
-        "EN", "FR", "PT"
-    )
+    fun isSemanticSearchEnabled(languageCode: String?): Boolean {
+        return isTestGroupUser() && supportedLanguages.any { it.equals(languageCode, true) }
+    }
 }

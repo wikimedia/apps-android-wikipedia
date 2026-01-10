@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -116,7 +117,16 @@ fun SearchResultsScreen(
                         searchResultsPage = searchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick
+                        onItemLongClick = onItemLongClick,
+                        semanticSearchConfig = SemanticSearchConfig(
+                            isSemanticSearchExperimentOn = viewModel.isSemanticSearchExperimentOn,
+                            onTitleClick = { searchResult ->
+                                // TODO: navigate to deep search screen
+                            },
+                            onSuggestionTitleClick = { searchTerm ->
+                                // TODO: navigate to deep search screen
+                            }
+                        )
                     )
                 }
             }
@@ -130,11 +140,19 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    modifier: Modifier = Modifier
+    semanticSearchConfig: SemanticSearchConfig
 ) {
-    LazyColumn(
-        modifier = modifier
-    ) {
+    if (semanticSearchConfig.isSemanticSearchExperimentOn) {
+        SemanticSearchSuggestionView(
+            modifier = Modifier.fillMaxSize(),
+            searchResultsPage = searchResultsPage,
+            semanticSearchConfig = semanticSearchConfig,
+            searchTerm = searchTerm
+        )
+        return
+    }
+
+    LazyColumn {
         items(
             count = searchResultsPage.itemCount
         ) { index ->
