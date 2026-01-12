@@ -774,7 +774,7 @@
     <item quantity="one">wotmołwu schować</item>
     <item quantity="two">wotmołwje schować</item>
     <item quantity="few">wotmołwy schować (%d)</item>
-    <item quantity="other">wotmołwy schować</item>
+    <item quantity="other">wotmołwy schować (%d)</item>
   </plurals>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajnje</string>
   <string name="watchlist_expiry_dialog_permanent">Trajnje</string>
