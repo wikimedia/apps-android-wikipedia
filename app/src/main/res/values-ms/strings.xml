@@ -273,8 +273,8 @@
   <string name="edit_warn">Ingatkan</string>
   <string name="edit_zoom_in">Zum dekat</string>
   <string name="edit_zoom_out">Zum jauh</string>
-  <string name="edit_summary_tag_typo">Memperbaiki ejaan</string>
-  <string name="edit_summary_tag_grammar">Memperbaiki tatabahasa</string>
+  <string name="edit_summary_tag_typo">Memperbaik ejaan</string>
+  <string name="edit_summary_tag_grammar">Memperbaik tatabahasa</string>
   <string name="edit_summary_tag_links">Membubuh pautan</string>
   <string name="edit_summary_tag_other">Lain-lain</string>
   <string name="edit_summary_tag_other_hint">Cara-cara lain anda menambah baik halaman</string>
