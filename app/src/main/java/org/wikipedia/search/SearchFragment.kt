@@ -298,8 +298,16 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
 
-        binding.searchCabView.queryHint =
-            getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
+        binding.searchCabView.queryHint = getString(
+            if (invokeSource == InvokeSource.PLACES) {
+                R.string.places_search_hint
+            } else if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
+                HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode)) {
+                R.string.hybrid_search_search_hint
+            } else {
+                R.string.search_hint
+            }
+        )
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
