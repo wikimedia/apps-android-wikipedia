@@ -13,6 +13,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import junit.framework.AssertionFailedError
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -72,14 +73,19 @@ class SearchRobot : BaseRobot() {
 
     fun clickFilterHistoryButton() = apply {
         click.onViewWithId(R.id.history_filter)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun closeFilterList() = apply {
+        onView(withId(androidx.appcompat.R.id.action_mode_close_button)).perform(click())
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun removeTextByTappingTrashIcon() = apply {
         onView(withId(androidx.appcompat.R.id.search_close_btn))
             .check(matches(isDisplayed()))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifySearchTermIsCleared() = apply {
@@ -112,8 +118,8 @@ class SearchRobot : BaseRobot() {
 
     fun clickLanguage(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
-        click.onDisplayedViewWithText(viewId = R.id.language_label, text = language)
-        delay(TestConfig.DELAY_MEDIUM)
+        list.selectTabWithText(R.id.horizontal_scroll_languages, language)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun checkSearchListItemHasRTLDirection() = apply {
@@ -147,6 +153,23 @@ class SearchRobot : BaseRobot() {
         pressBack()
     }
 
+    fun pressBackUntilExploreFeed() = apply {
+        val maxAttempts = 3
+        var attempts = 0
+        while (attempts < maxAttempts) {
+            try {
+                verify.viewWithIdDoesNotExist(R.id.feed_view)
+                pressBack()
+                delay(TestConfig.DELAY_SHORT)
+                attempts++
+            } catch (_: AssertionFailedError) {
+                break
+            } catch (_: Exception) {
+                break
+            }
+        }
+    }
+
     fun swipeToDelete(position: Int, title: String) = apply {
         onView(withId(R.id.history_list))
             .perform(
@@ -155,7 +178,7 @@ class SearchRobot : BaseRobot() {
                     ViewActions.swipeLeft()
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyArticleRemoved(title: String) = apply {

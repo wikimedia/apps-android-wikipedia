@@ -40,7 +40,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50564
+        versionCode 50565
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -55,6 +55,7 @@ android {
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
         def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
         def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+
         buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
         buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
     }
