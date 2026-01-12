@@ -2095,4 +2095,6 @@
   <string name="hybrid_search_onboarding_opt_in_choice_description">Onboarding description for the opt in choice info.</string>
   <string name="hybrid_search_beta_tag">Label shown in the app bar to indicate that the Hybrid Search feature is in beta.</string>
   <string name="hybrid_search_experimental_feature_switch_label">Label for a toggle switch that allows users to enable or disable the experimental Hybrid Search feature.</string>
+  <string name="hybrid_search_onboarding_search_example_title">Title shown on the Hybrid Search onboarding screen that introduces example search queries.</string>
+  <string name="hybrid_search_onboarding_search_example_description">Descriptive text on the Hybrid Search onboarding screen explaining that the onboarding screen shows example search queries.</string>
 </resources>

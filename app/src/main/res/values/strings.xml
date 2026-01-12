@@ -2343,4 +2343,6 @@ looking for.</string>
     <string name="hybrid_search_onboarding_opt_in_choice_description">You can opt out of this experiment if you wish.You can opt out of this experiment if you wish.</string>
     <string name="hybrid_search_beta_tag">BETA</string>
     <string name="hybrid_search_experimental_feature_switch_label">Try experimental feature</string>
+    <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
+    <string name="hybrid_search_onboarding_search_example_description">Here are some examples of searches you can now make:</string>
 </resources>

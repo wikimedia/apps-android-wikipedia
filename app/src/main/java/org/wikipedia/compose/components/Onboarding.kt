@@ -46,7 +46,7 @@ fun OnboardingListItem(
             contentDescription = null
         )
 
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(12.dp))
 
         Column(
             modifier = Modifier.weight(1f),
