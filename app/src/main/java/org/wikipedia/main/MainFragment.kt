@@ -128,9 +128,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             onNavigateTo(NavTab.EDITS)
+        } else if (result.resultCode == HybridSearchOnboardingActivity.RESULT) {
+            openSearchActivity(source = InvokeSource.NAV_MENU, null, null)
         }
     }
 
@@ -174,16 +176,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
                 if (!Prefs.isActivityTabOnboardingShown) {
-                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    onboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
-            }
-
-            if (item.order == NavTab.SEARCH.code()) {
-                // TODO: add conditional to show hybrid search onboarding screen
-                startActivity(HybridSearchOnboardingActivity.newIntent(requireContext()))
-                return@setOnItemSelectedListener false
             }
 
             if (item.order == NavTab.MORE.code()) {
@@ -194,9 +190,16 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (item.order == NavTab.EXPLORE.code() && fragment is FeedFragment) {
                 fragment.scrollToTop()
             }
-            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
-                openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                return@setOnItemSelectedListener true
+            if (item.order == NavTab.SEARCH.code()) {
+                if (!Prefs.isHybridSearchOnboardingShown) {
+                    onboardingLauncher.launch(HybridSearchOnboardingActivity.newIntent(requireContext()))
+                    Prefs.isHybridSearchOnboardingShown = true
+                    return@setOnItemSelectedListener false
+                }
+                if (fragment is HistoryFragment) {
+                    openSearchActivity(InvokeSource.NAV_MENU, null, null)
+                    return@setOnItemSelectedListener true
+                }
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()

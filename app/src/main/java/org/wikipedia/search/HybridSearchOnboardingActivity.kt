@@ -75,6 +75,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+        Prefs.isHybridSearchEnabled = true
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
@@ -201,7 +202,7 @@ fun HybridSearchOnboardingScreen(
 
 @Composable
 fun ExperimentalFeatureToggleView() {
-    var isChecked by remember { mutableStateOf(true) }
+    var isChecked by remember { mutableStateOf(Prefs.isHybridSearchEnabled) }
     Row(
         modifier = Modifier
             .fillMaxWidth(),

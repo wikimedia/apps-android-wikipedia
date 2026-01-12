@@ -2,7 +2,7 @@ package org.wikipedia.search
 
 import org.wikipedia.analytics.ABTest
 
-class SemanticSearchAbTest : ABTest("semanticSearch", GROUP_SIZE_2) {
+class HybridSearchAbTest : ABTest("hybridSearch", GROUP_SIZE_2) {
 
     fun getGroupName(): String {
         return when (group) {
