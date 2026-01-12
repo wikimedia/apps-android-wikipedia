@@ -4,14 +4,22 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
@@ -19,10 +27,11 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
-import org.wikipedia.compose.components.OnboardingScreen
+import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
 
@@ -57,48 +66,17 @@ class ActivityTabOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 OnboardingScreen(
-                    headerContent = {
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 58.dp, bottom = 32.dp),
-                            textAlign = TextAlign.Center,
-                            text = stringResource(R.string.activity_tab_onboarding_screen_title),
-                            style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
-                            color = WikipediaTheme.colors.primaryColor
-                        )
+                    onboardingItems = onboardingItems,
+                    onLearnMoreClick = {
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.activity_tab_url).toUri())
+                        Prefs.isActivityTabOnboardingShown = true
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "learn_click")
                     },
-                    content = {
-                        onboardingItems.forEach { onboardingItem ->
-                            OnboardingListItem(
-                                modifier = Modifier
-                                    .padding(horizontal = 8.dp)
-                                    .padding(bottom = 16.dp),
-                                item = onboardingItem
-                            )
-                        }
-                    },
-                    primaryButtonText = stringResource(R.string.onboarding_continue),
-                    secondaryButtonText = stringResource(R.string.activity_tab_menu_info),
-                    onPrimaryOnClick = {
-                        ActivityTabEvent.submit(
-                            activeInterface = "activity_tab_start",
-                            action = "continue_click"
-                        )
+                    onContinueClick = {
+                        ActivityTabEvent.submit(activeInterface = "activity_tab_start", action = "continue_click")
                         Prefs.isActivityTabOnboardingShown = true
                         setResult(RESULT_OK)
                         finish()
-                    },
-                    onSecondaryOnClick = {
-                        UriUtil.visitInExternalBrowser(
-                            this,
-                            getString(R.string.activity_tab_url).toUri()
-                        )
-                        Prefs.isActivityTabOnboardingShown = true
-                        ActivityTabEvent.submit(
-                            activeInterface = "activity_tab_start",
-                            action = "learn_click"
-                        )
                     }
                 )
             }
@@ -109,5 +87,65 @@ class ActivityTabOnboardingActivity : BaseActivity() {
         fun newIntent(context: Context): Intent {
             return Intent(context, ActivityTabOnboardingActivity::class.java)
         }
+    }
+}
+
+@Composable
+fun OnboardingScreen(
+    modifier: Modifier = Modifier,
+    onboardingItems: List<OnboardingItem>,
+    onLearnMoreClick: () -> Unit,
+    onContinueClick: () -> Unit
+) {
+    Scaffold(
+        modifier = modifier
+            .safeDrawingPadding(),
+        containerColor = WikipediaTheme.colors.paperColor,
+        bottomBar = {
+            TwoButtonBottomBar(
+                primaryButtonText = stringResource(R.string.onboarding_continue),
+                secondaryButtonText = stringResource(R.string.activity_tab_menu_info),
+                onPrimaryOnClick = onContinueClick,
+                onSecondaryOnClick = onLearnMoreClick
+            )
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(horizontal = 24.dp)
+                .verticalScroll(rememberScrollState()),
+        ) {
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 58.dp, bottom = 32.dp),
+                textAlign = TextAlign.Center,
+                text = stringResource(R.string.activity_tab_onboarding_screen_title),
+                style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            onboardingItems.forEach { onboardingItem ->
+                OnboardingListItem(
+                    item = onboardingItem
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun OnboardingScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnboardingScreen(
+            onboardingItems = onboardingItems,
+            onLearnMoreClick = {},
+            onContinueClick = {}
+        )
     }
 }
