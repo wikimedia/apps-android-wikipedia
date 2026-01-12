@@ -1151,6 +1151,7 @@
   <string name="activity_tab_game_stats_best_streak">최고 기록</string>
   <string name="activity_tab_play_wiki_games">위키게임 으로</string>
   <string name="activity_tab_report_email_subject">문제 보고하기</string>
+  <string name="activity_tab_report_email_body">활동 탭 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="activity_tab_menu_feedback">문제가 발생하였습니다</string>
   <string name="activity_tab_menu_info">더 알아보기</string>
   <string name="activity_tab_menu_customize">개별 사용자 맞춤 설정</string>
@@ -1165,8 +1166,13 @@
   <plurals name="activity_tab_impact_edits_last_month">
     <item quantity="other">지난 달의 편집</item>
   </plurals>
+  <string name="activity_tab_impact_last_edited">최근 편집</string>
   <string name="activity_tab_impact_suggested_edits_title">최근 문서 편집 수 0회</string>
   <string name="activity_tab_impact_suggested_edits_button">편집하기</string>
+  <string name="activity_tab_impact_recent_activity">최근 활동 (지난 30일)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="other">편집</item>
+  </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">읽기에 소요한 시간</string>
   <string name="activity_tab_customize_screen_donations_switch_title">마지막 인앱 기부</string>
   <string name="activity_tab_timeline_today">오늘</string>
