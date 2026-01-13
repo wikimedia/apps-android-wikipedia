@@ -63,7 +63,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (SemanticSearchAbTest().isSemanticSearchEnabled(searchLanguageCode)) {
+            if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
                 // TODO: navigate to deep search screen with search term as queryText
             }
             return true

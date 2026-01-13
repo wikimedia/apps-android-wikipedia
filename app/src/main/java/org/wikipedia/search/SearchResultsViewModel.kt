@@ -33,7 +33,7 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    val isSemanticSearchExperimentOn get() = SemanticSearchAbTest().isSemanticSearchEnabled(languageCode.value)
+    val isSemanticSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
 
     @OptIn(
         FlowPreview::class,
