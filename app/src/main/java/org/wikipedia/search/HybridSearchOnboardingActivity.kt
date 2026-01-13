@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContent
@@ -44,6 +45,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.OnboardingItem
@@ -76,12 +78,18 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
         Prefs.isHybridSearchEnabled = true
+        val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource::class.java)
+        } else {
+            intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
+        }
+
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
                     onGetStarted = { exampleQuery ->
                         if (exampleQuery == null) {
-                            setResult(RESULT)
+                            startActivity(SearchActivity.newIntent(this, source ?: Constants.InvokeSource.NAV_MENU, null))
                             finish()
                             return@HybridSearchOnboardingScreen
                         } else {
@@ -95,8 +103,9 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 
     companion object {
         const val RESULT = 1000
-        fun newIntent(context: Context): Intent {
+        fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
             return Intent(context, HybridSearchOnboardingActivity::class.java)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
         }
     }
 }
@@ -156,7 +165,7 @@ fun HybridSearchOnboardingScreen(
                 primaryButtonText = if (currentStep == OnboardingStep.FEATURE_OVERVIEW) stringResource(R.string.onboarding_next) else stringResource(R.string.onboarding_get_started),
                 secondaryButtonText = stringResource(R.string.hybrid_search_onboarding_learn_more),
                 onPrimaryOnClick = {
-                    if (currentStep == OnboardingStep.FEATURE_OVERVIEW) {
+                    if (currentStep == OnboardingStep.FEATURE_OVERVIEW && Prefs.isHybridSearchEnabled) {
                         currentStep = OnboardingStep.SEARCH_EXAMPLES
                     } else {
                         onGetStarted(null)

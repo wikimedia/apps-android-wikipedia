@@ -5,16 +5,11 @@ import android.content.Intent
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
-
-        // TODO: implement the onboardings screen for semantic search
-        if (HybridSearchAbTest().isTestGroupUser()) {
-            // TODO: launch the onboarding screen activity
-        }
-
         var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
         if (source == null) {
             when {
@@ -36,6 +31,11 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val RESULT_LINK_SUCCESS = 97
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
+            if (HybridSearchAbTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
+                Prefs.isHybridSearchOnboardingShown = true
+                return HybridSearchOnboardingActivity.newIntent(context, source)
+            }
+
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)

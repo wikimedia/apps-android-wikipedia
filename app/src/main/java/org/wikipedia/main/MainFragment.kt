@@ -73,7 +73,6 @@ import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.search.HybridSearchOnboardingActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -128,11 +127,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val activityTabOnboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             onNavigateTo(NavTab.EDITS)
-        } else if (result.resultCode == HybridSearchOnboardingActivity.RESULT) {
-            openSearchActivity(source = InvokeSource.NAV_MENU, null, null)
         }
     }
 
@@ -176,12 +173,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             navTabBackStack.clear()
             if (item.order == NavTab.EDITS.code()) {
                 if (!Prefs.isActivityTabOnboardingShown) {
-                    onboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
+                    activityTabOnboardingLauncher.launch(ActivityTabOnboardingActivity.newIntent(requireContext()))
                     binding.mainNavTabLayout.setOverlayDot(NavTab.EDITS, false)
                     return@setOnItemSelectedListener false
                 }
             }
-
             if (item.order == NavTab.MORE.code()) {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, MenuNavTabDialog.newInstance())
                 return@setOnItemSelectedListener false
@@ -190,16 +186,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             if (item.order == NavTab.EXPLORE.code() && fragment is FeedFragment) {
                 fragment.scrollToTop()
             }
-            if (item.order == NavTab.SEARCH.code()) {
-                if (!Prefs.isHybridSearchOnboardingShown) {
-                    onboardingLauncher.launch(HybridSearchOnboardingActivity.newIntent(requireContext()))
-                    Prefs.isHybridSearchOnboardingShown = true
-                    return@setOnItemSelectedListener false
-                }
-                if (fragment is HistoryFragment) {
-                    openSearchActivity(InvokeSource.NAV_MENU, null, null)
-                    return@setOnItemSelectedListener true
-                }
+            if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
+                openSearchActivity(InvokeSource.NAV_MENU, null, null)
+                return@setOnItemSelectedListener true
             }
             binding.mainViewPager.setCurrentItem(item.order, false)
             requireActivity().invalidateOptionsMenu()
