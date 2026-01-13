@@ -29,11 +29,9 @@ object DonationReminderHelper {
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
-    val campaignId = "appmenu_" + (if (isTestGroupUser) "reminderB" else "reminderA")
-
     var shouldShowSettingSnackbar = false
 
-    fun getCampaignIdForDialogs(campaignIdOriginal: String): String {
+    fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
         return if (isInEligibleCountry && isInDateRange) {
             campaignIdOriginal + if (isTestGroupUser) "_reminderB" else "_reminderA"
         } else {
