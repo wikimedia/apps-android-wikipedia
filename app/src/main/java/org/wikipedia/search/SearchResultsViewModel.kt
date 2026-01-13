@@ -40,10 +40,9 @@ class SearchResultsViewModel : ViewModel() {
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+        combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
-        }
-            .flatMapLatest { (term, lang) ->
+        }.debounce(delayMillis).flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
                 SearchResultsPagingSource(
