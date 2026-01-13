@@ -42,6 +42,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Devices.PIXEL_9
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
@@ -150,13 +151,13 @@ fun HybridSearchOnboardingScreen(
                             .padding(horizontal = 12.dp),
                     ) {
                         Surface(
-                            modifier = Modifier
-                                .height(16.dp)
-                                .width(47.dp),
+                            modifier = Modifier,
                             shape = RoundedCornerShape(50),
                             color = WikipediaTheme.colors.progressiveColor
                         ) {
                             Text(
+                                modifier = Modifier
+                                    .padding(horizontal = 12.dp, vertical = 2.dp),
                                 text = stringResource(R.string.hybrid_search_beta_tag),
                                 style = MaterialTheme.typography.labelSmall,
                                 fontFamily = FontFamily.Monospace,
@@ -166,7 +167,6 @@ fun HybridSearchOnboardingScreen(
                             )
                         }
                         Spacer(modifier = Modifier.height(8.dp))
-                        // Title text
                         Text(
                             text = "Introducing deep search",
                             style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
@@ -233,7 +233,7 @@ fun HybridSearchOnboardingScreen(
 
 @Composable
 fun ExperimentalFeatureToggleView() {
-    var isChecked by remember { mutableStateOf(Prefs.isHybridSearchEnabled) }
+    var isChecked by remember { mutableStateOf(true) }
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -315,7 +315,7 @@ enum class OnboardingStep {
     SEARCH_EXAMPLES
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = PIXEL_9)
 @Composable
 private fun HybridSearchOnboardingScreenPreview() {
     BaseTheme(
