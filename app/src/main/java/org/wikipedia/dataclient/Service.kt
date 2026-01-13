@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient
 
+import org.wikimedia.testkitchen.config.StreamConfigCollection
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
@@ -10,7 +11,6 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
 import org.wikipedia.dataclient.mwapi.ParamInfoResponse
 import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -216,8 +216,8 @@ interface Service {
         @Field("token") token: String
     ): MwPostResponse
 
-    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
-    suspend fun getStreamConfigs(): MwStreamConfigsResponse
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service%3Deventgate-analytics-external")
+    suspend fun getStreamConfigs(): StreamConfigCollection
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
@@ -718,7 +718,7 @@ interface Service {
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
-        const val PREFERRED_THUMB_SIZE = 320
+        const val PREFERRED_THUMB_SIZE = 330
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400

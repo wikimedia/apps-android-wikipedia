@@ -34,7 +34,10 @@
   <string name="search_hint">Hľadať na Wikipédii</string>
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať môj zoznam</string>
+  <string name="search_back_button_content_description">Vráť sa späť</string>
+  <string name="search_clear_query_content_description">Vyčistiť poradie</string>
+  <string name="search_icon_content_description">Hľadať</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zoznamy</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>
@@ -48,7 +51,7 @@
   <string name="page_error_back_to_main">Späť</string>
   <string name="error_back">Späť</string>
   <string name="error_next">Ďalej</string>
-  <string name="menu_clear_all_history" fuzzy="true">Vymazať históriu</string>
+  <string name="menu_clear_all_history">Vymazať históriu čítania</string>
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
   <string name="history_items_deleted">Počet odstránených článkov z histórie %d</string>
   <string name="history_item_delete_undo">Vrátiť</string>
@@ -383,6 +386,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Článok nemôže byť načítaný pokiaľ nie ste pripojený k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: Pridajte článok do zoznamu na prečítanie a hneď, ako budete opäť pripojený, sa stiahne.</string>
   <string name="page_offline_notice_last_date">Čítate bez pripojenia verziu tohto článku, ktorá bola uložená %s.</string>
+  <string name="redirected_from_snackbar">Presmerované z \"%s\"</string>
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="preference_title_customize_explore_feed">Denná dávka prieskumu</string>
@@ -612,6 +616,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Zrušiť</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušiť</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Zmazať</string>
   <string name="reading_list_activity_title">Zoznam na čítanie: %s</string>
   <string name="reading_lists_preview_save_button">Uložiť</string>
   <string name="reading_lists_preview_save_dialog_title">Uložiť zoznam</string>
@@ -1043,6 +1048,7 @@
   <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
   <string name="suggested_edits_contribution_current_revision_text">Vašu úpravu je aktuálne možné vidieť na Wikipédii</string>
   <string name="suggested_card_more_edits">Viac navrhovaných úprav</string>
+  <string name="suggested_edits_report_suggestion">Nahlásiť</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s štítok</item>
     <item quantity="few">%1$s štítky</item>
@@ -1080,6 +1086,15 @@
   <string name="edit_summary_added_image_and_caption">Pridané obrázok a titulky</string>
   <string name="edit_published_view">Zobraziť</string>
   <string name="activity_tab_menu_info">Ďalšie informácie</string>
+  <string name="activity_tab_menu_customize">Prispôsobiť</string>
+  <string name="activity_tab_impact_suggested_edits_button">Vykonať úpravu</string>
+  <string name="activity_tab_impact_recent_activity">Vaša nedávna aktivita (posledných 30 dní)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Úprava</item>
+    <item quantity="few">Úpravy</item>
+    <item quantity="many">Úprav</item>
+    <item quantity="other">Úprav</item>
+  </plurals>
   <string name="activity_tab_timeline_today">Dnes</string>
   <string name="activity_tab_timeline_yesterday">Včera</string>
   <string name="file_page_activity_title">Stránka súboru</string>
@@ -1171,6 +1186,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Vlastná</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Šírka</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Výška</string>
+  <string name="templates_param_suggested_value">napr. %s</string>
   <string name="templates_learn_more_link">Ďalšie informácie</string>
   <string name="main_drawer_help">Pomocník</string>
   <string name="main_drawer_login">Prihlásiť/zaregistrovať sa na Wikipédiu</string>
@@ -1301,6 +1317,9 @@
   <string name="watchlist_page_protected">Chránené</string>
   <string name="watchlist_page_deleted">Zmazané</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_user_status_newcomers">Nováčikovia</string>
+  <string name="watchlist_filter_contribution_authorship_own">Vaše zmeny</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Zmeny ostatných používateľov</string>
   <string name="watchlist_filter_automated_contributions_human">Človek (nie bot)</string>
   <string name="watchlist_filter_significance_minor">Drobné úpravy</string>
   <string name="watchlist_filter_type_of_change_header">Druh zmeny</string>
@@ -1317,6 +1336,8 @@
   <string name="revision_initial_none">Žiadne (toto je prvá revízia)</string>
   <string name="archive_empty">Nenašli sa žiadne archivované stránky.</string>
   <string name="user_contrib_filter_all">Všetky menné priestory</string>
+  <string name="talk_templates_new_message_title">Nová správa</string>
+  <string name="talk_templates_new_message_subject_hint">Predmet</string>
   <string name="talk_templates_new_message_save">Uložiť</string>
   <string name="talk_templates_new_message_dialog_title">Uložiť zmeny</string>
   <string name="talk_templates_new_message_dialog_save">Uložiť</string>

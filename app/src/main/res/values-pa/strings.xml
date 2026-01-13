@@ -1050,7 +1050,7 @@
     <item quantity="one">ਪਿਛਲੇ ਮਹੀਨੇ ਸੋਧ</item>
     <item quantity="other">ਪਿਛਲੇ ਮਹੀਨੇ ਸੋਧਾਂ</item>
   </plurals>
-  <string name="activity_tab_impact_all_time">ਕੁੱਲ ਸਮੇਂ ਦਾ ਅਸਰ</string>
+  <string name="activity_tab_impact_all_time">ਹੁਣ ਤੱਕ ਦੇ ਸਮੇਂ ਦਾ ਅਸਰ</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">ਕੁੱਲ ਸੋਧ</item>
     <item quantity="other">ਕੁੱਲ ਸੋਧਾਂ</item>
@@ -1076,7 +1076,7 @@
   <string name="activity_tab_customize_screen_time_spent_switch_title">ਪੜ੍ਹਨ ਵਿੱਚ ਬਿਤਾਇਆ ਸਮਾਂ</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">ਪੜ੍ਹਨ ਦਿਆਂ ਅੰਦਰੂਨੀ-ਝਾਤਾਂ</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">ਸੋਧ-ਕਾਰਜ ਦਿਆਂ ਅੰਦਰੂਨੀ-ਝਾਤਾਂ</string>
-  <string name="activity_tab_customize_screen_impact_switch_title">ਕੁੱਲ ਸਮੇਂ ਦਾ ਅਸਰ</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">ਹੁਣ ਤੱਕ ਦੇ ਸਮੇਂ ਦਾ ਅਸਰ</string>
   <string name="activity_tab_customize_screen_games_switch_title">ਖੇਡ ਅੰਕੜੇ</string>
   <string name="activity_tab_customize_screen_donations_switch_title">ਐਪ ਵਿੱਚ ਆਖਰੀ ਦਾਨ</string>
   <string name="activity_tab_timeline_today">ਅੱਜ</string>
@@ -1684,7 +1684,4 @@
   <string name="donation_reminders_experiment_label">ਤਜਰਬਾ</string>
   <string name="donation_reminders_settings_learn_more_button">ਹੋਰ ਜਾਣੋ</string>
   <string name="donation_reminders_settings_report_button">ਵਿਸ਼ੇਸ਼ਤਾ ਨਾਲ ਸਮੱਸਿਆ</string>
-  <string name="explore_feed_survey_dialog_title">ਖੋਜ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">ਸਰਵੇਖਣ ਲਵੋ</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 </resources>

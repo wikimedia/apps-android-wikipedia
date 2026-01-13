@@ -2156,7 +2156,4 @@
   <string name="donation_reminders_settings_report_email_subject">Ongelmaraportti – Lahjoitusmuistutukset</string>
   <string name="donation_reminders_settings_report_email_body">Olen huomannut seuraavan ongelman Lahjoitusmuistutuset-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n- [Kuvakaappaukset tai linkit)\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Muuta</string>
-  <string name="explore_feed_survey_dialog_title">Auta parantamaan Tutki-syötettä</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Vastaa kyselyyn</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Ei kiitos</string>
 </resources>

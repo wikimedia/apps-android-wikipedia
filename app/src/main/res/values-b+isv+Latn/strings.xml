@@ -1215,6 +1215,7 @@
   <string name="activity_tab_discover_encourage">Iščete li něčto novo za čitanje?</string>
   <string name="activity_tab_donation_unknown">Neizvěstno</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Poslědnje darovanje&lt;/b&gt; v aplikaciji</string>
+  <string name="activity_tab_total_edits_all_projects">Totalno čislo pravok po vsim projektam</string>
   <string name="activity_tab_game_stats">Statistika igr</string>
   <string name="activity_tab_game_stats_best_streak">Najlěpša serija</string>
   <string name="activity_tab_play_wiki_games">Igrati v VikiIgry</string>
@@ -1241,6 +1242,52 @@
     <item quantity="other">pravok v prošlom měsecu</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Vliv za ves čas</string>
+  <string name="activity_tab_impact_thanks">{{PLULRA|one=poblagodarjenje|few=poblagodarjenja|many=poblagodarjenij|poblagodarjenij}}</string>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="one">%d denj</item>
+    <item quantity="few">%d dnja</item>
+    <item quantity="many">%d dnjev</item>
+    <item quantity="other">%d dnjev</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Najlěpša serija</string>
+  <string name="activity_tab_impact_last_edited">Poslědnja pravka</string>
+  <string name="activity_tab_impact_suggested_edits_title">0 pravok v člankah v poslědnjem času</string>
+  <string name="activity_tab_impact_suggested_edits_message">Izgledaje na to, že ne jeste sdělali nijednu pravku v tutom měsecu. Razširjajte svobovno znanje, redaktujuči prědmety, ktore vas interesujut.</string>
+  <string name="activity_tab_impact_suggested_edits_button">Sdělati pravku</string>
+  <string name="activity_tab_impact_recent_activity">Vaša nedavna aktivnost (poslědnje 30 dnjev)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="one">Pravka</item>
+    <item quantity="few">Pravky</item>
+    <item quantity="many">Pravok</item>
+    <item quantity="other">Pravok</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Izobraženje člankov, ktore vy jeste izpravili</item>
+    <item quantity="other">Izobraženij člankov, ktore vy jeste izpravili</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Čas provedeny čitanjem</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Statistiky o čitanju</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Statistiky o pravjenju</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Vliv za ves čas</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statistika igr</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Poslědnje darovanje v aplikaciji</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Hronologija povedenja</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Moduly aktivnosti sut izključene. &lt;a href=\"#\"&gt;Vključite je&lt;/a&gt;, da byste uviděli obnovjenja na tutoj vkladkě.</string>
+  <string name="activity_tab_timeline_today">Dnes</string>
+  <string name="activity_tab_timeline_yesterday">Včera</string>
+  <string name="activity_tab_timeline_empty_state_title">Ničego do pokazanja</string>
+  <string name="activity_tab_timeline_empty_state_message">Načnite čitati i redaktovati, da byste iztvorili svoju historiju</string>
+  <string name="activity_tab_timeline_view_changes_button">Pokazati izměny</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Čitateljske privyčaje</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Pozrite, koliko časa vy jeste provedli čitanjem i kake članky ili prědmety jeste razvědali v tečenju časa.</string>
+  <string name="activity_tab_onboarding_screen_title">Vvod v aktivnost</string>
+  <string name="activity_tab_onboarding_impact_title">Glavne momenty vašego vliva</string>
+  <string name="activity_tab_onboarding_engage_title">Veče sposobov dějanja</string>
+  <string name="activity_tab_onboarding_engage_message">Razvědajte statistiky o igrah, zapisanyh člankah i drugyh aktivnostij, ktore povezajut vas ješče glubje s Vikipedijeju.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Imajte vse pod kontroloju</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Izberite, kake moduly vy hočete izobraziti. Vse osobne dane ostanut dověrnymi na vašem aparatu, a historiju prěgleděnyh vami stranic možno jest izčistiti vo vsakom momentu.</string>
+  <string name="edits_screen_what_is_title">Pravjenje v aplikaciji Vikipedije</string>
+  <string name="edits_screen_what_is_body">Ne znajete li, od čego začeti pravjenje? Poprobujte «Prědložene pravky», funkciju, ktora daje možnosti za maly ale važny vklad v Vikipediju. Abo prějdite bezposrědnje do članka o interesujučem vas prědmetu i sdělajte izměny posrědstvom vikiteksta.</string>
   <string name="file_page_activity_title">Stranica fajla</string>
   <string name="file_page_add_image_caption_button">Dodati nadpis obrazka</string>
   <string name="file_page_add_image_tags_button">Dodati značky obrazku</string>
@@ -1255,6 +1302,7 @@
   <string name="onboarding_continue">Prodolžiti</string>
   <string name="onboarding_get_started">Razpočeti</string>
   <string name="onboarding_maybe_later">Može pozdněje</string>
+  <string name="onboarding_explore_title">Nove sposoby izslědovanja</string>
   <string name="onboarding_data_privacy_title">Dane i privatnost</string>
   <string name="onboarding_data_privacy_text">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne. Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
   <string name="onboarding_analytics_switch_title">Odpraviti dane o upotrěbě</string>
@@ -1570,4 +1618,84 @@
   <string name="category_empty">V tutoj kategoriji ne byl najden nijedin članok.</string>
   <string name="subcategory_empty">V tutoj kategoriji ne byla najdena nijedna podkategorija.</string>
   <string name="search_namespaces">Imenne prostory</string>
+  <string name="user_contrib_activity_title">Vklad koristnika %s</string>
+  <string name="archive_empty">Nenajdena nijedna arhivovana stranica.</string>
+  <string name="user_contrib_filter_ns">Filtrovati po imennomu prostoru</string>
+  <string name="user_contrib_filter_all">Vse imenne prostory</string>
+  <string name="user_contrib_filter_ns_header">Filtr imennogo prostora</string>
+  <string name="namespace_article">Članok</string>
+  <string name="user_contrib_current">nyněšnja versija</string>
+  <string name="user_contrib_menu_label">Vklad</string>
+  <string name="user_contrib_filter_activity_title">Filtrovati vklad</string>
+  <string name="action_item_view_on_map">Pozrěti na mapě</string>
+  <string name="action_item_view_on_map_unavailable">Geografične koordinaty ne sut dostupne za tutu stranicu</string>
+  <string name="shareable_reading_lists_import_dialog_title">Importovanje děljenogo spiska za čitanje</string>
+  <string name="shareable_reading_lists_import_dialog_content">Kako vy hočete nazvati spisok, ktory byl poděljeny s vami?</string>
+  <string name="shareable_reading_lists_new_indicator">*novy*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">S vami byl poděljeny spisok za čitanje</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">My jesmo primětili, že s vami byl poděljeny spisok za čitanje. Za uviděnje togo spiska v aplikaciji, povrnite se k izhodnomu soobčenju i ponovno natisnite link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Razuměju</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">Spisok za čitanje jest uspěšno importovany</string>
+  <string name="reading_list_share_menu_label">Poděliti...</string>
+  <string name="reading_list_share_menu_tooltip">Podělite se tutym spiskom za čitanje s drugymi</string>
+  <string name="reading_list_share_message_v2">Zdravo! Ja htěl byh poděliti se svojim spiskom za čitanje v Vikipediji s vami:</string>
+  <string name="talk_templates_empty_message">Stvorite svoje vlastne soobčenja ili načnite od koristanja &lt;a href=\"#\"&gt;prikladnyh soobčenij&lt;/a&gt;.</string>
+  <string name="talk_templates_new_message_title">Novo soobčenje</string>
+  <string name="talk_templates_new_message_subject_hint">Prědmet</string>
+  <string name="talk_templates_new_message_compose_hint">Napisati soobčenje</string>
+  <string name="talk_templates_new_message_save">Zapisati</string>
+  <string name="talk_templates_new_message_dialog_title">Zapisati izměny</string>
+  <string name="talk_templates_new_message_dialog_description">Dodajte zaglavje i zapišite soobčenje.</string>
+  <string name="talk_templates_new_message_dialog_hint">Zaglavje soobčenja</string>
+  <string name="talk_templates_new_message_dialog_save">Zapisati</string>
+  <string name="talk_templates_new_message_dialog_cancel">Anulovati</string>
+  <string name="talk_templates_new_message_dialog_exists">Šablon «%s» uže jestvuje.</string>
+  <string name="talk_templates_new_message_saved">Soobčenje jest zapisano</string>
+  <string name="talk_templates_edit_message_dialog_title">Izpraviti soobčenje</string>
+  <string name="talk_templates_edit_message_dialog_save">Zapisati</string>
+  <string name="talk_templates_edit_message_dialog_delete">Odstraniti</string>
+  <string name="talk_templates_edit_message_updated">Soobčenje jest obnovjeno</string>
+  <string name="talk_templates_menu_remove_message">Odstraniti soobčenje</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Jeste li vy uvěrjeni, že hočete odstraniti soobčenje iz spiska?</item>
+    <item quantity="other">Jeste li vy uvěrjeni, že hočete odstraniti soobčenja iz spiska?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Soobčenje jest odstranjeno</item>
+    <item quantity="few">Soobčenja sut odstranjene</item>
+    <item quantity="many">Soobčenja sut odstranjene</item>
+    <item quantity="other">Soobčenja sut odstranjene</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Zaglavje ne može byti prazdno.</string>
+  <string name="talk_templates_your_messages_tab_title">Vaše soobčenja</string>
+  <string name="talk_templates_example_messages_tab_title">Prikladne soobčenja</string>
+  <string name="patroller_tasks_edits_list_search_hint">Iskati ili filtrovati pravky</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Značky: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Ničto</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Pokazati koristničsku stranicu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Pokazati besědnu stranicu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informacija o koristniku</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Pokazati vklad koristnika</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Poblagodariti</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informacija o koristniku</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Koristničko konto od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Kolikost pravok: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zakryti</string>
+  <string name="patroller_tasks_filters_title">Filtry</string>
+  <string name="patroller_tasks_filters_reset">Resetovati</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Viki</string>
+  <string name="patroller_tasks_filters_all_text">Vse</string>
+  <string name="patroller_tasks_filters_user_status_header">Registracija i izkušenost koristnika</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Neregistrovani</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Neprijavjeni koristniki.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registovani</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Prijavjeni koristniki.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Poslědnje versije</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Nyněšnja versija</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ne poslědnja versija</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Avtomatizovane pravky</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Člověk (ne bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Značenje</string>
+  <string name="patroller_tasks_filters_significance_minor">Male pravky</string>
+  <string name="patroller_tasks_filters_significance_edits">Obyčne pravky</string>
 </resources>

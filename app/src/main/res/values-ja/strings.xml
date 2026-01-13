@@ -1969,5 +1969,4 @@
   <string name="donation_reminders_settings_report_email_subject">寄付リマインダーの問題を報告</string>
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">いいえ、結構です</string>
 </resources>

@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
@@ -177,12 +178,14 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onPause() {
         super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
+        TestKitchenAdapter.client.onAppPause()
         EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
+        TestKitchenAdapter.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
     }
 

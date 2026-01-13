@@ -2433,8 +2433,4 @@
   <string name="donation_reminders_settings_report_email_subject">تقرير المشكلة - تذكيرات التبرع</string>
   <string name="donation_reminders_settings_report_email_body">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
-  <string name="explore_feed_survey_dialog_title">ساعدنا على تحسين</string>
-  <string name="explore_feed_survey_dialog_message">من فضلكم قموا بإجراء مسح قصير حول إرسال \"إكسبلور\". ردود الفعل الخاصة بك ستساعد على تشكيل التحسينات القادمة للتطبيق.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">إجراء مسح</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">لا شكراً</string>
 </resources>

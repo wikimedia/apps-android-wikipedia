@@ -16,6 +16,7 @@
 * Pyscowicz
 * Sabelöga
 * Skalman
+* Stefan2255
 * Sturban
 * Technic2
 * Tore
@@ -996,7 +997,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
   <string name="suggested_edits_article_cta_image_tags">Lägg till bildtaggar</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Lägg till bildtext</string>
+  <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
@@ -1919,6 +1920,10 @@
   <string name="year_in_review_slide_top_categories_headline">Dina mest intressanta kategorier</string>
   <string name="year_in_review_slide_top_categories_body">Kategorier grupperar artiklar med liknande ämnen. Under %1$d besökte du artiklar i dessa intressanta kategorier flera gånger: %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">De populäraste artiklarna på engelskspråkiga Wikipedia</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">När folk vill lära sig om vår värld vänder de sig till Wikipedia. Den mest %1$d besökta artikeln på engelska Wikipedia var: %2$s&lt;br /&gt; Läs mer i vårt &lt;a href=\"%3$s\"&gt;dedicated blog post&lt;/a&gt;.</item>
+    <item quantity="other">När folk vill lära sig om vår värld vänder de sig till Wikipedia. De %1$d mest besökta artiklarna på engelsk Wikipedia var: %2$s&lt;br /&gt; Läs mer i vårt &lt;a href=\"%3$s\"&gt;dedikerat blogginlägg&lt;/a&gt;.</item>
+  </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Din redigering har visats mer än %,d gånger nyligen</item>
     <item quantity="other">Dina redigeringar har visats mer än %,d gånger nyligen</item>
@@ -1936,7 +1941,11 @@
     <item quantity="one">%,d byte lades till</item>
     <item quantity="other">%,d byte lades till</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">På %1$d lade volontärer till %2$,d byte till engelska Wikipedia. Summan av allt deras arbete tillsammans leder till en stadigt förbättrad, faktabaserad och pålitlig kunskapsresurs som de ger till världen. Vi har alla kunskap att dela med oss av, &lt;a href=\"%3$s\"&gt;lär dig hur du deltar&lt;/a&gt;.</item>
+    <item quantity="other">På %1$d lade volontärer till %2$,d byte till engelska Wikipedia. Summan av allt deras arbete tillsammans leder till en stadigt förbättrad, faktabaserad och pålitlig kunskapsresurs som de ger till världen. Vi har alla kunskap att dela med oss av, &lt;a href=\"%3$s\"&gt;lär dig hur du deltar&lt;/a&gt; .</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Du redigerade Wikipedia %s gång</item>
     <item quantity="other">Du redigerade Wikipedia %s gånger</item>
   </plurals>
@@ -2213,6 +2222,6 @@
   <string name="donation_reminders_settings_learn_more_button">Läs mer</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
   <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåminnelser</string>
-  <string name="donation_reminders_settings_report_email_body" fuzzy="true">Jag har stött på ett problem med Wikipedias donationspåminnelsefunktion:\n- [Beskriv det specifika problemet]\n- [Skärmdumpar eller länkar]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
+  <string name="donation_reminders_settings_report_email_body">Jag har stött på ett problem med Wikipedias donationspåminnelsefunktion:\n- [Beskriv det specifika problemet]\n- [Skärmdumpar eller länkar]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifiera</string>
 </resources>
