@@ -17,6 +17,9 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class CreateAccountActivityViewModel : ViewModel() {
+    private val _authManagerState = MutableStateFlow(AccountInfoState())
+    val authManagerState = _authManagerState.asStateFlow()
+
     private val _createAccountInfoState = MutableStateFlow(AccountInfoState())
     val createAccountInfoState = _createAccountInfoState.asStateFlow()
 
@@ -29,6 +32,27 @@ class CreateAccountActivityViewModel : ViewModel() {
     var token: String? = null
 
     private var verifyUserNameJob: Job? = null
+
+    init {
+        getAuthManagerState()
+    }
+
+    private fun getAuthManagerState() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _authManagerState.value = AccountInfoState.Error(throwable)
+        }) {
+            val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAuthManagerInfo()
+            token = response.query?.createAccountToken()
+            if (token.isNullOrEmpty()) {
+                _authManagerState.value = AccountInfoState.InvalidToken
+            } else if (response.query?.hasHCaptchaRequest() == true) {
+                val hCaptchaDisclaimerMessage = "hcaptcha-privacy-policy"
+                val message = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(hCaptchaDisclaimerMessage, null)
+                    .query?.allmessages?.find { it.name == hCaptchaDisclaimerMessage }?.content
+                _authManagerState.value = AccountInfoState.HCaptchaDisclaimer(StringUtil.parseWikitextExternalLinks(message!!))
+            }
+        }
+    }
 
     fun createAccountInfo() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -90,6 +114,7 @@ class CreateAccountActivityViewModel : ViewModel() {
         data class DoCreateAccount(val token: String) : AccountInfoState()
         data class HandleCaptcha(val token: String, val captchaId: String) : AccountInfoState()
         data class HandleHCaptcha(val token: String) : AccountInfoState()
+        data class HCaptchaDisclaimer(val disclaimerMessage: String) : AccountInfoState()
         data object InvalidToken : AccountInfoState()
         data class Error(val throwable: Throwable) : AccountInfoState()
     }
