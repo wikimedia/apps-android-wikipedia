@@ -2,13 +2,26 @@ package org.wikipedia.search
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (intent.hasExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)) {
+            val messageResId = intent.getIntExtra(EXTRA_SHOW_SNACKBAR_MESSAGE, 0)
+            if (messageResId != 0) {
+                FeedbackUtil.makeSnackbar(this, getString(messageResId)).show()
+            }
+        }
+    }
+
     public override fun createFragment(): SearchFragment {
         var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
         if (source == null) {
@@ -29,6 +42,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val EXTRA_RETURN_LINK = "returnLink"
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
         const val RESULT_LINK_SUCCESS = 97
+        const val EXTRA_SHOW_SNACKBAR_MESSAGE = "showSnackbarMessage"
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
             if (HybridSearchAbTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {

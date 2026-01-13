@@ -2345,4 +2345,10 @@ looking for.</string>
     <string name="hybrid_search_experimental_feature_switch_label">Try experimental feature</string>
     <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
     <string name="hybrid_search_onboarding_search_example_description">Here are some examples of searches you can now make:</string>
+    <string name="hybrid_search_onboarding_opt_out_toast_message">You’ve opted out of the experiment. You can now search as usual.</string>
+    <string name="hybrid_search_onboarding_search_example_query_time_passing">How to pass time?</string>
+    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first olympics</string>
+    <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query_pizza_hall_of_fame">pizza hall of fame</string>
+    <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
 </resources>

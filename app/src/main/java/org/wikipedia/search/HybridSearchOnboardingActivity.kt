@@ -71,7 +71,13 @@ private val onboardingItems = listOf(
     )
 )
 
-private val defaultSearchQueries = listOf("How to pass time?", "first olympics", "RNA vs DNA", "pizza hall of fame", "What are the biggest cities in Europe?")
+private val defaultSearchQueries = listOf(
+    R.string.hybrid_search_onboarding_search_example_query_time_passing,
+    R.string.hybrid_search_onboarding_search_example_query_first_olympics,
+    R.string.hybrid_search_onboarding_search_example_query_rna_vs_dna,
+    R.string.hybrid_search_onboarding_search_example_query_pizza_hall_of_fame,
+    R.string.hybrid_search_onboarding_search_example_query_biggest_cities_europe
+)
 
 class HybridSearchOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +85,10 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         DeviceUtil.setEdgeToEdge(this)
         Prefs.isHybridSearchEnabled = true
         val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource::class.java)
+            intent.getSerializableExtra(
+                Constants.INTENT_EXTRA_INVOKE_SOURCE,
+                Constants.InvokeSource::class.java
+            )
         } else {
             intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
         }
@@ -89,7 +98,18 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                 HybridSearchOnboardingScreen(
                     onGetStarted = { exampleQuery ->
                         if (exampleQuery == null) {
-                            startActivity(SearchActivity.newIntent(this, source ?: Constants.InvokeSource.NAV_MENU, null))
+                            val intent = SearchActivity.newIntent(
+                                this,
+                                source ?: Constants.InvokeSource.NAV_MENU,
+                                null
+                            )
+                            if (!Prefs.isHybridSearchEnabled) {
+                                intent.putExtra(
+                                    SearchActivity.EXTRA_SHOW_SNACKBAR_MESSAGE,
+                                    R.string.hybrid_search_onboarding_opt_out_toast_message
+                                )
+                            }
+                            startActivity(intent)
                             finish()
                             return@HybridSearchOnboardingScreen
                         } else {
@@ -102,7 +122,6 @@ class HybridSearchOnboardingActivity : BaseActivity() {
     }
 
     companion object {
-        const val RESULT = 1000
         fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
             return Intent(context, HybridSearchOnboardingActivity::class.java)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
@@ -120,7 +139,7 @@ fun HybridSearchOnboardingScreen(
     var currentStep by rememberSaveable { mutableStateOf(OnboardingStep.FEATURE_OVERVIEW) }
     Scaffold(
         modifier = modifier
-                .safeDrawingPadding(),
+            .safeDrawingPadding(),
         containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
             TopAppBar(
@@ -162,7 +181,9 @@ fun HybridSearchOnboardingScreen(
         },
         bottomBar = {
             TwoButtonBottomBar(
-                primaryButtonText = if (currentStep == OnboardingStep.FEATURE_OVERVIEW) stringResource(R.string.onboarding_next) else stringResource(R.string.onboarding_get_started),
+                primaryButtonText = if (currentStep == OnboardingStep.FEATURE_OVERVIEW) stringResource(
+                    R.string.onboarding_next
+                ) else stringResource(R.string.onboarding_get_started),
                 secondaryButtonText = stringResource(R.string.hybrid_search_onboarding_learn_more),
                 onPrimaryOnClick = {
                     if (currentStep == OnboardingStep.FEATURE_OVERVIEW && Prefs.isHybridSearchEnabled) {
@@ -194,6 +215,7 @@ fun HybridSearchOnboardingScreen(
                         }
                         ExperimentalFeatureToggleView()
                     }
+
                     OnboardingStep.SEARCH_EXAMPLES -> {
                         SearchExamplesView(
                             modifier = Modifier
@@ -247,7 +269,7 @@ fun ExperimentalFeatureToggleView() {
 @Composable
 fun SearchExamplesView(
     modifier: Modifier = Modifier,
-    searchExamples: List<String> = defaultSearchQueries,
+    searchExamples: List<Int> = defaultSearchQueries,
     onClick: (String) -> Unit
 ) {
     Column(
@@ -266,11 +288,12 @@ fun SearchExamplesView(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             searchExamples.forEach { exampleQuery ->
+                val exampleQueryString = stringResource(exampleQuery)
                 SuggestionChip(
-                    onClick = { onClick(exampleQuery) },
+                    onClick = { onClick(exampleQueryString) },
                     label = {
                         Text(
-                            text = exampleQuery
+                            text = exampleQueryString
                         )
                     },
                     colors = SuggestionChipDefaults.suggestionChipColors(
