@@ -872,4 +872,12 @@ object Prefs {
     var yearInReviewReadingListSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
+
+    var isHybridSearchOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_onboarding_shown, value)
+
+    var isHybridSearchEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
 }

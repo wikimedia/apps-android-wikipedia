@@ -2333,7 +2333,9 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
-    
-    <!-- Semantic Search   -->
+
+    <!-- Hybrid Search -->
+    <string name="hybrid_search_search_hint">Search or ask anything</string>
+    <string name="hybrid_search_article_search_hint">Ask about %s</string>
     <string name="semantic_search_suggestion_title">Run a deep search for:</string>
 </resources>
