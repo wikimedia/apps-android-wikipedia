@@ -19,7 +19,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
-import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -38,9 +37,7 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
         campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID) ?: "appmenu"
-        campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
-            if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
-        } else ""
+        campaignId = DonationReminderHelper.getCampaignIdForDialogs(campaignIdOriginal!!)
 
         val activeInterface = if (arguments?.getBoolean(ARG_FROM_YIR) == true) {
             "wiki_yir"
