@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isNotEmpty
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
@@ -72,14 +73,14 @@ class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : Constr
         this.callback = callback
         this.languageCodes = languageCodes
         allowSelect = false
-        if (binding.horizontalScrollLanguages.childCount > 0) {
+        if (binding.horizontalScrollLanguages.isNotEmpty()) {
             binding.horizontalScrollLanguages.removeAllTabs()
         }
         languageCodes.forEach {
             val tab = binding.horizontalScrollLanguages.newTab()
             tab.customView = createLanguageTab(it)
             binding.horizontalScrollLanguages.addTab(tab)
-            updateTabView(false, tab)
+            updateTabView(tab.isSelected, tab)
         }
         allowSelect = true
         binding.horizontalScrollLanguages.post {
