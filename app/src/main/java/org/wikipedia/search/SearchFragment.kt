@@ -301,8 +301,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.queryHint = getString(
             if (invokeSource == InvokeSource.PLACES) {
                 R.string.places_search_hint
-            } else if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
-                HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode)) {
+            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
                 R.string.hybrid_search_search_hint
             } else {
                 R.string.search_hint

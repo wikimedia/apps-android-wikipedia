@@ -816,8 +816,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     fun updateSearchHint() {
-        if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
-            HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode) &&
+        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode) &&
             pageFragment.title?.namespace() == Namespace.MAIN) {
             val title = StringUtil.fromHtml(pageFragment.title?.displayText)
             binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)

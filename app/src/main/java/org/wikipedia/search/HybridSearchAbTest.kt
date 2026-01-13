@@ -1,6 +1,7 @@
 package org.wikipedia.search
 
 import org.wikipedia.analytics.ABTest
+import org.wikipedia.settings.Prefs
 
 class HybridSearchAbTest : ABTest("hybridSearch", GROUP_SIZE_2) {
 
@@ -15,8 +16,11 @@ class HybridSearchAbTest : ABTest("hybridSearch", GROUP_SIZE_2) {
         return group == GROUP_2
     }
 
-    // TODO: check with PM about countries vs language codes
-    val availableLanguages = listOf(
+    val supportedLanguages = listOf(
         "en", "fr", "pt"
     )
+
+    fun isHybridSearchEnabled(languageCode: String?): Boolean {
+        return Prefs.isHybridSearchEnabled && isTestGroupUser() && supportedLanguages.any { it.equals(languageCode, true) }
+    }
 }

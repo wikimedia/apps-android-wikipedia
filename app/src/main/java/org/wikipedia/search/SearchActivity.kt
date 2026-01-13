@@ -9,12 +9,6 @@ import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
-
-        // TODO: implement the onboardings screen for semantic search
-        if (HybridSearchAbTest().isTestGroupUser()) {
-            // TODO: launch the onboarding screen activity
-        }
-
         var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
         if (source == null) {
             when {

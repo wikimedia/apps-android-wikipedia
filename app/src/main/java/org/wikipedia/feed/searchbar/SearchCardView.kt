@@ -28,8 +28,7 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
         binding.voiceSearchButton.setOnClickListener { callback?.onVoiceSearchRequested() }
         binding.voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
 
-        if (Prefs.isHybridSearchOnboardingShown && Prefs.isHybridSearchEnabled && HybridSearchAbTest().isTestGroupUser() &&
-            HybridSearchAbTest().availableLanguages.contains(WikipediaApp.instance.languageState.appLanguageCode)) {
+        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
             binding.searchIcon.contentDescription = context.getString(R.string.hybrid_search_search_hint)
             binding.searchTextView.text = context.getString(R.string.hybrid_search_search_hint)
         } else {
