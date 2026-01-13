@@ -2088,6 +2088,8 @@
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
+    <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
+    <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
   <string name="hybrid_search_onboarding_learn_more">Menu label for visiting the information page of the hybrid search.</string>
   <string name="hybrid_search_onboarding_search_title">Onboarding title explaining hybrid search info.</string>
   <string name="hybrid_search_onboarding_search_description">Onboarding description explaining hybrid search info.</string>

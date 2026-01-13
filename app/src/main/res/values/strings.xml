@@ -2158,7 +2158,6 @@
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
     <string name="year_in_review_reading_list_dialog_title">Create your Year in Review %d reading list?</string>
     <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>
-    \
     <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
     <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
     <string name="year_in_review_reading_list_title">Year in Review %d</string>
@@ -2335,6 +2334,10 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
+
+    <!-- Hybrid Search -->
+    <string name="hybrid_search_search_hint">Search or ask anything</string>
+    <string name="hybrid_search_article_search_hint">Ask about %s</string>
     <string name="hybrid_search_onboarding_learn_more">Learn more</string>
     <string name="hybrid_search_onboarding_search_title">Search the way you naturally speak</string>
     <string name="hybrid_search_onboarding_search_description">You can now search by meaning. This is an experimental feature that lets you ask questions or describe what you’re
