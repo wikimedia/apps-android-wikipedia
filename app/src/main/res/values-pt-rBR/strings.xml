@@ -1892,6 +1892,7 @@
   <string name="year_in_review_get_started_later">Você pode acessar sua retrospectiva do ano mais tarde no menu Mais.</string>
   <string name="year_in_review_survey_title">Ajude a melhorar o resumo do ano</string>
   <string name="year_in_review_survey_subtitle">Você está satisfeito com este recurso?</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Você está satisfeito com sua lista de leitura?</string>
   <string name="year_in_review_survey_very_satisfied">Muito satisfeito</string>
   <string name="year_in_review_survey_satisfied">Satisfeito(a)</string>
   <string name="year_in_review_survey_neutral">Neutro</string>
@@ -1900,24 +1901,40 @@
   <string name="year_in_review_survey_placeholder_text">Alguma observação adicional?</string>
   <string name="year_in_review_survey_cancel">Cancelar</string>
   <string name="year_in_review_survey_submit">Enviar</string>
+  <string name="year_in_review_disable_title">Tem certeza de que deseja desativar o resumo do ano?</string>
   <string name="year_in_review_disable_positive_button">Sim, tenho certeza</string>
   <string name="year_in_review_disable_negative_button">Não, obrigado</string>
+  <string name="year_in_review_setting_subtitle">Desativar o resumo do ano apagará todas as informações personalizadas armazenadas e ocultará o resumo do ano.</string>
   <string name="year_in_review_screendeck_image_content_description">Recursos de imagem para a tela principal do resumo do ano</string>
   <string name="year_in_review_screenshot_error">Não foi possível gerar captura de tela: %s</string>
-  <string name="year_in_review_share_subject" fuzzy="true">Imagem e link do resumo do ano</string>
+  <string name="year_in_review_share_subject">Meu ano na Wikipédia em resumo</string>
+  <string name="year_in_review_share_body">Aqui está o meu resumo do ano na Wikipédia. Criado com o aplicativo da Wikipédia para Android %1$s %2$s</string>
   <string name="year_in_review_globe_icon">Ícone de globo</string>
   <string name="settings_app_icon_title">Ícone do aplicativo</string>
   <string name="settings_app_icon_subtitle">Benefício para o colaborador</string>
+  <string name="settings_app_icon_preference_subtitle">Você tem acesso a um ícone personalizado que celebra suas %d contribuições na aplicação para a Wikipédia. Ele permanecerá até o próximo resumo do ano.</string>
   <string name="settings_app_icon_updated">O ícone do seu aplicativo foi atualizado.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Novo ícone do aplicativo desbloqueado para sua tela inicial</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Desbloqueie sua recompensa de colaborador para o próximo ano!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Ative o novo ícone do aplicativo em Configurações, em Ícone do aplicativo. Obrigado por investir no futuro do conhecimento livre. Suas contribuições como %1$s em %2$d estão ajudando a pavimentar o caminho para um mundo de informação livre e, como resultado, você desbloqueou um ícone personalizado de colaborador da Wikipédia na sua tela inicial.</string>
   <string name="year_in_review_slide_app_icon_donor">um doador</string>
   <string name="year_in_review_slide_app_icon_editor">um editor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
+  <string name="year_in_review_slide_geo_headline">Os artigos que você leu são os mais próximos de %s</string>
   <string name="year_in_review_login_dialog_title">Entrar para personalização?</string>
   <string name="year_in_review_login_dialog_positive">Entrar / Cadastrar-se na Wikipédia</string>
   <string name="year_in_review_login_dialog_negative">Continuar sem entrar</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Seu artigo mais popular</item>
+    <item quantity="other">Seus artigos mais populares</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">Suas categorias mais interessantes</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Artigos mais lidos da Wikipédia em inglês</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d byte adicionado</item>
+    <item quantity="other">%,d bytes adicionados</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_patterns_headline">Você tem padrões de leitura claros</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Hora favorita para ler</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Dia favorito para ler</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mês em que você mais leu</string>
@@ -1930,8 +1947,34 @@
   <string name="year_in_review_reading_list_dialog_positive_button_label">Criar</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Não, obrigado</string>
   <string name="year_in_review_reading_list_title">Resumo do ano %d</string>
+  <string name="year_in_review_highlights_thank_you_message">Obrigado por dedicar seu ano à Wikipédia.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Nós estamos ansiosos pelo próximo ano!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Hora dedicada à leitura</item>
+    <item quantity="other">Horas dedicadas à leitura</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Alterações feitas pelos editores</item>
+    <item quantity="other">Alterações feitas pelos editores</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Número de artigos visualizados</item>
+    <item quantity="other">Número de artigos visualizados</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Edição no aplicativo</item>
+    <item quantity="other">Edições no aplicativo</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Com que frequência a Wikipédia foi editada</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Dia favorito para ler</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Artigo lido</item>
+    <item quantity="other">Artigos lidos</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">Tempo editado</item>
+    <item quantity="other">Tempos editados</item>
+  </plurals>
   <string name="year_in_review_highlights_share_button_title">Compartilhar destaques</string>
   <string name="year_in_review_highlights_logo_description">Logotipo da Wikipédia</string>
   <string name="recommended_reading_list_title">Descobrir</string>
@@ -2018,9 +2061,10 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">O Descobrir está ativado. A Wikipédia irá recomendar artigos para você ler.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Os lembretes de doação podem ser modificados a qualquer momento em Configurações.</string>
   <string name="donation_settings_section_header">Doações</string>
-  <string name="donation_reminders_settings_title" fuzzy="true">Lembretes de doações</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Junte-se aos 2%% dos leitores que contribuem com o que podem para manter a Wikipédia livre de anúncios, atualizada e disponível para todos. Configure agora mesmo seu lembrete de doação.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">As doações vão para a Fundação Wikimedia e suas afiliadas, orgulhosas anfitriãs da Wikipédia e seus sites irmãos.</string>
+  <string name="donation_reminders_settings_title">Como podemos lembrá-lo?</string>
+  <string name="donation_reminders_settings_option_title">Lembretes de doações</string>
+  <string name="donation_reminders_settings_thank_you_message">Sua generosidade ajuda a manter a Wikipédia prosperando. Configure um lembrete de doação com base no número de artigos que você lê.</string>
+  <string name="donation_reminders_settings_donation_info">As doações são destinadas à Wikimedia Foundation e suas afiliadas, orgulhosas anfitriãs da Wikipédia e de outros projetos de conhecimento livre.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quando eu li</string>
   <string name="donation_reminders_settings_amount_label">Lembre-me de fazer uma doação</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmar lembrete</string>
@@ -2031,7 +2075,8 @@
   <string name="donation_reminders_settings_option_custom">Personalizar...</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Obrigado! Lembraremos você de doar %1$s quando ler %2$s enquanto este experimento estiver em andamento.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Você leu %1$s desde que se comprometeu com %2$s</string>
-  <string name="donation_reminders_prompt_message" fuzzy="true">Em %1$s, você nos pediu para lembrá-lo de fazer uma doação após ler %2$s. Se a Wikipédia lhe proporcionou %3$s de conhecimento, junte-se aos 2%% dos leitores que fazem doações e cumpra sua promessa hoje mesmo.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Você leu outro %1$s</string>
+  <string name="donation_reminders_prompt_message">Você configurou um lembrete de doação em %1$s para doar %3$s a cada %2$s que você ler. Pronto para cumprir sua promessa de apoiar a Wikipédia?</string>
   <string name="donation_reminders_prompt_positive_button">Doar agora</string>
   <string name="donation_reminders_prompt_negative_button">Agora não</string>
   <string name="donation_reminders_gpay_text">Doar %s com Google Pay</string>
@@ -2043,5 +2088,9 @@
     <item quantity="one">%d artigo</item>
     <item quantity="other">%d artigos</item>
   </plurals>
-  <string name="donation_reminders_experiment_label" fuzzy="true">Experimento</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Não, obrigado</string>
+  <string name="donation_reminders_experiment_label">EXPERIMENTO</string>
+  <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
+  <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
 </resources>

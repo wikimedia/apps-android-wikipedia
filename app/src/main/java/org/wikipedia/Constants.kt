@@ -43,7 +43,7 @@ object Constants {
     const val MAX_TABS = 100
     const val MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2
     const val PLAIN_TEXT_MIME_TYPE = "text/plain"
-    const val PREFERRED_CARD_THUMBNAIL_SIZE = 800
+    const val PREFERRED_CARD_THUMBNAIL_SIZE = 960
     const val PREFERRED_GALLERY_IMAGE_SIZE = 1280
     const val SUGGESTION_REQUEST_ITEMS = 5
 

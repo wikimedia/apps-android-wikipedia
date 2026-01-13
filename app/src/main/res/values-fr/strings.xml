@@ -9,6 +9,7 @@
 * C13m3n7
 * CKali
 * Cigaryno
+* Codeurluce
 * Cooltey
 * Crochet.david
 * Daniel236
@@ -37,6 +38,7 @@
 * Jhammock
 * KATRINE1992
 * Kimyungjog
+* Lenchanteur
 * Linedwell
 * Lofhi
 * Ltrlg
@@ -321,6 +323,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -1793,7 +1796,7 @@
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
+  <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à d\'autres sites contenant des connaissances libres de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
   <string name="donate_gpay_dialog_title">Faire un don avec Google Pay ?</string>
@@ -1812,7 +1815,8 @@
   <string name="donate_gpay_help_other_ways">Autres moyens de donner</string>
   <string name="donate_gpay_help_faq">Foire aux questions</string>
   <string name="donate_gpay_help_tax">Informations sur les conditions de déductibilité fiscale</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Historique des donateurs supprimé</string>
+  <string name="donation_history_deleted_message_snackbar">Historique des donations supprimé.</string>
+  <string name="donation_history_no_history_message_snackbar">Vous n\'avez aucun historique de donation à supprimer.</string>
   <string name="places_title">Lieux</string>
   <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
@@ -1951,6 +1955,46 @@
   <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Activez votre nouvelle icône d\'application dans les paramètres en dessous de l\'icône de l\'application. Merci d\'avoir investi dans le futur du savoir gratuit. Vos contributions en tant que %1$s dans %2$d aident à bâtir un monde d\'information gratuite, et grâce à ça, vous avez débloqué une icône customisée de contributeur pour Wikipedia sur votre écran d\'accueil.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Nous sommes ravis que Wikipédia ait fait partie de votre année %1$d&amp;nbsp;! Débloquez une récompense spéciale dans votre Bilan %2$d en devenant contributeur·rice&amp;nbsp;— que ce soit en &lt;a href=\"%3$s\"&gt;modifiant Wikipédia&lt;/a&gt; ou en faisant un don depuis l’application à la &lt;a href=\"%4$s\"&gt;Fondation Wikimedia&lt;/a&gt;, l’organisme à but non lucratif qui la soutient. Si Wikipédia vous est utile, pensez à faire un don pour aider à préserver son avenir et la garder gratuite, sans publicité, fiable et accessible à toutes et à tous. Si vous avez déjà fait un don ailleurs, votre soutien nous touche profondément.</string>
+  <string name="year_in_review_slide_app_icon_donor">donateur·rice</string>
+  <string name="year_in_review_slide_app_icon_editor">contributeur·rice</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donateur·rice et contributeur·rice</string>
+  <string name="year_in_review_slide_geo_headline">Les articles que vous avez lus sont principalement liés à %s.</string>
+  <string name="year_in_review_slide_geo_body">Le pays le plus associé aux articles que vous avez lus semble être : %1$s, d’après des articles comme %2$s et %3$s.</string>
+  <string name="year_in_review_login_dialog_title">Vous connecter pour une expérience personnalisée ?</string>
+  <string name="year_in_review_login_dialog_body">La connexion vous donne accès à des statistiques personnalisées. Vous pouvez toutefois consulter les statistiques collectives sans être connecté·e.</string>
+  <string name="year_in_review_login_dialog_positive">Se connecter / Créer un compte</string>
+  <string name="year_in_review_login_dialog_negative">Continuer sans vous connecter</string>
+  <string name="year_in_review_slide_top_categories_headline">Vos catégories les plus intéressantes</string>
+  <string name="year_in_review_slide_top_categories_body">Les catégories regroupent des articles portant sur des sujets similaires. En %1$d, vous avez consulté à plusieurs reprises des articles appartenant à ces catégories intéressantes : %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Les articles les plus lus de Wikipédia en anglais</string>
+  <string name="year_in_review_slide_edited_per_minute_body">Les articles sont créés et améliorés collectivement à partir de sources fiables. Chacun·e a des connaissances à partager : &lt;a href=\"%s\"&gt;apprenez comment participer&lt;/a&gt;.</string>
+  <string name="year_in_review_slide_app_edited_times_body">Le cœur et l\'âme de Wikipédia, c\'est notre communauté mondiale de contributeurs bénévoles, de donateurs et de milliards de lecteurs comme vous, tous unis pour partager un accès illimité à des informations fiables.</string>
+  <string name="year_in_review_slide_global_saved_articles_body">Ajouter des articles à des listes de lecture vous permet d’y accéder même hors ligne. Vous pouvez aussi vous connecter pour synchroniser vos listes de lecture sur tous vos appareils.</string>
+  <string name="year_in_review_slide_reading_patterns_headline">Vos habitudes de lecture sont bien marquées.</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Moment préféré pour lire</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Jour préféré pour lire</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mois où vous avez le plus lu</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Matin</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Midi</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Après-midi</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Soir</string>
+  <string name="year_in_review_slide_reading_pattern_night">Nuit</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Tard dans la nuit</string>
+  <string name="year_in_review_slide_viewed_articles_times_body">Pour des millions de personnes à travers le monde, Wikipédia est la première ressource consultée pour répondre à une question, rechercher de l’information pour les études ou le travail, ou découvrir une nouvelle connaissance.</string>
+  <string name="year_in_review_reading_list_dialog_title">Créer votre liste de lecture « Bilan %d » ?</string>
+  <string name="year_in_review_reading_list_dialog_message">Le Bilan Wikipédia créera une liste de lecture des articles avec lesquels vous avez passé le plus de temps en %1$d. &lt;a href=\"%2$s\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Créer</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Non merci</string>
+  <string name="year_in_review_reading_list_title">Bilan %d</string>
+  <string name="year_in_review_reading_list_description">Créé pour %1$s. Les articles avec lesquels vous avez passé le plus de temps en %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">Merci d’avoir passé votre année avec Wikipédia.</string>
+  <string name="year_in_review_highlights_looking_forward_message">Hâte de vous retrouver l’année prochaine !</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Fréquence de modification de Wikipédia</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Jour préféré pour lire</string>
+  <string name="year_in_review_highlights_share_button_title">Partager les points forts</string>
+  <string name="year_in_review_highlights_logo_description">Logo Wikipédia</string>
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
@@ -2035,9 +2079,10 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">La Découverte est activée. Wikipédia vous recommandera des articles à lire.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Les rappels de don peuvent être modifiés à tout moment dans les paramètres.</string>
   <string name="donation_settings_section_header">Dons</string>
-  <string name="donation_reminders_settings_title" fuzzy="true">Rappels de dons</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Rejoignez les 2%% de lecteurs qui donnent pour que Wikipédia reste sans publicité et accessible à tous. Configurez votre rappel de don dès maintenant.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Les dons sont destinés à la Fondation Wikimédia et à ses filiales, hôtes de Wikipédia et de ses sites frères.</string>
+  <string name="donation_reminders_settings_title">Comment devrions-nous vous le rappeler ?</string>
+  <string name="donation_reminders_settings_option_title">Rappels de dons</string>
+  <string name="donation_reminders_settings_thank_you_message">Votre générosité contribue à la vitalité de Wikipédia. Programmez un rappel de don en fonction du nombre d\'articles que vous lisez.</string>
+  <string name="donation_reminders_settings_donation_info">Les dons sont versés à la Fondation Wikimedia et à ses affiliés, hébergeurs fiers de Wikipédia et d’autres projets de savoir libre.</string>
   <string name="donation_reminders_settings_article_frequency_label">Quand je lis</string>
   <string name="donation_reminders_settings_amount_label">Me rappeler de faire un don</string>
   <string name="donation_reminders_settings_confirm_btn_label">Confirmer le rappel</string>
@@ -2048,7 +2093,8 @@
   <string name="donation_reminders_settings_option_custom">Personnalisé</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Merci ! Nous vous rappellerons de faire un don de %1$s lorsque vous lirez %2$s pendant la durée de cette expérience.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Vous avez lu %1$s depuis que vous avez promis %2$s</string>
-  <string name="donation_reminders_prompt_message" fuzzy="true">Le %1$s, vous nous avez demandé de vous rappeler de faire un don après avoir lu %2$s. Si Wikipédia vous a fourni %3$s de connaissances, rejoignez les 2%% de lecteurs qui donnent et complétez votre engagement dès aujourd\'hui.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Vous avez lu %1$s de plus</string>
+  <string name="donation_reminders_prompt_message">Vous avez programmé un rappel de don sur %1$s pour donner %3$s à chaque %2$s que vous lisez. Prêt·e à concrétiser votre engagement envers Wikipédia ?</string>
   <string name="donation_reminders_prompt_positive_button">Faire un don maintenant</string>
   <string name="donation_reminders_prompt_negative_button">Pas maintenant</string>
   <string name="donation_reminders_gpay_text">Faire un don de %s avec Google Pay</string>
@@ -2060,5 +2106,11 @@
     <item quantity="one">%d article</item>
     <item quantity="other">%d articles</item>
   </plurals>
-  <string name="donation_reminders_experiment_label" fuzzy="true">Expérimentation</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Non merci</string>
+  <string name="donation_reminders_experiment_label">Expérimentation</string>
+  <string name="donation_reminders_settings_learn_more_button">En savoir plus</string>
+  <string name="donation_reminders_settings_report_button">Problème avec cette fonctionnalité</string>
+  <string name="donation_reminders_settings_report_email_subject">Rapport sur les problèmes - Rappels de dons</string>
+  <string name="donation_reminders_settings_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de rappels de dons :\n- [Décrire le problème précis]\n- [Captures d\'écran ou liens]\n\nComportement souhaité :\n- [Décrire la solution proposée]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Modifier</string>
 </resources>

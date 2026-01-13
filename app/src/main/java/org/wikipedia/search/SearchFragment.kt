@@ -44,7 +44,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
-    private var tempLangCodeHolder: String? = null
     private var langBtnClicked = false
     private var isSearchActive = false
     private var query: String? = null
@@ -230,7 +229,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun onLangButtonClick() {
         langBtnClicked = true
-        tempLangCodeHolder = searchLanguageCode
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
@@ -328,13 +326,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             // We need to skip an event when we return back from 'add languages' screen,
             // because it triggers two events while re-drawing the UI
             langBtnClicked = false
-        } else {
-            // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
-            // gets overwritten when UI is re-drawn
-            tempLangCodeHolder = null
         }
         searchLanguageCode = selectedLanguageCode
-        searchResultsFragment.setLayoutDirection(searchLanguageCode)
+
         recentSearchesFragment.reloadRecentSearches()
         startSearch(query, false)
     }

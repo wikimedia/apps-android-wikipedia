@@ -2013,7 +2013,9 @@
   <string name="year_in_review_slide_app_icon_editor">העריכות</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">התרומות והעריכות</string>
   <string name="year_in_review_slide_geo_headline">המדינה שהערכים שקראת הכי קרובים אליה היא %s</string>
+  <string name="year_in_review_slide_geo_body">המדינה שהכי קרובה לכמות הגדולה ביותר של ערכים שקראת היא כפי הנראה: %1$s, לפי ערכים כמו &lt;b&gt;%2$s&lt;/b&gt; וגם &lt;b&gt;%3$s&lt;/b&gt;.</string>
   <string name="year_in_review_login_dialog_title">להיכנס לחשבון בשביל התאמה אישית?</string>
+  <string name="year_in_review_login_dialog_body">כניסה למערכת מאפשר לך לגשת לתובנות שתואמות לך אישית. אפשר עדיין לצפות בתובנות כוללניות מבלי להיכנס.</string>
   <string name="year_in_review_login_dialog_positive">כניסה לחשבון / הצטרפות לוויקיפדיה</string>
   <string name="year_in_review_login_dialog_negative">להמשיך בלי להיכנס לחשבון</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -2030,7 +2032,19 @@
   </plurals>
   <string name="year_in_review_slide_top_categories_headline">הקטגוריות המעניינות ביותר שלך</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">הערכים הנקראים ביותר בוויקיפדיה האנגלית</string>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">ערכת פעם אחת</item>
+    <item quantity="two">ערכת פעמיים</item>
+    <item quantity="many">ערכת %s פעמים</item>
+    <item quantity="other">ערכת %s פעמים</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">הלב והנשמה של ויקיפדיה הם הקהילה העולמית שלנו של תורמים מתנדבים, תורמי כסף ומיליארדי קוראים כמוך – כולם מאוחדים כדי לחלוק גישה בלתי־מוגבלת למידע אמין.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">עורכים ביצעו שינוי אחד השנה</item>
+    <item quantity="two">עורכים ביצעו שני שינויים השנה</item>
+    <item quantity="many">עורכים ביצעו %,d שינויים השנה</item>
+    <item quantity="other">עורכים ביצעו %,d שינויים השנה</item>
+  </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">הוספת ערכים לרשימות קריאה מאפשרת לך גישה לערכים גם לא חיבור לרשת. ניתן גם להתחבר כדי לסנכרן רשימות קריאה בין מכשירים.</string>
   <string name="year_in_review_slide_reading_patterns_headline">יש לך דפוסי קריאה ברורים</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">הזמן האהוב לקריאה</string>
@@ -2052,7 +2066,19 @@
   <string name="year_in_review_highlights_looking_forward_message">אנחנו מצפים לשנה הבאה!</string>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">כל כמה זמן ויקיפדיה נערכה</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">היום האהוב לקריאה</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">קטגוריה שעניינה אותי</item>
+    <item quantity="two">קטגוריות שעניינו אותי</item>
+    <item quantity="many">קטגוריות שעניינו אותי</item>
+    <item quantity="other">קטגוריות שעניינו אותי</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">שיתוף רגעי שיא</string>
   <string name="year_in_review_highlights_logo_description">סמל ויקיפדיה</string>
+  <string name="recommended_reading_list_onboarding_card_new">חדש!</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">לא, תודה</string>
+  <string name="recommended_reading_list_interest_source_interests">לאפשר לי לבחור לפי תחומי העניין שלי</string>
+  <string name="recommended_reading_list_interest_source_saved">לבחור בשבילי לפי הערכים ששמרתי</string>
+  <string name="recommended_reading_list_interest_source_history">לבחור בשבילי לפי היסטוריית הקריאה שלי</string>
   <string name="recommended_reading_list_interest_pick_title">מה מעניין אותך?</string>
   <string name="recommended_reading_list_interest_pick_search_hint">חיפוש אחר ערך</string>
   <string name="recommended_reading_list_interest_select_minimum">נא לבחור לפחות תחום עניין אחד</string>
@@ -2082,6 +2108,9 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">מדי יום</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">מדי שבוע</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">מדי חודש</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">לפי תחומי העניין שלך</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">לפי הערכים ששמרת</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">לפני היסטוריית הקריאה שלך</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">כוונון</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">לא משנה</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ביטול</string>
@@ -2103,10 +2132,15 @@
   <string name="donation_reminders_settings_option_custom">מותאם...</string>
   <string name="donation_reminders_prompt_positive_button">לתרום עכשיו</string>
   <string name="donation_reminders_prompt_negative_button">לא עכשיו</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">ערך</item>
+    <item quantity="two">שני ערכים</item>
+    <item quantity="many">%d ערכים</item>
+    <item quantity="other">%d ערכים</item>
+  </plurals>
   <string name="donation_reminders_settings_no_thanks_btn_label">לא, תודה</string>
   <string name="donation_reminders_experiment_label">ניסוי</string>
   <string name="donation_reminders_settings_learn_more_button">מידע נוסף</string>
+  <string name="donation_reminders_settings_report_button">בעיה עם תכונה</string>
   <string name="donation_reminders_snackbar_modify_button_label">שינוי</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">מילוי סקר</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">לא, תודה</string>
 </resources>

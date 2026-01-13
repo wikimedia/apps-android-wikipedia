@@ -42,38 +42,44 @@ class FeedScreenTest : BaseTest<MainActivity>(
 
         // Feed Test flow
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
-            .assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
-            .clickOnFeaturedArticle()
-            .pressBack()
-            .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = -100)
-            .clickTodayOnWikipedia()
-        dialogRobot
-            .dismissBigEnglishDialog()
-            .dismissContributionDialog()
-        exploreFeedRobot
-            .pressBack()
+            .scrollAndPerform(title = FEATURED_ARTICLE) { position ->
+                assertFeaturedArticleTitleColor(theme = Theme.LIGHT)
+                clickOnFeaturedArticle(position)
+                pressBack()
+            }
+            .scrollAndPerform(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE) { position ->
+                clickTodayOnWikipedia(position)
+                dialogRobot
+                    .dismissBigEnglishDialog()
+                    .dismissContributionDialog()
+                pressBack()
+            }
         systemRobot
             .enableDarkMode(context)
         exploreFeedRobot
-            .scrollToItem(title = TODAY_ON_WIKIPEDIA_MAIN_PAGE, verticalOffset = 400)
-            .scrollToItem(title = TOP_READ_ARTICLES, verticalOffset = 400)
-            .assertTopReadTitleColor(theme = Theme.DARK)
-            .clickTopReadArticle()
-            .scrollToItem(title = PICTURE_OF_DAY)
-            .clickPictureOfTheDay()
-            .pressBack()
+            .scrollAndPerform(title = TOP_READ_ARTICLES) { position ->
+                assertTopReadTitleColor(theme = Theme.DARK)
+                clickTopReadArticle(position)
+                pressBack()
+            }
+            .scrollAndPerform(title = PICTURE_OF_DAY) { position ->
+                clickPictureOfTheDay(position)
+                pressBack()
+            }
         systemRobot
-            .enableDarkMode(context)
+            .disableDarkMode(context)
         exploreFeedRobot
-            .scrollToItem(title = NEWS_CARD)
-            .clickNewsArticle()
-            .pressBack()
-            .scrollToItem(title = ON_THIS_DAY_CARD)
-            .clickOnThisDayCard()
-            .pressBack()
-            .scrollToItem(title = RANDOM_CARD)
-            .clickRandomArticle()
-            .pressBack()
+            .scrollAndPerform(title = NEWS_CARD) { position ->
+                clickNewsArticle(position)
+                pressBack()
+            }
+            .scrollAndPerform(title = ON_THIS_DAY_CARD) { position ->
+                clickOnThisDayCard(position)
+                pressBack()
+            }
+            .scrollAndPerform(title = RANDOM_CARD) { position ->
+                clickRandomArticle(position)
+                pressBack()
+            }
     }
 }

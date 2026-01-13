@@ -1752,13 +1752,21 @@
     <item quantity="one">%,d Byte derbäigesat</item>
     <item quantity="other">%,d Byte derbäigesat</item>
   </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Dir hutt %s Ännerung gemaach</item>
+    <item quantity="other">Dir hutt %s Ännerunge gemaach</item>
+  </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
     <item quantity="one">Auteuren hunn %,d Ännerung mat den offizielle Wikipedia-Appe gemaach</item>
     <item quantity="other">Auteuren hu(nn) %,d Ännerunge mat den offizielle Wikipedia-Appe gemaach</item>
   </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">Dir hutt %,d Artikel gespäichert</item>
+    <item quantity="other">Dir hutt %,d Artikele gespäichert</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Liblingszäit fir ze liesen</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Liblingsdag fir ze liesen</string>
-  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an de m Dir am meeschte gelies hutt</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mount, an deem Dir am meeschte gelies hutt</string>
   <string name="year_in_review_slide_reading_pattern_morning">Moies</string>
   <string name="year_in_review_slide_reading_pattern_midday">Mëttes</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Nomëttes</string>
@@ -1919,8 +1927,4 @@
   <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
-  <string name="explore_feed_survey_dialog_title">Hëlleft eis Entdecken ze verbesseren</string>
-  <string name="explore_feed_survey_dialog_message">Maacht wgl. bei enger kuerzer Ëmfro iwwer den Entdecke-Feed mat. Äre Feedback hëlleft eis fir zukünfteg Verbesserungen un der App ze maachen.</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">Bei der Ëmfro matmaachen</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">Nee, merci</string>
 </resources>

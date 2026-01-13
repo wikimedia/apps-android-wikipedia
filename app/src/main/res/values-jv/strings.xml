@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Arifin.wijaya
+* Bennylin
 * Diki Ananta
 * MuratTheTurkish
 * N219
@@ -327,7 +328,7 @@
   <string name="reading_list_sort_by_created">Urutaké miturut tanggal panggawéné (anyar dhéwé)</string>
   <string name="reading_list_sort_by_created_desc">Urutaké miturut tanggal panggawéné (lawas dhéwé)</string>
   <string name="reading_list_menu_delete">Busak pratélan</string>
-  <string name="reading_list_menu_rename">Besut jeneng/dhèskripsi</string>
+  <string name="reading_list_menu_rename">Besut jeneng/wedharan</string>
   <string name="reading_list_action_menu_remove_from_offline">Busek saka jaban jaringan</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen kanggo ing njaban jaringan</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Busak kabèh ing oflèn</string>
@@ -579,7 +580,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Lisènsi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Info Candhaké</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kaca barkas ing Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Wuwuh kateranganing gambar</string>
+  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Wuwuh kateranganing gambar</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Wuwuh kateranganing gambar (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Deleng</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Wuwuh katerangan</string>

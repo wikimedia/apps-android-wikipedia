@@ -19,7 +19,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogDonateBinding
 import org.wikipedia.dataclient.donate.CampaignCollection
-import org.wikipedia.donate.donationreminder.DonationReminderAbTest
 import org.wikipedia.donate.donationreminder.DonationReminderHelper
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -37,10 +36,8 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogDonateBinding.inflate(inflater, container, false)
-        campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID)
-        campaignId = campaignIdOriginal + if (DonationReminderHelper.isInEligibleCountry) {
-            if (DonationReminderAbTest().isTestGroupUser()) "_reminderB" else "_reminderA"
-        } else ""
+        campaignIdOriginal = arguments?.getString(ARG_CAMPAIGN_ID) ?: "appmenu"
+        campaignId = DonationReminderHelper.getCampaignId(campaignIdOriginal!!)
 
         val activeInterface = if (arguments?.getBoolean(ARG_FROM_YIR) == true) {
             "wiki_yir"
@@ -128,26 +125,26 @@ class DonateDialog : ExtendedBottomSheetDialogFragment() {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "gpay_click",
-                campaignId = DonationReminderHelper.campaignId
+                campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.campaignId))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), filledAmount = donateAmount, campaignId = DonationReminderHelper.getCampaignId()))
         }
         binding.donateGooglePayDifferentAmountButton.isVisible = true
         binding.donateGooglePayDifferentAmountButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "other_gpay_click",
-                campaignId = DonationReminderHelper.campaignId
+                campaignId = DonationReminderHelper.getCampaignId()
             )
             (requireActivity() as? BaseActivity)?.launchDonateActivity(
-                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.campaignId))
+                GooglePayComponent.getDonateActivityIntent(requireActivity(), campaignId = DonationReminderHelper.getCampaignId()))
         }
         binding.donateOtherButton.setOnClickListener {
             DonorExperienceEvent.logDonationReminderAction(
                 activeInterface = "reminder_milestone",
                 action = "other_method_click",
-                campaignId = DonationReminderHelper.campaignId
+                campaignId = DonationReminderHelper.getCampaignId()
             )
             onDonateClicked()
         }

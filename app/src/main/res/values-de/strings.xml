@@ -1775,7 +1775,7 @@
   <string name="email_report_patroller_tasks_subject">Problembericht – Funktion „Patrouille bearbeiten“</string>
   <string name="email_report_patroller_tasks_body">Ich habe ein Problem mit der Funktion „Patrouille bearbeiten“ festgestellt:\n- [Problem beschreiben]\n\nIch wünsche mir folgendes Verhalten:\n- [Lösungsvorschlag beschreiben]\n\n[Screenshots oder Links]</string>
   <string name="donation_campaign_maybe_later_snackbar">Wir werden dich morgen erneut erinnern.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
+  <string name="donation_campaign_donated_snackbar">Vielen Dank, lieber Spender! Deine Großzügigkeit trägt dazu bei, dass Wikipedia und seine Schwesterprojekte weiter bestehen können.</string>
   <string name="donation_campaign_go_back_button">Zurück</string>
   <string name="menu_single_webview_open_external">Im Systembrowser öffnen</string>
   <string name="donate_gpay_dialog_title">Mit Google Pay spenden?</string>
@@ -1794,7 +1794,8 @@
   <string name="donate_gpay_help_other_ways">Andere Möglichkeiten zu spenden</string>
   <string name="donate_gpay_help_faq">Häufig gestellte Fragen</string>
   <string name="donate_gpay_help_tax">Informationen zur steuerlichen Absetzbarkeit</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Spenderhistorie gelöscht</string>
+  <string name="donation_history_deleted_message_snackbar">Spenderhistorie gelöscht</string>
+  <string name="donation_history_no_history_message_snackbar">Sie haben keine Spendenhistorie, die gelöscht werden kann.</string>
   <string name="places_title">Orte</string>
   <string name="places_permissions_denied">Um deinen Standort auf der Karte anzeigen zu können, ist die Standortberechtigung erforderlich. Bitte versuche es erneut.</string>
   <string name="places_search_hint">Orte suchen</string>
@@ -2061,8 +2062,8 @@
     <item quantity="other">%1$,d Artikel im Jahr %2$d zu lesen</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
-    <item quantity="one">Wir schätzen, dass du damit zu den Top %1$s % der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
-    <item quantity="other">Wir schätzen, dass du damit zu den Top %1$s % der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
+    <item quantity="one">Wir schätzen, dass du damit zu den Top %1$s %% der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
+    <item quantity="other">Wir schätzen, dass du damit zu den Top %1$s %% der Wikipedia-Leser weltweit gehörst. Eine Durchschnittsperson liest %2$,d Artikel pro Jahr.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Wikipedia hatte %,d Artikel</item>
@@ -2226,7 +2227,7 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Spendenerinnerungen können jederzeit in den Einstellungen angepasst werden.</string>
   <string name="donation_settings_section_header">Spenden</string>
   <string name="donation_reminders_settings_title" fuzzy="true">Spendenerinnerungen</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Schließe dich den 2 % der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
+  <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
   <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
   <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>

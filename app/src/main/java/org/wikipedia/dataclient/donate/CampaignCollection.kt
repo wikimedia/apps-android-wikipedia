@@ -30,7 +30,7 @@ object CampaignCollection {
             val url = if (Prefs.announcementDebugUrl) CAMPAIGNS_URL_DEBUG else CAMPAIGNS_URL
             val request = Request.Builder().url(url).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
-            val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
+            val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body.string()).orEmpty()
             val now = LocalDateTime.now()
             val mostRecentDonateDateTime = (Prefs.donationResults.maxByOrNull { it.dateTime })?.let {
                 LocalDateTime.parse(it.dateTime)

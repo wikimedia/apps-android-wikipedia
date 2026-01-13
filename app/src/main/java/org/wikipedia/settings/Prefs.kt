@@ -4,13 +4,13 @@ import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
+import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activitytab.ActivityTabModules
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
-import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
@@ -775,7 +775,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_otd_sound_on, value)
 
     var isYearInReviewEnabled: Boolean
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, false)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_year_in_review_is_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_year_in_review_is_enabled, value)
 
     var yearInReviewVisited: Boolean
@@ -872,8 +872,4 @@ object Prefs {
     var yearInReviewReadingListSurveyShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
-
-    var exploreFeedSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_survey_shown, value)
 }

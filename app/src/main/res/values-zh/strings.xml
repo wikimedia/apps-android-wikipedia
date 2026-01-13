@@ -38,6 +38,7 @@
 * NeverBehave
 * NigelSoft
 * Peterxy12
+* PexEric
 * Phenolla
 * Qiyue2001
 * Shizhao
@@ -58,6 +59,7 @@
 * WiiUf
 * Winston Sung
 * Wsxy162
+* XRozuRozu
 * XinuGod
 * Xiplus
 * Xxoopiggy
@@ -91,7 +93,7 @@
   <string name="search_back_button_content_description">返回</string>
   <string name="search_clear_query_content_description">清空查询</string>
   <string name="search_icon_content_description">搜索</string>
-  <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
+  <string name="filter_hint_filter_my_lists_and_articles">筛选我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_activity">活动</string>
   <string name="nav_item_more">更多</string>
@@ -135,14 +137,8 @@
   <string name="page_edit_history_filter_by_anon">未注册编辑（%s）</string>
   <string name="page_edit_history_filter_by_bot">机器人编辑（%s）</string>
   <string name="page_edit_history_metrics_content_description">从%1$s到%2$s的数据</string>
-  <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">自%2$s创建后共有%1$d次编辑</item>
-    <item quantity="other">自%2$s创建后共有%1$d次编辑</item>
-  </plurals>
-  <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">自%2$s注册后共有%1$d次编辑（%3$s）</item>
-    <item quantity="other">自%2$s注册后共有%1$d次编辑（%3$s）</item>
-  </plurals>
+  <string name="page_edit_history_article_edits_since_year">自%2$s创建后共有%1$d次编辑</string>
+  <string name="edits_since_year_per_wiki">自%2$s注册后共有%1$d次编辑（%3$s）</string>
   <string name="page_edit_history_empty_search_message">请尝试更改&lt;a href=\"#\"&gt;筛选条件&lt;/a&gt;来查看更多编辑</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
@@ -171,7 +167,7 @@
   <string name="menu_page_recently_viewed">近期浏览</string>
   <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
-  <string name="menu_long_press_open_in_places">在地点开放</string>
+  <string name="menu_long_press_open_in_places">在地点开启</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页中打开</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="menu_text_select_define">定义</string>
@@ -185,9 +181,10 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">阅读其他语言</string>
   <string name="language_count_link_text">有其他%d种语言版本</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
-  <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
+  <string name="edit_anon_warning">编辑将以您设备的IP地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
@@ -213,8 +210,8 @@
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动化垃圾信息，请输入下方显示的文字</string>
-  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E8%B4%A6%E5%8F%B7%E8%AF%B7%E6%B1%82\"&gt;申请账号&lt;/a&gt;</string>
-  <string name="edit_section_captcha_hint">请输入上方的文字</string>
+  <string name="edit_section_captcha_request_an_account_message">无法显示图片？请&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:维基百科:账号请求\"&gt;申请账号&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">请重复输入上面的文字</string>
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
   <string name="nav_item_login">登录维基百科</string>
@@ -290,7 +287,7 @@
   <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验功能</string>
-  <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
+  <string name="preference_title_sync_reading_lists_from_account">同步阅读列表</string>
   <string name="preference_title_download_reading_list_articles">下载阅读列表的条目</string>
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科账号“%s”，在不同设备上同步阅读列表</string>
@@ -315,9 +312,10 @@
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
-  <string name="terms_of_use_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/w/index.php?title=Wikimedia_Apps/Android_FAQ/zh&amp;variant=zh-cn</string>
+  <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
@@ -327,7 +325,7 @@
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
-  <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
+  <string name="about_app_license">源代码位于&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
   <string name="about_logo_content_description">维基百科拼图地球标志</string>
@@ -346,7 +344,7 @@
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
   <string name="edit_damage">破坏：%s</string>
-  <string name="edit_intent">意图%s</string>
+  <string name="edit_intent">意图：%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s字节</item>
     <item quantity="other">%s字节</item>
@@ -472,10 +470,7 @@
   <string name="location_permissions_enable_prompt">启用位置权限来查看您附近的地点。</string>
   <string name="location_permissions_enable_action">打开</string>
   <string name="error_webview_updating">Android System WebView目前正在更新。请稍后重试。</string>
-  <plurals name="multi_items_selected">
-    <item quantity="one">选中%d个</item>
-    <item quantity="other">选中%d个</item>
-  </plurals>
+  <string name="multi_items_selected">选中%d个</string>
   <string name="multi_select_items_selected">%d个已选择</string>
   <string name="error_message_generic">发生错误</string>
   <string name="view_link_preview_error_button_dismiss">关闭</string>
@@ -514,12 +509,8 @@
   <string name="temp_account_dialog_ok">明白了</string>
   <string name="temp_account_using_title">您正在使用临时账号</string>
   <string name="temp_account_dialog_discard">放弃更改并登录</string>
-  <plurals name="temp_account_created">
-    <item quantity="other">临时账号“%1$s”已在您发布编辑之后创建，将会在%2$d后过期。</item>
-  </plurals>
-  <plurals name="temp_account_expiry">
-    <item quantity="other">账号将会在%d天后过期。</item>
-  </plurals>
+  <string name="temp_account_created">临时账号“%1$s”已在您发布编辑之后创建，将会在%2$d后过期。</string>
+  <string name="temp_account_expiry">账号将会在%d天后过期。</string>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;您尚未登录。&lt;/b&gt;一旦您作出编辑，您的IP地址将与您的编辑相关联。</string>
   <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登录。&lt;/b&gt;一旦您作出编辑，将会创建&lt;b&gt;临时账号&lt;/b&gt;，以保护您的隐私。&lt;a href=\"%1$s\"&gt;了解更多信息&lt;/a&gt;</string>
   <string name="temp_account_edit_status">&lt;b&gt;您正在使用临时账号。&lt;/b&gt;您的编辑将会以%1$s署名。&lt;a href=\"%2$s\"&gt;了解更多信息&lt;/a&gt;。</string>
@@ -610,18 +601,9 @@
   <string name="reading_list_description_hint">描述（可选）</string>
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_deleted_from_list">%1$s已从%2$s移除</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">从列表中移除了%d个条目</item>
-    <item quantity="other">从列表中移除了%d个条目</item>
-  </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">从%s中移除了%d个条目</item>
-    <item quantity="other">从%s中移除了%d个条目</item>
-  </plurals>
-  <plurals name="reading_lists_deleted_message">
-    <item quantity="one">%d 个列表已删除</item>
-    <item quantity="other">%d 个列表已删除</item>
-  </plurals>
+  <string name="reading_list_articles_deleted">从列表中移除了%d个条目</string>
+  <string name="reading_list_articles_deleted_from_list">从%s中移除了%d个条目</string>
+  <string name="reading_lists_deleted_message">%d 个列表已删除</string>
   <string name="reading_lists_default_list_delete_message">无法删除默认列表（%s）</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s 已删除。无法删除默认列表 (%2$s)。</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">列表已删除。无法删除默认列表 (%s)。</string>
@@ -660,10 +642,7 @@
   <string name="reading_list_articles_moved_to_named">已移动%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除“%s”吗？</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">删除选定的列表？</string>
-  <plurals name="reading_list_delete_lists_confirm_dialog_message">
-    <item quantity="one">您确定要删除%d个列表吗？</item>
-    <item quantity="other">您确定要删除%d个列表吗？</item>
-  </plurals>
+  <string name="reading_list_delete_lists_confirm_dialog_message">您确定要删除%d个列表吗？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的账号中。</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">取消</string>
@@ -718,14 +697,8 @@
   <string name="reading_lists_import_failure_message">阅读列表导入失败</string>
   <string name="reading_lists_export_select_lists_message">选择要导出的列表</string>
   <string name="reading_lists_export_completed_message">导出的阅读列表</string>
-  <plurals name="reading_list_export_failed_message">
-    <item quantity="one">阅读列表导出失败</item>
-    <item quantity="other">阅读列表导出失败</item>
-  </plurals>
-  <plurals name="reading_list_import_success_message">
-    <item quantity="one">导入的阅读列表</item>
-    <item quantity="other">导入的阅读列表</item>
-  </plurals>
+  <string name="reading_list_export_failed_message">阅读列表导出失败</string>
+  <string name="reading_list_import_success_message">导入的阅读列表</string>
   <string name="reading_lists_preview_header_title">分享清单</string>
   <string name="reading_lists_preview_save_button">储存</string>
   <string name="reading_lists_preview_save_dialog_title">保存列表</string>
@@ -757,10 +730,7 @@
     <item quantity="one">剩余%1$d篇条目</item>
     <item quantity="other">剩余%1$d篇条目</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
-    <item quantity="one">正在同步阅读列表</item>
-    <item quantity="other">正在同步阅读列表</item>
-  </plurals>
+  <string name="notification_syncing_reading_list_channel_name">正在同步阅读列表</string>
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">正在同步%1$d个列表…</item>
     <item quantity="other">正在同步%1$d个列表…</item>
@@ -1264,14 +1234,25 @@
   <string name="activity_tab_customize_screen_editing_insights_switch_title">编辑分析</string>
   <string name="activity_tab_customize_screen_impact_switch_title">所有时间影响</string>
   <string name="activity_tab_customize_screen_games_switch_title">游戏统计数据</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">最后一次用应用程式捐款</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">行为时间线</string>
+  <string name="activity_tab_customize_screen_no_modules_message">活动模块已关闭。&lt;a href=\"#\"&gt;请将其开启&lt;/a&gt;以在此选标签页中查看更新。</string>
   <string name="activity_tab_timeline_today">今日</string>
   <string name="activity_tab_timeline_yesterday">昨天</string>
   <string name="activity_tab_timeline_empty_state_title">没有可显示的内容</string>
+  <string name="activity_tab_timeline_empty_state_message">开始阅读和编辑，构建你的历史</string>
   <string name="activity_tab_timeline_view_changes_button">查看更改</string>
   <string name="activity_tab_onboarding_reading_patterns_title">阅读模式</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">查看你花了多少时间阅读，以及你随着时间的推移阅读了哪些条目或主题。</string>
+  <string name="activity_tab_onboarding_screen_title">活动介绍</string>
   <string name="activity_tab_onboarding_impact_title">影响亮点</string>
-  <string name="activity_tab_onboarding_stay_in_control_title">保持控制</string>
+  <string name="activity_tab_onboarding_impact_message">了解您的贡献以及您分享的知识的影响范围。</string>
+  <string name="activity_tab_onboarding_engage_title">更多参与方式</string>
+  <string name="activity_tab_onboarding_engage_message">探索游戏统计数据、已保存的文章以及其他活动，从而更深入地了解维基百科。</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">隐私控制</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">选择要显示的模块。所有个人数据在您的设备上保持隐私，并且可以随时清除浏览历史记录。</string>
   <string name="edits_screen_what_is_title">在维基百科应用程序中编辑</string>
+  <string name="edits_screen_what_is_body">不知道如何开始编辑？试试“建议编辑”功能，它能让您有机会对维基百科做出虽小但至关重要的贡献。或者，您也可以直接找到感兴趣的条目，使用wikitext进行修改。</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
@@ -1627,8 +1608,8 @@
   <string name="shareable_reading_lists_new_install_dialog_got_it">明白了</string>
   <string name="shareable_reading_lists_new_imported_snackbar">已导入阅读清单</string>
   <string name="reading_list_share_menu_label">分享…</string>
-  <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
-  <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
+  <string name="reading_list_share_menu_tooltip">与他人分享此阅读列表</string>
+  <string name="reading_list_share_message_v2">您好！我想给您分享我的维基百科阅读列表：</string>
   <string name="talk_templates_empty_message">创建您自己的消息，或使用&lt;a href=\"#\"&gt;示例消息&lt;/a&gt;来开始。</string>
   <string name="talk_templates_new_message_title">新留言</string>
   <string name="talk_templates_new_message_subject_hint">主题</string>
@@ -1771,7 +1752,7 @@
   <string name="email_report_patroller_tasks_subject">问题报告 - 编辑巡查功能</string>
   <string name="email_report_patroller_tasks_body">我遇到了编辑巡查功能的问题：\n- [描述具体问题]\n\n我希望实现的效果是：\n- [描述建议的解决方案]\n\n[屏幕截图或链接]</string>
   <string name="donation_campaign_maybe_later_snackbar">明天我们会再次提醒您。</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和姊妹网站蓬勃发展。</string>
+  <string name="donation_campaign_donated_snackbar">谢谢您，亲爱的捐赠者！您的慷慨解囊会帮助维基百科和相关自由知识项目蓬勃发展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系统浏览器中打开</string>
   <string name="donate_gpay_dialog_title">使用Google Pay捐款？</string>
@@ -1779,6 +1760,7 @@
   <string name="donate_gpay_dialog_pay_button">使用Google Pay捐款</string>
   <string name="donate_gpay_dialog_other_button">其他付款方式</string>
   <string name="donate_gpay_activity_title">选择金额</string>
+  <string name="donate_gpay_activity_title_with_currency">选择金额（%s）</string>
   <string name="donate_gpay_check_transaction_fee">我愿意慷慨地增加%s来包含手续费，这样我的捐款就能100%%保留。</string>
   <string name="donate_gpay_check_recurring">将此设为每月定期捐款。</string>
   <string name="donate_gpay_check_send_email">是的，维基媒体基金会可以偶尔向我发送电子邮件。</string>
@@ -1789,7 +1771,8 @@
   <string name="donate_gpay_help_other_ways">其他捐赠方式</string>
   <string name="donate_gpay_help_faq">常见问题</string>
   <string name="donate_gpay_help_tax">减税信息</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">捐赠者历史已删除</string>
+  <string name="donation_history_deleted_message_snackbar">已清除捐赠记录。</string>
+  <string name="donation_history_no_history_message_snackbar">您没有需要清除的捐赠记录。</string>
   <string name="places_title">地点</string>
   <string name="places_permissions_denied">需要位置权限才能在地图上显示您的位置。请重试。</string>
   <string name="places_search_hint">搜索地点</string>
@@ -1888,7 +1871,7 @@
   <string name="on_this_day_game_sound_on">开启音效</string>
   <string name="on_this_day_game_sound_off">关闭音效</string>
   <string name="year_in_review_learn_more">了解更多</string>
-  <string name="year_in_review_get_started">入门</string>
+  <string name="year_in_review_get_started">开始</string>
   <string name="year_in_review_topbar_w_icon">维基百科W图标</string>
   <string name="year_in_review_navigate_left">向左导航</string>
   <string name="year_in_review_close">关闭</string>
@@ -1899,7 +1882,12 @@
   <string name="year_in_review_information_icon">信息图标</string>
   <string name="year_in_review_get_started_headline">探索您的维基百科年度回顾</string>
   <string name="year_in_review_get_started_bodytext">查看有关您在维基百科应用程序上所阅读的条目和所作编辑的深入分析。</string>
+  <string name="year_in_review_get_started_info">您的阅读历史记录受到保护。阅读分析数据基于您设备本地存储的数据计算得出。</string>
+  <string name="year_in_review_get_started_later">您可以稍后在“更多”菜单中查看您的年度回顾。</string>
+  <string name="year_in_review_survey_title">帮助改进年度回顾</string>
   <string name="year_in_review_survey_subtitle">您对该功能满意吗？</string>
+  <string name="year_in_review_reading_list_survey_title">帮助改进%d年度回顾阅读列表。</string>
+  <string name="year_in_review_reading_list_survey_subtitle">您对您的阅读清单满意吗？</string>
   <string name="year_in_review_survey_very_satisfied">非常满意</string>
   <string name="year_in_review_survey_satisfied">满意</string>
   <string name="year_in_review_survey_neutral">普通</string>
@@ -1908,21 +1896,95 @@
   <string name="year_in_review_survey_placeholder_text">您还有别的想法吗？</string>
   <string name="year_in_review_survey_cancel">取消</string>
   <string name="year_in_review_survey_submit">提交</string>
+  <string name="year_in_review_disable_title">您确定要关闭“年度回顾”功能吗？</string>
   <string name="year_in_review_disable_positive_button">是的，我确定</string>
   <string name="year_in_review_disable_negative_button">不用了，谢谢</string>
   <string name="year_in_review_setting_subtitle">关闭年度回顾将清除所有存储的个性化分析信息，并隐藏年度回顾功能。</string>
   <string name="year_in_review_screendeck_image_content_description">年度回顾主屏幕图像资源</string>
   <string name="year_in_review_screenshot_error">无法生成屏幕截图： %s</string>
   <string name="year_in_review_share_subject">我的维基百科年度回顾</string>
+  <string name="year_in_review_share_body">这是我的维基百科年度回顾。使用 Wikipedia Android 应用创建而成。%1$s %2$s</string>
   <string name="year_in_review_globe_icon">地球图标</string>
   <string name="settings_app_icon_title">应用程序图标</string>
   <string name="settings_app_icon_subtitle">贡献者福利</string>
+  <string name="settings_app_icon_preference_subtitle">您获得了一个自定义图标，以表彰您于%d年在应用内对维基百科做出的贡献。该图标将保留至下一次年度回顾。</string>
   <string name="settings_app_icon_updated">您的应用图标已更新。</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">已解锁新的桌面应用图标</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">解锁您明年的贡献者奖励！</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">请在“设置”中的“应用图标”下激活您的新应用图标。感谢您为自由知识的未来贡献力量。您%2$d年作为%1$s的贡献正在帮助我们铺就通往自由信息世界的道路，因此，您已解锁了维基百科贡献者的自定义桌面图标。</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">我们很高兴维基百科成为您%1$d年活动的一部分！成为贡献者，即可在您的%2$d年度回顾中解锁特别奖励——无论是在应用内&lt;a href=\"%3$s\"&gt;编辑维基百科&lt;/a&gt;，还是对其背后的&lt;a href=\"%4$s\"&gt;维基媒体基金会&lt;/a&gt;捐款。如果您认为维基百科对您有所帮助，欢迎考虑捐赠我们，来帮助维基百科的未来发展，保持免费、无广告、值得信赖且人人可访问的运作状态。如果您已通过其他渠道捐款，我们衷心感谢您的支持。</string>
+  <string name="year_in_review_slide_app_icon_donor">捐赠者</string>
   <string name="year_in_review_slide_app_icon_editor">编辑者</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">捐赠者和编辑者</string>
+  <string name="year_in_review_slide_geo_headline">您阅读过的条目里，最靠近您的地点是%s</string>
+  <string name="year_in_review_slide_geo_body">根据条目&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;来看，与您阅读的许多条目最接近的国家似乎是： %1$s 。</string>
   <string name="year_in_review_login_dialog_title">登录以进行个性化设置？</string>
+  <string name="year_in_review_login_dialog_body">登录后即可查看个性化分析。若不登录，您仍然可以查看汇总分析。</string>
   <string name="year_in_review_login_dialog_positive">登录/加入维基百科</string>
   <string name="year_in_review_login_dialog_negative">继续而不登录</string>
+  <string name="year_in_review_slide_top_articles_headline">您的年度热门条目</string>
+  <string name="year_in_review_slide_top_articles_body">您在%1$d年访问次数最多的条目：%2$s</string>
+  <string name="year_in_review_slide_top_categories_headline">您最感兴趣的分类</string>
+  <string name="year_in_review_slide_top_categories_body">分类将主题相似的条目归类在一起。在%1$d年，您多次阅读了以下您感兴趣分类中的条目：%2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">英语维基百科最受欢迎的条目</string>
+  <string name="year_in_review_slide_most_read_english_articles_body">当人们想要了解我们的世界时，他们会求助于维基百科。英文维基百科上访问最高%1$d的条目是： %2$s&lt;br /&gt;要了解更多信息，请阅读我们的&lt;a href=\"%3$s\"&gt;专题部落格帖子&lt;/a&gt;。</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">您的编辑内容最近已被浏览超过 %,d 次</item>
+    <item quantity="other">您的编辑内容最近已被浏览超过 %,d 次</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">全球的读者感谢您的贡献。在过去两个月中，您编辑多的条目被浏览了%,d次。正因为有像您这样的编辑者，维基百科才能持续改进，成为一个一事实为基础且值得信赖的全球知识资源。</item>
+    <item quantity="other">全球的读者感谢您的贡献。在过去两个月中，您编辑多的条目被浏览了%,d次。正因为有像您这样的编辑者，维基百科才能持续改进，成为一个一事实为基础且值得信赖的全球知识资源。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">维基百科每分钟有 %,d 次编辑</item>
+    <item quantity="other">维基百科每分钟有 %,d 次编辑</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">条目是由多人协作且不断用可靠来源改善。我们每个人都有知识可以分享，&lt;a href=\"%s\"&gt;欢迎学习如何参与其中&lt;/a&gt;。</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">新增%,d位元组</item>
+    <item quantity="other">新增%,d位元组</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">在 %1$d 年，志工们为英文維基百科添加了%2$,d位元組內容。他们共同的努力，为世界带来了不断改进、基于事实、可靠的知识資源。我们每一个人都有可分享的知识，&lt;a href=\"%3$s\"&gt;了解如何参与&lt;/a&gt;。</item>
+    <item quantity="other">在 %1$d 年，志工们为英文維基百科添加了%2$,d位元組內容。他们共同的努力，为世界带来了不断改进、基于事实、可靠的知识資源。我们每一个人都有可分享的知识，&lt;a href=\"%3$s\"&gt;了解如何参与&lt;/a&gt;。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">您编辑了 %s 次</item>
+    <item quantity="other">您编辑了 %s 次</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">感谢您成为编辑者志工之一，为世界各地的维基媒体专案做出改变。像您一样的志工对维基百科的 300 多个不同语言版本进行了 %,d 次修改。</item>
+    <item quantity="other">感谢您成为编辑者志工之一，为世界各地的维基媒体专案做出改变。像您一样的志工对维基百科的 300 多个不同语言版本进行了 %,d 次修改。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="one">官方維基百科应用程式上的编辑者做出了 %,d 次编辑</item>
+    <item quantity="other">官方維基百科应用程式上的编辑者做出了 %,d 次编辑</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">维基百科的一心一意都是在我们的全球志愿者者社群，包括 贡献者、捐款者，以及像您一样的数十亿读者——大家齐心协力，共同提供无限且可靠的资讯存取。</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="one">编辑者们今年做出了 %,d 次更改</item>
+    <item quantity="other">编辑者们今年做出了 %,d 次更改</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="one">志工们对超过 300 种不同语言版本的维基百科做出了 %,d 次更改。</item>
+    <item quantity="other">志工们对超过 300 种不同语言版本的维基百科做出了 %,d 次更改。</item>
+  </plurals>
+  <string name="year_in_review_slide_english_edited_times_body_second">在英文维基百科上做出了 %,d 次更改。每一天的時時刻刻，志工們都在努力改善维基百科。</string>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="one">您储存了 %,d 篇条目</item>
+    <item quantity="other">您储存了 %,d 篇条目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_body">
+    <item quantity="one">这些条目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每储存的条目都反应了您的兴趣，并有助于在维基百科上建立个人化的知识库。&lt;br /&gt;&lt;br /&gt; 今年，活跃的应用程式使用者已储存了 %4$,d 篇条目。</item>
+    <item quantity="other">这些条目包括&lt;b&gt;%1$s&lt;/b&gt;、&lt;b&gt;%2$s&lt;/b&gt;和&lt;b&gt;%3$s&lt;/b&gt;。每储存的条目都反应了您的兴趣，并有助于在维基百科上建立个人化的知识库。&lt;br /&gt;&lt;br /&gt; 今年，活跃的应用程式使用者已储存了 %4$,d 篇条目。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="one">应用程式使用者已储存 %,d 篇条目</item>
+    <item quantity="other">应用程式使用者已储存 %,d 篇条目</item>
+  </plurals>
+  <string name="year_in_review_slide_global_saved_articles_body">将条目增加到阅读清单，可以让您即使在离线时也能存取条目。此外，您还可以登入帐号，将阅读清单同步到不同装置。</string>
+  <string name="year_in_review_slide_reading_patterns_headline">您有明确的阅读规律</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">最喜欢的阅读时间</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">最喜欢阅读的日子</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">你阅读最多次的月份</string>
@@ -1932,34 +1994,139 @@
   <string name="year_in_review_slide_reading_pattern_evening">傍晚</string>
   <string name="year_in_review_slide_reading_pattern_night">晚间</string>
   <string name="year_in_review_slide_reading_pattern_late_night">深夜</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">我们用了 %,d 小时阅读</item>
+    <item quantity="other">我们用了 %,d 小时阅读</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="one">人们估计花了 %,d 小时</item>
+    <item quantity="other">人们估计花了 %,d 小时</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—在 %2$d 年阅读英文维基百科用上了約 %1$,d 年时间！当您想了解我们不断变化的世界、在朋友之间赢得对事物了解的赌注、或是回答孩子好奇的问题时，维基百科都在您身边。</item>
+    <item quantity="other">—在 %2$d 年阅读英文维基百科用上了约 %1$,d 年时间！当您想了解我们不断变化的世界、在朋友之间贏得对事物了解的賭注、或是回答孩子好奇的问题时，维基百科都在您身边。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">维基百科提供超过 %,d 种语言版本</item>
+    <item quantity="other">维基百科提供超过 %,d 种语言版本</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="one">维基百科有 %,d 篇条目</item>
+    <item quantity="other">维基百科有 %,d 篇条目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="one">今年涵盖超过 %,d 种活跃的语言。您与数百万人一起扩展知识，探索多元主题。</item>
+    <item quantity="other">今年涵盖超过 %,d 种活跃的语言。您与数百万人一起扩展知识，探索多元主题。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">您用了 %,d 分钟</item>
+    <item quantity="other">您用了 %,d 分钟</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">在 %2$d 阅读了 %1$,d 篇条目</item>
+    <item quantity="other">在 %2$d 阅读了 %1$,d 篇条目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_top">
+    <item quantity="one">我们估计这让您跻身至维基百科全球读者的前 %1$s%%（一般人每年阅读 %2$,d 篇条目）。</item>
+    <item quantity="other">我们估计这让您跻身至维基百科全球读者的前 %1$s%%（一般人每年阅读 %2$,d 篇条目）。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">维基百科有 %,d 篇条目</item>
+    <item quantity="other">维基百科有 %,d 篇条目</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">今年涵盖超过 %,d 种活跃的语言。您与数百万人一起扩展知识，探索多元主题。</item>
+    <item quantity="other">今年涵盖超过 %,d 种活跃的语言。您与数百万人一起扩展知识，探索多元主题。</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">人们估计花了 %,d 小时</item>
+    <item quantity="other">人们估计花了 %,d 小时</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">–在 %2$d 年阅读英文维基百科用上了约 %1$,d 年时间！</item>
+    <item quantity="other">—在 %2$d 年阅读英文维基百科用上了约 %1$,d 年时间！</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">应用程式使用者浏览了维基百科条目 %,d次 次</item>
+    <item quantity="other">应用程式使用者浏览了维基百科条目 %,d 次</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">对于全球各地的人们来说，维基百科是解答问题、查询学校或工作相关资讯、或学习新知的第一站。</string>
+  <string name="year_in_review_reading_list_dialog_title">创建您的%d年度条目列表？</string>
+  <string name="year_in_review_reading_list_dialog_message">维基百科年度回顾将生成一份阅读列表，列出您在%1$d年花费时间最多的条目。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">创建</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">不用了，谢谢</string>
   <string name="year_in_review_reading_list_title">%d年度回顾</string>
+  <string name="year_in_review_reading_list_description">为%1$s私人定制。您在%2$d年阅读时间最长的条目。</string>
+  <string name="year_in_review_highlights_thank_you_message">感谢您与维基百科共度的这一年。</string>
   <string name="year_in_review_highlights_looking_forward_message">我们期待明年！</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="one">英文维基百科阅读次数最高的条目</item>
+    <item quantity="other">英文维基百科阅读次数最高的条目</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">阅读小时数</item>
+    <item quantity="other">阅读小时数</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">编辑者做过的更改</item>
+    <item quantity="other">编辑者们做过的更改</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_articles_title">条目浏览数</string>
+  <string name="year_in_review_highlights_logged_out_non_en_edits_title">应用程式上的编辑</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">维基百科的编辑频率</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">每分钟 %d 次</string>
+  <string name="year_in_review_highlights_logged_in_most_read_article_title">我阅读最多次的条目</string>
+  <string name="year_in_review_highlights_logged_in_minutes_read_title">阅读分钟数</string>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">最喜欢阅读的日子</string>
+  <string name="year_in_review_highlights_logged_in_articles_read_title">以阅读条目</string>
+  <string name="year_in_review_highlights_logged_in_articles_interested_categories_title">我感兴趣的类别</string>
+  <string name="year_in_review_highlights_logged_in_total_edits_title">已编辑数量</string>
+  <string name="year_in_review_highlights_share_button_title">分享精彩内容</string>
   <string name="year_in_review_highlights_logo_description">维基百科标志</string>
   <string name="recommended_reading_list_title">发现</string>
+  <string name="recommended_reading_list_onboarding_card_title">探索专为您挑选的条目</string>
+  <string name="recommended_reading_list_onboarding_card_message">您的每周维基百科条目阅读列表，专为您精心挑选。</string>
   <string name="recommended_reading_list_onboarding_card_new">新的！</string>
-  <string name="recommended_reading_list_onboarding_card_positive_button">入门</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">开始</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">不用了，谢谢</string>
-  <string name="recommended_reading_list_onboarding_card_negative_snackbar">如需稍后设置建议阅读列表，请转到“设置”。</string>
+  <string name="recommended_reading_list_onboarding_card_negative_snackbar">如需稍后设置推荐阅读清单，请前往“设置”。</string>
+  <string name="recommended_reading_list_interest_source_message">我们应该如何构建您的推荐阅读列表？</string>
+  <string name="recommended_reading_list_interest_source_interests">让我根据我的兴趣选择</string>
+  <string name="recommended_reading_list_interest_source_saved">根据我保存的条目替我选择</string>
+  <string name="recommended_reading_list_interest_source_history">根据我的阅读记录替我选择</string>
+  <string name="recommended_reading_list_interest_pick_title">您对什么感兴趣？</string>
   <string name="recommended_reading_list_interest_pick_search_hint">搜索一篇条目</string>
+  <string name="recommended_reading_list_interest_pick_selected_articles">已选%d个</string>
+  <string name="recommended_reading_list_interest_select_minimum">选择至少一项兴趣</string>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">随机选择</string>
+  <string name="recommended_reading_list_interest_pick_random_snackbar">我们为您随机挑选了几篇条目。</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">撤销</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_title">您确定要随机选择吗？</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_message">这将清除您当前的选择，并随机选择新的条目。</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">是的，帮我选择</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">不用</string>
-  <string name="recommended_reading_list_page_subtitle_made_for">专为%s打造</string>
-  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">专为您打造</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">为%s私人定制</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">为您私人定制</string>
+  <string name="recommended_reading_list_page_subtitle_articles">• %d 个条目</string>
+  <string name="recommended_reading_list_page_description_daily">您的每日阅读列表。探索专为您挑选的新主题。每日午夜更新。</string>
+  <string name="recommended_reading_list_page_description_weekly">您的每周阅读列表。探索专为您挑选的新主题。每周第一天更新。</string>
+  <string name="recommended_reading_list_page_description_monthly">您的每月阅读列表。探索专为您挑选的新主题。每月1日更新。</string>
   <string name="recommended_reading_list_page_overflow_customize">自定义</string>
   <string name="recommended_reading_list_page_overflow_about">关于此功能</string>
+  <string name="recommended_reading_list_page_snackbar">“发现”将每%2$s更新%1$d篇新条目。您的推荐内容会保存在您的设备贝蒂。</string>
+  <string name="recommended_reading_list_page_snackbar_action">自定义“发现”功能</string>
   <string name="recommended_reading_list_page_snackbar_day">日</string>
   <string name="recommended_reading_list_page_snackbar_week">周</string>
   <string name="recommended_reading_list_page_snackbar_month">月</string>
   <string name="recommended_reading_list_settings_section_header">建议</string>
-  <string name="recommended_reading_list_settings_title">Discover设置</string>
-  <string name="recommended_reading_list_settings_toggle">Discover阅读清单</string>
+  <string name="recommended_reading_list_settings_title">“发现”设置</string>
+  <string name="recommended_reading_list_settings_toggle">“发现”阅读列表</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">已关闭“发现”功能。维基百科不会再为您推荐值得阅读的条目。</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">关闭“发现”功能？</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">如果您关闭“发现”功能，您不会再收到来自维基百科的%s阅读推荐。</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">关闭</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">不，保持开启</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">“发现”功能已关闭。您可以随时在设定里将其重新开启。</string>
   <string name="recommended_reading_list_settings_articles">条目</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s更新</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">每日</string>
@@ -1968,36 +2135,61 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">每天</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">每周</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">每个月</string>
-  <string name="recommended_reading_list_settings_updates_base_title">Discover如何建立</string>
+  <string name="recommended_reading_list_settings_updates_base_title">“发现”列表的生成方式</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_interests">根据你的兴趣</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">根据您保存的文章</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">根据你的阅读记录</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">调整“发现”列表的生成方式？</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">如果您调整“发现”列表生成推荐条目的方式，您当前的推荐将被替换。</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">调整</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">不用</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">您目前的推荐内容是基于您的兴趣呈现。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">您的推荐内容现在基于您保存的条目。</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">您的推荐内容现在将根据您的阅读记录呈现。</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">撤销</string>
   <string name="recommended_reading_list_settings_interests">兴趣</string>
   <string name="recommended_reading_list_settings_notifications_title">通知</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">当“发现”列表更新时，维基百科不会向您发送通知。</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">“发现”功能的通知已关闭。“发现”列表更新时，您将不会收到通知。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">关闭通知？</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">如果您关闭通知，您将不会再收到“发现”列表更新的提醒。</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">关闭它们</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">不，保持开启</string>
+  <string name="recommended_reading_list_notification_title">您的%s个“发现”阅读列表已准备就绪。</string>
+  <string name="recommended_reading_list_notification_subtitle">点击查看您的最新推荐。</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">当您的“发现”阅读列表更新时，维基百科会向您发送通知。</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">已开启“发现”功能。维基百科会为您推荐值得阅读的条目。</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">您可以在设置中随时修改捐款提醒。</string>
   <string name="donation_settings_section_header">捐赠</string>
   <string name="donation_reminders_settings_title">我们应如何提醒您？</string>
   <string name="donation_reminders_settings_option_title">捐款提醒</string>
+  <string name="donation_reminders_settings_thank_you_message">您的慷慨帮助维基百科持续蓬勃发展。欢迎依照您阅读过的条目数量，来设定您的捐款提醒。</string>
+  <string name="donation_reminders_settings_donation_info">捐款会转到维基媒体基金会及其附属机构，他们是维基百科与其他自由知识专案网站骄傲的主办者。</string>
   <string name="donation_reminders_settings_article_frequency_label">当我阅读</string>
   <string name="donation_reminders_settings_amount_label">提醒我捐款</string>
   <string name="donation_reminders_settings_confirm_btn_label">确认提醒</string>
   <string name="donation_reminders_settings_about_experiment_btn_label">关于此实验功能</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">条目</string>
+  <string name="donation_reminders_settings_warning_min_amount">请至少输入%s</string>
+  <string name="donation_reminders_settings_warning_max_amount">最多只允许 %s</string>
   <string name="donation_reminders_settings_option_custom">自定义…</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">感谢您！在此实验功能运作期间，当您阅读了 %2$s 篇条目时，我们会提醒您捐赠 %1$s。</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">自从您承诺捐款 %2$s，您已阅读了 %1$s 篇条目</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">读过 %1$s 篇条目后提醒</string>
+  <string name="donation_reminders_prompt_message">您于 %1$s 设定了捐款提醒，每当您阅读了 %2$s 篇条目后，就捐赠 %3$s。准备好履行您支持维基百科的承诺了吗？</string>
   <string name="donation_reminders_prompt_positive_button">立即捐款</string>
   <string name="donation_reminders_prompt_negative_button">现在不要</string>
   <string name="donation_reminders_gpay_text">使用Google Pay捐款%s</string>
   <string name="donation_reminders_gpay_different_amount_text">使用Google Pay捐款不同金额</string>
+  <string name="donation_reminders_settings_description_on">捐赠提醒已开启。实验期间，您每阅读%2$s维基百科就会提醒您捐赠%1$s 。</string>
   <string name="donation_reminders_settings_description_off">捐款提醒已关闭。</string>
+  <string name="donation_reminders_settings_tooltip_info_label">条目计数存储在您的设备本地。</string>
+  <string name="donation_reminders_text_articles">%d篇条目</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">不用了，谢谢</string>
   <string name="donation_reminders_experiment_label">实验功能</string>
   <string name="donation_reminders_settings_learn_more_button">了解更多</string>
   <string name="donation_reminders_settings_report_button">功能问题</string>
+  <string name="donation_reminders_settings_report_email_subject">问题报告：捐赠提醒</string>
+  <string name="donation_reminders_settings_report_email_body">我遇到了捐赠提醒功能的问题：\n- [描述具体问题]\n- [截图或链接]\n\n我希望的实现效果是：\n- [描述建议的解决方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">帮助我们改进探索功能</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">参加调查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，谢谢</string>
 </resources>

@@ -252,7 +252,7 @@
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>
   <string name="edit_abandon_confirm_yes">हो</string>
   <string name="edit_abandon_confirm_no">होइन</string>
-  <string name="user_blocked_from_editing_title">रोक लगाइएको</string>
+  <string name="user_blocked_from_editing_title">निषेधित</string>
   <string name="user_logged_in_blocked_from_editing">तपाईंको प्रयोगकर्ता खातालाई यो विकिमा सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईँले यस पृष्ठमा कसरी सुधार ल्याउनुभयो?</string>
@@ -1011,6 +1011,4 @@
   <string name="donation_reminders_settings_learn_more_button">थप जान्नुहोस्</string>
   <string name="donation_reminders_settings_report_button">सुविधामा समस्या छ</string>
   <string name="donation_reminders_snackbar_modify_button_label">परिमार्जन गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_title">अन्वेषण सुधार गर्न हामीलाई मद्दत गर्नुहोस्</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">पर्दैन, धन्यवाद</string>
 </resources>
