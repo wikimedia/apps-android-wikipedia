@@ -438,6 +438,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                                 }
                             }
                         }
+                        callback()?.onPageLoadComplete()
                     }
                 }
             }
