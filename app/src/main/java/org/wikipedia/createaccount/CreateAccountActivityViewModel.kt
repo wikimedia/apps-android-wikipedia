@@ -48,8 +48,8 @@ class CreateAccountActivityViewModel : ViewModel() {
             } else if (response.query?.hasHCaptchaRequest() == true) {
                 val hCaptchaDisclaimerMessage = "hcaptcha-privacy-policy"
                 val message = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(hCaptchaDisclaimerMessage, null)
-                    .query?.allmessages?.find { it.name == hCaptchaDisclaimerMessage }?.content
-                _authManagerState.value = AccountInfoState.HCaptchaDisclaimer(StringUtil.parseWikitextExternalLinks(message!!))
+                    .query?.allmessages?.find { it.name == hCaptchaDisclaimerMessage }?.content.orEmpty()
+                _authManagerState.value = AccountInfoState.HCaptchaDisclaimer(StringUtil.parseWikitextExternalLinks(message))
             }
         }
     }

@@ -88,6 +88,7 @@ class CreateAccountActivity : BaseActivity() {
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
+        binding.footerContainer.hCaptchaDisclaimer.isVisible = false
 
         onBackPressedDispatcher.addCallback(this) {
             if (captchaHandler.isActive) {
@@ -108,7 +109,7 @@ class CreateAccountActivity : BaseActivity() {
                         when (it) {
                             is CreateAccountActivityViewModel.AccountInfoState.HCaptchaDisclaimer -> {
                                 binding.footerContainer.hCaptchaDisclaimer.text = StringUtil.fromHtml(it.disclaimerMessage)
-                                binding.footerContainer.hCaptchaDisclaimer.isVisible = true
+                                binding.footerContainer.hCaptchaDisclaimer.isVisible = !binding.footerContainer.hCaptchaDisclaimer.text.isNullOrEmpty()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.Error -> {
                                 L.e(it.throwable)
