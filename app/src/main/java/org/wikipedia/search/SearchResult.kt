@@ -14,12 +14,26 @@ data class SearchResult(val pageTitle: PageTitle,
 
     @Serializable
     enum class SearchResultType {
-        SEARCH, HISTORY, READING_LIST, TAB_LIST
+        SEARCH, HISTORY, READING_LIST, TAB_LIST, SEMANTIC
     }
 
-    constructor(page: MwQueryPage, wiki: WikiSite, coordinates: List<MwQueryPage.Coordinates>? = null) : this(PageTitle(page.title,
-            wiki, page.thumbUrl(), page.description, page.displayTitle(wiki.languageCode)),
-            page.redirectFrom, SearchResultType.SEARCH, coordinates)
+    constructor(
+        page: MwQueryPage,
+        wiki: WikiSite,
+        coordinates: List<MwQueryPage.Coordinates>? = null,
+        type: SearchResultType = SearchResultType.SEARCH
+    ) : this(
+        pageTitle = PageTitle(
+            text = page.title,
+            wiki = wiki,
+            thumbUrl = page.thumbUrl(),
+            description = page.description,
+            displayText = page.displayTitle(wiki.languageCode)
+        ),
+        redirectFrom = page.redirectFrom,
+        type = type,
+        coordinates = coordinates
+    )
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType) :
             this(pageTitle, null, searchResultType)

@@ -45,22 +45,14 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             currentContinuation = 0
         }
 
-        resultList.addAll(response?.query?.pages?.let { list ->
-            (if (invokeSource == Constants.InvokeSource.PLACES)
-                list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResult(it, wikiSite, it.coordinates) }
-        } ?: emptyList())
+        resultList.addAll(buildList(response, invokeSource, wikiSite))
 
         if (resultList.size < batchSize) {
             response = ServiceFactory.get(wikiSite)
                 .fullTextSearch(searchTerm, batchSize, currentContinuation)
             currentContinuation = response.continuation?.gsroffset
 
-            resultList.addAll(response.query?.pages?.let { list ->
-                (if (invokeSource == Constants.InvokeSource.PLACES)
-                    list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                    .map { SearchResult(it, wikiSite, it.coordinates) }
-            } ?: emptyList())
+            resultList.addAll(buildList(response, invokeSource, wikiSite))
         }
 
         if (resultList.isEmpty() && response?.continuation == null) {
@@ -98,6 +90,18 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             }
         }
         return SearchResults()
+    }
+
+    private fun buildList(
+        response: MwQueryResponse?,
+        invokeSource: Constants.InvokeSource,
+        wikiSite: WikiSite
+    ): List<SearchResult> {
+        return response?.query?.pages?.let { list ->
+            (if (invokeSource == Constants.InvokeSource.PLACES)
+                list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                .map { SearchResult(it, wikiSite, it.coordinates) }
+        } ?: emptyList()
     }
 }
 
