@@ -118,8 +118,8 @@ fun SearchResultsScreen(
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
-                        semanticSearchConfig = SemanticSearchConfig(
-                            isSemanticSearchExperimentOn = viewModel.isSemanticSearchExperimentOn,
+                        hybridSearchConfig = HybridSearchConfig(
+                            isHybridSearchExperimentOn = viewModel.isHybridSearchExperimentOn,
                             onTitleClick = { searchResult ->
                                 // TODO: navigate to deep search screen
                             },
@@ -140,13 +140,13 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    semanticSearchConfig: SemanticSearchConfig
+    hybridSearchConfig: HybridSearchConfig
 ) {
-    if (semanticSearchConfig.isSemanticSearchExperimentOn) {
-        SemanticSearchSuggestionView(
+    if (hybridSearchConfig.isHybridSearchExperimentOn) {
+        HybridSearchSuggestionView(
             modifier = Modifier.fillMaxSize(),
             searchResultsPage = searchResultsPage,
-            semanticSearchConfig = semanticSearchConfig,
+            hybridSearchConfig = hybridSearchConfig,
             searchTerm = searchTerm
         )
         return

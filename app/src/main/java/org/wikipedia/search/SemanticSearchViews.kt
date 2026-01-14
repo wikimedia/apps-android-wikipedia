@@ -28,19 +28,18 @@ import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
-fun SemanticSearchSuggestionView(
+fun HybridSearchSuggestionView(
     modifier: Modifier = Modifier,
     searchResultsPage: LazyPagingItems<SearchResult>,
-    semanticSearchConfig: SemanticSearchConfig,
+    hybridSearchConfig: HybridSearchConfig,
     searchTerm: String?,
 ) {
     Box(
         modifier = modifier
     ) {
         LazyColumn(
-            modifier = Modifier
-                .padding(top = 24.dp),
-            contentPadding = PaddingValues(bottom = 64.dp)
+            modifier = Modifier,
+            contentPadding = PaddingValues(top = 16.dp, bottom = 64.dp)
         ) {
             items(searchResultsPage.itemCount) { index ->
                 searchResultsPage[index]?.let {
@@ -48,7 +47,7 @@ fun SemanticSearchSuggestionView(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable(onClick = {
-                                semanticSearchConfig.onTitleClick(it)
+                                hybridSearchConfig.onTitleClick(it)
                             })
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         searchResultPage = it,
@@ -64,7 +63,7 @@ fun SemanticSearchSuggestionView(
                 .align(Alignment.BottomStart)
                 .background(WikipediaTheme.colors.paperColor)
                 .clickable(
-                    onClick = { semanticSearchConfig.onSuggestionTitleClick(searchTerm) }
+                    onClick = { hybridSearchConfig.onSuggestionTitleClick(searchTerm) }
                 ),
             searchTerm = searchTerm
         )
@@ -97,7 +96,7 @@ fun SearchResultTitleOnlyBottomContent(
     modifier: Modifier = Modifier,
     searchTerm: String?
 ) {
-    val suggestionTitle = stringResource(R.string.semantic_search_suggestion_title)
+    val suggestionTitle = stringResource(R.string.hybrid_search_suggestion_title)
     Column(
         modifier = modifier
     ) {

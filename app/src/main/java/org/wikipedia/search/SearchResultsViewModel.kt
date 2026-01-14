@@ -33,7 +33,7 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    val isSemanticSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
+    val isHybridSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
 
     @OptIn(
         FlowPreview::class,
@@ -109,8 +109,8 @@ class SearchResultsViewModel : ViewModel() {
     }
 }
 
-data class SemanticSearchConfig(
-    val isSemanticSearchExperimentOn: Boolean = false,
+data class HybridSearchConfig(
+    val isHybridSearchExperimentOn: Boolean = false,
     val onTitleClick: (SearchResult) -> Unit,
     val onSuggestionTitleClick: (String?) -> Unit
 )
