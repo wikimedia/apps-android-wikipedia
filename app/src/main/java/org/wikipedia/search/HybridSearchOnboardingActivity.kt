@@ -6,6 +6,11 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -201,6 +206,11 @@ fun HybridSearchOnboardingScreen(
     ) { paddingValues ->
         AnimatedContent(
             targetState = currentStep,
+            transitionSpec = {
+                (slideInHorizontally { width -> width } + fadeIn()).togetherWith(
+                    slideOutHorizontally { width -> width } + fadeOut()
+                )
+            },
             label = "HybridSearchOnboardingAnimation"
         ) { targetStep ->
             Column(
