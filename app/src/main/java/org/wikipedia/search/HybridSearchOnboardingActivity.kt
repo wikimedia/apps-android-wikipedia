@@ -5,23 +5,20 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -38,7 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -51,11 +48,13 @@ import androidx.compose.ui.tooling.preview.Devices.PIXEL_9
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
+import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -141,8 +140,12 @@ fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
     onGetStarted: (String?) -> Unit,
 ) {
+    val totalPageCount = 2
     val context = LocalContext.current
-    var currentStep by rememberSaveable { mutableStateOf(OnboardingStep.FEATURE_OVERVIEW) }
+    val pagerState = rememberPagerState(pageCount = { totalPageCount })
+    val coroutineScope = rememberCoroutineScope()
+    var isHybridSearchEnabled by remember { mutableStateOf(Prefs.isHybridSearchEnabled) }
+
     Scaffold(
         modifier = modifier
             .safeDrawingPadding(),
@@ -186,13 +189,15 @@ fun HybridSearchOnboardingScreen(
         },
         bottomBar = {
             TwoButtonBottomBar(
-                primaryButtonText = if (currentStep == OnboardingStep.FEATURE_OVERVIEW) stringResource(
+                primaryButtonText = if (pagerState.currentPage == 0) stringResource(
                     R.string.onboarding_next
                 ) else stringResource(R.string.onboarding_get_started),
                 secondaryButtonText = stringResource(R.string.hybrid_search_onboarding_learn_more),
                 onPrimaryOnClick = {
-                    if (currentStep == OnboardingStep.FEATURE_OVERVIEW && Prefs.isHybridSearchEnabled) {
-                        currentStep = OnboardingStep.SEARCH_EXAMPLES
+                    if (pagerState.currentPage == 0 && isHybridSearchEnabled) {
+                        coroutineScope.launch {
+                            pagerState.animateScrollToPage(1)
+                        }
                     } else {
                         onGetStarted(null)
                     }
@@ -200,33 +205,45 @@ fun HybridSearchOnboardingScreen(
                 onSecondaryOnClick = {
                     // TODO: add URL
                     UriUtil.visitInExternalBrowser(context, "".toUri())
+                },
+                middleContent = {
+                    if (isHybridSearchEnabled) {
+                        PageIndicator(
+                            count = totalPageCount,
+                            currentPage = pagerState.currentPage
+                        )
+                    }
                 }
             )
         }
     ) { paddingValues ->
-        AnimatedContent(
-            targetState = currentStep,
-            transitionSpec = {
-                (slideInHorizontally { width -> width } + fadeIn()).togetherWith(
-                    slideOutHorizontally { width -> width } + fadeOut()
-                )
-            },
-            label = "HybridSearchOnboardingAnimation"
-        ) { targetStep ->
+        HorizontalPager(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            state = pagerState,
+            verticalAlignment = Alignment.Top,
+            userScrollEnabled = isHybridSearchEnabled
+        ) { page ->
             Column(
                 modifier = Modifier
-                    .padding(paddingValues)
                     .padding(horizontal = 24.dp)
             ) {
-                when (targetStep) {
-                    OnboardingStep.FEATURE_OVERVIEW -> {
+                when (page) {
+                    0 -> {
                         onboardingItems.forEach { onboardingItem ->
                             OnboardingListItem(item = onboardingItem)
                         }
-                        ExperimentalFeatureToggleView()
+                        ExperimentalFeatureToggleView(
+                            isChecked = isHybridSearchEnabled,
+                            onCheckedChange = {
+                                isHybridSearchEnabled = it
+                                Prefs.isHybridSearchEnabled = it
+                            }
+                        )
                     }
 
-                    OnboardingStep.SEARCH_EXAMPLES -> {
+                    1 -> {
                         SearchExamplesView(
                             modifier = Modifier
                                 .background(WikipediaTheme.colors.paperColor),
@@ -242,8 +259,10 @@ fun HybridSearchOnboardingScreen(
 }
 
 @Composable
-fun ExperimentalFeatureToggleView() {
-    var isChecked by remember { mutableStateOf(true) }
+fun ExperimentalFeatureToggleView(
+    isChecked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -261,10 +280,7 @@ fun ExperimentalFeatureToggleView() {
 
         Switch(
             checked = isChecked,
-            onCheckedChange = {
-                isChecked = !isChecked
-                Prefs.isHybridSearchEnabled = isChecked
-            },
+            onCheckedChange = onCheckedChange,
             colors = SwitchDefaults.colors(
                 uncheckedTrackColor = WikipediaTheme.colors.paperColor,
                 uncheckedThumbColor = MaterialTheme.colorScheme.outline,
@@ -318,11 +334,6 @@ fun SearchExamplesView(
             }
         }
     }
-}
-
-enum class OnboardingStep {
-    FEATURE_OVERVIEW,
-    SEARCH_EXAMPLES
 }
 
 @Preview(showBackground = true, device = PIXEL_9)

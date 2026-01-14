@@ -878,6 +878,6 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_onboarding_shown, value)
 
     var isHybridSearchEnabled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
 }

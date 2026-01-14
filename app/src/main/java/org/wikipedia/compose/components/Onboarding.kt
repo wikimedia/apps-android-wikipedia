@@ -29,8 +29,7 @@ import org.wikipedia.theme.Theme
 @Composable
 fun OnboardingListItem(
     modifier: Modifier = Modifier,
-    item: OnboardingItem,
-    trailingContent: @Composable (() -> Unit)? = null
+    item: OnboardingItem
 ) {
     Row(
         modifier = modifier
@@ -63,11 +62,6 @@ fun OnboardingListItem(
                 color = WikipediaTheme.colors.secondaryColor
             )
         }
-
-        if (trailingContent != null) {
-            Spacer(modifier = Modifier.width(8.dp))
-            trailingContent()
-        }
     }
 }
 
@@ -76,7 +70,8 @@ fun TwoButtonBottomBar(
     primaryButtonText: String,
     secondaryButtonText: String,
     onPrimaryOnClick: () -> Unit,
-    onSecondaryOnClick: () -> Unit
+    onSecondaryOnClick: () -> Unit,
+    middleContent: @Composable (() -> Unit)? = null
 ) {
     Row(
         modifier = Modifier
@@ -85,7 +80,8 @@ fun TwoButtonBottomBar(
         horizontalArrangement = Arrangement.spacedBy(
             space = 24.dp,
             alignment = Alignment.CenterHorizontally
-        )
+        ),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Button(
             modifier = Modifier
@@ -104,6 +100,10 @@ fun TwoButtonBottomBar(
                 style = MaterialTheme.typography.labelLarge,
                 color = WikipediaTheme.colors.progressiveColor
             )
+        }
+
+        if (middleContent != null) {
+            middleContent()
         }
 
         Button(
