@@ -2,12 +2,15 @@ package org.wikipedia.compose.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,19 +21,21 @@ import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
+import kotlin.math.absoluteValue
 
 @Composable
 fun PageIndicator(
-    count: Int,
-    currentPage: Int
+    modifier: Modifier = Modifier,
+    pagerState: PagerState
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        repeat(count) { index ->
+        repeat(pagerState.pageCount) { index ->
             val colorTransition by animateColorAsState(
-                targetValue = if (index == currentPage) {
+                targetValue = if (index == pagerState.currentPage) {
                     WikipediaTheme.colors.progressiveColor
                 } else {
                     WikipediaTheme.colors.inactiveColor
@@ -40,12 +45,30 @@ fun PageIndicator(
                     easing = FastOutSlowInEasing
                 )
             )
+            val sizeTransition by animateDpAsState(
+                targetValue = paginationSizeGradient(
+                    totalIndicators = pagerState.pageCount,
+                    iteration = index,
+                    pagerState = pagerState
+                ).dp,
+                animationSpec = tween(durationMillis = 500)
+            )
             Box(
                 modifier = Modifier
                     .size(8.dp)
                     .background(colorTransition, CircleShape)
+                    .size(sizeTransition)
             )
         }
+    }
+}
+
+private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
+    return when {
+        totalIndicators <= 3 -> 8
+        (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
+        (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
+        else -> 2
     }
 }
 
@@ -56,8 +79,7 @@ private fun PageIndicatorPreview() {
         currentTheme = Theme.LIGHT
     ) {
         PageIndicator(
-            count = 5,
-            currentPage = 2
+            pagerState = rememberPagerState(pageCount = { 3 })
         )
     }
 }

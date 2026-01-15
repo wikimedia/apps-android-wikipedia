@@ -5,6 +5,16 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,8 +28,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -29,9 +42,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -55,7 +70,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.components.PageIndicator
-import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
@@ -77,10 +91,10 @@ private val onboardingItems = listOf(
 )
 
 private val defaultSearchQueries = listOf(
-    R.string.hybrid_search_onboarding_search_example_query_time_passing,
+    R.string.hybrid_search_onboarding_search_example_query_pluto_as_planet,
     R.string.hybrid_search_onboarding_search_example_query_first_olympics,
     R.string.hybrid_search_onboarding_search_example_query_rna_vs_dna,
-    R.string.hybrid_search_onboarding_search_example_query_pizza_hall_of_fame,
+    R.string.hybrid_search_onboarding_search_example_query_pineapple_pizza,
     R.string.hybrid_search_onboarding_search_example_query_biggest_cities_europe
 )
 
@@ -138,13 +152,14 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 @Composable
 fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
+    isHybridSearchEnabled: Boolean = Prefs.isHybridSearchEnabled,
     onGetStarted: (String?) -> Unit,
 ) {
     val totalPageCount = 2
     val context = LocalContext.current
     val pagerState = rememberPagerState(pageCount = { totalPageCount })
     val coroutineScope = rememberCoroutineScope()
-    var isHybridSearchEnabled by remember { mutableStateOf(Prefs.isHybridSearchEnabled) }
+    var isHybridSearchEnabled by remember { mutableStateOf(isHybridSearchEnabled) }
 
     Scaffold(
         modifier = modifier
@@ -176,7 +191,7 @@ fun HybridSearchOnboardingScreen(
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Introducing deep search",
+                            text = stringResource(R.string.hybrid_search_onboarding_screen_title),
                             style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Medium),
                             color = WikipediaTheme.colors.primaryColor
                         )
@@ -188,31 +203,24 @@ fun HybridSearchOnboardingScreen(
             )
         },
         bottomBar = {
-            TwoButtonBottomBar(
-                primaryButtonText = if (pagerState.currentPage == 0) stringResource(
-                    R.string.onboarding_next
-                ) else stringResource(R.string.onboarding_get_started),
-                secondaryButtonText = stringResource(R.string.hybrid_search_onboarding_learn_more),
-                onPrimaryOnClick = {
+            MainBottomBar(
+                isHybridSearchEnabled = isHybridSearchEnabled,
+                pagerState = pagerState,
+                onNextButtonClick = {
                     if (pagerState.currentPage == 0 && isHybridSearchEnabled) {
                         coroutineScope.launch {
-                            pagerState.animateScrollToPage(1)
+                            pagerState.animateScrollToPage(
+                                page = 1,
+                                animationSpec = tween(durationMillis = 400)
+                            )
                         }
                     } else {
                         onGetStarted(null)
                     }
                 },
-                onSecondaryOnClick = {
+                onLearnMoreClick = {
                     // TODO: add URL
                     UriUtil.visitInExternalBrowser(context, "".toUri())
-                },
-                middleContent = {
-                    if (isHybridSearchEnabled) {
-                        PageIndicator(
-                            count = totalPageCount,
-                            currentPage = pagerState.currentPage
-                        )
-                    }
                 }
             )
         }
@@ -231,16 +239,54 @@ fun HybridSearchOnboardingScreen(
             ) {
                 when (page) {
                     0 -> {
-                        onboardingItems.forEach { onboardingItem ->
-                            OnboardingListItem(item = onboardingItem)
+                        val isVisible = remember { MutableTransitionState(false) }
+                        LaunchedEffect(Unit) {
+                            isVisible.targetState = true
                         }
-                        ExperimentalFeatureToggleView(
-                            isChecked = isHybridSearchEnabled,
-                            onCheckedChange = {
-                                isHybridSearchEnabled = it
-                                Prefs.isHybridSearchEnabled = it
+
+                        onboardingItems.forEachIndexed { index, onboardingItem ->
+                            AnimatedVisibility(
+                                visibleState = isVisible,
+                                enter = slideInVertically(
+                                    animationSpec = tween(
+                                        durationMillis = 300,
+                                        delayMillis = index * 100
+                                    ),
+                                    initialOffsetY = { it / 2 }
+                                ) + fadeIn(
+                                    animationSpec = tween(
+                                        durationMillis = 300,
+                                        delayMillis = index * 100
+                                    )
+                                )
+                            ) {
+                                OnboardingListItem(item = onboardingItem)
                             }
-                        )
+                        }
+
+                        AnimatedVisibility(
+                            visibleState = isVisible,
+                            enter = slideInVertically(
+                                animationSpec = tween(
+                                    durationMillis = 300,
+                                    delayMillis = onboardingItems.size * 100
+                                ),
+                                initialOffsetY = { it / 2 }
+                            ) + fadeIn(
+                                animationSpec = tween(
+                                    durationMillis = 300,
+                                    delayMillis = onboardingItems.size * 100
+                                )
+                            )
+                        ) {
+                            ExperimentalFeatureToggleView(
+                                isChecked = isHybridSearchEnabled,
+                                onCheckedChange = {
+                                    isHybridSearchEnabled = it
+                                    Prefs.isHybridSearchEnabled = it
+                                }
+                            )
+                        }
                     }
 
                     1 -> {
@@ -298,51 +344,155 @@ fun SearchExamplesView(
     searchExamples: List<Int> = defaultSearchQueries,
     onClick: (String) -> Unit
 ) {
+    val isVisible = remember { MutableTransitionState(false) }
+    LaunchedEffect(Unit) {
+        isVisible.targetState = true
+    }
     Column(
         modifier = modifier
     ) {
-        OnboardingListItem(
-            item = OnboardingItem(
-                icon = R.drawable.ic_light_bulb,
-                title = R.string.hybrid_search_onboarding_search_example_title,
-                subTitle = R.string.hybrid_search_onboarding_search_example_description
+        AnimatedVisibility(
+            visibleState = isVisible,
+            enter = slideInVertically(
+                animationSpec = tween(durationMillis = 300),
+                initialOffsetY = { it / 2 }
+            ) + fadeIn(
+                animationSpec = tween(durationMillis = 300)
             )
-        )
+        ) {
+            OnboardingListItem(
+                item = OnboardingItem(
+                    icon = R.drawable.ic_light_bulb,
+                    title = R.string.hybrid_search_onboarding_search_example_title,
+                    subTitle = R.string.hybrid_search_onboarding_search_example_description
+                )
+            )
+        }
+
         FlowRow(
             modifier = Modifier
                 .padding(start = 36.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            searchExamples.forEach { exampleQuery ->
+            searchExamples.forEachIndexed { index, exampleQuery ->
                 val exampleQueryString = stringResource(exampleQuery)
-                SuggestionChip(
-                    onClick = { onClick(exampleQueryString) },
-                    label = {
-                        Text(
-                            text = exampleQueryString
+                AnimatedVisibility(
+                    visibleState = isVisible,
+                    enter = slideInVertically(
+                        animationSpec = tween(
+                            durationMillis = 300,
+                            delayMillis = (index * 50) + 150,
+                            easing = LinearOutSlowInEasing
+                        ),
+                        initialOffsetY = { it / 2 }
+                    ) + fadeIn(
+                        animationSpec = tween(
+                            durationMillis = 300,
+                            delayMillis = (index * 50) + 150,
+                            easing = LinearOutSlowInEasing
                         )
-                    },
-                    colors = SuggestionChipDefaults.suggestionChipColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        labelColor = WikipediaTheme.colors.secondaryColor,
-                    ),
-                    border = SuggestionChipDefaults.suggestionChipBorder(
-                        enabled = true,
-                        borderColor = WikipediaTheme.colors.borderColor
                     )
+                ) {
+                    SuggestionChip(
+                        onClick = { onClick(exampleQueryString) },
+                        label = {
+                            Text(
+                                text = exampleQueryString,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        },
+                        colors = SuggestionChipDefaults.suggestionChipColors(
+                            containerColor = WikipediaTheme.colors.paperColor,
+                            labelColor = WikipediaTheme.colors.secondaryColor,
+                        ),
+                        border = SuggestionChipDefaults.suggestionChipBorder(
+                            enabled = true,
+                            borderColor = WikipediaTheme.colors.borderColor
+                        )
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun MainBottomBar(
+    isHybridSearchEnabled: Boolean,
+    pagerState: PagerState,
+    onNextButtonClick: () -> Unit,
+    onLearnMoreClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(
+            space = 24.dp,
+        ),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        TextButton(
+            modifier = Modifier,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WikipediaTheme.colors.paperColor
+            ),
+            onClick = onLearnMoreClick
+        ) {
+            Text(
+                text = stringResource(R.string.hybrid_search_onboarding_learn_more),
+                style = MaterialTheme.typography.labelLarge,
+                color = WikipediaTheme.colors.progressiveColor
+            )
+        }
+
+        Row(
+            modifier = Modifier
+                .weight(1f),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            AnimatedVisibility(
+                visible = isHybridSearchEnabled,
+                enter = fadeIn() + expandHorizontally(),
+                exit = fadeOut() + shrinkHorizontally()
+            ) {
+                PageIndicator(
+                    modifier = Modifier,
+                    pagerState = pagerState
+                )
+            }
+        }
+
+        Button(
+            modifier = Modifier,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = WikipediaTheme.colors.progressiveColor
+            ),
+            onClick = onNextButtonClick
+        ) {
+            AnimatedContent(
+                targetState = if (pagerState.currentPage == 0) stringResource(
+                    R.string.onboarding_next
+                ) else stringResource(R.string.onboarding_get_started),
+            ) { targetText ->
+                Text(
+                    text = targetText,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = WikipediaTheme.colors.paperColor
                 )
             }
         }
     }
 }
 
-@Preview(showBackground = true, device = PIXEL_9)
+@Preview(showBackground = true, device = PIXEL_9, showSystemUi = true)
 @Composable
 private fun HybridSearchOnboardingScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
         HybridSearchOnboardingScreen(
+            isHybridSearchEnabled = true,
             onGetStarted = {}
         )
     }

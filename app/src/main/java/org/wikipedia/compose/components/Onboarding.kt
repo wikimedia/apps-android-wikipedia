@@ -1,5 +1,6 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -70,8 +71,7 @@ fun TwoButtonBottomBar(
     primaryButtonText: String,
     secondaryButtonText: String,
     onPrimaryOnClick: () -> Unit,
-    onSecondaryOnClick: () -> Unit,
-    middleContent: @Composable (() -> Unit)? = null
+    onSecondaryOnClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -102,10 +102,6 @@ fun TwoButtonBottomBar(
             )
         }
 
-        if (middleContent != null) {
-            middleContent()
-        }
-
         Button(
             modifier = Modifier
                 .weight(1f),
@@ -114,11 +110,15 @@ fun TwoButtonBottomBar(
             ),
             onClick = onPrimaryOnClick
         ) {
-            Text(
-                text = primaryButtonText,
-                style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.paperColor
-            )
+            AnimatedContent(
+                targetState = primaryButtonText,
+            ) { targetText ->
+                Text(
+                    text = targetText,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = WikipediaTheme.colors.paperColor
+                )
+            }
         }
     }
 }
