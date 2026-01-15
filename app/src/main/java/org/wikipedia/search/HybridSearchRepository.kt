@@ -33,10 +33,9 @@ class HybridSearchRepository : SearchRepository<HybridSearchResults> {
         response = ServiceFactory.get(wikiSite).semanticSearch(searchTerm, 10) // TODO: check PM with the default size
         semanticResults.addAll(buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC))
 
-        return HybridSearchResults(
-            standardResults = standardResults.distinctBy { it.pageTitle.prefixedText }.toMutableList(),
-            semanticResults = semanticResults.toMutableList() // TODO: probably will have same article title with different snippets.
-        )
+        val finalList = standardResults.distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticResults
+
+        return HybridSearchResults(finalList)
     }
 
     private fun buildList(
@@ -54,6 +53,5 @@ class HybridSearchRepository : SearchRepository<HybridSearchResults> {
 }
 
 data class HybridSearchResults(
-    var standardResults: List<SearchResult>,
-    var semanticResults: List<SearchResult>
+    var results: List<SearchResult>
 )

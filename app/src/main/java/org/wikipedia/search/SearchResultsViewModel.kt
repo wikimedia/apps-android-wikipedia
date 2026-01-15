@@ -41,14 +41,18 @@ class SearchResultsViewModel : ViewModel() {
         combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.debounce(delayMillis).flatMapLatest { (term, lang) ->
-            val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+                val repository = if (HybridSearchAbTest().isHybridSearchEnabled(lang)) {
+                    HybridSearchRepository()
+                } else {
+                    StandardSearchRepository()
+                }
                 SearchResultsPagingSource(
-                    term,
-                    lang,
-                    countsPerLanguageCode,
-                    invokeSource,
-                    repository
+                    searchTerm = term,
+                    languageCode = lang,
+                    countsPerLanguageCode = countsPerLanguageCode,
+                    invokeSource = invokeSource,
+                    repository = repository
                 )
             }.flow
         }.cachedIn(viewModelScope)
@@ -70,7 +74,7 @@ class SearchResultsViewModel : ViewModel() {
         private val languageCode: String?,
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
         private var invokeSource: Constants.InvokeSource,
-        private val repository: SearchRepository<StandardSearchResults>,
+        private val repository: SearchRepository<*>,
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -79,7 +83,7 @@ class SearchResultsViewModel : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                val result = repository.search(
+                val results = repository.search(
                     searchTerm = searchTerm,
                     languageCode = languageCode,
                     invokeSource = invokeSource,
@@ -89,11 +93,11 @@ class SearchResultsViewModel : ViewModel() {
                     countsPerLanguageCode = countsPerLanguageCode
                 )
 
-                return LoadResult.Page(
-                    result.results,
-                    null,
-                    result.continuation
-                )
+                return when (results) {
+                    is HybridSearchResults -> LoadResult.Page(results.results, null, null)
+                    is StandardSearchResults -> LoadResult.Page(results.results, null, results.continuation)
+                    else -> LoadResult.Error(IllegalStateException("Unknown search result type"))
+                }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
