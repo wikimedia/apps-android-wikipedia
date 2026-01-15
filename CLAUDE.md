@@ -20,10 +20,10 @@ This repository is the official Wikipedia app for Android, with features for rea
 Classes and packages are organized roughly by "feature":
 ```
 /app/src/main/java/org/wikipedia/
-├── dataclient/      # Model classes and service layer for MediaWiki and Wikipedia APIs.
+├── dataclient/      # Model classes and service layer for MediaWiki and Wikipedia APIs
 ├── analytics/       # Model classes and service logic for our current analytics engine (Event Platform)
 ├── feed/            # Fragments and Views related to the Exlore Feed
-├── talk/            # Activities and Views related to Wikipedia Talk pages.
+├── talk/            # Activities and Views related to Wikipedia Talk pages
 ├── page/            # Activities and Views for browsing Wikipedia articles in a WebView
 ├── edit/            # Activities and Views for editing Wikipedia articles
 ```
@@ -35,14 +35,23 @@ Classes and packages are organized roughly by "feature":
   - Since the app offers four different color themes, always wrap Compose screens in the `BaseTheme` component which handles our custom themes.
   - Whenever possible, translate a legacy feature to Jetpack Compose before adding new functionality.
 - Retrofit for network calls, with occasional direct usages of OkHttp.
+- Kotlinx.serialization for serializing and deserializing JSON objects from remote APIs and local storage.
 - Coil for loading images.
 - Room for database management.
 - JUnit and Robolectric for unit tests.
 - Espresso for instrumented tests.
 
+### Miscellaneous
+
+- SharedPreferences are encapsulated in `Prefs.kt`. If adding a new preference, follow the pattern in that file.
+- When setting up an A/B test for any feature, subclass from `ABTest.kt`, which automatically assigns the current user into a test bucket.
+
 ## Code conventions
 
+- To check if the app builds without errors: `./gradlew assembleDevDebug`
+  - Do NOT run other static analysis tools (ktlint, checkstyle, lint) during development. This should only be done as a final step, when ready to submit a pull request.
 - ALWAYS prefer Jetpack Compose for new UI features, with a corresponding backing ViewModel class that handles state.
   - Whenever possible, use the components and extensions found in the `compose/` directory.
 - ALWAYS prefer self-documenting names of variables, functions, and fields. Don't write redundant comments that explain what the next line does.
-- NEVER run static analysis tools (ktlint, checkstyle, lint) during development. This should only be done as a final step, when ready to submit a pull request.
+- Avoid using deprecated APIs and classes in new code whenever possible.
+- Avoid using reflection, unless all other options are exhausted.
