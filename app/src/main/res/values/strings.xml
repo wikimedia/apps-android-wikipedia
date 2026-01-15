@@ -2337,5 +2337,5 @@
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
     <string name="hybrid_search_article_search_hint">Ask about %s</string>
-
+    <string name="hybrid_search_suggestion_title">Run a deep search for:</string>
 </resources>

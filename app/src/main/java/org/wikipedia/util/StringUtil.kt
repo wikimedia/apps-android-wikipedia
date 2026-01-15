@@ -148,7 +148,7 @@ object StringUtil {
         }
     }
 
-    private fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
+    fun isIndexInsideHtmlTag(text: String, index: Int): Boolean {
         var tagStack = 0
         for (i in text.indices) {
             if (text[i] == '<') { tagStack++ } else if (text[i] == '>') { tagStack-- }
