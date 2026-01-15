@@ -28,6 +28,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -47,6 +49,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.Dp.Companion
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
@@ -56,6 +60,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -124,32 +129,19 @@ fun CategoryScreen(
     var selectedTabIndex by remember { mutableIntStateOf(if (viewModel.showSubcategories) 1 else 0) }
 
     Scaffold(
+        containerColor = WikipediaTheme.colors.paperColor,
         topBar = {
             Column {
-                TopAppBar(
-                    title = {
-                        Text(
-                            text = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText),
-                            style = MaterialTheme.typography.headlineSmall.copy(
-                                fontWeight = FontWeight.Bold,
-                                lineHeight = 24.sp
-                            ),
-                            color = WikipediaTheme.colors.primaryColor,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = {
-                            BreadCrumbLogEvent.logClick(context, "navigationButton")
-                            onNavigateBack()
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.search_back_button_content_description)
-                            )
-                        }
+                WikiTopAppBar(
+                    title = StringUtil.removeHTMLTags(viewModel.pageTitle.displayText),
+                    titleStyle = MaterialTheme.typography.headlineSmall.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        lineHeight = 24.sp
+                    ),
+                    onNavigationClick = {
+                        BreadCrumbLogEvent.logClick(context, "navigationButton")
+                        onNavigateBack()
                     },
                     actions = {
                         IconButton(onClick = {
@@ -162,17 +154,20 @@ fun CategoryScreen(
                                 contentDescription = stringResource(R.string.action_item_categories)
                             )
                         }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        titleContentColor = WikipediaTheme.colors.primaryColor
-                    )
+                    }
                 )
 
                 PrimaryTabRow(
                     selectedTabIndex = selectedTabIndex,
                     containerColor = WikipediaTheme.colors.paperColor,
                     contentColor = WikipediaTheme.colors.progressiveColor,
+                    indicator = {
+                        TabRowDefaults.PrimaryIndicator(
+                            color = WikipediaTheme.colors.progressiveColor,
+                            modifier = Modifier.tabIndicatorOffset(selectedTabIndex),
+                            width = Dp.Unspecified
+                        )
+                    },
                     divider = {
                         HorizontalDivider(color = WikipediaTheme.colors.borderColor)
                     }
