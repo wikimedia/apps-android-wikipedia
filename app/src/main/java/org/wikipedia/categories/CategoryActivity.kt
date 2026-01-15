@@ -20,22 +20,22 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRowDefaults
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -50,7 +50,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.Dp.Companion
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
@@ -70,7 +69,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
@@ -79,9 +77,6 @@ class CategoryActivity : BaseActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
-
         setContent {
             BaseTheme {
                 CategoryScreen(
@@ -127,6 +122,7 @@ fun CategoryScreen(
 ) {
     val context = LocalContext.current
     var selectedTabIndex by remember { mutableIntStateOf(if (viewModel.showSubcategories) 1 else 0) }
+    var showMenu by remember { mutableStateOf(false) }
 
     Scaffold(
         containerColor = WikipediaTheme.colors.paperColor,
@@ -144,15 +140,43 @@ fun CategoryScreen(
                         onNavigateBack()
                     },
                     actions = {
-                        IconButton(onClick = {
-                            BreadCrumbLogEvent.logClick(context, "categoryButton")
-                            onShowCategoryDialog()
-                        }) {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                                tint = WikipediaTheme.colors.primaryColor,
-                                contentDescription = stringResource(R.string.action_item_categories)
-                            )
+                        Box {
+                            IconButton(onClick = {
+                                showMenu = true
+                            }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                                    tint = WikipediaTheme.colors.primaryColor,
+                                    contentDescription = stringResource(R.string.menu_feed_overflow_label)
+                                )
+                            }
+
+                            DropdownMenu(
+                                expanded = showMenu,
+                                onDismissRequest = { showMenu = false },
+                                containerColor = WikipediaTheme.colors.paperColor,
+                            ) {
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(
+                                            text = stringResource(R.string.action_item_categories),
+                                            color = WikipediaTheme.colors.primaryColor
+                                        )
+                                    },
+                                    onClick = {
+                                        showMenu = false
+                                        BreadCrumbLogEvent.logClick(context, "categoryButton")
+                                        onShowCategoryDialog()
+                                    },
+                                    leadingIcon = {
+                                        Icon(
+                                            painter = painterResource(R.drawable.ic_category_black_24dp),
+                                            tint = WikipediaTheme.colors.secondaryColor,
+                                            contentDescription = null
+                                        )
+                                    }
+                                )
+                            }
                         }
                     }
                 )
