@@ -79,12 +79,12 @@ import org.wikipedia.util.UriUtil
 
 private val onboardingItems = listOf(
     OnboardingItem(
-        icon = R.drawable.ic_chat_bubble_24,
+        icon = R.drawable.ic_chat_bubble_outline,
         title = R.string.hybrid_search_onboarding_search_title,
         subTitle = R.string.hybrid_search_onboarding_search_description
     ),
     OnboardingItem(
-        icon = R.drawable.ic_baseline_person_24,
+        icon = R.drawable.ic_timer_black_24dp,
         title = R.string.hybrid_search_onboarding_opt_in_choice_title,
         subTitle = R.string.hybrid_search_onboarding_opt_in_choice_description
     )
@@ -244,48 +244,27 @@ fun HybridSearchOnboardingScreen(
                             isVisible.targetState = true
                         }
 
-                        onboardingItems.forEachIndexed { index, onboardingItem ->
-                            AnimatedVisibility(
-                                visibleState = isVisible,
-                                enter = slideInVertically(
-                                    animationSpec = tween(
-                                        durationMillis = 300,
-                                        delayMillis = index * 100
-                                    ),
-                                    initialOffsetY = { it / 2 }
-                                ) + fadeIn(
-                                    animationSpec = tween(
-                                        durationMillis = 300,
-                                        delayMillis = index * 100
-                                    )
-                                )
-                            ) {
-                                OnboardingListItem(item = onboardingItem)
-                            }
-                        }
-
                         AnimatedVisibility(
                             visibleState = isVisible,
                             enter = slideInVertically(
-                                animationSpec = tween(
-                                    durationMillis = 300,
-                                    delayMillis = onboardingItems.size * 100
-                                ),
+                                animationSpec = tween(durationMillis = 300),
                                 initialOffsetY = { it / 2 }
                             ) + fadeIn(
-                                animationSpec = tween(
-                                    durationMillis = 300,
-                                    delayMillis = onboardingItems.size * 100
-                                )
+                                animationSpec = tween(durationMillis = 300)
                             )
                         ) {
-                            ExperimentalFeatureToggleView(
-                                isChecked = isHybridSearchEnabled,
-                                onCheckedChange = {
-                                    isHybridSearchEnabled = it
-                                    Prefs.isHybridSearchEnabled = it
+                            Column {
+                                onboardingItems.forEachIndexed { index, onboardingItem ->
+                                    OnboardingListItem(item = onboardingItem)
                                 }
-                            )
+                                ExperimentalFeatureToggleView(
+                                    isChecked = isHybridSearchEnabled,
+                                    onCheckedChange = {
+                                        isHybridSearchEnabled = it
+                                        Prefs.isHybridSearchEnabled = it
+                                    }
+                                )
+                            }
                         }
                     }
 
