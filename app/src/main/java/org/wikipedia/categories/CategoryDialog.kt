@@ -143,9 +143,8 @@ fun CategoryDialogContent(
         )
 
         when (val data = categoriesData) {
-            is Resource.Success<*> -> {
-                @Suppress("UNCHECKED_CAST")
-                val categories = data.data as List<PageTitle>
+            is Resource.Success -> {
+                val categories = data.data
                 if (categories.isEmpty()) {
                     Text(
                         text = stringResource(R.string.page_no_categories),
@@ -168,7 +167,7 @@ fun CategoryDialogContent(
                 }
             }
 
-            is Resource.Error<*> -> {
+            is Resource.Error -> {
                 WikiErrorView(
                     modifier = Modifier
                         .fillMaxWidth()
