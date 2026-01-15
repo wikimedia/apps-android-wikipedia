@@ -1966,6 +1966,10 @@
   <string name="year_in_review_login_dialog_body">La connexion vous donne accès à des statistiques personnalisées. Vous pouvez toutefois consulter les statistiques collectives sans être connecté·e.</string>
   <string name="year_in_review_login_dialog_positive">Se connecter / Créer un compte</string>
   <string name="year_in_review_login_dialog_negative">Continuer sans vous connecter</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Votre article le plus populaire</item>
+    <item quantity="other">Vos articles les plus populaires</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">Vos catégories les plus intéressantes</string>
   <string name="year_in_review_slide_top_categories_body">Les catégories regroupent des articles portant sur des sujets similaires. En %1$d, vous avez consulté à plusieurs reprises des articles appartenant à ces catégories intéressantes : %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Les articles les plus lus de Wikipédia en anglais</string>
