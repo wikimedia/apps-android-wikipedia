@@ -1224,6 +1224,7 @@
   <string name="activity_tab_menu_feedback">Problem s funkcijeju</string>
   <string name="activity_tab_menu_info">Doznati veče</string>
   <string name="activity_tab_menu_customize">Prisposobiti</string>
+  <string name="activity_tab_menu_customize_description">Statistika čitanja jest osnovana na jezykah v nastavjenjah vašej aplikacije, a statistika pravjenja ograničaje se do glavnogo jezyka vašej aplikacije. Statistika upotrěbjaje lokalne dane, s izključenjem pravok, ktore sut občedostupne.</string>
   <string name="activity_tab_highlights">Najvažnějše</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Historija čitanja</string>
   <string name="activity_tab_impact">Vaš vliv</string>
@@ -1242,6 +1243,12 @@
     <item quantity="other">pravok v prošlom měsecu</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Vliv za ves čas</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">pravka vkupno</item>
+    <item quantity="few">pravky vkupno</item>
+    <item quantity="many">pravok vkupno</item>
+    <item quantity="other">pravok vkupno</item>
+  </plurals>
   <string name="activity_tab_impact_thanks">{{PLULRA|one=poblagodarjenje|few=poblagodarjenja|many=poblagodarjenij|poblagodarjenij}}</string>
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="one">%d denj</item>
@@ -1282,6 +1289,7 @@
   <string name="activity_tab_onboarding_reading_patterns_message">Pozrite, koliko časa vy jeste provedli čitanjem i kake članky ili prědmety jeste razvědali v tečenju časa.</string>
   <string name="activity_tab_onboarding_screen_title">Vvod v aktivnost</string>
   <string name="activity_tab_onboarding_impact_title">Glavne momenty vašego vliva</string>
+  <string name="activity_tab_onboarding_impact_message">Odkryjte statistiky o vašem vkladku i o obsegu znanja, ktorym vy jeste se podělil</string>
   <string name="activity_tab_onboarding_engage_title">Veče sposobov dějanja</string>
   <string name="activity_tab_onboarding_engage_message">Razvědajte statistiky o igrah, zapisanyh člankah i drugyh aktivnostij, ktore povezajut vas ješče glubje s Vikipedijeju.</string>
   <string name="activity_tab_onboarding_stay_in_control_title">Imajte vse pod kontroloju</string>
@@ -1298,11 +1306,15 @@
   <string name="description_edit_revert_reason2">vaš vklad izgledal kako eksperiment ili vandalizm.</string>
   <string name="description_edit_revert_history">Ako to vas interesuje, gledite &lt;a href=\"%1$s\"&gt;historiju versij&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Anulovati</string>
+  <string name="offline_read_permission_rationale">Za prěgledanje oflajn jest potrěbno dozvoljenje na dostup do hranilišča vašego aparata.</string>
+  <string name="offline_read_final_rationale">Za koristanje oflajn-biblioteky jest potrěbno dozvoljenje na dostup do hranilišča vašego aparata.</string>
   <string name="onboarding_skip">Prěskočiti</string>
   <string name="onboarding_continue">Prodolžiti</string>
   <string name="onboarding_get_started">Razpočeti</string>
   <string name="onboarding_maybe_later">Može pozdněje</string>
   <string name="onboarding_explore_title">Nove sposoby izslědovanja</string>
+  <string name="onboarding_reading_list_sync_title">Sinhronizacija spiskov za čitanje</string>
+  <string name="onboarding_reading_list_sync_text_v2">Vy možete stvoriti spisky člankov, ktore hočete pročitati pozdněje, daže kogda vy jeste offline.&lt;br/&gt;Prijavite se do svojego konta na Vikipediji, da byste mogli sinhronizovati svoje spisky za čitanje. &lt;a href=\"#login\"&gt;Pristupite v Vikipediju&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Dane i privatnost</string>
   <string name="onboarding_data_privacy_text">My mnimo, že za vaše učestje v dviženju za svobodno znanje ne jest potrěbno, že vy podate osobne informacije. Vse dane sbirajame za tutu aplikaciju sut anonimne. Gledite &lt;a href=\"#privacy\"&gt;politiku privatnosti&lt;/a&gt; i &lt;a href=\"#termsOfUse\"&gt;uslovja upotrěbjanja&lt;/a&gt; za podrobnosti.</string>
   <string name="onboarding_analytics_switch_title">Odpraviti dane o upotrěbě</string>
@@ -1502,6 +1514,8 @@
   <string name="menu_option_find_in_talk_page_topic">Poiskati v temě besědnoj stranice</string>
   <string name="menu_option_copy_link_to_clipboard">Kopirovati link v bufor obměna</string>
   <string name="talk_menu_copy_text">Kopirovati tekst</string>
+  <string name="talk_menu_expand_threads">Razvinuti niti</string>
+  <string name="talk_menu_collapse_threads">Svinuti niti</string>
   <string name="watchlist_details_watching_label">Slědujete</string>
   <string name="watchlist_details_watch_label">Slědovati</string>
   <string name="watchlist_details_next_edit">Slědujuča pravka</string>
@@ -1509,6 +1523,7 @@
   <string name="thank_label">Poblagodariti</string>
   <string name="view_user_page">Pokazati koristničsku stranicu</string>
   <string name="thank_dialog_title_text">Publično odpraviti blagodarnost</string>
+  <string name="thank_dialog_text">«Blagodarjenje» jest legky sposob za izražanje, že cěniš rabotu redaktora v Vikipediji. Blagodarjenje ne možno jest odčiniti i jest vidimo publično.</string>
   <string name="thank_dialog_positive_button_text">Odpraviti blagodarnost</string>
   <string name="thank_dialog_negative_button_text">Anulovati</string>
   <string name="thank_success_message">Vaša blagodarnost jest odpravjena koristniku %s 👍</string>
@@ -1599,6 +1614,7 @@
   <string name="watchlist_filter_reset_button">Resetovati</string>
   <string name="watchlist_search_bar_hint">Poiskanje ili filtrovanje v spisku slědovanyh stranic</string>
   <string name="watchlist_search_bar_filter_hint">Filtr spiska slědovanyh stranic</string>
+  <string name="watchlist_empty_search_message">Nemaje rezultatov, poprobujte udaliti %s, da byste vy uviděli veče.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filtr</item>
     <item quantity="few">%d filtry</item>
@@ -1618,6 +1634,7 @@
   <string name="category_empty">V tutoj kategoriji ne byl najden nijedin članok.</string>
   <string name="subcategory_empty">V tutoj kategoriji ne byla najdena nijedna podkategorija.</string>
   <string name="search_namespaces">Imenne prostory</string>
+  <string name="revision_initial_none">Ničto (tuto jest prva versija)</string>
   <string name="user_contrib_activity_title">Vklad koristnika %s</string>
   <string name="archive_empty">Nenajdena nijedna arhivovana stranica.</string>
   <string name="user_contrib_filter_ns">Filtrovati po imennomu prostoru</string>
@@ -1625,6 +1642,7 @@
   <string name="user_contrib_filter_ns_header">Filtr imennogo prostora</string>
   <string name="namespace_article">Članok</string>
   <string name="user_contrib_current">nyněšnja versija</string>
+  <string name="media_playback_error">Problem s odigryvanjem mediafajla.</string>
   <string name="user_contrib_menu_label">Vklad</string>
   <string name="user_contrib_filter_activity_title">Filtrovati vklad</string>
   <string name="action_item_view_on_map">Pozrěti na mapě</string>
@@ -1690,6 +1708,12 @@
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Neprijavjeni koristniki.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registovani</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Prijavjeni koristniki.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Novoprišelci</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrovani koristniki imajuči menje neželi 10 pravok ili 4 dnjev aktivnosti.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Učeniki</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrovani koristniki, čijih izkušenje nahodi se medžu «novoprišelcami» i «izkušenymi koristnikami».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Izkušeni koristniki</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrovani koristniki imajuči veče neželi 500 pravok i 30 dnjev aktivnosti.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Poslědnje versije</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Nyněšnja versija</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ne poslědnja versija</string>
@@ -1698,4 +1722,84 @@
   <string name="patroller_tasks_filters_significance_header">Značenje</string>
   <string name="patroller_tasks_filters_significance_minor">Male pravky</string>
   <string name="patroller_tasks_filters_significance_edits">Obyčne pravky</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Prědskazanja odnosno kakosti vklada</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Najpravdopodobno dobry</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Mnogo točny v nahodženju skoro vsih neproblematičnyh pravok.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Mogut byti problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Nahodi večinstvo hybnyh ili škodlivyh pravok, ale s menšoju točnostju.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Pravdopodobno problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">S srědnjeju točnostju nahodi priličnu čest problematičnyh pravok.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Najpravdopodobno problematične</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Mnogo točny v nahodženju najočevidno hybnyh ili škodlivyh pravok.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prědskazanja odnosno naměrov koristnika</string>
+  <string name="patroller_tasks_filters_user_intent_good">Najpravdopodobno s dobrymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Mnogo točny v nahodženju skoro vsih pravok sdělanyh s dobrymi naměrami.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Može byti s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Nahodi večinstvo pravok, sdělanyh s zlymi naměrami, ale s menšeju točnostju.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Pravdopodobno s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">S srědnjeju točnostju nahodi priličnu čest pravok sdělanyh s zlymi naměrami.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Najpravdopodobno s zlymi naměrami</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Mnogo točny v nahodženju pravok, najočevidněje sdělanyh s zlymi naměrami.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Ako vy hočete uviděti veče pravok, poprobujte udaliti %s</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtr</item>
+    <item quantity="few">%d filtry</item>
+    <item quantity="many">%d filtrov</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historija versij članka</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Vračanje završeno</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Jeste li uvěrjeni, že hočete to odčiniti?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Brzo odčinjenje završeno</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Izobraziti</string>
+  <string name="patroller_tasks_overflow_report">Problem s funkcijeju</string>
+  <string name="patroller_tasks_overflow_learn">Daljše informacije</string>
+  <string name="patroller_onboarding_two_thank_title">Poblagodariti</string>
+  <string name="patroller_onboarding_two_thank_content">Vidite li produktivnu pravku? Poblagodarite koristniku za jegov vklad.</string>
+  <string name="patroller_onboarding_two_watch_title">Slědovati</string>
+  <string name="patroller_onboarding_two_watch_content">Hočete li slědovati pravky v člankah? Dodajte je v svoj spisok slědovanyh stranic. Uvidite go v razdělu «Veče».</string>
+  <string name="patroller_onboarding_two_talk_title">Besěda</string>
+  <string name="patroller_onboarding_two_talk_content">Pobesědujte s drugymi redaktorami. Zapišite sobě često upotrěbjane soobčenja na besědnyh stranicah ili koristajte šablon.</string>
+  <string name="patroller_diff_tooltip_one">«Škoda» prědskazyvaje, že pravka može poškoditi viki.</string>
+  <string name="patroller_diff_tooltip_two">«Naměr» prědskazyvaje pravodpodobnost, že pravka jest sdělana s dobrymi naměrami.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kako my možemo ulěpšiti tut funkciju?</string>
+  <string name="patroller_diff_menu_edit_history_title">Historija pravok članka</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
+  <string name="patroller_saved_message_title_vandalism">Prěduprědženje o vandalizmu</string>
+  <string name="patroller_saved_message_title_editing_tests">Testne pravky</string>
+  <string name="patroller_saved_message_title_npov">Nevtralna točka zrěnja</string>
+  <string name="patroller_saved_message_title_auto_trans">Avtomatičny prěvod</string>
+  <string name="patroller_saved_message_title_coi_rem">Pripomněnje o konfliktu interesov</string>
+  <string name="patroller_saved_message_title_final_warning">Poslědnje prěduprědženje</string>
+  <string name="patroller_saved_message_title_copy_vio">Prěduprědženje o narušenju avtorskyh prav</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Ostaviti opis pravky</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ne cenzurovati</string>
+  <string name="patroller_saved_message_title_art_imp">Prědloženje za ulěpšenje članka</string>
+  <string name="patroller_saved_message_body_vandalism">Zdravo, {{{username}}}! Ja hoču vam soobčiti, že jesm odčinil(a) jednu ili veče vaših [{{{diffLink}}}|poslědnjih pravok], ibo one ne izdavali se konstruktivnymi. Ako po vašemu mněnju to bylo pogrěška ili ako vy imajete pytanja, možete ostaviti poslanje na [[User talk:{{{senderUserName}}}|mojej besědnoj stranici]]. Imajte v vidu, že prodolženy vandalizm može dovesti do ograničenij.</string>
+  <string name="patroller_saved_message_body_final_warning">Zatože vy jeste sdělali několiko destruktivnyh pravok, tuto bude vaše poslědnje prěduprědženje. Ako vy ješče raz vandalizujete Vikipedije, možnost pravjenja bude vam zablokovana.</string>
+  <string name="patroller_saved_message_body_copy_vio">Izdavaje se, že vaša nedavna pravka bez dozvoljenja sodrživala materialy zaščičene avtorskym pravom. Prosimo, uvěrite se, že vsako sodržanje jest sgodno s politikoju odnosno [[Wikipedia:Copyrights|avtorskyh prav]], da byste izběgali odstranjenja.</string>
+  <string name="patroller_saved_message_body_edit_summary">Zdravo, {{{username}}}! Izgledaje na to, že vy jeste odstranili sodržanje iz Vikipedije, ale ne ostavili opis pravky. Prosimo, kogda vy něčto dodate ili odstranite, vpišite kratky opis svojej pravky.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Zdravo, {{{username}}}, izgledaje na to, že vy jeste odstranili sodržanje bez diskusije na besědnoj stranici pri članku. Prosimo, imajte v vedu, že Vikipedija ne podvrgaje se cenzurě, a sodržanje ne može byti odstranjeno samo za to, že jest sporno. Ako informacija po vašemu mněnju jest pogrěšna, prosimo, poprobujte dovesti k konsensusu na besědnoj stranici članka.</string>
+  <string name="talk_templates_menu_edit_title">Praviti</string>
+  <string name="data_opt_in_accept">Prijeti</string>
+  <string name="data_opt_in_reject">Odkydnuti</string>
+  <string name="page_issues_title">Problemy s straniceju</string>
+  <string name="survey_dialog_title">Pomožite nam ulěpšiti tutu funkciju</string>
+  <string name="survey_dialog_message">Zadovaljaje vam tuta funkcija?</string>
+  <string name="survey_dialog_option_satisfied">Zadovaljaje</string>
+  <string name="survey_dialog_option_neutral">Nevtralno</string>
+  <string name="survey_dialog_option_unsatisfied">Ne zadovaljaje</string>
+  <string name="survey_dialog_option_very_satisfied">Mnogo zadovaljaje</string>
+  <string name="survey_dialog_option_very_unsatisfied">Sovsěm ne zadovaljaje</string>
+  <string name="survey_dialog_cancel">Anulovati</string>
+  <string name="survey_dialog_submit">Odpraviti</string>
+  <string name="survey_dialog_next">Dalje</string>
+  <string name="survey_dialog_general_yes">Da</string>
+  <string name="survey_dialog_general_no">Ne</string>
+  <string name="survey_dialog_general_maybe">Možno</string>
+  <string name="survey_dialog_input_hint">Dodatočne povratne informacije</string>
+  <string name="survey_dialog_submitted_snackbar">Povratna informacija odpravjena. Hvala!</string>
+  <string name="on_this_day_game_entry_dialog_title">Prědstavjenje</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Igry Vikipedije</string>
+  <string name="on_this_day_game_entry_dialog_button">Igrajte dnešnju igru</string>
 </resources>
