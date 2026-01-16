@@ -32,8 +32,10 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -46,8 +48,10 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 
@@ -58,9 +62,21 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
+                var categoriesData by remember { mutableStateOf<Resource<List<PageTitle>>>(Resource.Loading()) }
+                val lifecycleOwner = LocalLifecycleOwner.current
+
+                LaunchedEffect(viewModel) {
+                    lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.categoriesData.observe(lifecycleOwner) { data ->
+                            categoriesData = data
+                        }
+                    }
+                }
+
                 BaseTheme {
                     CategoryDialogContent(
-                        viewModel = viewModel,
+                        pageTitle = viewModel.pageTitle,
+                        categoriesData = categoriesData,
                         onCategoryClick = { title ->
                             startActivity(CategoryActivity.newIntent(requireActivity(), title))
                         },
@@ -80,21 +96,11 @@ class CategoryDialog : ExtendedBottomSheetDialogFragment() {
 
 @Composable
 fun CategoryDialogContent(
-    viewModel: CategoryDialogViewModel,
+    pageTitle: PageTitle,
+    categoriesData: Resource<List<PageTitle>>,
     onCategoryClick: (PageTitle) -> Unit,
     onDismiss: () -> Unit
 ) {
-    var categoriesData by remember { mutableStateOf<Resource<List<PageTitle>>?>(null) }
-    val lifecycleOwner = LocalLifecycleOwner.current
-
-    LaunchedEffect(viewModel) {
-        lifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-            viewModel.categoriesData.observe(lifecycleOwner) { data ->
-                categoriesData = data
-            }
-        }
-    }
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -129,7 +135,7 @@ fun CategoryDialogContent(
                 )
 
                 HtmlText(
-                    text = viewModel.pageTitle.displayText,
+                    text = pageTitle.displayText,
                     style = MaterialTheme.typography.bodyLarge.copy(fontSize = 16.sp),
                     color = WikipediaTheme.colors.primaryColor,
                     maxLines = 1,
@@ -143,9 +149,9 @@ fun CategoryDialogContent(
             thickness = 0.5.dp
         )
 
-        when (val data = categoriesData) {
+        when (categoriesData) {
             is Resource.Success -> {
-                val categories = data.data
+                val categories = categoriesData.data
                 if (categories.isEmpty()) {
                     Text(
                         text = stringResource(R.string.page_no_categories),
@@ -173,7 +179,7 @@ fun CategoryDialogContent(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp),
-                    caught = data.throwable,
+                    caught = categoriesData.throwable,
                     errorClickEvents = WikiErrorClickEvents(
                         backClickListener = { onDismiss() }
                     )
@@ -214,6 +220,73 @@ fun CategoryDialogItem(
             color = WikipediaTheme.colors.primaryColor,
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.weight(1f)
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentLoadingPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Loading(),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentSuccessPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(
+                listOf(
+                    PageTitle("Category:Physics", wikiSite),
+                    PageTitle("Category:Chemistry", wikiSite),
+                    PageTitle("Category:Biology", wikiSite)
+                )
+            ),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentEmptyPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(emptyList()),
+            onCategoryClick = {},
+            onDismiss = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryDialogContentDarkPreview() {
+    val wikiSite = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    BaseTheme(currentTheme = Theme.DARK) {
+        CategoryDialogContent(
+            pageTitle = PageTitle("Albert Einstein", wikiSite),
+            categoriesData = Resource.Success(
+                listOf(
+                    PageTitle("Category:Physics", wikiSite),
+                    PageTitle("Category:Chemistry", wikiSite)
+                )
+            ),
+            onCategoryClick = {},
+            onDismiss = {}
         )
     }
 }

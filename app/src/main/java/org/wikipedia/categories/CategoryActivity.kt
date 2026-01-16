@@ -49,9 +49,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
@@ -64,11 +66,13 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
@@ -376,7 +380,6 @@ fun CategoryItem(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
-    val showImage = !pageTitle.thumbUrl.isNullOrEmpty()
 
     Row(
         modifier = modifier
@@ -414,7 +417,7 @@ fun CategoryItem(
             }
         }
 
-        if (showImage) {
+        if (!pageTitle.thumbUrl.isNullOrEmpty()) {
             val request = ImageService.getRequest(context, url = pageTitle.thumbUrl)
             AsyncImage(
                 model = request,
@@ -427,5 +430,21 @@ fun CategoryItem(
                     .clip(RoundedCornerShape(8.dp))
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CategoryItemPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CategoryItem(
+            pageTitle = PageTitle(
+                "Example Article",
+                WikiSite("https://en.wikipedia.org/".toUri(), "en")
+            ).apply {
+                description = "This is an example article description"
+            },
+            onClick = {}
+        )
     }
 }
