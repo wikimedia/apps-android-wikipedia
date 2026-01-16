@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
@@ -20,10 +19,6 @@ open class ABTest(private val abTestName: String, private val abTestGroupCount: 
 
     protected open fun assignGroup() {
         testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
-        ActivityTabEvent.submit(activeInterface = "", action = "group_assign", group = when (testGroup) {
-            GROUP_2 -> "activity_tab_b"
-            else -> "activity_tab_a"
-        })
     }
 
     companion object {
