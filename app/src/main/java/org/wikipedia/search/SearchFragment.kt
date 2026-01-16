@@ -50,6 +50,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
+    private lateinit var hybridSearchResultsFragment: HybridSearchResultsFragment
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
     var searchLanguageCode = app.languageState.appLanguageCode
@@ -114,6 +115,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
         searchResultsFragment.setInvokeSource(invokeSource)
+        hybridSearchResultsFragment = childFragmentManager.findFragmentById(
+                R.id.fragment_hybrid_search_results) as HybridSearchResultsFragment
+        hybridSearchResultsFragment.setInvokeSource(invokeSource)
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
@@ -277,11 +281,18 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         when (panel) {
             PANEL_RECENT_SEARCHES -> {
                 searchResultsFragment.hide()
+                hybridSearchResultsFragment.hide()
                 recentSearchesFragment.show()
             }
             PANEL_SEARCH_RESULTS -> {
                 recentSearchesFragment.hide()
+                hybridSearchResultsFragment.hide()
                 searchResultsFragment.show()
+            }
+            PANEL_HYBRID_SEARCH_RESULTS -> {
+                searchResultsFragment.hide()
+                recentSearchesFragment.hide()
+                hybridSearchResultsFragment.show()
             }
         }
     }
@@ -290,6 +301,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val activePanel: Int
         get() = if (searchResultsFragment.isShowing) {
             PANEL_SEARCH_RESULTS
+        } else if (hybridSearchResultsFragment.isShowing) {
+            PANEL_HYBRID_SEARCH_RESULTS
         } else {
             // otherwise, the recent searches must be showing:
             PANEL_RECENT_SEARCHES
@@ -351,6 +364,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
+        private const val PANEL_HYBRID_SEARCH_RESULTS = 2
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 

@@ -101,6 +101,12 @@
             android:layout_height="match_parent" />
 
         <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_hybrid_search_results"
+            android:name="org.wikipedia.search.HybridSearchResultsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/search_panel_recent"
             android:name="org.wikipedia.search.RecentSearchesFragment"
             android:layout_width="match_parent"
