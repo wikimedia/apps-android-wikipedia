@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 This repository is the official Wikipedia app for Android, with features for reading Wikipedia articles, exploring the Wikipedia ecosystem by searching and browsing related content, as well as editing and administering Wikipedia content.
 
