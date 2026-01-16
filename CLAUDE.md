@@ -52,6 +52,7 @@ Classes and packages are organized roughly by "feature":
   - Do NOT run other static analysis tools (ktlint, checkstyle, lint) during development. This should only be done as a final step, when ready to submit a pull request.
 - ALWAYS prefer Jetpack Compose for new UI features, with a corresponding backing ViewModel class that handles state.
   - Whenever possible, use the components and extensions found in the `compose/` directory.
+  - Important: for Text composables that might display HTML text from spannable CharSequence strings (bold, italic, etc), use our `compose/components/HtmlText` composable instead of the standard Text() composable.
 - ALWAYS prefer self-documenting names of variables, functions, and fields. Don't write redundant comments that explain what the next line does.
 - Avoid using deprecated APIs and classes in new code whenever possible.
 - Avoid using reflection, unless all other options are exhausted.
