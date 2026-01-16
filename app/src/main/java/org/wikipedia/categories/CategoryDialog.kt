@@ -41,6 +41,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -127,8 +128,8 @@ fun CategoryDialogContent(
                     maxLines = 1
                 )
 
-                Text(
-                    text = StringUtil.fromHtml(viewModel.pageTitle.displayText).toString(),
+                HtmlText(
+                    text = viewModel.pageTitle.displayText,
                     style = MaterialTheme.typography.bodyLarge.copy(fontSize = 16.sp),
                     color = WikipediaTheme.colors.primaryColor,
                     maxLines = 1,
