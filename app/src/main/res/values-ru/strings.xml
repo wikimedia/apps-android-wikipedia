@@ -1119,7 +1119,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Страница файла в Википедии</string>
-  <string name="suggested_edits_article_cta_image_tags">Добавить тэги к изображению</string>
+  <string name="suggested_edits_article_cta_image_tags">Добавить теги к изображению</string>
   <string name="suggested_edits_article_cta_image_caption">Добавить описание изображения</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавить описание изображения (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Посмотреть</string>
@@ -1138,7 +1138,7 @@
   <string name="suggested_edits_image_tags_task_detail">Добавьте собственные теги к изображению, чтобы его было легче найти.</string>
   <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубликованные теги</string>
-  <string name="suggested_edits_image_tags_search">Искать метки</string>
+  <string name="suggested_edits_image_tags_search">Искать теги</string>
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали, будут отклонены. Вы уверены, что хотите отклонить все теги?</string>
   <string name="suggested_edits_image_tags_add_tag">Добавить тег</string>
