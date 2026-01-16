@@ -53,6 +53,7 @@ Classes and packages are organized roughly by "feature":
 - ALWAYS prefer Jetpack Compose for new UI features, with a corresponding backing ViewModel class that handles state.
   - Whenever possible, use the components and extensions found in the `compose/` directory.
   - Important: for Text composables that might display HTML text from spannable CharSequence strings (bold, italic, etc), use our `compose/components/HtmlText` composable instead of the standard Text() composable.
+  - For new Composable, create at least one `Preview` function that showcases the corresponding composable.
 - ALWAYS prefer self-documenting names of variables, functions, and fields. Don't write redundant comments that explain what the next line does.
 - Avoid using deprecated APIs and classes in new code whenever possible.
 - Avoid using reflection, unless all other options are exhausted.
@@ -62,4 +63,6 @@ Classes and packages are organized roughly by "feature":
 - Every previous release is denoted by a git tag of the form `r/...`. Release notes must be composed based on git commits that happened after the last release tag.
 - To get the hash of the last release tag: git show-ref -s <last-release-tag>
 - To get a list of commits since last release: git log <last-release-hash>..HEAD --oneline --no-merges
-- Release notes should be terse, but understandable by a general audience. Exclude commits that are version bumps of dependencies.
+- Do NOT include dependency updates, localization updates, or static data updates.
+- Release notes should be terse, but understandable by a general audience.
+- Release notes must be a single paragraph of natural, friendly text. It should NOT be a list of bullet points.
