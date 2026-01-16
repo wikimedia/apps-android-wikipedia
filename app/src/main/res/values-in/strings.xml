@@ -1106,7 +1106,7 @@
   <string name="image_recommendation_tooltip_1">Tinjau artikel ini untuk memahami topiknya</string>
   <string name="image_recommendation_tooltip_2">Periksa gambar dan informasi terkaitnya</string>
   <string name="image_recommendation_tooltip_3">Putuskan apakah gambar dapat membantu pembaca memahami topik ini dengan lebih baik</string>
-  <string name="image_recommendation_tooltip_next">Berikutnya</string>
+  <string name="image_recommendation_tooltip_next">Selanjutnya</string>
   <string name="image_recommendation_tooltip_warning">Harap tinjau artikel untuk memahami topiknya dan memeriksa gambarnya</string>
   <string name="image_recommendation_depleted">Maaf, tidak ada lagi gambar yang disarankan yang tersedia saat ini. Silakan jelajahi &lt;a href=\"#\"&gt;saranan penyuntingan&lt;/a&gt; lainnya atau kembali lagi nanti.</string>
   <string name="suggested_edits_report_feature">Masalah dengan fitur</string>
