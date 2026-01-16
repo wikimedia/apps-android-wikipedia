@@ -33,14 +33,16 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
+    val isHybridSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
+
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
     val searchResultsFlow =
-        combine(_searchTerm, _languageCode, _refreshSearchResults) { term, lang, _ ->
+        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
-        }.debounce(delayMillis).flatMapLatest { (term, lang) ->
+        }.flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -106,3 +108,9 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 }
+
+data class HybridSearchConfig(
+    val isHybridSearchExperimentOn: Boolean = false,
+    val onTitleClick: (SearchResult) -> Unit,
+    val onSuggestionTitleClick: (String?) -> Unit
+)
