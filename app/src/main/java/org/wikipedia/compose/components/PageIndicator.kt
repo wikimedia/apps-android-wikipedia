@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -26,11 +27,13 @@ import kotlin.math.absoluteValue
 @Composable
 fun PageIndicator(
     modifier: Modifier = Modifier,
-    pagerState: PagerState
+    pagerState: PagerState,
+    animationDuration: Int = 500,
+    indicatorSpacing: Dp = 8.dp
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterHorizontally),
+        horizontalArrangement = Arrangement.spacedBy(indicatorSpacing, alignment = Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically
     ) {
         repeat(pagerState.pageCount) { index ->
@@ -41,7 +44,7 @@ fun PageIndicator(
                     WikipediaTheme.colors.inactiveColor
                 },
                 animationSpec = tween(
-                    durationMillis = 500,
+                    durationMillis = animationDuration,
                     easing = FastOutSlowInEasing
                 )
             )
@@ -51,11 +54,10 @@ fun PageIndicator(
                     iteration = index,
                     pagerState = pagerState
                 ).dp,
-                animationSpec = tween(durationMillis = 500)
+                animationSpec = tween(durationMillis = animationDuration)
             )
             Box(
                 modifier = Modifier
-                    .size(8.dp)
                     .background(colorTransition, CircleShape)
                     .size(sizeTransition)
             )

@@ -18,9 +18,16 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
         fun onSearchRequested(view: View)
         fun onVoiceSearchRequested()
     }
+    val binding = ViewSearchBarBinding.inflate(LayoutInflater.from(context), this, true)
+
+    override var card: SearchCard? = null
+        get() = super.card
+        set(value) {
+            field = value
+            updateSearchHint()
+        }
 
     init {
-        val binding = ViewSearchBarBinding.inflate(LayoutInflater.from(context), this, true)
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.background_color))
         FeedbackUtil.setButtonTooltip(binding.voiceSearchButton)
 
@@ -28,6 +35,10 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
         binding.voiceSearchButton.setOnClickListener { callback?.onVoiceSearchRequested() }
         binding.voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
 
+        updateSearchHint()
+    }
+
+    private fun updateSearchHint() {
         if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
             binding.searchIcon.contentDescription = context.getString(R.string.hybrid_search_search_hint)
             binding.searchTextView.text = context.getString(R.string.hybrid_search_search_hint)
