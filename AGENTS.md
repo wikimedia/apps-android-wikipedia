@@ -56,3 +56,10 @@ Classes and packages are organized roughly by "feature":
 - ALWAYS prefer self-documenting names of variables, functions, and fields. Don't write redundant comments that explain what the next line does.
 - Avoid using deprecated APIs and classes in new code whenever possible.
 - Avoid using reflection, unless all other options are exhausted.
+
+## Release notes
+
+- Every previous release is denoted by a git tag of the form `r/...`. Release notes must be composed based on git commits that happened after the last release tag.
+- To get the hash of the last release tag: git show-ref -s <last-release-tag>
+- To get a list of commits since last release: git log <last-release-hash>..HEAD --oneline --no-merges
+- Release notes should be terse, but understandable by a general audience. Exclude commits that are version bumps of dependencies.
