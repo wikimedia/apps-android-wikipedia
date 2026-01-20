@@ -19,7 +19,9 @@ class WidgetRabbitHoleWorker(
             val app = WikipediaApp.instance
 
             // For prototype purposes, use hardcoded list of articles representing the rabbit hole path
-            val articleTitles = listOf("Dog", "Species", "Eukaryote", "Greek language", "New Testament")
+            val articleTitles = listOf("Moth", "Diurnal animal", "Sleeping", "Memory", "Telephone number", "Telephone call", "Ringtone", "Landline")
+
+                //"Dog", "Species", "Eukaryote", "Greek language", "New Testament")
 
             val wikiSite = WikiSite.forLanguageCode(app.appOrSystemLanguageCode)
 
@@ -40,5 +42,9 @@ class WidgetRabbitHoleWorker(
             L.e(e)
             Result.retry()
         }
+    }
+
+    companion object {
+        val redirectedTitles = listOf("Moth", "Diurnality", "Sleep", "Memory", "Telephone number", "Telephone call", "Ringtone", "Landline")
     }
 }

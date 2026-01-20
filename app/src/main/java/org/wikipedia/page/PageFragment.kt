@@ -118,6 +118,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.watchlist.WatchlistViewModel
+import org.wikipedia.widgets.WidgetRabbitHoleWorker
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
@@ -501,7 +502,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun highlightRabbitHoleLinks() {
         val rabbitHoleTitles = (requireActivity() as? PageActivity)?.rabbitHoleArticleTitles ?: return
         val currentTitle = StringUtil.fromHtml(model.title?.displayText).toString() ?: return
-        val currentIndex = rabbitHoleTitles.indexOfFirst { it.equals(currentTitle, ignoreCase = true) }
+        val currentIndex = WidgetRabbitHoleWorker.redirectedTitles.indexOfFirst {
+            it.equals(currentTitle, ignoreCase = true)
+        }
         if (currentIndex >= 0 && currentIndex < rabbitHoleTitles.size - 1) {
             val nextTitle = rabbitHoleTitles[currentIndex + 1]
             val isFinalLink = currentIndex == rabbitHoleTitles.size - 2
