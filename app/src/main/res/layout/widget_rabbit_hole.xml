@@ -29,7 +29,6 @@
         android:id="@+id/widget_start_article_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingVertical="8dp">
@@ -98,7 +97,6 @@
         android:id="@+id/widget_end_article_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingVertical="8dp">

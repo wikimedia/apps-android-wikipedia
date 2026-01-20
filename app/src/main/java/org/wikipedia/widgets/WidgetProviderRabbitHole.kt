@@ -100,23 +100,14 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
                 remoteViews.setViewVisibility(R.id.widget_end_thumbnail, View.VISIBLE)
             }
 
-            // Set click listener for starting article
-            val startHistoryEntry = HistoryEntry(startPageTitle, HistoryEntry.SOURCE_WIDGET)
-            val startPendingIntent = PendingIntentCompat.getActivity(context, PENDING_INTENT_START_ARTICLE,
-                PageActivity.newIntentForNewTab(context, startHistoryEntry, startHistoryEntry.title)
+            // Set click listener for the entire widget to open the starting article
+            val historyEntry = HistoryEntry(startPageTitle, HistoryEntry.SOURCE_WIDGET)
+            val pendingIntent = PendingIntentCompat.getActivity(context, 1,
+                PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
-            remoteViews.setOnClickPendingIntent(R.id.widget_start_article_container, startPendingIntent)
-
-            // Set click listener for ending article
-            val endHistoryEntry = HistoryEntry(endPageTitle, HistoryEntry.SOURCE_WIDGET)
-            val endPendingIntent = PendingIntentCompat.getActivity(context, PENDING_INTENT_END_ARTICLE,
-                PageActivity.newIntentForNewTab(context, endHistoryEntry, endHistoryEntry.title)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-                PendingIntent.FLAG_UPDATE_CURRENT, false)
-            remoteViews.setOnClickPendingIntent(R.id.widget_end_article_container, endPendingIntent)
+            remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
 
             appWidgetManager.updateAppWidget(widgetId, remoteViews)
         }
@@ -126,8 +117,6 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
         private const val ARG_RABBIT_HOLE_DATA = "rabbitHoleData"
         private const val ARG_START_TITLE = "startTitle"
         private const val ARG_END_TITLE = "endTitle"
-        private const val PENDING_INTENT_START_ARTICLE = 100
-        private const val PENDING_INTENT_END_ARTICLE = 101
         private var lastServerUpdateMillis = 0L
 
         fun forceUpdateWidget(context: Context, startPageTitle: PageTitle? = null, endPageTitle: PageTitle? = null) {
