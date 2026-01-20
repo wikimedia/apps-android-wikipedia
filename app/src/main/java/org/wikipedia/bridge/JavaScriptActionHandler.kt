@@ -220,37 +220,39 @@ object JavaScriptActionHandler {
                 "    background: linear-gradient(135deg, rgba(255,107,107,0.6) 0%, rgba(255,154,158,0.6) 25%, rgba(250,208,196,0.6) 50%, rgba(255,154,158,0.6) 75%, rgba(255,107,107,0.6) 100%);" +
                 "    background-size: 400% 400%;" +
                 "    background-position: 0% 50%;" +
-                "    box-shadow: 0 0 8px rgba(255,107,107,0.5);" +
+                "    box-shadow: 0 0 20px 8px rgba(255,107,107,0.7);" +
                 "  }" +
                 "  25% {" +
                 "    background: linear-gradient(135deg, rgba(168,237,234,0.6) 0%, rgba(254,214,227,0.6) 25%, rgba(255,154,158,0.6) 50%, rgba(254,214,227,0.6) 75%, rgba(168,237,234,0.6) 100%);" +
                 "    background-size: 400% 400%;" +
                 "    background-position: 50% 100%;" +
-                "    box-shadow: 0 0 12px rgba(168,237,234,0.6);" +
+                "    box-shadow: 0 0 25px 10px rgba(168,237,234,0.8);" +
                 "  }" +
                 "  50% {" +
                 "    background: linear-gradient(135deg, rgba(132,250,176,0.6) 0%, rgba(143,211,244,0.6) 25%, rgba(168,237,234,0.6) 50%, rgba(143,211,244,0.6) 75%, rgba(132,250,176,0.6) 100%);" +
                 "    background-size: 400% 400%;" +
                 "    background-position: 100% 50%;" +
-                "    box-shadow: 0 0 15px rgba(132,250,176,0.5);" +
+                "    box-shadow: 0 0 30px 12px rgba(132,250,176,0.7);" +
                 "  }" +
                 "  75% {" +
                 "    background: linear-gradient(135deg, rgba(207,217,223,0.6) 0%, rgba(226,235,240,0.6) 25%, rgba(143,211,244,0.6) 50%, rgba(226,235,240,0.6) 75%, rgba(207,217,223,0.6) 100%);" +
                 "    background-size: 400% 400%;" +
                 "    background-position: 50% 0%;" +
-                "    box-shadow: 0 0 12px rgba(143,211,244,0.5);" +
+                "    box-shadow: 0 0 25px 10px rgba(143,211,244,0.7);" +
                 "  }" +
                 "  100% {" +
                 "    background: linear-gradient(135deg, rgba(255,107,107,0.6) 0%, rgba(255,154,158,0.6) 25%, rgba(250,208,196,0.6) 50%, rgba(255,154,158,0.6) 75%, rgba(255,107,107,0.6) 100%);" +
                 "    background-size: 400% 400%;" +
                 "    background-position: 0% 50%;" +
-                "    box-shadow: 0 0 8px rgba(255,107,107,0.5);" +
+                "    box-shadow: 0 0 20px 8px rgba(255,107,107,0.7);" +
                 "  }" +
                 "}" +
                 ".rabbit-hole-link {" +
                 "  animation: rabbitHoleGlow 4s ease-in-out infinite;" +
                 "  border-radius: 6px;" +
-                "  padding: 2px 6px;" +
+                "  padding: 4px 8px;" +
+                "  font-size: 1.15em;" +
+                "  font-weight: 500;" +
                 "  box-decoration-break: clone;" +
                 "  -webkit-box-decoration-break: clone;" +
                 "}';" +
