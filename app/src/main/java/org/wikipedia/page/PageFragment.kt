@@ -108,6 +108,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -497,6 +498,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
+    private fun highlightRabbitHoleLinks() {
+        val rabbitHoleTitles = (requireActivity() as? PageActivity)?.rabbitHoleArticleTitles ?: return
+        val currentTitle = StringUtil.fromHtml(model.title?.displayText).toString() ?: return
+        val currentIndex = rabbitHoleTitles.indexOfFirst { it.equals(currentTitle, ignoreCase = true) }
+        if (currentIndex >= 0 && currentIndex < rabbitHoleTitles.size - 1) {
+            val nextTitle = rabbitHoleTitles[currentIndex + 1]
+            bridge.execute(JavaScriptActionHandler.highlightRabbitHoleLinks(nextTitle))
+        }
+    }
+
     private fun handleInternalLink(title: PageTitle) {
         if (!isResumed) {
             return
@@ -779,6 +790,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             bridge.onPcsReady()
             articleInteractionEvent?.logLoaded()
             callback()?.onPageLoadComplete()
+
+            highlightRabbitHoleLinks()
 
             // do we have a URL fragment to scroll to?
             model.title?.let { prevTitle ->

@@ -36,6 +36,7 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
+    const val INTENT_EXTRA_RABBIT_HOLE_ARTICLE_TITLES = "rabbitHoleArticleTitles"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000

@@ -204,6 +204,33 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    fun highlightRabbitHoleLinks(nextArticleTitle: String): String {
+        // Escape the title for use in JavaScript string
+        val escapedTitle = nextArticleTitle.replace("\\", "\\\\")
+            .replace("'", "\\'")
+            .replace("\"", "\\\"")
+            .replace("\n", "\\n")
+        return "(function() {" +
+                "var links = document.querySelectorAll('a');" +
+                "for (var i = 0; i < links.length; i++) {" +
+                "  var link = links[i];" +
+                "  var href = link.getAttribute('href') || '';" +
+                "  var title = link.getAttribute('title') || '';" +
+                "  var decodedHref = '';" +
+                "  try { decodedHref = decodeURIComponent(href); } catch(e) { decodedHref = href; }" +
+                "  var targetTitle = '$escapedTitle'.replace(/_/g, ' ');" +
+                "  var hrefTitle = decodedHref.replace(/.*\\/wiki\\//i, '').replace(/_/g, ' ');" +
+                "  if (title.toLowerCase() === targetTitle.toLowerCase() || " +
+                "      hrefTitle.toLowerCase() === targetTitle.toLowerCase()) {" +
+                "    link.style.backgroundColor = '#FFEB3B';" +
+                "    link.style.borderRadius = '3px';" +
+                "    link.style.padding = '2px 4px';" +
+                "    link.style.boxDecorationBreak = 'clone';" +
+                "  }" +
+                "}" +
+                "})();"
+    }
+
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
                        val src: String = "")

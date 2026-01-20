@@ -42,12 +42,14 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
 
             var startPageTitle: PageTitle? = null
             var endPageTitle: PageTitle? = null
+            var articleTitles: ArrayList<String>? = null
 
             val bundle = BundleCompat.getParcelable(options, ARG_RABBIT_HOLE_DATA, Bundle::class.java)
             if (bundle != null) {
                 bundle.classLoader = WikipediaApp.instance.classLoader
                 startPageTitle = BundleCompat.getParcelable(bundle, ARG_START_TITLE, PageTitle::class.java)
                 endPageTitle = BundleCompat.getParcelable(bundle, ARG_END_TITLE, PageTitle::class.java)
+                articleTitles = bundle.getStringArrayList(ARG_ARTICLE_TITLES)
             }
 
             if (startPageTitle == null || endPageTitle == null ||
@@ -102,10 +104,13 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
 
             // Set click listener for the entire widget to open the starting article
             val historyEntry = HistoryEntry(startPageTitle, HistoryEntry.SOURCE_WIDGET)
-            val pendingIntent = PendingIntentCompat.getActivity(context, 1,
-                PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
-                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+            val intent = PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            articleTitles?.let {
+                intent.putStringArrayListExtra(Constants.INTENT_EXTRA_RABBIT_HOLE_ARTICLE_TITLES, it)
+            }
+            val pendingIntent = PendingIntentCompat.getActivity(context, 1, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
             remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
 
@@ -117,9 +122,10 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
         private const val ARG_RABBIT_HOLE_DATA = "rabbitHoleData"
         private const val ARG_START_TITLE = "startTitle"
         private const val ARG_END_TITLE = "endTitle"
+        private const val ARG_ARTICLE_TITLES = "articleTitles"
         private var lastServerUpdateMillis = 0L
 
-        fun forceUpdateWidget(context: Context, startPageTitle: PageTitle? = null, endPageTitle: PageTitle? = null) {
+        fun forceUpdateWidget(context: Context, startPageTitle: PageTitle? = null, endPageTitle: PageTitle? = null, articleTitles: List<String>? = null) {
             val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderRabbitHole::class.java))
             ids.forEach { id ->
@@ -127,6 +133,9 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
                 val bundle = Bundle(WikipediaApp.instance.classLoader)
                 bundle.putParcelable(ARG_START_TITLE, startPageTitle)
                 bundle.putParcelable(ARG_END_TITLE, endPageTitle)
+                articleTitles?.let {
+                    bundle.putStringArrayList(ARG_ARTICLE_TITLES, ArrayList(it))
+                }
                 options.putParcelable(ARG_RABBIT_HOLE_DATA, bundle)
                 appWidgetManager.updateAppWidgetOptions(id, options)
             }

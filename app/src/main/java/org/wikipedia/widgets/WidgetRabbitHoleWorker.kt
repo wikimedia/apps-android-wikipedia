@@ -18,15 +18,14 @@ class WidgetRabbitHoleWorker(
         return try {
             val app = WikipediaApp.instance
 
-            // For prototype purposes, use hardcoded articles "Dog" and "Cat"
-            val startArticle = "Dog"
-            val endArticle = "Cat"
+            // For prototype purposes, use hardcoded list of articles representing the rabbit hole path
+            val articleTitles = listOf("Dog", "Species", "Eukaryote", "Greek language", "New Testament")
 
             val wikiSite = WikiSite.forLanguageCode(app.appOrSystemLanguageCode)
 
-            // Fetch page summaries for both articles
-            val startSummary = ServiceFactory.getRest(wikiSite).getPageSummary(startArticle)
-            val endSummary = ServiceFactory.getRest(wikiSite).getPageSummary(endArticle)
+            // Fetch page summaries for the first and last articles in the list
+            val startSummary = ServiceFactory.getRest(wikiSite).getPageSummary(articleTitles.first())
+            val endSummary = ServiceFactory.getRest(wikiSite).getPageSummary(articleTitles.last())
 
             val startPageTitle = startSummary.getPageTitle(wikiSite)
             startPageTitle.displayText = startSummary.displayTitle
@@ -34,7 +33,7 @@ class WidgetRabbitHoleWorker(
             val endPageTitle = endSummary.getPageTitle(wikiSite)
             endPageTitle.displayText = endSummary.displayTitle
 
-            WidgetProviderRabbitHole.forceUpdateWidget(applicationContext, startPageTitle, endPageTitle)
+            WidgetProviderRabbitHole.forceUpdateWidget(applicationContext, startPageTitle, endPageTitle, articleTitles)
 
             Result.success()
         } catch (e: Exception) {
