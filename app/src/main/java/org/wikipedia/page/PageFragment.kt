@@ -504,7 +504,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         val currentIndex = rabbitHoleTitles.indexOfFirst { it.equals(currentTitle, ignoreCase = true) }
         if (currentIndex >= 0 && currentIndex < rabbitHoleTitles.size - 1) {
             val nextTitle = rabbitHoleTitles[currentIndex + 1]
-            bridge.execute(JavaScriptActionHandler.highlightRabbitHoleLinks(nextTitle))
+            val isFinalLink = currentIndex == rabbitHoleTitles.size - 2
+            bridge.execute(JavaScriptActionHandler.highlightRabbitHoleLinks(nextTitle, isFinalLink))
         }
     }
 

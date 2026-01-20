@@ -204,12 +204,13 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
-    fun highlightRabbitHoleLinks(nextArticleTitle: String): String {
+    fun highlightRabbitHoleLinks(nextArticleTitle: String, isFinalLink: Boolean = false): String {
         // Escape the title for use in JavaScript string
         val escapedTitle = nextArticleTitle.replace("\\", "\\\\")
             .replace("'", "\\'")
             .replace("\"", "\\\"")
             .replace("\n", "\\n")
+        val linkClass = if (isFinalLink) "rabbit-hole-link-final" else "rabbit-hole-link"
         return "(function() {" +
                 "if (!document.getElementById('rabbit-hole-styles')) {" +
                 "  var style = document.createElement('style');" +
@@ -247,8 +248,37 @@ object JavaScriptActionHandler {
                 "    box-shadow: 0 0 20px 8px rgba(255,107,107,0.7);" +
                 "  }" +
                 "}" +
+                "@keyframes rabbitHoleGlowGold {" +
+                "  0% {" +
+                "    background: linear-gradient(135deg, rgba(255,215,0,0.7) 0%, rgba(255,193,7,0.7) 25%, rgba(255,235,59,0.7) 50%, rgba(255,193,7,0.7) 75%, rgba(255,215,0,0.7) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 0% 50%;" +
+                "    box-shadow: 0 0 25px 10px rgba(255,215,0,0.8);" +
+                "  }" +
+                "  50% {" +
+                "    background: linear-gradient(135deg, rgba(255,235,59,0.7) 0%, rgba(255,215,0,0.7) 25%, rgba(255,193,7,0.7) 50%, rgba(255,215,0,0.7) 75%, rgba(255,235,59,0.7) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 100% 50%;" +
+                "    box-shadow: 0 0 35px 15px rgba(255,215,0,0.9);" +
+                "  }" +
+                "  100% {" +
+                "    background: linear-gradient(135deg, rgba(255,215,0,0.7) 0%, rgba(255,193,7,0.7) 25%, rgba(255,235,59,0.7) 50%, rgba(255,193,7,0.7) 75%, rgba(255,215,0,0.7) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 0% 50%;" +
+                "    box-shadow: 0 0 25px 10px rgba(255,215,0,0.8);" +
+                "  }" +
+                "}" +
                 ".rabbit-hole-link {" +
                 "  animation: rabbitHoleGlow 4s ease-in-out infinite;" +
+                "  border-radius: 6px;" +
+                "  padding: 4px 8px;" +
+                "  font-size: 1.15em;" +
+                "  font-weight: 500;" +
+                "  box-decoration-break: clone;" +
+                "  -webkit-box-decoration-break: clone;" +
+                "}" +
+                ".rabbit-hole-link-final {" +
+                "  animation: rabbitHoleGlowGold 3s ease-in-out infinite;" +
                 "  border-radius: 6px;" +
                 "  padding: 4px 8px;" +
                 "  font-size: 1.15em;" +
@@ -269,7 +299,7 @@ object JavaScriptActionHandler {
                 "  var hrefTitle = decodedHref.replace(/.*\\/wiki\\//i, '').replace(/_/g, ' ');" +
                 "  if (title.toLowerCase() === targetTitle.toLowerCase() || " +
                 "      hrefTitle.toLowerCase() === targetTitle.toLowerCase()) {" +
-                "    link.classList.add('rabbit-hole-link');" +
+                "    link.classList.add('$linkClass');" +
                 "  }" +
                 "}" +
                 "})();"
