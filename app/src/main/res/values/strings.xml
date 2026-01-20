@@ -336,6 +336,11 @@
     <string name="widget_name_search">Wikipedia search</string>
     <string name="widget_description_search">The fastest way to search Wikipedia</string>
     <string name="widget_description_featured_page">The best articles Wikipedia has to offer</string>
+    <string name="widget_name_rabbit_hole">Wikipedia rabbit hole</string>
+    <string name="widget_title_rabbit_hole">Rabbit hole</string>
+    <string name="widget_description_rabbit_hole">Discover a path between two Wikipedia articles</string>
+    <string name="widget_rabbit_hole_start">Start here</string>
+    <string name="widget_rabbit_hole_end">End here</string>
     <string name="wiktionary_no_definitions_found">No definitions found.</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_container"
+    android:theme="@style/AppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/widget_shape_inner"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/widget_header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:drawableStart="@drawable/ic_wikipedia_w"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/widget_primary"
+        android:gravity="center_vertical"
+        android:text="@string/widget_title_rabbit_hole"
+        android:textColor="@color/widget_primary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="UseAppTint" />
+
+    <!-- Starting article -->
+    <LinearLayout
+        android:id="@+id/widget_start_article_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_start_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_rabbit_hole_start"
+                android:textColor="@color/gray500"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/widget_start_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="serif"
+                android:maxLines="1"
+                android:textColor="@color/widget_primary"
+                android:textSize="16sp"
+                tools:text="Dog" />
+
+            <TextView
+                android:id="@+id/widget_start_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/gray500"
+                android:textSize="12sp"
+                tools:text="Domesticated canine" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/widget_start_thumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+    <!-- Arrow indicator -->
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="4dp"
+        android:contentDescription="@null"
+        android:rotation="90"
+        android:src="@drawable/ic_arrow_forward_24"
+        android:tint="@color/gray500"
+        tools:ignore="UseAppTint" />
+
+    <!-- Ending article -->
+    <LinearLayout
+        android:id="@+id/widget_end_article_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_end_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/widget_rabbit_hole_end"
+                android:textColor="@color/gray500"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/widget_end_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="serif"
+                android:maxLines="1"
+                android:textColor="@color/widget_primary"
+                android:textSize="16sp"
+                tools:text="Cat" />
+
+            <TextView
+                android:id="@+id/widget_end_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/gray500"
+                android:textSize="12sp"
+                tools:text="Domesticated feline" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/widget_end_thumbnail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+</LinearLayout>

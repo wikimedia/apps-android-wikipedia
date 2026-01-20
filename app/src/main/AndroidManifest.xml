@@ -445,6 +445,20 @@
                 android:resource="@xml/widget_featured_page" />
         </receiver>
 
+        <receiver
+            android:icon="@mipmap/launcher"
+            android:label="@string/widget_name_rabbit_hole"
+            android:name="org.wikipedia.widgets.WidgetProviderRabbitHole"
+            android:exported="true">
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_rabbit_hole" />
+        </receiver>
+
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
             android:exported="true">
             <intent-filter>
