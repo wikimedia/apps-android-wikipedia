@@ -80,15 +80,14 @@
 
     </LinearLayout>
 
-    <!-- Arrow indicator -->
+    <!-- Hiking icon indicator -->
     <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="4dp"
+        android:layout_marginVertical="8dp"
         android:contentDescription="@null"
-        android:rotation="90"
-        android:src="@drawable/ic_arrow_forward_24"
+        android:src="@drawable/ic_hiking_24"
         android:tint="@color/gray500"
         tools:ignore="UseAppTint" />
 
