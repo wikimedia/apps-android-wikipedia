@@ -211,6 +211,51 @@ object JavaScriptActionHandler {
             .replace("\"", "\\\"")
             .replace("\n", "\\n")
         return "(function() {" +
+                "if (!document.getElementById('rabbit-hole-styles')) {" +
+                "  var style = document.createElement('style');" +
+                "  style.id = 'rabbit-hole-styles';" +
+                "  style.innerHTML = '" +
+                "@keyframes rabbitHoleGlow {" +
+                "  0% {" +
+                "    background: linear-gradient(135deg, rgba(255,107,107,0.6) 0%, rgba(255,154,158,0.6) 25%, rgba(250,208,196,0.6) 50%, rgba(255,154,158,0.6) 75%, rgba(255,107,107,0.6) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 0% 50%;" +
+                "    box-shadow: 0 0 8px rgba(255,107,107,0.5);" +
+                "  }" +
+                "  25% {" +
+                "    background: linear-gradient(135deg, rgba(168,237,234,0.6) 0%, rgba(254,214,227,0.6) 25%, rgba(255,154,158,0.6) 50%, rgba(254,214,227,0.6) 75%, rgba(168,237,234,0.6) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 50% 100%;" +
+                "    box-shadow: 0 0 12px rgba(168,237,234,0.6);" +
+                "  }" +
+                "  50% {" +
+                "    background: linear-gradient(135deg, rgba(132,250,176,0.6) 0%, rgba(143,211,244,0.6) 25%, rgba(168,237,234,0.6) 50%, rgba(143,211,244,0.6) 75%, rgba(132,250,176,0.6) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 100% 50%;" +
+                "    box-shadow: 0 0 15px rgba(132,250,176,0.5);" +
+                "  }" +
+                "  75% {" +
+                "    background: linear-gradient(135deg, rgba(207,217,223,0.6) 0%, rgba(226,235,240,0.6) 25%, rgba(143,211,244,0.6) 50%, rgba(226,235,240,0.6) 75%, rgba(207,217,223,0.6) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 50% 0%;" +
+                "    box-shadow: 0 0 12px rgba(143,211,244,0.5);" +
+                "  }" +
+                "  100% {" +
+                "    background: linear-gradient(135deg, rgba(255,107,107,0.6) 0%, rgba(255,154,158,0.6) 25%, rgba(250,208,196,0.6) 50%, rgba(255,154,158,0.6) 75%, rgba(255,107,107,0.6) 100%);" +
+                "    background-size: 400% 400%;" +
+                "    background-position: 0% 50%;" +
+                "    box-shadow: 0 0 8px rgba(255,107,107,0.5);" +
+                "  }" +
+                "}" +
+                ".rabbit-hole-link {" +
+                "  animation: rabbitHoleGlow 4s ease-in-out infinite;" +
+                "  border-radius: 6px;" +
+                "  padding: 2px 6px;" +
+                "  box-decoration-break: clone;" +
+                "  -webkit-box-decoration-break: clone;" +
+                "}';" +
+                "  document.head.appendChild(style);" +
+                "}" +
                 "var links = document.querySelectorAll('a');" +
                 "for (var i = 0; i < links.length; i++) {" +
                 "  var link = links[i];" +
@@ -222,10 +267,7 @@ object JavaScriptActionHandler {
                 "  var hrefTitle = decodedHref.replace(/.*\\/wiki\\//i, '').replace(/_/g, ' ');" +
                 "  if (title.toLowerCase() === targetTitle.toLowerCase() || " +
                 "      hrefTitle.toLowerCase() === targetTitle.toLowerCase()) {" +
-                "    link.style.backgroundColor = '#FFEB3B';" +
-                "    link.style.borderRadius = '3px';" +
-                "    link.style.padding = '2px 4px';" +
-                "    link.style.boxDecorationBreak = 'clone';" +
+                "    link.classList.add('rabbit-hole-link');" +
                 "  }" +
                 "}" +
                 "})();"
