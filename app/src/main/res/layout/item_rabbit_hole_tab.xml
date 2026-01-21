@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rabbit_hole_tab_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rabbit_hole_tab_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/gray100">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/rabbit_hole_tab_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Large serif title -->
+                <TextView
+                    android:id="@+id/rabbit_hole_tab_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:textColor="@color/gray700"
+                    android:textSize="24sp"
+                    android:lineSpacingMultiplier="1.2"
+                    tools:text="Article Title" />
+
+                <!-- Short description -->
+                <TextView
+                    android:id="@+id/rabbit_hole_tab_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/gray500"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    tools:text="Short description" />
+
+                <!-- Horizontal divider -->
+                <View
+                    android:id="@+id/rabbit_hole_tab_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="16dp"
+                    android:background="@color/gray300" />
+
+                <!-- Article summary / extract -->
+                <TextView
+                    android:id="@+id/rabbit_hole_tab_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/gray600"
+                    android:textSize="15sp"
+                    android:lineSpacingMultiplier="1.5"
+                    android:maxLines="6"
+                    android:ellipsize="end"
+                    tools:text="This is the article summary text that provides more detail about the article content." />
+
+            </LinearLayout>
+
+            <!-- Overlay for dimming effect on background cards -->
+            <View
+                android:id="@+id/rabbit_hole_tab_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:alpha="0" />
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

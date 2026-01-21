@@ -92,4 +92,10 @@
     <!-- WikiCard -->
     <dimen name="wiki_card_radius">12dp</dimen>
 
+    <!-- Rabbit Hole Tabs -->
+    <dimen name="rabbit_hole_card_height_large">120dp</dimen>
+    <dimen name="rabbit_hole_card_height_medium">80dp</dimen>
+    <dimen name="rabbit_hole_card_height_small">56dp</dimen>
+    <dimen name="rabbit_hole_card_spacing">16dp</dimen>
+
 </resources>

@@ -273,6 +273,11 @@
             android:label="@string/tabs_activity_title" />
 
         <activity
+            android:name=".widgets.RabbitHoleTabsActivity"
+            android:theme="@style/AppTheme.FullScreen.Translucent"
+            android:label="@string/widget_title_rabbit_hole" />
+
+        <activity
             android:name=".categories.CategoryActivity" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />

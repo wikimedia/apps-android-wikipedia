@@ -15,13 +15,9 @@ import androidx.work.BackoffPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
@@ -102,14 +98,13 @@ class WidgetProviderRabbitHole : AppWidgetProvider() {
                 remoteViews.setViewVisibility(R.id.widget_end_thumbnail, View.VISIBLE)
             }
 
-            // Set click listener for the entire widget to open the starting article
-            val historyEntry = HistoryEntry(startPageTitle, HistoryEntry.SOURCE_WIDGET)
-            val intent = PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
-                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            articleTitles?.let {
-                intent.putStringArrayListExtra(Constants.INTENT_EXTRA_RABBIT_HOLE_ARTICLE_TITLES, it)
-            }
+            // Set click listener for the entire widget to open the Rabbit Hole tabs screen
+            val intent = RabbitHoleTabsActivity.newIntent(
+                context,
+                articleTitles ?: emptyList(),
+                startPageTitle.displayText,
+                endPageTitle.displayText
+            ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val pendingIntent = PendingIntentCompat.getActivity(context, 1, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
             remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
