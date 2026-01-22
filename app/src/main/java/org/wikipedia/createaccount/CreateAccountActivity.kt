@@ -30,6 +30,7 @@ import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -87,6 +88,7 @@ class CreateAccountActivity : BaseActivity() {
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
+        binding.footerContainer.hCaptchaDisclaimer.isVisible = false
 
         onBackPressedDispatcher.addCallback(this) {
             if (captchaHandler.isActive) {
@@ -102,6 +104,19 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_NOT_CREATED)
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.authManagerState.collect {
+                        when (it) {
+                            is CreateAccountActivityViewModel.AccountInfoState.HCaptchaDisclaimer -> {
+                                binding.footerContainer.hCaptchaDisclaimer.text = StringUtil.fromHtml(it.disclaimerMessage)
+                                binding.footerContainer.hCaptchaDisclaimer.isVisible = !binding.footerContainer.hCaptchaDisclaimer.text.isNullOrEmpty()
+                            }
+                            is CreateAccountActivityViewModel.AccountInfoState.Error -> {
+                                L.e(it.throwable)
+                            }
+                        }
+                    }
+                }
                 launch {
                     viewModel.createAccountInfoState.collect {
                         when (it) {
@@ -207,6 +222,7 @@ class CreateAccountActivity : BaseActivity() {
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.verifyUserName(text)
         }
+        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
     }
 
     private fun handleAccountCreationError(message: String) {
