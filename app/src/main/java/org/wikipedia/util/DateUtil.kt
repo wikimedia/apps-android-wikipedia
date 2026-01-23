@@ -25,7 +25,6 @@ object DateUtil {
     private val DB_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMddHHmmss")
     private val YMD_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd")
 
-    // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601DateParse(date: String): Date {
         return Date.from(Instant.parse(date))
     }
