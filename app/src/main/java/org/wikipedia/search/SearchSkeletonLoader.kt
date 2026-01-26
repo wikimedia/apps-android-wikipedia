@@ -29,18 +29,23 @@ import org.wikipedia.theme.Theme
 @Composable
 fun SearchSkeletonLoader(
     modifier: Modifier = Modifier,
-    showSemanticSkeletonLoader: Boolean = false
+    showSemanticSkeletonLoader: Boolean = false,
+    itemsCount: Int = 3,
+    semanticItemsCount: Int = 3,
 ) {
     val semanticBoxHeight = 500
     val semanticBoxIndividualContentHeight = 16
+    val semanticShimmerColors = semanticShimmerColors()
+
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .background(WikipediaTheme.colors.paperColor),
         contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp)
     ) {
-        items(3) {
+        items(itemsCount) {
             ListItemLoader(
+                shimmerColors = semanticShimmerColors,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 24.dp)
@@ -60,7 +65,8 @@ fun SearchSkeletonLoader(
                             .fillMaxWidth(0.5f)
                             .clip(RoundedCornerShape(4.dp))
                             .shimmerEffect(
-                                shimmerColors()
+                                shimmerColors = semanticShimmerColors,
+                                heightMultiplier = 0f
                             )
                     )
                     Box(
@@ -69,7 +75,8 @@ fun SearchSkeletonLoader(
                             .height(16.dp)
                             .clip(RoundedCornerShape(4.dp))
                             .shimmerEffect(
-                                shimmerColors()
+                                shimmerColors = semanticShimmerColors,
+                                heightMultiplier = 0f
                             )
 
                     )
@@ -82,12 +89,12 @@ fun SearchSkeletonLoader(
                         .padding(top = 24.dp),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    items(3) {
+                    items(semanticItemsCount) {
                         Column(
                             modifier = Modifier
                                 .size(width = 292.dp, height = semanticBoxHeight.dp)
                                 .clip(RoundedCornerShape(16.dp))
-                                .shimmerEffect()
+                                .background(color = WikipediaTheme.colors.backgroundColor)
                                 .padding(16.dp),
                             verticalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
@@ -98,7 +105,8 @@ fun SearchSkeletonLoader(
                                         .height(semanticBoxIndividualContentHeight.dp)
                                         .clip(RoundedCornerShape(4.dp))
                                         .shimmerEffect(
-                                            shimmerColors()
+                                            shimmerColors = semanticShimmerColors,
+                                            heightMultiplier = 0f
                                         )
                                 )
                             }
@@ -111,7 +119,10 @@ fun SearchSkeletonLoader(
 }
 
 @Composable
-fun ListItemLoader(modifier: Modifier = Modifier) {
+fun ListItemLoader(
+    modifier: Modifier = Modifier,
+    shimmerColors: List<Color>
+) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(12.dp)
@@ -127,7 +138,8 @@ fun ListItemLoader(modifier: Modifier = Modifier) {
                     .fillMaxWidth(0.5f)
                     .clip(RoundedCornerShape(4.dp))
                     .shimmerEffect(
-                        shimmerColors()
+                        shimmerColors = shimmerColors,
+                        heightMultiplier = 0f
                     )
             )
             Box(
@@ -136,7 +148,8 @@ fun ListItemLoader(modifier: Modifier = Modifier) {
                     .height(16.dp)
                     .clip(RoundedCornerShape(4.dp))
                     .shimmerEffect(
-                        shimmerColors()
+                        shimmerColors = shimmerColors,
+                        heightMultiplier = 0f
                     )
 
             )
@@ -146,20 +159,20 @@ fun ListItemLoader(modifier: Modifier = Modifier) {
                 .size(52.dp)
                 .clip(RoundedCornerShape(8.dp))
                 .shimmerEffect(
-                    shimmerColors()
+                    shimmerColors = shimmerColors,
+                    heightMultiplier = 0f
                 )
         )
     }
 }
 
-private fun shimmerColors(): List<Color> {
-    val baseColor = Color(0xFFAEAEAE)
-    val highlightColor = Color(0xFFEAEEF1)
-
+@Composable
+fun semanticShimmerColors(): List<Color> {
+    val colors = WikipediaTheme.colors
     return listOf(
-        baseColor.copy(alpha = 0.7f),
-        highlightColor,
-        baseColor.copy(alpha = 0.7f),
+        colors.inactiveColor.copy(alpha = 0.7f),
+        colors.borderColor.copy(alpha = 0.5f),
+        colors.inactiveColor.copy(alpha = 0.7f)
     )
 }
 

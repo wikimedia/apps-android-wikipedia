@@ -122,7 +122,8 @@ private fun PreviewPulse() {
 fun Modifier.shimmerEffect(
     shimmerColors: List<Color>? = null,
     durationMs: Int = 1200,
-    easing: Easing = LinearEasing
+    easing: Easing = LinearEasing,
+    heightMultiplier: Float = 1f
 ): Modifier = composed {
     val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
     var size by remember { mutableStateOf(IntSize.Zero) }
@@ -140,7 +141,7 @@ fun Modifier.shimmerEffect(
     val brush = Brush.linearGradient(
         colors = colors,
         start = Offset(startOffsetX, 0f),
-        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat())
+        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat() * heightMultiplier)
     )
 
     this
