@@ -1995,9 +1995,9 @@
   <string name="year_in_review_slide_most_read_english_articles_headline">Najčitanějše članky anglijskoj Vikipedije</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
     <item quantity="one">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčeny članok anglijskoj Vikipedije byl: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
-    <item quantity="few">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
-    <item quantity="many">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$dajčestěje posěčene članky angijskoj Vikipedije byli: &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
-    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="few">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="many">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$dajčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br/&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Vaša pravka byla prěgleděna ponad %,d-kratno ili veče v poslědnjem času</item>
@@ -2006,16 +2006,16 @@
     <item quantity="other">Vaše pravky byli prěgleděne ponad %,d-kratno ili veče v poslědnjem času</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_body">
-    <item quantity="one">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli &amp;,d prěgled. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
-    <item quantity="few">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli &amp;,d prěgledy. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
-    <item quantity="many">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli &amp;,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
-    <item quantity="other">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli &amp;,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="one">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgled. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="few">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledy. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="many">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
+    <item quantity="other">Čitatelji po vsem světu cěnet vaš vklad. V tečenju poslědnjih 2 měsecev izpravjenje vami članky vkupno iměli %,d prěgledov. Blagodareči takym redaktoram, kako vy, Vikipedia jest postojanno ulěpšajuči se, věrodostojny i osnovany na faktah izvor znanja za ves svět.</item>
   </plurals>
   <plurals name="year_in_review_slide_edited_per_minute_headline">
     <item quantity="one">Vikipedija byla redaktovana %,d raz na minutu</item>
-    <item quantity="few">Vikipedija byla redaktovana &amp;,d razy na minutu</item>
-    <item quantity="many">Vikipedija byla redaktovana &amp;,d razov na minutu</item>
-    <item quantity="other">Vikipedija byla redaktovana &amp;,d razov na minutu</item>
+    <item quantity="few">Vikipedija byla redaktovana %,d razy na minutu</item>
+    <item quantity="many">Vikipedija byla redaktovana %,d razov na minutu</item>
+    <item quantity="other">Vikipedija byla redaktovana %,d razov na minutu</item>
   </plurals>
   <string name="year_in_review_slide_edited_per_minute_body">Članky tvoret i ulěpšajut se sutrudničsko na osnově věrodostojnyh izvorov. My vsi imajemo znanje, ktorym možemo poděliti se. &lt;a href=\"%s\"&gt;Dovědte se, kako vy možete učestvovati.&lt;/a&gt;</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
@@ -2043,17 +2043,17 @@
     <item quantity="other">Hvala vam, že vy naležite do redaktorov-dobrovoljcev, ktori ostavjajut svoju pečat v Wikimedia-projektah po vsem světu. Dobrovoljci, kako vy, sdělali %,d izměn v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
   </plurals>
   <plurals name="year_in_review_slide_app_edited_times_headline">
-    <item quantity="one">Redaktori oficialnyh aplikacij Vikipedije sdělali &amp;,d pravku</item>
-    <item quantity="few">Redaktori oficialnyh aplikacij Vikipedije sdělali &amp;,d pravky</item>
-    <item quantity="many">Redaktori oficialnyh aplikacij Vikipedije sdělali &amp;,d pravok</item>
-    <item quantity="other">Redaktori oficialnyh aplikacij Vikipedije sdělali &amp;,d pravok</item>
+    <item quantity="one">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravku</item>
+    <item quantity="few">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravky</item>
+    <item quantity="many">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravok</item>
+    <item quantity="other">Redaktori oficialnyh aplikacij Vikipedije sdělali %,d pravok</item>
   </plurals>
   <string name="year_in_review_slide_app_edited_times_body">Srdcem i dušeju Vikipedije jest naša vsesvětna občina redaktorov-dobrovoljcev, dariteljev i miliardov čitateljev kako vy – vsi objedinjeni cěljem poděljenja neograničenogo dostupa k věrodostojnoj informaciji.</string>
   <plurals name="year_in_review_slide_english_edited_times_headline">
     <item quantity="one">Redaktori sdělali %,d izměnu v tutom godu</item>
     <item quantity="few">Redaktori sdělali %,d izměny v tutom godu</item>
-    <item quantity="many">Redaktori sdělali &amp;,d izměn v tutom godu</item>
-    <item quantity="other">Redaktori sdělali &amp;,d izměn v tutom godu</item>
+    <item quantity="many">Redaktori sdělali %,d izměn v tutom godu</item>
+    <item quantity="other">Redaktori sdělali %,d izměn v tutom godu</item>
   </plurals>
   <plurals name="year_in_review_slide_english_edited_times_body_first">
     <item quantity="one">Dobrovoljci sdělali %,d izměnu v ponad 300 različnyh jezyčnyh izdanjah Vikipedije.</item>
@@ -2070,8 +2070,8 @@
   <plurals name="year_in_review_slide_saved_articles_headline">
     <item quantity="one">Vy jeste zapisali %,d članok</item>
     <item quantity="few">Vy jeste zapisali %,d članky</item>
-    <item quantity="many">Vy jeste zapisali &amp;,d člankov</item>
-    <item quantity="other">Vy jeste zapisali &amp;,d člankov</item>
+    <item quantity="many">Vy jeste zapisali %,d člankov</item>
+    <item quantity="other">Vy jeste zapisali %,d člankov</item>
   </plurals>
   <plurals name="year_in_review_slide_saved_articles_body">
     <item quantity="one">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d članok v tutom godu.</item>
@@ -2080,10 +2080,10 @@
     <item quantity="other">Srěd tyh člankov sut &lt;b&gt;%1$s&lt;/b&gt;, &lt;b&gt;%2$s&lt;/b&gt; i &lt;b&gt;%3$s&lt;/b&gt;. Vsaky zapisany članok jest odbitje vaših interesov i pomagaje stvoriti personalizovanu bazu znanja v Vikipediji.&lt;br /&gt;&lt;br /&gt;Aktivni koristniki aplikacije zapisali %4$,d članok v tutom godu.</item>
   </plurals>
   <plurals name="year_in_review_slide_global_saved_articles_headline">
-    <item quantity="one">Koristniki aplikacije iměli &amp;,d zapisany članok</item>
-    <item quantity="few">Koristniki aplikacije iměli &amp;,d zapisane članky</item>
-    <item quantity="many">Koristniki aplikacije iměli &amp;,d zapisanyh člankov</item>
-    <item quantity="other">Koristniki aplikacije iměli &amp;,d zapisanyh člankov</item>
+    <item quantity="one">Koristniki aplikacije iměli %,d zapisany članok</item>
+    <item quantity="few">Koristniki aplikacije iměli %,d zapisane članky</item>
+    <item quantity="many">Koristniki aplikacije iměli %,d zapisanyh člankov</item>
+    <item quantity="other">Koristniki aplikacije iměli %,d zapisanyh člankov</item>
   </plurals>
   <string name="year_in_review_slide_global_saved_articles_body">Dodavanje člankov v spisky za čitanje umožnjaje vam dostup k člankam daže, kogda vy jeste oflajn. Vy takože možete prijaviti se i sinhronizovati spisky za čitanje na raznyh aparatah.</string>
   <string name="year_in_review_slide_reading_patterns_headline">V vašem čitanju sut izrazne zakonoměrnosti</string>
@@ -2097,10 +2097,10 @@
   <string name="year_in_review_slide_reading_pattern_night">Nočju</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Pozdno v noči</string>
   <plurals name="year_in_review_slide_english_reading_hours_headline">
-    <item quantity="one">My jesmo provedli &amp;,d časinu čitajuči</item>
-    <item quantity="few">My jesmo provedli &amp;,d časiny čitajuči</item>
-    <item quantity="many">My jesmo provedli &amp;,d časin čitajuči</item>
-    <item quantity="other">My jesmo provedli &amp;,d časin čitajuči</item>
+    <item quantity="one">My jesmo provedli %,d časinu čitajuči</item>
+    <item quantity="few">My jesmo provedli %,d časiny čitajuči</item>
+    <item quantity="many">My jesmo provedli %,d časin čitajuči</item>
+    <item quantity="other">My jesmo provedli %,d časin čitajuči</item>
   </plurals>
   <plurals name="year_in_review_slide_english_reading_hours_body_first">
     <item quantity="one">Ljudi provedli priblizno %,d časinu</item>
@@ -2133,10 +2133,10 @@
     <item quantity="other">srěd ponad %,d aktivnyh jezykov v tutom godu. Vy prisjedinili se do milionov ljudij, ktori razširjajut znanje i izslědyvajut različne temy.</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
-    <item quantity="one">Vy jeste provedli &amp;,d minutu</item>
-    <item quantity="few">Vy jeste provedli &amp;,d minuty</item>
-    <item quantity="many">Vy jeste provedli &amp;,d minut</item>
-    <item quantity="other">Vy jeste provedli &amp;,d minut</item>
+    <item quantity="one">Vy jeste provedli %,d minutu</item>
+    <item quantity="few">Vy jeste provedli %,d minuty</item>
+    <item quantity="many">Vy jeste provedli %,d minut</item>
+    <item quantity="other">Vy jeste provedli %,d minut</item>
   </plurals>
   <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
     <item quantity="one">čitajuči %1$,d članok v %2$d godu</item>
