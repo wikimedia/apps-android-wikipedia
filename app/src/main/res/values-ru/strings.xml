@@ -20,6 +20,7 @@
 * Esukhovnina
 * Facenapalm
 * Firapinch
+* FobosD
 * Helpau
 * Iluvatar
 * Infovarius
@@ -2097,11 +2098,38 @@
     <item quantity="other">Вот статьи, которые вы чаще всего посещали в %1$d: %2$s</item>
   </plurals>
   <string name="year_in_review_slide_top_categories_headline">Ваши самые интересные категории</string>
+  <string name="year_in_review_slide_top_categories_body">Категории объединяют статьи по схожим темам. В %1$d году вы несколько раз просматривали статьи в этих  категориях: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Самые читаемые статьи Английской Википедии</string>
   <plurals name="year_in_review_slide_most_read_english_articles_body">
     <item quantity="one">Когда люди хотят узнать о нашем мире, они обращаются к Википедии. Самой посещаемой статьёй в англоязычной Википедии была: %2$s &lt;br /&gt;Подробнее читайте в нашем &lt;a href=\"%3$s\"&gt;блогпосте&lt;/a&gt;.</item>
     <item quantity="few">Когда люди хотят узнать о нашем мире, они обращаются к Википедии. %1$d самые посещаемые статьи в англоязычной Википедии были: %2$s &lt;br /&gt;Подробнее читайте в нашем &lt;a href=\"%3$s\"&gt;блогпосте&lt;/a&gt;.</item>
     <item quantity="many">Когда люди хотят узнать о нашем мире, они обращаются к Википедии. %1$d самых посещаемых статей в англоязычной Википедии было: %2$s &lt;br /&gt;Подробнее читайте в нашем &lt;a href=\"%3$s\"&gt;блогпосте&lt;/a&gt;.</item>
     <item quantity="other">Когда люди хотят узнать о нашем мире, они обращаются к Википедии. %1$d самых посещаемых статей в англоязычной Википедии было: %2$s &lt;br /&gt;Подробнее читайте в нашем &lt;a href=\"%3$s\"&gt;блогпосте&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Ваша правка была просмотрена более %,d раз за последнее время</item>
+    <item quantity="few">Ваши правки были просмотрены более %,d раз за последнее время</item>
+    <item quantity="many">Ваши правки были просмотрены более %,d раз за последнее время</item>
+    <item quantity="other">Ваши правки были просмотрены более %,d раз за последнее время</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Читатели по всему миру ценят ваш вклад. За последние 2 месяца статьи, которые вы редактировали, получили %,d просмотров. Благодаря таким редакторам, как вы, Википедия является постоянно совершенствующимся, основанным на фактах и надежным источником знаний для всего мира.</item>
+    <item quantity="few">Читатели по всему миру ценят ваш вклад. За последние 2 месяца статьи, которые вы редактировали, получили %,d просмотров. Благодаря таким редакторам, как вы, Википедия является постоянно совершенствующимся, основанным на фактах и надежным источником знаний для всего мира.</item>
+    <item quantity="many">Читатели по всему миру ценят ваш вклад. За последние 2 месяца статьи, которые вы редактировали, получили %,d просмотров. Благодаря таким редакторам, как вы, Википедия является постоянно совершенствующимся, основанным на фактах и надежным источником знаний для всего мира.</item>
+    <item quantity="other">Читатели по всему миру ценят ваш вклад. За последние 2 месяца статьи, которые вы редактировали, получили %,d просмотров. Благодаря таким редакторам, как вы, Википедия является постоянно совершенствующимся, основанным на фактах и надежным источником знаний для всего мира.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Википедия редактировалась %,d раз в минуту</item>
+    <item quantity="few">Википедия редактировалась %,d раза в минуту</item>
+    <item quantity="many">Википедия редактировалась %,d раз в минуту</item>
+    <item quantity="other">Википедия редактировалась %,d раз в минуту</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Статьи создаются и совершенствуются совместно с использованием надежных источников. У всех нас есть знания, которыми можно поделиться, &lt;a href=\"%s\"&gt;научиться участвовать.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d байт добавлен</item>
+    <item quantity="few">%,d байта добавлено</item>
+    <item quantity="many">%,d байтов добавлено</item>
+    <item quantity="other">%,d байтов добавлено</item>
   </plurals>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Любимое время для чтения</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Любимый день для чтения</string>
@@ -2203,8 +2231,8 @@
   <string name="donation_reminders_prompt_dismiss_snackbar">Напоминания о пожертвованиях можно изменить в любое время в настройках.</string>
   <string name="donation_settings_section_header">Пожертвования</string>
   <string name="donation_reminders_settings_title">Как нам вам об этом напомнить?</string>
-  <string name="donation_reminders_settings_thank_you_message" fuzzy="true">Присоединяйтесь к 2%% читателей, которые жертвуют на то, чтобы Википедия оставалась свободной от рекламы, актуальной и доступной всем. Настройте напоминание о пожертвовании прямо сейчас.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Пожертвования направляются в Фонд Викимедиа и его филиалы, которые с гордостью являются владельцами Википедии и родственных ей сайтов.</string>
+  <string name="donation_reminders_settings_thank_you_message">Ваша щедрость помогает Википедии процветать. Настройте напоминание о пожертвовании в зависимости от количества прочитанных вами статей.</string>
+  <string name="donation_reminders_settings_donation_info">Пожертвования поступают в фонд Wikimedia Foundation и его филиалы, которые с гордостью размещают Википедию и другие проекты, предоставляющие свободные знания.</string>
   <string name="donation_reminders_settings_article_frequency_label">Когда я читаю</string>
   <string name="donation_reminders_settings_amount_label">Напомнить мне сделать пожертвование</string>
   <string name="donation_reminders_settings_confirm_btn_label">Подтвердить напоминание</string>
