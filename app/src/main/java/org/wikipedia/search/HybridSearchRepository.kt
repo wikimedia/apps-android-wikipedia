@@ -13,41 +13,28 @@ class HybridSearchRepository : SearchRepository<HybridSearchResults> {
         continuation: Int?,
         batchSize: Int,
         isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        countsPerLanguageCode: MutableList<Pair<String, Int>>,
+        searchInLanguages: Boolean
     ): HybridSearchResults {
 
         val wikiSite = WikiSite.forLanguageCode(languageCode)
-        val standardResults = mutableListOf<SearchResult>()
         val semanticResults = mutableListOf<SearchResult>()
 
-        // prefix + fulltext search results for at most 3 results.
-        var response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, batchSize, 0)
-        standardResults.addAll(buildList(response, invokeSource, wikiSite))
+        val response = ServiceFactory.get(wikiSite).semanticSearch(searchTerm, batchSize)
+        semanticResults.addAll(buildList(response, invokeSource, wikiSite))
 
-        if (standardResults.size < batchSize) {
-            response = ServiceFactory.get(wikiSite).fullTextSearch(searchTerm, batchSize, 0)
-            standardResults.addAll(buildList(response, invokeSource, wikiSite))
-        }
-
-        // semantic search results
-        response = ServiceFactory.get(wikiSite).semanticSearch(searchTerm, 10) // TODO: check PM with the default size
-        semanticResults.addAll(buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC))
-
-        val finalList = standardResults.distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticResults
-
-        return HybridSearchResults(finalList)
+        return HybridSearchResults(semanticResults)
     }
 
     private fun buildList(
         response: MwQueryResponse,
         invokeSource: Constants.InvokeSource,
         wikiSite: WikiSite,
-        type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
     ): List<SearchResult> {
         return response.query?.pages?.let { list ->
             (if (invokeSource == Constants.InvokeSource.PLACES)
                 list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResult(it, wikiSite, it.coordinates, type) }
+                .map { SearchResult(it, wikiSite, it.coordinates, SearchResult.SearchResultType.SEARCH) }
         } ?: emptyList()
     }
 }

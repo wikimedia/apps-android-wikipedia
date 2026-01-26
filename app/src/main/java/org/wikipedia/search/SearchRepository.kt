@@ -10,6 +10,7 @@ interface SearchRepository<T> {
         continuation: Int? = null,
         batchSize: Int = 0,
         isPrefixSearch: Boolean = true,
-        countsPerLanguageCode: MutableList<Pair<String, Int>> = mutableListOf()
+        countsPerLanguageCode: MutableList<Pair<String, Int>> = mutableListOf(),
+        searchInLanguages: Boolean = true
     ): T
 }

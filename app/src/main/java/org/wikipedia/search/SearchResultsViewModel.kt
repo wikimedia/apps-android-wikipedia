@@ -46,11 +46,12 @@ class SearchResultsViewModel : ViewModel() {
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
                 SearchResultsPagingSource(
-                    term,
-                    lang,
-                    countsPerLanguageCode,
-                    invokeSource,
-                    repository
+                    searchTerm = term,
+                    languageCode = lang,
+                    countsPerLanguageCode = countsPerLanguageCode,
+                    searchInLanguages = true,
+                    invokeSource = invokeSource,
+                    repository = repository
                 )
             }.flow
         }.cachedIn(viewModelScope)
@@ -71,6 +72,7 @@ class SearchResultsViewModel : ViewModel() {
         private val searchTerm: String?,
         private val languageCode: String?,
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
+        private val searchInLanguages: Boolean = true,
         private var invokeSource: Constants.InvokeSource,
         private val repository: SearchRepository<StandardSearchResults>,
     ) : PagingSource<Int, SearchResult>() {
@@ -88,7 +90,8 @@ class SearchResultsViewModel : ViewModel() {
                     continuation = params.key,
                     batchSize = params.loadSize,
                     isPrefixSearch = params.key == null,
-                    countsPerLanguageCode = countsPerLanguageCode
+                    countsPerLanguageCode = countsPerLanguageCode,
+                    searchInLanguages = searchInLanguages
                 )
 
                 return LoadResult.Page(

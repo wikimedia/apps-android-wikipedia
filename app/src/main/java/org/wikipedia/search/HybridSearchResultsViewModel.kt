@@ -2,17 +2,21 @@ package org.wikipedia.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flatMapLatest
 import org.wikipedia.Constants
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 
 class HybridSearchResultsViewModel : ViewModel() {
 
@@ -32,33 +36,46 @@ class HybridSearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    @OptIn(FlowPreview::class)
-    fun fetchHybridSearch() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _searchResultsState.value = UiState.Error(throwable)
-        }) {
-            combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) {
-                term: String?, lang: String?, _ -> term to lang
-            }.collectLatest { (term, lang) ->
-                if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
-                    _searchResultsState.value = UiState.Error(IllegalArgumentException("Search term or language code is null or empty"))
-                    return@collectLatest
-                }
+    @OptIn(
+        FlowPreview::class,
+        ExperimentalCoroutinesApi::class
+    ) // TODO: revisit if the debounce method changed.
+    val standardSearchResultsFlow =
+        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+            Pair(term, lang)
+        }.flatMapLatest { (term, lang) ->
+            val repository = StandardSearchRepository()
+            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+                SearchResultsViewModel.SearchResultsPagingSource(
+                    searchTerm = term,
+                    languageCode = lang,
+                    countsPerLanguageCode = mutableListOf(),
+                    searchInLanguages = false,
+                    invokeSource = invokeSource,
+                    repository = repository
+                )
+            }.flow
+        }.cachedIn(viewModelScope)
 
-                _searchResultsState.value = UiState.Loading
-                val repository = HybridSearchRepository()
-                val result = repository.search(
+    // TODO: depends on how the API is designed, may need a separate repository for hybrid search
+    @OptIn(
+        FlowPreview::class,
+        ExperimentalCoroutinesApi::class
+    ) // TODO: revisit if the debounce method changed.
+    val semanticSearchResultsFlow =
+        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+            Pair(term, lang)
+        }.flatMapLatest { (term, lang) ->
+            val repository = HybridSearchRepository()
+            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+                SemanticSearchResultsPagingSource(
                     searchTerm = term,
                     languageCode = lang,
                     invokeSource = invokeSource,
-                    batchSize = batchSize
+                    repository = repository
                 )
-
-                _searchResultsState.value = UiState.Success(result.results)
-            }
-        }
-    }
+            }.flow
+        }.cachedIn(viewModelScope)
 
     fun updateSearchTerm(term: String?) {
         _searchTerm.value = term
@@ -70,5 +87,44 @@ class HybridSearchResultsViewModel : ViewModel() {
 
     fun refreshSearchResults() {
         _refreshSearchResults.value += 1
+    }
+
+    class SemanticSearchResultsPagingSource(
+        private val searchTerm: String?,
+        private val languageCode: String?,
+        private var invokeSource: Constants.InvokeSource,
+        private val repository: SearchRepository<HybridSearchResults>,
+    ) : PagingSource<Int, SearchResult>() {
+
+        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
+            return try {
+                if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
+                    return LoadResult.Page(emptyList(), null, null)
+                }
+
+                val result = repository.search(
+                    searchTerm = searchTerm,
+                    languageCode = languageCode,
+                    invokeSource = invokeSource,
+                    continuation = params.key,
+                    batchSize = params.loadSize,
+                    isPrefixSearch = params.key == null
+                )
+
+                return LoadResult.Page(
+                    result.results,
+                    null,
+                    null
+                )
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                LoadResult.Error(e)
+            }
+        }
+
+        override fun getRefreshKey(state: PagingState<Int, SearchResult>): Int? {
+            return null
+        }
     }
 }
