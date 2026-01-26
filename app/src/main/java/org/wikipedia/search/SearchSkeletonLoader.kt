@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,76 +27,81 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 @Composable
-fun HybridSearchLoader(
-    modifier: Modifier = Modifier
+fun SearchSkeletonLoader(
+    modifier: Modifier = Modifier,
+    showSemanticSkeletonLoader: Boolean = false
 ) {
+    val semanticBoxHeight = 500
+    val semanticBoxIndividualContentHeight = 16
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .background(WikipediaTheme.colors.paperColor)
-            .padding(horizontal = 16.dp)
+            .background(WikipediaTheme.colors.paperColor),
+        contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp)
     ) {
         items(3) {
             ListItemLoader(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 12.dp)
+                    .padding(vertical = 24.dp)
             )
         }
 
-        item {
-            Column(
-                modifier = Modifier
-                    .padding(top = 32.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
-            ) {
-                Box(
+        if (showSemanticSkeletonLoader) {
+            item {
+                Column(
                     modifier = Modifier
-                        .height(16.dp)
-                        .fillMaxWidth(0.5f)
-                        .clip(RoundedCornerShape(4.dp))
-                        .shimmerEffect(
-                            shimmerColors()
-                        )
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(0.94f)
-                        .height(16.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .shimmerEffect(
-                            shimmerColors()
-                        )
-
-                )
-            }
-        }
-
-        item {
-            LazyRow(
-                modifier = Modifier
-                    .padding(top = 24.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                items(3) {
-                    Column(
+                        .padding(top = 8.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                ) {
+                    Box(
                         modifier = Modifier
-                            .size(width = 292.dp, height = 240.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .shimmerEffect()
-                            .padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        repeat(10) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(16.dp)
-                                    .clip(RoundedCornerShape(4.dp))
-                                    .shimmerEffect(
-                                        shimmerColors()
-                                    )
+                            .height(16.dp)
+                            .fillMaxWidth(0.5f)
+                            .clip(RoundedCornerShape(4.dp))
+                            .shimmerEffect(
+                                shimmerColors()
                             )
+                    )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth(0.94f)
+                            .height(16.dp)
+                            .clip(RoundedCornerShape(4.dp))
+                            .shimmerEffect(
+                                shimmerColors()
+                            )
+
+                    )
+                }
+            }
+
+            item {
+                LazyRow(
+                    modifier = Modifier
+                        .padding(top = 24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(3) {
+                        Column(
+                            modifier = Modifier
+                                .size(width = 292.dp, height = semanticBoxHeight.dp)
+                                .clip(RoundedCornerShape(16.dp))
+                                .shimmerEffect()
+                                .padding(16.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            repeat(semanticBoxHeight / semanticBoxIndividualContentHeight) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(semanticBoxIndividualContentHeight.dp)
+                                        .clip(RoundedCornerShape(4.dp))
+                                        .shimmerEffect(
+                                            shimmerColors()
+                                        )
+                                )
+                            }
                         }
                     }
                 }
@@ -159,11 +165,11 @@ private fun shimmerColors(): List<Color> {
 
 @Preview(showBackground = true, device = PIXEL_9)
 @Composable
-private fun HybridSearchLoaderPreview() {
+private fun SearchSkeletonLoaderPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        HybridSearchLoader(
+        SearchSkeletonLoader(
             modifier = Modifier
                 .fillMaxSize()
         )
