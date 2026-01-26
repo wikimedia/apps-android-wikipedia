@@ -367,6 +367,7 @@
   <string name="insert_media_settings_caption">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Kobddâdvuõtt</string>
   <string name="insert_media_insert_button">Lââʹzzet</string>
   <string name="templates_param_optional_hint">%s (vaʹlljeemnallšem)</string>
   <string name="templates_learn_more_link">Lââʹssteâđ</string>
@@ -430,6 +431,7 @@
   <string name="talk_templates_new_message_dialog_title">Ruõkk muttsid</string>
   <string name="talk_templates_new_message_dialog_save">Ruõkk</string>
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Čuäʹjet õõʹnniseeid</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Čuäʹjet õõʹnni muttsid</string>
   <string name="patroller_tasks_filters_user_status_registered">Rekisterõsttum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
