@@ -351,6 +351,7 @@
   <string name="insert_media_settings_caption">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Kobdodâh</string>
   <string name="insert_media_insert_button">Lasseet</string>
   <string name="templates_param_optional_hint">%s (valjimiävtulâš)</string>
   <string name="main_drawer_help">Iše</string>
@@ -396,6 +397,7 @@
   <string name="talk_templates_new_message_dialog_title">Vuorkkii nubástusâid</string>
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Čääiti kevtteesiijđo</string>
   <string name="patroller_tasks_filters_user_status_registered">Registeristum</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>

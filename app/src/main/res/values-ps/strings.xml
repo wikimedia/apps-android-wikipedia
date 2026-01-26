@@ -1071,7 +1071,7 @@
     <item quantity="one">سمون تېره مياشت</item>
     <item quantity="other">سمونونه تېره مياشت</item>
   </plurals>
-  <string name="activity_tab_impact_all_time">ټول وخت اغېز</string>
+  <string name="activity_tab_impact_all_time">ټول مهاله اغېز</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">ټولټال سمون</item>
     <item quantity="other">ټولټال سمونونه</item>
@@ -1098,7 +1098,7 @@
     <item quantity="other">ستاسو سم‌کړو ليکنو کتنې</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">په لوستلو تېرشوی وخت</string>
-  <string name="activity_tab_customize_screen_impact_switch_title">ټول وخت اغېز</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">ټول مهاله اغېز</string>
   <string name="activity_tab_customize_screen_games_switch_title">لوبې شمارنې</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">د چلند مهالوېش</string>
   <string name="activity_tab_timeline_today">نن</string>
