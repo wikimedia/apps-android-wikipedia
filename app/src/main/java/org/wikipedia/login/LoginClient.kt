@@ -85,9 +85,9 @@ class LoginClient {
     suspend fun loginInBackground(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
             emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResult {
 
-        // https://phabricator.wikimedia.org/T415675
         // Prevent the app from re-logging in more than once per 1-day period.
         // TODO: investigate the root cause of why this happens.
+        // https://phabricator.wikimedia.org/T415675
         if (!Prefs.lastBackgroundLoginDate.isNullOrEmpty()) {
             val loginDate = LocalDateTime.parse(Prefs.lastBackgroundLoginDate)
             if (loginDate.plusDays(1).isAfter(LocalDateTime.now())) {
