@@ -1970,10 +1970,34 @@
     <item quantity="one">Votre article le plus populaire</item>
     <item quantity="other">Vos articles les plus populaires</item>
   </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Voici l’article que vous avez le plus consulté en %1$d : %2$s</item>
+    <item quantity="other">Voici les articles que vous avez le plus consultés en %1$d : %2$s</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">Vos catégories les plus intéressantes</string>
   <string name="year_in_review_slide_top_categories_body">Les catégories regroupent des articles portant sur des sujets similaires. En %1$d, vous avez consulté à plusieurs reprises des articles appartenant à ces catégories intéressantes : %2$s</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">Les articles les plus lus de Wikipédia en anglais</string>
+  <plurals name="year_in_review_slide_most_read_english_articles_body">
+    <item quantity="one">Les gens se tournent vers Wikipédia pour en apprendre davantage sur notre monde. L’article le plus consulté (%1$dᵉ) de Wikipédia en anglais était : %2$s &lt;br /&gt;Lisez-en plus dans notre &lt;a href=\"%3$s\"&gt;billet de blog dédié&lt;/a&gt;.</item>
+    <item quantity="other">Les gens se tournent vers Wikipédia pour en apprendre davantage sur notre monde. Les %1$d articles les plus consultés de Wikipédia en anglais étaient : %2$s &lt;br /&gt;Lisez-en plus dans notre &lt;a href=\"%3$s\"&gt;billet de blog dédié&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="one">Votre modification a été consultée plus de %,d fois récemment</item>
+    <item quantity="other">Vos modifications ont été consultées plus de %,d fois récemment</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="one">Les lecteur·rices du monde entier apprécient vos contributions. Au cours des deux derniers mois, l’article que vous avez modifié a reçu %,d consultation au total. Grâce à des contributeur·rices comme vous, Wikipédia est une ressource de connaissance fiable, factuelle et en constante amélioration pour le monde entier.</item>
+    <item quantity="other">Les lecteur·rices du monde entier apprécient vos contributions. Au cours des deux derniers mois, les articles que vous avez modifiés ont reçu %,d consultations au total. Grâce à des contributeur·rices comme vous, Wikipédia est une ressource de connaissance fiable, factuelle et en constante amélioration pour le monde entier.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="one">Wikipédia a été modifiée %,d fois par minute</item>
+    <item quantity="other">Wikipédia a été modifiée %,d fois par minute</item>
+  </plurals>
   <string name="year_in_review_slide_edited_per_minute_body">Les articles sont créés et améliorés collectivement à partir de sources fiables. Chacun·e a des connaissances à partager : &lt;a href=\"%s\"&gt;apprenez comment participer&lt;/a&gt;.</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d octet ajouté</item>
+    <item quantity="other">%,d octets ajoutés</item>
+  </plurals>
   <string name="year_in_review_slide_app_edited_times_body">Le cœur et l\'âme de Wikipédia, c\'est notre communauté mondiale de contributeurs bénévoles, de donateurs et de milliards de lecteurs comme vous, tous unis pour partager un accès illimité à des informations fiables.</string>
   <string name="year_in_review_slide_global_saved_articles_body">Ajouter des articles à des listes de lecture vous permet d’y accéder même hors ligne. Vous pouvez aussi vous connecter pour synchroniser vos listes de lecture sur tous vos appareils.</string>
   <string name="year_in_review_slide_reading_patterns_headline">Vos habitudes de lecture sont bien marquées.</string>

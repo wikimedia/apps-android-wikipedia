@@ -294,8 +294,8 @@
   </plurals>
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
-  <string name="edit_summary_tag_typo">Исправљена грешка у куцању</string>
-  <string name="edit_summary_tag_grammar">Исправљена правописна грешка</string>
+  <string name="edit_summary_tag_typo">Типографске грешке</string>
+  <string name="edit_summary_tag_grammar">Граматичке грешке</string>
   <string name="edit_summary_tag_links">Додати линкови</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на које сте побољшали страницу</string>
@@ -1122,6 +1122,7 @@
   <string name="activity_tab_menu_customize">Прилагоди</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
   <string name="activity_tab_impact_last_edited">Последње уређивање</string>
+  <string name="activity_tab_impact_recent_activity">Скорашња активност (претходних 30 дана)</string>
   <string name="activity_tab_timeline_today">Данас</string>
   <string name="activity_tab_timeline_yesterday">Јуче</string>
   <string name="activity_tab_timeline_view_changes_button">Види измене</string>
@@ -1742,4 +1743,5 @@
   <string name="donation_reminders_prompt_negative_button">Не сада</string>
   <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Не, хвала</string>
+  <string name="donation_reminders_settings_learn_more_button">Сазнајте више</string>
 </resources>

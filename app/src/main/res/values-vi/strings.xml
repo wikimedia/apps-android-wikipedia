@@ -92,7 +92,7 @@
   <string name="page_edit_history_filter_by">Lọc theo</string>
   <string name="page_edit_history_filter_by_all">Tất cả sửa đổi (%s)</string>
   <string name="page_edit_history_filter_by_user">Sửa đổi thành viên (%s)</string>
-  <string name="page_edit_history_filter_by_anon">Sửa đổi vô danh (%s)</string>
+  <string name="page_edit_history_filter_by_anon">Sửa đổi khi chưa đăng nhập (%s)</string>
   <string name="page_edit_history_filter_by_bot">Sửa đổi bot (%s)</string>
   <string name="page_edit_history_metrics_content_description">Số liệu từ %1$s đến %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -263,7 +263,7 @@
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Rất tiếc, tài khoản của bạn không có đủ quyền để sửa đổi trang vào lúc này.</string>
-  <string name="page_protected_can_not_edit_anon">Rất tiếc, không thể sửa đổi vô danh vào lúc này.</string>
+  <string name="page_protected_can_not_edit_anon">Rất tiếc, bạn không thể sửa đổi trang này khi chưa đăng nhập vào lúc này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Thêm vào danh sách theo dõi</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Theo dõi những gì đang xảy ra với các trang mà bạn quan tâm. Nhấn vào menu mục bổ sung và chọn &lt;b&gt;Thêm vào danh sách theo dõi&lt;/b&gt; để xem các thay đổi đối với một bài viết.</string>
@@ -1483,7 +1483,7 @@
   <string name="watchlist_filter_user_intent_may_problems">Có thể có ý xấu</string>
   <string name="watchlist_filter_user_intent_likely_problems">Có lẽ có ý xấu</string>
   <string name="watchlist_filter_user_intent_bad">Chắc chắn có ý xấu</string>
-  <string name="watchlist_filter_user_status_unregistered">Vô danh</string>
+  <string name="watchlist_filter_user_status_unregistered">Chưa đăng nhập</string>
   <string name="watchlist_filter_user_status_registered">Đã đăng ký</string>
   <string name="watchlist_filter_user_status_newcomers">Người mới tham gia</string>
   <string name="watchlist_filter_user_status_learners">Người tập sự</string>
@@ -1589,7 +1589,7 @@
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tất cả</string>
   <string name="patroller_tasks_filters_user_status_header">Trạng thái đăng nhập và trình độ của người dùng</string>
-  <string name="patroller_tasks_filters_user_status_unregistered">Vô danh</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Chưa đăng nhập</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Người dùng chưa đăng nhập.</string>
   <string name="patroller_tasks_filters_user_status_registered">Đã đăng ký</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Người dùng đã đăng nhập.</string>
