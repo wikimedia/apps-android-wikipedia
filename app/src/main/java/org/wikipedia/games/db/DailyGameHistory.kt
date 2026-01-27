@@ -13,11 +13,13 @@ data class DailyGameHistory(
     var day: Int,
     var score: Int,
     var playType: Int,
-    var gameData: String?, // while game is in progress save all events data, when game is complete just save the results
-    var status: Int = GAME_IN_PROGRESS, // 0 for game in progress, 1 for game completed
+    var gameData: String?,
+    var status: Int = GAME_STARTED,
+    var currentQuestionIndex: Int = 0
 ) {
     companion object {
-        const val GAME_IN_PROGRESS = 0
-        const val GAME_COMPLETED = 1
+        const val GAME_STARTED = 0
+        const val GAME_IN_PROGRESS = 1
+        const val GAME_COMPLETED = 2
     }
 }
