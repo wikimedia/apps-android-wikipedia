@@ -9,11 +9,11 @@ plugins {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    namespace 'org.wikimedia.testkitchen'
+    namespace = 'org.wikimedia.testkitchen'
     compileSdk = 36
 
     compileOptions {
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
 
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
@@ -27,14 +27,14 @@ android {
 
     defaultConfig {
         targetSdk = 36
-        multiDexEnabled true
+        multiDexEnabled = true
 
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
     }
 
     buildFeatures {
-        buildConfig true
+        buildConfig = true
     }
 
     flavorDimensions = ['default']
