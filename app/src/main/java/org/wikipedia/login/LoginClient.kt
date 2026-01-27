@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.time.LocalDateTime
 
 class LoginClient {
 
