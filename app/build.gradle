@@ -4,7 +4,6 @@ plugins {
     id 'com.android.application'
     id 'com.google.devtools.ksp'
     id 'com.google.gms.google-services'
-    id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
     alias(libs.plugins.compose.compiler)
