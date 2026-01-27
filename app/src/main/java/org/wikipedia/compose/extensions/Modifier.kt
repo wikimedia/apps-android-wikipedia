@@ -2,12 +2,12 @@ package org.wikipedia.compose.extensions
 
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animate
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -123,11 +123,11 @@ fun Modifier.shimmerEffect(
     shimmerColors: List<Color>? = null,
     durationMs: Int = 1200,
     easing: Easing = LinearEasing,
-    heightMultiplier: Float = 1f
+    heightMultiplier: Float = 1f,
+    transition: InfiniteTransition,
 ): Modifier = composed {
     val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
     var size by remember { mutableStateOf(IntSize.Zero) }
-    val transition = rememberInfiniteTransition()
 
     val startOffsetX by transition.animateFloat(
         initialValue = -2 * size.width.toFloat(),
