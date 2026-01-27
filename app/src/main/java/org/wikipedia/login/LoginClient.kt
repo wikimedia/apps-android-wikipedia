@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.io.IOException
-import java.time.LocalDateTime
 
 class LoginClient {
 
@@ -82,7 +81,7 @@ class LoginClient {
         }
     }
 
-    suspend fun loginInBackground(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
+    suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
             emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResult {
 
         // Prevent the app from re-logging in more than once per 1-day period.
