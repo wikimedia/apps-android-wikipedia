@@ -220,10 +220,6 @@
             android:title="Force email authentication when logging in." />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_login_background_last_date"
-            android:title="@string/preference_key_login_background_last_date" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
 
