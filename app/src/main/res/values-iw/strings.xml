@@ -2076,7 +2076,7 @@
   <string name="year_in_review_highlights_logo_description">סמל ויקיפדיה</string>
   <string name="recommended_reading_list_onboarding_card_new">חדש!</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">לא, תודה</string>
-  <string name="recommended_reading_list_interest_source_interests">לאפשר לי לבחור לפי תחומי העניין שלי</string>
+  <string name="recommended_reading_list_interest_source_interests">תנו לי לבחור לפי תחומי העניין שלי</string>
   <string name="recommended_reading_list_interest_source_saved">לבחור בשבילי לפי הערכים ששמרתי</string>
   <string name="recommended_reading_list_interest_source_history">לבחור בשבילי לפי היסטוריית הקריאה שלי</string>
   <string name="recommended_reading_list_interest_pick_title">מה מעניין אותך?</string>
