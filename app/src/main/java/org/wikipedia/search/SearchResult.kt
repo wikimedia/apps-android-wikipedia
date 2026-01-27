@@ -35,7 +35,7 @@ data class SearchResult(val pageTitle: PageTitle,
         coordinates = coordinates
     )
 
-    constructor(pageTitle: PageTitle, searchResultType: SearchResultType) :
+    constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.SEARCH) :
             this(pageTitle, null, searchResultType)
 
     val location: Location? get() {
