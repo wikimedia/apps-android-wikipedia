@@ -88,13 +88,13 @@ class LoginClient {
         // Prevent the app from re-logging in more than once per 1-day period.
         // TODO: investigate the root cause of why this happens.
         // https://phabricator.wikimedia.org/T415675
-        if (!Prefs.lastBackgroundLoginDate.isNullOrEmpty()) {
-            val loginDate = LocalDateTime.parse(Prefs.lastBackgroundLoginDate)
+        if (!Prefs.lastBackgroundLoginDateTime.isNullOrEmpty()) {
+            val loginDate = LocalDateTime.parse(Prefs.lastBackgroundLoginDateTime)
             if (loginDate.plusDays(1).isAfter(LocalDateTime.now())) {
                 return LoginResult(wiki, LoginResult.STATUS_FAIL, userName, password, "Background login limit reached.")
             }
         }
-        Prefs.lastBackgroundLoginDate = LocalDateTime.now().toString()
+        Prefs.lastBackgroundLoginDateTime = LocalDateTime.now().toString()
 
         val loginToken = getLoginToken(wiki)
         val isContinuation = false
