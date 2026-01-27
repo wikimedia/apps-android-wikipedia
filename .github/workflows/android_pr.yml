@@ -20,4 +20,4 @@ jobs:
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
     - name: Build, test, and lint
-      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease --no-daemon
+      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaDebugUnitTest --no-daemon
