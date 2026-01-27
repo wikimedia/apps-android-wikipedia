@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import java.io.IOException
+import java.time.LocalDateTime
 
 class LoginClient {
 
@@ -81,8 +82,20 @@ class LoginClient {
         }
     }
 
-    suspend fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
+    suspend fun loginInBackground(wiki: WikiSite, userName: String, password: String, twoFactorCode: String? = null,
             emailAuthCode: String? = null, captchaId: String? = null, captchaWord: String? = null): LoginResult {
+
+        // https://phabricator.wikimedia.org/T415675
+        // Prevent the app from re-logging in more than once per 1-day period.
+        // TODO: investigate the root cause of why this happens.
+        if (!Prefs.lastBackgroundLoginDate.isNullOrEmpty()) {
+            val loginDate = LocalDateTime.parse(Prefs.lastBackgroundLoginDate)
+            if (loginDate.plusDays(1).isAfter(LocalDateTime.now())) {
+                return LoginResult(wiki, LoginResult.STATUS_FAIL, userName, password, "Background login limit reached.")
+            }
+        }
+        Prefs.lastBackgroundLoginDate = LocalDateTime.now().toString()
+
         val loginToken = getLoginToken(wiki)
         val isContinuation = false
         val loginResponse = ServiceFactory.get(wiki).postLogIn(user = userName, pass = password,

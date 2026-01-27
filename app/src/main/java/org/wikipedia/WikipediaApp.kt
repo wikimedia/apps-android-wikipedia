@@ -254,6 +254,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
+        Prefs.lastBackgroundLoginDate = ""
         Prefs.tempAccountWelcomeShown = false
         Prefs.tempAccountCreateDay = 0L
         Prefs.tempAccountDialogShown = false
