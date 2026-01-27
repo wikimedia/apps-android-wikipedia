@@ -1,6 +1,7 @@
 package org.wikipedia.compose.components
 
 import androidx.compose.animation.core.InfiniteTransition
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,8 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.extensions.shimmerEffect
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.search.semanticShimmerColors
+import org.wikipedia.theme.Theme
 
 @Composable
 fun ListItemSkeletonLoader(
@@ -64,6 +69,20 @@ fun ListItemSkeletonLoader(
                     heightMultiplier = 0f,
                     transition = transition
                 )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ListItemSkeletonLoaderPreview() {
+    val shimmerColors = semanticShimmerColors()
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ListItemSkeletonLoader(
+            shimmerColors = shimmerColors,
+            transition = rememberInfiniteTransition()
         )
     }
 }
