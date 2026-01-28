@@ -196,6 +196,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.setQuery(text, false)
     }
 
+    override fun onSemanticSearchClick(text: CharSequence) {
+        // TODO: verify this
+        setSearchText(text)
+        showPanel(PANEL_HYBRID_SEARCH_RESULTS)
+    }
+
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
         if (!isAdded) {
             return

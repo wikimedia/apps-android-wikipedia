@@ -42,6 +42,9 @@ class SearchResultsFragment : Fragment() {
                             val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
                             LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                         },
+                        onSemanticSearchClick = {
+                            callback()?.onSemanticSearchClick(it)
+                        },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {
                             viewModel.refreshSearchResults()

@@ -8,6 +8,7 @@ interface SearchResultCallback {
     fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
     fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
     fun onSearchProgressBar(enabled: Boolean)
+    fun onSemanticSearchClick(text: CharSequence)
     fun navigateToTitle(
         item: PageTitle,
         inNewTab: Boolean,
