@@ -2,17 +2,27 @@ package org.wikipedia.search
 
 import android.location.Location
 import android.view.View
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,7 +32,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -35,7 +50,9 @@ import androidx.core.net.toUri
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -44,6 +61,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun HybridSearchResultsScreen(
@@ -158,7 +176,7 @@ fun HybridSearchResultsList(
         }
 
         // Semantic search results list - horizontally scrolling list
-        LazyColumn {
+        LazyRow {
             items(
                 count = searchResultsPage.itemCount
             ) { index ->
@@ -239,6 +257,99 @@ fun SemanticSearchResultHeader(
     }
 }
 
+@Composable
+fun SemanticSearchResultPageItem(
+    searchResult: SearchResult
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
+        colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp)
+        ) {
+            // TODO: add "...more"
+            HtmlText(
+                text = searchResult.pageTitle.extract.orEmpty(),
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.hybrid_search_results_rate_label),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.placeholderColor
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Icon(
+                    painter = painterResource(R.drawable.ic_star_24),
+                    contentDescription = null,
+                    tint = Color.Gray
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Icon(
+                    painter = painterResource(R.drawable.ic_star_24),
+                    contentDescription = null,
+                    tint = Color.Gray
+                )
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            HorizontalDivider(thickness = 0.5.dp, color = Color.LightGray)
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    HtmlText(
+                        text = searchResult.pageTitle.displayText,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                    Text(
+                        text = searchResult.pageTitle.description.orEmpty(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.placeholderColor
+                    )
+                }
+                val request =
+                    ImageService.getRequest(
+                        LocalContext.current,
+                        url = searchResult.pageTitle.thumbUrl
+                    )
+                AsyncImage(
+                    model = request,
+                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(56.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                )
+            }
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun SemanticSearchResultHeaderPreview() {
@@ -254,6 +365,24 @@ private fun SemanticSearchResultHeaderPreview() {
                 SearchResult(PageTitle("Beyoncé Knowles", wikiSite), SearchResult.SearchResultType.SEMANTIC),
                 SearchResult(PageTitle("Beyoncé (album)", wikiSite), SearchResult.SearchResultType.SEMANTIC)
             )
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SemanticSearchResultPageItemPreview() {
+    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
+        description = "American singer, songwriter, and actress"
+        extract =
+            "Beyoncé Giselle Knowles-Carter is an American singer, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+    }
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchResultPageItem(
+            searchResult = SearchResult(pageTitle, SearchResult.SearchResultType.SEMANTIC)
         )
     }
 }
