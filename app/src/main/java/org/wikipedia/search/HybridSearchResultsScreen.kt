@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -70,27 +69,33 @@ import org.wikipedia.views.imageservice.ImageService
 @Composable
 fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
-    viewModel: SearchResultsViewModel,
+    viewModel: HybridSearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
+    onInfoClick: () -> Unit,
+    onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
 ) {
-    val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
+    val searchResults = viewModel.standardSearchResultsFlow.collectAsLazyPagingItems()
+    val semanticSearchResults = viewModel.semanticSearchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
-    val loadState = searchResults.loadState
-    val countsPerLanguageCode = viewModel.countsPerLanguageCode
+
+    val searchLoadState = searchResults.loadState
+    val semanticLoadState = semanticSearchResults.loadState
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    // this is a callback to show loading indicator in the SearchFragment.
-    // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
+    val isLoading = (searchLoadState.refresh is LoadState.Loading) ||
+            (searchLoadState.append is LoadState.Loading) ||
+            (semanticLoadState.refresh is LoadState.Loading) ||
+            (semanticLoadState.append is LoadState.Loading)
 
-    val isLoading = loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading
     LaunchedEffect(isLoading) {
         onLoading(isLoading)
     }
@@ -99,11 +104,15 @@ fun HybridSearchResultsScreen(
         Box(
             modifier = modifier
         ) {
+            // TODO: think about merging the load states of both sources
             when {
-                loadState.refresh is LoadState.Loading -> {} // when offline prevents UI from loading old list
+                (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {} // when offline prevents UI from loading old list
 
-                loadState.refresh is LoadState.Error -> {
-                    val error = (loadState.refresh as LoadState.Error).error
+                (searchLoadState.refresh is LoadState.Error) || (semanticLoadState.refresh is LoadState.Error) -> {
+                    val error = when {
+                        searchLoadState.refresh is LoadState.Error -> (searchLoadState.refresh as LoadState.Error).error
+                        else -> (semanticLoadState.refresh as LoadState.Error).error
+                    }
                     WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -116,10 +125,13 @@ fun HybridSearchResultsScreen(
                     )
                 }
 
-                loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    // TODO: verify the empty state
+                // show empty state only when both sources finished and there are no items
+                (searchLoadState.append is LoadState.NotLoading && (searchLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
+                        (semanticLoadState.append is LoadState.NotLoading && (semanticLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
+                        searchResults.itemCount == 0 && semanticSearchResults.itemCount == 0 -> {
+                    // TODO: verify the empty state - update with multiple languages results
                     NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
+                        countsPerLanguageCode = emptyList(),
                         invokeSource = viewModel.invokeSource,
                         onLanguageClick = onLanguageClick
                     )
@@ -129,9 +141,13 @@ fun HybridSearchResultsScreen(
                     // TODO: hybrid search: two lazy columns
                     HybridSearchResultsList(
                         searchResultsPage = searchResults,
+                        semanticSearchResultPage = semanticSearchResults,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick
+                        onItemLongClick = onItemLongClick,
+                        onInfoClick = onInfoClick,
+                        onSemanticItemClick = onSemanticItemClick,
+                        onRatingClick = onRatingClick
                     )
                 }
             }
@@ -142,9 +158,13 @@ fun HybridSearchResultsScreen(
 @Composable
 fun HybridSearchResultsList(
     searchResultsPage: LazyPagingItems<SearchResult>,
+    semanticSearchResultPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onInfoClick: () -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onRatingClick: (Boolean) -> Unit
 ) {
 
     val scrollState = rememberScrollState()
@@ -174,28 +194,34 @@ fun HybridSearchResultsList(
             }
         }
 
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-        }
+        SemanticSearchResultHeader(
+            results = List(searchResultsPage.itemCount) { index ->
+                searchResultsPage[index]!!
+            },
+            onInfoClick = {
+                onInfoClick()
+            }
+        )
 
         // Semantic search results list - horizontally scrolling list
         LazyRow {
             items(
                 count = searchResultsPage.itemCount
             ) { index ->
-//            searchResultsPage[index]?.let { result ->
-//                SearchResultPageItem(
-//                    searchResultPage = result,
-//                    searchTerm = searchTerm,
-//                    onItemClick = {
-//                        onItemClick(result.pageTitle, false, index, result.location)
-//                    },
-//                    onItemLongClick = { view ->
-//                        onItemLongClick(view, result, index)
-//                    }
-//                )
-//            }
+                searchResultsPage[index]?.let { result ->
+                    SemanticSearchResultPageItem(
+                        searchResult = result,
+                        onSemanticItemClick = {
+                            onSemanticItemClick(result.pageTitle, false, index, result.location)
+                        },
+                        onArticleItemClick = {
+                            onItemClick(result.pageTitle, false, index, result.location)
+                        },
+                        onRatingClick = { isPositive ->
+                            onRatingClick(isPositive)
+                        }
+                    )
+                }
             }
         }
     }
