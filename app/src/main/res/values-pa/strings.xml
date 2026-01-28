@@ -96,9 +96,9 @@
   <string name="edit_section_find_in_page">ਸਫ਼ੇ ਵਿੱਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
-  <string name="menu_page_add_to_default_list">ਸੰਭਾਲੋ</string>
+  <string name="menu_page_add_to_default_list">ਸਾਂਭੋ</string>
   <string name="feed_card_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
-  <string name="feed_card_add_to_default_list">ਸੰਭਾਲੋ</string>
+  <string name="feed_card_add_to_default_list">ਸਾਂਭੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_article_share">ਲੇਖ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_page_article_share">ਸਾਂਝਾ ਕਰੋ</string>
@@ -305,7 +305,7 @@
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
   <string name="find_first_occurence">ਇਹ ਪਹਿਲੀ ਘਟਨਾ ਹੈ</string>
-  <string name="find_last_occurence">ਇਹ ਆਖਰਲੀ ਘਟਨਾ ਹੈ</string>
+  <string name="find_last_occurence">ਇਹ ਅਖ਼ੀਰਲੀ ਘਟਨਾ ਏ</string>
   <string name="article_opened_in_background_tab">ਲੇਖ ਨੂੰ ਇੱਕ ਪਿਛੋਕਡ਼ ਟੈਬ ਵਿੱਚ ਖੋਲ੍ਹਿਆ ਗਿਆ ਹੈ।</string>
   <string name="abusefilter_title_warn">ਇਹ ਇੱਕ ਗੈਰ-ਰਚਨਾਤਮਕ ਸੋਧ ਜਾਪਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਇਸ ਨੂੰ ਛਾਪਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਸ ਸੰਪਾਦਨ ਨੂੰ ਛਾਪ ਨਹੀਂ ਸਕਦੇ। ਕਿਰਪਾ ਕਰਕੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਇਸਨੂੰ ਬਦਲੋ।</string>
@@ -1011,7 +1011,7 @@
   <string name="image_recommendation_reject_low_quality">ਚਿੱਤਰ ਘੱਟ ਗੁਣਵੱਤਾ ਵਾਲਾ ਹੈ</string>
   <string name="image_recommendation_reject_dont_know">ਮੈ ਇਹ ਵਿਸ਼ਾ ਨਹੀਂ ਜਾਣਦਾ</string>
   <string name="image_recommendation_reject_other">ਹੋਰ</string>
-  <string name="image_recommendation_reject_submit">ਭੇਜੋ</string>
+  <string name="image_recommendation_reject_submit">ਹਵਾਲੇ ਕਰੋ</string>
   <string name="image_recommendation_tooltip_main">ਸੁਝਾਏ ਗਏ ਸੋਧਾਂ ਵਿੱਚ ਲੇਖਾਂ ਵਿੱਚੋਂ ਗੁੰਮ ਹੋਈਆਂ ਤਸਵੀਰਾਂ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="image_recommendation_onboarding_1">ਤਸਵੀਰਾਂ ਲੋਕਾਂ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ, ਪਰ ਬਹੁਤ ਸਾਰੇ ਲੇਖਾਂ ਵਿੱਚ ਇਹ ਨਹੀਂ ਹਨ।</string>
   <string name="image_recommendation_onboarding_2">ਤੁਸੀਂ ਫੈਸਲਾ ਕਰੋਗੇ ਕਿ ਸੁਝਾਏ ਚਿੱਤਰ ਨੂੰ ਵਿਕੀਪੀਡੀਆ ਲੇਖ ਵਿੱਚ ਰੱਖਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।</string>
@@ -1291,7 +1291,7 @@
   <string name="thank_label">ਧੰਨਵਾਦ</string>
   <string name="view_user_page">ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="thank_dialog_title_text">ਜਨਤਕ ਤੌਰ \'ਤੇ\' ਧੰਨਵਾਦ \'ਭੇਜੋ</string>
-  <string name="thank_dialog_positive_button_text">ਧੰਨਵਾਦ ਭੇਜੋ</string>
+  <string name="thank_dialog_positive_button_text">ਧੰਨਵਾਦ ਘੱਲੋ</string>
   <string name="thank_dialog_negative_button_text">ਰੱਦ ਕਰੋ</string>
   <string name="thank_success_message">ਤੁਹਾਡਾ \'ਧੰਨਵਾਦ\' %s ਨੂੰ ਭੇਜਿਆ ਗਿਆ ਸੀ 👍</string>
   <string name="menu_option_view_user_profile">ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ ਵੇਖੋ</string>
@@ -1684,7 +1684,4 @@
   <string name="donation_reminders_experiment_label">ਤਜਰਬਾ</string>
   <string name="donation_reminders_settings_learn_more_button">ਹੋਰ ਜਾਣੋ</string>
   <string name="donation_reminders_settings_report_button">ਵਿਸ਼ੇਸ਼ਤਾ ਨਾਲ ਸਮੱਸਿਆ</string>
-  <string name="explore_feed_survey_dialog_title">ਖੋਜ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">ਸਰਵੇਖਣ ਲਵੋ</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 </resources>

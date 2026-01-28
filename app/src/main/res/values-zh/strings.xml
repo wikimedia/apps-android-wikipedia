@@ -913,7 +913,7 @@
   <string name="description_edit_help_title">帮助：条目描述</string>
   <string name="description_edit_help_about_wikidata">关于维基数据</string>
   <string name="description_edit_help_wikidata_guide">维基数据编写描述的指南</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/zh</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">感谢您一直以来对编辑条目描述的关注！要进行其他编辑，请登录您的维基百科账号。</string>
   <string name="description_edit_license_notice">一旦修改条目描述，即表示我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并按照&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小写字母开头</string>
@@ -2192,8 +2192,4 @@
   <string name="donation_reminders_settings_report_email_subject">问题报告：捐赠提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了捐赠提醒功能的问题：\n- [描述具体问题]\n- [截图或链接]\n\n我希望的实现效果是：\n- [描述建议的解决方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">帮助我们改进探索功能</string>
-  <string name="explore_feed_survey_dialog_message">请填写一份关于“探索”信息流的简短调查问卷。您的反馈将有助于我们未来的应用改进。</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">参加调查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，谢谢</string>
 </resources>

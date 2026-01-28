@@ -2240,8 +2240,4 @@
   <string name="donation_reminders_settings_report_email_subject">問題報告 - 捐款提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了維基百科捐款提醒功能的問題：\n- [描述具體問題]\n- [截圖或連結]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
-  <string name="explore_feed_survey_dialog_title">協助我們改進探索功能</string>
-  <string name="explore_feed_survey_dialog_message">請填寫一份關於探索摘要的簡短問卷。您的回饋將有助於我們改善往後的應用程式。</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">參加調查</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">不用了，謝謝</string>
 </resources>

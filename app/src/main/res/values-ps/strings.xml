@@ -387,6 +387,7 @@
   <string name="preference_summary_customize_explore_feed">د سپړنې ليددړه دوديزول</string>
   <string name="preference_summary_show_link_previews">د ليکنې په تړونو ټوکلو پرمهال د هغې گړندۍ مخکتنه ښودل</string>
   <string name="preference_title_collapse_tables">لښتيال پرځول</string>
+  <string name="preference_summary_collapse_tables">په ليکنو کې په خپلکاري ډول لښتيالونه پرځول لکه مالومات‌بکسونه، سرچينې او يادښتونه.</string>
   <string name="nav_item_donate">بسپنه ورکول</string>
   <string name="nav_item_year_in_review">کال بياکتنه</string>
   <string name="error_voice_search_not_available">په بښنې سره، غږپېژندنه شتون نه لري.</string>
@@ -406,6 +407,7 @@
   <string name="link_preview_dialog_save_button">خوندي‌کول</string>
   <string name="link_preview_dialog_saved_button">خوندي شو</string>
   <string name="link_preview_dialog_share_button">وېشل</string>
+  <string name="link_preview_stub_placeholder_text">دا يوه نيمگړې ليکنه ده، په دې مانا چې د مخکتنې لپاره په دې ليکنې کې کافي منځپانگه نشته. په هر صورت تاسو کولی شئ دا بدل کړئ.</string>
   <string name="error_page_does_not_exist">دا مخشتون نه لري</string>
   <string name="view_wiki_error_message_offline">اينټرنېټ سره نشي نښلېدای</string>
   <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې اړيکه وگورئ، يا وروسته بيا هڅه وکړئ</string>
@@ -831,10 +833,14 @@
   <string name="description_edit_help_about_wikidata">د ويکي‌اومتوک په اړه</string>
   <string name="description_edit_help_wikidata_guide">د ويکي‌اومتوک د څرگنداوي ليکنې لارښود</string>
   <string name="description_edit_anon_limit">د ليکنو د څرگنداوي سمولو کې ستاسو پرله‌پسې لېوالتيا نه مننه! د نورو سمونونو لپاره مهرباني وکړئ خپل ويکي‌پېډيا گڼون ته ننوځئ.</string>
+  <string name="description_edit_helper_text_lowercase_warning">تر ډېره کوچنيو تورو سره پيلېږي</string>
   <string name="description_edit_voice_input_description">غږيزه ننوتنه</string>
   <string name="description_edit_learn_more">د ليکنې څرگنداوي په اړه نور زده کول</string>
   <string name="description_edit_image_caption_learn_more">د انځور نيونگو په اړه نور زده کول</string>
   <string name="description_too_short">ليک ډېر لنډ دی.</string>
+  <string name="description_too_long">هڅه وکړئ سپيناوی مو لنډ وي؛ ترڅو کارنان سملاسي د ليکنې په سکالو پوه شي</string>
+  <string name="description_ends_with_punctuation">ليک بايد ليکنښو سره پای ته ونه رسېږي.</string>
+  <string name="description_starts_with_uppercase">کوچنيو تورو سره يې پيل کړئ؛ مگر دا چې لومړی ويوکی يو ځانگړی نوم وي.</string>
   <string name="description_starts_with_lowercase">په کوچني تورو له پيلولو ډډه‌کول.</string>
   <string name="description_is_in_different_language">داسې ښکاري چې ليک په ناڅاپي ژبه کې دی. ژبه بايد %s وي.</string>
   <string name="description_verification_notice">مهرباني وکړئ تاييد کړئ چې ستاسو څرگنډاوی په %1$s کې دی. که چېرې هغه څرگنداوی چې تاسو ليکلی په %2$s کې وي؛ نو دا خبرداری له پامه وغورځوئ.</string>
@@ -1065,7 +1071,7 @@
     <item quantity="one">سمون تېره مياشت</item>
     <item quantity="other">سمونونه تېره مياشت</item>
   </plurals>
-  <string name="activity_tab_impact_all_time">ټول وخت اغېز</string>
+  <string name="activity_tab_impact_all_time">ټول مهاله اغېز</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="one">ټولټال سمون</item>
     <item quantity="other">ټولټال سمونونه</item>
@@ -1092,7 +1098,7 @@
     <item quantity="other">ستاسو سم‌کړو ليکنو کتنې</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">په لوستلو تېرشوی وخت</string>
-  <string name="activity_tab_customize_screen_impact_switch_title">ټول وخت اغېز</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">ټول مهاله اغېز</string>
   <string name="activity_tab_customize_screen_games_switch_title">لوبې شمارنې</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">د چلند مهالوېش</string>
   <string name="activity_tab_timeline_today">نن</string>
@@ -1828,7 +1834,4 @@
   <string name="donation_reminders_settings_learn_more_button">نور زده کړئ</string>
   <string name="donation_reminders_settings_report_button">د غوني ستونزه</string>
   <string name="donation_reminders_snackbar_modify_button_label">بدلول</string>
-  <string name="explore_feed_survey_dialog_title">د ښه والي لپاره له موږ سره مرسته وکړئ</string>
-  <string name="explore_feed_survey_dialog_positive_button_label">سروې ترسره کول</string>
-  <string name="explore_feed_survey_dialog_negative_button_label">نه مننه</string>
 </resources>

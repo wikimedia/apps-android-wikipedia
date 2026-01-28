@@ -20,19 +20,24 @@ object DonationReminderHelper {
     private val enabledCountries = listOf(
         "GB", "AU", "CA"
     )
+    private val isInDateRange get() = LocalDate.now() <= LocalDate.of(2026, 3, 15)
     val isInEligibleCountry get() = ReleaseUtil.isDevRelease || enabledCountries.contains(GeoUtil.geoIPCountry.orEmpty())
-
     val defaultReadFrequencyOptions = listOf(5, 10, 15, 25, 50)
 
     val isEnabled
-        get() = (ReleaseUtil.isDevRelease || isInEligibleCountry &&
-                LocalDate.now() <= LocalDate.of(2026, 3, 15)) && isTestGroupUser
+        get() = (ReleaseUtil.isDevRelease || isInEligibleCountry && isInDateRange) && isTestGroupUser
 
     val hasActiveReminder get() = Prefs.donationReminderConfig.userEnabled && Prefs.donationReminderConfig.isReminderReady && isInEligibleCountry
 
-    val campaignId = "appmenu_" + (if (isTestGroupUser) "reminderB" else "reminderA")
-
     var shouldShowSettingSnackbar = false
+
+    fun getCampaignId(campaignIdOriginal: String = "appmenu"): String {
+        return if (isInEligibleCountry && isInDateRange) {
+            campaignIdOriginal + if (isTestGroupUser) "_reminderB" else "_reminderA"
+        } else {
+            campaignIdOriginal
+        }
+    }
 
     fun thankYouMessageForSettings(): String {
         val context = WikipediaApp.instance

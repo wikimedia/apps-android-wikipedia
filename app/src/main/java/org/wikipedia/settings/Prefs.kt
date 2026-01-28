@@ -4,13 +4,13 @@ import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
+import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activitytab.ActivityTabModules
 import org.wikipedia.analytics.SessionData
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
-import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
@@ -232,6 +232,10 @@ object Prefs {
     var loginForceEmailAuth
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_login_force_email_auth, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_login_force_email_auth, value)
+
+    var lastBackgroundLoginDateTime
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_background_login_date_time, "")
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_background_login_date_time, value)
 
     val isMemoryLeakTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_memory_leak_test, false)

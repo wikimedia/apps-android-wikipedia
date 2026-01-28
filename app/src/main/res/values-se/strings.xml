@@ -1045,7 +1045,7 @@
   <string name="suggested_edits_reactivation_notification_title">Evttohuvvon rievdadusat</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Giitu go rievdadat Wikipedia! Áiggut go joatkit doppe gos heitet?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Leago dus minuhtta buorrin, buoridan dihte Wikipedia? Geahčat dáid evttohusaid maid sáhtát dahkat.</string>
-  <string name="suggested_edits_contributions_screen_title">%ss čállosa</string>
+  <string name="suggested_edits_contributions_screen_title">Geavaheaddji %s rievdadusat</string>
   <string name="suggested_edits_contribution_language_label">Giella</string>
   <string name="suggested_edits_contribution_date_time_label">Beaivemearri/Áigi</string>
   <string name="suggested_edits_contribution_type_label">Veahkketiipa</string>
@@ -1466,7 +1466,7 @@
   <string name="subcategory_empty">Eai gávdnon vuollekategoriijat dán kategoriijas.</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="revision_initial_none">Ii mihkkege (dá lea vuosttaš revišuvdna)</string>
-  <string name="user_contrib_activity_title">Čállosat %s:s</string>
+  <string name="user_contrib_activity_title">Geavaheaddji %s rievdadusat</string>
   <string name="archive_empty">Eai gávdnon arkiverejuvvon siiddut.</string>
   <string name="user_contrib_filter_ns">Sille nammagomuvuođaid mielde</string>
   <string name="user_contrib_filter_all">Buot nammagomuvuođat</string>
@@ -1475,7 +1475,7 @@
   <string name="user_contrib_current">Gustovaš</string>
   <string name="media_playback_error">Meattáhus mediačuojahemiin.</string>
   <string name="user_contrib_menu_label">Rievdadusat</string>
-  <string name="user_contrib_filter_activity_title">Sille čállosiid</string>
+  <string name="user_contrib_filter_activity_title">Sille rievdadusaid</string>
   <string name="action_item_view_on_map">Čájet kárttas</string>
   <string name="action_item_view_on_map_unavailable">Geográfalaš koordináhtat eai leat olámuttos dán siidui</string>
   <string name="shareable_reading_lists_import_dialog_title">Sisafievrrit juogaduvvon lohkanlisttu</string>
@@ -1524,7 +1524,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Čájet geavaheaddjisiiddu</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Čájet ságastallansiiddu</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Geavaheaddjidieđut</string>
-  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Čájet geavaheaddjiveahkáhallamiid</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Čájet geavaheaddji rievdadusaid</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Giitu</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Geavaheaddjidieđut</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Geavaheaddjidovddaldaga sáddejeaddji:: &lt;/b&gt; %s</string>

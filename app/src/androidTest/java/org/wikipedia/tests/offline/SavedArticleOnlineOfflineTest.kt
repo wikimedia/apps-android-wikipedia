@@ -51,8 +51,7 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
                         .pressBack()
                 }
             })
-            .pressBack()
-            .pressBack()
+            .pressBackUntilExploreFeed()
         bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot
@@ -61,6 +60,8 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .verifySavedArticle("Apple")
             .verifySavedArticle("Orange")
             .clickItemOnReadingList(1)
+        dialogRobot
+            .dismissBigEnglishDialog()
         systemRobot
             .turnOnAirplaneMode()
         savedScreenRobot
@@ -68,6 +69,9 @@ class SavedArticleOnlineOfflineTest : BaseTest<MainActivity>(
             .pressBack()
         bottomNavRobot
             .navigateToExploreFeed()
+        dialogRobot
+            .dismissSurveyDialog()
+        bottomNavRobot
             .navigateToSavedPage()
         savedScreenRobot
             .clickItemOnTheList(0)

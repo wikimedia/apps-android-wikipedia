@@ -1,0 +1,73 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+    id 'com.android.library'
+    id 'com.google.devtools.ksp'
+    id 'kotlinx-serialization'
+}
+
+final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
+
+android {
+    namespace = 'org.wikimedia.testkitchen'
+    compileSdk = 36
+
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+
+        sourceCompatibility = JAVA_VERSION
+        targetCompatibility = JAVA_VERSION
+    }
+
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
+    }
+
+    defaultConfig {
+        targetSdk = 36
+        multiDexEnabled = true
+
+        buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    flavorDimensions = ['default']
+
+    productFlavors {
+        dev {
+            buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
+            buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
+        }
+        alpha {
+        }
+        beta {
+        }
+        prod {
+        }
+        fdroid {
+        }
+        custom {
+        }
+    }
+}
+
+apply from: '../../gradle/src/ktlint.gradle'
+
+dependencies {
+    coreLibraryDesugaring libs.desugar.jdk.libs
+
+    implementation libs.kotlin.stdlib.jdk8
+    implementation libs.kotlinx.serialization.json
+    implementation libs.core.ktx
+
+    implementation libs.retrofit
+    implementation libs.retrofit2.kotlinx.serialization.converter
+
+    testImplementation libs.junit
+}

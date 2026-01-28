@@ -1165,6 +1165,7 @@
   <string name="activity_tab_game_stats">Spilstatistik</string>
   <string name="activity_tab_game_stats_best_streak">Bedste serie</string>
   <string name="activity_tab_play_wiki_games">Spil WikiGames</string>
+  <string name="activity_tab_report_email_subject">Problemrapport - Aktivitetsfanen</string>
   <string name="activity_tab_report_email_body">Jeg er stødt på et problem med funktionen i fanen Aktivitet:\n- [Beskriv det specifikke problem]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv den foreslåede løsning]</string>
   <string name="activity_tab_menu_feedback">Problem med funktion</string>
   <string name="activity_tab_menu_info">Lær mere</string>
@@ -1184,6 +1185,10 @@
     <item quantity="other">redigeringer sidste måned</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Indflydekse gennem tiderne</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">total redigering</item>
+    <item quantity="other">totale redigeringer</item>
+  </plurals>
   <plurals name="activity_tab_impact_thanks">
     <item quantity="one">tak</item>
     <item quantity="other">tak</item>
@@ -1202,12 +1207,34 @@
     <item quantity="one">Redigering</item>
     <item quantity="other">Redigeringer</item>
   </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="one">Visning af artikler, du har redigeret</item>
+    <item quantity="other">Visninger af artikler, du har redigeret</item>
+  </plurals>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Tid brugt på at læse</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Læseindsigt</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Redigeringsindsigt</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Alle tiders indflydelse</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Spilstatistik</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Sidste donation i appen</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Tidslinje for adfærd</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Aktivitetsmoduler er slået fra. &lt;a href=\"#\"&gt;Slå dem til&lt;/a&gt; for at se opdateringer i denne fane.</string>
   <string name="activity_tab_timeline_today">I dag</string>
   <string name="activity_tab_timeline_yesterday">I går</string>
   <string name="activity_tab_timeline_empty_state_title">Intet at vise</string>
   <string name="activity_tab_timeline_empty_state_message">Begynd at læse og redigere for at opbygge din historik</string>
   <string name="activity_tab_timeline_view_changes_button">Vis ændringer</string>
   <string name="activity_tab_onboarding_reading_patterns_title">Læsemønstre</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Se hvor meget tid du har brugt på at læse, og hvilke artikler eller emner du har udforsket over tid.</string>
+  <string name="activity_tab_onboarding_screen_title">Introduktion til aktivitet</string>
+  <string name="activity_tab_onboarding_impact_title">Højdepunkter</string>
+  <string name="activity_tab_onboarding_impact_message">Få indsigt i dine bidrag og rækkevidden af den viden, du har delt.</string>
+  <string name="activity_tab_onboarding_engage_title">Flere måder at engagere sig på</string>
+  <string name="activity_tab_onboarding_engage_message">Udforsk statistikker for spil, gemte artikler og andre aktiviteter, der forbinder dig dybere med Wikipedia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Bevar kontrollen</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Vælg hvilke moduler der skal vises. Alle personlige data forbliver private på din enhed, og din browserhistorik kan til enhver tid slettes.</string>
+  <string name="edits_screen_what_is_title">Redigering i Wikipedia-appen</string>
+  <string name="edits_screen_what_is_body">Er du usikker på, hvor du skal starte med redigering? Prøv Foreslåede redigeringer, en funktion, der skaber muligheder for at yde små, men vigtige bidrag til Wikipedia. Alternativt kan du gå direkte til en artikel af interesse og foretage en ændring ved hjælp af wikitekst.</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Tilføj billedtekst</string>
   <string name="file_page_add_image_tags_button">Tilføj billedtags</string>
@@ -1717,6 +1744,7 @@
   <string name="donate_gpay_dialog_pay_button">Donér med Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Anden betalingsmetode</string>
   <string name="donate_gpay_activity_title">Vælg et beløb</string>
+  <string name="donate_gpay_activity_title_with_currency">Vælg et beløb ( %s )</string>
   <string name="donate_gpay_check_transaction_fee">Jeg vil også gerne have lov til at tilføje %s, til dækning af transaktionsgebyrer, sådan at I kan beholde 100%% af min donation.</string>
   <string name="donate_gpay_check_recurring">Gør dette til en månedlig gentagende donation.</string>
   <string name="donate_gpay_check_send_email">Ja, Wikimedia Foundation må gerne sende mig en lejlighedsvis e-mail.</string>
@@ -1728,6 +1756,7 @@
   <string name="donate_gpay_help_faq">Ofte stillede spørgsmål</string>
   <string name="donate_gpay_help_tax">Information om skattefradrag</string>
   <string name="donation_history_deleted_message_snackbar">Donorhistorik slettet.</string>
+  <string name="donation_history_no_history_message_snackbar">Du har ingen donationshistorik at rydde.</string>
   <string name="places_title">Steder</string>
   <string name="places_permissions_denied">Placeringstilladelse er påkrævet for at se din placering på kortet. Prøv igen.</string>
   <string name="places_search_hint">Søg steder</string>
@@ -1841,6 +1870,7 @@
   <string name="year_in_review_get_started_later">Du kan få adgang til dit årsoverblik senere i menupunktet Mere.</string>
   <string name="year_in_review_survey_title">Hjælp med at forbedre Årets Oversigt</string>
   <string name="year_in_review_survey_subtitle">Er du tilfreds med denne funktion?</string>
+  <string name="year_in_review_reading_list_survey_title">Hjælp med at forbedre læselisten %d for Årsoversigten.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Er du tilfreds med din læseliste?</string>
   <string name="year_in_review_survey_very_satisfied">Meget tilfreds</string>
   <string name="year_in_review_survey_satisfied">Tilfreds</string>
@@ -1854,7 +1884,48 @@
   <string name="year_in_review_disable_positive_button">Ja, jeg er sikker</string>
   <string name="year_in_review_disable_negative_button">Nej tak</string>
   <string name="year_in_review_setting_subtitle">Hvis du slår Årsoversigt fra, ryddes alle gemte personlige indsigter, og Årsoversigten skjules.</string>
+  <string name="year_in_review_screendeck_image_content_description">Billedressource til hovedskærmbilledet for Året i tilbageblik</string>
   <string name="year_in_review_screenshot_error">Kunne ikke generere skærmbillede: %s</string>
+  <string name="year_in_review_share_subject">Min Wikipedia-årsoversigt</string>
+  <string name="year_in_review_share_body">Her er min Wikipedia-årsoversigt. Oprettet med Wikipedia Android-appen %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Globus-ikon</string>
+  <string name="settings_app_icon_title">App-ikon</string>
+  <string name="settings_app_icon_preference_subtitle">Du har adgang til et brugerdefineret ikon, der hylder dine %d bidrag til Wikipedia i appen. Det forbliver indtil næste Året i tilbageblik.</string>
+  <string name="settings_app_icon_updated">Dit appikon er blevet opdateret.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Nyt appikon låses op for din startskærm</string>
+  <string name="year_in_review_slide_app_icon_donor">en donor</string>
+  <string name="year_in_review_slide_app_icon_editor">en redaktør</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">en donor og redaktør</string>
+  <string name="year_in_review_slide_geo_headline">Artikler, du læser, er tættest på %s</string>
+  <string name="year_in_review_login_dialog_positive">Log ind / Tilmeld dig Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Fortsæt uden at logge ind</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Din top artikel</item>
+    <item quantity="other">Dine top artikler</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="one">Her var den artikel, du besøgte mest i %1$d: %2$s </item>
+    <item quantity="other">Her var de artikler, du besøgte mest i %1$d: %2$s </item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Dine mest interessante kategorier</string>
+  <string name="year_in_review_slide_top_categories_body">Kategorier grupperer artikler om lignende emner. I %1$d besøgte du artikler i disse interessante kategorier flere gange: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Engelsk Wikipedias mest læste artikler</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="one">%,d byte tilføjet</item>
+    <item quantity="other">%,d bytes tilføjet</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="one">I %1$d tilføjede frivillige %2$,d byte til den engelske Wikipedia. Summen af alt deres arbejde tilsammen fører til en støt forbedrende, faktabaseret og pålidelig vidensressource, som de giver til verden. Vi har alle viden at dele, &lt;a href=\"%3$s \"&gt;learn how to participate&lt;/a&gt; .</item>
+    <item quantity="other">I &lt;span class=\"notranslate\" translate=\"no\"&gt;%1$d tilføjede frivillige %2$,d bytes til den engelske Wikipedia. Summen af alt deres arbejde tilsammen fører til en støt forbedrende, faktabaseret og pålidelig vidensressource, som de giver til verden. Vi har alle viden at dele, &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%3$s \"&gt;learn how to participate&lt;/a&gt;.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">Du redigerede %s gang</item>
+    <item quantity="other">Du redigerede %s gange</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="one">Tak fordi du er en af de frivillige redaktører, der gør en forskel på Wikimedia-projekter rundt om i verden. Frivillige som dig har lavet %,d ændringer på tværs af over 300 forskellige sprogudgaver af Wikipedia.</item>
+    <item quantity="other">Tak fordi du er en af de frivillige redaktører, der gør en forskel på Wikimedia-projekter rundt om i verden. Frivillige som dig har lavet %,d ændringer på tværs af over 300 forskellige sprogudgaver af Wikipedia.</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">Du har klare læsemønstre</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">Yndlingstidspunkt at læse</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">Yndlingsdag at læse</string>
@@ -1865,8 +1936,27 @@
   <string name="year_in_review_slide_reading_pattern_evening">Aften</string>
   <string name="year_in_review_slide_reading_pattern_night">Nat</string>
   <string name="year_in_review_slide_reading_pattern_late_night">Sent på natten</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="one">Vi brugte %,d time på at læse</item>
+    <item quantity="other">Vi brugte %,d timer på at læse</item>
+  </plurals>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Yndlingsdag at læse</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="one">Artikel læst</item>
+    <item quantity="other">Artikler læst</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="one">Kategori der interesserede mig</item>
+    <item quantity="other">Kategorier der interesserede mig</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="one">gang redigeret</item>
+    <item quantity="other">gange redigeret</item>
+  </plurals>
+  <string name="year_in_review_highlights_share_button_title">Del højdepunkter</string>
+  <string name="year_in_review_highlights_logo_description">Wikipedia-logo</string>
   <string name="recommended_reading_list_title">Opdag</string>
   <string name="recommended_reading_list_onboarding_card_title">Opdag artikler udvalgt til dig</string>
   <string name="recommended_reading_list_onboarding_card_message">Din ugentlige læseliste med Wikipedia-artikler, sammensat til dig.</string>
@@ -1949,8 +2039,34 @@
   <string name="recommended_reading_list_notification_subtitle">Tryk for at se dine seneste anbefalinger.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Når din Opdage er opdateret, sender Wikipedia dig en notifikation.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Opdage er slået til. Wikipedia vil anbefale dig artikler at læse.</string>
+  <string name="donation_reminders_prompt_dismiss_snackbar">Donationspåmindelser kan til enhver tid ændres i Indstillinger.</string>
+  <string name="donation_settings_section_header">Donationer</string>
+  <string name="donation_reminders_settings_title">Hvordan skal vi minde dig om det?</string>
+  <string name="donation_reminders_settings_option_title">Donationspåmindelser</string>
+  <string name="donation_reminders_settings_thank_you_message">Din gavmildhed hjælper Wikipedia med at trives. Opret en donationspåmindelse baseret på antallet af artikler, du læser.</string>
+  <string name="donation_reminders_settings_donation_info">Donationer går til Wikimedia Foundation og tilknyttede selskaber, der er stolte værter for Wikipedia og andre frie vidensprojekter.</string>
+  <string name="donation_reminders_settings_article_frequency_label">Når jeg læser</string>
+  <string name="donation_reminders_settings_amount_label">Mind mig om at donere</string>
+  <string name="donation_reminders_settings_confirm_btn_label">Bekræft påmindelse</string>
+  <string name="donation_reminders_settings_about_experiment_btn_label">Om dette eksperiment</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">artikler</string>
+  <string name="donation_reminders_settings_warning_min_amount">Indtast venligst mindst %s</string>
+  <string name="donation_reminders_settings_warning_max_amount">Maksimum %s er tilladt</string>
+  <string name="donation_reminders_settings_option_custom">Tilpas...</string>
+  <string name="donation_reminders_prompt_positive_button">Donér nu</string>
+  <string name="donation_reminders_prompt_negative_button">Ikke nu</string>
+  <string name="donation_reminders_gpay_text">Donér %s med Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">Donér et andet beløb med Google Pay</string>
+  <string name="donation_reminders_settings_description_on">Donationspåmindelser er aktiveret. Wikipedia vil minde dig om at donere %1$s for hver %2$s du læser, mens dette eksperiment kører.</string>
+  <string name="donation_reminders_settings_description_off">Donationspåmindelser er slået fra.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">Artikelantallet gemmes lokalt på din enhed</string>
+  <plurals name="donation_reminders_text_articles">
+    <item quantity="one">%d artikel</item>
+    <item quantity="other">%d artikler</item>
+  </plurals>
   <string name="donation_reminders_settings_no_thanks_btn_label">Nej tak</string>
   <string name="donation_reminders_experiment_label">EKSPERIMENT</string>
   <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
 </resources>

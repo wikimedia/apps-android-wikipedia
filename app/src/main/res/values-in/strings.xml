@@ -77,8 +77,8 @@
   <string name="menu_clear_all_history">Hapus riwayat bacaan</string>
   <string name="history_item_deleted">%s dihapus dari riwayat</string>
   <string name="history_items_deleted">%d artikel dihapus dari riwayat</string>
-  <string name="history_item_delete_undo">Urungkan</string>
-  <string name="notification_archive_undo">Urungkan</string>
+  <string name="history_item_delete_undo">Batalkan</string>
+  <string name="notification_archive_undo">Batalkan</string>
   <string name="app_settings">Pengaturan aplikasi</string>
   <string name="search_tab_tooltip">Ketuk ikon lagi untuk mulai mengetik istilah yang dicari.</string>
   <string name="history_list_title">Riwayat</string>
@@ -305,7 +305,7 @@
   <string name="edit_next">Selanjutnya</string>
   <string name="edit_done">Terbitkan</string>
   <string name="edit_preview">Pratayang</string>
-  <string name="edit_undo">Urungkan</string>
+  <string name="edit_undo">Batalkan</string>
   <string name="edit_redo">Ulangi</string>
   <string name="edit_rollback">Kembalikan</string>
   <string name="edit_warn">Peringatkan</string>
@@ -462,7 +462,7 @@
   <string name="error_blocked_by">Penyekatan dilakukan oleh &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Alasan yang diberikan adalah: %s</string>
   <string name="error_blocked_start">Mulai penyekatan: %s</string>
-  <string name="error_blocked_expiry">Kadaluwarsa pemblokiran: %s</string>
+  <string name="error_blocked_expiry">Kedaluwarsa pemblokiran: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
   <string name="error_blocked_footer">Anda bisa menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau &lt;a href=\"https://id.wikipedia.org/wiki/Wikipedia:Pengurus\n\"&gt;pengurus&lt;/a&gt; lain untuk mendiskusikan pemblokiran Anda.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Ubah suaikan bilah perkakas Anda</string>
@@ -578,7 +578,7 @@
   <string name="multiple_lists_json_file_name">Daftar bacaan Wikipedia (%s dan lebih).json</string>
   <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
   <string name="reading_lists_item_deleted">%s dihapus dari daftar</string>
-  <string name="reading_list_item_delete_undo">Urungkan</string>
+  <string name="reading_list_item_delete_undo">Batalkan</string>
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="saved_list_empty_title">Tidak ada daftar bacaan lagi</string>
   <string name="reading_lists_empty_message">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
@@ -1106,7 +1106,7 @@
   <string name="image_recommendation_tooltip_1">Tinjau artikel ini untuk memahami topiknya</string>
   <string name="image_recommendation_tooltip_2">Periksa gambar dan informasi terkaitnya</string>
   <string name="image_recommendation_tooltip_3">Putuskan apakah gambar dapat membantu pembaca memahami topik ini dengan lebih baik</string>
-  <string name="image_recommendation_tooltip_next">Berikutnya</string>
+  <string name="image_recommendation_tooltip_next">Selanjutnya</string>
   <string name="image_recommendation_tooltip_warning">Harap tinjau artikel untuk memahami topiknya dan memeriksa gambarnya</string>
   <string name="image_recommendation_depleted">Maaf, tidak ada lagi gambar yang disarankan yang tersedia saat ini. Silakan jelajahi &lt;a href=\"#\"&gt;saranan penyuntingan&lt;/a&gt; lainnya atau kembali lagi nanti.</string>
   <string name="suggested_edits_report_feature">Masalah dengan fitur</string>
@@ -1306,7 +1306,7 @@
   <string name="talk_message_empty">Pesannya tidak bisa kosong.</string>
   <string name="talk_subject_empty">Subjeknya tidak bisa kosong.</string>
   <string name="talk_response_submitted">Balasan diposting.</string>
-  <string name="talk_snackbar_undo">Urungkan</string>
+  <string name="talk_snackbar_undo">Batalkan</string>
   <string name="talk_last_modified">&lt;b&gt;Terakir disunting %1$s&lt;/b&gt; oleh %2$s</string>
   <string name="talk_snackbar_survey_text">Terima kasih telah menggunakan halaman pembicaraan. Dapatkah Anda membantu kami meningkatkan aplikasi dengan berpartisipasi dalam survei?</string>
   <string name="talk_snackbar_survey_action_text">Mulai</string>
@@ -1657,6 +1657,7 @@
   <string name="year_in_review_share_subject">Tinjauan Tahunan Wikipedia Saya</string>
   <string name="year_in_review_share_body">Inilah Tinjauan Tahunan Wikipedia saya. Dibuat dengan aplikasi Wikipedia Android %1$s %2$s</string>
   <string name="settings_app_icon_preference_subtitle">Anda punya akses ke ikon khusus yang merayakan kontribusi %d Anda dalam aplikasi untuk Wikipedia. Ikon ini akan tetap ada hingga Tinjauan Tahunan berikutnya.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">Ikon aplikasi baru tersedia untuk layar beranda Anda</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Kami senang Wikipedia menjadi bagian dari tahun %1$d Anda! Raih hadiah istimewa di Tinjauan Tahunan %2$d Anda dengan menjadi kontributor—baik dengan &lt;a href=\"%3$s\"&gt;menyunting Wikipedia&lt;/a&gt; atau dengan menyumbang dari aplikasi ke &lt;a href=\"%4$s\"&gt;Yayasan Wikimedia&lt;/a&gt;, organisasi nirlaba di baliknya. Jika Wikipedia berguna bagi Anda, pertimbangkan untuk guna membantu keberlanjutannya di masa depan dan menjaganya agar tetap gratis, bebas iklan, tepercaya, dan dapat diakses oleh semua orang. Jika Anda telah menyumbang di tempat lain, dukungan Anda sangat kami hargai.</string>
   <string name="year_in_review_login_dialog_body">Log masuk memberi Anda akses ke wawasan yang dipersonalisasi. Anda tetap dapat melihat wawasan kolektif tanpa perlu masuk.</string>
   <string name="year_in_review_reading_list_dialog_title">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
