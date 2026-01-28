@@ -41,7 +41,7 @@ class HybridSearchResultsViewModel : ViewModel() {
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
-            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+            Pager(PagingConfig(pageSize = 1, initialLoadSize = 1, maxSize = batchSize)) {
                 SearchResultsViewModel.SearchResultsPagingSource(
                     searchTerm = term,
                     languageCode = lang,
@@ -102,9 +102,9 @@ class HybridSearchResultsViewModel : ViewModel() {
                     searchTerm = searchTerm,
                     languageCode = languageCode,
                     invokeSource = invokeSource,
-                    continuation = params.key,
+                    continuation = null,
                     batchSize = params.loadSize,
-                    isPrefixSearch = params.key == null
+                    isPrefixSearch = false
                 )
 
                 return LoadResult.Page(
