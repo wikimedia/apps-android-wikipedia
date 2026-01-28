@@ -71,6 +71,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             // Migrate from Prefs.otdGameHistory to use database
             // TODO: remove this in May, 2026
             migrateGameHistoryFromPrefsToDatabase()
+            migrateInProgressGameFromPrefsToDatabase()
 
             if (useDateFromState && !overrideDate) {
                 val lastPlayedInfoMap = JsonUtil.decodeFromString<Map<String, LastPlayedInfo>>(Prefs.otdLastPlayedDate) ?: emptyMap()
@@ -352,6 +353,45 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         Prefs.otdGameHistory = ""
     }
 
+    private suspend fun migrateInProgressGameFromPrefsToDatabase() {
+        if (Prefs.otdGameState.isEmpty()) {
+            return
+        }
+
+        val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: return
+        totalState.langToState.forEach { (lang, gameState) ->
+            if (gameState.currentQuestionIndex < Prefs.otdGameQuestionsPerDay) {
+                val gamePlayDate = LocalDate.parse(gameState.gamePlayDate, DateTimeFormatter.ISO_LOCAL_DATE)
+                val lastActiveDate = LocalDate.parse(gameState.lastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)
+                val dailyGameHistory = DailyGameHistory(
+                    gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+                    language = lang,
+                    year = gamePlayDate.year,
+                    month = gamePlayDate.monthValue,
+                    day = gamePlayDate.dayOfMonth,
+                    score = gameState.answerState.count { it },
+                    playType = if (gamePlayDate.isBefore(LocalDate.now())) {
+                        PlayTypes.PLAYED_ON_ARCHIVE.ordinal
+                    } else {
+                        PlayTypes.PLAYED_ON_SAME_DAY.ordinal
+                    },
+                    gameData = JsonUtil.encodeToString(gameState.answerState),
+                    currentQuestionIndex = gameState.currentQuestionIndex,
+                    status = DailyGameHistory.GAME_IN_PROGRESS
+                )
+                AppDatabase.instance.dailyGameHistoryDao().insertOrUpdate(dailyGameHistory)
+
+                val lastPlayedMap = JsonUtil.decodeFromString<Map<String, LastPlayedInfo>>(Prefs.otdLastPlayedDate)?.toMutableMap() ?: mutableMapOf()
+                lastPlayedMap[lang] = LastPlayedInfo(
+                    gamePlayDate = gamePlayDate.format(DateTimeFormatter.ISO_LOCAL_DATE),
+                    sessionDate = lastActiveDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
+                )
+                Prefs.otdLastPlayedDate = JsonUtil.encodeToString(lastPlayedMap).orEmpty()
+                Prefs.otdGameState = ""
+            }
+        }
+    }
+
     @Serializable
     data class TotalGameHistory(
         val langToHistory: Map<String, GameHistory> = emptyMap()
@@ -375,7 +415,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         // history of today's answers (correct vs incorrect)
         val answerState: List<Boolean> = List(MAX_QUESTIONS) { false },
         val currentQuestionState: QuestionState,
-        var status: Int = DailyGameHistory.GAME_IN_PROGRESS
+        var status: Int = DailyGameHistory.GAME_IN_PROGRESS,
+        var gamePlayDate: String = "",
+        var lastActiveDate: String = ""
     )
 
     @Serializable
