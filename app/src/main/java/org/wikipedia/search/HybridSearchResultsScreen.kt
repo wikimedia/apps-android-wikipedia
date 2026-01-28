@@ -17,9 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -166,61 +164,59 @@ fun HybridSearchResultsList(
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
-
-    val scrollState = rememberScrollState()
-    // TODO: handle the B and C tests here.
-    Column(
-        modifier = Modifier
-            .verticalScroll(scrollState),
+    LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Standard search results list
-        LazyColumn {
-            items(
-                count = searchResultsPage.itemCount
-            ) { index ->
-                searchResultsPage[index]?.let { result ->
-                    SearchResultPageItem(
-                        searchResultPage = result,
-                        searchTerm = searchTerm,
-                        onItemClick = {
-                            onItemClick(result.pageTitle, false, index, result.location)
-                        },
-                        onItemLongClick = { view ->
-                            onItemLongClick(view, result, index)
-                        }
-                    )
-                }
+        // Standard search results
+        items(
+            count = searchResultsPage.itemCount
+        ) { index ->
+            searchResultsPage[index]?.let { result ->
+                SearchResultPageItem(
+                    searchResultPage = result,
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result.pageTitle, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    }
+                )
             }
         }
 
-        SemanticSearchResultHeader(
-            results = List(searchResultsPage.itemCount) { index ->
-                searchResultsPage[index]!!
-            },
-            onInfoClick = {
-                onInfoClick()
-            }
-        )
+        // Semantic search header
+        item {
+            SemanticSearchResultHeader(
+                results = List(semanticSearchResultPage.itemCount) { index ->
+                    semanticSearchResultPage[index]!!
+                },
+                onInfoClick = {
+                    onInfoClick()
+                }
+            )
+        }
 
-        // Semantic search results list - horizontally scrolling list
-        LazyRow {
-            items(
-                count = searchResultsPage.itemCount
-            ) { index ->
-                searchResultsPage[index]?.let { result ->
-                    SemanticSearchResultPageItem(
-                        searchResult = result,
-                        onSemanticItemClick = {
-                            onSemanticItemClick(result.pageTitle, false, index, result.location)
-                        },
-                        onArticleItemClick = {
-                            onItemClick(result.pageTitle, false, index, result.location)
-                        },
-                        onRatingClick = { isPositive ->
-                            onRatingClick(isPositive)
-                        }
-                    )
+        // Semantic search results - horizontal LazyRow
+        item {
+            LazyRow {
+                items(
+                    count = semanticSearchResultPage.itemCount
+                ) { index ->
+                    semanticSearchResultPage[index]?.let { result ->
+                        SemanticSearchResultPageItem(
+                            searchResult = result,
+                            onSemanticItemClick = {
+                                onSemanticItemClick(result.pageTitle, false, index, result.location)
+                            },
+                            onArticleItemClick = {
+                                onItemClick(result.pageTitle, false, index, result.location)
+                            },
+                            onRatingClick = { isPositive ->
+                                onRatingClick(isPositive)
+                            }
+                        )
+                    }
                 }
             }
         }
