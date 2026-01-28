@@ -4,6 +4,7 @@ import android.location.Location
 import android.view.View
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -204,7 +205,8 @@ fun HybridSearchResultsList(
 fun SemanticSearchResultHeader(
     modifier: Modifier = Modifier,
     rephraseTitle: String? = null,
-    results: List<SearchResult>
+    results: List<SearchResult>,
+    onInfoClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -251,7 +253,10 @@ fun SemanticSearchResultHeader(
             }
             Icon(
                 modifier = Modifier
-                    .padding(horizontal = 12.dp),
+                    .padding(horizontal = 12.dp)
+                    .clickable {
+                        onInfoClick()
+                    },
                 painter = painterResource(R.drawable.ic_info_outline_black_24dp),
                 tint = WikipediaTheme.colors.primaryColor,
                 contentDescription = stringResource(R.string.year_in_review_information_icon)
@@ -262,7 +267,10 @@ fun SemanticSearchResultHeader(
 
 @Composable
 fun SemanticSearchResultPageItem(
-    searchResult: SearchResult
+    searchResult: SearchResult,
+    onSemanticItemClick: () -> Unit,
+    onArticleItemClick: () -> Unit,
+    onRatingClick: (Boolean) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -281,6 +289,9 @@ fun SemanticSearchResultPageItem(
         ) {
             // TODO: need to check if the extract is empty?
             HtmlText(
+                modifier = Modifier.clickable {
+                        onSemanticItemClick()
+                    },
                 linkStyle = TextLinkStyles(
                     style = SpanStyle(
                         color = WikipediaTheme.colors.progressiveColor,
@@ -309,14 +320,20 @@ fun SemanticSearchResultPageItem(
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Icon(
-                    modifier = Modifier.size(16.dp),
+                    modifier = Modifier.size(16.dp)
+                        .clickable {
+                            onRatingClick(true)
+                        },
                     painter = painterResource(R.drawable.ic_thumb_up),
                     contentDescription = null,
                     tint = Color.Gray
                 )
                 Spacer(modifier = Modifier.width(24.dp))
                 Icon(
-                    modifier = Modifier.size(16.dp),
+                    modifier = Modifier.size(16.dp)
+                        .clickable {
+                            onRatingClick(false)
+                        },
                     painter = painterResource(R.drawable.ic_thumb_down),
                     contentDescription = null,
                     tint = Color.Gray
@@ -334,7 +351,11 @@ fun SemanticSearchResultPageItem(
             Spacer(modifier = Modifier.height(16.dp))
 
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        onArticleItemClick()
+                    },
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -384,7 +405,8 @@ private fun SemanticSearchResultHeaderPreview() {
                 SearchResult(PageTitle("Beyoncé", wikiSite), SearchResult.SearchResultType.SEMANTIC),
                 SearchResult(PageTitle("Beyoncé Knowles", wikiSite), SearchResult.SearchResultType.SEMANTIC),
                 SearchResult(PageTitle("Beyoncé (album)", wikiSite), SearchResult.SearchResultType.SEMANTIC)
-            )
+            ),
+            onInfoClick = {}
         )
     }
 }
@@ -402,7 +424,10 @@ private fun SemanticSearchResultPageItemPreview() {
         currentTheme = Theme.LIGHT
     ) {
         SemanticSearchResultPageItem(
-            searchResult = SearchResult(pageTitle, SearchResult.SearchResultType.SEMANTIC)
+            searchResult = SearchResult(pageTitle, SearchResult.SearchResultType.SEMANTIC),
+            onSemanticItemClick = {},
+            onArticleItemClick = {},
+            onRatingClick = {}
         )
     }
 }
