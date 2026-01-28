@@ -42,10 +42,13 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -276,9 +279,20 @@ fun SemanticSearchResultPageItem(
         Column(
             modifier = Modifier.padding(20.dp)
         ) {
-            // TODO: add "...more"
+            // TODO: need to check if the extract is empty?
             HtmlText(
-                text = searchResult.pageTitle.extract.orEmpty(),
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 16.sp
+                    )
+                ),
+                text = buildString {
+                    append(searchResult.pageTitle.extract.orEmpty())
+                    append("…")
+                    append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
+                },
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.primaryColor
             )
@@ -295,13 +309,15 @@ fun SemanticSearchResultPageItem(
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Icon(
-                    painter = painterResource(R.drawable.ic_star_24),
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_thumb_up),
                     contentDescription = null,
                     tint = Color.Gray
                 )
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(24.dp))
                 Icon(
-                    painter = painterResource(R.drawable.ic_star_24),
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_thumb_down),
                     contentDescription = null,
                     tint = Color.Gray
                 )
@@ -309,7 +325,11 @@ fun SemanticSearchResultPageItem(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            HorizontalDivider(thickness = 0.5.dp, color = Color.LightGray)
+            HorizontalDivider(
+                modifier = Modifier.width(48.dp),
+                thickness = 0.5.dp,
+                color = WikipediaTheme.colors.borderColor
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -376,7 +396,7 @@ private fun SemanticSearchResultPageItemPreview() {
     val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
         description = "American singer, songwriter, and actress"
         extract =
-            "Beyoncé Giselle Knowles-Carter is an American singer, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+            "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
     }
     BaseTheme(
         currentTheme = Theme.LIGHT
