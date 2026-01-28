@@ -14,7 +14,7 @@ flexbox = "3.0.0"
 fragmentKtx = "1.8.9"
 googlePayVersion = "19.5.0"
 googleServices = "4.4.4"
-gradle = "8.13.2"
+gradle = "9.0.0"
 hamcrest = "3.0"
 hcaptcha = "4.4.0"
 installreferrer = "2.2"
@@ -23,7 +23,7 @@ junit = "4.13.2"
 junitVersion = "1.3.0"
 kotlinCoroutinesVersion = "1.10.2"
 kotlinStdlibJdk8 = "2.3.0"
-kotlinxSerializationJson = "1.9.0"
+kotlinxSerializationJson = "1.10.0"
 kspPlugin = "2.3.4"
 leakCanaryVersion = "2.14"
 mapLibre = "12.2.2"
@@ -126,7 +126,6 @@ compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
 gms-plugin = { id = 'com.google.gms.google-services', version.ref = "googleServices" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinStdlibJdk8" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinStdlibJdk8" }
 ksp-plugin = { id = 'com.google.devtools.ksp', version.ref = "kspPlugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinStdlibJdk8" }
