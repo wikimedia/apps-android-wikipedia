@@ -166,6 +166,7 @@
     <string name="preference_key_payment_methods_last_query_time">paymentMethodsLastQueryTime</string>
     <string name="preference_key_payment_methods_merchant_id">paymentMethodsMerchantId</string>
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
+    <string name="preference_key_otd_game_state">otdGameState</string>
     <string name="preference_key_otd_game_history">otdGameHistory</string>
     <string name="preference_key_otd_last_played_date">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>

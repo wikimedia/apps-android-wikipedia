@@ -744,6 +744,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_date_override, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_date_override, value)
 
+    var otdGameState
+        get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_state, null).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_state, value)
+
     var otdGameHistory
         get() = PrefsIoUtil.getString(R.string.preference_key_otd_game_history, null).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_otd_game_history, value)
