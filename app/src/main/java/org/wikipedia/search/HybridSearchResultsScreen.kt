@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -184,7 +186,7 @@ fun SemanticSearchResultHeader(
     results: List<SearchResult>
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
     ) {
         if (!rephraseTitle.isNullOrEmpty()) {
             Text(
@@ -195,7 +197,9 @@ fun SemanticSearchResultHeader(
                 )
             )
         }
-        Row {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             val resultsCount = results.size
             val articlesCount = results.distinctBy { it.pageTitle.prefixedText }.size
             val headerText = stringResource(R.string.hybrid_search_results_header,
@@ -215,7 +219,7 @@ fun SemanticSearchResultHeader(
                         color = WikipediaTheme.colors.progressiveColor,
                         shape = RoundedCornerShape(size = 16.dp)
                     )
-                    .padding(horizontal = 8.dp, vertical = 4.dp)
+                    .padding(horizontal = 12.dp)
             ) {
                 Text(
                     text = stringResource(R.string.hybrid_search_results_header_beta_label).uppercase(),
@@ -224,6 +228,13 @@ fun SemanticSearchResultHeader(
                     color = Color.White
                 )
             }
+            Icon(
+                modifier = Modifier
+                    .padding(horizontal = 12.dp),
+                painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                tint = WikipediaTheme.colors.primaryColor,
+                contentDescription = stringResource(R.string.year_in_review_information_icon)
+            )
         }
     }
 }
