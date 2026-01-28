@@ -103,7 +103,8 @@ class TalkTopicHolder internal constructor(
         ImageViewCompat.setImageTintList(binding.topicReplyIcon, ResourceUtil.getThemedColorStateList(context, replyNumberColor))
 
         // Last comment date
-        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTime(context, this) }
+        val lastCommentDate = allReplies.mapNotNull { it.date }.maxOrNull()?.run { DateUtil.getDateAndTimeString(
+            this) }
         val lastCommentColor = if (threadItem.seen) R.attr.inactive_color else R.attr.placeholder_color
         binding.topicLastCommentDate.text = lastCommentDate
         binding.topicLastCommentDate.isVisible = lastCommentDate != null
