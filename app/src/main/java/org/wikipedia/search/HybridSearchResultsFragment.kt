@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
@@ -15,27 +15,13 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.util.UriUtil
 
 class HybridSearchResultsFragment : Fragment() {
-    interface Callback {
-        fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
-        fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
-        fun onSearchProgressBar(enabled: Boolean)
-        fun navigateToTitle(
-            item: PageTitle,
-            inNewTab: Boolean,
-            position: Int,
-            location: Location? = null
-        )
-
-        fun setSearchText(text: CharSequence)
-    }
 
     private var composeView: ComposeView? = null
-    private val viewModel: SearchResultsViewModel by viewModels()
+    private val viewModel: HybridSearchResultsViewModel by viewModels()
 
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
@@ -48,15 +34,22 @@ class HybridSearchResultsFragment : Fragment() {
             composeView = this
             setContent {
                 BaseTheme {
-                    SearchResultsScreen(
+                    HybridSearchResultsScreen(
                         viewModel = viewModel,
                         modifier = Modifier.fillMaxSize(),
                         onNavigateToTitle = { title, inNewTab, position, location ->
                             callback()?.navigateToTitle(title, inNewTab, position, location)
                         },
+                        onSemanticItemClick = { title, inNewTab, position, location ->
+                            // TODO: update the callback to navigate to the specific section
+                            callback()?.navigateToTitle(title, inNewTab, position, location)
+                        },
                         onItemLongClick = { view, searchResult, position ->
                             val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
-                            LongPressMenu(view, callback = SearchResultsFragmentLongPressHandler(position)).show(entry)
+                            LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
+                        },
+                        onInfoClick = {
+                            UriUtil.visitInExternalBrowser(requireActivity(), getString(org.wikipedia.R.string.hybrid_search_info_link).toUri())
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {
@@ -69,6 +62,9 @@ class HybridSearchResultsFragment : Fragment() {
                         },
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
+                        },
+                        onRatingClick = { isPositive ->
+                            // TODO: implement rating submission
                         }
                     )
                 }
@@ -97,8 +93,8 @@ class HybridSearchResultsFragment : Fragment() {
         }
     }
 
-    private fun callback(): Callback? {
-        return getCallback(this, Callback::class.java)
+    private fun callback(): SearchResultCallback? {
+        return getCallback(this, SearchResultCallback::class.java)
     }
 
     fun setInvokeSource(invokeSource: Constants.InvokeSource) {
@@ -108,27 +104,6 @@ class HybridSearchResultsFragment : Fragment() {
     private val searchLanguageCode
         get() =
             if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.instance.languageState.appLanguageCode
-
-    private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) :
-        LongPressMenu.Callback {
-        override fun onOpenLink(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, false, lastPositionRequested)
-        }
-
-        override fun onOpenInNewTab(entry: HistoryEntry) {
-            callback()?.navigateToTitle(entry.title, true, lastPositionRequested)
-        }
-
-        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-            callback()?.onSearchAddPageToList(entry, addToDefault)
-        }
-
-        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-            page.let {
-                callback()?.onSearchMovePageToList(page!!.listId, entry)
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -40,7 +40,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
@@ -257,7 +257,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             if (!isAdded) {
                 return@postDelayed
             }
-            searchResultsFragment.startSearch(term, force)
+            when (activePanel) {
+                PANEL_SEARCH_RESULTS -> {
+                    searchResultsFragment.startSearch(term, force)
+                }
+                PANEL_HYBRID_SEARCH_RESULTS -> {
+                    hybridSearchResultsFragment.startSearch(term, force)
+                }
+            }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 

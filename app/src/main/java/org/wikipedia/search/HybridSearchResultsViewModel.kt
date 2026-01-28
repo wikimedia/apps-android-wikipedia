@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import org.wikipedia.Constants
-import org.wikipedia.util.UiState
 
 class HybridSearchResultsViewModel : ViewModel() {
 
@@ -30,9 +29,6 @@ class HybridSearchResultsViewModel : ViewModel() {
 
     private var _languageCode = MutableStateFlow<String?>(null)
     var languageCode = _languageCode.asStateFlow()
-
-    private var _searchResultsState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
-    val searchResultsState = _searchResultsState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
