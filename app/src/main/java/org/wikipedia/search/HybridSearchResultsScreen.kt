@@ -9,9 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -318,33 +316,34 @@ fun SemanticSearchResultPageItem(
         ),
         colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
-        ) {
+        Column {
             // TODO: need to check if the snippet is empty?
-            HtmlText(
+            Box(
                 modifier = Modifier.clickable {
-                        onSemanticItemClick()
+                    onSemanticItemClick()
+                }
+            ) {
+                HtmlText(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                    linkStyle = TextLinkStyles(
+                        style = SpanStyle(
+                            color = WikipediaTheme.colors.progressiveColor,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 16.sp
+                        )
+                    ),
+                    text = buildString {
+                        append(searchResult.snippet.orEmpty())
+                        append("…")
+                        append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
                     },
-                linkStyle = TextLinkStyles(
-                    style = SpanStyle(
-                        color = WikipediaTheme.colors.progressiveColor,
-                        fontWeight = FontWeight.Medium,
-                        fontSize = 16.sp
-                    )
-                ),
-                text = buildString {
-                    append(searchResult.snippet.orEmpty())
-                    append("…")
-                    append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
-                },
-                style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.primaryColor
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
 
             Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
@@ -384,55 +383,57 @@ fun SemanticSearchResultPageItem(
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
             HorizontalDivider(
-                modifier = Modifier.width(48.dp),
+                modifier = Modifier.width(48.dp).padding(horizontal = 16.dp),
                 thickness = 0.5.dp,
                 color = WikipediaTheme.colors.borderColor
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        onArticleItemClick()
-                    },
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column(
-                    modifier = Modifier.padding(end = 16.dp)
-                        .weight(1f)
-                ) {
-                    HtmlText(
-                        text = searchResult.pageTitle.displayText,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                    Text(
-                        text = searchResult.pageTitle.description.orEmpty(),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = WikipediaTheme.colors.placeholderColor
-                    )
+            Box(
+                modifier = Modifier.clickable {
+                    onArticleItemClick()
                 }
-                val request =
-                    ImageService.getRequest(
-                        LocalContext.current,
-                        url = searchResult.pageTitle.thumbUrl
-                    )
-                AsyncImage(
-                    model = request,
-                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
+            ) {
+                Row(
                     modifier = Modifier
-                        .size(56.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                )
+                        .padding(horizontal = 16.dp, vertical = 16.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(
+                        modifier = Modifier.padding(end = 16.dp)
+                            .weight(1f)
+                    ) {
+                        HtmlText(
+                            text = searchResult.pageTitle.displayText,
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Text(
+                            text = searchResult.pageTitle.description.orEmpty(),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = WikipediaTheme.colors.placeholderColor
+                        )
+                    }
+                    if (!searchResult.pageTitle.thumbUrl.isNullOrEmpty()) {
+                        val request =
+                            ImageService.getRequest(
+                                LocalContext.current,
+                                url = searchResult.pageTitle.thumbUrl
+                            )
+                        AsyncImage(
+                            model = request,
+                            placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                            error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                            contentScale = ContentScale.Crop,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(56.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                        )
+                    }
+                }
             }
         }
     }
