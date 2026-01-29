@@ -145,6 +145,7 @@ fun HybridSearchResultsScreen(
 
                 else -> {
                     HybridSearchResultsList(
+                        testGroup = viewModel.getTestGroup,
                         searchResultsPage = searchResults,
                         semanticSearchResultPage = semanticSearchResults,
                         searchTerm = searchTerm.value,
@@ -162,6 +163,7 @@ fun HybridSearchResultsScreen(
 
 @Composable
 fun HybridSearchResultsList(
+    testGroup: String,
     searchResultsPage: LazyPagingItems<SearchResult>,
     semanticSearchResultPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
@@ -174,20 +176,22 @@ fun HybridSearchResultsList(
     LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(
-            count = searchResultsPage.itemCount
-        ) { index ->
-            searchResultsPage[index]?.let { result ->
-                SearchResultPageItem(
-                    searchResultPage = result,
-                    searchTerm = searchTerm,
-                    onItemClick = {
-                        onItemClick(result.pageTitle, false, index, result.location)
-                    },
-                    onItemLongClick = { view ->
-                        onItemLongClick(view, result, index)
-                    }
-                )
+        if (testGroup == "a" || testGroup == "b") {
+            items(
+                count = searchResultsPage.itemCount
+            ) { index ->
+                searchResultsPage[index]?.let { result ->
+                    SearchResultPageItem(
+                        searchResultPage = result,
+                        searchTerm = searchTerm,
+                        onItemClick = {
+                            onItemClick(result.pageTitle, false, index, result.location)
+                        },
+                        onItemLongClick = { view ->
+                            onItemLongClick(view, result, index)
+                        }
+                    )
+                }
             }
         }
 
@@ -224,6 +228,32 @@ fun HybridSearchResultsList(
                             }
                         )
                     }
+                }
+            }
+        }
+
+        if (testGroup == "c") {
+            item {
+                HorizontalDivider(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                    thickness = 0.5.dp,
+                    color = WikipediaTheme.colors.borderColor
+                )
+            }
+            items(
+                count = searchResultsPage.itemCount
+            ) { index ->
+                searchResultsPage[index]?.let { result ->
+                    SearchResultPageItem(
+                        searchResultPage = result,
+                        searchTerm = searchTerm,
+                        onItemClick = {
+                            onItemClick(result.pageTitle, false, index, result.location)
+                        },
+                        onItemLongClick = { view ->
+                            onItemLongClick(view, result, index)
+                        }
+                    )
                 }
             }
         }
