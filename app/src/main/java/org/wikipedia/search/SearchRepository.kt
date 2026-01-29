@@ -11,6 +11,7 @@ interface SearchRepository<T> {
         batchSize: Int = 0,
         isPrefixSearch: Boolean = true,
         countsPerLanguageCode: MutableList<Pair<String, Int>> = mutableListOf(),
-        searchInLanguages: Boolean = true
+        searchInLanguages: Boolean = true,
+        isHybridSearch: Boolean = false
     ): T
 }

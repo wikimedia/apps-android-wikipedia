@@ -65,7 +65,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
             if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
-                // TODO: navigate to deep search screen with search term as queryText
+                onSemanticSearchClick(queryText)
             }
             return true
         }
@@ -193,13 +193,13 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery(text, false)
+        binding.searchCabView.setQuery("", true) // HACK: reset and do research
+        binding.searchCabView.setQuery(text, true)
     }
 
     override fun onSemanticSearchClick(text: CharSequence) {
-        // TODO: verify this
-        setSearchText(text)
         showPanel(PANEL_HYBRID_SEARCH_RESULTS)
+        startSearch(text.toString(), true)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {

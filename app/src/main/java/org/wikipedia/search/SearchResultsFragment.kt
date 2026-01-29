@@ -15,6 +15,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.util.StringUtil
 
 class SearchResultsFragment : Fragment() {
 
@@ -43,7 +44,7 @@ class SearchResultsFragment : Fragment() {
                             LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                         },
                         onSemanticSearchClick = {
-                            callback()?.onSemanticSearchClick(it)
+                            callback()?.setSearchText(StringUtil.fromHtml(it))
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {

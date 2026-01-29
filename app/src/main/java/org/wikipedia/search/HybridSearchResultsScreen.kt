@@ -188,7 +188,7 @@ fun HybridSearchResultsList(
         // Semantic search header
         item {
             SemanticSearchResultHeader(
-                modifier = Modifier.padding(vertical = 8.dp),
+                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
                 results = List(semanticSearchResultPage.itemCount) { index ->
                     semanticSearchResultPage[index]!!
                 },
@@ -200,7 +200,9 @@ fun HybridSearchResultsList(
 
         // Semantic search results - horizontal LazyRow
         item {
-            LazyRow {
+            LazyRow(
+                modifier = Modifier.padding(horizontal = 8.dp)
+            ) {
                 items(
                     count = semanticSearchResultPage.itemCount
                 ) { index ->
@@ -302,8 +304,8 @@ fun SemanticSearchResultPageItem(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+            .width(292.dp)
+            .padding(8.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         border = BorderStroke(
@@ -313,9 +315,9 @@ fun SemanticSearchResultPageItem(
         colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
     ) {
         Column(
-            modifier = Modifier.padding(20.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
-            // TODO: need to check if the extract is empty?
+            // TODO: need to check if the snippet is empty?
             HtmlText(
                 modifier = Modifier.clickable {
                         onSemanticItemClick()
@@ -328,7 +330,7 @@ fun SemanticSearchResultPageItem(
                     )
                 ),
                 text = buildString {
-                    append(searchResult.pageTitle.extract.orEmpty())
+                    append(searchResult.snippet.orEmpty())
                     append("…")
                     append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
                 },
@@ -389,6 +391,7 @@ fun SemanticSearchResultPageItem(
             ) {
                 Column(
                     modifier = Modifier.padding(end = 16.dp)
+                        .weight(1f)
                 ) {
                     HtmlText(
                         text = searchResult.pageTitle.displayText,
@@ -447,14 +450,18 @@ private fun SemanticSearchResultPageItemPreview() {
     val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
     val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
         description = "American singer, songwriter, and actress"
-        extract =
-            "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
     }
+    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
         SemanticSearchResultPageItem(
-            searchResult = SearchResult(pageTitle, SearchResult.SearchResultType.SEMANTIC),
+            searchResult = SearchResult(
+                pageTitle = pageTitle,
+                searchResultType = SearchResult.SearchResultType.SEMANTIC,
+                snippet = snippet
+            ),
             onSemanticItemClick = {},
             onArticleItemClick = {},
             onRatingClick = {}

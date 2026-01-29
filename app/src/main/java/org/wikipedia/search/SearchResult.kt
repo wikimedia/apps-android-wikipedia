@@ -10,7 +10,8 @@ import org.wikipedia.page.PageTitle
 data class SearchResult(val pageTitle: PageTitle,
                         val redirectFrom: String?,
                         val type: SearchResultType,
-                        val coordinates: List<MwQueryPage.Coordinates>? = null) {
+                        val coordinates: List<MwQueryPage.Coordinates>? = null,
+                        val snippet: String? = null) {
 
     @Serializable
     enum class SearchResultType {
@@ -27,16 +28,17 @@ data class SearchResult(val pageTitle: PageTitle,
             text = page.title,
             wiki = wiki,
             thumbUrl = page.thumbUrl(),
-            description = page.description.orEmpty().ifEmpty { page.snippet },
-            displayText = page.displayTitle(wiki.languageCode)
+            description = page.description,
+            displayText = page.displayTitle(wiki.languageCode),
         ),
         redirectFrom = page.redirectFrom,
         type = type,
-        coordinates = coordinates
+        coordinates = coordinates,
+        snippet = page.snippet
     )
 
-    constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.SEARCH) :
-            this(pageTitle, null, searchResultType)
+    constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.SEARCH, snippet: String? = null) :
+            this(pageTitle, null, searchResultType, null, snippet)
 
     val location: Location? get() {
         return if (coordinates.isNullOrEmpty()) null else

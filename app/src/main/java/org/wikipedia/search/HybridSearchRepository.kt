@@ -14,7 +14,8 @@ class HybridSearchRepository : SearchRepository<HybridSearchResults> {
         batchSize: Int,
         isPrefixSearch: Boolean,
         countsPerLanguageCode: MutableList<Pair<String, Int>>,
-        searchInLanguages: Boolean
+        searchInLanguages: Boolean,
+        isHybridSearch: Boolean
     ): HybridSearchResults {
 
         val wikiSite = WikiSite.forLanguageCode(languageCode)
@@ -34,7 +35,7 @@ class HybridSearchRepository : SearchRepository<HybridSearchResults> {
         return response.query?.pages?.let { list ->
             (if (invokeSource == Constants.InvokeSource.PLACES)
                 list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResult(it.apply{
+                .map { SearchResult(it.apply {
                     // TODO: remove when the real snippet is available from the API
                     snippet = "Some jurisdictions require \"fixing\" copyrighted works in a tangible form. It is often shared among multiple authors, each of whom holds a set of rights to use or license the work, and who are commonly referred to as rights holders."
                 }, wikiSite, it.coordinates, SearchResult.SearchResultType.SEARCH) }
