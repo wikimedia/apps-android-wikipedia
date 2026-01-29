@@ -42,6 +42,7 @@
 * Hal9000wopr
 * Harvest
 * Ihojose
+* ImMrCarZigzag
 * Izamo
 * JO777
 * Jackiezelaya
@@ -1976,7 +1977,7 @@
   <string name="settings_app_icon_updated">Tu lista de seguimiento se ha actualizado.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nuevo ícono de aplicación desbloqueado para tu pantalla de inicio</string>
   <string name="year_in_review_slide_app_icon_title_unlock">¡Desbloquea tu recompensa de colaborador para el próximo año!</string>
-  <string name="year_in_review_slide_app_icon_body_unlocked" fuzzy="true">Activa tu nuevo icono de la aplicación en Ajustes, bajo Icono de la aplicación. Gracias por invertir en el futuro del conocimiento libre. Tus contribuciones como %1$s en %2$d están ayudando a allanar el camino hacia un mundo de información libre e, incluso, has desbloqueado un icono de colaborador personalizado para Wikipedia en tu pantalla de inicio.</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Activa tu nuevo icono de la aplicación en Ajustes, bajo Icono de la aplicación. Gracias por invertir en el futuro del conocimiento libre. Tus contribuciones como %1$s en %2$d están ayudando a allanar el camino hacia un mundo de información libre y cómo resultado has desbloqueado un icono de colaborador personalizado para Wikipedia en tu pantalla de inicio.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">¡Nos alegra que Wikipedia haya formado parte de tu %1$d! Consigue una recompensa especial en tu Resumen del Año %2$d contribuyéndote, ya sea &lt;a href=\"%3$s\"&gt;editando Wikipedia&lt;/a&gt; o donando desde la app a la &lt;a href=\"%4$s\"&gt;Fundación Wikimedia&lt;/a&gt;, la organización sin ánimo de lucro que la respalda. Si Wikipedia te resulta útil, considera donar para ayudar a mantenerla gratuita, sin publicidad, fiable y accesible para todos. Si donaste a otra plataforma, te agradecemos enormemente tu apoyo.</string>
   <string name="year_in_review_slide_app_icon_donor">un donante</string>
   <string name="year_in_review_slide_app_icon_editor">un editor</string>
@@ -2006,6 +2007,8 @@
     <item quantity="one">Recientemente tu edición fue vista más de %,d veces</item>
     <item quantity="other">Recientemente tus ediciones fueron vistas más de %,d veces</item>
   </plurals>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Mes en el que más leíste</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Mediodía</string>
   <string name="recommended_reading_list_title">Descubrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Descubre artículos seleccionados especialmente para ti</string>
   <string name="recommended_reading_list_onboarding_card_message">Lista de lectura semanal de artículos de Wikipedia, seleccionada especialmente para ti.</string>
