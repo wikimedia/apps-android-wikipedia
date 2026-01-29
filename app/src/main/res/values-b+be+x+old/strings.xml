@@ -225,7 +225,7 @@
   <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
-  <string name="about_translators_heading">Перакладчыкі</string>
+  <string name="about_translators_heading">Перакладнікі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>

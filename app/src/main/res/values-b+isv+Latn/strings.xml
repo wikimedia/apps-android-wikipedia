@@ -2,6 +2,7 @@
 <!-- Authors:
 * IJzeren Jan
 * SaldırganSincap
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -1997,7 +1998,7 @@
     <item quantity="one">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčeny članok anglijskoj Vikipedije byl: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
     <item quantity="few">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
     <item quantity="many">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$dajčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
-    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br/&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Vaša pravka byla prěgleděna ponad %,d-kratno ili veče v poslědnjem času</item>

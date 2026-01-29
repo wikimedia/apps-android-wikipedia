@@ -1714,9 +1714,37 @@
   <string name="on_this_day_game_sound_off">Vypnout zvuk</string>
   <string name="year_in_review_learn_more">Další informace</string>
   <string name="year_in_review_get_started">Začít</string>
+  <string name="year_in_review_donate">Přispět</string>
   <string name="year_in_review_get_started_headline">Prozkoumejte svůj Rok na Wikipedii</string>
+  <string name="year_in_review_get_started_bodytext">Zobrazte přehled článků, které jste četli v aplikaci Wikipedia, a editací, které jste provedli.</string>
+  <string name="year_in_review_get_started_info">Vaše historie čtení je chráněna. Statistiky čtení se vypočítávají na základě dat uložených lokálně ve vašem zařízení.</string>
   <string name="year_in_review_share_subject">Můj rok na Wikipedii</string>
   <string name="year_in_review_share_body">Tady je Můj rok na Wikipedii. Vytvořeno pomocí aplikace Wikipedie pro Android %1$s %2$s</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">Váš nejoblíbenější článek</item>
+    <item quantity="few">Vaše nejoblíbenější články</item>
+    <item quantity="many">Vaše nejoblíbenější články</item>
+    <item quantity="other">Vaše nejoblíbenější články</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_patterns_headline">Máte jasné čtenářské návyky</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Oblíbený čas na čtení</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Oblíbený den na čtení</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Měsíc, ve kterém jste četli nejvíce</string>
+  <string name="year_in_review_slide_reading_pattern_morning">ráno</string>
+  <string name="year_in_review_slide_reading_pattern_evening">večer</string>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">Strávili jste %,d minutu</item>
+    <item quantity="few">Strávili jste %,d minuty</item>
+    <item quantity="many">Strávili jste %,d minuty</item>
+    <item quantity="other">Strávili jste %,d minut</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">čtením\n%1$,d článku v %2$d</item>
+    <item quantity="few">čtením\n%1$,d článků v %2$d</item>
+    <item quantity="many">čtením\n%1$,d článku v %2$d</item>
+    <item quantity="other">čtením\n%1$,d článků v %2$d</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Oblíbený den na čtení</string>
   <string name="recommended_reading_list_title">Objevit</string>
   <string name="recommended_reading_list_onboarding_card_title">Objevte články vybrané právě pro vás</string>
   <string name="recommended_reading_list_onboarding_card_message">Váš týdenní seznam článků na Wikipedii, sestavený právě pro vás.</string>
