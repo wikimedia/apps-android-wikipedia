@@ -134,7 +134,6 @@ fun HybridSearchResultsScreen(
                 }
 
                 else -> {
-                    // TODO: hybrid search: two lazy columns
                     HybridSearchResultsList(
                         searchResultsPage = searchResults,
                         semanticSearchResultPage = semanticSearchResults,
@@ -165,7 +164,6 @@ fun HybridSearchResultsList(
     LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Standard search results
         items(
             count = searchResultsPage.itemCount
         ) { index ->
@@ -183,7 +181,6 @@ fun HybridSearchResultsList(
             }
         }
 
-        // Semantic search header
         item {
             SemanticSearchResultHeader(
                 modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
@@ -196,7 +193,6 @@ fun HybridSearchResultsList(
             )
         }
 
-        // Semantic search results - horizontal LazyRow
         item {
             LazyRow(
                 modifier = Modifier.padding(horizontal = 8.dp)
