@@ -27,7 +27,7 @@ data class SearchResult(val pageTitle: PageTitle,
             text = page.title,
             wiki = wiki,
             thumbUrl = page.thumbUrl(),
-            description = page.description ?: page.snippet,
+            description = page.description.orEmpty().ifEmpty { page.snippet },
             displayText = page.displayTitle(wiki.languageCode)
         ),
         redirectFrom = page.redirectFrom,
