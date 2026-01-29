@@ -26,6 +26,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -92,8 +96,11 @@ fun HybridSearchResultsScreen(
             (semanticLoadState.refresh is LoadState.Loading) ||
             (semanticLoadState.append is LoadState.Loading)
 
-    LaunchedEffect(isLoading) {
-        onLoading(isLoading)
+    var showSkeletonLoader by remember { mutableStateOf(true) }
+    LaunchedEffect(isLoading, showSkeletonLoader) {
+        if (showSkeletonLoader) {
+            onLoading(isLoading)
+        }
     }
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
@@ -102,7 +109,10 @@ fun HybridSearchResultsScreen(
         ) {
             // TODO: think about merging the load states of both sources
             when {
-                (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {} // when offline prevents UI from loading old list
+                (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {
+                    showSkeletonLoader = false
+                    HybridSearchSkeletonLoader(viewModel.getTestGroup)
+                } // when offline prevents UI from loading old list
 
                 (searchLoadState.refresh is LoadState.Error) || (semanticLoadState.refresh is LoadState.Error) -> {
                     val error = when {

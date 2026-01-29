@@ -32,6 +32,8 @@ class HybridSearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
+    val getTestGroup get() = HybridSearchAbTest().getGroupName()
+    val isHybridSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
