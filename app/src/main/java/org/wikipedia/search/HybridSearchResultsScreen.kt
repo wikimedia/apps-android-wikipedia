@@ -1,0 +1,484 @@
+package org.wikipedia.search
+
+import android.location.Location
+import android.view.View
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.BrushPainter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
+import coil3.compose.AsyncImage
+import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
+import org.wikipedia.theme.Theme
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.views.imageservice.ImageService
+
+@Composable
+fun HybridSearchResultsScreen(
+    modifier: Modifier = Modifier,
+    viewModel: HybridSearchResultsViewModel,
+    onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
+    onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onLanguageClick: (Int) -> Unit,
+    onInfoClick: () -> Unit,
+    onRatingClick: (Boolean) -> Unit,
+    onCloseSearch: () -> Unit,
+    onRetrySearch: () -> Unit,
+    onLoading: (Boolean) -> Unit
+) {
+    val searchResults = viewModel.standardSearchResultsFlow.collectAsLazyPagingItems()
+    val semanticSearchResults = viewModel.semanticSearchResultsFlow.collectAsLazyPagingItems()
+    val searchTerm = viewModel.searchTerm.collectAsState()
+
+    val searchLoadState = searchResults.loadState
+    val semanticLoadState = semanticSearchResults.loadState
+
+    val languageCode = viewModel.languageCode.collectAsState()
+    val layoutDirection =
+        if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
+
+    val isLoading = (searchLoadState.refresh is LoadState.Loading) ||
+            (searchLoadState.append is LoadState.Loading) ||
+            (semanticLoadState.refresh is LoadState.Loading) ||
+            (semanticLoadState.append is LoadState.Loading)
+
+    LaunchedEffect(isLoading) {
+        onLoading(isLoading)
+    }
+
+    CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
+        Box(
+            modifier = modifier
+        ) {
+            // TODO: think about merging the load states of both sources
+            when {
+                (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {} // when offline prevents UI from loading old list
+
+                (searchLoadState.refresh is LoadState.Error) || (semanticLoadState.refresh is LoadState.Error) -> {
+                    val error = when {
+                        searchLoadState.refresh is LoadState.Error -> (searchLoadState.refresh as LoadState.Error).error
+                        else -> (semanticLoadState.refresh as LoadState.Error).error
+                    }
+                    WikiErrorView(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .align(Alignment.Center),
+                        caught = error,
+                        errorClickEvents = WikiErrorClickEvents(
+                            backClickListener = { onCloseSearch() },
+                            retryClickListener = { onRetrySearch() }
+                        )
+                    )
+                }
+
+                // show empty state only when both sources finished and there are no items
+                (searchLoadState.append is LoadState.NotLoading && (searchLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
+                        (semanticLoadState.append is LoadState.NotLoading && (semanticLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
+                        searchResults.itemCount == 0 && semanticSearchResults.itemCount == 0 -> {
+                    // TODO: verify the empty state - update with multiple languages results
+                    NoSearchResults(
+                        countsPerLanguageCode = emptyList(),
+                        invokeSource = viewModel.invokeSource,
+                        onLanguageClick = onLanguageClick
+                    )
+                }
+
+                else -> {
+                    // TODO: hybrid search: two lazy columns
+                    HybridSearchResultsList(
+                        searchResultsPage = searchResults,
+                        semanticSearchResultPage = semanticSearchResults,
+                        searchTerm = searchTerm.value,
+                        onItemClick = onNavigateToTitle,
+                        onItemLongClick = onItemLongClick,
+                        onInfoClick = onInfoClick,
+                        onSemanticItemClick = onSemanticItemClick,
+                        onRatingClick = onRatingClick
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun HybridSearchResultsList(
+    searchResultsPage: LazyPagingItems<SearchResult>,
+    semanticSearchResultPage: LazyPagingItems<SearchResult>,
+    searchTerm: String?,
+    onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onInfoClick: () -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onRatingClick: (Boolean) -> Unit
+) {
+    LazyColumn(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Standard search results
+        items(
+            count = searchResultsPage.itemCount
+        ) { index ->
+            searchResultsPage[index]?.let { result ->
+                SearchResultPageItem(
+                    searchResultPage = result,
+                    searchTerm = searchTerm,
+                    onItemClick = {
+                        onItemClick(result.pageTitle, false, index, result.location)
+                    },
+                    onItemLongClick = { view ->
+                        onItemLongClick(view, result, index)
+                    }
+                )
+            }
+        }
+
+        // Semantic search header
+        item {
+            SemanticSearchResultHeader(
+                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
+                results = List(semanticSearchResultPage.itemCount) { index ->
+                    semanticSearchResultPage[index]!!
+                },
+                onInfoClick = {
+                    onInfoClick()
+                }
+            )
+        }
+
+        // Semantic search results - horizontal LazyRow
+        item {
+            LazyRow(
+                modifier = Modifier.padding(horizontal = 8.dp)
+            ) {
+                items(
+                    count = semanticSearchResultPage.itemCount
+                ) { index ->
+                    semanticSearchResultPage[index]?.let { result ->
+                        SemanticSearchResultPageItem(
+                            searchResult = result,
+                            onSemanticItemClick = {
+                                onSemanticItemClick(result.pageTitle, false, index, result.location)
+                            },
+                            onArticleItemClick = {
+                                onItemClick(result.pageTitle, false, index, result.location)
+                            },
+                            onRatingClick = { isPositive ->
+                                onRatingClick(isPositive)
+                            }
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SemanticSearchResultHeader(
+    modifier: Modifier = Modifier,
+    rephraseTitle: String? = null,
+    results: List<SearchResult>,
+    onInfoClick: () -> Unit
+) {
+    Column(
+        modifier = modifier
+    ) {
+        if (!rephraseTitle.isNullOrEmpty()) {
+            Text(
+                modifier = Modifier.padding(vertical = 16.dp),
+                text = rephraseTitle,
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold
+                )
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            val resultsCount = results.size
+            val articlesCount = results.distinctBy { it.pageTitle.prefixedText }.size
+            val headerText = stringResource(R.string.hybrid_search_results_header,
+                pluralStringResource(R.plurals.hybrid_search_results_header_result, resultsCount, resultsCount),
+                pluralStringResource(R.plurals.hybrid_search_results_header_article, articlesCount, articlesCount)
+            )
+            Text(
+                modifier = Modifier.padding(end = 12.dp),
+                text = headerText,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.Bold
+                )
+            )
+            Box(
+                modifier = Modifier
+                    .background(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        shape = RoundedCornerShape(size = 16.dp)
+                    )
+                    .padding(horizontal = 12.dp)
+            ) {
+                Text(
+                    text = stringResource(R.string.hybrid_search_results_header_beta_label).uppercase(),
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Normal,
+                    color = Color.White
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .size(48.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable { onInfoClick() }
+                    .padding(horizontal = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_information_icon)
+                )
+            }
+        }
+        Text(
+            text = stringResource(R.string.hybrid_search_results_header_description),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.placeholderColor
+        )
+    }
+}
+
+@Composable
+fun SemanticSearchResultPageItem(
+    searchResult: SearchResult,
+    onSemanticItemClick: () -> Unit,
+    onArticleItemClick: () -> Unit,
+    onRatingClick: (Boolean) -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .width(292.dp)
+            .padding(8.dp),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        ),
+        colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            // TODO: need to check if the snippet is empty?
+            HtmlText(
+                modifier = Modifier.clickable {
+                        onSemanticItemClick()
+                    },
+                linkStyle = TextLinkStyles(
+                    style = SpanStyle(
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 16.sp
+                    )
+                ),
+                text = buildString {
+                    append(searchResult.snippet.orEmpty())
+                    append("…")
+                    append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
+                },
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.hybrid_search_results_rate_label),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.placeholderColor
+                )
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { onRatingClick(true) }
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.ic_thumb_up),
+                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                        tint = WikipediaTheme.colors.placeholderColor
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { onRatingClick(false) }
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.ic_thumb_down),
+                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                        tint = WikipediaTheme.colors.placeholderColor
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            HorizontalDivider(
+                modifier = Modifier.width(48.dp),
+                thickness = 0.5.dp,
+                color = WikipediaTheme.colors.borderColor
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        onArticleItemClick()
+                    },
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(
+                    modifier = Modifier.padding(end = 16.dp)
+                        .weight(1f)
+                ) {
+                    HtmlText(
+                        text = searchResult.pageTitle.displayText,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
+                    Text(
+                        text = searchResult.pageTitle.description.orEmpty(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.placeholderColor
+                    )
+                }
+                val request =
+                    ImageService.getRequest(
+                        LocalContext.current,
+                        url = searchResult.pageTitle.thumbUrl
+                    )
+                AsyncImage(
+                    model = request,
+                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(56.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                )
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SemanticSearchResultHeaderPreview() {
+    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchResultHeader(
+            rephraseTitle = "Who is Beyoncé?",
+            results = listOf(
+                SearchResult(PageTitle("Beyoncé", wikiSite), SearchResult.SearchResultType.SEMANTIC),
+                SearchResult(PageTitle("Beyoncé", wikiSite), SearchResult.SearchResultType.SEMANTIC),
+                SearchResult(PageTitle("Beyoncé Knowles", wikiSite), SearchResult.SearchResultType.SEMANTIC),
+                SearchResult(PageTitle("Beyoncé (album)", wikiSite), SearchResult.SearchResultType.SEMANTIC)
+            ),
+            onInfoClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SemanticSearchResultPageItemPreview() {
+    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
+        description = "American singer, songwriter, and actress"
+    }
+    val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
+
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        SemanticSearchResultPageItem(
+            searchResult = SearchResult(
+                pageTitle = pageTitle,
+                searchResultType = SearchResult.SearchResultType.SEMANTIC,
+                snippet = snippet
+            ),
+            onSemanticItemClick = {},
+            onArticleItemClick = {},
+            onRatingClick = {}
+        )
+    }
+}

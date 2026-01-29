@@ -20,7 +20,9 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         continuation: Int?,
         batchSize: Int,
         isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>
+        countsPerLanguageCode: MutableList<Pair<String, Int>>,
+        searchInLanguages: Boolean,
+        isHybridSearch: Boolean
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
         val resultList = mutableListOf<SearchResult>()
@@ -28,7 +30,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         var currentContinuation = continuation
 
         if (isPrefixSearch) {
-            if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
+            if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES && !isHybridSearch) {
                 withContext(Dispatchers.IO) {
                     listOf(async {
                         getSearchResultsFromTabs(wikiSite, searchTerm)
@@ -45,25 +47,17 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             currentContinuation = 0
         }
 
-        resultList.addAll(response?.query?.pages?.let { list ->
-            (if (invokeSource == Constants.InvokeSource.PLACES)
-                list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResult(it, wikiSite, it.coordinates) }
-        } ?: emptyList())
+        resultList.addAll(buildList(response, invokeSource, wikiSite))
 
         if (resultList.size < batchSize) {
             response = ServiceFactory.get(wikiSite)
                 .fullTextSearch(searchTerm, batchSize, currentContinuation)
             currentContinuation = response.continuation?.gsroffset
 
-            resultList.addAll(response.query?.pages?.let { list ->
-                (if (invokeSource == Constants.InvokeSource.PLACES)
-                    list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                    .map { SearchResult(it, wikiSite, it.coordinates) }
-            } ?: emptyList())
+            resultList.addAll(buildList(response, invokeSource, wikiSite))
         }
 
-        if (resultList.isEmpty() && response?.continuation == null) {
+        if (searchInLanguages && resultList.isEmpty() && response?.continuation == null && !isHybridSearch) {
             countsPerLanguageCode.clear()
             WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                 var countResultSize = 0
@@ -98,6 +92,18 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             }
         }
         return SearchResults()
+    }
+
+    private fun buildList(
+        response: MwQueryResponse?,
+        invokeSource: Constants.InvokeSource,
+        wikiSite: WikiSite
+    ): List<SearchResult> {
+        return response?.query?.pages?.let { list ->
+            (if (invokeSource == Constants.InvokeSource.PLACES)
+                list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                .map { SearchResult(it, wikiSite, it.coordinates) }
+        } ?: emptyList()
     }
 }
 
