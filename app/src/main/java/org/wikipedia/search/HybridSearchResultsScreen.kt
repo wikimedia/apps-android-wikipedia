@@ -276,16 +276,20 @@ fun SemanticSearchResultHeader(
                     color = Color.White
                 )
             }
-            Icon(
+            Box(
                 modifier = Modifier
-                    .padding(horizontal = 12.dp)
-                    .clickable {
-                        onInfoClick()
-                    },
-                painter = painterResource(R.drawable.ic_info_outline_black_24dp),
-                tint = WikipediaTheme.colors.primaryColor,
-                contentDescription = stringResource(R.string.year_in_review_information_icon)
-            )
+                    .size(48.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .clickable { onInfoClick() }
+                    .padding(horizontal = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_info_outline_black_24dp),
+                    tint = WikipediaTheme.colors.primaryColor,
+                    contentDescription = stringResource(R.string.year_in_review_information_icon)
+                )
+            }
         }
         Text(
             text = stringResource(R.string.hybrid_search_results_header_description),
@@ -348,26 +352,36 @@ fun SemanticSearchResultPageItem(
                     style = MaterialTheme.typography.bodySmall,
                     color = WikipediaTheme.colors.placeholderColor
                 )
-                Spacer(modifier = Modifier.width(16.dp))
-                Icon(
-                    modifier = Modifier.size(16.dp)
-                        .clickable {
-                            onRatingClick(true)
-                        },
-                    painter = painterResource(R.drawable.ic_thumb_up),
-                    contentDescription = null,
-                    tint = Color.Gray
-                )
-                Spacer(modifier = Modifier.width(24.dp))
-                Icon(
-                    modifier = Modifier.size(16.dp)
-                        .clickable {
-                            onRatingClick(false)
-                        },
-                    painter = painterResource(R.drawable.ic_thumb_down),
-                    contentDescription = null,
-                    tint = Color.Gray
-                )
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { onRatingClick(true) }
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.ic_thumb_up),
+                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                        tint = WikipediaTheme.colors.placeholderColor
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(48.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { onRatingClick(false) }
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        modifier = Modifier.size(16.dp),
+                        painter = painterResource(R.drawable.ic_thumb_down),
+                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                        tint = WikipediaTheme.colors.placeholderColor
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
