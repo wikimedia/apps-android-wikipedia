@@ -236,7 +236,8 @@ fun SemanticSearchResultHeader(
                 text = rephraseTitle,
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
-                )
+                ),
+                color = WikipediaTheme.colors.primaryColor
             )
         }
         Row(
@@ -253,7 +254,8 @@ fun SemanticSearchResultHeader(
                 text = headerText,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
-                )
+                ),
+                color = WikipediaTheme.colors.primaryColor
             )
             Box(
                 modifier = Modifier
