@@ -47,7 +47,7 @@ swiperefreshlayout = "1.2.0"
 uiautomator = "2.3.0"
 viewpager2 = "1.1.0"
 workRuntimeKtx = "2.11.0"
-composeBom = "2026.01.00"
+composeBom = "2026.01.01"
 composeActivity = "1.12.3"
 composeViewModel = "2.10.0"
 
