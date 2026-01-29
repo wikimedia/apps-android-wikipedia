@@ -75,6 +75,7 @@ class SearchResultsViewModel : ViewModel() {
         private val searchInLanguages: Boolean = true,
         private var invokeSource: Constants.InvokeSource,
         private val repository: SearchRepository<StandardSearchResults>,
+        private val isFixedSize: Boolean = false
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -97,7 +98,7 @@ class SearchResultsViewModel : ViewModel() {
                 return LoadResult.Page(
                     result.results,
                     null,
-                    result.continuation
+                    if (isFixedSize) null else result.continuation
                 )
             } catch (e: CancellationException) {
                 throw e

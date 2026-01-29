@@ -188,6 +188,7 @@ fun HybridSearchResultsList(
         // Semantic search header
         item {
             SemanticSearchResultHeader(
+                modifier = Modifier.padding(vertical = 8.dp),
                 results = List(semanticSearchResultPage.itemCount) { index ->
                     semanticSearchResultPage[index]!!
                 },
@@ -235,7 +236,7 @@ fun SemanticSearchResultHeader(
     ) {
         if (!rephraseTitle.isNullOrEmpty()) {
             Text(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(vertical = 16.dp),
                 text = rephraseTitle,
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
@@ -252,7 +253,7 @@ fun SemanticSearchResultHeader(
                 pluralStringResource(R.plurals.hybrid_search_results_header_article, articlesCount, articlesCount)
             )
             Text(
-                modifier = Modifier.padding(horizontal = 16.dp),
+                modifier = Modifier.padding(end = 12.dp),
                 text = headerText,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold
@@ -284,6 +285,11 @@ fun SemanticSearchResultHeader(
                 contentDescription = stringResource(R.string.year_in_review_information_icon)
             )
         }
+        Text(
+            text = stringResource(R.string.hybrid_search_results_header_description),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.placeholderColor
+        )
     }
 }
 
@@ -381,7 +387,9 @@ fun SemanticSearchResultPageItem(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
+                Column(
+                    modifier = Modifier.padding(end = 16.dp)
+                ) {
                     HtmlText(
                         text = searchResult.pageTitle.displayText,
                         style = MaterialTheme.typography.bodyLarge,
