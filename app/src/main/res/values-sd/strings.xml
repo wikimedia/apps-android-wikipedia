@@ -21,10 +21,15 @@
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
   <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
+  <string name="search_back_button_content_description">واپس وڃو</string>
+  <string name="search_clear_query_content_description">پڇا ختم ڪيو</string>
+  <string name="search_icon_content_description">ڳوليو</string>
   <string name="filter_hint_filter_my_lists_and_articles">منھنجون فھرستون ڇانڊيو</string>
   <string name="nav_item_suggested_edits">سنوارون</string>
+  <string name="nav_item_activity">سرگرمي</string>
   <string name="nav_item_more">وڌيڪ</string>
   <string name="nav_item_search">ڳولا</string>
+  <string name="nav_item_contribute">ڀاڱيداري ڪريو</string>
   <string name="error_network_error">انٽرنيٽ ميسر ناھي</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="card_offline_error_retry">ٻيهر ڪوشش ڪريو</string>
@@ -34,7 +39,7 @@
   <string name="page_error_back_to_main">پوئتي وڃو</string>
   <string name="error_back">پوئتي وڃو</string>
   <string name="error_next">اڳيون</string>
-  <string name="menu_clear_all_history" fuzzy="true">سوانح ڊاهيو</string>
+  <string name="menu_clear_all_history">پڙهڻ جي سوانح مٽايو</string>
   <string name="history_item_deleted">%s کي سوانح مان ڪڍيو ويو</string>
   <string name="history_items_deleted">سوانح مان %d مضمون ڪڍيا ويا</string>
   <string name="history_item_delete_undo">اڻڪريو</string>
@@ -47,7 +52,7 @@
   <string name="wikimedia_commons">وڪيميڊيا العام</string>
   <string name="wikidata">وڪيڊيٽا</string>
   <string name="dialog_title_clear_history">برائوزر سوانح مٽايو</string>
-  <string name="dialog_message_clear_history" fuzzy="true">ھن سان توھان جي ڳوليل ھر شئي ختم ٿي ويندي، ۽ ھاڻوڪي کليل ٽيب بند ٿي ويندي. ڇا توهان مطمئن آهيو؟</string>
+  <string name="dialog_message_clear_history">هي توهان جي سڄي برائوزنگ سوانح ختم ڪري ڇڏيندو. ڇا توهان پڪ ڪريو ٿا؟</string>
   <string name="dialog_message_clear_history_yes">ھا</string>
   <string name="dialog_message_clear_history_no">نہ</string>
   <string name="share_via">ونڊيو بذريعہ</string>
@@ -60,7 +65,7 @@
   <string name="page_edit_history_filter_by">جي لحاظ سان ڇاڻيو</string>
   <string name="page_edit_history_filter_by_all">سڀ سنوارون (%s)</string>
   <string name="page_edit_history_filter_by_user">واپرائيندڙ جون سنوارون (%s)</string>
-  <string name="page_edit_history_filter_by_anon" fuzzy="true">اڻڄاتل سنوارون (%s)</string>
+  <string name="page_edit_history_filter_by_anon">غير رجسٽر ٿيل سنوارون ( %s )</string>
   <string name="page_edit_history_filter_by_bot">بوٽ سنوارون (%s)</string>
   <string name="page_edit_history_metrics_content_description">ميٽرڪس %1$s کان %2$s تائين</string>
   <plurals name="page_edit_history_article_edits_since_year">
@@ -99,6 +104,7 @@
   <string name="menu_page_recently_viewed">تازو ڏٺل</string>
   <string name="menu_page_archive">آرڪائيو</string>
   <string name="menu_long_press_open_page">کوليو</string>
+  <string name="menu_long_press_open_in_places">جڳھن ۾ کوليو</string>
   <string name="menu_long_press_open_in_new_tab">نئين ٽيب ۾ کوليو</string>
   <string name="menu_long_press_copy_page">ڳنڍڻو نقل ڪريو</string>
   <string name="menu_text_select_define">وصف ٻڌايو</string>
@@ -131,6 +137,10 @@
   <string name="dialog_message_leaving_edit">توهان جون ڪيل سنوارون اڃا ڇپيون ناھن ويون. توهان کي پڪ آهي تہ توهان هيءُ صفحو ڇڏي وڃڻ گھرو ٿا؟</string>
   <string name="dialog_message_leaving_edit_leave">نڪرو</string>
   <string name="dialog_message_leaving_edit_stay">ترسو</string>
+  <string name="dialog_confirm_delete_donation_history_title">ڊاھڻ جي تصديق ڪريو</string>
+  <string name="dialog_confirm_delete_donation_history_message">هي صرف هن ڊوائيس مان ڪيل عطين تي لاڳو ٿيندو.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">ڊاھيو</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">رد ڪريو</string>
   <string name="menu_show_toc">عنوانن جي فھرست</string>
   <string name="search_no_results_found">ڪي بہ نتيجا نہ لڌا</string>
   <string name="search_reading_list_no_results">\"%s\" ۾ ڪي بہ نتيجا نہ لڌا</string>
@@ -145,8 +155,9 @@
   <string name="login_username_hint">واپرائيندڙنانءُ</string>
   <string name="login_password_hint">ڳجهولفظ</string>
   <string name="account_creation_password_hint">ڳجهولفظ</string>
-  <string name="login_2fa_hint" fuzzy="true">ٻہ-مرحلا تصديق ڪوڊ</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">ٻہ مرحلا تصديق گھربل آھي!\nمھرباني ڪري مک سرگرمي ڏاڻھن وڃو، ۽ پنھنجي ٻہ مرحلا تصديق واري ٽوڪن سان داخل ٿي، ٻيھر ڪوشش ڪيو.</string>
+  <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
+  <string name="login_2fa_other_workflow_error_msg">ٻہ-مرحلا تصديق جي ضرورت آهي! مھرباني ڪري مکيہ اسڪرين تان لاگ ان ٿيو، ۽ پنھنجي 2FA ٽوڪن مان ڪوڊ داخل ڪريو.</string>
+  <string name="login_email_auth_hint">اي ميل تصديق ڪوڊ</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -815,9 +826,11 @@
   <string name="customize_toolbar_category_menu">مينيو</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">پنھنجا پسنديده آئٽم ھتي ڇڪي اچي اڇلايو 👋</string>
   <string name="customize_toolbar_reset_to_default_button">پاڻمرادو-ڏنل طرف ٻيھر مرتب ڪريو</string>
+  <string name="suggested_edits_activity_title">سنواريو</string>
   <string name="suggested_edits_describe_articles">مضمونن کي بيان ڪريو</string>
   <string name="suggested_edits_caption_images">عڪسن کي عنوان ڏيو</string>
   <string name="suggested_edits_tag_images">عڪسن کي ٽيگ ھڻو</string>
+  <string name="suggested_edits_edit_patrol">سنوارن جو گشت ڪريو</string>
   <string name="suggested_edits_edit_patrol_review">نظرثاني</string>
   <string name="suggested_edits_review_description">مضمون جي تشريح جي نظرثاني ڪريو</string>
   <string name="suggested_edits_add_description_button">تشريح ڏيو</string>
@@ -916,6 +929,10 @@
     <item quantity="one">ڀاڱيداري</item>
     <item quantity="other">ڀاڱيداريون</item>
   </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">سنوار</item>
+    <item quantity="other">سنوارون</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ڏينھن</item>
     <item quantity="other">%d ڏينھن</item>
@@ -951,6 +968,7 @@
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">ڪلھ</string>
   <string name="suggested_edits_encourage_account_creation_title">ڇا توھان ڄاڻو ٿا تہ ھرڪوئي وڪيپيڊيا کي سنواري سگهي ٿا؟</string>
+  <string name="suggested_edits_encourage_account_creation_message">تجويز ڪيل سنوارون اينڊرائيڊ تي وڪيپيڊيا کي سنوارڻ جو هڪ نئون طريقو آهي. اهو توهان کي وڪيپيڊيا ۾ ننڍيون پر اهم ڀاڱيداريون ڪرڻ ۾ مدد ڪري ٿو.\nاسان جو مقصد سنوارڻ کي آسان ۽ هر ڪنهن لاءِ وڌيڪ رسائي لائق بڻائڻ آهي! شروع ڪرڻ لاءِ داخل ٿيو يا وڪيپيڊيا ۾ شامل ٿيو.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وڪيپيڊيا ۾ داخل ٿيو / شامل ٿيو</string>
   <string name="suggested_edits_contribution_type_image_tag">عڪس ٽيگ</string>
   <string name="suggested_edits_contribution_current_revision_text">توھان جي سنوار ھاڻي وڪيپيڊيا تي آھي</string>
@@ -1012,6 +1030,9 @@
   <string name="edit_summary_added_caption">عنوان شامل ٿي ويو</string>
   <string name="edit_summary_added_image_and_caption">عڪس ۽ عنوان شامل ٿي ويا</string>
   <string name="edit_published_view">ڏسو</string>
+  <string name="activity_tab_logged_out_title">وڪيپيڊيا ايپ تي پنھنجي سرگرمي ڏسڻ لاءِ داخل ٿيو يا کاتو کوليو.</string>
+  <string name="activity_tab_donation_unknown">اڻڄاتل</string>
+  <string name="activity_tab_menu_info">وڌيڪ ڄاڻيو</string>
   <string name="file_page_activity_title">فائيل صفحو</string>
   <string name="file_page_add_image_caption_button">عڪس کي عنوان ڏيو</string>
   <string name="file_page_add_image_tags_button">عڪس جا ٽيگ وجهو</string>
@@ -1256,10 +1277,10 @@
   <string name="revision_compare_two_only">رڳو ٻہ ورجاءَ چونڊي سگهجن ٿا.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">بدلايو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">مستقل طور</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 ھفتي لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 مھيني لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 مھينن لاءِ</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 مھينن لاءِ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 ھفتو</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 مھينو</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 مھينا</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 مھينا</string>
   <string name="watchlist_expiry_dialog_title">نظر۾فھرست جو عرصو چونڊيو</string>
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="watchlist_expiry_dialog_one_week">1 ھفتو</string>
@@ -1462,7 +1483,7 @@
   <string name="page_issues_title">صفحي جا مسئلا</string>
   <string name="generic_release_notes">معمولي بگ جي اصلاح ۽ واڌارا</string>
   <string name="donation_campaign_maybe_later_snackbar">اسان توهان کي سڀاڻي ٻيھر ياد ڏيارينداسين.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">مھرباني، پيارا مدد ڪندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ان جي ڀينر سائيٽن کي ترقي وٺرائڻ ۾ مدد ڪري ٿي.</string>
+  <string name="donation_campaign_donated_snackbar">مھرباني، پيارا عطيو ڏيندڙ! توهان جي سخاوت وڪيپيڊيا ۽ ٻين مفت علم جي منصوبن کي ترقي ڏيڻ ۾ مدد ڪري ٿي.</string>
   <string name="donation_campaign_go_back_button">واپس وڃو</string>
   <string name="menu_single_webview_open_external">سسٽم برائوزر ۾ کوليو</string>
   <string name="donate_gpay_dialog_title">گوگل پي ذريعي امداد ڏجي؟</string>
@@ -1490,5 +1511,5 @@
   <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
   <string name="survey_dialog_cancel">رد ڪريو</string>
   <string name="survey_dialog_submit">اماڻيو</string>
-  <string name="survey_dialog_submitted_snackbar" fuzzy="true">موٽ اماڻجي وئي.</string>
+  <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي. توھان جي مھرباني!</string>
 </resources>
