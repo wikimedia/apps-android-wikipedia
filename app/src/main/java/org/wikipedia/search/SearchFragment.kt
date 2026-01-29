@@ -138,7 +138,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
-            showPanel(PANEL_SEARCH_RESULTS)
+            // TODO: pending discussion
+            if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
+                showPanel(PANEL_HYBRID_SEARCH_RESULTS)
+            } else {
+                showPanel(PANEL_SEARCH_RESULTS)
+            }
         }
     }
 
