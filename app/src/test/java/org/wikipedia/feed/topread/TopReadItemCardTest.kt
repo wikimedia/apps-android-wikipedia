@@ -1,7 +1,6 @@
 package org.wikipedia.feed.topread
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,7 +24,7 @@ class TopReadItemCardTest {
     fun testTitleNormalization() {
         val topReadItemCards = TopReadListCard.toItems(content.articles, TEST)
         for (topReadItemCard in topReadItemCards) {
-            MatcherAssert.assertThat(topReadItemCard.title(), Matchers.not(Matchers.containsString("_")))
+            assertFalse(topReadItemCard.title().contains("_"))
         }
     }
 
