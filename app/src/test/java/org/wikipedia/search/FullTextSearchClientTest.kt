@@ -1,8 +1,9 @@
 package org.wikipedia.search
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -24,7 +25,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
         runBlocking {
             searchResults()
         }.run {
-            MatcherAssert.assertThat(results.first().pageTitle.displayText, Matchers.`is`("IND Queens Boulevard Line"))
+            assertEquals("IND Queens Boulevard Line", results.first().pageTitle.displayText)
         }
     }
 
@@ -35,8 +36,8 @@ class FullTextSearchClientTest : MockRetrofitTest() {
         runBlocking {
             searchResults()
         }.run {
-            MatcherAssert.assertThat(continuation?.continuation, Matchers.`is`("gsroffset||"))
-            MatcherAssert.assertThat(continuation?.gsroffset, Matchers.`is`(20))
+            assertEquals("gsroffset||", continuation?.continuation)
+            assertEquals(20, continuation?.gsroffset)
         }
     }
 
@@ -47,7 +48,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
         runBlocking {
             searchResults()
         }.run {
-            MatcherAssert.assertThat(results, Matchers.empty())
+            assertTrue(results.isEmpty())
         }
     }
 
@@ -59,7 +60,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
             try {
                 searchResults()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -72,7 +73,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
             try {
                 searchResults()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -85,7 +86,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
             try {
                 searchResults()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

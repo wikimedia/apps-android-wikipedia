@@ -5,10 +5,9 @@ import androidx.room.testing.MigrationTestHelper
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.CoreMatchers.nullValue
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -72,63 +71,63 @@ class UpgradeFromPreRoomTest(private val fromVersion: Int) {
     @Test
     fun testTablesAfterMigration() = runBlocking {
         val recentSearches = recentSearchDao.getRecentSearches()
-        assertThat(recentSearches.size, equalTo(4))
-        assertThat(recentSearches[0].text, equalTo("obama"))
-        assertThat(recentSearches[3].text, equalTo("trump"))
+        assertEquals(4, recentSearches.size)
+        assertEquals("obama", recentSearches[0].text)
+        assertEquals("trump", recentSearches[3].text)
 
         val readingLists = readingListDao.getAllLists()
-        assertThat(readingLists.size, equalTo(3))
-        assertThat(readingLists[0].pages.size, equalTo(2))
+        assertEquals(3, readingLists.size)
+        assertEquals(2, readingLists[0].pages.size)
 
-        assertThat(readingLists[0].pages[1].apiTitle, equalTo("Barack_Obama"))
-        assertThat(readingLists[0].pages[1].displayTitle, equalTo("Barack Obama"))
-        assertThat(readingLists[0].pages[1].thumbUrl, equalTo("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg"))
-        assertThat(readingLists[0].pages[1].lang, equalTo("en"))
-        assertThat(readingLists[0].pages[1].description, equalTo("44th president of the United States"))
-        assertThat(readingLists[0].pages[1].sizeBytes, equalTo(5695183))
-        assertThat(readingLists[0].pages[1].remoteId, equalTo(44))
+        assertEquals("Barack_Obama", readingLists[0].pages[1].apiTitle)
+        assertEquals("Barack Obama", readingLists[0].pages[1].displayTitle)
+        assertEquals("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg", readingLists[0].pages[1].thumbUrl)
+        assertEquals("en", readingLists[0].pages[1].lang)
+        assertEquals("44th president of the United States", readingLists[0].pages[1].description)
+        assertEquals(5695183, readingLists[0].pages[1].sizeBytes)
+        assertEquals(44, readingLists[0].pages[1].remoteId)
 
-        assertThat(readingLists[1].pages[0].apiTitle, equalTo("Joe Biden"))
-        assertThat(readingLists[1].pages[0].displayTitle, equalTo("Joe Biden"))
-        assertThat(readingLists[1].pages[0].thumbUrl, nullValue())
-        assertThat(readingLists[1].pages[0].lang, equalTo("en"))
-        assertThat(readingLists[1].pages[0].description, nullValue())
-        assertThat(readingLists[1].pages[0].remoteId, equalTo(43))
+        assertEquals("Joe Biden", readingLists[1].pages[0].apiTitle)
+        assertEquals("Joe Biden", readingLists[1].pages[0].displayTitle)
+        assertNull(readingLists[1].pages[0].thumbUrl)
+        assertEquals("en", readingLists[1].pages[0].lang)
+        assertNull(readingLists[1].pages[0].description)
+        assertEquals(43, readingLists[1].pages[0].remoteId)
 
-        assertThat(readingLists[1].title, equalTo("People"))
-        assertThat(readingLists[1].description, equalTo(""))
-        assertThat(readingLists[1].remoteId, equalTo(101))
-        assertThat(readingLists[1].pages.size, equalTo(3))
+        assertEquals("People", readingLists[1].title)
+        assertEquals("", readingLists[1].description)
+        assertEquals(101, readingLists[1].remoteId)
+        assertEquals(3, readingLists[1].pages.size)
 
-        assertThat(readingLists[2].title, equalTo("More people"))
-        assertThat(readingLists[2].description, equalTo("Example list description"))
-        assertThat(readingLists[2].pages.size, equalTo(1))
-        assertThat(readingLists[2].pages[0].apiTitle, equalTo("ברק_אובמה"))
+        assertEquals("More people", readingLists[2].title)
+        assertEquals("Example list description", readingLists[2].description)
+        assertEquals(1, readingLists[2].pages.size)
+        assertEquals("ברק_אובמה", readingLists[2].pages[0].apiTitle)
 
         val pageImages = pageImageDao.getAllPageImages()
-        assertThat(pageImages.size, equalTo(7))
-        assertThat(pageImages[0].apiTitle, equalTo("Barack_Obama"))
-        assertThat(pageImages[0].imageName, equalTo("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg"))
+        assertEquals(7, pageImages.size)
+        assertEquals("Barack_Obama", pageImages[0].apiTitle)
+        assertEquals("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg", pageImages[0].imageName)
 
         val historyEntries = historyWithImageDao.findEntriesBySearchTerm("%%")
-        assertThat(historyEntries.size, equalTo(6))
-        assertThat(historyEntries[0].apiTitle, equalTo("ברק_אובמה"))
-        assertThat(historyEntries[0].displayTitle, equalTo("ברק אובמה"))
-        assertThat(historyEntries[0].lang, equalTo("he"))
-        assertThat(historyEntries[0].imageName, equalTo("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg"))
-        assertThat(historyEntries[4].apiTitle, equalTo("Joe_Biden"))
-        assertThat(historyEntries[4].lang, equalTo("en"))
+        assertEquals(6, historyEntries.size)
+        assertEquals("ברק_אובמה", historyEntries[0].apiTitle)
+        assertEquals("ברק אובמה", historyEntries[0].displayTitle)
+        assertEquals("he", historyEntries[0].lang)
+        assertEquals("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg", historyEntries[0].imageName)
+        assertEquals("Joe_Biden", historyEntries[4].apiTitle)
+        assertEquals("en", historyEntries[4].lang)
 
         val historyEntry = historyDao.findEntryBy("ru.wikipedia.org", "ru", "Обама,_Барак")!!
-        assertThat(historyEntry.displayTitle, equalTo("Обама, Барак"))
+        assertEquals("Обама, Барак", historyEntry.displayTitle)
 
         val talkPageSeen = talkPageSeenDao.getAll()
         if (fromVersion == 22) {
-            assertThat(talkPageSeen.count(), equalTo(2))
-            assertThat(offlineObjectDao.getOfflineObject("https://en.wikipedia.org/api/rest_v1/page/summary/Joe_Biden")!!.path, equalTo("/data/user/0/org.wikipedia.dev/files/offline_files/481b1ef996728fd9994bd97ab19733d8"))
+            assertEquals(2, talkPageSeen.count())
+            assertEquals("/data/user/0/org.wikipedia.dev/files/offline_files/481b1ef996728fd9994bd97ab19733d8", offlineObjectDao.getOfflineObject("https://en.wikipedia.org/api/rest_v1/page/summary/Joe_Biden")!!.path)
         } else {
-            assertThat(talkPageSeen.count(), equalTo(0))
-            assertThat(offlineObjectDao.getOfflineObject("https://en.wikipedia.org/api/rest_v1/page/summary/Joe_Biden"), nullValue())
+            assertEquals(0, talkPageSeen.count())
+            assertNull(offlineObjectDao.getOfflineObject("https://en.wikipedia.org/api/rest_v1/page/summary/Joe_Biden"))
         }
     }
 

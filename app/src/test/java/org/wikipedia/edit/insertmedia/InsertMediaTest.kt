@@ -1,7 +1,6 @@
 package org.wikipedia.edit.insertmedia
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,9 +31,9 @@ class InsertMediaTest {
                 "de Bourbon-Montpensier — SiefarWikiFr |url=http://siefar.org/dictionnaire/fr/Gabrielle_de_Bourbon-Montpensier" +
                 " |access-date=2021-07-21 |website=siefar.org}}</ref>\n"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_LEFT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -59,9 +58,9 @@ class InsertMediaTest {
                 "de Bourbon-Montpensier — SiefarWikiFr |url=http://siefar.org/dictionnaire/fr/Gabrielle_de_Bourbon-Montpensier" +
                 " |access-date=2021-07-21 |website=siefar.org}}</ref>\n"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_LEFT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -85,9 +84,9 @@ class InsertMediaTest {
                 "de Bourbon-Montpensier — SiefarWikiFr |url=http://siefar.org/dictionnaire/fr/Gabrielle_de_Bourbon-Montpensier" +
                 " |access-date=2021-07-21 |website=siefar.org}}</ref>\n"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -126,9 +125,9 @@ class InsertMediaTest {
                 "'''Giorgos Velentzas''' ({{lang-el|Γιώργος Βελέντζας}}; 4 December 1927 – 20 July 2015)<ref>" +
                 "{{Cite web|url=https://www.imdb.com/name/nm0892437/bio?ref_=nm_ov_bio_sm|title=Giorgos Velentzas|website=[[IMDb]]}}</ref> was a [[Greece|Greek]] actor."
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -156,9 +155,9 @@ class InsertMediaTest {
                 "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
                 "name=Bousquet2012/>\n"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -210,9 +209,9 @@ class InsertMediaTest {
                 " |since              = \n}}\n\n" +
                 "'''Kato Pedina''' ({{lang-el|Κάτω Πεδινά}} meaning \"lower fields\", before 1928: Κάτω Σουδενά"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -240,9 +239,9 @@ class InsertMediaTest {
                 "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
                 "name=Bousquet2012/>\n"
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 
     @Test
@@ -298,8 +297,8 @@ class InsertMediaTest {
                 "Naturelles; Botanique, sér. 2 9: 343–4, t. 12H</ref><ref>[http://www.tropicos.org/Name/40035627 " +
                 "Tropicos, genus ''Calostigma'' Decne.]</ref> The genus is native to [[South America]]."
 
-        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+        assertEquals(expected, InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true, true).first, Matchers.`is`(expected))
+            0, true, true).first)
     }
 }

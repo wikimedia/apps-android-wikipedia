@@ -1,8 +1,8 @@
 package org.wikipedia.gallery
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.dataclient.WikiSite.Companion.forLanguageCode
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -19,9 +19,9 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
         }.run {
             val imageInfo = query?.pages?.firstOrNull()?.imageInfo()
             val imageLicense = imageInfo?.metadata?.let { ImageLicense(it) } ?: ImageLicense()
-            MatcherAssert.assertThat(imageLicense.licenseName, Matchers.`is`("cc-by-sa-4.0"))
-            MatcherAssert.assertThat(imageLicense.licenseShortName, Matchers.`is`("CC BY-SA 4.0"))
-            MatcherAssert.assertThat(imageLicense.licenseUrl, Matchers.`is`("http://creativecommons.org/licenses/by-sa/4.0"))
+            assertEquals("cc-by-sa-4.0", imageLicense.licenseName)
+            assertEquals("CC BY-SA 4.0", imageLicense.licenseShortName)
+            assertEquals("http://creativecommons.org/licenses/by-sa/4.0", imageLicense.licenseUrl)
         }
     }
 
@@ -33,7 +33,7 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
             try {
                 getImageInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -46,7 +46,7 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
             try {
                 getImageInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -59,7 +59,7 @@ class ImageLicenseFetchClientTest : MockRetrofitTest() {
             try {
                 getImageInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

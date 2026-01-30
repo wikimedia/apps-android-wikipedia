@@ -15,7 +15,6 @@ fragmentKtx = "1.8.9"
 googlePayVersion = "19.5.0"
 googleServices = "4.4.4"
 gradle = "9.0.0"
-hamcrest = "3.0"
 hcaptcha = "4.4.0"
 installreferrer = "2.2"
 jsoup = "1.22.1"
@@ -81,7 +80,6 @@ espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref =
 espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "espressoVersion" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version.ref = "flexbox" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
-hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
 hcaptcha = { module = "com.github.hCaptcha.hcaptcha-android-sdk:sdk", version.ref = "hcaptcha" }
 installreferrer = { module = "com.android.installreferrer:installreferrer", version.ref = "installreferrer" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }

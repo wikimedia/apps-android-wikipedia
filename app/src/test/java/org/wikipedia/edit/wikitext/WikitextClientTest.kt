@@ -1,8 +1,8 @@
 package org.wikipedia.edit.wikitext
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.test.MockRetrofitTest
@@ -15,8 +15,8 @@ class WikitextClientTest : MockRetrofitTest() {
         runBlocking {
             requestWikiTextForSectionWithInfo()
         }.run {
-            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.contentMain, Matchers.`is`("\\o/\n\ntest12\n\n3"))
-            MatcherAssert.assertThat(query?.firstPage()?.revisions?.first()?.timeStamp, Matchers.`is`("2018-03-18T18:10:54Z"))
+            assertEquals("\\o/\n\ntest12\n\n3", query?.firstPage()?.revisions?.first()?.contentMain)
+            assertEquals("2018-03-18T18:10:54Z", query?.firstPage()?.revisions?.first()?.timeStamp)
         }
     }
 
@@ -28,7 +28,7 @@ class WikitextClientTest : MockRetrofitTest() {
             try {
                 requestWikiTextForSectionWithInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -41,7 +41,7 @@ class WikitextClientTest : MockRetrofitTest() {
             try {
                 requestWikiTextForSectionWithInfo()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

@@ -1,7 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.json.JsonUtil
@@ -33,7 +32,7 @@ class SamplingConfigTest {
 
     private fun assertDeserializedValues(json: String, rate: Double, unit: String) {
         val config = JsonUtil.decodeFromString<SampleConfig>(json)!!
-        MatcherAssert.assertThat(config.rate, CoreMatchers.equalTo(rate))
-        MatcherAssert.assertThat(config.unit, CoreMatchers.equalTo(unit))
+        assertEquals(rate, config.rate, 0.0)
+        assertEquals(unit, config.unit)
     }
 }

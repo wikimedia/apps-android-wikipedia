@@ -1,8 +1,7 @@
 package org.wikipedia.csrf
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.test.MockRetrofitTest
 
@@ -26,7 +25,7 @@ class CsrfTokenClientTest : MockRetrofitTest() {
             try {
                 CsrfTokenClient.getToken(wikiSite, "csrf", apiService)
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -39,7 +38,7 @@ class CsrfTokenClientTest : MockRetrofitTest() {
             try {
                 CsrfTokenClient.getToken(wikiSite, "csrf", apiService)
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

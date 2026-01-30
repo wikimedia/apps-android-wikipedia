@@ -1,7 +1,6 @@
 package org.wikipedia.history
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -15,12 +14,12 @@ class HistoryEntryTest {
     fun testPageTitlePropertiesAreStored() {
         val pageTitle = getPageTitle()
         val historyEntry = HistoryEntry(pageTitle, 0)
-        MatcherAssert.assertThat(historyEntry.apiTitle, Matchers.`is`(TITLE))
-        MatcherAssert.assertThat(historyEntry.displayTitle, Matchers.`is`(DISPLAY_TEXT))
-        MatcherAssert.assertThat(historyEntry.namespace, Matchers.`is`(NAMESPACE))
-        MatcherAssert.assertThat(historyEntry.authority, Matchers.`is`(WIKI_SITE.authority()))
-        MatcherAssert.assertThat(historyEntry.lang, Matchers.`is`(WIKI_SITE.languageCode))
-        MatcherAssert.assertThat(historyEntry.title, Matchers.`is`(pageTitle))
+        assertEquals(TITLE, historyEntry.apiTitle)
+        assertEquals(DISPLAY_TEXT, historyEntry.displayTitle)
+        assertEquals(NAMESPACE, historyEntry.namespace)
+        assertEquals(WIKI_SITE.authority(), historyEntry.authority)
+        assertEquals(WIKI_SITE.languageCode, historyEntry.lang)
+        assertEquals(pageTitle, historyEntry.title)
     }
 
     companion object {

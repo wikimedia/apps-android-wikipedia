@@ -1,8 +1,8 @@
 package org.wikipedia.createaccount
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse
@@ -17,8 +17,8 @@ class CreateAccountClientTest : MockRetrofitTest() {
         runBlocking {
             createAccount()
         }.run {
-            MatcherAssert.assertThat(status, Matchers.`is`("PASS"))
-            MatcherAssert.assertThat(user, Matchers.`is`("Farb0nucci"))
+            assertEquals("PASS", status)
+            assertEquals("Farb0nucci", user)
         }
     }
 
@@ -29,7 +29,7 @@ class CreateAccountClientTest : MockRetrofitTest() {
         runBlocking {
             createAccount()
         }.run {
-            MatcherAssert.assertThat(status, Matchers.`is`("FAIL"))
+            assertEquals("FAIL", status)
         }
     }
 
@@ -41,7 +41,7 @@ class CreateAccountClientTest : MockRetrofitTest() {
             try {
                 createAccount()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -54,7 +54,7 @@ class CreateAccountClientTest : MockRetrofitTest() {
             try {
                 createAccount()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }

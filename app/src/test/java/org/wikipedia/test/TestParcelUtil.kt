@@ -2,9 +2,7 @@ package org.wikipedia.test
 
 import android.os.Parcel
 import android.os.Parcelable
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
-import org.wikipedia.page.Namespace
+import org.junit.Assert.assertEquals
 import org.wikipedia.page.PageTitle
 
 object TestParcelUtil {
@@ -16,10 +14,10 @@ object TestParcelUtil {
 
         val title2 = unparcel(parcel, PageTitle::class.java) as PageTitle
 
-        MatcherAssert.assertThat<String>(title.text, Matchers.equalTo(title2.text))
-        MatcherAssert.assertThat<Namespace>(title.namespace(), Matchers.equalTo(title2.namespace()))
+        assertEquals(title.text, title2.text)
+        assertEquals(title.namespace(), title2.namespace())
 
-        MatcherAssert.assertThat<String>(title.uri, Matchers.equalTo(title2.uri))
+        assertEquals(title.uri, title2.uri)
     }
 
     @Throws(Throwable::class)
@@ -30,7 +28,7 @@ object TestParcelUtil {
         parcel.setDataPosition(0)
         val unparceled = unparcel(parcel, parcelable.javaClass)
 
-        MatcherAssert.assertThat<Parcelable>(parcelable, Matchers.equalTo(unparceled))
+        assertEquals(parcelable, unparceled)
     }
 
     @Throws(Throwable::class)
