@@ -214,7 +214,7 @@ object EventPlatformClient {
                         // TODO: For errors >= 500, queue up to retry?
                     } else {
                         // Something unexpected happened.
-                        if (ReleaseUtil.isDevRelease) {
+                        if (ReleaseUtil.isDevRelease && caught.code != HttpURLConnection.HTTP_FORBIDDEN) {
                             // If it's a pre-beta release, show a loud toast to signal that
                             // a potential issue should be investigated.
                             WikipediaApp.instance.mainThreadHandler.post {
