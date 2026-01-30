@@ -2,12 +2,26 @@ package org.wikipedia.search
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import androidx.activity.addCallback
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onBackPressedDispatcher.addCallback(this) {
+            if (fragment.onBackPressed()) {
+                return@addCallback
+            }
+            setResult(RESULT_OK)
+            finish()
+        }
+    }
+
     public override fun createFragment(): SearchFragment {
         var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
         if (source == null) {

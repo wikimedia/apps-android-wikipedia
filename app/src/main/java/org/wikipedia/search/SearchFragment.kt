@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -37,15 +38,18 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback,
+    BackPressedHandler {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
     private var langBtnClicked = false
     private var isSearchActive = false
+    private var initialQuery: String? = null
     private var query: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
@@ -270,6 +274,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             }
             when (activePanel) {
                 PANEL_SEARCH_RESULTS -> {
+                    initialQuery = term
                     searchResultsFragment.startSearch(term, force)
                 }
                 PANEL_HYBRID_SEARCH_RESULTS -> {
@@ -376,6 +381,15 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onLanguageButtonClicked() {
         onLangButtonClick()
+    }
+
+    override fun onBackPressed(): Boolean {
+        if (activePanel == PANEL_HYBRID_SEARCH_RESULTS) {
+            setSearchText(initialQuery.toString())
+            showPanel(PANEL_SEARCH_RESULTS)
+            return true
+        }
+        return false
     }
 
     companion object {
