@@ -193,6 +193,7 @@ class LoginActivity : BaseActivity() {
         Prefs.readingListsDeletedIds = emptySet()
         Prefs.tempAccountWelcomeShown = false
         Prefs.tempAccountCreateDay = 0L
+        Prefs.lastBackgroundLoginDateTime = ""
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
         Prefs.isPushNotificationOptionsSet = false

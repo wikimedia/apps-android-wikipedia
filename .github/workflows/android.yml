@@ -20,7 +20,7 @@ jobs:
     - name: Checkout submodules
       run: git submodule update --init --recursive
     - name: Build, test, and lint
-      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease --no-daemon
+      run: ./gradlew clean ktlint assembleAlphaRelease lintAlphaRelease testAlphaDebugUnitTest --no-daemon
     - name: List
       run: ls -alR ./app/build/outputs/apk/
     - uses: kevin-david/zipalign-sign-android-release@v2
