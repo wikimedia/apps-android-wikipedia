@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -40,16 +41,19 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback,
+    BackPressedHandler {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
     private var langBtnClicked = false
     private var isSearchActive = false
+    private var initialQuery: String? = null
     private var query: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
+    private lateinit var hybridSearchResultsFragment: HybridSearchResultsFragment
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
     var searchLanguageCode = app.languageState.appLanguageCode
@@ -64,7 +68,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
             if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
-                // TODO: navigate to deep search screen with search term as queryText
+                onSemanticSearchClick(queryText)
             }
             return true
         }
@@ -114,6 +118,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
         searchResultsFragment.setInvokeSource(invokeSource)
+        hybridSearchResultsFragment = childFragmentManager.findFragmentById(
+                R.id.fragment_hybrid_search_results) as HybridSearchResultsFragment
+        hybridSearchResultsFragment.setInvokeSource(invokeSource)
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
@@ -134,7 +141,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
-            showPanel(PANEL_SEARCH_RESULTS)
+            // TODO: pending discussion
+            if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
+                showPanel(PANEL_HYBRID_SEARCH_RESULTS)
+            } else {
+                showPanel(PANEL_SEARCH_RESULTS)
+            }
         }
     }
 
@@ -189,7 +201,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery(text, false)
+        binding.searchCabView.setQuery("", true) // HACK: reset and do research
+        binding.searchCabView.setQuery(text, true)
+    }
+
+    override fun onSemanticSearchClick(text: CharSequence) {
+        showPanel(PANEL_HYBRID_SEARCH_RESULTS)
+        startSearch(text.toString(), true)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
@@ -253,7 +271,15 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             if (!isAdded) {
                 return@postDelayed
             }
-            searchResultsFragment.startSearch(term, force)
+            when (activePanel) {
+                PANEL_SEARCH_RESULTS -> {
+                    initialQuery = term
+                    searchResultsFragment.startSearch(term, force)
+                }
+                PANEL_HYBRID_SEARCH_RESULTS -> {
+                    hybridSearchResultsFragment.startSearch(term, force)
+                }
+            }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
@@ -277,11 +303,18 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         when (panel) {
             PANEL_RECENT_SEARCHES -> {
                 searchResultsFragment.hide()
+                hybridSearchResultsFragment.hide()
                 recentSearchesFragment.show()
             }
             PANEL_SEARCH_RESULTS -> {
                 recentSearchesFragment.hide()
+                hybridSearchResultsFragment.hide()
                 searchResultsFragment.show()
+            }
+            PANEL_HYBRID_SEARCH_RESULTS -> {
+                searchResultsFragment.hide()
+                recentSearchesFragment.hide()
+                hybridSearchResultsFragment.show()
             }
         }
     }
@@ -290,6 +323,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val activePanel: Int
         get() = if (searchResultsFragment.isShowing) {
             PANEL_SEARCH_RESULTS
+        } else if (hybridSearchResultsFragment.isShowing) {
+            PANEL_HYBRID_SEARCH_RESULTS
         } else {
             // otherwise, the recent searches must be showing:
             PANEL_RECENT_SEARCHES
@@ -347,10 +382,20 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         onLangButtonClick()
     }
 
+    override fun onBackPressed(): Boolean {
+        if (activePanel == PANEL_HYBRID_SEARCH_RESULTS) {
+            setSearchText(initialQuery.toString())
+            showPanel(PANEL_SEARCH_RESULTS)
+            return true
+        }
+        return false
+    }
+
     companion object {
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
+        private const val PANEL_HYBRID_SEARCH_RESULTS = 2
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 

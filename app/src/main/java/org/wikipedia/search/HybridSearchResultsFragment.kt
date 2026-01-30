@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.wikipedia.Constants
@@ -15,12 +16,12 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 
-class SearchResultsFragment : Fragment() {
+class HybridSearchResultsFragment : Fragment() {
 
     private var composeView: ComposeView? = null
-    private val viewModel: SearchResultsViewModel by viewModels()
+    private val viewModel: HybridSearchResultsViewModel by viewModels()
 
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
@@ -33,18 +34,22 @@ class SearchResultsFragment : Fragment() {
             composeView = this
             setContent {
                 BaseTheme {
-                    SearchResultsScreen(
+                    HybridSearchResultsScreen(
                         viewModel = viewModel,
                         modifier = Modifier.fillMaxSize(),
                         onNavigateToTitle = { title, inNewTab, position, location ->
+                            callback()?.navigateToTitle(title, inNewTab, position, location)
+                        },
+                        onSemanticItemClick = { title, inNewTab, position, location ->
+                            // TODO: update the callback to navigate to the specific section
                             callback()?.navigateToTitle(title, inNewTab, position, location)
                         },
                         onItemLongClick = { view, searchResult, position ->
                             val entry = HistoryEntry(searchResult.pageTitle, HistoryEntry.SOURCE_SEARCH)
                             LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                         },
-                        onSemanticSearchClick = {
-                            callback()?.setSearchText(StringUtil.fromHtml(it))
+                        onInfoClick = {
+                            UriUtil.visitInExternalBrowser(requireActivity(), getString(org.wikipedia.R.string.hybrid_search_info_link).toUri())
                         },
                         onCloseSearch = { requireActivity().finish() },
                         onRetrySearch = {
@@ -57,6 +62,9 @@ class SearchResultsFragment : Fragment() {
                         },
                         onLoading = { enabled ->
                             callback()?.onSearchProgressBar(enabled)
+                        },
+                        onRatingClick = { isPositive ->
+                            // TODO: implement rating submission
                         }
                     )
                 }

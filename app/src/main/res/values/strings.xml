@@ -2338,4 +2338,18 @@
     <string name="hybrid_search_search_hint">Search or ask anything</string>
     <string name="hybrid_search_article_search_hint">Ask about %s</string>
     <string name="hybrid_search_suggestion_title">Run a deep search for:</string>
+    <string name="hybrid_search_results_header">%1$s from %2$s</string>
+    <plurals name="hybrid_search_results_header_result">
+        <item quantity="one">%d result</item>
+        <item quantity="other">%d results</item>
+    </plurals>
+    <plurals name="hybrid_search_results_header_article">
+        <item quantity="one">%d article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
+    <string name="hybrid_search_results_header_beta_label">Beta</string>
+    <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
+    <string name="hybrid_search_results_more_button">More</string>
+    <string name="hybrid_search_results_rate_label">Rate these results</string>
+    <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
 </resources>

@@ -17,11 +17,10 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import org.wikipedia.Constants
 
-class SearchResultsViewModel : ViewModel() {
+class HybridSearchResultsViewModel : ViewModel() {
 
-    private val batchSize = 20
+    private val batchSize = 3
     private val delayMillis = 200L
-    var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
 
     lateinit var invokeSource: Constants.InvokeSource
 
@@ -33,23 +32,44 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
+    val getTestGroup get() = HybridSearchAbTest().getGroupName()
     val isHybridSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
-
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
     ) // TODO: revisit if the debounce method changed.
-    val searchResultsFlow =
+    val standardSearchResultsFlow =
         combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
-                SearchResultsPagingSource(
+                SearchResultsViewModel.SearchResultsPagingSource(
                     searchTerm = term,
                     languageCode = lang,
-                    countsPerLanguageCode = countsPerLanguageCode,
-                    searchInLanguages = true,
+                    countsPerLanguageCode = mutableListOf(),
+                    searchInLanguages = false,
+                    invokeSource = invokeSource,
+                    repository = repository,
+                    isHybridSearch = true
+                )
+            }.flow
+        }.cachedIn(viewModelScope)
+
+    // TODO: depends on how the API is designed, may need a separate repository for hybrid search
+    @OptIn(
+        FlowPreview::class,
+        ExperimentalCoroutinesApi::class
+    ) // TODO: revisit if the debounce method changed.
+    val semanticSearchResultsFlow =
+        combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
+            Pair(term, lang)
+        }.flatMapLatest { (term, lang) ->
+            val repository = HybridSearchRepository()
+            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+                SemanticSearchResultsPagingSource(
+                    searchTerm = term,
+                    languageCode = lang,
                     invokeSource = invokeSource,
                     repository = repository
                 )
@@ -68,14 +88,11 @@ class SearchResultsViewModel : ViewModel() {
         _refreshSearchResults.value += 1
     }
 
-    class SearchResultsPagingSource(
+    class SemanticSearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,
-        private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
-        private val searchInLanguages: Boolean = true,
         private var invokeSource: Constants.InvokeSource,
-        private val repository: SearchRepository<StandardSearchResults>,
-        private val isHybridSearch: Boolean = false
+        private val repository: SearchRepository<HybridSearchResults>,
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -88,18 +105,15 @@ class SearchResultsViewModel : ViewModel() {
                     searchTerm = searchTerm,
                     languageCode = languageCode,
                     invokeSource = invokeSource,
-                    continuation = params.key,
+                    continuation = null,
                     batchSize = params.loadSize,
-                    isPrefixSearch = params.key == null,
-                    countsPerLanguageCode = countsPerLanguageCode,
-                    searchInLanguages = searchInLanguages,
-                    isHybridSearch = isHybridSearch
+                    isPrefixSearch = false
                 )
 
                 return LoadResult.Page(
                     result.results,
                     null,
-                    if (isHybridSearch) null else result.continuation
+                    null
                 )
             } catch (e: CancellationException) {
                 throw e
@@ -113,9 +127,3 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 }
-
-data class HybridSearchConfig(
-    val isHybridSearchExperimentOn: Boolean = false,
-    val onTitleClick: (SearchResult) -> Unit,
-    val onSuggestionTitleClick: (String?) -> Unit
-)

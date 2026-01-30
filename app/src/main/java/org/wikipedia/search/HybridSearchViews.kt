@@ -123,7 +123,8 @@ fun SearchResultTitleOnlyBottomContent(
             style = MaterialTheme.typography.bodySmall.copy(
                 fontWeight = FontWeight.Medium,
                 lineHeight = 18.sp
-            )
+            ),
+            color = WikipediaTheme.colors.primaryColor
         )
     }
 }
