@@ -173,9 +173,7 @@ fun HybridSearchResultsList(
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
-    LazyColumn(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    LazyColumn {
         if (testGroup == "a" || testGroup == "b") {
             items(
                 count = searchResultsPage.itemCount
@@ -197,7 +195,7 @@ fun HybridSearchResultsList(
 
         item {
             SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
+                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
                 results = List(semanticSearchResultPage.itemCount) { index ->
                     semanticSearchResultPage[index]!!
                 },
