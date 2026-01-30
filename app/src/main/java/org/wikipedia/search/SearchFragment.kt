@@ -38,7 +38,6 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
