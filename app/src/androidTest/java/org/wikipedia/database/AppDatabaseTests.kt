@@ -11,11 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.CoreMatchers.notNullValue
-import org.hamcrest.CoreMatchers.nullValue
-import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -58,18 +58,18 @@ class AppDatabaseTests {
         recentSearchDao.insertRecentSearch(RecentSearch("Bar", now))
 
         var results = recentSearchDao.getRecentSearches()
-        assertThat(results.size, equalTo(2))
-        assertThat(results[0].text, equalTo("Foo"))
-        assertThat(results[1].text, equalTo("Bar"))
-        assertThat(results[1].timestamp, equalTo(now))
+        assertEquals(2, results.size)
+        assertEquals("Foo", results[0].text)
+        assertEquals("Bar", results[1].text)
+        assertEquals(now, results[1].timestamp)
 
         recentSearchDao.insertRecentSearch(RecentSearch("Baz"))
         results = recentSearchDao.getRecentSearches()
-        assertThat(results.size, equalTo(3))
+        assertEquals(3, results.size)
 
         recentSearchDao.deleteAll()
         results = recentSearchDao.getRecentSearches()
-        assertThat(results.size, equalTo(0))
+        assertEquals(0, results.size)
     }
 
     @Test
@@ -81,15 +81,15 @@ class AppDatabaseTests {
         }) { withContext(Dispatchers.Main) {
             talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"))
             talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("5fbbb2d46ead3355750e90032feb34051a552a6f1c76cf1b4072d8d158af9de7"))
-            assertThat(talkPageSeenDao.getTalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"), notNullValue())
-            assertThat(talkPageSeenDao.getTalkPageSeen("foo"), nullValue())
+            assertNotNull(talkPageSeenDao.getTalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"))
+            assertNull(talkPageSeenDao.getTalkPageSeen("foo"))
 
             var allSeen = talkPageSeenDao.getAll()
-            assertThat(allSeen.count(), equalTo(2))
+            assertEquals(2, allSeen.count())
 
             talkPageSeenDao.deleteAll()
             allSeen = talkPageSeenDao.getAll()
-            assertThat(allSeen.count(), equalTo(0))
+            assertEquals(0, allSeen.count())
         }
         }
     }
@@ -107,12 +107,12 @@ class AppDatabaseTests {
 
         var enWikiList = notificationDao.getNotificationsByWiki(listOf("enwiki"))
         val zhWikiList = notificationDao.getNotificationsByWiki(listOf("zhwiki"))
-        assertThat(enWikiList, notNullValue())
-        assertThat(enWikiList.first().id, equalTo(123759827))
-        assertThat(zhWikiList.first().id, equalTo(2470933))
-        assertThat(enWikiList.first().isUnread, equalTo(false))
-        assertThat(enWikiList.size, equalTo(2))
-        assertThat(notificationDao.getAllNotifications().size, equalTo(3))
+        assertNotNull(enWikiList)
+        assertEquals(123759827, enWikiList.first().id)
+        assertEquals(2470933, zhWikiList.first().id)
+        assertEquals(false, enWikiList.first().isUnread)
+        assertEquals(2, enWikiList.size)
+        assertEquals(3, notificationDao.getAllNotifications().size)
 
         val firstEnNotification = enWikiList.first()
         firstEnNotification.read = null
@@ -120,17 +120,17 @@ class AppDatabaseTests {
 
         // get updated item
         enWikiList = notificationDao.getNotificationsByWiki(listOf("enwiki"))
-        assertThat(enWikiList.first().id, equalTo(123759827))
-        assertThat(enWikiList.first().isUnread, equalTo(true))
+        assertEquals(123759827, enWikiList.first().id)
+        assertEquals(true, enWikiList.first().isUnread)
 
         notificationDao.deleteNotification(firstEnNotification)
-        assertThat(notificationDao.getAllNotifications().size, equalTo(2))
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).size, equalTo(1))
+        assertEquals(2, notificationDao.getAllNotifications().size)
+        assertEquals(1, notificationDao.getNotificationsByWiki(listOf("enwiki")).size)
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("enwiki")).first())
-        assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).isEmpty(), equalTo(true))
+        assertTrue(notificationDao.getNotificationsByWiki(listOf("enwiki")).isEmpty())
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first())
-        assertThat(notificationDao.getAllNotifications().isEmpty(), equalTo(true))
+        assertTrue(notificationDao.getAllNotifications().isEmpty())
     }
 }

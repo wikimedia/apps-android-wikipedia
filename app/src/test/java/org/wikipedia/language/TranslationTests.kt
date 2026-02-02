@@ -1,8 +1,7 @@
 package org.wikipedia.language
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
 import org.jsoup.Jsoup
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.File
 import java.util.function.Consumer
@@ -50,7 +49,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -72,7 +71,7 @@ class TranslationTests {
         }
 
         // Step 4: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -99,7 +98,7 @@ class TranslationTests {
             })
         }
 
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -124,7 +123,7 @@ class TranslationTests {
                     .append("\n")
             }
         }
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     @Test
@@ -159,7 +158,7 @@ class TranslationTests {
         }
 
         // Step 3: check the result
-        MatcherAssert.assertThat("\n" + mismatches.toString(), mismatches.length, Matchers.`is`(0))
+        assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }
 
     private val baseFile: File

@@ -1,7 +1,7 @@
 package org.wikipedia.util
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -11,9 +11,9 @@ import org.wikipedia.auth.AccountUtil
 class AccountUtilTest {
     @Test
     fun testTempAccountName() {
-        MatcherAssert.assertThat(AccountUtil.isUserNameTemporary(""), Matchers.`is`(false))
-        MatcherAssert.assertThat(AccountUtil.isUserNameTemporary("Foo"), Matchers.`is`(false))
-        MatcherAssert.assertThat(AccountUtil.isUserNameTemporary("~Awesome~"), Matchers.`is`(false))
-        MatcherAssert.assertThat(AccountUtil.isUserNameTemporary("~2025-12345"), Matchers.`is`(true))
+        assertFalse(AccountUtil.isUserNameTemporary(""))
+        assertFalse(AccountUtil.isUserNameTemporary("Foo"))
+        assertFalse(AccountUtil.isUserNameTemporary("~Awesome~"))
+        assertTrue(AccountUtil.isUserNameTemporary("~2025-12345"))
     }
 }
