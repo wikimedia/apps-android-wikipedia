@@ -35,9 +35,6 @@ interface DailyGameHistoryDao {
     @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND status = 1 ORDER BY year DESC, month DESC, day DESC")
     suspend fun getGameHistory(gameName: Int, language: String): List<DailyGameHistory>
 
-    @Query("SELECT * FROM DailyGameHistory WHERE gameName = :gameName AND language = :language AND year = :year AND month = :month AND day = :day AND status = 0")
-    suspend fun getInProgressGame(gameName: Int, language: String, year: Int, month: Int, day: Int): DailyGameHistory?
-
     @Update
     suspend fun update(dailyGameHistory: DailyGameHistory)
 

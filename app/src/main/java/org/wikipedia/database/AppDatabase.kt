@@ -32,6 +32,7 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.readinglist.db.RecommendedPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
@@ -353,7 +354,7 @@ abstract class AppDatabase : RoomDatabase() {
         val MIGRATION_31_32 = object : Migration(31, 32) {
             override fun migrate(db: SQLiteConnection) {
                 db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN status INTEGER NOT NULL DEFAULT 1")
-                db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN currentQuestionIndex INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN currentQuestionIndex INTEGER NOT NULL DEFAULT ${Prefs.otdGameQuestionsPerDay}")
             }
         }
 
