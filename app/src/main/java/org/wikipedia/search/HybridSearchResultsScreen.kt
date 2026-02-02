@@ -96,9 +96,9 @@ fun HybridSearchResultsScreen(
             (semanticLoadState.refresh is LoadState.Loading) ||
             (semanticLoadState.append is LoadState.Loading)
 
-    var showSkeletonLoader by remember { mutableStateOf(true) }
-    LaunchedEffect(isLoading, showSkeletonLoader) {
-        if (showSkeletonLoader) {
+    var showSearchProgressBar by remember { mutableStateOf(true) }
+    LaunchedEffect(isLoading, showSearchProgressBar) {
+        if (showSearchProgressBar) {
             onLoading(isLoading)
         }
     }
@@ -110,7 +110,7 @@ fun HybridSearchResultsScreen(
             // TODO: think about merging the load states of both sources
             when {
                 (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {
-                    showSkeletonLoader = false
+                    showSearchProgressBar = false
                     HybridSearchSkeletonLoader(viewModel.getTestGroup)
                 } // when offline prevents UI from loading old list
 
@@ -174,7 +174,7 @@ fun HybridSearchResultsList(
     onRatingClick: (Boolean) -> Unit
 ) {
     LazyColumn {
-        if (testGroup == "a" || testGroup == "b") {
+        if (testGroup == HybridSearchAbTest.GROUP_CONTROL || testGroup == HybridSearchAbTest.GROUP_LEXICAL_SEMANTIC) {
             items(
                 count = searchResultsPage.itemCount
             ) { index ->
@@ -230,7 +230,7 @@ fun HybridSearchResultsList(
             }
         }
 
-        if (testGroup == "c") {
+        if (testGroup == HybridSearchAbTest.GROUP_SEMANTIC_LEXICAL) {
             item {
                 HorizontalDivider(
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),

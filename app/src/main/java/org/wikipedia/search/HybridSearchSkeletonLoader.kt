@@ -44,7 +44,7 @@ fun HybridSearchSkeletonLoader(
         contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp)
     ) {
         when (abTestGroupName) {
-            "a" -> {
+            HybridSearchAbTest.GROUP_CONTROL -> {
                 items(15) {
                     ListItemSkeletonLoader(
                         shimmerColors = semanticShimmerColors,
@@ -55,7 +55,7 @@ fun HybridSearchSkeletonLoader(
                     )
                 }
             }
-            "b" -> {
+            HybridSearchAbTest.GROUP_LEXICAL_SEMANTIC -> {
                 items(3) {
                     ListItemSkeletonLoader(
                         shimmerColors = semanticShimmerColors,
@@ -75,7 +75,7 @@ fun HybridSearchSkeletonLoader(
                     )
                 }
             }
-            "c" -> {
+            HybridSearchAbTest.GROUP_SEMANTIC_LEXICAL -> {
                 item {
                     HorizontalHybridSearchListIemLoader(
                         semanticItemsCount = 3,

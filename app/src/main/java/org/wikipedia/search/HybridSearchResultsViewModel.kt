@@ -51,7 +51,7 @@ class HybridSearchResultsViewModel : ViewModel() {
                     searchInLanguages = false,
                     invokeSource = invokeSource,
                     repository = repository,
-                    isHybridSearch = true
+                    isHybridSearch = isHybridSearchExperimentOn
                 )
             }.flow
         }.cachedIn(viewModelScope)
