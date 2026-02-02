@@ -17,7 +17,8 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         if (intent.hasExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)) {
             val messageResId = intent.getIntExtra(EXTRA_SHOW_SNACKBAR_MESSAGE, 0)
             if (messageResId != 0) {
-                FeedbackUtil.makeSnackbar(this, getString(messageResId)).show()
+                FeedbackUtil.showMessage(this, messageResId)
+                intent.removeExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)
             }
         }
     }

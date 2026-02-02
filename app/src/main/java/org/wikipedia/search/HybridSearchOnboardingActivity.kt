@@ -2,7 +2,6 @@ package org.wikipedia.search
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContent
@@ -56,7 +55,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -105,14 +103,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
         Prefs.isHybridSearchEnabled = true
-        val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getSerializableExtra(
-                Constants.INTENT_EXTRA_INVOKE_SOURCE,
-                Constants.InvokeSource::class.java
-            )
-        } else {
-            intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
-        }
+        val source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
 
         setContent {
             BaseTheme {
@@ -136,6 +127,9 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         } else {
                             // TODO: open deep search screen with exampleQuery
                         }
+                    },
+                    onLearnMoreClick = {
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.semantic_search_media_wiki_url).toUri())
                     }
                 )
             }
@@ -156,9 +150,9 @@ fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
     isHybridSearchEnabled: Boolean = Prefs.isHybridSearchEnabled,
     onGetStarted: (String?) -> Unit,
+    onLearnMoreClick: () -> Unit
 ) {
     val totalPageCount = 2
-    val context = LocalContext.current
     val pagerState = rememberPagerState(pageCount = { totalPageCount })
     val coroutineScope = rememberCoroutineScope()
     var isHybridSearchEnabled by remember { mutableStateOf(isHybridSearchEnabled) }
@@ -220,10 +214,7 @@ fun HybridSearchOnboardingScreen(
                         onGetStarted(null)
                     }
                 },
-                onLearnMoreClick = {
-                    // TODO: add URL
-                    UriUtil.visitInExternalBrowser(context, "".toUri())
-                }
+                onLearnMoreClick = onLearnMoreClick
             )
         }
     ) { paddingValues ->
@@ -475,7 +466,8 @@ private fun HybridSearchOnboardingScreenPreview() {
     ) {
         HybridSearchOnboardingScreen(
             isHybridSearchEnabled = true,
-            onGetStarted = {}
+            onGetStarted = {},
+            onLearnMoreClick = {}
         )
     }
 }
