@@ -50,9 +50,6 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
-import androidx.paging.LoadState
-import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -64,37 +61,30 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
-    viewModel: HybridSearchResultsViewModel,
+    viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    onLanguageClick: (Int) -> Unit,
     onInfoClick: () -> Unit,
     onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
 ) {
-    val searchResults = viewModel.standardSearchResultsFlow.collectAsLazyPagingItems()
-    val semanticSearchResults = viewModel.semanticSearchResultsFlow.collectAsLazyPagingItems()
+    val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
-
-    val searchLoadState = searchResults.loadState
-    val semanticLoadState = semanticSearchResults.loadState
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val isLoading = (searchLoadState.refresh is LoadState.Loading) ||
-            (searchLoadState.append is LoadState.Loading) ||
-            (semanticLoadState.refresh is LoadState.Loading) ||
-            (semanticLoadState.append is LoadState.Loading)
+    val isLoading = searchResultsState is UiState.Loading
 
     var showSearchProgressBar by remember { mutableStateOf(true) }
     LaunchedEffect(isLoading, showSearchProgressBar) {
@@ -108,52 +98,46 @@ fun HybridSearchResultsScreen(
             modifier = modifier
         ) {
             // TODO: think about merging the load states of both sources
-            when {
-                (searchLoadState.refresh is LoadState.Loading) || (semanticLoadState.refresh is LoadState.Loading) -> {
+            when (searchResultsState) {
+                is UiState.Loading -> {
                     showSearchProgressBar = false
                     HybridSearchSkeletonLoader(viewModel.getTestGroup)
-                } // when offline prevents UI from loading old list
+                }
 
-                (searchLoadState.refresh is LoadState.Error) || (semanticLoadState.refresh is LoadState.Error) -> {
-                    val error = when {
-                        searchLoadState.refresh is LoadState.Error -> (searchLoadState.refresh as LoadState.Error).error
-                        else -> (semanticLoadState.refresh as LoadState.Error).error
-                    }
+                is UiState.Success -> {
+                    HybridSearchResultsList(
+                        testGroup = viewModel.getTestGroup,
+                        searchResultsPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH },
+                        semanticSearchResultPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchTerm = searchTerm.value,
+                        onItemClick = { title, inNewTab, position, location ->
+                            onNavigateToTitle(title, inNewTab, position, location)
+                        },
+                        onItemLongClick = { view, searchResult, position ->
+                            onItemLongClick(view, searchResult, position)
+                        },
+                        onInfoClick = {
+                            onInfoClick()
+                        },
+                        onSemanticItemClick = { title, inNewTab, position, location ->
+                            onSemanticItemClick(title, inNewTab, position, location)
+                        },
+                        onRatingClick = { isPositive ->
+                            onRatingClick(isPositive)
+                        }
+                    )
+                }
+
+                is UiState.Error -> {
                     WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth()
                             .align(Alignment.Center),
-                        caught = error,
+                        caught = searchResultsState.error,
                         errorClickEvents = WikiErrorClickEvents(
                             backClickListener = { onCloseSearch() },
                             retryClickListener = { onRetrySearch() }
                         )
-                    )
-                }
-
-                // show empty state only when both sources finished and there are no items
-                (searchLoadState.append is LoadState.NotLoading && (searchLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
-                        (semanticLoadState.append is LoadState.NotLoading && (semanticLoadState.append as LoadState.NotLoading).endOfPaginationReached) &&
-                        searchResults.itemCount == 0 && semanticSearchResults.itemCount == 0 -> {
-                    // TODO: verify the empty state - update with multiple languages results
-                    NoSearchResults(
-                        countsPerLanguageCode = emptyList(),
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
-                }
-
-                else -> {
-                    HybridSearchResultsList(
-                        testGroup = viewModel.getTestGroup,
-                        searchResultsPage = searchResults,
-                        semanticSearchResultPage = semanticSearchResults,
-                        searchTerm = searchTerm.value,
-                        onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick,
-                        onInfoClick = onInfoClick,
-                        onSemanticItemClick = onSemanticItemClick,
-                        onRatingClick = onRatingClick
                     )
                 }
             }
@@ -164,8 +148,8 @@ fun HybridSearchResultsScreen(
 @Composable
 fun HybridSearchResultsList(
     testGroup: String,
-    searchResultsPage: LazyPagingItems<SearchResult>,
-    semanticSearchResultPage: LazyPagingItems<SearchResult>,
+    searchResultsPage: List<SearchResult>,
+    semanticSearchResultPage: List<SearchResult>,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
@@ -176,9 +160,9 @@ fun HybridSearchResultsList(
     LazyColumn {
         if (testGroup == HybridSearchAbTest.GROUP_CONTROL || testGroup == HybridSearchAbTest.GROUP_LEXICAL_SEMANTIC) {
             items(
-                count = searchResultsPage.itemCount
+                count = searchResultsPage.size
             ) { index ->
-                searchResultsPage[index]?.let { result ->
+                searchResultsPage[index].let { result ->
                     SearchResultPageItem(
                         searchResultPage = result,
                         searchTerm = searchTerm,
@@ -196,9 +180,7 @@ fun HybridSearchResultsList(
         item {
             SemanticSearchResultHeader(
                 modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
-                results = List(semanticSearchResultPage.itemCount) { index ->
-                    semanticSearchResultPage[index]!!
-                },
+                results = semanticSearchResultPage,
                 onInfoClick = {
                     onInfoClick()
                 }
@@ -210,9 +192,9 @@ fun HybridSearchResultsList(
                 modifier = Modifier.padding(horizontal = 8.dp)
             ) {
                 items(
-                    count = semanticSearchResultPage.itemCount
+                    count = semanticSearchResultPage.size
                 ) { index ->
-                    semanticSearchResultPage[index]?.let { result ->
+                    semanticSearchResultPage[index].let { result ->
                         SemanticSearchResultPageItem(
                             searchResult = result,
                             onSemanticItemClick = {
@@ -239,9 +221,9 @@ fun HybridSearchResultsList(
                 )
             }
             items(
-                count = searchResultsPage.itemCount
+                count = searchResultsPage.size
             ) { index ->
-                searchResultsPage[index]?.let { result ->
+                searchResultsPage[index].let { result ->
                     SearchResultPageItem(
                         searchResultPage = result,
                         searchTerm = searchTerm,
