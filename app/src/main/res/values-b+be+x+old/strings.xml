@@ -320,7 +320,7 @@
   <string name="address_copied">Адрас скапіраваны ў буфэр абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфэр абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
-  <string name="link_preview_disambiguation_description">Гэтая назва датычыцца некалькіх старонак:</string>
+  <string name="link_preview_disambiguation_description">Гэтая назва датычна больш ніж адной старонцы:</string>
   <string name="button_get_directions">Атрымаць накіраваньні</string>
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
@@ -384,4 +384,5 @@
   <string name="menu_option_edit_source">Рэдагаваць код</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
   <string name="places_card_action">Болей месцаў побач</string>
+  <string name="survey_dialog_cancel">Скасаваць</string>
 </resources>

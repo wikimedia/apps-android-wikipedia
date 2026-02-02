@@ -1794,7 +1794,7 @@
   <string name="email_report_image_recommendations_subject">Rapport de problème — Fonctionnalité de recommandations d’image</string>
   <string name="email_report_image_recommendations_body">J’ai rencontré un problème avec la fonctionnalité de recommandation d’image :\n- [Décrire le problème spécifique]\n\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
-  <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
+  <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à d\'autres sites contenant des connaissances libres de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
@@ -1951,7 +1951,7 @@
   <string name="year_in_review_globe_icon">Icône de globe</string>
   <string name="settings_app_icon_title">Icône de l’appli</string>
   <string name="settings_app_icon_subtitle">Privilège des contributeurs</string>
-  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui célèbre vos contributions en %d sur Wikipédia depuis l’appli. Elle restera jusqu’à la prochaine rétrospective annuelle.</string>
+  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos %d contributions à Wikipédia via l\'application. Elle restera affichée jusqu\'au prochain bilan annuel.</string>
   <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
@@ -2166,7 +2166,7 @@
   <string name="recommended_reading_list_title">Découvrir</string>
   <string name="recommended_reading_list_onboarding_card_title">Découvrez des articles sélectionnés rien que pour vous</string>
   <string name="recommended_reading_list_onboarding_card_message">Votre liste de lecture hebdomadaire d\'articles Wikipédia, organisée juste pour vous.</string>
-  <string name="recommended_reading_list_onboarding_card_new">Nouveau</string>
+  <string name="recommended_reading_list_onboarding_card_new">Nouveau !</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">Commencer</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Non merci</string>
   <string name="recommended_reading_list_onboarding_card_negative_snackbar">La configuration de votre liste de lectures recommandées reste possible depuis les paramètres.</string>
@@ -2191,8 +2191,8 @@
   <string name="recommended_reading_list_page_subtitle_made_for">Pour %s</string>
   <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Pour toi :</string>
   <plurals name="recommended_reading_list_page_subtitle_articles">
-    <item quantity="one">1 article</item>
-    <item quantity="other">%d articles</item>
+    <item quantity="one">• %d article</item>
+    <item quantity="other">• %d articles</item>
   </plurals>
   <string name="recommended_reading_list_page_description_daily">Votre liste de lecture quotidienne. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour à minuit.</string>
   <string name="recommended_reading_list_page_description_weekly">Votre liste de lecture hebdomadaire. Découvrez de nouveaux sujets sélectionnés pour vous. Mises à jour en début de semaine.</string>

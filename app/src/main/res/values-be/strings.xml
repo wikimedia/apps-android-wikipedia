@@ -152,6 +152,7 @@
   <string name="dialog_message_leaving_edit">Унесеныя змены не захаваны. Вы ўпэўнены, што хочаце пакінуць старонку?</string>
   <string name="dialog_message_leaving_edit_leave">Сысці</string>
   <string name="dialog_message_leaving_edit_stay">Застацца</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Скасаваць</string>
   <string name="menu_show_toc">Змест</string>
   <string name="search_no_results_found">Нічога не знойдзена</string>
   <string name="search_reading_list_no_results">Не знойдзена вынікаў у \"%s\"</string>
@@ -1763,4 +1764,5 @@
   <string name="survey_dialog_cancel">Скасаваць</string>
   <string name="survey_dialog_submit">Адправіць</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Водгук адпраўлены.</string>
+  <string name="year_in_review_survey_cancel">Скасаваць</string>
 </resources>
