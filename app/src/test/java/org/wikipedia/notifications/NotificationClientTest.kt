@@ -1,8 +1,9 @@
 package org.wikipedia.notifications
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.json.JsonUtil
@@ -20,9 +21,9 @@ class NotificationClientTest : MockRetrofitTest() {
             allNotification()
         }.run {
             val firstNotification = query?.notifications?.list?.first()!!
-            MatcherAssert.assertThat(firstNotification.category, Matchers.`is`(NotificationCategory.EDIT_THANK.id))
-            MatcherAssert.assertThat(firstNotification.title?.full, Matchers.`is`("PageTitle"))
-            MatcherAssert.assertThat(firstNotification.agent?.name, Matchers.`is`("User1"))
+            assertEquals(NotificationCategory.EDIT_THANK.id, firstNotification.category)
+            assertEquals("PageTitle", firstNotification.title?.full)
+            assertEquals("User1", firstNotification.agent?.name)
         }
     }
 
@@ -34,7 +35,7 @@ class NotificationClientTest : MockRetrofitTest() {
             try {
                 allNotification()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -44,10 +45,10 @@ class NotificationClientTest : MockRetrofitTest() {
     fun testNotificationReverted() {
         val json = TestFileUtil.readRawFile("notification_revert.json")
         val n = JsonUtil.decodeFromString<Notification>(json)!!
-        MatcherAssert.assertThat(n.type, Matchers.`is`(NotificationCategory.REVERTED.id))
-        MatcherAssert.assertThat(n.wiki, Matchers.`is`("wikidatawiki"))
-        MatcherAssert.assertThat(n.agent?.name, Matchers.`is`("User1"))
-        MatcherAssert.assertThat(n.isFromWikidata, Matchers.`is`(true))
+        assertEquals(NotificationCategory.REVERTED.id, n.type)
+        assertEquals("wikidatawiki", n.wiki)
+        assertEquals("User1", n.agent?.name)
+        assertTrue(n.isFromWikidata)
     }
 
     @Test
@@ -59,9 +60,9 @@ class NotificationClientTest : MockRetrofitTest() {
             allNotification()
         }.run {
             val notifications = query?.notifications?.list
-            MatcherAssert.assertThat(notifications?.get(0)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
-            MatcherAssert.assertThat(notifications?.get(1)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
-            MatcherAssert.assertThat(notifications?.get(2)?.category, Matchers.startsWith(NotificationCategory.MENTION.id))
+            assertTrue(notifications?.get(0)?.category?.startsWith(NotificationCategory.MENTION.id) == true)
+            assertTrue(notifications?.get(1)?.category?.startsWith(NotificationCategory.MENTION.id) == true)
+            assertTrue(notifications?.get(2)?.category?.startsWith(NotificationCategory.MENTION.id) == true)
         }
     }
 

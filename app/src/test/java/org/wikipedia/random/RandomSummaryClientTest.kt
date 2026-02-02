@@ -1,8 +1,8 @@
 package org.wikipedia.random
 
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.test.MockRetrofitTest
@@ -15,8 +15,8 @@ class RandomSummaryClientTest : MockRetrofitTest() {
         runBlocking {
             getRandomSummary()
         }.run {
-            MatcherAssert.assertThat(displayTitle, Matchers.`is`("Fermat's Last Theorem"))
-            MatcherAssert.assertThat(description, Matchers.`is`("theorem in number theory"))
+            assertEquals("Fermat's Last Theorem", displayTitle)
+            assertEquals("theorem in number theory", description)
         }
     }
 
@@ -28,7 +28,7 @@ class RandomSummaryClientTest : MockRetrofitTest() {
             try {
                 getRandomSummary()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
@@ -41,7 +41,7 @@ class RandomSummaryClientTest : MockRetrofitTest() {
             try {
                 getRandomSummary()
             } catch (e: Exception) {
-                MatcherAssert.assertThat(e, Matchers.notNullValue())
+                assertNotNull(e)
             }
         }
     }
