@@ -5,9 +5,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
-import androidx.sqlite.SQLiteConnection
 import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.sqlite.execSQL
 import org.wikipedia.WikipediaApp
 import org.wikipedia.categories.db.Category
 import org.wikipedia.categories.db.CategoryDao
@@ -15,6 +13,7 @@ import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.db.DailyGameHistoryDao
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.history.db.HistoryEntryWithImageDao
@@ -32,7 +31,6 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.readinglist.db.RecommendedPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
-import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
@@ -352,9 +350,9 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         val MIGRATION_31_32 = object : Migration(31, 32) {
-            override fun migrate(db: SQLiteConnection) {
+            override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN status INTEGER NOT NULL DEFAULT 1")
-                db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN currentQuestionIndex INTEGER NOT NULL DEFAULT ${Prefs.otdGameQuestionsPerDay}")
+                db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN currentQuestionIndex INTEGER NOT NULL DEFAULT ${OnThisDayGameViewModel.MAX_QUESTIONS}")
             }
         }
 
