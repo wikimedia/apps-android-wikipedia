@@ -107,7 +107,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon" fuzzy="true">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
   <string name="edit_anon_warning">ایڑِٹ یِنی تُہنٛدِ ڈِوایسٕکی IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تُہہ &lt;a href=\"https://#login\"&gt;توٚہہِ گژھیو زیادٕ حفاظت فراہم.&lt;/a&gt;</string>
-  <string name="preference_title_language">وِکیٖپیٖڈیا زَبانٕ</string>
+  <string name="preference_title_language">وِکیٖپیٖڈیا زَبانہٕ</string>
   <string name="langlinks_filter_hint">ژھانٛڈُن</string>
   <string name="langlinks_empty">یہِ صَفہٕ چھُ نہٕ باقیَن زَبانَن مَنٛز دٕستِیاب۔</string>
   <string name="langlinks_no_match">کٔہٲنی تہِ زبان مِلے نہٕ</string>
@@ -344,7 +344,7 @@
   <string name="article_header_edit_lead_section">ایڑِٹ تعارُف</string>
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">گاش</string>
-  <string name="color_theme_dark">پوٗشیٖدٕ/اَنہِ گۄٚٹ</string>
+  <string name="color_theme_dark">کرٛؠہنراوُن/اَنہِ گۆٹ</string>
   <string name="color_theme_black">ککرہُن</string>
   <string name="color_theme_sepia">سِیٖپِیا</string>
   <string name="color_theme_test_title">سادٕ متن</string>
@@ -591,7 +591,7 @@
   <string name="languages_list_activity_title">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
   <string name="languages_list_suggested_text">تَجویٖز دار</string>
   <string name="languages_list_all_text">تَمام زَبانہٕ</string>
-  <string name="wikipedia_languages_title">وِکیٖپیٖڈیا زَبانٕ</string>
+  <string name="wikipedia_languages_title">وِکیٖپیٖڈیا زَبانہٕ</string>
   <string name="wikipedia_languages_your_languages_text">تُہنٛز زبانہٕ</string>
   <string name="wikipedia_languages_add_language_text">زبانہٕ کٕریٚو جمع/ایٚڈ</string>
   <string name="wikipedia_languages_remove_text">زَبان ہَٹٲوِو</string>
