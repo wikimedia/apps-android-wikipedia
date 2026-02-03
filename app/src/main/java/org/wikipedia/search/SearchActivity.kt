@@ -46,7 +46,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val EXTRA_SHOW_SNACKBAR_MESSAGE = "showSnackbarMessage"
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
-            if (HybridSearchAbTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
+            if (HybridSearchAbCTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
                 Prefs.isHybridSearchOnboardingShown = true
                 return HybridSearchOnboardingActivity.newIntent(context, source)
             }

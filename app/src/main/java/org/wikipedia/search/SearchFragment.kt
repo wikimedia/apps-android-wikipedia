@@ -40,7 +40,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
@@ -63,8 +63,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
-                // TODO: navigate to deep search screen with search term as queryText
+            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
+                startSearch(queryText, true)
             }
             return true
         }
@@ -189,7 +189,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery(text, false)
+        binding.searchCabView.setQuery(text, true)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
@@ -253,7 +253,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             if (!isAdded) {
                 return@postDelayed
             }
-            searchResultsFragment.startSearch(term, force)
+            when (activePanel) {
+                PANEL_SEARCH_RESULTS -> {
+                    searchResultsFragment.startSearch(term, force)
+                }
+            }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
@@ -304,7 +308,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.queryHint = getString(
             if (invokeSource == InvokeSource.PLACES) {
                 R.string.places_search_hint
-            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
+            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
                 R.string.hybrid_search_search_hint
             } else {
                 R.string.search_hint

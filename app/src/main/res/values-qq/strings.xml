@@ -2091,6 +2091,19 @@
   <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
   <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
   <string name="hybrid_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the hybrid search experiment is enabled.</string>
+  <string name="hybrid_search_results_header">Header text for the semantic search result. %1$s will be replaced with the results count and %2$s will be repalced with the articles count.</string>
+  <plurals name="hybrid_search_results_header_result">
+    <item quantity="one">Text for the total results from the semantic search. %d is replaced with the count.</item>
+    <item quantity="other">Text for the total results from the semantic search. %d is replaced with the count.</item>
+  </plurals>
+  <plurals name="hybrid_search_results_header_article">
+    <item quantity="one">Text for the total articles from the semantic search. %d is replaced with the count.</item>
+    <item quantity="other">Text for the total articles from the semantic search. %d is replaced with the count.</item>
+  </plurals>
+  <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
+  <string name="hybrid_search_results_more_button">Button text for the semantic search result.</string>
+  <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
+  <string name="hybrid_search_results_empty">Text for showing the semantic search is currently unavailable.</string>
   <string name="hybrid_search_onboarding_learn_more">Menu label for visiting the information page of the hybrid search.</string>
   <string name="hybrid_search_onboarding_search_title">Onboarding title explaining hybrid search info.</string>
   <string name="hybrid_search_onboarding_search_description">Onboarding description explaining hybrid search info.</string>

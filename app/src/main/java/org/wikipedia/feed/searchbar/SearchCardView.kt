@@ -8,7 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewSearchBarBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
-import org.wikipedia.search.HybridSearchAbTest
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -39,7 +39,7 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
     }
 
     private fun updateSearchHint() {
-        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
+        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
             binding.searchIcon.contentDescription = context.getString(R.string.hybrid_search_search_hint)
             binding.searchTextView.text = context.getString(R.string.hybrid_search_search_hint)
         } else {

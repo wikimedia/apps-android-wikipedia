@@ -61,6 +61,7 @@ fun SearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onSemanticSearchClick: (String) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -121,10 +122,12 @@ fun SearchResultsScreen(
                         hybridSearchConfig = HybridSearchConfig(
                             isHybridSearchExperimentOn = viewModel.isHybridSearchExperimentOn,
                             onTitleClick = { searchResult ->
-                                // TODO: navigate to deep search screen
+                                onSemanticSearchClick(searchResult.pageTitle.displayText)
                             },
                             onSuggestionTitleClick = { searchTerm ->
-                                // TODO: navigate to deep search screen
+                                searchTerm?.let {
+                                    onSemanticSearchClick(it)
+                                }
                             }
                         )
                     )

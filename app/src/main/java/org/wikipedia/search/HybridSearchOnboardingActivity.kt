@@ -129,7 +129,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         }
                     },
                     onLearnMoreClick = {
-                        UriUtil.visitInExternalBrowser(this, getString(R.string.semantic_search_media_wiki_url).toUri())
+                        UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
                     }
                 )
             }
