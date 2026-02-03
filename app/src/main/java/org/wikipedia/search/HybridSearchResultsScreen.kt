@@ -104,10 +104,19 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Success -> {
+                    val data = searchResultsState.data
+                    if (data.semanticError != null) {
+                        println("orange semanticError --> ${data.semanticError}")
+                    }
+
+                    if (data.lexicalError != null) {
+                        println("orange lexicalError --> ${data.lexicalError}")
+                    }
+
                     HybridSearchResultsList(
                         testGroup = viewModel.getTestGroup,
-                        searchResultsPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH },
-                        semanticSearchResultPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchResultsPage = searchResultsState.data.lexicalList.filter { it.type == SearchResult.SearchResultType.SEARCH },
+                        semanticSearchResultPage = searchResultsState.data.semanticList.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
                         searchTerm = searchTerm.value,
                         onItemClick = { title, inNewTab, position, location ->
                             onNavigateToTitle(title, inNewTab, position, location)

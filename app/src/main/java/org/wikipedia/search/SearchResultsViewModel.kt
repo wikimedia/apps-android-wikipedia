@@ -8,9 +8,11 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
@@ -18,12 +20,12 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -39,7 +41,7 @@ class SearchResultsViewModel : ViewModel() {
     private var _languageCode = MutableStateFlow<String?>(null)
     var languageCode = _languageCode.asStateFlow()
 
-    private var _hybridSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
+    private var _hybridSearchResultState = MutableStateFlow<UiState<HybridUiState>>(UiState.Loading)
     val hybridSearchResultState = _hybridSearchResultState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
@@ -68,12 +70,12 @@ class SearchResultsViewModel : ViewModel() {
             }.flow
         }.cachedIn(viewModelScope)
 
+    private var hybridJob: Job? = null
+
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _hybridSearchResultState.value = UiState.Error(throwable)
-        }) {
+        hybridJob?.cancel()
+        hybridJob = viewModelScope.launch {
             _hybridSearchResultState.value = UiState.Loading
 
             val lexicalBatchSize = 3
@@ -83,30 +85,66 @@ class SearchResultsViewModel : ViewModel() {
             val lang = _languageCode.value
 
             if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
-                _hybridSearchResultState.value = UiState.Success(emptyList())
+                _hybridSearchResultState.value = UiState.Success(HybridUiState())
                 return@launch
             }
 
             val wikiSite = WikiSite.forLanguageCode(lang)
-            val lexicalSearchResults = mutableListOf<SearchResult>()
-            val semanticSearchResults = mutableListOf<SearchResult>()
 
-            // prefix + fulltext search results for at most 3 results.
-            var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
-            lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+            supervisorScope {
+                val lexicalDeferred = async {
+                    runCatching {
+                        val lexicalSearchResults = mutableListOf<SearchResult>()
+                        // prefix + fulltext search results for at most 3 results.
+                        var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
+                        lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                        // TODO: remove
+                        for (i in 1 until 6) {
+                            delay(1000)
+                            println("orange loading lexical data --> ${i * 1000}")
+                        }
+                        if (lexicalSearchResults.size < lexicalBatchSize) {
+                            response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
+                            lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                        }
 
-            if (lexicalSearchResults.size < lexicalBatchSize) {
-                response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
-                lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                        lexicalSearchResults
+                    }
+                }
+
+                val semanticDeferred = async {
+                    runCatching {
+                        // TODO: remove
+                        for (i in 1 until 11) {
+                            delay(1000)
+                            println("orange loading semantic data --> ${i * 1000}")
+                        }
+                        throw Exception()
+                        val response = ServiceFactory.get(wikiSite)
+                            .semanticSearch(term, semanticBatchSize)
+                        buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC)
+                    }
+                }
+
+                val lexicalResult = lexicalDeferred.await()
+                val semanticResult = semanticDeferred.await()
+
+                if (lexicalResult.isFailure && semanticResult.isFailure) {
+                    _hybridSearchResultState.value = UiState.Error(lexicalResult.exceptionOrNull() ?: Throwable())
+                    return@supervisorScope
+                }
+
+                val lexicalList = lexicalResult.getOrElse { emptyList() }
+                    .distinctBy { it.pageTitle.prefixedText }
+                val semanticList = semanticResult.getOrElse { emptyList() }
+
+                _hybridSearchResultState.value = UiState.Success(HybridUiState(
+                    lexicalList = lexicalList,
+                    semanticList = semanticList,
+                    lexicalError = lexicalResult.exceptionOrNull(),
+                    semanticError = semanticResult.exceptionOrNull()
+                ))
             }
-
-            // semantic search results
-            response = ServiceFactory.get(wikiSite)
-                .semanticSearch(term, semanticBatchSize)
-            semanticSearchResults.addAll(buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC))
-
-            // TODO: maybe it can be optimized?
-            _hybridSearchResultState.value = UiState.Success(lexicalSearchResults.distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticSearchResults)
         }
     }
 
@@ -183,4 +221,11 @@ data class HybridSearchConfig(
     val isHybridSearchExperimentOn: Boolean = false,
     val onTitleClick: (SearchResult) -> Unit,
     val onSuggestionTitleClick: (String?) -> Unit
+)
+
+data class HybridUiState(
+    val lexicalList: List<SearchResult> = emptyList(),
+    val semanticList: List<SearchResult> = emptyList(),
+    val lexicalError: Throwable? = null,
+    val semanticError: Throwable? = null
 )
