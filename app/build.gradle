@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50565
+        versionCode 50566
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -161,7 +161,6 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -250,7 +249,6 @@ dependencies {
     testImplementation libs.robolectric
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
-    testImplementation libs.hamcrest
     testImplementation libs.room.testing
 
     androidTestImplementation libs.espresso.core

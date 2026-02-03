@@ -1,7 +1,9 @@
 package org.wikipedia.dataclient
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -13,165 +15,165 @@ import org.wikipedia.test.TestParcelUtil
 class WikiSiteTest {
     @Test
     fun testSupportedAuthority() {
-        MatcherAssert.assertThat(WikiSite.supportedAuthority("fr.wikipedia.org"), Matchers.`is`(true))
-        MatcherAssert.assertThat(WikiSite.supportedAuthority("fr.m.wikipedia.org"), Matchers.`is`(true))
-        MatcherAssert.assertThat(WikiSite.supportedAuthority("roa-rup.wikipedia.org"), Matchers.`is`(true))
-        MatcherAssert.assertThat(WikiSite.supportedAuthority("google.com"), Matchers.`is`(false))
+        assertTrue(WikiSite.supportedAuthority("fr.wikipedia.org"))
+        assertTrue(WikiSite.supportedAuthority("fr.m.wikipedia.org"))
+        assertTrue(WikiSite.supportedAuthority("roa-rup.wikipedia.org"))
+        assertFalse(WikiSite.supportedAuthority("google.com"))
     }
 
     @Test
     fun testForLanguageCodeScheme() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
+        assertEquals("https", subject.scheme())
     }
 
     @Test
     fun testForLanguageCodeAuthority() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("test.wikipedia.org"))
+        assertEquals("test.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testForLanguageCodeLanguage() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("test"))
+        assertEquals("test", subject.languageCode)
     }
 
     @Test
     fun testForLanguageCodeNoLanguage() {
         val subject = WikiSite.forLanguageCode("")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(""))
+        assertEquals("", subject.languageCode)
     }
 
     @Test
     fun testForLanguageCodeNoLanguageAuthority() {
         val subject = WikiSite.forLanguageCode("")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("wikipedia.org"))
+        assertEquals("wikipedia.org", subject.authority())
     }
 
     @Test
     fun testForLanguageCodeLanguageAuthority() {
         val subject = WikiSite.forLanguageCode("zh-hans")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hans"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh-hans", subject.languageCode)
     }
 
     @Test
     fun testCtorScheme() {
         val subject = WikiSite("http://wikipedia.org")
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
+        assertEquals("http", subject.scheme())
     }
 
     @Test
     fun testCtorDefaultScheme() {
         val subject = WikiSite("wikipedia.org")
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
+        assertEquals("https", subject.scheme())
     }
 
     @Test
     fun testCtorAuthority() {
         val subject = WikiSite("test.wikipedia.org")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("test.wikipedia.org"))
+        assertEquals("test.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testCtorAuthorityLanguage() {
         val subject = WikiSite("test.wikipedia.org")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("test"))
+        assertEquals("test", subject.languageCode)
     }
 
     @Test
     fun testCtorAuthorityNoLanguage() {
         val subject = WikiSite("wikipedia.org")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(""))
+        assertEquals("", subject.languageCode)
     }
 
     @Test
     fun testCtordesktopAuthorityLanguage() {
         val subject = WikiSite("test.m.wikipedia.org")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("test"))
+        assertEquals("test", subject.languageCode)
     }
 
     @Test
     fun testCtordesktopAuthorityNoLanguage() {
         val subject = WikiSite("m.wikipedia.org")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`(""))
+        assertEquals("", subject.languageCode)
     }
 
     @Test
     fun testCtorUriLangVariant() {
         var subject = WikiSite("en.wikipedia.org/wiki/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("en.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("en"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("en"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("enwiki"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://en.wikipedia.org"))
+        assertEquals("en.wikipedia.org", subject.authority())
+        assertEquals("en", subject.subdomain())
+        assertEquals("en", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("enwiki", subject.dbName())
+        assertEquals("https://en.wikipedia.org", subject.url())
 
         subject = WikiSite("zh.wikipedia.org/zh-tw/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh-tw", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("zhwiki", subject.dbName())
+        assertEquals("https://zh.wikipedia.org", subject.url())
 
         subject = WikiSite("zh.wikipedia.org/zh-cn/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-cn"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh-cn", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("zhwiki", subject.dbName())
+        assertEquals("https://zh.wikipedia.org", subject.url())
 
         subject = WikiSite("zh.wikipedia.org/zh-hant/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh-hant", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("zhwiki", subject.dbName())
+        assertEquals("https://zh.wikipedia.org", subject.url())
     }
 
     @Test
     fun testCtorUriLangVariantInSubdomain() {
         val subject = WikiSite("zh-tw.wikipedia.org/wiki/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-tw"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zhwiki"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh-tw", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("zhwiki", subject.dbName())
+        assertEquals("https://zh.wikipedia.org", subject.url())
     }
 
     @Test
     fun testCtorMobileUriLangVariant() {
         val subject = WikiSite("zh.m.wikipedia.org/zh-hant/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh-hant"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("https"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh-hant", subject.languageCode)
+        assertEquals("https", subject.scheme())
+        assertEquals("https://zh.wikipedia.org", subject.url())
     }
 
     @Test
     fun testCtorUriNoLangVariant() {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh", subject.languageCode)
+        assertEquals("http", subject.scheme())
+        assertEquals("http://zh.wikipedia.org", subject.url())
     }
 
     @Test
     fun testCtorUriGeneralLangVariant() {
         val subject = WikiSite("http://zh.wikipedia.org/wiki/Foo")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("zh.wikipedia.org"))
-        MatcherAssert.assertThat(subject.subdomain(), Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("zh"))
-        MatcherAssert.assertThat(subject.scheme(), Matchers.`is`("http"))
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("http://zh.wikipedia.org"))
+        assertEquals("zh.wikipedia.org", subject.authority())
+        assertEquals("zh", subject.subdomain())
+        assertEquals("zh", subject.languageCode)
+        assertEquals("http", subject.scheme())
+        assertEquals("http://zh.wikipedia.org", subject.url())
     }
 
     @Test
@@ -184,150 +186,141 @@ class WikiSiteTest {
     @Test
     fun testAuthority() {
         val subject = WikiSite("test.wikipedia.org", "test")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("test.wikipedia.org"))
+        assertEquals("test.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testDesktopAuthorityLanguage() {
         val subject = WikiSite.forLanguageCode("fiu-vro")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("fiu-vro.wikipedia.org"))
+        assertEquals("fiu-vro.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testDesktopAuthorityNoLanguage() {
         val subject = WikiSite("wikipedia.org")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("wikipedia.org"))
+        assertEquals("wikipedia.org", subject.authority())
     }
 
     @Test
     fun testDesktopAuthorityLanguageAuthority() {
         val subject = WikiSite("no.wikipedia.org", "nb")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("no.wikipedia.org"))
+        assertEquals("no.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testDesktopAuthoritydesktopAuthority() {
         val subject = WikiSite("ru.wikipedia.org")
-        MatcherAssert.assertThat(subject.authority(), Matchers.`is`("ru.wikipedia.org"))
+        assertEquals("ru.wikipedia.org", subject.authority())
     }
 
     @Test
     fun testDbNameLanguage() {
         val subject = WikiSite("en.wikipedia.org", "en")
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("enwiki"))
+        assertEquals("enwiki", subject.dbName())
     }
 
     @Test
     fun testDbNameSpecialLanguage() {
         val subject = WikiSite("no.wikipedia.org", "nb")
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("nowiki"))
+        assertEquals("nowiki", subject.dbName())
     }
 
     @Test
     fun testDbNameWithOneUnderscore() {
         val subject = WikiSite("zh-yue.wikipedia.org")
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zh_yuewiki"))
+        assertEquals("zh_yuewiki", subject.dbName())
     }
 
     @Test
     fun testDbNameWithTwoUnderscore() {
         val subject = WikiSite("zh-min-nan.wikipedia.org")
-        MatcherAssert.assertThat(subject.dbName(), Matchers.`is`("zh_min_nanwiki"))
+        assertEquals("zh_min_nanwiki", subject.dbName())
     }
 
     @Test
     fun testPath() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(subject.path("Segment"), Matchers.`is`("/w/Segment"))
+        assertEquals("/w/Segment", subject.path("Segment"))
     }
 
     @Test
     fun testPathEmpty() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(subject.path(""), Matchers.`is`("/w/"))
+        assertEquals("/w/", subject.path(""))
     }
 
     @Test
     fun testUrl() {
         val subject = WikiSite("test.192.168.1.11:8080", "test")
-        MatcherAssert.assertThat(subject.url(), Matchers.`is`("https://test.192.168.1.11:8080"))
+        assertEquals("https://test.192.168.1.11:8080", subject.url())
     }
 
     @Test
     fun testUrlPath() {
         val subject = WikiSite.forLanguageCode("test")
-        MatcherAssert.assertThat(
-            subject.url("Segment"),
-            Matchers.`is`("https://test.wikipedia.org/w/Segment")
-        )
+        assertEquals("https://test.wikipedia.org/w/Segment", subject.url("Segment"))
     }
 
     @Test
     fun testLanguageCode() {
         val subject = WikiSite.forLanguageCode("lang")
-        MatcherAssert.assertThat(subject.languageCode, Matchers.`is`("lang"))
+        assertEquals("lang", subject.languageCode)
     }
 
     @Test
     fun testUnmarshal() {
         val wiki = WikiSite.forLanguageCode("test")
         val wiki2 = JsonUtil.decodeFromString<WikiSite>(JsonUtil.encodeToString(wiki))!!
-        MatcherAssert.assertThat(wiki2.languageCode, Matchers.`is`(wiki.languageCode))
-        MatcherAssert.assertThat(wiki2.uri, Matchers.`is`(wiki.uri))
+        assertEquals(wiki.languageCode, wiki2.languageCode)
+        assertEquals(wiki.uri, wiki2.uri)
     }
 
     @Test
     fun testUnmarshalScheme() {
         val wiki = WikiSite("wikipedia.org", "")
         val wiki2 = JsonUtil.decodeFromString<WikiSite>(JsonUtil.encodeToString(wiki))!!
-        MatcherAssert.assertThat(wiki2.languageCode, Matchers.`is`(wiki.languageCode))
-        MatcherAssert.assertThat(wiki2.uri, Matchers.`is`(wiki.uri))
+        assertEquals(wiki.languageCode, wiki2.languageCode)
+        assertEquals(wiki.uri, wiki2.uri)
     }
 
     @Test
     fun testTitleForInternalLink() {
         val wiki = WikiSite.forLanguageCode("en")
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink(null, wiki).prefixedText)
+            PageTitle.titleForInternalLink(null, wiki).prefixedText
         )
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink("", wiki).prefixedText)
+            PageTitle.titleForInternalLink("", wiki).prefixedText
         )
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("Main Page", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/", wiki).prefixedText)
+            PageTitle.titleForInternalLink("/wiki/", wiki).prefixedText
         )
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("wiki", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink("wiki", wiki).prefixedText)
+            PageTitle.titleForInternalLink("wiki", wiki).prefixedText
         )
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("wiki", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/wiki", wiki).prefixedText)
+            PageTitle.titleForInternalLink("/wiki/wiki", wiki).prefixedText
         )
-        MatcherAssert.assertThat(
+        assertEquals(
             PageTitle("wiki/wiki", wiki).prefixedText,
-            Matchers.`is`(PageTitle.titleForInternalLink("/wiki/wiki/wiki", wiki).prefixedText)
+            PageTitle.titleForInternalLink("/wiki/wiki/wiki", wiki).prefixedText
         )
     }
 
     @Test
     fun testEquals() {
-        MatcherAssert.assertThat(WikiSite.forLanguageCode("en"), Matchers.`is`(WikiSite.forLanguageCode("en")))
-        MatcherAssert.assertThat(WikiSite.forLanguageCode("ta"), Matchers.not(WikiSite.forLanguageCode("en")))
-        MatcherAssert.assertThat(
-            WikiSite.forLanguageCode("ta").equals("ta.wikipedia.org"),
-            Matchers.`is`(false)
-        )
+        assertEquals(WikiSite.forLanguageCode("en"), WikiSite.forLanguageCode("en"))
+        assertNotEquals(WikiSite.forLanguageCode("ta"), WikiSite.forLanguageCode("en"))
+        assertFalse(WikiSite.forLanguageCode("ta").equals("ta.wikipedia.org"))
     }
 
     @Test
     fun testNormalization() {
-        MatcherAssert.assertThat(
-            "bm.wikipedia.org",
-            Matchers.`is`(WikiSite.forLanguageCode("bm").authority())
-        )
+        assertEquals("bm.wikipedia.org", WikiSite.forLanguageCode("bm").authority())
     }
 }

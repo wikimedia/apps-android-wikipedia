@@ -225,7 +225,7 @@
   <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
-  <string name="about_translators_heading">Перакладчыкі</string>
+  <string name="about_translators_heading">Перакладнікі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
@@ -320,7 +320,7 @@
   <string name="address_copied">Адрас скапіраваны ў буфэр абмену.</string>
   <string name="text_copied">Тэкст скапіяваны ў буфэр абмену.</string>
   <string name="button_continue_to_article">Чытаць артыкул</string>
-  <string name="link_preview_disambiguation_description">Гэтая назва датычыцца некалькіх старонак:</string>
+  <string name="link_preview_disambiguation_description">Гэтая назва датычна больш ніж адной старонцы:</string>
   <string name="button_get_directions">Атрымаць накіраваньні</string>
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
@@ -384,4 +384,5 @@
   <string name="menu_option_edit_source">Рэдагаваць код</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
   <string name="places_card_action">Болей месцаў побач</string>
+  <string name="survey_dialog_cancel">Скасаваць</string>
 </resources>

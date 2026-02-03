@@ -2199,4 +2199,7 @@
   <string name="donation_reminders_experiment_label">EXPERIMENTO</string>
   <string name="donation_reminders_settings_learn_more_button">Leger plus</string>
   <string name="donation_reminders_settings_report_button">Problema de functionalitate</string>
+  <string name="donation_reminders_settings_report_email_subject">Reporto de problema: rememorationes de donation</string>
+  <string name="donation_reminders_settings_report_email_body">Io ha incontrate un problema con le unfction Rememorationes de donation:\n- [Describe le problema specific]\n- [Capturas de schermo o ligamines]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
 </resources>

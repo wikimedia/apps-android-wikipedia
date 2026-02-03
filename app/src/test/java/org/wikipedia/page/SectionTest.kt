@@ -1,7 +1,7 @@
 package org.wikipedia.page
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -12,14 +12,14 @@ class SectionTest {
     fun testSectionLead() {
         // Section 0 is the lead
         var section = Section(0, 0, "Heading", "Heading", "Content")
-        MatcherAssert.assertThat(section.isLead, Matchers.`is`(true))
+        assertTrue(section.isLead)
 
         // Section 1 is not
         section = Section(1, 1, "Heading", "Heading", "Content")
-        MatcherAssert.assertThat(section.isLead, Matchers.`is`(false))
+        assertFalse(section.isLead)
 
         // Section 1 is not, even if it's somehow at level 0
         section = Section(1, 0, "Heading", "Heading", "Content")
-        MatcherAssert.assertThat(section.isLead, Matchers.`is`(false))
+        assertFalse(section.isLead)
     }
 }

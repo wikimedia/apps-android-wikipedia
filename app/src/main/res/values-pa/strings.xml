@@ -260,7 +260,7 @@
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;ਟੀਮ ਸਫ਼ਾ&lt;/a&gt;</string>
-  <string name="about_translators_heading">ਤਰਜਮੇਕਾਰ</string>
+  <string name="about_translators_heading">ਉਲਥਾਕਾਰ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ ਸਵੈ-ਸੇਵੀ ਤਰਜਮਾਕਾਰਾਂ ਵੱਲੋਂ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਉੱਤੇ ਕੀਤਾ ਗਿਆ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ਅਪਾਚੇ 2.0 ਲਸੰਸ&lt;/a&gt; ਹੇਠ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;ਗਿਟਹਬ&lt;/a&gt; ਉੱਤੇ ਉਪਲਬਧ ਹੈ। ਜਦੋਂ ਤੱਕ ਹੋਰ ਨਿਰਧਾਰਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ, ਇਹ ਸਮੱਗਰੀ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਦੇ ਤਹਿਤ ਉਪਲਬਧ ਹੈ।</string>
@@ -743,7 +743,7 @@
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
   <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਵੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
-  <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
+  <string name="view_featured_image_card_download">ਲਾਹੋ</string>
   <string name="view_featured_image_card_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
   <string name="menu_feed_card_dismissed">ਕਾਰਡ ਲੁਕਾਇਆ</string>
