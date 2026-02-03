@@ -129,6 +129,9 @@ class SearchResultsFragment : Fragment() {
             viewModel.updateLanguageCode(searchLanguageCode)
         }
 
+        // If user changes the language, make sure to turn off hybrid search screen.
+        showHybridSearch = showHybridSearch && viewModel.isHybridSearchExperimentOn
+
         if (showHybridSearch) {
             viewModel.loadHybridSearchResults()
         }

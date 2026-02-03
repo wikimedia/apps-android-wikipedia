@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -41,14 +40,12 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback,
-    BackPressedHandler {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
     private var langBtnClicked = false
     private var isSearchActive = false
-    private var initialQuery: String? = null
     private var query: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
@@ -67,7 +64,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
             if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
-                onSemanticSearchClick(queryText)
+                startSearch(queryText, true)
             }
             return true
         }
@@ -192,13 +189,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     }
 
     override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery("", true) // HACK: reset and do research
         binding.searchCabView.setQuery(text, true)
-    }
-
-    override fun onSemanticSearchClick(text: CharSequence) {
-        initialQuery = query
-        startSearch(text.toString(), true)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
@@ -358,15 +349,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onLanguageButtonClicked() {
         onLangButtonClick()
-    }
-
-    override fun onBackPressed(): Boolean {
-//        if (activePanel == PANEL_HYBRID_SEARCH_RESULTS) {
-//            setSearchText(initialQuery.toString())
-//            showPanel(PANEL_SEARCH_RESULTS)
-//            return true
-//        }
-        return false
     }
 
     companion object {
