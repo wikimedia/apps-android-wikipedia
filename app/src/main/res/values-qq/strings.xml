@@ -1264,6 +1264,7 @@
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
   <string name="onboarding_welcome_title_v2">Title for a tutorial screen about the free encyclopedia and now the app is available in over 300 languages.</string>
+  <string name="onboarding_next">Button label to continue to the next onboarding or tutorial screen.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
@@ -2099,9 +2100,24 @@
     <item quantity="one">Text for the total articles from the semantic search. %d is replaced with the count.</item>
     <item quantity="other">Text for the total articles from the semantic search. %d is replaced with the count.</item>
   </plurals>
-  <string name="hybrid_search_results_header_beta_label">Label for the semantic search result header.</string>
   <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
   <string name="hybrid_search_results_more_button">Button text for the semantic search result.</string>
   <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
   <string name="hybrid_search_results_empty">Text for showing the semantic search is currently unavailable.</string>
+  <string name="hybrid_search_onboarding_learn_more">Menu label for visiting the information page of the hybrid search.</string>
+  <string name="hybrid_search_onboarding_search_title">Onboarding title explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_search_description">Onboarding description explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Onboarding title for the opt in choice info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Onboarding description for the opt in choice info.</string>
+  <string name="hybrid_search_beta_tag">Label shown in the app bar to indicate that the Hybrid Search feature is in beta.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Label for a toggle switch that allows users to enable or disable the experimental Hybrid Search feature.</string>
+  <string name="hybrid_search_onboarding_search_example_title">Title shown on the Hybrid Search onboarding screen that introduces example search queries.</string>
+  <string name="hybrid_search_onboarding_search_example_description">Descriptive text on the Hybrid Search onboarding screen explaining that the onboarding screen shows example search queries.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Toast message shown when the user opts out of the Hybrid Search experiment.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_screen_title">Title for the hybrid search onboarding screen.</string>
 </resources>

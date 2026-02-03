@@ -285,7 +285,7 @@ fun SemanticSearchResultHeader(
                     .padding(horizontal = 12.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.hybrid_search_results_header_beta_label).uppercase(),
+                    text = stringResource(R.string.hybrid_search_beta_tag),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Normal,
                     color = Color.White

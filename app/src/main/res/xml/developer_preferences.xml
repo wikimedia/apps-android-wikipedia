@@ -581,8 +581,11 @@
             android:title="Hybrid Search test group (require restart)"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_hybrid_search_onboarding_shown"
+            android:title="@string/preference_key_hybrid_search_onboarding_shown"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_hybrid_search_enabled"
             android:title="@string/preference_key_hybrid_search_enabled" />
-
     </PreferenceCategory>
 </PreferenceScreen>
