@@ -97,7 +97,6 @@ fun HybridSearchResultsScreen(
         Box(
             modifier = modifier
         ) {
-            // TODO: think about merging the load states of both sources
             when (searchResultsState) {
                 is UiState.Loading -> {
                     showSearchProgressBar = false
@@ -158,7 +157,7 @@ fun HybridSearchResultsList(
     onRatingClick: (Boolean) -> Unit
 ) {
     LazyColumn {
-        if (testGroup == HybridSearchAbTest.GROUP_CONTROL || testGroup == HybridSearchAbTest.GROUP_LEXICAL_SEMANTIC) {
+        if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
             items(
                 count = searchResultsPage.size
             ) { index ->
@@ -212,11 +211,11 @@ fun HybridSearchResultsList(
             }
         }
 
-        if (testGroup == HybridSearchAbTest.GROUP_SEMANTIC_LEXICAL) {
+        if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
             item {
                 HorizontalDivider(
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                    thickness = 0.5.dp,
+                    thickness = 1.dp,
                     color = WikipediaTheme.colors.borderColor
                 )
             }

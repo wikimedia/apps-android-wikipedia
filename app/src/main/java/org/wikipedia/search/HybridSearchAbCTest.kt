@@ -3,7 +3,7 @@ package org.wikipedia.search
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 
-class HybridSearchAbTest : ABTest("hybridSearch", GROUP_SIZE_3) {
+class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
 
     fun getGroupName(): String {
         return when (group) {

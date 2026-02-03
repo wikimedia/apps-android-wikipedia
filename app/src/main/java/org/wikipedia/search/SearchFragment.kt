@@ -63,7 +63,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (HybridSearchAbTest().isHybridSearchEnabled(searchLanguageCode)) {
+            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
                 startSearch(queryText, true)
             }
             return true
@@ -308,7 +308,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.queryHint = getString(
             if (invokeSource == InvokeSource.PLACES) {
                 R.string.places_search_hint
-            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
+            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
                 R.string.hybrid_search_search_hint
             } else {
                 R.string.search_hint

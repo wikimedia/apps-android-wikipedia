@@ -44,9 +44,9 @@ class SearchResultsViewModel : ViewModel() {
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
-    val getTestGroup get() = HybridSearchAbTest().getGroupName()
+    val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
-    val isHybridSearchExperimentOn get() = HybridSearchAbTest().isHybridSearchEnabled(languageCode.value)
+    val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
     @OptIn(
         FlowPreview::class,
@@ -79,9 +79,8 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 
-            val (term, lang) = combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { t, l, _ ->
-                Pair(t, l)
-            }.first()
+            val term = _searchTerm.debounce(delayMillis).first()
+            val lang = _languageCode.value
 
             if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
                 _hybridSearchResultState.value = UiState.Success(emptyList())
