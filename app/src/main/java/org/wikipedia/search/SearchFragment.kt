@@ -71,7 +71,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
         override fun onQueryTextChange(queryText: String): Boolean {
             binding.searchCabView.setCloseButtonVisibility(queryText)
-            startSearch(queryText.trim(), false)
+            startSearch(queryText.trim(), force = false, resetHybridSearch = searchResultsFragment.showHybridSearch)
             return true
         }
     }
@@ -235,7 +235,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
-    private fun startSearch(term: String?, force: Boolean) {
+    private fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
         if (!isSearchActive) {
             openSearch()
         }
@@ -255,7 +255,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             }
             when (activePanel) {
                 PANEL_SEARCH_RESULTS -> {
-                    searchResultsFragment.startSearch(term, force)
+                    searchResultsFragment.startSearch(term, force, resetHybridSearch)
                 }
             }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
