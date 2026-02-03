@@ -20,9 +20,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         continuation: Int?,
         batchSize: Int,
         isPrefixSearch: Boolean,
-        countsPerLanguageCode: MutableList<Pair<String, Int>>,
-        searchInLanguages: Boolean,
-        isHybridSearch: Boolean
+        countsPerLanguageCode: MutableList<Pair<String, Int>>
     ): StandardSearchResults {
         val wikiSite = WikiSite.forLanguageCode(languageCode)
         val resultList = mutableListOf<SearchResult>()
@@ -30,7 +28,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         var currentContinuation = continuation
 
         if (isPrefixSearch) {
-            if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES && !isHybridSearch) {
+            if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
                 withContext(Dispatchers.IO) {
                     listOf(async {
                         getSearchResultsFromTabs(wikiSite, searchTerm)
@@ -57,7 +55,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite))
         }
 
-        if (searchInLanguages && resultList.isEmpty() && response?.continuation == null && !isHybridSearch) {
+        if (resultList.isEmpty() && response?.continuation == null) {
             countsPerLanguageCode.clear()
             WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                 var countResultSize = 0

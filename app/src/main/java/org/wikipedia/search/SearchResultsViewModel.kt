@@ -62,7 +62,6 @@ class SearchResultsViewModel : ViewModel() {
                     searchTerm = term,
                     languageCode = lang,
                     countsPerLanguageCode = countsPerLanguageCode,
-                    searchInLanguages = true,
                     invokeSource = invokeSource,
                     repository = repository
                 )
@@ -78,7 +77,7 @@ class SearchResultsViewModel : ViewModel() {
             _hybridSearchResultState.value = UiState.Loading
 
             val lexicalBatchSize = 3
-            val semanticBatchSize = 10
+            val semanticBatchSize = 3
 
             val (term, lang) = combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { t, l, _ ->
                 Pair(t, l)
@@ -128,10 +127,8 @@ class SearchResultsViewModel : ViewModel() {
         private val searchTerm: String?,
         private val languageCode: String?,
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
-        private val searchInLanguages: Boolean = true,
         private var invokeSource: Constants.InvokeSource,
         private val repository: SearchRepository<StandardSearchResults>,
-        private val isHybridSearch: Boolean = false
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -147,15 +144,13 @@ class SearchResultsViewModel : ViewModel() {
                     continuation = params.key,
                     batchSize = params.loadSize,
                     isPrefixSearch = params.key == null,
-                    countsPerLanguageCode = countsPerLanguageCode,
-                    searchInLanguages = searchInLanguages,
-                    isHybridSearch = isHybridSearch
+                    countsPerLanguageCode = countsPerLanguageCode
                 )
 
                 return LoadResult.Page(
                     result.results,
                     null,
-                    if (isHybridSearch) null else result.continuation
+                    result.continuation
                 )
             } catch (e: CancellationException) {
                 throw e
