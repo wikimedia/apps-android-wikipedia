@@ -249,7 +249,7 @@ dependencies {
     implementation libs.plumber.android
 
     testImplementation libs.junit
-    testImplementation libs.mockito.inline
+    testImplementation libs.mockk
     testImplementation libs.robolectric
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
