@@ -37,6 +37,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.page.PageAvailableOfflineHandler
 import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -286,6 +287,17 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
             FeedbackUtil.setButtonTooltip(historyFilterButton, clearHistoryButton)
             adjustSearchCardView(searchCardView)
+            updateSearchHint(searchCardView.findViewById(R.id.search_icon), searchCardView.findViewById(R.id.search_text_view))
+        }
+
+        private fun updateSearchHint(searchIcon: ImageView, searchTextView: TextView) {
+            if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
+                searchIcon.contentDescription = requireContext().getString(R.string.hybrid_search_search_hint)
+                searchTextView.text = requireContext().getString(R.string.hybrid_search_search_hint)
+            } else {
+                searchIcon.contentDescription = requireContext().getString(R.string.search_hint)
+                searchTextView.text = requireContext().getString(R.string.search_hint)
+            }
         }
     }
 
