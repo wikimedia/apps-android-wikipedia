@@ -401,8 +401,8 @@ fun SemanticSearchResultPageItem(
             }
 
             HorizontalDivider(
-                modifier = Modifier.width(48.dp).padding(horizontal = 16.dp),
-                thickness = 0.5.dp,
+                modifier = Modifier.width(80.dp).padding(horizontal = 16.dp),
+                thickness = 1.dp,
                 color = WikipediaTheme.colors.borderColor
             )
 
