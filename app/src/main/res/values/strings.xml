@@ -2337,7 +2337,7 @@
     <!-- Hybrid Search -->
     <string name="hybrid_search_search_hint">Search or ask anything</string>
     <string name="hybrid_search_article_search_hint">Ask about %s</string>
-    <string name="hybrid_search_suggestion_title">Run a deep search for:</string>
+    <string name="hybrid_search_suggestion_title">Search for:</string>
     <string name="hybrid_search_results_header">%1$s from %2$s</string>
     <plurals name="hybrid_search_results_header_result">
         <item quantity="one">%d result</item>
