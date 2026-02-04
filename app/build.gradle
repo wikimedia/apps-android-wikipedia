@@ -161,10 +161,6 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-configurations {
-    compileClasspath.extendsFrom(implementation)
-}
-
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
@@ -249,7 +245,7 @@ dependencies {
     implementation libs.plumber.android
 
     testImplementation libs.junit
-    testImplementation libs.mockito.inline
+    testImplementation libs.mockk
     testImplementation libs.robolectric
     testImplementation libs.okhttp3.okhttp
     testImplementation libs.mockwebserver
