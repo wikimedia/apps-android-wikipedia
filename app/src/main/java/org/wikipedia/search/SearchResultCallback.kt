@@ -15,5 +15,5 @@ interface SearchResultCallback {
         location: Location? = null
     )
 
-    fun setSearchText(text: CharSequence)
+    fun setSearchText(text: String)
 }

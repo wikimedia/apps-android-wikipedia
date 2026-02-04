@@ -85,7 +85,7 @@ class SearchResultsFragment : Fragment() {
                                 ).show(entry)
                             },
                             onSemanticSearchClick = {
-                                callback()?.setSearchText(StringUtil.fromHtml(it))
+                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
                                 showHybridSearch = true
                             },
                             onCloseSearch = { requireActivity().finish() },
@@ -122,11 +122,10 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
+        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
+        viewModel.updateLanguageCode(searchLanguageCode)
         if (force) {
             viewModel.refreshSearchResults()
-        } else {
-            viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
-            viewModel.updateLanguageCode(searchLanguageCode)
         }
 
         // If user changes the language, make sure to turn off hybrid search screen.
