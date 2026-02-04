@@ -113,8 +113,8 @@ fun HybridSearchResultsScreen(
 
                     HybridSearchResultsList(
                         testGroup = viewModel.getTestGroup,
-                        searchResultsPage = searchResultsState.data.lexicalList.filter { it.type == SearchResult.SearchResultType.SEARCH },
-                        semanticSearchResultPage = searchResultsState.data.semanticList.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchResultsPage = data.lexicalList.filter { it.type == SearchResult.SearchResultType.SEARCH },
+                        semanticSearchResultPage = data.semanticList.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
                         searchTerm = searchTerm.value,
                         onItemClick = { title, inNewTab, position, location ->
                             onNavigateToTitle(title, inNewTab, position, location)
