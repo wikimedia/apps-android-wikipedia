@@ -49,7 +49,7 @@ class CampaignCollectionTest {
             actions = arrayOf(
                 Campaign.Action(
                     title = "Foo",
-                    url = "http://example.com?wmf_source=\$formattedId;&country=\$country;"
+                    url = "http://example.com?wmf_source=\$formattedId;&country=\$country;&lang=\$language;"
                 )
             )
         )
@@ -61,6 +61,6 @@ class CampaignCollectionTest {
         assertEquals(replacedAssets.footer, "dolor sit en amet")
         assertEquals(replacedAssets.actions.size, 1)
         assertEquals(replacedAssets.actions[0].title, "Foo")
-        assertEquals(replacedAssets.actions[0].url, "http://example.com?wmf_source=enUS_US_2025_Android&country=US")
+        assertEquals(replacedAssets.actions[0].url, "http://example.com?wmf_source=enUS_US_2025_Android&country=US&lang=en")
     }
 }
