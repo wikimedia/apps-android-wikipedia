@@ -2344,7 +2344,7 @@
     <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
     <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
     <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
-    <string name="hybrid_search_beta_tag">BETA</string>
+    <string name="hybrid_search_beta_tag">Beta</string>
     <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
     <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
     <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
@@ -2364,7 +2364,6 @@
         <item quantity="one">%d article</item>
         <item quantity="other">%d articles</item>
     </plurals>
-    <string name="hybrid_search_results_header_beta_label">Beta</string>
     <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
     <string name="hybrid_search_results_more_button">More</string>
     <string name="hybrid_search_results_rate_label">Rate these results</string>

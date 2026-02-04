@@ -284,10 +284,10 @@ fun SemanticSearchResultHeader(
                         color = WikipediaTheme.colors.progressiveColor,
                         shape = RoundedCornerShape(size = 16.dp)
                     )
-                    .padding(horizontal = 12.dp)
+                    .padding(horizontal = 10.dp, vertical = 1.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.hybrid_search_beta_tag),
+                    text = stringResource(R.string.hybrid_search_beta_tag).uppercase(),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Normal,
                     color = Color.White
