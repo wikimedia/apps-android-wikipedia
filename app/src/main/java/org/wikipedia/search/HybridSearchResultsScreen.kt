@@ -106,15 +106,16 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Success -> {
-                    val data = searchResultsState.data
-                    if (data.semanticList.isEmpty()) {
+                    val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
+                    val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+                    if (semanticData.isEmpty()) {
                         onSemanticError()
                     }
 
                     HybridSearchResultsList(
                         testGroup = viewModel.getTestGroup,
-                        searchResultsPage = data.lexicalList.filter { it.type == SearchResult.SearchResultType.SEARCH },
-                        semanticSearchResultPage = data.semanticList.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchResultsPage = lexicalData,
+                        semanticSearchResultPage = semanticData,
                         searchTerm = searchTerm.value,
                         onItemClick = { title, inNewTab, position, location ->
                             onNavigateToTitle(title, inNewTab, position, location)

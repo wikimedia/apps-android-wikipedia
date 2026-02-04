@@ -38,7 +38,7 @@ class SearchResultsViewModel : ViewModel() {
     private var _languageCode = MutableStateFlow<String?>(null)
     var languageCode = _languageCode.asStateFlow()
 
-    private var _hybridSearchResultState = MutableStateFlow<UiState<HybridUiState>>(UiState.Loading)
+    private var _hybridSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val hybridSearchResultState = _hybridSearchResultState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
@@ -79,7 +79,7 @@ class SearchResultsViewModel : ViewModel() {
             val lang = _languageCode.value
 
             if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
-                _hybridSearchResultState.value = UiState.Success(HybridUiState())
+                _hybridSearchResultState.value = UiState.Success(emptyList())
                 return@launch
             }
 
@@ -95,7 +95,6 @@ class SearchResultsViewModel : ViewModel() {
                         response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
                         lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
                     }
-
                     lexicalSearchResults
                 }
             }
@@ -120,10 +119,7 @@ class SearchResultsViewModel : ViewModel() {
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
 
-            _hybridSearchResultState.value = UiState.Success(HybridUiState(
-                lexicalList = lexicalList,
-                semanticList = semanticList,
-            ))
+            _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
     }
 
@@ -200,9 +196,4 @@ data class HybridSearchConfig(
     val isHybridSearchExperimentOn: Boolean = false,
     val onTitleClick: (SearchResult) -> Unit,
     val onSuggestionTitleClick: (String?) -> Unit
-)
-
-data class HybridUiState(
-    val lexicalList: List<SearchResult> = emptyList(),
-    val semanticList: List<SearchResult> = emptyList()
 )
