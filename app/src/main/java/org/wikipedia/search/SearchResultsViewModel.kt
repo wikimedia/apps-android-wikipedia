@@ -19,7 +19,7 @@ import org.wikipedia.Constants
 
 class SearchResultsViewModel : ViewModel() {
 
-    private val batchSize = 20
+    private val batchSize = 10
     private val delayMillis = 200L
     var countsPerLanguageCode = mutableListOf<Pair<String, Int>>()
 
@@ -42,7 +42,7 @@ class SearchResultsViewModel : ViewModel() {
             Pair(term, lang)
         }.debounce(delayMillis).flatMapLatest { (term, lang) ->
             val repository = StandardSearchRepository()
-            Pager(PagingConfig(pageSize = batchSize, initialLoadSize = batchSize)) {
+            Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
                     term,
                     lang,
