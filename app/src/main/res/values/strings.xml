@@ -1319,6 +1319,7 @@
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
+    <string name="onboarding_next">Next</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
@@ -2156,7 +2157,7 @@
     </plurals>
     <string name="year_in_review_slide_viewed_articles_times_body">For people around the world, Wikipedia is the first stop when answering a question, looking up information for school or work, or learning a new fact.</string>
     <string name="year_in_review_reading_list_dialog_title">Create your Year in Review %d reading list?</string>
-    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>\
+    <string name="year_in_review_reading_list_dialog_message"><![CDATA[Wikipedia Year in Review will create a reading list of the articles you spent the most time with in %1$d. <a href="%2$s">Learn more</a>]]></string>
     <string name="year_in_review_reading_list_dialog_positive_button_label">Create</string>
     <string name="year_in_review_reading_list_dialog_negative_button_label">No thanks</string>
     <string name="year_in_review_reading_list_title">Year in Review %d</string>
@@ -2333,4 +2334,44 @@
     <string name="donation_reminders_settings_report_email_subject">Issue Report-Donation Reminders</string>
     <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature:\n- [Describe specific problem]\n- [Screenshots or links]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="donation_reminders_snackbar_modify_button_label">Modify</string>
+
+    <!-- Hybrid Search -->
+    <string name="hybrid_search_search_hint">Search or ask anything</string>
+    <string name="hybrid_search_article_search_hint">Ask about %s</string>
+    <string name="hybrid_search_suggestion_title">Search for:</string>
+    <string name="hybrid_search_onboarding_learn_more">Learn more</string>
+    <string name="hybrid_search_onboarding_search_title">Ask questions, get answers</string>
+    <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
+    <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
+    <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
+    <string name="hybrid_search_beta_tag">BETA</string>
+    <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
+    <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
+    <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
+    <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
+    <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
+    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first olympics</string>
+    <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
+    <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
+    <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
+    <string name="hybrid_search_results_header">%1$s from %2$s</string>
+    <plurals name="hybrid_search_results_header_result">
+        <item quantity="one">%d result</item>
+        <item quantity="other">%d results</item>
+    </plurals>
+    <plurals name="hybrid_search_results_header_article">
+        <item quantity="one">%d article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
+    <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
+    <string name="hybrid_search_results_more_button">More</string>
+    <string name="hybrid_search_results_rate_label">Rate these results</string>
+    <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
+    <string name="hybrid_search_no_results_header">No results</string>
+    <string name="hybrid_search_no_results_description">This topic isn’t returning article excerpts at this moment. Here are some things you can try:</string>
+    <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
+    <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
+    <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
+    <string name="hybrid_search_who_is_prefix">Who is %s?</string>
 </resources>
