@@ -27,7 +27,7 @@ class SearchResultsFragment : Fragment() {
 
     private var composeView: ComposeView? = null
     private val viewModel: SearchResultsViewModel by viewModels()
-    private var showHybridSearch by mutableStateOf(false)
+    var showHybridSearch by mutableStateOf(false)
 
     val isShowing get() = composeView?.visibility == View.VISIBLE
 
@@ -117,7 +117,7 @@ class SearchResultsFragment : Fragment() {
         composeView?.visibility = View.GONE
     }
 
-    fun startSearch(term: String?, force: Boolean) {
+    fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
         if (!force && viewModel.searchTerm.value == term && viewModel.languageCode.value == searchLanguageCode) {
             return
         }
@@ -130,7 +130,7 @@ class SearchResultsFragment : Fragment() {
         }
 
         // If user changes the language, make sure to turn off hybrid search screen.
-        showHybridSearch = showHybridSearch && viewModel.isHybridSearchExperimentOn
+        showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
 
         if (showHybridSearch) {
             viewModel.loadHybridSearchResults()
