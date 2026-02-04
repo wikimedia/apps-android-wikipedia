@@ -30,6 +30,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,7 +74,7 @@ fun HybridSearchResultsScreen(
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
-    onRatingClick: (Boolean) -> Unit,
+    onRatingClick: (Boolean, Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
@@ -122,8 +123,8 @@ fun HybridSearchResultsScreen(
                         onSemanticItemClick = { title, inNewTab, position, location ->
                             onSemanticItemClick(title, inNewTab, position, location)
                         },
-                        onRatingClick = { isPositive ->
-                            onRatingClick(isPositive)
+                        onRatingClick = { isPositive, isToggled ->
+                            onRatingClick(isPositive, isToggled)
                         }
                     )
                 }
@@ -155,7 +156,7 @@ fun HybridSearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onRatingClick: (Boolean) -> Unit
+    onRatingClick: (Boolean, Boolean) -> Unit
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
@@ -203,8 +204,8 @@ fun HybridSearchResultsList(
                             onArticleItemClick = {
                                 onItemClick(result.pageTitle, false, index, result.location)
                             },
-                            onRatingClick = { isPositive ->
-                                onRatingClick(isPositive)
+                            onRatingClick = { isPositive, isToggled ->
+                                onRatingClick(isPositive, isToggled)
                             }
                         )
                     }
@@ -296,7 +297,7 @@ fun SemanticSearchResultHeader(
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .clip(RoundedCornerShape(12.dp))
+                    .clip(RoundedCornerShape(24.dp))
                     .clickable { onInfoClick() }
                     .padding(horizontal = 12.dp),
                 contentAlignment = Alignment.Center
@@ -322,7 +323,7 @@ fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
     onArticleItemClick: () -> Unit,
-    onRatingClick: (Boolean) -> Unit
+    onRatingClick: (Boolean, Boolean) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -362,44 +363,74 @@ fun SemanticSearchResultPageItem(
                 )
             }
 
-            Row(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.hybrid_search_results_rate_label),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = WikipediaTheme.colors.placeholderColor
-                )
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(RoundedCornerShape(12.dp))
-                        .clickable { onRatingClick(true) }
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
+            var isRatingVoted by rememberSaveable(searchResult.pageTitle.prefixedText) { mutableStateOf(false) }
+
+            if (!isRatingVoted) {
+
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        modifier = Modifier.size(16.dp),
-                        painter = painterResource(R.drawable.ic_thumb_up),
-                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
-                        tint = WikipediaTheme.colors.placeholderColor
+                    Text(
+                        text = stringResource(R.string.hybrid_search_results_rate_label),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = WikipediaTheme.colors.placeholderColor
                     )
-                }
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .clip(RoundedCornerShape(12.dp))
-                        .clickable { onRatingClick(false) }
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        modifier = Modifier.size(16.dp),
-                        painter = painterResource(R.drawable.ic_thumb_down),
-                        contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
-                        tint = WikipediaTheme.colors.placeholderColor
-                    )
+                    var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
+                        mutableStateOf(
+                            false
+                        )
+                    }
+                    var isRatingNegativeSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_negative") {
+                        mutableStateOf(
+                            false
+                        )
+                    }
+                    Box(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(24.dp))
+                            .clickable {
+                                isRatingPositiveSelected = !isRatingPositiveSelected
+                                if (isRatingNegativeSelected) {
+                                    isRatingNegativeSelected = false
+                                }
+                                isRatingVoted = true
+                                onRatingClick(true, isRatingPositiveSelected)
+                            }
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(if (isRatingPositiveSelected) R.drawable.ic_thumb_up_filled else R.drawable.ic_thumb_up),
+                            contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                            tint = WikipediaTheme.colors.placeholderColor
+                        )
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .size(48.dp)
+                            .clip(RoundedCornerShape(24.dp))
+                            .clickable {
+                                isRatingNegativeSelected = !isRatingNegativeSelected
+                                if (isRatingPositiveSelected) {
+                                    isRatingPositiveSelected = false
+                                }
+                                isRatingVoted = true
+                                onRatingClick(false, isRatingNegativeSelected)
+                            }
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(if (isRatingNegativeSelected) R.drawable.ic_thumb_down_filled else R.drawable.ic_thumb_down),
+                            contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                            tint = WikipediaTheme.colors.placeholderColor
+                        )
+                    }
                 }
             }
 
@@ -499,7 +530,7 @@ private fun SemanticSearchResultPageItemPreview() {
             ),
             onSemanticItemClick = {},
             onArticleItemClick = {},
-            onRatingClick = {}
+            onRatingClick = {_, _ ->}
         )
     }
 }
