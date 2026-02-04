@@ -65,7 +65,7 @@ class SearchResultsFragment : Fragment() {
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
                             },
-                            onRatingClick = { isPositive, isToggled ->
+                            onRatingClick = { isPositive ->
                                 // TODO: implement rating submission
                             }
                         )

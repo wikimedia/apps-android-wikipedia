@@ -57,6 +57,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -74,7 +75,7 @@ fun HybridSearchResultsScreen(
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
-    onRatingClick: (Boolean, Boolean) -> Unit,
+    onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit
@@ -123,8 +124,8 @@ fun HybridSearchResultsScreen(
                         onSemanticItemClick = { title, inNewTab, position, location ->
                             onSemanticItemClick(title, inNewTab, position, location)
                         },
-                        onRatingClick = { isPositive, isToggled ->
-                            onRatingClick(isPositive, isToggled)
+                        onRatingClick = { isPositive ->
+                            onRatingClick(isPositive)
                         }
                     )
                 }
@@ -156,7 +157,7 @@ fun HybridSearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onRatingClick: (Boolean, Boolean) -> Unit
+    onRatingClick: (Boolean) -> Unit
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
@@ -204,8 +205,8 @@ fun HybridSearchResultsList(
                             onArticleItemClick = {
                                 onItemClick(result.pageTitle, false, index, result.location)
                             },
-                            onRatingClick = { isPositive, isToggled ->
-                                onRatingClick(isPositive, isToggled)
+                            onRatingClick = { isPositive ->
+                                onRatingClick(isPositive)
                             }
                         )
                     }
@@ -323,7 +324,7 @@ fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
     onArticleItemClick: () -> Unit,
-    onRatingClick: (Boolean, Boolean) -> Unit
+    onRatingClick: (Boolean) -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -363,40 +364,32 @@ fun SemanticSearchResultPageItem(
                 )
             }
 
-            var isRatingVoted by rememberSaveable(searchResult.pageTitle.prefixedText) { mutableStateOf(false) }
-
-            if (!isRatingVoted) {
-
-                Row(
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = stringResource(R.string.hybrid_search_results_rate_label),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = WikipediaTheme.colors.placeholderColor
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(R.string.hybrid_search_results_rate_label),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.placeholderColor
+                )
+                var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
+                    mutableStateOf(
+                        false
                     )
-                    var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
-                        mutableStateOf(
-                            false
-                        )
-                    }
-                    var isRatingNegativeSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_negative") {
-                        mutableStateOf(
-                            false
-                        )
-                    }
+                }
+                var isRatingNegativeSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_negative") {
+                    mutableStateOf(
+                        false
+                    )
+                }
+                if (!isRatingNegativeSelected) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
-                            .clip(RoundedCornerShape(24.dp))
-                            .clickable {
-                                isRatingPositiveSelected = !isRatingPositiveSelected
-                                if (isRatingNegativeSelected) {
-                                    isRatingNegativeSelected = false
-                                }
-                                isRatingVoted = true
-                                onRatingClick(true, isRatingPositiveSelected)
+                            .noRippleClickable {
+                                isRatingPositiveSelected = true
+                                onRatingClick(true)
                             }
                             .padding(16.dp),
                         contentAlignment = Alignment.Center
@@ -408,18 +401,15 @@ fun SemanticSearchResultPageItem(
                             tint = WikipediaTheme.colors.placeholderColor
                         )
                     }
+                }
 
+                if (!isRatingPositiveSelected) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
-                            .clip(RoundedCornerShape(24.dp))
-                            .clickable {
-                                isRatingNegativeSelected = !isRatingNegativeSelected
-                                if (isRatingPositiveSelected) {
-                                    isRatingPositiveSelected = false
-                                }
-                                isRatingVoted = true
-                                onRatingClick(false, isRatingNegativeSelected)
+                            .noRippleClickable {
+                                isRatingNegativeSelected = true
+                                onRatingClick(false)
                             }
                             .padding(16.dp),
                         contentAlignment = Alignment.Center
@@ -530,7 +520,7 @@ private fun SemanticSearchResultPageItemPreview() {
             ),
             onSemanticItemClick = {},
             onArticleItemClick = {},
-            onRatingClick = {_, _ ->}
+            onRatingClick = {}
         )
     }
 }
