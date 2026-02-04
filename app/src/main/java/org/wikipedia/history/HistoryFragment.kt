@@ -291,13 +291,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         private fun updateSearchHint(searchIcon: ImageView, searchTextView: TextView) {
-            if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
-                searchIcon.contentDescription = requireContext().getString(R.string.hybrid_search_search_hint)
-                searchTextView.text = requireContext().getString(R.string.hybrid_search_search_hint)
-            } else {
-                searchIcon.contentDescription = requireContext().getString(R.string.search_hint)
-                searchTextView.text = requireContext().getString(R.string.search_hint)
-            }
+            val showHybridSearch = Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.appOrSystemLanguageCode)
+            searchIcon.contentDescription = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
+            searchTextView.text = getString(if (showHybridSearch) R.string.hybrid_search_search_hint else R.string.search_hint)
         }
     }
 
