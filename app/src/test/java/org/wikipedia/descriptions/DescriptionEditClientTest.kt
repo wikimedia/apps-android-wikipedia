@@ -1,12 +1,13 @@
 package org.wikipedia.descriptions
 
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.mockito.Mockito
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
@@ -135,11 +136,12 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     @Test
     fun testIsEditAllowedSuccess() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = Mockito.mock(PageProperties::class.java)
-        Mockito.`when`(props.wikiBaseItem).thenReturn("Q123")
-        Mockito.`when`(props.canEdit).thenReturn(true)
-        Mockito.`when`(props.descriptionSource).thenReturn("central")
-        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
+        val props = mockk<PageProperties>(relaxed = true) {
+            every { wikiBaseItem } returns "Q123"
+            every { canEdit } returns true
+            every { descriptionSource } returns "central"
+            every { namespace } returns Namespace.MAIN
+        }
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
         assertTrue(DescriptionEditUtil.isEditAllowed(page))
     }
@@ -147,9 +149,10 @@ class DescriptionEditClientTest : MockRetrofitTest() {
     @Test
     fun testIsEditAllowedNoWikiBaseItem() {
         val wiki = WikiSite.forLanguageCode("ru")
-        val props = Mockito.mock(PageProperties::class.java)
-        Mockito.`when`(props.wikiBaseItem).thenReturn(null)
-        Mockito.`when`(props.namespace).thenReturn(Namespace.MAIN)
+        val props = mockk<PageProperties>(relaxed = true) {
+            every { wikiBaseItem } returns null
+            every { namespace } returns Namespace.MAIN
+        }
         val page = Page(PageTitle("Test", wiki), pageProperties = props)
         assertFalse(DescriptionEditUtil.isEditAllowed(page))
     }
