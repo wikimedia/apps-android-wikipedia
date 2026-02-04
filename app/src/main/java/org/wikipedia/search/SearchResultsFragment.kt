@@ -20,6 +20,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -67,6 +68,9 @@ class SearchResultsFragment : Fragment() {
                             },
                             onRatingClick = { isPositive ->
                                 // TODO: implement rating submission
+                            },
+                            onSemanticError = {
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             }
                         )
                     } else {

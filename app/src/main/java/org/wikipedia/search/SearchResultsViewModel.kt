@@ -8,10 +8,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,7 +23,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -70,15 +67,9 @@ class SearchResultsViewModel : ViewModel() {
             }.flow
         }.cachedIn(viewModelScope)
 
-    private var hybridJob: Job? = null
-
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-        hybridJob?.cancel()
-        hybridJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _hybridSearchResultState.value = UiState.Error(throwable)
-        }) {
+       viewModelScope.launch {
             _hybridSearchResultState.value = UiState.Loading
 
             val lexicalBatchSize = 3
@@ -121,7 +112,7 @@ class SearchResultsViewModel : ViewModel() {
             val semanticResult = semanticDeferred.await()
 
             if (lexicalResult.isFailure && semanticResult.isFailure) {
-                _hybridSearchResultState.value = UiState.Error(lexicalResult.exceptionOrNull() ?: Throwable())
+                _hybridSearchResultState.value = UiState.Error(Throwable())
                 return@launch
             }
 
@@ -132,8 +123,6 @@ class SearchResultsViewModel : ViewModel() {
             _hybridSearchResultState.value = UiState.Success(HybridUiState(
                 lexicalList = lexicalList,
                 semanticList = semanticList,
-                lexicalError = lexicalResult.exceptionOrNull(),
-                semanticError = semanticResult.exceptionOrNull()
             ))
         }
     }
@@ -215,7 +204,5 @@ data class HybridSearchConfig(
 
 data class HybridUiState(
     val lexicalList: List<SearchResult> = emptyList(),
-    val semanticList: List<SearchResult> = emptyList(),
-    val lexicalError: Throwable? = null,
-    val semanticError: Throwable? = null
+    val semanticList: List<SearchResult> = emptyList()
 )

@@ -76,7 +76,8 @@ fun HybridSearchResultsScreen(
     onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit
+    onLoading: (Boolean) -> Unit,
+    onSemanticError: () -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -106,12 +107,8 @@ fun HybridSearchResultsScreen(
 
                 is UiState.Success -> {
                     val data = searchResultsState.data
-                    if (data.semanticError != null) {
-                        println("orange semanticError --> ${data.semanticError}")
-                    }
-
-                    if (data.lexicalError != null) {
-                        println("orange lexicalError --> ${data.lexicalError}")
+                    if (data.semanticList.isEmpty()) {
+                        onSemanticError()
                     }
 
                     HybridSearchResultsList(
@@ -187,13 +184,15 @@ fun HybridSearchResultsList(
         }
 
         item {
-            SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
-                results = semanticSearchResultPage,
-                onInfoClick = {
-                    onInfoClick()
-                }
-            )
+            if (semanticSearchResultPage.isNotEmpty()) {
+                SemanticSearchResultHeader(
+                    modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
+                    results = semanticSearchResultPage,
+                    onInfoClick = {
+                        onInfoClick()
+                    }
+                )
+            }
         }
 
         item {
