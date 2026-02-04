@@ -53,7 +53,7 @@ object CampaignCollection {
     }
 
     fun getFormattedCampaignId(campaignId: String): String {
-        return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry}_${campaignId}_${CAMPAIGN_PLATFORM}"
+        return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry.orEmpty()}_${campaignId}_${CAMPAIGN_PLATFORM}"
     }
 
     fun addDonationResult(fromWeb: Boolean = false, amount: Float, currency: String, recurring: Boolean) {
