@@ -161,10 +161,6 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 
-configurations {
-    compileClasspath.extendsFrom(implementation)
-}
-
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
