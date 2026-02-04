@@ -11,6 +11,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
@@ -88,25 +89,25 @@ class SearchResultsViewModel : ViewModel() {
             }
 
             val wikiSite = WikiSite.forLanguageCode(lang)
-            val lexicalSearchResults = mutableListOf<SearchResult>()
-            val semanticSearchResults = mutableListOf<SearchResult>()
 
-            // prefix + fulltext search results for at most 3 results.
-            var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
-            lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+            val lexicalResults = async {
+                val searchResults = mutableListOf<SearchResult>()
+                // prefix + fulltext search results for at most 3 results.
+                var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
+                searchResults.addAll(buildList(response, invokeSource, wikiSite))
 
-            if (lexicalSearchResults.size < lexicalBatchSize) {
-                response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
-                lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                if (searchResults.size < lexicalBatchSize) {
+                    response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
+                    searchResults.addAll(buildList(response, invokeSource, wikiSite))
+                }
+                searchResults
+            }
+            val semanticResults = async {
+                val response = ServiceFactory.get(wikiSite).semanticSearch(term, semanticBatchSize)
+                buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC)
             }
 
-            // semantic search results
-            response = ServiceFactory.get(wikiSite)
-                .semanticSearch(term, semanticBatchSize)
-            semanticSearchResults.addAll(buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC))
-
-            // TODO: maybe it can be optimized?
-            _hybridSearchResultState.value = UiState.Success(lexicalSearchResults.distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticSearchResults)
+            _hybridSearchResultState.value = UiState.Success(lexicalResults.await().distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticResults.await())
         }
     }
 
