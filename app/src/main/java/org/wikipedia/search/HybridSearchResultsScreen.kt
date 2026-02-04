@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -251,7 +252,8 @@ fun SemanticSearchResultHeader(
     ) {
         if (!rephraseTitle.isNullOrEmpty()) {
             Text(
-                modifier = Modifier.padding(vertical = 16.dp),
+                modifier = Modifier
+                    .padding(top = 16.dp),
                 text = rephraseTitle,
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
@@ -307,6 +309,7 @@ fun SemanticSearchResultHeader(
             }
         }
         Text(
+            modifier = Modifier.offset(y = (-8).dp),
             text = stringResource(R.string.hybrid_search_results_header_description),
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.placeholderColor
