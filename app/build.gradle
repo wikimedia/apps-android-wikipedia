@@ -41,7 +41,7 @@ android {
         targetSdk = 36
         versionCode 50565
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kaspersky.kaspresso.runner.KaspressoRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
@@ -174,7 +174,7 @@ dependencies {
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
-
+    androidTestImplementation "com.kaspersky.android-components:kaspresso:1.6.0"
     coreLibraryDesugaring libs.desugar.jdk.libs
 
     implementation project(':analytics:testkitchen')
