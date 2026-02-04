@@ -179,7 +179,7 @@ fun HybridSearchResultsList(
 
         item {
             SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
+                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
                 results = semanticSearchResultPage,
                 onInfoClick = {
                     onInfoClick()
@@ -327,7 +327,7 @@ fun SemanticSearchResultPageItem(
     Card(
         modifier = Modifier
             .width(292.dp)
-            .padding(8.dp),
+            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp, top = 4.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         border = BorderStroke(
