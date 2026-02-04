@@ -1,18 +1,15 @@
 package org.wikipedia.dataclient.donate
 
+import io.mockk.every
+import io.mockk.mockkObject
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito.mock
-import org.mockito.junit.MockitoJUnitRunner
+import org.robolectric.RobolectricTestRunner
 import org.wikipedia.util.GeoUtil
 
-@RunWith(MockitoJUnitRunner::class)
+@RunWith(RobolectricTestRunner::class)
 class CampaignCollectionTest {
-    @Mock
-    private lateinit var mockGeoUtil: GeoUtil
-
     @Test
     fun testReplaceAssetsNoParams() {
         val assets = Campaign.Assets(
@@ -40,9 +37,9 @@ class CampaignCollectionTest {
 
     @Test
     fun testReplaceAssetsWithParams() {
-        mockGeoUtil = mock<GeoUtil> {
-            on { geoIPCountry } doReturn "US"
-        }
+
+        mockkObject(GeoUtil)
+        every { GeoUtil.geoIPCountry } returns "US"
 
         val assets = Campaign.Assets(
             id = "123",

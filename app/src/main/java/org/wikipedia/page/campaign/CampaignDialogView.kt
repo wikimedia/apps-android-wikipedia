@@ -3,6 +3,7 @@ package org.wikipedia.page.campaign
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.core.net.toUri
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.isVisible
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -13,7 +14,6 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import androidx.core.net.toUri
 
 class CampaignDialogView(context: Context) : FrameLayout(context) {
     interface Callback {
