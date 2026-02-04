@@ -1319,6 +1319,7 @@
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
+    <string name="onboarding_next">Next</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
