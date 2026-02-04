@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -187,7 +188,7 @@ fun HybridSearchResultsList(
 
         item {
             SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
+                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
                 results = semanticSearchResultPage,
                 onInfoClick = {
                     onInfoClick()
@@ -260,7 +261,8 @@ fun SemanticSearchResultHeader(
     ) {
         if (!rephraseTitle.isNullOrEmpty()) {
             Text(
-                modifier = Modifier.padding(vertical = 16.dp),
+                modifier = Modifier
+                    .padding(top = 16.dp),
                 text = rephraseTitle,
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
@@ -291,10 +293,10 @@ fun SemanticSearchResultHeader(
                         color = WikipediaTheme.colors.progressiveColor,
                         shape = RoundedCornerShape(size = 16.dp)
                     )
-                    .padding(horizontal = 12.dp)
+                    .padding(horizontal = 10.dp, vertical = 1.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.hybrid_search_beta_tag),
+                    text = stringResource(R.string.hybrid_search_beta_tag).uppercase(),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Normal,
                     color = Color.White
@@ -316,6 +318,7 @@ fun SemanticSearchResultHeader(
             }
         }
         Text(
+            modifier = Modifier.offset(y = (-8).dp),
             text = stringResource(R.string.hybrid_search_results_header_description),
             style = MaterialTheme.typography.bodyMedium,
             color = WikipediaTheme.colors.placeholderColor
@@ -333,7 +336,7 @@ fun SemanticSearchResultPageItem(
     Card(
         modifier = Modifier
             .width(292.dp)
-            .padding(8.dp),
+            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp, top = 4.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         border = BorderStroke(

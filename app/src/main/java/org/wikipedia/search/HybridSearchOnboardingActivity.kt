@@ -16,6 +16,7 @@ import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -39,7 +40,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.SuggestionChipDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -55,10 +55,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices.PIXEL_9
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -169,20 +168,19 @@ fun HybridSearchOnboardingScreen(
                             .padding(top = 58.dp, bottom = 32.dp)
                             .padding(horizontal = 12.dp),
                     ) {
-                        Surface(
-                            modifier = Modifier,
-                            shape = RoundedCornerShape(50),
-                            color = WikipediaTheme.colors.progressiveColor
+                        Box(
+                            modifier = Modifier
+                                .background(
+                                    color = WikipediaTheme.colors.progressiveColor,
+                                    shape = RoundedCornerShape(size = 16.dp)
+                                )
+                                .padding(horizontal = 10.dp, vertical = 1.dp)
                         ) {
                             Text(
-                                modifier = Modifier
-                                    .padding(horizontal = 12.dp, vertical = 2.dp),
-                                text = stringResource(R.string.hybrid_search_beta_tag),
+                                text = stringResource(R.string.hybrid_search_beta_tag).uppercase(),
                                 style = MaterialTheme.typography.labelSmall,
-                                fontFamily = FontFamily.Monospace,
                                 fontWeight = FontWeight.Normal,
-                                color = WikipediaTheme.colors.paperColor,
-                                textAlign = TextAlign.Center
+                                color = Color.White
                             )
                         }
                         Spacer(modifier = Modifier.height(8.dp))
