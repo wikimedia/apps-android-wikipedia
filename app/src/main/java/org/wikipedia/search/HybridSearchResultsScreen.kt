@@ -4,8 +4,6 @@ import android.location.Location
 import android.view.View
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
-import androidx.compose.animation.expandHorizontally
-import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.BorderStroke
@@ -372,8 +370,7 @@ fun SemanticSearchResultPageItem(
 
             Row(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .animateContentSize(),
+                    .padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
@@ -392,18 +389,20 @@ fun SemanticSearchResultPageItem(
                     stringResource(R.string.hybrid_search_results_rate_label)
                 }
                 Text(
+                    modifier = Modifier
+                        .animateContentSize(),
                     text = ratingLabel,
                     style = MaterialTheme.typography.bodySmall,
                     color = WikipediaTheme.colors.placeholderColor
                 )
                 AnimatedVisibility(
                     visible = !isRatingNegativeSelected,
-                    enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
                     exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start)
                 ) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
+                            .animateContentSize()
                             .clip(CircleShape)
                             .clickable {
                                 isRatingPositiveSelected = true
@@ -423,12 +422,12 @@ fun SemanticSearchResultPageItem(
 
                 AnimatedVisibility(
                     visible = !isRatingPositiveSelected,
-                    enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
                     exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start)
                 ) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
+                            .animateContentSize()
                             .clip(CircleShape)
                             .clickable {
                                 isRatingNegativeSelected = true
