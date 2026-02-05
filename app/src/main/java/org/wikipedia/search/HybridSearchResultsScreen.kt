@@ -197,7 +197,8 @@ fun HybridSearchResultsList(
 
         item {
             LazyRow(
-                modifier = Modifier.padding(horizontal = 8.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(
                     count = semanticSearchResultPage.size
@@ -335,7 +336,7 @@ fun SemanticSearchResultPageItem(
     Card(
         modifier = Modifier
             .width(292.dp)
-            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp, top = 4.dp),
+            .padding(bottom = 8.dp, top = 4.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         border = BorderStroke(
