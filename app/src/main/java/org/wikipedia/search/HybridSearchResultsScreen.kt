@@ -368,11 +368,6 @@ fun SemanticSearchResultPageItem(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = stringResource(R.string.hybrid_search_results_rate_label),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = WikipediaTheme.colors.placeholderColor
-                )
                 var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
                     mutableStateOf(
                         false
@@ -383,6 +378,16 @@ fun SemanticSearchResultPageItem(
                         false
                     )
                 }
+                val ratingLabel = if (isRatingPositiveSelected || isRatingNegativeSelected) {
+                    stringResource(R.string.hybrid_search_results_rated_label)
+                } else {
+                    stringResource(R.string.hybrid_search_results_rate_label)
+                }
+                Text(
+                    text = ratingLabel,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = WikipediaTheme.colors.placeholderColor
+                )
                 if (!isRatingNegativeSelected) {
                     Box(
                         modifier = Modifier
@@ -397,7 +402,7 @@ fun SemanticSearchResultPageItem(
                         Icon(
                             modifier = Modifier.size(16.dp),
                             painter = painterResource(if (isRatingPositiveSelected) R.drawable.ic_thumb_up_filled else R.drawable.ic_thumb_up),
-                            contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                            contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_up),
                             tint = WikipediaTheme.colors.placeholderColor
                         )
                     }
@@ -417,7 +422,7 @@ fun SemanticSearchResultPageItem(
                         Icon(
                             modifier = Modifier.size(16.dp),
                             painter = painterResource(if (isRatingNegativeSelected) R.drawable.ic_thumb_down_filled else R.drawable.ic_thumb_down),
-                            contentDescription = stringResource(R.string.hybrid_search_results_rate_label),
+                            contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_down),
                             tint = WikipediaTheme.colors.placeholderColor
                         )
                     }
