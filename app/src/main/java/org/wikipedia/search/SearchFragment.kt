@@ -63,6 +63,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
+            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
+                searchResultsFragment.showHybridSearch = true
+                startSearch(term = queryText, force = true, resetHybridSearch = false)
+            }
             return true
         }
 
