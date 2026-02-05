@@ -16,6 +16,7 @@ import okhttp3.Request
 import okio.Buffer
 import okio.Sink
 import okio.Timeout
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.database.AppDatabase
@@ -211,7 +212,7 @@ class SavedPageSyncService(context: Context, params: WorkerParameters) : Corouti
                         summaryResponse.coordinates?.longitude ?: 0.0
                     ))
                     fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
-                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), DimenUtil.calculateLeadImageWidth())))
+                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl.orEmpty(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                 }
 
                 // download article images
