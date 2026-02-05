@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -52,6 +53,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
@@ -453,9 +455,11 @@ fun SemanticSearchResultPageItem(
             )
 
             Box(
-                modifier = Modifier.clickable {
-                    onArticleItemClick()
-                }
+                modifier = Modifier
+                    .defaultMinSize(minHeight = 56.dp)
+                    .clickable {
+                        onArticleItemClick()
+                    }
             ) {
                 Row(
                     modifier = Modifier
@@ -465,18 +469,22 @@ fun SemanticSearchResultPageItem(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(
-                        modifier = Modifier.padding(end = 16.dp)
+                        modifier = Modifier.padding(end = 8.dp)
                             .weight(1f)
                     ) {
                         HtmlText(
                             text = searchResult.pageTitle.displayText,
                             style = MaterialTheme.typography.bodyLarge,
-                            color = WikipediaTheme.colors.primaryColor
+                            color = WikipediaTheme.colors.primaryColor,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
                         )
                         Text(
                             text = searchResult.pageTitle.description.orEmpty(),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = WikipediaTheme.colors.placeholderColor
+                            color = WikipediaTheme.colors.placeholderColor,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     }
                     if (!searchResult.pageTitle.thumbUrl.isNullOrEmpty()) {
@@ -528,6 +536,7 @@ private fun SemanticSearchResultPageItemPreview() {
     val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
     val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
         description = "American singer, songwriter, and actress"
+        thumbUrl = "https://example"
     }
     val snippet = "Beyoncé Giselle Knowles-Carter is an <a href='#'>American singer</a>, songwriter, actress, and businesswoman. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the world's best"
 
