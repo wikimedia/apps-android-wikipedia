@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -75,7 +74,7 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 
-            val term = _searchTerm.debounce(delayMillis).first()
+            val term = _searchTerm.value
             val lang = _languageCode.value
 
             if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {

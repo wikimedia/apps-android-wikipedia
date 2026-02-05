@@ -63,9 +63,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
-                startSearch(queryText, true)
-            }
             return true
         }
 
@@ -177,7 +174,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun switchToSearch(text: String) {
         startSearch(text, true)
+        binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
+        binding.searchCabView.setOnQueryTextListener(searchQueryListener)
     }
 
     override fun onAddLanguageClicked() {
@@ -188,8 +187,8 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         return searchLanguageCode
     }
 
-    override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery(text, true)
+    override fun setSearchText(text: String) {
+        switchToSearch(text)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
