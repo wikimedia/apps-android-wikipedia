@@ -5,12 +5,12 @@ import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
+import org.wikipedia.Constants
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.parcel.DateParceler
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.UriUtil
 import java.util.Date
@@ -56,7 +56,7 @@ data class PageProperties(
         if (pageSummary.timestamp.isEmpty()) Date() else DateUtil.iso8601DateParse(pageSummary.timestamp),
         pageSummary.displayTitle,
         isMainPage = pageSummary.type == PageSummary.TYPE_MAIN_PAGE,
-        leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, DimenUtil.calculateLeadImageWidth()) },
+        leadImageUrl = pageSummary.thumbnailUrl?.let { ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE) },
         leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
         leadImageWidth = pageSummary.thumbnail?.width ?: 0,
         leadImageHeight = pageSummary.thumbnail?.height ?: 0,
