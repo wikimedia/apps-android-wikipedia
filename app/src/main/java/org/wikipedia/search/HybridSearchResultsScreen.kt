@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -57,7 +58,6 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -298,7 +298,7 @@ fun SemanticSearchResultHeader(
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .clip(RoundedCornerShape(24.dp))
+                    .clip(CircleShape)
                     .clickable { onInfoClick() }
                     .padding(horizontal = 12.dp),
                 contentAlignment = Alignment.Center
@@ -392,7 +392,8 @@ fun SemanticSearchResultPageItem(
                     Box(
                         modifier = Modifier
                             .size(48.dp)
-                            .noRippleClickable {
+                            .clip(CircleShape)
+                            .clickable {
                                 isRatingPositiveSelected = true
                                 onRatingClick(true)
                             }
@@ -412,7 +413,8 @@ fun SemanticSearchResultPageItem(
                     Box(
                         modifier = Modifier
                             .size(48.dp)
-                            .noRippleClickable {
+                            .clip(CircleShape)
+                            .clickable {
                                 isRatingNegativeSelected = true
                                 onRatingClick(false)
                             }
