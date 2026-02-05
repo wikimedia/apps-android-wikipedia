@@ -254,7 +254,7 @@
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_translators_translatewiki">Бу кушымта ирекмәннәр тарафыннан &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; адресы буенча тәрҗемә ителде.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license" fuzzy="true">Башлангыч кодны &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
+  <string name="about_app_license">Башлангыч кодны &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; бүлегендә  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; карарга була. Әгәр дә башкасы күрсәтелмәсә, эчтәлек  &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\n&lt;/a&gt; сылтамасы буенча бар.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Викимедиа Фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Кушымта турында</string>
   <string name="about_logo_content_description">Википедиянең puzzle башваткычлы глобус кыяфәтендәге логотибы</string>
@@ -777,7 +777,7 @@
   <string name="notifications_wiki_filter_header">Вики-сөзгеч</string>
   <string name="notifications_type_filter_header">Сөзгеч төре</string>
   <string name="notifications_all_wikis_text">Барлык викиләр</string>
-  <string name="notifications_all_types_text" fuzzy="true">Барлык \"төрләр\"</string>
+  <string name="notifications_all_types_text">Барлык төрләр</string>
   <string name="notifications_menu_user_talk_page">%s фикер алышу бите</string>
   <string name="notifications_offline_disable_message">Бу функция автоном режимда кулланылмый</string>
   <string name="view_because_you_read_card_title">Укыганнар нигезендә</string>
@@ -870,6 +870,7 @@
   <string name="description_edit_learn_more">Мәкаләләрнең тасвирламалары турында тулырак</string>
   <string name="description_edit_image_caption_learn_more">Сурәтләргә язмалар турында тулырак</string>
   <string name="description_too_short">Текст бик кыска.</string>
+  <string name="description_too_long">Тасвирламаны кыска итеп язарга тырышыгыз. Укучылар мәкаләнең темасын мөмкин кадәр тизрәк аңларга тиеш.</string>
   <string name="description_ends_with_punctuation">Текст тыныш билгеләре белән тәмамланырга тиеш түгел.</string>
   <string name="description_starts_with_uppercase">Беренче сүз ялгызлык исем булмаса, юл хрефтән башлагыз.</string>
   <string name="description_starts_with_lowercase">Юл хәрефтән башларга тырышмагыз.</string>
@@ -904,6 +905,7 @@
   <string name="customize_toolbar_reset_to_default_button">Программа көйләүләрен кире кайтарыгыз</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Элементны күчерү өчен, күчерү тамгасын тотып торыгыз.</string>
   <string name="customize_toolbar_item_default_tooltip">Элементның торышын үзгәртү өчен, аңа басыгыз һәм күчерегез</string>
+  <string name="suggested_edits_activity_title">Үзгәртү</string>
   <string name="suggested_edits_describe_articles">Мәкаләләрне тасвирларга</string>
   <string name="suggested_edits_caption_images">Анлатмалы сурәтләр</string>
   <string name="suggested_edits_tag_images">Сурәтләрне теглар белән билгеләгез</string>
@@ -1116,6 +1118,7 @@
   <string name="edit_summary_added_caption">Аңлатма өстәлгән</string>
   <string name="edit_summary_added_image_and_caption">Сурәт һәм аның аңлатма язуы өстәлде</string>
   <string name="edit_published_view">Күрсәт</string>
+  <string name="activity_tab_logged_out_title">Википедия кушымтасында активлыгыгызны карау өчен хисапъязмагызга керегез. Хисапъязмагыз әле булмаса, аны булдырыгыз.</string>
   <string name="activity_tab_on_wikipedia_android">Android өчен Википедиядә</string>
   <string name="activity_tab_weekly_time_spent_hm">%1$d сәг. %2$d мин.</string>
   <string name="activity_tab_weekly_time_spent">Бу атнада укуга сарыф ителгән вакыт</string>
@@ -1135,6 +1138,16 @@
   <string name="activity_tab_menu_customize">Җайлау</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Уку тарихы</string>
   <string name="activity_tab_impact">Кертемегезнең тәэсире</string>
+  <string name="activity_tab_impact_most_viewed">Керткән төзәтмәгездән соң иң күп каралганнары</string>
+  <string name="activity_tab_impact_contributions_this_month">Бу айдагы кертем</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="one">бу айдагы үзгәрту</item>
+    <item quantity="other">бу айдагы үзгәртүләр</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">узган айдагы үзгәртү</item>
+    <item quantity="other">узган айдагы үзгәртүләр</item>
+  </plurals>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>

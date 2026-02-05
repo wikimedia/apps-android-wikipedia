@@ -1022,7 +1022,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">ウィキペディアのファイルページ</string>
   <string name="suggested_edits_article_cta_image_tags">画像タグを追加</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">画像キャプションを追加</string>
+  <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
   <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
@@ -1969,4 +1969,6 @@
   <string name="donation_reminders_settings_report_email_subject">寄付リマインダーの問題を報告</string>
   <string name="donation_reminders_settings_report_email_body">寄付リマインダー機能で問題に出くわしました:\n- [具体的な問題の説明]\n- [スクリーンショットまたはリンク]\n\n期待する挙動:\n- [提案する解決策の説明]</string>
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
+  <string name="hybrid_search_onboarding_learn_more">詳細</string>
+  <string name="hybrid_search_no_results_header">結果なし</string>
 </resources>
