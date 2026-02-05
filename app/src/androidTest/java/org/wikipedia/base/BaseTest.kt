@@ -4,9 +4,8 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -58,7 +57,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     var activityScenarioRule: ActivityScenarioRule<T>
 
     @get:Rule
-    var composeTestRule = createAndroidComposeRule<ComponentActivity>()
+    var composeTestRule = createComposeRule()
 
     @get:Rule
     val permissionRule: GrantPermissionRule = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

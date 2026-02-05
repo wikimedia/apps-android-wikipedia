@@ -1,7 +1,6 @@
 package org.wikipedia.robots.screen
 
 import BaseRobot
-import android.app.Activity
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -26,20 +25,6 @@ class SavedScreenRobot : BaseRobot() {
 
     fun clickItemOnReadingList(position: Int) = apply {
         list.clickRecyclerViewItemAtPosition(R.id.reading_list_recycler_view, position)
-        delay(TestConfig.DELAY_LARGE)
-    }
-
-    fun dismissTooltip(activity: Activity) = apply {
-        system.dismissTooltipIfAny(activity, viewId = R.id.buttonView)
-    }
-
-    fun assertIfListMatchesTheArticleTitle(text: String) = apply {
-        verify.withTextIsDisplayed(viewId = R.id.page_list_item_title, text)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
-    fun openArticleWithTitle(text: String) = apply {
-        click.onDisplayedViewWithText(viewId = R.id.page_list_item_title, text)
         delay(TestConfig.DELAY_LARGE)
     }
 
