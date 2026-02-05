@@ -8,6 +8,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
@@ -68,7 +69,9 @@ class SearchResultsViewModel : ViewModel() {
 
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-       viewModelScope.launch {
+       viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+           _hybridSearchResultState.value = UiState.Error(throwable)
+       }) {
             _hybridSearchResultState.value = UiState.Loading
 
             val lexicalBatchSize = 3
