@@ -20,6 +20,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -87,6 +88,7 @@ class SearchResultsFragment : Fragment() {
                             onSemanticSearchClick = {
                                 callback()?.setSearchText(StringUtil.fromHtml(it).toString())
                                 showHybridSearch = true
+                                DeviceUtil.hideSoftKeyboard(requireActivity())
                             },
                             onCloseSearch = { requireActivity().finish() },
                             onRetrySearch = {
