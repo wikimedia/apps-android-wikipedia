@@ -49,8 +49,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
-import java.time.LocalDateTime
-import java.time.ZoneId
 import java.util.Date
 
 class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
@@ -209,11 +207,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
     }
 
-    internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    internal class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
-            val textView = itemView.findViewById<TextView>(R.id.dateText)
-            val localDateTime = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()).toLocalDate()
-            textView.text = DateUtil.getShortDateString(localDateTime)
+            itemView.findViewById<TextView>(R.id.dateText).text = DateUtil.getDateString(date)
         }
     }
 

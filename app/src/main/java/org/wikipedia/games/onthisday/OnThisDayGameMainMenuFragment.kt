@@ -40,7 +40,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        binding.dateText.text = DateUtil.getDateString(viewModel.currentDate)
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
         }

@@ -7,7 +7,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.text.format.DateFormat
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
@@ -29,17 +28,14 @@ import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGamePlayBinding
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiCardView
-import java.time.LocalDate
-import java.time.MonthDay
-import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.Locale
 
 class OnThisDayGamePlayFragment : Fragment() {
     private var _binding: FragmentOnThisDayGamePlayBinding? = null
@@ -357,10 +353,7 @@ class OnThisDayGamePlayFragment : Fragment() {
         binding.questionStatusIcon1.isVisible = false
         binding.questionStatusIcon2.isVisible = false
 
-        MonthDay.of(viewModel.currentMonth, viewModel.currentDay).let {
-            val text = it.format(DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")))
-            mainActivity?.updateAppBarDateText(text)
-        }
+        mainActivity?.updateAppBarDateText(DateUtil.getLongMonthDayString(viewModel.currentDate))
 
         binding.scoreView.updateScores(gameState.answerState, gameState.currentQuestionIndex, gameState.currentQuestionState.goToNext)
 
@@ -371,7 +364,7 @@ class OnThisDayGamePlayFragment : Fragment() {
         binding.questionCard1.tag = event1
         binding.questionCard2.tag = event2
 
-        binding.questionDate1.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event1.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionDate1.text = DateUtil.getDateString(viewModel.currentDate.withYear(event1.year), FormatStyle.LONG)
         binding.questionText1.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText1.text = event1.text
         binding.questionText1.scrollY = 0
@@ -385,7 +378,7 @@ class OnThisDayGamePlayFragment : Fragment() {
             ViewUtil.loadImage(binding.questionThumbnail1, thumbnailUrl1, placeholderId = R.mipmap.launcher)
         }
 
-        binding.questionDate2.text = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.of(event2.year, viewModel.currentMonth, viewModel.currentDay))
+        binding.questionDate2.text = DateUtil.getDateString(viewModel.currentDate.withYear(event2.year), FormatStyle.LONG)
         binding.questionText2.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = 0 }
         binding.questionText2.text = event2.text
         binding.questionText2.scrollY = 0

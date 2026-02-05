@@ -24,7 +24,7 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardShortDateString(date)
+        return DateUtil.getMediumMonthDayString(date)
     }
 
     override fun dismissHashCode(): Int {

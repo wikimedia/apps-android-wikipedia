@@ -70,7 +70,7 @@ class EditHistoryItemView(context: Context) : FrameLayout(context) {
             StringUtil.setHighlightedAndBoldenedText(binding.editHistoryTitle, historyTitle, currentQuery)
         }
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, itemRevision.user, currentQuery)
-        binding.editHistoryTimeText.text = DateUtil.getTimeString(context, DateUtil.iso8601DateParse(itemRevision.timeStamp))
+        binding.editHistoryTimeText.text = DateUtil.getTimeString(itemRevision.localDateTime)
     }
 
     fun setSelectedState(selectedState: Int) {

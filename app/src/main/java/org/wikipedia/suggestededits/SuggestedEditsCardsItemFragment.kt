@@ -164,7 +164,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit?.metadata?.artist()))
         }
 
-        binding.viewImageDate.setDetailText(DateUtil.getTimeAndDateString(requireContext(), sourceSummaryForEdit?.timestamp.orEmpty()))
+        binding.viewImageDate.setDetailText(DateUtil.getDateAndTimeString(sourceSummaryForEdit?.timestamp.orEmpty()))
         binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
