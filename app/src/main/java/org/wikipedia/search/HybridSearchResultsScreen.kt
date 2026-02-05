@@ -2,6 +2,12 @@ package org.wikipedia.search
 
 import android.location.Location
 import android.view.View
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -365,7 +371,9 @@ fun SemanticSearchResultPageItem(
             }
 
             Row(
-                modifier = Modifier.padding(horizontal = 16.dp),
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .animateContentSize(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 var isRatingPositiveSelected by rememberSaveable(searchResult.pageTitle.prefixedText + "_positive") {
@@ -388,7 +396,11 @@ fun SemanticSearchResultPageItem(
                     style = MaterialTheme.typography.bodySmall,
                     color = WikipediaTheme.colors.placeholderColor
                 )
-                if (!isRatingNegativeSelected) {
+                AnimatedVisibility(
+                    visible = !isRatingNegativeSelected,
+                    enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
+                    exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start)
+                ) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
@@ -409,7 +421,11 @@ fun SemanticSearchResultPageItem(
                     }
                 }
 
-                if (!isRatingPositiveSelected) {
+                AnimatedVisibility(
+                    visible = !isRatingPositiveSelected,
+                    enter = fadeIn() + expandHorizontally(expandFrom = Alignment.Start),
+                    exit = fadeOut() + shrinkHorizontally(shrinkTowards = Alignment.Start)
+                ) {
                     Box(
                         modifier = Modifier
                             .size(48.dp)
