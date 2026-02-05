@@ -1283,6 +1283,7 @@
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">新增或編輯語言</string>
   <string name="onboarding_welcome_title_v2">自由的百科全書\n…超過 300 種可用的語言版本</string>
+  <string name="onboarding_next">下一個</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
@@ -2240,4 +2241,42 @@
   <string name="donation_reminders_settings_report_email_subject">問題報告 - 捐款提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了維基百科捐款提醒功能的問題：\n- [描述具體問題]\n- [截圖或連結]\n\n我預期看到的結果是：\n- [描述建議的解決方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
+  <string name="hybrid_search_search_hint">搜尋或提問任何內容</string>
+  <string name="hybrid_search_article_search_hint">詢問關於條目%s</string>
+  <string name="hybrid_search_suggestion_title">搜尋：</string>
+  <string name="hybrid_search_onboarding_learn_more">了解更多</string>
+  <string name="hybrid_search_onboarding_search_title">提出問題，獲得答案</string>
+  <string name="hybrid_search_onboarding_search_description">此實驗性功能可理解自然語言。可不用搜尋關鍵字，只需描述您要的內容即可。</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">測試功能</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">僅在本次實驗期間的有限時間內可用。</string>
+  <string name="hybrid_search_beta_tag">測試版</string>
+  <string name="hybrid_search_experimental_feature_switch_label">加入實驗</string>
+  <string name="hybrid_search_onboarding_search_example_title">需要靈感嗎？</string>
+  <string name="hybrid_search_onboarding_search_example_description">請使用以下搜尋範例之一。</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">您已選擇退出實驗。</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">冥王星何時從行星名單裡移除？</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">第一屆奧運</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 與 DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">為什麼人們要在披薩上加鳳梨？</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
+  <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
+  <string name="hybrid_search_results_header">共 %1$s 筆（條目總數：%2$s）</string>
+  <plurals name="hybrid_search_results_header_result">
+    <item quantity="one">%d 筆結果</item>
+    <item quantity="other">%d 筆結果</item>
+  </plurals>
+  <plurals name="hybrid_search_results_header_article">
+    <item quantity="one">%d 篇條目</item>
+    <item quantity="other">%d 篇條目</item>
+  </plurals>
+  <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
+  <string name="hybrid_search_results_more_button">更多</string>
+  <string name="hybrid_search_results_rate_label">評估這些結果</string>
+  <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
+  <string name="hybrid_search_no_results_header">沒有結果</string>
+  <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">重新表達您的搜尋</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">嘗試相關主題</string>
+  <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
+  <string name="hybrid_search_who_is_prefix">%s是誰？</string>
 </resources>

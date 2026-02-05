@@ -17,6 +17,7 @@ import java.time.LocalDateTime
 object CampaignCollection {
 
     private const val CAMPAIGN_VERSION = 2
+    private const val CAMPAIGN_PLATFORM = "Android"
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
     private const val CAMPAIGNS_URL_DEBUG = "https://test.wikipedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
@@ -42,7 +43,7 @@ object CampaignCollection {
             }.map {
                 JsonUtil.json.decodeFromJsonElement<Campaign>(it)
             }.filter {
-                it.hasPlatform("Android") &&
+                it.hasPlatform(CAMPAIGN_PLATFORM) &&
                         it.countries.contains(GeoUtil.geoIPCountry) &&
                         (Prefs.ignoreDateForAnnouncements || (it.startDateTime?.isBefore(now) == true && it.endDateTime?.isAfter(now) == true)) &&
                         (mostRecentDonateDateTime == null || mostRecentDonateDateTime.isBefore(now.minusDays(DAYS_TO_HIDE_AFTER_DONATION)))
@@ -52,13 +53,36 @@ object CampaignCollection {
     }
 
     fun getFormattedCampaignId(campaignId: String): String {
-        return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry}_${campaignId}_Android"
+        return "${WikipediaApp.instance.appOrSystemLanguageCode}${GeoUtil.geoIPCountry.orEmpty()}_${campaignId}_${CAMPAIGN_PLATFORM}"
     }
 
     fun addDonationResult(fromWeb: Boolean = false, amount: Float, currency: String, recurring: Boolean) {
         Prefs.donationResults = Prefs.donationResults.plus(DonationResult(
             LocalDateTime.now().toString(), fromWeb, amount, currency, recurring
         ))
+    }
+
+    fun replaceAssetsParams(assets: Campaign.Assets, campaignId: String): Campaign.Assets {
+        return Campaign.Assets(
+            id = assets.id,
+            weight = assets.weight,
+            text = if (assets.text.isNullOrEmpty()) null else replaceParams(assets.text, campaignId),
+            footer = if (assets.footer.isNullOrEmpty()) null else replaceParams(assets.footer, campaignId),
+            actions = assets.actions.map { action ->
+                Campaign.Action(
+                    replaceParams(action.title, campaignId),
+                    if (action.url.isNullOrEmpty()) null else replaceParams(action.url, campaignId)
+                )
+            }.toTypedArray()
+        )
+    }
+
+    private fun replaceParams(message: String, campaignId: String): String {
+        return message
+            .replace("\$platform;", CAMPAIGN_PLATFORM)
+            .replace("\$formattedId;", getFormattedCampaignId(campaignId))
+            .replace("\$country;", GeoUtil.geoIPCountry.orEmpty())
+            .replace("\$language;", WikipediaApp.instance.appOrSystemLanguageCode)
     }
 
     @Serializable

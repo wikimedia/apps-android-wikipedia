@@ -1596,7 +1596,7 @@
   <string name="category_empty">Geen pagina\'s gevonden in deze categorie.</string>
   <string name="subcategory_empty">Geen subcategorieën gevonden in deze categorie.</string>
   <string name="search_namespaces">Naamruimten</string>
-  <string name="revision_initial_none">Geen (dit is de eerste revisie)</string>
+  <string name="revision_initial_none">Geen (dit is de eerste versie)</string>
   <string name="user_contrib_activity_title">Bijdragen van %s</string>
   <string name="archive_empty">Geen gearchiveerde pagina\'s gevonden.</string>
   <string name="user_contrib_filter_ns">Filteren op naamruimte</string>
