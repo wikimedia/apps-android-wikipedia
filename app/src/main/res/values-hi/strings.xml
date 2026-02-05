@@ -1183,6 +1183,7 @@
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
   <string name="onboarding_multilingual_add_language_text">भाषाएं जोड़ें या संपादित करें</string>
   <string name="onboarding_welcome_title_v2">नि:शुल्क विश्वकोश\n...300 से अधिक भाषाओं में</string>
+  <string name="onboarding_next">अगला</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>

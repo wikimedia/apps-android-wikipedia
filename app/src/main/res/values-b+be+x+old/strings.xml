@@ -203,7 +203,7 @@
   <string name="preferences_general_heading">Агульныя</string>
   <string name="preferences_account_heading">Рахунак</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
-  <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
+  <string name="send_feedback">Даслаць водгук пра аплікацыю</string>
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
   <string name="preferences_heading_data_usage">Выкарыстаньне зьвестак</string>
   <string name="preferences_heading_experimental">Экспэрымэнтальныя</string>
@@ -219,14 +219,14 @@
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
-  <string name="about_description">Пра дастасаваньне Вікіпэдыя</string>
+  <string name="about_description">Пра аплікацыю Вікіпэдыя</string>
   <string name="privacy_policy_description">Правілы адносна прыватнасьці</string>
   <string name="terms_of_use_description">Умовы ўжываньня</string>
   <string name="about_wikipedia_url">https://be-tarask.wikipedia.org/wiki/Вікіпэдыя:Пра_Вікіпэдыю</string>
   <string name="about_libraries_heading">Выкарастаныя бібліятэкі</string>
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладнікі</string>
-  <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Гэтая аплікацыя была перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
@@ -337,7 +337,7 @@
   <string name="error_blocked_expiry">Сканчэньне блёку: %s</string>
   <string name="error_blocked_id">Ідэнтыфікатар блёку: %s</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
-  <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
+  <string name="crash_report_relaunch_or_quit">На жаль, у аплікацыі Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
   <string name="article_menu_bar_language_button">Мова</string>
@@ -377,11 +377,23 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Скасаваць</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Скасаваць</string>
   <string name="reading_list_split_dialog_ok_button_text">Добра</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Скасаваць</string>
   <string name="user_option_sync_label">Налады</string>
+  <string name="notification_syncing_cancel_button">Скасаваць</string>
+  <string name="notifications_poll_enable_positive">Увамкнуць</string>
   <string name="view_continue_reading_card_subtitle_today">сёньня</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Скасаваць</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
+  <string name="description_edit_cancel_hint">Скасаваць</string>
+  <string name="description_edit_login_cancel_button_text">Скасаваць</string>
+  <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
+  <string name="talk_warn_save_dialog_cancel">Скасаваць</string>
   <string name="menu_option_edit_source">Рэдагаваць код</string>
+  <string name="thank_dialog_negative_button_text">Скасаваць</string>
+  <string name="talk_templates_new_message_dialog_cancel">Скасаваць</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
   <string name="places_card_action">Болей месцаў побач</string>
   <string name="survey_dialog_cancel">Скасаваць</string>

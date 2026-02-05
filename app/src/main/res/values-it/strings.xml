@@ -2081,4 +2081,32 @@
   <string name="donation_reminders_experiment_label">SPERIMENTARE</string>
   <string name="donation_reminders_settings_learn_more_button">Scopri di più</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifica</string>
+  <string name="hybrid_search_search_hint">Cerca o chiedi qualsiasi cosa</string>
+  <string name="hybrid_search_suggestion_title">Cerca per:</string>
+  <string name="hybrid_search_onboarding_learn_more">Ulteriori informazioni</string>
+  <string name="hybrid_search_onboarding_search_title">Fai domande, ottieni risposte</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Funzionalità sperimentali</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponibile per un periodo limitato durante questo esperimento.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Partecipa all\'esperimento</string>
+  <string name="hybrid_search_onboarding_search_example_title">Hai bisogno di ispirazione?</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Hai scelto di non partecipare all\'esperimento.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Perché la gente mette l\'ananas sulla pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quali sono le più grandi città d\'Europa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Un nuovo modo di cercare</string>
+  <string name="hybrid_search_results_header">%1$s da %2$s</string>
+  <plurals name="hybrid_search_results_header_result">
+    <item quantity="one">%d risultato</item>
+    <item quantity="other">%d risultati</item>
+  </plurals>
+  <plurals name="hybrid_search_results_header_article">
+    <item quantity="one">%d voce</item>
+    <item quantity="other">%d voci</item>
+  </plurals>
+  <string name="hybrid_search_results_more_button">Altro</string>
+  <string name="hybrid_search_results_rate_label">Valuta questi risultati</string>
+  <string name="hybrid_search_no_results_header">Nessun risultato</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Riformula la tua ricerca</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Prova un argomento correlato</string>
+  <string name="hybrid_search_error_message">Qualcosa è andato storto. Riprova più tardi.</string>
+  <string name="hybrid_search_who_is_prefix">Chi è %s?</string>
 </resources>
