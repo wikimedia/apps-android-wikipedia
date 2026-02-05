@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -353,7 +354,9 @@ fun SemanticSearchResultPageItem(
                 }
             ) {
                 HtmlText(
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp, vertical = 12.dp)
+                        .heightIn(min = 300.dp, max = 600.dp),
                     linkStyle = TextLinkStyles(
                         style = SpanStyle(
                             color = WikipediaTheme.colors.progressiveColor,
