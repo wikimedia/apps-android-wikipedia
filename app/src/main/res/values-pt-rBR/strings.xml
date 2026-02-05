@@ -2093,4 +2093,7 @@
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
+  <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
+  <string name="hybrid_search_results_more_button">Mais</string>
+  <string name="hybrid_search_no_results_header">Sem resultados</string>
 </resources>

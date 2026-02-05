@@ -2368,8 +2368,8 @@
     <string name="hybrid_search_results_more_button">More</string>
     <string name="hybrid_search_results_rate_label">Rate these results</string>
     <string name="hybrid_search_results_rated_label">Rated</string>
-    <string name="hybrid_search_results_rate_thumb_up">Rate thumb up</string>
-    <string name="hybrid_search_results_rate_thumb_down">Rate thumb down</string>
+    <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
+    <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
     <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
     <string name="hybrid_search_no_results_header">No results</string>
     <string name="hybrid_search_no_results_description">This topic isn’t returning article excerpts at this moment. Here are some things you can try:</string>
