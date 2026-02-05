@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -134,12 +135,15 @@ fun SearchResultsList(
 ) {
     LazyColumn(
         modifier = modifier
+            .testTag("search_list")
     ) {
         items(
             count = searchResultsPage.itemCount
         ) { index ->
             searchResultsPage[index]?.let { result ->
                 SearchResultPageItem(
+                    modifier = Modifier
+                        .testTag("search_list$index"),
                     searchResultPage = result,
                     searchTerm = searchTerm,
                     onItemClick = {
@@ -156,6 +160,7 @@ fun SearchResultsList(
 
 @Composable
 fun SearchResultPageItem(
+    modifier: Modifier = Modifier,
     searchResultPage: SearchResult,
     searchTerm: String?,
     onItemClick: () -> Unit,
@@ -183,7 +188,7 @@ fun SearchResultPageItem(
 
     Box {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .combinedClickable(
                     onLongClick = {

@@ -4,8 +4,9 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.intent.Intents
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -42,7 +43,6 @@ data class DataInjector(
     val otdEntryDialogShown: Boolean = true,
     val enableYearInReview: Boolean = false,
     val yearInReviewReadingListSurveyShown: Boolean = false,
-    val exploreFeedSurveyShown: Boolean = true,
     val showReadingListSyncEnablePrompt: Boolean = false,
     val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
 )
@@ -58,7 +58,7 @@ abstract class BaseTest<T : AppCompatActivity>(
     var activityScenarioRule: ActivityScenarioRule<T>
 
     @get:Rule
-    var composeTestRule = createComposeRule()
+    var composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
     @get:Rule
     val permissionRule: GrantPermissionRule = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -81,7 +81,6 @@ abstract class BaseTest<T : AppCompatActivity>(
             otdEntryDialogShown = dataInjector.otdEntryDialogShown
             isYearInReviewEnabled = dataInjector.enableYearInReview
             yearInReviewReadingListSurveyShown = dataInjector.yearInReviewReadingListSurveyShown
-            exploreFeedSurveyShown = dataInjector.exploreFeedSurveyShown
             showReadingListSyncEnablePrompt = dataInjector.showReadingListSyncEnablePrompt
             isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled
         }
