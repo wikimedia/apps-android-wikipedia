@@ -136,9 +136,10 @@ class HybridSearchOnboardingActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, source: Constants.InvokeSource, title: String? = null): Intent {
             return Intent(context, HybridSearchOnboardingActivity::class.java)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
+                .putExtra(SearchActivity.EXTRA_TITLE, title)
         }
     }
 }
