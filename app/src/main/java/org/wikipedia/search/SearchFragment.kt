@@ -50,7 +50,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private var articleTitle: String? = null
     private var query: String? = null
     private var returnLink = false
-    private var showHybridSearch = false
+    private var initiateHybridSearch = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
     private lateinit var invokeSource: InvokeSource
@@ -63,10 +63,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         false
     }
 
+    private fun isHybridSearchEnabled(): Boolean = HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)
+
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
-            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
+            if (isHybridSearchEnabled()) {
                 searchResultsFragment.showHybridSearch = true
                 startSearch(term = queryText, force = true, resetHybridSearch = false)
             }
@@ -108,7 +110,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         query = requireArguments().getString(ARG_QUERY)
         articleTitle = requireArguments().getString(SearchActivity.EXTRA_TITLE)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
-        showHybridSearch = requireArguments().getBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, false)
+        initiateHybridSearch = requireArguments().getBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -135,19 +137,28 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     override fun onStart() {
         super.onStart()
-        setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
+        val hybridSearchEnabled = initiateHybridSearch && isHybridSearchEnabled()
+        val languagePosition = if (hybridSearchEnabled) {
+            val languageCode = app.languageState.appLanguageCode
+            app.languageState.appLanguageCodes.indexOf(languageCode)
+        } else Prefs.selectedLanguagePositionInSearch
+
+        setUpLanguageScroll(languagePosition)
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
-        searchResultsFragment.showHybridSearch = showHybridSearch
+        searchResultsFragment.showHybridSearch = hybridSearchEnabled
     }
 
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
+        if (searchResultsFragment.showHybridSearch && !isHybridSearchEnabled()) {
+            searchResultsFragment.showHybridSearch = false
+        }
     }
 
     private fun handleIntent(intent: Intent) {
@@ -370,14 +381,14 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 
-        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, showHybridSearch: Boolean = false): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, initiateHybridSearch: Boolean = false): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
                         ARG_QUERY to query,
                         SearchActivity.EXTRA_RETURN_LINK to returnLink,
                         SearchActivity.EXTRA_TITLE to title,
-                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to showHybridSearch
+                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to initiateHybridSearch
                     )
                 }
     }

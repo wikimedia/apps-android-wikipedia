@@ -127,7 +127,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                                 context = this,
                                 source = source ?: Constants.InvokeSource.NAV_MENU,
                                 query = exampleQuery,
-                                showHybridSearch = true
+                                initiateHybridSearch = true
                             ))
                             finish()
                         }
