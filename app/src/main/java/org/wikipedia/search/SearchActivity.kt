@@ -35,26 +35,33 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 }
             }
         }
-        return SearchFragment.newInstance(source, intent.getStringExtra(QUERY_EXTRA), intent.getBooleanExtra(EXTRA_RETURN_LINK, false))
+        return SearchFragment.newInstance(
+            source = source,
+            query = intent.getStringExtra(QUERY_EXTRA),
+            returnLink = intent.getBooleanExtra(EXTRA_RETURN_LINK, false),
+            title = intent.getStringExtra(EXTRA_TITLE)
+        )
     }
 
     companion object {
         const val QUERY_EXTRA = "query"
+        const val EXTRA_TITLE = "articleTitle"
         const val EXTRA_RETURN_LINK = "returnLink"
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
         const val RESULT_LINK_SUCCESS = 97
         const val EXTRA_SHOW_SNACKBAR_MESSAGE = "showSnackbarMessage"
 
-        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
+        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null): Intent {
             if (HybridSearchAbCTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
                 Prefs.isHybridSearchOnboardingShown = true
-                return HybridSearchOnboardingActivity.newIntent(context, source)
+                return HybridSearchOnboardingActivity.newIntent(context, source, title)
             }
 
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)
                     .putExtra(EXTRA_RETURN_LINK, returnLink)
+                    .putExtra(EXTRA_TITLE, title)
         }
     }
 }
