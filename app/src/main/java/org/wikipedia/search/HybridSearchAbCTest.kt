@@ -17,6 +17,10 @@ class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
         return group != GROUP_1
     }
 
+    fun shouldShowOnboarding(): Boolean {
+        return isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown
+    }
+
     val supportedLanguages = listOf(
         "en", "fr", "pt"
     )

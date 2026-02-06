@@ -54,7 +54,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val EXTRA_SHOW_HYBRID_SEARCH = "showHybridSearch"
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, initiateHybridSearch: Boolean = false): Intent {
-            if (HybridSearchAbCTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
+            if (HybridSearchAbCTest().shouldShowOnboarding()) {
                 Prefs.isHybridSearchOnboardingShown = true
                 return HybridSearchOnboardingActivity.newIntent(context, source)
             }
