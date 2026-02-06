@@ -138,6 +138,7 @@ class SearchResultsFragment : Fragment() {
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
 
         if (showHybridSearch) {
+            viewModel.resetHybridSearchState()
             viewModel.loadHybridSearchResults()
         }
     }

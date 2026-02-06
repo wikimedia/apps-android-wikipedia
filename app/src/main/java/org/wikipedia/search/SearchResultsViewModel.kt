@@ -137,6 +137,10 @@ class SearchResultsViewModel : ViewModel() {
         _refreshSearchResults.value += 1
     }
 
+    fun resetHybridSearchState() {
+        _hybridSearchResultState.value = UiState.Loading
+    }
+
     class SearchResultsPagingSource(
         private val searchTerm: String?,
         private val languageCode: String?,

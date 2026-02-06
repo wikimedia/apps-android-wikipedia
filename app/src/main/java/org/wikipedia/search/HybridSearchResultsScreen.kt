@@ -190,11 +190,13 @@ fun HybridSearchResultsList(
                 }
             }
             item {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.borderColor
-                )
+                if (searchResultsPage.isNotEmpty()) {
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
             }
         }
 
