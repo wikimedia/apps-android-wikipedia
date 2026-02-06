@@ -190,7 +190,7 @@ fun HybridSearchResultsList(
                 }
             }
             item {
-                if (searchResultsPage.isNotEmpty()) {
+                if (searchResultsPage.isNotEmpty() && semanticSearchResultPage.isNotEmpty()) {
                     HorizontalDivider(
                         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
                         thickness = 1.dp,
@@ -239,7 +239,7 @@ fun HybridSearchResultsList(
 
         if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
             item {
-                if (semanticSearchResultPage.isNotEmpty()) {
+                if (semanticSearchResultPage.isNotEmpty() && searchResultsPage.isNotEmpty()) {
                     HorizontalDivider(
                         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
                         thickness = 1.dp,
