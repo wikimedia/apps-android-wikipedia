@@ -48,7 +48,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -183,12 +182,18 @@ fun HybridSearchResultsList(
                     )
                 }
             }
+            item {
+                HorizontalDivider(
+                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                    thickness = 1.dp,
+                    color = WikipediaTheme.colors.borderColor
+                )
+            }
         }
 
         item {
             SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
-                results = semanticSearchResultPage,
+                modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
                 onInfoClick = {
                     onInfoClick()
                 }
@@ -253,7 +258,6 @@ fun HybridSearchResultsList(
 fun SemanticSearchResultHeader(
     modifier: Modifier = Modifier,
     rephraseTitle: String? = null,
-    results: List<SearchResult>,
     onInfoClick: () -> Unit
 ) {
     Column(
@@ -273,20 +277,6 @@ fun SemanticSearchResultHeader(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val resultsCount = results.size
-            val articlesCount = results.distinctBy { it.pageTitle.prefixedText }.size
-            val headerText = stringResource(R.string.hybrid_search_results_header,
-                pluralStringResource(R.plurals.hybrid_search_results_header_result, resultsCount, resultsCount),
-                pluralStringResource(R.plurals.hybrid_search_results_header_article, articlesCount, articlesCount)
-            )
-            Text(
-                modifier = Modifier.padding(end = 12.dp),
-                text = headerText,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.Bold
-                ),
-                color = WikipediaTheme.colors.primaryColor
-            )
             Box(
                 modifier = Modifier
                     .background(
@@ -520,12 +510,6 @@ private fun SemanticSearchResultHeaderPreview() {
     ) {
         SemanticSearchResultHeader(
             rephraseTitle = "Who is Beyoncé?",
-            results = listOf(
-                SearchResult(PageTitle("Beyoncé", wikiSite), SearchResult.SearchResultType.SEMANTIC),
-                SearchResult(PageTitle("Beyoncé", wikiSite), SearchResult.SearchResultType.SEMANTIC),
-                SearchResult(PageTitle("Beyoncé Knowles", wikiSite), SearchResult.SearchResultType.SEMANTIC),
-                SearchResult(PageTitle("Beyoncé (album)", wikiSite), SearchResult.SearchResultType.SEMANTIC)
-            ),
             onInfoClick = {}
         )
     }
