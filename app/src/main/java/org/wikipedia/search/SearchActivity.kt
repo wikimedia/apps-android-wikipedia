@@ -39,7 +39,8 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
             source = source,
             query = intent.getStringExtra(QUERY_EXTRA),
             returnLink = intent.getBooleanExtra(EXTRA_RETURN_LINK, false),
-            title = intent.getStringExtra(EXTRA_TITLE)
+            title = intent.getStringExtra(EXTRA_TITLE),
+            showHybridSearch = intent.getBooleanExtra(EXTRA_SHOW_HYBRID_SEARCH, false)
         )
     }
 
@@ -50,11 +51,12 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
         const val RESULT_LINK_SUCCESS = 97
         const val EXTRA_SHOW_SNACKBAR_MESSAGE = "showSnackbarMessage"
+        const val EXTRA_SHOW_HYBRID_SEARCH = "showHybridSearch"
 
-        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null): Intent {
+        fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, showHybridSearch: Boolean = false): Intent {
             if (HybridSearchAbCTest().isTestGroupUser() && !Prefs.isHybridSearchOnboardingShown) {
                 Prefs.isHybridSearchOnboardingShown = true
-                return HybridSearchOnboardingActivity.newIntent(context, source, title)
+                return HybridSearchOnboardingActivity.newIntent(context, source)
             }
 
             return Intent(context, SearchActivity::class.java)
@@ -62,6 +64,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                     .putExtra(QUERY_EXTRA, query)
                     .putExtra(EXTRA_RETURN_LINK, returnLink)
                     .putExtra(EXTRA_TITLE, title)
+                    .putExtra(EXTRA_SHOW_HYBRID_SEARCH, showHybridSearch)
         }
     }
 }

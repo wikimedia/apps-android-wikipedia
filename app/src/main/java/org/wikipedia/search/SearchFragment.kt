@@ -50,6 +50,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private var articleTitle: String? = null
     private var query: String? = null
     private var returnLink = false
+    private var showHybridSearch = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
     private lateinit var invokeSource: InvokeSource
@@ -107,6 +108,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         query = requireArguments().getString(ARG_QUERY)
         articleTitle = requireArguments().getString(SearchActivity.EXTRA_TITLE)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
+        showHybridSearch = requireArguments().getBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -140,6 +142,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
+        searchResultsFragment.showHybridSearch = showHybridSearch
     }
 
     override fun onPause() {
@@ -367,13 +370,14 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 
-        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, showHybridSearch: Boolean = false): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
                         ARG_QUERY to query,
                         SearchActivity.EXTRA_RETURN_LINK to returnLink,
-                        SearchActivity.EXTRA_TITLE to title
+                        SearchActivity.EXTRA_TITLE to title,
+                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to showHybridSearch
                     )
                 }
     }

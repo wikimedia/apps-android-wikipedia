@@ -192,12 +192,14 @@ fun HybridSearchResultsList(
         }
 
         item {
-            SemanticSearchResultHeader(
-                modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
-                onInfoClick = {
-                    onInfoClick()
-                }
-            )
+            if (semanticSearchResultPage.isNotEmpty()) {
+                SemanticSearchResultHeader(
+                    modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
+                    onInfoClick = {
+                        onInfoClick()
+                    }
+                )
+            }
         }
 
         item {
