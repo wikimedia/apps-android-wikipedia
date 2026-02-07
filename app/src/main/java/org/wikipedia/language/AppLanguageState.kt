@@ -38,7 +38,9 @@ class AppLanguageState(context: Context) {
         get() = appLanguageCodes.first()
 
     val remainingSuggestedLanguageCodes: List<String>
-        get() = LanguageUtil.suggestedLanguagesFromSystem.filter { !_appLanguageCodes.contains(it) && appLanguageLookUpTable.isSupportedCode(it) }
+        get() = LanguageUtil.suggestedLanguagesFromSystem
+            .filter { it !in _appLanguageCodes && appLanguageLookUpTable.isSupportedCode(it) }
+            .toList()
 
     val systemLanguageCode: String
         get() {
