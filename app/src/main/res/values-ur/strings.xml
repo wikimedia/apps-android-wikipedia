@@ -518,7 +518,7 @@
   <string name="menu_feed_card_dismissed">کارڈ پوشیدہ ہے۔</string>
   <string name="menu_feed_card_edit_card_languages">کارڈ کی زبانیں تبدیل کریں</string>
   <string name="menu_feed_overflow_label">مزید اختیارات</string>
-  <string name="feed_featured_image_share_subject">ویکیمیڈیا کامنز کی منتخب تصویر</string>
+  <string name="feed_featured_image_share_subject">ویکی ذخائر کی منتخب تصویر</string>
   <string name="feed">اکتشاف</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>

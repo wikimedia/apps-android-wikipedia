@@ -58,6 +58,7 @@
 * Obscaeris
 * Oujon
 * Oupsa
+* Pa2chant.bis
 * Papawy
 * Pols12
 * Pyb
@@ -73,6 +74,7 @@
 * Verdy p
 * Wladek92
 * Wnagxsi
+* Wrai
 * Zarisi
 * ꠢꠣꠍꠘ ꠞꠣꠎꠣ
 -->
@@ -508,8 +510,8 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
-  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre nom et pour accéder à d’autres fonctionnalités.</string>
-  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre nom et pour bénéficier d’autres fonctionnalités.</string>
+  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour accéder à d’autres fonctionnalités.</string>
+  <string name="temp_account_anon_dialog_body">Une fois que vous aurez effectué une modification, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour bénéficier d’autres fonctionnalités.</string>
   <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible aux administrateurs.&lt;br /&gt;&lt;br /&gt;\nSi vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos contributions seront attribuées au nom que vous aurez choisi, parmi d’autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
   <string name="temp_account_using_title">Vous utilisez un compte temporaire</string>
@@ -1460,7 +1462,7 @@
   <string name="talk_message_hint">Composer un message</string>
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
-  <string name="talk_subject_duplicate">Ce sujet existe déjà. Essayez-en un autre.</string>
+  <string name="talk_subject_duplicate">Ce titre existe déjà. Essayez-en un autre.</string>
   <string name="talk_response_submitted">Réponse postée.</string>
   <string name="talk_snackbar_undo">Annuler</string>
   <string name="talk_last_modified">&lt;b&gt;Dernière modification le %1$s&lt;/b&gt; par %2$s</string>
@@ -1477,7 +1479,7 @@
   <string name="talk_overflow_sort_date_updated">Dernière mise à jour</string>
   <string name="talk_overflow_sort_topic_name">Nom du sujet</string>
   <string name="talk_new_topic_exit_dialog_title">Voulez-vous vraiment quitter ?</string>
-  <string name="talk_new_topic_exit_dialog_message">The subject and content text will not be saved.</string>
+  <string name="talk_new_topic_exit_dialog_message">Le sujet et le contenu ne seront pas sauvegardés.</string>
   <plurals name="talk_show_replies_count">
     <item quantity="one">Afficher la réponse</item>
     <item quantity="other">Afficher les %d réponses</item>
@@ -1951,7 +1953,7 @@
   <string name="year_in_review_globe_icon">Icône de globe</string>
   <string name="settings_app_icon_title">Icône de l’appli</string>
   <string name="settings_app_icon_subtitle">Privilège des contributeurs</string>
-  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos %d contributions à Wikipédia via l\'application. Elle restera affichée jusqu\'au prochain bilan annuel.</string>
+  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos contributions %d à Wikipédia via l\'application. Elle restera affichée jusqu\'au prochain bilan annuel.</string>
   <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
@@ -2281,4 +2283,36 @@
   <string name="donation_reminders_settings_report_email_subject">Rapport sur les problèmes - Rappels de dons</string>
   <string name="donation_reminders_settings_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de rappels de dons :\n- [Décrire le problème précis]\n- [Captures d\'écran ou liens]\n\nComportement souhaité :\n- [Décrire la solution proposée]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifier</string>
+  <string name="hybrid_search_search_hint">Recherchez ou demandez ce que vous voulez</string>
+  <string name="hybrid_search_article_search_hint">Renseignez-vous sur %s</string>
+  <string name="hybrid_search_suggestion_title">Rechercher :</string>
+  <string name="hybrid_search_onboarding_learn_more">En savoir plus</string>
+  <string name="hybrid_search_onboarding_search_title">Posez des questions, obtenez des réponses</string>
+  <string name="hybrid_search_onboarding_search_description">Cette fonctionnalité expérimentale comprend le langage naturel. Au lieu de rechercher des mots-clés, décrivez ce que vous voulez savoir.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Fonctionnalité bêta</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponible pour une durée limitée pendant cette expérience.</string>
+  <string name="hybrid_search_beta_tag">Bêta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Participer à l\'expérience</string>
+  <string name="hybrid_search_onboarding_search_example_title">Besoin d\'inspiration ?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Premiers Jeux Olympiques</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
+  <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
+  <string name="hybrid_search_results_header_description">Source : articles de Wikipédia rédigés par des êtres humains</string>
+  <string name="hybrid_search_results_more_button">Plus</string>
+  <string name="hybrid_search_results_rate_label">Évaluez ces résultats</string>
+  <string name="hybrid_search_results_rated_label">Évalué</string>
+  <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
+  <string name="hybrid_search_results_rate_thumb_down">Rate des pouces vers le bas</string>
+  <string name="hybrid_search_results_empty">La recherche avancée est temporairement indisponible.</string>
+  <string name="hybrid_search_no_results_header">Aucun résultat</string>
+  <string name="hybrid_search_no_results_description">Ce sujet ne renvoie aucun extrait d\'article pour le moment. Voici quelques suggestions :</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Reformulez votre recherche.</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Essayez un sujet connexe.</string>
+  <string name="hybrid_search_error_message">Une erreur s\'est produite. Veuillez réessayer plus tard.</string>
+  <string name="hybrid_search_who_is_prefix">Qui est %s ?</string>
 </resources>

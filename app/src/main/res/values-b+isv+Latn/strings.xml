@@ -2419,6 +2419,9 @@
   <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
   <string name="hybrid_search_results_more_button">Veče</string>
   <string name="hybrid_search_results_rate_label">Ocěnite tute rezultaty</string>
+  <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
+  <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
+  <string name="hybrid_search_results_rate_thumb_down">Ocěnka negativna</string>
   <string name="hybrid_search_results_empty">Ulěpšeno iskanje dočasno jest nedostupno.</string>
   <string name="hybrid_search_no_results_header">Ničto ne najdeno</string>
   <string name="hybrid_search_no_results_description">Tutoj prědmet v tutom momentu ne vračaje fragmenty člankov. Ale vy možete poprobovati slědujuče:</string>
