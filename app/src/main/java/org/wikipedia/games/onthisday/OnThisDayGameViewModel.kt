@@ -296,7 +296,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun saveGameProgress(status: Int, nextQuestionIndex: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.e(throwable)
+            }
+        ) {
             val dailyGameHistory = DailyGameHistory(
                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                 language = wikiSite.languageCode,
@@ -359,6 +362,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         Prefs.otdGameHistory = ""
     }
 
+    // TODO: remove this in May, 2026
     private suspend fun migrateInProgressGameFromPrefsToDatabase() {
         if (Prefs.otdGameState.isEmpty()) {
             return
