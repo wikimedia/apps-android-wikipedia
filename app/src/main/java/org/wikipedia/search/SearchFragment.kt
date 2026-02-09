@@ -169,6 +169,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.reloadRecentSearches()
+            searchLanguageCode = app.languageState.appLanguageCode
         }
     }
 
