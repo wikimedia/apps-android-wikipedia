@@ -1973,8 +1973,8 @@
     <item quantity="other">Du gemte %,d artikler</item>
   </plurals>
   <plurals name="year_in_review_slide_saved_articles_body">
-    <item quantity="one">Disse artikler omfattede &lt;b&gt;%1$s&lt;/b&gt; , &lt;b&gt;%2$s&lt;/b&gt; og &lt;b&gt;%3$s&lt;/b&gt; . Hver gemt artikel afspejler dine interesser og hjælper med at opbygge en personlig vidensbase på Wikipedia.&lt;br /&gt;&lt;br /&gt; Aktive appbrugere havde %4$.d gemt artikel i år.</item>
-    <item quantity="other">Disse artikler omfattede &lt;b&gt;%1$s&lt;/b&gt; , &lt;b&gt;%2$s&lt;/b&gt; og &lt;b&gt;%3$s&lt;/b&gt; . Hver gemt artikel afspejler dine interesser og hjælper med at opbygge en personlig vidensbase på Wikipedia.&lt;br /&gt;&lt;br /&gt; Aktive appbrugere havde %4$.d gemte artikler i år.</item>
+    <item quantity="one">Disse artikler omfattede &lt;b&gt;%1$s&lt;/b&gt; , &lt;b&gt;%2$s&lt;/b&gt; og &lt;b&gt;%3$s&lt;/b&gt; . Hver gemt artikel afspejler dine interesser og hjælper med at opbygge en personlig vidensbase på Wikipedia.&lt;br /&gt;&lt;br /&gt; Aktive appbrugere havde %4$,d gemt artikel i år.</item>
+    <item quantity="other">Disse artikler omfattede &lt;b&gt;%1$s&lt;/b&gt; , &lt;b&gt;%2$s&lt;/b&gt; og &lt;b&gt;%3$s&lt;/b&gt; . Hver gemt artikel afspejler dine interesser og hjælper med at opbygge en personlig vidensbase på Wikipedia.&lt;br /&gt;&lt;br /&gt; Aktive appbrugere havde %4$,d gemte artikler i år.</item>
   </plurals>
   <plurals name="year_in_review_slide_global_saved_articles_headline">
     <item quantity="one">App-brugere havde %,d gemt artikel</item>
