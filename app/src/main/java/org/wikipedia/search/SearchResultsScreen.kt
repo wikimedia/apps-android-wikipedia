@@ -146,7 +146,8 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    hybridSearchConfig: HybridSearchConfig
+    hybridSearchConfig: HybridSearchConfig,
+    modifier: Modifier = Modifier
 ) {
     if (hybridSearchConfig.isHybridSearchExperimentOn) {
         HybridSearchSuggestionView(

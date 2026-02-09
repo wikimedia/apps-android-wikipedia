@@ -2168,15 +2168,6 @@
   <string name="hybrid_search_onboarding_search_example_description">Brug et af søge-eksemplerne herunder.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Du har fravalgt eksperimentet.</string>
   <string name="hybrid_search_onboarding_screen_title">En ny måde at søge på</string>
-  <string name="hybrid_search_results_header">%1$s fra %2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d resultat</item>
-    <item quantity="other">%d resultater</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d artikel</item>
-    <item quantity="other">%d artikler</item>
-  </plurals>
   <string name="hybrid_search_results_more_button">Mere</string>
   <string name="hybrid_search_results_rate_label">Bedøm disse resultater</string>
   <string name="hybrid_search_results_rated_label">Bedømt</string>

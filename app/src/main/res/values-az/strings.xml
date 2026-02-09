@@ -2222,15 +2222,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Niyə pizzaya ananas əlavə edirlər?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Avropanın ən böyük şəhərləri hansılardır?</string>
   <string name="hybrid_search_onboarding_screen_title">Axtarışın yeni yolu</string>
-  <string name="hybrid_search_results_header">%1$s/%2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d nəticə</item>
-    <item quantity="other">%d nəticə</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d məqalə</item>
-    <item quantity="other">%d məqalə</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">İnsan tərəfindən yaradılan Vikipediya məqalələrindən alınıb</string>
   <string name="hybrid_search_results_more_button">Daha çox</string>
   <string name="hybrid_search_results_rate_label">Bu nəticələri qiymətləndir</string>
