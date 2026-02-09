@@ -1136,6 +1136,7 @@
   <string name="activity_tab_menu_feedback">Функция белән проблема</string>
   <string name="activity_tab_menu_info">Күбрәк күрсәт</string>
   <string name="activity_tab_menu_customize">Җайлау</string>
+  <string name="activity_tab_highlights">Төп моментлар</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Уку тарихы</string>
   <string name="activity_tab_impact">Кертемегезнең тәэсире</string>
   <string name="activity_tab_impact_most_viewed">Керткән төзәтмәгездән соң иң күп каралганнары</string>
@@ -1148,6 +1149,18 @@
     <item quantity="one">узган айдагы үзгәртү</item>
     <item quantity="other">узган айдагы үзгәртүләр</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">Барлык кертемегезнең тәэсире</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="one">төзәтмәләр саны</item>
+    <item quantity="few">төзәтмәләр саны</item>
+    <item quantity="many">төзәтмәләр саны</item>
+    <item quantity="other">төзәтмәләр саны</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d көн</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Иң яхшы streak</string>
+  <string name="activity_tab_impact_last_edited">Соңгы төзәтмә</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>
