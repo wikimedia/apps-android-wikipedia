@@ -55,6 +55,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
 
+const val SEARCH_LIST_TAG = "search_list"
+
 @Composable
 fun SearchResultsScreen(
     modifier: Modifier = Modifier,
@@ -135,7 +137,7 @@ fun SearchResultsList(
 ) {
     LazyColumn(
         modifier = modifier
-            .testTag("search_list")
+            .testTag(SEARCH_LIST_TAG)
     ) {
         items(
             count = searchResultsPage.itemCount
@@ -143,7 +145,7 @@ fun SearchResultsList(
             searchResultsPage[index]?.let { result ->
                 SearchResultPageItem(
                     modifier = Modifier
-                        .testTag("search_list$index"),
+                        .testTag("$SEARCH_LIST_TAG$index"),
                     searchResultPage = result,
                     searchTerm = searchTerm,
                     onItemClick = {
