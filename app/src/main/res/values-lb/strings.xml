@@ -1931,7 +1931,7 @@
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-Funktioun</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
   <string name="hybrid_search_results_more_button">Méi</string>

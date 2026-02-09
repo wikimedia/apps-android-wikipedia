@@ -2211,7 +2211,7 @@
   <string name="hybrid_search_onboarding_search_description">Bu təcrübə funksiyası təbii dili başa düşür. Axtarmaq əvəzinə bilmək istədiyiniz şeyi təsvir edin.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta funksiya</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Bu təcrübə məhdud müddətdə mövcuddur.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Təcrübəyə qoşul</string>
   <string name="hybrid_search_onboarding_search_example_title">İlham lazımdır?</string>
   <string name="hybrid_search_onboarding_search_example_description">Aşağıda göstərilən axtarış nümunələrindən birini istifadə edin.</string>
