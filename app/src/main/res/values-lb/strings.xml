@@ -1703,7 +1703,6 @@
   <string name="on_this_day_game_report_email_body">Ech sinn op e Problem mat der Funktioun „Wikipedia-Spiller“ gestouss:\n- [Beschreift de spezifesche Problem]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="on_this_day_game_notification_undo">Réckgängeg maachen</string>
   <string name="on_this_day_game_share_link_message">Ech spille „Wat koum als éischt?“, en deeglecht Quiz-Spill an der Wikipedia-Android-App %s</string>
-  <string name="on_this_day_game_share_screen_title">Ech krut haut %1$d/%2$d Punkte bei „Wat koum als éischt?“.</string>
   <string name="on_this_day_game_score_toast_message">Dir hutt haut %1$d/%2$d kritt.</string>
   <string name="on_this_day_game_continue_btn_text">Mam Spill vun haut virufueren</string>
   <string name="on_this_day_game_current_progress_message">Dir sidd bei der Fro %d.</string>
@@ -1728,7 +1727,6 @@
   <string name="year_in_review_get_started_info">Äre Lieshistorique bleift geschützt. D\'Ablécker an Äert Liesverhale ginn op Basis vu lokal op Ärem Apparat gespäicherten Donnéeë generéiert.</string>
   <string name="year_in_review_survey_title">Hëlleft eis dobäi fir de Joresréckbléck ze verbesseren</string>
   <string name="year_in_review_survey_subtitle">Sidd Dir zefridde mat dëser Funktioun?</string>
-  <string name="year_in_review_reading_list_survey_subtitle">Sidd Dir mat Ärer Lieslëscht zefridden?</string>
   <string name="year_in_review_survey_very_satisfied">Ganz zefridden</string>
   <string name="year_in_review_survey_satisfied">Zefridden</string>
   <string name="year_in_review_survey_neutral">Neutral</string>
@@ -1737,7 +1735,6 @@
   <string name="year_in_review_survey_placeholder_text">Wëllt Dir nach eppes soen?</string>
   <string name="year_in_review_survey_cancel">Ofbriechen</string>
   <string name="year_in_review_survey_submit">Ofschécken</string>
-  <string name="year_in_review_disable_title">Sidd Dir sécher, datt Dir de Joresréckbléck desaktivéiere wëllt?</string>
   <string name="year_in_review_disable_positive_button">Jo, ech si mer sécher</string>
   <string name="year_in_review_disable_negative_button">Nee, merci</string>
   <string name="year_in_review_screenshot_error">Et konnt kee Screenshot gemaach ginn: %s</string>
@@ -1930,21 +1927,4 @@
   <string name="donation_reminders_settings_report_button">Problem mat der Funktioun</string>
   <string name="donation_reminders_settings_report_email_body">Ech sinn op e Problem mat der Funktioun fir Donerënnerunge gestouss:\n- [Beschreift de spezifesche Problem]\n- [Screenshotten oder Linken]\n\nD\'Verhalen, dat ech gär geséich:\n- [Beschreift déi proposéiert Léisung]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Änneren</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-Funktioun</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
-  <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
-  <string name="hybrid_search_results_header">%1$s vu(n) %2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d Resultat</item>
-    <item quantity="other">%d Resultater</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d Artikel</item>
-    <item quantity="other">%d Artikelen</item>
-  </plurals>
-  <string name="hybrid_search_results_more_button">Méi</string>
-  <string name="hybrid_search_no_results_header">Keng Resultater</string>
-  <string name="hybrid_search_error_message">Et ass eppes schifgaangen. Probéiert wgl. méi spéit nach eng Kéier.</string>
-  <string name="hybrid_search_who_is_prefix">Wien ass %s?</string>
 </resources>

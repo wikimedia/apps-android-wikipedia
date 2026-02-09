@@ -131,7 +131,7 @@
   <string name="menu_page_add_to_default_list">Opslaan</string>
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
   <string name="feed_card_add_to_default_list">Opslaan</string>
-  <string name="menu_page_share">Koppeling delen</string>
+  <string name="menu_page_share">Link delen</string>
   <string name="menu_article_share">Pagina delen</string>
   <string name="menu_page_article_share">Delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
@@ -1290,7 +1290,6 @@
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
   <string name="onboarding_multilingual_add_language_text">Voeg talen toe of bewerk deze</string>
   <string name="onboarding_welcome_title_v2">De vrije encycopedie\n...in meer dan 300 talen</string>
-  <string name="onboarding_next">Volgende</string>
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
@@ -1614,7 +1613,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Hoe zou u de lijst willen noemen die met u is gedeeld?</string>
   <string name="shareable_reading_lists_new_indicator">*nieuw*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Er is een leeslijst met u gedeeld</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">We hebben gemerkt dat er een leeslijst met u is gedeeld. Om deze lijst in de app te bekijken, gaat u terug naar het oorspronkelijke bericht en tikt u nogmaals op de koppeling.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">We hebben gemerkt dat er een leeslijst met u is gedeeld. Om deze lijst in de app te bekijken, gaat u terug naar het oorspronkelijke bericht en tikt u nogmaals op de link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Begrepen</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Leeslijst geïmporteerd</string>
   <string name="reading_list_share_menu_label">Delen…</string>
@@ -2248,45 +2247,4 @@
   <string name="donation_reminders_settings_report_email_subject">Probleemrapport - Donatieherinneringen</string>
   <string name="donation_reminders_settings_report_email_body">Ik ben een probleem tegengekomen met de functie Donatieherinneringen:\n- [Beschrijf precies het probleem]\n- [Schermafbeelding of koppelingen]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Wijzigen</string>
-  <string name="hybrid_search_search_hint">Zoek of stel een vraag</string>
-  <string name="hybrid_search_article_search_hint">Vragen naar %s</string>
-  <string name="hybrid_search_suggestion_title">Zoeken naar:</string>
-  <string name="hybrid_search_onboarding_learn_more">Meer lezen</string>
-  <string name="hybrid_search_onboarding_search_title">Stel vragen, krijg antwoorden</string>
-  <string name="hybrid_search_onboarding_search_description">Deze experimentele functie begrijpt natuurlijke taal. In plaats van te zoeken op trefwoorden, kunt u beschrijven wat u wilt weten.</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunctie</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Beschikbaar voor een beperkte periode tijdens dit experiment.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
-  <string name="hybrid_search_experimental_feature_switch_label">Doe mee aan het experiment</string>
-  <string name="hybrid_search_onboarding_search_example_title">Behoefte aa inspiratie?</string>
-  <string name="hybrid_search_onboarding_search_example_description">Gebruik een van de onderstaande zoekvoorbeelden.</string>
-  <string name="hybrid_search_onboarding_opt_out_toast_message">U hebt zich afgemeld voor het experiment.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wanneer werd Pluto niet langer als planeet vermeld?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">eerste Olympische Spelen</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA versus DNA</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Waarom doen mensen ananas op pizza?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat zijn de grootste steden van Europa?</string>
-  <string name="hybrid_search_onboarding_screen_title">Een nieuwe manier om te zoeken</string>
-  <string name="hybrid_search_results_header">%1$s van %2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d resultaat</item>
-    <item quantity="other">%d resultaten</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d pagina</item>
-    <item quantity="other">%d pagina\'s</item>
-  </plurals>
-  <string name="hybrid_search_results_header_description">Afkomstig uit door mensen geschreven Wikipedia-pagina\'s</string>
-  <string name="hybrid_search_results_more_button">Meer</string>
-  <string name="hybrid_search_results_rate_label">Deze resultaten beoordelen</string>
-  <string name="hybrid_search_results_rated_label">Beoordeeld</string>
-  <string name="hybrid_search_results_rate_thumb_up">Geef een duim omhoog!</string>
-  <string name="hybrid_search_results_rate_thumb_down">Geef een duim omlaag</string>
-  <string name="hybrid_search_results_empty">De uitgebreide zoekfunctie is tijdelijk niet beschikbaar.</string>
-  <string name="hybrid_search_no_results_header">Geen resultaten</string>
-  <string name="hybrid_search_no_results_description">Dit onderwerp geeft momenteel geen paginafragmenten weer. Hier zijn een paar dingen die u kunt proberen:</string>
-  <string name="hybrid_search_no_results_suggestion_rephrase_text">Herformuleer uw zoekopdracht</string>
-  <string name="hybrid_search_no_results_suggestion_try_related_topic">Probeer een gerelateerd onderwerp</string>
-  <string name="hybrid_search_error_message">Er is iets misgegaan. Probeer het later opnieuw.</string>
-  <string name="hybrid_search_who_is_prefix">Wie is %s?</string>
 </resources>
