@@ -42,7 +42,6 @@ data class DataInjector(
     val otdEntryDialogShown: Boolean = true,
     val enableYearInReview: Boolean = false,
     val yearInReviewReadingListSurveyShown: Boolean = false,
-    val exploreFeedSurveyShown: Boolean = true,
     val showReadingListSyncEnablePrompt: Boolean = false,
     val isSuggestedEditsHighestPriorityEnabled: Boolean = true,
 )
@@ -81,7 +80,6 @@ abstract class BaseTest<T : AppCompatActivity>(
             otdEntryDialogShown = dataInjector.otdEntryDialogShown
             isYearInReviewEnabled = dataInjector.enableYearInReview
             yearInReviewReadingListSurveyShown = dataInjector.yearInReviewReadingListSurveyShown
-            exploreFeedSurveyShown = dataInjector.exploreFeedSurveyShown
             showReadingListSyncEnablePrompt = dataInjector.showReadingListSyncEnablePrompt
             isSuggestedEditsHighestPriorityEnabled = dataInjector.isSuggestedEditsHighestPriorityEnabled
         }

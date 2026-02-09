@@ -194,7 +194,7 @@
   <string name="search_reading_list_no_results">Keine Ergebnisse in „%s“ gefunden</string>
   <string name="search_reading_lists_no_results">Keine Ergebnisse in den Leselisten gefunden</string>
   <string name="search_history_no_results">Keine Ergebnisse im Verlauf gefunden</string>
-  <string name="edit_section_captcha_message">Zum Schutz vor automatisiertem Spam gib bitte die unten erscheinenden Wörter ein.</string>
+  <string name="edit_section_captcha_message">Zum Schutz vor automatisiertem Spam gib bitte die unten erscheinenden Wörter ein</string>
   <string name="edit_section_captcha_request_an_account_message">Kannst du das Bild nicht sehen? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ein Benutzerkonto beantragen&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Wörter von oben wiederholen</string>
   <string name="title_captcha">Captcha eingeben</string>
@@ -207,7 +207,7 @@
   <string name="login_2fa_other_workflow_error_msg">Zwei-Faktor-Authentifikation erforderlich! Bitte melde dich über den Hauptbildschirm an und gib den Code deines 2FA-Tokens ein.</string>
   <string name="login_email_auth_hint">E-Mail-Bestätigungscode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-Mail-Verifizierung erforderlich! Bitte melde dich vom Hauptbildschirm aus an und gib deinen E-Mail-Verifizierungscode ein.</string>
-  <string name="login_background_error_msg">Erneute Anmeldung nicht möglich. Bitte gehen Sie zurück zum Hauptbildschirm und melden Sie sich manuell an.</string>
+  <string name="login_background_error_msg">Erneute Anmeldung nicht möglich. Bitte gehe zum Hauptbildschirm zurück und melde dich manuell an.</string>
   <string name="onboarding_card_login">Anmelden</string>
   <string name="page_editing_login">Anmelden</string>
   <string name="reading_lists_sync_login">Anmelden</string>
@@ -244,16 +244,16 @@
   <string name="login_forgot_password">Passwort vergessen?</string>
   <string name="create_account_already_have">Hast du bereits ein Benutzerkonto?</string>
   <string name="create_account_activity_title">Ein Benutzerkonto erstellen</string>
-  <string name="dialog_create_account_checking_progress">Verifiziere</string>
+  <string name="dialog_create_account_checking_progress">Verifizieren</string>
   <string name="create_account_email_hint">E-Mail (optional)</string>
   <string name="create_account_password_repeat_hint">Passwort wiederholen</string>
-  <string name="create_account_password_is_username">Ein Passwort kann nicht mit dem Benutzernamen identisch sein</string>
+  <string name="create_account_password_is_username">Das Passwort kann nicht mit dem Benutzernamen identisch sein</string>
   <string name="create_account_passwords_mismatch_error">Die Passwörter stimmen nicht überein</string>
   <string name="create_account_email_error">Ungültige E-Mail-Adresse</string>
   <string name="create_account_username_error">Ungültige Zeichen im Benutzernamen</string>
   <string name="create_account_password_error">Das Passwort muss mindestens 8 Zeichen lang sein</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
-  <string name="create_account_next">Nächste</string>
+  <string name="create_account_next">Weiter</string>
   <string name="email_recommendation_dialog_title">Benutzerkonto ohne E-Mail-Adresse erstellen?</string>
   <string name="email_recommendation_dialog_message">Obwohl die E-Mail-Adresse optional ist, wird sie &lt;b&gt;dringend empfohlen&lt;/b&gt;, da eine E-Mail-Adresse zur Wiederherstellung des Benutzerkontos benötigt wird, falls du dein Passwort verlieren solltest.</string>
   <string name="email_recommendation_message">Empfohlen, da eine E-Mail-Adresse zur Wiederherstellung des Benutzerkontos erforderlich ist.</string>
@@ -262,7 +262,7 @@
   <string name="create_account_button">Benutzerkonto erstellen</string>
   <string name="create_account_name_unavailable">Der Benutzername „%s“ ist nicht verfügbar. Bitte wähle einen anderen Namen aus.</string>
   <string name="create_account_ip_block_message">Leider ist deine IP-Adresse derzeit für das Erstellen neuer Benutzerkonten gesperrt.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://de.wikipedia.org/wiki/Wikipedia:Benutzersperrung</string>
   <string name="create_account_ip_block_details">Einzelheiten</string>
   <string name="preferences_general_heading">Allgemein</string>
   <string name="preferences_account_heading">Benutzerkonto</string>
@@ -274,7 +274,7 @@
   <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronisierung von Leselisten</string>
   <string name="preference_title_download_reading_list_articles">Leselistenartikel herunterladen</string>
-  <string name="preference_summary_sync_reading_lists">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto</string>
+  <string name="preference_summary_sync_reading_lists">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in deinem Wikipedia-Benutzerkonto</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto „%s“</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronisierte Leselisten von „%s“ entfernen?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dies wird alle früher synchronisierten Leselisten vollständig aus dem Fernspeicher löschen. Alle synchronisierten Listen aus deinem Benutzerkonto „%s“ entfernen?</string>
@@ -319,11 +319,11 @@
   <string name="user_logged_in_blocked_from_editing">Dein Benutzerkonto wurde für Bearbeitungen auf diesem Wiki gesperrt.</string>
   <string name="user_anon_blocked_from_editing">Deine IP-Adresse wurde für Bearbeitungen gesperrt.</string>
   <string name="edit_how_page_improved">Wie hast du die Seite verbessert?</string>
-  <string name="edit_next">Nächste</string>
+  <string name="edit_next">Weiter</string>
   <string name="edit_done">Veröffentlichen</string>
   <string name="edit_preview">Vorschau</string>
   <string name="edit_undo">Rückgängig</string>
-  <string name="edit_redo">Wiederherstellen</string>
+  <string name="edit_redo">Wiederholen</string>
   <string name="edit_rollback">Zurücksetzen</string>
   <string name="edit_warn">Warnen</string>
   <string name="edit_damage">Schaden %s</string>
@@ -354,7 +354,7 @@
   <string name="article_opened_in_background_tab">Der Artikel wurde in einer Hintergrund-Registerkarte geöffnet.</string>
   <string name="abusefilter_title_warn">Dies könnte eine unkonstruktive Bearbeitung sein. Bist du sicher, dass du sie veröffentlichen möchtest?</string>
   <string name="abusefilter_title_disallow">Du kannst diese Bearbeitung nicht veröffentlichen. Bitte gehe zurück und ändere sie ab.</string>
-  <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Eingeben aller Kapitälchen&lt;br /&gt;· Artikel leeren oder Einbringen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
+  <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Schreiben in Großbuchstaben&lt;br /&gt;· Artikel leeren oder Hinzufügen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
   <string name="abusefilter_text_disallow">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv oder als potenziellen Vandalismus identifiziert.&lt;br /&gt;&lt;br /&gt;Wikipedia ist eine Enzyklopädie und ausschließlich neutraler, relevanter Inhalt gehört hierher.</string>
   <string name="page_similar_titles">Ähnliche Seiten</string>
   <string name="search_did_you_mean">Meintest du „%s“?</string>
@@ -372,8 +372,8 @@
   <string name="table_infobox">Schnelle Fakten</string>
   <string name="table_other">Weitere Informationen</string>
   <string name="table_close">Schließen</string>
-  <string name="widget_name_featured_page">Lesenswerte Wikipedia-Seite</string>
-  <string name="widget_title_featured_page">Seite des Tages:</string>
+  <string name="widget_name_featured_page">Exzellenter Wikipedia-Artikel</string>
+  <string name="widget_title_featured_page">Artikel des Tages:</string>
   <string name="widget_name_search">Wikipedia-Suche</string>
   <string name="widget_description_search">Der schnellste Weg, Wikipedia zu durchsuchen</string>
   <string name="widget_description_featured_page">Die besten Artikel, die Wikipedia zu bieten hat</string>
@@ -382,10 +382,10 @@
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
   <string name="dialog_close_description">Schließen</string>
   <string name="preference_title_show_images">Bilder anzeigen</string>
-  <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
+  <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern auf Seiten. Deaktiviere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
   <string name="preference_title_download_only_over_wifi">Nur über WLAN herunterladen</string>
   <string name="dialog_title_download_only_over_wifi">Herunterladen über mobile Daten bestätigen?</string>
-  <string name="dialog_text_download_only_over_wifi">Du hast die Einstellung „Nur über WLAN herunterladen“ angeschaltet. Möchtest du die Verwendung deines mobilen Datenplans nur für diesen Download erlauben?</string>
+  <string name="dialog_text_download_only_over_wifi">Du hast die Einstellung „Nur über WLAN herunterladen“ angeschaltet. Möchtest du die Verwendung deines mobilen Datenvolumens nur für diesen Download erlauben?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Erlauben</string>
   <string name="read_more_section">Mehr lesen</string>
   <string name="about_article_section">Über diesen Artikel</string>
@@ -408,7 +408,7 @@
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Hochlader unbekannt</string>
   <string name="gallery_not_available_offline_snackbar">Galerieansicht ist offline nicht verfügbar.</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">Schliessen</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Verwerfen</string>
   <string name="menu_new_tab">Neue Registerkarte</string>
   <string name="menu_close_all_tabs">Alle Registerkarten schließen</string>
   <string name="close_all_tabs_confirm">Bist du sicher, dass du alle Registerkarten schließen möchtest?</string>
@@ -459,18 +459,18 @@
   </plurals>
   <string name="multi_select_items_selected">%d ausgewählt</string>
   <string name="error_message_generic">Es ist ein Fehler aufgetreten</string>
-  <string name="view_link_preview_error_button_dismiss">Ausblenden</string>
+  <string name="view_link_preview_error_button_dismiss">Verwerfen</string>
   <string name="link_preview_dialog_read_button">Lesen</string>
   <string name="link_preview_dialog_save_button">Speichern</string>
   <string name="link_preview_dialog_saved_button">Gespeichert</string>
   <string name="link_preview_dialog_share_button">Teilen</string>
-  <string name="link_preview_stub_placeholder_text">Dieser Artikel ist ein Stub, d.h. er enthält nicht genug Inhalt, um eine Vorschau zu erstellen. Du kannst dies jedoch ändern.</string>
+  <string name="link_preview_stub_placeholder_text">Dieser Artikel ist ein Stub, d. h. er enthält nicht genug Inhalt, um eine Vorschau zu erstellen. Du kannst dies jedoch ändern.</string>
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
   <string name="error_user_page_does_not_exist">Wikipedia hat keine &lt;a href=\"%1$s\"&gt;Benutzerseite&lt;/a&gt; mit genau diesem Namen. Im Allgemeinen sollte diese Seite von &lt;b&gt;%2$s&lt;/b&gt; erstellt und bearbeitet werden. Im Zweifelsfall überprüfe bitte, ob „%3$s“ existiert.</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
   <string name="view_wiki_error_message_timeout">Verbindung zu Wikipedia kann nicht hergestellt werden. Überprüfe deine Netzwerkverbindung oder versuche es später erneut.</string>
   <string name="reference_title">Einzelnachweis %s</string>
-  <string name="reference_list_title">Referenzen</string>
+  <string name="reference_list_title">Einzelnachweise</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Bilddimmung (im dunklen Farbschema)</string>
   <string name="preference_title_prefer_offline_content">Offline-Inhalt bevorzugen</string>
   <string name="preference_summary_prefer_offline_content">Datennutzung durch das Laden von offline verfügbaren Artikeln einsparen und nicht immer die aktuelle Artikelversion laden.</string>

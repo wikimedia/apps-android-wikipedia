@@ -1483,6 +1483,7 @@
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
   <string name="onboarding_welcome_title_v2">الموسوعة الحرة \n…بأكثر من 300 لغة</string>
+  <string name="onboarding_next">التالي</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
@@ -2433,4 +2434,19 @@
   <string name="donation_reminders_settings_report_email_subject">تقرير المشكلة - تذكيرات التبرع</string>
   <string name="donation_reminders_settings_report_email_body">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
+  <string name="hybrid_search_onboarding_search_title">اطرح الأسئلة، واحصل على الإجابات</string>
+  <string name="hybrid_search_beta_tag">بيتا</string>
+  <plurals name="hybrid_search_results_header_article">
+    <item quantity="zero">لا مقالة</item>
+    <item quantity="one">مقالة واحدة</item>
+    <item quantity="two">مقالتين</item>
+    <item quantity="few">%d مقالات</item>
+    <item quantity="many">%d مقالة</item>
+    <item quantity="other">%d مقالة</item>
+  </plurals>
+  <string name="hybrid_search_results_more_button">المزيد</string>
+  <string name="hybrid_search_results_rated_label">قيِّم</string>
+  <string name="hybrid_search_results_rate_thumb_up">أعطِ إعجابًا</string>
+  <string name="hybrid_search_results_rate_thumb_down">أعطِ تقييمًا سلبيًا</string>
+  <string name="hybrid_search_no_results_header">لا نتائج</string>
 </resources>

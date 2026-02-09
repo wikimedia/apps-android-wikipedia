@@ -2271,7 +2271,10 @@
   </plurals>
   <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
   <string name="hybrid_search_results_more_button">更多</string>
-  <string name="hybrid_search_results_rate_label">評估這些結果</string>
+  <string name="hybrid_search_results_rate_label">評價這些結果</string>
+  <string name="hybrid_search_results_rated_label">已評價</string>
+  <string name="hybrid_search_results_rate_thumb_up">很棒</string>
+  <string name="hybrid_search_results_rate_thumb_down">不好</string>
   <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
   <string name="hybrid_search_no_results_header">沒有結果</string>
   <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>
