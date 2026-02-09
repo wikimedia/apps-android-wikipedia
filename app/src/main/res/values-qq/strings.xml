@@ -2107,15 +2107,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
   <string name="hybrid_search_onboarding_screen_title">Title for the hybrid search onboarding screen.</string>
-  <string name="hybrid_search_results_header">Header text for the semantic search result. %1$s will be replaced with the results count and %2$s will be repalced with the articles count.</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">Text for the total results from the semantic search. %d is replaced with the count.</item>
-    <item quantity="other">Text for the total results from the semantic search. %d is replaced with the count.</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">Text for the total articles from the semantic search. %d is replaced with the count.</item>
-    <item quantity="other">Text for the total articles from the semantic search. %d is replaced with the count.</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
   <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
   <string name="hybrid_search_results_rated_label">Label indicating that the semantic search result has been rated.</string>

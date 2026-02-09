@@ -2260,15 +2260,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">為什麼人們要在披薩上加鳳梨？</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
   <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
-  <string name="hybrid_search_results_header">共 %1$s 筆（條目總數：%2$s）</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d 筆結果</item>
-    <item quantity="other">%d 筆結果</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d 篇條目</item>
-    <item quantity="other">%d 篇條目</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
   <string name="hybrid_search_results_more_button">更多</string>
   <string name="hybrid_search_results_rate_label">評估這些結果</string>

@@ -232,7 +232,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
-            startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
+            val articleTitle = if (pageFragment.title?.namespace() == Namespace.MAIN) pageFragment.title?.displayText else null
+            startActivity(SearchActivity.newIntent(
+                context = this@PageActivity,
+                source = InvokeSource.TOOLBAR,
+                query = null,
+                title = articleTitle))
         }
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {

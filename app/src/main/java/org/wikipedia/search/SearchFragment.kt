@@ -37,6 +37,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
@@ -46,6 +47,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private var app = WikipediaApp.instance
     private var langBtnClicked = false
     private var isSearchActive = false
+    private var articleTitle: String? = null
     private var query: String? = null
     private var returnLink = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
@@ -63,6 +65,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
+            if (HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)) {
+                searchResultsFragment.showHybridSearch = true
+                startSearch(term = queryText, force = true, resetHybridSearch = false)
+            }
             return true
         }
 
@@ -99,6 +105,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         }
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
+        articleTitle = requireArguments().getString(SearchActivity.EXTRA_TITLE)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
     }
 
@@ -304,15 +311,18 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
 
-        binding.searchCabView.queryHint = getString(
+        binding.searchCabView.queryHint =
             if (invokeSource == InvokeSource.PLACES) {
-                R.string.places_search_hint
+                getString(R.string.places_search_hint)
             } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
-                R.string.hybrid_search_search_hint
+                if (articleTitle.isNullOrEmpty()) {
+                    getString(R.string.hybrid_search_search_hint)
+                } else {
+                    getString(R.string.hybrid_search_article_search_hint, StringUtil.fromHtml(articleTitle))
+                }
             } else {
-                R.string.search_hint
+                getString(R.string.search_hint)
             }
-        )
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -357,12 +367,13 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 
-        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
                         ARG_QUERY to query,
-                        SearchActivity.EXTRA_RETURN_LINK to returnLink
+                        SearchActivity.EXTRA_RETURN_LINK to returnLink,
+                        SearchActivity.EXTRA_TITLE to title
                     )
                 }
     }
