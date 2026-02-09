@@ -110,9 +110,9 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                     onGetStarted = { exampleQuery ->
                         if (exampleQuery == null) {
                             val intent = SearchActivity.newIntent(
-                                this,
-                                source ?: Constants.InvokeSource.NAV_MENU,
-                                null
+                                context = this,
+                                source = source ?: Constants.InvokeSource.NAV_MENU,
+                                query = null
                             )
                             if (!Prefs.isHybridSearchEnabled) {
                                 intent.putExtra(
@@ -122,9 +122,14 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                             }
                             startActivity(intent)
                             finish()
-                            return@HybridSearchOnboardingScreen
                         } else {
-                            // TODO: open deep search screen with exampleQuery
+                            startActivity(SearchActivity.newIntent(
+                                context = this,
+                                source = source ?: Constants.InvokeSource.NAV_MENU,
+                                query = exampleQuery,
+                                initiateHybridSearch = true
+                            ))
+                            finish()
                         }
                     },
                     onLearnMoreClick = {
@@ -136,10 +141,9 @@ class HybridSearchOnboardingActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context, source: Constants.InvokeSource, title: String? = null): Intent {
+        fun newIntent(context: Context, source: Constants.InvokeSource): Intent {
             return Intent(context, HybridSearchOnboardingActivity::class.java)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-                .putExtra(SearchActivity.EXTRA_TITLE, title)
         }
     }
 }
