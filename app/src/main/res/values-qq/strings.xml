@@ -2117,7 +2117,6 @@
     <item quantity="other">Text for the total articles from the semantic search. %d is replaced with the count.</item>
   </plurals>
   <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
-  <string name="hybrid_search_results_more_button">Button text for the semantic search result.</string>
   <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
   <string name="hybrid_search_results_rated_label">Label indicating that the semantic search result has been rated.</string>
   <string name="hybrid_search_results_rate_thumb_up">Image description for rating the semantic search result that indicates thumbs up.</string>

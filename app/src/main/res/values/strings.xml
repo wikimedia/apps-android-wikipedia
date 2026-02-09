@@ -2365,7 +2365,6 @@
         <item quantity="other">%d articles</item>
     </plurals>
     <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
-    <string name="hybrid_search_results_more_button">More</string>
     <string name="hybrid_search_results_rate_label">Rate these results</string>
     <string name="hybrid_search_results_rated_label">Rated</string>
     <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
