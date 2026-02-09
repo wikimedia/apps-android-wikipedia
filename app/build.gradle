@@ -41,7 +41,7 @@ android {
         targetSdk = 36
         versionCode 50565
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kaspersky.kaspresso.runner.KaspressoRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
@@ -288,6 +288,8 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+
+    androidTestImplementation "com.kaspersky.android-components:kaspresso:1.6.0"
 }
 
 private setSigningConfigKey(config, Properties props) {
