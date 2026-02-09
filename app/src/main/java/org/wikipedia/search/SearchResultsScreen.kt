@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -54,6 +55,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
+
+const val SEARCH_LIST_TAG = "search_list"
 
 @Composable
 fun SearchResultsScreen(
@@ -155,12 +158,17 @@ fun SearchResultsList(
         return
     }
 
-    LazyColumn {
+    LazyColumn(
+        modifier = modifier
+            .testTag(SEARCH_LIST_TAG)
+    ) {
         items(
             count = searchResultsPage.itemCount
         ) { index ->
             searchResultsPage[index]?.let { result ->
                 SearchResultPageItem(
+                    modifier = Modifier
+                        .testTag("$SEARCH_LIST_TAG$index"),
                     searchResultPage = result,
                     searchTerm = searchTerm,
                     onItemClick = {
@@ -177,6 +185,7 @@ fun SearchResultsList(
 
 @Composable
 fun SearchResultPageItem(
+    modifier: Modifier = Modifier,
     searchResultPage: SearchResult,
     searchTerm: String?,
     onItemClick: () -> Unit,
@@ -204,7 +213,7 @@ fun SearchResultPageItem(
 
     Box {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .combinedClickable(
                     onLongClick = {

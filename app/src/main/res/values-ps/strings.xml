@@ -29,8 +29,8 @@
   <string name="nav_item_more">نور</string>
   <string name="nav_item_search">پلټل</string>
   <string name="nav_item_contribute">ونډه اخيستل</string>
-  <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>
-  <string name="page_error_retry">بياآزمويل</string>
+  <string name="error_network_error">اينټرنېټ سره نشي نښلېدای.</string>
+  <string name="page_error_retry">بيا هڅه‌کول</string>
   <string name="card_offline_error_retry">بيا هڅه‌کول</string>
   <string name="storage_access_error_retry">بيا هڅه‌کول</string>
   <string name="article_load_error_retry">بيا هڅه‌کول</string>
@@ -300,6 +300,7 @@
   <string name="article_opened_in_background_tab">ليکنه په شاليد ريښکه کې پرانېستل شوې ده.</string>
   <string name="abusefilter_title_warn">دا ښايي چې يو نارغنده سمون وي، ايا تاسو ډاډه ياست چې دا خپور کړئ؟</string>
   <string name="abusefilter_title_disallow">تاسو دا سمون نشئ خپرولی. مهرباني وکړئ بېرته پرشا ولاړ شئ او بدل يې کړئ.</string>
+  <string name="abusefilter_text_warn">يو خپلکاري چاڼگر دا سمون د احتمالي نه رغېدونکي په توگه پېژندلی. دا کېدای شي يو يا څو لاندې منځپانگې ولري:&lt;br /&gt;&lt;br /&gt;. ښايي ټول غټ توري ليکل شوې وي&lt;br /&gt;·ليکنې تشول يا چټل ليکنه&lt;br /&gt;·نااړونده باندني تړوني يا انځورونه&lt;br /&gt;· تکراري لوښې</string>
   <string name="page_similar_titles">ورته مخونه</string>
   <string name="search_did_you_mean">\"%s\" مو موخه وه؟</string>
   <string name="search_recent_header">وروستنۍ پلټنې:</string>
@@ -1535,6 +1536,10 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems">ښايي بدنيت وي</string>
   <string name="patroller_tasks_filters_user_intent_bad">ښايي ډېر بدنيت وي</string>
   <string name="patroller_tasks_filters_empty_search_message">د نورو سمونونو کتلو لپاره د %s لرې‌کولو هڅه کول</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d چاڼگر</item>
+    <item quantity="other">%d چاڼگر</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">د ليکنې سمون پېښليک</string>
   <string name="patroller_tasks_patrol_edit_undo_success">په‌څټ‌گرځول بشپړ شول</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">ايا تاسو ډاډه ياست چې شاگرځ وکړئ؟</string>
@@ -1542,11 +1547,15 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">کتل</string>
   <string name="patroller_tasks_overflow_report">د غوني ستونزه</string>
   <string name="patroller_tasks_overflow_learn">نور مالومات</string>
+  <string name="patroller_onboarding_one_title">د ويکي‌پېډيا د سمونونو څار او تاييد کې ونډه واخلئ.</string>
   <string name="patroller_onboarding_two_thank_title">مننه</string>
   <string name="patroller_onboarding_two_thank_content">گټور سمون گورئ؟ له کارنه د هغې د ونډې لپاره مننه وکړئ.</string>
   <string name="patroller_onboarding_two_watch_title">کتل</string>
   <string name="patroller_onboarding_two_talk_title">خبرې اترې</string>
   <string name="patroller_onboarding_two_undo_title">ناکړ/شاگرځ</string>
+  <string name="patroller_diff_tooltip_one">زيان وړاندوينه کوي، که چېرې يو سمون ويکي ته زيان ورسوي.</string>
+  <string name="patroller_diff_tooltip_two">د ښه نيت له مخې خوندي شوي سمون وړاندوينه کوي.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">دا ځانگړنه څنگه ښه کولی شو؟</string>
   <string name="patroller_diff_menu_edit_history_title">د ليکنې سمون پېښليک</string>
   <string name="patroller_diff_feedback_dialog_input_hint">غبرگون</string>
   <string name="patroller_saved_message_title_vandalism">د ورانکارۍ خبرداری</string>
@@ -1558,7 +1567,10 @@
   <string name="patroller_saved_message_title_copy_vio">لمېسل‌رښتې سرغړاوي خبرتيا</string>
   <string name="patroller_saved_message_title_edit_summary_reminder">سمون لنډيز پرېښودل</string>
   <string name="patroller_saved_message_title_do_not_censor">مه يې سانسوروئ</string>
+  <string name="patroller_saved_message_title_art_imp">د ليکنې ښه‌کولو وړانديز</string>
+  <string name="patroller_saved_message_body_vandalism">سلام {{{username}}}ه، زه غواړم ووايم چې ما ستا يو يا څو [{{{diffLink}}}|وروستۍ ونډې] په څټ گرځولې دي؛ ځکه رغوونکې نه برېښېدلې. که ستاسو له آنده زه تېروتی يم يا کومه پوښتنه لرئ؛ نو تاسو کولی شئ [[User talk:{{{senderUserName}}}|زما د خبرو اترو مخ]] باندې پيغام پرېږدئ. \nپه ياد ولرئ چې ورانکارۍ ته دوام ورکول به ستاسو گڼون محدودېدو سره مخ کړي.</string>
   <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، داسې ښکاري چې تاسو د ويکي‌پېډيا څخه منځپانگه لرې کړې ده، بې له دې چې د هغې د سمون لنډيز پرېږدئ. مهرباني وکړئ هرلکه چې تاسو ته ويکي‌پېډيا منځپانگه ورگډوئ يا لرې کوئ، د سمون لنډيز يې وليکئ.</string>
+  <string name="talk_warn_learn_more_label">د پيغام ځاي‌ناستو په اړه نور زده کړئ</string>
   <string name="talk_warn_saved_messages_usage_instruction">لاندې يو پيغام د خپلو پيغامونو دوديزولو، لېږلو او خوندي کولو لپاره د بېلگې په توگه وکاروئ.</string>
   <string name="talk_templates_menu_edit_title">سمول</string>
   <string name="data_opt_in_accept">منل</string>
@@ -1571,6 +1583,8 @@
   <string name="donate_gpay_dialog_other_button">د تاديې بله چلندلار</string>
   <string name="donate_gpay_activity_title">د پيسو ټاکل</string>
   <string name="donate_gpay_activity_title_with_currency">پيسې ټاکل (%s)</string>
+  <string name="donate_gpay_check_recurring">دا د مياشتنۍ تکراري بسپنې په توگه جوړ کړئ.</string>
+  <string name="donate_gpay_minimum_amount">مهرباني وکړئ اندازه وټاکئ (لږترلږه %s)</string>
   <string name="donate_gpay_help_problems">د بسپنه ورکولو ستونزې؟</string>
   <string name="donate_gpay_help_other_ways">د ورکولو نورې لارې</string>
   <string name="donate_gpay_help_faq">ډېر ځليزې پوښتنې</string>
@@ -1689,9 +1703,13 @@
   <string name="year_in_review_disable_positive_button">هو، زده ډاډه يم</string>
   <string name="year_in_review_disable_negative_button">نه، مننه</string>
   <string name="year_in_review_setting_subtitle">د کال بياکتنې گولول به ټول زېرمه شوي ځانواله ځيرکتياوې سپا او کال بياکتنه به پټه کړي.</string>
+  <string name="year_in_review_share_subject">زما د ويکي‌پېډيا کال بياکتنه</string>
   <string name="year_in_review_globe_icon">نړۍ نښه</string>
   <string name="settings_app_icon_title">کاريال نښه</string>
   <string name="settings_app_icon_subtitle">ونډه اخيستونکي گټه</string>
+  <string name="settings_app_icon_updated">ستاسو کاريال نښه هم‌‌مهاله شوه.</string>
+  <string name="year_in_review_slide_app_icon_title_unlocked">ستاسو کور سکرين لپاره نوې کاريال نښه ايله شوه</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">د راتلونکي کال لپاره د خپل ونډه‌اخيستنې جايزه ترلاسه کړئ!</string>
   <string name="year_in_review_slide_app_icon_donor">يو بسپنه ورکوونکی</string>
   <string name="year_in_review_slide_app_icon_editor">يو سمونگر</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">بسپنه ورکوونکی او سمونگر</string>
@@ -1722,6 +1740,7 @@
     <item quantity="one">موږ %,d گړۍ په لوستلو تېره کړه</item>
     <item quantity="other">موږ %,d گړۍ په لوستلو تېرې کړې</item>
   </plurals>
+  <string name="year_in_review_reading_list_dialog_title">ايا ستاسو د %d کال د کلنۍ بياکتنې لوستلړ جوړ کړي؟</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">جوړول</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">نه مننه</string>
   <string name="year_in_review_reading_list_title">د %d کال بياکتنه</string>
@@ -1881,4 +1900,44 @@
   <string name="donation_reminders_settings_report_email_subject">ستونزې راپور - د بسپنې يادونې</string>
   <string name="donation_reminders_settings_report_email_body">زه د بسپنې يادونې د ځانگړنې سره ستونزې سره مخ شوی يم:\n- [ځانگړې ستونزه تشريح کول]\n- [سکرين‌شاټونه يا تړوني]\n\nهغه چلن چې زه يې ليدل غواړم دا دی:\n- [وړانديز شوی حل تشريح کول]</string>
   <string name="donation_reminders_snackbar_modify_button_label">بدلول</string>
+  <string name="hybrid_search_search_hint">هرڅه وپلټئ يا پوښتنه وکړئ</string>
+  <string name="hybrid_search_article_search_hint">د %s په اړه وپوښتئ</string>
+  <string name="hybrid_search_suggestion_title">پلټنه د:</string>
+  <string name="hybrid_search_onboarding_learn_more">نور مالومات</string>
+  <string name="hybrid_search_onboarding_search_title">پوښتنې وکړئ، ځوابونه ترلاسه کړئ</string>
+  <string name="hybrid_search_onboarding_search_description">دا ازمېښتي ځانگړنه طبيعي ژبه پوهېږي.\nد کليدي‌ويوکو د پلټلو پرځای هغه څه تشرېح کړئ چې تاسو پرې پوهېدل غواړئ.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">ازمېښتي ځانگړنه</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">د دې ازمېښت پرمهال د ټاکلي وخت لپاره شتون لري.</string>
+  <string name="hybrid_search_beta_tag">ازمېښتي</string>
+  <string name="hybrid_search_experimental_feature_switch_label">ازمېښت سره يوځای شئ</string>
+  <string name="hybrid_search_onboarding_search_example_title">الهام ته اړتيا لرئ؟</string>
+  <string name="hybrid_search_onboarding_search_example_description">د پلټلو يوه بېلگه لاندې وکاروئ.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">تاسو له ازمېښت ووتلئ.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">پلوتو کله د سيارو له نوملړه لرې شوه؟</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">د اولمپيک لومړۍ سيالۍ</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">آراېن‌ای د ډي‌اېن‌ای په وړاندې</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">ولې خلک په پيزا کې انه‌ناس اچوي؟</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">د اروپا ترټولو لوی ښارونه کوم دي؟</string>
+  <string name="hybrid_search_onboarding_screen_title">د پلټلو نوې لار</string>
+  <string name="hybrid_search_results_header">له %2$s څخه %1$s</string>
+  <plurals name="hybrid_search_results_header_result">
+    <item quantity="one">%d پايله</item>
+    <item quantity="other">%d پايلې</item>
+  </plurals>
+  <plurals name="hybrid_search_results_header_article">
+    <item quantity="one">%d ليکنه</item>
+    <item quantity="other">%d ليکنې</item>
+  </plurals>
+  <string name="hybrid_search_results_header_description">د انساني ليکل‌شوو ويکيپېډيا ليکنو څخه اخيستل شوې</string>
+  <string name="hybrid_search_results_more_button">نور</string>
+  <string name="hybrid_search_results_rate_label">دا پايلې ارزول</string>
+  <string name="hybrid_search_results_rated_label">ارزول‌شوی</string>
+  <string name="hybrid_search_results_rate_thumb_up">بټنوک پورته کولو سره ارزول</string>
+  <string name="hybrid_search_results_rate_thumb_down">بټنوک کښته کولو سره ارزول</string>
+  <string name="hybrid_search_results_empty">پرمختللي پلټل وسمهال شتون نه لري.</string>
+  <string name="hybrid_search_no_results_header">بې پايلو</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">خپل لټون په نوي ډول بيان کړئ</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">د اړوند سکالو هڅه وکړئ</string>
+  <string name="hybrid_search_error_message">يو څه ناسم پېښ شول. مهرباني وکړئ وروسته بيا هڅه وکړئ.</string>
+  <string name="hybrid_search_who_is_prefix">%s څوک دی؟</string>
 </resources>

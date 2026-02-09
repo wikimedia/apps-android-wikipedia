@@ -1502,12 +1502,12 @@
   <string name="watchlist_filter_user_intent_may_problems">Мажліва дрэнныя намеры</string>
   <string name="watchlist_filter_user_intent_likely_problems">Хутчэй дрэнныя намеры</string>
   <string name="watchlist_filter_user_intent_bad">Найхутчэй дрэнныя намеры</string>
-  <string name="watchlist_filter_user_status_header">Рэгістрацыя ўдзельніка і яго вопыт</string>
+  <string name="watchlist_filter_user_status_header">Рэгістрацыя ўдзельніка і яго досвед</string>
   <string name="watchlist_filter_user_status_unregistered">Незарэгістраваны</string>
   <string name="watchlist_filter_user_status_registered">Зарэгістраваны</string>
   <string name="watchlist_filter_user_status_newcomers">Навічкі</string>
   <string name="watchlist_filter_user_status_learners">Вучні</string>
-  <string name="watchlist_filter_user_status_experienced">Вопытныя ўдзельнікі</string>
+  <string name="watchlist_filter_user_status_experienced">Дасведчаныя ўдзельнікі</string>
   <string name="watchlist_filter_contribution_authorship_header">Аўтарства ўнёску</string>
   <string name="watchlist_filter_contribution_authorship_own">Вашы змены</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Змены іншых удзельнікаў</string>
@@ -1621,7 +1621,7 @@
   <string name="patroller_tasks_filters_reset">Скінуць</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Вікі</string>
   <string name="patroller_tasks_filters_all_text">Усе</string>
-  <string name="patroller_tasks_filters_user_status_header">Рэгістрацыя ўдзельніка і яго вопыт</string>
+  <string name="patroller_tasks_filters_user_status_header">Рэгістрацыя ўдзельніка і яго досвед</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Незарэгістраваны</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Рэдактары, якія не ўвайшлі ў сістэму.</string>
   <string name="patroller_tasks_filters_user_status_registered">Зарэгістраваныя</string>
@@ -1629,8 +1629,8 @@
   <string name="patroller_tasks_filters_user_status_newcomers">Навічкі</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Зарэгістраваныя рэдактары, якія маюць менш за 10 правак за 4 дні актыўнасці.</string>
   <string name="patroller_tasks_filters_user_status_learners">Вучні</string>
-  <string name="patroller_tasks_filters_user_status_learners_desc">Зарэгістраваныя рэдактары, вопыт якіх знаходзіцца паміж «навічкамі» і «вопытнымі ўдзельнікамі».</string>
-  <string name="patroller_tasks_filters_user_status_experienced">Вопытныя ўдзельнікі</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Зарэгістраваныя рэдактары, досвед якіх знаходзіцца паміж «навічкамі» і «дасведчанымі ўдзельнікамі».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Дасведчаныя ўдзельнікі</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Зарэгістраваныя рэдактары з больш за 500 правак за 30 дзён актыўнасці.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Апошнія версіі</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Апошняя версія</string>
