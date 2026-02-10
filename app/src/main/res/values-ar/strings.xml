@@ -2436,14 +2436,6 @@
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
   <string name="hybrid_search_onboarding_search_title">اطرح الأسئلة، واحصل على الإجابات</string>
   <string name="hybrid_search_beta_tag">بيتا</string>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="zero">لا مقالة</item>
-    <item quantity="one">مقالة واحدة</item>
-    <item quantity="two">مقالتين</item>
-    <item quantity="few">%d مقالات</item>
-    <item quantity="many">%d مقالة</item>
-    <item quantity="other">%d مقالة</item>
-  </plurals>
   <string name="hybrid_search_results_more_button">المزيد</string>
   <string name="hybrid_search_results_rated_label">قيِّم</string>
   <string name="hybrid_search_results_rate_thumb_up">أعطِ إعجابًا</string>

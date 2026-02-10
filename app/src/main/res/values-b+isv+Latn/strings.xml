@@ -2393,7 +2393,7 @@
   <string name="hybrid_search_onboarding_search_description">Tuta eksperimentalna funkcija razuměje prirodny jezyk. Zaměsto iskanja ključnyh slov, opišite, čto vy hočete znati.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-funkcija</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Dostupna na ograničny čas v tečenju tutogo eksperimenta.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Prisjedinite se k eksperimentu</string>
   <string name="hybrid_search_onboarding_search_example_title">Inspiracija potrěbna?</string>
   <string name="hybrid_search_onboarding_search_example_description">Koristajte jedin iz prikladov poiskov niže.</string>
@@ -2404,18 +2404,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Začto ljudi dodavajut ananas do pice?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
   <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
-  <string name="hybrid_search_results_header">%1$s iz %2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">1 rezultat</item>
-    <item quantity="few">%d rezultaty</item>
-    <item quantity="other">%d rezultatov</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d članok</item>
-    <item quantity="few">%d članky</item>
-    <item quantity="many">%d člankov</item>
-    <item quantity="other">%d člankov</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
   <string name="hybrid_search_results_more_button">Veče</string>
   <string name="hybrid_search_results_rate_label">Ocěnite tute rezultaty</string>

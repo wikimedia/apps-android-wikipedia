@@ -2228,15 +2228,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Зошто во некои земји ставаат ананас на пица?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Кои се најголемите градови во Европа?</string>
   <string name="hybrid_search_onboarding_screen_title">Нов начин на пребарување</string>
-  <string name="hybrid_search_results_header">%1$s од %2$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d исходна ставка</item>
-    <item quantity="other">%d исходни ставки</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d статија</item>
-    <item quantity="other">%d статии</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">Добиено од википедиски статии напишани од луѓе</string>
   <string name="hybrid_search_results_more_button">Повеќе</string>
   <string name="hybrid_search_results_rate_label">Оценете го исходов</string>

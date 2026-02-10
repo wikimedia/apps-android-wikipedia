@@ -1919,15 +1919,6 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">ولې خلک په پيزا کې انه‌ناس اچوي؟</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">د اروپا ترټولو لوی ښارونه کوم دي؟</string>
   <string name="hybrid_search_onboarding_screen_title">د پلټلو نوې لار</string>
-  <string name="hybrid_search_results_header">له %2$s څخه %1$s</string>
-  <plurals name="hybrid_search_results_header_result">
-    <item quantity="one">%d پايله</item>
-    <item quantity="other">%d پايلې</item>
-  </plurals>
-  <plurals name="hybrid_search_results_header_article">
-    <item quantity="one">%d ليکنه</item>
-    <item quantity="other">%d ليکنې</item>
-  </plurals>
   <string name="hybrid_search_results_header_description">د انساني ليکل‌شوو ويکيپېډيا ليکنو څخه اخيستل شوې</string>
   <string name="hybrid_search_results_more_button">نور</string>
   <string name="hybrid_search_results_rate_label">دا پايلې ارزول</string>
