@@ -1,7 +1,9 @@
 package org.wikipedia.search
 
+import android.content.Context
 import android.location.Location
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.fadeOut
@@ -71,7 +73,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -302,7 +303,8 @@ fun SemanticSearchResultHeader(
                     .size(48.dp)
                     .clip(CircleShape)
                     .clickable {
-                        DeviceUtil.hideSoftKeyboard(view)
+                        val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.hideSoftInputFromWindow(view.windowToken, 0)
                         expanded = true
                     }
                     .padding(horizontal = 12.dp),
