@@ -83,7 +83,8 @@ fun HybridSearchResultsScreen(
     onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit
+    onLoading: (Boolean) -> Unit,
+    onSemanticError: () -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -112,10 +113,16 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Success -> {
+                    val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
+                    val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+                    if (semanticData.isEmpty()) {
+                        onSemanticError()
+                    }
+
                     HybridSearchResultsList(
                         testGroup = viewModel.getTestGroup,
-                        searchResultsPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH },
-                        semanticSearchResultPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchResultsPage = lexicalData,
+                        semanticSearchResultPage = semanticData,
                         searchTerm = searchTerm.value,
                         onItemClick = { title, inNewTab, position, location ->
                             onNavigateToTitle(title, inNewTab, position, location)
@@ -183,11 +190,13 @@ fun HybridSearchResultsList(
                 }
             }
             item {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.borderColor
-                )
+                if (searchResultsPage.isNotEmpty() && semanticSearchResultPage.isNotEmpty()) {
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
             }
         }
 
@@ -230,11 +239,13 @@ fun HybridSearchResultsList(
 
         if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
             item {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.borderColor
-                )
+                if (semanticSearchResultPage.isNotEmpty() && searchResultsPage.isNotEmpty()) {
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
             }
             items(
                 count = searchResultsPage.size
