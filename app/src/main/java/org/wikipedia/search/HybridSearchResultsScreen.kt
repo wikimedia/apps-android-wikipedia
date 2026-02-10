@@ -333,17 +333,20 @@ fun SemanticSearchResultPageItem(
         ),
         colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
     ) {
-        Column {
+        Column(
+            modifier = Modifier.height(400.dp)
+        ) {
             // TODO: need to check if the snippet is empty?
             Box(
-                modifier = Modifier.clickable {
-                    onSemanticItemClick()
-                }
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable {
+                        onSemanticItemClick()
+                    }
             ) {
                 HtmlText(
                     modifier = Modifier
-                        .padding(horizontal = 16.dp, vertical = 12.dp)
-                        .height(400.dp),
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
                     text = searchResult.snippet.orEmpty(),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
