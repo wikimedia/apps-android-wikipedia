@@ -49,6 +49,7 @@ import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -70,6 +71,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
@@ -260,6 +262,8 @@ fun SemanticSearchResultHeader(
     onTurnOffExperimentClick: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val view = LocalView.current
+
     Column(
         modifier = modifier
     ) {
@@ -292,11 +296,13 @@ fun SemanticSearchResultHeader(
                     color = Color.White
                 )
             }
+
             Box(
                 modifier = Modifier
                     .size(48.dp)
                     .clip(CircleShape)
                     .clickable {
+                        DeviceUtil.hideSoftKeyboard(view)
                         expanded = true
                     }
                     .padding(horizontal = 12.dp),

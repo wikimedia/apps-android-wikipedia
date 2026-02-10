@@ -192,8 +192,13 @@ fun HybridSearchOnboardingScreen(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-            onboardingItems.forEachIndexed { index, onboardingItem ->
-                OnboardingListItem(item = onboardingItem)
+            onboardingItems.forEachIndexed { _, onboardingItem ->
+                OnboardingListItem(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 12.dp),
+                    item = onboardingItem
+                )
             }
             SearchExamplesView(
                 modifier = Modifier
@@ -216,6 +221,9 @@ fun SearchExamplesView(
         modifier = modifier
     ) {
         OnboardingListItem(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp, bottom = 4.dp),
             item = OnboardingItem(
                 icon = R.drawable.ic_light_bulb,
                 title = R.string.hybrid_search_onboarding_search_example_title,
