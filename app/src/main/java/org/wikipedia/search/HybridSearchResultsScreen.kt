@@ -411,7 +411,9 @@ fun SemanticSearchResultPageItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier
+                                .size(16.dp)
+                                .offset(y = (-2).dp),
                             painter = painterResource(if (isRatingPositiveSelected) R.drawable.ic_thumb_up_filled else R.drawable.ic_thumb_up),
                             contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_up),
                             tint = WikipediaTheme.colors.placeholderColor
@@ -436,7 +438,9 @@ fun SemanticSearchResultPageItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier
+                                .size(16.dp)
+                                .offset(y = (-2).dp),
                             painter = painterResource(if (isRatingNegativeSelected) R.drawable.ic_thumb_down_filled else R.drawable.ic_thumb_down),
                             contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_down),
                             tint = WikipediaTheme.colors.placeholderColor
