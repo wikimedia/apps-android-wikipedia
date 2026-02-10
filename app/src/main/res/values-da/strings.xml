@@ -2162,7 +2162,7 @@
   <string name="hybrid_search_onboarding_search_description">Denne eksperimentelle funktion forstår naturligt sprog. I stedet for at søge efter søgeord kan du beskrive hvad du vil vide.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunktion</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Tilgængelig i en begrænset periode under dette eksperiment.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Deltag i eksperimentet</string>
   <string name="hybrid_search_onboarding_search_example_title">Brug for inspiration?</string>
   <string name="hybrid_search_onboarding_search_example_description">Brug et af søge-eksemplerne herunder.</string>

@@ -110,6 +110,7 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
+        private var lastHiddenSpanPos = -1
         private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
 
@@ -194,6 +195,17 @@ class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHan
                 }
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
+            } else if (tag == "span" && output != null) {
+                if (opening) {
+                    if (getValue(attributes, "style").orEmpty().contains("display:none")) {
+                        lastHiddenSpanPos = output.length
+                    }
+                } else {
+                    if (lastHiddenSpanPos >= 0 && lastHiddenSpanPos < output.length) {
+                        output.delete(lastHiddenSpanPos, output.length)
+                        lastHiddenSpanPos = -1
+                    }
+                }
             }
             return false
         }

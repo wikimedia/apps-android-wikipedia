@@ -2256,7 +2256,7 @@
   <string name="hybrid_search_onboarding_search_description">Deze experimentele functie begrijpt natuurlijke taal. In plaats van te zoeken op trefwoorden, kunt u beschrijven wat u wilt weten.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunctie</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Beschikbaar voor een beperkte periode tijdens dit experiment.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Doe mee aan het experiment</string>
   <string name="hybrid_search_onboarding_search_example_title">Behoefte aa inspiratie?</string>
   <string name="hybrid_search_onboarding_search_example_description">Gebruik een van de onderstaande zoekvoorbeelden.</string>
