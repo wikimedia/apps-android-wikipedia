@@ -173,6 +173,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     fun setUpLanguageScroll(position: Int) {
         var pos = position
+        searchLanguageCode = app.languageState.appLanguageCode
         if (app.languageState.appLanguageCodes.size > 1) {
             pos = if (app.languageState.appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
@@ -183,7 +184,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.reloadRecentSearches()
-            searchLanguageCode = app.languageState.appLanguageCode
         }
     }
 
