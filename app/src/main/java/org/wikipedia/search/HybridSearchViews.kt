@@ -43,9 +43,8 @@ fun HybridSearchSuggestionView(
             if (term.isEmpty() || searchResultsPage.itemCount == 0) {
                 false
             } else {
-                (0 until searchResultsPage.itemCount).any { index ->
-                    searchResultsPage[index]?.pageTitle?.displayText
-                        ?.contains(term, ignoreCase = true) == true
+                searchResultsPage.itemSnapshotList.any { item ->
+                    item?.pageTitle?.displayText?.contains(term, ignoreCase = true) == true
                 }
             }
         }
