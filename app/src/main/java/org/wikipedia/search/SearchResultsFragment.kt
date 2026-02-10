@@ -20,6 +20,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -58,6 +59,11 @@ class SearchResultsFragment : Fragment() {
                             },
                             onInfoClick = {
                                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
+                            },
+                            onTurnOffExperimentClick = {
+                                Prefs.isHybridSearchEnabled = false
+                                showHybridSearch = false
+                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
                             },
                             onCloseSearch = { requireActivity().finish() },
                             onRetrySearch = {
@@ -132,7 +138,6 @@ class SearchResultsFragment : Fragment() {
 
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
-
         if (showHybridSearch) {
             viewModel.loadHybridSearchResults()
         }

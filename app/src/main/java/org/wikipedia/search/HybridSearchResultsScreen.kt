@@ -25,6 +25,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -80,6 +82,7 @@ fun HybridSearchResultsScreen(
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
+    onTurnOffExperimentClick: (String) -> Unit,
     onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -117,21 +120,14 @@ fun HybridSearchResultsScreen(
                         searchResultsPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH },
                         semanticSearchResultPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
                         searchTerm = searchTerm.value,
-                        onItemClick = { title, inNewTab, position, location ->
-                            onNavigateToTitle(title, inNewTab, position, location)
+                        onItemClick = onNavigateToTitle,
+                        onItemLongClick = onItemLongClick,
+                        onInfoClick = onInfoClick,
+                        onTurnOffExperimentClick = {
+                            onTurnOffExperimentClick(searchTerm.value.orEmpty())
                         },
-                        onItemLongClick = { view, searchResult, position ->
-                            onItemLongClick(view, searchResult, position)
-                        },
-                        onInfoClick = {
-                            onInfoClick()
-                        },
-                        onSemanticItemClick = { title, inNewTab, position, location ->
-                            onSemanticItemClick(title, inNewTab, position, location)
-                        },
-                        onRatingClick = { isPositive ->
-                            onRatingClick(isPositive)
-                        }
+                        onSemanticItemClick = onSemanticItemClick,
+                        onRatingClick = onRatingClick
                     )
                 }
 
@@ -161,6 +157,7 @@ fun HybridSearchResultsList(
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
+    onTurnOffExperimentClick: () -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
@@ -195,9 +192,8 @@ fun HybridSearchResultsList(
             if (semanticSearchResultPage.isNotEmpty()) {
                 SemanticSearchResultHeader(
                     modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
-                    onInfoClick = {
-                        onInfoClick()
-                    }
+                    onInfoClick = onInfoClick,
+                    onTurnOffExperimentClick = onTurnOffExperimentClick
                 )
             }
         }
@@ -260,8 +256,10 @@ fun HybridSearchResultsList(
 fun SemanticSearchResultHeader(
     modifier: Modifier = Modifier,
     rephraseTitle: String? = null,
-    onInfoClick: () -> Unit
+    onInfoClick: () -> Unit,
+    onTurnOffExperimentClick: () -> Unit
 ) {
+    var expanded by remember { mutableStateOf(false) }
     Column(
         modifier = modifier
     ) {
@@ -298,7 +296,9 @@ fun SemanticSearchResultHeader(
                 modifier = Modifier
                     .size(48.dp)
                     .clip(CircleShape)
-                    .clickable { onInfoClick() }
+                    .clickable {
+                        expanded = true
+                    }
                     .padding(horizontal = 12.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -307,6 +307,30 @@ fun SemanticSearchResultHeader(
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = stringResource(R.string.year_in_review_information_icon)
                 )
+                DropdownMenu(
+                    expanded = expanded,
+                    containerColor = WikipediaTheme.colors.paperColor,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                text = stringResource(R.string.hybrid_search_onboarding_learn_more),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor
+                            ) },
+                        onClick = onInfoClick
+                    )
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                text = stringResource(R.string.hybrid_search_turn_off_experiment_label),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.destructiveColor
+                            ) },
+                        onClick = onTurnOffExperimentClick
+                    )
+                }
             }
         }
         Text(
@@ -512,7 +536,8 @@ private fun SemanticSearchResultHeaderPreview() {
     ) {
         SemanticSearchResultHeader(
             rephraseTitle = "Who is Beyoncé?",
-            onInfoClick = {}
+            onInfoClick = {},
+            onTurnOffExperimentClick = {}
         )
     }
 }

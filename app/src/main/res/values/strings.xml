@@ -2368,4 +2368,5 @@
     <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
+    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
 </resources>

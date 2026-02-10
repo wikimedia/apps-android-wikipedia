@@ -150,7 +150,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
-        searchResultsFragment.showHybridSearch = hybridSearchEnabled
+        if (hybridSearchEnabled) {
+            searchResultsFragment.showHybridSearch = true
+        }
     }
 
     override fun onPause() {
