@@ -2344,7 +2344,7 @@
     <string name="hybrid_search_onboarding_search_description">This experimental feature understands natural language. Instead of searching for keywords, describe what you want to know.</string>
     <string name="hybrid_search_onboarding_opt_in_choice_title">Beta feature</string>
     <string name="hybrid_search_onboarding_opt_in_choice_description">Available for a limited time during this experiment.</string>
-    <string name="hybrid_search_beta_tag">BETA</string>
+    <string name="hybrid_search_beta_tag">Beta</string>
     <string name="hybrid_search_experimental_feature_switch_label">Join experiment</string>
     <string name="hybrid_search_onboarding_search_example_title">Need inspiration?</string>
     <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
@@ -2355,15 +2355,6 @@
     <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
     <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
     <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
-    <string name="hybrid_search_results_header">%1$s from %2$s</string>
-    <plurals name="hybrid_search_results_header_result">
-        <item quantity="one">%d result</item>
-        <item quantity="other">%d results</item>
-    </plurals>
-    <plurals name="hybrid_search_results_header_article">
-        <item quantity="one">%d article</item>
-        <item quantity="other">%d articles</item>
-    </plurals>
     <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
     <string name="hybrid_search_results_more_button">More</string>
     <string name="hybrid_search_results_rate_label">Rate these results</string>
@@ -2377,4 +2368,5 @@
     <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
+    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
 </resources>
