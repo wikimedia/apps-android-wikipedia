@@ -84,30 +84,29 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
-                    onGetStarted = { exampleQuery ->
-                        if (exampleQuery == null) {
-                            val intent = SearchActivity.newIntent(
-                                context = this,
-                                source = source ?: Constants.InvokeSource.NAV_MENU,
-                                query = null
+                    onGetStarted = {
+                        val intent = SearchActivity.newIntent(
+                            context = this,
+                            source = source ?: Constants.InvokeSource.NAV_MENU,
+                            query = null
+                        )
+                        if (!Prefs.isHybridSearchEnabled) {
+                            intent.putExtra(
+                                SearchActivity.EXTRA_SHOW_SNACKBAR_MESSAGE,
+                                R.string.hybrid_search_onboarding_opt_out_toast_message
                             )
-                            if (!Prefs.isHybridSearchEnabled) {
-                                intent.putExtra(
-                                    SearchActivity.EXTRA_SHOW_SNACKBAR_MESSAGE,
-                                    R.string.hybrid_search_onboarding_opt_out_toast_message
-                                )
-                            }
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            startActivity(SearchActivity.newIntent(
-                                context = this,
-                                source = source ?: Constants.InvokeSource.NAV_MENU,
-                                query = exampleQuery,
-                                initiateHybridSearch = true
-                            ))
-                            finish()
                         }
+                        startActivity(intent)
+                        finish()
+                    },
+                    onSearchQueryItemClick = { exampleQuery ->
+                        startActivity(SearchActivity.newIntent(
+                            context = this,
+                            source = source ?: Constants.InvokeSource.NAV_MENU,
+                            query = exampleQuery,
+                            initiateHybridSearch = true
+                        ))
+                        finish()
                     },
                     onLearnMoreClick = {
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
@@ -129,7 +128,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 @Composable
 fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
-    onGetStarted: (String?) -> Unit,
+    onGetStarted: () -> Unit,
+    onSearchQueryItemClick: (String) -> Unit,
     onLearnMoreClick: () -> Unit
 ) {
     Scaffold(
@@ -179,7 +179,7 @@ fun HybridSearchOnboardingScreen(
             )
             MainBottomBar(
                 onNextButtonClick = {
-                    onGetStarted(null)
+                    onGetStarted()
                 },
                 onLearnMoreClick = onLearnMoreClick
             )
@@ -204,7 +204,7 @@ fun HybridSearchOnboardingScreen(
                 modifier = Modifier
                     .background(WikipediaTheme.colors.paperColor),
                 onClick = { exampleQuery ->
-                    onGetStarted(exampleQuery)
+                    onSearchQueryItemClick(exampleQuery)
                 }
             )
         }
@@ -236,7 +236,7 @@ fun SearchExamplesView(
                 .padding(start = 36.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            searchExamples.forEachIndexed { index, exampleQuery ->
+            searchExamples.forEachIndexed { _, exampleQuery ->
                 val exampleQueryString = stringResource(exampleQuery)
                 SuggestionChip(
                     onClick = { onClick(exampleQueryString) },
@@ -314,6 +314,7 @@ private fun HybridSearchOnboardingScreenPreview() {
     ) {
         HybridSearchOnboardingScreen(
             onGetStarted = {},
+            onSearchQueryItemClick = {},
             onLearnMoreClick = {}
         )
     }
