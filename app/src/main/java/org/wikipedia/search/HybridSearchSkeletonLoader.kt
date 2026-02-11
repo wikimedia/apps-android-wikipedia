@@ -66,7 +66,7 @@ fun HybridSearchSkeletonLoader(
                     )
                 }
                 item {
-                    HorizontalHybridSearchListIemLoader(
+                    HorizontalHybridSearchListItemLoader(
                         semanticItemsCount = 3,
                         shimmerColors = semanticShimmerColors,
                         transition = transition,
@@ -77,7 +77,7 @@ fun HybridSearchSkeletonLoader(
             }
             HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL -> {
                 item {
-                    HorizontalHybridSearchListIemLoader(
+                    HorizontalHybridSearchListItemLoader(
                         semanticItemsCount = 3,
                         shimmerColors = semanticShimmerColors,
                         transition = transition,
@@ -101,7 +101,7 @@ fun HybridSearchSkeletonLoader(
 }
 
 @Composable
-fun HorizontalHybridSearchListIemLoader(
+fun HorizontalHybridSearchListItemLoader(
     modifier: Modifier = Modifier,
     semanticItemsCount: Int = 3,
     shimmerColors: List<Color>,
