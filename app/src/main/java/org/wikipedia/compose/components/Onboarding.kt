@@ -33,9 +33,7 @@ fun OnboardingListItem(
     item: OnboardingItem
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 12.dp),
+        modifier = modifier,
         verticalAlignment = Alignment.Top
     ) {
         Icon(
