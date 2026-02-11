@@ -250,6 +250,7 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
+    <string name="legal_safety_contacts_description">Legal &amp; safety contacts</string>
     <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -2367,4 +2368,5 @@
     <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
+    <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
 </resources>

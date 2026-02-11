@@ -281,6 +281,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
+  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
@@ -2120,4 +2121,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Suggestion shown to the user to try searching for a related topic when semantic search returns no results.</string>
   <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
+    <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
 </resources>
