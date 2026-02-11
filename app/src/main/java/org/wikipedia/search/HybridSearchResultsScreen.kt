@@ -90,7 +90,7 @@ fun HybridSearchResultsScreen(
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
-        if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
+        if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     val isLoading = searchResultsState is UiState.Loading
 
@@ -514,7 +514,6 @@ fun SemanticSearchResultPageItem(
 @Preview(showBackground = true)
 @Composable
 private fun SemanticSearchResultHeaderPreview() {
-    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {

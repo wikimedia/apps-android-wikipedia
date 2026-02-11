@@ -77,7 +77,7 @@ fun SearchResultsScreen(
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
-        if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
+        if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
@@ -117,13 +117,11 @@ fun SearchResultsScreen(
                 }
 
                 else -> {
-                    SearchResultsList(
-                        searchResultsPage = searchResults,
-                        searchTerm = searchTerm.value,
-                        onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick,
-                        hybridSearchConfig = HybridSearchConfig(
-                            isHybridSearchExperimentOn = viewModel.isHybridSearchExperimentOn,
+                    if (viewModel.isHybridSearchExperimentOn) {
+                        HybridSearchSuggestionListView(
+                            modifier = Modifier.fillMaxSize(),
+                            searchResultsPage = searchResults,
+                            searchTerm = searchTerm.value,
                             onTitleClick = { searchResult ->
                                 onSemanticSearchClick(searchResult.pageTitle.displayText)
                             },
@@ -133,7 +131,14 @@ fun SearchResultsScreen(
                                 }
                             }
                         )
-                    )
+                    } else {
+                        SearchResultsList(
+                            searchResultsPage = searchResults,
+                            searchTerm = searchTerm.value,
+                            onItemClick = onNavigateToTitle,
+                            onItemLongClick = onItemLongClick
+                        )
+                    }
                 }
             }
         }
@@ -146,19 +151,8 @@ fun SearchResultsList(
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    hybridSearchConfig: HybridSearchConfig,
     modifier: Modifier = Modifier
 ) {
-    if (hybridSearchConfig.isHybridSearchExperimentOn) {
-        HybridSearchSuggestionView(
-            modifier = Modifier.fillMaxSize(),
-            searchResultsPage = searchResultsPage,
-            hybridSearchConfig = hybridSearchConfig,
-            searchTerm = searchTerm
-        )
-        return
-    }
-
     LazyColumn(
         modifier = modifier
             .testTag(SEARCH_LIST_TAG)

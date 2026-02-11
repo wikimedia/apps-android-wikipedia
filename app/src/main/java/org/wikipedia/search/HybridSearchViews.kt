@@ -30,11 +30,12 @@ import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
-fun HybridSearchSuggestionView(
+fun HybridSearchSuggestionListView(
     modifier: Modifier = Modifier,
     searchResultsPage: LazyPagingItems<SearchResult>,
-    hybridSearchConfig: HybridSearchConfig,
     searchTerm: String?,
+    onTitleClick: (SearchResult) -> Unit,
+    onSuggestionTitleClick: (String?) -> Unit,
 ) {
 
     val hasAnyMatch by remember {
@@ -63,7 +64,7 @@ fun HybridSearchSuggestionView(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable(onClick = {
-                                hybridSearchConfig.onTitleClick(it)
+                                onTitleClick(it)
                             })
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         searchResultPage = it,
@@ -80,7 +81,7 @@ fun HybridSearchSuggestionView(
                     .align(Alignment.BottomStart)
                     .background(WikipediaTheme.colors.paperColor)
                     .clickable(
-                        onClick = { hybridSearchConfig.onSuggestionTitleClick(searchTerm) }
+                        onClick = { onSuggestionTitleClick(searchTerm) }
                     ),
                 searchTerm = searchTerm
             )
