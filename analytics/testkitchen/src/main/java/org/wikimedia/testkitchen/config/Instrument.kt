@@ -17,5 +17,4 @@ class Instrument : Sampleable() {
     @SerialName("schema_title") val schemaTitle: String = ""
     @SerialName("contextual_attributes") val contextualAttributes: List<String> = emptyList()
     @SerialName("sample_unit") val sampleUnit: String = ""
-
 }

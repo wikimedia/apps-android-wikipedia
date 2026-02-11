@@ -1,10 +1,7 @@
-@file:UseSerializers(InstantSerializer::class)
-
 package org.wikimedia.testkitchen.config
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.UseSerializers
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
@@ -12,7 +9,6 @@ import kotlinx.serialization.json.float
 import kotlinx.serialization.json.floatOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonPrimitive
-import org.wikimedia.testkitchen.context.InstantSerializer
 
 @Serializable
 open class Sampleable {
