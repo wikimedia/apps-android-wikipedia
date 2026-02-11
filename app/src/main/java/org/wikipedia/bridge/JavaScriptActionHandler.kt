@@ -129,7 +129,8 @@ object JavaScriptActionHandler {
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
-        return "pcs.c1.Footer.add({" +
+        return "if (document.getElementById('pcs-footer-container-menu') == null) {" +
+                "   pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
                 "   menu: {" +
@@ -149,7 +150,7 @@ object JavaScriptActionHandler {
                 "       langCode: \"$langCode\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
-                "})"
+                "}) }"
     }
 
     fun appendReadMode(model: PageViewModel): String {
