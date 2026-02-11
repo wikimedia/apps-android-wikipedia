@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient
 
+import org.wikimedia.testkitchen.config.Experiment
+import org.wikimedia.testkitchen.config.Instrument
 import org.wikimedia.testkitchen.config.StreamConfigCollection
 import org.wikipedia.captcha.Captcha
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
@@ -230,6 +232,12 @@ interface Service {
 
     @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service%3Deventgate-analytics-external")
     suspend fun getStreamConfigs(): StreamConfigCollection
+
+    @GET("api/v1/experiments")
+    suspend fun getExperiments(): List<Experiment>
+
+    @GET("api/v1/instruments")
+    suspend fun getInstruments(): List<Instrument>
 
     @GET(MW_API_PREFIX + "action=query&meta=allmessages&amenableparser=1")
     suspend fun getMessages(
