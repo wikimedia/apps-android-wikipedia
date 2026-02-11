@@ -40,7 +40,8 @@ object DeviceUtil {
     }
 
     fun hideSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun isHardKeyboardAttached(resources: Resources): Boolean {
