@@ -1,9 +1,7 @@
 package org.wikipedia.search
 
-import android.content.Context
 import android.location.Location
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
@@ -53,6 +51,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
 
@@ -213,9 +212,7 @@ fun SearchResultPageItem(
                 .combinedClickable(
                     onLongClick = {
                         anchorView?.let {
-                            val imm =
-                                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                            imm.hideSoftInputFromWindow(it.windowToken, 0)
+                            DeviceUtil.hideSoftKeyboard(it)
                             onItemLongClick(it)
                         }
                     },
