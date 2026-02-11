@@ -24,7 +24,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -71,10 +70,9 @@ class SearchResultsViewModel : ViewModel() {
 
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            L.e(throwable)
-            _hybridSearchResultState.value = UiState.Error(throwable)
-        }) {
+       viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+           _hybridSearchResultState.value = UiState.Error(throwable)
+       }) {
             _hybridSearchResultState.value = UiState.Loading
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
@@ -89,24 +87,41 @@ class SearchResultsViewModel : ViewModel() {
 
             val wikiSite = WikiSite.forLanguageCode(lang)
 
-            val lexicalResults = async {
-                val searchResults = mutableListOf<SearchResult>()
-                // prefix + fulltext search results for at most 3 results.
-                var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
-                searchResults.addAll(buildList(response, invokeSource, wikiSite))
-
-                if (searchResults.size < lexicalBatchSize) {
-                    response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
-                    searchResults.addAll(buildList(response, invokeSource, wikiSite))
+            val lexicalDeferred = async {
+                runCatching {
+                    val lexicalSearchResults = mutableListOf<SearchResult>()
+                    // prefix + fulltext search results for at most 3 results.
+                    var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
+                    lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                    if (lexicalSearchResults.size < lexicalBatchSize) {
+                        response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
+                        lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                    }
+                    lexicalSearchResults
                 }
-                searchResults
-            }
-            val semanticResults = async {
-                val response = ServiceFactory.get(wikiSite).semanticSearch(term, semanticBatchSize)
-                buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC)
             }
 
-            _hybridSearchResultState.value = UiState.Success(lexicalResults.await().distinctBy { it.pageTitle.prefixedText }.toMutableList() + semanticResults.await())
+            val semanticDeferred = async {
+                runCatching {
+                    val response = ServiceFactory.get(wikiSite)
+                        .semanticSearch(term, semanticBatchSize)
+                    buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC)
+                }
+            }
+
+            val lexicalResult = lexicalDeferred.await()
+            val semanticResult = semanticDeferred.await()
+
+            if (lexicalResult.isFailure && semanticResult.isFailure) {
+                _hybridSearchResultState.value = UiState.Error(Throwable())
+                return@launch
+            }
+
+            val lexicalList = lexicalResult.getOrElse { emptyList() }
+                .distinctBy { it.pageTitle.prefixedText }
+            val semanticList = semanticResult.getOrElse { emptyList() }
+
+            _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
     }
 
@@ -120,6 +135,10 @@ class SearchResultsViewModel : ViewModel() {
 
     fun refreshSearchResults() {
         _refreshSearchResults.value += 1
+    }
+
+    fun resetHybridSearchState() {
+        _hybridSearchResultState.value = UiState.Loading
     }
 
     class SearchResultsPagingSource(

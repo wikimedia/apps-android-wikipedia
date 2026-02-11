@@ -22,6 +22,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -74,6 +75,9 @@ class SearchResultsFragment : Fragment() {
                             },
                             onRatingClick = { isPositive ->
                                 // TODO: implement rating submission
+                            },
+                            onSemanticError = {
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             }
                         )
                     } else {
@@ -139,6 +143,7 @@ class SearchResultsFragment : Fragment() {
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
         if (showHybridSearch) {
+            viewModel.resetHybridSearchState()
             viewModel.loadHybridSearchResults()
         }
     }

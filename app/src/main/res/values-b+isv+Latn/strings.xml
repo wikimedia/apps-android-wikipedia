@@ -2393,7 +2393,7 @@
   <string name="hybrid_search_onboarding_search_description">Tuta eksperimentalna funkcija razuměje prirodny jezyk. Zaměsto iskanja ključnyh slov, opišite, čto vy hočete znati.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-funkcija</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Dostupna na ograničny čas v tečenju tutogo eksperimenta.</string>
-  <string name="hybrid_search_beta_tag">BETA</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Prisjedinite se k eksperimentu</string>
   <string name="hybrid_search_onboarding_search_example_title">Inspiracija potrěbna?</string>
   <string name="hybrid_search_onboarding_search_example_description">Koristajte jedin iz prikladov poiskov niže.</string>

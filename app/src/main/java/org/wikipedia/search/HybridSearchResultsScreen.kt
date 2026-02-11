@@ -14,9 +14,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -54,14 +56,11 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
@@ -89,7 +88,8 @@ fun HybridSearchResultsScreen(
     onRatingClick: (Boolean) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit
+    onLoading: (Boolean) -> Unit,
+    onSemanticError: () -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -118,10 +118,16 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Success -> {
+                    val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
+                    val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+                    if (semanticData.isEmpty()) {
+                        onSemanticError()
+                    }
+
                     HybridSearchResultsList(
                         testGroup = viewModel.getTestGroup,
-                        searchResultsPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH },
-                        semanticSearchResultPage = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC },
+                        searchResultsPage = lexicalData,
+                        semanticSearchResultPage = semanticData,
                         searchTerm = searchTerm.value,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
@@ -183,11 +189,13 @@ fun HybridSearchResultsList(
                 }
             }
             item {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.borderColor
-                )
+                if (searchResultsPage.isNotEmpty() && semanticSearchResultPage.isNotEmpty()) {
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 12.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
             }
         }
 
@@ -203,7 +211,7 @@ fun HybridSearchResultsList(
 
         item {
             LazyRow(
-                modifier = Modifier.padding(horizontal = 16.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(
@@ -229,11 +237,13 @@ fun HybridSearchResultsList(
 
         if (testGroup == HybridSearchAbCTest.GROUP_SEMANTIC_LEXICAL) {
             item {
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.borderColor
-                )
+                if (semanticSearchResultPage.isNotEmpty() && searchResultsPage.isNotEmpty()) {
+                    HorizontalDivider(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 8.dp),
+                        thickness = 1.dp,
+                        color = WikipediaTheme.colors.borderColor
+                    )
+                }
             }
             items(
                 count = searchResultsPage.size
@@ -369,27 +379,21 @@ fun SemanticSearchResultPageItem(
         ),
         colors = CardDefaults.cardColors(containerColor = WikipediaTheme.colors.backgroundColor)
     ) {
-        Column {
+        Column(
+            modifier = Modifier.height(400.dp)
+        ) {
             // TODO: need to check if the snippet is empty?
             Box(
-                modifier = Modifier.clickable {
-                    onSemanticItemClick()
-                }
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable {
+                        onSemanticItemClick()
+                    }
             ) {
                 HtmlText(
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                    linkStyle = TextLinkStyles(
-                        style = SpanStyle(
-                            color = WikipediaTheme.colors.progressiveColor,
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 16.sp
-                        )
-                    ),
-                    text = buildString {
-                        append(searchResult.snippet.orEmpty())
-                        append("…")
-                        append("<a href='#'><b>${stringResource(R.string.hybrid_search_results_more_button).lowercase()}</b></a>")
-                    },
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    text = searchResult.snippet.orEmpty(),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
@@ -439,7 +443,9 @@ fun SemanticSearchResultPageItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier
+                                .size(16.dp)
+                                .offset(y = (-2).dp),
                             painter = painterResource(if (isRatingPositiveSelected) R.drawable.ic_thumb_up_filled else R.drawable.ic_thumb_up),
                             contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_up),
                             tint = WikipediaTheme.colors.placeholderColor
@@ -464,7 +470,9 @@ fun SemanticSearchResultPageItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            modifier = Modifier.size(16.dp),
+                            modifier = Modifier
+                                .size(16.dp)
+                                .offset(y = (-2).dp),
                             painter = painterResource(if (isRatingNegativeSelected) R.drawable.ic_thumb_down_filled else R.drawable.ic_thumb_down),
                             contentDescription = stringResource(R.string.hybrid_search_results_rate_thumb_down),
                             tint = WikipediaTheme.colors.placeholderColor
