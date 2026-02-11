@@ -12,6 +12,8 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +36,20 @@ fun HybridSearchSuggestionView(
     hybridSearchConfig: HybridSearchConfig,
     searchTerm: String?,
 ) {
+
+    val hasAnyMatch by remember {
+        derivedStateOf {
+            val term = searchTerm.orEmpty()
+            if (term.isEmpty() || searchResultsPage.itemCount == 0) {
+                false
+            } else {
+                searchResultsPage.itemSnapshotList.items.any { item ->
+                    item.pageTitle.displayText.contains(term, ignoreCase = true)
+                }
+            }
+        }
+    }
+
     Box(
         modifier = modifier
     ) {
@@ -57,16 +73,18 @@ fun HybridSearchSuggestionView(
             }
         }
 
-        SearchResultTitleOnlyBottomContent(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.BottomStart)
-                .background(WikipediaTheme.colors.paperColor)
-                .clickable(
-                    onClick = { hybridSearchConfig.onSuggestionTitleClick(searchTerm) }
-                ),
-            searchTerm = searchTerm
-        )
+        if (!hasAnyMatch) {
+            SearchResultTitleOnlyBottomContent(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomStart)
+                    .background(WikipediaTheme.colors.paperColor)
+                    .clickable(
+                        onClick = { hybridSearchConfig.onSuggestionTitleClick(searchTerm) }
+                    ),
+                searchTerm = searchTerm
+            )
+        }
     }
 }
 
