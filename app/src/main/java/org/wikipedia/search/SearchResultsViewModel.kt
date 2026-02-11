@@ -197,9 +197,3 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 }
-
-data class HybridSearchConfig(
-    val isHybridSearchExperimentOn: Boolean = false,
-    val onTitleClick: (SearchResult) -> Unit,
-    val onSuggestionTitleClick: (String?) -> Unit
-)
