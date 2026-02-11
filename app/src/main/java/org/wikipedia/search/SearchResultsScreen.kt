@@ -203,8 +203,6 @@ fun SearchResultPageItem(
         pageTitle.displayText.toAnnotatedStringWithBoldQuery(searchTerm)
     }
 
-    val context = LocalContext.current
-
     Box {
         Row(
             modifier = modifier
