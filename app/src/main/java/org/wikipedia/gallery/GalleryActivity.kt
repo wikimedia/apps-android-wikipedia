@@ -400,9 +400,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         if (controlsShowing) {
             ViewAnimations.ensureTranslationY(binding.toolbarContainer, 0)
             ViewAnimations.ensureTranslationY(binding.infoContainer, 0)
+            binding.infoContainer.isVisible = true
         } else {
             ViewAnimations.ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
-            ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
+            ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height) {
+                binding.infoContainer.isVisible = false
+            }
         }
         binding.descriptionText.setTextIsSelectable(controlsShowing)
     }
@@ -534,6 +537,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         } else {
             binding.ctaContainer.visibility = View.GONE
         }
+
         setLicenseInfo(item)
     }
 
@@ -611,7 +615,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
         // if we couldn't find a attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
-        binding.infoContainer.visibility = View.VISIBLE
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {
