@@ -28,6 +28,13 @@
                     />
         </org.wikipedia.settings.PreferenceMultiLine>
         <org.wikipedia.settings.PreferenceMultiLine
+            android:widgetLayout="@layout/preference_multiline_with_external_link"
+            android:title="@string/legal_safety_contacts_description">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="@string/legal_safety_contact_url"
+                />
+        </org.wikipedia.settings.PreferenceMultiLine>
+        <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_send_feedback"
             android:title="@string/send_feedback"
             android:widgetLayout="@layout/preference_multiline_with_external_link" />
