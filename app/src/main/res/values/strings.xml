@@ -2351,7 +2351,7 @@
     <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
     <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
     <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
-    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first olympics</string>
+    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first Olympics</string>
     <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
     <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
     <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
