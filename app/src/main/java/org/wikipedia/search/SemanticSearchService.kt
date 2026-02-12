@@ -10,7 +10,7 @@ interface SemanticSearchService {
     suspend fun search(
         @Query("query") query: String,
         @Query("k") count: Int,
-        @Query("language_code") lang: String,
+        @Query("table") table: String,
         @Query("include_text") includeText: Boolean,
     ): SemanticSearchResults
 

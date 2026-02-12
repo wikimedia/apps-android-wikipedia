@@ -49,13 +49,8 @@ class SearchResultsViewModel : ViewModel() {
 
     val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
-    private val semanticSearchService: SemanticSearchService
+    private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
-
-    init {
-        semanticSearchService = ServiceFactory.get(WikiSite(SemanticSearchService.BASE_URL),
-            SemanticSearchService.BASE_URL, SemanticSearchService::class.java)
-    }
 
     @OptIn(
         FlowPreview::class,
@@ -112,9 +107,13 @@ class SearchResultsViewModel : ViewModel() {
 
             val semanticDeferred = async {
                 runCatching {
-                    val response = semanticSearchService.search(query = term, count = semanticBatchSize, lang = lang, includeText = true)
+                    val tableName = when (lang) {
+                        "el" -> "elwiki_sections"
+                        else -> ""
+                    }
+                    val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = tableName, includeText = true)
                     val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
-                    buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
+                    buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
                         for (result in list) {
                             val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
                             result.pageTitle.thumbUrl = page?.thumbUrl()
@@ -213,7 +212,6 @@ class SearchResultsViewModel : ViewModel() {
 
         fun buildList(
             response: SemanticSearchResults,
-            invokeSource: Constants.InvokeSource,
             wikiSite: WikiSite,
             type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
         ): List<SearchResult> {
