@@ -2,6 +2,7 @@
 <!-- Authors:
 * IJzeren Jan
 * SaldırganSincap
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -244,6 +245,7 @@
   <string name="about_description">O aplikaciji «Vikipedija»</string>
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
+  <string name="legal_safety_contacts_description">Kontakty v oblasti prava i bezpečnosti</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
@@ -1323,6 +1325,7 @@
   <string name="onboarding_multilingual_secondary_text">Na vašem aparatu my jesmo našli slědujuče jezyky:</string>
   <string name="onboarding_multilingual_add_language_text">Dodati ili izměniti jezyky</string>
   <string name="onboarding_welcome_title_v2">Svobodna enciklopedija\n... na veče neželi 300 jezykah</string>
+  <string name="onboarding_next">Dalje</string>
   <string name="app_shortcuts_random">Slučajny članok</string>
   <string name="app_shortcuts_continue_reading">Prodolžiti čitanje</string>
   <string name="app_shortcuts_search">Iskati</string>
@@ -1997,7 +2000,7 @@
     <item quantity="one">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčeny članok anglijskoj Vikipedije byl: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
     <item quantity="few">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
     <item quantity="many">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$dajčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
-    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br/&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
+    <item quantity="other">Kogda ljudi hočet poznati naš svět, oni obračajut se k Vikipediji. %1$d najčestěje posěčene članky angijskoj Vikipedije byli: %2$s &lt;br /&gt; Pročitajte veče v našem &lt;a href=\"%3$s\"&gt;blogpostu&lt;/a&gt;.</item>
   </plurals>
   <plurals name="year_in_review_slide_edits_viewed_times_headline">
     <item quantity="one">Vaša pravka byla prěgleděna ponad %,d-kratno ili veče v poslědnjem času</item>
@@ -2383,4 +2386,37 @@
   <string name="donation_reminders_settings_report_email_subject">Issue Report – Donation Reminders / Soobčenje o problemu – Pripomněnja o darovanju</string>
   <string name="donation_reminders_settings_report_email_body">I have encountered a problem with the Donation reminders feature / Ja jesm našel/našla problem s funkcijeju «Pripomněnja o darovanju»:\n- [Opišite konkretny problem]\n- [Snimky ekrana ili linky]\n\nThe behavior I would like to see is / Očekyvano mnoju dějanje:\n- [Opišite prědloženo razrěšenje]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Izměniti</string>
+  <string name="hybrid_search_search_hint">Poiskati ili zapytati čtokoli</string>
+  <string name="hybrid_search_article_search_hint">Zapytajte o članku %s</string>
+  <string name="hybrid_search_suggestion_title">Poiskati:</string>
+  <string name="hybrid_search_onboarding_learn_more">Daljše informacije</string>
+  <string name="hybrid_search_onboarding_search_title">Stavite pytanja, dobudite odgovory</string>
+  <string name="hybrid_search_onboarding_search_description">Tuta eksperimentalna funkcija razuměje prirodny jezyk. Zaměsto iskanja ključnyh slov, opišite, čto vy hočete znati.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-funkcija</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Dostupna na ograničny čas v tečenju tutogo eksperimenta.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Prisjedinite se k eksperimentu</string>
+  <string name="hybrid_search_onboarding_search_example_title">Inspiracija potrěbna?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Koristajte jedin iz prikladov poiskov niže.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Vy jeste rěšili, že ne učestvujete v eksperimentu.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Kogda Pluton byl udaljeny iz spiska planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">prve olimpijske igry</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA protiv DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Začto ljudi dodavajut ananas do pice?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
+  <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
+  <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
+  <string name="hybrid_search_results_more_button">Veče</string>
+  <string name="hybrid_search_results_rate_label">Ocěnite tute rezultaty</string>
+  <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
+  <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
+  <string name="hybrid_search_results_rate_thumb_down">Ocěnka negativna</string>
+  <string name="hybrid_search_results_empty">Ulěpšeno iskanje dočasno jest nedostupno.</string>
+  <string name="hybrid_search_no_results_header">Ničto ne najdeno</string>
+  <string name="hybrid_search_no_results_description">Tutoj prědmet v tutom momentu ne vračaje fragmenty člankov. Ale vy možete poprobovati slědujuče:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Formulujte svoje zapytanje inako</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Poprobujte drugy prědmet</string>
+  <string name="hybrid_search_error_message">Něčto ne jest v poredku. Prosimo, poprobujte pozdněje.</string>
+  <string name="hybrid_search_who_is_prefix">Kto jest %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Izključiti tutoj eksperiment</string>
 </resources>

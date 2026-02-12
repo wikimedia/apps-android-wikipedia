@@ -182,6 +182,7 @@
   <string name="empty_tab_title">Uđđâ koskâlostâ</string>
   <string name="menu_save_all_tabs">Vuorkkii puoh koskâloostâid</string>
   <string name="temp_account_not_logged_in">Jieh lah čáládâttâm siisâ</string>
+  <string name="temp_account_end_session">Jooskâ kevttimpuudâ</string>
   <string name="article_menu_bar_save_button">Vuorkkii</string>
   <string name="article_menu_bar_language_button">Kielâ</string>
   <string name="article_menu_bar_search_button">Uusâ</string>

@@ -273,6 +273,7 @@
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
+  <string name="legal_safety_contacts_description">Laki- ja turvallisuusyhteystiedot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
@@ -1269,6 +1270,7 @@
   <string name="onboarding_multilingual_secondary_text">Laitteesta löytyneet kielet:</string>
   <string name="onboarding_multilingual_add_language_text">Lisää tai muokkaa kieliä</string>
   <string name="onboarding_welcome_title_v2">Vapaa tietosanakirja\n…yli 300 kielellä</string>
+  <string name="onboarding_next">Seuraava</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>

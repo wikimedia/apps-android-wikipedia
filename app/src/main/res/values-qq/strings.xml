@@ -25,6 +25,7 @@
 * MuratTheTurkish
 * Naheulf
 * Nemo bis
+* Nemoralis
 * Nike
 * Omotecho
 * Patriccck
@@ -280,6 +281,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
+  <string name="legal_safety_contacts_description">Summary of the preference item to show the legal and safety contact information.</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
@@ -1264,6 +1266,7 @@
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
   <string name="onboarding_welcome_title_v2">Title for a tutorial screen about the free encyclopedia and now the app is available in over 300 languages.</string>
+  <string name="onboarding_next">Button label to continue to the next onboarding or tutorial screen.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
@@ -2087,4 +2090,37 @@
   <string name="donation_reminders_settings_report_email_subject">Subject heading for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_settings_report_email_body">Body of email for sending a report about a problem with the Donation reminders feature.</string>
   <string name="donation_reminders_snackbar_modify_button_label">Label for the button that allows the user to modify the donation reminder.</string>
+  <string name="hybrid_search_search_hint">Hint text for the search box for the hybrid search feature.</string>
+  <string name="hybrid_search_article_search_hint">Hint text for the search box for the hybrid search feature in the article screen. %s is replaced by the title of the article.</string>
+  <string name="hybrid_search_suggestion_title">Title shown as a search suggestion while the user is typing a query, when the hybrid search experiment is enabled.</string>
+  <string name="hybrid_search_onboarding_learn_more">Menu label for visiting the information page of the hybrid search.</string>
+  <string name="hybrid_search_onboarding_search_title">Onboarding title explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_search_description">Onboarding description explaining hybrid search info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Onboarding title for the opt in choice info.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Onboarding description for the opt in choice info.</string>
+  <string name="hybrid_search_beta_tag">Label shown in the app bar to indicate that the Hybrid Search feature is in beta.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Label for a toggle switch that allows users to enable or disable the experimental Hybrid Search feature.</string>
+  <string name="hybrid_search_onboarding_search_example_title">Title shown on the Hybrid Search onboarding screen that introduces example search queries.</string>
+  <string name="hybrid_search_onboarding_search_example_description">Descriptive text on the Hybrid Search onboarding screen explaining that the onboarding screen shows example search queries.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Toast message shown when the user opts out of the Hybrid Search experiment.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
+  <string name="hybrid_search_onboarding_screen_title">Title for the hybrid search onboarding screen.</string>
+  <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
+  <string name="hybrid_search_results_more_button">Button text for the semantic search result.</string>
+  <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
+  <string name="hybrid_search_results_rated_label">Label indicating that the semantic search result has been rated.</string>
+  <string name="hybrid_search_results_rate_thumb_up">Image description for rating the semantic search result that indicates thumbs up.</string>
+  <string name="hybrid_search_results_rate_thumb_down">Image description for rating the semantic search result that indicates thumbs down.</string>
+  <string name="hybrid_search_results_empty">Text for showing the semantic search is currently unavailable.</string>
+  <string name="hybrid_search_no_results_header">Header Text displayed when semantic search returns no results.</string>
+  <string name="hybrid_search_no_results_description">Displayed when a semantic search returns no results. Includes a brief message and suggestions for the user to try next.</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Suggestion shown to the user to reword or modify their search when semantic search returns no results.</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Suggestion shown to the user to try searching for a related topic when semantic search returns no results.</string>
+  <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
+  <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
+  <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
 </resources>
