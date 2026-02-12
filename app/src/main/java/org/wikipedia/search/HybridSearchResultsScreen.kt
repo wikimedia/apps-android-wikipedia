@@ -91,7 +91,8 @@ fun HybridSearchResultsScreen(
     onSemanticError: () -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
-    val searchTerm = viewModel.searchTerm.collectAsState()
+    val searchTerm = viewModel.searchTerm.collectAsState().value
+    val extraPrompt = viewModel.hybridSearchPromptState.collectAsState().value
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
@@ -127,12 +128,15 @@ fun HybridSearchResultsScreen(
                         testGroup = viewModel.getTestGroup,
                         searchResultsPage = lexicalData,
                         semanticSearchResultPage = semanticData,
-                        searchTerm = searchTerm.value,
+                        extraPrompt = extraPrompt.let {
+                            if (it is UiState.Success) it.data else null
+                        },
+                        searchTerm = searchTerm,
                         onItemClick = onNavigateToTitle,
                         onItemLongClick = onItemLongClick,
                         onInfoClick = onInfoClick,
                         onTurnOffExperimentClick = {
-                            onTurnOffExperimentClick(searchTerm.value.orEmpty())
+                            onTurnOffExperimentClick(searchTerm.orEmpty())
                         },
                         onSemanticItemClick = onSemanticItemClick,
                         onRatingClick = onRatingClick
@@ -161,6 +165,7 @@ fun HybridSearchResultsList(
     testGroup: String,
     searchResultsPage: List<SearchResult>,
     semanticSearchResultPage: List<SearchResult>,
+    extraPrompt: String?,
     searchTerm: String?,
     onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
@@ -202,6 +207,7 @@ fun HybridSearchResultsList(
             if (semanticSearchResultPage.isNotEmpty()) {
                 SemanticSearchResultHeader(
                     modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp),
+                    extraPrompt = extraPrompt,
                     onInfoClick = onInfoClick,
                     onTurnOffExperimentClick = onTurnOffExperimentClick
                 )
@@ -267,7 +273,7 @@ fun HybridSearchResultsList(
 @Composable
 fun SemanticSearchResultHeader(
     modifier: Modifier = Modifier,
-    rephraseTitle: String? = null,
+    extraPrompt: String? = null,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit
 ) {
@@ -277,11 +283,11 @@ fun SemanticSearchResultHeader(
     Column(
         modifier = modifier
     ) {
-        if (!rephraseTitle.isNullOrEmpty()) {
+        if (!extraPrompt.isNullOrEmpty()) {
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = rephraseTitle,
+                text = extraPrompt,
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),
@@ -548,7 +554,7 @@ private fun SemanticSearchResultHeaderPreview() {
         currentTheme = Theme.LIGHT
     ) {
         SemanticSearchResultHeader(
-            rephraseTitle = "Who is Beyoncé?",
+            extraPrompt = "Who is Beyoncé?",
             onInfoClick = {},
             onTurnOffExperimentClick = {}
         )

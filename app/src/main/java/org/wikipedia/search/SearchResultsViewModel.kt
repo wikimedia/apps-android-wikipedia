@@ -36,11 +36,14 @@ class SearchResultsViewModel : ViewModel() {
     private val _searchTerm = MutableStateFlow<String?>(null)
     var searchTerm = _searchTerm.asStateFlow()
 
-    private var _languageCode = MutableStateFlow<String>(WikipediaApp.instance.languageState.appLanguageCode)
+    private var _languageCode = MutableStateFlow(WikipediaApp.instance.languageState.appLanguageCode)
     var languageCode = _languageCode.asStateFlow()
 
     private var _hybridSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
     val hybridSearchResultState = _hybridSearchResultState.asStateFlow()
+
+    private var _hybridSearchPromptState = MutableStateFlow<UiState<String?>>(UiState.Loading)
+    val hybridSearchPromptState = _hybridSearchPromptState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
 
@@ -80,7 +83,7 @@ class SearchResultsViewModel : ViewModel() {
             val term = _searchTerm.value
             val lang = _languageCode.value
 
-            if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
+            if (term.isNullOrEmpty() || lang.isEmpty()) {
                 _hybridSearchResultState.value = UiState.Success(emptyList())
                 return@launch
             }
@@ -123,6 +126,10 @@ class SearchResultsViewModel : ViewModel() {
 
             _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
+    }
+
+    suspend fun loadBiographySearchPrompt() {
+        // TODO: implement this.
     }
 
     fun updateSearchTerm(term: String?) {
