@@ -80,7 +80,7 @@ fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit, // TODO: update this later so we can go to a specific section.
+    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: (String) -> Unit,

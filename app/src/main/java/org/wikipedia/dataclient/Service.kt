@@ -64,18 +64,6 @@ interface Service {
         @Query("gsroffset") gsrOffset: Int?
     ): MwQueryResponse
 
-    @GET(
-        MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
-                "&generator=search&gsrnamespace=0&gsrwhat=text&inprop=varianttitles|displaytitle" +
-                "&gsrinfo=&gsrprop=redirecttitle|snippet&piprop=thumbnail&pilicense=any&pithumbsize=" +
-                PREFERRED_THUMB_SIZE
-    )
-    suspend fun semanticSearch(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsrlimit") gsrLimit: Int
-    ): MwQueryResponse
-
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     suspend fun prefixSearchUsers(
             @Query("auprefix") prefix: String,

@@ -1,5 +1,6 @@
 package org.wikipedia.search
 
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -23,6 +24,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 
 class SearchResultsViewModel : ViewModel() {
@@ -36,7 +39,7 @@ class SearchResultsViewModel : ViewModel() {
     private val _searchTerm = MutableStateFlow<String?>(null)
     var searchTerm = _searchTerm.asStateFlow()
 
-    private var _languageCode = MutableStateFlow<String>(WikipediaApp.instance.languageState.appLanguageCode)
+    private var _languageCode = MutableStateFlow(WikipediaApp.instance.languageState.appLanguageCode)
     var languageCode = _languageCode.asStateFlow()
 
     private var _hybridSearchResultState = MutableStateFlow<UiState<List<SearchResult>>>(UiState.Loading)
@@ -46,6 +49,7 @@ class SearchResultsViewModel : ViewModel() {
 
     val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
+    private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
     @OptIn(
@@ -103,9 +107,19 @@ class SearchResultsViewModel : ViewModel() {
 
             val semanticDeferred = async {
                 runCatching {
-                    val response = ServiceFactory.get(wikiSite)
-                        .semanticSearch(term, semanticBatchSize)
-                    buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.SEMANTIC)
+                    val tableName = when (lang) {
+                        "el" -> "elwiki_sections"
+                        else -> ""
+                    }
+                    val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = tableName, includeText = true)
+                    val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
+                    buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
+                        for (result in list) {
+                            val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
+                            result.pageTitle.thumbUrl = page?.thumbUrl()
+                            result.pageTitle.description = page?.description
+                        }
+                    }
                 }
             }
 
@@ -194,6 +208,17 @@ class SearchResultsViewModel : ViewModel() {
                     list.filter { it.coordinates != null } else list).sortedBy { it.index }
                     .map { SearchResult(it, wikiSite, it.coordinates, type) }
             } ?: emptyList()
+        }
+
+        fun buildList(
+            response: SemanticSearchResults,
+            wikiSite: WikiSite,
+            type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
+        ): List<SearchResult> {
+            return response.results.map { result ->
+                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite).also { it.fragment = result.sectionHeader },
+                    searchResultType = type, snippet = result.sectionText)
+            }
         }
     }
 }
