@@ -292,6 +292,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
         }
+        if (initiateHybridSearch) {
+            binding.searchCabView.clearFocus()
+        }
     }
 
     private fun closeSearch() {
