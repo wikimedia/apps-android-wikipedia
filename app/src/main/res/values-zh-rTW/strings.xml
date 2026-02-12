@@ -2249,7 +2249,7 @@
   <string name="hybrid_search_onboarding_search_description">此實驗性功能可理解自然語言。可不用搜尋關鍵字，只需描述您要的內容即可。</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">測試功能</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">僅在本次實驗期間的有限時間內可用。</string>
-  <string name="hybrid_search_beta_tag">測試版</string>
+  <string name="hybrid_search_beta_tag" fuzzy="true">測試版</string>
   <string name="hybrid_search_experimental_feature_switch_label">加入實驗</string>
   <string name="hybrid_search_onboarding_search_example_title">需要靈感嗎？</string>
   <string name="hybrid_search_onboarding_search_example_description">請使用以下搜尋範例之一。</string>
