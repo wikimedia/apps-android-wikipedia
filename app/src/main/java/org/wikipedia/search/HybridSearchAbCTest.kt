@@ -22,7 +22,7 @@ class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
     }
 
     val supportedLanguages = listOf(
-        "en", "fr", "pt"
+        "el"
     )
 
     fun isHybridSearchEnabled(languageCode: String?): Boolean {
