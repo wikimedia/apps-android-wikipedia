@@ -245,6 +245,7 @@
   <string name="about_description">O aplikaciji «Vikipedija»</string>
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uslovja koristanja</string>
+  <string name="legal_safety_contacts_description">Kontakty v oblasti prava i bezpečnosti</string>
   <string name="about_wikipedia_url">https://incubator.wikimedia.org/wiki/Wp/isv/Incubator:O_projektu</string>
   <string name="about_libraries_heading">Izkoristane biblioteky</string>
   <string name="about_contributors_heading">Avtori</string>
@@ -2417,4 +2418,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Poprobujte drugy prědmet</string>
   <string name="hybrid_search_error_message">Něčto ne jest v poredku. Prosimo, poprobujte pozdněje.</string>
   <string name="hybrid_search_who_is_prefix">Kto jest %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Izključiti tutoj eksperiment</string>
 </resources>

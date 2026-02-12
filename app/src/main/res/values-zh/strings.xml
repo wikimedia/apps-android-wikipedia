@@ -16,6 +16,7 @@
 * GoForceX
 * Googology
 * Grace03
+* Gsdn
 * GuoPC
 * Hehua
 * Huajing
@@ -1282,6 +1283,7 @@
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或编辑语言</string>
   <string name="onboarding_welcome_title_v2">拥有300多种语言版本的\n自由百科全书</string>
+  <string name="onboarding_next">下一步</string>
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
@@ -2192,4 +2194,13 @@
   <string name="donation_reminders_settings_report_email_subject">问题报告：捐赠提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了捐赠提醒功能的问题：\n- [描述具体问题]\n- [截图或链接]\n\n我希望的实现效果是：\n- [描述建议的解决方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
+  <string name="hybrid_search_suggestion_title">搜索：</string>
+  <string name="hybrid_search_onboarding_learn_more">了解更多</string>
+  <string name="hybrid_search_beta_tag">测试</string>
+  <string name="hybrid_search_results_more_button">更多</string>
+  <string name="hybrid_search_results_rated_label">已评价</string>
+  <string name="hybrid_search_results_rate_thumb_up">点赞</string>
+  <string name="hybrid_search_results_rate_thumb_down">点踩</string>
+  <string name="hybrid_search_who_is_prefix">%s是谁？</string>
+  <string name="hybrid_search_turn_off_experiment_label">关闭此实验</string>
 </resources>
