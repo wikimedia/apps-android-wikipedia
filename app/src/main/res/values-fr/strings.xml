@@ -1325,6 +1325,7 @@
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
+  <string name="onboarding_next">Suivant</string>
   <string name="app_shortcuts_random">Au hasard</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -2291,7 +2292,7 @@
   <string name="hybrid_search_onboarding_search_description">Cette fonctionnalité expérimentale comprend le langage naturel. Au lieu de rechercher des mots-clés, décrivez ce que vous voulez savoir.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Fonctionnalité bêta</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Disponible pour une durée limitée pendant cette expérience.</string>
-  <string name="hybrid_search_beta_tag">Bêta</string>
+  <string name="hybrid_search_beta_tag" fuzzy="true">Bêta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Participer à l\'expérience</string>
   <string name="hybrid_search_onboarding_search_example_title">Besoin d\'inspiration ?</string>
   <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>

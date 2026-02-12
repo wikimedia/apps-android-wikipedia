@@ -506,7 +506,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
             return
         }
         if (item.mediaInfo?.metadata == null) {
-            binding.infoContainer.visibility = View.GONE
+            binding.infoContainer.isVisible = false
             return
         }
 
@@ -516,7 +516,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
     private fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
         val item = currentItem
         if (item?.mediaInfo?.metadata == null) {
-            binding.infoContainer.visibility = View.GONE
+            binding.infoContainer.isVisible = false
             return
         }
         displayApplicableDescription(item)
@@ -613,7 +613,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
         DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
         val creditStr = metadata.artist().ifEmpty { metadata.credit() }
 
-        // if we couldn't find a attribution string, then default to unknown
+        // if we couldn't find an attribution string, then default to unknown
         binding.creditText.text = StringUtil.fromHtml(creditStr.ifBlank { getString(R.string.gallery_uploader_unknown) })
     }
 
