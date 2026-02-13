@@ -168,7 +168,6 @@ class SearchResultsViewModel : ViewModel() {
                     val isBiography = claimsResponse.claims["P31"]?.any {
                         it.mainSnak?.dataValue?.value() == "Q5"
                     } ?: false // Q5 = human
-                    L.d("loadBiographySearchPrompt Page ${searchResults[index].pageTitle.prefixedText} isBiography = $isBiography")
                     if (isBiography) searchResults[index].pageTitle.displayText else null
                 }
             }.awaitAll().filterNotNull().toSet()
