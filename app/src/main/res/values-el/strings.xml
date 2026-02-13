@@ -1432,4 +1432,27 @@
   <string name="on_this_day_game_stats_average_score">Μέση βαθμολογία</string>
   <string name="on_this_day_game_stats_streak">Τρέχον σερί</string>
   <string name="on_this_day_game_notification_undo">Αναίρεση</string>
+  <string name="hybrid_search_search_hint">Αναζήτησε ή ρώτησε οτιδήποτε</string>
+  <string name="hybrid_search_article_search_hint">Ρώτησε για %s</string>
+  <string name="hybrid_search_suggestion_title">Αναζήτηση για:</string>
+  <string name="hybrid_search_onboarding_learn_more">Μάθε περισσότερα</string>
+  <string name="hybrid_search_onboarding_search_title">Κάνε ερωτήσεις, πάρε απαντήσεις</string>
+  <string name="hybrid_search_onboarding_search_description">Αυτή η πειραματική λειτουργία κατανοεί τη φυσική γλώσσα. Αντί να ψάχνεις λέξεις-κλειδιά, περιέγραψε τι θέλεις να μάθεις.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Πειραματική λειτουργία</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Διαθέσιμο για περιορισμένο χρονικό διάστημα στο πλαίσιο αυτού του πειράματος.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_onboarding_search_example_title">Χρειάζεσαι έμπνευση;</string>
+  <string name="hybrid_search_onboarding_search_example_description">Χρησιμοποίησε ένα από τα παρακάτω παραδείγματα αναζήτησης.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">πρώτοι Ολυμπιακοί Αγώνες</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Γιατί βάζουν ανανά στην πίτσα;</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ποιες είναι οι μεγαλύτερες πόλεις της Ευρώπης;</string>
+  <string name="hybrid_search_onboarding_screen_title">Ένας νέος τρόπος αναζήτησης</string>
+  <string name="hybrid_search_results_header_description">Προέρχεται από άρθρα της Wikipedia που έχουν γραφτεί από ανθρώπους</string>
+  <string name="hybrid_search_results_rate_label">Αξιολόγησε αυτό το αποτέλεσμα</string>
+  <string name="hybrid_search_results_rated_label">Αξιολογηθεί</string>
+  <string name="hybrid_search_results_empty">Η ενισχυμένη αναζήτηση είναι προσωρινά μη διαθέσιμη.</string>
+  <string name="hybrid_search_who_is_prefix">Ποιος είναι ο/η %s</string>
+  <string name="hybrid_search_turn_off_experiment_label">Απενεργοποίησε αυτό το πείραμα</string>
 </resources>

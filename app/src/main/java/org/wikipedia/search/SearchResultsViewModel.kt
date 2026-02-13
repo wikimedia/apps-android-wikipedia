@@ -252,9 +252,19 @@ class SearchResultsViewModel : ViewModel() {
             type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
         ): List<SearchResult> {
             return response.results.map { result ->
-                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite).also { it.fragment = result.sectionHeader },
-                    searchResultType = type, snippet = result.sectionText)
+                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite), searchResultType = type, snippet = postProcessSectionText(result.sectionText))
             }
+        }
+
+        fun postProcessSectionText(text: String): String {
+            // TODO: remove this when server-side parsing is done.
+            val bold = Regex("'''(.*?)'''", RegexOption.DOT_MATCHES_ALL)
+            val italic = Regex("''(.*?)''", RegexOption.DOT_MATCHES_ALL)
+            val emptyParens = Regex("""\([\s,.;]*\)""")
+            return text
+                .replace(emptyParens, "")
+                .replace(bold, "<b>\$1</b>")
+                .replace(italic, "<i>\$1</i>")
         }
     }
 }

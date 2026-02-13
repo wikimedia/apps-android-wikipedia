@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
@@ -54,11 +55,14 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
@@ -396,15 +400,22 @@ fun SemanticSearchResultPageItem(
             ) {
                 HtmlText(
                     modifier = Modifier
-                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                     text = searchResult.snippet.orEmpty(),
                     style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.primaryColor
+                    color = WikipediaTheme.colors.primaryColor,
+                    linkStyle = TextLinkStyles(
+                        style = SpanStyle(
+                            color = WikipediaTheme.colors.progressiveColor,
+                            fontSize = 16.sp
+                        )
+                    )
                 )
             }
 
             Row(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -423,12 +434,26 @@ fun SemanticSearchResultPageItem(
                 } else {
                     stringResource(R.string.hybrid_search_results_rate_label)
                 }
+                var isTextLaidOut by remember { mutableStateOf(false) }
+                var isTextMultiline by remember { mutableStateOf(true) }
                 Text(
-                    modifier = Modifier
-                        .animateContentSize(),
+                    modifier = if (isTextMultiline) {
+                        Modifier.weight(1f).animateContentSize()
+                    } else {
+                        Modifier.wrapContentWidth().animateContentSize()
+                    },
                     text = ratingLabel,
                     style = MaterialTheme.typography.bodySmall,
-                    color = WikipediaTheme.colors.placeholderColor
+                    color = WikipediaTheme.colors.placeholderColor,
+                    onTextLayout = { result ->
+                        if (!isTextLaidOut) {
+                            val multilineNow = result.lineCount > 1
+                            if (multilineNow != isTextMultiline) {
+                                isTextMultiline = multilineNow
+                            }
+                            isTextLaidOut = true
+                        }
+                    }
                 )
                 AnimatedVisibility(
                     visible = !isRatingNegativeSelected,
@@ -441,6 +466,7 @@ fun SemanticSearchResultPageItem(
                             .clip(CircleShape)
                             .clickable {
                                 isRatingPositiveSelected = true
+                                isTextLaidOut = false
                                 onRatingClick(true)
                             }
                             .padding(16.dp),
@@ -468,6 +494,7 @@ fun SemanticSearchResultPageItem(
                             .clip(CircleShape)
                             .clickable {
                                 isRatingNegativeSelected = true
+                                isTextLaidOut = false
                                 onRatingClick(false)
                             }
                             .padding(16.dp),
