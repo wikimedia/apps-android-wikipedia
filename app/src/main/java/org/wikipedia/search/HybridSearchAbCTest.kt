@@ -1,0 +1,37 @@
+package org.wikipedia.search
+
+import org.wikipedia.analytics.ABTest
+import org.wikipedia.settings.Prefs
+
+class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
+
+    fun getGroupName(): String {
+        return when (group) {
+            GROUP_2 -> GROUP_LEXICAL_SEMANTIC // test group B
+            GROUP_3 -> GROUP_SEMANTIC_LEXICAL // test group C
+            else -> GROUP_CONTROL
+        }
+    }
+
+    fun isTestGroupUser(): Boolean {
+        return group != GROUP_1
+    }
+
+    fun shouldShowOnboarding(languageCode: String?): Boolean {
+        return isTestGroupUser() && supportedLanguages.any { it.equals(languageCode, true) } && !Prefs.isHybridSearchOnboardingShown
+    }
+
+    val supportedLanguages = listOf(
+        "el"
+    )
+
+    fun isHybridSearchEnabled(languageCode: String?): Boolean {
+        return Prefs.isHybridSearchEnabled && isTestGroupUser() && supportedLanguages.any { it.equals(languageCode, true) }
+    }
+
+    companion object {
+        const val GROUP_CONTROL = "control"
+        const val GROUP_LEXICAL_SEMANTIC = "lexicalSemantic"
+        const val GROUP_SEMANTIC_LEXICAL = "semanticLexical"
+    }
+}

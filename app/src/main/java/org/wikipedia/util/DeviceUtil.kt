@@ -18,7 +18,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -40,7 +39,8 @@ object DeviceUtil {
     }
 
     fun hideSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun isHardKeyboardAttached(resources: Resources): Boolean {
