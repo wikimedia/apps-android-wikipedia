@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
@@ -29,6 +30,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
+import org.wikipedia.util.log.L
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -131,11 +133,10 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalResult = lexicalDeferred.await()
             val semanticResult = semanticDeferred.await()
 
-           val biographyPromptResponse = loadBiographySearchPrompt(wikiSite, semanticResult.getOrElse { emptyList() }).filter { it.value }
+           val biographyPromptResponse = loadBiographySearchPrompt(wikiSite, semanticResult.getOrElse { emptyList() })
 
            if (biographyPromptResponse.isNotEmpty()) {
-               // TODO: verify if we need to get the rest of the results
-               _hybridSearchPromptState.value = UiState.Success(biographyPromptResponse.firstNotNullOf { it.key })
+               _hybridSearchPromptState.value = UiState.Success(biographyPromptResponse.first())
            }
 
             if (lexicalResult.isFailure && semanticResult.isFailure) {
@@ -151,27 +152,26 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 
-    suspend fun loadBiographySearchPrompt(wikiSite: WikiSite, searchResults: List<SearchResult>): Map<String, Boolean> {
+    suspend fun loadBiographySearchPrompt(wikiSite: WikiSite, searchResults: List<SearchResult>): Set<String> {
+        if (searchResults.isEmpty()) return emptySet()
+
         return withContext(Dispatchers.IO) {
+            val pagePropsResponse = ServiceFactory.get(wikiSite).getPageProps(
+                titles = searchResults.joinToString(separator = "|") { it.pageTitle.prefixedText }
+            )
+            val qNumbers = pagePropsResponse.query?.pages?.mapNotNull { it.pageProps?.wikiBaseItem } ?: emptyList()
 
-            val pagePropsResponse = ServiceFactory.get(wikiSite)
-                .getPageProps(searchResults.map { it.pageTitle.prefixedText }.joinToString { "|" })
-            val qNumbers = pagePropsResponse.query?.pages?.mapNotNull { it.pageProps?.wikiBaseItem }
-                ?: emptyList()
-
-            val finalResponse = mutableMapOf<String, Boolean>()
-
-            // TODO: use async
-            qNumbers.forEachIndexed { index, qNumber ->
-                val claimsResponse = ServiceFactory.get(Constants.wikidataWikiSite)
-                    .getClaims(qNumber, "P31") // P31 = instance of
-                val isBiography =
-                    claimsResponse.claims["P31"]?.any { it.mainSnak?.dataValue?.value() == "Q5" }
-                        ?: false // Q5 = human
-                finalResponse[searchResults[index].pageTitle.prefixedText] = isBiography
-            }
-
-            finalResponse
+            qNumbers.mapIndexed { index, qNumber ->
+                async {
+                    val claimsResponse = ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getClaims(qNumber, "P31") // P31 = instance of
+                    val isBiography = claimsResponse.claims["P31"]?.any {
+                        it.mainSnak?.dataValue?.value() == "Q5"
+                    } ?: false // Q5 = human
+                    L.d("loadBiographySearchPrompt Page ${searchResults[index].pageTitle.prefixedText} isBiography = $isBiography")
+                    if (isBiography) searchResults[index].pageTitle.displayText else null
+                }
+            }.awaitAll().filterNotNull().toSet()
         }
     }
 

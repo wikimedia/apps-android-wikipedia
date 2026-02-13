@@ -76,6 +76,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 
@@ -291,7 +292,7 @@ fun SemanticSearchResultHeader(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = stringResource(R.string.hybrid_search_who_is_prefix, extraPrompt),
+                text = stringResource(R.string.hybrid_search_who_is_prefix, StringUtil.fromHtml(extraPrompt)),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),
