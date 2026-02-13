@@ -2121,5 +2121,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Suggestion shown to the user to try searching for a related topic when semantic search returns no results.</string>
   <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
-    <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
+  <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
 </resources>

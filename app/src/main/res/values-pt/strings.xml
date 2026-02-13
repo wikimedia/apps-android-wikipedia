@@ -1913,7 +1913,7 @@
   <string name="hybrid_search_onboarding_search_description">Este recurso experimental entende linguagem natural. Em vez de pesquisar por palavras-chave, descreva o que você quer saber.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Recurso beta</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">Disponível por tempo limitado durante este experimento.</string>
-  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_beta_tag" fuzzy="true">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
   <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
   <string name="hybrid_search_onboarding_search_example_description">Use um dos exemplos de pesquisa abaixo.</string>

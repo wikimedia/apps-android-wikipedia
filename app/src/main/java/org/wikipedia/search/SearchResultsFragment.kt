@@ -51,7 +51,6 @@ class SearchResultsFragment : Fragment() {
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onSemanticItemClick = { title, inNewTab, position, location ->
-                                // TODO: update the callback to navigate to the specific section
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
