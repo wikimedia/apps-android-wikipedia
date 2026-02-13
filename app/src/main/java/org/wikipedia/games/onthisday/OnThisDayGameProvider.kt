@@ -52,4 +52,8 @@ object OnThisDayGameProvider {
         }
         return events
     }
+
+    fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
+        return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
+    }
 }

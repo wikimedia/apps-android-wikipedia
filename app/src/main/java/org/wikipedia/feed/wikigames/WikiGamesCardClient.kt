@@ -28,10 +28,16 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
                 }
             availableLanguages.forEach { langCode ->
                 try {
+                    val games = mutableListOf<WikiGame>()
                     val wikiSite = WikiSite.forLanguageCode(langCode)
                     val events = OnThisDayGameProvider.getGameEvents(wikiSite, LocalDate.now())
                     if (events.size >= 2) {
-                        cards.add(WikiGamesCard(WikiSite.forLanguageCode(langCode), events[0], events[1]))
+                        val game = WikiGame.WhichCameFirst(events[0], events[1])
+                        games.add(game)
+                    }
+                    games.add(WikiGame.TestGame(name = "Awesome game"))
+                    if (games.isNotEmpty()) {
+                        cards.add(WikiGamesCard(wikiSite, games))
                     }
                 } catch (e: Exception) {
                     L.e(e)
