@@ -10,6 +10,7 @@ import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
@@ -19,6 +20,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -129,6 +131,13 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalResult = lexicalDeferred.await()
             val semanticResult = semanticDeferred.await()
 
+           val biographyPromptResponse = loadBiographySearchPrompt(wikiSite, semanticResult.getOrElse { emptyList() }).filter { it.value }
+
+           if (biographyPromptResponse.isNotEmpty()) {
+               // TODO: verify if we need to get the rest of the results
+               _hybridSearchPromptState.value = UiState.Success(biographyPromptResponse.firstNotNullOf { it.key })
+           }
+
             if (lexicalResult.isFailure && semanticResult.isFailure) {
                 _hybridSearchResultState.value = UiState.Error(Throwable())
                 return@launch
@@ -142,8 +151,28 @@ class SearchResultsViewModel : ViewModel() {
         }
     }
 
-    suspend fun loadBiographySearchPrompt() {
-        // TODO: implement this.
+    suspend fun loadBiographySearchPrompt(wikiSite: WikiSite, searchResults: List<SearchResult>): Map<String, Boolean> {
+        return withContext(Dispatchers.IO) {
+
+            val pagePropsResponse = ServiceFactory.get(wikiSite)
+                .getPageProps(searchResults.map { it.pageTitle.prefixedText }.joinToString { "|" })
+            val qNumbers = pagePropsResponse.query?.pages?.mapNotNull { it.pageProps?.wikiBaseItem }
+                ?: emptyList()
+
+            val finalResponse = mutableMapOf<String, Boolean>()
+
+            // TODO: use async
+            qNumbers.forEachIndexed { index, qNumber ->
+                val claimsResponse = ServiceFactory.get(Constants.wikidataWikiSite)
+                    .getClaims(qNumber, "P31") // P31 = instance of
+                val isBiography =
+                    claimsResponse.claims["P31"]?.any { it.mainSnak?.dataValue?.value() == "Q5" }
+                        ?: false // Q5 = human
+                finalResponse[searchResults[index].pageTitle.prefixedText] = isBiography
+            }
+
+            finalResponse
+        }
     }
 
     fun updateSearchTerm(term: String?) {

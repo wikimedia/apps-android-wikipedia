@@ -287,7 +287,7 @@ fun SemanticSearchResultHeader(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = extraPrompt,
+                text = stringResource(R.string.hybrid_search_who_is_prefix, extraPrompt),
                 style = MaterialTheme.typography.titleLarge.copy(
                     fontWeight = FontWeight.Bold
                 ),

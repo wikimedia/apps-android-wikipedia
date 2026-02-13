@@ -125,6 +125,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|autocreatetempuser")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=pageprops")
+    suspend fun getPageProps(@Query("titles") titles: String): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|mime|metadata|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     suspend fun getImageInfo(
         @Query("titles") titles: String,
