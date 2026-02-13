@@ -1383,10 +1383,10 @@
   <string name="revision_compare_two_only">Dušše guokte revišuvnna sáhttet válljejuvvot.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Rievdat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Bissovaš</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 vahkku</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">1 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 mánu</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 vahkku</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 mánu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 mánu</string>
   <string name="watchlist_expiry_dialog_title">Vállje áigodaga čuovvunlistui</string>
   <string name="watchlist_expiry_dialog_permanent">Bissovaš</string>
   <string name="watchlist_expiry_dialog_one_week">1 vahkku</string>
@@ -1577,7 +1577,7 @@
     <item quantity="two">%d filtara</item>
     <item quantity="other">%d filtara</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artihkalrievdadanhistorihkka</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artihkkala rievdadanhistorjá</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Rievdaduvvon ruovttoluotta</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Háliidat go duođaid máhcahit?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Rievdaduvvon ruovttoluotta</string>
@@ -1590,7 +1590,7 @@
   <string name="patroller_onboarding_two_thank_title">Giitu</string>
   <string name="patroller_onboarding_two_thank_content">Leat go ohcame produktiivvalaš rievdadeami? Giitte ovtta geavaheaddji veahki ovddas.</string>
   <string name="patroller_onboarding_two_watch_title">Čuovo</string>
-  <string name="patroller_onboarding_two_watch_content">Háliidatgo čuovvut artihkalrievdademiid? Lasit iežat čuovvunlistui. Dan oainnát go deaddilat «Eambbo».</string>
+  <string name="patroller_onboarding_two_watch_content">Háliidatgo čuovvut artihkkala rievdademiid? Lasit artihkkala iežat čuovvunlistui. Dan oainnát go deaddilat «Eambbo».</string>
   <string name="patroller_onboarding_two_talk_title">Ságastallan</string>
   <string name="patroller_onboarding_two_talk_content">Gulahala eará čálliiguin Vurke dávjá geavahuvvon ságastallansiiddudieđuid dahje geavat málle.</string>
   <string name="patroller_onboarding_two_undo_title">Máhcat/Ruovttoluottadivo</string>
@@ -1598,7 +1598,7 @@
   <string name="patroller_diff_tooltip_one">Vahát einnosta dan ahte vahágahttojuvvo go soames wiki rievdadeami dihte.</string>
   <string name="patroller_diff_tooltip_two">Ulbmil einnosta dan vejolašvuođa ahte rievdadeapmi vurkejuvvo buriid ulbmiliiguin.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Movt sáhttit buoridit doaimma?</string>
-  <string name="patroller_diff_menu_edit_history_title">Artihkalrievdadanhistorihkka</string>
+  <string name="patroller_diff_menu_edit_history_title">Artihkkala rievdadanhistorjá</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Máhcahat</string>
   <string name="patroller_diff_feedback_tooltip">Coahkkal badjelgolganfálu sádden dihte máhcahagaid goas ihkinassii, «Váttisvuođat doaimmain» vuolde.</string>
   <string name="patroller_saved_message_title_vandalism">Várrehus billisteami ektui</string>

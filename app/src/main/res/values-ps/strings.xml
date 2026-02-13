@@ -1908,7 +1908,7 @@
   <string name="hybrid_search_onboarding_search_description">دا ازمېښتي ځانگړنه طبيعي ژبه پوهېږي.\nد کليدي‌ويوکو د پلټلو پرځای هغه څه تشرېح کړئ چې تاسو پرې پوهېدل غواړئ.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">ازمېښتي ځانگړنه</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">د دې ازمېښت پرمهال د ټاکلي وخت لپاره شتون لري.</string>
-  <string name="hybrid_search_beta_tag">ازمېښتي</string>
+  <string name="hybrid_search_beta_tag" fuzzy="true">ازمېښتي</string>
   <string name="hybrid_search_experimental_feature_switch_label">ازمېښت سره يوځای شئ</string>
   <string name="hybrid_search_onboarding_search_example_title">الهام ته اړتيا لرئ؟</string>
   <string name="hybrid_search_onboarding_search_example_description">د پلټلو يوه بېلگه لاندې وکاروئ.</string>

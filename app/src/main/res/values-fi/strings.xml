@@ -273,6 +273,7 @@
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
+  <string name="legal_safety_contacts_description">Laki- ja turvallisuusyhteystiedot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>

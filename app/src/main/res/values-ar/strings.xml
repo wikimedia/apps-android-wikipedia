@@ -2435,7 +2435,7 @@
   <string name="donation_reminders_settings_report_email_body">لقد واجهت مشكلة مع ميزة تذكير التبرعات:\n- [وصف المشكلة المحددة]\n- [لقطات الشاشة أو الروابط]\n\nالسلوك الذي أرغب في رؤيته هو:\n- [وصف الحل المقترح]</string>
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
   <string name="hybrid_search_onboarding_search_title">اطرح الأسئلة، واحصل على الإجابات</string>
-  <string name="hybrid_search_beta_tag">بيتا</string>
+  <string name="hybrid_search_beta_tag" fuzzy="true">بيتا</string>
   <string name="hybrid_search_results_more_button">المزيد</string>
   <string name="hybrid_search_results_rated_label">قيِّم</string>
   <string name="hybrid_search_results_rate_thumb_up">أعطِ إعجابًا</string>
