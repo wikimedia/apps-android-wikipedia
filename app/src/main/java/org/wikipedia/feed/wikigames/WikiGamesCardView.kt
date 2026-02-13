@@ -43,6 +43,8 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
         }
 
     private fun setHeader(langCode: String, card: WikiGamesCard) {
+        println("orange event1 ${card.event1.text}")
+        println("orange event2 ${card.event2.text}")
         binding.viewWikiGamesCardHeader
             .setTitle(context.getString(langCode, R.string.on_this_day_game_feed_entry_card_heading))
             .setLangCode(langCode)

@@ -25,7 +25,7 @@ enum class FeedContentType(private val code: Int,
                            var showInConfig: Boolean = true) : EnumCode {
     WIKI_GAMES(12, R.string.on_this_day_game_entry_dialog_subtitle, R.string.on_this_day_game_feed_entry_card_subtitle, true) {
         override fun newClient(coroutineScope: CoroutineScope, aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
-            return if (isEnabled && age == 0 && WikipediaApp.instance.isOnline) WikiGamesCardClient() else null
+            return if (isEnabled && age == 0 && WikipediaApp.instance.isOnline) WikiGamesCardClient(coroutineScope) else null
         }
     },
     FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {
