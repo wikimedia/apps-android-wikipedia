@@ -68,6 +68,7 @@ class FeedFragment : Fragment() {
         fun onFeaturedImageSelected(card: FeaturedImageCard)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
+        fun onWikiGamesCardFooterClicked()
     }
 
     private val requestFeedConfigurationLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -294,6 +295,10 @@ class FeedFragment : Fragment() {
 
         override fun onSeCardFooterClicked() {
             callback?.onFeedSeCardFooterClicked()
+        }
+
+        override fun onWikiGamesCardFooterClicked() {
+            callback?.onWikiGamesCardFooterClicked()
         }
     }
 
