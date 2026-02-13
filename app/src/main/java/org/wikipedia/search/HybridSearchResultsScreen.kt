@@ -55,6 +55,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
@@ -226,8 +227,12 @@ fun HybridSearchResultsList(
                             onSemanticItemClick = {
                                 onSemanticItemClick(result.pageTitle, false, index, result.location)
                             },
-                            onArticleItemClick = {
-                                onItemClick(result.pageTitle, false, index, result.location)
+                            onArticleItemClick = { pageTitleFromLink ->
+                                if (pageTitleFromLink != null) {
+                                    onItemClick(pageTitleFromLink, false, index, null)
+                                } else {
+                                    onItemClick(result.pageTitle, false, index, result.location)
+                                }
                             },
                             onRatingClick = { isPositive ->
                                 onRatingClick(isPositive)
@@ -366,7 +371,7 @@ fun SemanticSearchResultHeader(
 fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
-    onArticleItemClick: () -> Unit,
+    onArticleItemClick: (PageTitle?) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
     Card(
@@ -403,7 +408,12 @@ fun SemanticSearchResultPageItem(
                             color = WikipediaTheme.colors.progressiveColor,
                             fontSize = 16.sp
                         )
-                    )
+                    ),
+                    linkInteractionListener = {
+                        val url = (it as LinkAnnotation.Url).url
+                        val pageTitle = PageTitle.titleForUri(url.toUri(), WikiSite(url))
+                        onArticleItemClick(pageTitle)
+                    }
                 )
             }
 
@@ -516,7 +526,7 @@ fun SemanticSearchResultPageItem(
                 modifier = Modifier
                     .defaultMinSize(minHeight = 56.dp)
                     .clickable {
-                        onArticleItemClick()
+                        onArticleItemClick(searchResult.pageTitle)
                     }
             ) {
                 Row(
