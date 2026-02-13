@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices.PIXEL_9
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -293,7 +294,8 @@ fun MainBottomBar(
             Text(
                 text = stringResource(R.string.hybrid_search_onboarding_learn_more),
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.progressiveColor
+                color = WikipediaTheme.colors.progressiveColor,
+                textAlign = TextAlign.Center
             )
         }
 
@@ -308,7 +310,8 @@ fun MainBottomBar(
             Text(
                 text = stringResource(R.string.onboarding_get_started),
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.paperColor
+                color = WikipediaTheme.colors.paperColor,
+                textAlign = TextAlign.Center
             )
         }
     }
