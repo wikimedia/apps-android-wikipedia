@@ -47,6 +47,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     // TODO: initialize the state earlier in the loading process, so that the state is nonnull
     // when the ViewModel is created, instead of only after the first loadGameState() call.
     private lateinit var currentState: GameState
+    private var currentGameId: Int? = null
 
     private val overrideDate = savedStateHandle.contains(EXTRA_DATE)
     var currentDate = if (overrideDate) LocalDate.ofInstant(Instant.ofEpochSecond(savedStateHandle.get<Long>(EXTRA_DATE)!!), ZoneOffset.UTC) else LocalDate.now()
@@ -86,6 +87,8 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 month = currentMonth,
                 day = currentDay
             )
+
+            currentGameId = gameHistory?.id
 
             events.clear()
             events.addAll(fetchEvents())
@@ -301,6 +304,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             }
         ) {
             val dailyGameHistory = DailyGameHistory(
+                id = currentGameId ?: 0,
                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
                 language = wikiSite.languageCode,
                 year = currentDate.year,
@@ -312,7 +316,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 currentQuestionIndex = nextQuestionIndex,
                 status = status
             )
-            AppDatabase.instance.dailyGameHistoryDao().insertOrUpdate(dailyGameHistory)
+            val resultId = AppDatabase.instance.dailyGameHistoryDao().upsert(dailyGameHistory).toInt()
+            currentGameId = if (resultId > 0) resultId else currentGameId
+
             val lastPlayedDate = JsonUtil.decodeFromString<Map<String, LastPlayedInfo>>(Prefs.otdLastPlayedDate)?.toMutableMap() ?: mutableMapOf()
             lastPlayedDate[wikiSite.languageCode] = LastPlayedInfo(
                 gamePlayDate = currentDate.format(DateTimeFormatter.ISO_LOCAL_DATE),
@@ -389,7 +395,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     currentQuestionIndex = gameState.currentQuestionIndex,
                     status = DailyGameHistory.GAME_IN_PROGRESS
                 )
-                AppDatabase.instance.dailyGameHistoryDao().insertOrUpdate(dailyGameHistory)
+                AppDatabase.instance.dailyGameHistoryDao().upsert(dailyGameHistory)
 
                 val lastPlayedMap = JsonUtil.decodeFromString<Map<String, LastPlayedInfo>>(Prefs.otdLastPlayedDate)?.toMutableMap() ?: mutableMapOf()
                 lastPlayedMap[lang] = LastPlayedInfo(

@@ -5,8 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Transaction
 import androidx.room.Update
+import androidx.room.Upsert
 import org.wikipedia.games.PlayTypes
 import java.time.LocalDate
 import java.time.Month
@@ -90,13 +90,6 @@ interface DailyGameHistoryDao {
         return maxOf(bestStreak, currentStreak)
     }
 
-    @Transaction
-    suspend fun insertOrUpdate(dailyGameHistory: DailyGameHistory) {
-        val existing = findGameHistoryByDate(dailyGameHistory.gameName, dailyGameHistory.language, dailyGameHistory.year, dailyGameHistory.month, dailyGameHistory.day)
-        if (existing != null) {
-            update(dailyGameHistory.copy(id = existing.id))
-        } else {
-            insert(dailyGameHistory)
-        }
-    }
+    @Upsert
+    suspend fun upsert(dailyGameHistory: DailyGameHistory): Long
 }
