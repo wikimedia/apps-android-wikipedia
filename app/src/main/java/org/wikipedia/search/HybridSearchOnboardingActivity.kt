@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,8 +27,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SuggestionChip
-import androidx.compose.material3.SuggestionChipDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -34,6 +34,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -242,28 +243,25 @@ fun SearchExamplesView(
 
         FlowRow(
             modifier = Modifier
-                .padding(start = 36.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                .padding(start = 36.dp, top = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             searchExamples.forEachIndexed { _, exampleQuery ->
                 val exampleQueryString = context.getString(langCode, exampleQuery)
-                SuggestionChip(
-                    onClick = { onClick(exampleQueryString) },
-                    label = {
-                        Text(
-                            text = exampleQueryString,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    },
-                    colors = SuggestionChipDefaults.suggestionChipColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        labelColor = WikipediaTheme.colors.secondaryColor,
-                    ),
-                    border = SuggestionChipDefaults.suggestionChipBorder(
-                        enabled = true,
-                        borderColor = WikipediaTheme.colors.borderColor
+                Box(
+                    modifier = Modifier
+                        .border(width = 1.dp, color = WikipediaTheme.colors.borderColor, shape = RoundedCornerShape(8.dp))
+                        .clip(shape = RoundedCornerShape(8.dp))
+                        .clickable(onClick = { onClick(exampleQueryString) })
+                ) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
+                        text = exampleQueryString,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.secondaryColor
                     )
-                )
+                }
             }
         }
     }
