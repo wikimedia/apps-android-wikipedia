@@ -221,6 +221,7 @@ class SearchResultsViewModel : ViewModel() {
         }
 
         fun postProcessSectionText(text: String): String {
+            // TODO: remove this when server-side parsing is done.
             val bold = Regex("'''(.*?)'''", RegexOption.DOT_MATCHES_ALL)
             val italic = Regex("''(.*?)''", RegexOption.DOT_MATCHES_ALL)
             val emptyParens = Regex("""\([\s,.;]*\)""")
