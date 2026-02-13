@@ -30,11 +30,8 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
                 try {
                     val games = mutableListOf<WikiGame>()
                     val wikiSite = WikiSite.forLanguageCode(langCode)
-                    val events = OnThisDayGameProvider.getGameEvents(wikiSite, LocalDate.now())
-                    if (events.size >= 2) {
-                        val game = WikiGame.WhichCameFirst(events[0], events[1])
-                        games.add(game)
-                    }
+                    val gameState = OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now())
+                    games.add(WikiGame.OnThisDayGame(state = gameState))
                     games.add(WikiGame.TestGame(name = "Awesome game"))
                     if (games.isNotEmpty()) {
                         cards.add(WikiGamesCard(wikiSite, games))

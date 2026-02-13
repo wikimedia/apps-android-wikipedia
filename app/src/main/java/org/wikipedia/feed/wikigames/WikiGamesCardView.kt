@@ -1,5 +1,6 @@
 package org.wikipedia.feed.wikigames
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.compose.components.PageIndicator
@@ -24,6 +26,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
 
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context), CardFooterView.Callback {
     interface Callback {
@@ -60,7 +63,11 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                 WikiGamesCard(
                     modifier = Modifier
                         .fillMaxWidth(),
-                    card = card
+                    card = card,
+                    onPlayClick = {
+                        WikiGamesEvent.submit("enter_click", "game_feed")
+                        (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card.wikiSite), 0)
+                    }
                 )
             }
         }
@@ -87,7 +94,8 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 @Composable
 fun WikiGamesCard(
     card: WikiGamesCard,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onPlayClick: () -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { card.games.size })
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -112,15 +120,25 @@ fun WikiGamesCard(
                     }
                 }
 
-                is WikiGame.WhichCameFirst -> {
-                    WhichCameFirstScreen(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 8.dp),
-                        game = game,
-                        onPlayClick = {},
-                        onCardClick = {}
-                    )
+                is WikiGame.OnThisDayGame -> {
+                    when (game.state) {
+                        is OnThisDayCardGameState.Preview -> {
+                            OnThisDayGameCardPreview(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 8.dp),
+                                game = game.state,
+                                onPlayClick = onPlayClick
+                            )
+                        }
+                        is OnThisDayCardGameState.InProgress -> {
+                            OnTHisDayCardProgress(
+                                game = game.state,
+                                onContinueClick = onPlayClick
+                            )
+                        }
+                        is OnThisDayCardGameState.Completed -> {}
+                    }
                 }
             }
         }

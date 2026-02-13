@@ -1,8 +1,12 @@
 package org.wikipedia.games.onthisday
 
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.games.WikiGames
+import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import kotlin.math.abs
@@ -51,6 +55,30 @@ object OnThisDayGameProvider {
             }
         }
         return events
+    }
+
+    suspend fun getGameState(wikiSite: WikiSite, date: LocalDate): OnThisDayCardGameState {
+        val currentMonth = date.monthValue
+        val currentDay = date.dayOfMonth
+
+        val gameHistory = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
+            gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
+            language = wikiSite.languageCode,
+            year = date.year,
+            month = currentMonth,
+            day = currentDay
+        )
+
+        if (gameHistory != null) {
+            if (gameHistory.status == DailyGameHistory.GAME_COMPLETED) {
+                return OnThisDayCardGameState.Completed(score = gameHistory.score, totalQuestion = Prefs.otdGameQuestionsPerDay)
+            } else if (gameHistory.status == DailyGameHistory.GAME_IN_PROGRESS) {
+                return OnThisDayCardGameState.InProgress(currentQuestion = gameHistory.currentQuestionIndex)
+            }
+        }
+
+        val events = getGameEvents(wikiSite, date)
+        return OnThisDayCardGameState.Preview(event1 = events[0], event2 = events[1])
     }
 
     fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
