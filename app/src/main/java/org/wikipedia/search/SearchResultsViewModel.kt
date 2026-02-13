@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
 
@@ -149,7 +150,14 @@ class SearchResultsViewModel : ViewModel() {
     }
 
     suspend fun loadBiographySearchPrompt(wikiSite: WikiSite, searchResults: List<SearchResult>): Set<String> {
-        if (searchResults.isEmpty()) return emptySet()
+        // TODO: remove when the API is available for enwiki.
+        if (!ReleaseUtil.isPreBetaRelease || wikiSite.languageCode != "en") {
+            return emptySet()
+        }
+
+        if (searchResults.isEmpty()) {
+            return emptySet()
+        }
 
         return withContext(Dispatchers.IO) {
             val pagePropsResponse = ServiceFactory.get(wikiSite).getPageProps(
