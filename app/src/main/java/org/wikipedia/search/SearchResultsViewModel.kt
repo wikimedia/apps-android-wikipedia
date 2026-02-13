@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
-import org.wikipedia.util.log.L
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -163,11 +162,10 @@ class SearchResultsViewModel : ViewModel() {
 
             qNumbers.mapIndexed { index, qNumber ->
                 async {
-                    val claimsResponse = ServiceFactory.get(Constants.wikidataWikiSite)
-                        .getClaims(qNumber, "P31") // P31 = instance of
-                    val isBiography = claimsResponse.claims["P31"]?.any {
-                        it.mainSnak?.dataValue?.value() == "Q5"
-                    } ?: false // Q5 = human
+                    val property = "P31" // P31 = instance of
+                    val humanQNumber = "Q5" // Q5 = human
+                    val claimsResponse = ServiceFactory.get(Constants.wikidataWikiSite).getClaims(qNumber, property)
+                    val isBiography = claimsResponse.claims[property]?.any { it.mainSnak?.dataValue?.value() == humanQNumber } ?: false
                     if (isBiography) searchResults[index].pageTitle.displayText else null
                 }
             }.awaitAll().filterNotNull().toSet()
