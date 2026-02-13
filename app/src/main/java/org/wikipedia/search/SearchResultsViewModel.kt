@@ -132,11 +132,8 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalResult = lexicalDeferred.await()
             val semanticResult = semanticDeferred.await()
 
-           val biographyPromptResponse = loadBiographySearchPrompt(wikiSite, semanticResult.getOrElse { emptyList() })
-
-           if (biographyPromptResponse.isNotEmpty()) {
-               _hybridSearchPromptState.value = UiState.Success(biographyPromptResponse.first())
-           }
+            val biographyPromptResponse = loadBiographySearchPrompt(wikiSite, semanticResult.getOrElse { emptyList() })
+            _hybridSearchPromptState.value = UiState.Success(biographyPromptResponse.firstOrNull())
 
             if (lexicalResult.isFailure && semanticResult.isFailure) {
                 _hybridSearchResultState.value = UiState.Error(Throwable())
