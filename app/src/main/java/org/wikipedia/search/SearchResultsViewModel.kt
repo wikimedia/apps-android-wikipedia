@@ -216,8 +216,7 @@ class SearchResultsViewModel : ViewModel() {
             type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
         ): List<SearchResult> {
             return response.results.map { result ->
-                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite).also { it.fragment = result.sectionHeader },
-                    searchResultType = type, snippet = result.sectionText)
+                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite), searchResultType = type, snippet = result.sectionText)
             }
         }
     }
