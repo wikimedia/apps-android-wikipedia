@@ -1451,6 +1451,7 @@
   <string name="hybrid_search_onboarding_screen_title">Ένας νέος τρόπος αναζήτησης</string>
   <string name="hybrid_search_results_header_description">Προέρχεται από άρθρα της Wikipedia που έχουν γραφτεί από ανθρώπους</string>
   <string name="hybrid_search_results_rate_label">Αξιολόγησε αυτό το αποτέλεσμα</string>
+  <string name="hybrid_search_results_rated_label">Αξιολογηθεί</string>
   <string name="hybrid_search_results_empty">Η ενισχυμένη αναζήτηση είναι προσωρινά μη διαθέσιμη.</string>
   <string name="hybrid_search_who_is_prefix">Ποιος είναι ο/η %s</string>
   <string name="hybrid_search_turn_off_experiment_label">Απενεργοποίησε αυτό το πείραμα</string>
