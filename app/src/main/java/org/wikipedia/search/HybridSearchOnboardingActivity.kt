@@ -35,6 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices.PIXEL_9
@@ -43,11 +44,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -84,6 +87,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
+                    langCode = WikipediaApp.instance.appOrSystemLanguageCode,
                     onGetStarted = {
                         val intent = SearchActivity.newIntent(
                             context = this,
@@ -128,6 +132,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 @Composable
 fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
+    langCode: String,
     onGetStarted: () -> Unit,
     onSearchQueryItemClick: (String) -> Unit,
     onLearnMoreClick: () -> Unit
@@ -203,6 +208,7 @@ fun HybridSearchOnboardingScreen(
             SearchExamplesView(
                 modifier = Modifier
                     .background(WikipediaTheme.colors.paperColor),
+                langCode = langCode,
                 onClick = { exampleQuery ->
                     onSearchQueryItemClick(exampleQuery)
                 }
@@ -215,8 +221,10 @@ fun HybridSearchOnboardingScreen(
 fun SearchExamplesView(
     modifier: Modifier = Modifier,
     searchExamples: List<Int> = defaultSearchQueries,
+    langCode: String,
     onClick: (String) -> Unit
 ) {
+    val context = LocalContext.current
     Column(
         modifier = modifier
     ) {
@@ -237,7 +245,7 @@ fun SearchExamplesView(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             searchExamples.forEachIndexed { _, exampleQuery ->
-                val exampleQueryString = stringResource(exampleQuery)
+                val exampleQueryString = context.getString(langCode, exampleQuery)
                 SuggestionChip(
                     onClick = { onClick(exampleQueryString) },
                     label = {
@@ -313,6 +321,7 @@ private fun HybridSearchOnboardingScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         HybridSearchOnboardingScreen(
+            langCode = "el",
             onGetStarted = {},
             onSearchQueryItemClick = {},
             onLearnMoreClick = {}
@@ -327,6 +336,7 @@ private fun SearchExamplesPreview() {
         currentTheme = Theme.LIGHT
     ) {
         SearchExamplesView(
+            langCode = "en",
             modifier = Modifier
                 .background(WikipediaTheme.colors.paperColor),
             onClick = {}
