@@ -261,6 +261,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
+  <string name="legal_safety_contacts_description">Juridiske og sikkerhedsmæssige kontakter</string>
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
@@ -2000,6 +2001,14 @@
     <item quantity="one">Personer brugte anslået %,d time</item>
     <item quantity="other">Personer brugte anslået %,d timer</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d . Wikipedia er der, når du vil lære om vores verden i forandring, vinde et væddemål blandt venner eller besvare et nysgerrigt barns spørgsmål.</item>
+    <item quantity="other">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d . Wikipedia er der, når du vil lære om vores verden i forandring, vinde et væddemål blandt venner eller besvare et nysgerrigt barns spørgsmål.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Wikipedia var tilgængelig på mere end %,d sprog</item>
+    <item quantity="other">Wikipedia var tilgængelig på mere end %,d sprog</item>
+  </plurals>
   <plurals name="year_in_review_slide_available_languages_body_first">
     <item quantity="one">Wikipedia havde %,d artikel</item>
     <item quantity="other">Wikipedia havde %,d artikler</item>
@@ -2023,6 +2032,18 @@
   <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
     <item quantity="one">Wikipedia havde %,d artikel</item>
     <item quantity="other">Wikipedia havde %,d artikler</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">over %,d aktivt sprog i år. Du deltog sammen med millioner af andre for at udvide viden og udforske forskellige emner.</item>
+    <item quantity="other">over %,d aktive sprog i år. Du deltog sammen med millioner af andre for at udvide viden og udforske forskellige emner.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Personer brugte anslået %,d time</item>
+    <item quantity="other">Personer brugte anslået %,d timer</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
+    <item quantity="other">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
   </plurals>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
