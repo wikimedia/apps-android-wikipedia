@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -31,7 +32,10 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
+import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.feed.wikigames.WikiGamesCard
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
+import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -41,6 +45,8 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
+import java.time.LocalDate
 
 class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
@@ -83,7 +89,6 @@ class FeedFragment : Fragment() {
             refresh()
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         coordinator.more(app.wikiSite)
@@ -136,7 +141,7 @@ class FeedFragment : Fragment() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
-
+        refreshWikiGameCards()
         // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
         // on certain devices.
         // https://issuetracker.google.com/issues/188096921
@@ -376,6 +381,27 @@ class FeedFragment : Fragment() {
 
     private fun getCardLanguageCode(card: Card?): String? {
         return if (card is WikiSiteCard) card.wikiSite().languageCode else null
+    }
+
+    private fun refreshWikiGameCards() {
+        lifecycleScope.launch {
+            coordinator.cards.forEachIndexed { index, card ->
+                if (card is WikiGamesCard) {
+                    try {
+                        val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
+                        val updatedGames = card.games.toMutableList()
+                        val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
+                        if (gameIndex >= 0) {
+                            updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
+                        }
+                        coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
+                        feedAdapter.notifyItemChanged(index)
+                    } catch (e: Exception) {
+                        L.e(e)
+                    }
+                }
+            }
+        }
     }
 
     companion object {

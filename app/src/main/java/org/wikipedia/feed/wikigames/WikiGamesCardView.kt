@@ -5,22 +5,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.compose.components.PageIndicator
-import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.databinding.ViewWikiGamesCardBinding
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.CardFooterView
@@ -104,29 +99,13 @@ fun WikiGamesCard(
             modifier = modifier
         ) { page ->
             when (val game = card.games[page]) {
-                is WikiGame.TestGame -> {
-                    WikiCard(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(200.dp)
-                            .padding(horizontal = 8.dp),
-                        elevation = 2.dp
-                    ) {
-                        Text(
-                            text = game.name,
-                            color = WikipediaTheme.colors.primaryColor,
-                            fontSize = 32.sp
-                        )
-                    }
-                }
-
                 is WikiGame.OnThisDayGame -> {
                     when (game.state) {
                         is OnThisDayCardGameState.Preview -> {
                             OnThisDayGameCardPreview(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 8.dp),
+                                    .padding(horizontal = 8.dp, vertical = 8.dp),
                                 game = game.state,
                                 onPlayClick = onPlayClick
                             )
@@ -135,7 +114,7 @@ fun WikiGamesCard(
                             OnThisDayCardProgress(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 8.dp),
+                                    .padding(horizontal = 8.dp, vertical = 8.dp),
                                 game = game.state,
                                 onContinueClick = onPlayClick
                             )
@@ -144,8 +123,10 @@ fun WikiGamesCard(
                             OnThisDayCardCompleted(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 8.dp),
-                                state = game.state
+                                    .padding(horizontal = 8.dp, vertical = 8.dp),
+                                state = game.state,
+                                onReviewResult = onPlayClick,
+                                onPlayTheArchive = onPlayClick
                             )
                         }
                     }

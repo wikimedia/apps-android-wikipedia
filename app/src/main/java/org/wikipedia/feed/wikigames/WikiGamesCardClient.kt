@@ -32,7 +32,6 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
                     val wikiSite = WikiSite.forLanguageCode(langCode)
                     val gameState = OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now())
                     games.add(WikiGame.OnThisDayGame(state = gameState))
-                    games.add(WikiGame.TestGame(name = "Awesome game"))
                     if (games.isNotEmpty()) {
                         cards.add(WikiGamesCard(wikiSite, games))
                     }

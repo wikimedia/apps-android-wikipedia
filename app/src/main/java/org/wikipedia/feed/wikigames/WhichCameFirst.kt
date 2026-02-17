@@ -189,7 +189,9 @@ fun OnThisDayCardProgress(
 @Composable
 fun OnThisDayCardCompleted(
     modifier: Modifier = Modifier,
-    state: OnThisDayCardGameState.Completed
+    state: OnThisDayCardGameState.Completed,
+    onReviewResult: () -> Unit,
+    onPlayTheArchive: () -> Unit
 ) {
     WikiCard(
         modifier = modifier,
@@ -233,7 +235,7 @@ fun OnThisDayCardCompleted(
                         containerColor = WikipediaTheme.colors.backgroundColor,
                         contentColor = WikipediaTheme.colors.progressiveColor
                     ),
-                    onClick = {}
+                    onClick = onReviewResult
                 ) {
                     Text(
                         text = stringResource(R.string.on_this_day_game_review_results_btn_text),
@@ -246,7 +248,7 @@ fun OnThisDayCardCompleted(
                 TextButton(
                     modifier = Modifier
                         .weight(1f),
-                    onClick = {}
+                    onClick = onPlayTheArchive
                 ) {
                     Text(
                         text = stringResource(R.string.on_this_day_game_archive_btn_text),
@@ -350,7 +352,9 @@ private fun OnThisDayCardCompletedPreview() {
             state = OnThisDayCardGameState.Completed(
                 score = 4,
                 totalQuestion = 5
-            )
+            ),
+            onReviewResult = {},
+            onPlayTheArchive = {}
         )
     }
 }

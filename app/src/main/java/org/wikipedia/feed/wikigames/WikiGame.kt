@@ -4,8 +4,6 @@ import org.wikipedia.feed.onthisday.OnThisDay
 
 sealed class WikiGame {
     data class OnThisDayGame(val state: OnThisDayCardGameState) : WikiGame()
-    // TODO: remove this
-    data class TestGame(val name: String) : WikiGame()
 }
 
 sealed class OnThisDayCardGameState {
