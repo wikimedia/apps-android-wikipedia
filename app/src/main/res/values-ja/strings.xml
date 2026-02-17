@@ -542,6 +542,11 @@
   <string name="theme_category_editing">編集</string>
   <string name="reading_focus_mode">閲覧集中モード</string>
   <string name="reading_focus_mode_detail">編集機能とスクロール時の下部のツールバーを隠します</string>
+  <string name="margin_size_increase">余白を広げる</string>
+  <string name="margin_size_decrease">余白を狭める</string>
+  <string name="margin_size_label">余白</string>
+  <string name="text_justify_label">両端揃え</string>
+  <string name="text_hyphenation_label">ハイフネーション</string>
   <string name="editing_syntax_highlight_label">構文の強調</string>
   <string name="editing_line_numbers_label">行番号を表示</string>
   <string name="editing_monospace_font_label">等幅フォントを使用</string>

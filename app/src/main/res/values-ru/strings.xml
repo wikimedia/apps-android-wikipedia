@@ -579,6 +579,11 @@
   <string name="theme_category_editing">Редактирование</string>
   <string name="reading_focus_mode">Режим чтения</string>
   <string name="reading_focus_mode_detail">Скрывает функциональность редактирования и инструменты при скроллинге</string>
+  <string name="margin_size_increase">Увеличить поля</string>
+  <string name="margin_size_decrease">Уменьшить поля</string>
+  <string name="margin_size_label">Поля</string>
+  <string name="text_justify_label">По ширине</string>
+  <string name="text_hyphenation_label">Переносы</string>
   <string name="editing_syntax_highlight_label">Подсветка синтаксиса</string>
   <string name="editing_line_numbers_label">Показывать номера строк</string>
   <string name="editing_monospace_font_label">Использовать моноширинный шрифт</string>

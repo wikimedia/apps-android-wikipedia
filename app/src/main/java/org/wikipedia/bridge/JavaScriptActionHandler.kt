@@ -28,6 +28,43 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.setMargins({ top:'${top}px', bottom:'${bottom}px' })"
     }
 
+    private fun buildTextFormattingCss(): String {
+        val sb = StringBuilder()
+        val selectors = "body, .pcs-body, .mw-parser-output, .mw-parser-output p, .mw-parser-output li," +
+                " .mw-parser-output dd, .mw-parser-output td"
+        val rules = mutableListOf<String>()
+        if (Prefs.isTextJustifyEnabled) {
+            rules.add("text-align: justify !important")
+        }
+        if (Prefs.isTextHyphenationEnabled) {
+            rules.add("-webkit-hyphens: auto !important")
+            rules.add("hyphens: auto !important")
+            rules.add("word-wrap: break-word !important")
+            rules.add("overflow-wrap: break-word !important")
+        }
+        if (rules.isNotEmpty()) {
+            sb.append("$selectors { ${rules.joinToString("; ")}; }")
+        }
+        return sb.toString()
+    }
+
+    fun setHorizontalMargins(multiplier: Int): String {
+        // multiplier 10 = default PCS behavior (no margin override)
+        // multiplier 9..0 = progressively wider content
+        return "(function() {" +
+                "var s = document.getElementById('app-margin-style');" +
+                "if (!s) { s = document.createElement('style'); s.id = 'app-margin-style'; document.head.appendChild(s); }" +
+                "if ($multiplier >= 10) { s.innerHTML = '${buildTextFormattingCss()}'; return; }" +
+                "s.innerHTML = '" +
+                "html, body { overflow-x: hidden !important; }" +
+                " body, .pcs-body, .content, .mw-body, #content, #bodyContent, .mw-parser-output, section" +
+                " { max-width: 100% !important; box-sizing: border-box !important; }" +
+                " body { padding-left: ${multiplier + 1}vw !important; padding-right: ${multiplier + 1}vw !important;" +
+                " margin-left: auto !important; margin-right: auto !important; }" +
+                " ${buildTextFormattingCss()}';" +
+                "})();"
+    }
+
     fun getTextSelection(): String {
         return "pcs.c1.InteractionHandling.getSelectionInfo()"
     }

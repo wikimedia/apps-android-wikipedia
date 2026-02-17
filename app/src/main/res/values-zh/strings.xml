@@ -547,6 +547,11 @@
   <string name="theme_category_editing">编辑</string>
   <string name="reading_focus_mode">专注阅读模式</string>
   <string name="reading_focus_mode_detail">滚动时隐藏编辑功能和底部工具栏</string>
+  <string name="margin_size_increase">增大边距</string>
+  <string name="margin_size_decrease">减小边距</string>
+  <string name="margin_size_label">边距</string>
+  <string name="text_justify_label">两端对齐</string>
+  <string name="text_hyphenation_label">断词</string>
   <string name="editing_syntax_highlight_label">语法高亮</string>
   <string name="editing_line_numbers_label">显示行号</string>
   <string name="editing_monospace_font_label">使用等宽字体</string>
