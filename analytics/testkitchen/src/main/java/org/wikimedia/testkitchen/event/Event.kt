@@ -10,6 +10,7 @@ import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 
 @Suppress("CanConvertToMultiDollarString")
 @Serializable
@@ -20,6 +21,9 @@ class Event {
     @SerialName("\$schema") var schema: String = ""
     @SerialName("dt") var timestamp: String? = null
     val meta: Meta
+
+    @SerialName("instrument_name") var instrumentName: String? = null
+
     @SerialName("agent") var agentData: AgentData? = null
     @SerialName("page") var pageData: PageData? = null
     @SerialName("mediawiki") var mediawikiData: MediawikiData? = null
@@ -30,6 +34,8 @@ class Event {
     @SerialName("action_context") private var actionContext: String? = null
     @SerialName("element_id") private var elementId: String? = null
     @SerialName("element_friendly_name") private var elementFriendlyName: String? = null
+
+    @SerialName("funnel_name") private var funnelName: String? = null
     @SerialName("funnel_entry_token") private var funnelEntryToken: String? = null
     @SerialName("funnel_event_sequence_position") private var funnelEventSequencePosition: Int? = null
 
@@ -62,6 +68,7 @@ class Event {
         schema: String,
         stream: String,
         dt: String?,
+        instrument: InstrumentImpl? = null,
         clientData: ClientData,
         interactionData: InteractionData,
         sample: SampleConfig? = null
@@ -70,6 +77,7 @@ class Event {
         this.schema = schema
         this.sample = sample
         this.timestamp = dt
+        applyInstrument(instrument)
         applyClientData(clientData)
         applyInteractionData(interactionData)
     }
@@ -83,6 +91,18 @@ class Event {
         performerData = clientData.performerData
     }
 
+    private fun applyInstrument(instrument: InstrumentImpl?) {
+        if (instrument == null) {
+            return
+        }
+        this.instrumentName = instrument.name
+        if (instrument.funnel != null) {
+            this.funnelName = instrument.funnel?.name
+            this.funnelEntryToken = instrument.funnel?.token
+            this.funnelEventSequencePosition = instrument.funnel?.sequence
+        }
+    }
+
     private fun applyInteractionData(interactionData: InteractionData) {
         this.interactionData = interactionData
         this.action = interactionData.action
@@ -91,7 +111,5 @@ class Event {
         this.actionSubtype = interactionData.actionSubtype
         this.elementId = interactionData.elementId
         this.elementFriendlyName = interactionData.elementFriendlyName
-        this.funnelEntryToken = interactionData.funnelEntryToken
-        this.funnelEventSequencePosition = interactionData.funnelEventSequencePosition
     }
 }

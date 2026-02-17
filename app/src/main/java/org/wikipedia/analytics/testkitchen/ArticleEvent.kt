@@ -4,10 +4,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikimedia.testkitchen.context.PageData
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ActiveTimer
 
 open class ArticleEvent : Event {
@@ -33,31 +31,6 @@ open class ArticleEvent : Event {
     constructor(pageTitle: PageTitle, summary: PageSummary, source: Int) {
         this.source = source
         pageData = getPageData(pageTitle, summary)
-    }
-
-    fun logLinkPreviewClick() {
-        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, "linkclick", ContextData(timeSpentMillis = timer.elapsedMillis))
-    }
-
-    open fun logNavigate() {
-        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, if (Prefs.isLinkPreviewEnabled) "navigate" else "disabled", ContextData(timeSpentMillis = timer.elapsedMillis))
-    }
-
-    fun logLinkPreviewCancel() {
-        submitEvent(STREAM_LINK_PREVIEW_INTERACTION, "cancel", ContextData(timeSpentMillis = timer.elapsedMillis))
-    }
-
-    protected fun submitEvent(streamName: String, action: String, contextData: ContextData) {
-        submitEvent(
-            streamName,
-            getInteractionData(
-                action,
-                null,
-                source.toString(),
-                JsonUtil.encodeToString(contextData)
-            ),
-            pageData
-        )
     }
 
     @Serializable

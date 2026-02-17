@@ -1,6 +1,5 @@
 package org.wikipedia.analytics.testkitchen
 
-import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
@@ -13,33 +12,6 @@ import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 
 open class Event {
-
-    /**
-     * Submit an event to the Metrics Platform using the base interaction schema
-     *
-     * @param streamName the name of the stream
-     * @param interactionData a data object that conforms to core interactions
-     * @param pageData dynamic page data that should be added to the ClientData object
-     */
-    protected fun submitEvent(
-        streamName: String,
-        interactionData: InteractionData? = null,
-        pageData: PageData? = null
-    ) {
-        TestKitchenAdapter.client.submitInteraction(streamName,
-            clientData = getClientData(pageData),
-            interactionData = interactionData)
-    }
-
-    private fun getClientData(pageData: PageData?): ClientData {
-        return ClientData(
-            TestKitchenAdapter.agentData,
-            pageData,
-            TestKitchenAdapter.mediawikiData,
-            getPerformerData(),
-            TestKitchenAdapter.domain
-        )
-    }
 
     protected fun getPageData(fragment: PageFragment?): PageData? {
         val pageProperties = fragment?.page?.pageProperties ?: return null
@@ -101,9 +73,7 @@ open class Event {
         actionSource: String? = null,
         actionContext: String? = null,
         elementId: String? = null,
-        elementFriendlyName: String? = null,
-        funnelEntryToken: String? = null,
-        funnelEventSequencePosition: Int? = null
+        elementFriendlyName: String? = null
     ): InteractionData {
         return InteractionData(
             action,
@@ -111,9 +81,7 @@ open class Event {
             actionSource,
             actionContext,
             elementId,
-            elementFriendlyName,
-            funnelEntryToken,
-            funnelEventSequencePosition
+            elementFriendlyName
         )
     }
 }

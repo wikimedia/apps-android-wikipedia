@@ -3,8 +3,10 @@ package org.wikimedia.testkitchen
 import org.wikimedia.testkitchen.config.SourceConfig
 import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.context.ClientData
+import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.event.Event
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -14,9 +16,9 @@ import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
 
 class TestKitchenClient(
-    clientData: ClientData,
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
+    val clientDataCallback: ClientDataCallback,
     val queueCapacity: Int = 100,
     val logger: LogAdapter = DefaultLogAdapterImpl(),
     val isDebug: Boolean = false
@@ -33,16 +35,16 @@ class TestKitchenClient(
      * Handles logging session management. A new session begins (and a new session ID is created)
      * if the app has been inactive for a predefined time.
      */
-    private val sessionController = SessionController()
+    val sessionController = SessionController()
 
     /**
      * Evaluates whether events for a given stream are in-sample based on the stream configuration.
      */
-    private val samplingController = SamplingController(clientData, sessionController)
+    private val samplingController = SamplingController(clientDataCallback, sessionController)
 
     private val eventQueue: BlockingQueue<Event> = LinkedBlockingQueue(queueCapacity)
 
-    private val eventProcessor: EventProcessor = EventProcessor(
+    private val eventProcessor = EventProcessor(
         ContextController(),
         CurationController(),
         sourceConfig,
@@ -50,13 +52,26 @@ class TestKitchenClient(
         eventSender,
         eventQueue,
         logger,
-        isDebug
+        followCurationRules = false, // TODO: remove when SDK gets instruments dynamically from config.
+        isDebug = isDebug
     )
 
-    fun submitMetricsEvent(
+    fun getInstrument(name: String): InstrumentImpl {
+        // TODO: wire up eventual SDK logic to get instruments dynamically from config.
+        return InstrumentImpl(name, this)
+    }
+
+    fun submitInteraction(
+        instrument: InstrumentImpl,
+        interactionData: InteractionData? = null
+    ) {
+        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData)
+    }
+
+    fun submitInteraction(
+        schemaName: String,
         streamName: String,
-        schemaId: String,
-        clientData: ClientData? = null,
+        instrument: InstrumentImpl,
         interactionData: InteractionData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
@@ -74,30 +89,22 @@ class TestKitchenClient(
         }
 
         val event = Event(
-            schemaId,
+            schemaName,
             streamName,
             DateTimeFormatter.ISO_DATE_TIME.format(ZonedDateTime.now(ZONE_Z)),
-            clientData ?: ClientData(),
-            interactionData ?: InteractionData(),
-            streamConfig?.sampleConfig
+            instrument = instrument,
+            clientData = ClientData(
+                agentData = clientDataCallback.getAgentData(),
+                pageData = clientDataCallback.getPageData(),
+                mediawikiData = clientDataCallback.getMediawikiData(),
+                performerData = clientDataCallback.getPerformerData(),
+                domain = clientDataCallback.getDomain()
+            ),
+            interactionData = interactionData ?: InteractionData(),
+            sample = streamConfig?.sampleConfig
         )
-        event.performerData?.let { it.sessionId = sessionController.sessionId }
 
         addToEventQueue(event)
-    }
-
-    /**
-     * Submit an interaction event to a stream.
-     *
-     * @see [Metrics Platform/Java API](https://wikitech.wikimedia.org/wiki/Metrics_Platform/Java_API)
-     */
-    fun submitInteraction(
-        streamName: String,
-        schemaId: String = SCHEMA_APP_BASE,
-        clientData: ClientData? = null,
-        interactionData: InteractionData? = null
-    ) {
-        submitMetricsEvent(streamName, schemaId, clientData, interactionData)
     }
 
     /**
@@ -163,7 +170,8 @@ class TestKitchenClient(
 
         const val BASE_URL = "https://test-kitchen.wikimedia.org/"
         const val LIBRARY_VERSION: String = "1.0.0"
-        const val SCHEMA_APP_BASE_VERSION: String = "1.6.0"
+        const val SCHEMA_APP_BASE_VERSION: String = "2.0.0"
         const val SCHEMA_APP_BASE: String = "/analytics/product_metrics/app/base/$SCHEMA_APP_BASE_VERSION"
+        const val STREAM_APP_BASE: String = "product_metrics.app_base"
     }
 }

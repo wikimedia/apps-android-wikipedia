@@ -23,6 +23,7 @@ class EventProcessor(
     private val eventSender: EventSender,
     private val eventQueue: BlockingQueue<Event>,
     private val logger: LogAdapter,
+    private val followCurationRules: Boolean = true,
     private val isDebug: Boolean = false
 ) {
 
@@ -58,7 +59,7 @@ class EventProcessor(
                 }
             }
             .filter { event ->
-                eventPassesCurationRules(event, streamConfigsMap)
+                if (followCurationRules) eventPassesCurationRules(event, streamConfigsMap) else true
             }
             .groupBy { event ->
                 destinationEventService(event, streamConfigsMap)

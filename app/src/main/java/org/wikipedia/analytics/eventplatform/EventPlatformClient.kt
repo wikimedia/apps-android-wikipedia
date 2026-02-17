@@ -132,6 +132,7 @@ object EventPlatformClient {
             // Ensure that serialization of configs is done off the main thread
             withContext(Dispatchers.Default) {
                 STREAM_CONFIGS.putAll(Prefs.streamConfigs)
+                TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
             }
             refreshStreamConfigs()
         }
