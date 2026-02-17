@@ -1161,6 +1161,9 @@
   </plurals>
   <string name="activity_tab_impact_best_streak">Иң яхшы streak</string>
   <string name="activity_tab_impact_last_edited">Соңгы төзәтмә</string>
+  <string name="activity_tab_customize_screen_time_spent_switch_title">Укып үткәргән вакытыгыз</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">Укыганнарыгыз турында күбрәк</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">Үзгәртүләр турында күбрәк</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>

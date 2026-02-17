@@ -12,6 +12,7 @@
 * Fumi37s
 * GAMEZONE628
 * Great ones
+* Gurio318
 * Hideki Yoshida
 * Hzy980512
 * Jaw Salvager
@@ -1188,6 +1189,7 @@
   <string name="activity_tab_donation_unknown">不明</string>
   <string name="activity_tab_donation_last_donation">アプリでの&lt;b&gt;最近の寄付&lt;/b&gt;</string>
   <string name="activity_tab_total_edits_all_projects">全プロジェクトの総編集数</string>
+  <string name="activity_tab_play_wiki_games">WikiGamesをプレイ</string>
   <string name="activity_tab_menu_feedback">機能の問題</string>
   <string name="activity_tab_menu_info">詳細</string>
   <string name="activity_tab_menu_customize">カスタマイズ</string>

@@ -367,7 +367,7 @@
   <string name="reading_list_article_moved_to_named">موٗوٕڈ %1$s تا %2$s</string>
   <string name="reading_list_article_already_exists_message">سورٕے ٹھیٖک! %1$s چھُ جمع تھأوتھ %2$s.</string>
   <string name="reading_list_articles_already_exist_message">سورٕے ٹھیٖک! %s چھُ جمع تھأوتھ سأری مَضموٗن.</string>
-  <string name="reading_list_added_view_button">فِہرِست وُچُھو</string>
+  <string name="reading_list_added_view_button">فِہرِست وُچھُو</string>
   <string name="reading_list_add_to_list_button">فِہرِستِ منٛز کٕریٚو جمع</string>
   <string name="reading_list_sort">چھانٛٹ دِنی</string>
   <string name="reading_list_sort_ellipsis">چھانٛٹ دِنی بمُطٲبق...</string>
@@ -463,7 +463,7 @@
   <string name="notifications_swipe_action_read">پرُن</string>
   <string name="notifications_swipe_action_unread">نَہ پَرُن</string>
   <string name="notifications_menu_check_all">سأری چیٖز وُچھیوٚ</string>
-  <string name="notifications_menu_uncheck_all">سأری چیٖز مَہ وُچُھو</string>
+  <string name="notifications_menu_uncheck_all">سأری چیٖز مَہ وُچھُو</string>
   <string name="notifications_wiki_filter_header">وِکیٖ فِلٹر</string>
   <string name="notifications_type_filter_header">فِلٹر قٕسم</string>
   <string name="notifications_all_wikis_text" fuzzy="true">سأری \"وِکیٖ\"</string>
@@ -667,7 +667,7 @@
   <string name="talk_user_title">کَتھ: %s</string>
   <string name="talk_new_topic">نٔو موضوٗع</string>
   <string name="talk_new_topic_submitted">موضوٗع آو شایَع کَرنہٕ.</string>
-  <string name="talk_page_empty">یِہ بَحَث صَفہٕ چھُ خٲلی۔</string>
+  <string name="talk_page_empty">یہِ بَحَث صَفہٕ چھُ خٲلی۔</string>
   <string name="talk_add_reply">جَوآب</string>
   <string name="talk_no_subject">(بے موضوع)</string>
   <string name="talk_snackbar_undo">رَد کٔرِو</string>
@@ -721,7 +721,7 @@
   <string name="thank_success_message">تُہُنٛد \'شُکرِیا\' آو صٲرف %s سوزنہٕ</string>
   <string name="menu_option_view_user_profile">صٲرفہٕ سُنٛد صَفہٕ وُچھو</string>
   <string name="menu_option_view_user_talk">بَحَث صَفہٕ وُچھِو</string>
-  <string name="menu_option_view_user_contributions">صأرفہٕ سٕنٛدی شراکتھ وُچُھو</string>
+  <string name="menu_option_view_user_contributions">صأرفہٕ سٕنٛدؠ شِرکَت وُچھُو</string>
   <string name="revision_diff_from">پؠٹھ:</string>
   <string name="revision_diff_to">تام:</string>
   <string name="revision_diff_line_num">سٕتٕر %d</string>

@@ -276,6 +276,7 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
+  <string name="legal_safety_contacts_description">法律與安全聯絡人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
@@ -2249,7 +2250,7 @@
   <string name="hybrid_search_onboarding_search_description">此實驗性功能可理解自然語言。可不用搜尋關鍵字，只需描述您要的內容即可。</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">測試功能</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">僅在本次實驗期間的有限時間內可用。</string>
-  <string name="hybrid_search_beta_tag" fuzzy="true">測試版</string>
+  <string name="hybrid_search_beta_tag">測試版</string>
   <string name="hybrid_search_experimental_feature_switch_label">加入實驗</string>
   <string name="hybrid_search_onboarding_search_example_title">需要靈感嗎？</string>
   <string name="hybrid_search_onboarding_search_example_description">請使用以下搜尋範例之一。</string>
@@ -2273,4 +2274,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">嘗試相關主題</string>
   <string name="hybrid_search_error_message">發生錯誤。請稍後再試。</string>
   <string name="hybrid_search_who_is_prefix">%s是誰？</string>
+  <string name="hybrid_search_turn_off_experiment_label">關閉此實驗</string>
 </resources>
