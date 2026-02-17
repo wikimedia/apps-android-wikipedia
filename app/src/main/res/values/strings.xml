@@ -1964,6 +1964,7 @@
     <string name="on_this_day_game_sound_off">Turn sound off</string>
     <string name="on_this_day_game_more_label">More</string>
     <string name="on_this_day_game_card_progress_label">You\’re on question %d. Continue guessing which event came first on this day in history.</string>
+    <string name="on_this_day_game_explore_feed_card_score_message">You scored %1$d/%2$d on today\'s game. Next game in %3$s</string>
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>

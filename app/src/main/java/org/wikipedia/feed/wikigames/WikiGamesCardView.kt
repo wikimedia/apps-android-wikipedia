@@ -132,12 +132,22 @@ fun WikiGamesCard(
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
-                            OnTHisDayCardProgress(
+                            OnThisDayCardProgress(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 8.dp),
                                 game = game.state,
                                 onContinueClick = onPlayClick
                             )
                         }
-                        is OnThisDayCardGameState.Completed -> {}
+                        is OnThisDayCardGameState.Completed -> {
+                            OnThisDayCardCompleted(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 8.dp),
+                                state = game.state
+                            )
+                        }
                     }
                 }
             }
