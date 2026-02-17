@@ -1538,4 +1538,5 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Dacă vă dezactivați notificările, nu veți mai fi notificat când „Discover” este actualizat.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Când „Discover“-ul dvs. este actualizat, Wikipedia vă va trimite o notificare.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">„Descoperă“ este activat. Wikipedia vă va recomanda articole de citit.</string>
+  <string name="donation_reminders_prompt_positive_button">Donați acum</string>
 </resources>
