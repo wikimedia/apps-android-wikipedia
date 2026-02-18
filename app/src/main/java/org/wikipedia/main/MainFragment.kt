@@ -452,6 +452,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onWikiGamesCardFooterClicked() {
+        // TODO: open games hub once implemented
         println("orange starts game hub")
     }
 

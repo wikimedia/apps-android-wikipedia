@@ -307,6 +307,13 @@ class FeedFragment : Fragment() {
         override fun onWikiGamesCardFooterClicked() {
             callback?.onWikiGamesCardFooterClicked()
         }
+
+        override fun onNextGameCountDownFinished() {
+            println("orange: FeedFragment onNextGameCountDownFinished")
+            viewLifecycleOwner.lifecycleScope.launch {
+                refreshWikiGameCards()
+            }
+        }
     }
 
     private inner class FeedScrollListener : RecyclerView.OnScrollListener() {

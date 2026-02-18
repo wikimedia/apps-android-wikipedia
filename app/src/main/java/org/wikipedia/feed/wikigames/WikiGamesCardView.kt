@@ -26,6 +26,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameActivity
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context), CardFooterView.Callback {
     interface Callback {
         fun onWikiGamesCardFooterClicked()
+        fun onNextGameCountDownFinished()
     }
 
     private val binding = ViewWikiGamesCardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -62,6 +63,10 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                     onPlayClick = {
                         WikiGamesEvent.submit("enter_click", "game_feed")
                         (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card.wikiSite), 0)
+                    },
+                    onCountDownFinished = {
+                        println("orange: WikiGamesCard onNextGameCountDownFinished")
+                        callback?.onNextGameCountDownFinished()
                     }
                 )
             }
@@ -90,7 +95,8 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 fun WikiGamesCard(
     card: WikiGamesCard,
     modifier: Modifier = Modifier,
-    onPlayClick: () -> Unit
+    onPlayClick: () -> Unit,
+    onCountDownFinished: () -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { card.games.size })
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -126,7 +132,8 @@ fun WikiGamesCard(
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 onReviewResult = onPlayClick,
-                                onPlayTheArchive = onPlayClick
+                                onPlayTheArchive = onPlayClick,
+                                onCountDownFinished = onCountDownFinished
                             )
                         }
                     }

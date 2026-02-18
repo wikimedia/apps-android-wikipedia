@@ -194,7 +194,8 @@ fun OnThisDayCardCompleted(
     modifier: Modifier = Modifier,
     state: OnThisDayCardGameState.Completed,
     onReviewResult: () -> Unit,
-    onPlayTheArchive: () -> Unit
+    onPlayTheArchive: () -> Unit,
+    onCountDownFinished: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
@@ -224,7 +225,10 @@ fun OnThisDayCardCompleted(
                 )
             )
 
-            NextGameCountdown(state = state)
+            NextGameCountdown(
+                state = state,
+                onCountDownFinished = onCountDownFinished
+            )
 
             Spacer(modifier = Modifier.height(112.dp))
             Row(
@@ -306,13 +310,19 @@ fun OnThisDayGameFirstEventView(
 
 @Composable
 private fun NextGameCountdown(
-    state: OnThisDayCardGameState.Completed
+    state: OnThisDayCardGameState.Completed,
+    onCountDownFinished: () -> Unit
 ) {
     var duration by remember { mutableStateOf(OnThisDayGameResultFragment.timeUntilNextDay()) }
     LaunchedEffect(Unit) {
         while (true) {
             delay(1000L)
             duration = OnThisDayGameResultFragment.timeUntilNextDay()
+            println("orange duration is ${duration.seconds}")
+            if (duration.seconds <= 0) {
+                onCountDownFinished()
+                break
+            }
         }
     }
 
@@ -359,7 +369,8 @@ private fun OnThisDayCardCompletedPreview() {
                 totalQuestion = 5
             ),
             onReviewResult = {},
-            onPlayTheArchive = {}
+            onPlayTheArchive = {},
+            onCountDownFinished = {}
         )
     }
 }
