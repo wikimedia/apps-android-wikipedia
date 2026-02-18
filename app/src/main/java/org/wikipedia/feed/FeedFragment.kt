@@ -141,11 +141,13 @@ class FeedFragment : Fragment() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
-        refreshWikiGameCards()
-        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices.
-        // https://issuetracker.google.com/issues/188096921
-        feedAdapter.notifyDataSetChanged()
+        viewLifecycleOwner.lifecycleScope.launch {
+            refreshWikiGameCards()
+            // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+            // on certain devices.
+            // https://issuetracker.google.com/issues/188096921
+            feedAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onDestroyView() {
@@ -383,22 +385,20 @@ class FeedFragment : Fragment() {
         return if (card is WikiSiteCard) card.wikiSite().languageCode else null
     }
 
-    private fun refreshWikiGameCards() {
-        lifecycleScope.launch {
-            coordinator.cards.forEachIndexed { index, card ->
-                if (card is WikiGamesCard) {
-                    try {
-                        val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
-                        val updatedGames = card.games.toMutableList()
-                        val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
-                        if (gameIndex >= 0) {
-                            updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
-                        }
-                        coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
-                        feedAdapter.notifyItemChanged(index)
-                    } catch (e: Exception) {
-                        L.e(e)
+    private suspend fun refreshWikiGameCards() {
+        coordinator.cards.forEachIndexed { index, card ->
+            if (card is WikiGamesCard) {
+                try {
+                    val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
+                    val updatedGames = card.games.toMutableList()
+                    val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
+                    if (gameIndex >= 0) {
+                        updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
                     }
+                    coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
+                    feedAdapter.notifyItemChanged(index)
+                } catch (e: Exception) {
+                    L.e(e)
                 }
             }
         }

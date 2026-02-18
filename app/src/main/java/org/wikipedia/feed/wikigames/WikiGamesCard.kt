@@ -8,4 +8,8 @@ class WikiGamesCard(val wikiSite: WikiSite, val games: List<WikiGame>) : Card() 
     override fun type(): CardType {
         return CardType.WIKI_GAMES
     }
+
+    override fun dismissHashCode(): Int {
+        return wikiSite.hashCode()
+    }
 }

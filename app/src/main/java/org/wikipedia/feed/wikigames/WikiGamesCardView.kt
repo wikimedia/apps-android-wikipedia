@@ -106,7 +106,7 @@ fun WikiGamesCard(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
-                                game = game.state,
+                                state = game.state,
                                 onPlayClick = onPlayClick
                             )
                         }
@@ -115,7 +115,7 @@ fun WikiGamesCard(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
-                                game = game.state,
+                                state = game.state,
                                 onContinueClick = onPlayClick
                             )
                         }

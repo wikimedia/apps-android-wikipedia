@@ -71,14 +71,14 @@ object OnThisDayGameProvider {
 
         if (gameHistory != null) {
             if (gameHistory.status == DailyGameHistory.GAME_COMPLETED) {
-                return OnThisDayCardGameState.Completed(score = gameHistory.score, totalQuestion = Prefs.otdGameQuestionsPerDay)
+                return OnThisDayCardGameState.Completed(langCode = wikiSite.languageCode, score = gameHistory.score, totalQuestion = Prefs.otdGameQuestionsPerDay)
             } else if (gameHistory.status == DailyGameHistory.GAME_IN_PROGRESS) {
-                return OnThisDayCardGameState.InProgress(currentQuestion = gameHistory.currentQuestionIndex)
+                return OnThisDayCardGameState.InProgress(langCode = wikiSite.languageCode, currentQuestion = gameHistory.currentQuestionIndex)
             }
         }
 
         val events = getGameEvents(wikiSite, date)
-        return OnThisDayCardGameState.Preview(event1 = events[0], event2 = events[1])
+        return OnThisDayCardGameState.Preview(langCode = wikiSite.languageCode, event1 = events[0], event2 = events[1])
     }
 
     fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {

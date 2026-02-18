@@ -43,6 +43,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.WikiCard
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
@@ -52,10 +53,11 @@ import java.util.Locale
 
 @Composable
 fun OnThisDayGameCardPreview(
-    game: OnThisDayCardGameState.Preview,
+    state: OnThisDayCardGameState.Preview,
     onPlayClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     WikiCard(
         modifier = modifier,
         elevation = 2.dp
@@ -77,7 +79,7 @@ fun OnThisDayGameCardPreview(
                     contentDescription = null
                 )
                 Text(
-                    text = stringResource(R.string.on_this_day_game_title),
+                    text = context.getString(state.langCode, R.string.on_this_day_game_title),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.SemiBold,
@@ -86,8 +88,8 @@ fun OnThisDayGameCardPreview(
                 )
             }
 
-            OnThisDayGameFirstEventView(event = game.event1)
-            OnThisDayGameFirstEventView(event = game.event2)
+            OnThisDayGameFirstEventView(event = state.event1)
+            OnThisDayGameFirstEventView(event = state.event2)
 
             Box(
                 modifier = Modifier
@@ -103,7 +105,7 @@ fun OnThisDayGameCardPreview(
                     onClick = onPlayClick
                 ) {
                     Text(
-                        text = stringResource(R.string.on_this_day_game_entry_dialog_button),
+                        text = context.getString(state.langCode, R.string.on_this_day_game_entry_dialog_button),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
                         )
@@ -117,9 +119,10 @@ fun OnThisDayGameCardPreview(
 @Composable
 fun OnThisDayCardProgress(
     modifier: Modifier = Modifier,
-    game: OnThisDayCardGameState.InProgress,
+    state: OnThisDayCardGameState.InProgress,
     onContinueClick: () -> Unit
 ) {
+    val context = LocalContext.current
     WikiCard(
         modifier = modifier,
         elevation = 2.dp
@@ -139,7 +142,7 @@ fun OnThisDayCardProgress(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = stringResource(R.string.on_this_day_game_title),
+                text = context.getString(state.langCode, R.string.on_this_day_game_title),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.SemiBold,
@@ -151,7 +154,7 @@ fun OnThisDayCardProgress(
                 modifier = Modifier,
                 text = stringResource(
                     R.string.on_this_day_game_card_progress_label,
-                    game.currentQuestion + 1
+                    state.currentQuestion + 1
                 ),
                 color = WikipediaTheme.colors.secondaryColor,
                 style = MaterialTheme.typography.bodyMedium.copy(
@@ -175,7 +178,7 @@ fun OnThisDayCardProgress(
                     onClick = onContinueClick
                 ) {
                     Text(
-                        text = stringResource(R.string.on_this_day_game_continue_btn_text),
+                        text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
                         )
@@ -193,6 +196,7 @@ fun OnThisDayCardCompleted(
     onReviewResult: () -> Unit,
     onPlayTheArchive: () -> Unit
 ) {
+    val context = LocalContext.current
     WikiCard(
         modifier = modifier,
         elevation = 2.dp
@@ -212,7 +216,7 @@ fun OnThisDayCardCompleted(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = stringResource(R.string.on_this_day_game_title),
+                text = context.getString(state.langCode, R.string.on_this_day_game_title),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.SemiBold,
@@ -238,7 +242,7 @@ fun OnThisDayCardCompleted(
                     onClick = onReviewResult
                 ) {
                     Text(
-                        text = stringResource(R.string.on_this_day_game_review_results_btn_text),
+                        text = context.getString(state.langCode, R.string.on_this_day_game_review_results_btn_text),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
                         )
@@ -251,7 +255,7 @@ fun OnThisDayCardCompleted(
                     onClick = onPlayTheArchive
                 ) {
                     Text(
-                        text = stringResource(R.string.on_this_day_game_archive_btn_text),
+                        text = context.getString(state.langCode, R.string.on_this_day_game_archive_btn_text),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium,
                             color = WikipediaTheme.colors.progressiveColor
@@ -336,7 +340,7 @@ private fun OnThisDayCardProgressPreview() {
         currentTheme = Theme.LIGHT
     ) {
         OnThisDayCardProgress(
-            game = OnThisDayCardGameState.InProgress(3),
+            state = OnThisDayCardGameState.InProgress("en", 3),
             onContinueClick = {}
         )
     }
@@ -350,6 +354,7 @@ private fun OnThisDayCardCompletedPreview() {
     ) {
         OnThisDayCardCompleted(
             state = OnThisDayCardGameState.Completed(
+                langCode = "en",
                 score = 4,
                 totalQuestion = 5
             ),
