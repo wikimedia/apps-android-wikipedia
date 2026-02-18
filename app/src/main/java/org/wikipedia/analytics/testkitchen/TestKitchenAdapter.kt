@@ -1,35 +1,34 @@
 package org.wikipedia.analytics.testkitchen
 
 import android.os.Build
-import org.wikimedia.testkitchen.EventSenderDefault
+import org.wikimedia.testkitchen.EventSender
 import org.wikimedia.testkitchen.TestKitchenClient
+import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikimedia.testkitchen.context.AgentData
 import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
+import org.wikimedia.testkitchen.event.Event
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.log.L
 
-object TestKitchenAdapter : ClientDataCallback {
+object TestKitchenAdapter : ClientDataCallback, EventSender {
     val logger = LogAdapterImpl()
 
     val client = TestKitchenClient(
-        eventSender = EventSenderDefault(JsonUtil.json, OkHttpConnectionFactory.client, logger),
+        eventSender = this,
         sourceConfigInit = null,
         clientDataCallback = this,
-        queueCapacity = Prefs.analyticsQueueSize,
-        logger = logger,
-        isDebug = ReleaseUtil.isDevRelease
+        logger = logger
     )
 
     override fun getAgentData(): AgentData {
@@ -47,11 +46,6 @@ object TestKitchenAdapter : ClientDataCallback {
         )
     }
 
-    override fun getPageData(): PageData? {
-        // TODO
-        return null
-    }
-
     override fun getMediawikiData(): MediawikiData {
         return MediawikiData(
             WikipediaApp.instance.wikiSite.dbName(),
@@ -67,8 +61,10 @@ object TestKitchenAdapter : ClientDataCallback {
         )
     }
 
-    override fun getDomain(): String {
-        return WikipediaApp.instance.wikiSite.authority()
+    override suspend fun sendEvents(destinationEventService: DestinationEventService, events: List<Event>) {
+        val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEventsTk(events) else
+            ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHastyTk(events)
+        L.d("${events.size} events sent successfully (${response.code()})")
     }
 
     fun getPageData(fragment: PageFragment?): PageData? {
@@ -84,7 +80,7 @@ object TestKitchenAdapter : ClientDataCallback {
         )
     }
 
-    fun getPageData(pageTitle: PageTitle?, pageId: Int = 0, revisionId: Long = 0): PageData? {
+    fun getPageData(pageTitle: PageTitle?, pageId: Int? = null, revisionId: Long? = null): PageData? {
         if (pageTitle == null) return null
         return PageData(
             pageId,

@@ -10,7 +10,10 @@ class UnsuccessfulResponseInterceptor : Interceptor {
         val rsp = chain.proceed(chain.request())
 
         // If the response is successful (2xx) or a redirect (3xx), then proceed.
-        if (rsp.code < 400) {
+        // ...Unless the code is 207 (multi-status), it likely means that one or more
+        // analytics events were rejected. In such a case, the error is actually contained in
+        // the normal response body, and should be treated as an exception.
+        if ((rsp.code < 400 && rsp.code != 207) || (rsp.code == 207 && !rsp.request.url.toString().contains("/events"))) {
             return rsp
         }
 
