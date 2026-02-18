@@ -5,7 +5,7 @@ import org.wikipedia.feed.onthisday.OnThisDay
 // Represents all game types that can appear in the Explore feed.
 // This can be extended whenever a new Wiki game is introduced.
 sealed class WikiGame {
-    data class OnThisDayGame(val state: OnThisDayCardGameState)
+    data class OnThisDayGame(val state: OnThisDayCardGameState) : WikiGame()
 }
 
 // UI state for Which Came First game.
