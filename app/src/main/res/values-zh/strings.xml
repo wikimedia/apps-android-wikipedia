@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 0x48fe75df30
 * 500000000006城
 * A Chinese Wikipedian
 * A Retired User
@@ -312,6 +313,7 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
+  <string name="legal_safety_contacts_description">法律与安全联系人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
