@@ -318,7 +318,7 @@ private fun NextGameCountdown(
 
     Text(
         modifier = Modifier,
-        text = stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestion, String.format(
+        text = stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
             Locale.getDefault(),
             "%02d:%02d:%02d",
             duration.toHoursPart(),
@@ -356,7 +356,7 @@ private fun OnThisDayCardCompletedPreview() {
             state = OnThisDayCardGameState.Completed(
                 langCode = "en",
                 score = 4,
-                totalQuestion = 5
+                totalQuestions = 5
             ),
             onReviewResult = {},
             onPlayTheArchive = {}
