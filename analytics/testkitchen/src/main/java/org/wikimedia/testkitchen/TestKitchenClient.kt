@@ -5,12 +5,12 @@ import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.InteractionData
+import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.event.Event
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.concurrent.BlockingQueue
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.max
@@ -19,9 +19,8 @@ class TestKitchenClient(
     eventSender: EventSender,
     sourceConfigInit: SourceConfig? = null,
     val clientDataCallback: ClientDataCallback,
-    val queueCapacity: Int = 100,
-    val logger: LogAdapter = DefaultLogAdapterImpl(),
-    val isDebug: Boolean = false
+    val queueCapacity: Int = QUEUE_CAPACITY,
+    val logger: LogAdapter = DefaultLogAdapterImpl()
 ) {
 
     private var sourceConfig = AtomicReference<SourceConfig>(sourceConfigInit)
@@ -42,7 +41,7 @@ class TestKitchenClient(
      */
     private val samplingController = SamplingController(clientDataCallback, sessionController)
 
-    private val eventQueue: BlockingQueue<Event> = LinkedBlockingQueue(queueCapacity)
+    private val eventQueue = LinkedBlockingQueue<Event>(queueCapacity)
 
     private val eventProcessor = EventProcessor(
         ContextController(),
@@ -53,7 +52,6 @@ class TestKitchenClient(
         eventQueue,
         logger,
         followCurationRules = false, // TODO: remove when SDK gets instruments dynamically from config.
-        isDebug = isDebug
     )
 
     fun getInstrument(name: String): InstrumentImpl {
@@ -63,7 +61,8 @@ class TestKitchenClient(
 
     fun submitInteraction(
         instrument: InstrumentImpl,
-        interactionData: InteractionData? = null
+        interactionData: InteractionData? = null,
+        pageData: PageData? = null
     ) {
         submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData)
     }
@@ -72,7 +71,8 @@ class TestKitchenClient(
         schemaName: String,
         streamName: String,
         instrument: InstrumentImpl,
-        interactionData: InteractionData? = null
+        interactionData: InteractionData? = null,
+        pageData: PageData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
@@ -95,10 +95,9 @@ class TestKitchenClient(
             instrument = instrument,
             clientData = ClientData(
                 agentData = clientDataCallback.getAgentData(),
-                pageData = clientDataCallback.getPageData(),
+                pageData = pageData,
                 mediawikiData = clientDataCallback.getMediawikiData(),
-                performerData = clientDataCallback.getPerformerData(),
-                domain = clientDataCallback.getDomain()
+                performerData = clientDataCallback.getPerformerData()
             ),
             interactionData = interactionData ?: InteractionData(),
             sample = streamConfig?.sampleConfig
@@ -167,6 +166,7 @@ class TestKitchenClient(
 
     companion object {
         private val ZONE_Z: ZoneId? = ZoneId.of("Z")
+        private const val QUEUE_CAPACITY = 16
 
         const val BASE_URL = "https://test-kitchen.wikimedia.org/"
         const val LIBRARY_VERSION: String = "1.0.0"

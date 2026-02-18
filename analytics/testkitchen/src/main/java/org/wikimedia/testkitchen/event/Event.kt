@@ -44,8 +44,7 @@ class Event {
 
     @Serializable
     class Meta(
-        var stream: String = "",
-        var domain: String? = null
+        var stream: String = ""
     )
 
     /**
@@ -84,7 +83,6 @@ class Event {
 
     fun applyClientData(clientData: ClientData) {
         this.clientData = clientData
-        meta.domain = clientData.domain
         agentData = clientData.agentData
         pageData = clientData.pageData
         mediawikiData = clientData.mediawikiData

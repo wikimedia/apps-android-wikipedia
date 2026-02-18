@@ -1,20 +1,23 @@
 package org.wikimedia.testkitchen
 
-import android.net.Uri
+import androidx.core.net.toUri
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikimedia.testkitchen.event.Event
 import java.io.IOException
 
 class EventSenderDefault(
     private val json: Json,
     private val httpClient: OkHttpClient,
-    private val logger: LogAdapter
+    private val logger: LogAdapter,
+    private val isDebug: Boolean = false
 ) : EventSender {
-    override fun sendEvents(baseUri: Uri, events: List<Event>) {
+    override suspend fun sendEvents(destinationEventService: DestinationEventService, events: List<Event>) {
+        val baseUri = (destinationEventService.baseUri + "/v1/events" + (if (!isDebug) "?hasty=true" else "")).toUri()
         val eventStr = json.encodeToString(events)
         val request = Request.Builder()
             .url(baseUri.toString())

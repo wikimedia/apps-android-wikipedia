@@ -8,7 +8,7 @@ class Funnel(
     val token = SessionController.generateSessionId()
     val sequence get() = _sequence
 
-    private var _sequence: Int = 0
+    private var _sequence: Int = 1
 
     fun touch() {
         _sequence++
