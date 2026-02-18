@@ -59,6 +59,7 @@ class FeedFragment : Fragment() {
     private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
+    private var hasRefreshedGamesAfterCountdown = false
 
     interface Callback {
         fun onFeedSearchRequested(view: View)
@@ -148,6 +149,7 @@ class FeedFragment : Fragment() {
             // https://issuetracker.google.com/issues/188096921
             feedAdapter.notifyDataSetChanged()
         }
+        hasRefreshedGamesAfterCountdown = false
     }
 
     override fun onDestroyView() {
@@ -309,6 +311,8 @@ class FeedFragment : Fragment() {
         }
 
         override fun onNextGameCountDownFinished() {
+            if (hasRefreshedGamesAfterCountdown) return
+            hasRefreshedGamesAfterCountdown = true
             viewLifecycleOwner.lifecycleScope.launch {
                 refreshWikiGameCards()
             }
@@ -396,7 +400,6 @@ class FeedFragment : Fragment() {
             if (card is WikiGamesCard) {
                 try {
                     val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
-
                     val updatedGames = card.games.toMutableList()
                     val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
                     if (gameIndex >= 0) {

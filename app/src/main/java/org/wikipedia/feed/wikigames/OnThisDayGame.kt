@@ -49,6 +49,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
+import java.time.LocalTime
 import java.util.Locale
 
 @Composable
@@ -318,8 +319,8 @@ private fun NextGameCountdown(
         while (true) {
             delay(1000L)
             duration = OnThisDayGameResultFragment.timeUntilNextDay()
-            if (duration.seconds <= 0) {
-                delay(1000L)
+            val time = LocalTime.now()
+            if (duration.seconds > 3600 * 23) {
                 onCountDownFinished()
                 break
             }
