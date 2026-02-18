@@ -65,7 +65,6 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                         (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card.wikiSite), 0)
                     },
                     onCountDownFinished = {
-                        println("orange: WikiGamesCard onNextGameCountDownFinished")
                         callback?.onNextGameCountDownFinished()
                     }
                 )

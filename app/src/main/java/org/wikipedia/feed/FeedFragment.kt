@@ -309,7 +309,6 @@ class FeedFragment : Fragment() {
         }
 
         override fun onNextGameCountDownFinished() {
-            println("orange: FeedFragment onNextGameCountDownFinished")
             viewLifecycleOwner.lifecycleScope.launch {
                 refreshWikiGameCards()
             }
@@ -397,6 +396,7 @@ class FeedFragment : Fragment() {
             if (card is WikiGamesCard) {
                 try {
                     val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
+
                     val updatedGames = card.games.toMutableList()
                     val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
                     if (gameIndex >= 0) {

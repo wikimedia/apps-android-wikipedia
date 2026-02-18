@@ -318,8 +318,8 @@ private fun NextGameCountdown(
         while (true) {
             delay(1000L)
             duration = OnThisDayGameResultFragment.timeUntilNextDay()
-            println("orange duration is ${duration.seconds}")
             if (duration.seconds <= 0) {
+                delay(1000L)
                 onCountDownFinished()
                 break
             }
