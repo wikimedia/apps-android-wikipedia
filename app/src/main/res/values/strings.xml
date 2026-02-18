@@ -632,7 +632,7 @@
     <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="#faq">Learn more</a>]]></string>
-    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don\'t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
     <string name="default_reading_list_name">Saved</string>
@@ -1006,8 +1006,8 @@
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
     <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
     <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
-    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you\'ve edited %d image captions</string>
+    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you\'ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
     <string name="suggested_edits_image_caption_summary_title_image">Image</string>
@@ -1310,14 +1310,14 @@
     <string name="onboarding_get_started">Get started</string>
     <string name="onboarding_maybe_later">Maybe later</string>
     <string name="onboarding_explore_title">New ways to explore</string>
-    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
+    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it\'s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you\'re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
     <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
-    <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
+    <string name="onboarding_multilingual_secondary_text">We\'ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
     <string name="onboarding_next">Next</string>
@@ -1542,7 +1542,7 @@
     <string name="thank_label">Thank</string>
     <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
-    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\'s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
@@ -2109,8 +2109,8 @@
         <item quantity="other">People spent an estimated %,d hours</item>
     </plurals>
     <plurals name="year_in_review_slide_english_reading_hours_body_second">
-        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
-        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
     </plurals>
     <plurals name="year_in_review_slide_available_languages_headline">
         <item quantity="one">Wikipedia was available in more than %,d language</item>
@@ -2364,7 +2364,7 @@
     <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
     <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
     <string name="hybrid_search_no_results_header">No results</string>
-    <string name="hybrid_search_no_results_description">This topic isn’t returning article excerpts at this moment. Here are some things you can try:</string>
+    <string name="hybrid_search_no_results_description">This topic isn\'t returning article excerpts at this moment. Here are some things you can try:</string>
     <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
     <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
