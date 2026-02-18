@@ -60,7 +60,7 @@ class Event {
         companion object {
             const val COORDINATOR_DEFAULT = "default"
             const val COORDINATOR_CUSTOM = "custom"
-            const val COORTINATOR_FORCED = "forced"
+            const val COORDINATOR_FORCED = "forced"
         }
     }
 
