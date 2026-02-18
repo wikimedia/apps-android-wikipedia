@@ -470,10 +470,6 @@
             android:key="@string/preference_key_otd_game_num_questions"
             android:title="Game questions per day" />
 
-        <Preference
-            android:key="@string/preference_key_otd_game_state"
-            android:title="Reset today's game" />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             android:key="@string/preference_key_otd_game_history"
             android:title="Game history" />
