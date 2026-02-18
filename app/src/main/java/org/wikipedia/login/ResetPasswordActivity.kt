@@ -108,7 +108,7 @@ class ResetPasswordActivity : BaseActivity() {
         }
         if (uiPromptResult == null) {
             loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
-                token = firstStepToken, cb = loginCallback)
+                token = firstStepToken, isContinuation = true, cb = loginCallback)
         } else {
             loginClient?.login(lifecycleScope, WikipediaApp.instance.wikiSite, userName, password, retypedPassword = retypedPassword,
                 twoFactorCode = if (uiPromptResult is LoginOATHResult) twoFactorCode else null,
