@@ -41,6 +41,7 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 
 class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
@@ -231,6 +232,7 @@ class FeedFragment : Fragment() {
         }
 
         override fun onRequestDismissCard(card: Card): Boolean {
+            L.d("dismissCard: " + card.title())
             val position = coordinator.dismissCard(card)
             if (position < 0) {
                 return false
