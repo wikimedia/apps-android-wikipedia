@@ -105,7 +105,7 @@ fun OnThisDayGameCardPreview(
                     onClick = onPlayClick
                 ) {
                     Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_entry_dialog_button),
+                        text = context.getString(state.langCode, R.string.on_this_day_game_play_today_btn_text),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
                         )
