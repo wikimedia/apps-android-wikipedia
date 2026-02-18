@@ -9,6 +9,7 @@ class InstrumentImpl(
     private val client: TestKitchenClient? = null
 ) {
     var funnel: Funnel? = null
+    var experiment: ExperimentImpl? = null
 
     fun submitInteraction(action: String, actionSource: String? = null, elementId: String? = null, pageData: PageData? = null) {
         client?.submitInteraction(
@@ -23,11 +24,18 @@ class InstrumentImpl(
         funnel?.touch()
     }
 
-    fun startFunnel(name: String? = null) {
+    fun startFunnel(name: String? = null): InstrumentImpl {
         funnel = Funnel(name)
+        return this
     }
 
-    fun stopFunnel() {
+    fun stopFunnel(): InstrumentImpl {
         funnel = null
+        return this
+    }
+
+    fun setExperiment(name: String, group: String): InstrumentImpl {
+        experiment = ExperimentImpl(name, group)
+        return this
     }
 }

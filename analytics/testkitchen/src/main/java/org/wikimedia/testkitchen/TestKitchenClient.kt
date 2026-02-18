@@ -64,7 +64,7 @@ class TestKitchenClient(
         interactionData: InteractionData? = null,
         pageData: PageData? = null
     ) {
-        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData)
+        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData)
     }
 
     fun submitInteraction(

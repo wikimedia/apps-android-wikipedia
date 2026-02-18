@@ -39,13 +39,30 @@ class Event {
     @SerialName("funnel_entry_token") private var funnelEntryToken: String? = null
     @SerialName("funnel_event_sequence_position") private var funnelEventSequencePosition: Int? = null
 
+    private var experiment: EventExperiment? = null
+
     // TODO?
     var sample: SampleConfig? = null
 
     @Serializable
     class Meta(
-        var stream: String = ""
+        val stream: String = ""
     )
+
+    @Serializable
+    class EventExperiment(
+        val assigned: String = "",
+        val enrolled: String = "",
+        val coordinator: String = COORDINATOR_DEFAULT,
+        @SerialName("sampling_unit") val samplingUnit: String? = null,
+        @SerialName("subject_id") val subjectId: String? = null
+    ) {
+        companion object {
+            const val COORDINATOR_DEFAULT = "default"
+            const val COORDINATOR_CUSTOM = "custom"
+            const val COORTINATOR_FORCED = "forced"
+        }
+    }
 
     /**
      * Constructor for EventProcessed.
@@ -98,6 +115,13 @@ class Event {
             this.funnelName = instrument.funnel?.name
             this.funnelEntryToken = instrument.funnel?.token
             this.funnelEventSequencePosition = instrument.funnel?.sequence
+        }
+        instrument.experiment?.let {
+            this.experiment = EventExperiment(
+                assigned = it.group,
+                enrolled = it.name,
+                coordinator = it.coordinator
+            )
         }
     }
 
