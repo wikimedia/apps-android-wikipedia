@@ -71,7 +71,7 @@ object OnThisDayGameProvider {
 
         if (gameHistory != null) {
             if (gameHistory.status == DailyGameHistory.GAME_COMPLETED) {
-                return OnThisDayCardGameState.Completed(langCode = wikiSite.languageCode, score = gameHistory.score, totalQuestion = Prefs.otdGameQuestionsPerDay)
+                return OnThisDayCardGameState.Completed(langCode = wikiSite.languageCode, score = gameHistory.score, totalQuestions = Prefs.otdGameQuestionsPerDay)
             } else if (gameHistory.status == DailyGameHistory.GAME_IN_PROGRESS) {
                 return OnThisDayCardGameState.InProgress(langCode = wikiSite.languageCode, currentQuestion = gameHistory.currentQuestionIndex)
             }
