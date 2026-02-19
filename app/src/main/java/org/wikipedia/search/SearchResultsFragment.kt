@@ -75,7 +75,10 @@ class SearchResultsFragment : Fragment() {
                             onRatingClick = { isPositive ->
                                 // TODO: implement rating submission
                             },
-                            onSemanticError = {
+                            onLexicalResultsEmpty = {
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
+                            },
+                            onSemanticResultsEmpty = {
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             }
                         )
