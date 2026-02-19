@@ -10,6 +10,7 @@ import org.wikimedia.testkitchen.context.InteractionData
 import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 
 @Suppress("CanConvertToMultiDollarString")
 @Serializable
@@ -20,6 +21,9 @@ class Event {
     @SerialName("\$schema") var schema: String = ""
     @SerialName("dt") var timestamp: String? = null
     val meta: Meta
+
+    @SerialName("instrument_name") var instrumentName: String? = null
+
     @SerialName("agent") var agentData: AgentData? = null
     @SerialName("page") var pageData: PageData? = null
     @SerialName("mediawiki") var mediawikiData: MediawikiData? = null
@@ -30,17 +34,35 @@ class Event {
     @SerialName("action_context") private var actionContext: String? = null
     @SerialName("element_id") private var elementId: String? = null
     @SerialName("element_friendly_name") private var elementFriendlyName: String? = null
+
+    @SerialName("funnel_name") private var funnelName: String? = null
     @SerialName("funnel_entry_token") private var funnelEntryToken: String? = null
     @SerialName("funnel_event_sequence_position") private var funnelEventSequencePosition: Int? = null
+
+    private var experiment: EventExperiment? = null
 
     // TODO?
     var sample: SampleConfig? = null
 
     @Serializable
     class Meta(
-        var stream: String = "",
-        var domain: String? = null
+        val stream: String = ""
     )
+
+    @Serializable
+    class EventExperiment(
+        val assigned: String = "",
+        val enrolled: String = "",
+        val coordinator: String = COORDINATOR_DEFAULT,
+        @SerialName("sampling_unit") val samplingUnit: String? = null,
+        @SerialName("subject_id") val subjectId: String? = null
+    ) {
+        companion object {
+            const val COORDINATOR_DEFAULT = "default"
+            const val COORDINATOR_CUSTOM = "custom"
+            const val COORDINATOR_FORCED = "forced"
+        }
+    }
 
     /**
      * Constructor for EventProcessed.
@@ -62,6 +84,7 @@ class Event {
         schema: String,
         stream: String,
         dt: String?,
+        instrument: InstrumentImpl? = null,
         clientData: ClientData,
         interactionData: InteractionData,
         sample: SampleConfig? = null
@@ -70,17 +93,36 @@ class Event {
         this.schema = schema
         this.sample = sample
         this.timestamp = dt
+        applyInstrument(instrument)
         applyClientData(clientData)
         applyInteractionData(interactionData)
     }
 
     fun applyClientData(clientData: ClientData) {
         this.clientData = clientData
-        meta.domain = clientData.domain
         agentData = clientData.agentData
         pageData = clientData.pageData
         mediawikiData = clientData.mediawikiData
         performerData = clientData.performerData
+    }
+
+    private fun applyInstrument(instrument: InstrumentImpl?) {
+        if (instrument == null) {
+            return
+        }
+        this.instrumentName = instrument.name
+        if (instrument.funnel != null) {
+            this.funnelName = instrument.funnel?.name
+            this.funnelEntryToken = instrument.funnel?.token
+            this.funnelEventSequencePosition = instrument.funnel?.sequence
+        }
+        instrument.experiment?.let {
+            this.experiment = EventExperiment(
+                assigned = it.group,
+                enrolled = it.name,
+                coordinator = it.coordinator
+            )
+        }
     }
 
     private fun applyInteractionData(interactionData: InteractionData) {
@@ -91,7 +133,5 @@ class Event {
         this.actionSubtype = interactionData.actionSubtype
         this.elementId = interactionData.elementId
         this.elementFriendlyName = interactionData.elementFriendlyName
-        this.funnelEntryToken = interactionData.funnelEntryToken
-        this.funnelEventSequencePosition = interactionData.funnelEventSequencePosition
     }
 }

@@ -15,7 +15,8 @@ internal class EventTest {
             "test/event/1.0.0",
             "test.event",
             "2021-08-27T12:00:00Z",
-            DataFixtures.getTestClientData(agentData = AgentData(
+            instrument = DataFixtures.getTestInstrument(),
+            clientData = DataFixtures.getTestClientData(agentData = AgentData(
                 appInstallId = uuid,
                 clientPlatform = "android",
                 clientPlatformFamily = "app",
@@ -25,7 +26,7 @@ internal class EventTest {
                 deviceLanguage = "en",
                 releaseStatus = "beta"
             )),
-            DataFixtures.getTestInteractionData("TestAction")
+            interactionData = DataFixtures.getTestInteractionData("TestAction")
         )
 
         val json = JsonUtil.encodeToString(event)
@@ -33,7 +34,8 @@ internal class EventTest {
         assertEquals("{" +
                 "\"\$schema\":\"test/event/1.0.0\"," +
                 "\"dt\":\"2021-08-27T12:00:00Z\"," +
-                "\"meta\":{\"stream\":\"test.event\",\"domain\":\"en.wikipedia.org\"}," +
+                "\"meta\":{\"stream\":\"test.event\"}," +
+                "\"instrument_name\":\"test-instrument\"," +
                 "\"agent\":{" +
                 "\"app_flavor\":\"flamingo\"," +
                 "\"app_install_id\":\"$uuid\"," +
@@ -73,9 +75,7 @@ internal class EventTest {
                 "\"action_source\":\"TestActionSource\"," +
                 "\"action_context\":\"TestActionContext\"," +
                 "\"element_id\":\"TestElementId\"," +
-                "\"element_friendly_name\":\"TestElementFriendlyName\"," +
-                "\"funnel_entry_token\":\"TestFunnelEntryToken\"," +
-                "\"funnel_event_sequence_position\":8" +
+                "\"element_friendly_name\":\"TestElementFriendlyName\"" +
                 "}", json
         )
     }

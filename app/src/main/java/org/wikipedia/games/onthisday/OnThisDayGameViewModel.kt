@@ -125,7 +125,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else {
                 LocalDate.now()
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
            LocalDate.now()
         }
     }
@@ -311,7 +311,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             year = year,
                             month = month,
                             day = day,
-                            score = answers.count { it }.toInt(),
+                            score = answers.count { it },
                             playType = PlayTypes.PLAYED_ON_SAME_DAY.ordinal,
                             gameData = JsonUtil.encodeToString(answers),
                             currentQuestionIndex = currentState.currentQuestionIndex

@@ -17,6 +17,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.Balloon
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -62,6 +63,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
     var callback: Callback? = null
+
+    // For subclasses to create instruments that they would like to persist for the lifetime of the activity.
+    protected var _instrument: InstrumentImpl? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
@@ -249,6 +253,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     fun launchDonateActivity(intent: Intent) {
         requestDonateActivity.launch(intent)
+    }
+
+    fun getInstrument(): InstrumentImpl? {
+        return _instrument
     }
 
     private fun maybeShowYearInReview() {

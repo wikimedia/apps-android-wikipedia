@@ -36,6 +36,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UiState
+import java.text.DecimalFormat
 
 @Composable
 fun WikiGamesModule(
@@ -160,7 +161,7 @@ fun WikiGamesStatsCard(
                 WikiGamesStatView(
                     modifier = Modifier.weight(1f),
                     iconResource = R.drawable.outline_sports_score_24,
-                    statValue = if (averageScore == 0.0) "-" else averageScore.toString(),
+                    statValue = if (averageScore == 0.0) "-" else DecimalFormat("0.#").format(averageScore),
                     statLabel = stringResource(R.string.on_this_day_game_stats_average_score)
                 )
             }

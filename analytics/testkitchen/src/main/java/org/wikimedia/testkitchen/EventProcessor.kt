@@ -1,6 +1,5 @@
 package org.wikimedia.testkitchen
 
-import androidx.core.net.toUri
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,7 +22,7 @@ class EventProcessor(
     private val eventSender: EventSender,
     private val eventQueue: BlockingQueue<Event>,
     private val logger: LogAdapter,
-    private val isDebug: Boolean = false
+    private val followCurationRules: Boolean = true
 ) {
 
     /**
@@ -58,7 +57,7 @@ class EventProcessor(
                 }
             }
             .filter { event ->
-                eventPassesCurationRules(event, streamConfigsMap)
+                if (followCurationRules) eventPassesCurationRules(event, streamConfigsMap) else true
             }
             .groupBy { event ->
                 destinationEventService(event, streamConfigsMap)
@@ -93,7 +92,7 @@ class EventProcessor(
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    eventSender.sendEvents((destinationEventService.baseUri + "/v1/events" + (if (!isDebug) "?hasty=true" else "")).toUri(), pendingValidEvents)
+                    eventSender.sendEvents(destinationEventService, pendingValidEvents)
                 } catch (e: UnknownHostException) {
                     logger.error("Network error while sending " + pendingValidEvents.size + " events. Adding back to queue.", e)
                     eventQueue.addAll(pendingValidEvents)
