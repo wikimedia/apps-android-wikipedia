@@ -71,12 +71,21 @@ private val onboardingItems = listOf(
     )
 )
 
-private val defaultSearchQueries = listOf(
+private val defaultSuggestedQueries = listOf(
     R.string.hybrid_search_onboarding_search_example_query_pluto_as_planet,
     R.string.hybrid_search_onboarding_search_example_query_first_olympics,
     R.string.hybrid_search_onboarding_search_example_query_rna_vs_dna,
     R.string.hybrid_search_onboarding_search_example_query_pineapple_pizza,
     R.string.hybrid_search_onboarding_search_example_query_biggest_cities_europe
+)
+private val suggestedQueriesPerLanguage = mapOf("el" to
+    listOf(
+        R.string.hybrid_search_onboarding_search_example_query1_el,
+        R.string.hybrid_search_onboarding_search_example_query2_el,
+        R.string.hybrid_search_onboarding_search_example_query3_el,
+        R.string.hybrid_search_onboarding_search_example_query4_el,
+        R.string.hybrid_search_onboarding_search_example_query5_el
+    )
 )
 
 class HybridSearchOnboardingActivity : BaseActivity() {
@@ -222,7 +231,7 @@ fun HybridSearchOnboardingScreen(
 @Composable
 fun SearchExamplesView(
     modifier: Modifier = Modifier,
-    searchExamples: List<Int> = defaultSearchQueries,
+    searchExamples: List<Int> = suggestedQueriesPerLanguage[WikipediaApp.instance.appOrSystemLanguageCode] ?: defaultSuggestedQueries,
     langCode: String,
     onClick: (String) -> Unit
 ) {
