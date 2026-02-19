@@ -35,6 +35,7 @@
 * Tumm1
 * Valtlait
 * Veikk0.ma
+* Yupik
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -275,8 +276,8 @@
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="legal_safety_contacts_description">Laki- ja turvallisuusyhteystiedot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
   <string name="about_libraries_heading">Käytetyt kirjastot</string>
@@ -903,7 +904,7 @@
   <string name="description_edit_help_title">Ohje: Artikkelien kuvaukset</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_help_wikidata_guide">Opas Wikidata-kuvauksien kirjoittamiseen</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/fi</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisää muokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvausta, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja julkaisen muokkaukseni peruuttamattomasti &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
@@ -2158,4 +2159,5 @@
   <string name="donation_reminders_settings_report_email_subject">Ongelmaraportti – Lahjoitusmuistutukset</string>
   <string name="donation_reminders_settings_report_email_body">Olen huomannut seuraavan ongelman Lahjoitusmuistutuset-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n- [Kuvakaappaukset tai linkit)\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Muuta</string>
+  <string name="hybrid_search_onboarding_learn_more">Lisätietoja</string>
 </resources>

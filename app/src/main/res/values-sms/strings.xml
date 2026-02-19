@@ -341,6 +341,7 @@
   <string name="suggested_edits_contribution_type_image_tag">Karttǩeâlǥal</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Eʹtǩǩuum deskriipt</string>
   <string name="image_recommendation_reject_submit">Vuõlttâd</string>
+  <string name="activity_tab_menu_info">Lââʹssteâđ</string>
   <string name="file_page_activity_title">Teâttõsseidd</string>
   <string name="file_page_add_image_caption_button">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="file_page_edit_button_content_description">Muuʹtt %s</string>
@@ -433,8 +434,10 @@
   <string name="talk_templates_edit_message_dialog_save">Ruõkk</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Čuäʹjet õõʹnniseeid</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Čuäʹjet õõʹnni muttsid</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Piij ǩidd</string>
   <string name="patroller_tasks_filters_user_status_registered">Rekisterõsttum</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkeeʹl muʹttemhistoria</string>
+  <string name="patroller_tasks_overflow_learn">Lââʹssteâđ</string>
   <string name="patroller_diff_menu_edit_history_title">Artikkeeʹl muʹttemhistoria</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Maacctõs</string>
   <string name="talk_templates_menu_edit_title">Muuʹtt</string>
@@ -442,4 +445,8 @@
   <string name="places_toggle_buttons_list">Listt</string>
   <string name="survey_dialog_submit">Vuõlttâd</string>
   <string name="on_this_day_game_share_button">Jueʹjj</string>
+  <string name="on_this_day_game_menu_info">Lââʹssteâđ</string>
+  <string name="year_in_review_learn_more">Lââʹssteâđ</string>
+  <string name="donation_reminders_settings_learn_more_button">Lââʹssteâđ</string>
+  <string name="hybrid_search_onboarding_learn_more">Lââʹssteâđ</string>
 </resources>
