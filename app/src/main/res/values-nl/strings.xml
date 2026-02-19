@@ -284,6 +284,7 @@
   <string name="about_description">Over de Wikipedia-app</string>
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
+  <string name="legal_safety_contacts_description">Juridische en veiligheidscontacten</string>
   <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
@@ -2280,4 +2281,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Probeer een gerelateerd onderwerp</string>
   <string name="hybrid_search_error_message">Er is iets misgegaan. Probeer het later opnieuw.</string>
   <string name="hybrid_search_who_is_prefix">Wie is %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Dit experiment uit uitschakelen</string>
 </resources>
