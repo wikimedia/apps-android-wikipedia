@@ -65,7 +65,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     var callback: Callback? = null
 
     // For subclasses to create instruments that they would like to persist for the lifetime of the activity.
-    protected var instrument: InstrumentImpl? = null
+    protected var _instrument: InstrumentImpl? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
@@ -256,7 +256,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     fun getInstrument(): InstrumentImpl? {
-        return instrument
+        return _instrument
     }
 
     private fun maybeShowYearInReview() {
