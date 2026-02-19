@@ -246,6 +246,7 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلار</string>
   <string name="terms_of_use_description">د کارولو منښتونه</string>
+  <string name="legal_safety_contacts_description">قانوني او خونديتوب اړيکې</string>
   <string name="about_wikipedia_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:پېژندنه</string>
   <string name="android_app_request_an_account_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:د_گڼون_جوړېدو_غوښتنه</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
@@ -951,6 +952,10 @@
   <string name="suggested_edits_image_tags_exit_dialog_message">ناخپاره شوي نښلنونه به خوندي نشي</string>
   <string name="suggested_edits_image_zoom_tooltip">د دې انځور ژورليدنې لپاره وسکوڼئ.</string>
   <string name="suggested_edits_encouragement_message">%s، ستاسو له سمونونو مننه. لاندې تاسو کولی شئ ويکي‌پېډيا کې د ونډې اخيستلو لپاره نورې لارې ومومئ.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">تر دې دمه ستاسو د ټولو ونډو شمېر.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">ستاسو د ونډې اخيستلو پرله پسې ورځې. که ستاسو ونډې اخيستلو کې ځنډ رامنځته شوی وی، ستاسو د ونډې وروستۍ نېټه به وښودل شي.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">په تېرو ۳۰ ورځو کې د هغو توکو ټولې‌مخليدنې چې تاسو پکې ونډه اخيستې ده.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">دا چې ستاسو يوه ونډه څوځلې په څټ گرځول شوې (د بل سمونگر له خوا ناکړ شوې). په څټ‌گرځول‌شوي سمونونه: %d.</string>
   <string name="suggested_edits_editing_tips_link_text">د سمون لارښوونې او چلونه</string>
   <string name="suggested_edits_help_page_link_text">وړانديز شوو سمونونو لارښود مخ</string>
   <string name="suggested_edits_edit_streak_label_text">سمون لړۍ</string>
@@ -1049,7 +1054,12 @@
   <string name="image_recommendation_reject_other">نور</string>
   <string name="image_recommendation_reject_submit">سپارل</string>
   <string name="image_recommendation_tooltip_main">په وړانديزشوو سمونونو کې ليکنو ته ورک انځورونه ورگډول</string>
+  <string name="image_recommendation_tooltip_1">د سکالو پوهېدو لپاره د دې ليکنې بياکتنه کول</string>
+  <string name="image_recommendation_tooltip_2">انځور او ورسره تړلي مالومات وڅېړئ</string>
+  <string name="image_recommendation_tooltip_3">پرېکړه وکړئ چې ايا انځور د لوستونکو سره د دې سکالو ښه پوهېدو کې مرسته کوي</string>
   <string name="image_recommendation_tooltip_next">راتلونکی</string>
+  <string name="image_recommendation_tooltip_warning">مهرباني وکړئ د سکالو پوهېدو لپاره د دې ليکنې بياکتنه وکړئ او انځور وڅېړئ</string>
+  <string name="image_recommendation_depleted">په بښنې سره، وسمهال نور وړانديزشوي انځورونه شتون نه لري. مهرباني وکړئ نور &lt;a href=\"#\"&gt;وړانديزشوي سمونونه&lt;/a&gt; و پلټئ يا لږ وروسته بېرته راشئ.</string>
   <string name="suggested_edits_report_feature">د غوني ستونزه</string>
   <string name="suggested_edits_report_feature_subject">وړانديزشوو سمونونو سره ستونزه</string>
   <string name="edit_summary_added_image">ورگډشوی انځور</string>
@@ -1073,6 +1083,7 @@
   <string name="activity_tab_game_stats_best_streak">غوره لړۍ</string>
   <string name="activity_tab_play_wiki_games">ويکي‌لوبې لوبول</string>
   <string name="activity_tab_report_email_subject">ستونزې راپور - چارو ريښکه</string>
+  <string name="activity_tab_report_email_body">زه د چارو د ريښکې ځانگړنې ستونزې سره مخ شوی يم:\n- [ځانگړې ستونزه تشريح کول]\n\nهغه چلن چې زه يې ليدل غواړم دا دی:\n- [وړانديز شوی حل تشريح کول]</string>
   <string name="activity_tab_menu_feedback">د غوني ستونزه</string>
   <string name="activity_tab_menu_info">نور مالومات</string>
   <string name="activity_tab_menu_customize">دوديزول</string>
@@ -1106,6 +1117,7 @@
   <string name="activity_tab_impact_best_streak">غوره لړۍ</string>
   <string name="activity_tab_impact_last_edited">وروستی ځل سم‌شوی</string>
   <string name="activity_tab_impact_suggested_edits_title">په دې وروستيو کې په ليکنو کې ۰ سمونونه</string>
+  <string name="activity_tab_impact_suggested_edits_message">داسې ښکاري چې تاسو په دې مياشت کې هېڅ سمون نه دی کړی. د خپلو خواپورو سکالوگانو په سمولو سره وړيا پوهه وغځوئ.</string>
   <string name="activity_tab_impact_suggested_edits_button">يو سمون کول</string>
   <string name="activity_tab_impact_recent_activity">ستاسو وروستۍ چارې (وروستۍ ۳۰ ورځې)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
@@ -1131,6 +1143,12 @@
   <string name="activity_tab_timeline_view_changes_button">بدلونونه کتل</string>
   <string name="activity_tab_onboarding_reading_patterns_title">د لوستلو نمونې</string>
   <string name="activity_tab_onboarding_reading_patterns_message">وگورئ چې تاسو څومره وخت په لوستلو تېر کړی دی او کومې ليکنې يا سکالوگانې مو د وخت په تېرېدو سپړلې دي.</string>
+  <string name="activity_tab_onboarding_screen_title">چارو معرفي‌کول</string>
+  <string name="activity_tab_onboarding_impact_title">اغېزمن مهم‌ټکي</string>
+  <string name="activity_tab_onboarding_impact_message">د خپلو ونډو او هغه پوهې د لاسرسي په اړه پوه‌ليدونه ومومئ چې تاسو شريک کړې دي.</string>
+  <string name="activity_tab_onboarding_engage_title">د ښکېلتيا نورې لارې</string>
+  <string name="activity_tab_onboarding_engage_message">د لوبو، خوندي‌شوو ليکنو او نورو چارو شمارنې وپلټئ چې تاسو د ويکي‌پېډيا سره ژور نښلېدو ته اړباسي.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">کنترول کې اوسئ</string>
   <string name="activity_tab_onboarding_stay_in_control_message">غوره کړئ چې کوم چلنوال ښکاره کړئ. ټول ځانواله اومتوکي ستاسو وسيله کې ځانواله پاتې کېږي او د پلټلو پېښليک هروخت سپا کېدی شي.</string>
   <string name="edits_screen_what_is_title">په ويکي‌پېډيا کاريال کې سمول</string>
   <string name="file_page_activity_title">د دوتنې مخ</string>
@@ -1145,18 +1163,23 @@
   <string name="onboarding_maybe_later">شايد وروسته</string>
   <string name="onboarding_explore_title">د سپړلو لپاره نوې لارې</string>
   <string name="onboarding_explore_text">د ويکي‌پېډيا منځپانگه د پرله‌پسې هم‌مهالېدونکې سپړلو ليددړې سره وپلټئ. &lt;br/&gt; \nسپړنې ليددړه د خپلو گټو سره سم &lt;b&gt;دوديزه کړئ&lt;/b&gt; &lt;b&gt;په دې ورځ&lt;/b&gt; د رامنځته شوو تاريخي پېښو اړوند زده کړه وکړئ يا په ساده ډول يوڅه &lt;b&gt;ناڅاپي&lt;/b&gt; ومومئ.</string>
+  <string name="onboarding_reading_list_sync_title">همغږۍ سره لوستلړونه لوستل</string>
+  <string name="onboarding_reading_list_sync_text_v2">تاسو کولی شئ د هغه ليکنو څخه لوستلړونه جوړ کړئ چې تاسو يې وروسته لوستل غواړئ، حتی کله چې تاسو افلاين ياست.&lt;br/&gt;د خپلو لوستلړونو د همغږۍ لپاره خپل ويکي‌پېډيا گڼون ته ننوځئ.&lt;a href=\"#login\"&gt;ويکي‌پېډيا سره يوځای شئ&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">اومتوکي او پټنتيا</string>
   <string name="onboarding_data_privacy_text">موږ باور لرو چې تاسو به د وړيا پوهنغونډ غورځنگ کې د گډون لپاره ځانواله مالوماتو چمتو کولو ته اړتيا ونه لرئ. د دې کاريال کارونې اومتوک‌ ټولگه بې نومه ده. زموږ د &lt;a href=\"#privacy\"&gt;پټنتيا تگلار&lt;/a&gt; او &lt;a href=\"#termsOfUse\"&gt;کارونې منښتونو&lt;/a&gt; په اړه نور زده کړئ.</string>
   <string name="onboarding_analytics_switch_title">کارونې اومتوکي لېږل</string>
   <string name="onboarding_got_it">وپوهېدم</string>
+  <string name="onboarding_multilingual_secondary_text">موږ ستاسو وسيله کې لاندې څيزونه موندلي دي:</string>
   <string name="onboarding_multilingual_add_language_text">ژبې ورگډول يا سمول</string>
   <string name="onboarding_welcome_title_v2">وړيا پوهنغونډ\n...له ۳۰۰ څخه زياتو ژبو کې</string>
+  <string name="onboarding_next">راتلونکی</string>
   <string name="app_shortcuts_random">ناڅاپي</string>
   <string name="app_shortcuts_continue_reading">لوستلو ته دوام ورکول</string>
   <string name="app_shortcuts_search">پلټل</string>
   <string name="app_shortcuts_places">ځايونه</string>
   <string name="on_this_day_card_title">په دې ورځ</string>
   <string name="more_events_text">په دې ورځ نور</string>
+  <string name="events_count_text">د %2$s–%3$d څخه %1$s پېښې</string>
   <string name="this_year">سږ کال</string>
   <string name="on_this_day_dialog_next_month">راتلونکې مياشت</string>
   <string name="on_this_day_dialog_previous_month">تېره میاشت</string>
@@ -1179,6 +1202,7 @@
     <item quantity="one">ټاکل‌شوې ژبه لرې‌کول؟</item>
     <item quantity="other">Removeټاکل‌شوې ژبې لرې‌کول؟</item>
   </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">تاسو به يوازې د ويکي‌پېډيا پاتې ژبو لپاره د سپړونکي خوراک‌ليد او چټک پلټنې چاڼگرونو منځپانگې وگورئ.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ټولې ژبې نشي لرې کېدای</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">لږترلږه د ويکيپېډيا يوه ژبه د منځپانگې لټون او لوستلو لپاره پرېږدئ.</string>
   <string name="more_language_options">نور</string>
@@ -1588,6 +1612,7 @@
   <string name="donate_gpay_help_problems">د بسپنه ورکولو ستونزې؟</string>
   <string name="donate_gpay_help_other_ways">د ورکولو نورې لارې</string>
   <string name="donate_gpay_help_faq">ډېر ځليزې پوښتنې</string>
+  <string name="donate_gpay_help_tax">ماليې کمونې مالومات</string>
   <string name="donation_history_deleted_message_snackbar">بسپنې پېښليک ړنگ‌شو.</string>
   <string name="donation_history_no_history_message_snackbar">تاسو د بسپنې پېښليک نه لرئ چې ړنگ يې کړئ.</string>
   <string name="places_title">ځايونه</string>
@@ -1692,6 +1717,7 @@
   <string name="year_in_review_get_started_info">ستاسو لوست پېښليک خوندي ساتل کېږي. د لوستلو ليدلوري ستاسو په وسيله کې په ځايي ډول زېرمه شوو اومتوکو په کارولو سره شمېرل کېږي.</string>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
+  <string name="year_in_review_reading_list_survey_subtitle">ايا تاسو له خپل لوستلړ څخه خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
   <string name="year_in_review_survey_satisfied">خوښ</string>
   <string name="year_in_review_survey_neutral">بې‌پرې</string>
@@ -1700,9 +1726,12 @@
   <string name="year_in_review_survey_placeholder_text">کوم زياتي اندونه لرئ؟</string>
   <string name="year_in_review_survey_cancel">ناگارل</string>
   <string name="year_in_review_survey_submit">سپارل</string>
+  <string name="year_in_review_disable_title">ايا تاسو ډاډه ياست چې د کال بياکتنه گوله کړئ؟</string>
   <string name="year_in_review_disable_positive_button">هو، زده ډاډه يم</string>
   <string name="year_in_review_disable_negative_button">نه، مننه</string>
   <string name="year_in_review_setting_subtitle">د کال بياکتنې گولول به ټول زېرمه شوي ځانواله ځيرکتياوې سپا او کال بياکتنه به پټه کړي.</string>
+  <string name="year_in_review_screendeck_image_content_description">د کال بياکتنې د ارې نندارې سکرين لپاره د انځور سرچينه</string>
+  <string name="year_in_review_screenshot_error">سکرين‌شاټ نشي زېږولی: %s</string>
   <string name="year_in_review_share_subject">زما د ويکي‌پېډيا کال بياکتنه</string>
   <string name="year_in_review_globe_icon">نړۍ نښه</string>
   <string name="settings_app_icon_title">کاريال نښه</string>
@@ -1717,10 +1746,19 @@
   <string name="year_in_review_login_dialog_title">ځانواله کولو لپاره ننوځي؟</string>
   <string name="year_in_review_login_dialog_positive">ويکيپېډيا ته ننوتل / يوځای‌کېدل</string>
   <string name="year_in_review_login_dialog_negative">له ننوتلو پرته دوام ورکول</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="one">ستاسو غوره ليکنه</item>
+    <item quantity="other">ستاسو غوره ليکنې</item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">ستاسو ترټولو ډېرې خواپورې وېشنيزې</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">د انگليسي ويکيپېديا ډېرې لوستل شوې ليکنې</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="one">%,d بايټ ورگډ شو</item>
     <item quantity="other">%,d بايټونه ورگډ شول</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="one">تاسو %s ځل سم کړی</item>
+    <item quantity="other">تاسو %s ځله سم کړی</item>
   </plurals>
   <plurals name="year_in_review_slide_saved_articles_headline">
     <item quantity="one">تاسو %,d ليکنه خوندي کړې ده</item>
@@ -1739,6 +1777,14 @@
   <plurals name="year_in_review_slide_english_reading_hours_headline">
     <item quantity="one">موږ %,d گړۍ په لوستلو تېره کړه</item>
     <item quantity="other">موږ %,d گړۍ په لوستلو تېرې کړې</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="one">تاسو %,d دقيقه تېره کړې</item>
+    <item quantity="other">تاسو %,d دقيقې تېرې کړې</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="one">%1$,d, ليکنه په %2$d کې لوستل</item>
+    <item quantity="other">%1$,d ليکنې په %2$d کې لوستل</item>
   </plurals>
   <string name="year_in_review_reading_list_dialog_title">ايا ستاسو د %d کال د کلنۍ بياکتنې لوستلړ جوړ کړي؟</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">جوړول</string>
@@ -1802,6 +1848,7 @@
   <string name="recommended_reading_list_onboarding_card_positive_button">پيلول</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">نه مننه</string>
   <string name="recommended_reading_list_onboarding_card_negative_snackbar">د خپل وړانديزشوي لوستلړ وروسته اوڼلو لپاره، غوره‌توبونو ته ورشئ.</string>
+  <string name="recommended_reading_list_interest_source_message">ستاسو د وړانديز لوستلړ څنگه جوړ کړو؟</string>
   <string name="recommended_reading_list_interest_source_interests">پرېږده چې د خپلو گټو له مخې يې خوښ کړم</string>
   <string name="recommended_reading_list_interest_source_saved">زما د خوندي‌شوو ليکنو پربنسټ يې راته خوښ کړئ</string>
   <string name="recommended_reading_list_interest_source_history">زما د لوست پېښليک پربنسټ يې راته خوښ کړئ</string>
@@ -1825,8 +1872,12 @@
     <item quantity="one">• %d ليکنه</item>
     <item quantity="other">• %d ليکنې</item>
   </plurals>
+  <string name="recommended_reading_list_page_description_daily">ستاسو ورځنی لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. په نيمه شپه کې هم‌مهاله کېږي.</string>
+  <string name="recommended_reading_list_page_description_weekly">ستاسو اوونيزه لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د اوونۍ پيل کې هم‌مهاله کېږي.</string>
+  <string name="recommended_reading_list_page_description_monthly">ستاسو مياشتنی لوستلړ. نوې سکالوگانې چې يوازې ستاسو لپاره غوره شوې دي، زده کړئ. د هرې مياشتې په لومړۍ نېټه هم‌مهاله کېږي.</string>
   <string name="recommended_reading_list_page_overflow_customize">دوديزول</string>
   <string name="recommended_reading_list_page_overflow_about">د دې ځانگړنې په‌اړه</string>
+  <string name="recommended_reading_list_page_snackbar">موندونکی به په هر %2$s کې %1$d نوو ليکنو سره هم‌مهاله شي. سپارښتنې ستاسو په وسيله کې په ځايي ډول زېرمه شوې دي.</string>
   <string name="recommended_reading_list_page_snackbar_action">دوديزه موندل</string>
   <string name="recommended_reading_list_page_snackbar_day">ورځ</string>
   <string name="recommended_reading_list_page_snackbar_week">اوونۍ</string>
@@ -1834,6 +1885,7 @@
   <string name="recommended_reading_list_settings_section_header">سپارښتنې</string>
   <string name="recommended_reading_list_settings_title">موندلو اوڼنې</string>
   <string name="recommended_reading_list_settings_toggle">لوستلړ موندل</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">موندنه گول ده. ويکي‌پېډيا به تاسو ته د لوستلو لپاره ليکنې وړانديز نه کړي.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">موندل گول کړي؟</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">که تاسو موندل گول کړئ؛ نو تاسو به د ويکي‌پېډيا څخه د %s لوست سپارښتنو ترلاسه کول ودروئ.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">گولول</string>
@@ -1852,13 +1904,19 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_saved">ستاسو د خوندي‌شوو ليکنو پر بنسټ</string>
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">ستاسو د لوست پېښليک پر بنسټ</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_title">د موندلو جوړولو څرنگوالی ترتيب کړئ</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">که تاسو وټاکئ موندونکی څنگه سپارښتنې رامنځته کوي؛ نو ستاسو اوسنۍ سپارښتنې به بدلې شي.</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">ترتيبول</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">پروا نه لري</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_interests">ستاسو وړانديزونه اوس ستاسو لېوالتياوې پورې اړه لري.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">ستاسو وړانديزونه اوس ستاسو د خوندي‌شوو ليکنو پر بنسټ دي.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">ستاسو وړانديزونه اوس ستاسو د لوست پېښليک پر بنسټ دي.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ناکړل</string>
   <string name="recommended_reading_list_settings_interests">لېوالتياوې</string>
   <string name="recommended_reading_list_settings_notifications_title">خبرتياوې</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle">کله چې موندونکی هم‌مهاله شي؛ نو ويکي‌پېډيا به تاسو ته خبرتيا ونه لېږي.</string>
+  <string name="recommended_reading_list_settings_notifications_subtitle_disable">د موندونکي خبرتياوې گولې دي. کله چې موندونکی هم‌مهاله شي؛ نو تاسو به خبرتيا ترلاسه نه کړئ.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_title">خبرتياوې گولې کړي؟</string>
+  <string name="recommended_reading_list_settings_notifications_dialog_message">که تاسو خبرتياوې گولې کړئ؛ نو تاسو به د موندونکي د هم‌مهالېدو پرمهال يادگېرنې ترلاسه نه کړئ.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">دوی بندول</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">نه، بل يې وساتئ</string>
   <string name="recommended_reading_list_notification_title">ستاسو د موندلو %s لوستلړ چمتو دی.</string>
@@ -1882,6 +1940,7 @@
   <string name="donation_reminders_snacbkbar_confirmation_label">مننه! موږ تاسو ته در په يادوو چې د %2$s لوستلو سره %1$s بسپنه ورکړئ؛ ترڅو دا لړۍ روانه وساتل شي.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">تاسو د %2$s ژمنې کولو راهيسې %1$s لوستی دی</string>
   <string name="donation_reminders_subsequent_milestone_reached_prompt_title">تاسو نور %1$s لوستې دي</string>
+  <string name="donation_reminders_prompt_message">تاسو په %1$s د بسپنې يادښت اوڼلی دی؛ ترڅو په هرو %2$s لوستنو %3$s ورکړئ. ايا تاسو چمتو ياست چې د ويکي‌پډيا د ملاتړ لپاره خپله ژمنه پوره کړئ؟</string>
   <string name="donation_reminders_prompt_positive_button">اوس بسپنه ورکول</string>
   <string name="donation_reminders_prompt_negative_button">اوس نه</string>
   <string name="donation_reminders_gpay_text">له گوگل پی سره %s  بسپنه‌ورکول</string>
@@ -1908,7 +1967,7 @@
   <string name="hybrid_search_onboarding_search_description">دا ازمېښتي ځانگړنه طبيعي ژبه پوهېږي.\nد کليدي‌ويوکو د پلټلو پرځای هغه څه تشرېح کړئ چې تاسو پرې پوهېدل غواړئ.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">ازمېښتي ځانگړنه</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">د دې ازمېښت پرمهال د ټاکلي وخت لپاره شتون لري.</string>
-  <string name="hybrid_search_beta_tag" fuzzy="true">ازمېښتي</string>
+  <string name="hybrid_search_beta_tag">ازمېښتي</string>
   <string name="hybrid_search_experimental_feature_switch_label">ازمېښت سره يوځای شئ</string>
   <string name="hybrid_search_onboarding_search_example_title">الهام ته اړتيا لرئ؟</string>
   <string name="hybrid_search_onboarding_search_example_description">د پلټلو يوه بېلگه لاندې وکاروئ.</string>
@@ -1927,8 +1986,10 @@
   <string name="hybrid_search_results_rate_thumb_down">بټنوک کښته کولو سره ارزول</string>
   <string name="hybrid_search_results_empty">پرمختللي پلټل وسمهال شتون نه لري.</string>
   <string name="hybrid_search_no_results_header">بې پايلو</string>
+  <string name="hybrid_search_no_results_description">دا سکالو وسمهال د ليکنې راخيستنې نه راگرځوي. دلته ځينې څيزونه دي چې تاسو يې هڅه کولی شئ:</string>
   <string name="hybrid_search_no_results_suggestion_rephrase_text">خپل لټون په نوي ډول بيان کړئ</string>
   <string name="hybrid_search_no_results_suggestion_try_related_topic">د اړوند سکالو هڅه وکړئ</string>
   <string name="hybrid_search_error_message">يو څه ناسم پېښ شول. مهرباني وکړئ وروسته بيا هڅه وکړئ.</string>
   <string name="hybrid_search_who_is_prefix">%s څوک دی؟</string>
+  <string name="hybrid_search_turn_off_experiment_label">دا ازمېښت گول کړئ</string>
 </resources>
