@@ -3,15 +3,19 @@ package org.wikipedia.search
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
+    private lateinit var _instrument: InstrumentImpl
+    val instrument get() = _instrument
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,10 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 intent.removeExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)
             }
         }
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+            .startFunnel("search")
+            .setExperiment("semanticsearch_abctest", HybridSearchAbCTest().getGroupName())
     }
 
     public override fun createFragment(): SearchFragment {

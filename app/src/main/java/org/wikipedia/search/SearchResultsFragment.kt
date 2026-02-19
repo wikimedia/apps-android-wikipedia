@@ -133,6 +133,8 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
+        (requireActivity() as SearchActivity).instrument.submitInteraction("start_search", actionSource = "search", actionContext = mapOf("query" to term.orEmpty()))
+
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
         viewModel.updateLanguageCode(searchLanguageCode)
         if (force) {

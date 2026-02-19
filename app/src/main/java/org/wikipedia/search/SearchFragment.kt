@@ -22,6 +22,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -219,6 +220,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         if (!isAdded) {
             return
         }
+
+        (requireActivity() as SearchActivity).instrument.submitInteraction("navigate", actionSource = "search", pageData = TestKitchenAdapter.getPageData(item))
+
         if (returnLink && (if (invokeSource == InvokeSource.PLACES) location != null else true)) {
             if (invokeSource == InvokeSource.PLACES) {
                 PlacesEvent.logAction("search_result_click", "search_view")
