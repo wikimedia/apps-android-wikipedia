@@ -17,7 +17,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.settings.Prefs
@@ -48,9 +50,17 @@ class SearchResultsFragment : Fragment() {
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("navigate", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position.toString()))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onSemanticItemClick = { title, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("navigate", actionSource = "semantic_results", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position.toString()))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
@@ -72,8 +82,9 @@ class SearchResultsFragment : Fragment() {
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
                             },
-                            onRatingClick = { isPositive ->
-                                // TODO: implement rating submission
+                            onRatingClick = { isPositive, title, position ->
+                                requireActivity().instrument?.submitInteraction(if (isPositive) "thumbs_up" else "thumbs_down", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position.toString()))
                             },
                             onSemanticError = {
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)

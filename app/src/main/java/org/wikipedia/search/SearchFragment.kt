@@ -24,6 +24,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
@@ -132,6 +133,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             Prefs.selectedLanguagePositionInSearch = app.languageState.appLanguageCodes.indexOf(Prefs.placesWikiCode)
             PlacesEvent.logImpression("search_view")
         }
+
+        requireActivity().instrument?.submitInteraction("impression", actionSource = invokeSource.value)
+
         return binding.root
     }
 

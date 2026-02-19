@@ -30,6 +30,7 @@ class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
     }
 
     companion object {
+        const val TEST_NAME = "hybridSearch_test"
         const val GROUP_CONTROL = "control"
         const val GROUP_LEXICAL_SEMANTIC = "lexicalSemantic"
         const val GROUP_SEMANTIC_LEXICAL = "semanticLexical"

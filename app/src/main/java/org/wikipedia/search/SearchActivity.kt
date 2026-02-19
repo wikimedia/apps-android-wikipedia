@@ -7,6 +7,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
@@ -22,6 +23,10 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 intent.removeExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)
             }
         }
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+            .startFunnel("search")
+            .setExperiment(HybridSearchAbCTest.TEST_NAME, HybridSearchAbCTest().getGroupName())
     }
 
     public override fun createFragment(): SearchFragment {

@@ -48,11 +48,13 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.extensions.getString
+import org.wikipedia.extensions.instrument
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -95,11 +97,19 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         Prefs.isHybridSearchEnabled = true
         val source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
 
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+            .startFunnel("hybrid_search_onboarding")
+            .setExperiment(HybridSearchAbCTest.TEST_NAME, HybridSearchAbCTest().getGroupName())
+
+        instrument?.submitInteraction("impression", actionSource = "hybrid_search_onboarding")
+
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
                     langCode = WikipediaApp.instance.appOrSystemLanguageCode,
                     onGetStarted = {
+                        instrument?.submitInteraction("click", elementId = "start_button")
+
                         val intent = SearchActivity.newIntent(
                             context = this,
                             source = source ?: Constants.InvokeSource.NAV_MENU,
@@ -115,6 +125,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onSearchQueryItemClick = { exampleQuery ->
+                        instrument?.submitInteraction("click", elementId = "sample_query", actionContext = mapOf("query" to exampleQuery))
+
                         startActivity(SearchActivity.newIntent(
                             context = this,
                             source = source ?: Constants.InvokeSource.NAV_MENU,
@@ -124,6 +136,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
+                        instrument?.submitInteraction("click", elementId = "learn_more_button")
+
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
                     }
                 )

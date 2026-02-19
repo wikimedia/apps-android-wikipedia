@@ -89,7 +89,7 @@ fun HybridSearchResultsScreen(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: (String) -> Unit,
-    onRatingClick: (Boolean) -> Unit,
+    onRatingClick: (Boolean, PageTitle, Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -172,7 +172,7 @@ fun HybridSearchResultsList(
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onRatingClick: (Boolean) -> Unit
+    onRatingClick: (Boolean, PageTitle, Int) -> Unit
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
@@ -235,7 +235,7 @@ fun HybridSearchResultsList(
                                 }
                             },
                             onRatingClick = { isPositive ->
-                                onRatingClick(isPositive)
+                                onRatingClick(isPositive, result.pageTitle, index)
                             }
                         )
                     }
