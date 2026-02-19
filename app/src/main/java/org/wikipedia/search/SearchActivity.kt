@@ -3,7 +3,6 @@ package org.wikipedia.search
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
@@ -14,8 +13,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
-    private lateinit var _instrument: InstrumentImpl
-    val instrument get() = _instrument
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
