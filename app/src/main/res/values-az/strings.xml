@@ -251,6 +251,7 @@
   <string name="about_description">Vikipediya proqramı haqqında</string>
   <string name="privacy_policy_description">Məxfilik siyasəti</string>
   <string name="terms_of_use_description">İstifadə şərtləri</string>
+  <string name="legal_safety_contacts_description">Hüquqi və təhlükəsizlik əlaqə üsulları</string>
   <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
   <string name="about_libraries_heading">Kitabxanalar istifadə edildi</string>
   <string name="about_contributors_heading">Tərtibatçılar</string>
@@ -2235,4 +2236,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Əlaqəli bir mövzunu sınayın</string>
   <string name="hybrid_search_error_message">Xəta baş verdi. Daha sonra yenidən cəhd edin.</string>
   <string name="hybrid_search_who_is_prefix">%s kimdir?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Bu təcrübəni söndür</string>
 </resources>

@@ -2045,8 +2045,13 @@
     <item quantity="one">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
     <item quantity="other">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
   </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">App-brugere har set Wikipedia-artikler %,d gang</item>
+    <item quantity="other">App-brugere har set Wikipedia-artikler %,d gange</item>
+  </plurals>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
+  <string name="year_in_review_reading_list_title">Året i tilbageblik %d</string>
   <string name="year_in_review_highlights_looking_forward_message">Vi ser frem til næste år!</string>
   <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
     <item quantity="one">Mest læste artikel på den engelske Wikipedia</item>
@@ -2179,6 +2184,8 @@
   <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
+  <string name="hybrid_search_article_search_hint">Spørg om %s</string>
+  <string name="hybrid_search_suggestion_title">Søg efter:</string>
   <string name="hybrid_search_onboarding_learn_more">Lær mere</string>
   <string name="hybrid_search_onboarding_search_title">Stil spørgsmål, få svar</string>
   <string name="hybrid_search_onboarding_search_description">Denne eksperimentelle funktion forstår naturligt sprog. I stedet for at søge efter søgeord kan du beskrive hvad du vil vide.</string>
@@ -2197,4 +2204,6 @@
   <string name="hybrid_search_results_rate_thumb_down">Bedøm thumbs down</string>
   <string name="hybrid_search_results_empty">Forbedret søgning er midlertidigt utilgængelig.</string>
   <string name="hybrid_search_no_results_header">Ingen resultater</string>
+  <string name="hybrid_search_who_is_prefix">Hvem er %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Slå dette eksperiment fra</string>
 </resources>
