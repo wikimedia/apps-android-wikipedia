@@ -129,7 +129,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             } else {
                 LocalDate.now()
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
            LocalDate.now()
         }
     }
@@ -181,9 +181,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         allEvents.shuffle(Random(currentMonth * 100 + currentDay))
 
         // Take an event from the list, and find another event that is within a certain range
-        for (i in 0 until Prefs.otdGameQuestionsPerDay) {
+        repeat(Prefs.otdGameQuestionsPerDay) {
             val event1 = allEvents.removeAt(0)
-            var event2: OnThisDay.Event? = null
+            var event2: OnThisDay.Event?
             val yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
             event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
             if (event2 == null) {
@@ -354,7 +354,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                             year = year,
                             month = month,
                             day = day,
-                            score = answers.count { it }.toInt(),
+                            score = answers.count { it },
                             playType = PlayTypes.PLAYED_ON_SAME_DAY.ordinal,
                             gameData = JsonUtil.encodeToString(answers),
                             currentQuestionIndex = currentState.currentQuestionIndex
