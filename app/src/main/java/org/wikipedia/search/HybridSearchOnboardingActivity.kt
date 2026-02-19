@@ -108,7 +108,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                 HybridSearchOnboardingScreen(
                     langCode = WikipediaApp.instance.appOrSystemLanguageCode,
                     onGetStarted = {
-                        instrument?.submitInteraction("click", elementId = "start_button")
+                        instrument?.submitInteraction("click", elementId = "start_button",
+                            actionSource = "hybrid_search_onboarding")
 
                         val intent = SearchActivity.newIntent(
                             context = this,
@@ -125,7 +126,9 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onSearchQueryItemClick = { exampleQuery ->
-                        instrument?.submitInteraction("click", elementId = "sample_query", actionContext = mapOf("query" to exampleQuery))
+                        instrument?.submitInteraction("click", elementId = "sample_query",
+                            actionSource = "hybrid_search_onboarding",
+                            actionContext = mapOf("query" to exampleQuery))
 
                         startActivity(SearchActivity.newIntent(
                             context = this,
@@ -136,7 +139,8 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction("click", elementId = "learn_more_button")
+                        instrument?.submitInteraction("click", elementId = "learn_more_button",
+                            actionSource = "hybrid_search_onboarding")
 
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
                     }
