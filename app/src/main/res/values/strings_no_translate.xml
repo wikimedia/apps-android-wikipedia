@@ -107,9 +107,9 @@
 
     <!-- Example semantic search queries, specifically for testing with Greek. -->
     <string name="hybrid_search_onboarding_search_example_query1_el">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
-    <string name="hybrid_search_onboarding_search_example_query2_el">πρώτοι Ολυμπιακοί Αγώνες</string>
+    <string name="hybrid_search_onboarding_search_example_query2_el">Πρώτοι Ολυμπιακοί Αγώνες</string>
     <string name="hybrid_search_onboarding_search_example_query3_el">RNA vs DNA</string>
-    <string name="hybrid_search_onboarding_search_example_query4_el">η μεγαλύτερη λίμνη στην Ελλάδα</string>
-    <string name="hybrid_search_onboarding_search_example_query5_el">εθνικό πιάτο στην Ελλάδα</string>
+    <string name="hybrid_search_onboarding_search_example_query4_el">Η μεγαλύτερη λίμνη στην Ελλάδα</string>
+    <string name="hybrid_search_onboarding_search_example_query5_el">Εθνικό πιάτο στην Ελλάδα</string>
 
 </resources>
