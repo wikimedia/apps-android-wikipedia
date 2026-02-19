@@ -18,7 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.compose.theme.BaseTheme
-import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.settings.Prefs
@@ -133,8 +132,6 @@ class SearchResultsFragment : Fragment() {
         if (!force && viewModel.searchTerm.value == term && viewModel.languageCode.value == searchLanguageCode) {
             return
         }
-
-        requireActivity().instrument?.submitInteraction("start_search", actionSource = "search", actionContext = mapOf("query" to term.orEmpty()))
 
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
         viewModel.updateLanguageCode(searchLanguageCode)
