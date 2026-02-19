@@ -6,7 +6,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.wikimedia.testkitchen.config.DestinationEventService
-import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventService
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -52,8 +51,8 @@ object ServiceFactory {
         return CORE_REST_SERVICE_CACHE[wiki]!!
     }
 
-    fun getAnalyticsRest(streamConfig: StreamConfig): EventService {
-        return ANALYTICS_REST_SERVICE_CACHE[streamConfig.destinationEventService]!!
+    fun getAnalyticsRest(destinationEventService: DestinationEventService): EventService {
+        return ANALYTICS_REST_SERVICE_CACHE[destinationEventService]!!
     }
 
     operator fun <T> get(wiki: WikiSite, baseUrl: String?, service: Class<T>): T {
