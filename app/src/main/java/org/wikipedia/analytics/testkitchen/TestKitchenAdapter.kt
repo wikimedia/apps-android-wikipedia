@@ -10,8 +10,10 @@ import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
 import org.wikimedia.testkitchen.event.Event
+import org.wikimedia.testkitchen.instrument.ExperimentImpl
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTest
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
@@ -57,6 +59,7 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
             isLoggedIn = AccountUtil.isLoggedIn,
             isTemp = AccountUtil.isTemporaryAccount,
             sessionId = client.sessionController.sessionId,
+            languageGroups = WikipediaApp.instance.languageState.appLanguageCodes.joinToString(","),
             languagePrimary = WikipediaApp.instance.appOrSystemLanguageCode
         )
     }
@@ -65,6 +68,10 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
         val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEventsTk(events) else
             ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHastyTk(events)
         L.d("${events.size} events sent successfully (${response.code()})")
+    }
+
+    fun getExperiment(abTest: ABTest): ExperimentImpl {
+        return ExperimentImpl(abTest.name, abTest.getGroupName(), isLoggable = { abTest.shouldInstrument() })
     }
 
     fun getPageData(fragment: PageFragment?): PageData? {
