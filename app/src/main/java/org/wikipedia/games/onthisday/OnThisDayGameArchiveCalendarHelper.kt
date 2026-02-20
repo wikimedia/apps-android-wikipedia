@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.LANG_CODES_SUPPORTED
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel.Companion.dateReleasedForLang
@@ -28,9 +27,9 @@ import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
 
-class ArchiveCalendarHelper(
+class OnThisDayGameArchiveCalendarHelper(
     private val fragment: Fragment,
-    private val wikiSite: WikiSite,
+    private val languageCode: String,
     private val onDateSelected: (LocalDate) -> Unit
 ) {
     private var scoreData: Map<Long, Int> = emptyMap()
@@ -54,9 +53,9 @@ class ArchiveCalendarHelper(
     fun show() {
         fragment.lifecycleScope.launch {
             val startDateBasedOnLanguage = LANG_CODES_SUPPORTED.associateWith { dateReleasedForLang(it) }
-            val localDate = startDateBasedOnLanguage[wikiSite.languageCode]
+            val localDate = startDateBasedOnLanguage[languageCode]
             val startDate = Date.from(localDate?.atStartOfDay(ZoneId.systemDefault())?.toInstant())
-            scoreData = getDataForArchiveCalendar(language = wikiSite.languageCode)
+            scoreData = getDataForArchiveCalendar(language = languageCode)
             showArchiveCalendar(
                 startDate,
                 Date(),

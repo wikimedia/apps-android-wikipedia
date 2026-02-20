@@ -4,13 +4,13 @@ import androidx.fragment.app.Fragment
 import java.time.LocalDate
 
 abstract class OnThisDayGameBaseFragment : Fragment() {
-    private var archiveCalendarHelper: ArchiveCalendarHelper? = null
+    private var onThisDayGameArchiveCalendarHelper: OnThisDayGameArchiveCalendarHelper? = null
 
-    protected fun prepareAndOpenArchiveCalendar(viewModel: OnThisDayGameViewModel) {
-        archiveCalendarHelper?.unRegister()
-        archiveCalendarHelper = ArchiveCalendarHelper(
+    protected fun prepareAndOpenArchiveCalendar(languageCode: String) {
+        onThisDayGameArchiveCalendarHelper?.unRegister()
+        onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
             fragment = this,
-            wikiSite = viewModel.wikiSite,
+            languageCode = languageCode,
             onDateSelected = { date -> onArchiveDateSelected(date) }
         ).also {
             it.register()
@@ -19,7 +19,7 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        archiveCalendarHelper?.unRegister()
+        onThisDayGameArchiveCalendarHelper?.unRegister()
         super.onDestroyView()
     }
 
