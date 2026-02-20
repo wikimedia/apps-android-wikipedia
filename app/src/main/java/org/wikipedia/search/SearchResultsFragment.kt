@@ -100,14 +100,19 @@ class SearchResultsFragment : Fragment() {
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
 
-                                requireActivity().instrument?.submitInteraction("navigate", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
+                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position))
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
+                            onSemanticCardImpression = { result, position ->
+                                requireActivity().instrument?.submitInteraction("impression", actionSource = "semantic_results", elementId = "semantic_search_card",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = mapOf("position" to position))
+                            },
                             onSemanticItemClick = { title, inNewTab, position, location ->
 
-                                requireActivity().instrument?.submitInteraction("navigate", actionSource = "semantic_results", pageData = TestKitchenAdapter.getPageData(title),
+                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "semantic_results", pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position))
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -147,6 +152,10 @@ class SearchResultsFragment : Fragment() {
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "search_results", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
@@ -157,8 +166,14 @@ class SearchResultsFragment : Fragment() {
                                     callback = SearchResultLongPressHandler(callback(), position)
                                 ).show(entry)
                             },
-                            onSemanticSearchClick = {
-                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
+                            onSemanticSearchClick = { query, isSuggestion ->
+
+                                if (isSuggestion) {
+                                    requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                        elementId = "semantic_search_explicit", actionContext = mapOf("query" to query))
+                                }
+
+                                callback()?.setSearchText(StringUtil.fromHtml(query).toString())
                                 showHybridSearch = true
                                 DeviceUtil.hideSoftKeyboard(requireActivity())
                             },

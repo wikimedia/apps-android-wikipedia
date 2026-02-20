@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -66,6 +67,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.AsyncImage
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -85,6 +88,7 @@ fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticCardImpression: (SearchResult, Int) -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
@@ -142,6 +146,7 @@ fun HybridSearchResultsScreen(
                         onTurnOffExperimentClick = {
                             onTurnOffExperimentClick(searchTerm.value.orEmpty())
                         },
+                        onSemanticCardImpression = onSemanticCardImpression,
                         onSemanticItemClick = onSemanticItemClick,
                         onRatingClick = onRatingClick
                     )
@@ -174,6 +179,7 @@ fun HybridSearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit,
+    onSemanticCardImpression: (SearchResult, Int) -> Unit,
     onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
     onRatingClick: (Boolean, PageTitle, Int) -> Unit
 ) {
@@ -217,7 +223,33 @@ fun HybridSearchResultsList(
         }
 
         item {
+
+            val listState = rememberLazyListState()
+            val impressedCards = remember { mutableSetOf<SearchResult>() }
+
+            LaunchedEffect(Unit) {
+                while (isActive) {
+                    val layoutInfo = listState.layoutInfo
+                    val viewportStart = layoutInfo.viewportStartOffset
+                    val viewportEnd = layoutInfo.viewportEndOffset
+                    layoutInfo.visibleItemsInfo.forEach { itemInfo ->
+                        val itemStart = itemInfo.offset.coerceAtLeast(viewportStart)
+                        val itemEnd = (itemInfo.offset + itemInfo.size).coerceAtMost(viewportEnd)
+                        val visibleWidth = (itemEnd - itemStart).coerceAtLeast(0)
+                        val visibleFraction = visibleWidth.toFloat() / itemInfo.size.toFloat()
+                        if (visibleFraction >= 0.5f && itemInfo.index in semanticSearchResultPage.indices) {
+                            val card = semanticSearchResultPage[itemInfo.index]
+                            if (impressedCards.add(card)) {
+                                onSemanticCardImpression(card, itemInfo.index)
+                            }
+                        }
+                    }
+                    delay(500)
+                }
+            }
+
             LazyRow(
+                state = listState,
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
