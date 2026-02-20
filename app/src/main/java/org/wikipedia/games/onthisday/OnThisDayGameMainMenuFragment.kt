@@ -40,7 +40,6 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
         binding.errorView.retryClickListener = View.OnClickListener {
             viewModel.loadGameState()
         }
@@ -69,6 +68,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
     }
 
     private fun showGameMenu() {
+        binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
         binding.gameMenuContainer.isVisible = true
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false

@@ -261,6 +261,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
+  <string name="legal_safety_contacts_description">Juridiske og sikkerhedsmæssige kontakter</string>
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
@@ -2000,6 +2001,14 @@
     <item quantity="one">Personer brugte anslået %,d time</item>
     <item quantity="other">Personer brugte anslået %,d timer</item>
   </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="one">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d . Wikipedia er der, når du vil lære om vores verden i forandring, vinde et væddemål blandt venner eller besvare et nysgerrigt barns spørgsmål.</item>
+    <item quantity="other">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d . Wikipedia er der, når du vil lære om vores verden i forandring, vinde et væddemål blandt venner eller besvare et nysgerrigt barns spørgsmål.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="one">Wikipedia var tilgængelig på mere end %,d sprog</item>
+    <item quantity="other">Wikipedia var tilgængelig på mere end %,d sprog</item>
+  </plurals>
   <plurals name="year_in_review_slide_available_languages_body_first">
     <item quantity="one">Wikipedia havde %,d artikel</item>
     <item quantity="other">Wikipedia havde %,d artikler</item>
@@ -2024,8 +2033,25 @@
     <item quantity="one">Wikipedia havde %,d artikel</item>
     <item quantity="other">Wikipedia havde %,d artikler</item>
   </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_second">
+    <item quantity="one">over %,d aktivt sprog i år. Du deltog sammen med millioner af andre for at udvide viden og udforske forskellige emner.</item>
+    <item quantity="other">over %,d aktive sprog i år. Du deltog sammen med millioner af andre for at udvide viden og udforske forskellige emner.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">Personer brugte anslået %,d time</item>
+    <item quantity="other">Personer brugte anslået %,d timer</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="one">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
+    <item quantity="other">—omkring %1$,d år!—læser engelsk Wikipedia på %2$d .</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">App-brugere har set Wikipedia-artikler %,d gang</item>
+    <item quantity="other">App-brugere har set Wikipedia-artikler %,d gange</item>
+  </plurals>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
+  <string name="year_in_review_reading_list_title">Året i tilbageblik %d</string>
   <string name="year_in_review_highlights_looking_forward_message">Vi ser frem til næste år!</string>
   <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
     <item quantity="one">Mest læste artikel på den engelske Wikipedia</item>
@@ -2158,6 +2184,8 @@
   <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
+  <string name="hybrid_search_article_search_hint">Spørg om %s</string>
+  <string name="hybrid_search_suggestion_title">Søg efter:</string>
   <string name="hybrid_search_onboarding_learn_more">Lær mere</string>
   <string name="hybrid_search_onboarding_search_title">Stil spørgsmål, få svar</string>
   <string name="hybrid_search_onboarding_search_description">Denne eksperimentelle funktion forstår naturligt sprog. I stedet for at søge efter søgeord kan du beskrive hvad du vil vide.</string>
@@ -2176,4 +2204,6 @@
   <string name="hybrid_search_results_rate_thumb_down">Bedøm thumbs down</string>
   <string name="hybrid_search_results_empty">Forbedret søgning er midlertidigt utilgængelig.</string>
   <string name="hybrid_search_no_results_header">Ingen resultater</string>
+  <string name="hybrid_search_who_is_prefix">Hvem er %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Slå dette eksperiment fra</string>
 </resources>

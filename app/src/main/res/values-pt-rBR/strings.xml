@@ -1289,6 +1289,7 @@
   <string name="onboarding_multilingual_secondary_text">Encontramos os seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar idiomas</string>
   <string name="onboarding_welcome_title_v2">A Enciclopédia Livre\n... em mais de 300 idiomas</string>
+  <string name="onboarding_next">Próximo</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continue lendo</string>
   <string name="app_shortcuts_search">Pesquisar</string>
@@ -1728,6 +1729,7 @@
   <string name="patroller_diff_feedback_dialog_feedback_title">Como podemos melhorar a funcionalidade?</string>
   <string name="patroller_diff_menu_edit_history_title">Histórico de edições do artigo</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentários</string>
+  <string name="patroller_diff_feedback_tooltip">Toque no menu de overflow para enviar comentários a qualquer momento em \'Problema com recurso\'.</string>
   <string name="patroller_saved_message_title_vandalism">Aviso de vandalismo</string>
   <string name="patroller_saved_message_title_editing_tests">Testes de edição</string>
   <string name="patroller_saved_message_title_npov">Ponto de vista neutro</string>
@@ -1768,6 +1770,7 @@
   <string name="donate_gpay_dialog_pay_button">Doar com o Google Pay</string>
   <string name="donate_gpay_dialog_other_button">Outro método de pagamento</string>
   <string name="donate_gpay_activity_title">Escolha um valor</string>
+  <string name="donate_gpay_activity_title_with_currency">Selecione um valor (%s)</string>
   <string name="donate_gpay_check_transaction_fee">Gostaria de acrescentar %s para cobrir as taxas operacionais para que vocês possam receber 100%% da minha doação.</string>
   <string name="donate_gpay_check_recurring">Fazer uma doação mensal recorrente.</string>
   <string name="donate_gpay_check_send_email">Sim, a Wikimedia Foundation pode me mandar um e-mail ocasionalmente.</string>
@@ -1778,7 +1781,8 @@
   <string name="donate_gpay_help_other_ways">Outras formas de doar</string>
   <string name="donate_gpay_help_faq">Perguntas mais frequentes</string>
   <string name="donate_gpay_help_tax">Informações sobre dedutibilidade fiscal</string>
-  <string name="donation_history_deleted_message_snackbar" fuzzy="true">Histórico do doador excluído</string>
+  <string name="donation_history_deleted_message_snackbar">Histórico de doações apagado.</string>
+  <string name="donation_history_no_history_message_snackbar">Você não tem histórico de doações para limpar.</string>
   <string name="places_title">Lugares</string>
   <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
   <string name="places_search_hint">Procurar lugares</string>
@@ -2093,6 +2097,16 @@
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
+  <string name="hybrid_search_search_hint">Pesquise ou pergunte qualquer coisa</string>
+  <string name="hybrid_search_article_search_hint">Pergunte sobre %s</string>
+  <string name="hybrid_search_suggestion_title">Procurar por:</string>
+  <string name="hybrid_search_onboarding_learn_more">Saiba mais</string>
+  <string name="hybrid_search_onboarding_search_title"> Faça perguntas, obtenha respostas</string>
+  <string name="hybrid_search_onboarding_search_description">Este recurso experimental entende linguagem natural. Em vez de pesquisar por palavras-chave, descreva o que você quer saber.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Recurso beta</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponível por tempo limitado durante este experimento.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
   <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
   <string name="hybrid_search_results_more_button">Mais</string>
   <string name="hybrid_search_no_results_header">Sem resultados</string>

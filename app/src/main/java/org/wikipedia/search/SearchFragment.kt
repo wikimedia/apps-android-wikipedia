@@ -37,17 +37,20 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.LanguageScrollView
 import java.util.Locale
 
-class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
+class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private var app = WikipediaApp.instance
     private var langBtnClicked = false
     private var isSearchActive = false
+    private var articleTitle: String? = null
     private var query: String? = null
     private var returnLink = false
+    private var initiateHybridSearch = false
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
     private lateinit var invokeSource: InvokeSource
@@ -60,15 +63,21 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         false
     }
 
+    private fun isHybridSearchEnabled(): Boolean = HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)
+
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             DeviceUtil.hideSoftKeyboard(requireActivity())
+            if (isHybridSearchEnabled()) {
+                searchResultsFragment.showHybridSearch = true
+                startSearch(term = queryText, force = true, resetHybridSearch = false)
+            }
             return true
         }
 
         override fun onQueryTextChange(queryText: String): Boolean {
             binding.searchCabView.setCloseButtonVisibility(queryText)
-            startSearch(queryText.trim(), false)
+            startSearch(queryText.trim(), force = false, resetHybridSearch = searchResultsFragment.showHybridSearch)
             return true
         }
     }
@@ -99,7 +108,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
+        articleTitle = requireArguments().getString(SearchActivity.EXTRA_TITLE)
         returnLink = requireArguments().getBoolean(SearchActivity.EXTRA_RETURN_LINK, false)
+        initiateHybridSearch = requireArguments().getBoolean(SearchActivity.EXTRA_SHOW_HYBRID_SEARCH, false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -126,18 +137,30 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun onStart() {
         super.onStart()
-        setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
+        val hybridSearchEnabled = initiateHybridSearch && isHybridSearchEnabled()
+        val languagePosition = if (hybridSearchEnabled) {
+            val languageCode = app.languageState.appLanguageCode
+            app.languageState.appLanguageCodes.indexOf(languageCode)
+        } else Prefs.selectedLanguagePositionInSearch
+
+        setUpLanguageScroll(languagePosition)
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
         recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
+        if (hybridSearchEnabled) {
+            searchResultsFragment.showHybridSearch = true
+        }
     }
 
     override fun onPause() {
         super.onPause()
         Prefs.selectedLanguagePositionInSearch = binding.searchLanguageScrollView.selectedPosition
+        if (searchResultsFragment.showHybridSearch && !isHybridSearchEnabled()) {
+            searchResultsFragment.showHybridSearch = false
+        }
     }
 
     private fun handleIntent(intent: Intent) {
@@ -152,6 +175,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     fun setUpLanguageScroll(position: Int) {
         var pos = position
+        searchLanguageCode = app.languageState.appLanguageCode
         if (app.languageState.appLanguageCodes.size > 1) {
             pos = if (app.languageState.appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
@@ -174,7 +198,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun switchToSearch(text: String) {
         startSearch(text, true)
+        binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
+        binding.searchCabView.setOnQueryTextListener(searchQueryListener)
     }
 
     override fun onAddLanguageClicked() {
@@ -185,14 +211,15 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         return searchLanguageCode
     }
 
-    override fun setSearchText(text: CharSequence) {
-        binding.searchCabView.setQuery(text, false)
+    override fun setSearchText(text: String) {
+        switchToSearch(text)
     }
 
     override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
         if (!isAdded) {
             return
         }
+
         if (returnLink && (if (invokeSource == InvokeSource.PLACES) location != null else true)) {
             if (invokeSource == InvokeSource.PLACES) {
                 PlacesEvent.logAction("search_result_click", "search_view")
@@ -232,7 +259,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         requestAddLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH))
     }
 
-    private fun startSearch(term: String?, force: Boolean) {
+    private fun startSearch(term: String?, force: Boolean, resetHybridSearch: Boolean = false) {
         if (!isSearchActive) {
             openSearch()
         }
@@ -250,7 +277,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             if (!isAdded) {
                 return@postDelayed
             }
-            searchResultsFragment.startSearch(term, force)
+            when (activePanel) {
+                PANEL_SEARCH_RESULTS -> {
+                    searchResultsFragment.startSearch(term, force, resetHybridSearch)
+                }
+            }
         }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
@@ -261,6 +292,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         // automatically trigger the showing of the corresponding search results.
         if (!query.isNullOrBlank()) {
             binding.searchCabView.setQuery(query, false)
+        }
+        if (initiateHybridSearch) {
+            binding.searchCabView.clearFocus()
         }
     }
 
@@ -299,7 +333,17 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 R.attr.secondary_color))
 
         binding.searchCabView.queryHint =
-            getString(if (invokeSource == InvokeSource.PLACES) R.string.places_search_hint else R.string.search_hint)
+            if (invokeSource == InvokeSource.PLACES) {
+                getString(R.string.places_search_hint)
+            } else if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode)) {
+                if (articleTitle.isNullOrEmpty()) {
+                    getString(R.string.hybrid_search_search_hint)
+                } else {
+                    getString(R.string.hybrid_search_article_search_hint, StringUtil.fromHtml(articleTitle))
+                }
+            } else {
+                getString(R.string.search_hint)
+            }
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -344,12 +388,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 98
 
-        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?, returnLink: Boolean = false, title: String? = null, initiateHybridSearch: Boolean = false): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
                         ARG_QUERY to query,
-                        SearchActivity.EXTRA_RETURN_LINK to returnLink
+                        SearchActivity.EXTRA_RETURN_LINK to returnLink,
+                        SearchActivity.EXTRA_TITLE to title,
+                        SearchActivity.EXTRA_SHOW_HYBRID_SEARCH to initiateHybridSearch
                     )
                 }
     }

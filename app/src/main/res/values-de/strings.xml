@@ -296,6 +296,7 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
+  <string name="legal_safety_contacts_description">Rechts- und Sicherheitskontakte</string>
   <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
@@ -1308,6 +1309,7 @@
   <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
   <string name="onboarding_welcome_title_v2">Die freie Enzyklopädie\n… in über 300 Sprachen</string>
+  <string name="onboarding_next">Weiter</string>
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
@@ -1940,7 +1942,7 @@
   <string name="year_in_review_slide_app_icon_title_unlocked">Neues App-Symbol für deinen Startbildschirm freigeschaltet</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Schalte deine Auszeichnung als Beitragender fär das nächste Jahr frei!</string>
   <string name="year_in_review_slide_app_icon_body_unlocked">Aktiviere dein neues App-Symbol in den Einstellungen unter dem App-Symbol. Vielen Dank für deinen Beitrag zur Zukunft des freien Wissens. Deine %1$s-Beiträge im Jahr %2$d tragen dazu bei, den Weg zu einer Welt freier Informationen zu ebnen, und als Anerkennung hast du ein benutzerdefiniertes Symbol für Beitragende der Wikipedia für deinen Startbildschirm freigeschaltet.</string>
-  <string name="year_in_review_slide_app_icon_body_unlock" fuzzy="true">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du Beitragender wirst — sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt.</string>
+  <string name="year_in_review_slide_app_icon_body_unlock">Wir freuen uns, dass Wikipedia Teil deines Jahres %1$d war! Schalte eine besondere Belohnung in deinem Jahresrückblick %2$d frei, indem du selbst beiträgst – sei es durch das &lt;a href=\"%3$s\"&gt;Bearbeiten der Wikipedia&lt;/a&gt; oder durch eine Spende an die &lt;a href=\"%4$s\"&gt;Wikimedia Foundation&lt;/a&gt;, die gemeinnützige Organisation dahinter. Wenn Wikipedia für dich nützlich ist, unterstütze bitte die Zukunft der Plattform mit einer Spende, damit sie weiterhin kostenlos, werbefrei, vertrauenswürdig und für alle zugänglich bleibt. Falls du bereits anderweitig gespendet hast, danken wir dir herzlich für deine Unterstützung.</string>
   <string name="year_in_review_slide_app_icon_donor">ein Spender</string>
   <string name="year_in_review_slide_app_icon_editor">ein Autor</string>
   <string name="year_in_review_slide_app_icon_donor_and_editor">ein Spender und Autor</string>
@@ -1986,7 +1988,7 @@
     <item quantity="one">Im Jahr %1$d haben Freiwillige %2$,d Byte zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
     <item quantity="other">Im Jahr %1$d haben Freiwillige %2$,d Bytes zur Englischsprachigen Wikipedia beigetragen. Die Summe ihrer gemeinsamen Arbeit führt zu einer sich stetig verbessernden, faktenbasierten und verlässlichen Wissensressource, die sie der Welt zur Verfügung stellen. Wir alle haben Wissen zu teilen, &lt;a href=\"%3$s\"&gt;erfahre, wie du mitmachen kannst&lt;/a&gt;.</item>
   </plurals>
-  <plurals name="year_in_review_slide_edited_times_headline" fuzzy="true">
+  <plurals name="year_in_review_slide_edited_times_headline">
     <item quantity="one">Du hast Wikipedia %s Mal bearbeitet</item>
     <item quantity="other">Du hast Wikipedia %s Mal bearbeitet</item>
   </plurals>
@@ -2231,9 +2233,10 @@
   <string name="recommended_reading_list_settings_toggle_enable_message">Empfehlungen sind aktiviert. Wikipedia empfiehlt dir Artikel zum Lesen.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Spendenerinnerungen können jederzeit in den Einstellungen angepasst werden.</string>
   <string name="donation_settings_section_header">Spenden</string>
-  <string name="donation_reminders_settings_title" fuzzy="true">Spendenerinnerungen</string>
+  <string name="donation_reminders_settings_title">Spendenerinnerungen</string>
+  <string name="donation_reminders_settings_option_title">Spendenerinnerungen</string>
   <string name="donation_reminders_settings_thank_you_message">Schließe dich den 2 %% der Leser an, die spenden, damit Wikipedia werbefrei, aktuell und für alle zugänglich bleibt. Richte jetzt deine Spendenerinnerung ein.</string>
-  <string name="donation_reminders_settings_donation_info" fuzzy="true">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und ihren Schwesterseiten.</string>
+  <string name="donation_reminders_settings_donation_info">Die Spenden gehen an die Wikimedia Foundation und zugehörige Organisationen, die stolzen Betreiber von Wikipedia und anderen freien Wissensprojekten.</string>
   <string name="donation_reminders_settings_article_frequency_label">Wenn ich lese</string>
   <string name="donation_reminders_settings_amount_label">Erinnere mich daran, zu spenden</string>
   <string name="donation_reminders_settings_confirm_btn_label">Erinnerung bestätigen</string>
@@ -2244,7 +2247,8 @@
   <string name="donation_reminders_settings_option_custom">Benutzerdefiniert…</string>
   <string name="donation_reminders_snacbkbar_confirmation_label">Vielen Dank! Wir werden dich während der Laufzeit dieses Experiments jedes Mal, wenn du %2$s liest, an deine Spende in Höhe von %1$s erinnern.</string>
   <string name="donation_reminders_first_milestone_reached_prompt_title">Du hast %1$s gelesen, seit du %2$s versprochen haben.</string>
-  <string name="donation_reminders_prompt_message" fuzzy="true">Am %1$s hast du uns gebeten, dich nach dem Lesen von %2$s daran zu erinnern, zu spenden. Wenn dir Wikipedia Wissen für %3$s vermittelt hat, gehöre bitte zu den 2 %% der Leser, die spenden, und erfülle deine Zusage noch heute.</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du hast weitere %1$s gelesen</string>
+  <string name="donation_reminders_prompt_message">Am %1$s hast du eine Spendenerinnerung eingerichtet, um nach jeweils %2$s gelesenen Artikeln %3$s zu spenden. Bereit, deine Zusage einzulösen und Wikipedia zu unterstützen?</string>
   <string name="donation_reminders_prompt_positive_button">Jetzt spenden</string>
   <string name="donation_reminders_prompt_negative_button">Nicht jetzt</string>
   <string name="donation_reminders_gpay_text">Mit Google Pay %s spenden</string>
@@ -2256,5 +2260,44 @@
     <item quantity="one">%d Artikel</item>
     <item quantity="other">%d Artikel</item>
   </plurals>
-  <string name="donation_reminders_experiment_label" fuzzy="true">Experiment</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">Nein, danke</string>
+  <string name="donation_reminders_experiment_label">Experiment</string>
+  <string name="donation_reminders_settings_learn_more_button">Mehr erfahren</string>
+  <string name="donation_reminders_settings_report_button">Problem melden</string>
+  <string name="donation_reminders_settings_report_email_subject">Problembericht – Spendenerinnerungen</string>
+  <string name="donation_reminders_settings_report_email_body">Ich habe ein Problem mit der Funktion „Spendenerinnerungen“ festgestellt:\n- [Problem beschreiben]\n- [Screenshots oder Links]\n\nDas erwartete Verhalten wäre:\n- [Gewünschte Lösung beschreiben]</string>
+  <string name="donation_reminders_snackbar_modify_button_label">Ändern</string>
+  <string name="hybrid_search_search_hint">Suchen oder Frage stellen</string>
+  <string name="hybrid_search_article_search_hint">Frag etwas über %s</string>
+  <string name="hybrid_search_suggestion_title">Suchen nach:</string>
+  <string name="hybrid_search_onboarding_learn_more">Mehr erfahren</string>
+  <string name="hybrid_search_onboarding_search_title">Fragen stellen, Antworten erhalten</string>
+  <string name="hybrid_search_onboarding_search_description">Diese experimentelle Funktion versteht natürliche Sprache. Statt nach Stichwörtern zu suchen, beschreibe einfach, was du wissen möchtest.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Betafunktion</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Für begrenzte Zeit während dieses Experiments verfügbar.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Am Experiment teilnehmen</string>
+  <string name="hybrid_search_onboarding_search_example_title">Brauchst du Inspiration?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Verwende eines der Suchbeispiele unten.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Du hast das Experiment deaktiviert.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wann wurde Pluto der Planetenstatus aberkannt?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Erste Olympische Spiele</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Warum kommt Ananas auf Pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Was sind die größten Städte Europas?</string>
+  <string name="hybrid_search_onboarding_screen_title">Eine neue Art zu suchen</string>
+  <string name="hybrid_search_results_header_description">Aus von Menschen verfassten Wikipedia-Artikeln</string>
+  <string name="hybrid_search_results_more_button">Mehr</string>
+  <string name="hybrid_search_results_rate_label">Ergebnisse bewerten</string>
+  <string name="hybrid_search_results_rated_label">Bewertet</string>
+  <string name="hybrid_search_results_rate_thumb_up">Positiv bewerten</string>
+  <string name="hybrid_search_results_rate_thumb_down">Negativ bewerten</string>
+  <string name="hybrid_search_results_empty">Die erweiterte Suche ist vorübergehend nicht verfügbar.</string>
+  <string name="hybrid_search_no_results_header">Keine Ergebnisse</string>
+  <string name="hybrid_search_no_results_description">Zu diesem Thema können derzeit keine Artikelauszüge angezeigt werden. Folgendes kannst du versuchen:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Suche umformulieren</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Verwandtes Thema suchen</string>
+  <string name="hybrid_search_error_message">Etwas ist schiefgelaufen. Bitte versuche es später erneut.</string>
+  <string name="hybrid_search_who_is_prefix">Wer ist %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Dieses Experiment deaktivieren</string>
 </resources>

@@ -515,6 +515,7 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
+  <string name="onboarding_next">اڳلا</string>
   <string name="app_shortcuts_random">بے ترتیبا</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
@@ -751,4 +752,7 @@
   <string name="donation_settings_section_header">عطیے</string>
   <string name="donation_reminders_prompt_negative_button">ہُݨ نہ</string>
   <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
+  <string name="hybrid_search_onboarding_learn_more">ٻیا سِکھو</string>
+  <string name="hybrid_search_beta_tag">آزمائشی</string>
+  <string name="hybrid_search_results_more_button">ٻئے</string>
 </resources>

@@ -1,9 +1,6 @@
 package org.wikipedia.yearinreview
 
 import android.graphics.Bitmap
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -25,7 +21,6 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
@@ -66,6 +61,7 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -280,41 +276,14 @@ fun MainBottomBar(
                 }
             }
 
-            Row(
+            PageIndicator(
                 modifier = Modifier
                     .wrapContentHeight()
                     .wrapContentWidth()
                     .align(Alignment.Center),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                val animationDuration = 500
-                repeat(totalPages) { iteration ->
-                    val colorTransition by animateColorAsState(
-                        targetValue = if (pagerState.currentPage == iteration) {
-                            WikipediaTheme.colors.progressiveColor
-                        } else {
-                            WikipediaTheme.colors.inactiveColor
-                        },
-                        animationSpec = tween(durationMillis = animationDuration)
-                    )
-                    val sizeTransition by animateDpAsState(
-                        targetValue = paginationSizeGradient(
-                            totalIndicators = totalPages,
-                            iteration = iteration,
-                            pagerState = pagerState
-                        ).dp,
-                        animationSpec = tween(durationMillis = animationDuration)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .padding(2.dp)
-                            .clip(CircleShape)
-                            .background(colorTransition)
-                            .align(Alignment.CenterVertically)
-                            .size(sizeTransition)
-                    )
-                }
-            }
+                pagerState = pagerState,
+                indicatorSpacing = 2.dp
+            )
             IconButton(
                 onClick = { onNavigationRightClick() },
                 modifier = Modifier
