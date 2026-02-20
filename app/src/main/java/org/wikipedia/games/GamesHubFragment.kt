@@ -66,7 +66,7 @@ class GamesHubFragment : Fragment() {
                     true
                 }
                 R.id.menu_learn_more -> {
-                    UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_url).toUri())
+                    UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.games_hub_wiki_url).toUri())
                     true
                 }
                 else -> false
@@ -165,7 +165,7 @@ class GamesHubFragment : Fragment() {
                                 if (!isEnabled) {
                                     FeedbackUtil.makeSnackbar(requireActivity(), snackbarMessage)
                                         .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
-                                            UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_url).toUri())
+                                            UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_languages_url).toUri())
                                         }
                                         .show()
                                     return@FilterChip
@@ -178,7 +178,7 @@ class GamesHubFragment : Fragment() {
                             border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
                             label = {
                                 Text(
-                                    text = langText.orEmpty(),
+                                    text = langText,
                                     style = MaterialTheme.typography.labelLarge,
                                     textAlign = TextAlign.Center,
                                     fontWeight = FontWeight.Medium,
