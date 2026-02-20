@@ -9,6 +9,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.BuildConfig
@@ -132,6 +133,7 @@ object EventPlatformClient {
             // Ensure that serialization of configs is done off the main thread
             withContext(Dispatchers.Default) {
                 STREAM_CONFIGS.putAll(Prefs.streamConfigs)
+                TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
             }
             refreshStreamConfigs()
         }
@@ -201,12 +203,12 @@ object EventPlatformClient {
         private fun send(eventsByStream: Map<String, List<Event>>) {
             eventsByStream.forEach { (stream, events) ->
                 getStreamConfig(stream)?.let {
-                    sendEventsForStream(it, events)
+                    sendEventsForStream(it.destinationEventService, events)
                 }
             }
         }
 
-        private fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
+        private fun sendEventsForStream(destinationEventService: DestinationEventService, events: List<Event>) {
             coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
                 L.e(caught)
                 if (caught is HttpStatusException) {
@@ -224,9 +226,9 @@ object EventPlatformClient {
                     }
                 }
             }) {
-                val eventService = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events) else
-                    ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
-                when (eventService.code()) {
+                val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEvents(events) else
+                    ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHasty(events)
+                when (response.code()) {
                     HttpURLConnection.HTTP_CREATED,
                     HttpURLConnection.HTTP_ACCEPTED -> {}
                     else -> {

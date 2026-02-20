@@ -40,7 +40,7 @@
     <string name="editing_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Editing</string>
     <string name="apps_about_wmf_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/About_the_Wikimedia_Foundation</string>
     <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
-
+    <string name="hybrid_search_info_link">https://www.mediawiki.org/wiki/Readers/Information_Retrieval/Phase_1</string>
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
     <string name="account_type">org.wikimedia</string>
@@ -104,5 +104,12 @@
     <string name="sender_username_wikitext">{{{senderUserName}}}</string>
     <string name="diff_link_wikitext">{{{diffLink}}}</string>
     <string name="wikiText_replace_url">[[%1$s|%2$s]]</string>
+
+    <!-- Example semantic search queries, specifically for testing with Greek. -->
+    <string name="hybrid_search_onboarding_search_example_query1_el">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
+    <string name="hybrid_search_onboarding_search_example_query2_el">Πρώτοι Ολυμπιακοί Αγώνες</string>
+    <string name="hybrid_search_onboarding_search_example_query3_el">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query4_el">Η μεγαλύτερη λίμνη στην Ελλάδα</string>
+    <string name="hybrid_search_onboarding_search_example_query5_el">Εθνικό πιάτο στην Ελλάδα</string>
 
 </resources>

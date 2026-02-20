@@ -319,7 +319,7 @@
   <string name="preference_summary_show_images">Jáddat dahje bija johtui govaid viežžama siidduin. Váldde eret merkema jus dus lea njoazes interneahttaoktavuohta, dahje it hálit nu ollu dáhtaid geavahit.</string>
   <string name="preference_title_download_only_over_wifi">Viečča dušše Wi-Fi bokte</string>
   <string name="dialog_title_download_only_over_wifi">Viečča mobiiladáhta bokte?</string>
-  <string name="dialog_text_download_only_over_wifi">Don leat bidjan doibmii «Viečča dušše Wi-Fi bokte» iežat heivehusain. Háliidat go goitge viežžat dán vulosluđema mobiiladáhta bokte?</string>
+  <string name="dialog_text_download_only_over_wifi">Don leat bidjan doibmii «Viečča dušše Wi-Fi bokte» iežat ásahusain. Háliidatgo goitge viežžat dán vulosluđema mobiiladáhta bokte?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Suova</string>
   <string name="read_more_section">Loga eambbo</string>
   <string name="about_article_section">Dieđut dán artihkkala birra</string>
@@ -588,7 +588,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Čálit sisa</string>
   <string name="reading_list_turned_sync_off_dialog_title">Lohkanlisttuid synkroniseren lea jáddaduvvon</string>
-  <string name="reading_list_turned_sync_off_dialog_text">Lohkanlisttuid synkroniseren lea jáddaduvvon du geavaheaddjidovddaldahkii. Dan dihte eai sihkkarismáŋgejuvvo vurkejuvvon artihkkalat sisačálihuvvon ovttadagaide. Synkroniseren sáhttá váldojuvvot atnui heivehusain.</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Lohkanlisttuid synkroniseren lea jáddaduvvon du geavaheaddjidovddaldahkii. Dan dihte eai sihkkarismáŋgejuvvo vurkejuvvon artihkkalat sisačálihuvvon ovttadagaide. Synkroniseren sáhttá váldojuvvot atnui ásahusain.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ásahusat</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Váldde atnui lohkanlisttuid synkroniserema</string>
@@ -808,7 +808,7 @@
   <string name="menu_feed_card_dismiss">Čiega dán goartta</string>
   <string name="menu_feed_card_dismissed">Goarta čihkkojuvvui.</string>
   <string name="menu_feed_card_edit_card_languages">Molsso giela goarttaide</string>
-  <string name="menu_feed_overflow_label">Eanet heivehusat</string>
+  <string name="menu_feed_overflow_label">Eanet ásahusat</string>
   <string name="feed_featured_image_share_subject">Válljejuvvon govva Wikimedia Commonsis</string>
   <string name="feed">Suokkar</string>
   <string name="home">Ruoktot</string>
@@ -828,7 +828,7 @@
   <string name="feed_configure_menu_reset">Rievdat ruovttoluotta</string>
   <string name="feed_configure_menu_select_all">Čájet buot</string>
   <string name="feed_configure_menu_deselect_all">Čiega buot</string>
-  <string name="feed_configure_language_warning">Fuomáš ahte eai buot goartašlájat leat olámuttos visot Wikipedia-gielaide. Sáhtát giela rievdadit iežat heivehusain.</string>
+  <string name="feed_configure_language_warning">Fuomáš ahte eai buot goartašlájat leat olámuttos visot Wikipedia-gielaide. Sáhtát giela rievdadit iežat ásahusain.</string>
   <string name="feed_item_type_news">Artihkkalat áigeguovdilis dáhpáhusain</string>
   <string name="feed_item_type_on_this_day">Historjjálaš dáhpáhusat dán beaivvi</string>
   <string name="feed_item_type_because_you_read">Evttohusat aitto lohkkojuvvon artihkkaliin du historihkas</string>
@@ -850,8 +850,8 @@
   <string name="feed_language_variants_removal_dialog_title">Vállje guvllolaš giellavariántta dahkat lohkama vuohkkaseabbon.</string>
   <string name="feed_language_variants_removal_dialog_save">Vurke</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Ođasmahte iežat nubbingielaid</string>
-  <string name="feed_language_variants_removal_secondary_dialog_message">Don anát generalaš kiinnálaš giellavariántta mii ii dorjojuvvo, nubbingiellan. Mana iežat heivehusaide válljet ođđa sekundáragiela dahje duođaštit iežat giellalisttu.</string>
-  <string name="feed_language_variants_removal_secondary_dialog_settings">Mana heivehusaide</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Don anát generalaš kiinnálaš giellavariántta mii ii dorjojuvvo, nubbingiellan. Mana iežat ásahusaide válljet ođđa sekundáragiela dahje duođaštit iežat giellalisttu.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Mana ásahusaide</string>
   <string name="top_read_activity_title">Merke lohkkojuvvon %s</string>
   <string name="tabs_activity_title">Leavggat</string>
   <string name="description_edit_text_hint">Artihkkala govvádus</string>
@@ -1129,6 +1129,7 @@
   <string name="edit_summary_added_caption">Lasihii govvateavstta</string>
   <string name="edit_summary_added_image_and_caption">Govva ja govvateaksta lasihuvvojedje</string>
   <string name="edit_published_view">Čájet</string>
+  <string name="activity_tab_menu_info">Lassedieđut</string>
   <string name="file_page_activity_title">Fiilasiidu</string>
   <string name="file_page_add_image_caption_button">Lasit govvateavstta</string>
   <string name="file_page_add_image_tags_button">Lasit govvagilkoriid</string>
@@ -1256,7 +1257,7 @@
   <string name="templates_param_suggested_value">omd. %s</string>
   <string name="templates_param_optional_hint">%s (eaktodáhtolaš)</string>
   <string name="templates_param_suggested_hint">%s (evttohuvvon)</string>
-  <string name="templates_learn_more_link">Oahpa eambbo</string>
+  <string name="templates_learn_more_link">Lassedieđut</string>
   <string name="templates_description_incomplete">Mállet leat ráhkaduvvon geavaheddjiin, ja dain sáhttet váilevaš govvádusat.</string>
   <string name="templates_description_empty">«%s» málles ii leat vel govvádus.</string>
   <string name="templates_description_missing_data">Dán málles váilu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, ja dan parameterat leat &lt;a href=\"%2$s\"&gt;autoráhkaduvvon&lt;/a&gt;. Dát dagaha ahte málles ja paramehteriin váilot čilgehusat.</string>
@@ -1655,4 +1656,8 @@
   <string name="survey_dialog_submit">Sádde</string>
   <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon. Giitu!</string>
   <string name="on_this_day_game_share_button">Juoge</string>
+  <string name="on_this_day_game_menu_info">Lassedieđut</string>
+  <string name="year_in_review_learn_more">Lassedieđut</string>
+  <string name="donation_reminders_settings_learn_more_button">Lassedieđut</string>
+  <string name="hybrid_search_onboarding_learn_more">Lassedieđut</string>
 </resources>
