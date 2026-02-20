@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -53,9 +53,10 @@ import java.util.Locale
 
 @Composable
 fun OnThisDayGameCardPreview(
-    state: OnThisDayCardGameState.Preview,
-    onPlayClick: () -> Unit,
     modifier: Modifier = Modifier,
+    state: OnThisDayCardGameState.Preview,
+    titleText: String,
+    onPlayClick: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
@@ -63,11 +64,10 @@ fun OnThisDayGameCardPreview(
         elevation = 2.dp
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         ) {
             Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
@@ -79,7 +79,7 @@ fun OnThisDayGameCardPreview(
                     contentDescription = null
                 )
                 Text(
-                    text = context.getString(state.langCode, R.string.on_this_day_game_title),
+                    text = titleText,
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.SemiBold,
@@ -89,10 +89,19 @@ fun OnThisDayGameCardPreview(
             }
 
             OnThisDayGameFirstEventView(event = state.event1)
+
+            HorizontalDivider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                color = WikipediaTheme.colors.borderColor
+            )
+
             OnThisDayGameFirstEventView(event = state.event2)
 
             Box(
                 modifier = Modifier
+                    .padding(horizontal = 16.dp)
                     .fillMaxWidth()
             ) {
                 FilledTonalButton(
@@ -272,8 +281,7 @@ fun OnThisDayGameFirstEventView(
     event: OnThisDay.Event
 ) {
     Row(
-        modifier = Modifier
-            .padding(vertical = 16.dp),
+        modifier = Modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
@@ -331,6 +339,32 @@ private fun NextGameCountdown(
             letterSpacing = 0.sp
         )
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OnThisDayCardPreviewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameCardPreview(
+            state = OnThisDayCardGameState.Preview(
+                langCode = "en",
+                event1 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    year = 1990
+                ),
+                event2 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    year = 2000
+                )
+            ),
+            titleText = "November 3",
+            onPlayClick = {}
+        )
+    }
 }
 
 @Preview(showBackground = true)
