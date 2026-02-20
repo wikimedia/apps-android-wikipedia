@@ -510,6 +510,11 @@
   <string name="theme_category_editing">편집</string>
   <string name="reading_focus_mode">읽기 집중 모드</string>
   <string name="reading_focus_mode_detail">스크롤할 때 편집 기능과 아래 도구 모음을 숨깁니다</string>
+  <string name="margin_size_increase">여백 늘리기</string>
+  <string name="margin_size_decrease">여백 줄이기</string>
+  <string name="margin_size_label">여백</string>
+  <string name="text_justify_label">양쪽 맞춤</string>
+  <string name="text_hyphenation_label">하이픈</string>
   <string name="editing_syntax_highlight_label">문법 강조</string>
   <string name="editing_line_numbers_label">줄 번호 보이기</string>
   <string name="editing_monospace_font_label">고정폭 글꼴 사용</string>

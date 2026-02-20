@@ -558,7 +558,12 @@
   <string name="theme_category_reading">Lecture</string>
   <string name="theme_category_editing">Modification</string>
   <string name="reading_focus_mode">Mode de focalisation sur la lecture</string>
-  <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d’outil en bas lors du défilement</string>
+  <string name="reading_focus_mode_detail">Masque les fonctionnalités de modification et la barre d\'outil en bas lors du défilement</string>
+  <string name="margin_size_increase">Augmenter les marges</string>
+  <string name="margin_size_decrease">Réduire les marges</string>
+  <string name="margin_size_label">Marges</string>
+  <string name="text_justify_label">Justifier</string>
+  <string name="text_hyphenation_label">Coupure</string>
   <string name="editing_syntax_highlight_label">Mise en évidence de la syntaxe</string>
   <string name="editing_line_numbers_label">Afficher les numéros de ligne</string>
   <string name="editing_monospace_font_label">Utiliser une police à chasse fixe</string>

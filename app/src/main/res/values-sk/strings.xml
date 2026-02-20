@@ -473,6 +473,11 @@
   <string name="theme_category_editing">Upraviť</string>
   <string name="reading_focus_mode">Mód sústredeného čítania</string>
   <string name="reading_focus_mode_detail">Skryje funkcie úprav a spodný panel nástrojov pri skrolovaní</string>
+  <string name="margin_size_increase">Zväčšiť okraje</string>
+  <string name="margin_size_decrease">Zmenšiť okraje</string>
+  <string name="margin_size_label">Okraje</string>
+  <string name="text_justify_label">Zarovnať</string>
+  <string name="text_hyphenation_label">Delenie</string>
   <string name="editing_syntax_highlight_label">Zvýraznenie syntaxe</string>
   <string name="editing_line_numbers_label">Zobraziť čísla riadkov</string>
   <string name="editing_monospace_font_label">Používať písmo monospace</string>

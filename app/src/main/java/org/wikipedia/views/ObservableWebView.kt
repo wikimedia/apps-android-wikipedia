@@ -192,6 +192,19 @@ class ObservableWebView : WebView {
         FlowEventBus.post(INVALIDATE_EVENT)
     }
 
+    override fun overScrollBy(deltaX: Int, deltaY: Int, scrollX: Int, scrollY: Int,
+                              scrollRangeX: Int, scrollRangeY: Int, maxOverScrollX: Int,
+                              maxOverScrollY: Int, isTouchEvent: Boolean): Boolean {
+        // Block horizontal scrolling entirely
+        return super.overScrollBy(0, deltaY, 0, scrollY, 0, scrollRangeY, 0,
+                maxOverScrollY, isTouchEvent)
+    }
+
+    override fun scrollTo(x: Int, y: Int) {
+        // Only allow vertical scrolling
+        super.scrollTo(0, y)
+    }
+
     companion object {
         private val INVALIDATE_EVENT = WebViewInvalidateEvent()
         private val FAST_SCROLL_THRESHOLD = (1000 * densityScalar).toInt()

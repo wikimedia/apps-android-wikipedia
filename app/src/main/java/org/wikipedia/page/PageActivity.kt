@@ -54,6 +54,7 @@ import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.events.ChangeMarginSizeEvent
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
@@ -209,6 +210,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     when (event) {
                         is ChangeTextSizeEvent -> {
                             pageFragment.updateFontSize()
+                        }
+                        is ChangeMarginSizeEvent -> {
+                            pageFragment.updateMargins()
                         }
                         is ArticleSavedOrDeletedEvent -> {
                             pageFragment.title?.run {
