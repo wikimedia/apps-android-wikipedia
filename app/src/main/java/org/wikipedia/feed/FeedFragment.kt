@@ -32,6 +32,7 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.feed.wikigames.WikiGamesCard
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
@@ -59,7 +60,6 @@ class FeedFragment : Fragment() {
     private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
-    private var hasRefreshedGamesAfterCountdown = false
 
     interface Callback {
         fun onFeedSearchRequested(view: View)
@@ -149,7 +149,6 @@ class FeedFragment : Fragment() {
             // https://issuetracker.google.com/issues/188096921
             feedAdapter.notifyDataSetChanged()
         }
-        hasRefreshedGamesAfterCountdown = false
     }
 
     override fun onDestroyView() {
@@ -311,8 +310,6 @@ class FeedFragment : Fragment() {
         }
 
         override fun onNextGameCountDownFinished() {
-            if (hasRefreshedGamesAfterCountdown) return
-            hasRefreshedGamesAfterCountdown = true
             viewLifecycleOwner.lifecycleScope.launch {
                 refreshWikiGameCards()
             }
@@ -402,11 +399,23 @@ class FeedFragment : Fragment() {
                     val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
                     val updatedGames = card.games.toMutableList()
                     val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
-                    if (gameIndex >= 0) {
-                        updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
+
+                    val oldGame = updatedGames.getOrNull(gameIndex) as? WikiGame.OnThisDayGame
+                    val newGame = WikiGame.OnThisDayGame(state = gameState)
+
+                    val isSame = when {
+                        oldGame?.state is OnThisDayCardGameState.Preview && newGame.state is OnThisDayCardGameState.Preview -> {
+                            val old = oldGame.state
+                            val new = newGame.state
+                            old.event1.text == new.event1.text && old.event2.text == new.event2.text
+                        }
+                        else -> oldGame == newGame
                     }
-                    coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
-                    feedAdapter.notifyItemChanged(index)
+                    if (!isSame && gameIndex >= 0) {
+                        updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
+                        coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
+                        feedAdapter.notifyItemChanged(index)
+                    }
                 } catch (e: Exception) {
                     L.e(e)
                 }
