@@ -88,7 +88,6 @@ class GamesHubFragment : Fragment() {
         requireActivity().removeMenuProvider(menuProvider)
     }
 
-
     fun updateNotificationDot(animate: Boolean) {
         if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
