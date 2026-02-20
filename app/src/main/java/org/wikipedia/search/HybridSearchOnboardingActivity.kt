@@ -99,7 +99,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .startFunnel("hybrid_search_onboarding")
-            .setExperiment(HybridSearchAbCTest.TEST_NAME, HybridSearchAbCTest().getGroupName())
+            .setExperiment(TestKitchenAdapter.getExperiment(HybridSearchAbCTest()))
 
         instrument?.submitInteraction("impression", actionSource = "hybrid_search_onboarding")
 

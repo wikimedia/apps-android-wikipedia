@@ -26,7 +26,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .startFunnel("search")
-            .setExperiment(HybridSearchAbCTest.TEST_NAME, HybridSearchAbCTest().getGroupName())
+            .setExperiment(TestKitchenAdapter.getExperiment(HybridSearchAbCTest()))
     }
 
     public override fun createFragment(): SearchFragment {
