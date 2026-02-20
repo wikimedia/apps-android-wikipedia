@@ -134,7 +134,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             PlacesEvent.logImpression("search_view")
         }
 
-        requireActivity().instrument?.submitInteraction("impression", actionSource = invokeSource.value)
+        requireActivity().instrument?.submitInteraction("search_impression", actionSource = invokeSource.value)
 
         return binding.root
     }

@@ -13,6 +13,11 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -26,6 +31,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 
 class SearchResultsFragment : Fragment() {
@@ -41,6 +47,49 @@ class SearchResultsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.searchTermForLogging.collectLatest { query ->
+                    if (!query.isNullOrEmpty()) {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_init", actionSource = "search",
+                            actionContext = mapOf("query" to query)
+                        )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.lexicalResultsForLogging.collectLatest { data ->
+                    if (data != null) {
+                        requireActivity().instrument?.submitInteraction(
+                            "show_search_results", actionSource = "search",
+                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty())
+                        )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.hybridSearchResultState.collectLatest { state ->
+                    if (state is UiState.Success) {
+                        val semanticResults = state.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
+                        val lexicalResults = state.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+
+                        requireActivity().instrument?.submitInteraction(
+                            "show_hybrid_results", actionSource = "search",
+                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty(),
+                                "lexical" to (lexicalResults.map { it.pageTitle.prefixedText }).joinToString("|"),
+                                "semantic" to (semanticResults.map { it.pageTitle.prefixedText }).joinToString("|"))
+                        )
+                    }
+                }
+            }
+        }
+
         return ComposeView(requireActivity()).apply {
             composeView = this
             setContent {
@@ -82,7 +131,7 @@ class SearchResultsFragment : Fragment() {
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
                             },
-                            onRatingClick = { isPositive ->
+                            onRatingClick = { isPositive, title, position ->
                                 requireActivity().instrument?.submitInteraction(if (isPositive) "thumbs_up" else "thumbs_down", pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position))
                             },
@@ -149,15 +198,14 @@ class SearchResultsFragment : Fragment() {
 
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
         viewModel.updateLanguageCode(searchLanguageCode)
-        if (force) {
-            viewModel.refreshSearchResults()
-        }
 
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
         if (showHybridSearch) {
             viewModel.resetHybridSearchState()
             viewModel.loadHybridSearchResults()
+        } else if (force) {
+            viewModel.refreshSearchResults()
         }
     }
 
