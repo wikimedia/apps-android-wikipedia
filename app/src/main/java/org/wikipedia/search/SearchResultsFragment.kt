@@ -86,7 +86,10 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction(if (isPositive) "thumbs_up" else "thumbs_down", pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position.toString()))
                             },
-                            onSemanticError = {
+                            onLexicalResultsEmpty = {
+                                FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
+                            },
+                            onSemanticResultsEmpty = {
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             }
                         )

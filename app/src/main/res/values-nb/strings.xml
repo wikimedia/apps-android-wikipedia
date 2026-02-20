@@ -23,6 +23,7 @@
 * Telaneo
 * VukAnd12
 * Vukky
+* Yupik
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -1915,4 +1916,5 @@
   <string name="recommended_reading_list_settings_updates_frequency_daily">daglige</string>
   <string name="recommended_reading_list_settings_updates_frequency_weekly">ukentlige</string>
   <string name="recommended_reading_list_settings_updates_frequency_monthly">månedlige</string>
+  <string name="donation_reminders_settings_learn_more_button">Lær mer</string>
 </resources>

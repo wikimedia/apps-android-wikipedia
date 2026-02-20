@@ -93,7 +93,8 @@ fun HybridSearchResultsScreen(
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
-    onSemanticError: () -> Unit
+    onLexicalResultsEmpty: () -> Unit,
+    onSemanticResultsEmpty: () -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -124,8 +125,10 @@ fun HybridSearchResultsScreen(
                 is UiState.Success -> {
                     val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
                     val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
-                    if (semanticData.isEmpty()) {
-                        onSemanticError()
+                    if (lexicalData.isEmpty()) {
+                        onLexicalResultsEmpty()
+                    } else if (semanticData.isEmpty()) {
+                        onSemanticResultsEmpty()
                     }
 
                     HybridSearchResultsList(
