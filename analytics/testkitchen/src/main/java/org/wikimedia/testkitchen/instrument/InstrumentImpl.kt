@@ -12,11 +12,14 @@ class InstrumentImpl(
     var funnel: Funnel? = null
     var experiment: ExperimentImpl? = null
 
-    fun submitInteraction(action: String, actionSource: String? = null, elementId: String? = null, pageData: PageData? = null, actionContext: Map<String, String>? = null) {
+    fun submitInteraction(action: String, actionSource: String? = null, elementId: String? = null, pageData: PageData? = null, actionContext: Map<String, Any>? = null) {
+        if (experiment?.isLoggable() == false) {
+            return
+        }
         val actionContextFinal = mutableMapOf<String, String>()
         funnel?.addActionContext(actionContextFinal)
         actionContext?.let {
-            actionContextFinal.putAll(it)
+            actionContextFinal.putAll(it.mapValues { (_, value) -> value.toString() })
         }
         client?.submitInteraction(
             instrument = this,
