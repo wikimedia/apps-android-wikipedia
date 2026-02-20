@@ -1,15 +1,14 @@
 package org.wikipedia.search
 
-import android.content.Context
 import android.location.Location
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -52,6 +51,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
 
@@ -63,6 +63,7 @@ fun SearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
+    onSemanticSearchClick: (String) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -75,7 +76,7 @@ fun SearchResultsScreen(
 
     val languageCode = viewModel.languageCode.collectAsState()
     val layoutDirection =
-        if (L10nUtil.isLangRTL(languageCode.value.orEmpty())) LayoutDirection.Rtl else LayoutDirection.Ltr
+        if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     // this is a callback to show loading indicator in the SearchFragment.
     // It is placed outside the UI logic to prevent flickering. We need to show the loader both initial load (refresh) and pagination (append) without hiding the list or conflicting with other UI states.
@@ -115,12 +116,28 @@ fun SearchResultsScreen(
                 }
 
                 else -> {
-                    SearchResultsList(
-                        searchResultsPage = searchResults,
-                        searchTerm = searchTerm.value,
-                        onItemClick = onNavigateToTitle,
-                        onItemLongClick = onItemLongClick
-                    )
+                    if (viewModel.isHybridSearchExperimentOn) {
+                        HybridSearchSuggestionListView(
+                            modifier = Modifier.fillMaxSize(),
+                            searchResultsPage = searchResults,
+                            searchTerm = searchTerm.value,
+                            onTitleClick = { searchResult ->
+                                onSemanticSearchClick(searchResult.pageTitle.displayText)
+                            },
+                            onSuggestionTitleClick = { searchTerm ->
+                                searchTerm?.let {
+                                    onSemanticSearchClick(it)
+                                }
+                            }
+                        )
+                    } else {
+                        SearchResultsList(
+                            searchResultsPage = searchResults,
+                            searchTerm = searchTerm.value,
+                            onItemClick = onNavigateToTitle,
+                            onItemLongClick = onItemLongClick
+                        )
+                    }
                 }
             }
         }
@@ -186,8 +203,6 @@ fun SearchResultPageItem(
         pageTitle.displayText.toAnnotatedStringWithBoldQuery(searchTerm)
     }
 
-    val context = LocalContext.current
-
     Box {
         Row(
             modifier = modifier
@@ -195,9 +210,7 @@ fun SearchResultPageItem(
                 .combinedClickable(
                     onLongClick = {
                         anchorView?.let {
-                            val imm =
-                                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                            imm.hideSoftInputFromWindow(it.windowToken, 0)
+                            DeviceUtil.hideSoftKeyboard(it)
                             onItemLongClick(it)
                         }
                     },

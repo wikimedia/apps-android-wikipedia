@@ -564,7 +564,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
         val intent = SearchActivity.newIntent(requireActivity(), source, query)
         val options = transitionView?.let {
-            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            if (intent.component?.className == SearchActivity::class.java.name) {
+                ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            } else null
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }

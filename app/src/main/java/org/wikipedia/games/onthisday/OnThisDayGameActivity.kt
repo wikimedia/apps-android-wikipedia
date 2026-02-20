@@ -242,6 +242,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                 .apply {
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
+                    }
                     resolvedDate?.let {
                         putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
                     }
