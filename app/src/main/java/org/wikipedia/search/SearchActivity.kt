@@ -3,16 +3,28 @@ package org.wikipedia.search
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
+import org.wikipedia.extensions.instrument
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
+
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+
+            instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back_button")
+
+            isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +35,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 intent.removeExtra(EXTRA_SHOW_SNACKBAR_MESSAGE)
             }
         }
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .startFunnel("search")

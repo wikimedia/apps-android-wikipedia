@@ -60,6 +60,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private set
 
     private val searchCloseListener = SearchView.OnCloseListener {
+
+        requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close_button")
+
         closeSearch()
         false
     }
@@ -124,7 +127,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
                 R.id.fragment_search_results) as SearchResultsFragment
         searchResultsFragment.setInvokeSource(invokeSource)
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
-        binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
+        binding.searchToolbar.setNavigationOnClickListener {
+
+            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back_button")
+
+            requireActivity().supportFinishAfterTransition()
+        }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
         binding.searchLangButton.setOnClickListener { onLangButtonClick() }

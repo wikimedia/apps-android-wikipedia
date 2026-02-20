@@ -88,7 +88,7 @@ fun HybridSearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onSemanticCardImpression: (SearchResult, Int) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: (String) -> Unit,
@@ -97,7 +97,8 @@ fun HybridSearchResultsScreen(
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
     onLexicalResultsEmpty: () -> Unit,
-    onSemanticResultsEmpty: () -> Unit
+    onSemanticResultsEmpty: () -> Unit,
+    onError: (Throwable) -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -152,6 +153,7 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
+                    onError(searchResultsState.error)
                     WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -179,7 +181,7 @@ fun HybridSearchResultsList(
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit,
     onSemanticCardImpression: (SearchResult, Int) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
     onRatingClick: (Boolean, PageTitle, Int) -> Unit
 ) {
     LazyColumn {
@@ -258,14 +260,13 @@ fun HybridSearchResultsList(
                         SemanticSearchResultPageItem(
                             searchResult = result,
                             onSemanticItemClick = {
-                                onSemanticItemClick(result.pageTitle, false, index, result.location)
+                                onSemanticItemClick(result.pageTitle, false, false, index, result.location)
                             },
-                            onArticleItemClick = { pageTitleFromLink ->
-                                if (pageTitleFromLink != null) {
-                                    onItemClick(pageTitleFromLink, false, index, null)
-                                } else {
-                                    onItemClick(result.pageTitle, false, index, result.location)
-                                }
+                            onArticleItemClick = {
+                                onItemClick(it, false, index, result.location)
+                            },
+                            onSnippetLinkClick = {
+                                onSemanticItemClick(it, false, true, index, result.location)
                             },
                             onRatingClick = { isPositive ->
                                 onRatingClick(isPositive, result.pageTitle, index)
@@ -404,7 +405,8 @@ fun SemanticSearchResultHeader(
 fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
-    onArticleItemClick: (PageTitle?) -> Unit,
+    onArticleItemClick: (PageTitle) -> Unit,
+    onSnippetLinkClick: (PageTitle) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
     Card(
@@ -444,8 +446,7 @@ fun SemanticSearchResultPageItem(
                     ),
                     linkInteractionListener = {
                         val url = (it as LinkAnnotation.Url).url
-                        val pageTitle = PageTitle.titleForUri(url.toUri(), WikiSite(url))
-                        onArticleItemClick(pageTitle)
+                        onSnippetLinkClick(PageTitle.titleForUri(url.toUri(), WikiSite(url)))
                     }
                 )
             }
@@ -646,6 +647,7 @@ private fun SemanticSearchResultPageItemPreview() {
             ),
             onSemanticItemClick = {},
             onArticleItemClick = {},
+            onSnippetLinkClick = {},
             onRatingClick = {}
         )
     }

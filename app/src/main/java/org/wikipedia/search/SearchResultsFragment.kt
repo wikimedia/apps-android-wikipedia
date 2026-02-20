@@ -110,9 +110,11 @@ class SearchResultsFragment : Fragment() {
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                     actionContext = mapOf("position" to position))
                             },
-                            onSemanticItemClick = { title, inNewTab, position, location ->
+                            onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
 
-                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "semantic_results", pageData = TestKitchenAdapter.getPageData(title),
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    actionSource = if (fromSnippetLink) "semantic_result_snippet" else "semantic_result",
+                                    pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position))
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -122,9 +124,13 @@ class SearchResultsFragment : Fragment() {
                                 LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                             },
                             onInfoClick = {
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "learn_more")
+
                                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
                             },
                             onTurnOffExperimentClick = {
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "hybrid_search_opt_out")
+
                                 Prefs.isHybridSearchEnabled = false
                                 showHybridSearch = false
                                 callback()?.setSearchText(StringUtil.fromHtml(it).toString())
@@ -137,14 +143,23 @@ class SearchResultsFragment : Fragment() {
                                 callback()?.onSearchProgressBar(enabled)
                             },
                             onRatingClick = { isPositive, title, position ->
-                                requireActivity().instrument?.submitInteraction(if (isPositive) "thumbs_up" else "thumbs_down", pageData = TestKitchenAdapter.getPageData(title),
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                    elementId = if (isPositive) "thumb_up" else "thumb_down",
+                                    pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf("position" to position))
                             },
                             onLexicalResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "lexical_search_results_empty")
+
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
                             },
                             onSemanticResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "semantic_search_results_empty")
+
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
+                            },
+                            onError = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", actionContext = mapOf("message" to it.message.orEmpty()))
                             }
                         )
                     } else {
