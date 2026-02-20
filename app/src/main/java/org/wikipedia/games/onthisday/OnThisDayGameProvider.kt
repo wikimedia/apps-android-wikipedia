@@ -33,9 +33,9 @@ object OnThisDayGameProvider {
 
         val events = mutableListOf<OnThisDay.Event>()
         // Take an event from the list, and find another event that is within a certain range
-        for (i in 0 until Prefs.otdGameQuestionsPerDay) {
+        repeat(Prefs.otdGameQuestionsPerDay) {
             val event1 = allEvents.removeAt(0)
-            var event2: OnThisDay.Event? = null
+            var event2: OnThisDay.Event?
             val yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
             event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
             if (event2 == null) {

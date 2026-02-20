@@ -2,7 +2,7 @@ package org.wikimedia.testkitchen
 
 import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.config.sampling.SampleConfig
-import org.wikimedia.testkitchen.context.ClientData
+import org.wikimedia.testkitchen.context.ClientDataCallback
 import java.util.UUID
 
 /**
@@ -13,7 +13,7 @@ import java.util.UUID
  * part of its configuration.
  */
 class SamplingController internal constructor(
-    private val clientData: ClientData,
+    private val clientDataCallback: ClientDataCallback,
     private val sessionController: SessionController
 ) {
     /**
@@ -48,9 +48,9 @@ class SamplingController internal constructor(
      */
     fun getSamplingId(unit: String): String {
         return when (unit) {
-            SampleConfig.UNIT_SESSION -> return sessionController.sessionId
-            SampleConfig.UNIT_DEVICE -> return clientData.agentData?.appInstallId.orEmpty()
-            SampleConfig.UNIT_PAGEVIEW -> return clientData.performerData?.pageviewId.orEmpty()
+            SampleConfig.UNIT_SESSION -> sessionController.sessionId
+            SampleConfig.UNIT_DEVICE -> clientDataCallback.getAgentData()?.appInstallId.orEmpty()
+            SampleConfig.UNIT_PAGEVIEW -> clientDataCallback.getPerformerData()?.pageviewId.orEmpty()
             else -> UUID.randomUUID().toString()
         }
     }
