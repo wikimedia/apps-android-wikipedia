@@ -52,14 +52,14 @@ class SearchResultsFragment : Fragment() {
                             onNavigateToTitle = { title, inNewTab, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("navigate", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position.toString()))
+                                    actionContext = mapOf("position" to position))
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onSemanticItemClick = { title, inNewTab, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("navigate", actionSource = "semantic_results", pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position.toString()))
+                                    actionContext = mapOf("position" to position))
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -84,7 +84,7 @@ class SearchResultsFragment : Fragment() {
                             },
                             onRatingClick = { isPositive, title, position ->
                                 requireActivity().instrument?.submitInteraction(if (isPositive) "thumbs_up" else "thumbs_down", pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position.toString()))
+                                    actionContext = mapOf("position" to position))
                             },
                             onLexicalResultsEmpty = {
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)

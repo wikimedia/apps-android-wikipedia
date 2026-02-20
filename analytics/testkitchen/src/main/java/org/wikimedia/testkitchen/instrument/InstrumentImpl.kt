@@ -12,7 +12,15 @@ class InstrumentImpl(
     var funnel: Funnel? = null
     var experiment: ExperimentImpl? = null
 
-    fun submitInteraction(action: String, actionSource: String? = null, elementId: String? = null, pageData: PageData? = null, actionContext: Map<String, Any>? = null) {
+    fun submitInteraction(
+        action: String,
+        actionSource: String? = null,
+        actionSubtype: String? = null,
+        elementId: String? = null,
+        elementFriendlyName: String? = null,
+        pageData: PageData? = null,
+        actionContext: Map<String, Any>? = null
+    ) {
         if (experiment?.isLoggable() == false) {
             return
         }
@@ -26,7 +34,9 @@ class InstrumentImpl(
             interactionData = InteractionData(
                 action = action,
                 actionSource = actionSource,
+                actionSubtype = actionSubtype,
                 elementId = elementId,
+                elementFriendlyName = elementFriendlyName,
                 actionContext = if (actionContextFinal.isNotEmpty()) Json.encodeToString(actionContextFinal) else null
             ),
             pageData = pageData
