@@ -13,6 +13,7 @@
     app:cardCornerRadius="22dp">
 
     <ImageView
+        android:id="@+id/search_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/search_hint"
@@ -21,6 +22,7 @@
         app:tint="?attr/placeholder_color" />
 
     <TextView
+        android:id="@+id/search_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

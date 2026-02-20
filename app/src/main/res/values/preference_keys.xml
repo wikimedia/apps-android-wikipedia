@@ -208,4 +208,6 @@
     <string name="preference_key_yir_model_data">yirModelData</string>
     <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
+    <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
+    <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
 </resources>
