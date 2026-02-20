@@ -248,6 +248,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     resolvedDate?.let {
                         putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
                     }
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
+                    }
                 }
         }
     }

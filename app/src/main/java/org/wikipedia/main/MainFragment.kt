@@ -451,6 +451,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         callback()?.updateToolbarElevation(elevate)
     }
 
+    override fun onWikiGamesCardFooterClicked() {
+        // TODO: GamesHub open games hub once implemented
+    }
+
     fun requestUpdateToolbarElevation() {
         val fragment = currentFragment
         updateToolbarElevation(fragment is FeedFragment && fragment.shouldElevateToolbar())
