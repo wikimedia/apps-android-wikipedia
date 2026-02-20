@@ -133,7 +133,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
         }
 
         binding.archiveGameContainer.setOnClickListener {
-            prepareAndOpenArchiveCalendar(viewModel)
+            prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
         }
 
         handler.post(timeUpdateRunnable)
