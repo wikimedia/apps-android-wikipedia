@@ -7,14 +7,18 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -26,6 +30,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -37,6 +43,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -140,24 +147,35 @@ class GamesHubFragment : Fragment() {
             ) {
                 LazyRow(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
+                        .fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp)
                 ) {
                     items(languageList.size) { index ->
-                        val langText =
-                            WikipediaApp.instance.languageState.getAppLanguageLocalizedName(
-                                languageList[index]
-                            )
-                        val isSelected = languageList[index] == selectedLanguage
-                        val textColor =
-                            if (isSelected) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.secondaryColor
+                        val langCode = languageList[index]
+                        val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
+                        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode)
+                        val isSelected = langCode == selectedLanguage
+                        val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+                        val snackbarMessage = stringResource(R.string.games_hub_activity_games_unavailable_message, langText)
                         FilterChip(
                             selected = isSelected,
                             onClick = {
+                                if (!isEnabled) {
+                                    FeedbackUtil.makeSnackbar(requireActivity(), snackbarMessage)
+                                        .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
+                                            UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_url).toUri())
+                                        }
+                                        .show()
+                                    return@FilterChip
+                                }
                                 selectedLanguage = languageList[index]
                             },
+                            colors = FilterChipDefaults.filterChipColors().copy(
+                                selectedContainerColor = WikipediaTheme.colors.additionColor
+                            ),
+                            border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
                             label = {
                                 Text(
                                     text = langText.orEmpty(),
@@ -166,6 +184,15 @@ class GamesHubFragment : Fragment() {
                                     fontWeight = FontWeight.Medium,
                                     color = textColor
                                 )
+                            },
+                            leadingIcon = {
+                                if (isSelected) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_check_black_24dp),
+                                        tint = WikipediaTheme.colors.primaryColor,
+                                        contentDescription = null
+                                    )
+                                }
                             }
                         )
                     }
