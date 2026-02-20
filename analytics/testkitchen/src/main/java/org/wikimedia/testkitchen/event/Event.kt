@@ -120,6 +120,7 @@ class Event {
             this.experiment = EventExperiment(
                 assigned = it.group,
                 enrolled = it.name,
+                subjectId = it.subjectId,
                 coordinator = it.coordinator
             )
         }
