@@ -12,11 +12,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentFeedBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView
@@ -35,6 +38,9 @@ import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.feed.wikigames.WikiGamesCard
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
@@ -60,6 +66,7 @@ class FeedFragment : Fragment() {
     private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
+    private var onThisDayGameArchiveCalendarHelper: OnThisDayGameArchiveCalendarHelper? = null
 
     interface Callback {
         fun onFeedSearchRequested(view: View)
@@ -90,6 +97,7 @@ class FeedFragment : Fragment() {
             refresh()
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         coordinator.more(app.wikiSite)
@@ -156,6 +164,8 @@ class FeedFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener(null)
         binding.feedView.removeOnScrollListener(feedScrollListener)
         binding.feedView.adapter = null
+        onThisDayGameArchiveCalendarHelper?.unRegister()
+        onThisDayGameArchiveCalendarHelper = null
         _binding = null
         super.onDestroyView()
     }
@@ -313,6 +323,37 @@ class FeedFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 refreshWikiGameCards()
             }
+        }
+
+        override fun onPlayArchiveClicked(wikiSite: WikiSite) {
+            onThisDayGameArchiveCalendarHelper?.unRegister()
+            onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
+                fragment = this@FeedFragment,
+                languageCode = wikiSite.languageCode,
+                onDateSelected = { date ->
+                    startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite, date))
+                }
+            ).also {
+                it.register()
+                it.show()
+            }
+        }
+
+        override fun onPlayGameClicked(wikiSite: WikiSite) {
+            WikiGamesEvent.submit("enter_click", "game_feed")
+            startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite))
+        }
+
+        override fun onReviewResultsClicked(wikiSite: WikiSite) {
+            startActivity(
+                OnThisDayGameActivity.newIntent(
+                    context = requireActivity(),
+                    invokeSource = InvokeSource.FEED,
+                    wikiSite = wikiSite,
+                    date = LocalDate.now(),
+                    gameStatus = DailyGameHistory.GAME_COMPLETED
+                )
+            )
         }
     }
 

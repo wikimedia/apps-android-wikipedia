@@ -26,6 +26,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
@@ -76,10 +77,14 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             windowInsets
         }
         if (savedInstanceState == null) {
+            val fragment = when (intent.getIntExtra(EXTRA_GAME_STATUS, -1)) {
+                DailyGameHistory.GAME_COMPLETED -> OnThisDayGameResultFragment.newInstance(viewModel.invokeSource)
+                else -> OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource)
+            }
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragmentContainer,
-                    OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource),
+                    fragment,
                     null
                 )
                 .addToBackStack(null)
@@ -225,7 +230,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null): Intent {
+        const val EXTRA_GAME_STATUS = "gameStatus"
+
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
             val resolvedDate = Prefs.lastOtdGameDateOverride
                 .takeIf { it.isNotEmpty() }
                 ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
@@ -237,6 +244,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 .apply {
                     resolvedDate?.let {
                         putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+                    }
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
                     }
                 }
         }

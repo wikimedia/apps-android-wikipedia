@@ -245,15 +245,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
     }
 
-    suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
-        val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
-        val map = history.associate {
-            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
-           scoreKey to it.score
-        }
-        return map
-    }
-
     private fun saveGameProgress(status: Int, nextQuestionIndex: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
                 L.e(throwable)

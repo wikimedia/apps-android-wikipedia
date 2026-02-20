@@ -1,6 +1,5 @@
 package org.wikipedia.feed.wikigames
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Column
@@ -11,22 +10,24 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.databinding.ViewWikiGamesCardBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.games.onthisday.OnThisDayGameActivity
 
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context), CardFooterView.Callback {
     interface Callback {
         fun onWikiGamesCardFooterClicked()
         fun onNextGameCountDownFinished()
+        fun onPlayArchiveClicked(wikiSite: WikiSite)
+        fun onPlayGameClicked(wikiSite: WikiSite)
+        fun onReviewResultsClicked(wikiSite: WikiSite)
     }
 
     private val binding = ViewWikiGamesCardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -61,11 +62,16 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                         .fillMaxWidth(),
                     card = card,
                     onPlayClick = {
-                        WikiGamesEvent.submit("enter_click", "game_feed")
-                        (context as? Activity)?.startActivityForResult(OnThisDayGameActivity.newIntent(context, Constants.InvokeSource.FEED, card.wikiSite), 0)
+                        callback?.onPlayGameClicked(card.wikiSite)
                     },
                     onCountDownFinished = {
                         callback?.onNextGameCountDownFinished()
+                    },
+                    onReviewResult = {
+                        callback?.onReviewResultsClicked(card.wikiSite)
+                    },
+                    onPlayArchiveClick = {
+                        callback?.onPlayArchiveClicked(card.wikiSite)
                     }
                 )
             }
@@ -95,7 +101,9 @@ fun WikiGamesCard(
     card: WikiGamesCard,
     modifier: Modifier = Modifier,
     onPlayClick: () -> Unit,
-    onCountDownFinished: () -> Unit
+    onCountDownFinished: () -> Unit,
+    onReviewResult: () -> Unit,
+    onPlayArchiveClick: () -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { card.games.size })
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -130,8 +138,8 @@ fun WikiGamesCard(
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
-                                onReviewResult = onPlayClick,
-                                onPlayTheArchive = onPlayClick,
+                                onReviewResult = onReviewResult,
+                                onPlayTheArchive = onPlayArchiveClick,
                                 onCountDownFinished = onCountDownFinished
                             )
                         }
