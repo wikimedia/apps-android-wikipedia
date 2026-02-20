@@ -225,19 +225,20 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
-            val intent = Intent(context, OnThisDayGameActivity::class.java)
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null): Intent {
+            val resolvedDate = Prefs.lastOtdGameDateOverride
+                .takeIf { it.isNotEmpty() }
+                ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
+                ?: date
+
+            return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            if (Prefs.lastOtdGameDateOverride.isNotEmpty()) {
-                val date = try {
-                    LocalDate.parse(Prefs.lastOtdGameDateOverride, DateTimeFormatter.ISO_LOCAL_DATE)
-                } catch (_: Exception) {
-                    LocalDate.now()
+                .apply {
+                    resolvedDate?.let {
+                        putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+                    }
                 }
-                intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
-            }
-            return intent
         }
     }
 }
