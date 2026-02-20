@@ -1793,6 +1793,8 @@
   <string name="games_hub_activity_title">Activity title for the Games hub.</string>
   <string name="games_hub_activity_games_unavailable_message">Snackbar message that indicates the game is unavailable in this language. The %s will be replaced with the language.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
+  <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
   <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
