@@ -1897,6 +1897,8 @@
     <string name="games_hub_activity_title">Games</string>
     <string name="games_hub_activity_games_unavailable_message">No games available in %s yet! Games leverage content created by volunteer editors for each language\'s Wikipedia.</string>
     <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
+    <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
+    <string name="games_hub_activity_overflow_learn_more">Learn more</string>
 
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>

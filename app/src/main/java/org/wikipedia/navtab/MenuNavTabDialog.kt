@@ -16,6 +16,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
@@ -69,6 +70,12 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerWatchlistContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerWatchlistContainer)
             callback()?.watchlistClick()
+            dismiss()
+        }
+
+        binding.mainDrawerGamesHubContainer.setOnClickListener {
+            // TODO: handle the visibility logic here.
+            requireActivity().startActivity(GamesHubActivity.newIntent(requireActivity()))
             dismiss()
         }
 
