@@ -44,6 +44,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -67,8 +68,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import coil3.compose.AsyncImage
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
@@ -224,28 +223,27 @@ fun HybridSearchResultsList(
 
         item {
 
+            // Logic for tracking "impressions" of horizontally scrollable cards.
+            // TLDR: observe layout info and see if the visible fraction of the card is >50%
             val listState = rememberLazyListState()
             val impressedCards = remember { mutableSetOf<SearchResult>() }
-
-            LaunchedEffect(Unit) {
-                while (isActive) {
-                    val layoutInfo = listState.layoutInfo
-                    val viewportStart = layoutInfo.viewportStartOffset
-                    val viewportEnd = layoutInfo.viewportEndOffset
-                    layoutInfo.visibleItemsInfo.forEach { itemInfo ->
-                        val itemStart = itemInfo.offset.coerceAtLeast(viewportStart)
-                        val itemEnd = (itemInfo.offset + itemInfo.size).coerceAtMost(viewportEnd)
-                        val visibleWidth = (itemEnd - itemStart).coerceAtLeast(0)
-                        val visibleFraction = visibleWidth.toFloat() / itemInfo.size.toFloat()
-                        if (visibleFraction >= 0.5f && itemInfo.index in semanticSearchResultPage.indices) {
-                            val card = semanticSearchResultPage[itemInfo.index]
-                            if (impressedCards.add(card)) {
-                                onSemanticCardImpression(card, itemInfo.index)
+            LaunchedEffect(listState) {
+                snapshotFlow { listState.layoutInfo }
+                    .collect { layoutInfo ->
+                        val viewportWidth = layoutInfo.viewportSize.width
+                        layoutInfo.visibleItemsInfo.forEach { itemInfo ->
+                            val itemStart = itemInfo.offset.coerceAtLeast(0)
+                            val itemEnd = (itemInfo.offset + itemInfo.size).coerceAtMost(viewportWidth)
+                            val visibleWidth = (itemEnd - itemStart).coerceAtLeast(0)
+                            val visibleFraction = visibleWidth.toFloat() / itemInfo.size.toFloat()
+                            if (visibleFraction >= 0.5f) {
+                                val card = semanticSearchResultPage[itemInfo.index]
+                                if (impressedCards.add(card)) {
+                                    onSemanticCardImpression(card, itemInfo.index)
+                                }
                             }
                         }
                     }
-                    delay(500)
-                }
             }
 
             LazyRow(
