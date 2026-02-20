@@ -2121,11 +2121,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Predefined example search query displayed as a suggestion chip during Hybrid Search onboarding.</string>
   <string name="hybrid_search_onboarding_screen_title">Title for the hybrid search onboarding screen.</string>
   <string name="hybrid_search_results_header_description">Description for the semantic search result header.</string>
-  <string name="hybrid_search_results_more_button">Button text for the semantic search result.</string>
   <string name="hybrid_search_results_rate_label">Text for rating the semantic search result.</string>
   <string name="hybrid_search_results_rated_label">Label indicating that the semantic search result has been rated.</string>
   <string name="hybrid_search_results_rate_thumb_up">Image description for rating the semantic search result that indicates thumbs up.</string>
   <string name="hybrid_search_results_rate_thumb_down">Image description for rating the semantic search result that indicates thumbs down.</string>
+  <string name="hybrid_lexical_search_results_empty">Message indicating that no article title matches were found for this query.</string>
   <string name="hybrid_search_results_empty">Text for showing the semantic search is currently unavailable.</string>
   <string name="hybrid_search_no_results_header">Header Text displayed when semantic search returns no results.</string>
   <string name="hybrid_search_no_results_description">Displayed when a semantic search returns no results. Includes a brief message and suggestions for the user to try next.</string>

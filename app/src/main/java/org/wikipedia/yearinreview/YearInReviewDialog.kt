@@ -31,7 +31,7 @@ object YearInReviewDialog {
 
         YearInReviewEvent.submit(
             action = "group_assigned",
-            groupAssigned = if (isTestGroupUser) "android_yir_2025_b" else "android_yir_2025_a"
+            groupAssigned = YearInReviewReadingListAbTest().getGroupName()
         )
 
         val cutoffDate = Instant.parse(YearInReviewViewModel.CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG).toEpochMilli()
