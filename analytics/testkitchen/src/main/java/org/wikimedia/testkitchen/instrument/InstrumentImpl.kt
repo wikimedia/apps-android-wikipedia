@@ -48,4 +48,9 @@ class InstrumentImpl(
         experiment = ExperimentImpl(name, group)
         return this
     }
+
+    fun setExperiment(experiment: ExperimentImpl?): InstrumentImpl {
+        this.experiment = experiment
+        return this
+    }
 }
