@@ -53,6 +53,8 @@ object RemoteConfig {
     class RemoteConfigAndroidV1 {
         val disableReadingListSync = false
         val hCaptcha: RemoteConfigHCaptcha? = null
+        val hybridSearchEnabled: Boolean? = null
+        val hybridSearchLanguages: List<String>? = null
     }
 
     @Suppress("unused")

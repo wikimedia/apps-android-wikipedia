@@ -81,9 +81,9 @@ class SearchResultsViewModel : ViewModel() {
 
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-       viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-           _hybridSearchResultState.value = UiState.Error(throwable)
-       }) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _hybridSearchResultState.value = UiState.Error(throwable)
+        }) {
             _hybridSearchResultState.value = UiState.Loading
             val lexicalBatchSize = 3
             val semanticBatchSize = 3

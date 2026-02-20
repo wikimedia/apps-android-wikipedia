@@ -128,7 +128,7 @@ class EventPlatformClientTest {
             it.streamName = "test"
             it.destinationEventService = DestinationEventService.LOGGING
         }
-        assertNotNull(getAnalyticsRest(streamConfig))
+        assertNotNull(getAnalyticsRest(streamConfig.destinationEventService))
     }
 
     @Test
@@ -136,7 +136,7 @@ class EventPlatformClientTest {
         val streamConfig = StreamConfig().also {
             it.streamName = "test"
         }
-        assertNotNull(getAnalyticsRest(streamConfig))
+        assertNotNull(getAnalyticsRest(streamConfig.destinationEventService))
     }
 
     @Test

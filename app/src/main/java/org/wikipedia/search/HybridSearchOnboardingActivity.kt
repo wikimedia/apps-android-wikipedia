@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,8 +27,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SuggestionChip
-import androidx.compose.material3.SuggestionChipDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -34,6 +34,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -70,12 +71,21 @@ private val onboardingItems = listOf(
     )
 )
 
-private val defaultSearchQueries = listOf(
+private val defaultSuggestedQueries = listOf(
     R.string.hybrid_search_onboarding_search_example_query_pluto_as_planet,
     R.string.hybrid_search_onboarding_search_example_query_first_olympics,
     R.string.hybrid_search_onboarding_search_example_query_rna_vs_dna,
     R.string.hybrid_search_onboarding_search_example_query_pineapple_pizza,
     R.string.hybrid_search_onboarding_search_example_query_biggest_cities_europe
+)
+private val suggestedQueriesPerLanguage = mapOf("el" to
+    listOf(
+        R.string.hybrid_search_onboarding_search_example_query1_el,
+        R.string.hybrid_search_onboarding_search_example_query2_el,
+        R.string.hybrid_search_onboarding_search_example_query3_el,
+        R.string.hybrid_search_onboarding_search_example_query4_el,
+        R.string.hybrid_search_onboarding_search_example_query5_el
+    )
 )
 
 class HybridSearchOnboardingActivity : BaseActivity() {
@@ -221,7 +231,7 @@ fun HybridSearchOnboardingScreen(
 @Composable
 fun SearchExamplesView(
     modifier: Modifier = Modifier,
-    searchExamples: List<Int> = defaultSearchQueries,
+    searchExamples: List<Int> = suggestedQueriesPerLanguage[WikipediaApp.instance.appOrSystemLanguageCode] ?: defaultSuggestedQueries,
     langCode: String,
     onClick: (String) -> Unit
 ) {
@@ -242,28 +252,25 @@ fun SearchExamplesView(
 
         FlowRow(
             modifier = Modifier
-                .padding(start = 36.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                .padding(start = 36.dp, top = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             searchExamples.forEachIndexed { _, exampleQuery ->
                 val exampleQueryString = context.getString(langCode, exampleQuery)
-                SuggestionChip(
-                    onClick = { onClick(exampleQueryString) },
-                    label = {
-                        Text(
-                            text = exampleQueryString,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    },
-                    colors = SuggestionChipDefaults.suggestionChipColors(
-                        containerColor = WikipediaTheme.colors.paperColor,
-                        labelColor = WikipediaTheme.colors.secondaryColor,
-                    ),
-                    border = SuggestionChipDefaults.suggestionChipBorder(
-                        enabled = true,
-                        borderColor = WikipediaTheme.colors.borderColor
+                Box(
+                    modifier = Modifier
+                        .border(width = 1.dp, color = WikipediaTheme.colors.borderColor, shape = RoundedCornerShape(8.dp))
+                        .clip(shape = RoundedCornerShape(8.dp))
+                        .clickable(onClick = { onClick(exampleQueryString) })
+                ) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
+                        text = exampleQueryString,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WikipediaTheme.colors.secondaryColor
                     )
-                )
+                }
             }
         }
     }

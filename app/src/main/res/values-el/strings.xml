@@ -1455,4 +1455,5 @@
   <string name="hybrid_search_results_empty">Η ενισχυμένη αναζήτηση είναι προσωρινά μη διαθέσιμη.</string>
   <string name="hybrid_search_who_is_prefix">Ποιος είναι ο/η %s</string>
   <string name="hybrid_search_turn_off_experiment_label">Απενεργοποίησε αυτό το πείραμα</string>
+  <string name="hybrid_lexical_search_results_empty">Δεν υπάρχει τίτλος άρθρου που να αντιστοιχεί σε αυτό το ερώτημα</string>
 </resources>

@@ -964,7 +964,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница слике на Викимедијиној остави</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Страница датотеке на Википедији</string>
   <string name="suggested_edits_article_cta_image_tags">Додај ознаке слика</string>
-  <string name="suggested_edits_article_cta_image_caption" fuzzy="true">Додај натпис слике</string>
+  <string name="suggested_edits_article_cta_image_caption">Додај натпис слике</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај натпис слике (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Прикажи</string>
   <string name="suggested_edits_feed_card_add_image_caption">Додај натпис слике</string>
@@ -1120,11 +1120,13 @@
   <string name="activity_tab_donation_unknown">Непознато</string>
   <string name="activity_tab_menu_info">Сазнајте више</string>
   <string name="activity_tab_menu_customize">Прилагоди</string>
+  <string name="activity_tab_highlights">Најбитније</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Историја читања</string>
   <string name="activity_tab_impact_last_edited">Последње уређивање</string>
   <string name="activity_tab_impact_recent_activity">Скорашња активност (претходних 30 дана)</string>
   <string name="activity_tab_timeline_today">Данас</string>
   <string name="activity_tab_timeline_yesterday">Јуче</string>
+  <string name="activity_tab_timeline_empty_state_title">Ништа за приказ</string>
   <string name="activity_tab_timeline_view_changes_button">Види измене</string>
   <string name="file_page_activity_title">Страница датотеке</string>
   <string name="file_page_add_image_caption_button">Додај натпис слике</string>
@@ -1155,6 +1157,7 @@
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
   <string name="onboarding_welcome_title_v2">Слободна енциклопедија\nна преко 300 језика</string>
+  <string name="onboarding_next">Следеће</string>
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
@@ -1703,6 +1706,7 @@
   <string name="year_in_review_login_dialog_positive">Пријава / Придружите се Википедији</string>
   <string name="year_in_review_login_dialog_negative">Настави без пријављивања</string>
   <string name="year_in_review_slide_reading_patterns_headline">Имате јасне обрасце читања</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Омиљени дан за читање</string>
   <string name="year_in_review_slide_reading_pattern_morning">Јутро</string>
   <string name="year_in_review_slide_reading_pattern_afternoon">Послеподне</string>
   <string name="year_in_review_slide_reading_pattern_evening">Вече</string>
@@ -1717,7 +1721,10 @@
   <string name="recommended_reading_list_onboarding_card_positive_button">Почнимо</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">Не, хвала</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">Опозови</string>
+  <string name="recommended_reading_list_interest_pick_random_dialog_positive_button">Да, изабери за мене</string>
   <string name="recommended_reading_list_interest_pick_random_dialog_negative_button">Нема везе</string>
+  <string name="recommended_reading_list_page_subtitle_made_for">Направљено за %s</string>
+  <string name="recommended_reading_list_page_logged_out_subtitle_made_for_you">Направљено за Вас</string>
   <string name="recommended_reading_list_page_snackbar_day">дан</string>
   <string name="recommended_reading_list_page_snackbar_week">недеља</string>
   <string name="recommended_reading_list_page_snackbar_month">месец</string>
@@ -1744,4 +1751,11 @@
   <string name="donation_reminders_gpay_text">Донирајте %s путем Google Pay-а</string>
   <string name="donation_reminders_settings_no_thanks_btn_label">Не, хвала</string>
   <string name="donation_reminders_settings_learn_more_button">Сазнајте више</string>
+  <string name="hybrid_search_onboarding_learn_more">Сазнајте више</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Бета функције</string>
+  <string name="hybrid_search_beta_tag">Бета</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">РНК vs ДНК</string>
+  <string name="hybrid_search_onboarding_screen_title">Нов начин претраге</string>
+  <string name="hybrid_search_results_more_button">Још</string>
+  <string name="hybrid_search_no_results_header">Нема резултата</string>
 </resources>
