@@ -140,18 +140,17 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
 
     private fun updateDonationReminderCardContent(config: DonationReminderConfig?) {
         config?.let { config ->
-            val articleText = context.resources.getQuantityString(
-                R.plurals.donation_reminders_text_articles, config.articleFrequency, config.articleFrequency
-            )
             val donationAmount = DonateUtil.currencyFormat.format(Prefs.donationReminderConfig.donateAmount)
-            val titleText = if (config.goalReachedCount == 1) {
+            val isFirstImpression = config.timesReminderShown == 1
+            val articleText = getArticleTextForDonationReminder(isFirstImpression)
+            val titleText = if (config.goalReachedCount == 1 || config.timesReminderShown >= 1) {
                 context.getString(R.string.donation_reminders_first_milestone_reached_prompt_title, articleText, donationAmount)
             } else {
                 context.getString(R.string.donation_reminders_subsequent_milestone_reached_prompt_title, articleText)
             }
 
             val dateText = DateUtil.getMMMMdYYYY(Date(config.setupTimestamp))
-            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, articleText, donationAmount)
+            val messageText = context.getString(R.string.donation_reminders_prompt_message, dateText, getArticleTextForDonationReminder(false), donationAmount)
             val positiveButtonText = context.getString(R.string.donation_reminders_prompt_positive_button)
             val negativeButtonText = context.getString(R.string.donation_reminders_prompt_negative_button)
             binding.donationReminderCardView.setTitle(titleText)
@@ -168,6 +167,19 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
         }
     }
 
+    private fun getArticleTextForDonationReminder(isContinuousCount: Boolean): String {
+        val config = Prefs.donationReminderConfig
+        val articlesRead = if (isContinuousCount) {
+            config.continuousArticleVisit
+        } else {
+            config.articleFrequency
+        }
+
+        return context.resources.getQuantityString(
+            R.plurals.donation_reminders_text_articles, articlesRead, articlesRead
+        )
+    }
+
     fun maybeShowDonationReminderCard() {
         if (DonationReminderHelper.shouldShowReminderNow()) {
             DonorExperienceEvent.logDonationReminderAction(
@@ -176,6 +188,7 @@ class PageHeaderView(context: Context, attrs: AttributeSet? = null) : LinearLayo
             )
             updateDonationReminderCardContent(Prefs.donationReminderConfig)
             binding.donationReminderCardView.isVisible = true
+            DonationReminderHelper.recordReminderShown()
         } else {
             binding.donationReminderCardView.isVisible = false
         }
