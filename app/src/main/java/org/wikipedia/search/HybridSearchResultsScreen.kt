@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -43,6 +44,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -85,16 +87,18 @@ fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onSemanticCardImpression: (SearchResult, Int) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: (String) -> Unit,
-    onRatingClick: (Boolean) -> Unit,
+    onRatingClick: (Boolean, PageTitle, Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
     onLexicalResultsEmpty: () -> Unit,
-    onSemanticResultsEmpty: () -> Unit
+    onSemanticResultsEmpty: () -> Unit,
+    onError: (Throwable) -> Unit
 ) {
     val searchResultsState = viewModel.hybridSearchResultState.collectAsState().value
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -142,12 +146,14 @@ fun HybridSearchResultsScreen(
                         onTurnOffExperimentClick = {
                             onTurnOffExperimentClick(searchTerm.value.orEmpty())
                         },
+                        onSemanticCardImpression = onSemanticCardImpression,
                         onSemanticItemClick = onSemanticItemClick,
                         onRatingClick = onRatingClick
                     )
                 }
 
                 is UiState.Error -> {
+                    onError(searchResultsState.error)
                     WikiErrorView(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -174,8 +180,9 @@ fun HybridSearchResultsList(
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onRatingClick: (Boolean) -> Unit
+    onSemanticCardImpression: (SearchResult, Int) -> Unit,
+    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
+    onRatingClick: (Boolean, PageTitle, Int) -> Unit
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
@@ -217,7 +224,32 @@ fun HybridSearchResultsList(
         }
 
         item {
+
+            // Logic for tracking "impressions" of horizontally scrollable cards.
+            // TLDR: observe layout info and see if the visible fraction of the card is >50%
+            val listState = rememberLazyListState()
+            val impressedCards = remember { mutableSetOf<SearchResult>() }
+            LaunchedEffect(listState) {
+                snapshotFlow { listState.layoutInfo }
+                    .collect { layoutInfo ->
+                        val viewportWidth = layoutInfo.viewportSize.width
+                        layoutInfo.visibleItemsInfo.forEach { itemInfo ->
+                            val itemStart = itemInfo.offset.coerceAtLeast(0)
+                            val itemEnd = (itemInfo.offset + itemInfo.size).coerceAtMost(viewportWidth)
+                            val visibleWidth = (itemEnd - itemStart).coerceAtLeast(0)
+                            val visibleFraction = visibleWidth.toFloat() / itemInfo.size.toFloat()
+                            if (visibleFraction >= 0.5f) {
+                                val card = semanticSearchResultPage[itemInfo.index]
+                                if (impressedCards.add(card)) {
+                                    onSemanticCardImpression(card, itemInfo.index)
+                                }
+                            }
+                        }
+                    }
+            }
+
             LazyRow(
+                state = listState,
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
@@ -228,17 +260,16 @@ fun HybridSearchResultsList(
                         SemanticSearchResultPageItem(
                             searchResult = result,
                             onSemanticItemClick = {
-                                onSemanticItemClick(result.pageTitle, false, index, result.location)
+                                onSemanticItemClick(result.pageTitle, false, false, index, result.location)
                             },
-                            onArticleItemClick = { pageTitleFromLink ->
-                                if (pageTitleFromLink != null) {
-                                    onItemClick(pageTitleFromLink, false, index, null)
-                                } else {
-                                    onItemClick(result.pageTitle, false, index, result.location)
-                                }
+                            onArticleItemClick = {
+                                onItemClick(it, false, index, result.location)
+                            },
+                            onSnippetLinkClick = {
+                                onSemanticItemClick(it, false, true, index, result.location)
                             },
                             onRatingClick = { isPositive ->
-                                onRatingClick(isPositive)
+                                onRatingClick(isPositive, result.pageTitle, index)
                             }
                         )
                     }
@@ -374,7 +405,8 @@ fun SemanticSearchResultHeader(
 fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
-    onArticleItemClick: (PageTitle?) -> Unit,
+    onArticleItemClick: (PageTitle) -> Unit,
+    onSnippetLinkClick: (PageTitle) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
     Card(
@@ -414,8 +446,7 @@ fun SemanticSearchResultPageItem(
                     ),
                     linkInteractionListener = {
                         val url = (it as LinkAnnotation.Url).url
-                        val pageTitle = PageTitle.titleForUri(url.toUri(), WikiSite(url))
-                        onArticleItemClick(pageTitle)
+                        onSnippetLinkClick(PageTitle.titleForUri(url.toUri(), WikiSite(url)))
                     }
                 )
             }
@@ -616,6 +647,7 @@ private fun SemanticSearchResultPageItemPreview() {
             ),
             onSemanticItemClick = {},
             onArticleItemClick = {},
+            onSnippetLinkClick = {},
             onRatingClick = {}
         )
     }

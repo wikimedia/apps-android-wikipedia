@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 
@@ -71,7 +72,7 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
     }
 
     fun getExperiment(abTest: ABTest): ExperimentImpl {
-        return ExperimentImpl(abTest.name, abTest.getGroupName(), isLoggable = { abTest.shouldInstrument() })
+        return ExperimentImpl(abTest.name, abTest.getGroupName(), subjectId = Prefs.appInstallId, isLoggable = { abTest.shouldInstrument() })
     }
 
     fun getPageData(fragment: PageFragment?): PageData? {

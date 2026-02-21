@@ -13,17 +13,25 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 
 class SearchResultsFragment : Fragment() {
@@ -39,6 +47,49 @@ class SearchResultsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.searchTermForLogging.collectLatest { query ->
+                    if (!query.isNullOrEmpty()) {
+                        requireActivity().instrument?.submitInteraction(
+                            "search_init", actionSource = "search",
+                            actionContext = mapOf("query" to query)
+                        )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.lexicalResultsForLogging.collectLatest { data ->
+                    if (data != null) {
+                        requireActivity().instrument?.submitInteraction(
+                            "show_search_results", actionSource = "search",
+                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty())
+                        )
+                    }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.hybridSearchResultState.collectLatest { state ->
+                    if (state is UiState.Success) {
+                        val semanticResults = state.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
+                        val lexicalResults = state.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+
+                        requireActivity().instrument?.submitInteraction(
+                            "show_hybrid_results", actionSource = "search",
+                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty(),
+                                "lexical" to (lexicalResults.map { it.pageTitle.prefixedText }).joinToString("|"),
+                                "semantic" to (semanticResults.map { it.pageTitle.prefixedText }).joinToString("|"))
+                        )
+                    }
+                }
+            }
+        }
+
         return ComposeView(requireActivity()).apply {
             composeView = this
             setContent {
@@ -48,9 +99,24 @@ class SearchResultsFragment : Fragment() {
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
-                            onSemanticItemClick = { title, inNewTab, position, location ->
+                            onSemanticCardImpression = { result, position ->
+                                requireActivity().instrument?.submitInteraction("impression", actionSource = "semantic_results", elementId = "semantic_search_card",
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = mapOf("position" to position))
+                            },
+                            onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    actionSource = if (fromSnippetLink) "semantic_result_snippet" else "semantic_result",
+                                    pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
@@ -58,9 +124,13 @@ class SearchResultsFragment : Fragment() {
                                 LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                             },
                             onInfoClick = {
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "learn_more")
+
                                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
                             },
                             onTurnOffExperimentClick = {
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "hybrid_search_opt_out")
+
                                 Prefs.isHybridSearchEnabled = false
                                 showHybridSearch = false
                                 callback()?.setSearchText(StringUtil.fromHtml(it).toString())
@@ -72,14 +142,24 @@ class SearchResultsFragment : Fragment() {
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
                             },
-                            onRatingClick = { isPositive ->
-                                // TODO: implement rating submission
+                            onRatingClick = { isPositive, title, position ->
+                                requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                    elementId = if (isPositive) "thumb_up" else "thumb_down",
+                                    pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position))
                             },
                             onLexicalResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "lexical_search_results_empty")
+
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
                             },
                             onSemanticResultsEmpty = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "semantic_search_results_empty")
+
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
+                            },
+                            onError = {
+                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", actionContext = mapOf("message" to it.message.orEmpty()))
                             }
                         )
                     } else {
@@ -87,6 +167,10 @@ class SearchResultsFragment : Fragment() {
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
+
+                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "search_results", pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf("position" to position))
+
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
@@ -97,8 +181,14 @@ class SearchResultsFragment : Fragment() {
                                     callback = SearchResultLongPressHandler(callback(), position)
                                 ).show(entry)
                             },
-                            onSemanticSearchClick = {
-                                callback()?.setSearchText(StringUtil.fromHtml(it).toString())
+                            onSemanticSearchClick = { query, isSuggestion ->
+
+                                if (isSuggestion) {
+                                    requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                        elementId = "semantic_search_explicit", actionContext = mapOf("query" to query))
+                                }
+
+                                callback()?.setSearchText(StringUtil.fromHtml(query).toString())
                                 showHybridSearch = true
                                 DeviceUtil.hideSoftKeyboard(requireActivity())
                             },
@@ -138,15 +228,14 @@ class SearchResultsFragment : Fragment() {
 
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
         viewModel.updateLanguageCode(searchLanguageCode)
-        if (force) {
-            viewModel.refreshSearchResults()
-        }
 
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
         if (showHybridSearch) {
             viewModel.resetHybridSearchState()
             viewModel.loadHybridSearchResults()
+        } else if (force) {
+            viewModel.refreshSearchResults()
         }
     }
 

@@ -24,6 +24,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
+import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageActivity
@@ -59,6 +60,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private set
 
     private val searchCloseListener = SearchView.OnCloseListener {
+
+        requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close_button")
+
         closeSearch()
         false
     }
@@ -123,7 +127,12 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
                 R.id.fragment_search_results) as SearchResultsFragment
         searchResultsFragment.setInvokeSource(invokeSource)
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
-        binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
+        binding.searchToolbar.setNavigationOnClickListener {
+
+            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back_button")
+
+            requireActivity().supportFinishAfterTransition()
+        }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
         binding.searchLangButton.setOnClickListener { onLangButtonClick() }
@@ -132,6 +141,9 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             Prefs.selectedLanguagePositionInSearch = app.languageState.appLanguageCodes.indexOf(Prefs.placesWikiCode)
             PlacesEvent.logImpression("search_view")
         }
+
+        requireActivity().instrument?.submitInteraction("search_impression", actionSource = invokeSource.value)
+
         return binding.root
     }
 
