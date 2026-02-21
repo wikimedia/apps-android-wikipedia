@@ -33,7 +33,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -48,7 +48,7 @@ class SingleWebViewActivity : BaseActivity() {
     private var showBackButton = false
     private var isWebForm = false
     private var wasFormSubmitted = false
-    val blankModel = PageViewModel()
+    val blankModel = PageViewState()
 
     @SuppressLint("SetJavaScriptEnabled")
     public override fun onCreate(savedInstanceState: Bundle?) {

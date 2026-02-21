@@ -17,7 +17,7 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -42,7 +42,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
 
     interface CommunicationBridgeListener {
         val webView: WebView
-        val model: PageViewModel
+        val model: PageViewState
         val isPreview: Boolean
         val toolbarMargin: Int
         val messageCardHeight: Int
