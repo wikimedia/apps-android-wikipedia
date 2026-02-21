@@ -1,11 +1,11 @@
 package org.wikipedia.feed.wikigames
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -53,9 +54,10 @@ import java.util.Locale
 
 @Composable
 fun OnThisDayGameCardPreview(
-    state: OnThisDayCardGameState.Preview,
-    onPlayClick: () -> Unit,
     modifier: Modifier = Modifier,
+    state: OnThisDayCardGameState.Preview,
+    titleText: String,
+    onPlayClick: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
@@ -63,11 +65,10 @@ fun OnThisDayGameCardPreview(
         elevation = 2.dp
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         ) {
             Row(
+                modifier = Modifier.padding(horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
@@ -79,7 +80,7 @@ fun OnThisDayGameCardPreview(
                     contentDescription = null
                 )
                 Text(
-                    text = context.getString(state.langCode, R.string.on_this_day_game_title),
+                    text = titleText,
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.titleMedium.copy(
                         fontWeight = FontWeight.SemiBold,
@@ -89,10 +90,19 @@ fun OnThisDayGameCardPreview(
             }
 
             OnThisDayGameFirstEventView(event = state.event1)
+
+            HorizontalDivider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                color = WikipediaTheme.colors.borderColor
+            )
+
             OnThisDayGameFirstEventView(event = state.event2)
 
             Box(
                 modifier = Modifier
+                    .padding(horizontal = 16.dp)
                     .fillMaxWidth()
             ) {
                 FilledTonalButton(
@@ -119,7 +129,9 @@ fun OnThisDayGameCardPreview(
 @Composable
 fun OnThisDayCardProgress(
     modifier: Modifier = Modifier,
+    isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.InProgress,
+    titleText: String,
     onContinueClick: () -> Unit
 ) {
     val context = LocalContext.current
@@ -127,9 +139,15 @@ fun OnThisDayCardProgress(
         modifier = modifier,
         elevation = 2.dp
     ) {
+        val columnModifier = Modifier.padding(16.dp).also {
+            if (isArchiveGame) {
+                it.clickable {
+                    onContinueClick()
+                }
+            }
+        }
         Column(
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = columnModifier
         ) {
             Icon(
                 modifier = Modifier
@@ -142,7 +160,7 @@ fun OnThisDayCardProgress(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = context.getString(state.langCode, R.string.on_this_day_game_title),
+                text = titleText,
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.SemiBold,
@@ -150,12 +168,15 @@ fun OnThisDayCardProgress(
                 )
             )
 
+            val descriptionText = if (isArchiveGame) {
+                stringResource(R.string.on_this_day_game_card_progress_short_label, state.currentQuestion + 1)
+            } else {
+                stringResource(R.string.on_this_day_game_card_progress_label, state.currentQuestion + 1)
+            }
+
             Text(
                 modifier = Modifier,
-                text = stringResource(
-                    R.string.on_this_day_game_card_progress_label,
-                    state.currentQuestion + 1
-                ),
+                text = descriptionText,
                 color = WikipediaTheme.colors.secondaryColor,
                 style = MaterialTheme.typography.bodyMedium.copy(
                     lineHeight = 24.sp,
@@ -163,26 +184,35 @@ fun OnThisDayCardProgress(
                 )
             )
 
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 112.dp)
-            ) {
-                FilledTonalButton(
+            val spacerHeight = if (isArchiveGame) 200.dp else 16.dp
+
+            Spacer(modifier = Modifier.height(spacerHeight))
+
+            if (!isArchiveGame) {
+                Box(
                     modifier = Modifier
-                        .align(Alignment.CenterEnd),
-                    colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = WikipediaTheme.colors.backgroundColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onContinueClick
+                        .fillMaxWidth()
+                        .padding(top = 112.dp)
                 ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
+                    FilledTonalButton(
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd),
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = WikipediaTheme.colors.backgroundColor,
+                            contentColor = WikipediaTheme.colors.progressiveColor
+                        ),
+                        onClick = onContinueClick
+                    ) {
+                        Text(
+                            text = context.getString(
+                                state.langCode,
+                                R.string.on_this_day_game_continue_btn_text
+                            ),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Medium
+                            )
                         )
-                    )
+                    }
                 }
             }
         }
@@ -192,7 +222,9 @@ fun OnThisDayCardProgress(
 @Composable
 fun OnThisDayCardCompleted(
     modifier: Modifier = Modifier,
+    isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.Completed,
+    titleText: String,
     onReviewResult: () -> Unit,
     onPlayTheArchive: () -> Unit
 ) {
@@ -201,9 +233,15 @@ fun OnThisDayCardCompleted(
         modifier = modifier,
         elevation = 2.dp
     ) {
+        val columnModifier = Modifier.padding(16.dp).also {
+            if (isArchiveGame) {
+                it.clickable {
+                    onReviewResult()
+                }
+            }
+        }
         Column(
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = columnModifier
         ) {
             Icon(
                 modifier = Modifier
@@ -216,7 +254,7 @@ fun OnThisDayCardCompleted(
             Text(
                 modifier = Modifier
                     .padding(top = 16.dp),
-                text = context.getString(state.langCode, R.string.on_this_day_game_title),
+                text = titleText,
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.SemiBold,
@@ -224,43 +262,54 @@ fun OnThisDayCardCompleted(
                 )
             )
 
-            NextGameCountdown(state = state)
+            NextGameCountdown(state = state, isArchiveGame = isArchiveGame)
 
-            Spacer(modifier = Modifier.height(112.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                FilledTonalButton(
-                    modifier = Modifier
-                        .weight(1f),
-                    colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = WikipediaTheme.colors.backgroundColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onReviewResult
-                ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_review_results_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
-                        )
-                    )
-                }
+            val spacerHeight = if (isArchiveGame) 200.dp else 112.dp
 
-                TextButton(
+            Spacer(modifier = Modifier.height(spacerHeight))
+
+            if (!isArchiveGame) {
+                Row(
                     modifier = Modifier
-                        .weight(1f),
-                    onClick = onPlayTheArchive
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_archive_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium,
-                            color = WikipediaTheme.colors.progressiveColor
+                    FilledTonalButton(
+                        modifier = Modifier
+                            .weight(1f),
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = WikipediaTheme.colors.backgroundColor,
+                            contentColor = WikipediaTheme.colors.progressiveColor
+                        ),
+                        onClick = onReviewResult
+                    ) {
+                        Text(
+                            text = context.getString(
+                                state.langCode,
+                                R.string.on_this_day_game_review_results_btn_text
+                            ),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Medium
+                            )
                         )
-                    )
+                    }
+
+                    TextButton(
+                        modifier = Modifier
+                            .weight(1f),
+                        onClick = onPlayTheArchive
+                    ) {
+                        Text(
+                            text = context.getString(
+                                state.langCode,
+                                R.string.on_this_day_game_archive_btn_text
+                            ),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Medium,
+                                color = WikipediaTheme.colors.progressiveColor
+                            )
+                        )
+                    }
                 }
             }
         }
@@ -272,8 +321,7 @@ fun OnThisDayGameFirstEventView(
     event: OnThisDay.Event
 ) {
     Row(
-        modifier = Modifier
-            .padding(vertical = 16.dp),
+        modifier = Modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
@@ -306,7 +354,8 @@ fun OnThisDayGameFirstEventView(
 
 @Composable
 private fun NextGameCountdown(
-    state: OnThisDayCardGameState.Completed
+    state: OnThisDayCardGameState.Completed,
+    isArchiveGame: Boolean
 ) {
     var duration by remember { mutableStateOf(OnThisDayGameResultFragment.timeUntilNextDay()) }
     LaunchedEffect(Unit) {
@@ -316,15 +365,21 @@ private fun NextGameCountdown(
         }
     }
 
-    Text(
-        modifier = Modifier,
-        text = stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
+    val countdownText = if (isArchiveGame) {
+        stringResource(R.string.on_this_day_game_explore_feed_card_score_short_message, state.score, state.totalQuestions)
+    } else {
+        stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
             Locale.getDefault(),
             "%02d:%02d:%02d",
             duration.toHoursPart(),
             duration.toMinutesPart(),
             duration.toSecondsPart()
-        )),
+        ))
+    }
+
+    Text(
+        modifier = Modifier,
+        text = countdownText,
         color = WikipediaTheme.colors.secondaryColor,
         style = MaterialTheme.typography.bodyMedium.copy(
             lineHeight = 24.sp,
@@ -335,12 +390,40 @@ private fun NextGameCountdown(
 
 @Preview(showBackground = true)
 @Composable
+private fun OnThisDayCardPreviewPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameCardPreview(
+            state = OnThisDayCardGameState.Preview(
+                langCode = "en",
+                event1 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    year = 1990
+                ),
+                event2 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    year = 2000
+                )
+            ),
+            titleText = "November 3",
+            onPlayClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
 private fun OnThisDayCardProgressPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
         OnThisDayCardProgress(
+            isArchiveGame = false,
             state = OnThisDayCardGameState.InProgress("en", 3),
+            titleText = "November 2",
             onContinueClick = {}
         )
     }
@@ -353,11 +436,13 @@ private fun OnThisDayCardCompletedPreview() {
         currentTheme = Theme.LIGHT
     ) {
         OnThisDayCardCompleted(
+            isArchiveGame = false,
             state = OnThisDayCardGameState.Completed(
                 langCode = "en",
                 score = 4,
                 totalQuestions = 5
             ),
+            titleText = "November 1",
             onReviewResult = {},
             onPlayTheArchive = {}
         )
