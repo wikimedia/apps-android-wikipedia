@@ -111,7 +111,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
             if (viewModel.isArchiveGame) {
                 playArchiveButton.isVisible = true
                 playArchiveButton.setOnClickListener {
-                    prepareAndOpenArchiveCalendar(viewModel)
+                    prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
                 }
             }
         }
@@ -128,7 +128,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
             }
             playArchiveButton.isVisible = true
             playArchiveButton.setOnClickListener {
-                prepareAndOpenArchiveCalendar(viewModel)
+                prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
             }
         }
     }
