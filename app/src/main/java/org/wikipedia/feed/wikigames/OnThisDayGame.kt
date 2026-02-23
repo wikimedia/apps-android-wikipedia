@@ -93,8 +93,7 @@ fun OnThisDayGameCardPreview(
 
             HorizontalDivider(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
+                    .fillMaxWidth(),
                 color = WikipediaTheme.colors.borderColor
             )
 
