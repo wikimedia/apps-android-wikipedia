@@ -16,6 +16,7 @@
 * LNDDYL
 * Lakejason0
 * Liuxinyu970226
+* LowensteinYang
 * Madeleinemcc
 * Mikepanhu
 * MuratTheTurkish
@@ -2262,11 +2263,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
   <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
   <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
-  <string name="hybrid_search_results_more_button">更多</string>
-  <string name="hybrid_search_results_rate_label">評價這些結果</string>
+  <string name="hybrid_search_results_rate_label">評價此結果</string>
   <string name="hybrid_search_results_rated_label">已評價</string>
   <string name="hybrid_search_results_rate_thumb_up">很棒</string>
   <string name="hybrid_search_results_rate_thumb_down">不好</string>
+  <string name="hybrid_lexical_search_results_empty">沒有任何條目的標題符合此查詢。</string>
   <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
   <string name="hybrid_search_no_results_header">沒有結果</string>
   <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>
