@@ -2269,11 +2269,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat zijn de grootste steden van Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Een nieuwe manier om te zoeken</string>
   <string name="hybrid_search_results_header_description">Afkomstig uit door mensen geschreven Wikipedia-pagina\'s</string>
-  <string name="hybrid_search_results_more_button">Meer</string>
-  <string name="hybrid_search_results_rate_label">Deze resultaten beoordelen</string>
+  <string name="hybrid_search_results_rate_label">Dit resultaat beoordelen</string>
   <string name="hybrid_search_results_rated_label">Beoordeeld</string>
   <string name="hybrid_search_results_rate_thumb_up">Geef een duim omhoog!</string>
   <string name="hybrid_search_results_rate_thumb_down">Geef een duim omlaag</string>
+  <string name="hybrid_lexical_search_results_empty">Er is geen artikeltitel die overeenkomt met deze zoekopdracht.</string>
   <string name="hybrid_search_results_empty">De uitgebreide zoekfunctie is tijdelijk niet beschikbaar.</string>
   <string name="hybrid_search_no_results_header">Geen resultaten</string>
   <string name="hybrid_search_no_results_description">Dit onderwerp geeft momenteel geen paginafragmenten weer. Hier zijn een paar dingen die u kunt proberen:</string>

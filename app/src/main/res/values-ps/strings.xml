@@ -246,7 +246,7 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلار</string>
   <string name="terms_of_use_description">د کارولو منښتونه</string>
-  <string name="legal_safety_contacts_description">قانوني او خونديتوب اړيکې</string>
+  <string name="legal_safety_contacts_description" fuzzy="true">قانوني او خونديتوب اړيکې</string>
   <string name="about_wikipedia_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:پېژندنه</string>
   <string name="android_app_request_an_account_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:د_گڼون_جوړېدو_غوښتنه</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
@@ -1973,14 +1973,13 @@
   <string name="hybrid_search_onboarding_search_example_description">د پلټلو يوه بېلگه لاندې وکاروئ.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">تاسو له ازمېښت ووتلئ.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">پلوتو کله د سيارو له نوملړه لرې شوه؟</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">د اولمپيک لومړۍ سيالۍ</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">د اولمپيک لومړۍ سيالۍ</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">آراېن‌ای د ډي‌اېن‌ای په وړاندې</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">ولې خلک په پيزا کې انه‌ناس اچوي؟</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">د اروپا ترټولو لوی ښارونه کوم دي؟</string>
   <string name="hybrid_search_onboarding_screen_title">د پلټلو نوې لار</string>
   <string name="hybrid_search_results_header_description">د انساني ليکل‌شوو ويکيپېډيا ليکنو څخه اخيستل شوې</string>
-  <string name="hybrid_search_results_more_button">نور</string>
-  <string name="hybrid_search_results_rate_label">دا پايلې ارزول</string>
+  <string name="hybrid_search_results_rate_label" fuzzy="true">دا پايلې ارزول</string>
   <string name="hybrid_search_results_rated_label">ارزول‌شوی</string>
   <string name="hybrid_search_results_rate_thumb_up">بټنوک پورته کولو سره ارزول</string>
   <string name="hybrid_search_results_rate_thumb_down">بټنوک کښته کولو سره ارزول</string>

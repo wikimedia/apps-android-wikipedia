@@ -2224,11 +2224,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Avropanın ən böyük şəhərləri hansılardır?</string>
   <string name="hybrid_search_onboarding_screen_title">Axtarışın yeni yolu</string>
   <string name="hybrid_search_results_header_description">İnsan tərəfindən yaradılan Vikipediya məqalələrindən alınıb</string>
-  <string name="hybrid_search_results_more_button">Daha çox</string>
-  <string name="hybrid_search_results_rate_label">Bu nəticələri qiymətləndir</string>
+  <string name="hybrid_search_results_rate_label">Bu nəticəni qiymətləndir</string>
   <string name="hybrid_search_results_rated_label">Qiymətləndirilib</string>
   <string name="hybrid_search_results_rate_thumb_up">Yaxşı olaraq qiymətləndir</string>
   <string name="hybrid_search_results_rate_thumb_down">Pis olaraq qiymətləndir</string>
+  <string name="hybrid_lexical_search_results_empty">Bu sorğuya uyğun məqalə başlığı yoxdur.</string>
   <string name="hybrid_search_results_empty">Əlavə axtarış müvəqqəti olaraq mövcud deyil.</string>
   <string name="hybrid_search_no_results_header">Nəticə yoxdur</string>
   <string name="hybrid_search_no_results_description">Bu mövzu, hal-hazırda məqalə mətnlərini göstərmir. Bunları edə bilərsiniz:</string>

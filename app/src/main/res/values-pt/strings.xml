@@ -1919,14 +1919,13 @@
   <string name="hybrid_search_onboarding_search_example_description">Use um dos exemplos de pesquisa abaixo.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Você optou por não participar do experimento.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quando Plutão deixou de ser considerado um planeta?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Primeiras Olimpíadas</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Primeiras Olimpíadas</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Uma nova forma de pesquisar</string>
   <string name="hybrid_search_results_header_description">Extraídos de artigos da Wikipédia escritos por humanos</string>
-  <string name="hybrid_search_results_more_button">Mais</string>
-  <string name="hybrid_search_results_rate_label">Avalie estes resultados</string>
+  <string name="hybrid_search_results_rate_label" fuzzy="true">Avalie estes resultados</string>
   <string name="hybrid_search_results_rated_label">Avaliado</string>
   <string name="hybrid_search_results_rate_thumb_up">Dê um joinha!</string>
   <string name="hybrid_search_results_rate_thumb_down">Dê um voto negativo.</string>
