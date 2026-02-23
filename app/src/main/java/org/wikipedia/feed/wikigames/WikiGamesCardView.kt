@@ -83,7 +83,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
             .setTitle(
                 context.getString(
                     langCode,
-                    R.string.on_this_day_game_feed_entry_card_heading
+                    R.string.games_hub_activity_title
                 )
             )
             .setLangCode(langCode)
