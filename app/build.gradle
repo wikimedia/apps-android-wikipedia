@@ -288,6 +288,7 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+    implementation("org.hamcrest:hamcrest:2.2")
 
     androidTestImplementation "com.kaspersky.android-components:kaspresso:1.6.0"
 }
