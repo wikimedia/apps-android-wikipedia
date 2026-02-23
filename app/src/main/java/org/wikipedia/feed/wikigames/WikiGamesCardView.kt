@@ -9,6 +9,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
@@ -106,6 +107,7 @@ fun WikiGamesCard(
     onPlayArchiveClick: () -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { card.games.size })
+    val context = LocalContext.current
     Column(modifier = Modifier.fillMaxWidth()) {
         HorizontalPager(
             state = pagerState,
@@ -120,6 +122,7 @@ fun WikiGamesCard(
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
+                                titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
                                 onPlayClick = onPlayClick
                             )
                         }
