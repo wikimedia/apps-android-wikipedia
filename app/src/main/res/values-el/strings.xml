@@ -1444,7 +1444,7 @@
   <string name="hybrid_search_onboarding_search_example_title">Χρειάζεσαι έμπνευση;</string>
   <string name="hybrid_search_onboarding_search_example_description">Χρησιμοποίησε ένα από τα παρακάτω παραδείγματα αναζήτησης.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Πότε ο Πλούτωνας έπαψε να θεωρείται πλανήτης;</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">πρώτοι Ολυμπιακοί Αγώνες</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">πρώτοι Ολυμπιακοί Αγώνες</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Γιατί βάζουν ανανά στην πίτσα;</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ποιες είναι οι μεγαλύτερες πόλεις της Ευρώπης;</string>
@@ -1452,8 +1452,8 @@
   <string name="hybrid_search_results_header_description">Προέρχεται από άρθρα της Wikipedia που έχουν γραφτεί από ανθρώπους</string>
   <string name="hybrid_search_results_rate_label">Αξιολόγησε αυτό το αποτέλεσμα</string>
   <string name="hybrid_search_results_rated_label">Αξιολογηθεί</string>
+  <string name="hybrid_lexical_search_results_empty">Δεν υπάρχει τίτλος άρθρου που να αντιστοιχεί σε αυτό το ερώτημα</string>
   <string name="hybrid_search_results_empty">Η ενισχυμένη αναζήτηση είναι προσωρινά μη διαθέσιμη.</string>
   <string name="hybrid_search_who_is_prefix">Ποιος είναι ο/η %s</string>
   <string name="hybrid_search_turn_off_experiment_label">Απενεργοποίησε αυτό το πείραμα</string>
-  <string name="hybrid_lexical_search_results_empty">Δεν υπάρχει τίτλος άρθρου που να αντιστοιχεί σε αυτό το ερώτημα</string>
 </resources>
