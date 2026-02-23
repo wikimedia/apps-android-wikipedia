@@ -39,6 +39,7 @@
 * NACHOgao3
 * NeverBehave
 * NigelSoft
+* Ouclie
 * Peterxy12
 * PexEric
 * Phenolla
@@ -313,7 +314,7 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="legal_safety_contacts_description">法律与安全联系人</string>
+  <string name="legal_safety_contacts_description" fuzzy="true">法律与安全联系人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
@@ -2199,10 +2200,12 @@
   <string name="hybrid_search_suggestion_title">搜索：</string>
   <string name="hybrid_search_onboarding_learn_more">了解更多</string>
   <string name="hybrid_search_beta_tag">测试</string>
-  <string name="hybrid_search_results_more_button">更多</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">第一届奥运会</string>
+  <string name="hybrid_search_results_rate_label">请评价此结果</string>
   <string name="hybrid_search_results_rated_label">已评价</string>
   <string name="hybrid_search_results_rate_thumb_up">点赞</string>
   <string name="hybrid_search_results_rate_thumb_down">点踩</string>
+  <string name="hybrid_lexical_search_results_empty">没有文章标题与此查询匹配。</string>
   <string name="hybrid_search_who_is_prefix">%s是谁？</string>
   <string name="hybrid_search_turn_off_experiment_label">关闭此实验</string>
 </resources>
