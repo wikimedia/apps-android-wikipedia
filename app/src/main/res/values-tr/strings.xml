@@ -1782,4 +1782,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Önemli noktaları paylaşın</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia logosu</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">ilk Olimpiyatlar</string>
+  <string name="hybrid_search_results_rate_label">Bu sonucu değerlendirin</string>
+  <string name="hybrid_lexical_search_results_empty">Bu sorguyla eşleşen makale başlığı bulunamadı.</string>
 </resources>

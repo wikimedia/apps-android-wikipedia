@@ -305,6 +305,7 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
+  <string name="legal_safety_contacts_description">جهات الاتصال القانونية والأمنية</string>
   <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy/ar</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use/ar</string>
@@ -2436,7 +2437,8 @@
   <string name="donation_reminders_snackbar_modify_button_label">عدل</string>
   <string name="hybrid_search_onboarding_search_title">اطرح الأسئلة، واحصل على الإجابات</string>
   <string name="hybrid_search_beta_tag" fuzzy="true">بيتا</string>
-  <string name="hybrid_search_results_more_button">المزيد</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">أول دورة أولمبية</string>
+  <string name="hybrid_search_results_rate_label">قيّم هذه النتيجة</string>
   <string name="hybrid_search_results_rated_label">قيِّم</string>
   <string name="hybrid_search_results_rate_thumb_up">أعطِ إعجابًا</string>
   <string name="hybrid_search_results_rate_thumb_down">أعطِ تقييمًا سلبيًا</string>
