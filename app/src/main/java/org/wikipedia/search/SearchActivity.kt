@@ -19,7 +19,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
 
-            instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back_button")
+            instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back")
 
             isEnabled = false
             onBackPressedDispatcher.onBackPressed()

@@ -129,7 +129,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener {
 
-            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back_button")
+            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back")
 
             requireActivity().supportFinishAfterTransition()
         }

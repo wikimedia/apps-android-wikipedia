@@ -65,7 +65,7 @@ class SearchResultsFragment : Fragment() {
                 viewModel.lexicalResultsForLogging.collectLatest { data ->
                     if (data != null) {
                         requireActivity().instrument?.submitInteraction(
-                            "show_search_results", actionSource = "search",
+                            "show_search_result", actionSource = "search",
                             actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty())
                         )
                     }
@@ -78,12 +78,25 @@ class SearchResultsFragment : Fragment() {
                     if (state is UiState.Success) {
                         val semanticResults = state.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
                         val lexicalResults = state.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+                        val semanticResultsTitles = semanticResults.joinToString("|") { it.pageTitle.prefixedText }
+                        val lexicalResultsTitles = lexicalResults.joinToString("|") { it.pageTitle.prefixedText }
 
+                        val actionContext = if (HybridSearchAbCTest().getGroupName() == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
+                            mapOf(
+                                "query" to viewModel.searchTerm.value.orEmpty(),
+                                "lexical" to lexicalResultsTitles,
+                                "semantic" to semanticResultsTitles
+                            )
+                        } else {
+                            mapOf(
+                                "query" to viewModel.searchTerm.value.orEmpty(),
+                                "semantic" to semanticResultsTitles,
+                                "lexical" to lexicalResultsTitles
+                            )
+                        }
                         requireActivity().instrument?.submitInteraction(
-                            "show_hybrid_results", actionSource = "search",
-                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty(),
-                                "lexical" to (lexicalResults.map { it.pageTitle.prefixedText }).joinToString("|"),
-                                "semantic" to (semanticResults.map { it.pageTitle.prefixedText }).joinToString("|"))
+                            "show_hybrid_result", actionSource = "search",
+                            actionContext = actionContext
                         )
                     }
                 }
@@ -100,22 +113,38 @@ class SearchResultsFragment : Fragment() {
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
 
-                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "lexical_results", pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position))
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    actionSource = "search",
+                                    elementId = "lexical_search_result ",
+                                    pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf(
+                                        "position" to position,
+                                        "query" to viewModel.searchTerm.value.orEmpty()
+                                    )
+                                )
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onSemanticCardImpression = { result, position ->
-                                requireActivity().instrument?.submitInteraction("impression", actionSource = "semantic_results", elementId = "semantic_search_card",
+                                requireActivity().instrument?.submitInteraction("impression", actionSource = "search", elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = mapOf("position" to position))
+                                    actionContext = mapOf(
+                                        "position" to position,
+                                        "query" to viewModel.searchTerm.value.orEmpty()
+                                    )
+                                )
                             },
                             onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
-                                    actionSource = if (fromSnippetLink) "semantic_result_snippet" else "semantic_result",
+                                    actionSource = "search",
+                                    elementId = "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position))
+                                    actionContext = mapOf(
+                                        "position" to position,
+                                        "query" to viewModel.searchTerm.value.orEmpty()
+                                    )
+                                )
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -146,20 +175,28 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("click", actionSource = "search",
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position))
+                                    actionContext = mapOf(
+                                        "position" to position,
+                                        "query" to viewModel.searchTerm.value.orEmpty()
+                                    )
+                                )
                             },
                             onLexicalResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "lexical_search_results_empty")
+                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionSubtype = "lexical_search_error",
+                                    actionContext = mapOf("error" to getString(R.string.hybrid_lexical_search_results_empty))
+                                )
 
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
                             },
                             onSemanticResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", elementId = "semantic_search_results_empty")
+                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionSubtype = "semantic_search_error",
+                                    actionContext = mapOf("error" to getString(R.string.hybrid_search_results_empty))
+                                )
 
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             },
                             onError = {
-                                requireActivity().instrument?.submitInteraction("error", actionSource = "search", actionContext = mapOf("message" to it.message.orEmpty()))
+                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionContext = mapOf("error" to it.message.orEmpty()))
                             }
                         )
                     } else {
@@ -168,8 +205,14 @@ class SearchResultsFragment : Fragment() {
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
 
-                                requireActivity().instrument?.submitInteraction("search_result_click", actionSource = "search_results", pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf("position" to position))
+                                requireActivity().instrument?.submitInteraction("search_result_click",
+                                    actionSource = "search",
+                                    pageData = TestKitchenAdapter.getPageData(title),
+                                    actionContext = mapOf(
+                                        "position" to position,
+                                        "query" to viewModel.searchTerm.value.orEmpty()
+                                    )
+                                )
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },

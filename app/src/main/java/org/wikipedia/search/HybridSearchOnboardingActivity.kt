@@ -126,7 +126,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onSearchQueryItemClick = { exampleQuery ->
-                        instrument?.submitInteraction("click", elementId = "sample_query",
+                        instrument?.submitInteraction("click", elementId = "onboarding_query",
                             actionSource = "hybrid_search_onboarding",
                             actionContext = mapOf("query" to exampleQuery))
 
@@ -139,7 +139,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction("click", elementId = "learn_more_button",
+                        instrument?.submitInteraction("click", elementId = "learn_button",
                             actionSource = "hybrid_search_onboarding")
 
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
