@@ -76,27 +76,14 @@ class SearchResultsFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.hybridSearchResultState.collectLatest { state ->
                     if (state is UiState.Success) {
-                        val semanticResults = state.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
-                        val lexicalResults = state.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
-                        val semanticResultsTitles = semanticResults.joinToString("|") { it.pageTitle.prefixedText }
-                        val lexicalResultsTitles = lexicalResults.joinToString("|") { it.pageTitle.prefixedText }
-
-                        val actionContext = if (HybridSearchAbCTest().getGroupName() == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
-                            mapOf(
-                                "query" to viewModel.searchTerm.value.orEmpty(),
-                                "lexical" to lexicalResultsTitles,
-                                "semantic" to semanticResultsTitles
-                            )
-                        } else {
-                            mapOf(
-                                "query" to viewModel.searchTerm.value.orEmpty(),
-                                "semantic" to semanticResultsTitles,
-                                "lexical" to lexicalResultsTitles
-                            )
-                        }
+                        val isLexicalFirst = HybridSearchAbCTest().getGroupName() == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC
                         requireActivity().instrument?.submitInteraction(
                             "show_hybrid_result", actionSource = "search",
-                            actionContext = actionContext
+                            actionContext = mapOf(
+                                "query" to viewModel.searchTerm.value.orEmpty(),
+                                (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
+                                (if (isLexicalFirst) "semantic" else "lexical") to (if (isLexicalFirst) viewModel.semanticResultsTitlesForEvent else viewModel.lexicalResultsTitlesForEvent)
+                            )
                         )
                     }
                 }
@@ -108,17 +95,19 @@ class SearchResultsFragment : Fragment() {
             setContent {
                 BaseTheme {
                     if (showHybridSearch && viewModel.isHybridSearchExperimentOn) {
+                        val isLexicalFirst = HybridSearchAbCTest().getGroupName() == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC
                         HybridSearchResultsScreen(
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
-
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     actionSource = "search",
-                                    elementId = "lexical_search_result ",
+                                    elementId = "lexical_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
-                                        "position" to position,
+                                        "position" to position + 1,
+                                        (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
+                                        (if (isLexicalFirst) "semantic" else "lexical") to (if (isLexicalFirst) viewModel.semanticResultsTitlesForEvent else viewModel.lexicalResultsTitlesForEvent),
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )
@@ -126,10 +115,14 @@ class SearchResultsFragment : Fragment() {
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
                             onSemanticCardImpression = { result, position ->
-                                requireActivity().instrument?.submitInteraction("impression", actionSource = "search", elementId = "semantic_search_card",
+                                requireActivity().instrument?.submitInteraction("impression",
+                                    actionSource = "search",
+                                    elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                     actionContext = mapOf(
-                                        "position" to position,
+                                        "position" to position + 1,
+                                        (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
+                                        (if (isLexicalFirst) "semantic" else "lexical") to (if (isLexicalFirst) viewModel.semanticResultsTitlesForEvent else viewModel.lexicalResultsTitlesForEvent),
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )
@@ -138,10 +131,12 @@ class SearchResultsFragment : Fragment() {
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     actionSource = "search",
-                                    elementId = "semantic_search_result",
+                                    elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
-                                        "position" to position,
+                                        "position" to position + 1,
+                                        (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
+                                        (if (isLexicalFirst) "semantic" else "lexical") to (if (isLexicalFirst) viewModel.semanticResultsTitlesForEvent else viewModel.lexicalResultsTitlesForEvent),
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )
@@ -176,7 +171,7 @@ class SearchResultsFragment : Fragment() {
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
-                                        "position" to position,
+                                        "position" to position + 1,
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )
@@ -209,7 +204,7 @@ class SearchResultsFragment : Fragment() {
                                     actionSource = "search",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
-                                        "position" to position,
+                                        "position" to position + 1,
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )

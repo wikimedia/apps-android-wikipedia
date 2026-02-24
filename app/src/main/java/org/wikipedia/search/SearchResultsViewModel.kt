@@ -59,6 +59,9 @@ class SearchResultsViewModel : ViewModel() {
     private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
+    var semanticResultsTitlesForEvent = ""
+    var lexicalResultsTitlesForEvent = ""
+
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
@@ -93,7 +96,7 @@ class SearchResultsViewModel : ViewModel() {
             val term = _searchTerm.value
             val lang = _languageCode.value
 
-            if (term.isNullOrEmpty() || lang.isNullOrEmpty()) {
+            if (term.isNullOrEmpty() || lang.isEmpty()) {
                 _hybridSearchResultState.value = UiState.Success(emptyList())
                 return@launch
             }
@@ -143,6 +146,9 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalList = lexicalResult.getOrElse { emptyList() }
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
+
+           semanticResultsTitlesForEvent = semanticList.joinToString("|") { it.pageTitle.prefixedText + "#" + it.pageTitle.fragment }
+           lexicalResultsTitlesForEvent = lexicalList.joinToString("|") { it.pageTitle.prefixedText }
 
             _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
