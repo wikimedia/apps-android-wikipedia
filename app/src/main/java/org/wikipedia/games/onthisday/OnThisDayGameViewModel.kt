@@ -200,6 +200,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 events.add(event1)
                 events.add(event2)
                 allEvents.remove(event2)
+            } ?: run {
+                // If we cannot find the event2, just fill in the year + 10 from event1 with empty text
+                events.add(event1)
+                events.add(OnThisDay.Event(year = event1.year + 10, text = ""))
             }
         }
         return events
@@ -329,7 +333,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
-        return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
+        val event1Index = index * 2
+        val event2Index = index * 2 + 1
+        if (event1Index >= events.size || event2Index >= events.size) {
+            return QuestionState(OnThisDay.Event(), OnThisDay.Event(), currentMonth, currentDay)
+        }
+        return QuestionState(events[event1Index], events[event2Index], currentMonth, currentDay)
     }
 
     fun relaunchForDate(date: LocalDate) {
