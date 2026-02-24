@@ -201,9 +201,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 events.add(event2)
                 allEvents.remove(event2)
             } ?: run {
-                // If we cannot find the event2, just fill in the year from event1 with empty text
+                // If we cannot find the event2, just fill in the year - 1 from event1 with empty text
                 events.add(event1)
-                events.add(OnThisDay.Event(year = event1.year, text = ""))
+                events.add(OnThisDay.Event(year = event1.year - 1, text = ""))
             }
         }
         return events
