@@ -1761,6 +1761,5 @@
   <string name="hybrid_search_beta_tag">Бета</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">РНК vs ДНК</string>
   <string name="hybrid_search_onboarding_screen_title">Нов начин претраге</string>
-  <string name="hybrid_search_results_more_button">Још</string>
   <string name="hybrid_search_no_results_header">Нема резултата</string>
 </resources>

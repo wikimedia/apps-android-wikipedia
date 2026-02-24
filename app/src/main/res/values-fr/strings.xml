@@ -511,7 +511,7 @@
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
   <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour accéder à d’autres fonctionnalités.</string>
-  <string name="temp_account_anon_dialog_body">Une fois votre modification effectuée, un compte temporaire sera créé pour protéger votre confidentialité. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Se connecter&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créer un compte&lt;/a&gt; pour que vos futures modifications soient prises en compte et pour accéder à d\'autres fonctionnalités.</string>
+  <string name="temp_account_anon_dialog_body">Une fois votre modification effectuée, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour bénéficier d’autres fonctionnalités.</string>
   <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible aux administrateurs.&lt;br /&gt;&lt;br /&gt;\nSi vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos contributions seront attribuées au nom que vous aurez choisi, parmi d’autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
   <string name="temp_account_using_title">Vous utilisez un compte temporaire</string>
@@ -2303,14 +2303,13 @@
   <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Premiers Jeux Olympiques</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Premiers Jeux Olympiques</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
   <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
   <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
-  <string name="hybrid_search_results_more_button">Plus</string>
-  <string name="hybrid_search_results_rate_label">Évaluez ces résultats</string>
+  <string name="hybrid_search_results_rate_label" fuzzy="true">Évaluez ces résultats</string>
   <string name="hybrid_search_results_rated_label">Évalué</string>
   <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
   <string name="hybrid_search_results_rate_thumb_down">Rate des pouces vers le bas</string>

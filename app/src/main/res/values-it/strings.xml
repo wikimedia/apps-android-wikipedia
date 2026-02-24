@@ -303,6 +303,7 @@
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
+  <string name="legal_safety_contacts_description">Contatti legali e di sicurezza</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
@@ -2098,11 +2099,12 @@
   <string name="hybrid_search_experimental_feature_switch_label">Partecipa all\'esperimento</string>
   <string name="hybrid_search_onboarding_search_example_title">Hai bisogno di ispirazione?</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Hai scelto di non partecipare all\'esperimento.</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">prime Olimpiadi</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Perché la gente mette l\'ananas sulla pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quali sono le più grandi città d\'Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Un nuovo modo di cercare</string>
-  <string name="hybrid_search_results_more_button">Altro</string>
-  <string name="hybrid_search_results_rate_label">Valuta questi risultati</string>
+  <string name="hybrid_search_results_rate_label">Valuta questo risultato</string>
+  <string name="hybrid_lexical_search_results_empty">Nessun titolo di voce corrisponde a questa interrogazione.</string>
   <string name="hybrid_search_no_results_header">Nessun risultato</string>
   <string name="hybrid_search_no_results_suggestion_rephrase_text">Riformula la tua ricerca</string>
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Prova un argomento correlato</string>

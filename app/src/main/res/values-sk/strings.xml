@@ -39,6 +39,7 @@
   <string name="search_icon_content_description">Hľadať</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zoznamy</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
+  <string name="nav_item_activity">Aktivita</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>
   <string name="nav_item_contribute">prispejte</string>
