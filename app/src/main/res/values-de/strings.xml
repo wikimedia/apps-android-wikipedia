@@ -296,7 +296,7 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
-  <string name="legal_safety_contacts_description">Rechts- und Sicherheitskontakte</string>
+  <string name="legal_safety_contacts_description" fuzzy="true">Rechts- und Sicherheitskontakte</string>
   <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
@@ -2276,14 +2276,13 @@
   <string name="hybrid_search_onboarding_search_example_description">Verwende eines der Suchbeispiele unten.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Du hast das Experiment deaktiviert.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Wann wurde Pluto der Planetenstatus aberkannt?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Erste Olympische Spiele</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Erste Olympische Spiele</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Warum kommt Ananas auf Pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Was sind die größten Städte Europas?</string>
   <string name="hybrid_search_onboarding_screen_title">Eine neue Art zu suchen</string>
   <string name="hybrid_search_results_header_description">Aus von Menschen verfassten Wikipedia-Artikeln</string>
-  <string name="hybrid_search_results_more_button">Mehr</string>
-  <string name="hybrid_search_results_rate_label">Ergebnisse bewerten</string>
+  <string name="hybrid_search_results_rate_label" fuzzy="true">Ergebnisse bewerten</string>
   <string name="hybrid_search_results_rated_label">Bewertet</string>
   <string name="hybrid_search_results_rate_thumb_up">Positiv bewerten</string>
   <string name="hybrid_search_results_rate_thumb_down">Negativ bewerten</string>

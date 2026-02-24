@@ -573,7 +573,7 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="ab_test_hybridSearch"
+            android:key="ab_test_apps_hybridsearch"
             android:title="Hybrid Search test group (require restart)"/>
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine

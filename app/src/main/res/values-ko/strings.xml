@@ -1850,4 +1850,6 @@
   <string name="donation_reminders_settings_no_thanks_btn_label">괜찮습니다</string>
   <string name="donation_reminders_settings_learn_more_button">더 알아보기</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
+  <string name="hybrid_search_beta_tag">베타</string>
+  <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
 </resources>
