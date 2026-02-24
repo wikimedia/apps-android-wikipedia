@@ -60,7 +60,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private set
 
     private val searchCloseListener = View.OnClickListener {
-        requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close_button")
+        requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close")
         closeSearch()
         setSearchText("")
     }
@@ -245,6 +245,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
         }
         closeSearch()
+        DeviceUtil.hideSoftKeyboard(requireView())
     }
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
@@ -311,7 +312,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     private fun closeSearch() {
         isSearchActive = false
-        DeviceUtil.hideSoftKeyboard(requireView())
         addRecentSearch(query)
     }
 

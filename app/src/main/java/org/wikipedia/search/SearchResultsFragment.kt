@@ -121,8 +121,6 @@ class SearchResultsFragment : Fragment() {
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                     actionContext = mapOf(
                                         "position" to position + 1,
-                                        (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
-                                        (if (isLexicalFirst) "semantic" else "lexical") to (if (isLexicalFirst) viewModel.semanticResultsTitlesForEvent else viewModel.lexicalResultsTitlesForEvent),
                                         "query" to viewModel.searchTerm.value.orEmpty()
                                     )
                                 )
@@ -219,11 +217,19 @@ class SearchResultsFragment : Fragment() {
                                     callback = SearchResultLongPressHandler(callback(), position)
                                 ).show(entry)
                             },
-                            onSemanticSearchClick = { query, isSuggestion ->
+                            onSemanticSearchClick = { query, isSuggestion, position ->
 
                                 if (isSuggestion) {
                                     requireActivity().instrument?.submitInteraction("click", actionSource = "search",
                                         elementId = "semantic_search_explicit", actionContext = mapOf("query" to query))
+                                } else {
+                                    requireActivity().instrument?.submitInteraction("search_result_click",
+                                        actionSource = "search",
+                                        actionContext = mapOf(
+                                            "position" to position + 1,
+                                            "query" to query
+                                        )
+                                    )
                                 }
 
                                 callback()?.setSearchText(StringUtil.fromHtml(query).toString())

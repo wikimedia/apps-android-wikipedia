@@ -63,7 +63,7 @@ fun SearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    onSemanticSearchClick: (String, Boolean) -> Unit,
+    onSemanticSearchClick: (String, Boolean, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -121,12 +121,12 @@ fun SearchResultsScreen(
                             modifier = Modifier.fillMaxSize(),
                             searchResultsPage = searchResults,
                             searchTerm = searchTerm.value,
-                            onTitleClick = { searchResult ->
-                                onSemanticSearchClick(searchResult.pageTitle.displayText, false)
+                            onTitleClick = { searchResult, position ->
+                                onSemanticSearchClick(searchResult.pageTitle.displayText, false, position)
                             },
                             onSuggestionTitleClick = { searchTerm ->
                                 searchTerm?.let {
-                                    onSemanticSearchClick(it, true)
+                                    onSemanticSearchClick(it, true, -1)
                                 }
                             }
                         )
