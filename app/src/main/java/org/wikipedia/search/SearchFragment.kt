@@ -59,12 +59,10 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
     var searchLanguageCode = app.languageState.appLanguageCode
         private set
 
-    private val searchCloseListener = SearchView.OnCloseListener {
-
+    private val searchCloseListener = View.OnClickListener {
         requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close_button")
-
         closeSearch()
-        false
+        setSearchText("")
     }
 
     private fun isHybridSearchEnabled(): Boolean = HybridSearchAbCTest().isHybridSearchEnabled(searchLanguageCode)
@@ -213,6 +211,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         binding.searchCabView.setOnQueryTextListener(null)
         binding.searchCabView.setQuery(text, false)
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
+        binding.searchCabView.setCloseButtonVisibility(text)
     }
 
     override fun onAddLanguageClicked() {
@@ -340,7 +339,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
     private fun initSearchView() {
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
-        binding.searchCabView.setOnCloseListener(searchCloseListener)
+        binding.searchCabView.setCloseButtonClickListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
                 R.attr.secondary_color))
 
