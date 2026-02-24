@@ -34,7 +34,7 @@ fun HybridSearchSuggestionListView(
     modifier: Modifier = Modifier,
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
-    onTitleClick: (SearchResult) -> Unit,
+    onTitleClick: (SearchResult, Int) -> Unit,
     onSuggestionTitleClick: (String?) -> Unit,
 ) {
 
@@ -64,7 +64,7 @@ fun HybridSearchSuggestionListView(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable(onClick = {
-                                onTitleClick(it)
+                                onTitleClick(it, index)
                             })
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         searchResultPage = it,
