@@ -321,17 +321,29 @@ fun OnThisDayGameFirstEventView(
     }
 }
 
+/**
+ * Counts down the time remaining until the next day by recalculating the duration every second.
+ * To avoid false triggers (e.g. user completes the game early in the morning when duration is already > 23hrs),
+ * onCountDownFinished only fires after the countdown has dropped below 1 hour.
+ * This ensures that an actual countdown cycle occurred.
+ * Once below 1 hour, it then watches for the duration to jump back above 23 hours (3600 * 23 seconds),
+ * which indicates the date has flipped to the next day.
+ */
 @Composable
 private fun NextGameCountdown(
     state: OnThisDayCardGameState.Completed,
     onCountDownFinished: () -> Unit
 ) {
+    var hasCountedDown = false
     var duration by remember { mutableStateOf(OnThisDayGameResultFragment.timeUntilNextDay()) }
     LaunchedEffect(Unit) {
         while (true) {
             delay(1000L)
             duration = OnThisDayGameResultFragment.timeUntilNextDay()
-            if (duration.seconds > 3600 * 23) {
+            if (duration.seconds < 3600) {
+                hasCountedDown = true
+            }
+            if (hasCountedDown && duration.seconds > 3600 * 23) {
                 onCountDownFinished()
                 break
             }
