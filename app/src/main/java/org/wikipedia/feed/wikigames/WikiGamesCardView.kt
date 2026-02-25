@@ -26,9 +26,9 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     interface Callback {
         fun onWikiGamesCardFooterClicked()
         fun onThisDayGameCountDownFinished()
-        fun onThisDayGameArchiveBtnClicked(wikiSite: WikiSite)
-        fun onThisDayGamePlayBtnClicked(wikiSite: WikiSite)
-        fun onThisDayGameReviewResultsBtnClicked(wikiSite: WikiSite)
+        fun onThisDayGameArchiveButtonClicked(wikiSite: WikiSite)
+        fun onThisDayGamePlayButonClicked(wikiSite: WikiSite)
+        fun onThisDayGameReviewResultsButtonClicked(wikiSite: WikiSite)
     }
 
     private val binding = ViewWikiGamesCardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -65,9 +65,9 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                     onThisDayGameAction = { action ->
                         when (action) {
                             OnThisDayGameAction.CountdownFinished -> callback?.onThisDayGameCountDownFinished()
-                            OnThisDayGameAction.Play -> callback?.onThisDayGamePlayBtnClicked(card.wikiSite)
-                            OnThisDayGameAction.PlayArchive -> callback?.onThisDayGameArchiveBtnClicked(card.wikiSite)
-                            OnThisDayGameAction.ReviewResults -> callback?.onThisDayGameReviewResultsBtnClicked(card.wikiSite)
+                            OnThisDayGameAction.Play -> callback?.onThisDayGamePlayButonClicked(card.wikiSite)
+                            OnThisDayGameAction.PlayArchive -> callback?.onThisDayGameArchiveButtonClicked(card.wikiSite)
+                            OnThisDayGameAction.ReviewResults -> callback?.onThisDayGameReviewResultsButtonClicked(card.wikiSite)
                         }
                     }
                 )

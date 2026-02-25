@@ -325,7 +325,7 @@ class FeedFragment : Fragment() {
             }
         }
 
-        override fun onThisDayGameArchiveBtnClicked(wikiSite: WikiSite) {
+        override fun onThisDayGameArchiveButtonClicked(wikiSite: WikiSite) {
             onThisDayGameArchiveCalendarHelper?.unRegister()
             onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
                 fragment = this@FeedFragment,
@@ -339,12 +339,12 @@ class FeedFragment : Fragment() {
             }
         }
 
-        override fun onThisDayGamePlayBtnClicked(wikiSite: WikiSite) {
+        override fun onThisDayGamePlayButonClicked(wikiSite: WikiSite) {
             WikiGamesEvent.submit("enter_click", "game_feed")
             startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite))
         }
 
-        override fun onThisDayGameReviewResultsBtnClicked(wikiSite: WikiSite) {
+        override fun onThisDayGameReviewResultsButtonClicked(wikiSite: WikiSite) {
             startActivity(
                 OnThisDayGameActivity.newIntent(
                     context = requireActivity(),

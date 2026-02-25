@@ -31,16 +31,12 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
                     WikipediaApp.instance.languageState.appLanguageCodes.contains(langCode)
                 }
             availableLanguages.forEach { langCode ->
-                try {
-                    val games = mutableListOf<WikiGame>()
-                    val wikiSite = WikiSite.forLanguageCode(langCode)
-                    val gameState = OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now())
-                    games.add(WikiGame.OnThisDayGame(state = gameState))
-                    if (games.isNotEmpty()) {
-                        cards.add(WikiGamesCard(wikiSite, games))
-                    }
-                } catch (e: Exception) {
-                    L.e(e)
+                val games = mutableListOf<WikiGame>()
+                val wikiSite = WikiSite.forLanguageCode(langCode)
+                val gameState = OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now())
+                games.add(WikiGame.OnThisDayGame(state = gameState))
+                if (games.isNotEmpty()) {
+                    cards.add(WikiGamesCard(wikiSite, games))
                 }
             }
             cb.success(cards)
