@@ -73,7 +73,7 @@ class TranslationTests {
         // Step 4: Check if the item in qq/strings.xml exists in en/strings.xml
         for (item in qqList) {
             if (!baseList.contains(item)) {
-                mismatches.append("Item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
+                mismatches.append("Extra item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
             }
         }
 
