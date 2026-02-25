@@ -89,6 +89,7 @@ fun WikiGamesStatsCard(
     currentStreak: Int = 0,
     bestStreak: Int = 0,
     averageScore: Double = 0.0,
+    showTitle: Boolean = true,
     onStatsCardClick: (() -> Unit)? = null,
     onPlayGameCardClick: (() -> Unit)? = null
 ) {
@@ -106,31 +107,35 @@ fun WikiGamesStatsCard(
         onClick = onStatsCardClick
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.activity_tab_game_stats),
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                    color = WikipediaTheme.colors.primaryColor,
-                    lineHeight = MaterialTheme.typography.labelMedium.lineHeight
-                )
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
+            if (showTitle) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                ) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = stringResource(R.string.activity_tab_game_stats),
+                        style = MaterialTheme.typography.labelMedium.copy(
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                    )
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        contentDescription = null
+                    )
+                }
             }
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 WikiGamesStatView(
@@ -148,8 +153,7 @@ fun WikiGamesStatsCard(
             }
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 WikiGamesStatView(
