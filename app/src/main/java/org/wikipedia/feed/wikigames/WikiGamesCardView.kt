@@ -25,10 +25,10 @@ import org.wikipedia.feed.view.FeedAdapter
 class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(context), CardFooterView.Callback {
     interface Callback {
         fun onWikiGamesCardFooterClicked()
-        fun onNextGameCountDownFinished()
-        fun onPlayArchiveClicked(wikiSite: WikiSite)
-        fun onPlayGameClicked(wikiSite: WikiSite)
-        fun onReviewResultsClicked(wikiSite: WikiSite)
+        fun onThisDayGameCountDownFinished()
+        fun onThisDayGameArchiveBtnClicked(wikiSite: WikiSite)
+        fun onThisDayGamePlayBtnClicked(wikiSite: WikiSite)
+        fun onThisDayGameReviewResultsBtnClicked(wikiSite: WikiSite)
     }
 
     private val binding = ViewWikiGamesCardBinding.inflate(LayoutInflater.from(context), this, true)
@@ -58,21 +58,17 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
     private fun setContent(card: WikiGamesCard) {
         binding.gamesComposeView.setContent {
             BaseTheme {
-                WikiGamesCard(
+                WikiGamesCardContent(
                     modifier = Modifier
                         .fillMaxWidth(),
                     card = card,
-                    onPlayClick = {
-                        callback?.onPlayGameClicked(card.wikiSite)
-                    },
-                    onCountDownFinished = {
-                        callback?.onNextGameCountDownFinished()
-                    },
-                    onReviewResult = {
-                        callback?.onReviewResultsClicked(card.wikiSite)
-                    },
-                    onPlayArchiveClick = {
-                        callback?.onPlayArchiveClicked(card.wikiSite)
+                    onThisDayGameAction = { action ->
+                        when (action) {
+                            OnThisDayGameAction.CountdownFinished -> callback?.onThisDayGameCountDownFinished()
+                            OnThisDayGameAction.Play -> callback?.onThisDayGamePlayBtnClicked(card.wikiSite)
+                            OnThisDayGameAction.PlayArchive -> callback?.onThisDayGameArchiveBtnClicked(card.wikiSite)
+                            OnThisDayGameAction.ReviewResults -> callback?.onThisDayGameReviewResultsBtnClicked(card.wikiSite)
+                        }
                     }
                 )
             }
@@ -98,13 +94,10 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 }
 
 @Composable
-fun WikiGamesCard(
+fun WikiGamesCardContent(
     card: WikiGamesCard,
     modifier: Modifier = Modifier,
-    onPlayClick: () -> Unit,
-    onCountDownFinished: () -> Unit,
-    onReviewResult: () -> Unit,
-    onPlayArchiveClick: () -> Unit
+    onThisDayGameAction: (OnThisDayGameAction) -> Unit
 ) {
     val pagerState = rememberPagerState(pageCount = { card.games.size })
     val context = LocalContext.current
@@ -123,7 +116,7 @@ fun WikiGamesCard(
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
-                                onPlayClick = onPlayClick
+                                onPlayClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
@@ -132,7 +125,7 @@ fun WikiGamesCard(
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
-                                onContinueClick = onPlayClick
+                                onContinueClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
                             )
                         }
                         is OnThisDayCardGameState.Completed -> {
@@ -141,9 +134,9 @@ fun WikiGamesCard(
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
-                                onReviewResult = onReviewResult,
-                                onPlayTheArchive = onPlayArchiveClick,
-                                onCountDownFinished = onCountDownFinished
+                                onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
+                                onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
+                                onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
                             )
                         }
                     }

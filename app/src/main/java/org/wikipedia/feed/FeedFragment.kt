@@ -319,13 +319,13 @@ class FeedFragment : Fragment() {
             callback?.onWikiGamesCardFooterClicked()
         }
 
-        override fun onNextGameCountDownFinished() {
+        override fun onThisDayGameCountDownFinished() {
             viewLifecycleOwner.lifecycleScope.launch {
                 refreshWikiGameCards()
             }
         }
 
-        override fun onPlayArchiveClicked(wikiSite: WikiSite) {
+        override fun onThisDayGameArchiveBtnClicked(wikiSite: WikiSite) {
             onThisDayGameArchiveCalendarHelper?.unRegister()
             onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
                 fragment = this@FeedFragment,
@@ -339,12 +339,12 @@ class FeedFragment : Fragment() {
             }
         }
 
-        override fun onPlayGameClicked(wikiSite: WikiSite) {
+        override fun onThisDayGamePlayBtnClicked(wikiSite: WikiSite) {
             WikiGamesEvent.submit("enter_click", "game_feed")
             startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite))
         }
 
-        override fun onReviewResultsClicked(wikiSite: WikiSite) {
+        override fun onThisDayGameReviewResultsBtnClicked(wikiSite: WikiSite) {
             startActivity(
                 OnThisDayGameActivity.newIntent(
                     context = requireActivity(),

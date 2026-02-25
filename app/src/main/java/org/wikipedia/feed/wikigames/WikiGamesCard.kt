@@ -10,6 +10,6 @@ class WikiGamesCard(val wikiSite: WikiSite, val games: List<WikiGame>) : Card() 
     }
 
     override fun dismissHashCode(): Int {
-        return wikiSite.hashCode()
+        return "onThisDayGame_$wikiSite".hashCode()
     }
 }

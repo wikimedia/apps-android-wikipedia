@@ -1,6 +1,7 @@
 package org.wikipedia.feed.wikigames
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -19,7 +20,10 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
 
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
-        job = coroutineScope.launch {
+        job = coroutineScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+            cb.success(emptyList())
+        }) {
             val cards = mutableListOf<WikiGamesCard>()
             val availableLanguages = FeedContentType.WIKI_GAMES.langCodesSupported.ifEmpty { OnThisDayGameViewModel.LANG_CODES_SUPPORTED }
                 .filter { !FeedContentType.WIKI_GAMES.langCodesDisabled.contains(it) }
