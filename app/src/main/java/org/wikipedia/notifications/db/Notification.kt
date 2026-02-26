@@ -90,7 +90,6 @@ class Notification(var id: Long = 0,
         private val icon: JsonElement? = null
 
         init {
-            url = UriUtil.decodeURL(url)
             if (url.startsWith("//")) {
                 url = url.replaceFirst("//", WikiSite.DEFAULT_SCHEME + "://")
             }
