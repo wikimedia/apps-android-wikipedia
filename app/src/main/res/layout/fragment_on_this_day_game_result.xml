@@ -88,8 +88,6 @@
                         android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                         android:textColor="@color/white"
                         app:icon="@drawable/ic_share"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
                         app:iconSize="18dp"
                         app:iconTint="@color/white"
                         app:rippleColor="?attr/placeholder_color"/>

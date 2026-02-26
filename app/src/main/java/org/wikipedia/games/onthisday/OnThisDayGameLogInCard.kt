@@ -28,7 +28,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 
 @Composable
-fun OnThisDayLogInCard(
+fun OnThisDayGameLoginPromptCard(
     modifier: Modifier = Modifier,
     onLogInClick: () -> Unit,
 ) {
@@ -51,7 +51,7 @@ fun OnThisDayLogInCard(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Log in to view your game stats",
+                text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_view_stats_label),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.titleSmall
             )
@@ -59,7 +59,7 @@ fun OnThisDayLogInCard(
             Text(
                 modifier = Modifier
                     .padding(top = 8.dp),
-                text = "See your streaks, scores, and more",
+                text = stringResource(R.string.on_this_day_game_login_in_prompt_card_view_stats_label),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyMedium
             )
@@ -87,7 +87,7 @@ fun OnThisDayLogInCard(
                     )
                     Text(
                         modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
-                        text = stringResource(R.string.on_this_day_game_stats_log_in_btn_label),
+                        text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_btn_label),
                         style = MaterialTheme.typography.labelLarge
                     )
                 }
@@ -98,11 +98,11 @@ fun OnThisDayLogInCard(
 
 @Preview
 @Composable
-private fun OnThisDayLogInCardPreview() {
+private fun OnThisDayGameLoginPromptCardPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        OnThisDayLogInCard(
+        OnThisDayGameLoginPromptCard(
             onLogInClick = {}
         )
     }

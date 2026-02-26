@@ -222,7 +222,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
                         bestStreak = gameStatistics.bestStreak
                     )
                 } else {
-                    OnThisDayLogInCard(
+                    OnThisDayGameLoginPromptCard(
                         onLogInClick = {
                             startActivity(
                                 LoginActivity.newIntent(
