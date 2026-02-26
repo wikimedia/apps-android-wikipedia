@@ -11,11 +11,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentFeedBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinatorBase.FeedUpdateListener
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView
@@ -31,7 +35,14 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.RegionalLanguageVariantSelectionDialog
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.feed.wikigames.WikiGamesCard
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
 import org.wikipedia.games.onthisday.OnThisDayGameMainMenuFragment
+import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -41,6 +52,8 @@ import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
+import java.time.LocalDate
 
 class FeedFragment : Fragment() {
     private var _binding: FragmentFeedBinding? = null
@@ -53,6 +66,7 @@ class FeedFragment : Fragment() {
     private var app: WikipediaApp = WikipediaApp.instance
     private var coordinator: FeedCoordinator = FeedCoordinator(lifecycleScope, app)
     private var shouldElevateToolbar = false
+    private var onThisDayGameArchiveCalendarHelper: OnThisDayGameArchiveCalendarHelper? = null
 
     interface Callback {
         fun onFeedSearchRequested(view: View)
@@ -68,6 +82,7 @@ class FeedFragment : Fragment() {
         fun onFeaturedImageSelected(card: FeaturedImageCard)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
+        fun onWikiGamesCardFooterClicked()
     }
 
     private val requestFeedConfigurationLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -135,11 +150,13 @@ class FeedFragment : Fragment() {
         super.onResume()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
-
-        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
-        // on certain devices.
-        // https://issuetracker.google.com/issues/188096921
-        feedAdapter.notifyDataSetChanged()
+        viewLifecycleOwner.lifecycleScope.launch {
+            refreshWikiGameCards()
+            // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+            // on certain devices.
+            // https://issuetracker.google.com/issues/188096921
+            feedAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onDestroyView() {
@@ -147,6 +164,8 @@ class FeedFragment : Fragment() {
         binding.swipeRefreshLayout.setOnRefreshListener(null)
         binding.feedView.removeOnScrollListener(feedScrollListener)
         binding.feedView.adapter = null
+        onThisDayGameArchiveCalendarHelper?.unRegister()
+        onThisDayGameArchiveCalendarHelper = null
         _binding = null
         super.onDestroyView()
     }
@@ -295,6 +314,47 @@ class FeedFragment : Fragment() {
         override fun onSeCardFooterClicked() {
             callback?.onFeedSeCardFooterClicked()
         }
+
+        override fun onWikiGamesCardFooterClicked() {
+            callback?.onWikiGamesCardFooterClicked()
+        }
+
+        override fun onThisDayGameCountDownFinished() {
+            viewLifecycleOwner.lifecycleScope.launch {
+                refreshWikiGameCards()
+            }
+        }
+
+        override fun onThisDayGameArchiveButtonClicked(wikiSite: WikiSite) {
+            onThisDayGameArchiveCalendarHelper?.unRegister()
+            onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
+                fragment = this@FeedFragment,
+                languageCode = wikiSite.languageCode,
+                onDateSelected = { date ->
+                    startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite, date))
+                }
+            ).also {
+                it.register()
+                it.show()
+            }
+        }
+
+        override fun onThisDayGamePlayButonClicked(wikiSite: WikiSite) {
+            WikiGamesEvent.submit("enter_click", "game_feed")
+            startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite))
+        }
+
+        override fun onThisDayGameReviewResultsButtonClicked(wikiSite: WikiSite) {
+            startActivity(
+                OnThisDayGameActivity.newIntent(
+                    context = requireActivity(),
+                    invokeSource = InvokeSource.FEED,
+                    wikiSite = wikiSite,
+                    date = LocalDate.now(),
+                    gameStatus = DailyGameHistory.GAME_COMPLETED
+                )
+            )
+        }
     }
 
     private inner class FeedScrollListener : RecyclerView.OnScrollListener() {
@@ -371,6 +431,37 @@ class FeedFragment : Fragment() {
 
     private fun getCardLanguageCode(card: Card?): String? {
         return if (card is WikiSiteCard) card.wikiSite().languageCode else null
+    }
+
+    private suspend fun refreshWikiGameCards() {
+        coordinator.cards.forEachIndexed { index, card ->
+            if (card is WikiGamesCard) {
+                try {
+                    val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
+                    val updatedGames = card.games.toMutableList()
+                    val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
+
+                    val oldGame = updatedGames.getOrNull(gameIndex) as? WikiGame.OnThisDayGame
+                    val newGame = WikiGame.OnThisDayGame(state = gameState)
+
+                    val isSame = when {
+                        oldGame?.state is OnThisDayCardGameState.Preview && newGame.state is OnThisDayCardGameState.Preview -> {
+                            val old = oldGame.state
+                            val new = newGame.state
+                            old.event1.text == new.event1.text && old.event2.text == new.event2.text
+                        }
+                        else -> oldGame == newGame
+                    }
+                    if (!isSame && gameIndex >= 0) {
+                        updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
+                        coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
+                        feedAdapter.notifyItemChanged(index)
+                    }
+                } catch (e: Exception) {
+                    L.e(e)
+                }
+            }
+        }
     }
 
     companion object {

@@ -74,7 +74,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 currentDate = determineLastPlayedGameDate()
             }
             isArchiveGame = currentDate.isBefore(LocalDate.now())
-
             // load game state from database
             val gameHistory = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,

@@ -20,6 +20,7 @@ abstract class OnThisDayGameBaseFragment : Fragment() {
 
     override fun onDestroyView() {
         onThisDayGameArchiveCalendarHelper?.unRegister()
+        onThisDayGameArchiveCalendarHelper = null
         super.onDestroyView()
     }
 
