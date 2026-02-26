@@ -249,6 +249,9 @@ class SearchResultsFragment : Fragment() {
                             },
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
+                            },
+                            onNoResults = {
+                                DeviceUtil.showSoftKeyboard(requireActivity())
                             }
                         )
                     }

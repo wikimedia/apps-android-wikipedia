@@ -29,6 +29,10 @@ object DeviceUtil {
     private inline val Window.insetsControllerCompat
         get() = WindowCompat.getInsetsController(this, decorView)
 
+    fun showSoftKeyboard(activity: Activity) {
+        activity.window.insetsControllerCompat.show(WindowInsetsCompat.Type.ime())
+    }
+
     fun showSoftKeyboard(view: View) {
         (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
                 .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
