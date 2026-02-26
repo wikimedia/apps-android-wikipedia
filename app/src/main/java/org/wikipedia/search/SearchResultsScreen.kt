@@ -3,6 +3,8 @@ package org.wikipedia.search
 import android.location.Location
 import android.view.View
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -108,11 +110,28 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
+                    if (viewModel.isHybridSearchExperimentOn) {
+                        SearchResultTitleOnlyBottomContent(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.BottomStart)
+                                .background(WikipediaTheme.colors.paperColor)
+                                .clickable(
+                                    onClick = {
+                                        searchTerm.value?.let {
+                                            onSemanticSearchClick(it, true, -1)
+                                        }
+                                    }
+                                ),
+                            searchTerm = searchTerm.value
+                        )
+                    } else {
+                        NoSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            invokeSource = viewModel.invokeSource,
+                            onLanguageClick = onLanguageClick
+                        )
+                    }
                 }
 
                 else -> {
