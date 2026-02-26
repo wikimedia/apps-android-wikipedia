@@ -110,12 +110,6 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
-
                     if (viewModel.isHybridSearchExperimentOn) {
                         SearchResultTitleOnlyBottomContent(
                             modifier = Modifier
@@ -130,6 +124,12 @@ fun SearchResultsScreen(
                                     }
                                 ),
                             searchTerm = searchTerm.value
+                        )
+                    } else {
+                        NoSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            invokeSource = viewModel.invokeSource,
+                            onLanguageClick = onLanguageClick
                         )
                     }
                 }
