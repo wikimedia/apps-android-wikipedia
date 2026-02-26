@@ -386,7 +386,6 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
 
         recentSearchesFragment.reloadRecentSearches()
         startSearch(query, false)
-        DeviceUtil.showSoftKeyboard(requireActivity())
     }
 
     override fun onLanguageButtonClicked() {

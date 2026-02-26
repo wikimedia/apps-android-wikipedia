@@ -69,7 +69,8 @@ fun SearchResultsScreen(
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit
+    onLoading: (Boolean) -> Unit,
+    onNoResults: () -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -125,6 +126,7 @@ fun SearchResultsScreen(
                                 ),
                             searchTerm = searchTerm.value
                         )
+                        onNoResults()
                     } else {
                         NoSearchResults(
                             countsPerLanguageCode = countsPerLanguageCode,
