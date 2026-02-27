@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -46,9 +47,11 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.NotificationButtonView
+import java.time.LocalDate
 
 class GamesHubFragment : Fragment() {
 
@@ -62,7 +65,7 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
-                    // TODO: open the game stats screen
+                    // TODO: open the Activity Tab
                     true
                 }
                 R.id.menu_learn_more -> {
@@ -155,7 +158,7 @@ class GamesHubFragment : Fragment() {
                     items(languageList.size) { index ->
                         val langCode = languageList[index]
                         val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
-                        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode)
+                        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
                         val isSelected = langCode == selectedLanguage
                         val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
                         val snackbarMessage = stringResource(R.string.games_hub_activity_games_unavailable_message, langText)
@@ -195,6 +198,51 @@ class GamesHubFragment : Fragment() {
                                 }
                             }
                         )
+                    }
+                }
+
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = 16.dp)
+                ) {
+                    items(WikiGames.entries.size) { index ->
+                        when (WikiGames.entries[index]) {
+                            WikiGames.WHICH_CAME_FIRST -> {
+                                if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
+                                    Text(
+                                        text = stringResource(WikiGames.entries[index].titleRes),
+                                        style = MaterialTheme.typography.titleLarge,
+                                        fontWeight = FontWeight.Medium,
+                                        color = WikipediaTheme.colors.primaryColor
+                                    )
+
+                                    // Load fix cards: Today, last 3 days and archive
+                                    LazyRow(
+                                        modifier = Modifier
+                                            .fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                        contentPadding = PaddingValues(horizontal = 16.dp)
+                                    ) {
+                                        items(5) { cardIndex ->
+                                            val dateTitle = DateUtil.getShortDateString(
+                                                LocalDate.now().minusDays(cardIndex.toLong())
+                                            )
+                                            when (cardIndex) {
+                                                0 -> {
+                                                    // TODO: put cards with different game states
+                                                }
+
+                                                in 1..3 -> {
+                                                    // TODO: put cards with different game states
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
