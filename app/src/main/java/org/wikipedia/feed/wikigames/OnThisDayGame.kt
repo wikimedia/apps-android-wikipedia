@@ -90,11 +90,15 @@ fun OnThisDayGameCardPreview(
                 )
             }
 
+            OnThisDayGameFirstEventView(event = state.event1)
+
             HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth(),
                 color = WikipediaTheme.colors.borderColor
             )
+
+            OnThisDayGameFirstEventView(event = state.event2)
 
             Box(
                 modifier = Modifier
@@ -255,47 +259,39 @@ fun OnThisDayCardCompleted(
                 isArchiveGame = isArchiveGame,
                 onCountDownFinished = onCountDownFinished
             )
+            Spacer(modifier = Modifier.height(spacerHeight))
 
-            Spacer(modifier = Modifier.height(112.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                FilledTonalButton(
+            if (!isArchiveGame) {
+                Row(
                     modifier = Modifier
-                        .weight(1f),
-                    colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = WikipediaTheme.colors.backgroundColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onReviewResult
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Text(
-                        text = context.getString(
-                            state.langCode,
-                            R.string.on_this_day_game_review_results_btn_text
-                        ),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
-                        ),
-                        textAlign = TextAlign.Center
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(spacerHeight))
-
-                if (!isArchiveGame) {
-                    Row(
+                    FilledTonalButton(
                         modifier = Modifier
-                            .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            .weight(1f),
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = WikipediaTheme.colors.backgroundColor,
+                            contentColor = WikipediaTheme.colors.progressiveColor
+                        ),
+                        onClick = onReviewResult
                     ) {
                         Text(
-                            text = context.getString(
-                                state.langCode,
-                                R.string.on_this_day_game_archive_btn_text
+                            text = context.getString(state.langCode, R.string.on_this_day_game_review_results_btn_text),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Medium
                             ),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+
+                    TextButton(
+                        modifier = Modifier
+                            .weight(1f),
+                        onClick = onPlayTheArchive
+                    ) {
+                        Text(
+                            text = context.getString(state.langCode, R.string.on_this_day_game_archive_btn_text),
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontWeight = FontWeight.Medium,
                                 color = WikipediaTheme.colors.progressiveColor
