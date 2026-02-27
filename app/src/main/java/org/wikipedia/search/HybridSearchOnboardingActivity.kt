@@ -139,7 +139,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction("click", elementId = "learn_button",
+                        instrument?.submitInteraction("click", elementId = "learn_more",
                             actionSource = "hybrid_search_onboarding")
 
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
