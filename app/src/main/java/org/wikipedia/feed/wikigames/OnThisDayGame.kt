@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
@@ -76,7 +77,7 @@ fun OnThisDayGameCardPreview(
                 Icon(
                     modifier = Modifier
                         .size(24.dp),
-                    painter = painterResource(R.drawable.ic_wiki_games_events),
+                    painter = painterResource(R.drawable.ic_events_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = null
                 )
@@ -128,7 +129,48 @@ fun OnThisDayGameCardPreview(
 }
 
 @Composable
-fun OnThisDayCardProgress(
+fun OnThisDayGameCardSimple(
+    modifier: Modifier = Modifier,
+    state: OnThisDayCardGameState.Preview,
+    iconRes: Int,
+    iconTint: Color,
+    titleText: String,
+    onPlayClick: () -> Unit
+) {
+    WikiCard(
+        modifier = modifier,
+        elevation = 2.dp
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp).clickable {
+                onPlayClick()
+            }
+        ) {
+            Icon(
+                modifier = Modifier
+                    .size(44.dp),
+                painter = painterResource(iconRes),
+                tint = iconTint,
+                contentDescription = null
+            )
+
+            Text(
+                modifier = Modifier
+                    .padding(top = 16.dp),
+                text = titleText,
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.SemiBold,
+                    letterSpacing = 0.15.sp
+                )
+            )
+            Spacer(modifier = Modifier.height(200.dp))
+        }
+    }
+}
+
+@Composable
+fun OnThisDayGameCardProgress(
     modifier: Modifier = Modifier,
     isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.InProgress,
@@ -153,7 +195,7 @@ fun OnThisDayCardProgress(
             Icon(
                 modifier = Modifier
                     .size(44.dp),
-                painter = painterResource(R.drawable.ic_wiki_games_events),
+                painter = painterResource(R.drawable.ic_events_24dp),
                 tint = WikipediaTheme.colors.progressiveColor,
                 contentDescription = null
             )
@@ -209,7 +251,7 @@ fun OnThisDayCardProgress(
 }
 
 @Composable
-fun OnThisDayCardCompleted(
+fun OnThisDayGameCardCompleted(
     modifier: Modifier = Modifier,
     isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.Completed,
@@ -254,7 +296,7 @@ fun OnThisDayCardCompleted(
 
             val spacerHeight = if (isArchiveGame) 200.dp else 112.dp
 
-            NextGameCountdown(
+            OnThisDayGameCountdown(
                 state = state,
                 isArchiveGame = isArchiveGame,
                 onCountDownFinished = onCountDownFinished
@@ -350,7 +392,7 @@ fun OnThisDayGameFirstEventView(
  * which indicates the date has flipped to the next day.
  */
 @Composable
-fun NextGameCountdown(
+fun OnThisDayGameCountdown(
     state: OnThisDayCardGameState.Completed,
     isArchiveGame: Boolean,
     onCountDownFinished: () -> Unit
@@ -396,7 +438,7 @@ fun NextGameCountdown(
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardPreviewPreview() {
+private fun OnThisDayGameCardPreviewPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
@@ -422,11 +464,11 @@ private fun OnThisDayCardPreviewPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardProgressPreview() {
+private fun OnThisDayGameCardProgressPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        OnThisDayCardProgress(
+        OnThisDayGameCardProgress(
             isArchiveGame = false,
             state = OnThisDayCardGameState.InProgress("en", 3),
             titleText = "November 2",
@@ -437,11 +479,11 @@ private fun OnThisDayCardProgressPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardCompletedPreview() {
+private fun OnThisDayGameCardCompletedPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        OnThisDayCardCompleted(
+        OnThisDayGameCardCompleted(
             isArchiveGame = false,
             state = OnThisDayCardGameState.Completed(
                 langCode = "en",
@@ -452,6 +494,34 @@ private fun OnThisDayCardCompletedPreview() {
             onReviewResult = {},
             onPlayTheArchive = {},
             onCountDownFinished = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OnThisDayGameCardSimplePreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameCardSimple(
+            state = OnThisDayCardGameState.Preview(
+                langCode = "en",
+                event1 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    year = 1990
+                ),
+                event2 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    year = 2000
+                )
+            ),
+            titleText = "Archive",
+            iconRes = R.drawable.event_repeat_24dp,
+            iconTint = WikipediaTheme.colors.primaryColor,
+            onPlayClick = {}
         )
     }
 }

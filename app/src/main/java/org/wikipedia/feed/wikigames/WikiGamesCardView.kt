@@ -121,7 +121,7 @@ fun WikiGamesCardContent(
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
-                            OnThisDayCardProgress(
+                            OnThisDayGameCardProgress(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
@@ -131,7 +131,7 @@ fun WikiGamesCardContent(
                             )
                         }
                         is OnThisDayCardGameState.Completed -> {
-                            OnThisDayCardCompleted(
+                            OnThisDayGameCardCompleted(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
