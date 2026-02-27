@@ -70,6 +70,13 @@ class TranslationTests {
             }
         }
 
+        // Step 4: Check if the item in qq/strings.xml exists in en/strings.xml
+        for (item in qqList) {
+            if (!baseList.contains(item)) {
+                mismatches.append("Extra item in qq/strings.xml not found in en/strings.xml ").append(item).append(" \n")
+            }
+        }
+
         // Step 4: check the result
         assertEquals("\n" + mismatches.toString(), 0, mismatches.length)
     }

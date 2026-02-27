@@ -17,3 +17,11 @@ sealed class OnThisDayCardGameState {
     data class InProgress(val langCode: String, val currentQuestion: Int) : OnThisDayCardGameState()
     data class Completed(val langCode: String, val score: Int, val totalQuestions: Int) : OnThisDayCardGameState()
 }
+
+// action for on this day game, future games events can also be created in similar way
+sealed interface OnThisDayGameAction {
+    data object Play : OnThisDayGameAction
+    data object CountdownFinished : OnThisDayGameAction
+    data object ReviewResults : OnThisDayGameAction
+    data object PlayArchive : OnThisDayGameAction
+}

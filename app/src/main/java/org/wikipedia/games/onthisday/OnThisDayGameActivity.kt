@@ -19,7 +19,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -32,7 +31,6 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -169,18 +167,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-            if (viewModel.gameState.value !is Resource.Loading &&
-                !isGameMenuFragmentVisible() &&
-                viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                showPauseDialog()
-                return
-            }
             onFinish()
         }
-    }
-
-    private fun isGameMenuFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMainMenuFragment
     }
 
     private fun onFinish() {
@@ -197,22 +185,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
             .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()))
         finish()
-    }
-
-    private fun showPauseDialog() {
-        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-        MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
-            .setIcon(R.drawable.ic_pause_filled_24)
-            .setTitle(R.string.on_this_day_game_pause_title)
-            .setMessage(R.string.on_this_day_game_pause_body)
-            .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                finish()
-            }
-            .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
-                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-            }
-            .show()
     }
 
     fun requestPermissionAndScheduleGameNotification() {
@@ -247,6 +219,9 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                     }
                     resolvedDate?.let {
                         putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+                    }
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
                     }
                 }
         }

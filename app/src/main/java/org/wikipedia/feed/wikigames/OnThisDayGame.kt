@@ -34,6 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -89,15 +90,11 @@ fun OnThisDayGameCardPreview(
                 )
             }
 
-            OnThisDayGameFirstEventView(event = state.event1)
-
             HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth(),
                 color = WikipediaTheme.colors.borderColor
             )
-
-            OnThisDayGameFirstEventView(event = state.event2)
 
             Box(
                 modifier = Modifier
@@ -117,7 +114,8 @@ fun OnThisDayGameCardPreview(
                         text = context.getString(state.langCode, R.string.on_this_day_game_play_today_btn_text),
                         style = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Medium
-                        )
+                        ),
+                        textAlign = TextAlign.Center
                     )
                 }
             }
@@ -193,25 +191,13 @@ fun OnThisDayCardProgress(
                         .fillMaxWidth()
                         .padding(top = 112.dp)
                 ) {
-                    FilledTonalButton(
-                        modifier = Modifier
-                            .align(Alignment.CenterEnd),
-                        colors = ButtonDefaults.filledTonalButtonColors(
-                            containerColor = WikipediaTheme.colors.backgroundColor,
-                            contentColor = WikipediaTheme.colors.progressiveColor
+                    Text(
+                        text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.Medium
                         ),
-                        onClick = onContinueClick
-                    ) {
-                        Text(
-                            text = context.getString(
-                                state.langCode,
-                                R.string.on_this_day_game_continue_btn_text
-                            ),
-                            style = MaterialTheme.typography.bodyLarge.copy(
-                                fontWeight = FontWeight.Medium
-                            )
-                        )
-                    }
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
@@ -225,7 +211,8 @@ fun OnThisDayCardCompleted(
     state: OnThisDayCardGameState.Completed,
     titleText: String,
     onReviewResult: () -> Unit,
-    onPlayTheArchive: () -> Unit
+    onPlayTheArchive: () -> Unit,
+    onCountDownFinished: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
@@ -261,42 +248,48 @@ fun OnThisDayCardCompleted(
                 )
             )
 
-            NextGameCountdown(state = state, isArchiveGame = isArchiveGame)
-
             val spacerHeight = if (isArchiveGame) 200.dp else 112.dp
 
-            Spacer(modifier = Modifier.height(spacerHeight))
+            NextGameCountdown(
+                state = state,
+                isArchiveGame = isArchiveGame,
+                onCountDownFinished = onCountDownFinished
+            )
 
-            if (!isArchiveGame) {
-                Row(
+            Spacer(modifier = Modifier.height(112.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                FilledTonalButton(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        .weight(1f),
+                    colors = ButtonDefaults.filledTonalButtonColors(
+                        containerColor = WikipediaTheme.colors.backgroundColor,
+                        contentColor = WikipediaTheme.colors.progressiveColor
+                    ),
+                    onClick = onReviewResult
                 ) {
-                    FilledTonalButton(
-                        modifier = Modifier
-                            .weight(1f),
-                        colors = ButtonDefaults.filledTonalButtonColors(
-                            containerColor = WikipediaTheme.colors.backgroundColor,
-                            contentColor = WikipediaTheme.colors.progressiveColor
+                    Text(
+                        text = context.getString(
+                            state.langCode,
+                            R.string.on_this_day_game_review_results_btn_text
                         ),
-                        onClick = onReviewResult
-                    ) {
-                        Text(
-                            text = context.getString(
-                                state.langCode,
-                                R.string.on_this_day_game_review_results_btn_text
-                            ),
-                            style = MaterialTheme.typography.bodyLarge.copy(
-                                fontWeight = FontWeight.Medium
-                            )
-                        )
-                    }
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.Medium
+                        ),
+                        textAlign = TextAlign.Center
+                    )
+                }
 
-                    TextButton(
+                Spacer(modifier = Modifier.height(spacerHeight))
+
+                if (!isArchiveGame) {
+                    Row(
                         modifier = Modifier
-                            .weight(1f),
-                        onClick = onPlayTheArchive
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         Text(
                             text = context.getString(
@@ -306,7 +299,8 @@ fun OnThisDayCardCompleted(
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 fontWeight = FontWeight.Medium,
                                 color = WikipediaTheme.colors.progressiveColor
-                            )
+                            ),
+                            textAlign = TextAlign.Center
                         )
                     }
                 }
@@ -351,16 +345,33 @@ fun OnThisDayGameFirstEventView(
     }
 }
 
+/**
+ * Counts down the time remaining until the next day by recalculating the duration every second.
+ * To avoid false triggers (e.g. user completes the game early in the morning when duration is already > 23hrs),
+ * onCountDownFinished only fires after the countdown has dropped below 1 hour.
+ * This ensures that an actual countdown cycle occurred.
+ * Once below 1 hour, it then watches for the duration to jump back above 23 hours (3600 * 23 seconds),
+ * which indicates the date has flipped to the next day.
+ */
 @Composable
-private fun NextGameCountdown(
+fun NextGameCountdown(
     state: OnThisDayCardGameState.Completed,
-    isArchiveGame: Boolean
+    isArchiveGame: Boolean,
+    onCountDownFinished: () -> Unit
 ) {
+    var hasCountedDown = false
     var duration by remember { mutableStateOf(OnThisDayGameResultFragment.timeUntilNextDay()) }
     LaunchedEffect(Unit) {
         while (true) {
             delay(1000L)
             duration = OnThisDayGameResultFragment.timeUntilNextDay()
+            if (duration.seconds < 3600) {
+                hasCountedDown = true
+            }
+            if (hasCountedDown && duration.seconds > 3600 * 23) {
+                onCountDownFinished()
+                break
+            }
         }
     }
 
@@ -443,7 +454,8 @@ private fun OnThisDayCardCompletedPreview() {
             ),
             titleText = "November 1",
             onReviewResult = {},
-            onPlayTheArchive = {}
+            onPlayTheArchive = {},
+            onCountDownFinished = {}
         )
     }
 }

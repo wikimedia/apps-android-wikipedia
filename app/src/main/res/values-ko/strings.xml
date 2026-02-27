@@ -273,6 +273,7 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보보호정책</string>
   <string name="terms_of_use_description">이용 약관</string>
+  <string name="legal_safety_contacts_description">법률 및 안전 관련 문의</string>
   <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ko</string>
@@ -1207,6 +1208,7 @@
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
   <string name="onboarding_welcome_title_v2">우리 모두의 백과사전\n...300개 이상의 언어 지원</string>
+  <string name="onboarding_next">다음</string>
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
@@ -1672,7 +1674,7 @@
   <string name="email_report_patroller_tasks_subject">문제 보고 - 편집 점검 기능</string>
   <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다.\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
   <string name="donation_campaign_maybe_later_snackbar">내일 다시 알려드리겠습니다.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
+  <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 다른 자유 지식 프로젝트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
   <string name="donate_gpay_dialog_title">구글 페이로 기부하시겠습니까?</string>
@@ -1680,6 +1682,7 @@
   <string name="donate_gpay_dialog_pay_button">구글 페이로 기부하기</string>
   <string name="donate_gpay_dialog_other_button">다른 결제 방법</string>
   <string name="donate_gpay_activity_title">금액 선택</string>
+  <string name="donate_gpay_activity_title_with_currency">금액을 선택하세요 (%s)</string>
   <string name="donate_gpay_check_recurring">월간 정기 기부로 설정해 보세요.</string>
   <string name="donate_gpay_check_send_email">네, 위키미디어 재단에서 가끔 이메일을 보내드릴 수 있게 됩니다.</string>
   <string name="donate_gpay_minimum_amount">금액을 선택해 주십시오 (최소 %s)</string>
@@ -1797,6 +1800,9 @@
   <string name="year_in_review_login_dialog_positive">위키백과에 로그인 / 가입</string>
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
+  <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">글 읽기 가장 좋은 날</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_month">가장 많이 읽은 달</string>
   <string name="year_in_review_slide_reading_pattern_morning">아침</string>
   <string name="year_in_review_slide_reading_pattern_midday">대낮</string>
@@ -1850,6 +1856,12 @@
   <string name="donation_reminders_settings_no_thanks_btn_label">괜찮습니다</string>
   <string name="donation_reminders_settings_learn_more_button">더 알아보기</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
+  <string name="hybrid_search_search_hint">무엇이든 검색하거나 질문하세요</string>
+  <string name="hybrid_search_article_search_hint">%s에 관해 물어보기</string>
+  <string name="hybrid_search_suggestion_title">검색 대상:</string>
+  <string name="hybrid_search_onboarding_learn_more">더 알아보기</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">베타 기능</string>
   <string name="hybrid_search_beta_tag">베타</string>
+  <string name="hybrid_search_no_results_header">결과 없음</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
 </resources>
