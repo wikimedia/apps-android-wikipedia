@@ -84,12 +84,18 @@ class Notification(var id: Long = 0,
         private val description: String = ""
         var url: String = ""
             private set
+        var encodedUrl: String = ""
+            private set
         val label: String = ""
         val tooltip: String = ""
         // The icon could be a string or `false`.
         private val icon: JsonElement? = null
 
         init {
+            encodedUrl = url
+            if (encodedUrl.startsWith("//")) {
+                encodedUrl = WikiSite.DEFAULT_SCHEME + "://" + encodedUrl.substring(2)
+            }
             url = UriUtil.decodeURL(url)
             if (url.startsWith("//")) {
                 url = url.replaceFirst("//", WikiSite.DEFAULT_SCHEME + "://")
