@@ -12,6 +12,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.WindowInsetsCompat
@@ -30,13 +32,17 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.activitytab.WikiGamesStatsCard
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.databinding.FragmentOnThisDayGameResultBinding
 import org.wikipedia.databinding.ItemOnThisDayGameShareTopicBinding
 import org.wikipedia.databinding.ItemOnThisDayGameTopicBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.ensureSoftwareBitmaps
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.readinglist.LongPressMenu
@@ -52,7 +58,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MarginItemDecoration
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.imageservice.ImageLoadListener
-import java.text.DecimalFormat
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -132,7 +137,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
             insets
         }
 
-        binding.archiveGameContainer.setOnClickListener {
+        binding.archiveGameButton.setOnClickListener {
             prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
         }
 
@@ -192,11 +197,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
             else -> R.color.green600
         }
         binding.resultCardContainer.setBackgroundColor(ContextCompat.getColor(requireContext(), cardContainerColor))
-        binding.statsGamePlayed.text = String.format(gameStatistics.totalGamesPlayed.toString())
-        binding.statsGamePlayedText.text = resources.getQuantityString(R.plurals.on_this_day_game_stats_games_played, gameStatistics.totalGamesPlayed)
-        binding.statsAverageScore.text = DecimalFormat("0.#").format(gameStatistics.averageScore ?: 0.0)
-        binding.statsCurrentStreak.text = String.format(gameStatistics.currentStreak.toString())
-
+        updateGameStatsView(gameStatistics)
         binding.resultArticlesList.layoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
         binding.resultArticlesList.addItemDecoration(MarginItemDecoration(requireActivity(),
             R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_horizontal,
@@ -205,6 +206,36 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
         binding.resultArticlesList.adapter = RecyclerViewAdapter(viewModel.getArticlesMentioned())
 
         buildSharableContent(gameState, viewModel.getArticlesMentioned())
+    }
+
+    private fun updateGameStatsView(gameStatistics: OnThisDayGameViewModel.GameStatistics) {
+        binding.gameStatsComposeView.setContent {
+            BaseTheme {
+                if (AccountUtil.isLoggedIn) {
+                    WikiGamesStatsCard(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        showTitle = false,
+                        totalGamesPlayed = gameStatistics.totalGamesPlayed,
+                        currentStreak = gameStatistics.currentStreak,
+                        averageScore = gameStatistics.averageScore ?: 0.0,
+                        bestStreak = gameStatistics.bestStreak
+                    )
+                } else {
+                    OnThisDayGameLoginPromptCard(
+                        onLogInClick = {
+                            startActivity(
+                                LoginActivity.newIntent(
+                                    context = requireContext(),
+                                    source = LoginActivity.SOURCE_ON_THIS_DAY_GAME_RESULT,
+                                    createAccountFirst = false
+                                )
+                            )
+                        }
+                    )
+                }
+            }
+        }
     }
 
     private fun buildSharableContent(gameState: OnThisDayGameViewModel.GameState, articlesMentioned: List<PageSummary>) {
@@ -304,7 +335,6 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
 
         init {
             itemView.setOnClickListener(this)
-            FeedbackUtil.setButtonTooltip(binding.listItemBookmark, binding.listItemShare)
         }
 
         fun bindItem(page: PageSummary, position: Int) {
@@ -313,14 +343,34 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
             binding.listItemTitle.text = StringUtil.fromHtml(page.displayTitle)
             binding.listItemDescription.text = StringUtil.fromHtml(page.description)
             binding.listItemDescription.isVisible = !page.description.isNullOrEmpty()
-            binding.listItemShare.setOnClickListener {
-                WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                ShareUtil.shareText(requireActivity(), page.getPageTitle(viewModel.wikiSite))
-            }
-            val isSaved = updateBookmark()
-            binding.listItemBookmark.setOnClickListener {
-                WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                onBookmarkIconClick(it, page, position, isSaved)
+
+            binding.listItemDropDown.setOnClickListener { view ->
+                val pageTitle = page.getPageTitle(viewModel.wikiSite)
+                LongPressMenu(anchorView = view, menuRes = R.menu.menu_long_press, callback = object : LongPressMenu.Callback {
+
+                    override fun onOpenLink(entry: HistoryEntry) {
+                        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title, false))
+                    }
+
+                    override fun onOpenInNewTab(entry: HistoryEntry) {
+                        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
+                    }
+
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        viewModel.savedPages.add(page)
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+                    }
+
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        page?.let {
+                            ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
+                        }
+                    }
+                    override fun onRemoveRequest() {
+                        super.onRemoveRequest()
+                        viewModel.savedPages.remove(page)
+                    }
+                }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY))
             }
 
             page.thumbnailUrl?.let {
@@ -329,13 +379,6 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
             } ?: run {
                 binding.listItemThumbnail.isVisible = false
             }
-        }
-
-        private fun updateBookmark(): Boolean {
-            val isSaved = viewModel.savedPages.contains(page)
-            val bookmarkResource = if (isSaved) R.drawable.ic_bookmark_white_24dp else R.drawable.ic_bookmark_border_white_24dp
-            binding.listItemBookmark.setImageResource(bookmarkResource)
-            return isSaved
         }
 
         override fun onClick(v: View) {
@@ -350,30 +393,11 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
         }
     }
 
-    private fun onBookmarkIconClick(view: View, pageSummary: PageSummary, position: Int, isSaved: Boolean) {
-        val pageTitle = pageSummary.getPageTitle(viewModel.wikiSite)
-        if (isSaved) {
-            LongPressMenu(view, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                }
-
-                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    page?.let {
-                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, pageTitle, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-                    }
-                }
-
-                override fun onRemoveRequest() {
-                    super.onRemoveRequest()
-                    viewModel.savedPages.remove(pageSummary)
-                    binding.resultArticlesList.adapter?.notifyItemChanged(position)
-                }
-            }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_GAME))
-        } else {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, true, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
-            viewModel.savedPages.add(pageSummary)
-            binding.resultArticlesList.adapter?.notifyItemChanged(position)
+    override fun onResume() {
+        super.onResume()
+        val state = viewModel.gameState.value
+        if (state is OnThisDayGameViewModel.GameEnded) {
+            updateGameStatsView(state.gameStatistics)
         }
     }
 
