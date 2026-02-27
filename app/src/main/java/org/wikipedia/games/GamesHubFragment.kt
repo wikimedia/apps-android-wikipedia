@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,7 +31,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -46,7 +44,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.extensions.getString
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
@@ -154,7 +151,7 @@ class GamesHubFragment : Fragment() {
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
@@ -214,16 +211,17 @@ class GamesHubFragment : Fragment() {
 
                 LazyColumn(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    contentPadding = PaddingValues(horizontal = 16.dp)
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
                 ) {
                     items(WikiGames.entries.size) { index ->
                         when (WikiGames.entries[index]) {
                             WikiGames.WHICH_CAME_FIRST -> {
                                 if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
                                     Text(
+                                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                                         text = stringResource(WikiGames.entries[index].titleRes),
-                                        style = MaterialTheme.typography.titleLarge,
+                                        style = MaterialTheme.typography.headlineSmall,
                                         fontWeight = FontWeight.Medium,
                                         color = WikipediaTheme.colors.primaryColor
                                     )
@@ -233,7 +231,7 @@ class GamesHubFragment : Fragment() {
                                         modifier = Modifier
                                             .fillMaxWidth(),
                                         verticalAlignment = Alignment.CenterVertically,
-                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                        horizontalArrangement = Arrangement.spacedBy(16.dp),
                                         contentPadding = PaddingValues(horizontal = 16.dp)
                                     ) {
                                         items(5) { cardIndex ->
@@ -270,7 +268,7 @@ class GamesHubFragment : Fragment() {
                                                     OnThisDayGameCardSimple(
                                                         modifier = Modifier
                                                             .fillMaxWidth()
-                                                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                                                            .padding(vertical = 8.dp),
                                                         iconRes = R.drawable.event_repeat_24dp,
                                                         iconTint = WikipediaTheme.colors.primaryColor,
                                                         titleText = dateTitle,
@@ -298,7 +296,6 @@ class GamesHubFragment : Fragment() {
         isArchiveGame: Boolean,
         onThisDayGameAction: (OnThisDayGameAction) -> Unit
     ) {
-        val context = LocalContext.current
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -308,12 +305,9 @@ class GamesHubFragment : Fragment() {
                         OnThisDayGameCardPreview(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 8.dp, vertical = 8.dp),
+                                .padding(vertical = 8.dp),
                             state = game.state,
-                            titleText = context.getString(
-                                game.state.langCode,
-                                R.string.on_this_day_game_title
-                            ),
+                            titleText = dateTitle,
                             onPlayClick = {
                                 onThisDayGameAction(OnThisDayGameAction.Play)
                             }
@@ -322,7 +316,7 @@ class GamesHubFragment : Fragment() {
                         OnThisDayGameCardSimple(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 8.dp, vertical = 8.dp),
+                                .padding(vertical = 8.dp),
                             iconRes = R.drawable.ic_events_24dp,
                             iconTint = WikipediaTheme.colors.progressiveColor,
                             titleText = dateTitle,
@@ -338,7 +332,7 @@ class GamesHubFragment : Fragment() {
                     OnThisDayGameCardProgress(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                            .padding(vertical = 8.dp),
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
@@ -352,7 +346,7 @@ class GamesHubFragment : Fragment() {
                     OnThisDayGameCardCompleted(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                            .padding(vertical = 8.dp),
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
