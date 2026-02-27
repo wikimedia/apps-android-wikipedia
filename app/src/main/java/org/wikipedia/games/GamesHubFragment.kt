@@ -44,6 +44,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
@@ -220,7 +221,7 @@ class GamesHubFragment : Fragment() {
                                 if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
                                     Text(
                                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                                        text = stringResource(WikiGames.entries[index].titleRes),
+                                        text = requireContext().getString(selectedLanguage, WikiGames.entries[index].titleRes),
                                         style = MaterialTheme.typography.headlineSmall,
                                         fontWeight = FontWeight.Medium,
                                         color = WikipediaTheme.colors.primaryColor
