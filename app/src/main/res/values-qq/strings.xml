@@ -1864,7 +1864,6 @@
   <string name="on_this_day_game_card_archive_label">Message displayed on the game card to play the archived On this day game.</string>
     <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
     <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
-  <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
     <string name="on_this_day_game_stats_log_in_prompt_card_btn_label">Button text for the "Log in" action in the On This Day game stats view, prompting the user to sign in to access their game history and statistics.</string>
     <string name="on_this_day_game_stats_log_in_prompt_card_view_stats_label">Message prompting the user to log in in order to access and view their On This Day game statistics.</string>
     <string name="on_this_day_game_login_in_prompt_card_view_stats_label">Supporting text describing that the user can view their game streaks, scores, and additional performance details.</string>
