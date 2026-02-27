@@ -131,7 +131,6 @@ fun OnThisDayGameCardPreview(
 @Composable
 fun OnThisDayGameCardSimple(
     modifier: Modifier = Modifier,
-    state: OnThisDayCardGameState.Preview,
     iconRes: Int,
     iconTint: Color,
     titleText: String,
@@ -237,13 +236,23 @@ fun OnThisDayGameCardProgress(
                         .fillMaxWidth()
                         .padding(top = 112.dp)
                 ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
+                    FilledTonalButton(
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd),
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = WikipediaTheme.colors.backgroundColor,
+                            contentColor = WikipediaTheme.colors.progressiveColor
                         ),
-                        textAlign = TextAlign.Center
-                    )
+                        onClick = onContinueClick
+                    ) {
+                        Text(
+                            text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Medium
+                            ),
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
         }
@@ -505,19 +514,6 @@ private fun OnThisDayGameCardSimplePreview() {
         currentTheme = Theme.LIGHT
     ) {
         OnThisDayGameCardSimple(
-            state = OnThisDayCardGameState.Preview(
-                langCode = "en",
-                event1 = OnThisDay.Event(
-                    pages = emptyList(),
-                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    year = 1990
-                ),
-                event2 = OnThisDay.Event(
-                    pages = emptyList(),
-                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    year = 2000
-                )
-            ),
             titleText = "Archive",
             iconRes = R.drawable.event_repeat_24dp,
             iconTint = WikipediaTheme.colors.primaryColor,

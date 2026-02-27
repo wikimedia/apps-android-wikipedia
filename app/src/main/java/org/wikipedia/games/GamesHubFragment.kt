@@ -11,6 +11,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -44,6 +46,15 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.getString
+import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.feed.wikigames.OnThisDayCardGameState
+import org.wikipedia.feed.wikigames.OnThisDayGameAction
+import org.wikipedia.feed.wikigames.OnThisDayGameCardCompleted
+import org.wikipedia.feed.wikigames.OnThisDayGameCardPreview
+import org.wikipedia.feed.wikigames.OnThisDayGameCardProgress
+import org.wikipedia.feed.wikigames.OnThisDayGameCardSimple
+import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
@@ -230,12 +241,43 @@ class GamesHubFragment : Fragment() {
                                                 LocalDate.now().minusDays(cardIndex.toLong())
                                             )
                                             when (cardIndex) {
-                                                0 -> {
-                                                    // TODO: put cards with different game states
+                                                in 0..3 -> {
+                                                    // TODO: send the real data.
+                                                    OnThisDayGameCardContent(
+                                                        game = WikiGame.OnThisDayGame(
+                                                            state = OnThisDayCardGameState.Preview(
+                                                                langCode = "en",
+                                                                event1 = OnThisDay.Event(
+                                                                    pages = emptyList(),
+                                                                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                                                    year = 1990
+                                                                ),
+                                                                event2 = OnThisDay.Event(
+                                                                    pages = emptyList(),
+                                                                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                                                    year = 2000
+                                                                )
+                                                            ),
+                                                        ),
+                                                        dateTitle = dateTitle,
+                                                        isArchiveGame = cardIndex != 0,
+                                                        onThisDayGameAction = {
+                                                            // TODO: implement this
+                                                        }
+                                                    )
                                                 }
-
-                                                in 1..3 -> {
-                                                    // TODO: put cards with different game states
+                                                else -> {
+                                                    OnThisDayGameCardSimple(
+                                                        modifier = Modifier
+                                                            .fillMaxWidth()
+                                                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                                                        iconRes = R.drawable.event_repeat_24dp,
+                                                        iconTint = WikipediaTheme.colors.primaryColor,
+                                                        titleText = dateTitle,
+                                                        onPlayClick = {
+                                                            // TODO: open the calendar
+                                                        }
+                                                    )
                                                 }
                                             }
                                         }
@@ -244,6 +286,80 @@ class GamesHubFragment : Fragment() {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun OnThisDayGameCardContent(
+        game: WikiGame.OnThisDayGame,
+        dateTitle: String,
+        isArchiveGame: Boolean,
+        onThisDayGameAction: (OnThisDayGameAction) -> Unit
+    ) {
+        val context = LocalContext.current
+        Column(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            when (game.state) {
+                is OnThisDayCardGameState.Preview -> {
+                    if (!isArchiveGame) {
+                        OnThisDayGameCardPreview(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 8.dp, vertical = 8.dp),
+                            state = game.state,
+                            titleText = context.getString(
+                                game.state.langCode,
+                                R.string.on_this_day_game_title
+                            ),
+                            onPlayClick = {
+                                onThisDayGameAction(OnThisDayGameAction.Play)
+                            }
+                        )
+                    } else {
+                        OnThisDayGameCardSimple(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 8.dp, vertical = 8.dp),
+                            iconRes = R.drawable.ic_events_24dp,
+                            iconTint = WikipediaTheme.colors.progressiveColor,
+                            titleText = dateTitle,
+                            onPlayClick = {
+                                // TODO: see if this action can open for a certain date.
+                                onThisDayGameAction(OnThisDayGameAction.PlayArchive)
+                            }
+                        )
+                    }
+                }
+
+                is OnThisDayCardGameState.InProgress -> {
+                    OnThisDayGameCardProgress(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                        isArchiveGame = isArchiveGame,
+                        state = game.state,
+                        titleText = dateTitle,
+                        onContinueClick = {
+                            onThisDayGameAction(OnThisDayGameAction.Play)
+                        }
+                    )
+                }
+
+                is OnThisDayCardGameState.Completed -> {
+                    OnThisDayGameCardCompleted(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 8.dp, vertical = 8.dp),
+                        isArchiveGame = isArchiveGame,
+                        state = game.state,
+                        titleText = dateTitle,
+                        onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
+                        onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
+                        onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
+                    )
                 }
             }
         }
