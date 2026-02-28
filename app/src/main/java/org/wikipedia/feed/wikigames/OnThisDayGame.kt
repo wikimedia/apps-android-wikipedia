@@ -101,6 +101,8 @@ fun OnThisDayGameCardPreview(
 
             OnThisDayGameFirstEventView(event = state.event2)
 
+            Spacer(Modifier.weight(1f))
+
             Box(
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
@@ -226,9 +228,7 @@ fun OnThisDayGameCardProgress(
                 )
             )
 
-            val spacerHeight = if (isArchiveGame) 200.dp else 16.dp
-
-            Spacer(modifier = Modifier.height(spacerHeight))
+            Spacer(Modifier.weight(1f))
 
             if (!isArchiveGame) {
                 Box(
@@ -303,14 +303,12 @@ fun OnThisDayGameCardCompleted(
                 )
             )
 
-            val spacerHeight = if (isArchiveGame) 200.dp else 112.dp
-
             OnThisDayGameCountdown(
                 state = state,
                 isArchiveGame = isArchiveGame,
                 onCountDownFinished = onCountDownFinished
             )
-            Spacer(modifier = Modifier.height(spacerHeight))
+            Spacer(Modifier.weight(1f))
 
             if (!isArchiveGame) {
                 Row(
