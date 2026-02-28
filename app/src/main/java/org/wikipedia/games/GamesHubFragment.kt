@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,13 +40,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
 import org.wikipedia.feed.wikigames.OnThisDayGameCardCompleted
@@ -58,6 +59,7 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.NotificationButtonView
 import java.time.LocalDate
@@ -65,6 +67,7 @@ import java.time.LocalDate
 class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
+    private val viewModel: GamesHubViewModel by viewModels()
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -114,7 +117,9 @@ class GamesHubFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
-                    GamesHubScreen()
+                    GamesHubScreen(
+                        onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value
+                    )
                 }
             }
         }
@@ -143,7 +148,9 @@ class GamesHubFragment : Fragment() {
     }
 
     @Composable
-    fun GamesHubScreen() {
+    fun GamesHubScreen(
+        onThisDayGameUiState: UiState<Map<String, List<OnThisDayCardGameState>>>
+    ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
         var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
         Scaffold(
@@ -218,71 +225,80 @@ class GamesHubFragment : Fragment() {
                     items(WikiGames.entries.size) { index ->
                         when (WikiGames.entries[index]) {
                             WikiGames.WHICH_CAME_FIRST -> {
-                                if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
-                                    Text(
-                                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                                        text = requireContext().getString(selectedLanguage, WikiGames.entries[index].titleRes),
-                                        style = MaterialTheme.typography.headlineSmall,
-                                        fontWeight = FontWeight.Medium,
-                                        color = WikipediaTheme.colors.primaryColor
-                                    )
-
-                                    // Load fix cards: Today, last 3 days and archive
-                                    LazyRow(
-                                        modifier = Modifier
-                                            .fillMaxWidth(),
-                                        verticalAlignment = Alignment.CenterVertically,
-                                        horizontalArrangement = Arrangement.spacedBy(16.dp),
-                                        contentPadding = PaddingValues(horizontal = 16.dp)
-                                    ) {
-                                        items(5) { cardIndex ->
-                                            val dateTitle = DateUtil.getShortDateString(
-                                                LocalDate.now().minusDays(cardIndex.toLong())
-                                            )
-                                            when (cardIndex) {
-                                                in 0..3 -> {
-                                                    // TODO: send the real data.
-                                                    OnThisDayGameCardContent(
-                                                        game = WikiGame.OnThisDayGame(
-                                                            state = OnThisDayCardGameState.Preview(
-                                                                langCode = "en",
-                                                                event1 = OnThisDay.Event(
-                                                                    pages = emptyList(),
-                                                                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                                                                    year = 1990
-                                                                ),
-                                                                event2 = OnThisDay.Event(
-                                                                    pages = emptyList(),
-                                                                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                                                                    year = 2000
-                                                                )
-                                                            ),
-                                                        ),
-                                                        dateTitle = dateTitle,
-                                                        isArchiveGame = cardIndex != 0,
-                                                        onThisDayGameAction = {
-                                                            // TODO: implement this
-                                                        }
-                                                    )
-                                                }
-                                                else -> {
-                                                    OnThisDayGameCardSimple(
-                                                        modifier = Modifier
-                                                            .fillMaxWidth()
-                                                            .padding(vertical = 8.dp),
-                                                        iconRes = R.drawable.event_repeat_24dp,
-                                                        iconTint = WikipediaTheme.colors.primaryColor,
-                                                        titleText = dateTitle,
-                                                        onPlayClick = {
-                                                            // TODO: open the calendar
-                                                        }
-                                                    )
-                                                }
-                                            }
-                                        }
+                                when (onThisDayGameUiState) {
+                                    is UiState.Loading -> {
+                                        // TODO: implement error state
+                                    }
+                                    is UiState.Error -> {
+                                        // TODO: implement error state
+                                    }
+                                    is UiState.Success -> {
+                                        OnThisDayGameCards(
+                                            position = index,
+                                            selectedLanguage = selectedLanguage,
+                                            gamesData = onThisDayGameUiState.data
+                                        )
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun OnThisDayGameCards(
+        position: Int,
+        selectedLanguage: String,
+        gamesData: Map<String, List<OnThisDayCardGameState>>
+    ) {
+        if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                text = requireContext().getString(selectedLanguage, WikiGames.entries[position].titleRes),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Medium,
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            // Load fix cards: Today, last 3 days and archive
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp)
+            ) {
+                items(5) { cardIndex ->
+                    val gameState = gamesData[selectedLanguage]?.getOrNull(cardIndex) ?: return@items // TODO: verify this
+                    val dateTitle = DateUtil.getShortDateString(
+                        LocalDate.now().minusDays(cardIndex.toLong())
+                    )
+                    when (cardIndex) {
+                        in 0..3 -> {
+                            OnThisDayGameCardContent(
+                                game = WikiGame.OnThisDayGame(gameState),
+                                dateTitle = dateTitle,
+                                isArchiveGame = cardIndex != 0,
+                                onThisDayGameAction = {
+                                    // TODO: implement this
+                                }
+                            )
+                        }
+                        else -> {
+                            OnThisDayGameCardSimple(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 8.dp),
+                                iconRes = R.drawable.event_repeat_24dp,
+                                iconTint = WikipediaTheme.colors.primaryColor,
+                                titleText = dateTitle,
+                                onPlayClick = {
+                                    // TODO: open the calendar
+                                }
+                            )
                         }
                     }
                 }
