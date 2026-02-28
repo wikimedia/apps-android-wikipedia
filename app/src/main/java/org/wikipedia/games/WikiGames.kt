@@ -1,7 +1,9 @@
 package org.wikipedia.games
 
-enum class WikiGames {
-    WHICH_CAME_FIRST
+import org.wikipedia.R
+
+enum class WikiGames(val titleRes: Int) {
+    WHICH_CAME_FIRST(R.string.on_this_day_game_title)
 }
 
 enum class PlayTypes {

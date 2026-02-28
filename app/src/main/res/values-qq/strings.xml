@@ -1793,6 +1793,8 @@
   <string name="games_hub_activity_title">Activity title for the Games hub.</string>
   <string name="games_hub_activity_games_unavailable_message">Snackbar message that indicates the game is unavailable in this language. The %s will be replaced with the language.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
+  <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
   <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
@@ -1860,7 +1862,9 @@
   <string name="on_this_day_game_sound_off">Menu item label when game sound is turned on./</string>
   <string name="on_this_day_game_more_label">Button text shown on the On This Day game card in the Explore feed that opens the Games Hub.</string>
   <string name="on_this_day_game_card_progress_label">Informational text shown in the On This Day game card in the Explore feed indicating the user’s current question number, where %d is replaced with the question index, and prompting them to continue guessing which historical event occurred first.</string>
+  <string name="on_this_day_game_card_progress_short_label">Informational text shown in the On This Day game card in the Explore feed indicating the user’s current question number, where %d is replaced with the question index.</string>
   <string name="on_this_day_game_explore_feed_card_score_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total) and a countdown timer %3$s (hours:minutes:seconds) until the next game becomes available.</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total).</string>
   <string name="on_this_day_game_card_archive_label">Message displayed on the game card to play the archived On this day game.</string>
     <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
     <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>

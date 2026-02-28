@@ -382,6 +382,11 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
+            android:name=".games.GamesHubActivity"
+            android:label="@string/games_hub_activity_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity

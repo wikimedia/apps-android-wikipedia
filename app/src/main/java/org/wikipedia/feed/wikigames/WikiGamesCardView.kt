@@ -10,6 +10,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
@@ -120,20 +121,22 @@ fun WikiGamesCardContent(
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
-                            OnThisDayCardProgress(
+                            OnThisDayGameCardProgress(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
+                                titleText = stringResource(R.string.on_this_day_game_title),
                                 onContinueClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
                             )
                         }
                         is OnThisDayCardGameState.Completed -> {
-                            OnThisDayCardCompleted(
+                            OnThisDayGameCardCompleted(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
+                                titleText = stringResource(R.string.on_this_day_game_title),
                                 onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                                 onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                                 onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
