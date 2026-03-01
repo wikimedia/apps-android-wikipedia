@@ -508,6 +508,11 @@
   <string name="theme_category_editing">Edição</string>
   <string name="reading_focus_mode">Modo de foco de leitura</string>
   <string name="reading_focus_mode_detail">Oculta as funcionalidades de edição e a barra de ferramentas do fundo quando desliza uma página</string>
+  <string name="margin_size_increase">Aumentar margens</string>
+  <string name="margin_size_decrease">Reduzir margens</string>
+  <string name="margin_size_label">Margens</string>
+  <string name="text_justify_label">Justificar</string>
+  <string name="text_hyphenation_label">Hifenização</string>
   <string name="editing_syntax_highlight_label">Destaque de sintaxe</string>
   <string name="editing_line_numbers_label">Mostrar números de linha</string>
   <string name="editing_monospace_font_label">Usar tipo de letra monoespaçada</string>

@@ -128,6 +128,18 @@ object Prefs {
         get() = PrefsIoUtil.getInt(R.string.preference_key_text_size_multiplier, 0)
         set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_text_size_multiplier, multiplier)
 
+    var marginSizeMultiplier
+        get() = PrefsIoUtil.getInt(R.string.preference_key_margin_size_multiplier, 10)
+        set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_margin_size_multiplier, multiplier)
+
+    var isTextJustifyEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_text_justify, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_text_justify, value)
+
+    var isTextHyphenationEnabled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_text_hyphenation, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_text_hyphenation, value)
+
     var editingTextSizeMultiplier
         get() = PrefsIoUtil.getInt(R.string.preference_key_editing_text_size_multiplier, 0)
         set(multiplier) = PrefsIoUtil.setInt(R.string.preference_key_editing_text_size_multiplier, multiplier)

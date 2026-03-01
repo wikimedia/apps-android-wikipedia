@@ -522,6 +522,11 @@
   <string name="theme_category_editing">Редагування</string>
   <string name="reading_focus_mode">Режим фокусування читання</string>
   <string name="reading_focus_mode_detail">Приховує функції редагування та нижню панель інструментів під час прокручування</string>
+  <string name="margin_size_increase">Збільшити поля</string>
+  <string name="margin_size_decrease">Зменшити поля</string>
+  <string name="margin_size_label">Поля</string>
+  <string name="text_justify_label">По ширині</string>
+  <string name="text_hyphenation_label">Перенесення</string>
   <string name="editing_syntax_highlight_label">Виділення синтаксису</string>
   <string name="editing_line_numbers_label">Показати номери рядків</string>
   <string name="editing_monospace_font_label">Використати моноширинний шрифт</string>

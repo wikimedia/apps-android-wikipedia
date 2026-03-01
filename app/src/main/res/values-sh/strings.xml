@@ -407,6 +407,11 @@
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_style_title">Font</string>
   <string name="theme_category_reading">Čitanje</string>
+  <string name="margin_size_increase">Povećaj margine</string>
+  <string name="margin_size_decrease">Smanji margine</string>
+  <string name="margin_size_label">Margine</string>
+  <string name="text_justify_label">Poravnanje</string>
+  <string name="text_hyphenation_label">Rastavljanje</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
   <string name="editing_line_numbers_label">Prikaži brojeve redova</string>
