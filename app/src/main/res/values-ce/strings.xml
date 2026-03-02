@@ -764,7 +764,7 @@
   <string name="talk_new_topic_exit_dialog_title">Бакъалла а лаьий хьуна болх дӀаберзо?</string>
   <string name="talk_thread_subscribed_to">\"%s\" тӀе йаздар ду.</string>
   <string name="talk_thread_unsubscribed_from">\"%s\" тӀе йаздар дӀадаьккхина.</string>
-  <string name="talk_list_item_overflow_subscribe">Йаздала</string>
+  <string name="talk_list_item_overflow_subscribe">ТӀейазло</string>
   <string name="talk_list_item_overflow_subscribed">Йазделла</string>
   <string name="talk_list_item_overflow_mark_as_read">Билгалйе йешна санна</string>
   <string name="talk_list_item_overflow_mark_as_unread">Билгалйе ца-йешна санна</string>
