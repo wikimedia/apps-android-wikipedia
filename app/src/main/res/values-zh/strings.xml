@@ -30,6 +30,7 @@
 * Irati
 * Josephine W.
 * Justiyaya
+* Key0121
 * LNDDYL
 * Lakejason0
 * Lantianjialiang
@@ -314,7 +315,7 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="legal_safety_contacts_description" fuzzy="true">法律与安全联系人</string>
+  <string name="legal_safety_contacts_description">法律与安全联系人</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/w/index.php?title=Privacy_policy/zh&amp;variant=zh-cn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#Offline_reading_and_data</string>
@@ -2197,15 +2198,37 @@
   <string name="donation_reminders_settings_report_email_subject">问题报告：捐赠提醒</string>
   <string name="donation_reminders_settings_report_email_body">我遇到了捐赠提醒功能的问题：\n- [描述具体问题]\n- [截图或链接]\n\n我希望的实现效果是：\n- [描述建议的解决方案]</string>
   <string name="donation_reminders_snackbar_modify_button_label">修改</string>
+  <string name="hybrid_search_search_hint">搜索或提问任何内容</string>
+  <string name="hybrid_search_article_search_hint">询问关于条目%s</string>
   <string name="hybrid_search_suggestion_title">搜索：</string>
   <string name="hybrid_search_onboarding_learn_more">了解更多</string>
+  <string name="hybrid_search_onboarding_search_title">提出问题，获得答案</string>
+  <string name="hybrid_search_onboarding_search_description">这项实验性功能可以理解自然语言。无需搜索关键词，只需描述您想了解的内容即可。</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">测试功能</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">仅在本次实验期间的有限时间内提供。</string>
   <string name="hybrid_search_beta_tag">测试</string>
+  <string name="hybrid_search_experimental_feature_switch_label">加入实验</string>
+  <string name="hybrid_search_onboarding_search_example_title">需要灵感吗？</string>
+  <string name="hybrid_search_onboarding_search_example_description">请使用以下搜索示例之一。</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">您已选择退出实验。</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">冥王星何时被从行星名单中移除？</string>
   <string name="hybrid_search_onboarding_search_example_query_first_olympics">第一届奥运会</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 与 DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">为什么人们要在披萨上放菠萝？</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">欧洲最大的城市有哪些？</string>
+  <string name="hybrid_search_onboarding_screen_title">一种新的搜索方式</string>
+  <string name="hybrid_search_results_header_description">资料来源于人工撰写的维基百科文章</string>
   <string name="hybrid_search_results_rate_label">请评价此结果</string>
   <string name="hybrid_search_results_rated_label">已评价</string>
   <string name="hybrid_search_results_rate_thumb_up">点赞</string>
   <string name="hybrid_search_results_rate_thumb_down">点踩</string>
   <string name="hybrid_lexical_search_results_empty">没有文章标题与此查询匹配。</string>
+  <string name="hybrid_search_results_empty">增强搜索功能暂时不可用。</string>
+  <string name="hybrid_search_no_results_header">没有结果</string>
+  <string name="hybrid_search_no_results_description">目前该主题无法返回文章摘要。您可以尝试以下方法：</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">重新表达您的搜索</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">尝试相关主题</string>
+  <string name="hybrid_search_error_message">出错了。请稍后重试。</string>
   <string name="hybrid_search_who_is_prefix">%s是谁？</string>
   <string name="hybrid_search_turn_off_experiment_label">关闭此实验</string>
 </resources>
