@@ -246,7 +246,7 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلار</string>
   <string name="terms_of_use_description">د کارولو منښتونه</string>
-  <string name="legal_safety_contacts_description" fuzzy="true">قانوني او خونديتوب اړيکې</string>
+  <string name="legal_safety_contacts_description">قانوني او خونديتوب اړيکې</string>
   <string name="about_wikipedia_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:پېژندنه</string>
   <string name="android_app_request_an_account_url">https://ps.wikipedia.org/wiki/ويکيپېډيا:د_گڼون_جوړېدو_غوښتنه</string>
   <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
@@ -302,6 +302,7 @@
   <string name="abusefilter_title_warn">دا ښايي چې يو نارغنده سمون وي، ايا تاسو ډاډه ياست چې دا خپور کړئ؟</string>
   <string name="abusefilter_title_disallow">تاسو دا سمون نشئ خپرولی. مهرباني وکړئ بېرته پرشا ولاړ شئ او بدل يې کړئ.</string>
   <string name="abusefilter_text_warn">يو خپلکاري چاڼگر دا سمون د احتمالي نه رغېدونکي په توگه پېژندلی. دا کېدای شي يو يا څو لاندې منځپانگې ولري:&lt;br /&gt;&lt;br /&gt;. ښايي ټول غټ توري ليکل شوې وي&lt;br /&gt;·ليکنې تشول يا چټل ليکنه&lt;br /&gt;·نااړونده باندني تړوني يا انځورونه&lt;br /&gt;· تکراري لوښې</string>
+  <string name="abusefilter_text_disallow">يو خپلکاري چاڼگر دا سمون د احتمالي نارغنده يا احتمالي ورانکارۍ په توگه پېژندلی دی.&lt;br /&gt;&lt;br /&gt;ويکي‌پېډيا يو پوهنغونډ دی او يوازې بې پرې او د پام وړ منځپانگې پکې د منلو وړ دي.</string>
   <string name="page_similar_titles">ورته مخونه</string>
   <string name="search_did_you_mean">\"%s\" مو موخه وه؟</string>
   <string name="search_recent_header">وروستنۍ پلټنې:</string>
@@ -368,6 +369,7 @@
   <string name="tool_tip_bookmark_icon_text">په لوست لړ کې د ليکنې خوندي کولو لپاره په کتاب‌نښه باندې وټوکئ.</string>
   <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="tool_tip_toc_title">نيوليک ته چټک لاسرسی</string>
+  <string name="tool_tip_toc_text">تاسو اوس کولی شئ د منځپانگو لښتيال پرانېستلو لپاره کيڼ اړخ وټوکئ او همدارنگه د دې سکرولر تڼۍ کېکاږلو او کش کولو سره کولی شئ په چټکۍ سره د ليکنې بېلابېلو برخو ته ورشئ.</string>
   <string name="error_response_malformed">د پالنگر ځواب په سمه توگه بڼل شوی نه و.</string>
   <string name="error_unknown">يوه ناڅرگنده تېروتنه رامنځته شوه.</string>
   <string name="format_error_server_message">پيغام: \"%s\"</string>
@@ -411,6 +413,7 @@
   <string name="link_preview_dialog_share_button">وېشل</string>
   <string name="link_preview_stub_placeholder_text">دا يوه نيمگړې ليکنه ده، په دې مانا چې د مخکتنې لپاره په دې ليکنې کې کافي منځپانگه نشته. په هر صورت تاسو کولی شئ دا بدل کړئ.</string>
   <string name="error_page_does_not_exist">دا مخشتون نه لري</string>
+  <string name="error_user_page_does_not_exist">ويکي‌پېډيا کټ مټ په همدې نوم &lt;a href=\"%1$s\"&gt;کارن مخ&lt;/a&gt; نه لري. په ټوليزه توگه دا مخ بايد د &lt;b&gt;%2$s&lt;/b&gt; له خوا جوړ او سم شي. که شک لرئ؛ نو مهرباني وکړئ تاييد کړئ چې \"%3$s\" شتون لري.</string>
   <string name="view_wiki_error_message_offline">اينټرنېټ سره نشي نښلېدای</string>
   <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې اړيکه وگورئ، يا وروسته بيا هڅه وکړئ</string>
   <string name="reference_title">سرچينه %s</string>
@@ -429,12 +432,30 @@
   <string name="error_blocked_start">د بنديز پیل: %s</string>
   <string name="error_blocked_expiry">د بنديز پای: %s</string>
   <string name="error_blocked_id">بنديز پېژند: %s</string>
+  <string name="error_blocked_footer">د بنديز اړوند تاسو کولی شئ له &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; يا يو بل &lt;a href=\"https://ps.wikipedia.org/wiki/ويکيپېډيا:پازوالان\"&gt;پازوال&lt;/a&gt; سره وغږېږئ.</string>
   <string name="theme_chooser_menu_item_short_tooltip">خپله توک‌پټه دوديزول</string>
+  <string name="error_blocked_footer_no_blocker">د بنديز اړوند تاسو کولی شئ له يو &lt;a href=\"https://ps.wikipedia.org/wiki/ويکيپېډيا:پازوالان\"&gt;پازوال&lt;/a&gt; سره وغږېږئ.</string>
   <string name="temp_account_not_logged_in">تاسو غونډال کې ننوتي نه ياست</string>
+  <string name="temp_account_anon_ip_dialog_body">کله چې تاسو سمون وکړئ، ستاسو وېب‌پته به ستاسو سمونونو سره ونښلي. د راتلونوکو سمونونو د امتياز ترلاسنې او نورو ځانگړنو ته د لاسرسي لپاره &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;غونډال ته ننوځئ&lt;/a&gt; يا &lt;a href=\"https://#createaccount\"&gt;گڼون جوړ کړئ&lt;/a&gt;.</string>
+  <string name="temp_account_anon_dialog_body">کله چې تاسو سمون وکړئ؛ نو ستاسو د پټنتيا ساتلو لپاره به يو &lt;b&gt;لنډمهاله گڼون&lt;/b&gt; جوړ شي. &lt;a href=\"%1$s\"&gt;په دې اړه نور ولولئ&lt;/a&gt;. نورو ځانگړنو ته د لاسرسي لپاره &lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;غونډال ته ننوځئ&lt;/a&gt; يا &lt;a href=\"https://#createaccount\"&gt;گڼون جوړ کړئ&lt;/a&gt;.</string>
+  <string name="temp_account_temp_dialog_body">ستاسو سمون به %1$s ته منسوب شي. ستاسو وېب‌پته به پازوالانو ته ښکاره شي.&lt;br /&gt;&lt;br /&gt;که تاسو &lt;a href=\"https://#login\"&gt;غونډال ته ننوځئ&lt;/a&gt; يا &lt;a href=\"https://#createaccount\"&gt;گڼون جوړ کړئ&lt;/a&gt;؛ ستاسو سمونونه به د نورو گټو سره مل هغه نوم ته منسوب شي چې تاسو غوره کړی دی.</string>
   <string name="temp_account_dialog_ok">وپوهېدم</string>
   <string name="temp_account_using_title">تاسو يو لنډمهاله گڼون کاروئ</string>
   <string name="temp_account_dialog_discard">بدلونونه پرېښودل او ننوتل</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">%1$s لنډمهاله گڼون ستاسو د سمون له خپرېدو وروسته جوړ شو. دا به په %2$d ورځ کې پای ته ورسېږي.</item>
+    <item quantity="other">%1$s لنډمهاله گڼون ستاسو د سمون له خپرېدو وروسته جوړ شو. دا به %2$d ورځو کې پای ته ورسېږي.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">گڼون به په %d ورځ کې پای ته ورسېږي.</item>
+    <item quantity="other">گڼون به په %d ورځو کې پای ته ورسېږي.</item>
+  </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;تاسو ننوتي نه ياست.&lt;/b&gt; که تاسو سمون ترسره کړئ؛ نو ستاسو وېب‌پته به ورسره وتړل شي.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;تاسو ننوتي نه ياست.&lt;/b کله چې تاسو سمون وکړئ؛ ستاسو د پټنتيا ساتلو لپاره به يو لنډمهاله گڼون جوړ شي. &lt;a href=\"%1$s\"&gt;په دې اړه نور ولولئ&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;تاسو يو لنډمهاله گڼون کاروئ.&lt;/b&gt; ستاسو سمون به %1$s ته منسوب شي. &lt;a href=\"%2$s\"&gt;په دې اړه نور ولولئ&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;تاسو يو لنډمهاله گڼون کاروئ.&lt;/b&gt; کله چې تاسو خپل تلپاتې گڼون ته ننوځئ؛ نو د %1$s لنډمهاله گڼون سره ترسره شوي سمونونه به ستاسو تلپاتي گڼون ته ونه لېږدول شي. غونډال ته ننوځئ يا يو گڼون جوړ کړئ؛ ترڅو خپل کارن‌نوم ته خپل سمونونه منسوب کړئ او ترڅنگ يې نورې گټې هم ترلاسه کړئ.</string>
   <string name="temp_account_end_session">د غونډې پای</string>
+  <string name="temp_account_end_session_confirm">دا تاسو له خپل لنډمهالي گڼون څخه وباسي. ايا غواړئ دوام ورکړئ؟</string>
   <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch_or_quit">موږ بښنه غواړو، ويکي‌پېډيا کاريال تېروتنې سره مخ شوی او له منځه تللی.\n\nغواړئ چې له سره يې پيل کړي يا يې پرېږدي؟</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
@@ -1270,10 +1291,13 @@
   <string name="templates_param_optional_hint">%s (اختياري)</string>
   <string name="templates_param_suggested_hint">%s (وړانديزشوی)</string>
   <string name="templates_learn_more_link">نور زده کړئ</string>
+  <string name="templates_description_empty">\"%s\" کينډۍ تراوسه هېڅ څرگنداوی نه لري.</string>
+  <string name="templates_description_missing_data">دا کينډۍ &lt;a href=\"%1$s\"&gt;کينډۍ‌اومتوک&lt;/a&gt; نه لري او د هغې ارزښتونه &lt;a href=\"%2$s\"&gt;خپلکاره‌زېږېدلي&lt;/a&gt; دي. په پايله کې کينډۍ او د هغې ارزښتونه څرگنداوی نه لري.</string>
   <string name="main_drawer_help">لارښود</string>
   <string name="main_drawer_login">ننوتل / ويکيپېډيا سره يوځای‌کېدل</string>
   <string name="main_tooltip_action_button">پيلول</string>
   <string name="main_tooltip_watchlist_title">کتنلړ</string>
+  <string name="main_tooltip_watchlist_text">د نور غوره‌نۍ په کارولو سره خپل &lt;b&gt;کتنلړ&lt;/b&gt; کې هغه ليکنې چې تاسو مخکې خپل کتنلړ ته ورگډې کړې دي، ومومئ.</string>
   <string name="custom_date_picker_dialog_ok_button_text">ښه</string>
   <string name="text_input_dialog_ok_button_text">ښه</string>
   <string name="text_input_dialog_cancel_button_text">ناگارل</string>
@@ -1376,6 +1400,7 @@
   <string name="revision_diff_paragraph_added">پارگراف ورگډشو</string>
   <string name="revision_diff_paragraph_removed">پارگراف لرې‌شو</string>
   <string name="revision_undo_title">ايا تاسو ډاډه ياست چې دا سمون ناکړل غواړئ؟</string>
+  <string name="revision_undo_message">ناکړ د يو يا ډېرو سمونو د اغېزو د بېرته راگرځولو په مانا دی.</string>
   <string name="revision_undo_summary_hint">لنډيز (اختیاري)</string>
   <string name="revision_undo_reason">د بېرته‌ستنولو لامل شريک کړئ</string>
   <string name="revision_undo_success">بياکتنه لغوه شوه.</string>
@@ -1540,7 +1565,9 @@
   <string name="patroller_tasks_filters_user_status_newcomers">نوي‌راغلي</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">نوم‌ليکلي سمونگران چې په څلورو ورځو کې د ١٠ څخه لږ سمونونه لري.</string>
   <string name="patroller_tasks_filters_user_status_learners">زده کوونکي</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">نوم‌ليکلي کارنان د کومو مهارت چې د \"نوي‌راغلو\" څخه ډېر او د \"ماهره کارنانو\" څخه لږ دی.</string>
   <string name="patroller_tasks_filters_user_status_experienced">تجربه لرونکي کارنان</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">نوم‌ليکلي کارنان چې له ۵۰۰ ډېر سمونونه او ۳۰ ورځې کارنده چارې لري.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">وروستۍ بياليدنې</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">وروستۍ بياليدنه</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">وروستۍ بياليدنه نه ده</string>
@@ -1551,14 +1578,22 @@
   <string name="patroller_tasks_filters_significance_edits">ناکوچني سمونونه</string>
   <string name="patroller_tasks_filters_contribution_quality_header">د ونډې څنگه‌والي وړاندوينې</string>
   <string name="patroller_tasks_filters_contribution_quality_good">شايد ډېر ښه</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">د نږدې ټولو ستونزو پرته سمونونو موندلو کې خورا ځير.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">شايد ستونزې ولري</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">په لږې ځيرتيا د ډېرو نيمگړتياوو لرونکي يا زيان رسوونکي سمونونه مومي.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">ډېره شونتيا لري چې ستونزې ولري</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">په منځالې ځيرتيا سره د ستونزې سمونونو يوه منځاله برخه مومي.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">ډېره شونتيا لري چې ستونزې ولري</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">د خورا څرگندو نيمگړتياوو يا زيان رسوونکو سمونونو موندلو کې خورا ځير.</string>
   <string name="patroller_tasks_filters_user_intent_header">د کارن هوډ وړاندوينې</string>
   <string name="patroller_tasks_filters_user_intent_good">ښايي ډېر ښه نيت وي</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">د نږدې ټولو په ښه نيت شوي سمونونو موندلو کې خورا ځير.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">ښايي بدنيت وي</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">په لږې ځيرتيا سره بدنيته سمونونه مومي.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">ښايي بدنيت وي</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">په منځالې ځيرتيا سره د بدنيته سمونونو يوه منځاله برخه مومي.</string>
   <string name="patroller_tasks_filters_user_intent_bad">ښايي ډېر بدنيت وي</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">د خورا څرگندو بدنيته سمونونو موندلو کې خورا ځير.</string>
   <string name="patroller_tasks_filters_empty_search_message">د نورو سمونونو کتلو لپاره د %s لرې‌کولو هڅه کول</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d چاڼگر</item>
@@ -1600,9 +1635,16 @@
   <string name="data_opt_in_accept">منل</string>
   <string name="data_opt_in_reject">نه‌منل</string>
   <string name="page_issues_title">مخ ستونزې</string>
+  <string name="generic_release_notes">د کوچنۍ تېروتنې اوارول او پرمختگونه</string>
+  <string name="email_report_image_recommendations_subject">تېروتنې راپور - د انځور سپارښتنې ځانگړنه</string>
+  <string name="email_report_image_recommendations_body">زه د انځور سپارښتنې ځانگړنې ستونزې سره مخ شوی يم:\n- [ځانگړې ستونزه تشريح کول]\n\nهغه چلن چې زه يې ليدل غواړم دا دی:\n- [وړانديز شوی حل تشريح کول]</string>
+  <string name="email_report_patroller_tasks_subject">ستونزې راپور- لمېسل‌څار ځانگړنې سمول</string>
+  <string name="email_report_patroller_tasks_body">زه د لمېسل‌څار ځانگړنې ستونزې سره مخ شوی يم:\n- [ځانگړې ستونزه تشريح کول]\n\nهغه چلن چې زه يې ليدل غواړم دا دی:\n- [وړانديز شوی حل تشريح کول]\n\n[مخليدانځورونه يا تړوني]</string>
+  <string name="donation_campaign_maybe_later_snackbar">موږ به يې سبا بيا درياد کړو.</string>
   <string name="donation_campaign_go_back_button">پر شا تلل</string>
   <string name="menu_single_webview_open_external">د غونډال ښوونگر کې پرانېستل</string>
   <string name="donate_gpay_dialog_title">گوگل پی سره بسپنه کول غواړئ!</string>
+  <string name="donate_gpay_dialog_description">گوگل پی سره بسپنه ورکړئ يا د تاديې بله چلندلار غوره کړئ.</string>
   <string name="donate_gpay_dialog_pay_button">گوگل پی سره بسپنه ورکول</string>
   <string name="donate_gpay_dialog_other_button">د تاديې بله چلندلار</string>
   <string name="donate_gpay_activity_title">د پيسو ټاکل</string>
@@ -1717,6 +1759,7 @@
   <string name="year_in_review_get_started_info">ستاسو لوست پېښليک خوندي ساتل کېږي. د لوستلو ليدلوري ستاسو په وسيله کې په ځايي ډول زېرمه شوو اومتوکو په کارولو سره شمېرل کېږي.</string>
   <string name="year_in_review_survey_title">د کال بياکتنې ښه‌والي کې مرسته کول</string>
   <string name="year_in_review_survey_subtitle">ايا تاسو له دې ځانگړنې خوښ ياست؟</string>
+  <string name="year_in_review_reading_list_survey_title">د کال بياکتنې %d لوستلړ ښه کولو کې مرسته وکړئ.</string>
   <string name="year_in_review_reading_list_survey_subtitle">ايا تاسو له خپل لوستلړ څخه خوښ ياست؟</string>
   <string name="year_in_review_survey_very_satisfied">ډېره خوښ‌</string>
   <string name="year_in_review_survey_satisfied">خوښ</string>
@@ -1733,9 +1776,11 @@
   <string name="year_in_review_screendeck_image_content_description">د کال بياکتنې د ارې نندارې سکرين لپاره د انځور سرچينه</string>
   <string name="year_in_review_screenshot_error">سکرين‌شاټ نشي زېږولی: %s</string>
   <string name="year_in_review_share_subject">زما د ويکي‌پېډيا کال بياکتنه</string>
+  <string name="year_in_review_share_body">دلته زما د ويکي‌پېډيا کال بياکتنه ده. د ويکي‌پېډيا اندرويد کاريال %1$s %2$s سره جوړ شوی</string>
   <string name="year_in_review_globe_icon">نړۍ نښه</string>
   <string name="settings_app_icon_title">کاريال نښه</string>
   <string name="settings_app_icon_subtitle">ونډه اخيستونکي گټه</string>
+  <string name="settings_app_icon_preference_subtitle">تاسو يوې دوديزې نښې ته لاسرسی لرئ چې ستاسو د %d کاريال ونډې په ويکي‌پېډيا کې نمانځي. دا به د راتلونکي کال تر بياکتنې پورې پاتې شي.</string>
   <string name="settings_app_icon_updated">ستاسو کاريال نښه هم‌‌مهاله شوه.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">ستاسو کور سکرين لپاره نوې کاريال نښه ايله شوه</string>
   <string name="year_in_review_slide_app_icon_title_unlock">د راتلونکي کال لپاره د خپل ونډه‌اخيستنې جايزه ترلاسه کړئ!</string>
@@ -1786,7 +1831,21 @@
     <item quantity="one">%1$,d, ليکنه په %2$d کې لوستل</item>
     <item quantity="other">%1$,d ليکنې په %2$d کې لوستل</item>
   </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_global_first">
+    <item quantity="one">ويکي‌پېډيا %,d ليکنه درلوده</item>
+    <item quantity="other">ويکي‌پېډيا %,d ليکنې درلودې</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="one">د اټکل له مخې خلکو %,d گړۍ تېره کړې ده</item>
+    <item quantity="other">د اټکل له مخې خلکو %,d گړۍ تېرې کړې دي</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="one">کاريال کارنانو %,d ځل د ويکي‌پېډيا ليکنې ليدلې دي</item>
+    <item quantity="other">کاريال کارنانو %,d ځله د ويکي‌پېډيا ليکنې ليدلې دي</item>
+  </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">د نړۍ په گوټ گوټ کې د خلکو لپاره، ويکي‌پېډيا د يوې پوښتنې ځوابولو، د ښوونځي يا کار لپاره د مالوماتو راټولولو يا د يو نوي رښتينولۍ زده کولو لپاره لومړی تمځی دی.</string>
   <string name="year_in_review_reading_list_dialog_title">ايا ستاسو د %d کال د کلنۍ بياکتنې لوستلړ جوړ کړي؟</string>
+  <string name="year_in_review_reading_list_dialog_message">د ويکي‌پېډيا کال بياکتنه به دهغه ليکنو نوملړ جوړ کړي چې تاسو ورسره ډېر وخت په %1$d کې تېر کړی دی. &lt;a href=\"%2$s\"&gt;په دې اړه نور زده کړئ&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">جوړول</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">نه مننه</string>
   <string name="year_in_review_reading_list_title">د %d کال بياکتنه</string>
@@ -1973,16 +2032,17 @@
   <string name="hybrid_search_onboarding_search_example_description">د پلټلو يوه بېلگه لاندې وکاروئ.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">تاسو له ازمېښت ووتلئ.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">پلوتو کله د سيارو له نوملړه لرې شوه؟</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">د اولمپيک لومړۍ سيالۍ</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">د اولمپيک لومړۍ سيالۍ</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">آراېن‌ای د ډي‌اېن‌ای په وړاندې</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">ولې خلک په پيزا کې انه‌ناس اچوي؟</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">د اروپا ترټولو لوی ښارونه کوم دي؟</string>
   <string name="hybrid_search_onboarding_screen_title">د پلټلو نوې لار</string>
   <string name="hybrid_search_results_header_description">د انساني ليکل‌شوو ويکيپېډيا ليکنو څخه اخيستل شوې</string>
-  <string name="hybrid_search_results_rate_label" fuzzy="true">دا پايلې ارزول</string>
+  <string name="hybrid_search_results_rate_label">دا پايله ارزول</string>
   <string name="hybrid_search_results_rated_label">ارزول‌شوی</string>
   <string name="hybrid_search_results_rate_thumb_up">بټنوک پورته کولو سره ارزول</string>
   <string name="hybrid_search_results_rate_thumb_down">بټنوک کښته کولو سره ارزول</string>
+  <string name="hybrid_lexical_search_results_empty">دې پوښتنې سره د هېڅ ليکنې سرليک سمون نه خوري.</string>
   <string name="hybrid_search_results_empty">پرمختللي پلټل وسمهال شتون نه لري.</string>
   <string name="hybrid_search_no_results_header">بې پايلو</string>
   <string name="hybrid_search_no_results_description">دا سکالو وسمهال د ليکنې راخيستنې نه راگرځوي. دلته ځينې څيزونه دي چې تاسو يې هڅه کولی شئ:</string>
