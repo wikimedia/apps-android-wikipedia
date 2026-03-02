@@ -7,9 +7,12 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.animation.core.InfiniteTransition
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +22,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
@@ -33,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -46,6 +51,9 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.extensions.getString
@@ -118,9 +126,14 @@ class GamesHubFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
+                val transition = rememberInfiniteTransition()
                 BaseTheme {
                     GamesHubScreen(
-                        onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value
+                        onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
+                        transition = transition,
+                        wikiErrorClickEvents = WikiErrorClickEvents(
+                            retryClickListener = { viewModel.loadOnThisDayGamesPreviews() }
+                        )
                     )
                 }
             }
@@ -151,7 +164,9 @@ class GamesHubFragment : Fragment() {
 
     @Composable
     fun GamesHubScreen(
-        onThisDayGameUiState: UiState<Map<String, List<OnThisDayCardGameState>>>
+        onThisDayGameUiState: UiState<Map<String, List<OnThisDayCardGameState>>>,
+        transition: InfiniteTransition,
+        wikiErrorClickEvents: WikiErrorClickEvents
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
         var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
@@ -229,10 +244,46 @@ class GamesHubFragment : Fragment() {
                             WikiGames.WHICH_CAME_FIRST -> {
                                 when (onThisDayGameUiState) {
                                     is UiState.Loading -> {
-                                        // TODO: implement error state
+                                        Column {
+                                            Box(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                                                    .height(48.dp)
+                                                    .clip(RoundedCornerShape(4.dp))
+                                                    .shimmerEffect(
+                                                        heightMultiplier = 0f,
+                                                        transition = transition
+                                                    )
+                                            )
+                                            Box(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(horizontal = 16.dp, vertical = 16.dp)
+                                                    .height(350.dp)
+                                                    .clip(RoundedCornerShape(4.dp))
+                                                    .shimmerEffect(
+                                                        heightMultiplier = 0f,
+                                                        transition = transition
+                                                    )
+                                            )
+                                        }
                                     }
                                     is UiState.Error -> {
-                                        // TODO: implement error state
+                                        Box(
+                                            modifier = Modifier
+                                                .fillMaxSize()
+                                                .padding(horizontal = 16.dp, vertical = 16.dp),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            WikiErrorView(
+                                                modifier = Modifier
+                                                    .fillMaxWidth(),
+                                                caught = onThisDayGameUiState.error,
+                                                errorClickEvents = wikiErrorClickEvents,
+                                                retryForGenericError = true
+                                            )
+                                        }
                                     }
                                     is UiState.Success -> {
                                         OnThisDayGameCards(
