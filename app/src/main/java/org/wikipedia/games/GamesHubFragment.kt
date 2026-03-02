@@ -29,6 +29,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -170,127 +173,122 @@ class GamesHubFragment : Fragment() {
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
         var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
+        var isRefreshing by remember { mutableStateOf(false) }
+        val state = rememberPullToRefreshState()
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-            ) {
-                LazyRow(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(horizontal = 16.dp)
-                ) {
-                    items(languageList.size) { index ->
-                        val langCode = languageList[index]
-                        val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
-                        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
-                        val isSelected = langCode == selectedLanguage
-                        val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
-                        val snackbarMessage = stringResource(R.string.games_hub_activity_games_unavailable_message, langText)
-                        FilterChip(
-                            selected = isSelected,
-                            onClick = {
-                                if (!isEnabled) {
-                                    FeedbackUtil.makeSnackbar(requireActivity(), snackbarMessage)
-                                        .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
-                                            UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_languages_url).toUri())
-                                        }
-                                        .show()
-                                    return@FilterChip
-                                }
-                                selectedLanguage = languageList[index]
-                            },
-                            colors = FilterChipDefaults.filterChipColors().copy(
-                                selectedContainerColor = WikipediaTheme.colors.additionColor
-                            ),
-                            border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
-                            label = {
-                                Text(
-                                    text = langText,
-                                    style = MaterialTheme.typography.labelLarge,
-                                    textAlign = TextAlign.Center,
-                                    fontWeight = FontWeight.Medium,
-                                    color = textColor
-                                )
-                            },
-                            leadingIcon = {
-                                if (isSelected) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_check_black_24dp),
-                                        tint = WikipediaTheme.colors.primaryColor,
-                                        contentDescription = null
-                                    )
-                                }
-                            }
-                        )
-                    }
-                }
 
-                LazyColumn(
+            PullToRefreshBox(
+                onRefresh = {
+                    isRefreshing = true
+                    viewModel.loadOnThisDayGamesPreviews()
+                },
+                isRefreshing = isRefreshing,
+                state = state,
+                indicator = {
+                    Indicator(
+                        state = state,
+                        isRefreshing = isRefreshing,
+                        modifier = Modifier.align(Alignment.TopCenter),
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            ) {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp)
+                        .fillMaxSize()
+                        .padding(paddingValues)
                 ) {
-                    items(WikiGames.entries.size) { index ->
-                        when (WikiGames.entries[index]) {
-                            WikiGames.WHICH_CAME_FIRST -> {
-                                when (onThisDayGameUiState) {
-                                    is UiState.Loading -> {
-                                        Column {
+                    LazyRow(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        contentPadding = PaddingValues(horizontal = 16.dp)
+                    ) {
+                        items(languageList.size) { index ->
+                            val langCode = languageList[index]
+                            GamesHubLanguageChip(
+                                isSelected = langCode == selectedLanguage,
+                                langCode = langCode,
+                                onSelected = { selectedLanguage = langCode }
+                            )
+                        }
+                    }
+
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp)
+                    ) {
+                        items(WikiGames.entries.size) { index ->
+                            when (WikiGames.entries[index]) {
+                                WikiGames.WHICH_CAME_FIRST -> {
+                                    when (onThisDayGameUiState) {
+                                        is UiState.Loading -> {
+                                            Column {
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .padding(
+                                                            horizontal = 16.dp,
+                                                            vertical = 8.dp
+                                                        )
+                                                        .height(48.dp)
+                                                        .clip(RoundedCornerShape(4.dp))
+                                                        .shimmerEffect(
+                                                            heightMultiplier = 0f,
+                                                            transition = transition
+                                                        )
+                                                )
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .padding(
+                                                            horizontal = 16.dp,
+                                                            vertical = 16.dp
+                                                        )
+                                                        .height(350.dp)
+                                                        .clip(RoundedCornerShape(4.dp))
+                                                        .shimmerEffect(
+                                                            heightMultiplier = 0f,
+                                                            transition = transition
+                                                        )
+                                                )
+                                            }
+                                        }
+
+                                        is UiState.Error -> {
+                                            isRefreshing = false
                                             Box(
                                                 modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                                                    .height(48.dp)
-                                                    .clip(RoundedCornerShape(4.dp))
-                                                    .shimmerEffect(
-                                                        heightMultiplier = 0f,
-                                                        transition = transition
-                                                    )
-                                            )
-                                            Box(
-                                                modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(horizontal = 16.dp, vertical = 16.dp)
-                                                    .height(350.dp)
-                                                    .clip(RoundedCornerShape(4.dp))
-                                                    .shimmerEffect(
-                                                        heightMultiplier = 0f,
-                                                        transition = transition
-                                                    )
+                                                    .fillMaxSize()
+                                                    .padding(horizontal = 16.dp, vertical = 16.dp),
+                                                contentAlignment = Alignment.Center
+                                            ) {
+                                                WikiErrorView(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth(),
+                                                    caught = onThisDayGameUiState.error,
+                                                    errorClickEvents = wikiErrorClickEvents,
+                                                    retryForGenericError = true
+                                                )
+                                            }
+                                        }
+
+                                        is UiState.Success -> {
+                                            isRefreshing = false
+                                            OnThisDayGameCards(
+                                                position = index,
+                                                selectedLanguage = selectedLanguage,
+                                                gamesData = onThisDayGameUiState.data
                                             )
                                         }
-                                    }
-                                    is UiState.Error -> {
-                                        Box(
-                                            modifier = Modifier
-                                                .fillMaxSize()
-                                                .padding(horizontal = 16.dp, vertical = 16.dp),
-                                            contentAlignment = Alignment.Center
-                                        ) {
-                                            WikiErrorView(
-                                                modifier = Modifier
-                                                    .fillMaxWidth(),
-                                                caught = onThisDayGameUiState.error,
-                                                errorClickEvents = wikiErrorClickEvents,
-                                                retryForGenericError = true
-                                            )
-                                        }
-                                    }
-                                    is UiState.Success -> {
-                                        OnThisDayGameCards(
-                                            position = index,
-                                            selectedLanguage = selectedLanguage,
-                                            gamesData = onThisDayGameUiState.data
-                                        )
                                     }
                                 }
                             }
@@ -299,6 +297,71 @@ class GamesHubFragment : Fragment() {
                 }
             }
         }
+    }
+
+    @Composable
+    fun GamesHubLanguageChip(
+        isSelected: Boolean,
+        langCode: String,
+        onSelected: () -> Unit,
+    ) {
+        val langText =
+            WikipediaApp.instance.languageState.getAppLanguageLocalizedName(
+                langCode
+            ) ?: langCode
+        val isEnabled =
+            OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
+        val textColor =
+            if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+        val snackbarMessage = stringResource(
+            R.string.games_hub_activity_games_unavailable_message,
+            langText
+        )
+        FilterChip(
+            selected = isSelected,
+            onClick = {
+                if (!isEnabled) {
+                    FeedbackUtil.makeSnackbar(
+                        requireActivity(),
+                        snackbarMessage
+                    )
+                        .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
+                            UriUtil.visitInExternalBrowser(
+                                requireActivity(),
+                                getString(R.string.on_this_day_game_wiki_languages_url).toUri()
+                            )
+                        }
+                        .show()
+                    return@FilterChip
+                }
+                onSelected()
+            },
+            colors = FilterChipDefaults.filterChipColors().copy(
+                selectedContainerColor = WikipediaTheme.colors.additionColor
+            ),
+            border = BorderStroke(
+                width = 1.dp,
+                color = WikipediaTheme.colors.borderColor
+            ),
+            label = {
+                Text(
+                    text = langText,
+                    style = MaterialTheme.typography.labelLarge,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Medium,
+                    color = textColor
+                )
+            },
+            leadingIcon = {
+                if (isSelected) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_check_black_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                }
+            }
+        )
     }
 
     @Composable
