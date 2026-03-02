@@ -238,7 +238,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Jatka ilman sähköpostiosoitetta</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lisää sähköpostiosoite</string>
   <string name="create_account_button">Luo käyttäjätunnus</string>
-  <string name="create_account_name_unavailable">Käyttäjänimi \"%s\" ei ole käytettävissä. Valitse toinen nimi.</string>
+  <string name="create_account_name_unavailable">Käyttäjänimi ”%s” ei ole käytettävissä. Valitse toinen nimi.</string>
   <string name="create_account_ip_block_message">IP-osoitteesi on tällä hetkellä estetty luomasta uusia käyttäjätunnuksia.</string>
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
   <string name="create_account_ip_block_details">Tiedot</string>
@@ -253,9 +253,9 @@
   <string name="preference_title_sync_reading_lists_from_account">Lukulistojen synkronointi</string>
   <string name="preference_title_download_reading_list_articles">Lataa lukulista-artikkelit</string>
   <string name="preference_summary_sync_reading_lists">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käytäjätunnuksellesi</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käyttäjätunnuksellesi \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat käytäjätunnukseltasi \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat käyttäjätunnukseltasi \"%s\"?</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käyttäjätunnuksellesi ”%s”</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat käytäjätunnukseltasi ”%s”?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat käyttäjätunnukseltasi ”%s”?</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
@@ -335,7 +335,7 @@
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
   <string name="abusefilter_text_disallow">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi tai mahdolliseksi vandalismiksi.&lt;br /&gt;&lt;br /&gt;Wikipedia on tietosanakirja, jonne kuuluu vain neutraali ja merkittävä sisältö.</string>
   <string name="page_similar_titles">Samankaltaiset sivut</string>
-  <string name="search_did_you_mean">Tarkoititko \"%s\"?</string>
+  <string name="search_did_you_mean">Tarkoititko ”%s”?</string>
   <string name="search_recent_header">Viimeisimmät haut:</string>
   <string name="search_results_count_zero">Ei hakutuloksia</string>
   <plurals name="search_results_count">
@@ -643,8 +643,8 @@
   <string name="no_user_lists_msg">Luo listoja matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
   <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
-  <string name="reading_list_move_article_limit_message">Ei voida siirtää tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
-  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
+  <string name="reading_list_move_article_limit_message">Ei voida siirtää tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle ”%1$s”.</string>
+  <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle ”%1$s”.</string>
   <string name="reading_lists_limit_message">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_import_list">Tuo lista</string>
@@ -1372,7 +1372,7 @@
   <string name="templates_param_suggested_hint">%s (ehdotettu)</string>
   <string name="templates_learn_more_link">Lisätietoja</string>
   <string name="templates_description_incomplete">Mallineet ovat käyttäjien tekemiä, ja niiden kuvaukset voivat olla puutteellisia.</string>
-  <string name="templates_description_empty">Mallineella \"%s\" ei ole vielä kuvausta.</string>
+  <string name="templates_description_empty">Mallineella ”%s” ei ole vielä kuvausta.</string>
   <string name="templates_description_missing_data">Tästä mallineesta puuttuu &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, joten sen parametrit on &lt;a href=\"%2$s\"&gt;luotu automaattisesti&lt;/a&gt;. Tämän vuoksi mallineelta ja sen parametreilta puuttuvat kuvaukset.</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
@@ -1415,7 +1415,7 @@
   <string name="talk_last_modified">&lt;b&gt;Sivua muokkasi viimeksi %1$s&lt;/b&gt; %2$s</string>
   <string name="talk_snackbar_survey_text">Kiitos keskustelusivujen käyttämisestä. Voitko auttaa meitä parantamaan sovellusta osallistumalla kyselyyn?</string>
   <string name="talk_snackbar_survey_action_text">Aloita</string>
-  <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta \"%s\" keskustelusivulla</string>
+  <string name="talk_share_discussion_subject">Wikipedia - keskustelu aiheesta ”%s” keskustelusivulla</string>
   <string name="talk_share_talk_page">Wikipedia - keskustelut keskustelusivulla</string>
   <string name="talk_edit_disclaimer">Tämä on keskustelusivu. Kunnioitathan keskustelusivun ohjeistuksia ja muistathan allekirjoittaa viestisi neljällä aaltoviivalla: ~~~~ kun käytät wikitekstiä.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://fi.wikipedia.org/wiki/Wikipedia:Keskustelusivu\"&gt;Wikipedian keskustelusivujen ohjeet ja käytännöt&lt;/a&gt;</string>
   <string name="talk_search_hint">Hae viestejä</string>
@@ -1435,8 +1435,8 @@
     <item quantity="one">Piilota vastaus</item>
     <item quantity="other">Piilota vastaukset (%d)</item>
   </plurals>
-  <string name="talk_thread_subscribed_to">Tilattu \"%s\"</string>
-  <string name="talk_thread_unsubscribed_from">Peruttu ketjun \"%s\" tilaus</string>
+  <string name="talk_thread_subscribed_to">Tilattu ”%s”</string>
+  <string name="talk_thread_unsubscribed_from">Peruttu ketjun ”%s” tilaus</string>
   <string name="talk_list_item_overflow_subscribe">Tilaa</string>
   <string name="talk_list_item_overflow_subscribed">Tilattu</string>
   <string name="talk_list_item_overflow_mark_as_read">Merkitse luetuksi</string>
@@ -1585,7 +1585,7 @@
   <string name="user_contrib_filter_all">Kaikki nimiavaruudet</string>
   <string name="user_contrib_filter_ns_header">Nimiavaruussuodatin</string>
   <string name="namespace_article">Artikkeli</string>
-  <string name="user_contrib_current">nykyinen</string>
+  <string name="user_contrib_current">uusin</string>
   <string name="media_playback_error">Virhe mediaa toistettaessa.</string>
   <string name="user_contrib_menu_label">Muokkaukset</string>
   <string name="user_contrib_filter_activity_title">Suodata muokkauksia</string>
@@ -1611,7 +1611,7 @@
   <string name="talk_templates_new_message_dialog_hint">Viestin otsikko</string>
   <string name="talk_templates_new_message_dialog_save">Tallenna</string>
   <string name="talk_templates_new_message_dialog_cancel">Peruuta</string>
-  <string name="talk_templates_new_message_dialog_exists">Malline \"%s\" on jo olemassa.</string>
+  <string name="talk_templates_new_message_dialog_exists">Malline ”%s” on jo olemassa.</string>
   <string name="talk_templates_new_message_saved">Viesti tallennettu</string>
   <string name="talk_templates_edit_message_dialog_title">Muokkaa viestiä</string>
   <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
@@ -1701,11 +1701,11 @@
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
-  <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelin muokkauksia? Lisää artikkeli tarkkailulistallesi. Löydät sen \"Lisää\"-valikosta.</string>
+  <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelin muokkauksia? Lisää artikkeli tarkkailulistallesi. Löydät sen ”Lisää”-valikosta.</string>
   <string name="patroller_onboarding_two_talk_title">Keskustele</string>
   <string name="patroller_onboarding_two_talk_content">Keskustele muiden muokkaajien kanssa. Tallenna usein käytettyjä keskustelusivuviestejä tai käytä mallineita.</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
-  <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
+  <string name="patroller_onboarding_two_undo_content">Valitse ”Kumoa” kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
   <string name="patroller_diff_tooltip_one">Vahinko ennustaa, onko muokkaus aiheuttanut vahinkoa wikille.</string>
   <string name="patroller_diff_tooltip_two">Aikomus ennustaa todennäköisyyttä sille, että muokkaus on tehty hyvässä aikomuksessa.</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
@@ -1817,7 +1817,7 @@
   <string name="on_this_day_game_stats_average_score">Keskimääräinen tulos</string>
   <string name="on_this_day_game_stats_streak">Nykyinen putki</string>
   <string name="on_this_day_game_result_subtitle">Tämän päivän pelissä mainitut artikkelit</string>
-  <string name="on_this_day_game_completed_message">Kiitos pelaamisesta. Uusi \"Kumpi tuli ensin?\" -peli on saatavilla päivittäin Tutki-syötteessä.</string>
+  <string name="on_this_day_game_completed_message">Kiitos pelaamisesta. Uusi ”Kumpi tuli ensin?” -peli on saatavilla päivittäin Tutki-syötteessä.</string>
   <string name="on_this_day_game_menu_notifications">Peli-ilmoitukset</string>
   <string name="on_this_day_game_menu_info">Lisätietoja</string>
   <string name="on_this_day_game_menu_feedback">Ongelma ominaisuudessa</string>
@@ -1835,12 +1835,12 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Pidä ne pois käytöstä</string>
   <string name="on_this_day_game_notification_turned_off_snackbar_message">Peli-ilmoitukset pois päältä.</string>
   <string name="on_this_day_game_notification_turned_on_snackbar_message">Peli-ilmoitukset päällä.</string>
-  <string name="on_this_day_game_notification_text">Tämän päivän \"Kumpi tuli ensin?\" -peli on valmiina pelattavaksi.</string>
+  <string name="on_this_day_game_notification_text">Tämän päivän ”Kumpi tuli ensin?” -peli on valmiina pelattavaksi.</string>
   <string name="on_this_day_game_report_email_subject">Ongelmailmoitus – Wikipedia-pelit</string>
   <string name="on_this_day_game_report_email_body">Olen huomannut seuraavan ongelman Wikipedia-peli-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="on_this_day_game_notification_undo">Kumoa</string>
-  <string name="on_this_day_game_share_link_message">Pelaan päivittäistä \"Kumpi tuli ensin?\" -tietovisaa Wikipedian Android-sovelluksessa %s</string>
-  <string name="on_this_day_game_share_screen_title">Sain tänään %1$d/%2$d pistettä \"Kumpi tuli ensin?\" -pelissä.</string>
+  <string name="on_this_day_game_share_link_message">Pelaan päivittäistä ”Kumpi tuli ensin?” -tietovisaa Wikipedian Android-sovelluksessa %s</string>
+  <string name="on_this_day_game_share_screen_title">Sain tänään %1$d/%2$d pistettä ”Kumpi tuli ensin?” -pelissä.</string>
   <string name="on_this_day_game_share_screen_subtitle">Mukana olleet aiheet:</string>
   <string name="on_this_day_game_archive_calendar_title">Valitse peli päivämäärän mukaan.</string>
   <string name="on_this_day_game_score_toast_message">Sait kyseisenä päivänä %1$d/%2$d pistettä.</string>
@@ -2125,6 +2125,8 @@
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Ei, pidä ne päällä</string>
   <string name="recommended_reading_list_notification_title">%s Löydä artikkeleita -lukulistasi on valmis.</string>
   <string name="recommended_reading_list_notification_subtitle">Napauta nähdäksesi uusimmat suosituksesi.</string>
+  <string name="recommended_reading_list_settings_notification_subtitle_enable">Kun Löydä artikkeleita -lukulistasi on päivitetty, Wikipedia lähettää sinulle ilmoituksen.</string>
+  <string name="recommended_reading_list_settings_toggle_enable_message">Löydä artikkeleita on käytöstä. Wikipedia tulee suosittelemaan sinulle artikkeleita luettavaksi.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Lahjoitusmuistutuksia voi muokata milloin tahansa asetuksissa.</string>
   <string name="donation_settings_section_header">Lahjoitukset</string>
   <string name="donation_reminders_settings_title">Miten meidän tulisi muistuttaa sinua?</string>
