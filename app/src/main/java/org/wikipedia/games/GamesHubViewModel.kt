@@ -18,33 +18,30 @@ import org.wikipedia.util.UiState
 import java.time.LocalDate
 
 class GamesHubViewModel() : ViewModel() {
-    private val _onThisDayGameUiState = MutableStateFlow<UiState<Map<String, List<OnThisDayCardGameState>>>>(UiState.Loading)
-    val onThisDayGameUiState: StateFlow<UiState<Map<String, List<OnThisDayCardGameState>>>> = _onThisDayGameUiState.asStateFlow()
+    private val _onThisDayGameUiState = MutableStateFlow<UiState<List<OnThisDayCardGameState>>>(UiState.Loading)
+    val onThisDayGameUiState: StateFlow<UiState<List<OnThisDayCardGameState>>> = _onThisDayGameUiState.asStateFlow()
 
     init {
-        loadOnThisDayGamesPreviews()
+        loadOnThisDayGamesPreviews(WikipediaApp.instance.languageState.appLanguageCode)
     }
 
-    fun loadOnThisDayGamesPreviews() {
+    fun loadOnThisDayGamesPreviews(langCode: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _onThisDayGameUiState.value = UiState.Error(throwable)
         }) {
             _onThisDayGameUiState.value = UiState.Loading
+            if (!OnThisDayGameViewModel.isLangSupported(langCode)) {
+                _onThisDayGameUiState.value = UiState.Success(emptyList())
+                return@launch
+            }
             // Get available languages for on this day game, and then get the today and last 3 days games by using the provider.
-            val gamesMap = WikipediaApp.instance.languageState.appLanguageCodes
-                .filter { OnThisDayGameViewModel.isLangSupported(it) }
-                .map { lang ->
-                    async {
-                        val wikiSite = WikiSite.forLanguageCode(lang)
-                        val games = (0..3).map { i ->
-                            OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now().minusDays(i.toLong()))
-                        }
-                        lang to games
-                    }
+            val gamesList = (0..3).map { i ->
+                async {
+                    val wikiSite = WikiSite.forLanguageCode(langCode)
+                    OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now().minusDays(i.toLong()))
                 }
-                .awaitAll()
-                .toMap()
-            _onThisDayGameUiState.value = UiState.Success(gamesMap)
+            }.awaitAll()
+            _onThisDayGameUiState.value = UiState.Success(gamesList)
         }
     }
 }

@@ -51,6 +51,7 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -59,6 +60,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
@@ -67,6 +69,9 @@ import org.wikipedia.feed.wikigames.OnThisDayGameCardPreview
 import org.wikipedia.feed.wikigames.OnThisDayGameCardProgress
 import org.wikipedia.feed.wikigames.OnThisDayGameCardSimple
 import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
@@ -133,10 +138,7 @@ class GamesHubFragment : Fragment() {
                 BaseTheme {
                     GamesHubScreen(
                         onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
-                        transition = transition,
-                        wikiErrorClickEvents = WikiErrorClickEvents(
-                            retryClickListener = { viewModel.loadOnThisDayGamesPreviews() }
-                        )
+                        transition = transition
                     )
                 }
             }
@@ -167,14 +169,21 @@ class GamesHubFragment : Fragment() {
 
     @Composable
     fun GamesHubScreen(
-        onThisDayGameUiState: UiState<Map<String, List<OnThisDayCardGameState>>>,
-        transition: InfiniteTransition,
-        wikiErrorClickEvents: WikiErrorClickEvents
+        onThisDayGameUiState: UiState<List<OnThisDayCardGameState>>,
+        transition: InfiniteTransition
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
         var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
+
+        var onThisDayGameArchiveCalendarHelper by remember { mutableStateOf(OnThisDayGameArchiveCalendarHelper(
+                fragment = this@GamesHubFragment,
+                languageCode = selectedLanguage,
+                onDateSelected = { }
+            ))
+        }
+
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
@@ -185,7 +194,7 @@ class GamesHubFragment : Fragment() {
             PullToRefreshBox(
                 onRefresh = {
                     isRefreshing = true
-                    viewModel.loadOnThisDayGamesPreviews()
+                    viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
                 },
                 isRefreshing = isRefreshing,
                 state = state,
@@ -216,7 +225,20 @@ class GamesHubFragment : Fragment() {
                             GamesHubLanguageChip(
                                 isSelected = langCode == selectedLanguage,
                                 langCode = langCode,
-                                onSelected = { selectedLanguage = langCode }
+                                onSelected = {
+                                    selectedLanguage = langCode
+                                    viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                    onThisDayGameArchiveCalendarHelper.unRegister()
+                                    onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
+                                        fragment = this@GamesHubFragment,
+                                        languageCode = selectedLanguage,
+                                        onDateSelected = { date ->
+                                            startActivity(OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB, WikiSite.forLanguageCode(selectedLanguage), date))
+                                        }
+                                    ).also {
+                                        it.register()
+                                    }
+                                }
                             )
                         }
                     }
@@ -275,7 +297,10 @@ class GamesHubFragment : Fragment() {
                                                     modifier = Modifier
                                                         .fillMaxWidth(),
                                                     caught = onThisDayGameUiState.error,
-                                                    errorClickEvents = wikiErrorClickEvents,
+                                                    errorClickEvents = WikiErrorClickEvents {
+                                                        isRefreshing = true
+                                                        viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                                    },
                                                     retryForGenericError = true
                                                 )
                                             }
@@ -286,7 +311,30 @@ class GamesHubFragment : Fragment() {
                                             OnThisDayGameCards(
                                                 position = index,
                                                 selectedLanguage = selectedLanguage,
-                                                gamesData = onThisDayGameUiState.data
+                                                gamesData = onThisDayGameUiState.data,
+                                                onThisDayGameAction = { gameStatus, gameDate ->
+                                                    when (gameStatus) {
+                                                        OnThisDayGameAction.PlayArchive -> {
+                                                            onThisDayGameArchiveCalendarHelper.show()
+                                                        }
+                                                        OnThisDayGameAction.CountdownFinished -> {
+                                                            isRefreshing = true
+                                                            viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                                        }
+                                                        else -> {
+                                                            startActivity(
+                                                                OnThisDayGameActivity.newIntent(
+                                                                    context = requireActivity(),
+                                                                    invokeSource = InvokeSource.FEED,
+                                                                    wikiSite = WikiSite.forLanguageCode(selectedLanguage),
+                                                                    date = gameDate,
+                                                                    gameStatus = if (gameStatus == OnThisDayGameAction.ReviewResults)
+                                                                        DailyGameHistory.GAME_COMPLETED else DailyGameHistory.GAME_IN_PROGRESS
+                                                                )
+                                                            )
+                                                        }
+                                                    }
+                                                }
                                             )
                                         }
                                     }
@@ -368,7 +416,9 @@ class GamesHubFragment : Fragment() {
     fun OnThisDayGameCards(
         position: Int,
         selectedLanguage: String,
-        gamesData: Map<String, List<OnThisDayCardGameState>>
+        gamesData: List<OnThisDayCardGameState>,
+        onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit,
+
     ) {
         if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
             Text(
@@ -388,18 +438,17 @@ class GamesHubFragment : Fragment() {
                 contentPadding = PaddingValues(horizontal = 16.dp)
             ) {
                 items(5) { cardIndex ->
-                    val dateTitle = DateUtil.getMonthOnlyDateString(
-                        LocalDate.now().minusDays(cardIndex.toLong())
-                    )
+                    val gameDate = LocalDate.now().minusDays(cardIndex.toLong())
+                    val dateTitle = DateUtil.getMonthOnlyDateString(gameDate)
                     when (cardIndex) {
                         in 0..3 -> {
-                            val gameState = gamesData[selectedLanguage]?.getOrNull(cardIndex) ?: return@items
+                            val gameState = gamesData.getOrNull(cardIndex) ?: return@items
                             OnThisDayGameCardContent(
                                 game = WikiGame.OnThisDayGame(gameState),
                                 dateTitle = dateTitle,
                                 isArchiveGame = cardIndex != 0,
                                 onThisDayGameAction = {
-                                    // TODO: implement this
+                                    onThisDayGameAction(it, gameDate)
                                 }
                             )
                         }
@@ -413,7 +462,7 @@ class GamesHubFragment : Fragment() {
                                 iconTint = WikipediaTheme.colors.primaryColor,
                                 titleText = stringResource(R.string.on_this_day_game_card_archive_label),
                                 onPlayClick = {
-                                    // TODO: open the calendar
+                                    onThisDayGameAction(OnThisDayGameAction.PlayArchive, gameDate)
                                 }
                             )
                         }
