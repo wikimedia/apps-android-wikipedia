@@ -1,5 +1,6 @@
 package org.wikipedia.games
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -48,6 +49,7 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -65,6 +67,8 @@ import org.wikipedia.feed.wikigames.OnThisDayGameCardProgress
 import org.wikipedia.feed.wikigames.OnThisDayGameCardSimple
 import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -87,7 +91,14 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
-                    // TODO: open the Activity Tab
+                    val intent = MainActivity.newIntent(requireContext())
+                        .apply {
+                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                            putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
+                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
+                        }
+                    startActivity(intent)
+                    requireActivity().finish()
                     true
                 }
                 R.id.menu_learn_more -> {

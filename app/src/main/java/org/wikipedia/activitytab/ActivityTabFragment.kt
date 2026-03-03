@@ -23,6 +23,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -38,6 +41,7 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -69,6 +73,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.emptyFlow
@@ -163,6 +168,7 @@ class ActivityTabFragment : Fragment() {
         }
         return ComposeView(requireContext()).apply {
             setContent {
+                val scrollToGames = requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)
                 BaseTheme {
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
@@ -172,6 +178,7 @@ class ActivityTabFragment : Fragment() {
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
                         refreshSilently = viewModel.shouldRefreshTimelineSilently,
+                        scrollToGames = scrollToGames,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
@@ -205,6 +212,7 @@ class ActivityTabFragment : Fragment() {
         haveAtLeastOneDonation: Boolean,
         areGamesAvailable: Boolean,
         refreshSilently: Boolean,
+        scrollToGames: Boolean = false,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
@@ -212,6 +220,16 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
+        val listState = rememberLazyListState()
+        val bringIntoViewRequester = remember { BringIntoViewRequester() }
+
+        LaunchedEffect(scrollToGames) {
+            if (scrollToGames) {
+                delay(150)
+                listState.animateScrollToItem(1)
+                bringIntoViewRequester.bringIntoView()
+            }
+        }
 
         Scaffold(
             modifier = Modifier
@@ -362,7 +380,9 @@ class ActivityTabFragment : Fragment() {
                     )
                 }
             ) {
-                LazyColumn {
+                LazyColumn(
+                    state = listState
+                ) {
                     if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
@@ -529,6 +549,7 @@ class ActivityTabFragment : Fragment() {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
+                                        .bringIntoViewRequester(bringIntoViewRequester)
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                                     uiState = wikiGamesUiState,
                                     onPlayGameCardClick = {
