@@ -258,7 +258,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 } else {
                     _gameState.postValue(CurrentQuestionIncorrect(currentState))
                 }
-                saveGameProgress(status = DailyGameHistory.GAME_IN_PROGRESS, nextQuestionIndex = nextQuestionIndex)
+                saveGameProgress(
+                    status = if (nextQuestionIndex >= currentState.totalQuestions) DailyGameHistory.GAME_COMPLETED else DailyGameHistory.GAME_IN_PROGRESS,
+                    nextQuestionIndex = nextQuestionIndex
+                )
             }
         }
     }
