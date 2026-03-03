@@ -32,7 +32,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.PageViewModel
+import org.wikipedia.page.PageViewState
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.staticdata.MainPageNameData
@@ -58,7 +58,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     override lateinit var linkHandler: LinkHandler
-    override val model = PageViewModel()
+    override val model = PageViewState()
     override val webView get() = binding.editPreviewWebview
     override val isPreview = true
     override val toolbarMargin = 0
