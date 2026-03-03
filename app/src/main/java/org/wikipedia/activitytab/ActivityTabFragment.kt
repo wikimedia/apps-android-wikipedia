@@ -168,8 +168,8 @@ class ActivityTabFragment : Fragment() {
         }
         return ComposeView(requireContext()).apply {
             setContent {
-                val scrollToGames = requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)
                 BaseTheme {
+                    val scrollToGames = viewModel.scrollToGames.collectAsState().value
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         userName = AccountUtil.userName,
@@ -183,7 +183,10 @@ class ActivityTabFragment : Fragment() {
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
                         impactUiState = viewModel.impactUiState.collectAsState().value,
-                        timelineFlow = viewModel.timelineFlow
+                        timelineFlow = viewModel.timelineFlow,
+                        onScrollToGamesConsumed = {
+                            viewModel.onScrollToGamesConsumed()
+                        }
                     )
                 }
             }
@@ -193,6 +196,10 @@ class ActivityTabFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
+        if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
+            viewModel.onScrollToGames()
+            requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES)
+        }
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
     }
@@ -217,17 +224,19 @@ class ActivityTabFragment : Fragment() {
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
         impactUiState: UiState<Pair<GrowthUserImpact, Int>>,
-        timelineFlow: Flow<PagingData<TimelineDisplayItem>>
+        timelineFlow: Flow<PagingData<TimelineDisplayItem>>,
+        onScrollToGamesConsumed: () -> Unit = {}
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
         val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
         LaunchedEffect(scrollToGames) {
-            if (scrollToGames) {
+            if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
                 delay(150)
                 listState.animateScrollToItem(1)
                 bringIntoViewRequester.bringIntoView()
+                onScrollToGamesConsumed()
             }
         }
 
@@ -460,11 +469,12 @@ class ActivityTabFragment : Fragment() {
                                         modifier = Modifier
                                             .padding(start = 16.dp, end = 16.dp, top = 24.dp)
                                             .align(Alignment.CenterVertically)
-                                        .background(color = WikipediaTheme.colors.paperColor).border(
+                                            .background(color = WikipediaTheme.colors.paperColor)
+                                            .border(
                                                 1.5.dp,
                                                 WikipediaTheme.colors.primaryColor,
                                                 RoundedCornerShape(4.dp)
-                                        )
+                                            )
                                     ) {
                                         Text(
                                             modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
