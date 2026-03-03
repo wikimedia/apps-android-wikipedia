@@ -12,6 +12,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import java.time.ZoneOffset
 
 class WidgetFeaturedPageWorker(
     appContext: Context,
@@ -22,10 +23,10 @@ class WidgetFeaturedPageWorker(
         return try {
             val app = WikipediaApp.instance
             val mainPageTitle = PageTitle(MainPageNameData.valueFor(app.appOrSystemLanguageCode), app.wikiSite)
-            val date = DateUtil.getUtcRequestDateFor(0)
+            val (year, month, day) = DateUtil.getDatePartsForAge(0, ZoneOffset.UTC)
 
             val result = ServiceFactory.getRest(app.wikiSite)
-                .getFeedFeatured(date.year, date.month, date.day, app.wikiSite.languageCode)
+                .getFeedFeatured(year, month, day, app.wikiSite.languageCode)
 
             // TODO: don't use PageSummary.
             val summary = if (result.tfa != null) {
