@@ -19,6 +19,7 @@ object OnThisDayGameProvider {
         val currentMonth = date.monthValue
         val currentDay = date.dayOfMonth
 
+        val events = mutableListOf<OnThisDay.Event>()
         val eventsFromApi = ServiceFactory.getRest(wikiSite).getOnThisDay(currentMonth, currentDay).events
 
         // Here is the logic for arranging the events:
@@ -30,11 +31,12 @@ object OnThisDayGameProvider {
 
         // Shuffle the events, but seed the random number generator with the current month and day so that the order is consistent for the same day.
         allEvents.shuffle(Random(currentMonth * 100 + currentDay))
+        // Make a copy of the list of events, to draw from in case the allEvents list doesn't have enough events.
+        val allEventsCopy = allEvents.toList()
 
-        val events = mutableListOf<OnThisDay.Event>()
         // Take an event from the list, and find another event that is within a certain range
-        repeat(Prefs.otdGameQuestionsPerDay) {
-            val event1 = allEvents.removeAt(0)
+        repeat(Prefs.otdGameQuestionsPerDay) { index ->
+            val event1 = if (allEvents.isNotEmpty()) allEvents.removeAt(0) else allEventsCopy[index % allEventsCopy.size]
             var event2: OnThisDay.Event?
             val yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
             event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
@@ -47,6 +49,9 @@ object OnThisDayGameProvider {
                         event2 = event
                     }
                 }
+            }
+            if (event2 == null) {
+                event2 = allEventsCopy.find { it.year != event1.year }
             }
             event2?.let {
                 events.add(event1)
