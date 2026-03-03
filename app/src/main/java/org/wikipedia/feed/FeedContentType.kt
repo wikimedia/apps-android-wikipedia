@@ -1,6 +1,5 @@
 package org.wikipedia.feed
 
-import androidx.annotation.StringRes
 import kotlinx.coroutines.CoroutineScope
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -19,8 +18,8 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 
 enum class FeedContentType(private val code: Int,
-                           @StringRes val titleId: Int,
-                           @StringRes val subtitleId: Int,
+                           val titleId: Int,
+                           val subtitleId: Int,
                            val isPerLanguage: Boolean,
                            var showInConfig: Boolean = true) : EnumCode {
     WIKI_GAMES(12, R.string.on_this_day_game_entry_dialog_subtitle, R.string.on_this_day_game_feed_entry_card_subtitle, true) {
