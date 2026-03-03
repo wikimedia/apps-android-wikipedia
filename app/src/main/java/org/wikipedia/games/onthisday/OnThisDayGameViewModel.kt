@@ -179,10 +179,12 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         // Shuffle the events, but seed the random number generator with the current month and day so that the order is consistent for the same day.
         allEvents.shuffle(Random(currentMonth * 100 + currentDay))
+        // Make a copy of the list of events, to draw from in case the allEvents list doesn't have enough events.
+        val allEventsCopy = allEvents.toList()
 
         // Take an event from the list, and find another event that is within a certain range
-        repeat(Prefs.otdGameQuestionsPerDay) {
-            val event1 = allEvents.removeAt(0)
+        repeat(Prefs.otdGameQuestionsPerDay) { index ->
+            val event1 = if (allEvents.isNotEmpty()) allEvents.removeAt(0) else allEventsCopy[index % allEventsCopy.size]
             var event2: OnThisDay.Event?
             val yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
             event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
@@ -196,14 +198,13 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                     }
                 }
             }
+            if (event2 == null) {
+                event2 = allEventsCopy.find { it.year != event1.year }
+            }
             event2?.let {
                 events.add(event1)
                 events.add(event2)
                 allEvents.remove(event2)
-            } ?: run {
-                // If we cannot find the event2, just fill in the year + 10 from event1 with empty text
-                events.add(event1)
-                events.add(OnThisDay.Event(year = event1.year + 10, text = ""))
             }
         }
         return events
@@ -333,12 +334,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
-        val event1Index = index * 2
-        val event2Index = index * 2 + 1
-        if (event1Index >= events.size || event2Index >= events.size) {
-            return QuestionState(OnThisDay.Event(), OnThisDay.Event(), currentMonth, currentDay)
-        }
-        return QuestionState(events[event1Index], events[event2Index], currentMonth, currentDay)
+        return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
 
     fun relaunchForDate(date: LocalDate) {
