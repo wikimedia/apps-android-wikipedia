@@ -328,6 +328,7 @@
   <string name="file_page_add_image_caption_button">Lasseet koveteevstâ</string>
   <string name="file_page_add_image_tags_button">Lasseet kovekilgolijd</string>
   <string name="description_edit_login_cancel_button_text">Jooskâ</string>
+  <string name="onboarding_skip">Njuškii paijeel</string>
   <string name="onboarding_continue">Juáđhi</string>
   <string name="onboarding_multilingual_add_language_text">Lasseet teikkâ mute kielâid</string>
   <string name="app_shortcuts_search">Uusâ</string>
@@ -365,6 +366,7 @@
   <string name="text_input_dialog_cancel_button_text">Jooskâ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Jooskâ</string>
   <string name="talk_title">Savâstâllâm</string>
+  <string name="talk_new_topic">Uđđâ fáddá</string>
   <string name="talk_warn_save_dialog_title">Vuorkkii nubástusâid?</string>
   <string name="talk_warn_save_dialog_message">Vuorkkii uđđâ viestân</string>
   <string name="talk_warn_save_dialog_existing_new_message">Vuorkkii uđđâ viestân liiston</string>

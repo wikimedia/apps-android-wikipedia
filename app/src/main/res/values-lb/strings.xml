@@ -1935,7 +1935,6 @@
   <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
-  <string name="hybrid_search_results_more_button">Méi</string>
   <string name="hybrid_search_no_results_header">Keng Resultater</string>
   <string name="hybrid_search_error_message">Et ass eppes schifgaangen. Probéiert wgl. méi spéit nach eng Kéier.</string>
   <string name="hybrid_search_who_is_prefix">Wien ass %s?</string>

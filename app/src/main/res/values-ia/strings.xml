@@ -2224,11 +2224,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quales es le citates le plus grande in Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Un nove maniera de cercar</string>
   <string name="hybrid_search_results_header_description">Extrahite de articulos de Wikipedia create per humanos</string>
-  <string name="hybrid_search_results_more_button">Plus</string>
-  <string name="hybrid_search_results_rate_label">Evalutar iste resultatos</string>
+  <string name="hybrid_search_results_rate_label">Evalutar iste resultato</string>
   <string name="hybrid_search_results_rated_label">Evalutate</string>
   <string name="hybrid_search_results_rate_thumb_up">Evalutar positivemente</string>
   <string name="hybrid_search_results_rate_thumb_down">Evalutar negativemente</string>
+  <string name="hybrid_lexical_search_results_empty">Necun titulo de articulo corresponde a iste consulta.</string>
   <string name="hybrid_search_results_empty">Le recerca meliorate es temporarimente indisponibile.</string>
   <string name="hybrid_search_no_results_header">Nulle resultato</string>
   <string name="hybrid_search_no_results_description">Iste topico non restitue excerptos de articulos al momento. Ecce alcun cosas que tu pote tentar:</string>

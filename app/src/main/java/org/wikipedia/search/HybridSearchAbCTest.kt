@@ -5,7 +5,7 @@ import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
 
-class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
+class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
 
     override fun getGroupName(): String {
         return when (group) {
@@ -45,7 +45,7 @@ class HybridSearchAbCTest : ABTest("hybridSearch", GROUP_SIZE_3) {
 
     companion object {
         const val GROUP_CONTROL = "control"
-        const val GROUP_LEXICAL_SEMANTIC = "lexicalSemantic"
-        const val GROUP_SEMANTIC_LEXICAL = "semanticLexical"
+        const val GROUP_LEXICAL_SEMANTIC = "lexicalsemantic"
+        const val GROUP_SEMANTIC_LEXICAL = "semanticlexical"
     }
 }

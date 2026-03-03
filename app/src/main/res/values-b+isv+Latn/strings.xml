@@ -2406,11 +2406,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
   <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
   <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
-  <string name="hybrid_search_results_more_button">Veče</string>
-  <string name="hybrid_search_results_rate_label">Ocěnite tute rezultaty</string>
+  <string name="hybrid_search_results_rate_label">Ocěnite tutoj rezultat</string>
   <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
   <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
   <string name="hybrid_search_results_rate_thumb_down">Ocěnka negativna</string>
+  <string name="hybrid_lexical_search_results_empty">Nijedin članok ne imaje zaglavje odpovědajuče tutomu poisku.</string>
   <string name="hybrid_search_results_empty">Ulěpšeno iskanje dočasno jest nedostupno.</string>
   <string name="hybrid_search_no_results_header">Ničto ne najdeno</string>
   <string name="hybrid_search_no_results_description">Tutoj prědmet v tutom momentu ne vračaje fragmenty člankov. Ale vy možete poprobovati slědujuče:</string>

@@ -3,6 +3,8 @@ package org.wikipedia.search
 import android.location.Location
 import android.view.View
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -63,11 +65,12 @@ fun SearchResultsScreen(
     viewModel: SearchResultsViewModel,
     onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    onSemanticSearchClick: (String) -> Unit,
+    onSemanticSearchClick: (String, Boolean, Int) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
-    onLoading: (Boolean) -> Unit
+    onLoading: (Boolean) -> Unit,
+    onNoResults: () -> Unit
 ) {
     val searchResults = viewModel.searchResultsFlow.collectAsLazyPagingItems()
     val searchTerm = viewModel.searchTerm.collectAsState()
@@ -108,11 +111,29 @@ fun SearchResultsScreen(
                 }
 
                 loadState.append is LoadState.NotLoading && loadState.append.endOfPaginationReached && searchResults.itemCount == 0 -> {
-                    NoSearchResults(
-                        countsPerLanguageCode = countsPerLanguageCode,
-                        invokeSource = viewModel.invokeSource,
-                        onLanguageClick = onLanguageClick
-                    )
+                    if (viewModel.isHybridSearchExperimentOn) {
+                        SearchResultTitleOnlyBottomContent(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.BottomStart)
+                                .background(WikipediaTheme.colors.paperColor)
+                                .clickable(
+                                    onClick = {
+                                        searchTerm.value?.let {
+                                            onSemanticSearchClick(it, true, -1)
+                                        }
+                                    }
+                                ),
+                            searchTerm = searchTerm.value
+                        )
+                        onNoResults()
+                    } else {
+                        NoSearchResults(
+                            countsPerLanguageCode = countsPerLanguageCode,
+                            invokeSource = viewModel.invokeSource,
+                            onLanguageClick = onLanguageClick
+                        )
+                    }
                 }
 
                 else -> {
@@ -121,12 +142,12 @@ fun SearchResultsScreen(
                             modifier = Modifier.fillMaxSize(),
                             searchResultsPage = searchResults,
                             searchTerm = searchTerm.value,
-                            onTitleClick = { searchResult ->
-                                onSemanticSearchClick(searchResult.pageTitle.displayText)
+                            onTitleClick = { searchResult, position ->
+                                onSemanticSearchClick(searchResult.pageTitle.displayText, false, position)
                             },
                             onSuggestionTitleClick = { searchTerm ->
                                 searchTerm?.let {
-                                    onSemanticSearchClick(it)
+                                    onSemanticSearchClick(it, true, -1)
                                 }
                             }
                         )

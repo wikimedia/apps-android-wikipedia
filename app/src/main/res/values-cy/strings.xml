@@ -245,8 +245,8 @@
   <string name="table_infobox">Ffeithiau sydyn</string>
   <string name="table_other">Rhagor o wybodaeth</string>
   <string name="table_close">Cau</string>
-  <string name="widget_name_featured_page">Dalen ddethol Wicipedia</string>
-  <string name="widget_title_featured_page">Dalen ddethol heddiw:</string>
+  <string name="widget_name_featured_page">Tudalen ddethol Wicipedia</string>
+  <string name="widget_title_featured_page">Tudalen ddethol heddiw:</string>
   <string name="widget_name_search">Chwilio ar Wicipedia</string>
   <string name="wiktionary_no_definitions_found">Dim canlyniadau.</string>
   <string name="alpha_update_notification_title">Diweddariad alffa ar gael</string>

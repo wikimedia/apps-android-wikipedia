@@ -16,6 +16,7 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
@@ -43,6 +44,11 @@ class SearchResultsViewModel : ViewModel() {
     private val _searchTerm = MutableStateFlow<String?>(null)
     var searchTerm = _searchTerm.asStateFlow()
 
+    private val _searchTermForLogging = MutableSharedFlow<String?>()
+    var searchTermForLogging = _searchTermForLogging.asSharedFlow()
+    private val _lexicalResultsForLogging = MutableStateFlow<List<SearchResult>?>(null)
+    var lexicalResultsForLogging = _lexicalResultsForLogging.asStateFlow()
+
     private var _languageCode = MutableStateFlow(WikipediaApp.instance.languageState.appLanguageCode)
     var languageCode = _languageCode.asStateFlow()
 
@@ -59,6 +65,9 @@ class SearchResultsViewModel : ViewModel() {
     private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
+    var semanticResultsTitlesForEvent = ""
+    var lexicalResultsTitlesForEvent = ""
+
     @OptIn(
         FlowPreview::class,
         ExperimentalCoroutinesApi::class
@@ -67,6 +76,7 @@ class SearchResultsViewModel : ViewModel() {
         combine(_searchTerm.debounce(delayMillis), _languageCode, _refreshSearchResults) { term, lang, _ ->
             Pair(term, lang)
         }.flatMapLatest { (term, lang) ->
+            _searchTermForLogging.emit(term)
             val repository = StandardSearchRepository()
             Pager(PagingConfig(pageSize = batchSize)) {
                 SearchResultsPagingSource(
@@ -74,7 +84,8 @@ class SearchResultsViewModel : ViewModel() {
                     languageCode = lang,
                     countsPerLanguageCode = countsPerLanguageCode,
                     invokeSource = invokeSource,
-                    repository = repository
+                    repository = repository,
+                    onFirstPageLoaded = { results -> _lexicalResultsForLogging.value = results }
                 )
             }.flow
         }.cachedIn(viewModelScope)
@@ -145,6 +156,9 @@ class SearchResultsViewModel : ViewModel() {
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
 
+           semanticResultsTitlesForEvent = semanticList.joinToString("|") { it.pageTitle.prefixedText + "#" + it.pageTitle.fragment }
+           lexicalResultsTitlesForEvent = lexicalList.joinToString("|") { it.pageTitle.prefixedText }
+
             _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
     }
@@ -199,6 +213,7 @@ class SearchResultsViewModel : ViewModel() {
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
         private var invokeSource: Constants.InvokeSource,
         private val repository: SearchRepository<StandardSearchResults>,
+        private val onFirstPageLoaded: (List<SearchResult>) -> Unit
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -216,6 +231,10 @@ class SearchResultsViewModel : ViewModel() {
                     isPrefixSearch = params.key == null,
                     countsPerLanguageCode = countsPerLanguageCode
                 )
+
+                if (params.key == null) {
+                    onFirstPageLoaded(result.results)
+                }
 
                 return LoadResult.Page(
                     result.results,
