@@ -45,7 +45,6 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val model: PageViewModel
         val isPreview: Boolean
         val toolbarMargin: Int
-        val messageCardHeight: Int
     }
 
     init {
@@ -181,7 +180,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val setupSettings: String
             get() = setUp(communicationBridgeListener.webView.context,
                     communicationBridgeListener.model.title!!, communicationBridgeListener.isPreview,
-                    communicationBridgeListener.toolbarMargin, communicationBridgeListener.messageCardHeight)
+                    communicationBridgeListener.toolbarMargin)
     }
 
     @Serializable
