@@ -137,6 +137,7 @@ fun WikiGamesCardContent(
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
+                                onPlayClick = { },
                                 onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                                 onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                                 onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }

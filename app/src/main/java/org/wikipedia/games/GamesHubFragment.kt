@@ -86,6 +86,7 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
+    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCode
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -147,6 +148,8 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: maybe skip loading the events from APIs and just reloads the game states?
+        viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
     }
@@ -173,7 +176,7 @@ class GamesHubFragment : Fragment() {
         transition: InfiniteTransition
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
-        var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
+        var selectedLanguage by remember { mutableStateOf(selectedLanguage) }
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
 
@@ -227,6 +230,7 @@ class GamesHubFragment : Fragment() {
                                 langCode = langCode,
                                 onSelected = {
                                     selectedLanguage = langCode
+                                    this@GamesHubFragment.selectedLanguage = langCode
                                     viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
                                     onThisDayGameArchiveCalendarHelper.unRegister()
                                     onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
@@ -417,8 +421,7 @@ class GamesHubFragment : Fragment() {
         position: Int,
         selectedLanguage: String,
         gamesData: List<OnThisDayCardGameState>,
-        onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit,
-
+        onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit
     ) {
         if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
             Text(
@@ -507,8 +510,7 @@ class GamesHubFragment : Fragment() {
                             iconTint = WikipediaTheme.colors.progressiveColor,
                             titleText = dateTitle,
                             onPlayClick = {
-                                // TODO: see if this action can open for a certain date.
-                                onThisDayGameAction(OnThisDayGameAction.PlayArchive)
+                                onThisDayGameAction(OnThisDayGameAction.Play)
                             }
                         )
                     }
@@ -538,6 +540,7 @@ class GamesHubFragment : Fragment() {
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
+                        onPlayClick = { onThisDayGameAction(OnThisDayGameAction.Play) },
                         onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                         onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                         onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }

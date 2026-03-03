@@ -189,13 +189,7 @@ fun OnThisDayGameCardProgress(
         elevation = 2.dp
     ) {
         Box(
-            modifier = Modifier.also {
-                if (isArchiveGame) {
-                    it.clickable {
-                        onContinueClick()
-                    }
-                }
-            }
+            modifier = if (isArchiveGame) Modifier.clickable { onContinueClick() } else Modifier
         ) {
             Column(
                 modifier = Modifier
@@ -284,6 +278,7 @@ fun OnThisDayGameCardCompleted(
     isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.Completed,
     titleText: String,
+    onPlayClick: () -> Unit,
     onReviewResult: () -> Unit,
     onPlayTheArchive: () -> Unit,
     onCountDownFinished: () -> Unit
@@ -294,13 +289,7 @@ fun OnThisDayGameCardCompleted(
         elevation = 2.dp
     ) {
         Box(
-            modifier = Modifier.also {
-                if (isArchiveGame) {
-                    it.clickable {
-                        onReviewResult()
-                    }
-                }
-            }
+            modifier = if (isArchiveGame) Modifier.clickable { onPlayClick() } else Modifier
         ) {
             Column(
                 modifier = Modifier
@@ -528,6 +517,7 @@ private fun OnThisDayGameCardCompletedPreview() {
                 totalQuestions = 5
             ),
             titleText = "November 1",
+            onPlayClick = {},
             onReviewResult = {},
             onPlayTheArchive = {},
             onCountDownFinished = {}

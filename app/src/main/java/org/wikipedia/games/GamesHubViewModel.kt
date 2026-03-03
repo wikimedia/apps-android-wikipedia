@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
@@ -17,13 +16,9 @@ import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.util.UiState
 import java.time.LocalDate
 
-class GamesHubViewModel() : ViewModel() {
+class GamesHubViewModel : ViewModel() {
     private val _onThisDayGameUiState = MutableStateFlow<UiState<List<OnThisDayCardGameState>>>(UiState.Loading)
     val onThisDayGameUiState: StateFlow<UiState<List<OnThisDayCardGameState>>> = _onThisDayGameUiState.asStateFlow()
-
-    init {
-        loadOnThisDayGamesPreviews(WikipediaApp.instance.languageState.appLanguageCode)
-    }
 
     fun loadOnThisDayGamesPreviews(langCode: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
