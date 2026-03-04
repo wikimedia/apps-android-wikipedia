@@ -15,6 +15,7 @@ import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.captcha.CaptchaHandler
@@ -23,6 +24,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.updateSubscription
@@ -74,6 +76,9 @@ class LoginActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .startFunnel("login_account")
+
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
             submitButtonText = null, isModal = false)
@@ -115,6 +120,8 @@ class LoginActivity : BaseActivity() {
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL)
+
+        instrument?.submitInteraction("impression", actionSource = "login_form", actionContext = mapOf("invoke_source" to loginSource))
     }
 
     override fun onStop() {
@@ -128,10 +135,20 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun setAllViewsClickListener() {
-        binding.loginButton.setOnClickListener { validateThenLogin() }
-        binding.loginCreateAccountButton.setOnClickListener { startCreateAccountActivity() }
-        binding.footerContainer.privacyPolicyLink.setOnClickListener { FeedbackUtil.showPrivacyPolicy(this) }
+        binding.loginButton.setOnClickListener {
+            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "login")
+            validateThenLogin()
+        }
+        binding.loginCreateAccountButton.setOnClickListener {
+            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "create_account")
+            startCreateAccountActivity()
+        }
+        binding.footerContainer.privacyPolicyLink.setOnClickListener {
+            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "privacy_policy")
+            FeedbackUtil.showPrivacyPolicy(this)
+        }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
+            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "forgot_password")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
             visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
@@ -182,6 +199,8 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun onLoginSuccess() {
+        instrument?.submitInteraction("success", actionSource = "login_form")
+
         DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         setResult(RESULT_LOGIN_SUCCESS)
 
@@ -266,8 +285,10 @@ class LoginActivity : BaseActivity() {
             resetAuthState()
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             if (caught is LoginFailedException) {
+                instrument?.submitInteraction("error", actionSource = "login_form", actionSubtype = "login_failed", actionContext = mapOf("message" to caught.message.orEmpty()))
                 FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
+                instrument?.submitInteraction("error", actionSource = "login_form", actionSubtype = "generic", actionContext = mapOf("message" to caught.message.orEmpty()))
                 showError(caught)
             }
         }

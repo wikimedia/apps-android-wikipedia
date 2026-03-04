@@ -24,6 +24,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
@@ -68,6 +69,9 @@ class CreateAccountActivity : BaseActivity() {
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .startFunnel("create_account")
 
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.createAccountPrimaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button))
         // Don't allow user to submit registration unless they've put in a username and password
