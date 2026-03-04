@@ -257,7 +257,7 @@ fun OnThisDayGameLoginPromptCard(
             Text(
                 modifier = Modifier
                     .padding(top = 8.dp),
-                text = stringResource(R.string.on_this_day_game_login_in_prompt_card_description),
+                text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_description),
                 color = WikipediaTheme.colors.primaryColor,
                 style = MaterialTheme.typography.bodyMedium
             )
