@@ -481,7 +481,9 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
+        <receiver
+            android:label="@string/reading_challenge_large_widget_name"
+            android:name=".widgets.readingchallenge.largewidget.ReadingChallengeLargeWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -489,6 +491,18 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/reading_challenge_widget_info"/>
+        </receiver>
+
+        <receiver
+            android:label="@string/reading_challenge_small_widget_name"
+            android:name=".widgets.readingchallenge.smallwidget.ReadingChallengeWidgetSmallReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/reading_challenge_small_widget_info"/>
         </receiver>
 
     </application>
