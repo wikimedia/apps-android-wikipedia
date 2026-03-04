@@ -328,7 +328,8 @@ fun OnThisDayGameCardCompleted(
                         modifier = Modifier
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        maxItemsInEachRow = 2
                     ) {
                         FilledTonalButton(
                             colors = ButtonDefaults.filledTonalButtonColors(
