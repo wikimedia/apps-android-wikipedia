@@ -33,7 +33,7 @@ class GamesHubViewModel : ViewModel() {
             val gamesList = (0..3).map { i ->
                 async {
                     val wikiSite = WikiSite.forLanguageCode(langCode)
-                    OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now().minusDays(i.toLong()))
+                    OnThisDayGameProvider.getGameState(wikiSite, LocalDate.now().minusDays(i.toLong()), i != 0)
                 }
             }.awaitAll()
             _onThisDayGameUiState.value = UiState.Success(gamesList)
