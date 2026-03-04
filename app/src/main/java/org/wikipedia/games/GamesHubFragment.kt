@@ -52,8 +52,8 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -111,7 +111,7 @@ class GamesHubFragment : Fragment() {
                     true
                 }
                 R.id.menu_learn_more -> {
-                    UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.games_hub_wiki_url).toUri())
+                    UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_url).toUri())
                     true
                 }
                 else -> false
