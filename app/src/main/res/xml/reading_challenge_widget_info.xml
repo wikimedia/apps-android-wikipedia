@@ -2,7 +2,8 @@
 <!--TODO: need to add preview page -->
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:minWidth="400dp"
+    android:initialLayout="@layout/reading_challenge_widget_loading"
+    android:minWidth="200dp"
     android:minHeight="130dp"
     android:resizeMode="none"
     android:targetCellHeight="2"

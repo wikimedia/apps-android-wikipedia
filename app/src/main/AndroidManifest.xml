@@ -495,7 +495,7 @@
 
         <receiver
             android:label="@string/reading_challenge_small_widget_name"
-            android:name=".widgets.readingchallenge.smallwidget.ReadingChallengeWidgetSmallReceiver"
+            android:name=".widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
