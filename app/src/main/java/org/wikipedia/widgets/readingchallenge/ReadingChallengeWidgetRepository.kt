@@ -1,12 +1,37 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 
-object ReadingChallengeStateResolver {
-
-    private val START_DATE = LocalDate.of(2026, 5, 1)
+class ReadingChallengeWidgetRepository(private val context: Context) {
+    private val START_DATE = LocalDate.of(2026, 3, 1)
     private val END_DATE = LocalDate.of(2026, 5, 31)
     private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
+
+    fun observeState(): Flow<ReadingChallengeState> {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        return callbackFlow {
+            fun emit() = trySend(resolveState(
+                ReadingChallengeUserData(
+                    currentDate = LocalDate.now(),
+                    isEnrolled = Prefs.isEnrolled,
+                    currentStreak = Prefs.currentStreak,
+                    hasReadToday = Prefs.hasReadToday
+                )
+            ))
+
+            val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> emit() }
+            prefs.registerOnSharedPreferenceChangeListener(listener)
+            awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
+        }.distinctUntilChanged()
+    }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
         // Stage 5: Remove challenge

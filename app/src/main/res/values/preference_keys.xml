@@ -210,4 +210,7 @@
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
     <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
     <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
+    <string name="preference_key_streak">streak</string>
+    <string name="preference_key_is_enrolled">isEnrolled</string>
+    <string name="preference_key_has_read_today">hasReadToday</string>
 </resources>
