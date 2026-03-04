@@ -60,7 +60,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         private set
 
     private val searchCloseListener = View.OnClickListener {
-        requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_close")
+        requireActivity().instrument?.submitInteraction("click", elementId = "search_close")
         closeSearch()
         setSearchText("")
     }
@@ -127,7 +127,7 @@ class SearchFragment : Fragment(), SearchResultCallback, RecentSearchesFragment.
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener {
 
-            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back")
+            requireActivity().instrument?.submitInteraction("click", elementId = "search_back")
 
             requireActivity().supportFinishAfterTransition()
         }
