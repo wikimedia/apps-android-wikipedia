@@ -11,6 +11,7 @@ class InstrumentImpl(
 ) {
     var funnel: Funnel? = null
     var experiment: ExperimentImpl? = null
+    private var defaultActionSource: String? = null
 
     fun submitInteraction(
         action: String,
@@ -33,7 +34,7 @@ class InstrumentImpl(
             instrument = this,
             interactionData = InteractionData(
                 action = action,
-                actionSource = actionSource,
+                actionSource = actionSource ?: defaultActionSource,
                 actionSubtype = actionSubtype,
                 elementId = elementId,
                 elementFriendlyName = elementFriendlyName,
@@ -61,6 +62,11 @@ class InstrumentImpl(
 
     fun setExperiment(experiment: ExperimentImpl?): InstrumentImpl {
         this.experiment = experiment
+        return this
+    }
+
+    fun setDefaultActionSource(source: String): InstrumentImpl {
+        defaultActionSource = source
         return this
     }
 }
