@@ -7,9 +7,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
@@ -49,10 +51,9 @@ class LoginActivity : BaseActivity() {
 
     private val loginClient = LoginClient()
     private val loginCallback = LoginCallback()
-    private var shouldLogLogin = true
+    private val textEnteredEventSent = mutableMapOf<View, Boolean>()
 
     private val createAccountLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        logLoginStart()
         when (it.resultCode) {
             CreateAccountActivity.RESULT_ACCOUNT_CREATED -> {
                 binding.loginUsernameText.editText?.setText(it.data!!.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME))
@@ -77,7 +78,13 @@ class LoginActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .setDefaultActionSource("login_form")
             .startFunnel("login_account")
+
+        onBackPressedDispatcher.addCallback(this) {
+            instrument?.submitInteraction("click", elementId = "back")
+            finish()
+        }
 
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
@@ -94,6 +101,24 @@ class LoginActivity : BaseActivity() {
                 return@setOnEditorActionListener true
             }
             false
+        }
+        binding.loginUsernameText.editText?.addTextChangedListener {
+            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.loginUsernameText] ?: false)) {
+                instrument?.submitInteraction("type", elementId = "username")
+                textEnteredEventSent[binding.loginUsernameText] = true
+            }
+        }
+        binding.loginPasswordInput.editText?.addTextChangedListener {
+            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.loginPasswordInput] ?: false)) {
+                instrument?.submitInteraction("type", elementId = "password")
+                textEnteredEventSent[binding.loginPasswordInput] = true
+            }
+        }
+        binding.login2faText.editText?.addTextChangedListener {
+            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.login2faText] ?: false)) {
+                instrument?.submitInteraction("type", elementId = "2fa")
+                textEnteredEventSent[binding.login2faText] = true
+            }
         }
 
         loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
@@ -121,7 +146,7 @@ class LoginActivity : BaseActivity() {
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL)
 
-        instrument?.submitInteraction("impression", actionSource = "login_form", actionContext = mapOf("invoke_source" to loginSource))
+        instrument?.submitInteraction("impression", actionContext = mapOf("invoke_source" to loginSource))
     }
 
     override fun onStop() {
@@ -136,19 +161,19 @@ class LoginActivity : BaseActivity() {
 
     private fun setAllViewsClickListener() {
         binding.loginButton.setOnClickListener {
-            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "login")
+            instrument?.submitInteraction("click", elementId = "login")
             validateThenLogin()
         }
         binding.loginCreateAccountButton.setOnClickListener {
-            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "create_account")
+            instrument?.submitInteraction("click", elementId = "create_account")
             startCreateAccountActivity()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "privacy_policy")
+            instrument?.submitInteraction("click", elementId = "privacy_policy")
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            instrument?.submitInteraction("click", actionSource = "login_form", elementId = "forgot_password")
+            instrument?.submitInteraction("click", elementId = "forgot_password")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
             visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
@@ -188,18 +213,12 @@ class LoginActivity : BaseActivity() {
         doLogin()
     }
 
-    private fun logLoginStart() {
-        if (shouldLogLogin && loginSource.isNotEmpty()) {
-            shouldLogLogin = false
-        }
-    }
-
     private fun startCreateAccountActivity() {
         createAccountLauncher.launch(CreateAccountActivity.newIntent(this, loginSource))
     }
 
     private fun onLoginSuccess() {
-        instrument?.submitInteraction("success", actionSource = "login_form")
+        instrument?.submitInteraction("success")
 
         DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         setResult(RESULT_LOGIN_SUCCESS)
@@ -265,6 +284,7 @@ class LoginActivity : BaseActivity() {
                 captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             if (result is LoginEmailAuthResult || result is LoginOATHResult) {
+                instrument?.submitInteraction("click", elementId = "create_account")
                 uiPromptResult = result
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
@@ -285,10 +305,10 @@ class LoginActivity : BaseActivity() {
             resetAuthState()
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             if (caught is LoginFailedException) {
-                instrument?.submitInteraction("error", actionSource = "login_form", actionSubtype = "login_failed", actionContext = mapOf("message" to caught.message.orEmpty()))
+                instrument?.submitInteraction("error", actionSubtype = "login_failed", actionContext = mapOf("message" to caught.message.orEmpty()))
                 FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
-                instrument?.submitInteraction("error", actionSource = "login_form", actionSubtype = "generic", actionContext = mapOf("message" to caught.message.orEmpty()))
+                instrument?.submitInteraction("error", actionSubtype = "generic", actionContext = mapOf("message" to caught.message.orEmpty()))
                 showError(caught)
             }
         }
