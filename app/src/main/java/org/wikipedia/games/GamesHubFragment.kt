@@ -86,7 +86,9 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
-    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCode
+    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first { 
+        OnThisDayGameViewModel.isLangSupported(it)
+    }
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
