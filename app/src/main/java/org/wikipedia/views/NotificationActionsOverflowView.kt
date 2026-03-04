@@ -114,7 +114,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     private var actionClickListener = OnClickListener {
         val link = it.tag as Notification.Link
-        val url = link.url
+        val url = link.encodedUrl
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
             linkHandler.wikiSite = WikiSite(url)
