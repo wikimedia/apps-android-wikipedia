@@ -209,7 +209,10 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 } else {
                     _gameState.postValue(CurrentQuestionIncorrect(currentState))
                 }
-                saveGameProgress(status = DailyGameHistory.GAME_IN_PROGRESS, nextQuestionIndex = nextQuestionIndex)
+                saveGameProgress(
+                    status = if (nextQuestionIndex >= currentState.totalQuestions) DailyGameHistory.GAME_COMPLETED else DailyGameHistory.GAME_IN_PROGRESS,
+                    nextQuestionIndex = nextQuestionIndex
+                )
             }
         }
     }
@@ -276,12 +279,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     }
 
     private fun composeQuestionState(index: Int): QuestionState {
-        val event1Index = index * 2
-        val event2Index = index * 2 + 1
-        if (event1Index >= events.size || event2Index >= events.size) {
-            return QuestionState(OnThisDay.Event(), OnThisDay.Event(), currentMonth, currentDay)
-        }
-        return QuestionState(events[event1Index], events[event2Index], currentMonth, currentDay)
+        return QuestionState(events[index * 2], events[index * 2 + 1], currentMonth, currentDay)
     }
 
     fun relaunchForDate(date: LocalDate) {

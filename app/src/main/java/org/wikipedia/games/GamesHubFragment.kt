@@ -30,6 +30,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -49,6 +52,7 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -58,6 +62,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
@@ -66,6 +71,9 @@ import org.wikipedia.feed.wikigames.OnThisDayGameCardPreview
 import org.wikipedia.feed.wikigames.OnThisDayGameCardProgress
 import org.wikipedia.feed.wikigames.OnThisDayGameCardSimple
 import org.wikipedia.feed.wikigames.WikiGame
+import org.wikipedia.games.db.DailyGameHistory
+import org.wikipedia.games.onthisday.OnThisDayGameActivity
+import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
@@ -82,6 +90,7 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
+    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCode
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -141,10 +150,7 @@ class GamesHubFragment : Fragment() {
                 BaseTheme {
                     GamesHubScreen(
                         onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
-                        transition = transition,
-                        wikiErrorClickEvents = WikiErrorClickEvents(
-                            retryClickListener = { viewModel.loadOnThisDayGamesPreviews() }
-                        )
+                        transition = transition
                     )
                 }
             }
@@ -153,6 +159,8 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: maybe skip loading the events from APIs and just reloads the game states?
+        viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
     }
@@ -175,133 +183,175 @@ class GamesHubFragment : Fragment() {
 
     @Composable
     fun GamesHubScreen(
-        onThisDayGameUiState: UiState<Map<String, List<OnThisDayCardGameState>>>,
-        transition: InfiniteTransition,
-        wikiErrorClickEvents: WikiErrorClickEvents
+        onThisDayGameUiState: UiState<List<OnThisDayCardGameState>>,
+        transition: InfiniteTransition
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
-        var selectedLanguage by remember { mutableStateOf(WikipediaApp.instance.languageState.appLanguageCode) }
+        var selectedLanguage by remember { mutableStateOf(selectedLanguage) }
+        var isRefreshing by remember { mutableStateOf(false) }
+        val state = rememberPullToRefreshState()
+
+        var onThisDayGameArchiveCalendarHelper by remember { mutableStateOf(OnThisDayGameArchiveCalendarHelper(
+                fragment = this@GamesHubFragment,
+                languageCode = selectedLanguage,
+                onDateSelected = { }
+            ))
+        }
+
         Scaffold(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor),
             containerColor = WikipediaTheme.colors.paperColor
         ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-            ) {
-                LazyRow(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(horizontal = 16.dp)
-                ) {
-                    items(languageList.size) { index ->
-                        val langCode = languageList[index]
-                        val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
-                        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
-                        val isSelected = langCode == selectedLanguage
-                        val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
-                        val snackbarMessage = stringResource(R.string.games_hub_activity_games_unavailable_message, langText)
-                        FilterChip(
-                            selected = isSelected,
-                            onClick = {
-                                if (!isEnabled) {
-                                    FeedbackUtil.makeSnackbar(requireActivity(), snackbarMessage)
-                                        .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
-                                            UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.on_this_day_game_wiki_languages_url).toUri())
-                                        }
-                                        .show()
-                                    return@FilterChip
-                                }
-                                selectedLanguage = languageList[index]
-                            },
-                            colors = FilterChipDefaults.filterChipColors().copy(
-                                selectedContainerColor = WikipediaTheme.colors.additionColor
-                            ),
-                            border = BorderStroke(width = 1.dp, color = WikipediaTheme.colors.borderColor),
-                            label = {
-                                Text(
-                                    text = langText,
-                                    style = MaterialTheme.typography.labelLarge,
-                                    textAlign = TextAlign.Center,
-                                    fontWeight = FontWeight.Medium,
-                                    color = textColor
-                                )
-                            },
-                            leadingIcon = {
-                                if (isSelected) {
-                                    Icon(
-                                        painter = painterResource(R.drawable.ic_check_black_24dp),
-                                        tint = WikipediaTheme.colors.primaryColor,
-                                        contentDescription = null
-                                    )
-                                }
-                            }
-                        )
-                    }
-                }
 
-                LazyColumn(
+            PullToRefreshBox(
+                onRefresh = {
+                    isRefreshing = true
+                    viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                },
+                isRefreshing = isRefreshing,
+                state = state,
+                indicator = {
+                    Indicator(
+                        state = state,
+                        isRefreshing = isRefreshing,
+                        modifier = Modifier.align(Alignment.TopCenter),
+                        containerColor = WikipediaTheme.colors.paperColor,
+                        color = WikipediaTheme.colors.progressiveColor
+                    )
+                }
+            ) {
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp)
+                        .fillMaxSize()
+                        .padding(paddingValues)
                 ) {
-                    items(WikiGames.entries.size) { index ->
-                        when (WikiGames.entries[index]) {
-                            WikiGames.WHICH_CAME_FIRST -> {
-                                when (onThisDayGameUiState) {
-                                    is UiState.Loading -> {
-                                        Column {
+                    LazyRow(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        contentPadding = PaddingValues(horizontal = 16.dp)
+                    ) {
+                        items(languageList.size) { index ->
+                            val langCode = languageList[index]
+                            GamesHubLanguageChip(
+                                isSelected = langCode == selectedLanguage,
+                                langCode = langCode,
+                                onSelected = {
+                                    selectedLanguage = langCode
+                                    this@GamesHubFragment.selectedLanguage = langCode
+                                    viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                    onThisDayGameArchiveCalendarHelper.unRegister()
+                                    onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
+                                        fragment = this@GamesHubFragment,
+                                        languageCode = selectedLanguage,
+                                        onDateSelected = { date ->
+                                            startActivity(OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB, WikiSite.forLanguageCode(selectedLanguage), date))
+                                        }
+                                    ).also {
+                                        it.register()
+                                    }
+                                }
+                            )
+                        }
+                    }
+
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp)
+                    ) {
+                        items(WikiGames.entries.size) { index ->
+                            when (WikiGames.entries[index]) {
+                                WikiGames.WHICH_CAME_FIRST -> {
+                                    when (onThisDayGameUiState) {
+                                        is UiState.Loading -> {
+                                            Column {
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .padding(
+                                                            horizontal = 16.dp,
+                                                            vertical = 8.dp
+                                                        )
+                                                        .height(48.dp)
+                                                        .clip(RoundedCornerShape(4.dp))
+                                                        .shimmerEffect(
+                                                            heightMultiplier = 0f,
+                                                            transition = transition
+                                                        )
+                                                )
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth()
+                                                        .padding(
+                                                            horizontal = 16.dp,
+                                                            vertical = 16.dp
+                                                        )
+                                                        .height(350.dp)
+                                                        .clip(RoundedCornerShape(4.dp))
+                                                        .shimmerEffect(
+                                                            heightMultiplier = 0f,
+                                                            transition = transition
+                                                        )
+                                                )
+                                            }
+                                        }
+
+                                        is UiState.Error -> {
+                                            isRefreshing = false
                                             Box(
                                                 modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                                                    .height(48.dp)
-                                                    .clip(RoundedCornerShape(4.dp))
-                                                    .shimmerEffect(
-                                                        heightMultiplier = 0f,
-                                                        transition = transition
-                                                    )
-                                            )
-                                            Box(
-                                                modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .padding(horizontal = 16.dp, vertical = 16.dp)
-                                                    .height(350.dp)
-                                                    .clip(RoundedCornerShape(4.dp))
-                                                    .shimmerEffect(
-                                                        heightMultiplier = 0f,
-                                                        transition = transition
-                                                    )
+                                                    .fillMaxSize()
+                                                    .padding(horizontal = 16.dp, vertical = 16.dp),
+                                                contentAlignment = Alignment.Center
+                                            ) {
+                                                WikiErrorView(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth(),
+                                                    caught = onThisDayGameUiState.error,
+                                                    errorClickEvents = WikiErrorClickEvents {
+                                                        isRefreshing = true
+                                                        viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                                    },
+                                                    retryForGenericError = true
+                                                )
+                                            }
+                                        }
+
+                                        is UiState.Success -> {
+                                            isRefreshing = false
+                                            OnThisDayGameCards(
+                                                position = index,
+                                                selectedLanguage = selectedLanguage,
+                                                gamesData = onThisDayGameUiState.data,
+                                                onThisDayGameAction = { gameStatus, gameDate ->
+                                                    when (gameStatus) {
+                                                        OnThisDayGameAction.PlayArchive -> {
+                                                            onThisDayGameArchiveCalendarHelper.show()
+                                                        }
+                                                        OnThisDayGameAction.CountdownFinished -> {
+                                                            isRefreshing = true
+                                                            viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+                                                        }
+                                                        else -> {
+                                                            startActivity(
+                                                                OnThisDayGameActivity.newIntent(
+                                                                    context = requireActivity(),
+                                                                    invokeSource = InvokeSource.FEED,
+                                                                    wikiSite = WikiSite.forLanguageCode(selectedLanguage),
+                                                                    date = gameDate,
+                                                                    gameStatus = if (gameStatus == OnThisDayGameAction.ReviewResults)
+                                                                        DailyGameHistory.GAME_COMPLETED else DailyGameHistory.GAME_IN_PROGRESS
+                                                                )
+                                                            )
+                                                        }
+                                                    }
+                                                }
                                             )
                                         }
-                                    }
-                                    is UiState.Error -> {
-                                        Box(
-                                            modifier = Modifier
-                                                .fillMaxSize()
-                                                .padding(horizontal = 16.dp, vertical = 16.dp),
-                                            contentAlignment = Alignment.Center
-                                        ) {
-                                            WikiErrorView(
-                                                modifier = Modifier
-                                                    .fillMaxWidth(),
-                                                caught = onThisDayGameUiState.error,
-                                                errorClickEvents = wikiErrorClickEvents,
-                                                retryForGenericError = true
-                                            )
-                                        }
-                                    }
-                                    is UiState.Success -> {
-                                        OnThisDayGameCards(
-                                            position = index,
-                                            selectedLanguage = selectedLanguage,
-                                            gamesData = onThisDayGameUiState.data
-                                        )
                                     }
                                 }
                             }
@@ -313,10 +363,76 @@ class GamesHubFragment : Fragment() {
     }
 
     @Composable
+    fun GamesHubLanguageChip(
+        isSelected: Boolean,
+        langCode: String,
+        onSelected: () -> Unit,
+    ) {
+        val langText =
+            WikipediaApp.instance.languageState.getAppLanguageLocalizedName(
+                langCode
+            ) ?: langCode
+        val isEnabled =
+            OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
+        val textColor =
+            if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+        val snackbarMessage = stringResource(
+            R.string.games_hub_activity_games_unavailable_message,
+            langText
+        )
+        FilterChip(
+            selected = isSelected,
+            onClick = {
+                if (!isEnabled) {
+                    FeedbackUtil.makeSnackbar(
+                        requireActivity(),
+                        snackbarMessage
+                    )
+                        .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
+                            UriUtil.visitInExternalBrowser(
+                                requireActivity(),
+                                getString(R.string.on_this_day_game_wiki_languages_url).toUri()
+                            )
+                        }
+                        .show()
+                    return@FilterChip
+                }
+                onSelected()
+            },
+            colors = FilterChipDefaults.filterChipColors().copy(
+                selectedContainerColor = WikipediaTheme.colors.additionColor
+            ),
+            border = BorderStroke(
+                width = 1.dp,
+                color = WikipediaTheme.colors.borderColor
+            ),
+            label = {
+                Text(
+                    text = langText,
+                    style = MaterialTheme.typography.labelLarge,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Medium,
+                    color = textColor
+                )
+            },
+            leadingIcon = {
+                if (isSelected) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_check_black_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
+                    )
+                }
+            }
+        )
+    }
+
+    @Composable
     fun OnThisDayGameCards(
         position: Int,
         selectedLanguage: String,
-        gamesData: Map<String, List<OnThisDayCardGameState>>
+        gamesData: List<OnThisDayCardGameState>,
+        onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit
     ) {
         if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
             Text(
@@ -336,18 +452,17 @@ class GamesHubFragment : Fragment() {
                 contentPadding = PaddingValues(horizontal = 16.dp)
             ) {
                 items(5) { cardIndex ->
-                    val dateTitle = DateUtil.getMonthOnlyDateString(
-                        LocalDate.now().minusDays(cardIndex.toLong())
-                    )
+                    val gameDate = LocalDate.now().minusDays(cardIndex.toLong())
+                    val dateTitle = DateUtil.getMonthOnlyDateString(gameDate)
                     when (cardIndex) {
                         in 0..3 -> {
-                            val gameState = gamesData[selectedLanguage]?.getOrNull(cardIndex) ?: return@items
+                            val gameState = gamesData.getOrNull(cardIndex) ?: return@items
                             OnThisDayGameCardContent(
                                 game = WikiGame.OnThisDayGame(gameState),
                                 dateTitle = dateTitle,
                                 isArchiveGame = cardIndex != 0,
                                 onThisDayGameAction = {
-                                    // TODO: implement this
+                                    onThisDayGameAction(it, gameDate)
                                 }
                             )
                         }
@@ -361,7 +476,7 @@ class GamesHubFragment : Fragment() {
                                 iconTint = WikipediaTheme.colors.primaryColor,
                                 titleText = stringResource(R.string.on_this_day_game_card_archive_label),
                                 onPlayClick = {
-                                    // TODO: open the calendar
+                                    onThisDayGameAction(OnThisDayGameAction.PlayArchive, gameDate)
                                 }
                             )
                         }
@@ -406,8 +521,7 @@ class GamesHubFragment : Fragment() {
                             iconTint = WikipediaTheme.colors.progressiveColor,
                             titleText = dateTitle,
                             onPlayClick = {
-                                // TODO: see if this action can open for a certain date.
-                                onThisDayGameAction(OnThisDayGameAction.PlayArchive)
+                                onThisDayGameAction(OnThisDayGameAction.Play)
                             }
                         )
                     }
@@ -437,6 +551,7 @@ class GamesHubFragment : Fragment() {
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
+                        onPlayClick = { onThisDayGameAction(OnThisDayGameAction.Play) },
                         onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                         onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                         onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
