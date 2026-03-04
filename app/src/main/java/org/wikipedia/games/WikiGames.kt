@@ -12,11 +12,7 @@ enum class WikiGames(
         LanguageUtil.getSupportedLanguageCodes(listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh"))
     );
 
-    fun isLangSupported(lang: String): Boolean {
-        return supportLanguages.contains(lang)
-    }
-
-    fun isLangCodesSupported(langCodes: List<String>): Boolean {
+    fun isLangSupported(vararg langCodes: String): Boolean {
         return langCodes.any { supportLanguages.contains(it) }
     }
 }

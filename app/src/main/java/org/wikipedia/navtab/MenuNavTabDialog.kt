@@ -151,25 +151,25 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
                 binding.mainDrawerAccountName.isVisible = true
                 binding.mainDrawerLoginButton.isVisible = false
             }
-            binding.mainDrawerTalkContainer.visibility = View.VISIBLE
+            binding.mainDrawerTalkContainer.isVisible = true
             binding.mainDrawerTempAccountContainer.isVisible = AccountUtil.isTemporaryAccount
             binding.mainDrawerWatchlistContainer.isVisible = !AccountUtil.isTemporaryAccount
-            binding.mainDrawerContribsContainer.visibility = View.VISIBLE
-            binding.mainDrawerEditContainer.visibility = View.VISIBLE
+            binding.mainDrawerContribsContainer.isVisible = true
+            binding.mainDrawerEditContainer.isVisible = true
         } else {
             binding.mainDrawerAccountAvatar.setImageResource(R.drawable.ic_login_24px)
             ImageViewCompat.setImageTintList(binding.mainDrawerAccountAvatar, getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            binding.mainDrawerAccountName.visibility = View.GONE
+            binding.mainDrawerAccountName.isVisible = false
             binding.mainDrawerTempAccountContainer.isVisible = false
             binding.mainDrawerLoginButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
             binding.mainDrawerLoginButton.text = getString(R.string.main_drawer_login)
             binding.mainDrawerLoginButton.setTextColor(getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            binding.mainDrawerTalkContainer.visibility = View.GONE
-            binding.mainDrawerWatchlistContainer.visibility = View.GONE
-            binding.mainDrawerContribsContainer.visibility = View.GONE
-            binding.mainDrawerEditContainer.visibility = View.GONE
+            binding.mainDrawerTalkContainer.isVisible = false
+            binding.mainDrawerWatchlistContainer.isVisible = false
+            binding.mainDrawerContribsContainer.isVisible = false
+            binding.mainDrawerEditContainer.isVisible = false
         }
-        binding.mainDrawerGamesHubContainer.visibility = if (WikiGames.WHICH_CAME_FIRST.isLangCodesSupported(WikipediaApp.instance.languageState.appLanguageCodes)) View.VISIBLE else View.GONE
+        binding.mainDrawerGamesHubContainer.isVisible = WikiGames.WHICH_CAME_FIRST.isLangSupported(*WikipediaApp.instance.languageState.appLanguageCodes.toTypedArray())
     }
 
     private fun callback(): Callback? {
