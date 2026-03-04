@@ -32,6 +32,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.activitytab.OnThisDayGameLoginPromptCard
 import org.wikipedia.activitytab.WikiGamesStatsCard
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.auth.AccountUtil
@@ -358,6 +359,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
 
                     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                         viewModel.savedPages.add(page)
+                        WikiGamesEvent.submit("save_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
                         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), pageTitle, addToDefault, InvokeSource.ON_THIS_DAY_GAME_ACTIVITY)
                     }
 
@@ -369,6 +371,11 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
                     override fun onRemoveRequest() {
                         super.onRemoveRequest()
                         viewModel.savedPages.remove(page)
+                    }
+
+                    override fun onShareRequest() {
+                        WikiGamesEvent.submit("share_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
+                        super.onShareRequest()
                     }
                 }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY))
             }
