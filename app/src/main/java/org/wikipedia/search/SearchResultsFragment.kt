@@ -53,8 +53,7 @@ class SearchResultsFragment : Fragment() {
                 viewModel.searchTermForLogging.collectLatest { query ->
                     if (!query.isNullOrEmpty()) {
                         requireActivity().instrument?.submitInteraction(
-                            "search_init", actionSource = "search",
-                            actionContext = mapOf("query" to query)
+                            "search_init", actionContext = mapOf("query" to query)
                         )
                     }
                 }
@@ -65,7 +64,7 @@ class SearchResultsFragment : Fragment() {
                 viewModel.lexicalResultsForLogging.collectLatest { data ->
                     if (data != null) {
                         requireActivity().instrument?.submitInteraction(
-                            "show_search_result", actionSource = "search",
+                            "show_search_result",
                             actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty())
                         )
                     }
@@ -78,7 +77,7 @@ class SearchResultsFragment : Fragment() {
                     if (state is UiState.Success) {
                         val isLexicalFirst = HybridSearchAbCTest().getGroupName() == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC
                         requireActivity().instrument?.submitInteraction(
-                            "show_hybrid_result", actionSource = "search",
+                            "show_hybrid_result",
                             actionContext = mapOf(
                                 "query" to viewModel.searchTerm.value.orEmpty(),
                                 (if (isLexicalFirst) "lexical" else "semantic") to (if (isLexicalFirst) viewModel.lexicalResultsTitlesForEvent else viewModel.semanticResultsTitlesForEvent),
@@ -101,7 +100,6 @@ class SearchResultsFragment : Fragment() {
                             modifier = Modifier.fillMaxSize(),
                             onNavigateToTitle = { title, inNewTab, position, location ->
                                 requireActivity().instrument?.submitInteraction("search_result_click",
-                                    actionSource = "search",
                                     elementId = "lexical_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
@@ -116,7 +114,6 @@ class SearchResultsFragment : Fragment() {
                             },
                             onSemanticCardImpression = { result, position ->
                                 requireActivity().instrument?.submitInteraction("impression",
-                                    actionSource = "search",
                                     elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                     actionContext = mapOf(
@@ -128,7 +125,6 @@ class SearchResultsFragment : Fragment() {
                             onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
-                                    actionSource = "search",
                                     elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
@@ -146,12 +142,12 @@ class SearchResultsFragment : Fragment() {
                                 LongPressMenu(view, callback = SearchResultLongPressHandler(callback(), position)).show(entry)
                             },
                             onInfoClick = {
-                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "learn_more")
+                                requireActivity().instrument?.submitInteraction("click", elementId = "learn_more")
 
                                 UriUtil.visitInExternalBrowser(requireActivity(), getString(R.string.hybrid_search_info_link).toUri())
                             },
                             onTurnOffExperimentClick = {
-                                requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "hybrid_search_opt_out")
+                                requireActivity().instrument?.submitInteraction("click", elementId = "hybrid_search_opt_out")
 
                                 Prefs.isHybridSearchEnabled = false
                                 showHybridSearch = false
@@ -165,7 +161,7 @@ class SearchResultsFragment : Fragment() {
                                 callback()?.onSearchProgressBar(enabled)
                             },
                             onRatingClick = { isPositive, title, position ->
-                                requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                requireActivity().instrument?.submitInteraction("click",
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
@@ -175,21 +171,21 @@ class SearchResultsFragment : Fragment() {
                                 )
                             },
                             onLexicalResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionSubtype = "lexical_search_error",
+                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "lexical_search_error",
                                     actionContext = mapOf("error" to getString(R.string.hybrid_lexical_search_results_empty))
                                 )
 
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_lexical_search_results_empty)
                             },
                             onSemanticResultsEmpty = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionSubtype = "semantic_search_error",
+                                requireActivity().instrument?.submitInteraction("search_error", actionSubtype = "semantic_search_error",
                                     actionContext = mapOf("error" to getString(R.string.hybrid_search_results_empty))
                                 )
 
                                 FeedbackUtil.showMessage(requireActivity(), R.string.hybrid_search_results_empty)
                             },
                             onError = {
-                                requireActivity().instrument?.submitInteraction("search_error", actionSource = "search", actionContext = mapOf("error" to it.message.orEmpty()))
+                                requireActivity().instrument?.submitInteraction("search_error", actionContext = mapOf("error" to it.message.orEmpty()))
                             }
                         )
                     } else {
@@ -199,7 +195,6 @@ class SearchResultsFragment : Fragment() {
                             onNavigateToTitle = { title, inNewTab, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
-                                    actionSource = "search",
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
                                         "position" to position + 1,
@@ -220,11 +215,10 @@ class SearchResultsFragment : Fragment() {
                             onSemanticSearchClick = { query, isSuggestion, position ->
 
                                 if (isSuggestion) {
-                                    requireActivity().instrument?.submitInteraction("click", actionSource = "search",
+                                    requireActivity().instrument?.submitInteraction("click",
                                         elementId = "semantic_search_explicit", actionContext = mapOf("query" to query))
                                 } else {
                                     requireActivity().instrument?.submitInteraction("search_result_click",
-                                        actionSource = "search",
                                         actionContext = mapOf(
                                             "position" to position + 1,
                                             "query" to query
