@@ -153,7 +153,7 @@ class RecentSearchesFragment : Fragment() {
         override fun onClick(v: View) {
             val text = (v as TextView).text.toString()
 
-            requireActivity().instrument?.submitInteraction("click", actionSource = "search", elementId = "recent_search",
+            requireActivity().instrument?.submitInteraction("click", elementId = "recent_search",
                 actionContext = mapOf("query" to text))
 
             callback?.switchToSearch(text)
