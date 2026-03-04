@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -17,6 +18,7 @@ import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.games.GamesHubActivity
+import org.wikipedia.games.WikiGames
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.settings.Prefs
@@ -74,7 +76,6 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerGamesHubContainer.setOnClickListener {
-            // TODO: handle the visibility logic here.
             requireActivity().startActivity(GamesHubActivity.newIntent(requireActivity()))
             dismiss()
         }
@@ -168,6 +169,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             binding.mainDrawerContribsContainer.visibility = View.GONE
             binding.mainDrawerEditContainer.visibility = View.GONE
         }
+        binding.mainDrawerGamesHubContainer.visibility = if (WikiGames.WHICH_CAME_FIRST.isLangCodesSupported(WikipediaApp.instance.languageState.appLanguageCodes)) View.VISIBLE else View.GONE
     }
 
     private fun callback(): Callback? {

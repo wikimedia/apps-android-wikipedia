@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.wikigames.OnThisDayCardGameState
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.util.UiState
 import java.time.LocalDate
 
@@ -25,7 +24,7 @@ class GamesHubViewModel : ViewModel() {
             _onThisDayGameUiState.value = UiState.Error(throwable)
         }) {
             _onThisDayGameUiState.value = UiState.Loading
-            if (!OnThisDayGameViewModel.isLangSupported(langCode)) {
+            if (!WikiGames.WHICH_CAME_FIRST.isLangSupported(langCode)) {
                 _onThisDayGameUiState.value = UiState.Success(emptyList())
                 return@launch
             }

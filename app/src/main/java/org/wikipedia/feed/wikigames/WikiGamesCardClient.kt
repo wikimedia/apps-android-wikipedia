@@ -9,8 +9,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.dataclient.FeedClient
+import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameProvider
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.util.log.L
 import java.time.LocalDate
 
@@ -25,7 +25,7 @@ class WikiGamesCardClient(private val coroutineScope: CoroutineScope) : FeedClie
             cb.success(emptyList())
         }) {
             val cards = mutableListOf<WikiGamesCard>()
-            val availableLanguages = FeedContentType.WIKI_GAMES.langCodesSupported.ifEmpty { OnThisDayGameViewModel.LANG_CODES_SUPPORTED }
+            val availableLanguages = FeedContentType.WIKI_GAMES.langCodesSupported.ifEmpty { WikiGames.WHICH_CAME_FIRST.supportLanguages }
                 .filter { !FeedContentType.WIKI_GAMES.langCodesDisabled.contains(it) }
                 .filter { langCode ->
                     WikipediaApp.instance.languageState.appLanguageCodes.contains(langCode)
