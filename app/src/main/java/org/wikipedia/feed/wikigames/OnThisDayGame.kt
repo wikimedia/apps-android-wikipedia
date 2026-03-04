@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -323,14 +324,13 @@ fun OnThisDayGameCardCompleted(
                 Spacer(Modifier.weight(1f))
 
                 if (!isArchiveGame) {
-                    Row(
+                    FlowRow(
                         modifier = Modifier
                             .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         FilledTonalButton(
-                            modifier = Modifier
-                                .weight(1f),
                             colors = ButtonDefaults.filledTonalButtonColors(
                                 containerColor = WikipediaTheme.colors.backgroundColor,
                                 contentColor = WikipediaTheme.colors.progressiveColor
@@ -350,8 +350,6 @@ fun OnThisDayGameCardCompleted(
                         }
 
                         TextButton(
-                            modifier = Modifier
-                                .weight(1f),
                             onClick = onPlayTheArchive
                         ) {
                             Text(
