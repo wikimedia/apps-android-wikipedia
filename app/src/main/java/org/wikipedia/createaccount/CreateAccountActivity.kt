@@ -1,17 +1,18 @@
 package org.wikipedia.createaccount
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import android.widget.EditText
 import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +23,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.CreateAccountEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
@@ -30,6 +30,8 @@ import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.captcha.HCaptchaHelper
 import org.wikipedia.databinding.ActivityCreateAccountBinding
+import org.wikipedia.extensions.getInstrumentActionContext
+import org.wikipedia.extensions.instrument
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DeviceUtil
@@ -47,18 +49,24 @@ class CreateAccountActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
-    private lateinit var createAccountEvent: CreateAccountEvent
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
     private var requestSource: String = ""
     private val viewModel: CreateAccountActivityViewModel by viewModels()
+    private val textEnteredEventSent = mutableMapOf<View, Boolean>()
 
     private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
+        override fun onShow() {
+            instrument?.submitInteraction("hcaptcha-render")
+        }
+
         override fun onSuccess(token: String) {
+            instrument?.submitInteraction("hcaptcha-success")
             doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
         }
 
-        override fun onError(e: Exception) {
+        override fun onError(e: Exception, code: Int) {
+            instrument?.submitInteraction("hcaptcha-error", actionContext = e.getInstrumentActionContext())
             showProgressBar(false)
             FeedbackUtil.showMessage(this@CreateAccountActivity, e.message.orEmpty())
         }
@@ -73,18 +81,29 @@ class CreateAccountActivity : BaseActivity() {
         _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
             .startFunnel("create_account")
 
-        captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.createAccountPrimaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button))
+        captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.createAccountPrimaryContainer,
+            getString(R.string.create_account_activity_title), getString(R.string.create_account_button),
+            instrument = instrument)
         // Don't allow user to submit registration unless they've put in a username and password
         NonEmptyValidator(binding.createAccountSubmitButton, binding.createAccountUsername, binding.createAccountPasswordInput)
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
         requestSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
-        createAccountEvent = CreateAccountEvent(requestSource)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+            .setDefaultActionSource("create_account_form")
+            .startFunnel("create_account")
+
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            createAccountEvent.logStart()
+            instrument?.submitInteraction("impression", actionContext = mapOf("invoke_source" to requestSource))
         }
+
+        addFirstKeystrokeInstrumentation(binding.createAccountUsername.editText, "username")
+        addFirstKeystrokeInstrumentation(binding.createAccountPasswordInput.editText, "password")
+        addFirstKeystrokeInstrumentation(binding.createAccountPasswordRepeat.editText, "confirm_password")
+        addFirstKeystrokeInstrumentation(binding.createAccountEmail.editText, "email")
 
         if (AccountUtil.isTemporaryAccount) {
             binding.footerContainer.tempAccountInfoContainer.isVisible = true
@@ -95,6 +114,7 @@ class CreateAccountActivity : BaseActivity() {
         binding.footerContainer.hCaptchaDisclaimer.isVisible = false
 
         onBackPressedDispatcher.addCallback(this) {
+            instrument?.submitInteraction("click", elementId = "back")
             if (captchaHandler.isActive) {
                 captchaHandler.cancelCaptcha()
                 showProgressBar(false)
@@ -152,11 +172,7 @@ class CreateAccountActivity : BaseActivity() {
                                 finishWithUserResult(it.userName)
                             }
                             is CreateAccountActivityViewModel.CreateAccountState.Error -> {
-                                if (it.throwable is CreateAccountException) {
-                                    createAccountEvent.logError(it.throwable.message)
-                                }
                                 L.e(it.throwable.toString())
-                                createAccountEvent.logError(it.throwable.toString())
                                 showProgressBar(false)
                                 showError(it.throwable)
                             }
@@ -171,9 +187,11 @@ class CreateAccountActivity : BaseActivity() {
                                 binding.createAccountUsername.isErrorEnabled = false
                             }
                             is CreateAccountActivityViewModel.UserNameState.Blocked -> {
+                                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "blocked"))
                                 handleAccountCreationError(it.error)
                             }
                             is CreateAccountActivityViewModel.UserNameState.CannotCreate -> {
+                                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "username_exists"))
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, it.userName)
                             }
                         }
@@ -185,20 +203,27 @@ class CreateAccountActivity : BaseActivity() {
 
     private fun setClickListeners() {
         binding.viewCreateAccountError.backClickListener = View.OnClickListener {
+            instrument?.submitInteraction("click", elementId = "error_back_button")
             binding.viewCreateAccountError.visibility = View.GONE
             captchaHandler.requestNewCaptcha()
         }
-        binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
+        binding.viewCreateAccountError.retryClickListener = View.OnClickListener {
+            instrument?.submitInteraction("click", elementId = "error_retry_button")
+            binding.viewCreateAccountError.visibility = View.GONE
+        }
         binding.createAccountSubmitButton.setOnClickListener {
+            instrument?.submitInteraction("click", elementId = "create_account")
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
                 YearInReviewEvent.submit(action = "create_account_click", slide = "explore_prompt")
             }
             validateThenCreateAccount()
         }
         binding.captchaContainer.captchaSubmitButton.setOnClickListener {
+            instrument?.submitInteraction("click", elementId = "captcha_submit")
             validateThenCreateAccount()
         }
         binding.createAccountLoginButton.setOnClickListener {
+            instrument?.submitInteraction("click", elementId = "login")
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
                 YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
             }
@@ -209,15 +234,18 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
+            instrument?.submitInteraction("click", elementId = "privacy_policy")
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
+            instrument?.submitInteraction("click", elementId = "forgot_password")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
             visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
             if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_ENTER) {
+                instrument?.submitInteraction("click", elementId = "captcha_submit")
                 validateThenCreateAccount()
                 return@setOnKeyListener true
             }
@@ -227,6 +255,17 @@ class CreateAccountActivity : BaseActivity() {
             viewModel.verifyUserName(text)
         }
         binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+    }
+
+    private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
+        view?.let { editText ->
+            editText.addTextChangedListener {
+                if (!it.isNullOrEmpty() && !(textEnteredEventSent[editText] ?: false)) {
+                    instrument?.submitInteraction("type", elementId = elementId)
+                    textEnteredEventSent[editText] = true
+                }
+            }
+        }
     }
 
     private fun handleAccountCreationError(message: String) {
@@ -284,39 +323,51 @@ class CreateAccountActivity : BaseActivity() {
                 getText(binding.createAccountPasswordRepeat), getText(binding.createAccountEmail))
         when (result) {
             ValidateResult.INVALID_USERNAME -> {
+                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "username_invalid"))
                 binding.createAccountUsername.requestFocus()
                 binding.createAccountUsername.error = getString(R.string.create_account_username_error)
                 return
             }
             ValidateResult.PASSWORD_TOO_SHORT -> {
+                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "password_too_short"))
                 binding.createAccountPasswordInput.requestFocus()
                 binding.createAccountPasswordInput.error = getString(R.string.create_account_password_error)
                 return
             }
             ValidateResult.PASSWORD_IS_USERNAME -> {
+                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "password_is_username"))
                 binding.createAccountPasswordInput.requestFocus()
                 binding.createAccountPasswordInput.error = getString(R.string.create_account_password_is_username)
                 return
             }
             ValidateResult.PASSWORD_MISMATCH -> {
+                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "password_mismatch"))
                 binding.createAccountPasswordRepeat.requestFocus()
                 binding.createAccountPasswordRepeat.error = getString(R.string.create_account_passwords_mismatch_error)
                 return
             }
             ValidateResult.INVALID_EMAIL -> {
+                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "email_invalid"))
                 binding.createAccountEmail.requestFocus()
                 binding.createAccountEmail.error = getString(R.string.create_account_email_error)
                 return
             }
-            ValidateResult.NO_EMAIL -> MaterialAlertDialogBuilder(this)
+            ValidateResult.NO_EMAIL -> {
+                instrument?.submitInteraction("impression", actionSource = "create_account_no_email_dialog")
+                MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.email_recommendation_dialog_title)
                     .setMessage(StringUtil.fromHtml(resources.getString(R.string.email_recommendation_dialog_message)))
-                    .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action
-                    ) { _: DialogInterface, _: Int -> createAccount() }
-                    .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action
-                    ) { _: DialogInterface, _: Int -> binding.createAccountEmail.requestFocus() }
+                    .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action) { _, _ ->
+                        instrument?.submitInteraction("click", actionSource = "create_account_no_email_dialog", elementId = "no_email")
+                        createAccount()
+                    }
+                    .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action) { _, _ ->
+                        instrument?.submitInteraction("click", actionSource = "create_account_no_email_dialog", elementId = "yes_email")
+                        binding.createAccountEmail.requestFocus()
+                    }
                     .show()
+            }
             ValidateResult.SUCCESS -> createAccount()
         }
     }
@@ -343,7 +394,9 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent)
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
-        createAccountEvent.logSuccess()
+
+        instrument?.submitInteraction("success")
+
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }
@@ -355,6 +408,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun showError(caught: Throwable) {
+        instrument?.submitInteraction("error", actionContext = caught.getInstrumentActionContext())
         binding.viewCreateAccountError.setError(caught)
         binding.viewCreateAccountError.visibility = View.VISIBLE
     }

@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
@@ -26,6 +27,7 @@ import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.databinding.ActivityLoginBinding
 import org.wikipedia.events.LoggedInEvent
+import org.wikipedia.extensions.getInstrumentActionContext
 import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.notifications.PollNotificationWorker
@@ -88,10 +90,16 @@ class LoginActivity : BaseActivity() {
 
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root,
             binding.loginPrimaryContainer, getString(R.string.login_activity_title),
-            submitButtonText = null, isModal = false)
+            submitButtonText = null, isModal = false, instrument = instrument)
 
-        binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressedDispatcher.onBackPressed() }
-        binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
+        binding.viewLoginError.backClickListener = View.OnClickListener {
+            instrument?.submitInteraction("click", elementId = "error_back_button")
+            onBackPressedDispatcher.onBackPressed()
+        }
+        binding.viewLoginError.retryClickListener = View.OnClickListener {
+            instrument?.submitInteraction("click", elementId = "error_retry_button")
+            binding.viewLoginError.visibility = View.GONE
+        }
 
         // Don't allow user to attempt login until they've put in a username and password
         NonEmptyValidator(binding.loginButton, binding.loginUsernameText, binding.loginPasswordInput, binding.login2faText)
@@ -102,24 +110,10 @@ class LoginActivity : BaseActivity() {
             }
             false
         }
-        binding.loginUsernameText.editText?.addTextChangedListener {
-            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.loginUsernameText] ?: false)) {
-                instrument?.submitInteraction("type", elementId = "username")
-                textEnteredEventSent[binding.loginUsernameText] = true
-            }
-        }
-        binding.loginPasswordInput.editText?.addTextChangedListener {
-            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.loginPasswordInput] ?: false)) {
-                instrument?.submitInteraction("type", elementId = "password")
-                textEnteredEventSent[binding.loginPasswordInput] = true
-            }
-        }
-        binding.login2faText.editText?.addTextChangedListener {
-            if (!it.isNullOrEmpty() && !(textEnteredEventSent[binding.login2faText] ?: false)) {
-                instrument?.submitInteraction("type", elementId = "2fa")
-                textEnteredEventSent[binding.login2faText] = true
-            }
-        }
+
+        addFirstKeystrokeInstrumentation(binding.loginUsernameText.editText, "username")
+        addFirstKeystrokeInstrumentation(binding.loginPasswordInput.editText, "username")
+        addFirstKeystrokeInstrumentation(binding.login2faText.editText, "2fa")
 
         loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
         if (loginSource.isNotEmpty() && loginSource == SOURCE_SUGGESTED_EDITS) {
@@ -179,6 +173,17 @@ class LoginActivity : BaseActivity() {
         }
     }
 
+    private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
+        view?.let { editText ->
+            editText.addTextChangedListener {
+                if (!it.isNullOrEmpty() && !(textEnteredEventSent[editText] ?: false)) {
+                    instrument?.submitInteraction("type", elementId = elementId)
+                    textEnteredEventSent[editText] = true
+                }
+            }
+        }
+    }
+
     private fun getText(input: TextInputLayout): String {
         return input.editText?.text?.toString().orEmpty()
     }
@@ -201,11 +206,13 @@ class LoginActivity : BaseActivity() {
     private fun validateThenLogin() {
         clearErrors()
         if (!CreateAccountActivity.USERNAME_PATTERN.matcher(getText(binding.loginUsernameText)).matches()) {
+            instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "username_invalid"))
             binding.loginUsernameText.requestFocus()
             binding.loginUsernameText.error = getString(R.string.create_account_username_error)
             return
         }
         if (captchaHandler.isActive && captchaHandler.captchaWord().isNullOrEmpty()) {
+            instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "captcha_empty"))
             captchaHandler.setErrorText(getString(R.string.edit_section_captcha_hint))
             captchaHandler.setFocus()
             return
@@ -267,6 +274,7 @@ class LoginActivity : BaseActivity() {
                 updateAccount(response, result)
                 onLoginSuccess()
             } else if (result.fail()) {
+                instrument?.submitInteraction("error", actionContext = mapOf("code" to result.messageCode.orEmpty()))
                 val message = result.message.orEmpty()
                 FeedbackUtil.showMessage(this@LoginActivity, message)
                 L.w("Login failed with result $message")
@@ -284,7 +292,7 @@ class LoginActivity : BaseActivity() {
                 captchaHandler.handleCaptcha(token, captchaResult!!)
             }
             if (result is LoginEmailAuthResult || result is LoginOATHResult) {
-                instrument?.submitInteraction("click", elementId = "create_account")
+                instrument?.submitInteraction("impression", elementId = if (result is LoginOATHResult) "2fa_oath" else "2fa_email")
                 uiPromptResult = result
                 binding.login2faText.hint =
                     getString(if (result is LoginEmailAuthResult) R.string.login_email_auth_hint else R.string.login_2fa_hint)
@@ -305,10 +313,8 @@ class LoginActivity : BaseActivity() {
             resetAuthState()
             DeviceUtil.hideSoftKeyboard(this@LoginActivity)
             if (caught is LoginFailedException) {
-                instrument?.submitInteraction("error", actionSubtype = "login_failed", actionContext = mapOf("message" to caught.message.orEmpty()))
                 FeedbackUtil.showError(this@LoginActivity, caught)
             } else {
-                instrument?.submitInteraction("error", actionSubtype = "generic", actionContext = mapOf("message" to caught.message.orEmpty()))
                 showError(caught)
             }
         }
@@ -321,6 +327,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun showError(caught: Throwable) {
+        instrument?.submitInteraction("error", actionContext = caught.getInstrumentActionContext())
         binding.viewLoginError.setError(caught)
         binding.viewLoginError.visibility = View.VISIBLE
     }

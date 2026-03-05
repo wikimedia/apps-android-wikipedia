@@ -16,8 +16,9 @@ class HCaptchaHelper(
     private val callback: Callback
 ) {
     interface Callback {
+        fun onShow()
         fun onSuccess(token: String)
-        fun onError(e: Exception)
+        fun onError(e: Exception, code: Int)
     }
 
     private var hCaptcha: HCaptcha? = null
@@ -58,7 +59,7 @@ class HCaptchaHelper(
                 callback.onSuccess(response.tokenResult)
             }?.addOnFailureListener { e ->
                 L.e("hCaptcha failed: ${e.message} (${e.statusCode})")
-                callback.onError(e)
+                callback.onError(e, e.statusCode)
             }?.addOnOpenListener {
                 L.d("hCaptcha opened")
             }

@@ -82,7 +82,7 @@ class CreateAccountActivityViewModel : ViewModel() {
             if ("PASS" == response.status) {
                 _doCreateAccountState.value = CreateAccountState.Pass(response.user)
             } else {
-                throw CreateAccountException(StringUtil.removeStyleTags(response.message))
+                throw CreateAccountException(StringUtil.removeStyleTags(response.message), response.messageCode)
             }
         }
     }
