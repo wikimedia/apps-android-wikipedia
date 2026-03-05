@@ -72,7 +72,6 @@ import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -87,7 +86,7 @@ class GamesHubFragment : Fragment() {
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
     private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first {
-        OnThisDayGameViewModel.isLangSupported(it)
+        WikiGames.WHICH_CAME_FIRST.isLangSupported(it)
     }
     private val menuProvider = object : MenuProvider {
 
@@ -366,7 +365,7 @@ class GamesHubFragment : Fragment() {
         onSelected: () -> Unit,
     ) {
         val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
-        val isEnabled = OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
+        val isEnabled = WikiGames.WHICH_CAME_FIRST.isLangSupported(langCode) // TODO: Add check for other games when they are added
         val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
         val snackbarMessage = stringResource(
             R.string.games_hub_activity_games_unavailable_message,
@@ -426,7 +425,7 @@ class GamesHubFragment : Fragment() {
         gamesData: List<OnThisDayCardGameState>,
         onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit
     ) {
-        if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
+        if (WikiGames.WHICH_CAME_FIRST.isLangSupported(selectedLanguage)) {
             Text(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 text = requireContext().getString(selectedLanguage, WikiGames.entries[position].titleRes),
