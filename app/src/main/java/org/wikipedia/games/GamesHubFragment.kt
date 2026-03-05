@@ -85,7 +85,9 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
-    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCode
+    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first {
+        OnThisDayGameViewModel.isLangSupported(it)
+    }
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -147,7 +149,6 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // TODO: maybe skip loading the events from APIs and just reloads the game states?
         viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
@@ -256,36 +257,7 @@ class GamesHubFragment : Fragment() {
                                 WikiGames.WHICH_CAME_FIRST -> {
                                     when (onThisDayGameUiState) {
                                         is UiState.Loading -> {
-                                            Column {
-                                                Box(
-                                                    modifier = Modifier
-                                                        .fillMaxWidth()
-                                                        .padding(
-                                                            horizontal = 16.dp,
-                                                            vertical = 8.dp
-                                                        )
-                                                        .height(48.dp)
-                                                        .clip(RoundedCornerShape(4.dp))
-                                                        .shimmerEffect(
-                                                            heightMultiplier = 0f,
-                                                            transition = transition
-                                                        )
-                                                )
-                                                Box(
-                                                    modifier = Modifier
-                                                        .fillMaxWidth()
-                                                        .padding(
-                                                            horizontal = 16.dp,
-                                                            vertical = 16.dp
-                                                        )
-                                                        .height(350.dp)
-                                                        .clip(RoundedCornerShape(4.dp))
-                                                        .shimmerEffect(
-                                                            heightMultiplier = 0f,
-                                                            transition = transition
-                                                        )
-                                                )
-                                            }
+                                            GamesHubLoadingShimmer(transition = transition)
                                         }
 
                                         is UiState.Error -> {
@@ -347,6 +319,42 @@ class GamesHubFragment : Fragment() {
                     }
                 }
             }
+        }
+    }
+
+    @Composable
+    fun GamesHubLoadingShimmer(
+        transition: InfiniteTransition
+    ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 8.dp
+                    )
+                    .height(48.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .shimmerEffect(
+                        heightMultiplier = 0f,
+                        transition = transition
+                    )
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 16.dp
+                    )
+                    .height(350.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .shimmerEffect(
+                        heightMultiplier = 0f,
+                        transition = transition
+                    )
+            )
         }
     }
 
@@ -440,10 +448,15 @@ class GamesHubFragment : Fragment() {
                     when (cardIndex) {
                         in 0..3 -> {
                             val gameState = gamesData.getOrNull(cardIndex) ?: return@items
+                            val isArchiveGame = cardIndex != 0
                             OnThisDayGameCardContent(
+                                modifier = Modifier
+                                    .width(if (!isArchiveGame) 320.dp else 170.dp)
+                                    .height(350.dp)
+                                    .padding(vertical = 8.dp),
                                 game = WikiGame.OnThisDayGame(gameState),
                                 dateTitle = dateTitle,
-                                isArchiveGame = cardIndex != 0,
+                                isArchiveGame = isArchiveGame,
                                 onThisDayGameAction = {
                                     onThisDayGameAction(it, gameDate)
                                 }
@@ -471,6 +484,7 @@ class GamesHubFragment : Fragment() {
 
     @Composable
     fun OnThisDayGameCardContent(
+        modifier: Modifier,
         game: WikiGame.OnThisDayGame,
         dateTitle: String,
         isArchiveGame: Boolean,
@@ -484,10 +498,7 @@ class GamesHubFragment : Fragment() {
                 is OnThisDayCardGameState.Preview -> {
                     if (!isArchiveGame) {
                         OnThisDayGameCardPreview(
-                            modifier = Modifier
-                                .width(320.dp)
-                                .height(350.dp)
-                                .padding(vertical = 8.dp),
+                            modifier = modifier,
                             state = game.state,
                             titleText = dateTitle,
                             onPlayClick = {
@@ -496,10 +507,7 @@ class GamesHubFragment : Fragment() {
                         )
                     } else {
                         OnThisDayGameCardSimple(
-                            modifier = Modifier
-                                .width(170.dp)
-                                .height(350.dp)
-                                .padding(vertical = 8.dp),
+                            modifier = modifier,
                             iconRes = R.drawable.ic_events_24dp,
                             iconTint = WikipediaTheme.colors.progressiveColor,
                             titleText = dateTitle,
@@ -512,10 +520,7 @@ class GamesHubFragment : Fragment() {
 
                 is OnThisDayCardGameState.InProgress -> {
                     OnThisDayGameCardProgress(
-                        modifier = Modifier
-                            .width(if (!isArchiveGame) 320.dp else 170.dp)
-                            .height(350.dp)
-                            .padding(vertical = 8.dp),
+                        modifier = modifier,
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
@@ -527,10 +532,7 @@ class GamesHubFragment : Fragment() {
 
                 is OnThisDayCardGameState.Completed -> {
                     OnThisDayGameCardCompleted(
-                        modifier = Modifier
-                            .width(if (!isArchiveGame) 320.dp else 170.dp)
-                            .height(350.dp)
-                            .padding(vertical = 8.dp),
+                        modifier = modifier,
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,

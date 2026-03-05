@@ -98,18 +98,18 @@ class HybridSearchOnboardingActivity : BaseActivity() {
         val source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+            .setDefaultActionSource("hybrid_search_onboarding")
             .startFunnel("hybrid_search_onboarding")
             .setExperiment(TestKitchenAdapter.getExperiment(HybridSearchAbCTest()))
 
-        instrument?.submitInteraction("impression", actionSource = "hybrid_search_onboarding")
+        instrument?.submitInteraction("impression")
 
         setContent {
             BaseTheme {
                 HybridSearchOnboardingScreen(
                     langCode = WikipediaApp.instance.appOrSystemLanguageCode,
                     onGetStarted = {
-                        instrument?.submitInteraction("click", elementId = "start_button",
-                            actionSource = "hybrid_search_onboarding")
+                        instrument?.submitInteraction("click", elementId = "start_button")
 
                         val intent = SearchActivity.newIntent(
                             context = this,
@@ -127,7 +127,6 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                     },
                     onSearchQueryItemClick = { exampleQuery ->
                         instrument?.submitInteraction("click", elementId = "onboarding_query",
-                            actionSource = "hybrid_search_onboarding",
                             actionContext = mapOf("query" to exampleQuery))
 
                         startActivity(SearchActivity.newIntent(
@@ -139,8 +138,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction("click", elementId = "learn_more",
-                            actionSource = "hybrid_search_onboarding")
+                        instrument?.submitInteraction("click", elementId = "learn_more")
 
                         UriUtil.visitInExternalBrowser(this, getString(R.string.hybrid_search_info_link).toUri())
                     }
