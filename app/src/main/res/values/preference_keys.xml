@@ -213,4 +213,5 @@
     <string name="preference_key_streak">streak</string>
     <string name="preference_key_is_enrolled">isEnrolled</string>
     <string name="preference_key_has_read_today">hasReadToday</string>
+    <string name="preference_key_last_read_date">lastReadDate</string>
 </resources>

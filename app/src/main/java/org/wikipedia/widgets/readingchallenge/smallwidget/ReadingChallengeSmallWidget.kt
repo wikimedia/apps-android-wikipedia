@@ -14,7 +14,7 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
 
-    override val sizeMode: SizeMode = SizeMode.Exact
+    override val sizeMode: SizeMode = SizeMode.Single
 
     override suspend fun provideGlance(
         context: Context,

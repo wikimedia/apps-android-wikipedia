@@ -11,21 +11,25 @@ import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 
 class ReadingChallengeWidgetRepository(private val context: Context) {
-    private val START_DATE = LocalDate.of(2026, 3, 1)
+    private val START_DATE = LocalDate.of(2026, 5, 1)
     private val END_DATE = LocalDate.of(2026, 5, 31)
     private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
 
     fun observeState(): Flow<ReadingChallengeState> {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return callbackFlow {
-            fun emit() = trySend(resolveState(
-                ReadingChallengeUserData(
-                    currentDate = LocalDate.now(),
-                    isEnrolled = Prefs.isEnrolled,
-                    currentStreak = Prefs.currentStreak,
-                    hasReadToday = Prefs.hasReadToday
-                )
-            ))
+            fun emit() {
+                val currentDate = LocalDate.now()
+                recalculateStreakIfNeeded(currentDate)
+                trySend(resolveState(
+                    ReadingChallengeUserData(
+                        currentDate = currentDate,
+                        isEnrolled = Prefs.isEnrolled,
+                        currentStreak = Prefs.currentStreak,
+                        hasReadToday = Prefs.hasReadToday
+                    )
+                ))
+            }
 
             val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> emit() }
             prefs.registerOnSharedPreferenceChangeListener(listener)
@@ -77,6 +81,19 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             ReadingChallengeState.StreakOngoingReadToday(userData.currentStreak)
         } else {
             ReadingChallengeState.StreakOngoingNeedsReading(userData.currentStreak)
+        }
+    }
+
+    fun recalculateStreakIfNeeded(currentDate: LocalDate) {
+        val lastReadDateStr = Prefs.lastReadDate
+        if (lastReadDateStr.isNotEmpty()) {
+            val lastReadDate = LocalDate.parse(lastReadDateStr)
+            val daysBetween = java.time.temporal.ChronoUnit.DAYS.between(lastReadDate,
+                currentDate)
+            if (daysBetween > 1) {
+                Prefs.hasReadToday = false
+                Prefs.currentStreak = 0
+            }
         }
     }
 }
