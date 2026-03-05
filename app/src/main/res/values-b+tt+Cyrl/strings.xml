@@ -442,6 +442,7 @@
     <item quantity="one">Хисапъязма %d көннән соң эшләүдән туктыячак.</item>
     <item quantity="other">Хисапъязма %d көннән соң эшләүдән туктаячак.</item>
   </plurals>
+  <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Сез керүне башкармадыгыз.&lt;/b&gt; Үзгәртүләр ясагач, IP адресыгыз төзәтмәләрегез белән бәйләнеләчәк.</string>
   <string name="temp_account_end_session">Сеансны тәмамла</string>
   <string name="temp_account_end_session_confirm">Бу гамәлнең нәтиҗәсендә сез вакытлы хисапъязмагыздан чыгачаксыз. Дәвам итәргә телисезме?</string>
   <string name="crash_report_activity_title">Кушымта хатасы</string>
@@ -1300,11 +1301,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Биеклек</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">нкт</string>
   <string name="insert_media_insert_button">Куярга</string>
+  <string name="templates_search_hint">Калыпларны эзләү</string>
   <string name="templates_insert_button">Кертеп куй</string>
   <string name="templates_param_suggested_value">мәсәлән, %s</string>
   <string name="templates_param_optional_hint">%s (мәҗбүри түгел)</string>
   <string name="templates_param_suggested_hint">%s (киңәш ителә)</string>
   <string name="templates_learn_more_link">Күбрәк күрсәт</string>
+  <string name="templates_description_incomplete">Калыплар кулланучылар тарафыннан ясала һәм тулы тасвирланмаска мөмкин.</string>
+  <string name="templates_description_empty">\"%s\" калыбының әлегә тасвирламасы юк.</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Википедиягә керү / кушылу</string>
   <string name="main_tooltip_action_button">Башларга</string>
@@ -1428,10 +1432,10 @@
   <string name="revision_compare_two_only">Бары тик ике редакцияне генә сайларга мөмкин.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Үзгәртергә</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">даими</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week" fuzzy="true">1 атна дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month" fuzzy="true">бер ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months" fuzzy="true">3 ай дәвамында</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months" fuzzy="true">6 ай дәвамында</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 атна</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 ай</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 ай</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 ай</string>
   <string name="watchlist_expiry_dialog_title">Күзәтү исемлегендә вакыт аралыгын сайлагыз</string>
   <string name="watchlist_expiry_dialog_permanent">Даими</string>
   <string name="watchlist_expiry_dialog_one_week">1 атна</string>
@@ -1532,7 +1536,7 @@
   <string name="reading_list_share_menu_label">Уртаклашу…</string>
   <string name="reading_list_share_menu_tooltip">Бу уку өчен исемлекне башкалар белән дә уртаклашыгыз</string>
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
+  <string name="talk_templates_empty_message">Эшне башлау өчен үзегезнең хәбәрләрегезне булдырыгыз яки &lt;a href=\"#\"&gt;хәбәр мисалларын&lt;/a&gt; кулланыгыз.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Хәбәр язарга</string>
@@ -1603,6 +1607,7 @@
   <string name="patroller_tasks_filters_contribution_quality_bad_desc">Аеруча хаталы яки зарарлы төзәтмәләрне эзләүдә бик төгәл.</string>
   <string name="patroller_tasks_filters_user_intent_header">Кулланучыларның ниятләрен фаразлау</string>
   <string name="patroller_tasks_filters_user_intent_good">Мөгаен, намуслы</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Яхшы ният белән ясаган күпчелек төзәтмәләрне табуның иң төгәл ысулы.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Бәлки, намуссызлык</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Мөгаен, намуссызлык</string>
   <string name="patroller_tasks_filters_user_intent_bad">Мөгаен, намуссызлык</string>
