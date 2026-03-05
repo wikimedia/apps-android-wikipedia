@@ -150,7 +150,6 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadOnThisDayGamesPreviews(viewModel.selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
     }
