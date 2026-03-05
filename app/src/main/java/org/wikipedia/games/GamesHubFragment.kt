@@ -48,6 +48,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -74,11 +75,11 @@ import org.wikipedia.feed.wikigames.WikiGame
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
@@ -102,14 +103,22 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
-                    val intent = MainActivity.newIntent(requireContext())
-                        .apply {
-                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                            putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
-                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
-                        }
-                    startActivity(intent)
-                    requireActivity().finish()
+                    if (WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
+                        val intent = MainActivity.newIntent(requireContext())
+                            .apply {
+                                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                                putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
+                                putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
+                            }
+                        startActivity(intent)
+                        requireActivity().finish()
+                    } else {
+                        FeedbackUtil.makeSnackbar(requireView(), requireContext().getString(R.string.games_hub_activity_snackbar_label))
+                            .setAction(R.string.games_hub_activity_snackbar_cta, {
+                                startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), Constants.InvokeSource.GAMES_HUB))
+                            }).show()
+                    }
+
                     true
                 }
                 R.id.menu_learn_more -> {
@@ -146,21 +155,28 @@ class GamesHubFragment : Fragment() {
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
-        return ComposeView(requireContext()).apply {
-            setContent {
-                val transition = rememberInfiniteTransition()
-                BaseTheme {
-                    GamesHubScreen(
-                        onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
-                        transition = transition
-                    )
+        return CoordinatorLayout(requireContext()).apply {
+            addView(ComposeView(requireContext()).apply {
+                layoutParams = CoordinatorLayout.LayoutParams(
+                    CoordinatorLayout.LayoutParams.MATCH_PARENT,
+                    CoordinatorLayout.LayoutParams.MATCH_PARENT
+                )
+                setContent {
+                    val transition = rememberInfiniteTransition()
+                    BaseTheme {
+                        GamesHubScreen(
+                            onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
+                            transition = transition
+                        )
+                    }
                 }
-            }
+            })
         }
     }
 
     override fun onResume() {
         super.onResume()
+        viewModel.refreshLanguageCodes()
         viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
@@ -187,7 +203,7 @@ class GamesHubFragment : Fragment() {
         onThisDayGameUiState: UiState<List<OnThisDayCardGameState>>,
         transition: InfiniteTransition
     ) {
-        val languageList = WikipediaApp.instance.languageState.appLanguageCodes
+        val languageList by viewModel.appLanguageCodes.collectAsState()
         var selectedLanguage by remember { mutableStateOf(selectedLanguage) }
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
