@@ -9,8 +9,7 @@ import org.wikipedia.auth.AccountUtil
 
 @Suppress("unused")
 @Serializable
-sealed class MobileAppsEvent(@Transient private val _streamName: String = "") : Event(_streamName) {
-
+sealed class MobileAppsEvent(@Transient private val _streamName: String = "") : EventWithDt(_streamName) {
     @SerialName("is_anon") @Required private val anon = !AccountUtil.isLoggedIn
     @SerialName("app_session_id") @Required private val sessionId = EventPlatformClient.AssociationController.sessionId
     @SerialName("app_install_id") @Required private val appInstallId = WikipediaApp.instance.appInstallID
