@@ -1167,6 +1167,16 @@
   <plurals name="activity_tab_impact_edits_last_month">
     <item quantity="other">지난 달의 편집</item>
   </plurals>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">총 편집 횟수</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">감사</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d일</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">최고 기록</string>
   <string name="activity_tab_impact_last_edited">최근 편집</string>
   <string name="activity_tab_impact_suggested_edits_title">최근 문서 편집 수 0회</string>
   <string name="activity_tab_impact_suggested_edits_button">편집하기</string>
@@ -1179,6 +1189,8 @@
   <string name="activity_tab_timeline_today">오늘</string>
   <string name="activity_tab_timeline_yesterday">어제</string>
   <string name="activity_tab_timeline_empty_state_title">표시할 항목이 없습니다</string>
+  <string name="activity_tab_timeline_view_changes_button">차이 보기</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">읽기 패턴</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
