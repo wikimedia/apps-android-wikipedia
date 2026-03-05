@@ -90,7 +90,9 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
-    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCode
+    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first {
+        WikiGames.WHICH_CAME_FIRST.isLangSupported(it)
+    }
     private val menuProvider = object : MenuProvider {
 
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -159,7 +161,6 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // TODO: maybe skip loading the events from APIs and just reloads the game states?
         viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
@@ -268,36 +269,7 @@ class GamesHubFragment : Fragment() {
                                 WikiGames.WHICH_CAME_FIRST -> {
                                     when (onThisDayGameUiState) {
                                         is UiState.Loading -> {
-                                            Column {
-                                                Box(
-                                                    modifier = Modifier
-                                                        .fillMaxWidth()
-                                                        .padding(
-                                                            horizontal = 16.dp,
-                                                            vertical = 8.dp
-                                                        )
-                                                        .height(48.dp)
-                                                        .clip(RoundedCornerShape(4.dp))
-                                                        .shimmerEffect(
-                                                            heightMultiplier = 0f,
-                                                            transition = transition
-                                                        )
-                                                )
-                                                Box(
-                                                    modifier = Modifier
-                                                        .fillMaxWidth()
-                                                        .padding(
-                                                            horizontal = 16.dp,
-                                                            vertical = 16.dp
-                                                        )
-                                                        .height(350.dp)
-                                                        .clip(RoundedCornerShape(4.dp))
-                                                        .shimmerEffect(
-                                                            heightMultiplier = 0f,
-                                                            transition = transition
-                                                        )
-                                                )
-                                            }
+                                            GamesHubLoadingShimmer(transition = transition)
                                         }
 
                                         is UiState.Error -> {
@@ -363,19 +335,50 @@ class GamesHubFragment : Fragment() {
     }
 
     @Composable
+    fun GamesHubLoadingShimmer(
+        transition: InfiniteTransition
+    ) {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 8.dp
+                    )
+                    .height(48.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .shimmerEffect(
+                        heightMultiplier = 0f,
+                        transition = transition
+                    )
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = 16.dp,
+                        vertical = 16.dp
+                    )
+                    .height(350.dp)
+                    .clip(RoundedCornerShape(4.dp))
+                    .shimmerEffect(
+                        heightMultiplier = 0f,
+                        transition = transition
+                    )
+            )
+        }
+    }
+
+    @Composable
     fun GamesHubLanguageChip(
         isSelected: Boolean,
         langCode: String,
         onSelected: () -> Unit,
     ) {
-        val langText =
-            WikipediaApp.instance.languageState.getAppLanguageLocalizedName(
-                langCode
-            ) ?: langCode
-        val isEnabled =
-            OnThisDayGameViewModel.isLangSupported(langCode) // TODO: Add check for other games when they are added
-        val textColor =
-            if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
+        val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
+        val isEnabled = WikiGames.WHICH_CAME_FIRST.isLangSupported(langCode) // TODO: Add check for other games when they are added
+        val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
         val snackbarMessage = stringResource(
             R.string.games_hub_activity_games_unavailable_message,
             langText
@@ -434,7 +437,7 @@ class GamesHubFragment : Fragment() {
         gamesData: List<OnThisDayCardGameState>,
         onThisDayGameAction: (OnThisDayGameAction, LocalDate) -> Unit
     ) {
-        if (OnThisDayGameViewModel.isLangSupported(selectedLanguage)) {
+        if (WikiGames.WHICH_CAME_FIRST.isLangSupported(selectedLanguage)) {
             Text(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 text = requireContext().getString(selectedLanguage, WikiGames.entries[position].titleRes),
@@ -457,10 +460,15 @@ class GamesHubFragment : Fragment() {
                     when (cardIndex) {
                         in 0..3 -> {
                             val gameState = gamesData.getOrNull(cardIndex) ?: return@items
+                            val isArchiveGame = cardIndex != 0
                             OnThisDayGameCardContent(
+                                modifier = Modifier
+                                    .width(if (!isArchiveGame) 320.dp else 170.dp)
+                                    .height(350.dp)
+                                    .padding(vertical = 8.dp),
                                 game = WikiGame.OnThisDayGame(gameState),
                                 dateTitle = dateTitle,
-                                isArchiveGame = cardIndex != 0,
+                                isArchiveGame = isArchiveGame,
                                 onThisDayGameAction = {
                                     onThisDayGameAction(it, gameDate)
                                 }
@@ -488,6 +496,7 @@ class GamesHubFragment : Fragment() {
 
     @Composable
     fun OnThisDayGameCardContent(
+        modifier: Modifier,
         game: WikiGame.OnThisDayGame,
         dateTitle: String,
         isArchiveGame: Boolean,
@@ -501,10 +510,7 @@ class GamesHubFragment : Fragment() {
                 is OnThisDayCardGameState.Preview -> {
                     if (!isArchiveGame) {
                         OnThisDayGameCardPreview(
-                            modifier = Modifier
-                                .width(320.dp)
-                                .height(350.dp)
-                                .padding(vertical = 8.dp),
+                            modifier = modifier,
                             state = game.state,
                             titleText = dateTitle,
                             onPlayClick = {
@@ -513,10 +519,7 @@ class GamesHubFragment : Fragment() {
                         )
                     } else {
                         OnThisDayGameCardSimple(
-                            modifier = Modifier
-                                .width(170.dp)
-                                .height(350.dp)
-                                .padding(vertical = 8.dp),
+                            modifier = modifier,
                             iconRes = R.drawable.ic_events_24dp,
                             iconTint = WikipediaTheme.colors.progressiveColor,
                             titleText = dateTitle,
@@ -529,10 +532,7 @@ class GamesHubFragment : Fragment() {
 
                 is OnThisDayCardGameState.InProgress -> {
                     OnThisDayGameCardProgress(
-                        modifier = Modifier
-                            .width(if (!isArchiveGame) 320.dp else 170.dp)
-                            .height(350.dp)
-                            .padding(vertical = 8.dp),
+                        modifier = modifier,
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,
@@ -544,10 +544,7 @@ class GamesHubFragment : Fragment() {
 
                 is OnThisDayCardGameState.Completed -> {
                     OnThisDayGameCardCompleted(
-                        modifier = Modifier
-                            .width(if (!isArchiveGame) 320.dp else 170.dp)
-                            .height(350.dp)
-                            .padding(vertical = 8.dp),
+                        modifier = modifier,
                         isArchiveGame = isArchiveGame,
                         state = game.state,
                         titleText = dateTitle,

@@ -1,9 +1,20 @@
 package org.wikipedia.games
 
 import org.wikipedia.R
+import org.wikipedia.language.LanguageUtil
 
-enum class WikiGames(val titleRes: Int) {
-    WHICH_CAME_FIRST(R.string.on_this_day_game_title)
+enum class WikiGames(
+    val titleRes: Int,
+    val supportLanguages: List<String> = emptyList()
+) {
+    WHICH_CAME_FIRST(
+        R.string.on_this_day_game_title,
+        LanguageUtil.getSupportedLanguageCodes(listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh"))
+    );
+
+    fun isLangSupported(vararg langCodes: String): Boolean {
+        return langCodes.any { supportLanguages.contains(it) }
+    }
 }
 
 enum class PlayTypes {

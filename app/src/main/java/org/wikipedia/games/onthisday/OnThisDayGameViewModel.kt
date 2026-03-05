@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
@@ -419,14 +418,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     companion object {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
-
-        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh").flatMap { langCode ->
-            WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
-        }
-
-        fun isLangSupported(lang: String): Boolean {
-            return LANG_CODES_SUPPORTED.contains(lang)
-        }
 
         fun dateReleasedForLang(lang: String): LocalDate {
             return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)

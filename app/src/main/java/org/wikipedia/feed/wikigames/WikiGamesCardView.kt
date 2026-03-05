@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -114,6 +115,7 @@ fun WikiGamesCardContent(
                             OnThisDayGameCardPreview(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
@@ -124,6 +126,7 @@ fun WikiGamesCardContent(
                             OnThisDayGameCardProgress(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
@@ -134,6 +137,7 @@ fun WikiGamesCardContent(
                             OnThisDayGameCardCompleted(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
