@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.BorderStroke
@@ -85,8 +86,8 @@ class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
     private val viewModel: GamesHubViewModel by viewModels()
-    private var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first {
-        WikiGames.WHICH_CAME_FIRST.isLangSupported(it)
+    private val launchOnThisDayGameActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        viewModel.loadOnThisDayGamesPreviews(viewModel.selectedLanguage)
     }
     private val menuProvider = object : MenuProvider {
 
@@ -149,7 +150,7 @@ class GamesHubFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
+        viewModel.loadOnThisDayGamesPreviews(viewModel.selectedLanguage)
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         requireActivity().invalidateOptionsMenu()
     }
@@ -176,7 +177,7 @@ class GamesHubFragment : Fragment() {
         transition: InfiniteTransition
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
-        var selectedLanguage by remember { mutableStateOf(selectedLanguage) }
+        var selectedLanguage by remember { mutableStateOf(viewModel.selectedLanguage) }
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
 
@@ -230,14 +231,17 @@ class GamesHubFragment : Fragment() {
                                 langCode = langCode,
                                 onSelected = {
                                     selectedLanguage = langCode
-                                    this@GamesHubFragment.selectedLanguage = langCode
+                                    this@GamesHubFragment.viewModel.selectedLanguage = langCode
                                     viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
                                     onThisDayGameArchiveCalendarHelper.unRegister()
                                     onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
                                         fragment = this@GamesHubFragment,
                                         languageCode = selectedLanguage,
                                         onDateSelected = { date ->
-                                            startActivity(OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB, WikiSite.forLanguageCode(selectedLanguage), date))
+                                            launchOnThisDayGameActivity.launch(
+                                                OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB,
+                                                    WikiSite.forLanguageCode(selectedLanguage), date)
+                                            )
                                         }
                                     ).also {
                                         it.register()
@@ -297,7 +301,7 @@ class GamesHubFragment : Fragment() {
                                                             viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
                                                         }
                                                         else -> {
-                                                            startActivity(
+                                                            launchOnThisDayGameActivity.launch(
                                                                 OnThisDayGameActivity.newIntent(
                                                                     context = requireActivity(),
                                                                     invokeSource = InvokeSource.FEED,
