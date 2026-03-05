@@ -181,11 +181,19 @@ class GamesHubFragment : Fragment() {
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
 
-        var onThisDayGameArchiveCalendarHelper by remember { mutableStateOf(OnThisDayGameArchiveCalendarHelper(
+        var onThisDayGameArchiveCalendarHelper by remember { mutableStateOf(
+            OnThisDayGameArchiveCalendarHelper(
                 fragment = this@GamesHubFragment,
                 languageCode = selectedLanguage,
-                onDateSelected = { }
-            ))
+                onDateSelected = { date ->
+                    launchOnThisDayGameActivity.launch(
+                        OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB,
+                            WikiSite.forLanguageCode(selectedLanguage), date)
+                    )
+                }
+            ).also {
+                it.register()
+            })
         }
 
         Scaffold(
@@ -233,19 +241,7 @@ class GamesHubFragment : Fragment() {
                                     selectedLanguage = langCode
                                     this@GamesHubFragment.viewModel.selectedLanguage = langCode
                                     viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
-                                    onThisDayGameArchiveCalendarHelper.unRegister()
-                                    onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
-                                        fragment = this@GamesHubFragment,
-                                        languageCode = selectedLanguage,
-                                        onDateSelected = { date ->
-                                            launchOnThisDayGameActivity.launch(
-                                                OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB,
-                                                    WikiSite.forLanguageCode(selectedLanguage), date)
-                                            )
-                                        }
-                                    ).also {
-                                        it.register()
-                                    }
+                                    onThisDayGameArchiveCalendarHelper.updateLanguageCode(selectedLanguage)
                                 }
                             )
                         }
