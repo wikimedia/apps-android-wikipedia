@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
+import org.wikipedia.analytics.eventplatform.ClientErrorEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -202,13 +203,9 @@ class WikipediaApp : Application() {
         }
     }
 
-    fun putCrashReportProperty(key: String?, value: String?) {
-        // TODO: add custom properties to crash report
-    }
-
-    fun logCrashManually(throwable: Throwable) {
+    fun logError(throwable: Throwable) {
         L.e(throwable)
-        // TODO: send exception to custom crash reporting system
+        ClientErrorEvent().logError(throwable)
     }
 
     fun commitTabState() {
