@@ -1,6 +1,5 @@
 package org.wikipedia.analytics.eventplatform
 
-import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
@@ -12,5 +11,5 @@ sealed class Event(@Transient val stream: String = "") {
     private val meta = Meta(stream)
 
     @Serializable
-    private class Meta(@Required val stream: String)
+    private class Meta(val stream: String)
 }
