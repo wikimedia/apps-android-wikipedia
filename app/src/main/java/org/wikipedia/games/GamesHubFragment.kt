@@ -60,7 +60,7 @@ class GamesHubFragment : Fragment() {
                             putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
                             if (!WikipediaApp.instance.languageState.appLanguageCode.equals(viewModel.selectedLanguage, true) ||
                                 !WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
-                                putExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE, getString(R.string.games_hub_activity_snackbar_label))
+                                putExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE, getString(R.string.activity_tab_snackbar_label))
                             }
                         }
                     startActivity(intent)

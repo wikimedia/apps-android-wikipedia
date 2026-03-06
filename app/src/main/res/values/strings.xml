@@ -1278,6 +1278,7 @@
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
     <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
     <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+    <string name="activity_tab_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- /Suggested edits -->
 
@@ -1899,7 +1900,6 @@
     <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
     <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
     <string name="games_hub_activity_overflow_learn_more">Learn more</string>
-    <string name="games_hub_activity_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>
