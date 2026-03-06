@@ -213,7 +213,7 @@ class CreateAccountActivity : BaseActivity() {
             binding.viewCreateAccountError.visibility = View.GONE
         }
         binding.createAccountSubmitButton.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "create_account")
+            instrument?.submitInteraction("click", elementId = "create_account_button")
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
                 YearInReviewEvent.submit(action = "create_account_click", slide = "explore_prompt")
             }

@@ -155,7 +155,7 @@ class LoginActivity : BaseActivity() {
 
     private fun setAllViewsClickListener() {
         binding.loginButton.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "login")
+            instrument?.submitInteraction("click", elementId = "login_button")
             validateThenLogin()
         }
         binding.loginCreateAccountButton.setOnClickListener {
