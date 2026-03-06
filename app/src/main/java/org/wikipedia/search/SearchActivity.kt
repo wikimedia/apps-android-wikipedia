@@ -19,7 +19,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
 
-            instrument?.submitInteraction("click", actionSource = "search", elementId = "search_back")
+            instrument?.submitInteraction("click", elementId = "search_back")
 
             isEnabled = false
             onBackPressedDispatcher.onBackPressed()
@@ -38,6 +38,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
+            .setDefaultActionSource("search")
             .startFunnel("search")
             .setExperiment(TestKitchenAdapter.getExperiment(HybridSearchAbCTest()))
     }

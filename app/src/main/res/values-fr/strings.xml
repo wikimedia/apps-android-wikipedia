@@ -250,7 +250,7 @@
   <string name="logged_out_in_background_cancel">Annuler</string>
   <string name="account_vanish_request_title">Faire disparaître le compte</string>
   <string name="account_vanish_request_confirm_title">Avertissement de disparition du compte</string>
-  <string name="account_vanish_request_confirm">La disparition est une &lt;b&gt;mesure de dernier recours&lt;/b&gt; et ne doit être utilisée &lt;b&gt;que si vous souhaitez cesser définitivement toute contribution&lt;/b&gt;, ainsi que masquer autant que possible vos liens passés avec le projet.&lt;br/&gt;&lt;br/&gt;\nLa suppression d’un compte sur Wikipédia s’effectue en modifiant le nom du compte, afin que les autres ne puissent plus reconnaître vos contributions — un processus appelé « disparition de compte ». &lt;b&gt;Ce processus ne garantit ni l’anonymat complet ni la suppression de vos contributions aux projets.&lt;/b&gt;</string>
+  <string name="account_vanish_request_confirm">La disparition de compte est une &lt;b&gt;mesure de dernier recours&lt;/b&gt; et ne doit être utilisée &lt;b&gt;que si vous souhaitez cesser définitivement toute contribution&lt;/b&gt;, ainsi que masquer autant que possible vos liens antérieurs avec le projet.&lt;br/&gt;&lt;br/&gt;\nLa suppression d’un compte sur Wikipédia s’effectue en modifiant le nom du compte, afin que les autres ne puissent plus reconnaître vos contributions — un processus appelé « disparition de compte ». &lt;b&gt;Ce processus ne garantit pas l’anonymat complet et n’efface pas vos contributions aux projets.&lt;/b&gt;</string>
   <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Retrace ce que vous avez lu ici.</string>
   <string name="history_offline_articles_toast">Certains articles de l’historique peuvent ne pas être consultables en mode déconnecté.</string>
@@ -316,6 +316,7 @@
   <string name="about_description">À propos de l’application Wikipédia</string>
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
+  <string name="legal_safety_contacts_description">Contacts juridiques &amp; sécurité</string>
   <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
@@ -510,7 +511,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Personnaliser votre barre d’outils</string>
   <string name="error_blocked_footer_no_blocker">Vous pouvez contacter un &lt;a href=\"https://fr.wikipedia.org/wiki/Wikipédia:Administrateur\"&gt;administrateur&lt;/a&gt; pour discuter du blocage.</string>
   <string name="temp_account_not_logged_in">Vous n’êtes pas connecté(e)</string>
-  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuerez des modifications, votre adresse IP sera associée à celles-ci.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour accéder à d’autres fonctionnalités.</string>
+  <string name="temp_account_anon_ip_dialog_body">Quand vous effectuez des modifications, votre adresse IP est associée à celles-ci.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre nom d’utilisateur et pour accéder à d’autres fonctionnalités.</string>
   <string name="temp_account_anon_dialog_body">Une fois votre modification effectuée, un &lt;b&gt;compte temporaire&lt;/b&gt; sera créé pour protéger votre vie privée. &lt;a href=\"%1$s\"&gt;En savoir plus&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;\n&lt;a href=\"https://#login\"&gt;Connectez-vous&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt; pour que vos futures contributions soient attribuées à votre pseudo et pour bénéficier d’autres fonctionnalités.</string>
   <string name="temp_account_temp_dialog_body">Votre modification sera attribuée à %1$s. Votre adresse IP sera visible aux administrateurs.&lt;br /&gt;&lt;br /&gt;\nSi vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt; ou &lt;a href=\"https://#createaccount\"&gt;créez un compte&lt;/a&gt;, vos contributions seront attribuées au nom que vous aurez choisi, parmi d’autres avantages.</string>
   <string name="temp_account_dialog_ok">Compris !</string>
@@ -1954,7 +1955,7 @@
   <string name="year_in_review_globe_icon">Icône de globe</string>
   <string name="settings_app_icon_title">Icône de l’appli</string>
   <string name="settings_app_icon_subtitle">Privilège des contributeurs</string>
-  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos contributions %d à Wikipédia via l\'application. Elle restera affichée jusqu\'au prochain bilan annuel.</string>
+  <string name="settings_app_icon_preference_subtitle">Vous avez accès à une icône personnalisée qui met en valeur vos contributions à Wikipédia en %d via l’application. Elle restera affichée jusqu’au prochain bilan annuel.</string>
   <string name="settings_app_icon_updated">L’icône de votre appli a été mise à jour.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Nouvelle icône d’appli débloquée pour votre écran d’accueil</string>
   <string name="year_in_review_slide_app_icon_title_unlock">Débloquez votre récompense pour vos contributions !</string>
@@ -2298,16 +2299,17 @@
   <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics" fuzzy="true">Premiers Jeux Olympiques</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">premiers Jeux olympiques</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
   <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
   <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
-  <string name="hybrid_search_results_rate_label" fuzzy="true">Évaluez ces résultats</string>
+  <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
   <string name="hybrid_search_results_rated_label">Évalué</string>
   <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
   <string name="hybrid_search_results_rate_thumb_down">Rate des pouces vers le bas</string>
+  <string name="hybrid_lexical_search_results_empty">Aucun titre d\'article ne correspond à cette requête.</string>
   <string name="hybrid_search_results_empty">La recherche avancée est temporairement indisponible.</string>
   <string name="hybrid_search_no_results_header">Aucun résultat</string>
   <string name="hybrid_search_no_results_description">Ce sujet ne renvoie aucun extrait d\'article pour le moment. Voici quelques suggestions :</string>
@@ -2315,4 +2317,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Essayez un sujet connexe.</string>
   <string name="hybrid_search_error_message">Une erreur s\'est produite. Veuillez réessayer plus tard.</string>
   <string name="hybrid_search_who_is_prefix">Qui est %s ?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Désactivez cette expérience</string>
 </resources>
