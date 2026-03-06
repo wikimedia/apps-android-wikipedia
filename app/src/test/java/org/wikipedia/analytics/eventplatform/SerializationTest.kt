@@ -48,7 +48,7 @@ class SerializationTest {
             streamName = "/stream/test"
         )
         val json = JsonUtil.encodeToString(event)
-        assertEquals("""{"${"\$schema"}":"/analytics/mobile_apps/app_interaction/1.1.0","meta":{"stream":"/stream/test"},"dt":"2026-03-06T14:00:00Z","is_anon":true,"app_session_id":"12345","app_install_id":"abcde","is_temp":true,"action":"test_action","active_interface":"test_interface","action_data":"test_data","primary_language":"en","wiki_id":"enwiki","platform":"android"}""", json)
+        assertEquals($$"""{"$schema":"/analytics/mobile_apps/app_interaction/1.1.0","meta":{"stream":"/stream/test"},"dt":"2026-03-06T14:00:00Z","is_anon":true,"app_session_id":"12345","app_install_id":"abcde","is_temp":true,"action":"test_action","active_interface":"test_interface","action_data":"test_data","primary_language":"en","wiki_id":"enwiki","platform":"android"}""", json)
     }
 
     @Test
@@ -67,6 +67,6 @@ class SerializationTest {
             url = "http://example.com"
         )
         val json = JsonUtil.encodeToString(event)
-        assertEquals("""{"${"\$schema"}":"/mediawiki/client/error/2.0.0","meta":{"stream":"mediawiki.client.error"},"message":"test_message","error_class":"test_class","stack_trace":"abcde","http":{"method":"GET","protocol":"http","status_code":404},"url":"http://example.com"}""", json)
+        assertEquals($$"""{"$schema":"/mediawiki/client/error/2.0.0","meta":{"stream":"mediawiki.client.error"},"message":"test_message","error_class":"test_class","stack_trace":"abcde","http":{"method":"GET","protocol":"http","status_code":404},"url":"http://example.com"}""", json)
     }
 }
