@@ -2157,4 +2157,10 @@
   <string name="donation_reminders_settings_learn_more_button">Aprende más</string>
   <string name="donation_reminders_settings_report_email_body">Encontré un problema con la característica de los recordatorios de donación:\n- [Describe el problema en específico]\n- [Capturas de pantalla o links]\n\nEl comportamiento que me gustaría ver es:\n- [Describe solución propuesta]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
+  <string name="hybrid_search_suggestion_title">Buscar:</string>
+  <string name="hybrid_search_onboarding_search_title">Haz preguntas, obtén respuestas</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Únete al experimento</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">¿Por qué la gente le pone piña a la pizza?</string>
 </resources>

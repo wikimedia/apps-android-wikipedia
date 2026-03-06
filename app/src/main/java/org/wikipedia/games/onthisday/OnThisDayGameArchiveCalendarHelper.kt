@@ -28,7 +28,7 @@ import java.util.TimeZone
 
 class OnThisDayGameArchiveCalendarHelper(
     private val fragment: Fragment,
-    private val languageCode: String,
+    private var languageCode: String,
     private val onDateSelected: (LocalDate) -> Unit
 ) {
     private var scoreData: Map<Long, Int> = emptyMap()
@@ -64,6 +64,10 @@ class OnThisDayGameArchiveCalendarHelper(
                 }
             )
         }
+    }
+
+    fun updateLanguageCode(languageCode: String) {
+        this.languageCode = languageCode
     }
 
     fun register() {

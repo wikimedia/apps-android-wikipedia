@@ -20,6 +20,13 @@ class GamesHubViewModel : ViewModel() {
     private val _onThisDayGameUiState = MutableStateFlow<UiState<List<OnThisDayCardGameState>>>(UiState.Loading)
     val onThisDayGameUiState: StateFlow<UiState<List<OnThisDayCardGameState>>> = _onThisDayGameUiState.asStateFlow()
 
+    var selectedLanguage: String = WikipediaApp.instance.languageState.appLanguageCodes.first {
+        WikiGames.WHICH_CAME_FIRST.isLangSupported(it)
+    }
+
+    init {
+        loadOnThisDayGamesPreviews(selectedLanguage)
+    }
     val appLanguageCodes = MutableStateFlow(WikipediaApp.instance.languageState.appLanguageCodes.toList())
 
     fun loadOnThisDayGamesPreviews(langCode: String) {
