@@ -39,7 +39,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 4, 15),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -52,7 +52,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -66,7 +66,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -79,7 +79,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 31),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -93,7 +93,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 25),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
@@ -106,7 +106,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
@@ -119,7 +119,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 10),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
@@ -132,7 +132,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 10),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 24,
                 hasReadToday = false
             )
@@ -145,7 +145,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 25),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 24,
                 hasReadToday = false
             )
@@ -164,7 +164,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -177,7 +177,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
@@ -190,7 +190,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 31),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
@@ -206,21 +206,17 @@ class ReadingChallengeWidgetRepositoryTest {
     fun `when lastReadDate is more than 1 day ago then streak and hasReadToday are reset`() {
         val currentDate = LocalDate.of(2026, 3, 15)
 
-        every { Prefs.isEnrolled } returns true
-        every { Prefs.currentStreak } returns 10
-        every { Prefs.hasReadToday } returns true
-        every { Prefs.lastReadDate } returns currentDate.minusDays(2).toString()
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 10
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
 
         var newCurrentStreak = 10
-        var newHasReadToday = true
 
-        every { Prefs.currentStreak = any() } answers { newCurrentStreak = firstArg() }
-        every { Prefs.hasReadToday = any() } answers { newHasReadToday = firstArg() }
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
 
         repository.recalculateStreakIfNeeded(currentDate)
 
         assertEquals(0, newCurrentStreak)
-        assertEquals(false, newHasReadToday)
     }
 
     // Enrolled not started test
@@ -229,7 +225,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -242,7 +238,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
@@ -256,7 +252,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
@@ -269,7 +265,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 20),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 5,
                 hasReadToday = false
             )
@@ -284,7 +280,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = true
             )
@@ -297,7 +293,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 20),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 7,
                 hasReadToday = true
             )
@@ -312,7 +308,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 11),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 2,
                 hasReadToday = false
             )

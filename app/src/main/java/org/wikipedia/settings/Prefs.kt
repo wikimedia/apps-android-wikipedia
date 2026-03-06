@@ -889,19 +889,15 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
 
-    var currentStreak: Int
-        get() = PrefsIoUtil.getInt(R.string.preference_key_streak, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_streak, value)
+    var readingChallengeStreak
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_challenge_streak, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_challenge_streak, value)
 
-    var isEnrolled
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_enrolled, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_enrolled, value)
+    var readingChallengeEnrolled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_enrolled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_enrolled, value)
 
-    var hasReadToday
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_has_read_today, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_has_read_today, value)
-
-    var lastReadDate: String
-        get() = PrefsIoUtil.getString(R.string.preference_key_last_read_date, "").orEmpty()
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_read_date, value)
+    var readingChallengeLastReadDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
 }

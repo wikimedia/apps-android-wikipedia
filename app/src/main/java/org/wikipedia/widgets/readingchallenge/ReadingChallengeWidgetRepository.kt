@@ -9,12 +9,9 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 
 class ReadingChallengeWidgetRepository(private val context: Context) {
-    private val START_DATE = LocalDate.of(2026, 5, 1)
-    private val END_DATE = LocalDate.of(2026, 5, 31)
-    private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
-
     fun observeState(): Flow<ReadingChallengeState> {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return callbackFlow {
@@ -24,9 +21,15 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 trySend(resolveState(
                     ReadingChallengeUserData(
                         currentDate = currentDate,
-                        isEnrolled = Prefs.isEnrolled,
-                        currentStreak = Prefs.currentStreak,
-                        hasReadToday = Prefs.hasReadToday
+                        enabled = Prefs.readingChallengeEnrolled,
+                        currentStreak = Prefs.readingChallengeStreak,
+                        hasReadToday = Prefs.readingChallengeLastReadDate.let {
+                            if (it.isNotEmpty()) {
+                                LocalDate.parse(it) == currentDate
+                            } else {
+                                false
+                            }
+                        }
                     )
                 ))
             }
@@ -51,14 +54,14 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         // From this point onward, we are in the active or past the challenge period
 
         // Stage 2: Challenge is active and user has not enrolled
-        if (!userData.isEnrolled) {
+        if (!userData.enabled) {
             return ReadingChallengeState.NotEnrolled
         }
 
         // From this point onward, user is enrolled
 
         // Stage 3: Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time
-        if (userData.currentStreak >= 25) {
+        if (userData.currentStreak >= READING_STREAK_GOAL) {
             return ReadingChallengeState.ChallengeCompleted
         }
 
@@ -85,15 +88,21 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun recalculateStreakIfNeeded(currentDate: LocalDate) {
-        val lastReadDateStr = Prefs.lastReadDate
+        val lastReadDateStr = Prefs.readingChallengeLastReadDate
         if (lastReadDateStr.isNotEmpty()) {
             val lastReadDate = LocalDate.parse(lastReadDateStr)
-            val daysBetween = java.time.temporal.ChronoUnit.DAYS.between(lastReadDate,
-                currentDate)
+            val daysBetween = ChronoUnit.DAYS.between(lastReadDate, currentDate)
             if (daysBetween > 1) {
-                Prefs.hasReadToday = false
-                Prefs.currentStreak = 0
+                Prefs.readingChallengeStreak = 0
             }
         }
+    }
+
+    companion object {
+        private val START_DATE = LocalDate.of(2026, 5, 1)
+        private val END_DATE = LocalDate.of(2026, 5, 31)
+        private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
+        private val READING_STREAK_GOAL = 25
+
     }
 }
