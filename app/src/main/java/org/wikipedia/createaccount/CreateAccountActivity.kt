@@ -57,16 +57,16 @@ class CreateAccountActivity : BaseActivity() {
 
     private val hCaptchaHelper = HCaptchaHelper(this, object : HCaptchaHelper.Callback {
         override fun onShow() {
-            instrument?.submitInteraction("hcaptcha-render")
+            instrument?.submitInteraction("hcaptcha_show")
         }
 
         override fun onSuccess(token: String) {
-            instrument?.submitInteraction("hcaptcha-success")
+            instrument?.submitInteraction("hcaptcha_success")
             doCreateAccount(viewModel.token.orEmpty(), hCaptchaToken = token)
         }
 
         override fun onError(e: Exception, code: Int) {
-            instrument?.submitInteraction("hcaptcha-error", actionContext = e.getInstrumentActionContext())
+            instrument?.submitInteraction("hcaptcha_error", actionContext = e.getInstrumentActionContext())
             showProgressBar(false)
             FeedbackUtil.showMessage(this@CreateAccountActivity, e.message.orEmpty())
         }
@@ -150,6 +150,7 @@ class CreateAccountActivity : BaseActivity() {
                             is CreateAccountActivityViewModel.AccountInfoState.HandleHCaptcha -> {
                                 showProgressBar(true)
                                 hCaptchaHelper.cleanup()
+                                instrument?.submitInteraction("hcaptcha_load")
                                 hCaptchaHelper.show()
                             }
                             is CreateAccountActivityViewModel.AccountInfoState.HandleCaptcha -> {
