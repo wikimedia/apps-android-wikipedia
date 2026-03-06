@@ -1,6 +1,33 @@
 # Customizations for ktlint
 [*.{kt,kts}]
+ktlint_standard_max-line-length = disabled
+ktlint_standard_function-signature = disabled
 ktlint_standard_indent = disabled
+ktlint_standard_string-template-indent = disabled
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_class-signature = disabled
+ktlint_standard_function-expression-body = disabled
+ktlint_standard_chain-method-continuation = disabled
+ktlint_standard_blank-line-between-when-conditions = disabled
+ktlint_standard_no-empty-first-line-in-class-body = disabled
+
+ktlint_standard_blank-line-before-declaration = disabled
+ktlint_standard_if-else-wrapping = disabled
+ktlint_standard_statement-wrapping = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_when-entry-bracing = disabled
+ktlint_standard_backing-property-naming = disabled
+ktlint_standard_paren-spacing = disabled
+
+ktlint_standard_enum-wrapping = disabled
+ktlint_standard_if-else-bracing = disabled
+ktlint_standard_function-literal = disabled
+ktlint_standard_property-naming = disabled
+ktlint_standard_mixed-condition-operators = disabled
+
+
+
+
 ktlint_standard_argument-list-wrapping = disabled
 ktlint_standard_parameter-list-wrapping = disabled
 ktlint_standard_wrapping = disabled
