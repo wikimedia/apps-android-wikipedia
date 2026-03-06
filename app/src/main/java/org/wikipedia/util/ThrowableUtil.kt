@@ -118,7 +118,8 @@ object ThrowableUtil {
     private fun parseBlockedDate(dateStr: String): String {
         try {
             return DateUtil.iso8601DateParse(dateStr).toString()
-        } catch (_: Exception) {}
+        } catch (_: Exception) {
+        }
         return dateStr
     }
 
