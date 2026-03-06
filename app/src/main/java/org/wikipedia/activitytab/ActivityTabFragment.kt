@@ -99,6 +99,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
@@ -170,7 +171,7 @@ class ActivityTabFragment : Fragment() {
                         languageCode = WikipediaApp.instance.wikiSite.languageCode,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                        areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
+                        areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
                         refreshSilently = viewModel.shouldRefreshTimelineSilently,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,

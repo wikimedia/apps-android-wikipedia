@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameMainMenuBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.WikiGames
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -111,7 +112,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
             if (viewModel.isArchiveGame) {
                 playArchiveButton.isVisible = true
                 playArchiveButton.setOnClickListener {
-                    prepareAndOpenArchiveCalendar(viewModel)
+                    prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
                 }
             }
         }
@@ -128,7 +129,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
             }
             playArchiveButton.isVisible = true
             playArchiveButton.setOnClickListener {
-                prepareAndOpenArchiveCalendar(viewModel)
+                prepareAndOpenArchiveCalendar(viewModel.wikiSite.languageCode)
             }
         }
     }
@@ -167,8 +168,8 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
             val wikiSite = WikipediaApp.instance.wikiSite
             // Both of the primary language and the article language should be in the supported languages list.
             if (!Prefs.otdEntryDialogShown &&
-                OnThisDayGameViewModel.isLangSupported(wikiSite.languageCode) &&
-                OnThisDayGameViewModel.isLangSupported(articleWikiSite.languageCode) &&
+                WikiGames.WHICH_CAME_FIRST.isLangSupported(wikiSite.languageCode) &&
+                WikiGames.WHICH_CAME_FIRST.isLangSupported(articleWikiSite.languageCode) &&
                 (invokeSource != InvokeSource.FEED || Prefs.exploreFeedVisitCount >= SHOW_ON_EXPLORE_FEED_COUNT)) {
                 Prefs.otdEntryDialogShown = true
                 WikiGamesEvent.submit("impression", "game_modal")
