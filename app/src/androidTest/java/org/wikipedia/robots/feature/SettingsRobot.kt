@@ -171,8 +171,8 @@ class SettingsRobot : BaseRobot() {
     private fun scrollToSettingsPreferenceItem(@IdRes preferenceTitle: Int, viewAction: ViewAction) = apply {
         onView(withId(androidx.preference.R.id.recycler_view))
             .perform(
-                RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
-                    (hasDescendant(withText(preferenceTitle)), viewAction))
+                RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>(hasDescendant(withText(preferenceTitle)), viewAction)
+            )
         delay(TestConfig.DELAY_SHORT)
     }
 }
