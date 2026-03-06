@@ -55,13 +55,14 @@ interface Service {
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
-                "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                "&gsrinfo=&gsrprop=redirecttitle|snippet|sectiontitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("gsroffset") gsrOffset: Int?
+        @Query("gsroffset") gsrOffset: Int?,
+        @Query("cirrusSemanticSearch") isSemantic: Boolean? = null
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
