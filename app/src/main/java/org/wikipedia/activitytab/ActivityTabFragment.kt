@@ -605,7 +605,6 @@ class ActivityTabFragment : Fragment() {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(
                                             context = requireContext(),
                                             invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
-
                                             wikiSite = WikipediaApp.instance.wikiSite
                                         ))
                                     },

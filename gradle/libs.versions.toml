@@ -24,6 +24,7 @@ kotlinCoroutinesVersion = "1.10.2"
 kotlinStdlibJdk8 = "2.3.10"
 kotlinxSerializationJson = "1.10.0"
 kspPlugin = "2.3.6"
+ktlint = "1.8.0"
 leakCanaryVersion = "2.14"
 mapLibre = "12.2.2"
 mapLibreAnnotation = "3.0.2"
@@ -88,6 +89,7 @@ kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", versi
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinCoroutinesVersion" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutinesVersion" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+ktlint = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakCanaryVersion" }
 maplibre = { module = "org.maplibre.gl:android-sdk", version.ref = "mapLibre" }
 maplibre-annotation = { module = "org.maplibre.gl:android-plugin-annotation-v9", version.ref = "mapLibreAnnotation" }
