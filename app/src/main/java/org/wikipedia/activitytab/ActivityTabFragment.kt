@@ -23,6 +23,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -38,17 +41,21 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -72,6 +79,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -165,6 +173,7 @@ class ActivityTabFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
+                    val scrollToGames = viewModel.scrollToGames.collectAsState().value
                     ActivityTabScreen(
                         isLoggedIn = AccountUtil.isLoggedIn && !AccountUtil.isTemporaryAccount,
                         userName = AccountUtil.userName,
@@ -173,11 +182,15 @@ class ActivityTabFragment : Fragment() {
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
                         areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
                         refreshSilently = viewModel.shouldRefreshTimelineSilently,
+                        scrollToGames = scrollToGames,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
                         donationUiState = viewModel.donationUiState.collectAsState().value,
                         wikiGamesUiState = viewModel.wikiGamesUiState.collectAsState().value,
                         impactUiState = viewModel.impactUiState.collectAsState().value,
-                        timelineFlow = viewModel.timelineFlow
+                        timelineFlow = viewModel.timelineFlow,
+                        onScrollToGamesConsumed = {
+                            viewModel.onScrollToGamesConsumed()
+                        }
                     )
                 }
             }
@@ -187,6 +200,18 @@ class ActivityTabFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
+        if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
+            viewModel.onScrollToGames()
+            if (!Prefs.isGameStatsSnackbarShown) {
+                requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
+                    FeedbackUtil.makeSnackbar(requireView(), it).show()
+                    requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
+                    Prefs.isGameStatsSnackbarShown = true
+                }
+            }
+
+            requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES)
+        }
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
     }
@@ -206,13 +231,40 @@ class ActivityTabFragment : Fragment() {
         haveAtLeastOneDonation: Boolean,
         areGamesAvailable: Boolean,
         refreshSilently: Boolean,
+        scrollToGames: Boolean = false,
         readingHistoryState: UiState<ActivityTabViewModel.ReadingHistory>,
         donationUiState: UiState<String?>,
         wikiGamesUiState: UiState<OnThisDayGameViewModel.GameStatistics?>,
         impactUiState: UiState<Pair<GrowthUserImpact, Int>>,
-        timelineFlow: Flow<PagingData<TimelineDisplayItem>>
+        timelineFlow: Flow<PagingData<TimelineDisplayItem>>,
+        onScrollToGamesConsumed: () -> Unit = {}
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
+        val listState = rememberLazyListState()
+        var gamesModuleOffsetInItem by remember { mutableStateOf(0) }
+        val gamesItemIndex = if (
+            modules.isModuleVisible(ModuleType.TIME_SPENT) ||
+            modules.isModuleVisible(ModuleType.READING_INSIGHTS)
+        ) 1 else 0
+
+        LaunchedEffect(scrollToGames) {
+            if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
+                // since we don't have index per module, this will move to the container holding games module
+                // so that the lazy column can compose it and onGloballyPositioned executes
+                listState.scrollToItem(gamesItemIndex)
+
+                // now we wait for the games module to be laid out
+                snapshotFlow { gamesModuleOffsetInItem }
+                    .first { it > 0 }
+
+                // then animate to the correct offset
+                listState.animateScrollToItem(
+                    index = gamesItemIndex,
+                    scrollOffset = gamesModuleOffsetInItem
+                )
+                onScrollToGamesConsumed()
+            }
+        }
 
         Scaffold(
             modifier = Modifier
@@ -363,7 +415,9 @@ class ActivityTabFragment : Fragment() {
                     )
                 }
             ) {
-                LazyColumn {
+                LazyColumn(
+                    state = listState
+                ) {
                     if (modules.isModuleVisible(ModuleType.TIME_SPENT) || modules.isModuleVisible(ModuleType.READING_INSIGHTS)) {
                         item {
                             Column(
@@ -441,11 +495,12 @@ class ActivityTabFragment : Fragment() {
                                         modifier = Modifier
                                             .padding(start = 16.dp, end = 16.dp, top = 24.dp)
                                             .align(Alignment.CenterVertically)
-                                        .background(color = WikipediaTheme.colors.paperColor).border(
+                                            .background(color = WikipediaTheme.colors.paperColor)
+                                            .border(
                                                 1.5.dp,
                                                 WikipediaTheme.colors.primaryColor,
                                                 RoundedCornerShape(4.dp)
-                                        )
+                                            )
                                     ) {
                                         Text(
                                             modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
@@ -530,7 +585,11 @@ class ActivityTabFragment : Fragment() {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                                        .onGloballyPositioned { coordinates ->
+                                            val offset = coordinates.positionInParent().y.toInt()
+                                            gamesModuleOffsetInItem = offset
+                                        },
                                     uiState = wikiGamesUiState,
                                     onPlayGameCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(

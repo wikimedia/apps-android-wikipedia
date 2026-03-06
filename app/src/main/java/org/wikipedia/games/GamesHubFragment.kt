@@ -1,5 +1,6 @@
 package org.wikipedia.games
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -16,6 +17,7 @@ import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -26,6 +28,8 @@ import org.wikipedia.feed.wikigames.OnThisDayGameAction
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameArchiveCalendarHelper
+import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -49,7 +53,18 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
-                    // TODO: open the Activity Tab
+                    val intent = MainActivity.newIntent(requireContext())
+                        .apply {
+                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                            putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
+                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
+                            if (!WikipediaApp.instance.languageState.appLanguageCode.equals(viewModel.selectedLanguage, true) ||
+                                !WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
+                                putExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE, getString(R.string.activity_tab_snackbar_label))
+                            }
+                        }
+                    startActivity(intent)
+                    requireActivity().finish()
                     true
                 }
                 R.id.menu_learn_more -> {

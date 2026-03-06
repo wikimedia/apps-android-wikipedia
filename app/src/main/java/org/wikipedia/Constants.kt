@@ -28,6 +28,7 @@ object Constants {
     const val INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList"
     const val INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab"
     const val INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab"
+    const val INTENT_EXTRA_SCROLL_TO_GAMES = "scrollToGames"
     const val INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim"
     const val INTENT_EXTRA_INVOKE_SOURCE = "invokeSource"
     const val INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS = "previewSavedReadingList"
@@ -36,6 +37,7 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
+    const val INTENT_EXTRA_SNACKBAR_MESSAGE = "snackbarMessage"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000

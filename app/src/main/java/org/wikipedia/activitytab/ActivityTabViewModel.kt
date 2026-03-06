@@ -97,6 +97,9 @@ class ActivityTabViewModel() : ViewModel() {
     private val _impactUiState = MutableStateFlow<UiState<Pair<GrowthUserImpact, Int>>>(UiState.Loading)
     val impactUiState: StateFlow<UiState<Pair<GrowthUserImpact, Int>>> = _impactUiState.asStateFlow()
 
+    private val _scrollToGames = MutableStateFlow(false)
+    val scrollToGames = _scrollToGames.asStateFlow()
+
     var shouldRefreshTimelineSilently: Boolean = false
 
     val allDataLoaded = combine(
@@ -298,6 +301,14 @@ class ActivityTabViewModel() : ViewModel() {
             }
             else -> true
         }
+    }
+
+    fun onScrollToGames() {
+        _scrollToGames.value = true
+    }
+
+    fun onScrollToGamesConsumed() {
+        _scrollToGames.value = false
     }
 
     class ReadingHistory(

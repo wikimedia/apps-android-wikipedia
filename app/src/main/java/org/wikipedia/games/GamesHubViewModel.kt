@@ -27,6 +27,7 @@ class GamesHubViewModel : ViewModel() {
     init {
         loadOnThisDayGamesPreviews(selectedLanguage)
     }
+
     fun loadOnThisDayGamesPreviews(langCode: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _onThisDayGameUiState.value = UiState.Error(throwable)
