@@ -57,7 +57,6 @@ fun ListItemSkeletonLoader(
                         heightMultiplier = 0f,
                         transition = transition
                     )
-
             )
         }
         Box(
