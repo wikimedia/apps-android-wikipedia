@@ -3,31 +3,40 @@ package org.wikipedia.analytics.eventplatform
 import io.mockk.every
 import io.mockk.mockkObject
 import io.mockk.mockkStatic
+import io.mockk.unmockkObject
+import io.mockk.unmockkStatic
+import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import java.time.Instant
 
-@RunWith(RobolectricTestRunner::class)
 class SerializationTest {
-    @Test
-    fun testAnalyticsEventDeserialization() {
+    @Before
+    fun setup() {
         val testInstant = Instant.parse("2026-03-06T14:00:00Z")
-        mockkObject(AccountUtil)
+        mockkObject(WikipediaApp, Prefs, AccountUtil)
         every { AccountUtil.isLoggedIn } returns false
         every { AccountUtil.isTemporaryAccount } returns true
-        mockkObject(Prefs)
         every { Prefs.eventPlatformSessionId } returns "12345"
-        mockkObject(WikipediaApp.instance)
+        every { WikipediaApp.instance } returns WikipediaApp()
         every { WikipediaApp.instance.appInstallID } returns "abcde"
         mockkStatic(Instant::class)
         every { Instant.now() } returns testInstant
+    }
 
+    @After
+    fun tearDown() {
+        unmockkStatic(Instant::class)
+        unmockkObject(WikipediaApp, Prefs, AccountUtil)
+    }
+
+    @Test
+    fun testAnalyticsEventDeserialization() {
         // For the polymorphic class discriminator ($schema) to work properly, the type must be
         // specified explicitly at compile time.
         val event: Event = AppInteractionEvent(
