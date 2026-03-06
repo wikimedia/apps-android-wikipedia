@@ -241,7 +241,6 @@ class ActivityTabFragment : Fragment() {
     ) {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
-        val bringIntoViewRequester = remember { BringIntoViewRequester() }
         var gamesModuleOffsetInItem by remember { mutableStateOf(0) }
         val gamesItemIndex = if (
             modules.isModuleVisible(ModuleType.TIME_SPENT) ||
@@ -586,7 +585,6 @@ class ActivityTabFragment : Fragment() {
                                 WikiGamesModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .bringIntoViewRequester(bringIntoViewRequester)
                                         .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                                         .onGloballyPositioned { coordinates ->
                                             val offset = coordinates.positionInParent().y.toInt()
