@@ -4,12 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
@@ -113,6 +115,7 @@ fun WikiGamesCardContent(
                             OnThisDayGameCardPreview(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
@@ -120,20 +123,25 @@ fun WikiGamesCardContent(
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
-                            OnThisDayCardProgress(
+                            OnThisDayGameCardProgress(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
+                                titleText = stringResource(R.string.on_this_day_game_title),
                                 onContinueClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
                             )
                         }
                         is OnThisDayCardGameState.Completed -> {
-                            OnThisDayCardCompleted(
+                            OnThisDayGameCardCompleted(
                                 modifier = Modifier
                                     .fillMaxWidth()
+                                    .height(350.dp)
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
+                                titleText = stringResource(R.string.on_this_day_game_title),
+                                onPlayClick = { },
                                 onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                                 onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                                 onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }

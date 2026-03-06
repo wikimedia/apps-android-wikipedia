@@ -62,7 +62,7 @@ object OnThisDayGameProvider {
         return events
     }
 
-    suspend fun getGameState(wikiSite: WikiSite, date: LocalDate): OnThisDayCardGameState {
+    suspend fun getGameState(wikiSite: WikiSite, date: LocalDate, skipLoadingEvents: Boolean = false): OnThisDayCardGameState {
         val currentMonth = date.monthValue
         val currentDay = date.dayOfMonth
 
@@ -80,6 +80,10 @@ object OnThisDayGameProvider {
             } else if (gameHistory.status == DailyGameHistory.GAME_IN_PROGRESS) {
                 return OnThisDayCardGameState.InProgress(langCode = wikiSite.languageCode, currentQuestion = gameHistory.currentQuestionIndex)
             }
+        }
+
+        if (skipLoadingEvents) {
+            return OnThisDayCardGameState.Preview(langCode = wikiSite.languageCode, event1 = OnThisDay.Event(), event2 = OnThisDay.Event())
         }
 
         val events = getGameEvents(wikiSite, date)

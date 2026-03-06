@@ -1,12 +1,15 @@
 package org.wikipedia.feed.wikigames
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
@@ -56,12 +60,13 @@ import java.util.Locale
 fun OnThisDayGameCardPreview(
     modifier: Modifier = Modifier,
     state: OnThisDayCardGameState.Preview,
-    onPlayClick: () -> Unit,
     titleText: String,
+    onPlayClick: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
         modifier = modifier,
+        border = BorderStroke(width = 0.5.dp, color = WikipediaTheme.colors.borderColor),
         elevation = 2.dp
     ) {
         Column(
@@ -75,7 +80,7 @@ fun OnThisDayGameCardPreview(
                 Icon(
                     modifier = Modifier
                         .size(24.dp),
-                    painter = painterResource(R.drawable.ic_wiki_games_events),
+                    painter = painterResource(R.drawable.ic_events_24dp),
                     tint = WikipediaTheme.colors.primaryColor,
                     contentDescription = null
                 )
@@ -98,6 +103,8 @@ fun OnThisDayGameCardPreview(
             )
 
             OnThisDayGameFirstEventView(event = state.event2)
+
+            Spacer(Modifier.weight(1f))
 
             Box(
                 modifier = Modifier
@@ -127,73 +134,143 @@ fun OnThisDayGameCardPreview(
 }
 
 @Composable
-fun OnThisDayCardProgress(
+fun OnThisDayGameCardSimple(
     modifier: Modifier = Modifier,
+    iconRes: Int,
+    iconTint: Color,
+    titleText: String,
+    onPlayClick: () -> Unit
+) {
+    WikiCard(
+        modifier = modifier,
+        border = BorderStroke(width = 0.5.dp, color = WikipediaTheme.colors.borderColor),
+        elevation = 2.dp
+    ) {
+        Box(
+            modifier = Modifier.clickable {
+                onPlayClick()
+            }
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxSize()
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .size(44.dp),
+                    painter = painterResource(iconRes),
+                    tint = iconTint,
+                    contentDescription = null
+                )
+
+                Text(
+                    modifier = Modifier
+                        .padding(top = 16.dp),
+                    text = titleText,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        letterSpacing = 0.15.sp
+                    )
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun OnThisDayGameCardProgress(
+    modifier: Modifier = Modifier,
+    isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.InProgress,
+    titleText: String,
     onContinueClick: () -> Unit
 ) {
     val context = LocalContext.current
     WikiCard(
         modifier = modifier,
+        border = BorderStroke(width = 0.5.dp, color = WikipediaTheme.colors.borderColor),
         elevation = 2.dp
     ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
+        Box(
+            modifier = if (isArchiveGame) Modifier.clickable { onContinueClick() } else Modifier
         ) {
-            Icon(
+            Column(
                 modifier = Modifier
-                    .size(44.dp),
-                painter = painterResource(R.drawable.ic_wiki_games_events),
-                tint = WikipediaTheme.colors.progressiveColor,
-                contentDescription = null
-            )
-
-            Text(
-                modifier = Modifier
-                    .padding(top = 16.dp),
-                text = context.getString(state.langCode, R.string.on_this_day_game_title),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.SemiBold,
-                    letterSpacing = 0.15.sp
-                )
-            )
-
-            Text(
-                modifier = Modifier,
-                text = stringResource(
-                    R.string.on_this_day_game_card_progress_label,
-                    state.currentQuestion + 1
-                ),
-                color = WikipediaTheme.colors.secondaryColor,
-                style = MaterialTheme.typography.bodyMedium.copy(
-                    lineHeight = 24.sp,
-                    letterSpacing = 0.sp
-                )
-            )
-
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 112.dp)
+                    .padding(16.dp)
+                    .fillMaxSize()
             ) {
-                FilledTonalButton(
+                Icon(
                     modifier = Modifier
-                        .align(Alignment.CenterEnd),
-                    colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = WikipediaTheme.colors.backgroundColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onContinueClick
-                ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_continue_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
-                        ),
-                        textAlign = TextAlign.Center
+                        .size(44.dp),
+                    painter = painterResource(R.drawable.ic_events_24dp),
+                    tint = WikipediaTheme.colors.progressiveColor,
+                    contentDescription = null
+                )
+
+                Text(
+                    modifier = Modifier
+                        .padding(top = 16.dp),
+                    text = titleText,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        letterSpacing = 0.15.sp
                     )
+                )
+
+                val descriptionText = if (isArchiveGame) {
+                    stringResource(
+                        R.string.on_this_day_game_card_progress_short_label,
+                        state.currentQuestion + 1
+                    )
+                } else {
+                    stringResource(
+                        R.string.on_this_day_game_card_progress_label,
+                        state.currentQuestion + 1
+                    )
+                }
+
+                Text(
+                    modifier = Modifier,
+                    text = descriptionText,
+                    color = WikipediaTheme.colors.secondaryColor,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        lineHeight = 24.sp,
+                        letterSpacing = 0.sp
+                    )
+                )
+
+                Spacer(Modifier.weight(1f))
+
+                if (!isArchiveGame) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 112.dp)
+                    ) {
+                        FilledTonalButton(
+                            modifier = Modifier
+                                .align(Alignment.CenterEnd),
+                            colors = ButtonDefaults.filledTonalButtonColors(
+                                containerColor = WikipediaTheme.colors.backgroundColor,
+                                contentColor = WikipediaTheme.colors.progressiveColor
+                            ),
+                            onClick = onContinueClick
+                        ) {
+                            Text(
+                                text = context.getString(
+                                    state.langCode,
+                                    R.string.on_this_day_game_continue_btn_text
+                                ),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.Medium
+                                ),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -201,9 +278,12 @@ fun OnThisDayCardProgress(
 }
 
 @Composable
-fun OnThisDayCardCompleted(
+fun OnThisDayGameCardCompleted(
     modifier: Modifier = Modifier,
+    isArchiveGame: Boolean = false,
     state: OnThisDayCardGameState.Completed,
+    titleText: String,
+    onPlayClick: () -> Unit,
     onReviewResult: () -> Unit,
     onPlayTheArchive: () -> Unit,
     onCountDownFinished: () -> Unit
@@ -211,73 +291,86 @@ fun OnThisDayCardCompleted(
     val context = LocalContext.current
     WikiCard(
         modifier = modifier,
+        border = BorderStroke(width = 0.5.dp, color = WikipediaTheme.colors.borderColor),
         elevation = 2.dp
     ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
+        Box(
+            modifier = if (isArchiveGame) Modifier.clickable { onPlayClick() } else Modifier
         ) {
-            Icon(
+            Column(
                 modifier = Modifier
-                    .size(44.dp),
-                painter = painterResource(R.drawable.ic_event_available),
-                tint = WikipediaTheme.colors.successColor,
-                contentDescription = null
-            )
-
-            Text(
-                modifier = Modifier
-                    .padding(top = 16.dp),
-                text = context.getString(state.langCode, R.string.on_this_day_game_title),
-                color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.SemiBold,
-                    letterSpacing = 0.15.sp
-                )
-            )
-
-            NextGameCountdown(
-                state = state,
-                onCountDownFinished = onCountDownFinished
-            )
-
-            Spacer(modifier = Modifier.height(112.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    .padding(16.dp)
+                    .fillMaxSize()
             ) {
-                FilledTonalButton(
+                Icon(
                     modifier = Modifier
-                        .weight(1f),
-                    colors = ButtonDefaults.filledTonalButtonColors(
-                        containerColor = WikipediaTheme.colors.backgroundColor,
-                        contentColor = WikipediaTheme.colors.progressiveColor
-                    ),
-                    onClick = onReviewResult
-                ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_review_results_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium
-                        ),
-                        textAlign = TextAlign.Center
-                    )
-                }
+                        .size(44.dp),
+                    painter = painterResource(R.drawable.ic_event_available),
+                    tint = WikipediaTheme.colors.successColor,
+                    contentDescription = null
+                )
 
-                TextButton(
+                Text(
                     modifier = Modifier
-                        .weight(1f),
-                    onClick = onPlayTheArchive
-                ) {
-                    Text(
-                        text = context.getString(state.langCode, R.string.on_this_day_game_archive_btn_text),
-                        style = MaterialTheme.typography.bodyLarge.copy(
-                            fontWeight = FontWeight.Medium,
-                            color = WikipediaTheme.colors.progressiveColor
-                        ),
-                        textAlign = TextAlign.Center
+                        .padding(top = 16.dp),
+                    text = titleText,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.SemiBold,
+                        letterSpacing = 0.15.sp
                     )
+                )
+
+                OnThisDayGameCountdown(
+                    state = state,
+                    isArchiveGame = isArchiveGame,
+                    onCountDownFinished = onCountDownFinished
+                )
+                Spacer(Modifier.weight(1f))
+
+                if (!isArchiveGame) {
+                    FlowRow(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        maxItemsInEachRow = 2
+                    ) {
+                        FilledTonalButton(
+                            colors = ButtonDefaults.filledTonalButtonColors(
+                                containerColor = WikipediaTheme.colors.backgroundColor,
+                                contentColor = WikipediaTheme.colors.progressiveColor
+                            ),
+                            onClick = onReviewResult
+                        ) {
+                            Text(
+                                text = context.getString(
+                                    state.langCode,
+                                    R.string.on_this_day_game_review_results_btn_text
+                                ),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.Medium
+                                ),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
+                        TextButton(
+                            onClick = onPlayTheArchive
+                        ) {
+                            Text(
+                                text = context.getString(
+                                    state.langCode,
+                                    R.string.on_this_day_game_archive_btn_text
+                                ),
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.Medium,
+                                    color = WikipediaTheme.colors.progressiveColor
+                                ),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -289,8 +382,7 @@ fun OnThisDayGameFirstEventView(
     event: OnThisDay.Event
 ) {
     Row(
-        modifier = Modifier
-            .padding(16.dp),
+        modifier = Modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
@@ -330,8 +422,9 @@ fun OnThisDayGameFirstEventView(
  * which indicates the date has flipped to the next day.
  */
 @Composable
-private fun NextGameCountdown(
+fun OnThisDayGameCountdown(
     state: OnThisDayCardGameState.Completed,
+    isArchiveGame: Boolean,
     onCountDownFinished: () -> Unit
 ) {
     var hasCountedDown = false
@@ -350,15 +443,21 @@ private fun NextGameCountdown(
         }
     }
 
-    Text(
-        modifier = Modifier,
-        text = stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
+    val countdownText = if (isArchiveGame) {
+        stringResource(R.string.on_this_day_game_explore_feed_card_score_short_message, state.score, state.totalQuestions)
+    } else {
+        stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
             Locale.getDefault(),
             "%02d:%02d:%02d",
             duration.toHoursPart(),
             duration.toMinutesPart(),
             duration.toSecondsPart()
-        )),
+        ))
+    }
+
+    Text(
+        modifier = Modifier,
+        text = countdownText,
         color = WikipediaTheme.colors.secondaryColor,
         style = MaterialTheme.typography.bodyMedium.copy(
             lineHeight = 24.sp,
@@ -369,7 +468,7 @@ private fun NextGameCountdown(
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardPreviewPreview() {
+private fun OnThisDayGameCardPreviewPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
@@ -395,12 +494,14 @@ private fun OnThisDayCardPreviewPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardProgressPreview() {
+private fun OnThisDayGameCardProgressPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        OnThisDayCardProgress(
+        OnThisDayGameCardProgress(
+            isArchiveGame = false,
             state = OnThisDayCardGameState.InProgress("en", 3),
+            titleText = "November 2",
             onContinueClick = {}
         )
     }
@@ -408,19 +509,37 @@ private fun OnThisDayCardProgressPreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun OnThisDayCardCompletedPreview() {
+private fun OnThisDayGameCardCompletedPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        OnThisDayCardCompleted(
+        OnThisDayGameCardCompleted(
+            isArchiveGame = false,
             state = OnThisDayCardGameState.Completed(
                 langCode = "en",
                 score = 4,
                 totalQuestions = 5
             ),
+            titleText = "November 1",
+            onPlayClick = {},
             onReviewResult = {},
             onPlayTheArchive = {},
             onCountDownFinished = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun OnThisDayGameCardSimplePreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameCardSimple(
+            titleText = "Archive",
+            iconRes = R.drawable.event_repeat_24dp,
+            iconTint = WikipediaTheme.colors.primaryColor,
+            onPlayClick = {}
         )
     }
 }

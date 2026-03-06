@@ -109,7 +109,8 @@ object Constants {
         EDIT_ADD_IMAGE("editAddImage"),
         SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
         ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
-        ACTIVITY_TAB("activityTab")
+        ACTIVITY_TAB("activityTab"),
+        GAMES_HUB("gamesHub")
     }
 
     enum class ImageEditType(name: String) {
