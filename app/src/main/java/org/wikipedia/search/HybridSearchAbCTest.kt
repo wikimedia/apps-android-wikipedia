@@ -4,6 +4,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
+import org.wikipedia.util.ReleaseUtil
 
 class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
 
@@ -28,7 +29,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     private fun isLanguageSupported(languageCode: String?): Boolean {
-        return (RemoteConfig.config.androidv1?.hybridSearchLanguages ?: supportedLanguages).any { it.equals(languageCode, true) }
+        return ((if (ReleaseUtil.isPreBetaRelease) null else RemoteConfig.config.androidv1?.hybridSearchLanguages) ?: supportedLanguages).any { it.equals(languageCode, true) }
     }
 
     fun shouldShowOnboarding(languageCode: String?): Boolean {
@@ -36,7 +37,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     private val supportedLanguages = listOf(
-        "el"
+        "el", "fr"
     )
 
     fun isHybridSearchEnabled(languageCode: String?): Boolean {
