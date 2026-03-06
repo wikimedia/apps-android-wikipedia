@@ -48,6 +48,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -85,6 +86,7 @@ import java.time.LocalDate
 class GamesHubFragment : Fragment() {
 
     private lateinit var notificationButtonView: NotificationButtonView
+    private lateinit var onThisDayGameArchiveCalendarHelper: OnThisDayGameArchiveCalendarHelper
     private val viewModel: GamesHubViewModel by viewModels()
     private val launchOnThisDayGameActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         viewModel.loadOnThisDayGamesPreviews(viewModel.selectedLanguage)
@@ -135,16 +137,42 @@ class GamesHubFragment : Fragment() {
 
         notificationButtonView = NotificationButtonView(requireActivity())
 
-        return ComposeView(requireContext()).apply {
-            setContent {
-                val transition = rememberInfiniteTransition()
-                BaseTheme {
-                    GamesHubScreen(
-                        onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
-                        transition = transition
+        onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
+                fragment = this@GamesHubFragment,
+                languageCode = viewModel.selectedLanguage,
+                onDateSelected = { date ->
+                    launchOnThisDayGameActivity.launch(
+                        OnThisDayGameActivity.newIntent(
+                            context =requireActivity(),
+                            invokeSource = InvokeSource.GAMES_HUB,
+                            wikiSite = WikiSite.forLanguageCode(viewModel.selectedLanguage),
+                            date = date
+                        )
                     )
                 }
-            }
+            )
+        onThisDayGameArchiveCalendarHelper.register()
+
+
+        return CoordinatorLayout(requireContext()).apply {
+            addView(ComposeView(requireContext()).apply {
+                layoutParams = CoordinatorLayout.LayoutParams(
+                    CoordinatorLayout.LayoutParams.MATCH_PARENT,
+                    CoordinatorLayout.LayoutParams.MATCH_PARENT
+                )
+                setContent {
+                    val transition = rememberInfiniteTransition()
+                    BaseTheme {
+                        GamesHubScreen(
+                            onThisDayGameUiState = viewModel.onThisDayGameUiState.collectAsState().value,
+                            transition = transition,
+                            onShowArchive = {
+                                onThisDayGameArchiveCalendarHelper.show()
+                             }
+                        )
+                    }
+                }
+            })
         }
     }
 
@@ -157,6 +185,11 @@ class GamesHubFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         requireActivity().removeMenuProvider(menuProvider)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        onThisDayGameArchiveCalendarHelper.unRegister()
     }
 
     fun updateNotificationDot(animate: Boolean) {
@@ -173,27 +206,13 @@ class GamesHubFragment : Fragment() {
     @Composable
     fun GamesHubScreen(
         onThisDayGameUiState: UiState<List<OnThisDayCardGameState>>,
-        transition: InfiniteTransition
+        transition: InfiniteTransition,
+        onShowArchive: () -> Unit
     ) {
         val languageList = WikipediaApp.instance.languageState.appLanguageCodes
         var selectedLanguage by remember { mutableStateOf(viewModel.selectedLanguage) }
         var isRefreshing by remember { mutableStateOf(false) }
         val state = rememberPullToRefreshState()
-
-        var onThisDayGameArchiveCalendarHelper by remember { mutableStateOf(
-            OnThisDayGameArchiveCalendarHelper(
-                fragment = this@GamesHubFragment,
-                languageCode = selectedLanguage,
-                onDateSelected = { date ->
-                    launchOnThisDayGameActivity.launch(
-                        OnThisDayGameActivity.newIntent(requireActivity(), InvokeSource.GAMES_HUB,
-                            WikiSite.forLanguageCode(selectedLanguage), date)
-                    )
-                }
-            ).also {
-                it.register()
-            })
-        }
 
         Scaffold(
             modifier = Modifier
@@ -289,7 +308,7 @@ class GamesHubFragment : Fragment() {
                                                 onThisDayGameAction = { gameStatus, gameDate ->
                                                     when (gameStatus) {
                                                         OnThisDayGameAction.PlayArchive -> {
-                                                            onThisDayGameArchiveCalendarHelper.show()
+                                                            onShowArchive()
                                                         }
                                                         OnThisDayGameAction.CountdownFinished -> {
                                                             isRefreshing = true
@@ -374,10 +393,7 @@ class GamesHubFragment : Fragment() {
             selected = isSelected,
             onClick = {
                 if (!isEnabled) {
-                    FeedbackUtil.makeSnackbar(
-                        requireActivity(),
-                        snackbarMessage
-                    )
+                    FeedbackUtil.makeSnackbar(requireView(), snackbarMessage)
                         .setAction(R.string.games_hub_activity_games_unavailable_message_learn_more_action) {
                             UriUtil.visitInExternalBrowser(
                                 requireActivity(),
