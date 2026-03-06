@@ -23,13 +23,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                         currentDate = currentDate,
                         enabled = Prefs.readingChallengeEnrolled,
                         currentStreak = Prefs.readingChallengeStreak,
-                        hasReadToday = Prefs.readingChallengeLastReadDate.let {
-                            if (it.isNotEmpty()) {
-                                LocalDate.parse(it) == currentDate
-                            } else {
-                                false
-                            }
-                        }
+                        hasReadToday = hasReadToday(currentDate)
                     )
                 ))
             }
@@ -38,6 +32,16 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             prefs.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
         }.distinctUntilChanged()
+    }
+
+    fun hasReadToday(currentDate: LocalDate): Boolean {
+        Prefs.readingChallengeLastReadDate.let {
+            return if (it.isNotEmpty()) {
+                LocalDate.parse(it) == currentDate
+            } else {
+                false
+            }
+        }
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
