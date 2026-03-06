@@ -13,11 +13,6 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -37,8 +32,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.NotificationButtonView
@@ -60,22 +53,18 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
-                    if (WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
-                        val intent = MainActivity.newIntent(requireContext())
-                            .apply {
-                                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                                putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
-                                putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
+                    val intent = MainActivity.newIntent(requireContext())
+                        .apply {
+                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                            putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
+                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
+                            if (!WikipediaApp.instance.languageState.appLanguageCode.equals(viewModel.selectedLanguage, true) ||
+                                !WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
+                                putExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE, getString(R.string.games_hub_activity_snackbar_label))
                             }
-                        startActivity(intent)
-                        requireActivity().finish()
-                    } else {
-                        FeedbackUtil.makeSnackbar(requireView(), requireContext().getString(R.string.games_hub_activity_snackbar_label))
-                            .setAction(R.string.games_hub_activity_snackbar_cta, {
-                                startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), Constants.InvokeSource.GAMES_HUB))
-                            }).show()
-                    }
-
+                        }
+                    startActivity(intent)
+                    requireActivity().finish()
                     true
                 }
                 R.id.menu_learn_more -> {

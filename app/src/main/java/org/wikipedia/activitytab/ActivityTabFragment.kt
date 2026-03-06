@@ -47,12 +47,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -73,10 +76,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -199,6 +202,14 @@ class ActivityTabFragment : Fragment() {
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
             viewModel.onScrollToGames()
+            if (!Prefs.isGameStatsSnackbarShown) {
+                requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
+                    FeedbackUtil.makeSnackbar(requireView(), it).show()
+                    requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
+                    Prefs.isGameStatsSnackbarShown = true
+                }
+            }
+
             requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES)
         }
         viewModel.loadAll()
@@ -231,12 +242,27 @@ class ActivityTabFragment : Fragment() {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
         val bringIntoViewRequester = remember { BringIntoViewRequester() }
+        var gamesModuleOffsetInItem by remember { mutableStateOf(0) }
+        val gamesItemIndex = if (
+            modules.isModuleVisible(ModuleType.TIME_SPENT) ||
+            modules.isModuleVisible(ModuleType.READING_INSIGHTS)
+        ) 1 else 0
 
         LaunchedEffect(scrollToGames) {
             if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
-                delay(150)
-                listState.animateScrollToItem(1)
-                bringIntoViewRequester.bringIntoView()
+                // since we don't have index per module, this will move to the container holding games module
+                // so that the lazy column can compose it and onGloballyPositioned executes
+                listState.scrollToItem(gamesItemIndex)
+
+                // now we wait for the games module to be laid out
+                snapshotFlow { gamesModuleOffsetInItem }
+                    .first { it > 0 }
+
+                // then animate to the correct offset
+                listState.animateScrollToItem(
+                    index = gamesItemIndex,
+                    scrollOffset = gamesModuleOffsetInItem
+                )
                 onScrollToGamesConsumed()
             }
         }
@@ -561,7 +587,11 @@ class ActivityTabFragment : Fragment() {
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .bringIntoViewRequester(bringIntoViewRequester)
-                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                        .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                                        .onGloballyPositioned { coordinates ->
+                                            val offset = coordinates.positionInParent().y.toInt()
+                                            gamesModuleOffsetInItem = offset
+                                        },
                                     uiState = wikiGamesUiState,
                                     onPlayGameCardClick = {
                                         requireActivity().startActivity(OnThisDayGameActivity.newIntent(

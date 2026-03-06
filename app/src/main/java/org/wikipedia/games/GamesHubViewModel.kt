@@ -27,7 +27,6 @@ class GamesHubViewModel : ViewModel() {
     init {
         loadOnThisDayGamesPreviews(selectedLanguage)
     }
-    val appLanguageCodes = MutableStateFlow(WikipediaApp.instance.languageState.appLanguageCodes.toList())
 
     fun loadOnThisDayGamesPreviews(langCode: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -47,9 +46,5 @@ class GamesHubViewModel : ViewModel() {
             }.awaitAll()
             _onThisDayGameUiState.value = UiState.Success(gamesList)
         }
-    }
-
-    fun refreshLanguageCodes() {
-        appLanguageCodes.value = WikipediaApp.instance.languageState.appLanguageCodes.toList()
     }
 }
