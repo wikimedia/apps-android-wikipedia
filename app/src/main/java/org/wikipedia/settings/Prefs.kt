@@ -888,4 +888,20 @@ object Prefs {
     var isHybridSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
+
+    var currentStreak: Int
+        get() = PrefsIoUtil.getInt(R.string.preference_key_streak, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_streak, value)
+
+    var isEnrolled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_is_enrolled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_is_enrolled, value)
+
+    var hasReadToday
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_has_read_today, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_has_read_today, value)
+
+    var lastReadDate: String
+        get() = PrefsIoUtil.getString(R.string.preference_key_last_read_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_last_read_date, value)
 }

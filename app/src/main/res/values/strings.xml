@@ -2370,4 +2370,8 @@
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>
     <string name="hybrid_search_who_is_prefix">Who is %s?</string>
     <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
+
+    <!-- Reading challenge   -->
+    <string name="reading_challenge_small_widget_name">Reading Challenge (Small)</string>
+    <string name="reading_challenge_large_widget_name">Reading Challenge (Large)</string>
 </resources>

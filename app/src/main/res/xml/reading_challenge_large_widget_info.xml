@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO: need to add preview page -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:initialLayout="@layout/reading_challenge_widget_loading"
+    android:minWidth="320dp"
+    android:minHeight="132dp"
+    android:resizeMode="none"
+    android:targetCellWidth="5"
+    android:targetCellHeight="1"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen"
+    android:previewImage="@drawable/large_widget_challenge_not_opted_in"
+    tools:targetApi="31">
+</appwidget-provider>
