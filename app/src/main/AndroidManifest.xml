@@ -490,7 +490,7 @@
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/reading_challenge_widget_info"/>
+                android:resource="@xml/reading_challenge_large_widget_info"/>
         </receiver>
 
         <receiver
