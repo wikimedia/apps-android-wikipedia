@@ -539,6 +539,11 @@
   <string name="theme_category_editing">Bearbeiten</string>
   <string name="reading_focus_mode">Modus Lesefokus</string>
   <string name="reading_focus_mode_detail">Blendet Bearbeitungsfunktionen und untere Symbolleiste beim Scrollen aus</string>
+  <string name="margin_size_increase">Ränder vergrößern</string>
+  <string name="margin_size_decrease">Ränder verkleinern</string>
+  <string name="margin_size_label">Ränder</string>
+  <string name="text_justify_label">Blocksatz</string>
+  <string name="text_hyphenation_label">Silbentrennung</string>
   <string name="editing_syntax_highlight_label">Syntaxhervorhebung</string>
   <string name="editing_line_numbers_label">Zeilennummern anzeigen</string>
   <string name="editing_monospace_font_label">Monospace-Schriftarten verwenden</string>
