@@ -34,7 +34,7 @@ sealed interface ReadingChallengeState {
 
 data class ReadingChallengeUserData(
     val currentDate: LocalDate,
-    val isEnrolled: Boolean,
+    val enabled: Boolean,
     val currentStreak: Int,
     val hasReadToday: Boolean
 )

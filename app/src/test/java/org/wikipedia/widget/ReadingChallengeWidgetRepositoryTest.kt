@@ -1,14 +1,13 @@
-package org.wikipedia
+package org.wikipedia.widget
 
 import android.content.Context
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkAll
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertTrue
+import junit.framework.TestCase
 import org.junit.After
-import org.junit.Assert.assertFalse
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.wikipedia.settings.Prefs
@@ -39,12 +38,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 4, 15),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.NotLiveYet)
+        TestCase.assertTrue(state is ReadingChallengeState.NotLiveYet)
     }
 
     @Test
@@ -52,12 +51,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertFalse(state is ReadingChallengeState.NotLiveYet)
+        Assert.assertFalse(state is ReadingChallengeState.NotLiveYet)
     }
 
     // Not enrolled tests
@@ -66,12 +65,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.NotEnrolled)
+        TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
     }
 
     @Test
@@ -79,12 +78,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 31),
-                isEnrolled = false,
+                enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.NotEnrolled)
+        TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
     }
 
     //  Challenge Completed (streak >= 25, enrolled, on or before July 10)
@@ -93,12 +92,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 25),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.ChallengeCompleted)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -106,12 +105,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.ChallengeCompleted)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -119,12 +118,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 10),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.ChallengeCompleted)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -132,12 +131,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 10),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 24,
                 hasReadToday = false
             )
         )
-        assertFalse(state is ReadingChallengeState.ChallengeCompleted)
+        Assert.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -145,14 +144,14 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 25),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 24,
                 hasReadToday = false
             )
         )
-        assertFalse(state is ReadingChallengeState.ChallengeCompleted)
+        Assert.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
         // Should be either StreakOngoingNeedsReading or StreakOngoingReadToday
-        assertTrue(
+        TestCase.assertTrue(
             state is ReadingChallengeState.StreakOngoingNeedsReading ||
                     state is ReadingChallengeState.StreakOngoingReadToday
         )
@@ -164,12 +163,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.ChallengeConcludedNoStreak)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedNoStreak)
     }
 
     @Test
@@ -177,12 +176,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 6, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.ChallengeConcludedIncomplete)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedIncomplete)
     }
 
     @Test
@@ -190,12 +189,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 31),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
         )
-        assertTrue(
+        TestCase.assertTrue(
             state is ReadingChallengeState.StreakOngoingNeedsReading ||
                     state is ReadingChallengeState.StreakOngoingReadToday
         )
@@ -206,21 +205,17 @@ class ReadingChallengeWidgetRepositoryTest {
     fun `when lastReadDate is more than 1 day ago then streak and hasReadToday are reset`() {
         val currentDate = LocalDate.of(2026, 3, 15)
 
-        every { Prefs.isEnrolled } returns true
-        every { Prefs.currentStreak } returns 10
-        every { Prefs.hasReadToday } returns true
-        every { Prefs.lastReadDate } returns currentDate.minusDays(2).toString()
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 10
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
 
         var newCurrentStreak = 10
-        var newHasReadToday = true
 
-        every { Prefs.currentStreak = any() } answers { newCurrentStreak = firstArg() }
-        every { Prefs.hasReadToday = any() } answers { newHasReadToday = firstArg() }
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
 
         repository.recalculateStreakIfNeeded(currentDate)
 
-        assertEquals(0, newCurrentStreak)
-        assertEquals(false, newHasReadToday)
+        TestCase.assertEquals(0, newCurrentStreak)
     }
 
     // Enrolled not started test
@@ -229,12 +224,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
+        TestCase.assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
     }
 
     @Test
@@ -242,12 +237,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
+        TestCase.assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
     }
 
     // Streak Ongoing: Not Yet Read Today
@@ -256,12 +251,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.StreakOngoingNeedsReading)
+        TestCase.assertTrue(state is ReadingChallengeState.StreakOngoingNeedsReading)
     }
 
     @Test
@@ -269,13 +264,13 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 20),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 5,
                 hasReadToday = false
             )
         )
-        assertTrue(state is ReadingChallengeState.StreakOngoingNeedsReading)
-        assertEquals(5, (state as ReadingChallengeState.StreakOngoingNeedsReading).streak)
+        TestCase.assertTrue(state is ReadingChallengeState.StreakOngoingNeedsReading)
+        TestCase.assertEquals(5, (state as ReadingChallengeState.StreakOngoingNeedsReading).streak)
     }
 
     // Streak Ongoing: Already Read Today
@@ -284,12 +279,12 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 10,
                 hasReadToday = true
             )
         )
-        assertTrue(state is ReadingChallengeState.StreakOngoingReadToday)
+        TestCase.assertTrue(state is ReadingChallengeState.StreakOngoingReadToday)
     }
 
     @Test
@@ -297,13 +292,13 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 20),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 7,
                 hasReadToday = true
             )
         )
-        assertTrue(state is ReadingChallengeState.StreakOngoingReadToday)
-        assertEquals(7, (state as ReadingChallengeState.StreakOngoingReadToday).streak)
+        TestCase.assertTrue(state is ReadingChallengeState.StreakOngoingReadToday)
+        TestCase.assertEquals(7, (state as ReadingChallengeState.StreakOngoingReadToday).streak)
     }
 
     // Remove challenge test
@@ -312,12 +307,37 @@ class ReadingChallengeWidgetRepositoryTest {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 7, 11),
-                isEnrolled = true,
+                enabled = true,
                 currentStreak = 2,
                 hasReadToday = false
             )
         )
 
-        assertTrue(state is ReadingChallengeState.ChallengeRemoved)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeRemoved)
+    }
+
+    // has read today test
+    @Test
+    fun `hasReadToday returns true when lastReadDate matches currentDate`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.toString()
+
+        TestCase.assertTrue(repository.hasReadToday(currentDate))
+    }
+
+    @Test
+    fun `hasReadToday returns false when lastReadDate is yesterday`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
+
+        Assert.assertFalse(repository.hasReadToday(currentDate))
+    }
+
+    @Test
+    fun `hasReadToday returns false when lastReadDate is empty`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+        every { Prefs.readingChallengeLastReadDate } returns ""
+
+        Assert.assertFalse(repository.hasReadToday(currentDate))
     }
 }
