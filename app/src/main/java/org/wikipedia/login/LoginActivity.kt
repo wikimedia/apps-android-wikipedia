@@ -159,15 +159,15 @@ class LoginActivity : BaseActivity() {
             validateThenLogin()
         }
         binding.loginCreateAccountButton.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "create_account")
+            instrument?.submitInteraction("click", elementId = "create_account_button")
             startCreateAccountActivity()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "privacy_policy")
+            instrument?.submitInteraction("click", elementId = "privacy_policy_link")
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "forgot_password")
+            instrument?.submitInteraction("click", elementId = "forgot_password_link")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
             visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }

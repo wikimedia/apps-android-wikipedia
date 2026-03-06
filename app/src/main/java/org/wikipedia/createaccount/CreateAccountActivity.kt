@@ -224,7 +224,7 @@ class CreateAccountActivity : BaseActivity() {
             validateThenCreateAccount()
         }
         binding.createAccountLoginButton.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "login")
+            instrument?.submitInteraction("click", elementId = "login_button")
             if (requestSource == LoginActivity.SOURCE_YEAR_IN_REVIEW) {
                 YearInReviewEvent.submit(action = "login_click", slide = "explore_prompt")
             }
@@ -235,11 +235,11 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "privacy_policy")
+            instrument?.submitInteraction("click", elementId = "privacy_policy_link")
             FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "forgot_password")
+            instrument?.submitInteraction("click", elementId = "forgot_password_link")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
             visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
@@ -395,9 +395,7 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent)
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
-
         instrument?.submitInteraction("success")
-
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }
