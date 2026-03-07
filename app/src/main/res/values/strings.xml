@@ -2374,4 +2374,33 @@
     <!-- Reading challenge   -->
     <string name="reading_challenge_small_widget_name">Reading Challenge (Small)</string>
     <string name="reading_challenge_large_widget_name">Reading Challenge (Large)</string>
+    <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
+    <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
+    <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_win_title">Win prizes</string>
+    <string name="reading_challenge_onboarding_win_description">Complete a 25-day reading streak while the challenge is live to win special prizes.</string>
+    <string name="reading_challenge_onboarding_install_title">Install the widget</string>
+    <string name="reading_challenge_onboarding_install_description">Get helpful reminders and motivation with our adorable birthday mascot Baby Globe.</string>
+    <string name="reading_challenge_onboarding_note">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="reading_challenge_onboarding_learn_more_button">Learn more</string>
+    <string name="reading_challenge_onboarding_join_button">Join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_title">Log in to join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_message">Log in or create an account to track your progress towards the reading challenge.</string>
+    <string name="reading_challenge_onboarding_prompt_no_thanks">No thanks</string>
+    <string name="reading_challenge_onboarding_prompt_login">Log in / Join Wikipedia</string>
+    <string name="reading_challenge_install_prompt_title">Install the 25-day reading challenge widget</string>
+    <string name="reading_challenge_install_prompt_message">Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your homescreen.</string>
+    <string name="reading_challenge_install_prompt_got_it">Got it</string>
+    <string name="reading_challenge_widget_explore_button">Explore</string>
+    <string name="reading_challenge_widget_explore_wikipedia_button">Explore Wikipedia</string>
+    <string name="reading_challenge_widget_join_challenge_button">Join challenge</string>
+    <string name="reading_challenge_widget_join_the_challenge_button">Join the challenge</string>
+    <string name="reading_challenge_widget_search_button">Search</string>
+    <string name="reading_challenge_widget_random_button">Random</string>
+    <string name="reading_challenge_widget_collect_prize_button">Collect prize</string>
+    <string name="reading_challenge_widget_collect_your_prize_button">Collect your prize!</string>
+    <string name="reading_challenge_widget_not_live_title">Get ready to read</string>
+    <string name="reading_challenge_widget_not_live_description">A 25-day reading challenge is on the way.</string>
+    <string name="reading_challenge_widget_not_opted_in_title">Ready, set, read!</string>
+    <string name="reading_challenge_widget_not_opted_in_description">Join the 25-day challenge and unlock special prizes.</string>
 </resources>
