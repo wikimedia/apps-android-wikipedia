@@ -132,7 +132,7 @@ class SearchResultsViewModel : ViewModel() {
                             }
                         }
                     } else {
-                        val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, lexicalBatchSize, 0, isSemantic = true)
+                        val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, semanticBatchSize, 0, isSemantic = true)
                         lastXSearchId = response.headers()["x-search-id"] ?: ""
                         buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
                     }
