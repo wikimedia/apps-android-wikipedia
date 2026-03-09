@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginResponse
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -55,15 +56,29 @@ interface Service {
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
-                "&gsrinfo=&gsrprop=redirecttitle|snippet|sectiontitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
                 PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?
+    ): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle|snippet|sectiontitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchResponse(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?,
         @Query("cirrusSemanticSearch") isSemantic: Boolean? = null
-    ): MwQueryResponse
+    ): Response<MwQueryResponse>
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
     suspend fun prefixSearchUsers(

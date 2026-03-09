@@ -61,6 +61,7 @@ class SearchResultsViewModel : ViewModel() {
 
     var semanticResultsTitlesForEvent = ""
     var lexicalResultsTitlesForEvent = ""
+    var lastXSearchId = ""
 
     @OptIn(
         FlowPreview::class,
@@ -93,6 +94,7 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 
+            lastXSearchId = ""
             val term = _searchTerm.value
             val lang = _languageCode.value
 
@@ -130,8 +132,9 @@ class SearchResultsViewModel : ViewModel() {
                             }
                         }
                     } else {
-                        val response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0, isSemantic = true)
-                        buildList(response, invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
+                        val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, lexicalBatchSize, 0, isSemantic = true)
+                        lastXSearchId = response.headers()["x-search-id"] ?: ""
+                        buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
                     }
                 }
             }
