@@ -371,9 +371,9 @@
   <string name="redirected_from_snackbar">Stivrejuvvon ođđasit siiddus \"%s\"</string>
   <string name="button_get_directions">Geaidnobagadus</string>
   <string name="error_no_maps_app">Ii gávdnan ovttage áppa mii sáhtášii bagadit geainnu.</string>
-  <string name="preference_title_customize_explore_feed">Guorahallanfeeda</string>
+  <string name="preference_title_customize_explore_feed">Guorahallandeavdda</string>
   <string name="preference_title_show_link_previews">Ovdačájeheapmi liŋkkain</string>
-  <string name="preference_summary_customize_explore_feed">Heivet guorahallanfeeda</string>
+  <string name="preference_summary_customize_explore_feed">Heivet guorahallandeavdaga</string>
   <string name="preference_summary_show_link_previews">Čájet oanehis ovdačájáhusa artihkkaliin go deaddilat liŋkkaid.</string>
   <string name="preference_title_collapse_tables">Máhco tabeallaid</string>
   <string name="preference_summary_collapse_tables">Máhco tabeallaid automáhtalaččat oktii artihkkaliidda, nugo diehtolođáid, gálduid ja notaid.</string>
@@ -431,7 +431,7 @@
     <item quantity="other">Dat gaskaboddosaš dovddaldat %1$s ásahuvvui maŋŋel go du rievdadeapmi almmuhuvvui. Dat nohká doaimmas %2$d beaivve geahčen.</item>
   </plurals>
   <plurals name="temp_account_expiry">
-    <item quantity="one">Dovddaldat nohká %d beaivvi geahčeen.</item>
+    <item quantity="one">Dovddaldat nohká %d beaivvi geahčen.</item>
     <item quantity="two">Dovddaldat nohká %d beaivvi geahčen.</item>
     <item quantity="other">Dovddaldat nohká %d beaivvi geahčen.</item>
   </plurals>
@@ -1130,6 +1130,7 @@
   <string name="edit_summary_added_image_and_caption">Govva ja govvateaksta lasihuvvojedje</string>
   <string name="edit_published_view">Čájet</string>
   <string name="activity_tab_menu_info">Lassedieđut</string>
+  <string name="activity_tab_timeline_view_changes_button">Čájet rievdadusaid</string>
   <string name="file_page_activity_title">Fiilasiidu</string>
   <string name="file_page_add_image_caption_button">Lasit govvateavstta</string>
   <string name="file_page_add_image_tags_button">Lasit govvagilkoriid</string>
