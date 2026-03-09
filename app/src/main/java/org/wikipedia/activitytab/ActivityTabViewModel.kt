@@ -34,7 +34,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.extensions.toLocalDate
-import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -60,8 +59,6 @@ class ActivityTabViewModel : ViewModel() {
     val wikiGamesUiState: StateFlow<UiState<OnThisDayGameViewModel.GameStatistics?>> = _wikiGamesUiState.asStateFlow()
 
     private var currentTimelinePagingSource: TimelinePagingSource? = null
-
-    val areGamesAvailable get() = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)
 
     val wikiSiteForTimeline get(): WikiSite {
         return when (val langCode = Prefs.userContribFilterLangCode) {

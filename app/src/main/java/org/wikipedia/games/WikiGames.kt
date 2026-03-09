@@ -5,12 +5,16 @@ import org.wikipedia.language.LanguageUtil
 
 enum class WikiGames(
     val titleRes: Int,
-    val supportLanguages: List<String> = emptyList()
+    private val baseLanguages: List<String> = emptyList()
 ) {
     WHICH_CAME_FIRST(
-        R.string.on_this_day_game_title,
-        LanguageUtil.getSupportedLanguageCodes(listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh"))
+        titleRes = R.string.on_this_day_game_title,
+        baseLanguages = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh")
     );
+
+    val supportLanguages: List<String> by lazy {
+        LanguageUtil.getSupportedLanguageCodes(baseLanguages)
+    }
 
     fun isLangSupported(vararg langCodes: String): Boolean {
         return langCodes.any { supportLanguages.contains(it) }
