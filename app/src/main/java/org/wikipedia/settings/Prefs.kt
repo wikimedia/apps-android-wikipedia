@@ -889,7 +889,7 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
 
-    var isGameStatsSnackbarShown
+    var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
 }

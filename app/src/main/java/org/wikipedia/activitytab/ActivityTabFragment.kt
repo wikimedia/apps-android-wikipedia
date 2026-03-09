@@ -24,8 +24,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.relocation.BringIntoViewRequester
-import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -202,11 +200,11 @@ class ActivityTabFragment : Fragment() {
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
             viewModel.onScrollToGames()
-            if (!Prefs.isGameStatsSnackbarShown) {
+            if (!Prefs.isGameStatsUnavailableSnackbarShown) {
                 requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
                     FeedbackUtil.makeSnackbar(requireView(), it).show()
                     requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
-                    Prefs.isGameStatsSnackbarShown = true
+                    Prefs.isGameStatsUnavailableSnackbarShown = true
                 }
             }
 
