@@ -240,16 +240,19 @@ class ActivityTabFragment : Fragment() {
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
         var gamesModuleOffsetInItem by remember { mutableStateOf(0) }
-        val gamesItemIndex = if (
-            modules.isModuleVisible(ModuleType.TIME_SPENT) ||
-            modules.isModuleVisible(ModuleType.READING_INSIGHTS)
-        ) 1 else 0
 
         LaunchedEffect(scrollToGames) {
             if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {
+                val containerIndex = if (
+                    modules.isModuleVisible(ModuleType.TIME_SPENT) ||
+                    modules.isModuleVisible(ModuleType.READING_INSIGHTS)
+                ) 1 else 0
+
+                gamesModuleOffsetInItem = 0
+
                 // since we don't have index per module, this will move to the container holding games module
                 // so that the lazy column can compose it and onGloballyPositioned executes
-                listState.scrollToItem(gamesItemIndex)
+                listState.scrollToItem(containerIndex)
 
                 // now we wait for the games module to be laid out
                 snapshotFlow { gamesModuleOffsetInItem }
@@ -257,7 +260,7 @@ class ActivityTabFragment : Fragment() {
 
                 // then animate to the correct offset
                 listState.animateScrollToItem(
-                    index = gamesItemIndex,
+                    index = containerIndex,
                     scrollOffset = gamesModuleOffsetInItem
                 )
                 onScrollToGamesConsumed()
