@@ -261,7 +261,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
-  <string name="legal_safety_contacts_description" fuzzy="true">Juridiske og sikkerhedsmæssige kontakter</string>
+  <string name="legal_safety_contacts_description">Juridiske og sikkerhedsmæssige kontakter</string>
   <string name="about_wikipedia_url">https://da.wikipedia.org/wiki/Hjælp:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
@@ -2049,6 +2049,8 @@
     <item quantity="one">App-brugere har set Wikipedia-artikler %,d gang</item>
     <item quantity="other">App-brugere har set Wikipedia-artikler %,d gange</item>
   </plurals>
+  <string name="year_in_review_slide_viewed_articles_times_body">For folk over hele verden er Wikipedia det første stop, når de skal besvare et spørgsmål, søge information til uddannelse eller arbejde eller blot få ny viden.</string>
+  <string name="year_in_review_reading_list_dialog_title">Opret din læseliste med %d årsoversigt?</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
   <string name="year_in_review_reading_list_title">Året i tilbageblik %d</string>
@@ -2197,7 +2199,7 @@
   <string name="hybrid_search_onboarding_search_example_description">Brug et af søge-eksemplerne herunder.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Du har fravalgt eksperimentet.</string>
   <string name="hybrid_search_onboarding_screen_title">En ny måde at søge på</string>
-  <string name="hybrid_search_results_rate_label" fuzzy="true">Bedøm disse resultater</string>
+  <string name="hybrid_search_results_rate_label">Bedøm dette resultat</string>
   <string name="hybrid_search_results_rated_label">Bedømt</string>
   <string name="hybrid_search_results_rate_thumb_up">Bedøm thumbs up</string>
   <string name="hybrid_search_results_rate_thumb_down">Bedøm thumbs down</string>
