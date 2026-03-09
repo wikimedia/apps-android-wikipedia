@@ -2374,4 +2374,8 @@
     <!-- Reading challenge   -->
     <string name="reading_challenge_small_widget_name">Reading Challenge (Small)</string>
     <string name="reading_challenge_large_widget_name">Reading Challenge (Large)</string>
+    <plurals name="reading_challenge_small_widget_streak">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 </resources>

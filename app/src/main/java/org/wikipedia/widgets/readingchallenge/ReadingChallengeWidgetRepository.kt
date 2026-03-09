@@ -103,9 +103,19 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
+    fun updateOnArticleRead() {
+        val currentDate = LocalDate.now()
+        if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
+            recalculateStreakIfNeeded(currentDate)
+            Prefs.readingChallengeStreak += 1
+            Prefs.readingChallengeLastReadDate = currentDate.toString()
+        }
+    }
+
     companion object {
-        private val START_DATE = LocalDate.of(2026, 5, 1)
-        private val END_DATE = LocalDate.of(2026, 5, 31)
+        // TODO: replace with actual start and end date before releasing
+        private val START_DATE = LocalDate.of(2026, 3, 1)
+        private val END_DATE = LocalDate.of(2026, 3, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
         private const val READING_STREAK_GOAL = 25
     }
