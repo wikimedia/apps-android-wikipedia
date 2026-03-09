@@ -115,9 +115,8 @@ object EventPlatformClient {
     }
 
     suspend fun refreshStreamConfigs() {
-        val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
         STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(response.streamConfigs)
+        STREAM_CONFIGS.putAll(ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs().streamConfigs)
         // Ensure that serialization of configs is done off the main thread
         withContext(Dispatchers.Default) {
             Prefs.streamConfigs = STREAM_CONFIGS
