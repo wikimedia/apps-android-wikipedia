@@ -121,7 +121,6 @@ import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import java.time.LocalDateTime
 
 class ActivityTabFragment : Fragment() {
@@ -238,7 +237,6 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>,
         onScrollToGamesConsumed: () -> Unit = {}
     ) {
-        L.d("languageCode $languageCode areGamesAvailable $areGamesAvailable")
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
         var gamesModuleOffsetInItem by remember { mutableIntStateOf(0) }
