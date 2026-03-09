@@ -42,6 +42,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -105,7 +106,6 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
-import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
@@ -121,6 +121,7 @@ import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import java.time.LocalDateTime
 
 class ActivityTabFragment : Fragment() {
@@ -178,7 +179,7 @@ class ActivityTabFragment : Fragment() {
                         languageCode = WikipediaApp.instance.wikiSite.languageCode,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                        areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
+                        areGamesAvailable = viewModel.areGamesAvailable,
                         refreshSilently = viewModel.shouldRefreshTimelineSilently,
                         scrollToGames = scrollToGames,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
@@ -237,9 +238,10 @@ class ActivityTabFragment : Fragment() {
         timelineFlow: Flow<PagingData<TimelineDisplayItem>>,
         onScrollToGamesConsumed: () -> Unit = {}
     ) {
+        L.d("languageCode $languageCode areGamesAvailable $areGamesAvailable")
         val timelineItems = timelineFlow.collectAsLazyPagingItems()
         val listState = rememberLazyListState()
-        var gamesModuleOffsetInItem by remember { mutableStateOf(0) }
+        var gamesModuleOffsetInItem by remember { mutableIntStateOf(0) }
 
         LaunchedEffect(scrollToGames) {
             if (scrollToGames && modules.isModuleVisible(ModuleType.GAMES, areGamesAvailable = areGamesAvailable)) {

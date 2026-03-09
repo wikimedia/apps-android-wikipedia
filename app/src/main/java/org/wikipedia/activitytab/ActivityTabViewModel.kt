@@ -34,6 +34,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthUserImpact
 import org.wikipedia.extensions.toLocalDate
+import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -48,7 +49,7 @@ import java.util.Date
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-class ActivityTabViewModel() : ViewModel() {
+class ActivityTabViewModel : ViewModel() {
     private val _readingHistoryState = MutableStateFlow<UiState<ReadingHistory>>(UiState.Loading)
     val readingHistoryState: StateFlow<UiState<ReadingHistory>> = _readingHistoryState.asStateFlow()
 
@@ -60,9 +61,10 @@ class ActivityTabViewModel() : ViewModel() {
 
     private var currentTimelinePagingSource: TimelinePagingSource? = null
 
+    val areGamesAvailable get() = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)
+
     val wikiSiteForTimeline get(): WikiSite {
-        val langCode = Prefs.userContribFilterLangCode
-        return when (langCode) {
+        return when (val langCode = Prefs.userContribFilterLangCode) {
             Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
             Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
             else -> WikiSite.forLanguageCode(langCode)
