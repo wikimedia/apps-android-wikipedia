@@ -1,9 +1,11 @@
 package org.wikipedia.widgets.readingchallenge.smallwidget
 
 import android.content.Context
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
@@ -19,6 +21,7 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.WidgetColors
 import org.wikipedia.widgets.readingchallenge.smallwidget.components.SmallWidget
+import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetBadge
 import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetButton
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
@@ -62,9 +65,36 @@ fun ReadingChallengeSmallContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .background(WidgetColors.challengeNotOptInBackground),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = "Explore",
+                        action = actionStartActivity(MainActivity.newIntent(WikipediaApp.instance).putExtra("fromWidget", true))
+                    )
+                }
+            )
+        }
         ReadingChallengeState.NotEnrolled -> TODO()
         is ReadingChallengeState.StreakOngoingNeedsReading -> TODO()
-        is ReadingChallengeState.StreakOngoingReadToday -> TODO()
+        is ReadingChallengeState.StreakOngoingReadToday -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .background(WidgetColors.challengeNotOptInBackground),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = "${state.streak} ${if (state.streak == 1) "day" else "days"}",
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 24.dp,
+                        iconTintColorProvider = WidgetColors.readingContent,
+                        textColorProvider = WidgetColors.readingContent
+                    )
+                }
+            )
+        }
     }
 }

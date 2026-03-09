@@ -11,8 +11,9 @@ import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 
 class ReadingChallengeWidgetRepository(private val context: Context) {
-    private val START_DATE = LocalDate.of(2026, 5, 1)
-    private val END_DATE = LocalDate.of(2026, 5, 31)
+    // TODO: restore to actual start and end date
+    private val START_DATE = LocalDate.of(2026, 3, 1)
+    private val END_DATE = LocalDate.of(2026, 3, 31)
     private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
 
     fun observeState(): Flow<ReadingChallengeState> {
@@ -33,6 +34,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
             val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> emit() }
             prefs.registerOnSharedPreferenceChangeListener(listener)
+            emit() // for daily updates and to emit initial value when flow is collected
             awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
         }.distinctUntilChanged()
     }
