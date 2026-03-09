@@ -36,20 +36,12 @@ fun StreakProgressBar(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        if (currentStreak >= totalDays) {
+        if (currentStreak !in 1..<totalDays) {
             // 100% completed state - show full progress bar
             Box(modifier = GlanceModifier
                 .height(24.dp)
                 .width(dynamicWidth)
-                .background(progressColor)
-                .cornerRadius(12.dp)
-            ) { }
-        } else if (currentStreak <= 0) {
-            // 0% state - empty bar
-            Box(modifier = GlanceModifier
-                .height(24.dp)
-                .width(dynamicWidth)
-                .background(progressBarColor)
+                .background(if (currentStreak >= totalDays) progressColor else progressBarColor)
                 .cornerRadius(12.dp)
             ) { }
         } else {
