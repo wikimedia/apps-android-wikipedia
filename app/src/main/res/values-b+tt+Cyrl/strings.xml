@@ -786,7 +786,7 @@
   <string name="view_random_article_card_title">Очраклы мәкалә</string>
   <string name="view_random_article_card_action">Күбрәк очраклы мәкаләләр</string>
   <string name="view_top_read_card_title">Иң күп укылган</string>
-  <string name="view_top_read_card_action">Күбрәк популяр мәкаләләр</string>
+  <string name="view_top_read_card_action">Башка популяр мәкаләләр</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d мең</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d миллион</string>
   <string name="view_next_random_article">Башка очраклы мәкаләне йөкләгез</string>
@@ -1134,6 +1134,7 @@
   <string name="activity_tab_game_stats">Уеннар статистикасы</string>
   <string name="activity_tab_game_stats_best_streak">Иң яхшы streak</string>
   <string name="activity_tab_play_wiki_games">WikiGames уеннарын уйнау</string>
+  <string name="activity_tab_report_email_subject">Читенлек турында хәбәрләү — «Активлык» табы</string>
   <string name="activity_tab_menu_feedback">Функция белән проблема</string>
   <string name="activity_tab_menu_info">Күбрәк күрсәт</string>
   <string name="activity_tab_menu_customize">Җайлау</string>
@@ -1157,11 +1158,16 @@
     <item quantity="many">төзәтмәләр саны</item>
     <item quantity="other">төзәтмәләр саны</item>
   </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">рәхмәт әйтү</item>
+  </plurals>
   <plurals name="activity_tab_impact_best_streak_text">
     <item quantity="other">%d көн</item>
   </plurals>
   <string name="activity_tab_impact_best_streak">Иң яхшы streak</string>
   <string name="activity_tab_impact_last_edited">Соңгы төзәтмә</string>
+  <string name="activity_tab_impact_suggested_edits_title">Соңгы вакыт дәвамында мәкаләләргә 0 төзәтмә</string>
+  <string name="activity_tab_impact_suggested_edits_message">Сез бу ай дәвамында төзәтмәләр кертмәдегез кебек. Үзегезгә кызык булган темаларга язып, ачык белемнәрне киңәйтегез.</string>
   <string name="activity_tab_impact_suggested_edits_button">Төзәтмә кертү</string>
   <string name="activity_tab_impact_recent_activity">Күптән түгелге активлыгыгыз (соңгы 30 көн)</string>
   <string name="activity_tab_impact_recent_activity_edits">{{PLURAL:$1|Төзәтмә}}</string>
@@ -1172,6 +1178,7 @@
   <string name="activity_tab_customize_screen_games_switch_title">Уен статистикасы</string>
   <string name="activity_tab_customize_screen_donations_switch_title">Кушымта эчендә соңгы иганә</string>
   <string name="activity_tab_customize_screen_timeline_switch_title">Активлык тарихы</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Активлык модульләре сүндерелгән. Бу табта яңартуларны күрү өчен &lt;a href=\"#\"&gt;Аларны кабызыгыз&lt;/a&gt;.</string>
   <string name="activity_tab_timeline_today">Бүген</string>
   <string name="activity_tab_timeline_yesterday">Кичә</string>
   <string name="activity_tab_timeline_empty_state_title">Күрсәтерлек берни дә юк</string>
@@ -1180,6 +1187,9 @@
   <string name="activity_tab_onboarding_reading_patterns_title">Нәрсәләр турында укырга яратасыз</string>
   <string name="activity_tab_onboarding_reading_patterns_message">Укып күпме вакыт уздырганыгызны, вакыт дәвамында нинди мәкаләләрне һәм темаларны караганыгызны күзәтегез.</string>
   <string name="activity_tab_onboarding_screen_title">«Активлыкны» тәкъдим итәбез</string>
+  <string name="activity_tab_onboarding_impact_title">Кертемнең тәэсире</string>
+  <string name="activity_tab_onboarding_engage_title">Катнашу өчен башка мөмкинлекләр</string>
+  <string name="edits_screen_what_is_title">Википедия кушымтасы эчендә төзәтмәләр кертү</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
   <string name="file_page_add_image_tags_button">Сурәт тегларын өстәргә</string>
@@ -1208,6 +1218,7 @@
   <string name="onboarding_multilingual_secondary_text">Без сезнең җайланмада түбәндәгеләрне таптык:</string>
   <string name="onboarding_multilingual_add_language_text">Телләрне тулыландыру яки мөхәррирләү</string>
   <string name="onboarding_welcome_title_v2">Ирекле энциклопедия\n..., 300 дән артык телдә</string>
+  <string name="onboarding_next">Алга</string>
   <string name="app_shortcuts_random">Очраклы</string>
   <string name="app_shortcuts_continue_reading">Алга таба укырга</string>
   <string name="app_shortcuts_search">Эзләү</string>
@@ -1609,8 +1620,11 @@
   <string name="patroller_tasks_filters_user_intent_good">Мөгаен, намуслы</string>
   <string name="patroller_tasks_filters_user_intent_good_desc">Яхшы ният белән ясаган күпчелек төзәтмәләрне табуның иң төгәл ысулы.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Бәлки, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Яман ният белән ясалган күпчелек төзәтмәләрне таба, ләкин төгәллеге түбән була.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Мөгаен, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Яман ният белән ясалган төзәтмәләрне уртача санда таба, ләкин төгәллеге дә уртача була.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Мөгаен, намуссызлык</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Яман ният белән ясалган бары тик иң күренмәле төзәтмәләрне таба, ләкин төгәллеге югары була.</string>
   <string name="patroller_tasks_filters_empty_search_message">Үзгәрешләрне күбрәк күрү өчен %s фильтрны бетерегез</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d сөзгеч</item>
@@ -1621,6 +1635,7 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Карау</string>
   <string name="patroller_tasks_overflow_report">Функция белән проблема</string>
   <string name="patroller_tasks_overflow_learn">Күбрәк белергә</string>
+  <string name="patroller_onboarding_one_title">Википедиядә керткән төзәтмәләрне тикшерүдә һәм раслауда катнашыгыз.</string>
   <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
   <string name="patroller_onboarding_two_watch_title">Күзәтү</string>
   <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
@@ -1648,10 +1663,12 @@
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
   <string name="places_toggle_buttons_map">Харита</string>
   <string name="places_toggle_buttons_list">Исемлек</string>
+  <string name="places_card_enable_location_card_button">Локация табуны кабызу</string>
   <string name="survey_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="survey_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
   <string name="survey_dialog_option_satisfied">Канәгатьләндерелгән</string>
   <string name="survey_dialog_option_neutral">Нейтраль</string>
   <string name="survey_dialog_submit">Җибәрү</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Бәяләмә җибәрелде.</string>
+  <string name="on_this_day_game_correct">Дөрес!</string>
 </resources>

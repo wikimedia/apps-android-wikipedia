@@ -12,13 +12,12 @@ import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.context.PerformerData
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 
-@Suppress("CanConvertToMultiDollarString")
 @Serializable
 class Event {
     @Transient var clientData: ClientData = ClientData()
     @Transient var interactionData: InteractionData = InteractionData()
 
-    @SerialName("\$schema") var schema: String = ""
+    @SerialName($$"$schema") var schema: String = ""
     @SerialName("dt") var timestamp: String? = null
     val meta: Meta
 
