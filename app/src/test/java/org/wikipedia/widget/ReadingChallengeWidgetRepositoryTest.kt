@@ -7,7 +7,6 @@ import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import junit.framework.TestCase
 import org.junit.After
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.wikipedia.settings.Prefs
@@ -56,7 +55,7 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasReadToday = false
             )
         )
-        Assert.assertFalse(state is ReadingChallengeState.NotLiveYet)
+        TestCase.assertFalse(state is ReadingChallengeState.NotLiveYet)
     }
 
     // Not enrolled tests
@@ -136,7 +135,7 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasReadToday = false
             )
         )
-        Assert.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
+        TestCase.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -149,7 +148,7 @@ class ReadingChallengeWidgetRepositoryTest {
                 hasReadToday = false
             )
         )
-        Assert.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
+        TestCase.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
         // Should be either StreakOngoingNeedsReading or StreakOngoingReadToday
         TestCase.assertTrue(
             state is ReadingChallengeState.StreakOngoingNeedsReading ||
@@ -330,7 +329,7 @@ class ReadingChallengeWidgetRepositoryTest {
         val currentDate = LocalDate.of(2026, 5, 15)
         every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
 
-        Assert.assertFalse(repository.hasReadToday(currentDate))
+        TestCase.assertFalse(repository.hasReadToday(currentDate))
     }
 
     @Test
@@ -338,6 +337,6 @@ class ReadingChallengeWidgetRepositoryTest {
         val currentDate = LocalDate.of(2026, 5, 15)
         every { Prefs.readingChallengeLastReadDate } returns ""
 
-        Assert.assertFalse(repository.hasReadToday(currentDate))
+        TestCase.assertFalse(repository.hasReadToday(currentDate))
     }
 }
