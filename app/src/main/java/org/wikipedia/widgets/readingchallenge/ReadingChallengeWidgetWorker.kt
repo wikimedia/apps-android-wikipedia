@@ -46,9 +46,7 @@ class ReadingChallengeWidgetWorker(
             ReadingChallengeLargeWidget().updateAll(applicationContext)
         }
 
-        if (smallWidgetIds.isNotEmpty() || largeWidgetIds.isNotEmpty()) {
-            scheduleNextMidnightUpdate(applicationContext)
-        }
+        scheduleNextMidnightUpdate(applicationContext)
 
         return Result.success()
     }
