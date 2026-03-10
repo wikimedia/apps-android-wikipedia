@@ -9,12 +9,13 @@ import androidx.glance.GlanceTheme
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
+import org.wikipedia.R
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 
 class ReadingChallengeLargeWidget : GlanceAppWidget() {
 
-    override val sizeMode: SizeMode = SizeMode.Single
+    override val sizeMode: SizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(
         context: Context,
@@ -37,14 +38,23 @@ fun ReadingChallengeLargeContent(
 ) {
     // each state will have small and large widget content
     when (state) {
-        ReadingChallengeState.ChallengeCompleted -> TODO()
-        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
-        ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
-        ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
-        ReadingChallengeState.NotEnrolled -> TODO()
-        ReadingChallengeState.NotLiveYet -> TODO()
-        is ReadingChallengeState.StreakOngoingNeedsReading -> TODO()
-        is ReadingChallengeState.StreakOngoingReadToday -> TODO()
+        ReadingChallengeState.ChallengeCompleted -> {}
+        ReadingChallengeState.ChallengeConcludedIncomplete -> {}
+        ReadingChallengeState.ChallengeConcludedNoStreak -> {}
+        ReadingChallengeState.ChallengeRemoved -> {}
+        ReadingChallengeState.EnrolledNotStarted -> {}
+        ReadingChallengeState.NotEnrolled -> {}
+        ReadingChallengeState.NotLiveYet -> {}
+        is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            StreakOngoingNeedsReadingLargeWidget(
+                state = state,
+                mainImageResId = R.drawable.globe
+            )
+        }
+        is ReadingChallengeState.StreakOngoingReadToday -> {
+            StreakOngoingLargeWidget(
+                state = state
+            )
+        }
     }
 }

@@ -20,6 +20,8 @@ object WidgetColors {
     val white = Color(0xFFFFFFFF)
     val primary = Color(0xFF202122)
     val progressive = Color(0xFF3366CC)
+
+    val progressColor = Color(0xFFC690B4)
 }
 
 object WidgetBackground {

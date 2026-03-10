@@ -2125,5 +2125,8 @@
   <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
     <string name="reading_challenge_small_widget_name">Display name for the small Reading Challenge home screen widget.</string>
     <string name="reading_challenge_large_widget_name">Display name for the large Reading Challenge home screen widget.</string>
-    <string name="reading_challenge_small_widget_streak">Plural text displaying the user's current reading streak count in the small Reading Challenge widget. %d is replaced by streak count.</string>
+    <plurals name="reading_challenge_small_widget_streak">
+        <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
+        <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days.</item>
+    </plurals>
 </resources>

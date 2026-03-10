@@ -7,6 +7,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import org.wikipedia.R
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
@@ -14,6 +15,12 @@ import java.time.temporal.ChronoUnit
 class ReadingChallengeWidgetRepository(private val context: Context) {
     fun observeState(): Flow<ReadingChallengeState> {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val relevantKeys = setOf(
+            context.getString(R.string.preference_key_reading_challenge_streak),
+            context.getString(R.string.preference_key_reading_challenge_enrolled),
+            context.getString(R.string.preference_key_reading_challenge_last_read_date)
+        )
+
         return callbackFlow {
             fun emit() {
                 val currentDate = LocalDate.now()
@@ -28,7 +35,11 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 ))
             }
 
-            val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> emit() }
+            val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+                if (key in relevantKeys) {
+                    emit()
+                }
+            }
             prefs.registerOnSharedPreferenceChangeListener(listener)
             emit() // for daily updates and to emit initial value when flow is collected
             awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -106,17 +117,22 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     fun updateOnArticleRead() {
         val currentDate = LocalDate.now()
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
-            recalculateStreakIfNeeded(currentDate)
             Prefs.readingChallengeStreak += 1
             Prefs.readingChallengeLastReadDate = currentDate.toString()
         }
     }
+
+    private fun getRelevantKeys(): Set<String> = setOf(
+        context.getString(R.string.preference_key_reading_challenge_streak),
+        context.getString(R.string.preference_key_reading_challenge_enrolled),
+        context.getString(R.string.preference_key_reading_challenge_last_read_date)
+    )
 
     companion object {
         // TODO: replace with actual start and end date before releasing
         private val START_DATE = LocalDate.of(2026, 3, 1)
         private val END_DATE = LocalDate.of(2026, 3, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
-        private const val READING_STREAK_GOAL = 25
+        const val READING_STREAK_GOAL = 25
     }
 }

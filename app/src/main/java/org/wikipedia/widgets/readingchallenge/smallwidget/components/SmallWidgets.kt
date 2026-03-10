@@ -12,6 +12,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.action.Action
+import androidx.glance.appwidget.components.FilledButton
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
@@ -129,4 +130,23 @@ fun WidgetBadge(
             )
         )
     }
+}
+
+@Composable
+fun WidgetIconButton(
+    text: String,
+    action: Action,
+    iconResId: Int,
+    modifier: GlanceModifier = GlanceModifier
+) {
+    FilledButton(
+        text = text,
+        onClick = action,
+        icon = ImageProvider(iconResId),
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = ColorProvider(day = WidgetColors.progressive, night = WidgetColors.progressive),
+            contentColor = ColorProvider(day = WidgetColors.white, night = WidgetColors.white)
+        ),
+        modifier = modifier
+    )
 }

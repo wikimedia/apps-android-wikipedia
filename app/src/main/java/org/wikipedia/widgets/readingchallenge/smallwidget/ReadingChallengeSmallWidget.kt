@@ -25,14 +25,13 @@ import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetBadge
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
 
-    override val sizeMode: SizeMode = SizeMode.Single
+    override val sizeMode: SizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(
         context: Context,
         id: GlanceId
     ) {
         val repository = ReadingChallengeWidgetRepository(context)
-
         provideContent {
             val state by repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet)
             GlanceTheme {
@@ -46,7 +45,6 @@ class ReadingChallengeSmallWidget : GlanceAppWidget() {
 fun ReadingChallengeSmallContent(
     state: ReadingChallengeState
 ) {
-    println("orange state: ${state.javaClass.simpleName}")
     val context = LocalContext.current
 
     when (state) {
