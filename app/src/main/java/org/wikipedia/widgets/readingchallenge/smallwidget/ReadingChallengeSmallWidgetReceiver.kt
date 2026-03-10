@@ -11,6 +11,11 @@ class ReadingChallengeSmallWidgetReceiver : GlanceAppWidgetReceiver() {
     override val glanceAppWidget: GlanceAppWidget
         get() = ReadingChallengeSmallWidget()
 
+    override fun onEnabled(context: Context) {
+        super.onEnabled(context)
+        ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
+    }
+
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,

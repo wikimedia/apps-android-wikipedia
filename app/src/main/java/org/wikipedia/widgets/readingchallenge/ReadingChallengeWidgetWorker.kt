@@ -12,16 +12,13 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import androidx.work.WorkerParameters
-import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
 import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidgetReceiver
 import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidgetReceiver
 import java.time.Duration
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.temporal.ChronoUnit
 import java.util.concurrent.TimeUnit
 
 class ReadingChallengeWidgetWorker(
