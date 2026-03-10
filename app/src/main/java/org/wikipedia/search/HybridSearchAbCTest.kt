@@ -28,7 +28,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     private fun isLanguageSupported(languageCode: String?): Boolean {
-        return (RemoteConfig.config.androidv1?.hybridSearchLanguages ?: supportedLanguages).any { it.equals(languageCode, true) }
+        return supportedLanguages.any { it.equals(languageCode, true) }
     }
 
     fun shouldShowOnboarding(languageCode: String?): Boolean {
@@ -36,7 +36,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     private val supportedLanguages = listOf(
-        "el"
+        "el", "fr"
     )
 
     fun isHybridSearchEnabled(languageCode: String?): Boolean {

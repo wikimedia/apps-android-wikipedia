@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 
 @Serializable
 data class SearchResult(val pageTitle: PageTitle,
@@ -30,7 +31,7 @@ data class SearchResult(val pageTitle: PageTitle,
             thumbUrl = page.thumbUrl(),
             description = page.description,
             displayText = page.displayTitle(wiki.languageCode),
-        ),
+        ).also { if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle) },
         redirectFrom = page.redirectFrom,
         type = type,
         coordinates = coordinates,
