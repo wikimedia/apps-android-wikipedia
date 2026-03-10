@@ -1,9 +1,11 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +21,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
@@ -28,16 +34,30 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.components.TwoButtonBottomBar
+import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.UriUtil
 
 class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
+
+    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            requireActivity().setResult(RESULT_OK)
+            requireActivity().finish()
+        }
+    }
+
     private val onboardingItems = listOf(
         OnboardingItem(
             icon = R.drawable.ic_contract_24dp,
@@ -60,6 +80,26 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                               savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
             setContent {
+
+                var showLoginDialog by remember { mutableStateOf(false) }
+                if (showLoginDialog) {
+                    WikipediaAlertDialog(
+                        title = stringResource(R.string.reading_challenge_onboarding_prompt_title),
+                        message = stringResource(R.string.reading_challenge_onboarding_prompt_message),
+                        confirmButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_login),
+                        dismissButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_no_thanks),
+                        onDismissRequest = {
+                            showLoginDialog = false
+                        },
+                        onConfirmButtonClick = {
+                            loginLauncher.launch(LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_READING_CHALLENGE))
+                        },
+                        onDismissButtonClick = {
+                            dismiss()
+                        }
+                    )
+                }
+
                 BaseTheme {
                     OnboardingScreen(
                         modifier = Modifier.fillMaxSize(),
@@ -68,11 +108,18 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                             dismiss()
                         },
                         onLearnMoreClick = {
-                            // TODO: add link
+                            UriUtil.visitInExternalBrowser(
+                                context = requireContext(),
+                                uri = getString(R.string.reading_challenge_learn_more).toUri()
+                            )
                         },
                         onJoinClick = {
-                            // TODO: opt in
-                            dismiss()
+                            if (!AccountUtil.isLoggedIn) {
+                                showLoginDialog = true
+                                Prefs.readingChallengeEnrolled = true
+                            } else {
+                                dismiss()
+                            }
                         }
                     )
                 }

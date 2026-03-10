@@ -904,4 +904,8 @@ object Prefs {
     var readingChallengeOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_onboarding_shown, value)
+
+    var readingChallengeInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, value)
 }
