@@ -106,6 +106,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
 import org.wikipedia.history.HistoryEntry
@@ -178,7 +179,7 @@ class ActivityTabFragment : Fragment() {
                         languageCode = WikipediaApp.instance.wikiSite.languageCode,
                         modules = Prefs.activityTabModules,
                         haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                        areGamesAvailable = viewModel.areGamesAvailable,
+                        areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode),
                         refreshSilently = viewModel.shouldRefreshTimelineSilently,
                         scrollToGames = scrollToGames,
                         readingHistoryState = viewModel.readingHistoryState.collectAsState().value,
@@ -200,15 +201,14 @@ class ActivityTabFragment : Fragment() {
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
             viewModel.onScrollToGames()
-            if (!Prefs.isGameStatsUnavailableSnackbarShown) {
-                requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
-                    FeedbackUtil.makeSnackbar(requireView(), it).show()
-                    requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
-                    Prefs.isGameStatsUnavailableSnackbarShown = true
-                }
-            }
-
             requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES)
+        }
+        if (!Prefs.isGameStatsUnavailableSnackbarShown) {
+            requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
+                FeedbackUtil.makeSnackbar(requireView(), it).show()
+                requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
+                Prefs.isGameStatsUnavailableSnackbarShown = true
+            }
         }
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()

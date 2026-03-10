@@ -53,13 +53,13 @@ class GamesHubFragment : Fragment() {
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
             return when (menuItem.itemId) {
                 R.id.menu_game_stats -> {
+                    val primaryLangCodeSupported = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)
                     val intent = MainActivity.newIntent(requireContext())
                         .apply {
                             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                             putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
-                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, true)
-                            if (!WikipediaApp.instance.languageState.appLanguageCode.equals(viewModel.selectedLanguage, true) ||
-                                !WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)) {
+                            putExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, primaryLangCodeSupported)
+                            if (!WikipediaApp.instance.languageState.appLanguageCode.equals(viewModel.selectedLanguage, true) || !primaryLangCodeSupported) {
                                 putExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE, getString(R.string.activity_tab_snackbar_label))
                             }
                         }
