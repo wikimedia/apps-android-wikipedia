@@ -34,6 +34,7 @@ import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundActivity
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 
@@ -269,9 +270,12 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
         }
-        findPreference(R.string.preference_key_reading_challenge_widgets).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity.startActivity(Intent(activity, ReadingChallengePlayGroundActivity::class.java))
-            true
+        findPreference(R.string.preference_key_reading_challenge_widgets).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                activity.startActivity(Intent(activity, ReadingChallengePlayGroundActivity::class.java))
+                true
+            }
         }
     }
 

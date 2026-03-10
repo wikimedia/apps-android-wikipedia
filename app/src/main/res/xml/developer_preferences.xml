@@ -588,6 +588,6 @@
     <PreferenceCategory android:title="Reading Challenge Widget">
         <Preference
             android:key="@string/preference_key_reading_challenge_widgets"
-            android:title="Configurations" />
+            android:title="Reading Challenge Widget Configurations" />
     </PreferenceCategory>
 </PreferenceScreen>

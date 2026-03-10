@@ -23,6 +23,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -36,12 +37,16 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val repository = ReadingChallengeWidgetRepository(this)
+
         setContent {
             BaseTheme {
                 Scaffold(
@@ -57,7 +62,8 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
                 ) { paddingValues ->
                     ReadingChallengePlayground(
                         modifier = Modifier
-                            .padding(paddingValues)
+                            .padding(paddingValues),
+                        state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value
                     )
                 }
             }
@@ -67,7 +73,8 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
 
 @Composable
 fun ReadingChallengePlayground(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    state: ReadingChallengeState
 ) {
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
@@ -89,7 +96,10 @@ fun ReadingChallengePlayground(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text("Reading Challenge Playground", style = MaterialTheme.typography.headlineSmall)
+        Text(
+            "Current State: ${state::class.simpleName}",
+            style = MaterialTheme.typography.headlineSmall
+        )
 
         // --- Streak ---
         Card {
