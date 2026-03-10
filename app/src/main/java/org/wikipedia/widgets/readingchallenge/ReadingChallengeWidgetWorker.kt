@@ -12,6 +12,7 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import androidx.work.WorkerParameters
+import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
 import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidgetReceiver
 import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
@@ -20,6 +21,7 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import java.time.temporal.ChronoUnit
 import java.util.concurrent.TimeUnit
 
 class ReadingChallengeWidgetWorker(
@@ -37,10 +39,12 @@ class ReadingChallengeWidgetWorker(
         )
 
         if (smallWidgetIds.isNotEmpty()) {
+            recalculateStreakIfNeeded(LocalDate.now())
             ReadingChallengeSmallWidget().updateAll(applicationContext)
         }
 
         if (largeWidgetIds.isNotEmpty()) {
+            recalculateStreakIfNeeded(LocalDate.now())
             ReadingChallengeLargeWidget().updateAll(applicationContext)
         }
 
@@ -53,6 +57,17 @@ class ReadingChallengeWidgetWorker(
 
     companion object {
         const val WORK_NAME = "ReadingChallengeWidgetWorker"
+
+        fun recalculateStreakIfNeeded(currentDate: LocalDate) {
+            val lastReadDateStr = Prefs.readingChallengeLastReadDate
+            if (lastReadDateStr.isNotEmpty()) {
+                val lastReadDate = LocalDate.parse(lastReadDateStr)
+                val daysBetween = ChronoUnit.DAYS.between(lastReadDate, currentDate)
+                if (daysBetween > 1) {
+                    Prefs.readingChallengeStreak = 0
+                }
+            }
+        }
 
         fun scheduleNextMidnightUpdate(context: Context) {
             val now = LocalDateTime.now()
