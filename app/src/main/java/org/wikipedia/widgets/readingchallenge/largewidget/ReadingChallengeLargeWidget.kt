@@ -42,7 +42,11 @@ fun ReadingChallengeLargeContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> {}
         ReadingChallengeState.ChallengeConcludedNoStreak -> {}
         ReadingChallengeState.ChallengeRemoved -> {}
-        ReadingChallengeState.EnrolledNotStarted -> {}
+        ReadingChallengeState.EnrolledNotStarted -> {
+            EnrolledNotStartedLargeWidget(
+                mainImageResId = R.drawable.globe
+            )
+        }
         ReadingChallengeState.NotEnrolled -> {}
         ReadingChallengeState.NotLiveYet -> {}
         is ReadingChallengeState.StreakOngoingNeedsReading -> {

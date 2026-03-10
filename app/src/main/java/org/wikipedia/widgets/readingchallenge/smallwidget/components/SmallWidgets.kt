@@ -43,7 +43,7 @@ fun SmallWidget(
             .fillMaxSize()
             .cornerRadius(24.dp)
             .then(modifier)
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 12.dp),
     ) {
         Row(
             modifier = GlanceModifier
@@ -83,6 +83,7 @@ fun SmallWidget(
 fun WidgetButton(
     text: String,
     action: Action,
+    textStyle: TextStyle? = null,
     modifier: GlanceModifier = GlanceModifier
 ) {
     Button(
@@ -92,6 +93,7 @@ fun WidgetButton(
             backgroundColor = ColorProvider(day = WidgetColors.progressive, night = WidgetColors.progressive),
             contentColor = ColorProvider(day = WidgetColors.white, night = WidgetColors.white)
         ),
+        style = textStyle,
         modifier = modifier.fillMaxWidth()
     )
 }

@@ -22,6 +22,7 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.WidgetColors
 import org.wikipedia.widgets.readingchallenge.smallwidget.components.SmallWidget
 import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetBadge
+import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetButton
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
 
@@ -53,7 +54,20 @@ fun ReadingChallengeSmallContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> {}
         ReadingChallengeState.ChallengeConcludedNoStreak -> {}
         ReadingChallengeState.ChallengeRemoved -> {}
-        ReadingChallengeState.EnrolledNotStarted -> {}
+        ReadingChallengeState.EnrolledNotStarted -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .background(WidgetColors.challengeNotOptInBackground)
+                    .clickable(onClick = actionStartActivity<MainActivity>()),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.feed),
+                        action = actionStartActivity<MainActivity>()
+                    )
+                }
+            )
+        }
         ReadingChallengeState.NotEnrolled -> {}
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
