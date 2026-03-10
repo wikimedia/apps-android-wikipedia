@@ -52,6 +52,7 @@ class PollNotificationWorker(
             }
         }
 
+        // API limit: notwikis parameter accepts at most 50 wikis per request
         (if (foreignWikis.isEmpty()) listOf("*") else foreignWikis.chunked(50).map { it.joinToString("|") })
             .flatMap { ServiceFactory.get(WikipediaApp.instance.wikiSite)
                 .getAllNotifications(it, "!read", null)
