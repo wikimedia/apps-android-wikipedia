@@ -23,7 +23,7 @@ import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetButto
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
 
-    override val sizeMode: SizeMode = SizeMode.Single
+    override val sizeMode: SizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(
         context: Context,

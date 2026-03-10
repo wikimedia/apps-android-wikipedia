@@ -410,6 +410,9 @@
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".settings.dev.playground.ReadingChallengePlayGroundActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
