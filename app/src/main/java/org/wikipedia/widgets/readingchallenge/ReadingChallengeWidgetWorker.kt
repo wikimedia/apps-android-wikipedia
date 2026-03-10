@@ -39,12 +39,10 @@ class ReadingChallengeWidgetWorker(
         )
 
         if (smallWidgetIds.isNotEmpty()) {
-            recalculateStreakIfNeeded(LocalDate.now())
             ReadingChallengeSmallWidget().updateAll(applicationContext)
         }
 
         if (largeWidgetIds.isNotEmpty()) {
-            recalculateStreakIfNeeded(LocalDate.now())
             ReadingChallengeLargeWidget().updateAll(applicationContext)
         }
 
@@ -57,17 +55,6 @@ class ReadingChallengeWidgetWorker(
 
     companion object {
         const val WORK_NAME = "ReadingChallengeWidgetWorker"
-
-        fun recalculateStreakIfNeeded(currentDate: LocalDate) {
-            val lastReadDateStr = Prefs.readingChallengeLastReadDate
-            if (lastReadDateStr.isNotEmpty()) {
-                val lastReadDate = LocalDate.parse(lastReadDateStr)
-                val daysBetween = ChronoUnit.DAYS.between(lastReadDate, currentDate)
-                if (daysBetween > 1) {
-                    Prefs.readingChallengeStreak = 0
-                }
-            }
-        }
 
         fun scheduleNextMidnightUpdate(context: Context) {
             val now = LocalDateTime.now()

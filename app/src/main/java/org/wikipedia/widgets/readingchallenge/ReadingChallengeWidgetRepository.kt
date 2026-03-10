@@ -26,6 +26,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         return callbackFlow {
             fun emit() {
                 val currentDate = LocalDate.now()
+                recalculateStreakIfNeeded(currentDate)
                 trySend(resolveState(
                     ReadingChallengeUserData(
                         currentDate = currentDate,
@@ -104,6 +105,17 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
+    fun recalculateStreakIfNeeded(currentDate: LocalDate) {
+        val lastReadDateStr = Prefs.readingChallengeLastReadDate
+        if (lastReadDateStr.isNotEmpty()) {
+            val lastReadDate = LocalDate.parse(lastReadDateStr)
+            val daysBetween = ChronoUnit.DAYS.between(lastReadDate, currentDate)
+            if (daysBetween > 1) {
+                Prefs.readingChallengeStreak = 0
+            }
+        }
+    }
+
     suspend fun updateOnArticleRead() {
         val currentDate = LocalDate.now()
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
@@ -116,8 +128,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
     companion object {
         // TODO: replace with actual start and end date before releasing
-        private val START_DATE = LocalDate.of(2026, 3, 1)
-        private val END_DATE = LocalDate.of(2026, 3, 31)
+        private val START_DATE = LocalDate.of(2026, 5, 1)
+        private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
         const val READING_STREAK_GOAL = 25
     }
