@@ -52,9 +52,11 @@ class PollNotificationWorker(
             }
         }
 
-        ServiceFactory.get(WikipediaApp.instance.wikiSite)
-            .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
-            .query?.notifications?.list?.let {
+        (if (foreignWikis.isEmpty()) listOf("*") else foreignWikis.chunked(50).map { it.joinToString("|") })
+            .flatMap { ServiceFactory.get(WikipediaApp.instance.wikiSite)
+                .getAllNotifications(it, "!read", null)
+                .query?.notifications?.list.orEmpty() }
+            .takeIf { it.isNotEmpty() }?.let {
                 NotificationPollBroadcastReceiver.onNotificationsComplete(appContext, it, dbWikiSiteMap, dbWikiNameMap)
             }
     }
