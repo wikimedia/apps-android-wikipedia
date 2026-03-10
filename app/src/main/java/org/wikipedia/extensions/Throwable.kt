@@ -10,7 +10,10 @@ import java.net.UnknownHostException
 
 fun Throwable.getInstrumentActionContext(): Map<String, String> {
     val map = mutableMapOf<String, String>()
-    map["type"] = this.javaClass.simpleName
+    this::class.simpleName?.let {
+        map["class"] = it
+    }
+    // Try to obtain the correct code, based on the type of exception
     when (this) {
         is HttpStatusException -> {
             map["code"] = this.code.toString()
@@ -30,9 +33,10 @@ fun Throwable.getInstrumentActionContext(): Map<String, String> {
         is MwException -> {
             map["code"] = this.error.code.orEmpty()
         }
-        else -> {
-            map["message"] = this.message.orEmpty().take(32)
-        }
+    }
+    // ...and if we couldn't get a code, then use the message itself.
+    if (!map.containsKey("code") && !this.message.isNullOrEmpty()) {
+        map["message"] = this.message.orEmpty().take(64)
     }
     return map
 }
