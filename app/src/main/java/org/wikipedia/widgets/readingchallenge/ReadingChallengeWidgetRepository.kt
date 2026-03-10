@@ -20,7 +20,6 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             context.getString(R.string.preference_key_reading_challenge_enrolled),
             context.getString(R.string.preference_key_reading_challenge_last_read_date)
         )
-
         return callbackFlow {
             fun emit() {
                 val currentDate = LocalDate.now()
