@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -114,9 +115,15 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     companion object {
+        private const val READING_STREAK_GOAL = 25
         private val START_DATE = LocalDate.of(2026, 5, 1)
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
-        private const val READING_STREAK_GOAL = 25
+
+        fun shouldShowOnboardingDialog(): Boolean {
+            return true
+            return !Prefs.readingChallengeOnboardingShown && (ReleaseUtil.isPreBetaRelease ||
+                    LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
+        }
     }
 }
