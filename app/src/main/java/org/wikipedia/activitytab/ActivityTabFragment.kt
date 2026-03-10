@@ -201,15 +201,14 @@ class ActivityTabFragment : Fragment() {
         requireActivity().addMenuProvider(menuProvider, viewLifecycleOwner)
         if (requireActivity().intent.getBooleanExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES, false)) {
             viewModel.onScrollToGames()
-            if (!Prefs.isGameStatsUnavailableSnackbarShown) {
-                requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
-                    FeedbackUtil.makeSnackbar(requireView(), it).show()
-                    requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
-                    Prefs.isGameStatsUnavailableSnackbarShown = true
-                }
-            }
-
             requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SCROLL_TO_GAMES)
+        }
+        if (!Prefs.isGameStatsUnavailableSnackbarShown) {
+            requireActivity().intent.getStringExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)?.let {
+                FeedbackUtil.makeSnackbar(requireView(), it).show()
+                requireActivity().intent.removeExtra(Constants.INTENT_EXTRA_SNACKBAR_MESSAGE)
+                Prefs.isGameStatsUnavailableSnackbarShown = true
+            }
         }
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
