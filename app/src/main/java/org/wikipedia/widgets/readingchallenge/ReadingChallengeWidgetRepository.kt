@@ -7,6 +7,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import org.wikipedia.R
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
@@ -14,6 +15,11 @@ import java.time.temporal.ChronoUnit
 class ReadingChallengeWidgetRepository(private val context: Context) {
     fun observeState(): Flow<ReadingChallengeState> {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val relevantKeys = setOf(
+            context.getString(R.string.preference_key_reading_challenge_streak),
+            context.getString(R.string.preference_key_reading_challenge_enrolled),
+            context.getString(R.string.preference_key_reading_challenge_last_read_date)
+        )
         return callbackFlow {
             fun emit() {
                 val currentDate = LocalDate.now()
@@ -28,7 +34,11 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 ))
             }
 
-            val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> emit() }
+            val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+                if (key in relevantKeys) {
+                    emit()
+                }
+            }
             prefs.registerOnSharedPreferenceChangeListener(listener)
             emit()
             awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
