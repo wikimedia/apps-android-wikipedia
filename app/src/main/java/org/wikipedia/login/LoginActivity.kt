@@ -112,7 +112,7 @@ class LoginActivity : BaseActivity() {
         }
 
         addFirstKeystrokeInstrumentation(binding.loginUsernameText.editText, "username")
-        addFirstKeystrokeInstrumentation(binding.loginPasswordInput.editText, "username")
+        addFirstKeystrokeInstrumentation(binding.loginPasswordInput.editText, "password")
         addFirstKeystrokeInstrumentation(binding.login2faText.editText, "2fa")
 
         loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty()
@@ -212,7 +212,7 @@ class LoginActivity : BaseActivity() {
             return
         }
         if (captchaHandler.isActive && captchaHandler.captchaWord().isNullOrEmpty()) {
-            instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "captcha_empty"))
+            instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "fancy_captcha_empty"))
             captchaHandler.setErrorText(getString(R.string.edit_section_captcha_hint))
             captchaHandler.setFocus()
             return

@@ -192,7 +192,7 @@ class CreateAccountActivity : BaseActivity() {
                                 handleAccountCreationError(it.error)
                             }
                             is CreateAccountActivityViewModel.UserNameState.CannotCreate -> {
-                                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "username_exists"))
+                                instrument?.submitInteraction("error", actionContext = mapOf("validation_error" to "username_unavailable"))
                                 binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, it.userName)
                             }
                         }
@@ -220,7 +220,7 @@ class CreateAccountActivity : BaseActivity() {
             validateThenCreateAccount()
         }
         binding.captchaContainer.captchaSubmitButton.setOnClickListener {
-            instrument?.submitInteraction("click", elementId = "captcha_submit")
+            instrument?.submitInteraction("click", elementId = "fancy_captcha_submit")
             validateThenCreateAccount()
         }
         binding.createAccountLoginButton.setOnClickListener {
@@ -246,7 +246,7 @@ class CreateAccountActivity : BaseActivity() {
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
             if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_ENTER) {
-                instrument?.submitInteraction("click", elementId = "captcha_submit")
+                instrument?.submitInteraction("click", elementId = "fancy_captcha_submit")
                 validateThenCreateAccount()
                 return@setOnKeyListener true
             }

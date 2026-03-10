@@ -38,7 +38,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         binding.requestAccountText.movementMethod = LinkMovementMethodExt { _ -> FeedbackUtil.showAndroidAppRequestAnAccount(activity) }
         binding.requestAccountText.isVisible = isModal
         binding.captchaImage.setOnClickListener {
-            instrument?.submitInteraction("captcha-request-new")
+            instrument?.submitInteraction("fancy_captcha_request_new")
             requestNewCaptcha()
         }
     }
@@ -78,7 +78,7 @@ class CaptchaHandler(private val activity: AppCompatActivity, private val wiki: 
         if (captchaResult == null) {
             return
         }
-        instrument?.submitInteraction("captcha-show")
+        instrument?.submitInteraction("fancy_captcha_show")
         DeviceUtil.hideSoftKeyboard(activity)
         if (!isReload) {
             if (isModal) {
