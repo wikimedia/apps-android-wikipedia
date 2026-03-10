@@ -584,4 +584,10 @@
             android:key="@string/preference_key_hybrid_search_enabled"
             android:title="@string/preference_key_hybrid_search_enabled" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="Reading Challenge Widget">
+        <Preference
+            android:key="@string/preference_key_reading_challenge_widgets"
+            android:title="Reading Challenge Widget Configurations" />
+    </PreferenceCategory>
 </PreferenceScreen>

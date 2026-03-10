@@ -12,6 +12,6 @@
     android:targetCellWidth="2"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen"
+    android:previewImage="@drawable/small_widget_preview_image"
     tools:targetApi="31">
-
 </appwidget-provider>

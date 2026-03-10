@@ -622,8 +622,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
-        app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
             return
         }
