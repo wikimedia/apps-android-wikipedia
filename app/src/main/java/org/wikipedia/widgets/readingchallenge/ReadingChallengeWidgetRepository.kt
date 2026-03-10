@@ -122,12 +122,6 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
-    private fun getRelevantKeys(): Set<String> = setOf(
-        context.getString(R.string.preference_key_reading_challenge_streak),
-        context.getString(R.string.preference_key_reading_challenge_enrolled),
-        context.getString(R.string.preference_key_reading_challenge_last_read_date)
-    )
-
     companion object {
         // TODO: replace with actual start and end date before releasing
         private val START_DATE = LocalDate.of(2026, 3, 1)

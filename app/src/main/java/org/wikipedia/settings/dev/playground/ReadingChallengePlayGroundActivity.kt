@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.IconButton
@@ -88,6 +89,7 @@ fun ReadingChallengePlayground(
 
     val today = LocalDate.now().toString()
     val yesterday = LocalDate.now().minusDays(1).toString()
+    val threeDaysAgo = LocalDate.now().minusDays(3).toString()
 
     Column(
         modifier = modifier
@@ -164,16 +166,33 @@ fun ReadingChallengePlayground(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text("readingChallengeLastReadDate", style = MaterialTheme.typography.labelMedium)
-                OutlinedTextField(
-                    value = lastReadDate,
-                    onValueChange = {
-                        lastReadDate = it
-                        Prefs.readingChallengeLastReadDate = it
-                    },
-                    placeholder = { Text("YYYY-MM-DD") },
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth()
-                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedTextField(
+                        value = lastReadDate,
+                        onValueChange = {
+                            lastReadDate = it
+                        },
+                        placeholder = { Text("YYYY-MM-DD") },
+                        singleLine = true,
+                        modifier = Modifier.weight(1f)
+                    )
+                    Button(
+                        onClick = {
+                            Prefs.readingChallengeLastReadDate = lastReadDate
+                        },
+                        enabled = lastReadDate.isEmpty() || runCatching { LocalDate.parse(lastReadDate) }.isSuccess,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WikipediaTheme.colors.progressiveColor,
+                            contentColor = WikipediaTheme.colors.paperColor
+                        )
+                    ) {
+                        Text("Save")
+                    }
+                }
+
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = today
@@ -183,6 +202,10 @@ fun ReadingChallengePlayground(
                         Prefs.readingChallengeLastReadDate = yesterday
                         lastReadDate = yesterday
                     }, label = { Text("Yesterday") })
+                    AssistChip(onClick = {
+                        Prefs.readingChallengeLastReadDate = threeDaysAgo
+                        lastReadDate = threeDaysAgo
+                    }, label = { Text("3 Days Ago") })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = ""
                         lastReadDate = ""
