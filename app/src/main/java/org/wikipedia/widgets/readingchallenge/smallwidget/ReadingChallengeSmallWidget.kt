@@ -49,12 +49,12 @@ fun ReadingChallengeSmallContent(
 
     when (state) {
         ReadingChallengeState.NotLiveYet -> {}
-        ReadingChallengeState.ChallengeCompleted -> TODO()
-        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
-        ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
-        ReadingChallengeState.ChallengeRemoved -> TODO()
+        ReadingChallengeState.ChallengeCompleted -> {}
+        ReadingChallengeState.ChallengeConcludedIncomplete -> {}
+        ReadingChallengeState.ChallengeConcludedNoStreak -> {}
+        ReadingChallengeState.ChallengeRemoved -> {}
         ReadingChallengeState.EnrolledNotStarted -> {}
-        ReadingChallengeState.NotEnrolled -> TODO()
+        ReadingChallengeState.NotEnrolled -> {}
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(

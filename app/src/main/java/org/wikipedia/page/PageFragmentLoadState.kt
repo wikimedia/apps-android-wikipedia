@@ -218,7 +218,6 @@ class PageFragmentLoadState(
                     checkAnonNotifications(title)
                 }
                 ReadingChallengeWidgetRepository(fragment.requireContext()).updateOnArticleRead()
-                ReadingChallengeSmallWidget().updateAll(fragment.requireContext())
             }
         }
     }

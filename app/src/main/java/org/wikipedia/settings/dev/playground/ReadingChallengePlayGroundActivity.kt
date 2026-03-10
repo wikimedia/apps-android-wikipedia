@@ -29,10 +29,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.glance.appwidget.updateAll
+import kotlinx.coroutines.launch
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -40,6 +43,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
+import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundActivity : BaseActivity() {
@@ -49,6 +54,7 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
         val repository = ReadingChallengeWidgetRepository(this)
 
         setContent {
+            val coroutineScope = rememberCoroutineScope()
             BaseTheme {
                 Scaffold(
                     topBar = {
@@ -64,7 +70,13 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
                     ReadingChallengePlayground(
                         modifier = Modifier
                             .padding(paddingValues),
-                        state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value
+                        state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
+                        updateWidgetsExplicitly = {
+                            coroutineScope.launch {
+                                ReadingChallengeSmallWidget().updateAll(this@ReadingChallengePlayGroundActivity)
+                                ReadingChallengeLargeWidget().updateAll(this@ReadingChallengePlayGroundActivity)
+                            }
+                        }
                     )
                 }
             }
@@ -75,7 +87,8 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
 @Composable
 fun ReadingChallengePlayground(
     modifier: Modifier = Modifier,
-    state: ReadingChallengeState
+    state: ReadingChallengeState,
+    updateWidgetsExplicitly: () -> Unit
 ) {
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
@@ -119,11 +132,13 @@ fun ReadingChallengePlayground(
                     IconButton(onClick = {
                         if (streak > 0) {
                             Prefs.readingChallengeStreak = --streak
+                            updateWidgetsExplicitly()
                         }
                     }) { Text("−") }
                     Text("$streak", style = MaterialTheme.typography.headlineMedium)
                     IconButton(onClick = {
                         Prefs.readingChallengeStreak = ++streak
+                        updateWidgetsExplicitly()
                     }) { Text("+") }
                 }
             }
@@ -145,6 +160,7 @@ fun ReadingChallengePlayground(
                     onCheckedChange = {
                         enrolled = it
                         Prefs.readingChallengeEnrolled = it
+                        updateWidgetsExplicitly()
                     },
                     colors = SwitchDefaults.colors(
                         uncheckedTrackColor = WikipediaTheme.colors.paperColor,
@@ -182,6 +198,7 @@ fun ReadingChallengePlayground(
                     Button(
                         onClick = {
                             Prefs.readingChallengeLastReadDate = lastReadDate
+                            updateWidgetsExplicitly()
                         },
                         enabled = lastReadDate.isEmpty() || runCatching { LocalDate.parse(lastReadDate) }.isSuccess,
                         colors = ButtonDefaults.buttonColors(
@@ -197,18 +214,22 @@ fun ReadingChallengePlayground(
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = today
                         lastReadDate = today
+                        updateWidgetsExplicitly()
                     }, label = { Text("Today") })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = yesterday
                         lastReadDate = yesterday
+                        updateWidgetsExplicitly()
                     }, label = { Text("Yesterday") })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = threeDaysAgo
                         lastReadDate = threeDaysAgo
+                        updateWidgetsExplicitly()
                     }, label = { Text("3 Days Ago") })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = ""
                         lastReadDate = ""
+                        updateWidgetsExplicitly()
                     }, label = { Text("Clear") })
                 }
             }
@@ -221,6 +242,7 @@ fun ReadingChallengePlayground(
                 Prefs.readingChallengeEnrolled = false
                 Prefs.readingChallengeLastReadDate = ""
                 syncFromPrefs()
+                updateWidgetsExplicitly()
             },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.error)

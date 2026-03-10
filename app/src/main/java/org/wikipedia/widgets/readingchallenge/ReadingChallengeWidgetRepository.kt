@@ -2,6 +2,7 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.glance.appwidget.updateAll
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -9,6 +10,8 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
+import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -113,11 +116,13 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
-    fun updateOnArticleRead() {
+    suspend fun updateOnArticleRead() {
         val currentDate = LocalDate.now()
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeStreak += 1
             Prefs.readingChallengeLastReadDate = currentDate.toString()
+            ReadingChallengeLargeWidget().updateAll(context)
+            ReadingChallengeSmallWidget().updateAll(context)
         }
     }
 

@@ -17,8 +17,6 @@ class ReadingChallengeSmallWidgetReceiver : GlanceAppWidgetReceiver() {
         appWidgetIds: IntArray
     ) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
-        Prefs.readingChallengeEnrolled = true // TODO: remove when enrollment is implemented in the app
-        Prefs.readingChallengeStreak = 5 // TODO: remove when reading is tracked in the app
         ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
     }
 }
