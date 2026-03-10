@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
@@ -116,11 +117,13 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 16.dp)
                     .verticalScroll(rememberScrollState()),
             ) {
                 IconButton(
-                    modifier = Modifier.align(Alignment.End),
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .offset(x = 12.dp),
                     onClick = {
                         onCloseClick()
                     }
