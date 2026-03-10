@@ -37,7 +37,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil.visitInExternalBrowser
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
 import java.util.regex.Pattern
@@ -241,7 +241,7 @@ class CreateAccountActivity : BaseActivity() {
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
             instrument?.submitInteraction("click", elementId = "forgot_password_link")
             val forgotPasswordUrl = WikipediaApp.instance.getString(R.string.forget_password_link, wiki.languageCode)
-            visitInExternalBrowser(this, forgotPasswordUrl.toUri())
+            UriUtil.visitInExternalBrowser(this, forgotPasswordUrl.toUri())
         }
         // Add listener so that when the user taps enter, it submits the captcha
         binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
@@ -255,7 +255,10 @@ class CreateAccountActivity : BaseActivity() {
         userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
             viewModel.verifyUserName(text)
         }
-        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+        binding.footerContainer.hCaptchaDisclaimer.movementMethod = LinkMovementMethodExt({
+            instrument?.submitInteraction("click", elementId = "hcaptcha_disclaimer")
+            UriUtil.visitInExternalBrowser(this, it.toUri())
+        })
     }
 
     private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
@@ -273,7 +276,7 @@ class CreateAccountActivity : BaseActivity() {
         if (message.contains("blocked")) {
             FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message))
                     .setAction(R.string.create_account_ip_block_details) {
-                        visitInExternalBrowser(this,
+                        UriUtil.visitInExternalBrowser(this,
                             getString(R.string.create_account_ip_block_help_url).toUri())
                     }
                     .show()
