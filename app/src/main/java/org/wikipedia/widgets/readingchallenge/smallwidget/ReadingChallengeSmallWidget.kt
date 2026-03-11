@@ -19,10 +19,9 @@ import org.wikipedia.R
 import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.widgets.readingchallenge.WidgetBadge
 import org.wikipedia.widgets.readingchallenge.WidgetColors
 import org.wikipedia.widgets.readingchallenge.smallwidget.components.SmallWidget
-import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetBadge
-import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetButton
 
 class ReadingChallengeSmallWidget : GlanceAppWidget() {
 

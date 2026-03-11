@@ -1,4 +1,4 @@
-package org.wikipedia.widgets.readingchallenge.smallwidget.components
+package org.wikipedia.widgets.readingchallenge
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -16,68 +16,14 @@ import androidx.glance.appwidget.components.FilledButton
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
-import androidx.glance.layout.Box
-import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
-import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import org.wikipedia.R
-import org.wikipedia.widgets.readingchallenge.WidgetColors
-
-@Composable
-fun SmallWidget(
-    modifier: GlanceModifier = GlanceModifier,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    mainImageResId: Int,
-    bottomContent: @Composable () -> Unit = { }
-) {
-    Box(
-        modifier = GlanceModifier
-            .fillMaxSize()
-            .cornerRadius(24.dp)
-            .then(modifier)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
-    ) {
-        Row(
-            modifier = GlanceModifier
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.End
-        ) {
-            Image(
-                provider = ImageProvider(titleBarIcon),
-                contentDescription = null,
-                modifier = GlanceModifier.size(24.dp)
-            )
-        }
-
-        Column(
-            modifier = GlanceModifier
-                .fillMaxSize()
-                .padding(top = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Spacer(modifier = GlanceModifier.defaultWeight())
-
-            Image(
-                provider = ImageProvider(mainImageResId),
-                contentDescription = null,
-                modifier = GlanceModifier.size(120.dp)
-            )
-
-            Spacer(modifier = GlanceModifier.defaultWeight())
-
-            bottomContent()
-        }
-    }
-}
 
 @Composable
 fun WidgetButton(
