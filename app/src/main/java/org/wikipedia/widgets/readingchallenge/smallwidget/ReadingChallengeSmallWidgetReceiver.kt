@@ -13,4 +13,9 @@ class ReadingChallengeSmallWidgetReceiver : GlanceAppWidgetReceiver() {
         super.onEnabled(context)
         ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
     }
+
+    override fun onDisabled(context: Context) {
+        super.onDisabled(context)
+        ReadingChallengeWidgetWorker.cancelScheduledUpdates(context)
+    }
 }
