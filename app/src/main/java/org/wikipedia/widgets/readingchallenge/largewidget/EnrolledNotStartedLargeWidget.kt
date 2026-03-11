@@ -40,26 +40,26 @@ fun EnrolledNotStartedLargeWidget(
 ) {
     val context = LocalContext.current
     val textColor = WidgetColors.primary
+    val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
+    val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
 
-    // Accurately available space for the text column
-    // (widget width minus image column ~110dp, padding, spacing)
     val contentSize = ReadingWidgetDimensions.contentSize
+
+    // (widget width minus image column ~110dp, padding, spacing)
     val textColumnWidth = contentSize.width - 110.dp - ReadingWidgetDimensions.contentSpacing
 
-    // Title: fits in ~40% of vertical text area
     val (titleFontSize, titleMaxLines) = FontUtils.calculateFontSizeAndMaxLines(
         context = context,
-        text = "Ready, set, read!",
+        text = title,
         availableWidth = textColumnWidth,
         availableHeight = contentSize.height * 0.40f,
         maxFontSize = 32.sp,
         minFontSize = 18.sp,
     )
 
-    // Subtitle: fits in ~35% of vertical text area
     val (subtitleFontSize, subtitleMaxLines) = FontUtils.calculateFontSizeAndMaxLines(
         context = context,
-        text = "Start working towards a 25-day streak!",
+        text = subtitle,
         availableWidth = textColumnWidth,
         availableHeight = contentSize.height * 0.35f,
         maxFontSize = 16.sp,
@@ -82,7 +82,7 @@ fun EnrolledNotStartedLargeWidget(
                 modifier = GlanceModifier
                     .defaultWeight()) {
                 Text(
-                    text = "Ready, set, read!",
+                    text = title,
                     style = TextStyle(
                         fontSize = titleFontSize,
                         color = ColorProvider(day = textColor, night = textColor),
@@ -90,7 +90,7 @@ fun EnrolledNotStartedLargeWidget(
                     )
                 )
                 Text(
-                    text = "Start working towards a 25-day streak!",
+                    text = subtitle,
                     maxLines = subtitleMaxLines,
                     style = TextStyle(
                         fontSize = subtitleFontSize,

@@ -12,14 +12,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import androidx.core.widget.TextViewCompat
 
-/**
- * Holds utilities around fonts.
- */
 internal object FontUtils {
-  // An alternate implementation can extract the logic from following reference instead of using a
-  // textView.
-  // https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:appcompat/appcompat/src/main/java/androidx/appcompat/widget/AppCompatTextViewAutoSizeHelper.java;l=679;drc=573d69d7458c96885cdcbbf8471e24dd8d293997
-
   /**
    * Returns the font size and max lines that can display the text uniformly in the given available
    * width and height.
