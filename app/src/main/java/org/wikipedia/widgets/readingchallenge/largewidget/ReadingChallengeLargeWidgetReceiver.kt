@@ -1,6 +1,5 @@
 package org.wikipedia.widgets.readingchallenge.largewidget
 
-import android.appwidget.AppWidgetManager
 import android.content.Context
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
@@ -15,12 +14,8 @@ class ReadingChallengeLargeWidgetReceiver : GlanceAppWidgetReceiver() {
         ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
     }
 
-    override fun onUpdate(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
-    ) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds)
-        ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
+    override fun onDisabled(context: Context) {
+        super.onDisabled(context)
+        ReadingChallengeWidgetWorker.cancelScheduledUpdates(context)
     }
 }

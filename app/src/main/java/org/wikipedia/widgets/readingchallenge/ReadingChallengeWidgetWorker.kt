@@ -3,7 +3,6 @@ package org.wikipedia.widgets.readingchallenge
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
-import android.util.Log
 import androidx.glance.appwidget.updateAll
 import androidx.work.BackoffPolicy
 import androidx.work.CoroutineWorker
@@ -65,12 +64,25 @@ class ReadingChallengeWidgetWorker(
                     TimeUnit.MILLISECONDS
                 )
                 .build()
-            Log.d("WidgetDebug", "scheduled for $nextMidnight")
+
             WorkManager.getInstance(context).enqueueUniqueWork(
                 WORK_NAME,
                 ExistingWorkPolicy.REPLACE,
                 workRequest
             )
+        }
+
+        fun cancelScheduledUpdates(context: Context) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val smallWidgetIds = appWidgetManager.getAppWidgetIds(
+                ComponentName(context, ReadingChallengeSmallWidgetReceiver::class.java)
+            )
+            val largeWidgetIds = appWidgetManager.getAppWidgetIds(
+                ComponentName(context, ReadingChallengeLargeWidgetReceiver::class.java)
+            )
+            if (smallWidgetIds.isEmpty() && largeWidgetIds.isEmpty()) {
+                WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME)
+            }
         }
     }
 }
