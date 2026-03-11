@@ -13,17 +13,13 @@ import androidx.glance.LocalContext
 import androidx.glance.action.ActionParameters
 import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
-import androidx.glance.appwidget.cornerRadius
-import androidx.glance.background
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxHeight
-import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
@@ -43,17 +39,14 @@ import org.wikipedia.widgets.readingchallenge.WidgetIconButton
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    mainImageResId: Int,
+    mascotImageResId: Int,
+    modifier: GlanceModifier = GlanceModifier
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     val streakTextColor = WidgetColors.streakOngoingNotReadContent
     Column (
-        modifier = GlanceModifier
-            .fillMaxSize()
-            .cornerRadius(24.dp)
-            .background(WidgetColors.streakOngoingNotReadBackground)
-            .padding(16.dp),
+        modifier = modifier
     ) {
         Row (
             modifier = GlanceModifier
@@ -94,7 +87,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 )
                 Spacer(modifier = GlanceModifier.defaultWeight())
                 Image(
-                    provider = ImageProvider(mainImageResId),
+                    provider = ImageProvider(mascotImageResId),
                     contentDescription = null,
                     modifier = GlanceModifier
                         .size(110.dp)
