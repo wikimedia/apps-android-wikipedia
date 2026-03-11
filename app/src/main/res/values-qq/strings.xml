@@ -2129,4 +2129,5 @@
         <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
         <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days.</item>
     </plurals>
+    <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
 </resources>

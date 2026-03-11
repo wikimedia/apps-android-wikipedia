@@ -72,7 +72,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     textColorProvider = streakTextColor
                 )
                 Text(
-                    text = "Don’t let today drift by, save your streak.",
+                    text = context.getString(R.string.reading_challenge_not_read_today_description),
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = ColorProvider(day = streakTextColor, night = streakTextColor),
