@@ -3,7 +3,6 @@ package org.wikipedia.gallery
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -27,6 +27,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentGalleryItemBinding
@@ -231,7 +232,8 @@ class GalleryItemFragment : Fragment(), MenuProvider {
                 loading = false
                 true
             }
-            binding.videoView.setVideoURI(Uri.parse(bestUrl))
+            binding.videoView.setVideoURI(bestUrl.toUri(),
+                mapOf("User-Agent" to WikipediaApp.instance.userAgent))
         }
     }
 
