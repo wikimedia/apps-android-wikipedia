@@ -55,7 +55,7 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             Prefs.readingChallengeEnrolled = true
-            dismiss()
+            dismissDialog()
         }
     }
 
@@ -98,7 +98,7 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                                 loginLauncher.launch(LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_READING_CHALLENGE))
                             },
                             onDismissButtonClick = {
-                                dismiss()
+                                dismissDialog()
                             }
                         )
                     }
@@ -107,7 +107,7 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                         modifier = Modifier.fillMaxSize(),
                         onboardingItems = onboardingItems,
                         onCloseClick = {
-                            dismiss()
+                            dismissDialog()
                         },
                         onLearnMoreClick = {
                             UriUtil.visitInExternalBrowser(
@@ -120,7 +120,7 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                                 showLoginDialog = true
                             } else {
                                 Prefs.readingChallengeEnrolled = true
-                                dismiss()
+                                dismissDialog()
                             }
                         }
                     )
@@ -137,6 +137,11 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                 BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
+    }
+
+    private fun dismissDialog() {
+        Prefs.readingChallengeOnboardingShown = true
+        dismiss()
     }
 
     @Composable

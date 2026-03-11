@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
@@ -120,10 +121,14 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
 
+        private val isChallengeActive: Boolean
+            get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
         fun shouldShowOnboardingDialog(): Boolean {
-            return true
-            return !Prefs.readingChallengeOnboardingShown && (ReleaseUtil.isPreBetaRelease ||
-                    LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
+            return !Prefs.readingChallengeOnboardingShown && isChallengeActive
+        }
+
+        fun shouldShowWidgetInstallDialog(): Boolean {
+            return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown && AccountUtil.isLoggedIn && isChallengeActive
         }
     }
 }

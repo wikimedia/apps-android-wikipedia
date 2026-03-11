@@ -52,6 +52,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewActivity
@@ -273,7 +274,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private fun maybeShowReadingChallengeDialog() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog()) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                ReadingChallengeOnboardingDialog()
+                ReadingChallengeOnboardingDialog.newInstance()
+            )
+            Prefs.readingChallengeOnboardingShown = true
+        } else if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeInstallWidgetDialog.newInstance()
             )
         }
     }
