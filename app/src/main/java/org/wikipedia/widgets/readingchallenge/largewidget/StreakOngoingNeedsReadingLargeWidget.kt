@@ -35,9 +35,9 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
+import org.wikipedia.widgets.readingchallenge.WidgetBadge
 import org.wikipedia.widgets.readingchallenge.WidgetColors
-import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetBadge
-import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetIconButton
+import org.wikipedia.widgets.readingchallenge.WidgetIconButton
 
 @Composable
 fun StreakOngoingNeedsReadingLargeWidget(
