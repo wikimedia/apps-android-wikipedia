@@ -10,7 +10,7 @@
     android:resizeMode="none"
     android:targetCellHeight="2"
     android:targetCellWidth="2"
-    android:updatePeriodMillis="86400000"
+    android:updatePeriodMillis="0"
     android:widgetCategory="home_screen"
     android:previewImage="@drawable/small_widget_preview_image"
     tools:targetApi="31">
