@@ -2391,6 +2391,7 @@
     <string name="reading_challenge_install_prompt_title">Install the 25-day reading challenge widget</string>
     <string name="reading_challenge_install_prompt_message">Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your homescreen.</string>
     <string name="reading_challenge_install_prompt_got_it">Got it</string>
+    <string name="reading_challenge_install_prompt_add">Add</string>
     <string name="reading_challenge_widget_explore_button">Explore</string>
     <string name="reading_challenge_widget_explore_wikipedia_button">Explore Wikipedia</string>
     <string name="reading_challenge_widget_join_challenge_button">Join challenge</string>

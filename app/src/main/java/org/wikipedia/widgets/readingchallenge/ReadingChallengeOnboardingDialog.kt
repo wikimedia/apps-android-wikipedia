@@ -131,7 +131,6 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        // expand by default
         dialog?.let {
             val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let { sheet ->
@@ -180,7 +179,7 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
                     Icon(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(R.drawable.ic_close_black_24dp),
-                        contentDescription = stringResource(R.string.search_clear_query_content_description),
+                        contentDescription = stringResource(R.string.dialog_close_description),
                         tint = WikipediaTheme.colors.primaryColor
                     )
                 }
