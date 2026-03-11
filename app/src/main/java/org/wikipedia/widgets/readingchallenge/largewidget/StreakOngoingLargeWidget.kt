@@ -35,19 +35,16 @@ import org.wikipedia.widgets.readingchallenge.WidgetColors
 @Composable
 fun StreakOngoingLargeWidget(
     state: ReadingChallengeState.StreakOngoingReadToday,
+    mascotImageResId: Int,
+    modifier: GlanceModifier = GlanceModifier,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    backgroundColor: Color = WidgetColors.normalReadingBackground,
     contentColor: Color = WidgetColors.readingContent,
     progressColor: Color = WidgetColors.progressColor
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     Box(
-        modifier = GlanceModifier
-            .fillMaxSize()
-            .background(backgroundColor)
-            .padding(16.dp)
-            .cornerRadius(24.dp)
+        modifier = modifier
     ) {
         Column(modifier = GlanceModifier.fillMaxSize()) {
             // Top Row: Trophy, Title, W logo
@@ -116,7 +113,7 @@ fun StreakOngoingLargeWidget(
             contentAlignment = Alignment.CenterEnd
         ) {
             Image(
-                provider = ImageProvider(R.drawable.globe),
+                provider = ImageProvider(mascotImageResId),
                 contentDescription = "Mascot",
                 modifier = GlanceModifier
                     .size(120.dp)
