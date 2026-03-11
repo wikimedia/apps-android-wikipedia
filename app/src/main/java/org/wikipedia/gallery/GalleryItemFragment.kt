@@ -42,6 +42,8 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.imageservice.ImageLoadListener
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
+import androidx.core.net.toUri
+import org.wikipedia.WikipediaApp
 
 class GalleryItemFragment : Fragment(), MenuProvider {
     interface Callback {
@@ -231,7 +233,8 @@ class GalleryItemFragment : Fragment(), MenuProvider {
                 loading = false
                 true
             }
-            binding.videoView.setVideoURI(Uri.parse(bestUrl))
+            binding.videoView.setVideoURI(bestUrl.toUri(),
+                mapOf("User-Agent" to WikipediaApp.instance.userAgent))
         }
     }
 
