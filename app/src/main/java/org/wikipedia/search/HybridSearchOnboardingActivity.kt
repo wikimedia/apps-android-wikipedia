@@ -80,13 +80,20 @@ private val defaultSuggestedQueries = listOf(
     R.string.hybrid_search_onboarding_search_example_query_pineapple_pizza,
     R.string.hybrid_search_onboarding_search_example_query_biggest_cities_europe
 )
-private val suggestedQueriesPerLanguage = mapOf("el" to
-    listOf(
+private val suggestedQueriesPerLanguage = mapOf(
+    "el" to listOf(
         R.string.hybrid_search_onboarding_search_example_query1_el,
         R.string.hybrid_search_onboarding_search_example_query2_el,
         R.string.hybrid_search_onboarding_search_example_query3_el,
         R.string.hybrid_search_onboarding_search_example_query4_el,
         R.string.hybrid_search_onboarding_search_example_query5_el
+    ),
+    "fr" to listOf(
+        R.string.hybrid_search_onboarding_search_example_query1_fr,
+        R.string.hybrid_search_onboarding_search_example_query2_fr,
+        R.string.hybrid_search_onboarding_search_example_query3_fr,
+        R.string.hybrid_search_onboarding_search_example_query4_fr,
+        R.string.hybrid_search_onboarding_search_example_query5_fr
     )
 )
 
