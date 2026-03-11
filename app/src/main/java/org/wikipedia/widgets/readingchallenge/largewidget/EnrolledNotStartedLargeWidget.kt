@@ -29,7 +29,7 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
 import org.wikipedia.widgets.readingchallenge.WidgetColors
-import org.wikipedia.widgets.readingchallenge.smallwidget.components.WidgetIconButton
+import org.wikipedia.widgets.readingchallenge.WidgetIconButton
 import org.wikipedia.widgets.utils.FontUtils
 
 @Composable
