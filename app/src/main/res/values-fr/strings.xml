@@ -2298,11 +2298,11 @@
   <string name="hybrid_search_onboarding_search_example_title">Besoin d\'inspiration ?</string>
   <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
-  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Pourquoi les étoiles semblent-elles scintiller la nuit ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Origine des Jeux Olympiques</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ADN ou ARN</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi rêvons-nous ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Comment les langues disparaissent-elles ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Premiers Jeux Olympiques</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN ou ADN</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi les gens mettent-ils de l\'ananas sur leur pizza ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
   <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de rechercher</string>
   <string name="hybrid_search_results_header_description">Issu d’articles Wikipédia rédigés par des humains</string>
   <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
