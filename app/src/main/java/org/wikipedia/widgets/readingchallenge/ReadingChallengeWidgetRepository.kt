@@ -128,7 +128,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         fun shouldShowWidgetInstallDialog(): Boolean {
-            return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown && AccountUtil.isLoggedIn && isChallengeActive
+            return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
+                    Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive
         }
     }
 }
