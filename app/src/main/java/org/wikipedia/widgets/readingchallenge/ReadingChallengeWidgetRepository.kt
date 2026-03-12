@@ -121,9 +121,6 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             return
         }
 
-        // in cases where recalculateStreakIfNeeded was not called from resolveState
-        recalculateStreakIfNeeded(currentDate)
-
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeLastReadDate = currentDate.toString()
             Prefs.readingChallengeStreak += 1
