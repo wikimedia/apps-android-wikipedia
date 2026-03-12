@@ -104,8 +104,8 @@
   <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_activity">Активность</string>
-  <string name="nav_item_more">Ещё</string>
-  <string name="nav_item_search">Найти</string>
+  <string name="nav_item_more">Больше</string>
+  <string name="nav_item_search">Поиск</string>
   <string name="nav_item_contribute">Вклад</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -129,7 +129,7 @@
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
-  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц. Продолжить?</string>
+  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц. Вы уверены?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Нет</string>
   <string name="share_via">Поделиться...</string>
@@ -137,7 +137,7 @@
   <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="page_edit_history_activity_title">История изменений: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Пустое описание изменений</string>
+  <string name="page_edit_history_comment_placeholder">Нет описания правки</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Искать или отфильтровать правки</string>
   <string name="page_edit_history_filter_by">Отфильтровать по</string>
   <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
