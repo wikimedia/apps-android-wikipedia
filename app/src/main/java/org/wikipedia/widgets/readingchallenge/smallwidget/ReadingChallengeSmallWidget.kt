@@ -15,7 +15,6 @@ import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import org.wikipedia.R
 import org.wikipedia.main.MainActivity
-import org.wikipedia.util.log.L
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.WidgetButton
@@ -64,7 +63,19 @@ fun ReadingChallengeSmallContent(
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> TODO()
-        ReadingChallengeState.NotEnrolled -> TODO()
+        ReadingChallengeState.NotEnrolled -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .background(WidgetColors.challengeNotOptInBackground),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
+                    )
+                }
+            )
+        }
         is ReadingChallengeState.StreakOngoingNeedsReading -> TODO()
         is ReadingChallengeState.StreakOngoingReadToday -> TODO()
     }

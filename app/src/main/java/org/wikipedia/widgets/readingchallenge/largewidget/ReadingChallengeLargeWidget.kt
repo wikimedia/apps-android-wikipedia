@@ -54,7 +54,23 @@ fun ReadingChallengeLargeContent(
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> TODO()
-        ReadingChallengeState.NotEnrolled -> TODO()
+        ReadingChallengeState.NotEnrolled -> {
+            GeneralLargeWidget(
+                modifier = GlanceModifier
+                    .background(WidgetColors.challengeNotOptInBackground),
+                dayTextColor = dayTextColor,
+                nightTextColor = nightTextColor,
+                title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
+                subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
+                    )
+                }
+            )
+        }
         ReadingChallengeState.NotLiveYet -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier

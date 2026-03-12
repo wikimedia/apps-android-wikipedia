@@ -68,10 +68,10 @@ fun GeneralLargeWidget(
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(modifier = GlanceModifier.defaultWeight())
             Row(
                 modifier = GlanceModifier
                     .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(
                     modifier = GlanceModifier
@@ -98,7 +98,8 @@ fun GeneralLargeWidget(
                 Image(
                     provider = ImageProvider(mainImageResId),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(120.dp)
+                    modifier = GlanceModifier
+                        .size(120.dp)
                 )
             }
 
