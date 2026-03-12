@@ -2159,7 +2159,7 @@
   <string name="hybrid_search_onboarding_search_title">לשאול שאלות, לקבל תשובות</string>
   <string name="hybrid_search_onboarding_opt_in_choice_description">זמין לזמן מוגבל במהלך הניסוי הזה.</string>
   <string name="hybrid_search_experimental_feature_switch_label">הצטרפות לניסוי</string>
-  <string name="hybrid_search_onboarding_search_example_title">{{GENDER:|זקוק|זקוקה}} להשראה?</string>
+  <string name="hybrid_search_onboarding_search_example_title">זקוק להשראה?</string>
   <string name="hybrid_search_onboarding_search_example_description">אפשר להשתמש באחת מדוגמאות החיפוש שלהלן.</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA מול DNA</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">למה אנשים שמים אננס על פיצה?</string>
