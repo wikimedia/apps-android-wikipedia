@@ -21,7 +21,14 @@ class UnsuccessfulResponseInterceptor : Interceptor {
         // Otherwise, treat it as an exception and throw it.
         val e = HttpStatusException(rsp)
         rsp.closeQuietly()
-        ClientErrorEvent().logHttpResponse(rsp)
+
+        // Log this error, but only if it's not a request for a 320px thumbnail, which is a known
+        // rate-limiting issue in old saved articles that were saved prior to Commons switching to
+        // 330px thumbnails.
+        if (!rsp.request.url.toString().contains("/320px-")) {
+            ClientErrorEvent().logHttpResponse(rsp)
+        }
+
         throw e
     }
 }

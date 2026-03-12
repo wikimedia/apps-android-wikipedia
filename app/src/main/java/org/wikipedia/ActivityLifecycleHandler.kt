@@ -33,7 +33,7 @@ class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2
             val currentTheme = app.currentTheme
             when (app.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
                 Configuration.UI_MODE_NIGHT_YES -> if (!app.currentTheme.isDark) {
-                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.BLACK
+                    app.currentTheme = if (!app.unmarshalTheme(Prefs.previousThemeId).isDark) Theme.DARK
                     else app.unmarshalTheme(Prefs.previousThemeId)
                     Prefs.previousThemeId = currentTheme.marshallingId
                 }
