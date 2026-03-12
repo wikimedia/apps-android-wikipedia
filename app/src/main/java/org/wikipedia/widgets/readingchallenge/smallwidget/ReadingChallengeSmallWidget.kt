@@ -7,14 +7,15 @@ import androidx.compose.runtime.getValue
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
+import androidx.glance.LocalContext
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
+import org.wikipedia.util.log.L
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.WidgetButton
@@ -43,6 +44,7 @@ class ReadingChallengeSmallWidget : GlanceAppWidget() {
 fun ReadingChallengeSmallContent(
     state: ReadingChallengeState
 ) {
+    val context = LocalContext.current
     when (state) {
         ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
@@ -51,8 +53,8 @@ fun ReadingChallengeSmallContent(
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
-                        text = "Join Challenge",
-                        action = actionStartActivity(MainActivity.newIntent(WikipediaApp.instance).putExtra("fromWidget", true))
+                        text = context.getString(R.string.reading_challenge_widget_explore_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
                     )
                 }
             )

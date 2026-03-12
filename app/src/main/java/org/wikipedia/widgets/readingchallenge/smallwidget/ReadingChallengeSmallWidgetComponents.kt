@@ -1,5 +1,6 @@
 package org.wikipedia.widgets.readingchallenge.smallwidget
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
@@ -17,6 +18,7 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import org.wikipedia.R
 
+@SuppressLint("RestrictedApi")
 @Composable
 fun SmallWidget(
     modifier: GlanceModifier = GlanceModifier,
@@ -36,11 +38,15 @@ fun SmallWidget(
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.End
         ) {
-            Image(
-                provider = ImageProvider(titleBarIcon),
-                contentDescription = null,
-                modifier = GlanceModifier.size(24.dp)
-            )
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    provider = ImageProvider(titleBarIcon),
+                    contentDescription = null,
+                    modifier = GlanceModifier.size(24.dp)
+                )
+            }
         }
 
         Column(
