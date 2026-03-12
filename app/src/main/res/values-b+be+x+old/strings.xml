@@ -211,7 +211,7 @@
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
-  <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
+  <string name="error_can_not_process_link">Не ўдалося паказаць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
   <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
@@ -388,6 +388,7 @@
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_cancel_hint">Скасаваць</string>
+  <string name="suggested_edits_activity_title">Рэдагаваць</string>
   <string name="description_edit_login_cancel_button_text">Скасаваць</string>
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
@@ -395,7 +396,8 @@
   <string name="menu_option_edit_source">Рэдагаваць код</string>
   <string name="thank_dialog_negative_button_text">Скасаваць</string>
   <string name="talk_templates_new_message_dialog_cancel">Скасаваць</string>
-  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня праўкі.</string>
+  <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня рэдагаваньня.</string>
+  <string name="talk_templates_menu_edit_title">Рэдагаваць</string>
   <string name="places_card_action">Болей месцаў побач</string>
   <string name="survey_dialog_cancel">Скасаваць</string>
   <string name="year_in_review_survey_cancel">Скасаваць</string>
