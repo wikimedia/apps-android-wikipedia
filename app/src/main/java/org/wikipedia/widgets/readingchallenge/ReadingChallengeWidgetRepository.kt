@@ -125,8 +125,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         recalculateStreakIfNeeded(currentDate)
 
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
-            Prefs.readingChallengeStreak += 1
             Prefs.readingChallengeLastReadDate = currentDate.toString()
+            Prefs.readingChallengeStreak += 1
         }
     }
 
