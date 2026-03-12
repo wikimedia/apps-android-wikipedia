@@ -353,4 +353,81 @@ class ReadingChallengeWidgetRepositoryTest {
 
         TestCase.assertFalse(repository.hasReadToday(currentDate))
     }
+
+    // update on article read test
+    @Test
+    fun `updateOnArticleRead increments streak and sets today's date when enrolled and not ready today`() {
+        val currentDate = LocalDate.now()
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 5
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
+
+        var newStreak = 5
+        var newDate = ""
+
+        every { Prefs.readingChallengeStreak = any() } answers { newStreak = firstArg() }
+        every { Prefs.readingChallengeLastReadDate = any() } answers { newDate = firstArg() }
+
+        repository.updateOnArticleRead(currentDate)
+        println("orange currentDate: $currentDate newDate: $newDate")
+        TestCase.assertEquals(6, newStreak)
+        TestCase.assertEquals(currentDate.toString(), newDate)
+    }
+
+    @Test
+    fun `updateOnArticleRead resets streak to 0 (in case where recalculateStreakIfNeeded was not called for some edge cases) before incrementing if gap is more than 1 day`() {
+        val currentDate = LocalDate.now()
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(3).toString()
+
+        var newStreak = 100
+        var newDate = ""
+
+        every { Prefs.readingChallengeStreak } answers { newStreak }
+        every { Prefs.readingChallengeStreak = any() } answers { newStreak = firstArg() }
+        every { Prefs.readingChallengeLastReadDate = any() } answers { newDate = firstArg() }
+
+        repository.updateOnArticleRead(currentDate)
+
+        TestCase.assertEquals(1, newStreak) // should be reset to 0 and then incremented to 1
+        TestCase.assertEquals(currentDate.toString(), newDate)
+    }
+
+    @Test
+    fun `updateArticleOnRead ignores entirely if before May 1`() {
+        val currentDate = LocalDate.of(2026, 4, 15)
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 0
+        every { Prefs.readingChallengeLastReadDate } returns ""
+
+        val newStreak = 0
+        val lastRead = ""
+
+        every { Prefs.readingChallengeStreak } answers { newStreak }
+        every { Prefs.readingChallengeLastReadDate } answers { lastRead }
+
+        repository.updateOnArticleRead(currentDate)
+
+        TestCase.assertEquals(0, newStreak) // nothing happens
+        TestCase.assertEquals("", lastRead) // nothing happens
+    }
+
+    @Test
+    fun `updateArticleOnRead ignores entirely if after May 31`() {
+        val currentDate = LocalDate.of(2026, 6, 1)
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 24
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
+
+        val newStreak = 0
+        val lastRead = ""
+
+        every { Prefs.readingChallengeStreak } answers { newStreak }
+        every { Prefs.readingChallengeLastReadDate } answers { lastRead }
+
+        repository.updateOnArticleRead(currentDate)
+
+        TestCase.assertEquals(0, newStreak) // nothing happens
+        TestCase.assertEquals("", lastRead) // nothing happens
+    }
 }
