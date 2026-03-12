@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.FragmentOnThisDayGameMainMenuBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.WikiGames
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -184,7 +185,11 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                    FeedbackUtil.showMessage(activity, R.string.on_this_day_game_entry_dialog_snackbar_message)
+                    FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.on_this_day_game_entry_dialog_snackbar_message))
+                        .setAction(R.string.on_this_day_game_entry_dialog_snackbar_action) {
+                            activity.startActivity(GamesHubActivity.newIntent(activity))
+                        }
+                        .show()
                     dialog.dismiss()
                 }
             }
