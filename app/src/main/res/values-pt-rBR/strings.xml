@@ -2120,4 +2120,5 @@
   <string name="hybrid_search_results_rate_label">Avaliar esse recurso</string>
   <string name="hybrid_search_results_rated_label">Avaliado</string>
   <string name="hybrid_search_no_results_header">Sem resultados</string>
+  <string name="hybrid_search_turn_off_experiment_label">Desative esta experiência</string>
 </resources>
