@@ -14,7 +14,7 @@ import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import org.wikipedia.R
-import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
@@ -45,7 +45,8 @@ fun ReadingChallengeLargeContent(
     state: ReadingChallengeState
 ) {
     val context = LocalContext.current
-    val primaryTextColor = WikipediaTheme.colors.primaryColor
+    val dayTextColor = ComposeColors.Gray700
+    val nightTextColor = ComposeColors.Gray200
     // each state will have small and large widget content
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
@@ -58,7 +59,8 @@ fun ReadingChallengeLargeContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .background(WidgetColors.challengeNotOptInBackground),
-                textColor = primaryTextColor,
+                dayTextColor = dayTextColor,
+                nightTextColor = nightTextColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
