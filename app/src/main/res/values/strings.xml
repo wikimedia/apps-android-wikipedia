@@ -2372,8 +2372,7 @@
     <string name="hybrid_search_turn_off_experiment_label">Turn off this experiment</string>
 
     <!-- Reading challenge   -->
-    <string name="reading_challenge_small_widget_name">Reading Challenge (Small)</string>
-    <string name="reading_challenge_large_widget_name">Reading Challenge (Large)</string>
+    <string name="reading_challenge_widget_name">Reading Challenge</string>
     <plurals name="reading_challenge_small_widget_streak">
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
