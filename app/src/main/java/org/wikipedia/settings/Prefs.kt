@@ -884,4 +884,16 @@ object Prefs {
     var isHybridSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
+
+    var readingChallengeStreak
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_challenge_streak, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_challenge_streak, value)
+
+    var readingChallengeEnrolled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_enrolled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_enrolled, value)
+
+    var readingChallengeLastReadDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
 }

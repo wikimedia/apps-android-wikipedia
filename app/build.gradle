@@ -282,6 +282,10 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
+
+    // Glance Library
+    implementation libs.androidx.glance.appwidget
+    implementation libs.androidx.glance.material3
 }
 
 private setSigningConfigKey(config, Properties props) {
