@@ -41,15 +41,11 @@ import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallC
 
 class ReadingChallengeWidget: GlanceAppWidget() {
     companion object {
-        private val thinMode = DpSize(120.dp, 120.dp)
-        private val smallMode = DpSize(184.dp, 184.dp)
         private val mediumMode = DpSize(260.dp, 200.dp)
         private val largeMode = DpSize(260.dp, 280.dp)
     }
 
-    override val sizeMode: SizeMode = SizeMode.Responsive(
-        setOf(thinMode, smallMode, mediumMode, largeMode),
-    )
+    override val sizeMode: SizeMode = SizeMode.Exact
 
     override suspend fun provideGlance(
         context: Context,
@@ -62,14 +58,19 @@ class ReadingChallengeWidget: GlanceAppWidget() {
 
             GlanceTheme {
                 val size = LocalSize.current
-                println("orange width: ${size.width}, height: ${size.height}")
-                when (size) {
-                    thinMode, smallMode -> {
-                        ReadingChallengeSmallContent(state)
+
+                when {
+                    size.width >= largeMode.width && size.height >= largeMode.height -> {
+                        ReadingChallengeLargeContent(state)
                     }
 
-                    mediumMode, largeMode -> {
+                    size.width >= mediumMode.width && size.height >= mediumMode.height -> {
                         ReadingChallengeLargeContent(state)
+                    }
+
+                    else -> {
+
+                        ReadingChallengeSmallContent(state)
                     }
                 }
             }
