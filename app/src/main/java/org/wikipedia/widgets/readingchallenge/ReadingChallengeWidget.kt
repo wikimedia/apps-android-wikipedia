@@ -6,7 +6,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.Button
@@ -36,8 +35,6 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
-import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeContent
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallContent
 
 class ReadingChallengeWidget : GlanceAppWidget() {
     companion object {
@@ -58,9 +55,9 @@ class ReadingChallengeWidget : GlanceAppWidget() {
             GlanceTheme {
                 val size = LocalSize.current
                 if (size.width >= fullWidthThreshold) {
-                    ReadingChallengeLargeContent(state)
+                    ReadingChallengeLargeWidgetContent(state)
                 } else {
-                    ReadingChallengeSmallContent(state)
+                    ReadingChallengeSmallWidgetContent(state)
                 }
             }
         }
