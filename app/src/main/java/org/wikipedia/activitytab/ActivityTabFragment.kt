@@ -106,6 +106,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.events.LoggedInEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.games.WikiGames
 import org.wikipedia.games.onthisday.OnThisDayGameActivity
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
@@ -600,11 +601,8 @@ class ActivityTabFragment : Fragment() {
                                         ))
                                     },
                                     onStatsCardClick = {
-                                        // TODO: link to the stats page when we have the WikiGames home page.
-                                        requireActivity().startActivity(OnThisDayGameActivity.newIntent(
-                                            context = requireContext(),
-                                            invokeSource = Constants.InvokeSource.ACTIVITY_TAB,
-                                            wikiSite = WikipediaApp.instance.wikiSite
+                                        requireActivity().startActivity(GamesHubActivity.newIntent(
+                                            context = requireContext()
                                         ))
                                     },
                                     wikiErrorClickEvents = WikiErrorClickEvents(
