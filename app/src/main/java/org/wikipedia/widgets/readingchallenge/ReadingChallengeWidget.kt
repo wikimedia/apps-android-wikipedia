@@ -96,7 +96,7 @@ fun WidgetButton(
     action: Action,
     modifier: GlanceModifier = GlanceModifier
 ) {
-    Button(
+    FilledButton(
         text = text,
         onClick = action,
         colors = ButtonDefaults.buttonColors(
