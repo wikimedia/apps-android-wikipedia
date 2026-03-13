@@ -4,10 +4,14 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.LocalContext
+import androidx.glance.LocalSize
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.action.actionStartActivity
@@ -23,7 +27,13 @@ import org.wikipedia.widgets.readingchallenge.WidgetColors
 
 class ReadingChallengeLargeWidget : GlanceAppWidget() {
 
-    override val sizeMode: SizeMode = SizeMode.Exact
+    override val sizeMode = SizeMode.Responsive(
+        setOf(
+            DpSize(110.dp, 110.dp),
+            DpSize(250.dp, 110.dp),
+            DpSize(350.dp, 110.dp)
+        )
+    )
 
     override suspend fun provideGlance(
         context: Context,
@@ -45,8 +55,19 @@ fun ReadingChallengeLargeContent(
     state: ReadingChallengeState
 ) {
     val context = LocalContext.current
-    val dayTextColor = ComposeColors.Gray700
-    val nightTextColor = ComposeColors.Gray200
+    val size = LocalSize.current
+    // TODO: handle font sizes correctly
+    val titleFontSize = when {
+        size.width <= 110.dp -> 22.sp
+        size.width <= 250.dp -> 26.sp
+        else -> 34.sp
+    }
+    val subTitleFontSize = when {
+        size.width <= 110.dp -> 12.sp
+        size.width <= 250.dp -> 14.sp
+        else -> 16.sp
+    }
+    val textColor = ComposeColors.Gray700
     // each state will have small and large widget content
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
@@ -58,10 +79,11 @@ fun ReadingChallengeLargeContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .background(WidgetColors.challengeNotOptInBackground),
-                dayTextColor = dayTextColor,
-                nightTextColor = nightTextColor,
+                textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
+                titleFontSize = titleFontSize,
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
+                subTitleFontSize = subTitleFontSize,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
@@ -75,10 +97,11 @@ fun ReadingChallengeLargeContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .background(WidgetColors.challengeNotOptInBackground),
-                dayTextColor = dayTextColor,
-                nightTextColor = nightTextColor,
+                textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
+                titleFontSize = titleFontSize,
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
+                subTitleFontSize = subTitleFontSize,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
