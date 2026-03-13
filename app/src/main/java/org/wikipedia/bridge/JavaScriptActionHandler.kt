@@ -77,14 +77,13 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.removeHighlightsFromHighlightedElements()"
     }
 
-    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int, messageCardHeight: Int): String {
+    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
         val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = context.getStrings(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
-        var leadImageHeight = if (isPreview) 0 else
+        val leadImageHeight = if (isPreview) 0 else
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (DimenUtil.leadImageHeightForDevice(context) / DimenUtil.densityScalar).roundToInt() - topActionBarHeight)
-        leadImageHeight = leadImageHeight + messageCardHeight
         val topMargin = topActionBarHeight + 16
 
         var fontFamily = Prefs.fontFamily
