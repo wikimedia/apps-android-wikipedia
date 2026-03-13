@@ -6,6 +6,8 @@ import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
+import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -24,6 +26,7 @@ import org.wikipedia.main.MainActivity
 fun ReadingChallengeSmallWidgetContent(
     state: ReadingChallengeState
 ) {
+    val context = LocalContext.current
     when (state) {
         ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
@@ -44,10 +47,65 @@ fun ReadingChallengeSmallWidgetContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.feed),
+                        action = androidx.glance.action.actionStartActivity<MainActivity>()
+                    )
+                }
+            )
+        }
         ReadingChallengeState.NotEnrolled -> TODO()
-        is ReadingChallengeState.StreakOngoingNeedsReading -> TODO()
-        is ReadingChallengeState.StreakOngoingReadToday -> TODO()
+        is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = streakText,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 40.dp,
+                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    )
+                }
+            )
+        }
+        is ReadingChallengeState.StreakOngoingReadToday -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(
+                        onClick = androidx.glance.action.actionStartActivity<MainActivity>()
+                    ),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = streakText,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 40.dp,
+                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    )
+                }
+            )
+        }
     }
 }
 
