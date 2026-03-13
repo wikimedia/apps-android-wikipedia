@@ -2123,13 +2123,13 @@
   <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
   <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
-    <string name="reading_challenge_small_widget_name">Display name for the small Reading Challenge home screen widget.</string>
-    <string name="reading_challenge_large_widget_name">Display name for the large Reading Challenge home screen widget.</string>
+    <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
     <plurals name="reading_challenge_small_widget_streak">
         <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
         <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days.</item>
     </plurals>
     <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
+    <string name="reading_challenge_streak_ongoing_title">Title for an ongoing reading challenge streak. The %d represents the current streak length in days.</string>
     <string name="reading_challenge_widget_enrolled_not_started_title">Title text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
     <string name="reading_challenge_widget_enrolled_not_started_subtitle">Subtitle text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
 </resources>

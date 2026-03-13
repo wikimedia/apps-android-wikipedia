@@ -10,8 +10,6 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
-import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 

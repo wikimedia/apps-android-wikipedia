@@ -43,9 +43,8 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundActivity : BaseActivity() {
@@ -74,8 +73,7 @@ class ReadingChallengePlayGroundActivity : BaseActivity() {
                         state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
                         updateWidgetsExplicitly = {
                             coroutineScope.launch {
-                                ReadingChallengeSmallWidget().updateAll(this@ReadingChallengePlayGroundActivity)
-                                ReadingChallengeLargeWidget().updateAll(this@ReadingChallengePlayGroundActivity)
+                                ReadingChallengeWidget().updateAll(this@ReadingChallengePlayGroundActivity)
                             }
                         }
                     )
