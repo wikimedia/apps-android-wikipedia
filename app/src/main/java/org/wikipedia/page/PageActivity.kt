@@ -488,8 +488,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         //requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
 
 
-        startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit"))
+        //startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit"))
 
+
+        UriUtil.visitInExternalBrowser(this, (title.uri + "?action=edit").toUri())
 
     }
 
