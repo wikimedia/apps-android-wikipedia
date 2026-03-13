@@ -56,11 +56,11 @@ fun ReadingChallengeLargeContent(
 ) {
     val context = LocalContext.current
     val size = LocalSize.current
-    // TODO: handle font sizes correctly
     val titleFontSize = when {
         size.width <= 110.dp -> 22.sp
         size.width <= 250.dp -> 26.sp
-        else -> 34.sp
+        size.width <= 350.dp -> 30.sp
+        else -> 32.sp
     }
     val subTitleFontSize = when {
         size.width <= 110.dp -> 12.sp
