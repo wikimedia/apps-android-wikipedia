@@ -15,6 +15,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -79,9 +80,9 @@ class SingleWebViewActivity : BaseActivity() {
         }
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.mediaPlaybackRequiresUserGesture = false
-        binding.webView.webViewClient = object : OkHttpWebViewClient() {
-            override val model get() = blankModel
-            override val linkHandler get() = blankLinkHandler
+        binding.webView.webViewClient = object : WebViewClient() { //  OkHttpWebViewClient() {
+            //override val model get() = blankModel
+            //override val linkHandler get() = blankLinkHandler
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 if (isWebForm && !request?.url.toString().startsWith(targetUrl)) {
