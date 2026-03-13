@@ -52,7 +52,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
-import org.wikipedia.widgets.WidgetProviderFeaturedPage
+import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidgetReceiver
 
 class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -90,17 +90,17 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
     }
 
     fun requestToPinWidget(context: Context) {
-        // TODO: use the glance widget provider
         val appWidgetManager = AppWidgetManager.getInstance(context)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && appWidgetManager.isRequestPinAppWidgetSupported) {
             val successCallback = PendingIntent.getBroadcast(
                 context, 0,
-                Intent(context, WidgetProviderFeaturedPage::class.java),
+                Intent(context, ReadingChallengeLargeWidgetReceiver::class.java),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
 
-            appWidgetManager.requestPinAppWidget(ComponentName(context, WidgetProviderFeaturedPage::class.java), null, successCallback)
+            appWidgetManager.requestPinAppWidget(ComponentName(context, ReadingChallengeLargeWidgetReceiver::class.java), null, successCallback)
         } else {
+            // TODO: confirm with PM
             Toast.makeText(context, "Launcher does not support pinning", Toast.LENGTH_SHORT).show()
         }
     }
