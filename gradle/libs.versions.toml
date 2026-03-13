@@ -54,6 +54,7 @@ workRuntimeKtx = "2.11.1"
 composeBom = "2026.03.00"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
+uiGraphics = "1.10.5"
 
 
 [libraries]
@@ -130,6 +131,7 @@ androidx-glance-material3 = { module = "androidx.glance:glance-material3", versi
 androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glanceAppwidget" }
 androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glancePreview" }
 androidx-glance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "glanceWidgetPreview" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }

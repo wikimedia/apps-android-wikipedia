@@ -87,8 +87,8 @@ fun ReadingChallengeLargeWidgetContent(
 @Composable
 fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
-    backgroundColor: Color,
     textColor: Color,
+    backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     title: String,
     titleFontSize: TextUnit,
@@ -97,7 +97,6 @@ fun GeneralLargeWidget(
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
-
     BaseWidgetContent(
         color = backgroundColor
     ) {
