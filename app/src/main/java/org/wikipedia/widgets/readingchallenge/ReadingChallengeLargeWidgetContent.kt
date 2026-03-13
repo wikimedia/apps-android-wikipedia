@@ -47,6 +47,9 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.EnrolledNotStarted -> TODO()
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
@@ -64,6 +67,9 @@ fun ReadingChallengeLargeWidgetContent(
         }
         ReadingChallengeState.NotLiveYet -> {
             GeneralLargeWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
@@ -102,6 +108,9 @@ fun GeneralLargeWidget(
     ) {
         Box(
             modifier = modifier
+        ) {
+        Box(
+            modifier = GlanceModifier
                 .fillMaxWidth()
                 .padding(bottom = 20.dp),
             contentAlignment = Alignment.TopEnd
@@ -164,6 +173,7 @@ fun GeneralLargeWidget(
 
             bottomContent()
         }
+            }
     }
 }
 

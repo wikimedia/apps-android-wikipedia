@@ -3,11 +3,11 @@ package org.wikipedia.widgets.readingchallenge
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -26,6 +26,7 @@ import org.wikipedia.R
 fun ReadingChallengeSmallWidgetContent(
     state: ReadingChallengeState
 ) {
+    val context = LocalContext.current
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
@@ -34,11 +35,14 @@ fun ReadingChallengeSmallWidgetContent(
         ReadingChallengeState.EnrolledNotStarted -> TODO()
         ReadingChallengeState.NotEnrolled -> {
             SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 bottomContent = {
                     WidgetButton(
-                        text = stringResource(R.string.reading_challenge_widget_explore_button),
+                        text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
                         action = actionStartActivity(Intent())
                     )
                 }
@@ -46,11 +50,14 @@ fun ReadingChallengeSmallWidgetContent(
         }
         ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 bottomContent = {
                     WidgetButton(
-                        text = stringResource(R.string.reading_challenge_widget_join_challenge_button),
+                        text = context.getString(R.string.reading_challenge_widget_explore_button),
                         action = actionStartActivity(Intent())
                     )
                 }
