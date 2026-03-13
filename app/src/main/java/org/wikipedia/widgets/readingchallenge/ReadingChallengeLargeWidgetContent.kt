@@ -142,7 +142,7 @@ fun GeneralLargeWidget(
             Row(
                 modifier = GlanceModifier
                     .fillMaxWidth()
-                    .padding(end = 100.dp),
+                    .padding(end = 120.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(
@@ -157,7 +157,7 @@ fun GeneralLargeWidget(
                             color = ColorProvider(day = textColor, night = textColor)
                         )
                     )
-                    Spacer(modifier = GlanceModifier.height(12.dp))
+                    Spacer(modifier = GlanceModifier.height(4.dp))
                     Text(
                         text = subTitle,
                         style = TextStyle(
