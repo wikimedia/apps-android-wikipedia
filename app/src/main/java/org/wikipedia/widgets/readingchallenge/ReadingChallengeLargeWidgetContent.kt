@@ -1,8 +1,9 @@
-package org.wikipedia.widgets.readingchallenge.largewidget
+package org.wikipedia.widgets.readingchallenge
 
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,14 +27,30 @@ import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
-import androidx.glance.preview.Preview
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
-import org.wikipedia.widgets.readingchallenge.WidgetButton
-import org.wikipedia.widgets.readingchallenge.WidgetColors
+
+@Composable
+fun ReadingChallengeLargeWidgetContent(
+    state: ReadingChallengeState
+) {
+    // each state will have small and large widget content
+    when (state) {
+        ReadingChallengeState.ChallengeCompleted -> TODO()
+        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
+        ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
+        ReadingChallengeState.ChallengeRemoved -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.NotEnrolled -> TODO()
+        ReadingChallengeState.NotLiveYet -> {}
+        is ReadingChallengeState.StreakOngoingNeedsReading -> {}
+        is ReadingChallengeState.StreakOngoingReadToday -> {}
+    }
+}
+
 
 @Composable
 fun GeneralLargeWidget(

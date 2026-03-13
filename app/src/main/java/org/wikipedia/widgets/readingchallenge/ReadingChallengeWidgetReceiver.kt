@@ -1,13 +1,13 @@
-package org.wikipedia.widgets.readingchallenge.largewidget
+package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 
-class ReadingChallengeLargeWidgetReceiver : GlanceAppWidgetReceiver() {
+class ReadingChallengeWidgetReceiver : GlanceAppWidgetReceiver() {
+
     override val glanceAppWidget: GlanceAppWidget
-        get() = ReadingChallengeLargeWidget()
+        get() = ReadingChallengeWidget()
 
     override fun onEnabled(context: Context) {
         super.onEnabled(context)

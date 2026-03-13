@@ -2123,8 +2123,7 @@
   <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
   <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
-  <string name="reading_challenge_small_widget_name">Display name for the small Reading Challenge home screen widget.</string>
-  <string name="reading_challenge_large_widget_name">Display name for the large Reading Challenge home screen widget.</string>
+  <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
   <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
   <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
   <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
