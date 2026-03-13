@@ -284,6 +284,29 @@ fun EnrolledNotStartedLargeWidget(
     val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
     val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
 
+    val contentSize = ReadingWidgetDimensions.contentSize
+
+    // (widget width minus image column ~110dp, padding, spacing)
+    val textColumnWidth = contentSize.width - 110.dp - ReadingWidgetDimensions.contentSpacing
+
+    val (titleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
+        context = context,
+        text = title,
+        availableWidth = textColumnWidth,
+        availableHeight = contentSize.height * 0.40f,
+        maxFontSize = 32.sp,
+        minFontSize = 18.sp,
+    )
+
+    val (subtitleFontSize, subtitleMaxLines) = FontUtils.calculateFontSizeAndMaxLines(
+        context = context,
+        text = subtitle,
+        availableWidth = textColumnWidth,
+        availableHeight = contentSize.height * 0.35f,
+        maxFontSize = 16.sp,
+        minFontSize = 12.sp,
+    )
+
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -303,16 +326,16 @@ fun EnrolledNotStartedLargeWidget(
                     Text(
                         text = title,
                         style = TextStyle(
-                            fontSize = 32.sp,
+                            fontSize = titleFontSize,
                             color = ColorProvider(day = textColor, night = textColor),
                             fontWeight = FontWeight.Medium,
                         )
                     )
                     Text(
                         text = subtitle,
-                        maxLines = 2,
+                        maxLines = subtitleMaxLines,
                         style = TextStyle(
-                            fontSize = 16.sp,
+                            fontSize = subtitleFontSize,
                             color = ColorProvider(day = textColor, night = textColor),
                             fontWeight = FontWeight.Medium,
                         )
@@ -382,4 +405,19 @@ class RandomizerAction : ActionCallback {
         }
         context.startActivity(intent)
     }
+}
+
+private object ReadingWidgetDimensions {
+    val widgetPadding = 16.dp
+    val contentSpacing = 12.dp
+
+    val contentSize: DpSize
+        @Composable get() {
+            val size = LocalSize.current
+            return DpSize(
+                width = size.width - (2f * widgetPadding),
+                // subtract button row height (~48dp) and spacing
+                height = size.height - widgetPadding - 48.dp - contentSpacing
+            )
+        }
 }
