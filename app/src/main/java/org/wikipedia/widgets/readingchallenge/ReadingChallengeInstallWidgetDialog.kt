@@ -142,7 +142,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
                             .weight(1f)
                             .padding(bottom = 16.dp),
                         text = stringResource(R.string.reading_challenge_install_prompt_title),
-                        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Medium),
+                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                         color = WikipediaTheme.colors.primaryColor
                     )
 
