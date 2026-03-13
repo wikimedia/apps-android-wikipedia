@@ -47,9 +47,11 @@ fun ReadingChallengeSmallContent(
         ReadingChallengeState.EnrolledNotStarted -> {
             SmallWidget(
                 modifier = GlanceModifier
-                    .background(WidgetColors.challengeNotOptInBackground)
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.feed),

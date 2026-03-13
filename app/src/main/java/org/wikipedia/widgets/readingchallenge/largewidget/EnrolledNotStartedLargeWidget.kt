@@ -1,6 +1,7 @@
 package org.wikipedia.widgets.readingchallenge.largewidget
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,6 +29,7 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
+import org.wikipedia.widgets.readingchallenge.BaseWidgetContent
 import org.wikipedia.widgets.readingchallenge.WidgetColors
 import org.wikipedia.widgets.readingchallenge.WidgetIconButton
 import org.wikipedia.widgets.utils.FontUtils
@@ -37,6 +39,7 @@ fun EnrolledNotStartedLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     mainImageResId: Int,
+    backgroundColor: Color
 ) {
     val context = LocalContext.current
     val textColor = WidgetColors.primary
@@ -66,74 +69,76 @@ fun EnrolledNotStartedLargeWidget(
         minFontSize = 12.sp,
     )
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .cornerRadius(24.dp)
-            .background(WidgetColors.challengeNotOptInBackground)
-            .padding(ReadingWidgetDimensions.widgetPadding),
+    BaseWidgetContent(
+        color = backgroundColor
     ) {
-        Row(
-            modifier = GlanceModifier
-                .defaultWeight()
-                .fillMaxWidth()
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(ReadingWidgetDimensions.widgetPadding),
         ) {
-            Column(
-                modifier = GlanceModifier
-                    .defaultWeight()) {
-                Text(
-                    text = title,
-                    style = TextStyle(
-                        fontSize = titleFontSize,
-                        color = ColorProvider(day = textColor, night = textColor),
-                        fontWeight = FontWeight.Medium,
-                    )
-                )
-                Text(
-                    text = subtitle,
-                    maxLines = subtitleMaxLines,
-                    style = TextStyle(
-                        fontSize = subtitleFontSize,
-                        color = ColorProvider(day = textColor, night = textColor),
-                        fontWeight = FontWeight.Medium,
-                    )
-                )
-            }
-            Column(
+            Row(
                 modifier = GlanceModifier
                     .defaultWeight()
-                    .fillMaxHeight(),
-                horizontalAlignment = Alignment.End
+                    .fillMaxWidth()
             ) {
-                Image(
-                    provider = ImageProvider(titleBarIcon),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
-                )
-                Spacer(modifier = GlanceModifier.defaultWeight())
-                Image(
-                    provider = ImageProvider(mainImageResId),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(110.dp)
-                )
-                Spacer(modifier = GlanceModifier.size(24.dp))
+                Column(
+                    modifier = GlanceModifier
+                        .defaultWeight()) {
+                    Text(
+                        text = title,
+                        style = TextStyle(
+                            fontSize = titleFontSize,
+                            color = ColorProvider(day = textColor, night = textColor),
+                            fontWeight = FontWeight.Medium,
+                        )
+                    )
+                    Text(
+                        text = subtitle,
+                        maxLines = subtitleMaxLines,
+                        style = TextStyle(
+                            fontSize = subtitleFontSize,
+                            color = ColorProvider(day = textColor, night = textColor),
+                            fontWeight = FontWeight.Medium,
+                        )
+                    )
+                }
+                Column(
+                    modifier = GlanceModifier
+                        .defaultWeight()
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(24.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Image(
+                        provider = ImageProvider(mainImageResId),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(110.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.size(24.dp))
+                }
             }
-        }
 
-        Row(modifier = GlanceModifier.fillMaxWidth()) {
-            WidgetIconButton(
-                modifier = GlanceModifier.defaultWeight(),
-                text = "Search",
-                iconResId = R.drawable.outline_search_24,
-                action = actionRunCallback<SearchAction>()
-            )
-            Spacer(modifier = GlanceModifier.width(16.dp))
-            WidgetIconButton(
-                modifier = GlanceModifier.defaultWeight(),
-                text = "Random",
-                iconResId = R.drawable.ic_dice_24,
-                action = actionRunCallback<RandomizerAction>()
-            )
+            Row(modifier = GlanceModifier.fillMaxWidth()) {
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = "Search",
+                    iconResId = R.drawable.outline_search_24,
+                    action = actionRunCallback<SearchAction>()
+                )
+                Spacer(modifier = GlanceModifier.width(16.dp))
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = "Random",
+                    iconResId = R.drawable.ic_dice_24,
+                    action = actionRunCallback<RandomizerAction>()
+                )
+            }
         }
     }
 }

@@ -26,12 +26,13 @@ fun ReadingChallengeLargeContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
-        ReadingChallengeState.NotEnrolled -> {
+        ReadingChallengeState.EnrolledNotStarted -> {
             EnrolledNotStartedLargeWidget(
-                mainImageResId = R.drawable.globe
+                mainImageResId = R.drawable.globe,
+                backgroundColor = WidgetColors.challengeNotOptInBackground
             )
         }
+        ReadingChallengeState.NotEnrolled -> TODO()
         ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
                 modifier = GlanceModifier
