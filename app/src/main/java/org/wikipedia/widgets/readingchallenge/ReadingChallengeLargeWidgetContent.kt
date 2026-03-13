@@ -4,46 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.glance.ColorFilter
-import androidx.glance.GlanceId
-import androidx.glance.GlanceModifier
-import androidx.glance.Image
-import androidx.glance.ImageProvider
-import androidx.glance.LocalContext
-import androidx.glance.action.ActionParameters
-import androidx.glance.action.actionStartActivity
-import androidx.glance.action.clickable
-import androidx.glance.appwidget.action.ActionCallback
-import androidx.glance.appwidget.action.actionRunCallback
-import androidx.glance.appwidget.cornerRadius
-import androidx.glance.background
-import androidx.glance.color.ColorProvider
-import androidx.glance.layout.Alignment
-import androidx.glance.layout.Box
-import androidx.glance.layout.Column
-import androidx.glance.layout.Row
-import androidx.glance.layout.Spacer
-import androidx.glance.layout.fillMaxHeight
-import androidx.glance.layout.fillMaxSize
-import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.height
-import androidx.glance.layout.padding
-import androidx.glance.layout.size
-import androidx.glance.layout.width
-import androidx.glance.text.FontWeight
-import androidx.glance.text.Text
-import androidx.glance.text.TextStyle
-import org.wikipedia.Constants.InvokeSource
-import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.main.MainActivity
-import org.wikipedia.random.RandomActivity
-import org.wikipedia.search.SearchActivity
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.times
@@ -70,6 +32,7 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxHeight
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
+import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
@@ -313,7 +276,6 @@ fun StreakOngoingNeedsReadingLargeWidget(
 
 @Composable
 fun EnrolledNotStartedLargeWidget(
-    modifier: GlanceModifier = GlanceModifier,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     mainImageResId: Int,
     backgroundColor: Color
@@ -337,7 +299,7 @@ fun EnrolledNotStartedLargeWidget(
         minFontSize = 18.sp,
     )
 
-    val (subtitleFontSize, subtitleMaxLines) = FontUtils.calculateFontSizeAndMaxLines(
+    val (subtitleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
         context = context,
         text = subtitle,
         availableWidth = textColumnWidth,
@@ -346,61 +308,16 @@ fun EnrolledNotStartedLargeWidget(
         minFontSize = 12.sp,
     )
 
-    BaseWidgetContent(
-        color = backgroundColor
-    ) {
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(16.dp),
-        ) {
-            Row(
-                modifier = GlanceModifier
-                    .defaultWeight()
-                    .fillMaxWidth()
-            ) {
-                Column(
-                    modifier = GlanceModifier
-                        .defaultWeight()) {
-                    Text(
-                        text = title,
-                        style = TextStyle(
-                            fontSize = titleFontSize,
-                            color = ColorProvider(day = textColor, night = textColor),
-                            fontWeight = FontWeight.Medium,
-                        )
-                    )
-                    Text(
-                        text = subtitle,
-                        maxLines = subtitleMaxLines,
-                        style = TextStyle(
-                            fontSize = subtitleFontSize,
-                            color = ColorProvider(day = textColor, night = textColor),
-                            fontWeight = FontWeight.Medium,
-                        )
-                    )
-                }
-                Column(
-                    modifier = GlanceModifier
-                        .defaultWeight()
-                        .fillMaxHeight(),
-                    horizontalAlignment = Alignment.End
-                ) {
-                    Image(
-                        provider = ImageProvider(titleBarIcon),
-                        contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp)
-                    )
-                    Spacer(modifier = GlanceModifier.defaultWeight())
-                    Image(
-                        provider = ImageProvider(mainImageResId),
-                        contentDescription = null,
-                        modifier = GlanceModifier.size(110.dp)
-                    )
-                    Spacer(modifier = GlanceModifier.size(24.dp))
-                }
-            }
-
+    GeneralLargeWidget(
+        textColor = textColor,
+        backgroundColor = backgroundColor,
+        titleBarIcon = titleBarIcon,
+        title = title,
+        titleFontSize = titleFontSize,
+        subTitle = subtitle,
+        subTitleFontSize = subtitleFontSize,
+        mainImageResId = mainImageResId,
+        bottomContent = {
             Row(modifier = GlanceModifier.fillMaxWidth()) {
                 WidgetIconButton(
                     modifier = GlanceModifier.defaultWeight(),
@@ -417,7 +334,7 @@ fun EnrolledNotStartedLargeWidget(
                 )
             }
         }
-    }
+    )
 }
 
 @Composable
@@ -486,7 +403,8 @@ fun GeneralLargeWidget(
                             text = title,
                             style = TextStyle(
                                 fontSize = titleFontSize,
-                                color = ColorProvider(day = textColor, night = textColor)
+                                color = ColorProvider(day = textColor, night = textColor),
+                                fontWeight = FontWeight.Medium
                             )
                         )
                         Spacer(modifier = GlanceModifier.height(12.dp))
@@ -508,7 +426,6 @@ fun GeneralLargeWidget(
         }
     }
 }
-
 
 class SearchAction : ActionCallback {
     override suspend fun onAction(

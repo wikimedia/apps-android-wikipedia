@@ -94,17 +94,15 @@ fun BaseWidgetContent(
 fun WidgetButton(
     text: String,
     action: Action,
-    textStyle: TextStyle? = null,
     modifier: GlanceModifier = GlanceModifier
 ) {
-    Button(
+    FilledButton(
         text = text,
         onClick = action,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = ColorProvider(day = WidgetColors.progressive, night = WidgetColors.progressive),
             contentColor = ColorProvider(day = WidgetColors.white, night = WidgetColors.white)
         ),
-        style = textStyle,
         modifier = modifier.fillMaxWidth()
     )
 }
