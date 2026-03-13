@@ -331,7 +331,8 @@ fun GeneralLargeWidget(
                             text = title,
                             style = TextStyle(
                                 fontSize = titleFontSize,
-                                color = ColorProvider(day = textColor, night = textColor)
+                                color = ColorProvider(day = textColor, night = textColor),
+                                fontWeight = FontWeight.Medium
                             )
                         )
                         Spacer(modifier = GlanceModifier.height(12.dp))
