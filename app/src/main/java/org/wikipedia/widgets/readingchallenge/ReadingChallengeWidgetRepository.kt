@@ -128,7 +128,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     companion object {
-        private val START_DATE = LocalDate.of(2026, 3, 1)
+        private val START_DATE = LocalDate.of(2026, 5, 1)
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
         const val READING_STREAK_GOAL = 25
