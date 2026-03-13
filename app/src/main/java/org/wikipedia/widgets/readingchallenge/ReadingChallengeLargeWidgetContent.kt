@@ -88,7 +88,6 @@ fun ReadingChallengeLargeWidgetContent(
     }
 }
 
-
 @Composable
 fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,

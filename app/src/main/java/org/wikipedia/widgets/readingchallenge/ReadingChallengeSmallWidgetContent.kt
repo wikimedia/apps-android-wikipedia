@@ -88,7 +88,6 @@ fun SmallWidget(
     }
 }
 
-
 @OptIn(ExperimentalGlancePreviewApi::class)
 @Preview(widthDp = 250, heightDp = 250)
 @Composable
