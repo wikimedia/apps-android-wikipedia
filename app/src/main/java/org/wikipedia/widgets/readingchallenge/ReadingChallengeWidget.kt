@@ -39,10 +39,9 @@ import org.wikipedia.R
 import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeContent
 import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallContent
 
-class ReadingChallengeWidget: GlanceAppWidget() {
+class ReadingChallengeWidget : GlanceAppWidget() {
     companion object {
-        private val mediumMode = DpSize(260.dp, 200.dp)
-        private val largeMode = DpSize(260.dp, 280.dp)
+        private val fullWidthThreshold = 320.dp
     }
 
     override val sizeMode: SizeMode = SizeMode.Exact
@@ -58,20 +57,10 @@ class ReadingChallengeWidget: GlanceAppWidget() {
 
             GlanceTheme {
                 val size = LocalSize.current
-
-                when {
-                    size.width >= largeMode.width && size.height >= largeMode.height -> {
-                        ReadingChallengeLargeContent(state)
-                    }
-
-                    size.width >= mediumMode.width && size.height >= mediumMode.height -> {
-                        ReadingChallengeLargeContent(state)
-                    }
-
-                    else -> {
-
-                        ReadingChallengeSmallContent(state)
-                    }
+                if (size.width >= fullWidthThreshold) {
+                    ReadingChallengeLargeContent(state)
+                } else {
+                    ReadingChallengeSmallContent(state)
                 }
             }
         }

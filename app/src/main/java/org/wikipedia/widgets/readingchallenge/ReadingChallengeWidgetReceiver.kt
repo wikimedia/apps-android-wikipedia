@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 
-class ReadingChallengeWidgetReceiver: GlanceAppWidgetReceiver() {
+class ReadingChallengeWidgetReceiver : GlanceAppWidgetReceiver() {
 
     override val glanceAppWidget: GlanceAppWidget
         get() = ReadingChallengeWidget()
