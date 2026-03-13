@@ -485,6 +485,11 @@
   <string name="text_size_increase">Повећај величину текста</string>
   <string name="text_size_decrease">Смањи величину текста</string>
   <string name="text_size_percent_default">%s (подразумевано)</string>
+  <string name="margin_size_increase">Повећај маргине</string>
+  <string name="margin_size_decrease">Смањи маргине</string>
+  <string name="margin_size_label">Маргине</string>
+  <string name="text_justify_label">Поравнање</string>
+  <string name="text_hyphenation_label">Преламање</string>
   <string name="text_style_title">Фонт</string>
   <string name="theme_category_reading">Читање</string>
   <string name="theme_category_editing">Уређивање</string>

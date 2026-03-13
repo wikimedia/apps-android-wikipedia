@@ -27,6 +27,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.DialogThemeChooserBinding
+import org.wikipedia.events.ChangeMarginSizeEvent
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
@@ -101,6 +102,40 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
 
+        binding.marginSizeSeekBar.value = Prefs.marginSizeMultiplier
+        binding.buttonDecreaseMarginSize.setOnClickListener {
+            val newValue = (Prefs.marginSizeMultiplier - 1).coerceAtLeast(resources.getInteger(R.integer.minMarginSizeMultiplier))
+            Prefs.marginSizeMultiplier = newValue
+            binding.marginSizeSeekBar.value = newValue
+            FlowEventBus.post(ChangeMarginSizeEvent())
+        }
+        binding.buttonIncreaseMarginSize.setOnClickListener {
+            val newValue = (Prefs.marginSizeMultiplier + 1).coerceAtMost(resources.getInteger(R.integer.maxMarginSizeMultiplier))
+            Prefs.marginSizeMultiplier = newValue
+            binding.marginSizeSeekBar.value = newValue
+            FlowEventBus.post(ChangeMarginSizeEvent())
+        }
+        binding.marginSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
+                if (!fromUser) return
+                Prefs.marginSizeMultiplier = binding.marginSizeSeekBar.value
+                FlowEventBus.post(ChangeMarginSizeEvent())
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
+
+        binding.textJustifySwitch.isChecked = Prefs.isTextJustifyEnabled
+        binding.textJustifySwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.isTextJustifyEnabled = isChecked
+            FlowEventBus.post(ChangeMarginSizeEvent())
+        }
+        binding.textHyphenationSwitch.isChecked = Prefs.isTextHyphenationEnabled
+        binding.textHyphenationSwitch.setOnCheckedChangeListener { _, isChecked ->
+            Prefs.isTextHyphenationEnabled = isChecked
+            FlowEventBus.post(ChangeMarginSizeEvent())
+        }
+
         binding.syntaxHighlightSwitch.setOnCheckedChangeListener { _, isChecked ->
             Prefs.editSyntaxHighlightEnabled = isChecked
             callback()?.onEditingPrefsChanged()
@@ -157,6 +192,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun updateForEditing() {
         binding.themeChooserDarkModeDimImagesSwitch.isVisible = !isEditing
+        binding.marginSizeContainer.isVisible = !isEditing
+        binding.textFormattingDividerTop.isVisible = !isEditing
+        binding.textFormattingContainer.isVisible = !isEditing
+        binding.textFormattingDividerBottom.isVisible = !isEditing
         binding.readingFocusModeContainer.isVisible = !isEditing
         binding.themeChooserReadingFocusModeDescription.isVisible = !isEditing
         binding.fontFamilyContainer.isVisible = !isEditing
