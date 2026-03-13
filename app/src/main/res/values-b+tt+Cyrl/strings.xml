@@ -1661,14 +1661,36 @@
   <string name="donation_campaign_donated_snackbar" fuzzy="true">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="donate_gpay_dialog_title">Google Pay аша иганә итәргә телисезме?</string>
+  <string name="donate_gpay_dialog_description">Google Pay аша иганә ясагыз яки башка түләү ысулын сайлагыз.</string>
+  <string name="donate_gpay_dialog_pay_button">Google Pay аша иганә итү</string>
+  <string name="donate_gpay_dialog_other_button">Башка түләү ысулы</string>
+  <string name="donate_gpay_activity_title">Сумманы сайлагыз</string>
+  <string name="donate_gpay_activity_title_with_currency">Сумманы сайлагыз (%s)</string>
+  <string name="places_title">Урыннар</string>
+  <string name="places_search_hint">Урыннарны эзләү</string>
+  <string name="places_filter_title">Тел буенча сөзгеч</string>
   <string name="places_toggle_buttons_map">Харита</string>
   <string name="places_toggle_buttons_list">Исемлек</string>
+  <string name="places_card_title">Якындагы урыннар</string>
   <string name="places_card_enable_location_card_button">Локация табуны кабызу</string>
+  <string name="places_card_distance_unknown">Ара билгесез</string>
   <string name="survey_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="survey_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
   <string name="survey_dialog_option_satisfied">Канәгатьләндерелгән</string>
   <string name="survey_dialog_option_neutral">Нейтраль</string>
+  <string name="survey_dialog_cancel">Баш тарту</string>
   <string name="survey_dialog_submit">Җибәрү</string>
+  <string name="survey_dialog_next">Алга</string>
+  <string name="survey_dialog_general_yes">Әйе</string>
+  <string name="survey_dialog_general_no">Юк</string>
+  <string name="survey_dialog_general_maybe">Шулайдыр</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Бәяләмә җибәрелде.</string>
+  <string name="on_this_day_game_entry_dialog_title">Кереш</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Википедия уеннары</string>
+  <string name="on_this_day_game_entry_dialog_button">Бүгенге уенны уйнау</string>
+  <string name="on_this_day_game_dialog_button">Уйнау</string>
   <string name="on_this_day_game_correct">Дөрес!</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Википедия уеннары</string>
+  <string name="on_this_day_game_article_read_button">Мәкаләне уку</string>
 </resources>
