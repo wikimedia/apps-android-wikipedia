@@ -1278,6 +1278,7 @@
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
     <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
     <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+    <string name="activity_tab_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- /Suggested edits -->
 
@@ -1893,11 +1894,19 @@
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 
+    <!-- Games Hub -->
+    <string name="games_hub_activity_title">Games</string>
+    <string name="games_hub_activity_games_unavailable_message">No games available in %s yet! Games leverage content created by volunteer editors for each language\'s Wikipedia.</string>
+    <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
+    <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
+    <string name="games_hub_activity_overflow_learn_more">Learn more</string>
+
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>
     <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
-    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_entry_dialog_button">Play</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_action">Learn more</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -1909,14 +1918,9 @@
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
-    <string name="on_this_day_game_share_button">Share</string>
-    <string name="on_this_day_game_pause_title">Pause the game?</string>
-    <string name="on_this_day_game_pause_body">Your progress will be saved for the day. You can find the game on your Explore feed.</string>
-    <string name="on_this_day_game_pause_negative">Keep playing</string>
-    <string name="on_this_day_game_pause_positive">Got it</string>
+    <string name="on_this_day_game_share_button">Share score</string>
     <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
     <string name="on_this_day_game_feed_entry_card_title">Which came first?</string>
-    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
     <string name="on_this_day_game_your_stats">Your stats</string>
@@ -1959,9 +1963,21 @@
     <string name="on_this_day_game_archive_btn_text">Play the archive</string>
     <string name="on_this_day_game_review_results_btn_text">Review results</string>
     <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_play_today_btn_text">Play today\'s game</string>
     <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
+    <string name="on_this_day_game_more_label">More</string>
+    <string name="on_this_day_game_card_progress_label">You\'re on question %d. Continue guessing which event came first on this day in history.</string>
+    <string name="on_this_day_game_card_progress_short_label">You\'re on question %d.</string>
+    <string name="on_this_day_game_explore_feed_card_score_message">You scored %1$d/%2$d on today\'s game. Next game in %3$s</string>
+    <string name="on_this_day_game_explore_feed_card_score_short_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_card_archive_label">Archive</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_button">Log in</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_title">Log in to view your game stats</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_description">See your streaks, scores, and more</string>
+    <string name="wikipedia_games_title">Wikipedia games</string>
+    <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>

@@ -209,4 +209,5 @@
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
     <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
     <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
+    <string name="preference_key_game_stats_snackbar_shown">gameStatsSnackbarShown</string>
 </resources>
