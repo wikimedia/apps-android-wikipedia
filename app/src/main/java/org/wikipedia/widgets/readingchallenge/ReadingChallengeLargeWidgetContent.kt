@@ -48,7 +48,7 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> TODO()
         ReadingChallengeState.NotEnrolled -> {
-            GeneralLargeWidget(
+            eralLargeWidget(
                 modifier = GlanceModifier
                     .background(WidgetColors.challengeNotOptInBackground),
                 textColor = textColor,
@@ -66,7 +66,7 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
-            GeneralLargeWidget(
+            eralLargeWidget(
                 modifier = GlanceModifier
                     .background(WidgetColors.challengeNotOptInBackground),
                 textColor = textColor,
@@ -89,7 +89,7 @@ fun ReadingChallengeLargeWidgetContent(
 }
 
 @Composable
-fun GeneralLargeWidget(
+fun eralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
     textColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
@@ -178,7 +178,7 @@ fun GeneralLargeWidget(
 @Preview(widthDp = 368, heightDp = 224)
 @Composable
 fun GeneralWidgetPreview() {
-    GeneralLargeWidget(
+    eralLargeWidget(
         modifier = GlanceModifier
             .background(WidgetColors.challengeNotOptInBackground),
         textColor = ComposeColors.Gray700,
