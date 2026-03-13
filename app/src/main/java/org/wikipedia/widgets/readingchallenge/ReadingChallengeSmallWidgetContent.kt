@@ -1,4 +1,4 @@
-package org.wikipedia.widgets.readingchallenge.smallwidget
+package org.wikipedia.widgets.readingchallenge
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
-import androidx.glance.appwidget.cornerRadius
+import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -17,7 +17,39 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import org.wikipedia.R
-import org.wikipedia.widgets.readingchallenge.BaseWidgetContent
+import org.wikipedia.WikipediaApp
+import org.wikipedia.main.MainActivity
+
+@Composable
+fun ReadingChallengeSmallWidgetContent(
+    state: ReadingChallengeState
+) {
+    when (state) {
+        ReadingChallengeState.NotLiveYet -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = "Join Challenge",
+                        action = actionStartActivity(MainActivity.newIntent(WikipediaApp.instance).putExtra("fromWidget", true))
+                    )
+                }
+            )
+        }
+        ReadingChallengeState.ChallengeCompleted -> TODO()
+        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
+        ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
+        ReadingChallengeState.ChallengeRemoved -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.NotEnrolled -> TODO()
+        is ReadingChallengeState.StreakOngoingNeedsReading -> TODO()
+        is ReadingChallengeState.StreakOngoingReadToday -> TODO()
+    }
+}
 
 @Composable
 fun SmallWidget(
