@@ -2,6 +2,7 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.glance.appwidget.updateAll
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -40,7 +41,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 }
             }
             prefs.registerOnSharedPreferenceChangeListener(listener)
-            emit()
+            emit() // for daily updates and to emit initial value when flow is collected
             awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
         }.distinctUntilChanged()
     }
@@ -103,6 +104,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun recalculateStreakIfNeeded(currentDate: LocalDate) {
+        if (currentDate.isAfter(END_DATE)) return // will not reset after challenge ends
+
         val lastReadDateStr = Prefs.readingChallengeLastReadDate
         if (lastReadDateStr.isNotEmpty()) {
             val lastReadDate = LocalDate.parse(lastReadDateStr)
@@ -113,10 +116,21 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
+    fun updateOnArticleRead(currentDate: LocalDate) {
+        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
+            return
+        }
+
+        if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
+            Prefs.readingChallengeLastReadDate = currentDate.toString()
+            Prefs.readingChallengeStreak += 1
+        }
+    }
+
     companion object {
         private val START_DATE = LocalDate.of(2026, 5, 1)
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
-        private const val READING_STREAK_GOAL = 25
+        const val READING_STREAK_GOAL = 25
     }
 }

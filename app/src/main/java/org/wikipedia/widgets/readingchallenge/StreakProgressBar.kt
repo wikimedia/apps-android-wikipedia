@@ -29,8 +29,8 @@ fun StreakProgressBar(
     totalDays: Int,
     dynamicWidth: Dp,
     modifier: GlanceModifier = GlanceModifier,
-    progressColor: Color = Color(0xFF8DA6DD),
-    progressBarColor: Color = Color(0xFFFFFFFF)
+    progressColor: Color,
+    progressBarColor: Color
 ) {
     Row(
         modifier = modifier,
@@ -101,7 +101,9 @@ fun BoxedStreakProgressBar(
     currentStreak: Int,
     totalDays: Int,
     startIconResId: Int,
-    endIconResId: Int
+    endIconResId: Int,
+    progressColor: Color,
+    progressBarColor: Color
 ) {
     Row(
         modifier = modifier,
@@ -129,7 +131,9 @@ fun BoxedStreakProgressBar(
         StreakProgressBar(
             currentStreak = currentStreak,
             totalDays = totalDays,
-            dynamicWidth = dynamicWidth
+            dynamicWidth = dynamicWidth,
+            progressColor = progressColor,
+            progressBarColor = progressBarColor
         )
 
         Spacer(modifier = GlanceModifier.width(12.dp))
