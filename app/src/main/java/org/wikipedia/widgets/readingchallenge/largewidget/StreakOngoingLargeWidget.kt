@@ -26,6 +26,7 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
+import org.wikipedia.widgets.readingchallenge.BaseWidgetContent
 import org.wikipedia.widgets.readingchallenge.BoxedStreakProgressBar
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
@@ -37,88 +38,93 @@ fun StreakOngoingLargeWidget(
     state: ReadingChallengeState.StreakOngoingReadToday,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier,
+    backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     contentColor: Color = WidgetColors.readingContent,
     progressColor: Color = WidgetColors.progressColor
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
-    Box(
-        modifier = modifier
+    BaseWidgetContent(
+        color = backgroundColor
     ) {
-        Column(modifier = GlanceModifier.fillMaxSize()) {
-            // Top Row: Trophy, Title, W logo
-            Row(
-                modifier = GlanceModifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    provider = ImageProvider(R.drawable.ic_trophy24dp),
-                    contentDescription = "Trophy",
-                    modifier = GlanceModifier.size(24.dp),
-                    colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
-                )
-
-                Spacer(modifier = GlanceModifier.width(12.dp))
-
-                Text(
-                    text = "25-day reading challenge",
-                    style = TextStyle(
-                        color = ColorProvider(day = contentColor, night = contentColor),
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium
+        Box(
+            modifier = modifier
+        ) {
+            Column(modifier = GlanceModifier.fillMaxSize()) {
+                // Top Row: Trophy, Title, W logo
+                Row(
+                    modifier = GlanceModifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        provider = ImageProvider(R.drawable.ic_trophy24dp),
+                        contentDescription = "Trophy",
+                        modifier = GlanceModifier.size(24.dp),
+                        colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
+
+                    Spacer(modifier = GlanceModifier.width(12.dp))
+
+                    Text(
+                        text = context.getString(R.string.reading_challenge_streak_ongoing_title, ReadingChallengeWidgetRepository.READING_STREAK_GOAL),
+                        style = TextStyle(
+                            color = ColorProvider(day = contentColor, night = contentColor),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    )
+
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+
+                    // W logo (Placeholder)
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(24.dp)
+                    )
+                }
+
+                // Middle Row: Flame, Days. (With defaultWeight, it dynamically pushes the rows apart to match the design spacing perfectly)
+                WidgetBadge(
+                    modifier = GlanceModifier
+                        .defaultWeight(),
+                    text = streakText,
+                    iconResId = R.drawable.ic_flame_24dp,
+                    iconSize = 45.dp,
+                    iconTintColorProvider = contentColor,
+                    textColorProvider = contentColor
                 )
 
-                Spacer(modifier = GlanceModifier.defaultWeight())
-
-                // W logo (Placeholder)
-                Image(
-                    provider = ImageProvider(titleBarIcon),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
+                // Bottom Row: Progress bar
+                BoxedStreakProgressBar(
+                    modifier = GlanceModifier
+                        .fillMaxWidth()
+                        .background(contentColor)
+                        .cornerRadius(16.dp)
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    currentStreak = state.streak,
+                    totalDays = ReadingChallengeWidgetRepository.READING_STREAK_GOAL,
+                    startIconResId = R.drawable.baseline_event_repeat_24,
+                    endIconResId = R.drawable.baseline_event_repeat_24,
+                    progressColor = progressColor,
+                    progressBarColor = WidgetColors.white
                 )
             }
 
-            // Middle Row: Flame, Days. (With defaultWeight, it dynamically pushes the rows apart to match the design spacing perfectly)
-            WidgetBadge(
-                modifier = GlanceModifier
-                    .defaultWeight(),
-                text = streakText,
-                iconResId = R.drawable.ic_flame_24dp,
-                iconSize = 45.dp,
-                iconTintColorProvider = contentColor,
-                textColorProvider = contentColor
-            )
-
-            // Bottom Row: Progress bar
-            BoxedStreakProgressBar(
-                modifier = GlanceModifier
-                    .fillMaxWidth()
-                    .background(contentColor)
-                    .cornerRadius(16.dp)
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
-                currentStreak = state.streak,
-                totalDays = ReadingChallengeWidgetRepository.READING_STREAK_GOAL,
-                startIconResId = R.drawable.baseline_event_repeat_24,
-                endIconResId = R.drawable.baseline_event_repeat_24,
-                progressColor = progressColor,
-                progressBarColor = WidgetColors.white
-            )
-        }
-
-        // Mascot overlay positioned absolutely inside the Box bounds
-        Box(
-            modifier = GlanceModifier.fillMaxSize(),
-            contentAlignment = Alignment.CenterEnd
-        ) {
-            Image(
-                provider = ImageProvider(mascotImageResId),
-                contentDescription = "Mascot",
-                modifier = GlanceModifier
-                    .size(120.dp)
-                    .padding(end = 24.dp, bottom = 32.dp)
-            )
+            // Mascot overlay positioned absolutely inside the Box bounds
+            Box(
+                modifier = GlanceModifier.fillMaxSize(),
+                contentAlignment = Alignment.CenterEnd
+            ) {
+                Image(
+                    provider = ImageProvider(mascotImageResId),
+                    contentDescription = "Mascot",
+                    modifier = GlanceModifier
+                        .size(120.dp)
+                        .padding(end = 24.dp, bottom = 32.dp)
+                )
+            }
         }
     }
 }

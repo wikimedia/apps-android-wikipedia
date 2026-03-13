@@ -3,6 +3,8 @@ package org.wikipedia.widgets.readingchallenge.largewidget
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
+import androidx.glance.action.actionStartActivity
+import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
@@ -45,10 +47,9 @@ fun ReadingChallengeLargeContent(
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .cornerRadius(24.dp)
-                    .background(WidgetColors.streakOngoingNotReadBackground)
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )
@@ -57,10 +58,9 @@ fun ReadingChallengeLargeContent(
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .background(WidgetColors.normalReadingBackground)
                     .padding(16.dp)
-                    .cornerRadius(24.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
+                backgroundColor = WidgetColors.normalReadingBackground,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )

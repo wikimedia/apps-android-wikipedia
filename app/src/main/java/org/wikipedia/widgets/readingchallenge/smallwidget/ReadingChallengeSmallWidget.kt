@@ -3,6 +3,9 @@ package org.wikipedia.widgets.readingchallenge.smallwidget
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
+import androidx.glance.LocalContext
+import androidx.glance.action.actionStartActivity
+import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
@@ -10,6 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
+import org.wikipedia.widgets.readingchallenge.WidgetBadge
 import org.wikipedia.widgets.readingchallenge.WidgetButton
 import org.wikipedia.widgets.readingchallenge.WidgetColors
 
@@ -45,8 +49,10 @@ fun ReadingChallengeSmallContent(
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
                 modifier = GlanceModifier
-                    .background(WidgetColors.streakOngoingNotReadBackground)
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
@@ -63,10 +69,12 @@ fun ReadingChallengeSmallContent(
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
                 modifier = GlanceModifier
-                    .background(WidgetColors.streakOngoingNotReadBackground)
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(
                         onClick = actionStartActivity<MainActivity>()
                     ),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(

@@ -30,6 +30,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.widgets.readingchallenge.BaseWidgetContent
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.WidgetBadge
 import org.wikipedia.widgets.readingchallenge.WidgetColors
@@ -39,81 +40,86 @@ import org.wikipedia.widgets.readingchallenge.WidgetIconButton
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    backgroundColor: androidx.compose.ui.graphics.Color,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     val streakTextColor = WidgetColors.streakOngoingNotReadContent
-    Column (
-        modifier = modifier
+    BaseWidgetContent(
+        color = backgroundColor
     ) {
-        Row (
-            modifier = GlanceModifier
-                .defaultWeight()
-                .fillMaxWidth()
+        Column (
+            modifier = modifier
         ) {
-            Column(
+            Row (
                 modifier = GlanceModifier
                     .defaultWeight()
+                    .fillMaxWidth()
             ) {
-                WidgetBadge(
-                    text = streakText,
-                    iconResId = R.drawable.ic_flame_24dp,
-                    iconSize = 40.dp,
-                    iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                    textColorProvider = streakTextColor
-                )
-                Text(
-                    text = context.getString(R.string.reading_challenge_not_read_today_description),
-                    style = TextStyle(
-                        fontSize = 16.sp,
-                        color = ColorProvider(day = streakTextColor, night = streakTextColor),
-                        fontWeight = FontWeight.Medium,
-                    )
-                )
-            }
-
-            Column(
-                modifier = GlanceModifier
-                    .defaultWeight()
-                    .fillMaxHeight(),
-                horizontalAlignment = Alignment.End
-            ) {
-                Image(
-                    provider = ImageProvider(titleBarIcon),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
-                )
-                Spacer(modifier = GlanceModifier.defaultWeight())
-                Image(
-                    provider = ImageProvider(mascotImageResId),
-                    contentDescription = null,
+                Column(
                     modifier = GlanceModifier
-                        .size(110.dp)
-                )
-                Spacer(modifier = GlanceModifier.size(24.dp))
-            }
-        }
+                        .defaultWeight()
+                ) {
+                    WidgetBadge(
+                        text = streakText,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 40.dp,
+                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        textColorProvider = streakTextColor
+                    )
+                    Text(
+                        text = context.getString(R.string.reading_challenge_not_read_today_description),
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            color = ColorProvider(day = streakTextColor, night = streakTextColor),
+                            fontWeight = FontWeight.Medium,
+                        )
+                    )
+                }
 
-        Row(
-            modifier = GlanceModifier.fillMaxWidth()
-        ) {
-            WidgetIconButton(
-                modifier = GlanceModifier
-                    .defaultWeight(),
-                text = "Search",
-                iconResId = R.drawable.outline_search_24,
-                action = actionRunCallback<SearchAction>()
-            )
-            Spacer(modifier = GlanceModifier.width(16.dp))
-            WidgetIconButton(
-                modifier = GlanceModifier
-                    .defaultWeight(),
-                text = "Random",
-                iconResId = R.drawable.ic_dice_24,
-                action = actionRunCallback<RandomizerAction>()
-            )
+                Column(
+                    modifier = GlanceModifier
+                        .defaultWeight()
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(24.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Image(
+                        provider = ImageProvider(mascotImageResId),
+                        contentDescription = null,
+                        modifier = GlanceModifier
+                            .size(110.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.size(24.dp))
+                }
+            }
+
+            Row(
+                modifier = GlanceModifier.fillMaxWidth()
+            ) {
+                WidgetIconButton(
+                    modifier = GlanceModifier
+                        .defaultWeight(),
+                    text = "Search",
+                    iconResId = R.drawable.outline_search_24,
+                    action = actionRunCallback<SearchAction>()
+                )
+                Spacer(modifier = GlanceModifier.width(16.dp))
+                WidgetIconButton(
+                    modifier = GlanceModifier
+                        .defaultWeight(),
+                    text = "Random",
+                    iconResId = R.drawable.ic_dice_24,
+                    action = actionRunCallback<RandomizerAction>()
+                )
+            }
         }
     }
 }

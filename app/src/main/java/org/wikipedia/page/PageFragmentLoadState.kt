@@ -30,7 +30,6 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
 import retrofit2.Response
 import java.io.IOException
 import java.time.Instant
