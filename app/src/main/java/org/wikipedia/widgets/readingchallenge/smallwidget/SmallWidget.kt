@@ -66,5 +66,4 @@ fun SmallWidget(
             }
         }
     }
-
 }
