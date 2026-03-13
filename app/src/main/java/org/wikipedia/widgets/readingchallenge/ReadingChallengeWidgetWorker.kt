@@ -1,9 +1,6 @@
 package org.wikipedia.widgets.readingchallenge
 
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
-import androidx.glance.appwidget.updateAll
 import androidx.work.BackoffPolicy
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingWorkPolicy
@@ -11,10 +8,6 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import androidx.work.WorkerParameters
-import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidget
-import org.wikipedia.widgets.readingchallenge.largewidget.ReadingChallengeLargeWidgetReceiver
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidget
-import org.wikipedia.widgets.readingchallenge.smallwidget.ReadingChallengeSmallWidgetReceiver
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -26,24 +19,7 @@ class ReadingChallengeWidgetWorker(
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
-        val appWidgetManager = AppWidgetManager.getInstance(applicationContext)
-        val smallWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(applicationContext, ReadingChallengeSmallWidgetReceiver::class.java)
-        )
-        val largeWidgetIds = appWidgetManager.getAppWidgetIds(
-            ComponentName(applicationContext, ReadingChallengeLargeWidgetReceiver::class.java)
-        )
-
-        if (smallWidgetIds.isNotEmpty()) {
-            ReadingChallengeSmallWidget().updateAll(applicationContext)
-        }
-
-        if (largeWidgetIds.isNotEmpty()) {
-            ReadingChallengeLargeWidget().updateAll(applicationContext)
-        }
-
         scheduleNextMidnightUpdate(applicationContext)
-
         return Result.success()
     }
 
@@ -73,16 +49,7 @@ class ReadingChallengeWidgetWorker(
         }
 
         fun cancelScheduledUpdates(context: Context) {
-            val appWidgetManager = AppWidgetManager.getInstance(context)
-            val smallWidgetIds = appWidgetManager.getAppWidgetIds(
-                ComponentName(context, ReadingChallengeSmallWidgetReceiver::class.java)
-            )
-            val largeWidgetIds = appWidgetManager.getAppWidgetIds(
-                ComponentName(context, ReadingChallengeLargeWidgetReceiver::class.java)
-            )
-            if (smallWidgetIds.isEmpty() && largeWidgetIds.isEmpty()) {
-                WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME)
-            }
+            WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME)
         }
     }
 }

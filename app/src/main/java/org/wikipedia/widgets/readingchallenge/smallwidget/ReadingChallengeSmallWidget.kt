@@ -1,43 +1,17 @@
 package org.wikipedia.widgets.readingchallenge.smallwidget
 
-import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.glance.GlanceId
+import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
-import androidx.glance.GlanceTheme
-import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.action.actionStartActivity
-import androidx.glance.appwidget.provideContent
-import androidx.glance.background
+import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.padding
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.WidgetButton
 import org.wikipedia.widgets.readingchallenge.WidgetColors
-
-class ReadingChallengeSmallWidget : GlanceAppWidget() {
-
-    override val sizeMode: SizeMode = SizeMode.Exact
-
-    override suspend fun provideGlance(
-        context: Context,
-        id: GlanceId
-    ) {
-        val repository = ReadingChallengeWidgetRepository(context)
-
-        provideContent {
-            val state by repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet)
-            GlanceTheme {
-                ReadingChallengeSmallContent(state)
-            }
-        }
-    }
-}
 
 @Composable
 fun ReadingChallengeSmallContent(
@@ -47,7 +21,9 @@ fun ReadingChallengeSmallContent(
         ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
                 modifier = GlanceModifier
-                    .background(WidgetColors.challengeNotOptInBackground),
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
