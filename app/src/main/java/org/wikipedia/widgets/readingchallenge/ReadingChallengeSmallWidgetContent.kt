@@ -3,12 +3,12 @@ package org.wikipedia.widgets.readingchallenge
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.appwidget.action.actionStartActivity
-import androidx.glance.background
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -32,8 +32,30 @@ fun ReadingChallengeSmallWidgetContent(
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> TODO()
-        ReadingChallengeState.NotEnrolled -> TODO()
-        ReadingChallengeState.NotLiveYet -> {}
+        ReadingChallengeState.NotEnrolled -> {
+            SmallWidget(
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                bottomContent = {
+                    WidgetButton(
+                        text = stringResource(R.string.reading_challenge_widget_explore_button),
+                        action = actionStartActivity(Intent())
+                    )
+                }
+            )
+        }
+        ReadingChallengeState.NotLiveYet -> {
+            SmallWidget(
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                bottomContent = {
+                    WidgetButton(
+                        text = stringResource(R.string.reading_challenge_widget_join_challenge_button),
+                        action = actionStartActivity(Intent())
+                    )
+                }
+            )
+        }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {}
         is ReadingChallengeState.StreakOngoingReadToday -> {}
     }
@@ -93,8 +115,6 @@ fun SmallWidget(
 @Composable
 fun SmallWidgetPreview() {
     SmallWidget(
-        modifier = GlanceModifier
-            .background(WidgetColors.challengeNotOptInBackground),
         mainImageResId = R.drawable.globe,
         backgroundColor = WidgetColors.challengeNotOptInBackground,
         bottomContent = {

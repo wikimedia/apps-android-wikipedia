@@ -12,8 +12,6 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.appwidget.action.actionStartActivity
-import androidx.glance.appwidget.cornerRadius
-import androidx.glance.background
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -48,9 +46,8 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> TODO()
         ReadingChallengeState.NotEnrolled -> {
-            eralLargeWidget(
-                modifier = GlanceModifier
-                    .background(WidgetColors.challengeNotOptInBackground),
+            GeneralLargeWidget(
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
                 titleFontSize = 32.sp,
@@ -66,9 +63,8 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
-            eralLargeWidget(
-                modifier = GlanceModifier
-                    .background(WidgetColors.challengeNotOptInBackground),
+            GeneralLargeWidget(
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 titleFontSize = 32.sp,
@@ -89,8 +85,9 @@ fun ReadingChallengeLargeWidgetContent(
 }
 
 @Composable
-fun eralLargeWidget(
+fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
+    backgroundColor: Color,
     textColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     title: String,
@@ -100,15 +97,12 @@ fun eralLargeWidget(
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
-    Box(
-        modifier = GlanceModifier
-            .fillMaxSize()
-            .cornerRadius(24.dp)
-            .then(modifier)
-            .padding(16.dp),
+
+    BaseWidgetContent(
+        color = backgroundColor
     ) {
         Box(
-            modifier = GlanceModifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(bottom = 20.dp),
             contentAlignment = Alignment.TopEnd
@@ -178,9 +172,8 @@ fun eralLargeWidget(
 @Preview(widthDp = 368, heightDp = 224)
 @Composable
 fun GeneralWidgetPreview() {
-    eralLargeWidget(
-        modifier = GlanceModifier
-            .background(WidgetColors.challengeNotOptInBackground),
+    GeneralLargeWidget(
+        backgroundColor = WidgetColors.challengeNotOptInBackground,
         textColor = ComposeColors.Gray700,
         title = LocalContext.current.getString(R.string.reading_challenge_widget_not_live_title),
         titleFontSize = 34.sp,
