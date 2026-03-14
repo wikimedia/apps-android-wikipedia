@@ -3,7 +3,7 @@ configurations {
 }
 
 dependencies {
-    ktlint 'com.pinterest:ktlint:0.50.0'
+    ktlint libs.ktlint
     // additional 3rd party ruleset(s) can be specified here
     // just add them to the classpath (e.g. ktlint 'groupId:artifactId:version') and
     // ktlint will pick them up

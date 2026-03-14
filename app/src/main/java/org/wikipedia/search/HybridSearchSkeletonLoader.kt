@@ -135,7 +135,6 @@ fun HorizontalHybridSearchListItemLoader(
                     heightMultiplier = 0f,
                     transition = transition
                 )
-
         )
 
         LazyRow(

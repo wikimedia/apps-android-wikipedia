@@ -68,6 +68,7 @@ class SearchResultsViewModel : ViewModel() {
 
     var semanticResultsTitlesForEvent = ""
     var lexicalResultsTitlesForEvent = ""
+    var lastXSearchId = ""
 
     @OptIn(
         FlowPreview::class,
@@ -100,6 +101,7 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 
+            lastXSearchId = ""
             val term = _searchTerm.value
             val lang = _languageCode.value
 
@@ -126,18 +128,20 @@ class SearchResultsViewModel : ViewModel() {
 
             val semanticDeferred = async {
                 runCatching {
-                    val tableName = when (lang) {
-                        "el" -> "elwiki_sections"
-                        else -> ""
-                    }
-                    val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = tableName, includeText = true)
-                    val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
-                    buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
-                        for (result in list) {
-                            val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
-                            result.pageTitle.thumbUrl = page?.thumbUrl()
-                            result.pageTitle.description = page?.description
+                    if (lang == "el") {
+                        val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = "elwiki_sections", includeText = true)
+                        val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
+                        buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
+                            for (result in list) {
+                                val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
+                                result.pageTitle.thumbUrl = page?.thumbUrl()
+                                result.pageTitle.description = page?.description
+                            }
                         }
+                    } else {
+                        val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, semanticBatchSize, 0, isSemantic = true)
+                        lastXSearchId = response.headers()["x-search-id"] ?: ""
+                        buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
                     }
                 }
             }

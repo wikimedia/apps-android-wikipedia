@@ -269,6 +269,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
+  <string name="legal_safety_contacts_description">פרטי קשר לענייני משפט ובטיחות</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/WP:ABOUT</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
@@ -1364,6 +1365,7 @@
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
   <string name="onboarding_welcome_title_v2">האנציקלופדיה החופשית\n…ביותר מ־300 שפות</string>
+  <string name="onboarding_next">הבא</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
@@ -2113,6 +2115,9 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">לפני היסטוריית הקריאה שלך</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">כוונון</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">לא משנה</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">ההמלצות שלך מבוססות מעתה על תחומי העניין שלך.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">ההמלצות שלך מבוססות מעתה על הערכים ששמרת.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">ההמלצות שלך מבוססות מעתה על היסטוריית הקריאה שלך.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ביטול</string>
   <string name="recommended_reading_list_settings_interests">תחומי עניין</string>
   <string name="recommended_reading_list_settings_notifications_title">התראות</string>
@@ -2132,6 +2137,10 @@
   <string name="donation_reminders_settings_option_custom">מותאם...</string>
   <string name="donation_reminders_prompt_positive_button">לתרום עכשיו</string>
   <string name="donation_reminders_prompt_negative_button">לא עכשיו</string>
+  <string name="donation_reminders_gpay_text">לתרום %s עם Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">לתרום סכום אחר עם Google Pay</string>
+  <string name="donation_reminders_settings_description_off">תזכורות תרומה כבויות.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">מספר הערכים מאוחסן מקומית במכשיר שלך</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">ערך</item>
     <item quantity="two">שני ערכים</item>
@@ -2143,4 +2152,20 @@
   <string name="donation_reminders_settings_learn_more_button">מידע נוסף</string>
   <string name="donation_reminders_settings_report_button">בעיה עם תכונה</string>
   <string name="donation_reminders_snackbar_modify_button_label">שינוי</string>
+  <string name="hybrid_search_search_hint">לחפש או לשאול משהו</string>
+  <string name="hybrid_search_article_search_hint">לשאול לגבי %s</string>
+  <string name="hybrid_search_suggestion_title">חיפוש אחר:</string>
+  <string name="hybrid_search_onboarding_learn_more">מידע נוסף</string>
+  <string name="hybrid_search_onboarding_search_title">לשאול שאלות, לקבל תשובות</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">זמין לזמן מוגבל במהלך הניסוי הזה.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">הצטרפות לניסוי</string>
+  <string name="hybrid_search_onboarding_search_example_title">זקוק להשראה?</string>
+  <string name="hybrid_search_onboarding_search_example_description">אפשר להשתמש באחת מדוגמאות החיפוש שלהלן.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA מול DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">למה אנשים שמים אננס על פיצה?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">מה הן הערים הגדולות ביותר באירופה?</string>
+  <string name="hybrid_search_onboarding_screen_title">דרך חדשה לחפש</string>
+  <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
+  <string name="hybrid_search_no_results_header">אין תוצאות</string>
+  <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
 </resources>
