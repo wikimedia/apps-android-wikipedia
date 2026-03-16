@@ -238,10 +238,7 @@ fun GamesHubLanguageChip(
     val langText = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(langCode) ?: langCode
     val isEnabled = WikiGames.WHICH_CAME_FIRST.isLangSupported(langCode) // TODO: Add check for other games when they are added
     val textColor = if (isEnabled) WikipediaTheme.colors.primaryColor else WikipediaTheme.colors.inactiveColor
-    val snackbarMessage = stringResource(
-        R.string.games_hub_activity_games_unavailable_message,
-        langText
-    )
+    val snackbarMessage = stringResource(R.string.games_hub_activity_games_unavailable_message)
     FilterChip(
         selected = isSelected,
         onClick = {
