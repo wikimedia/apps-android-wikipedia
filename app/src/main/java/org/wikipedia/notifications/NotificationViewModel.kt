@@ -126,7 +126,7 @@ class NotificationViewModel : ViewModel() {
 
         viewModelScope.launch(handler) {
             if (WikipediaApp.instance.isOnline) {
-                currentContinueStr = notificationRepository.fetchAndSave("*", "read|!read", currentContinueStr)
+                currentContinueStr = notificationRepository.fetchAndSave("read|!read", currentContinueStr)
             }
             filterAndPostNotifications()
         }
