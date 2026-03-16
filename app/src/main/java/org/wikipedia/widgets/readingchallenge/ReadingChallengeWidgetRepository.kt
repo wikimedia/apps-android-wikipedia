@@ -116,7 +116,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
-    fun updateOnArticleRead(currentDate: LocalDate) {
+    suspend fun updateOnArticleRead(currentDate: LocalDate) {
         if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
             return
         }
@@ -124,6 +124,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeLastReadDate = currentDate.toString()
             Prefs.readingChallengeStreak += 1
+            ReadingChallengeWidget().updateAll(context)
         }
     }
 
