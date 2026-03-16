@@ -36,5 +36,6 @@ data class ReadingChallengeUserData(
     val currentDate: LocalDate,
     val enabled: Boolean,
     val currentStreak: Int,
-    val hasReadToday: Boolean
+    val hasReadToday: Boolean,
+    val isPreBetaRelease: Boolean = false
 )
