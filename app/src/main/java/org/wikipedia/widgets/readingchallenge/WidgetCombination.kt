@@ -25,7 +25,7 @@ object WidgetCombinations {
         needsReadingCombination(R.string.reading_challenge_widget_reminder_jump_in_anytime),
         needsReadingCombination(R.string.reading_challenge_widget_reminder_quiet_reading_moment),
         needsReadingCombination(R.string.reading_challenge_widget_reminder_keep_curiosity_going),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away_2)
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away)
     )
 
     val enrolledNotStarted = listOf(
@@ -35,15 +35,15 @@ object WidgetCombinations {
         ),
         needsEnrolledNotStartedCombination(
             titleResId = R.string.reading_challenge_widget_start_reading_challenge_title,
-            subtitleResId = R.string.reading_challenge_widget_start_every_streak_starts_subtitle
+            subtitleResId = R.string.reading_challenge_widget_start_reading_challenge_subtitle
         ),
         needsEnrolledNotStartedCombination(
             titleResId = R.string.reading_challenge_widget_start_spin_up_new_streak_title,
-            subtitleResId = R.string.reading_challenge_widget_start_read_one_article_subtitle
+            subtitleResId = R.string.reading_challenge_widget_start_spin_up_new_streak_subtitle
         ),
         needsEnrolledNotStartedCombination(
             titleResId = R.string.reading_challenge_widget_start_fresh_start_title,
-            subtitleResId = R.string.reading_challenge_widget_start_one_article_away_subtitle
+            subtitleResId = R.string.reading_challenge_widget_start_fresh_start_subtitle
         )
     )
 
