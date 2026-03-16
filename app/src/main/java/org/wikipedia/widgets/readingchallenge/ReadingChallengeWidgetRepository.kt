@@ -120,5 +120,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
         private const val READING_STREAK_GOAL = 25
+
+        private val isChallengeActive: Boolean
+            get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
     }
 }
