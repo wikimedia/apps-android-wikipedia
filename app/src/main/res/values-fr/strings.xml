@@ -63,6 +63,7 @@
 * Pols12
 * Pyb
 * Seb35
+* Sik666
 * SleaY
 * Tacsipacsi
 * The RedBurn
@@ -218,15 +219,15 @@
   <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Saisir le CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Tapez le CAPTCHA pour le recharger</string>
+  <string name="edit_section_captcha_reload">Touchez le CAPTCHA pour le recharger</string>
   <string name="nav_item_login">Se connecter à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
   <string name="account_creation_password_hint">Mot de passe</string>
   <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
-  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Reconnectez-vous depuis l’écran principal et saisissez le code donné par votre système d’authentification à double facteur.</string>
-  <string name="login_email_auth_hint">Code de vérification par courriel</string>
-  <string name="login_email_auth_other_workflow_error_msg">Vérification de courriel requise ! Veuillez vous connecter depuis l’écran principal et saisir votre code de vérification.</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Reconnectez-vous depuis l’écran principal et saisissez le code affiché dans votre gestionnaire d’authentification à deux facteurs.</string>
+  <string name="login_email_auth_hint">Code de vérification reçu par courriel</string>
+  <string name="login_email_auth_other_workflow_error_msg">Vérification d’adresse courriel requise ! Veuillez vous connecter depuis l’écran principal et saisir votre code de vérification.</string>
   <string name="login_background_error_msg">Impossible de vous reconnecter. Veuillez revenir à l’écran principal et vous connecter manuellement.</string>
   <string name="onboarding_card_login">Se connecter</string>
   <string name="page_editing_login">Se connecter</string>
@@ -234,7 +235,7 @@
   <string name="create_account_login">Se connecter</string>
   <string name="menu_login">Se connecter</string>
   <string name="login_activity_title">Se connecter</string>
-  <string name="login_in_progress_dialog_message">Connexion en cours...</string>
+  <string name="login_in_progress_dialog_message">Connexion en cours…</string>
   <string name="login_success_toast">Connecté !</string>
   <string name="reset_password_title">Définir votre mot de passe</string>
   <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
