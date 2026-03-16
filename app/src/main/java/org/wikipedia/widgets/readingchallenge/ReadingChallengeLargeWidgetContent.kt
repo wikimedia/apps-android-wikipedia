@@ -73,7 +73,9 @@ fun ReadingChallengeLargeWidgetContent(
                     .fillMaxSize()
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
-                backgroundColor = WidgetColors.normalReadingBackground,
+                backgroundColor = WidgetColors.phoneReadingBackground,
+                contentColor = WidgetColors.phoneReadingContent,
+                progressColor = WidgetColors.phoneReadingProgressColor,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )
@@ -88,8 +90,8 @@ fun StreakOngoingLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    contentColor: Color = WidgetColors.readingContent,
-    progressColor: Color = WidgetColors.progressColor
+    contentColor: Color,
+    progressColor: Color
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
@@ -153,8 +155,8 @@ fun StreakOngoingLargeWidget(
                         .padding(horizontal = 16.dp, vertical = 12.dp),
                     currentStreak = state.streak,
                     totalDays = ReadingChallengeWidgetRepository.READING_STREAK_GOAL,
-                    startIconResId = R.drawable.baseline_event_repeat_24,
-                    endIconResId = R.drawable.baseline_event_repeat_24,
+                    startIconResId = R.drawable.ic_calendar_day_1,
+                    endIconResId = R.drawable.ic_calendar_day_25,
                     progressColor = progressColor,
                     progressBarColor = WidgetColors.white
                 )
@@ -181,7 +183,7 @@ fun StreakOngoingLargeWidget(
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    backgroundColor: androidx.compose.ui.graphics.Color,
+    backgroundColor: Color,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier
 ) {

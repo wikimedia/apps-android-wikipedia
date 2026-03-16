@@ -14,7 +14,7 @@ object WidgetColors {
 
     val completedBackground = Color(0xFFB6D4FB)
 
-    val readingContent = Color(0xFF9B527F)
+    val phoneReadingContent = Color(0xFF9B527F)
     val musicContent = Color(0xFF534FA3)
     val spaceContent = Color(0xFF3056A9)
 
