@@ -2379,6 +2379,24 @@
     </plurals>
     <string name="reading_challenge_not_read_today_description">Don’t let today drift by, save your streak.</string>
     <string name="reading_challenge_streak_ongoing_title">%d-day reading challenge</string>
+
+    <!-- streak ongoing not read yet today messages -->
+    <string name="reading_challenge_widget_reminder_dont_let_today_drift">Don\'t let today drift by, your reading streak is waiting.</string>
+    <string name="reading_challenge_widget_reminder_before_day_snoozes">Before the day snoozes away…there\'s still time to learn something.</string>
+    <string name="reading_challenge_widget_reminder_small_bit_counts">Even a small bit of reading counts towards your goal.</string>
+    <string name="reading_challenge_widget_reminder_one_article_away">Your streak is just one article away.</string>
+    <string name="reading_challenge_widget_reminder_jump_in_anytime">Jump in for some reading anytime today.</string>
+    <string name="reading_challenge_widget_reminder_quiet_reading_moment">Quiet reading moment?</string>
+    <string name="reading_challenge_widget_reminder_keep_curiosity_going">Keep your curiosity going.</string>
+    <string name="reading_challenge_widget_reminder_one_article_away_2">Your streak is just one article away.</string>
+
+    <!-- enrolled but not started/ streak lost and can restart messages -->
     <string name="reading_challenge_widget_enrolled_not_started_title">Ready, set, read!</string>
     <string name="reading_challenge_widget_enrolled_not_started_subtitle">Start working towards a 25-day streak!</string>
+    <string name="reading_challenge_widget_start_reading_challenge_title">Start your reading challenge.</string>
+    <string name="reading_challenge_widget_start_every_streak_starts_subtitle">Every streak starts somewhere</string>
+    <string name="reading_challenge_widget_start_spin_up_new_streak_title">Spin up a new streak?</string>
+    <string name="reading_challenge_widget_start_read_one_article_subtitle">Read one article to get started.</string>
+    <string name="reading_challenge_widget_start_fresh_start_title">A fresh start.</string>
+    <string name="reading_challenge_widget_start_one_article_away_subtitle">Your streak is just one article away.</string>
 </resources>

@@ -21,6 +21,9 @@ import androidx.glance.layout.size
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
+import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
+import java.time.LocalDate
 
 @Composable
 fun ReadingChallengeSmallWidgetContent(
@@ -48,13 +51,15 @@ fun ReadingChallengeSmallWidgetContent(
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.feed),
@@ -65,26 +70,30 @@ fun ReadingChallengeSmallWidgetContent(
         }
         ReadingChallengeState.NotEnrolled -> TODO()
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                        iconTintColorProvider = combination.contentColor,
+                        textColorProvider = combination.contentColor
                     )
                 }
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
                 modifier = GlanceModifier
@@ -93,15 +102,15 @@ fun ReadingChallengeSmallWidgetContent(
                     .clickable(
                         onClick = androidx.glance.action.actionStartActivity<MainActivity>()
                     ),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                        iconTintColorProvider = combination.contentColor,
+                        textColorProvider = combination.contentColor
                     )
                 }
             )

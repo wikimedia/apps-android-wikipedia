@@ -896,4 +896,8 @@ object Prefs {
     var readingChallengeLastReadDate
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
+
+    var readingChallengeEnrollmentDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_enrollment_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_enrollment_date, value)
 }

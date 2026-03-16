@@ -159,6 +159,7 @@ fun ReadingChallengePlayground(
                     onCheckedChange = {
                         enrolled = it
                         Prefs.readingChallengeEnrolled = it
+                        Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
                         updateWidgetsExplicitly()
                     },
                     colors = SwitchDefaults.colors(
