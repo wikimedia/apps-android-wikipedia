@@ -119,7 +119,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
+        if (!ReleaseUtil.isPreBetaRelease && (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE))) {
             return
         }
 
@@ -134,7 +134,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val START_DATE = LocalDate.of(2026, 5, 1)
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
-        private const val READING_STREAK_GOAL = 25
+        const val READING_STREAK_GOAL = 25
 
         private val isChallengeActive: Boolean
             get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
