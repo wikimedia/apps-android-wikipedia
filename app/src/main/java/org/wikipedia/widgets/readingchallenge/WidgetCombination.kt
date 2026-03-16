@@ -51,7 +51,7 @@ object WidgetCombinations {
         WidgetCombination(
             iconResId = R.drawable.globe,
             backgroundColor = WidgetColors.phoneReadingBackground,
-            contentColor = WidgetColors.readingContent,
+            contentColor = WidgetColors.phoneReadingContent,
             progressColor = WidgetColors.phoneReadingProgressColor
         ),
         WidgetCombination(

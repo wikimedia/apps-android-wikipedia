@@ -4,18 +4,15 @@ import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.unit.times
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
-import androidx.glance.LocalSize
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
@@ -47,7 +44,6 @@ import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
-import org.wikipedia.widgets.utils.FontUtils
 import java.time.LocalDate
 
 @Composable
