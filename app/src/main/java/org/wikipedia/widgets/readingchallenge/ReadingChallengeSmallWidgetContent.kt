@@ -7,6 +7,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
@@ -77,7 +78,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                    .clickable(onClick = actionStartActivity<MainActivity>()),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
@@ -100,7 +101,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(
-                        onClick = androidx.glance.action.actionStartActivity<MainActivity>()
+                        onClick = actionStartActivity<MainActivity>()
                     ),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided

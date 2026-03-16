@@ -131,7 +131,7 @@ fun StreakOngoingLargeWidget(
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
-                        contentDescription = "Trophy",
+                        contentDescription = null,
                         modifier = GlanceModifier.size(24.dp),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
@@ -139,7 +139,7 @@ fun StreakOngoingLargeWidget(
                     Spacer(modifier = GlanceModifier.width(12.dp))
 
                     Text(
-                        text = context.getString(R.string.reading_challenge_streak_ongoing_title, ReadingChallengeWidgetRepository.READING_STREAK_GOAL),
+                        text = context.getString(R.string.reading_challenge_streak_ongoing_title),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
                             fontSize = 16.sp,
@@ -177,8 +177,8 @@ fun StreakOngoingLargeWidget(
                         .padding(horizontal = 16.dp, vertical = 12.dp),
                     currentStreak = state.streak,
                     totalDays = ReadingChallengeWidgetRepository.READING_STREAK_GOAL,
-                    startIconResId = R.drawable.baseline_event_repeat_24,
-                    endIconResId = R.drawable.baseline_event_repeat_24,
+                    startIconResId = R.drawable.ic_calendar_day_1,
+                    endIconResId = R.drawable.ic_calendar_day_25,
                     progressColor = progressColor,
                     progressBarColor = WidgetColors.white
                 )
@@ -191,7 +191,7 @@ fun StreakOngoingLargeWidget(
             ) {
                 Image(
                     provider = ImageProvider(mascotImageResId),
-                    contentDescription = "Mascot",
+                    contentDescription = null,
                     modifier = GlanceModifier
                         .size(120.dp)
                         .padding(end = 24.dp, bottom = 32.dp)
@@ -205,7 +205,7 @@ fun StreakOngoingLargeWidget(
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
-    backgroundColor: androidx.compose.ui.graphics.Color,
+    backgroundColor: Color,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier,
     contentColor: Color
@@ -272,7 +272,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 WidgetIconButton(
                     modifier = GlanceModifier
                         .defaultWeight(),
-                    text = "Search",
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
                     iconResId = R.drawable.outline_search_24,
                     action = actionRunCallback<SearchAction>()
                 )
@@ -280,7 +280,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 WidgetIconButton(
                     modifier = GlanceModifier
                         .defaultWeight(),
-                    text = "Random",
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
                     iconResId = R.drawable.ic_dice_24,
                     action = actionRunCallback<RandomizerAction>()
                 )
@@ -303,50 +303,27 @@ fun EnrolledNotStartedLargeWidget(
     val title = context.getString(titleResId)
     val subtitle = context.getString(subtitleReId)
 
-    val contentSize = ReadingWidgetDimensions.contentSize
-
-    // (widget width minus image column ~110dp, padding, spacing)
-    val textColumnWidth = contentSize.width - 110.dp - ReadingWidgetDimensions.contentSpacing
-
-    val (titleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
-        context = context,
-        text = title,
-        availableWidth = textColumnWidth,
-        availableHeight = contentSize.height * 0.40f,
-        maxFontSize = 32.sp,
-        minFontSize = 18.sp,
-    )
-
-    val (subtitleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
-        context = context,
-        text = subtitle,
-        availableWidth = textColumnWidth,
-        availableHeight = contentSize.height * 0.35f,
-        maxFontSize = 16.sp,
-        minFontSize = 12.sp,
-    )
-
     GeneralLargeWidget(
         textColor = contentColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
         title = title,
-        titleFontSize = titleFontSize,
+        titleFontSize = 32.sp,
         subTitle = subtitle,
-        subTitleFontSize = subtitleFontSize,
+        subTitleFontSize = 16.sp,
         mainImageResId = mainImageResId,
         bottomContent = {
             Row(modifier = GlanceModifier.fillMaxWidth()) {
                 WidgetIconButton(
                     modifier = GlanceModifier.defaultWeight(),
-                    text = "Search",
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
                     iconResId = R.drawable.outline_search_24,
                     action = actionRunCallback<SearchAction>()
                 )
                 Spacer(modifier = GlanceModifier.width(16.dp))
                 WidgetIconButton(
                     modifier = GlanceModifier.defaultWeight(),
-                    text = "Random",
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
                     iconResId = R.drawable.ic_dice_24,
                     action = actionRunCallback<RandomizerAction>()
                 )
@@ -451,10 +428,11 @@ class SearchAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val intent = SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        context.startActivity(intent)
+        context.startActivity(
+            SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
 }
 
@@ -464,24 +442,10 @@ class RandomizerAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val intent = RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        context.startActivity(intent)
+        context.startActivity(
+            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
-}
-
-private object ReadingWidgetDimensions {
-    val widgetPadding = 16.dp
-    val contentSpacing = 12.dp
-
-    val contentSize: DpSize
-        @Composable get() {
-            val size = LocalSize.current
-            return DpSize(
-                width = size.width - (2f * widgetPadding),
-                // subtract button row height (~48dp) and spacing
-                height = size.height - widgetPadding - 48.dp - contentSpacing
-            )
-        }
 }

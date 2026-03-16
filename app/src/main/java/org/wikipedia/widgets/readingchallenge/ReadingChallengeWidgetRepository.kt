@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -30,7 +31,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                         currentDate = currentDate,
                         enabled = Prefs.readingChallengeEnrolled,
                         currentStreak = Prefs.readingChallengeStreak,
-                        hasReadToday = hasReadToday(currentDate)
+                        hasReadToday = hasReadToday(currentDate),
+                        isPreBetaRelease = ReleaseUtil.isPreBetaRelease
                     )
                 ))
             }
@@ -63,7 +65,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         // Stage 1: Pre-enrollment
-        if (userData.currentDate.isBefore(START_DATE)) {
+        if (!userData.isPreBetaRelease && userData.currentDate.isBefore(START_DATE)) {
             return ReadingChallengeState.NotLiveYet
         }
 
@@ -116,14 +118,15 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
-    fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
+    suspend fun updateOnArticleRead(currentDate: LocalDate) {
+        if (!ReleaseUtil.isPreBetaRelease && (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE))) {
             return
         }
 
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeLastReadDate = currentDate.toString()
             Prefs.readingChallengeStreak += 1
+            ReadingChallengeWidget().updateAll(context)
         }
     }
 
@@ -132,5 +135,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
         const val READING_STREAK_GOAL = 25
+
+        private val isChallengeActive: Boolean
+            get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
     }
 }
