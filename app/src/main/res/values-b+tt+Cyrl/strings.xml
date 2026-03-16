@@ -471,7 +471,7 @@
   <string name="text_size_percent_default">%s (Программа көйләгән буенча)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Уку</string>
-  <string name="theme_category_editing">Мөхәррирләү</string>
+  <string name="theme_category_editing">Редакторлау</string>
   <string name="reading_focus_mode">Укуның фокуслау режимы</string>
   <string name="reading_focus_mode_detail">Әйләндерү вакытында мөхәррирләү функцияләрен һәм аскы кораллар панелен  яшерә</string>
   <string name="editing_syntax_highlight_label">Синтаксисның аерым төс белән бирелүе</string>
@@ -1189,6 +1189,7 @@
   <string name="activity_tab_onboarding_screen_title">«Активлыкны» тәкъдим итәбез</string>
   <string name="activity_tab_onboarding_impact_title">Кертемнең тәэсире</string>
   <string name="activity_tab_onboarding_engage_title">Катнашу өчен башка мөмкинлекләр</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Барысын да контроль астында тотыгыз</string>
   <string name="edits_screen_what_is_title">Википедия кушымтасы эчендә төзәтмәләр кертү</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
@@ -1410,7 +1411,7 @@
   <string name="watchlist_details_watching_label">Күзәтүче</string>
   <string name="watchlist_details_watch_label">Күзәтү</string>
   <string name="watchlist_details_next_edit">Киләсе төзәтмә</string>
-  <string name="watchlist_details_prev_edit">Алдагы мөхәррирләү</string>
+  <string name="watchlist_details_prev_edit">Алдагы редакторлау</string>
   <string name="thank_label">Рәхмәт</string>
   <string name="view_user_page">Кулланучы битен карарга</string>
   <string name="thank_dialog_title_text">\'Рәхмәт\'не ачык рәвештә юлларга</string>
@@ -1641,14 +1642,17 @@
   <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
   <string name="patroller_onboarding_two_talk_content">Башка төзәтүчеләр белән аралашыгыз. Еш кулланылган битләрне фикер алышу битендә саклагыз яки калыпны кулланыгыз.</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Без бу функцияне ничек яхшырта алабыз?</string>
   <string name="patroller_diff_menu_edit_history_title">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кире элемтә</string>
   <string name="patroller_diff_feedback_tooltip">«Функциясе белән проблема» бүлегендә бәяләмәләрне теләсә кайсы вакытта җибәрү өчен өстәмә менюга басыгыз.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм турында кисәтү</string>
+  <string name="patroller_saved_message_title_editing_tests">Редакторлауны тестлау</string>
   <string name="patroller_saved_message_title_npov">Нейтраль караш</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматик тәрҗемә</string>
   <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
   <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>
+  <string name="patroller_saved_message_title_do_not_censor">Цензураны башкармагыз</string>
   <string name="patroller_saved_message_title_art_imp">Мәкаләне яхшырту тәкъдиме</string>
   <string name="talk_templates_menu_edit_title">Үзгәрт</string>
   <string name="data_opt_in_accept">Кабул итү</string>
@@ -1661,14 +1665,36 @@
   <string name="donation_campaign_donated_snackbar" fuzzy="true">Иганәгез өчен рәхмәт! Сезнең ярдәм Википедиягә һәм аның тугандаш проектларына чәчәк атарга ярдәм итә.</string>
   <string name="donation_campaign_go_back_button">Кире кайтарга</string>
   <string name="menu_single_webview_open_external">Система браузерында ачарга</string>
+  <string name="donate_gpay_dialog_title">Google Pay аша иганә итәргә телисезме?</string>
+  <string name="donate_gpay_dialog_description">Google Pay аша иганә ясагыз яки башка түләү ысулын сайлагыз.</string>
+  <string name="donate_gpay_dialog_pay_button">Google Pay аша иганә итү</string>
+  <string name="donate_gpay_dialog_other_button">Башка түләү ысулы</string>
+  <string name="donate_gpay_activity_title">Сумманы сайлагыз</string>
+  <string name="donate_gpay_activity_title_with_currency">Сумманы сайлагыз (%s)</string>
+  <string name="places_title">Урыннар</string>
+  <string name="places_search_hint">Урыннарны эзләү</string>
+  <string name="places_filter_title">Тел буенча сөзгеч</string>
   <string name="places_toggle_buttons_map">Харита</string>
   <string name="places_toggle_buttons_list">Исемлек</string>
+  <string name="places_card_title">Якындагы урыннар</string>
   <string name="places_card_enable_location_card_button">Локация табуны кабызу</string>
+  <string name="places_card_distance_unknown">Ара билгесез</string>
   <string name="survey_dialog_title">Бу функцияне яхшыртырга ярдәм итегез</string>
   <string name="survey_dialog_message">Сезне бу функция канәгатьләндерәме?</string>
   <string name="survey_dialog_option_satisfied">Канәгатьләндерелгән</string>
   <string name="survey_dialog_option_neutral">Нейтраль</string>
+  <string name="survey_dialog_cancel">Баш тарту</string>
   <string name="survey_dialog_submit">Җибәрү</string>
+  <string name="survey_dialog_next">Алга</string>
+  <string name="survey_dialog_general_yes">Әйе</string>
+  <string name="survey_dialog_general_no">Юк</string>
+  <string name="survey_dialog_general_maybe">Шулайдыр</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">Бәяләмә җибәрелде.</string>
+  <string name="on_this_day_game_entry_dialog_title">Кереш</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Википедия уеннары</string>
+  <string name="on_this_day_game_entry_dialog_button">Бүгенге уенны уйнау</string>
+  <string name="on_this_day_game_dialog_button">Уйнау</string>
   <string name="on_this_day_game_correct">Дөрес!</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Википедия уеннары</string>
+  <string name="on_this_day_game_article_read_button">Мәкаләне уку</string>
 </resources>

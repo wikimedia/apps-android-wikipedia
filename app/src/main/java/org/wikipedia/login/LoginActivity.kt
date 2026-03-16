@@ -196,7 +196,6 @@ class LoginActivity : BaseActivity() {
         Prefs.lastBackgroundLoginDateTime = ""
         ReadingListSyncAdapter.manualSyncWithForce()
         PollNotificationWorker.schedulePollNotificationJob(this)
-        Prefs.isPushNotificationOptionsSet = false
         updateSubscription()
         FlowEventBus.post(LoggedInEvent())
         finish()
