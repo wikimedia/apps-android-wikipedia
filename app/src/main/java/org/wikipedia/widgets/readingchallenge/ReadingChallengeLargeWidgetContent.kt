@@ -45,7 +45,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.widgets.utils.FontUtils
 
 @Composable
 fun ReadingChallengeLargeWidgetContent(
@@ -287,50 +286,27 @@ fun EnrolledNotStartedLargeWidget(
     val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
     val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
 
-    val contentSize = ReadingWidgetDimensions.contentSize
-
-    // (widget width minus image column ~110dp, padding, spacing)
-    val textColumnWidth = contentSize.width - 110.dp - ReadingWidgetDimensions.contentSpacing
-
-    val (titleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
-        context = context,
-        text = title,
-        availableWidth = textColumnWidth,
-        availableHeight = contentSize.height * 0.40f,
-        maxFontSize = 32.sp,
-        minFontSize = 18.sp,
-    )
-
-    val (subtitleFontSize, _) = FontUtils.calculateFontSizeAndMaxLines(
-        context = context,
-        text = subtitle,
-        availableWidth = textColumnWidth,
-        availableHeight = contentSize.height * 0.35f,
-        maxFontSize = 16.sp,
-        minFontSize = 12.sp,
-    )
-
     GeneralLargeWidget(
         textColor = textColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
         title = title,
-        titleFontSize = titleFontSize,
+        titleFontSize = 32.sp,
         subTitle = subtitle,
-        subTitleFontSize = subtitleFontSize,
+        subTitleFontSize = 16.sp,
         mainImageResId = mainImageResId,
         bottomContent = {
             Row(modifier = GlanceModifier.fillMaxWidth()) {
                 WidgetIconButton(
                     modifier = GlanceModifier.defaultWeight(),
-                    text = "Search",
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
                     iconResId = R.drawable.outline_search_24,
                     action = actionRunCallback<SearchAction>()
                 )
                 Spacer(modifier = GlanceModifier.width(16.dp))
                 WidgetIconButton(
                     modifier = GlanceModifier.defaultWeight(),
-                    text = "Random",
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
                     iconResId = R.drawable.ic_dice_24,
                     action = actionRunCallback<RandomizerAction>()
                 )
@@ -455,19 +431,4 @@ class RandomizerAction : ActionCallback {
             }
         )
     }
-}
-
-private object ReadingWidgetDimensions {
-    val widgetPadding = 16.dp
-    val contentSpacing = 12.dp
-
-    val contentSize: DpSize
-        @Composable get() {
-            val size = LocalSize.current
-            return DpSize(
-                width = size.width - (2f * widgetPadding),
-                // subtract button row height (~48dp) and spacing
-                height = size.height - widgetPadding - 48.dp - contentSpacing
-            )
-        }
 }
