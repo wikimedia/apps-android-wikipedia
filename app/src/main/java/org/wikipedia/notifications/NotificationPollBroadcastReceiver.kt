@@ -171,7 +171,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         // Record that there is an incoming notification to track/compare further actions on it.
                         NotificationPresenter.showNotification(context, n,
                             dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
-                            dbWikiSiteMap.getValue(n.wiki).languageCode)
+                            (dbWikiSiteMap.getOrElse(n.wiki) { WikipediaApp.instance.wikiSite }).languageCode)
                     }
                 }
             }

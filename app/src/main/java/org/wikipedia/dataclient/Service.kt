@@ -365,9 +365,8 @@ interface Service {
     // ------- Notifications -------
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max&notwikis=*")
     suspend fun getAllNotifications(
-        @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
     ): MwQueryResponse

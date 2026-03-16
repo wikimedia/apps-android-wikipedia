@@ -67,6 +67,6 @@ class NotificationClientTest : MockRetrofitTest() {
     }
 
     private suspend fun allNotification(): MwQueryResponse {
-        return apiService.getAllNotifications("*", "!read", null)
+        return apiService.getAllNotifications("!read", null)
     }
 }

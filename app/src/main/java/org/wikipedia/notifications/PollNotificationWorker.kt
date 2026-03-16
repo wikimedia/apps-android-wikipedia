@@ -44,7 +44,6 @@ class PollNotificationWorker(
         val dbWikiNameMap = mutableMapOf<String, String>()
         val wikiMap = ServiceFactory.get(WikipediaApp.instance.wikiSite).unreadNotificationWikis()
             .query!!.unreadNotificationWikis.orEmpty()
-        val foreignWikis = wikiMap.keys.toList()
         for ((dbName, wiki) in wikiMap) {
             if (wiki.source != null) {
                 dbWikiSiteMap[dbName] = WikiSite(wiki.source.base)
@@ -53,7 +52,7 @@ class PollNotificationWorker(
         }
 
         ServiceFactory.get(WikipediaApp.instance.wikiSite)
-            .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
+            .getAllNotifications("!read", null)
             .query?.notifications?.list?.let {
                 NotificationPollBroadcastReceiver.onNotificationsComplete(appContext, it, dbWikiSiteMap, dbWikiNameMap)
             }
