@@ -107,7 +107,7 @@ fun StreakOngoingLargeWidget(
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
-                        contentDescription = "Trophy",
+                        contentDescription = null,
                         modifier = GlanceModifier.size(24.dp),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
@@ -115,7 +115,7 @@ fun StreakOngoingLargeWidget(
                     Spacer(modifier = GlanceModifier.width(12.dp))
 
                     Text(
-                        text = context.getString(R.string.reading_challenge_streak_ongoing_title, ReadingChallengeWidgetRepository.READING_STREAK_GOAL),
+                        text = context.getString(R.string.reading_challenge_streak_ongoing_title),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
                             fontSize = 16.sp,
@@ -167,7 +167,7 @@ fun StreakOngoingLargeWidget(
             ) {
                 Image(
                     provider = ImageProvider(mascotImageResId),
-                    contentDescription = "Mascot",
+                    contentDescription = null,
                     modifier = GlanceModifier
                         .size(120.dp)
                         .padding(end = 24.dp, bottom = 32.dp)
@@ -248,7 +248,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 WidgetIconButton(
                     modifier = GlanceModifier
                         .defaultWeight(),
-                    text = "Search",
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
                     iconResId = R.drawable.outline_search_24,
                     action = actionRunCallback<SearchAction>()
                 )
@@ -256,7 +256,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 WidgetIconButton(
                     modifier = GlanceModifier
                         .defaultWeight(),
-                    text = "Random",
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
                     iconResId = R.drawable.ic_dice_24,
                     action = actionRunCallback<RandomizerAction>()
                 )
@@ -361,10 +361,11 @@ class SearchAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val intent = SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        context.startActivity(intent)
+        context.startActivity(
+            SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
 }
 
@@ -374,9 +375,10 @@ class RandomizerAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val intent = RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-        context.startActivity(intent)
+        context.startActivity(
+            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
 }
