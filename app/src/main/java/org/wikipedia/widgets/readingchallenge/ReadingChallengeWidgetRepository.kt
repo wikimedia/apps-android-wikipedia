@@ -117,7 +117,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
+        if (!ReleaseUtil.isPreBetaRelease && (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE))) {
             return
         }
 
