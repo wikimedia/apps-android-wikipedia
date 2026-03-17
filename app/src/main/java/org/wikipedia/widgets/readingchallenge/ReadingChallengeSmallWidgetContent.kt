@@ -83,8 +83,48 @@ fun ReadingChallengeSmallWidgetContent(
                 }
             )
         }
-        is ReadingChallengeState.StreakOngoingNeedsReading -> {}
-        is ReadingChallengeState.StreakOngoingReadToday -> {}
+        is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = streakText,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 40.dp,
+                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    )
+                }
+            )
+        }
+        is ReadingChallengeState.StreakOngoingReadToday -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(
+                        onClick = androidx.glance.action.actionStartActivity<MainActivity>()
+                    ),
+                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = streakText,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 40.dp,
+                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    )
+                }
+            )
+        }
     }
 }
 

@@ -2,6 +2,7 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.glance.appwidget.updateAll
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -115,6 +116,18 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             if (daysBetween > 1) {
                 Prefs.readingChallengeStreak = 0
             }
+        }
+    }
+
+    suspend fun updateOnArticleRead(currentDate: LocalDate) {
+        if (!ReleaseUtil.isPreBetaRelease && (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE))) {
+            return
+        }
+
+        if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
+            Prefs.readingChallengeLastReadDate = currentDate.toString()
+            Prefs.readingChallengeStreak += 1
+            ReadingChallengeWidget().updateAll(context)
         }
     }
 
