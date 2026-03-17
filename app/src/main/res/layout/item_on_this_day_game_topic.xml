@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="16dp"
     android:focusable="true"
-    android:id="@+id/listItemContainer">
+    app:strokeWidth="1dp"
+    app:elevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

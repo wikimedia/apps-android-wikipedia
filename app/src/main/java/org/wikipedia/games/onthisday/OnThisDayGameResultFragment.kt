@@ -320,13 +320,7 @@ class OnThisDayGameResultFragment : OnThisDayGameBaseFragment(), OnThisDayGameAr
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
-            return RecyclerViewItemHolder(ItemOnThisDayGameTopicBinding.inflate(layoutInflater, parent, false)).also {
-                (it.binding.listItemContainer).apply {
-                    cardElevation = 0f
-                    stateListAnimator = null
-                    strokeWidth = DimenUtil.roundedDpToPx(1f)
-                }
-            }
+            return RecyclerViewItemHolder(ItemOnThisDayGameTopicBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
