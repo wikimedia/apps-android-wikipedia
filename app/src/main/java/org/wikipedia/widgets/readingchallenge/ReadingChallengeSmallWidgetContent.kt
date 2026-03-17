@@ -22,6 +22,7 @@ import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.preview.Preview
 import org.wikipedia.R
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
 
 @Composable
 fun ReadingChallengeSmallWidgetContent(
@@ -44,7 +45,9 @@ fun ReadingChallengeSmallWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionStartActivity(MainActivity.newIntent(context)).also {
+                            Prefs.readingChallengeOnboardingShown = false
+                        }
                     )
                 }
             )

@@ -29,6 +29,7 @@ import androidx.glance.text.TextStyle
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
 
 @Composable
 fun ReadingChallengeLargeWidgetContent(
@@ -57,7 +58,9 @@ fun ReadingChallengeLargeWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionStartActivity(MainActivity.newIntent(context)).also {
+                            Prefs.readingChallengeOnboardingShown = false
+                        }
                     )
                 }
             )
