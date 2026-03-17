@@ -129,6 +129,8 @@ fun OnboardingScreen(
 
             onboardingItems.forEach { onboardingItem ->
                 OnboardingListItem(
+                    modifier = Modifier
+                        .padding(bottom = 24.dp),
                     item = onboardingItem
                 )
             }
