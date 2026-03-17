@@ -2,7 +2,6 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.glance.appwidget.updateAll
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow

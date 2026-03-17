@@ -1,5 +1,6 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -7,10 +8,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.action.ActionParameters
+import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.color.ColorProvider
@@ -24,13 +28,17 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
-import androidx.glance.text.FontWeight
 import androidx.glance.preview.ExperimentalGlancePreviewApi
+import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.main.MainActivity
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
+import org.wikipedia.main.MainActivity
+import org.wikipedia.random.RandomActivity
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 
 @Composable
@@ -207,6 +215,34 @@ fun GeneralLargeWidget(
 
             bottomContent()
         }
+    }
+}
+
+class SearchAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
+    }
+}
+
+class RandomizerAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
 }
 
