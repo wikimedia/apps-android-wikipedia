@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
@@ -26,7 +25,6 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.UriUtil
 import java.time.LocalDate
 
 class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
@@ -187,11 +185,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
                     dialog.dismiss()
                 }
                 dialogView.findViewById<ImageView>(R.id.closeButton).setOnClickListener {
-                    FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.on_this_day_game_entry_dialog_snackbar_message))
-                        .setAction(R.string.on_this_day_game_entry_dialog_snackbar_action) {
-                            UriUtil.visitInExternalBrowser(activity, activity.getString(R.string.games_hub_wiki_url).toUri())
-                        }
-                        .show()
+                    FeedbackUtil.showMessage(activity, activity.getString(R.string.on_this_day_game_entry_dialog_snackbar_message))
                     dialog.dismiss()
                 }
             }
