@@ -2123,6 +2123,37 @@
   <string name="hybrid_search_error_message">Error message displayed when the semantic search fails, asking the user to try again later.</string>
   <string name="hybrid_search_who_is_prefix">Prefix used before a query, where %s is replaced with the query text.</string>
   <string name="hybrid_search_turn_off_experiment_label">Label for the option that disables the hybrid search experiment.</string>
+  <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
+  <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
+  <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
+  <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
+  <string name="reading_challenge_onboarding_win_title">Title of the first item in onboarding screen for the Reading challenge that indicates you can win the prize.</string>
+  <string name="reading_challenge_onboarding_win_description">Description of the first item in onboarding screen for the Reading challenge that indicates how you can win the prize.</string>
+  <string name="reading_challenge_onboarding_install_title">Title of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
+  <string name="reading_challenge_onboarding_install_description">Description of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
+  <string name="reading_challenge_onboarding_note">Message for the Reading challenge that indicates how the reading history is being protected.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Button for the Reading challenge onboarding screen that opens a link for more information.</string>
+  <string name="reading_challenge_onboarding_join_button">Button for the Reading challenge onboarding screen that opts in the challenge.</string>
+  <string name="reading_challenge_onboarding_prompt_title">Title of the dialog to confirm joining in the reading challenge.</string>
+  <string name="reading_challenge_onboarding_prompt_message">Message of the dialog to confirm joining in the reading challenge that indicates you have to have an account to start.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Button of the dialog to confirm joining in the reading challenge that closes the dialog.</string>
+  <string name="reading_challenge_onboarding_prompt_login">Button of the dialog to confirm joining in the reading challenge that opens the login page.</string>
+  <string name="reading_challenge_install_prompt_title">Title of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
+  <string name="reading_challenge_install_prompt_message">Message of the prompt for the Reading challenge for installing the 25-day reading challenge widget.</string>
+  <string name="reading_challenge_install_prompt_got_it">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that confirms the content.</string>
+  <string name="reading_challenge_install_prompt_add">Button of the prompt for the Reading challenge for installing the 25-day reading challenge widget that to add the widget.</string>
+  <string name="reading_challenge_widget_explore_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Button label in the Reading challenge widget to explore the Wikipedia app.</string>
+  <string name="reading_challenge_widget_join_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Button label in the Reading challenge widget to join the challenge.</string>
+  <string name="reading_challenge_widget_search_button">Button label in the Reading challenge widget to open the search screen in the app.</string>
+  <string name="reading_challenge_widget_random_button">Button label in the Reading challenge widget to open a random article in the app.</string>
+  <string name="reading_challenge_widget_collect_prize_button">Title in the Reading challenge widget that indicates to collect the prize.</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Button in the Reading challenge widget that indicates to collect the prize.</string>
+  <string name="reading_challenge_widget_not_live_title">Title in the Reading challenge widget that indicates the reading challenge is not live.</string>
+  <string name="reading_challenge_widget_not_live_description">Message in the Reading challenge widget that indicates the reading challenge is not live.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Title in the Reading challenge widget that indicates the reading challenge is not opted in.</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Message in the Reading challenge widget that indicates the reading challenge is not opted in</string>
     <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
     <plurals name="reading_challenge_small_widget_streak">
         <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
@@ -2130,8 +2161,6 @@
     </plurals>
     <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
     <string name="reading_challenge_streak_ongoing_title">Title for an ongoing reading challenge streak.</string>
-    <string name="reading_challenge_widget_search_button">Button label in the Reading challenge widget to open the search screen in the app.</string>
-    <string name="reading_challenge_widget_random_button">Button label in the Reading challenge widget to open a random article in the app.</string>
     <string name="reading_challenge_widget_enrolled_not_started_title">Title text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
     <string name="reading_challenge_widget_enrolled_not_started_subtitle">Subtitle text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>
 </resources>

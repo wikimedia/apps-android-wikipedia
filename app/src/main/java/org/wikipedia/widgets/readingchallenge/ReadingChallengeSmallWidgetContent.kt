@@ -1,5 +1,6 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -7,7 +8,6 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
-import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
@@ -19,9 +19,11 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
+import androidx.glance.preview.ExperimentalGlancePreviewApi
+import androidx.glance.preview.Preview
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
 
 @Composable
 fun ReadingChallengeSmallWidgetContent(
@@ -29,21 +31,6 @@ fun ReadingChallengeSmallWidgetContent(
 ) {
     val context = LocalContext.current
     when (state) {
-        ReadingChallengeState.NotLiveYet -> {
-            SmallWidget(
-                modifier = GlanceModifier
-                    .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                bottomContent = {
-                    WidgetButton(
-                        text = "Join Challenge",
-                        action = actionStartActivity(MainActivity.newIntent(WikipediaApp.instance).putExtra("fromWidget", true))
-                    )
-                }
-            )
-        }
         ReadingChallengeState.ChallengeCompleted -> TODO()
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
@@ -64,49 +51,40 @@ fun ReadingChallengeSmallWidgetContent(
                 }
             )
         }
-        ReadingChallengeState.NotEnrolled -> TODO()
-        is ReadingChallengeState.StreakOngoingNeedsReading -> {
-            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+        ReadingChallengeState.NotEnrolled -> {
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity<MainActivity>()),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 bottomContent = {
-                    WidgetBadge(
-                        text = streakText,
-                        iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
+                        action = actionStartActivity(MainActivity.newIntent(context)).also {
+                            Prefs.readingChallengeOnboardingShown = false
+                        }
                     )
                 }
             )
         }
-        is ReadingChallengeState.StreakOngoingReadToday -> {
-            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+        ReadingChallengeState.NotLiveYet -> {
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(
-                        onClick = actionStartActivity<MainActivity>()
-                    ),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
                 bottomContent = {
-                    WidgetBadge(
-                        text = streakText,
-                        iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_explore_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
                     )
                 }
             )
         }
+        is ReadingChallengeState.StreakOngoingNeedsReading -> {}
+        is ReadingChallengeState.StreakOngoingReadToday -> {}
     }
 }
 
@@ -157,4 +135,20 @@ fun SmallWidget(
             }
         }
     }
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 250, heightDp = 250)
+@Composable
+fun SmallWidgetPreview() {
+    SmallWidget(
+        mainImageResId = R.drawable.globe,
+        backgroundColor = WidgetColors.challengeNotOptInBackground,
+        bottomContent = {
+            WidgetButton(
+                text = "Explore",
+                action = actionStartActivity(Intent())
+            )
+        }
+    )
 }
