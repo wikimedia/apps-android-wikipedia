@@ -21,7 +21,7 @@ class LoginResponse : MwResponse() {
         private val status: String? = null
         private val requests: List<Request>? = null
         private val message: String? = null
-        @SerialName("messageCode") private val messageCode: String? = null
+        @SerialName("messagecode") private val messageCode: String? = null
         @SerialName("username") private val userName: String? = null
 
         fun toLoginResult(site: WikiSite, password: String): LoginResult {
