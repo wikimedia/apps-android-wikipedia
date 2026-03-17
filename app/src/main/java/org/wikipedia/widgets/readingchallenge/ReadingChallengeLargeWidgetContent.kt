@@ -14,14 +14,12 @@ import androidx.glance.LocalContext
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
-import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxHeight
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
@@ -48,8 +46,7 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
+                    .fillMaxSize(),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
@@ -68,8 +65,7 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotLiveYet -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
+                    .fillMaxSize(),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
@@ -158,11 +154,9 @@ fun GeneralLargeWidget(
                     Spacer(modifier = GlanceModifier.size(24.dp))
                 }
             }
-        }
 
             bottomContent()
         }
-            }
     }
 }
 
