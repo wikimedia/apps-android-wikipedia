@@ -216,7 +216,6 @@ class PageFragmentLoadState(
                 if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                     checkAnonNotifications(title)
                 }
-                ReadingChallengeWidgetRepository(fragment.requireContext()).updateOnArticleRead(LocalDate.now())
             }
         }
     }

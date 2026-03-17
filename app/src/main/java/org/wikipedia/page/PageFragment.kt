@@ -117,9 +117,11 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.watchlist.WatchlistViewModel
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.wiktionary.WiktionaryDialog
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDate
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -965,6 +967,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
+        lifecycleScope.launch {
+            ReadingChallengeWidgetRepository(requireContext()).updateOnArticleRead(LocalDate.now())
+        }
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
