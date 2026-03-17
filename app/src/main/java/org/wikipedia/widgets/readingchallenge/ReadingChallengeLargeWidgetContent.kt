@@ -14,13 +14,13 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.action.ActionParameters
 import androidx.glance.action.clickable
+import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.background
-import androidx.glance.action.ActionParameters
-import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -39,12 +39,12 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
-import org.wikipedia.settings.Prefs
-import org.wikipedia.WikipediaApp
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.settings.Prefs
 
 @Composable
 fun ReadingChallengeLargeWidgetContent(
@@ -383,8 +383,6 @@ fun GeneralLargeWidget(
         }
     }
 }
-
-
 
 class SearchAction : ActionCallback {
     override suspend fun onAction(
