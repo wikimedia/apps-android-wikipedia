@@ -31,7 +31,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                         currentDate = currentDate,
                         enabled = Prefs.readingChallengeEnrolled,
                         currentStreak = Prefs.readingChallengeStreak,
-                        hasReadToday = hasReadToday(currentDate)
+                        hasReadToday = hasReadToday(currentDate),
+                        isPreBetaRelease = ReleaseUtil.isPreBetaRelease
                     )
                 ))
             }
@@ -64,7 +65,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         // Stage 1: Pre-enrollment
-        if (userData.currentDate.isBefore(START_DATE)) {
+        if (!userData.isPreBetaRelease && userData.currentDate.isBefore(START_DATE)) {
             return ReadingChallengeState.NotLiveYet
         }
 

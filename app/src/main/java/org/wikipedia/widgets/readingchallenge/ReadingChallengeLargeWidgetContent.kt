@@ -106,70 +106,59 @@ fun GeneralLargeWidget(
     BaseWidgetContent(
         color = backgroundColor
     ) {
-        Box(
-            modifier = modifier
-        ) {
-        Box(
-            modifier = GlanceModifier
-                .fillMaxWidth()
-                .padding(bottom = 20.dp),
-            contentAlignment = Alignment.TopEnd
-        ) {
-            Image(
-                provider = ImageProvider(titleBarIcon),
-                contentDescription = null,
-                modifier = GlanceModifier.size(24.dp)
-            )
-            Box(
-                modifier = GlanceModifier
-                    .fillMaxHeight(),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    provider = ImageProvider(mainImageResId),
-                    contentDescription = null,
-                    modifier = GlanceModifier
-                        .size(120.dp)
-                )
-            }
-        }
-
         Column(
-            modifier = GlanceModifier
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
             Row(
                 modifier = GlanceModifier
+                    .defaultWeight()
                     .fillMaxWidth()
-                    .padding(end = 120.dp),
-                verticalAlignment = Alignment.CenterVertically
             ) {
                 Column(
                     modifier = GlanceModifier
                         .defaultWeight()
-                        .padding(end = 8.dp)
                 ) {
                     Text(
                         text = title,
+                        maxLines = 2,
                         style = TextStyle(
                             fontSize = titleFontSize,
-                            color = ColorProvider(day = textColor, night = textColor)
+                            color = ColorProvider(day = textColor, night = textColor),
+                            fontWeight = FontWeight.Medium,
                         )
                     )
-                    Spacer(modifier = GlanceModifier.height(4.dp))
                     Text(
                         text = subTitle,
+                        maxLines = 2,
                         style = TextStyle(
                             fontSize = subTitleFontSize,
                             color = ColorProvider(day = textColor, night = textColor),
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
                         )
                     )
                 }
+                Column(
+                    modifier = GlanceModifier
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(24.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Image(
+                        provider = ImageProvider(mainImageResId),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(110.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.size(24.dp))
+                }
             }
-
-            Spacer(modifier = GlanceModifier.defaultWeight())
+        }
 
             bottomContent()
         }
