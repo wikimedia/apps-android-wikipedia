@@ -896,4 +896,12 @@ object Prefs {
     var readingChallengeLastReadDate
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
+
+    var readingChallengeOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_onboarding_shown, value)
+
+    var readingChallengeInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, value)
 }
