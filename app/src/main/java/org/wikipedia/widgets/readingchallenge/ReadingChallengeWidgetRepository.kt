@@ -107,6 +107,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun recalculateStreakIfNeeded(currentDate: LocalDate) {
+        if (currentDate.isAfter(END_DATE)) return // will not reset after challenge ends
+
         val lastReadDateStr = Prefs.readingChallengeLastReadDate
         if (lastReadDateStr.isNotEmpty()) {
             val lastReadDate = LocalDate.parse(lastReadDateStr)

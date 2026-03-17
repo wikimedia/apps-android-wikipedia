@@ -209,7 +209,7 @@ fun ReadingChallengePlayground(
                     }
                 }
 
-                FlowRow (horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = today
                         lastReadDate = today

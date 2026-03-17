@@ -247,7 +247,7 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `returns EnrolledNotStarted mid-May with zero streak`() {
+    fun `returns EnrolledNotStarted mid-May with zero streak or after streak reset`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 15),
@@ -257,6 +257,20 @@ class ReadingChallengeWidgetRepositoryTest {
             )
         )
         TestCase.assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
+    }
+
+    @Test
+    fun `does NOT return EnrolledNotStarted after streak reset after May 31`() {
+        val state = repository.resolveState(
+            ReadingChallengeUserData(
+                currentDate = LocalDate.of(2026, 6, 1),
+                enabled = true,
+                currentStreak = 0,
+                hasReadToday = false
+            )
+        )
+        TestCase.assertFalse(state is ReadingChallengeState.EnrolledNotStarted)
+        TestCase.assertTrue(state is ReadingChallengeState.ChallengeConcludedNoStreak)
     }
 
     // Streak Ongoing: Not Yet Read Today

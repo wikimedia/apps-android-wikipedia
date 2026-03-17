@@ -58,7 +58,12 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> {
+            EnrolledNotStartedLargeWidget(
+                mainImageResId = R.drawable.globe,
+                backgroundColor = WidgetColors.challengeNotOptInBackground
+            )
+        }
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
@@ -308,6 +313,46 @@ fun StreakOngoingNeedsReadingLargeWidget(
             }
         }
     }
+}
+
+@Composable
+fun EnrolledNotStartedLargeWidget(
+    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    mainImageResId: Int,
+    backgroundColor: Color
+) {
+    val context = LocalContext.current
+    val textColor = WidgetColors.primary
+    val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
+    val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
+
+    GeneralLargeWidget(
+        textColor = textColor,
+        backgroundColor = backgroundColor,
+        titleBarIcon = titleBarIcon,
+        title = title,
+        titleFontSize = 32.sp,
+        subTitle = subtitle,
+        subTitleFontSize = 16.sp,
+        mainImageResId = mainImageResId,
+        bottomContent = {
+            Row(modifier = GlanceModifier.fillMaxWidth()) {
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
+                    iconResId = R.drawable.outline_search_24,
+                    action = actionRunCallback<SearchAction>()
+                )
+                Spacer(modifier = GlanceModifier.width(16.dp))
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
+                    iconResId = R.drawable.ic_dice_24,
+                    action = actionRunCallback<RandomizerAction>()
+                )
+            }
+        }
+    )
 }
 
 @Composable

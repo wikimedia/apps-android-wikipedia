@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk = 23
         targetSdk = 36
-        versionCode 50571
+        versionCode 50572
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -164,8 +164,6 @@ ksp {
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
-    implementation libs.androidx.ui.graphics
-
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
@@ -215,6 +213,12 @@ dependencies {
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
 
+    implementation libs.androidx.ui.graphics
+    implementation libs.androidx.glance.appwidget
+    implementation libs.androidx.glance.material3
+    implementation libs.androidx.glance.preview
+    implementation libs.androidx.glance.appwidget.preview
+
     // For language detection during editing
     prodImplementation libs.com.google.mlkit.language.id
     betaImplementation libs.com.google.mlkit.language.id
@@ -262,7 +266,6 @@ dependencies {
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
-    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil.gif)
@@ -284,12 +287,6 @@ dependencies {
     androidTestImplementation(composeBom)
     debugImplementation(libs.compose.debug.test)
     debugImplementation(composeBom)
-
-    // Glance Library
-    implementation libs.androidx.glance.appwidget
-    implementation libs.androidx.glance.material3
-    implementation libs.androidx.glance.preview
-    implementation libs.androidx.glance.appwidget.preview
 }
 
 private setSigningConfigKey(config, Properties props) {
