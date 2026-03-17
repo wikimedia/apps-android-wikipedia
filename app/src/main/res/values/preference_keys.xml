@@ -213,4 +213,6 @@
     <string name="preference_key_reading_challenge_enrolled">readingChallengeEnrolled</string>
     <string name="preference_key_reading_challenge_last_read_date">readingChallengeLastReadDate</string>
     <string name="preference_key_reading_challenge_widgets">readingChallengeWidgets</string>
+    <string name="preference_key_reading_challenge_onboarding_shown">readingChallengeOnboardingShown</string>
+    <string name="preference_key_reading_challenge_install_prompt_shown">readingChallengeInstallPromptShown</string>
 </resources>
