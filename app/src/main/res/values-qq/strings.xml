@@ -1791,7 +1791,7 @@
   <string name="survey_dialog_input_hint">Hint label for the survey dialog input field.</string>
   <string name="survey_dialog_submitted_snackbar">Text for the snackbar message the feedback form in the survey dialog that indicates the feedback has been submitted.</string>
   <string name="games_hub_activity_title">Activity title for the Games hub.</string>
-  <string name="games_hub_activity_games_unavailable_message">Snackbar message that indicates the game is unavailable in this language. The %s will be replaced with the language.</string>
+  <string name="games_hub_activity_games_unavailable_message">Snackbar message that indicates the game is unavailable in this language.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
   <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
   <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>

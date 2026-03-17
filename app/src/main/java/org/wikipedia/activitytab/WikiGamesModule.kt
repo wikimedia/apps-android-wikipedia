@@ -256,9 +256,7 @@ fun OnThisDayGameLoginPromptCard(
             Text(
                 text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_title),
                 color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.titleSmall.copy(
-                    fontWeight = FontWeight.SemiBold
-                )
+                style = MaterialTheme.typography.titleSmall
             )
 
             Text(
@@ -269,15 +267,12 @@ fun OnThisDayGameLoginPromptCard(
                 style = MaterialTheme.typography.bodyMedium
             )
 
-            ElevatedButton(
+            Button(
                 modifier = Modifier
                     .padding(top = 16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = WikipediaTheme.colors.progressiveColor,
                     contentColor = Color.White,
-                ),
-                elevation = ButtonDefaults.elevatedButtonElevation(
-                    defaultElevation = 2.dp
                 ),
                 onClick = onLogInClick,
             ) {

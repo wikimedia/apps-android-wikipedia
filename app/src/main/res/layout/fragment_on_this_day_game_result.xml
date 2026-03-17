@@ -91,10 +91,7 @@
                         app:icon="@drawable/ic_share"
                         app:iconSize="18dp"
                         app:iconTint="@color/white"
-                        app:rippleColor="?attr/placeholder_color"
-                        android:stateListAnimator="@null"
-                        android:elevation="4dp"
-                        app:elevation="4dp"/>
+                        app:rippleColor="?attr/placeholder_color"/>
 
                 </LinearLayout>
 
