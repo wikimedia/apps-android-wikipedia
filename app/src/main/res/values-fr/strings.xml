@@ -63,6 +63,7 @@
 * Pols12
 * Pyb
 * Seb35
+* Sik666
 * SleaY
 * Tacsipacsi
 * The RedBurn
@@ -218,15 +219,15 @@
   <string name="edit_section_captcha_request_an_account_message">Impossible de voir l’image ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Demander un compte&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Saisir le CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Tapez le CAPTCHA pour le recharger</string>
+  <string name="edit_section_captcha_reload">Touchez le CAPTCHA pour le recharger</string>
   <string name="nav_item_login">Se connecter à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
   <string name="account_creation_password_hint">Mot de passe</string>
   <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
-  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Reconnectez-vous depuis l’écran principal et saisissez le code donné par votre système d’authentification à double facteur.</string>
-  <string name="login_email_auth_hint">Code de vérification par courriel</string>
-  <string name="login_email_auth_other_workflow_error_msg">Vérification de courriel requise ! Veuillez vous connecter depuis l’écran principal et saisir votre code de vérification.</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Reconnectez-vous depuis l’écran principal et saisissez le code affiché dans votre gestionnaire d’authentification à deux facteurs.</string>
+  <string name="login_email_auth_hint">Code de vérification reçu par courriel</string>
+  <string name="login_email_auth_other_workflow_error_msg">Vérification d’adresse courriel requise ! Veuillez vous connecter depuis l’écran principal et saisir votre code de vérification.</string>
   <string name="login_background_error_msg">Impossible de vous reconnecter. Veuillez revenir à l’écran principal et vous connecter manuellement.</string>
   <string name="onboarding_card_login">Se connecter</string>
   <string name="page_editing_login">Se connecter</string>
@@ -234,7 +235,7 @@
   <string name="create_account_login">Se connecter</string>
   <string name="menu_login">Se connecter</string>
   <string name="login_activity_title">Se connecter</string>
-  <string name="login_in_progress_dialog_message">Connexion en cours...</string>
+  <string name="login_in_progress_dialog_message">Connexion en cours…</string>
   <string name="login_success_toast">Connecté !</string>
   <string name="reset_password_title">Définir votre mot de passe</string>
   <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
@@ -2285,26 +2286,26 @@
   <string name="donation_reminders_settings_report_email_subject">Rapport sur les problèmes - Rappels de dons</string>
   <string name="donation_reminders_settings_report_email_body">J\'ai rencontré un problème avec la fonctionnalité de rappels de dons :\n- [Décrire le problème précis]\n- [Captures d\'écran ou liens]\n\nComportement souhaité :\n- [Décrire la solution proposée]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifier</string>
-  <string name="hybrid_search_search_hint">Rechercher ou poser une question</string>
-  <string name="hybrid_search_article_search_hint">Poser une question sur %s</string>
+  <string name="hybrid_search_search_hint">Recherchez ou demandez ce que vous voulez</string>
+  <string name="hybrid_search_article_search_hint">Renseignez-vous sur %s</string>
   <string name="hybrid_search_suggestion_title">Rechercher :</string>
   <string name="hybrid_search_onboarding_learn_more">En savoir plus</string>
   <string name="hybrid_search_onboarding_search_title">Posez des questions, obtenez des réponses</string>
-  <string name="hybrid_search_onboarding_search_description">Cette fonctionnalité expérimentale utilise le langage naturel. Au lieu de rechercher des mots-clés, décrivez ce que vous voulez savoir.</string>
+  <string name="hybrid_search_onboarding_search_description">Cette fonctionnalité expérimentale comprend le langage naturel. Au lieu de rechercher des mots-clés, décrivez ce que vous voulez savoir.</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Fonctionnalité bêta</string>
-  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponible pour une durée limitée pendant cette phase de test.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Disponible pour une durée limitée pendant cette expérience.</string>
   <string name="hybrid_search_beta_tag">Bêta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Participer à l\'expérience</string>
   <string name="hybrid_search_onboarding_search_example_title">Besoin d\'inspiration ?</string>
   <string name="hybrid_search_onboarding_search_example_description">Utilisez l\'un des exemples de recherche ci-dessous.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Vous avez choisi de ne pas participer à l\'expérience.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quand Pluton a-t-elle été retirée de la liste des planètes ?</string>
-  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Premiers Jeux Olympiques</string>
-  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN ou ADN</string>
-  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi les gens mettent-ils de l\'ananas sur leur pizza ?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">premiers Jeux olympiques</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
-  <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de rechercher</string>
-  <string name="hybrid_search_results_header_description">Issu d’articles Wikipédia rédigés par des humains</string>
+  <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
+  <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
   <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
   <string name="hybrid_search_results_rated_label">Évalué</string>
   <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>
@@ -2317,5 +2318,5 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Essayez un sujet connexe.</string>
   <string name="hybrid_search_error_message">Une erreur s\'est produite. Veuillez réessayer plus tard.</string>
   <string name="hybrid_search_who_is_prefix">Qui est %s ?</string>
-  <string name="hybrid_search_turn_off_experiment_label">Désactiver cette fonctionnalité expérimentale</string>
+  <string name="hybrid_search_turn_off_experiment_label">Désactivez cette expérience</string>
 </resources>

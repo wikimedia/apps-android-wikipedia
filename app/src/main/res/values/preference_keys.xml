@@ -113,7 +113,6 @@
     <string name="preference_key_push_notification_token">pushNotificationToken</string>
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
     <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
-    <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
     <string name="preference_key_event_platform_intake_base_uri_list">eventPlatformIntakeBaseUriList</string>
@@ -210,4 +209,5 @@
     <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
     <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
     <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
+    <string name="preference_key_game_stats_snackbar_shown">gameStatsSnackbarShown</string>
 </resources>

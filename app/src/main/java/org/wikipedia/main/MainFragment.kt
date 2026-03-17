@@ -58,6 +58,7 @@ import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -449,6 +450,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun updateToolbarElevation(elevate: Boolean) {
         callback()?.updateToolbarElevation(elevate)
+    }
+
+    override fun onWikiGamesCardFooterClicked() {
+        startActivity(GamesHubActivity.newIntent(requireActivity()))
     }
 
     fun requestUpdateToolbarElevation() {

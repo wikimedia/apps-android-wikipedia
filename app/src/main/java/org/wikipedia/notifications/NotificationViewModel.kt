@@ -111,13 +111,6 @@ class NotificationViewModel : ViewModel() {
         return notificationContainerList
     }
 
-    private fun delimitedWikiList(): String {
-        return dbNameMap.keys.union(NotificationFilterActivity.allWikisList().map {
-            val defaultLangCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(it) ?: it
-            "${defaultLangCode.replace("-", "_")}wiki"
-        }).joinToString("|")
-    }
-
     fun excludedFiltersCount(): Int {
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
@@ -133,7 +126,7 @@ class NotificationViewModel : ViewModel() {
 
         viewModelScope.launch(handler) {
             if (WikipediaApp.instance.isOnline) {
-                currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
+                currentContinueStr = notificationRepository.fetchAndSave("read|!read", currentContinueStr)
             }
             filterAndPostNotifications()
         }
