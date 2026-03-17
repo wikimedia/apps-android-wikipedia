@@ -398,18 +398,20 @@ fun OnThisDayGameFirstEventView(
             overflow = TextOverflow.Ellipsis
         )
 
-        AsyncImage(
-            model = ImageService.getRequest(
-                LocalContext.current,
-                url = OnThisDayGameProvider.getThumbnailUrlForEvent(event)
-            ),
-            error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-            contentScale = ContentScale.Crop,
-            contentDescription = null,
-            modifier = Modifier
-                .size(72.dp)
-                .clip(RoundedCornerShape(8.dp))
-        )
+        OnThisDayGameProvider.getThumbnailUrlForEvent(event)?.let { thumbnailUrl ->
+            AsyncImage(
+                model = ImageService.getRequest(
+                    LocalContext.current,
+                    url = thumbnailUrl
+                ),
+                error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                contentScale = ContentScale.Crop,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(72.dp)
+                    .clip(RoundedCornerShape(8.dp))
+            )
+        }
     }
 }
 
