@@ -2154,7 +2154,6 @@
   <string name="reading_challenge_widget_not_live_description">Message in the Reading challenge widget that indicates the reading challenge is not live.</string>
   <string name="reading_challenge_widget_not_opted_in_title">Title in the Reading challenge widget that indicates the reading challenge is not opted in.</string>
   <string name="reading_challenge_widget_not_opted_in_description">Message in the Reading challenge widget that indicates the reading challenge is not opted in</string>
-    <string name="reading_challenge_widget_name">Display name for the small Reading Challenge home screen widget.</string>
     <plurals name="reading_challenge_small_widget_streak">
         <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
         <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days.</item>
