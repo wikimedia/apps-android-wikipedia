@@ -382,6 +382,9 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
+            android:name=".games.GamesHubActivity"/>
+
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
