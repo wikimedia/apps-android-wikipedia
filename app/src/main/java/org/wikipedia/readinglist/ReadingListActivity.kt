@@ -18,8 +18,6 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.recommended.RecommendedReadingListNotificationManager
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.yearinreview.YearInReviewDialog
-import org.wikipedia.yearinreview.YearInReviewViewModel
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseActivity.Callback {
 
@@ -32,11 +30,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         title = getString(R.string.reading_list_activity_title, listTitle)
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         callback = this
-
-        if (readingListMode == ReadingListMode.YEAR_IN_REVIEW || listTitle.equals(getString(R.string.year_in_review_reading_list_title, YearInReviewViewModel.YIR_YEAR), ignoreCase = true)) {
-            YearInReviewDialog.maybeShowYirReadingListSurveyDialog(this)
-            incrementYiReadingListVisitCount()
-        }
     }
 
     public override fun createFragment(): ReadingListFragment {
@@ -81,12 +74,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
             Prefs.isRecommendedReadingListNotificationEnabled = false
         }
         fragment.updateNotificationIcon()
-    }
-
-    private fun incrementYiReadingListVisitCount() {
-        if (!Prefs.yearInReviewReadingListSurveyShown) {
-            Prefs.yearInReviewReadingListVisitCount += 1
-        }
     }
 
     companion object {
