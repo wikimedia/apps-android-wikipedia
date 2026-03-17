@@ -967,9 +967,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
         bridge.execute(JavaScriptActionHandler.setFooter(model))
-        lifecycleScope.launch {
-            ReadingChallengeWidgetRepository(requireContext()).updateOnArticleRead(LocalDate.now())
-        }
     }
 
     fun openInNewBackgroundTab(title: PageTitle, entry: HistoryEntry) {
