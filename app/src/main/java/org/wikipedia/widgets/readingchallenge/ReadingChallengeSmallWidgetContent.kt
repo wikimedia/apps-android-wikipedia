@@ -21,6 +21,7 @@ import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.preview.Preview
 import org.wikipedia.R
+import org.wikipedia.main.MainActivity
 
 @Composable
 fun ReadingChallengeSmallWidgetContent(
@@ -43,7 +44,7 @@ fun ReadingChallengeSmallWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
-                        action = actionStartActivity(Intent())
+                        action = actionStartActivity(MainActivity.newIntent(context))
                     )
                 }
             )
@@ -58,7 +59,7 @@ fun ReadingChallengeSmallWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_button),
-                        action = actionStartActivity(Intent())
+                        action = actionStartActivity(MainActivity.newIntent(context))
                     )
                 }
             )
