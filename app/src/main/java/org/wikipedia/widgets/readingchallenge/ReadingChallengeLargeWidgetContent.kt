@@ -1,5 +1,6 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -7,10 +8,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.action.ActionParameters
+import androidx.glance.appwidget.action.ActionCallback
+import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
@@ -22,13 +27,18 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
+import androidx.glance.layout.width
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
+import org.wikipedia.random.RandomActivity
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 
 @Composable
@@ -43,7 +53,12 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> {
+            EnrolledNotStartedLargeWidget(
+                mainImageResId = R.drawable.globe,
+                backgroundColor = WidgetColors.challengeNotOptInBackground
+            )
+        }
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
@@ -87,6 +102,46 @@ fun ReadingChallengeLargeWidgetContent(
         is ReadingChallengeState.StreakOngoingNeedsReading -> {}
         is ReadingChallengeState.StreakOngoingReadToday -> {}
     }
+}
+
+@Composable
+fun EnrolledNotStartedLargeWidget(
+    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    mainImageResId: Int,
+    backgroundColor: Color
+) {
+    val context = LocalContext.current
+    val textColor = WidgetColors.primary
+    val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
+    val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
+
+    GeneralLargeWidget(
+        textColor = textColor,
+        backgroundColor = backgroundColor,
+        titleBarIcon = titleBarIcon,
+        title = title,
+        titleFontSize = 32.sp,
+        subTitle = subtitle,
+        subTitleFontSize = 16.sp,
+        mainImageResId = mainImageResId,
+        bottomContent = {
+            Row(modifier = GlanceModifier.fillMaxWidth()) {
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = context.getString(R.string.reading_challenge_widget_search_button),
+                    iconResId = R.drawable.outline_search_24,
+                    action = actionRunCallback<SearchAction>()
+                )
+                Spacer(modifier = GlanceModifier.width(16.dp))
+                WidgetIconButton(
+                    modifier = GlanceModifier.defaultWeight(),
+                    text = context.getString(R.string.reading_challenge_widget_random_button),
+                    iconResId = R.drawable.ic_dice_24,
+                    action = actionRunCallback<RandomizerAction>()
+                )
+            }
+        }
+    )
 }
 
 @Composable
@@ -160,6 +215,34 @@ fun GeneralLargeWidget(
 
             bottomContent()
         }
+    }
+}
+
+class SearchAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
+    }
+}
+
+class RandomizerAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+        )
     }
 }
 

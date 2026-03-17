@@ -8,6 +8,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -34,7 +35,22 @@ fun ReadingChallengeSmallWidgetContent(
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
-        ReadingChallengeState.EnrolledNotStarted -> TODO()
+        ReadingChallengeState.EnrolledNotStarted -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.feed),
+                        action = androidx.glance.action.actionStartActivity<MainActivity>()
+                    )
+                }
+            )
+        }
         ReadingChallengeState.NotEnrolled -> {
             SmallWidget(
                 modifier = GlanceModifier
