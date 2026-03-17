@@ -471,7 +471,7 @@
   <string name="text_size_percent_default">%s (Программа көйләгән буенча)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Уку</string>
-  <string name="theme_category_editing">Мөхәррирләү</string>
+  <string name="theme_category_editing">Редакторлау</string>
   <string name="reading_focus_mode">Укуның фокуслау режимы</string>
   <string name="reading_focus_mode_detail">Әйләндерү вакытында мөхәррирләү функцияләрен һәм аскы кораллар панелен  яшерә</string>
   <string name="editing_syntax_highlight_label">Синтаксисның аерым төс белән бирелүе</string>
@@ -1189,6 +1189,7 @@
   <string name="activity_tab_onboarding_screen_title">«Активлыкны» тәкъдим итәбез</string>
   <string name="activity_tab_onboarding_impact_title">Кертемнең тәэсире</string>
   <string name="activity_tab_onboarding_engage_title">Катнашу өчен башка мөмкинлекләр</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Барысын да контроль астында тотыгыз</string>
   <string name="edits_screen_what_is_title">Википедия кушымтасы эчендә төзәтмәләр кертү</string>
   <string name="file_page_activity_title">Файлның бите</string>
   <string name="file_page_add_image_caption_button">Сурәткә аңлатма өстәргә</string>
@@ -1410,7 +1411,7 @@
   <string name="watchlist_details_watching_label">Күзәтүче</string>
   <string name="watchlist_details_watch_label">Күзәтү</string>
   <string name="watchlist_details_next_edit">Киләсе төзәтмә</string>
-  <string name="watchlist_details_prev_edit">Алдагы мөхәррирләү</string>
+  <string name="watchlist_details_prev_edit">Алдагы редакторлау</string>
   <string name="thank_label">Рәхмәт</string>
   <string name="view_user_page">Кулланучы битен карарга</string>
   <string name="thank_dialog_title_text">\'Рәхмәт\'не ачык рәвештә юлларга</string>
@@ -1641,14 +1642,17 @@
   <string name="patroller_onboarding_two_talk_title">Фикер алыш</string>
   <string name="patroller_onboarding_two_talk_content">Башка төзәтүчеләр белән аралашыгыз. Еш кулланылган битләрне фикер алышу битендә саклагыз яки калыпны кулланыгыз.</string>
   <string name="patroller_onboarding_two_undo_title">Кире кагу/Кире кайтару</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Без бу функцияне ничек яхшырта алабыз?</string>
   <string name="patroller_diff_menu_edit_history_title">Мәкаләне үзгәртү тарихы</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Кире элемтә</string>
   <string name="patroller_diff_feedback_tooltip">«Функциясе белән проблема» бүлегендә бәяләмәләрне теләсә кайсы вакытта җибәрү өчен өстәмә менюга басыгыз.</string>
   <string name="patroller_saved_message_title_vandalism">Вандализм турында кисәтү</string>
+  <string name="patroller_saved_message_title_editing_tests">Редакторлауны тестлау</string>
   <string name="patroller_saved_message_title_npov">Нейтраль караш</string>
   <string name="patroller_saved_message_title_auto_trans">Автоматик тәрҗемә</string>
   <string name="patroller_saved_message_title_final_warning">Соңгы кисәтү</string>
   <string name="patroller_saved_message_title_copy_vio">Авторлык хокукларын бозу турында кисәтү</string>
+  <string name="patroller_saved_message_title_do_not_censor">Цензураны башкармагыз</string>
   <string name="patroller_saved_message_title_art_imp">Мәкаләне яхшырту тәкъдиме</string>
   <string name="talk_templates_menu_edit_title">Үзгәрт</string>
   <string name="data_opt_in_accept">Кабул итү</string>
