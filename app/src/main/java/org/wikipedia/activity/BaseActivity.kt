@@ -53,7 +53,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingDialog
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
@@ -126,7 +126,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowYearInReview()
-        maybeShowReadingChallengeDialog()
+        maybeShowReadingChallengePrompt()
 
         Prefs.localClassName = localClassName
 
@@ -271,12 +271,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
-    private fun maybeShowReadingChallengeDialog() {
-        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog()) {
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                ReadingChallengeOnboardingDialog.newInstance()
-            )
-            Prefs.readingChallengeOnboardingShown = true
+    private fun maybeShowReadingChallengePrompt() {
+        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() && this !is ReadingChallengeOnboardingActivity) {
+            startActivity(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 ReadingChallengeInstallWidgetDialog.newInstance()
