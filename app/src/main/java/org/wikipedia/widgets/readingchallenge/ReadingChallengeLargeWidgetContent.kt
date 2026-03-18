@@ -76,7 +76,7 @@ fun ReadingChallengeLargeWidgetContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize(),
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.notLiveBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),

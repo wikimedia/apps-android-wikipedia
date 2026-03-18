@@ -22,6 +22,8 @@ object WidgetColors {
     val streakOngoingNotReadContent = Color(0xFFA95226)
     val phoneReadingProgressColor = Color(0xFFC690B4)
 
+    val notLiveBackground = Color(0xFFAEDFCD)
+
     val white = Color(0xFFFFFFFF)
     val primary = Color(0xFF202122)
     val progressive = Color(0xFF3366CC)

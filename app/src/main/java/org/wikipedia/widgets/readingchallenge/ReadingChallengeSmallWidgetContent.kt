@@ -72,7 +72,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.notLiveBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_button),

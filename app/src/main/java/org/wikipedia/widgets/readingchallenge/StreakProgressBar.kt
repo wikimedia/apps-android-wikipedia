@@ -145,6 +145,7 @@ fun BoxedStreakProgressBar(
             Spacer(modifier = GlanceModifier.width(12.dp))
 
             // Calculate precise DP width depending on current widget boundaries
+            // TODO: optimization finding a better way to calculate this instead of manual summation of all the fixed widths and spacers
             val paddingBuffer = 176.dp
             val dynamicWidth = (LocalSize.current.width - paddingBuffer).coerceAtLeast(0.dp)
 
