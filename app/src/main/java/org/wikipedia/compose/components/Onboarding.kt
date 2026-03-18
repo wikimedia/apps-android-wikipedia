@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
@@ -96,7 +97,8 @@ fun TwoButtonBottomBar(
             Text(
                 text = secondaryButtonText,
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.progressiveColor
+                color = WikipediaTheme.colors.progressiveColor,
+                textAlign = TextAlign.Center
             )
         }
 
@@ -114,7 +116,8 @@ fun TwoButtonBottomBar(
                 Text(
                     text = targetText,
                     style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.paperColor
+                    color = WikipediaTheme.colors.paperColor,
+                    textAlign = TextAlign.Center
                 )
             }
         }
@@ -139,6 +142,21 @@ private fun OnboardingListItemPreview() {
                 title = R.string.activity_tab_onboarding_reading_patterns_title,
                 subTitle = R.string.activity_tab_onboarding_reading_patterns_message
             )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TwoButtonBottomBarPreview() {
+    BaseTheme(
+        currentTheme = Theme.DARK
+    ) {
+        TwoButtonBottomBar(
+            "Foo",
+            "A rather long button label",
+            onPrimaryOnClick = { },
+            onSecondaryOnClick = { }
         )
     }
 }
