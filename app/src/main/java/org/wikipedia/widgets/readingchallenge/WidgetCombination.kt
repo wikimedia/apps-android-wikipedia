@@ -47,6 +47,7 @@ object WidgetCombinations {
         )
     )
 
+    // Since we are showing progress bar the title from the doc is not required
     val streakOngoing = listOf(
         WidgetCombination(
             iconResId = R.drawable.globe,
@@ -72,7 +73,6 @@ object WidgetCombinations {
         enrollmentDate: LocalDate,
         today: LocalDate = LocalDate.now()
     ): WidgetCombination {
-        // val daysSinceEnrollment = MINUTES.between(enrollmentDate.atStartOfDay(), LocalDateTime.now()).coerceAtLeast(0)
         val daysSinceEnrollment = DAYS.between(enrollmentDate, today).coerceAtLeast(0)
         val index = (daysSinceEnrollment % this.size).toInt()
         println("orange debug: daysSinceEnrollment: $daysSinceEnrollment, index: $index, enrollmentDate: $enrollmentDate, today: $today")

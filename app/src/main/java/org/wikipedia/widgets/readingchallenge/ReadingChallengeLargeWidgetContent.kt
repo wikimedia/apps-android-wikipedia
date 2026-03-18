@@ -116,6 +116,7 @@ fun ReadingChallengeLargeWidgetContent(
                     .fillMaxSize()
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity<MainActivity>()),
+                reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 state = state,
@@ -240,6 +241,7 @@ fun StreakOngoingLargeWidget(
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    reminderTextResId: Int,
     backgroundColor: Color,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier,
@@ -247,6 +249,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+    val reminderText = context.getString(reminderTextResId)
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -270,7 +273,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         textColorProvider = contentColor
                     )
                     Text(
-                        text = context.getString(R.string.reading_challenge_not_read_today_description),
+                        text = reminderText,
                         style = TextStyle(
                             fontSize = 16.sp,
                             color = ColorProvider(day = contentColor, night = contentColor),
