@@ -410,12 +410,11 @@
             android:name=".search.HybridSearchOnboardingActivity" />
 
         <activity
-            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
-
-        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
         <activity
             android:name=".settings.dev.playground.ReadingChallengePlayGroundActivity"/>
 
@@ -457,6 +456,18 @@
                 android:resource="@xml/widget_featured_page" />
         </receiver>
 
+        <receiver
+            android:label="@string/reading_challenge_widget_name"
+            android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/reading_challenge_widget_info"/>
+        </receiver>
+
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
             android:exported="true">
             <intent-filter>
@@ -489,19 +500,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <receiver
-            android:label="@string/reading_challenge_widget_name"
-            android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/reading_challenge_widget_info"/>
-        </receiver>
-
 
     </application>
 </manifest>
