@@ -23,7 +23,6 @@
         android:visibility="gone"
         tools:visibility="visible"
         tools:text="Lorem ipsum"
-        android:background="?android:attr/selectableItemBackground"
         android:padding="5dp"
         android:lineSpacingExtra="4dp"
         android:textAlignment="center"
