@@ -75,7 +75,6 @@ object WidgetCombinations {
     ): WidgetCombination {
         val daysSinceEnrollment = DAYS.between(enrollmentDate, today).coerceAtLeast(0)
         val index = (daysSinceEnrollment % this.size).toInt()
-        println("orange debug: daysSinceEnrollment: $daysSinceEnrollment, index: $index, enrollmentDate: $enrollmentDate, today: $today")
         return this[index]
     }
 
