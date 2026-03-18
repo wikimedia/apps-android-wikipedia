@@ -16,8 +16,6 @@ import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
-import androidx.glance.appwidget.cornerRadius
-import androidx.glance.background
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -59,7 +57,7 @@ fun ReadingChallengeLargeWidgetContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize(),
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
@@ -76,7 +74,7 @@ fun ReadingChallengeLargeWidgetContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize(),
-                backgroundColor = WidgetColors.notLiveBackground,
+                backgroundColor = WidgetColors.challengeNotLiveBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
@@ -95,7 +93,7 @@ fun ReadingChallengeLargeWidgetContent(
                     .fillMaxSize()
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )
@@ -221,7 +219,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
-    val streakTextColor = WidgetColors.streakOngoingNotReadContent
+    val streakTextColor = WidgetColors.streakOngoingNeedsReadingContent
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -241,7 +239,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
+                        iconTintColorProvider = WidgetColors.streakOngoingNeedsReadingContent,
                         textColorProvider = streakTextColor
                     )
                     Text(
