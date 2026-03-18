@@ -123,7 +123,7 @@ fun StreakOngoingLargeWidget(
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier,
     backgroundColor: Color,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     contentColor: Color,
     progressColor: Color
 ) {
@@ -165,7 +165,7 @@ fun StreakOngoingLargeWidget(
                     Image(
                         provider = ImageProvider(titleBarIcon),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp)
+                        modifier = GlanceModifier.size(36.dp)
                     )
                 }
 
@@ -216,7 +216,7 @@ fun StreakOngoingLargeWidget(
 @Composable
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     backgroundColor: Color,
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier
@@ -265,7 +265,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     Image(
                         provider = ImageProvider(titleBarIcon),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp)
+                        modifier = GlanceModifier.size(36.dp)
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Image(
@@ -303,7 +303,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
 
 @Composable
 fun EnrolledNotStartedLargeWidget(
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     mainImageResId: Int,
     backgroundColor: Color
 ) {
@@ -344,7 +344,7 @@ fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
     textColor: Color,
     backgroundColor: Color,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     title: String,
     titleFontSize: TextUnit = 32.sp,
     subTitle: String,
@@ -400,7 +400,7 @@ fun GeneralLargeWidget(
                     Image(
                         provider = ImageProvider(titleBarIcon),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp)
+                        modifier = GlanceModifier.size(36.dp)
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Image(
