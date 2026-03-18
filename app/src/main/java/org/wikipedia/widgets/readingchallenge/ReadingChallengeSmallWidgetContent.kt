@@ -62,7 +62,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
@@ -77,7 +77,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.challengeNotLiveBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_button),
@@ -138,7 +138,7 @@ fun ReadingChallengeSmallWidgetContent(
 @Composable
 fun SmallWidget(
     modifier: GlanceModifier = GlanceModifier,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     mainImageResId: Int,
     backgroundColor: Color,
     bottomContent: @Composable () -> Unit = { }
@@ -157,7 +157,7 @@ fun SmallWidget(
                 Image(
                     provider = ImageProvider(titleBarIcon),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
+                    modifier = GlanceModifier.size(36.dp)
                 )
             }
 

@@ -37,7 +37,7 @@ import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
 
-class YearInReviewViewModel() : ViewModel() {
+class YearInReviewViewModel : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
         L.e(throwable)
         _uiScreenListState.value = UiState.Error(throwable)
@@ -284,10 +284,6 @@ class YearInReviewViewModel() : ViewModel() {
         const val MIN_ARTICLES_PER_MAP_CLUSTER = 2
         const val MAX_ARTICLES_ON_MAP = 32
         const val MIN_SLIDES_BEFORE_SURVEY = 2
-        const val MIN_SLIDES_FOR_CREATING_YIR_READING_LIST = 1
-        const val MIN_ARTICLES_FOR_CREATING_YIR_READING_LIST = 5
-        const val CUT_OFF_DATE_FOR_SHOWING_YIR_READING_LIST_DIALOG = "2026-03-31T23:59:59Z"
-        const val MAX_LONGEST_READ_ARTICLES = 25
 
         // Whether Year-in-Review should be accessible at all.
         // (different from the user enabling/disabling it in Settings.)

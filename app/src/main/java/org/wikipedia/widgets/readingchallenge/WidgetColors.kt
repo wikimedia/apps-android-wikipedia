@@ -18,10 +18,13 @@ object WidgetColors {
     val spaceContent = Color(0xFF3056A9)
     val spaceReadingProgressColor = Color(0xFFA6BBF5)
 
-    val completedBackground = Color(0xFFB6D4FB)
+    val challengeCompletedBackground = Color(0xFFB6D4FB)
 
-    val streakOngoingNotReadBackground = Color(0xFFFFEAD4)
-    val streakOngoingNotReadContent = Color(0xFFA95226)
+    val streakOngoingNeedsReadingBackground = Color(0xFFFFEAD4)
+    val streakOngoingNeedsReadingContent = Color(0xFFA95226)
+
+    val challengeNotLiveBackground = Color(0xFFAEDFCD)
+    val joinChallengeBackground = Color(0xFFB6D4FB)
 
     val white = Color(0xFFFFFFFF)
     val primary = Color(0xFF202122)
