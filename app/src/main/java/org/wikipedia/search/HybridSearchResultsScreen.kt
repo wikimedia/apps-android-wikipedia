@@ -107,26 +107,18 @@ fun HybridSearchResultsScreen(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val isLoading = searchResultsState is UiState.Loading
-
-    var showSearchProgressBar by remember { mutableStateOf(true) }
-    LaunchedEffect(isLoading, showSearchProgressBar) {
-        if (showSearchProgressBar) {
-            onLoading(isLoading)
-        }
-    }
-
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         Box(
             modifier = modifier
         ) {
             when (searchResultsState) {
                 is UiState.Loading -> {
-                    showSearchProgressBar = false
+                    onLoading(true)
                     HybridSearchSkeletonLoader(viewModel.getTestGroup)
                 }
 
                 is UiState.Success -> {
+                    onLoading(false)
                     val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
                     val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
                     if (lexicalData.isEmpty()) {
@@ -153,6 +145,7 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
+                    onLoading(false)
                     onError(searchResultsState.error)
                     WikiErrorView(
                         modifier = Modifier
