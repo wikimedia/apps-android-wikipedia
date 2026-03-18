@@ -1,6 +1,5 @@
 package org.wikipedia.widgets.readingchallenge
 
-import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -9,16 +8,12 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
-import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
-import androidx.glance.action.ActionParameters
-import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
-import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.cornerRadius
@@ -39,13 +34,9 @@ import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
-import org.wikipedia.random.RandomActivity
-import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
 import java.time.LocalDate
@@ -84,9 +75,7 @@ fun ReadingChallengeLargeWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
-                        action = actionStartActivity(MainActivity.newIntent(context)).also {
-                            Prefs.readingChallengeOnboardingShown = false
-                        }
+                        action = actionRunCallback<JoinChallengeAction>()
                     )
                 }
             )
@@ -115,7 +104,7 @@ fun ReadingChallengeLargeWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(16.dp)
-                    .clickable(onClick = actionStartActivity<MainActivity>()),
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
@@ -130,7 +119,7 @@ fun ReadingChallengeLargeWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(16.dp)
-                    .clickable(onClick = actionStartActivity<MainActivity>()),
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
@@ -346,9 +335,7 @@ fun EnrolledNotStartedLargeWidget(
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
         title = title,
-        titleFontSize = 32.sp,
         subTitle = subtitle,
-        subTitleFontSize = 16.sp,
         mainImageResId = mainImageResId,
         bottomContent = {
             Row(modifier = GlanceModifier.fillMaxWidth()) {
@@ -445,34 +432,6 @@ fun GeneralLargeWidget(
 
             bottomContent()
         }
-    }
-}
-
-class SearchAction : ActionCallback {
-    override suspend fun onAction(
-        context: Context,
-        glanceId: GlanceId,
-        parameters: ActionParameters
-    ) {
-        context.startActivity(
-            SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
-        )
-    }
-}
-
-class RandomizerAction : ActionCallback {
-    override suspend fun onAction(
-        context: Context,
-        glanceId: GlanceId,
-        parameters: ActionParameters
-    ) {
-        context.startActivity(
-            RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
-        )
     }
 }
 

@@ -8,8 +8,8 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
-import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
+import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -45,13 +45,13 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = androidx.glance.action.actionStartActivity<MainActivity>()),
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.feed),
-                        action = androidx.glance.action.actionStartActivity<MainActivity>()
+                        action = actionStartActivity(MainActivity.newIntent(context))
                     )
                 }
             )
@@ -66,9 +66,7 @@ fun ReadingChallengeSmallWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
-                        action = actionStartActivity(MainActivity.newIntent(context)).also {
-                            Prefs.readingChallengeOnboardingShown = false
-                        }
+                        action = actionRunCallback<JoinChallengeAction>()
                     )
                 }
             )
@@ -96,7 +94,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity<MainActivity>()),
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
@@ -119,7 +117,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(
-                        onClick = actionStartActivity<MainActivity>()
+                        onClick = actionStartActivity(MainActivity.newIntent(context))
                     ),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
