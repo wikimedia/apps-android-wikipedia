@@ -62,9 +62,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
-                titleFontSize = 32.sp,
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
-                subTitleFontSize = 16.sp,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
@@ -81,9 +79,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
                 textColor = textColor,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
-                titleFontSize = 32.sp,
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
-                subTitleFontSize = 16.sp,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
@@ -320,9 +316,7 @@ fun EnrolledNotStartedLargeWidget(
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
         title = title,
-        titleFontSize = 32.sp,
         subTitle = subtitle,
-        subTitleFontSize = 16.sp,
         mainImageResId = mainImageResId,
         bottomContent = {
             Row(modifier = GlanceModifier.fillMaxWidth()) {
@@ -351,12 +345,18 @@ fun GeneralLargeWidget(
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     title: String,
-    titleFontSize: TextUnit,
+    titleFontSize: TextUnit = 32.sp,
     subTitle: String,
-    subTitleFontSize: TextUnit,
+    subTitleFontSize: TextUnit = 16.sp,
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
+    val availableHeight = LocalSize.current.height
+
+    val isCompactHeight = availableHeight < 250.dp
+    val adjustedTitleFontSize = if (isCompactHeight) 24.sp else titleFontSize
+    val adjustedSubTitleFontSize = if (isCompactHeight) 14.sp else subTitleFontSize
+
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -376,18 +376,16 @@ fun GeneralLargeWidget(
                 ) {
                     Text(
                         text = title,
-                        maxLines = 2,
                         style = TextStyle(
-                            fontSize = titleFontSize,
+                            fontSize = adjustedTitleFontSize,
                             color = ColorProvider(day = textColor, night = textColor),
                             fontWeight = FontWeight.Medium,
                         )
                     )
                     Text(
                         text = subTitle,
-                        maxLines = 2,
                         style = TextStyle(
-                            fontSize = subTitleFontSize,
+                            fontSize = adjustedSubTitleFontSize,
                             color = ColorProvider(day = textColor, night = textColor),
                             fontWeight = FontWeight.Medium,
                         )
