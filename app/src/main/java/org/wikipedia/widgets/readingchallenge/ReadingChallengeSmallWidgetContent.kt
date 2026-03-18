@@ -131,7 +131,7 @@ fun ReadingChallengeSmallWidgetContent(
 @Composable
 fun SmallWidget(
     modifier: GlanceModifier = GlanceModifier,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w,
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     mainImageResId: Int,
     backgroundColor: Color,
     bottomContent: @Composable () -> Unit = { }
@@ -150,7 +150,7 @@ fun SmallWidget(
                 Image(
                     provider = ImageProvider(titleBarIcon),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
+                    modifier = GlanceModifier.size(36.dp)
                 )
             }
 
