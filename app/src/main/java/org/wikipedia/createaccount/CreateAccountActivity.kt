@@ -262,12 +262,10 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
-        view?.let { editText ->
-            editText.addTextChangedListener {
-                if (!it.isNullOrEmpty() && !(textEnteredEventSent[editText] ?: false)) {
-                    instrument?.submitInteraction("type", elementId = elementId)
-                    textEnteredEventSent[editText] = true
-                }
+        view?.addTextChangedListener {
+            if (!it.isNullOrEmpty() && !(textEnteredEventSent[view] ?: false)) {
+                instrument?.submitInteraction("type", elementId = elementId)
+                textEnteredEventSent[view] = true
             }
         }
     }
@@ -357,17 +355,17 @@ class CreateAccountActivity : BaseActivity() {
                 return
             }
             ValidateResult.NO_EMAIL -> {
-                instrument?.submitInteraction("impression", actionSource = "create_account_no_email_dialog")
+                instrument?.submitInteraction("impression", actionSource = "create_account_email_form")
                 MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.email_recommendation_dialog_title)
                     .setMessage(StringUtil.fromHtml(resources.getString(R.string.email_recommendation_dialog_message)))
                     .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action) { _, _ ->
-                        instrument?.submitInteraction("click", actionSource = "create_account_no_email_dialog", elementId = "no_email")
+                        instrument?.submitInteraction("click", actionSource = "create_account_email_form", elementId = "no_email")
                         createAccount()
                     }
                     .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action) { _, _ ->
-                        instrument?.submitInteraction("click", actionSource = "create_account_no_email_dialog", elementId = "yes_email")
+                        instrument?.submitInteraction("click", actionSource = "create_account_email_form", elementId = "yes_email")
                         binding.createAccountEmail.requestFocus()
                     }
                     .show()

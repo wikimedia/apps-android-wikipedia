@@ -73,19 +73,20 @@ class LogoutPreference : Preference {
         holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
             val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
                 .startFunnel("vanish_account")
+                .setDefaultActionSource("vanish_warning")
             instrument.submitInteraction("click", actionSource = "settings", elementId = "vanish_button")
 
             activity?.let {
-                instrument.submitInteraction("impression", actionSource = "vanish_warning")
+                instrument.submitInteraction("impression")
                 MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
                     .setIcon(R.drawable.ic_person_remove)
                     .setTitle(R.string.account_vanish_request_confirm_title)
                     .setMessage(StringUtil.fromHtml(it.getString(R.string.account_vanish_request_confirm)))
                     .setNegativeButton(android.R.string.cancel) { dialog, which ->
-                        instrument.submitInteraction("click", actionSource = "vanish_warning", elementId = "cancel_button")
+                        instrument.submitInteraction("click", elementId = "cancel_button")
                     }
                     .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
-                        instrument.submitInteraction("click", actionSource = "vanish_warning", elementId = "confirm_button")
+                        instrument.submitInteraction("click", elementId = "confirm_button")
                         it.finish()
                         it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), isWebForm = true))
                     }.show()

@@ -174,12 +174,10 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun addFirstKeystrokeInstrumentation(view: EditText?, elementId: String) {
-        view?.let { editText ->
-            editText.addTextChangedListener {
-                if (!it.isNullOrEmpty() && !(textEnteredEventSent[editText] ?: false)) {
-                    instrument?.submitInteraction("type", elementId = elementId)
-                    textEnteredEventSent[editText] = true
-                }
+        view?.addTextChangedListener {
+            if (!it.isNullOrEmpty() && !(textEnteredEventSent[view] ?: false)) {
+                instrument?.submitInteraction("type", elementId = elementId)
+                textEnteredEventSent[view] = true
             }
         }
     }
