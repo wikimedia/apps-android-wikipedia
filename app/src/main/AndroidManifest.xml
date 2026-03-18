@@ -410,6 +410,9 @@
             android:name=".search.HybridSearchOnboardingActivity" />
 
         <activity
+            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
+
+        <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 

@@ -1,9 +1,9 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -27,7 +27,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -35,8 +34,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
@@ -45,17 +44,17 @@ import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
 
-class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
+class ReadingChallengeOnboardingActivity : BaseActivity() {
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             Prefs.readingChallengeEnrolled = true
-            dismissDialog()
+            finishOnboarding()
         }
     }
 
@@ -77,71 +76,57 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
         )
     )
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return ComposeView(requireContext()).apply {
-            setContent {
-                BaseTheme {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DeviceUtil.setEdgeToEdge(this)
+        setContent {
+            BaseTheme {
 
-                    var showLoginDialog by remember { mutableStateOf(false) }
-                    if (showLoginDialog) {
-                        WikipediaAlertDialog(
-                            title = stringResource(R.string.reading_challenge_onboarding_prompt_title),
-                            message = stringResource(R.string.reading_challenge_onboarding_prompt_message),
-                            confirmButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_login),
-                            dismissButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_no_thanks),
-                            dismissButtonColor = WikipediaTheme.colors.secondaryColor,
-                            onDismissRequest = {
-                                showLoginDialog = false
-                            },
-                            onConfirmButtonClick = {
-                                loginLauncher.launch(LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_READING_CHALLENGE))
-                            },
-                            onDismissButtonClick = {
-                                dismissDialog()
-                            }
-                        )
-                    }
-
-                    OnboardingScreen(
-                        modifier = Modifier.fillMaxSize(),
-                        onboardingItems = onboardingItems,
-                        onCloseClick = {
-                            dismissDialog()
+                var showLoginDialog by remember { mutableStateOf(false) }
+                if (showLoginDialog) {
+                    WikipediaAlertDialog(
+                        title = stringResource(R.string.reading_challenge_onboarding_prompt_title),
+                        message = stringResource(R.string.reading_challenge_onboarding_prompt_message),
+                        confirmButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_login),
+                        dismissButtonText = stringResource(R.string.reading_challenge_onboarding_prompt_no_thanks),
+                        dismissButtonColor = WikipediaTheme.colors.secondaryColor,
+                        onDismissRequest = {
+                            showLoginDialog = false
                         },
-                        onLearnMoreClick = {
-                            UriUtil.visitInExternalBrowser(
-                                context = requireContext(),
-                                uri = getString(R.string.reading_challenge_learn_more).toUri()
-                            )
+                        onConfirmButtonClick = {
+                            loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
                         },
-                        onJoinClick = {
-                            if (!AccountUtil.isLoggedIn) {
-                                showLoginDialog = true
-                            } else {
-                                Prefs.readingChallengeEnrolled = true
-                                dismissDialog()
-                            }
+                        onDismissButtonClick = {
+                            finishOnboarding()
                         }
                     )
                 }
+
+                OnboardingScreen(
+                    modifier = Modifier.fillMaxSize(),
+                    onboardingItems = onboardingItems,
+                    onCloseClick = {
+                        finishOnboarding()
+                    },
+                    onLearnMoreClick = {
+                        UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
+                    },
+                    onJoinClick = {
+                        if (!AccountUtil.isLoggedIn) {
+                            showLoginDialog = true
+                        } else {
+                            Prefs.readingChallengeEnrolled = true
+                            finishOnboarding()
+                        }
+                    }
+                )
             }
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        dialog?.let {
-            val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            bottomSheet?.let { sheet ->
-                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
-            }
-        }
-    }
-
-    private fun dismissDialog() {
+    private fun finishOnboarding() {
         Prefs.readingChallengeOnboardingShown = true
-        dismiss()
+        finish()
     }
 
     @Composable
@@ -237,8 +222,8 @@ class ReadingChallengeOnboardingDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     companion object {
-        fun newInstance(): ReadingChallengeOnboardingDialog {
-            return ReadingChallengeOnboardingDialog()
+        fun newIntent(context: Context): Intent {
+            return Intent(context, ReadingChallengeOnboardingActivity::class.java)
         }
     }
 }
