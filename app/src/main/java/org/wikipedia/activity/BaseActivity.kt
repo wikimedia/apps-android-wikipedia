@@ -273,8 +273,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private fun maybeShowReadingChallengePrompt() {
-        L.d("maybeShowReadingChallengePrompt: ${ReadingChallengeWidgetRepository.shouldShowOnboardingDialog()}")
-        L.d("maybeShowReadingChallengePrompt: ${this !is ReadingChallengeOnboardingActivity}")
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() && this !is ReadingChallengeOnboardingActivity) {
             startActivity(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
