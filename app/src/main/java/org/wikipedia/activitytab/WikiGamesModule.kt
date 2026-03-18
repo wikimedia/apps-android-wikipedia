@@ -2,18 +2,22 @@ package org.wikipedia.activitytab
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -151,6 +155,7 @@ fun WikiGamesStatsCard(
                     statLabel = stringResource(R.string.on_this_day_game_stats_streak)
                 )
             }
+            Spacer(modifier = Modifier.padding(top = 8.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -251,7 +256,9 @@ fun OnThisDayGameLoginPromptCard(
             Text(
                 text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_title),
                 color = WikipediaTheme.colors.primaryColor,
-                style = MaterialTheme.typography.titleSmall
+                style = MaterialTheme.typography.titleSmall.copy(
+                    fontWeight = FontWeight.SemiBold
+                )
             )
 
             Text(
@@ -262,12 +269,15 @@ fun OnThisDayGameLoginPromptCard(
                 style = MaterialTheme.typography.bodyMedium
             )
 
-            Button(
+            ElevatedButton (
                 modifier = Modifier
                     .padding(top = 16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = WikipediaTheme.colors.progressiveColor,
                     contentColor = Color.White,
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(
+                    defaultElevation = 2.dp
                 ),
                 onClick = onLogInClick,
             ) {
