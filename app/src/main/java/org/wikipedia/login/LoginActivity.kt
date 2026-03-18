@@ -300,6 +300,8 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_TALK = "talk"
         const val SOURCE_ACTIVITY_TAB = "activity_tab"
         const val SOURCE_YEAR_IN_REVIEW = "yir"
+        const val SOURCE_ON_THIS_DAY_GAME_RESULT = "on_this_day_game_result"
+        const val SOURCE_READING_CHALLENGE = "reading_challenge"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

@@ -6,18 +6,21 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
 fun WikipediaAlertDialog(
+    modifier: Modifier = Modifier,
     title: String,
     message: String,
     confirmButtonText: String,
+    confirmButtonColor: Color = WikipediaTheme.colors.progressiveColor,
     dismissButtonText: String,
+    dismissButtonColor: Color = WikipediaTheme.colors.progressiveColor,
     onDismissRequest: () -> Unit,
     onConfirmButtonClick: () -> Unit,
-    onDismissButtonClick: () -> Unit,
-    modifier: Modifier = Modifier
+    onDismissButtonClick: () -> Unit
 ) {
     AlertDialog(
         modifier = modifier,
@@ -37,9 +40,7 @@ fun WikipediaAlertDialog(
         onDismissRequest = onDismissRequest,
         confirmButton = {
             TextButton(
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = WikipediaTheme.colors.progressiveColor
-                ),
+                colors = ButtonDefaults.textButtonColors(contentColor = confirmButtonColor),
                 onClick = onConfirmButtonClick
             ) {
                 Text(confirmButtonText)
@@ -47,9 +48,7 @@ fun WikipediaAlertDialog(
         },
         dismissButton = {
             TextButton(
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = WikipediaTheme.colors.progressiveColor
-                ),
+                colors = ButtonDefaults.textButtonColors(contentColor = dismissButtonColor),
                 onClick = onDismissButtonClick
             ) {
                 Text(dismissButtonText)

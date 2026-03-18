@@ -1278,6 +1278,7 @@
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
     <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
     <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+    <string name="activity_tab_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- /Suggested edits -->
 
@@ -1893,11 +1894,18 @@
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 
+    <!-- Games Hub -->
+    <string name="games_hub_activity_title">Games</string>
+    <string name="games_hub_activity_games_unavailable_message">No games available in this language yet! Games leverage content created by volunteer editors for each language\'s Wikipedia.</string>
+    <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
+    <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
+    <string name="games_hub_activity_overflow_learn_more">Learn more</string>
+
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>
     <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
-    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_entry_dialog_button">Play</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -1909,14 +1917,9 @@
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
-    <string name="on_this_day_game_share_button">Share</string>
-    <string name="on_this_day_game_pause_title">Pause the game?</string>
-    <string name="on_this_day_game_pause_body">Your progress will be saved for the day. You can find the game on your Explore feed.</string>
-    <string name="on_this_day_game_pause_negative">Keep playing</string>
-    <string name="on_this_day_game_pause_positive">Got it</string>
+    <string name="on_this_day_game_share_button">Share score</string>
     <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
     <string name="on_this_day_game_feed_entry_card_title">Which came first?</string>
-    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
     <string name="on_this_day_game_your_stats">Your stats</string>
@@ -1959,9 +1962,21 @@
     <string name="on_this_day_game_archive_btn_text">Play the archive</string>
     <string name="on_this_day_game_review_results_btn_text">Review results</string>
     <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_play_today_btn_text">Play today\'s game</string>
     <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
+    <string name="on_this_day_game_more_label">More</string>
+    <string name="on_this_day_game_card_progress_label">You\'re on question %d. Continue guessing which event came first on this day in history.</string>
+    <string name="on_this_day_game_card_progress_short_label">You\'re on question %d.</string>
+    <string name="on_this_day_game_explore_feed_card_score_message">You scored %1$d/%2$d on today\'s game. Next game in %3$s</string>
+    <string name="on_this_day_game_explore_feed_card_score_short_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_card_archive_label">Archive</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_button">Log in</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_title">Log in to view your game stats</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_description">See your streaks, scores, and more</string>
+    <string name="wikipedia_games_title">Wikipedia games</string>
+    <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>
@@ -2373,14 +2388,42 @@
 
     <!-- Reading challenge   -->
     <string name="reading_challenge_widget_name">Reading Challenge</string>
+    <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
+    <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
+    <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_win_title">Win prizes</string>
+    <string name="reading_challenge_onboarding_win_description">Complete a 25-day reading streak while the challenge is live to win special prizes.</string>
+    <string name="reading_challenge_onboarding_install_title">Install the widget</string>
+    <string name="reading_challenge_onboarding_install_description">Get helpful reminders and motivation with our adorable birthday mascot Baby Globe.</string>
+    <string name="reading_challenge_onboarding_note">Your reading history is kept protected. Reading insights are calculated using locally stored data on your device.</string>
+    <string name="reading_challenge_onboarding_learn_more_button">Learn more</string>
+    <string name="reading_challenge_onboarding_join_button">Join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_title">Log in to join the challenge</string>
+    <string name="reading_challenge_onboarding_prompt_message">Log in or create an account to track your progress towards the reading challenge.</string>
+    <string name="reading_challenge_onboarding_prompt_no_thanks">No thanks</string>
+    <string name="reading_challenge_onboarding_prompt_login">Log in / Join Wikipedia</string>
+    <string name="reading_challenge_install_prompt_title">Install the 25-day reading challenge widget</string>
+    <string name="reading_challenge_install_prompt_message">Baby Globe is cheering you on. Add the Reading Challenge widget to track your progress from your homescreen.</string>
+    <string name="reading_challenge_install_prompt_got_it">Got it</string>
+    <string name="reading_challenge_install_prompt_add">Add</string>
+    <string name="reading_challenge_widget_explore_button">Explore</string>
+    <string name="reading_challenge_widget_explore_wikipedia_button">Explore Wikipedia</string>
+    <string name="reading_challenge_widget_join_challenge_button">Join challenge</string>
+    <string name="reading_challenge_widget_join_the_challenge_button">Join the challenge</string>
+    <string name="reading_challenge_widget_search_button">Search</string>
+    <string name="reading_challenge_widget_random_button">Random</string>
+    <string name="reading_challenge_widget_collect_prize_button">Collect prize</string>
+    <string name="reading_challenge_widget_collect_your_prize_button">Collect your prize!</string>
+    <string name="reading_challenge_widget_not_live_title">Get ready to read</string>
+    <string name="reading_challenge_widget_not_live_description">A 25-day reading challenge is on the way.</string>
+    <string name="reading_challenge_widget_not_opted_in_title">Ready, set, read!</string>
+    <string name="reading_challenge_widget_not_opted_in_description">Join the 25-day challenge and unlock special prizes.</string>
     <plurals name="reading_challenge_small_widget_streak">
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
     <string name="reading_challenge_not_read_today_description">Don\'t let today drift by, save your streak.</string>
     <string name="reading_challenge_streak_ongoing_title">25-day reading challenge</string>
-    <string name="reading_challenge_widget_search_button">Search</string>
-    <string name="reading_challenge_widget_random_button">Random</string>
 
     <string name="reading_challenge_widget_reminder_dont_let_today_drift">Don\'t let today drift by, your reading streak is waiting.</string>
     <string name="reading_challenge_widget_reminder_before_day_snoozes">Before the day snoozes away…\there\'s still time to learn something.</string>

@@ -11,9 +11,7 @@ import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.atomic.AtomicReference
-import kotlin.math.max
 
 class TestKitchenClient(
     eventSender: EventSender,
@@ -41,15 +39,13 @@ class TestKitchenClient(
      */
     private val samplingController = SamplingController(clientDataCallback, sessionController)
 
-    private val eventQueue = LinkedBlockingQueue<Event>(queueCapacity)
-
     private val eventProcessor = EventProcessor(
         ContextController(),
         CurationController(),
         sourceConfig,
         samplingController,
         eventSender,
-        eventQueue,
+        queueCapacity,
         logger,
         followCurationRules = false, // TODO: remove when SDK gets instruments dynamically from config.
     )
@@ -103,7 +99,7 @@ class TestKitchenClient(
             sample = streamConfig?.sampleConfig
         )
 
-        addToEventQueue(event)
+        eventProcessor.addToQueue(event)
     }
 
     /**
@@ -139,29 +135,6 @@ class TestKitchenClient(
 
     fun flushEventQueue() {
         eventProcessor.sendEnqueuedEvents()
-    }
-
-    /**
-     * Append an enriched event to the queue.
-     * If the queue is full, we remove the oldest events from the queue to add the current event.
-     * Number of attempts to add to the queue is 1/50 of the number queue capacity but at least 10
-     *
-     * @param event a processed event
-     */
-    private fun addToEventQueue(event: Event?) {
-        var eventQueueAppendAttempts = max(eventQueue.size / 50, 10)
-
-        if (eventQueue.size > queueCapacity / 2) {
-            eventProcessor.sendEnqueuedEvents()
-        }
-
-        while (!eventQueue.offer(event)) {
-            val removedEvent = eventQueue.remove()
-            if (removedEvent != null) {
-                logger.warn(removedEvent.action + " was dropped so that a newer event could be added to the queue.")
-            }
-            if (eventQueueAppendAttempts-- <= 0) break
-        }
     }
 
     companion object {

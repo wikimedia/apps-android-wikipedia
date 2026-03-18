@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -13,13 +14,15 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.LocalSize
 import androidx.glance.action.ActionParameters
-import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.background
+import androidx.glance.action.actionStartActivity
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -29,16 +32,17 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxHeight
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
-import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
+import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.search.SearchActivity
@@ -50,7 +54,9 @@ import java.time.LocalDate
 fun ReadingChallengeLargeWidgetContent(
     state: ReadingChallengeState
 ) {
-    // each state will have small and large widget content
+    val context = LocalContext.current
+    val textColor = ComposeColors.Gray700
+
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
         ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
@@ -67,8 +73,42 @@ fun ReadingChallengeLargeWidgetContent(
                 subtitleReId = combination.subtitleResId ?: R.string.reading_challenge_widget_enrolled_not_started_subtitle
             )
         }
-        ReadingChallengeState.NotEnrolled -> TODO()
-        ReadingChallengeState.NotLiveYet -> {}
+        ReadingChallengeState.NotEnrolled -> {
+            GeneralLargeWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize(),
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                textColor = textColor,
+                title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
+                subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
+                        action = actionStartActivity(MainActivity.newIntent(context)).also {
+                            Prefs.readingChallengeOnboardingShown = false
+                        }
+                    )
+                }
+            )
+        }
+        ReadingChallengeState.NotLiveYet -> {
+            GeneralLargeWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize(),
+                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                textColor = textColor,
+                title = context.getString(R.string.reading_challenge_widget_not_live_title),
+                subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
+                    )
+                }
+            )
+        }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
             val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
@@ -335,85 +375,73 @@ fun GeneralLargeWidget(
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_wikipedia_w,
     title: String,
-    titleFontSize: TextUnit,
+    titleFontSize: TextUnit = 32.sp,
     subTitle: String,
-    subTitleFontSize: TextUnit,
+    subTitleFontSize: TextUnit = 16.sp,
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
+    val availableHeight = LocalSize.current.height
+
+    val isCompactHeight = availableHeight < 250.dp
+    val adjustedTitleFontSize = if (isCompactHeight) 24.sp else titleFontSize
+    val adjustedSubTitleFontSize = if (isCompactHeight) 14.sp else subTitleFontSize
+
     BaseWidgetContent(
         color = backgroundColor
     ) {
-        Box(
-            modifier = GlanceModifier
+        Column(
+            modifier = modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
-            Box(
+            Row(
                 modifier = GlanceModifier
+                    .defaultWeight()
                     .fillMaxWidth()
-                    .padding(bottom = 20.dp),
-                contentAlignment = Alignment.TopEnd
             ) {
-                Image(
-                    provider = ImageProvider(titleBarIcon),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(24.dp)
-                )
-                Box(
+                Column(
+                    modifier = GlanceModifier
+                        .defaultWeight()
+                ) {
+                    Text(
+                        text = title,
+                        style = TextStyle(
+                            fontSize = adjustedTitleFontSize,
+                            color = ColorProvider(day = textColor, night = textColor),
+                            fontWeight = FontWeight.Medium,
+                        )
+                    )
+                    Text(
+                        text = subTitle,
+                        style = TextStyle(
+                            fontSize = adjustedSubTitleFontSize,
+                            color = ColorProvider(day = textColor, night = textColor),
+                            fontWeight = FontWeight.Medium,
+                        )
+                    )
+                }
+                Column(
                     modifier = GlanceModifier
                         .fillMaxHeight(),
-                    contentAlignment = Alignment.Center
+                    horizontalAlignment = Alignment.End
                 ) {
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(24.dp)
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
                     Image(
                         provider = ImageProvider(mainImageResId),
                         contentDescription = null,
-                        modifier = GlanceModifier
-                            .size(120.dp)
+                        modifier = GlanceModifier.size(110.dp)
                     )
+                    Spacer(modifier = GlanceModifier.size(24.dp))
                 }
             }
 
-            Column(
-                modifier = GlanceModifier
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Row(
-                    modifier = GlanceModifier
-                        .fillMaxWidth()
-                        .padding(end = 100.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column(
-                        modifier = GlanceModifier
-                            .defaultWeight()
-                            .padding(end = 8.dp)
-                    ) {
-                        Text(
-                            text = title,
-                            style = TextStyle(
-                                fontSize = titleFontSize,
-                                color = ColorProvider(day = textColor, night = textColor),
-                                fontWeight = FontWeight.Medium
-                            )
-                        )
-                        Spacer(modifier = GlanceModifier.height(12.dp))
-                        Text(
-                            text = subTitle,
-                            style = TextStyle(
-                                fontSize = subTitleFontSize,
-                                color = ColorProvider(day = textColor, night = textColor),
-                                fontWeight = FontWeight.Medium
-                            )
-                        )
-                    }
-                }
-
-                Spacer(modifier = GlanceModifier.defaultWeight())
-
-                bottomContent()
-            }
+            bottomContent()
         }
     }
 }
@@ -444,4 +472,25 @@ class RandomizerAction : ActionCallback {
             }
         )
     }
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 224)
+@Composable
+fun GeneralWidgetPreview() {
+    GeneralLargeWidget(
+        backgroundColor = WidgetColors.challengeNotOptInBackground,
+        textColor = ComposeColors.Gray700,
+        title = LocalContext.current.getString(R.string.reading_challenge_widget_not_live_title),
+        titleFontSize = 34.sp,
+        subTitle = LocalContext.current.getString(R.string.reading_challenge_widget_not_live_description),
+        subTitleFontSize = 16.sp,
+        mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+        bottomContent = {
+            WidgetButton(
+                text = LocalContext.current.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
+                action = actionStartActivity(Intent())
+            )
+        }
+    )
 }

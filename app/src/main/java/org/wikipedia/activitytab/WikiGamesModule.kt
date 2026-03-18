@@ -2,18 +2,22 @@ package org.wikipedia.activitytab
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -89,6 +93,7 @@ fun WikiGamesStatsCard(
     currentStreak: Int = 0,
     bestStreak: Int = 0,
     averageScore: Double = 0.0,
+    showTitle: Boolean = true,
     onStatsCardClick: (() -> Unit)? = null,
     onPlayGameCardClick: (() -> Unit)? = null
 ) {
@@ -106,31 +111,35 @@ fun WikiGamesStatsCard(
         onClick = onStatsCardClick
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.activity_tab_game_stats),
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                    color = WikipediaTheme.colors.primaryColor,
-                    lineHeight = MaterialTheme.typography.labelMedium.lineHeight
-                )
-                Icon(
-                    modifier = Modifier.size(24.dp),
-                    painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
-                    tint = WikipediaTheme.colors.secondaryColor,
-                    contentDescription = null
-                )
+            if (showTitle) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                ) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = stringResource(R.string.activity_tab_game_stats),
+                        style = MaterialTheme.typography.labelMedium.copy(
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        color = WikipediaTheme.colors.primaryColor,
+                        lineHeight = MaterialTheme.typography.labelMedium.lineHeight
+                    )
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_chevron_forward_white_24dp),
+                        tint = WikipediaTheme.colors.secondaryColor,
+                        contentDescription = null
+                    )
+                }
             }
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 WikiGamesStatView(
@@ -146,10 +155,10 @@ fun WikiGamesStatsCard(
                     statLabel = stringResource(R.string.on_this_day_game_stats_streak)
                 )
             }
+            Spacer(modifier = Modifier.padding(top = 8.dp))
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 WikiGamesStatView(
@@ -218,6 +227,91 @@ fun WikiGamesStatView(
                 color = WikipediaTheme.colors.primaryColor
             )
         }
+    }
+}
+
+@Composable
+fun OnThisDayGameLoginPromptCard(
+    modifier: Modifier = Modifier,
+    onLogInClick: () -> Unit,
+) {
+    WikiCard(
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = WikipediaTheme.colors.paperColor,
+            contentColor = WikipediaTheme.colors.paperColor
+        ),
+        elevation = 0.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = WikipediaTheme.colors.borderColor
+        )
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp, bottom = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_title),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.titleSmall.copy(
+                    fontWeight = FontWeight.SemiBold
+                )
+            )
+
+            Text(
+                modifier = Modifier
+                    .padding(top = 8.dp),
+                text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_description),
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            ElevatedButton (
+                modifier = Modifier
+                    .padding(top = 16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = WikipediaTheme.colors.progressiveColor,
+                    contentColor = Color.White,
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(
+                    defaultElevation = 2.dp
+                ),
+                onClick = onLogInClick,
+            ) {
+                Row(
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .size(18.dp),
+                        painter = painterResource(R.drawable.ic_person_filled_24),
+                        contentDescription = null
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                        text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_button),
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun OnThisDayGameLoginPromptCardPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameLoginPromptCard(
+            onLogInClick = {}
+        )
     }
 }
 
