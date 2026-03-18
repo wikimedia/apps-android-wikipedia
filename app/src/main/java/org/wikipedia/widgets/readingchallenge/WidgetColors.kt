@@ -12,15 +12,18 @@ object WidgetColors {
     val musicReadingProgressColor = Color(0xFFC5B9DD)
     val spaceReadingProgressColor = Color(0xFFA6BBF5)
 
-    val completedBackground = Color(0xFFB6D4FB)
+    val challengeCompletedBackground = Color(0xFFB6D4FB)
 
     val phoneReadingContent = Color(0xFF9B527F)
     val musicContent = Color(0xFF534FA3)
     val spaceContent = Color(0xFF3056A9)
 
-    val streakOngoingNotReadBackground = Color(0xFFFFEAD4)
-    val streakOngoingNotReadContent = Color(0xFFA95226)
+    val streakOngoingNeedsReadingBackground = Color(0xFFFFEAD4)
+    val streakOngoingNeedsReadingContent = Color(0xFFA95226)
     val phoneReadingProgressColor = Color(0xFFC690B4)
+
+    val challengeNotLiveBackground = Color(0xFFAEDFCD)
+    val joinChallengeBackground = Color(0xFFB6D4FB)
 
     val white = Color(0xFFFFFFFF)
     val primary = Color(0xFF202122)

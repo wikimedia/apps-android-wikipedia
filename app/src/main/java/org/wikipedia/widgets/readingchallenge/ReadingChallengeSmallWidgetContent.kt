@@ -57,7 +57,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_challenge_button),
@@ -72,7 +72,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                backgroundColor = WidgetColors.challengeNotOptInBackground,
+                backgroundColor = WidgetColors.challengeNotLiveBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_button),
@@ -88,15 +88,15 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                        iconTintColorProvider = WidgetColors.streakOngoingNeedsReadingContent,
+                        textColorProvider = WidgetColors.streakOngoingNeedsReadingContent
                     )
                 }
             )
@@ -110,15 +110,15 @@ fun ReadingChallengeSmallWidgetContent(
                     .clickable(
                         onClick = actionStartActivity(MainActivity.newIntent(context))
                     ),
-                backgroundColor = WidgetColors.streakOngoingNotReadBackground,
+                backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNotReadContent,
-                        textColorProvider = WidgetColors.streakOngoingNotReadContent
+                        iconTintColorProvider = WidgetColors.streakOngoingNeedsReadingContent,
+                        textColorProvider = WidgetColors.streakOngoingNeedsReadingContent
                     )
                 }
             )
