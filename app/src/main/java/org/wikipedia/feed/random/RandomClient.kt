@@ -30,7 +30,7 @@ class RandomClient(
                 cb.error(caught)
             }
         ) {
-            val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes
+            val deferredSummaries = WikipediaApp.instance.languageState.appLanguageCodes.take(5)
                 .filter { !FeedContentType.RANDOM.langCodesDisabled.contains(it) }
                 .map { lang ->
                     async {
