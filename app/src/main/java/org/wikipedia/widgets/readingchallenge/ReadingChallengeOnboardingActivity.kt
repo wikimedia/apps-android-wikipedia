@@ -79,6 +79,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+
         setContent {
             BaseTheme {
 
@@ -94,6 +95,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
+                            finishOnboarding()
                             loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
                         },
                         onDismissButtonClick = {
