@@ -18,6 +18,7 @@ import androidx.glance.layout.Box
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.size
 import androidx.glance.layout.width
@@ -65,17 +66,22 @@ fun StreakProgressBar(
                 )
             }
 
-            Spacer(modifier = GlanceModifier.width(8.dp))
+            Spacer(modifier = GlanceModifier.width(4.dp))
 
             // Current position dot
             Box(
                 modifier = GlanceModifier
                     .size(24.dp)
-                    .background(progressColor)
-                    .cornerRadius(12.dp)
-            ) { }
+            ) {
+                Image(
+                    provider = ImageProvider(R.drawable.widget_shape_12dp_corner_radius),
+                    contentDescription = null,
+                    modifier = GlanceModifier.fillMaxSize(),
+                    colorFilter = ColorFilter.tint(ColorProvider(day = progressColor, night = progressColor))
+                )
+            }
 
-            Spacer(modifier = GlanceModifier.width(8.dp))
+            Spacer(modifier = GlanceModifier.width(4.dp))
 
             // Remaining portion
             val remainingWidth = (dynamicWidth - completedWidth).coerceAtLeast(0.dp)
@@ -101,54 +107,69 @@ fun BoxedStreakProgressBar(
     currentStreak: Int,
     totalDays: Int,
     startIconResId: Int,
+    backgroundColor: Color,
     endIconResId: Int,
     progressColor: Color,
     progressBarColor: Color
 ) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        // Calendar icon 1
+    Box {
+        // base background color for widget
         Image(
-            provider = ImageProvider(startIconResId),
+            provider = ImageProvider(R.drawable.widget_shape_inner),
             contentDescription = null,
-            modifier = GlanceModifier.size(24.dp),
+            modifier = GlanceModifier
+                .fillMaxWidth()
+                .height(48.dp),
             colorFilter = ColorFilter.tint(
-                ColorProvider(
-                    day = Color.White,
-                    night = Color.White
-                )
+                ColorProvider(day = backgroundColor, night = backgroundColor)
             )
         )
 
-        Spacer(modifier = GlanceModifier.width(12.dp))
-
-        // Calculate precise DP width depending on current widget boundaries
-        val paddingBuffer = 176.dp
-        val dynamicWidth = (LocalSize.current.width - paddingBuffer).coerceAtLeast(0.dp)
-
-        StreakProgressBar(
-            currentStreak = currentStreak,
-            totalDays = totalDays,
-            dynamicWidth = dynamicWidth,
-            progressColor = progressColor,
-            progressBarColor = progressBarColor
-        )
-
-        Spacer(modifier = GlanceModifier.width(12.dp))
-
-        // Calendar icon 25
-        Image(
-            provider = ImageProvider(endIconResId),
-            contentDescription = null,
-            modifier = GlanceModifier.size(24.dp),
-            colorFilter = ColorFilter.tint(
-                ColorProvider(
-                    day = Color.White,
-                    night = Color.White
+        Row(
+            modifier = modifier,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Calendar icon 1
+            Image(
+                provider = ImageProvider(startIconResId),
+                contentDescription = null,
+                modifier = GlanceModifier.size(24.dp),
+                colorFilter = ColorFilter.tint(
+                    ColorProvider(
+                        day = Color.White,
+                        night = Color.White
+                    )
                 )
             )
-        )
+
+            Spacer(modifier = GlanceModifier.width(12.dp))
+
+            // Calculate precise DP width depending on current widget boundaries
+            val paddingBuffer = 176.dp
+            val dynamicWidth = (LocalSize.current.width - paddingBuffer).coerceAtLeast(0.dp)
+
+            StreakProgressBar(
+                currentStreak = currentStreak,
+                totalDays = totalDays,
+                dynamicWidth = dynamicWidth,
+                progressColor = progressColor,
+                progressBarColor = progressBarColor
+            )
+
+            Spacer(modifier = GlanceModifier.width(12.dp))
+
+            // Calendar icon 25
+            Image(
+                provider = ImageProvider(endIconResId),
+                contentDescription = null,
+                modifier = GlanceModifier.size(24.dp),
+                colorFilter = ColorFilter.tint(
+                    ColorProvider(
+                        day = Color.White,
+                        night = Color.White
+                    )
+                )
+            )
+        }
     }
 }
