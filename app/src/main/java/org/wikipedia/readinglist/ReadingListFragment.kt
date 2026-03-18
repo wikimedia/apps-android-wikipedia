@@ -43,8 +43,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.analytics.eventplatform.RecommendedReadingListEvent
-import org.wikipedia.analytics.eventplatform.YearInReviewEvent
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentReadingListBinding
 import org.wikipedia.events.NewRecommendedReadingListEvent
@@ -188,10 +186,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                             is Resource.Success -> {
                                 if (isRecommendedList) {
                                     RecommendedReadingListEvent.submit("add_list_new", "rrl_discover", countSaved = resource.data.pages.size)
-                                }
-
-                                if (readingListMode == ReadingListMode.YEAR_IN_REVIEW) {
-                                    return@collect
                                 }
 
                                 requireActivity().startActivity(MainActivity.newIntent(requireContext())
@@ -526,15 +520,6 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                     update()
                     Prefs.isNewRecommendedReadingListGenerated = false
                     FlowEventBus.post(NewRecommendedReadingListEvent())
-                }
-            }
-
-            ReadingListMode.YEAR_IN_REVIEW -> {
-                if (readingList == null) {
-                    YearInReviewEvent.submit(action = "impression", slide = "reading_list_create")
-                    viewModel.generateYearInReviewReadingList(AccountUtil.userName)
-                } else {
-                    update()
                 }
             }
         }
@@ -911,7 +896,7 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
                         }
                     }
                 }
-                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW, ReadingListMode.YEAR_IN_REVIEW -> { }
+                ReadingListMode.RECOMMENDED, ReadingListMode.PREVIEW -> { }
             }
         }
 
