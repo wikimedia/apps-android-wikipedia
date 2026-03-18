@@ -16,13 +16,13 @@ import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.ActionParameters
+import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.background
-import androidx.glance.action.actionStartActivity
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -55,7 +55,6 @@ fun ReadingChallengeLargeWidgetContent(
     state: ReadingChallengeState
 ) {
     val context = LocalContext.current
-    val textColor = ComposeColors.Gray700
 
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
@@ -78,7 +77,7 @@ fun ReadingChallengeLargeWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize(),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
-                textColor = textColor,
+                textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
@@ -97,7 +96,7 @@ fun ReadingChallengeLargeWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize(),
                 backgroundColor = WidgetColors.challengeNotOptInBackground,
-                textColor = textColor,
+                textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
