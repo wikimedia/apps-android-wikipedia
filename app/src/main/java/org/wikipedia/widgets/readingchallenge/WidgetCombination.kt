@@ -82,8 +82,8 @@ object WidgetCombinations {
     private fun needsReadingCombination(textResId: Int, iconResId: Int = R.drawable.globe) =
         WidgetCombination(
             iconResId = iconResId,
-            backgroundColor = WidgetColors.streakOngoingNotReadBackground,
-            contentColor = WidgetColors.streakOngoingNotReadContent,
+            backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
+            contentColor = WidgetColors.streakOngoingNeedsReadingContent,
             titleResId = textResId
         )
 
