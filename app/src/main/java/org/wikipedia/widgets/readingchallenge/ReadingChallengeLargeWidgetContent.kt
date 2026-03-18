@@ -35,6 +35,9 @@ import androidx.glance.text.TextStyle
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
+import org.wikipedia.settings.Prefs
+import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
+import java.time.LocalDate
 
 @Composable
 fun ReadingChallengeLargeWidgetContent(
@@ -48,9 +51,14 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
                 mainImageResId = R.drawable.globe,
-                backgroundColor = WidgetColors.challengeNotOptInBackground
+                backgroundColor = combination.backgroundColor,
+                contentColor = combination.contentColor,
+                titleResId = combination.titleResId ?: R.string.reading_challenge_widget_enrolled_not_started_title,
+                subtitleReId = combination.subtitleResId ?: R.string.reading_challenge_widget_enrolled_not_started_subtitle
             )
         }
         ReadingChallengeState.NotEnrolled -> {
@@ -88,25 +96,31 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
+                reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
+                backgroundColor = combination.backgroundColor,
+                contentColor = combination.contentColor,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
+            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
+            val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                backgroundColor = WidgetColors.phoneReadingBackground,
-                contentColor = WidgetColors.phoneReadingContent,
-                progressColor = WidgetColors.phoneReadingProgressColor,
+                backgroundColor = combination.backgroundColor,
+                contentColor = combination.contentColor,
+                progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
                 state = state,
                 mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
             )
@@ -120,9 +134,9 @@ fun StreakOngoingLargeWidget(
     mascotImageResId: Int,
     modifier: GlanceModifier = GlanceModifier,
     backgroundColor: Color,
-    titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     contentColor: Color,
-    progressColor: Color
+    progressColor: Color,
+    titleBarIcon: Int = R.drawable.ic_wikipedia_w
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
@@ -213,13 +227,15 @@ fun StreakOngoingLargeWidget(
 fun StreakOngoingNeedsReadingLargeWidget(
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
+    reminderTextResId: Int,
     backgroundColor: Color,
     mascotImageResId: Int,
-    modifier: GlanceModifier = GlanceModifier
+    modifier: GlanceModifier = GlanceModifier,
+    contentColor: Color
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
-    val streakTextColor = WidgetColors.streakOngoingNeedsReadingContent
+    val reminderText = context.getString(reminderTextResId)
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -239,14 +255,14 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = WidgetColors.streakOngoingNeedsReadingContent,
-                        textColorProvider = streakTextColor
+                        iconTintColorProvider = contentColor,
+                        textColorProvider = contentColor
                     )
                     Text(
-                        text = context.getString(R.string.reading_challenge_not_read_today_description),
+                        text = reminderText,
                         style = TextStyle(
                             fontSize = 16.sp,
-                            color = ColorProvider(day = streakTextColor, night = streakTextColor),
+                            color = ColorProvider(day = contentColor, night = contentColor),
                             fontWeight = FontWeight.Medium,
                         )
                     )
@@ -301,15 +317,18 @@ fun StreakOngoingNeedsReadingLargeWidget(
 fun EnrolledNotStartedLargeWidget(
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     mainImageResId: Int,
-    backgroundColor: Color
+    backgroundColor: Color,
+    contentColor: Color,
+    titleResId: Int,
+    subtitleReId: Int
 ) {
     val context = LocalContext.current
-    val textColor = WidgetColors.primary
-    val title = context.getString(R.string.reading_challenge_widget_enrolled_not_started_title)
-    val subtitle = context.getString(R.string.reading_challenge_widget_enrolled_not_started_subtitle)
+
+    val title = context.getString(titleResId)
+    val subtitle = context.getString(subtitleReId)
 
     GeneralLargeWidget(
-        textColor = textColor,
+        textColor = contentColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
         title = title,

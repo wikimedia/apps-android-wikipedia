@@ -1,6 +1,7 @@
 package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
+import androidx.glance.appwidget.updateAll
 import androidx.work.BackoffPolicy
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingWorkPolicy
@@ -19,6 +20,7 @@ class ReadingChallengeWidgetWorker(
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
+        ReadingChallengeWidget().updateAll(applicationContext)
         scheduleNextMidnightUpdate(applicationContext)
         return Result.success()
     }
@@ -30,7 +32,6 @@ class ReadingChallengeWidgetWorker(
             val now = LocalDateTime.now()
             val nextMidnight = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT).plusMinutes(1)
             val delay = Duration.between(now, nextMidnight)
-
             val workRequest = OneTimeWorkRequest.Builder(ReadingChallengeWidgetWorker::class.java)
                 .addTag(ReadingChallengeWidgetWorker::class.java.simpleName)
                 .setInitialDelay(delay.toMillis(), TimeUnit.MILLISECONDS)

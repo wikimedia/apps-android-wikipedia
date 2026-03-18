@@ -139,6 +139,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
         private val isChallengeActive: Boolean
             get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
+
         fun shouldShowOnboardingDialog(): Boolean {
             return !Prefs.readingChallengeOnboardingShown && isChallengeActive
         }
