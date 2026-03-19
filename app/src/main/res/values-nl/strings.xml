@@ -1816,8 +1816,8 @@
   <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
   <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
-  <string name="on_this_day_game_entry_dialog_button">Het spel van vandaag spelen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Het spel van vandaag spelen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
   <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_dialog_button">Spelen</string>
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
@@ -1829,14 +1829,9 @@
   <string name="on_this_day_game_point">+1 punt</string>
   <string name="on_this_day_game_next">Volgende vraag</string>
   <string name="on_this_day_game_finish">Eindresultaten</string>
-  <string name="on_this_day_game_share_button">Delen</string>
-  <string name="on_this_day_game_pause_title">Het spel pauzeren?</string>
-  <string name="on_this_day_game_pause_body">Uw voortgang wordt voor de dag opgeslagen. U kunt het spel terugvinden onder Verkennen.</string>
-  <string name="on_this_day_game_pause_negative">Doorspelen</string>
-  <string name="on_this_day_game_pause_positive">Begrepen</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Delen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
   <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
   <string name="on_this_day_game_next_in">Volgend spel in %s</string>
   <string name="on_this_day_game_your_stats">Uw statistieken</string>

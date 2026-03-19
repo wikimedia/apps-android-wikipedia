@@ -1237,6 +1237,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Short explanation about privacy and control.</string>
   <string name="edits_screen_what_is_title">Title text for a card that introduces editing in the Wikipedia app.</string>
   <string name="edits_screen_what_is_body">Description text for a card that introduces editing in the Wikipedia app. \"Suggested Edits\" is {{msg-wm|Wikipedia-android-strings-suggested edits feed card title}}</string>
+  <string name="activity_tab_snackbar_label">Snackbar message prompting the user to update their primary language in order to view game statistics.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
@@ -1795,7 +1796,6 @@
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">The action button for the snackbar message that indicates the game is unavailable.</string>
   <string name="games_hub_activity_overflow_view_game_stats">Menu label for the overflow menu in the Games hub that opens the game stats.</string>
   <string name="games_hub_activity_overflow_learn_more">Menu label for the overflow menu in the Games hub that opens the learn more page.</string>
-    <string name="activity_tab_snackbar_label">Snackbar message prompting the user to update their primary language in order to view game statistics.</string>
   <string name="on_this_day_game_entry_dialog_title">Title for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Subtitle for the trivia game dialog.</string>
   <string name="on_this_day_game_entry_dialog_button">Entry dialog Button label for the trivia game to enter the trivia game.</string>
@@ -1866,11 +1866,11 @@
   <string name="on_this_day_game_explore_feed_card_score_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total) and a countdown timer %3$s (hours:minutes:seconds) until the next game becomes available.</string>
   <string name="on_this_day_game_explore_feed_card_score_short_message">Message displayed on the Explore feed card after completing today’s On This Day game, showing the user’s score (%1$d correct out of %2$d total).</string>
   <string name="on_this_day_game_card_archive_label">Message displayed on the game card to play the archived On this day game.</string>
-  <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
-  <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
-  <string name="on_this_day_game_stats_log_in_prompt_card_button">Button text for the "Log in" action in the On This Day game stats view, prompting the user to sign in to access their game history and statistics.</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Button text for the \"Log in\" action in the On This Day game stats view, prompting the user to sign in to access their game history and statistics.</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">Message prompting the user to log in in order to access and view their On This Day game statistics.</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_description">Supporting text describing that the user can view their game streaks, scores, and additional performance details.</string>
+  <string name="wikipedia_games_title">Title text for the Wikipedia Games.</string>
+  <string name="wikipedia_games_subtitle">Subtitle text describing the Wikipedia Games as daily trivia games based on Wikipedia content.</string>
   <string name="year_in_review_learn_more">Button text for the Year in Review button Learn More.</string>
   <string name="year_in_review_get_started">Button text for the Year in Review button Get Started.</string>
   <string name="year_in_review_topbar_w_icon">Content description of the W Wikipedia icon for the Year in Review scaffold.</string>
