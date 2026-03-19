@@ -44,6 +44,7 @@
     <string name="forget_password_link">https://%s.wikipedia.org/wiki/Special:PasswordReset</string>
     <string name="hybrid_search_info_link">https://www.mediawiki.org/wiki/Readers/Information_Retrieval/Phase_1</string>
     <string name="reading_challenge_learn_more">#</string>
+    <string name="reading_challenge_reward_url">#</string>
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
     <string name="account_type">org.wikimedia</string>

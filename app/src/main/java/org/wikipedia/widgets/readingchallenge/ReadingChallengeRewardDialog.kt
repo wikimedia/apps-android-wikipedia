@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,17 +16,17 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -35,6 +36,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
@@ -42,6 +44,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.UriUtil
 
 class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -51,12 +54,12 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
             setContent {
                 BaseTheme {
                     RewardScreen(
-                        modifier = Modifier.height(500.dp),
+                        modifier = Modifier.height(480.dp),
                         onCloseClick = {
                             dismiss()
                         },
                         onNavigateClick = {
-                            // TODO
+                            UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.reading_challenge_reward_url).toUri())
                             dismiss()
                         }
                     )
@@ -92,18 +95,27 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
                     .padding(horizontal = 16.dp)
                     .verticalScroll(rememberScrollState()),
             ) {
-                Row {
+                Box(
+                    modifier = Modifier
+                        .width(32.dp)
+                        .height(4.dp)
+                        .align(Alignment.CenterHorizontally)
+                        .clip(RoundedCornerShape(50))
+                        .background(WikipediaTheme.colors.placeholderColor)
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(bottom = 16.dp),
+                        modifier = Modifier.weight(1f),
                         text = stringResource(R.string.reading_challenge_widget_collect_your_prize_button),
                         style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                         color = WikipediaTheme.colors.primaryColor
                     )
                     IconButton(
                         modifier = Modifier
-                            .offset(x = 12.dp, y = (-6).dp),
+                            .offset(x = 12.dp),
                         onClick = {
                             onCloseClick()
                         }
@@ -134,8 +146,7 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
                 }
 
                 Text(
-                    modifier = Modifier
-                        .padding(bottom = 16.dp),
+                    modifier = Modifier,
                     text = stringResource(R.string.reading_challenge_widget_reward_title),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                     color = WikipediaTheme.colors.primaryColor
@@ -148,7 +159,8 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
                 )
                 AppButton(
                     modifier = Modifier
-                        .padding(top = 16.dp),
+                        .padding(top = 16.dp)
+                        .align(Alignment.End),
                     onClick = onNavigateClick
                 ) {
                     Text(
@@ -166,16 +178,10 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
             currentTheme = Theme.LIGHT
         ) {
             RewardScreen(
-                modifier = Modifier.height(450.dp),
+                modifier = Modifier.height(480.dp),
                 onCloseClick = {},
                 onNavigateClick = {}
             )
-        }
-    }
-
-    companion object {
-        fun newInstance(): ReadingChallengeInstallWidgetDialog {
-            return ReadingChallengeInstallWidgetDialog()
         }
     }
 }

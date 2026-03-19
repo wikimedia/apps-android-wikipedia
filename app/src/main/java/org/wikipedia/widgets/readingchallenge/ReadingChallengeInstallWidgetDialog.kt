@@ -217,10 +217,4 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             )
         }
     }
-
-    companion object {
-        fun newInstance(): ReadingChallengeInstallWidgetDialog {
-            return ReadingChallengeInstallWidgetDialog()
-        }
-    }
 }
