@@ -6,6 +6,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -168,4 +169,15 @@ fun WidgetIconButton(
         ),
         modifier = modifier
     )
+}
+
+enum class LargeWidgetSize {
+    COMPACT,
+    FULL;
+
+    companion object {
+        fun from(size: DpSize): LargeWidgetSize {
+            return if (size.height <= 210.dp || size.width < 360.dp) COMPACT else FULL
+        }
+    }
 }

@@ -2,7 +2,6 @@ package org.wikipedia.widgets.readingchallenge
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
@@ -154,7 +153,7 @@ fun ReadingChallengeLargeWidgetContent(
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(16.dp)
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
                 backgroundColor = combination.backgroundColor,
@@ -168,7 +167,7 @@ fun ReadingChallengeLargeWidgetContent(
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(16.dp)
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
@@ -288,6 +287,11 @@ fun StreakOngoingNeedsReadingLargeWidget(
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     val reminderText = context.getString(reminderTextResId)
+
+    val size = LargeWidgetSize.from(LocalSize.current)
+    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
+    val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
+
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -313,7 +317,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     Text(
                         text = reminderText,
                         style = TextStyle(
-                            fontSize = 16.sp,
+                            fontSize = adjustedTitleFontSize,
                             color = ColorProvider(day = contentColor, night = contentColor),
                             fontWeight = FontWeight.Medium,
                         )
@@ -336,7 +340,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         provider = ImageProvider(mascotImageResId),
                         contentDescription = null,
                         modifier = GlanceModifier
-                            .size(110.dp)
+                            .size(mascotSize)
                     )
                     Spacer(modifier = GlanceModifier.size(24.dp))
                 }
@@ -413,18 +417,15 @@ fun GeneralLargeWidget(
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     title: String,
-    titleFontSize: TextUnit = 32.sp,
     subTitle: String? = null,
-    subTitleFontSize: TextUnit = 16.sp,
     subTitleContent: @Composable () -> Unit = { },
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
-    val availableHeight = LocalSize.current.height
-
-    val isCompactHeight = availableHeight < 250.dp
-    val adjustedTitleFontSize = if (isCompactHeight) 24.sp else titleFontSize
-    val adjustedSubTitleFontSize = if (isCompactHeight) 14.sp else subTitleFontSize
+    val size = LargeWidgetSize.from(LocalSize.current)
+    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
+    val adjustedSubTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
+    val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
 
     BaseWidgetContent(
         color = backgroundColor
@@ -477,7 +478,7 @@ fun GeneralLargeWidget(
                     Image(
                         provider = ImageProvider(mainImageResId),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(110.dp)
+                        modifier = GlanceModifier.size(mascotSize)
                     )
                     Spacer(modifier = GlanceModifier.size(24.dp))
                 }
@@ -534,6 +535,38 @@ fun LargeWidgetConcludedNoStreakPreview() {
 fun LargeWidgetNotEnrolledPreview() {
     ReadingChallengeLargeWidgetContent(
         state = ReadingChallengeState.NotEnrolled,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 176)
+@Composable
+fun LargeWidgetNotEnrolledCompactSizePreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.NotEnrolled,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 176)
+@Composable
+fun LargeWidgetEnrolledNotStartedCompactSizePreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.EnrolledNotStarted,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 176)
+@Composable
+fun LargeWidgetOngoingNeedsReadingCompactSizePreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(
+            streak = 2
+        ),
         enrollmentDate = LocalDate.now()
     )
 }
