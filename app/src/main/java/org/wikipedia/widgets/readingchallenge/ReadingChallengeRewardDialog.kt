@@ -54,7 +54,6 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
             setContent {
                 BaseTheme {
                     RewardScreen(
-                        modifier = Modifier.height(480.dp),
                         onCloseClick = {
                             dismiss()
                         },
@@ -84,89 +83,83 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
         onCloseClick: () -> Unit,
         onNavigateClick: () -> Unit
     ) {
-        Scaffold(
-            modifier = modifier.safeDrawingPadding(),
-            containerColor = WikipediaTheme.colors.paperColor
-        ) { paddingValues ->
-            Column(
+        Column(
+            modifier = Modifier.safeDrawingPadding()
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
+                .verticalScroll(rememberScrollState()),
+        ) {
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(paddingValues)
-                    .padding(horizontal = 16.dp)
-                    .verticalScroll(rememberScrollState()),
+                    .width(32.dp)
+                    .height(4.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .clip(RoundedCornerShape(50))
+                    .background(WikipediaTheme.colors.placeholderColor)
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
-                    modifier = Modifier
-                        .width(32.dp)
-                        .height(4.dp)
-                        .align(Alignment.CenterHorizontally)
-                        .clip(RoundedCornerShape(50))
-                        .background(WikipediaTheme.colors.placeholderColor)
-                )
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        modifier = Modifier.weight(1f),
-                        text = stringResource(R.string.reading_challenge_widget_collect_your_prize_button),
-                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-                    IconButton(
-                        modifier = Modifier
-                            .offset(x = 12.dp),
-                        onClick = {
-                            onCloseClick()
-                        }
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(24.dp),
-                            painter = painterResource(R.drawable.ic_close_black_24dp),
-                            contentDescription = stringResource(R.string.dialog_close_description),
-                            tint = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                }
-
-                Box(
-                    modifier = Modifier
-                        .padding(vertical = 12.dp)
-                        .height(202.dp)
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        contentScale = ContentScale.FillWidth,
-                        painter = painterResource(id = R.drawable.reading_challenge_reward),
-                        contentDescription = null
-                    )
-                }
-
                 Text(
-                    modifier = Modifier,
-                    text = stringResource(R.string.reading_challenge_widget_reward_title),
+                    modifier = Modifier.weight(1f),
+                    text = stringResource(R.string.reading_challenge_widget_collect_your_prize_button),
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                     color = WikipediaTheme.colors.primaryColor
                 )
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = stringResource(R.string.reading_challenge_widget_reward_body),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
-                AppButton(
+                IconButton(
                     modifier = Modifier
-                        .padding(top = 16.dp)
-                        .align(Alignment.End),
-                    onClick = onNavigateClick
+                        .offset(x = 12.dp),
+                    onClick = {
+                        onCloseClick()
+                    }
                 ) {
-                    Text(
-                        stringResource(R.string.reading_challenge_widget_reward_button_label)
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_close_black_24dp),
+                        contentDescription = stringResource(R.string.dialog_close_description),
+                        tint = WikipediaTheme.colors.primaryColor
                     )
                 }
+            }
+
+            Box(
+                modifier = Modifier
+                    .padding(vertical = 12.dp)
+                    .height(202.dp)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(12.dp))
+            ) {
+                Image(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentScale = ContentScale.FillWidth,
+                    painter = painterResource(id = R.drawable.reading_challenge_reward),
+                    contentDescription = null
+                )
+            }
+
+            Text(
+                modifier = Modifier,
+                text = stringResource(R.string.reading_challenge_widget_reward_title),
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                text = stringResource(R.string.reading_challenge_widget_reward_body),
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+            AppButton(
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .align(Alignment.End),
+                onClick = onNavigateClick
+            ) {
+                Text(
+                    stringResource(R.string.reading_challenge_widget_reward_button_label)
+                )
             }
         }
     }
@@ -178,7 +171,6 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
             currentTheme = Theme.LIGHT
         ) {
             RewardScreen(
-                modifier = Modifier.height(480.dp),
                 onCloseClick = {},
                 onNavigateClick = {}
             )
