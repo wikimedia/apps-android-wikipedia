@@ -30,7 +30,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -64,7 +63,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             setContent {
                 BaseTheme {
                     InstallWidgetScreen(
-                        modifier = Modifier.height(500.dp),
                         pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
                             dismissDialog()
@@ -115,121 +113,113 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
 
     @Composable
     fun InstallWidgetScreen(
-        modifier: Modifier = Modifier,
         pinToWidgetSupported: Boolean,
         onCloseClick: () -> Unit,
         onGotItClick: () -> Unit,
         onAddClick: () -> Unit
     ) {
-        Scaffold(
-            modifier = modifier
-                .safeDrawingPadding(),
-            containerColor = WikipediaTheme.colors.paperColor,
-            bottomBar = {
-                if (pinToWidgetSupported) {
-                    TwoButtonBottomBar(
-                        primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
-                        secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                        onPrimaryOnClick = onAddClick,
-                        onSecondaryOnClick = onGotItClick
-                    )
-                } else {
-                    Box(
-                        modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Button(
-                            modifier = Modifier.padding(16.dp),
-                            border = BorderStroke(
-                                width = 1.dp,
-                                color = WikipediaTheme.colors.borderColor
-                            ),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = WikipediaTheme.colors.paperColor
-                            ),
-                            onClick = onGotItClick
-                        ) {
-                            Text(
-                                modifier = Modifier.padding(horizontal = 32.dp),
-                                text = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                                style = MaterialTheme.typography.labelLarge,
-                                color = WikipediaTheme.colors.progressiveColor,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                    }
-                }
-            }
-        ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(paddingValues)
-                    .padding(horizontal = 16.dp)
-                    .verticalScroll(rememberScrollState()),
-            ) {
-                Row {
-                    Text(
-                        modifier = Modifier
-                            .weight(1f)
-                            .padding(bottom = 16.dp),
-                        text = stringResource(R.string.reading_challenge_install_prompt_title),
-                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
-                        color = WikipediaTheme.colors.primaryColor
-                    )
-
-                    IconButton(
-                        modifier = Modifier
-                            .offset(x = 12.dp, y = (-6).dp),
-                        onClick = {
-                            onCloseClick()
-                        }
-                    ) {
-                        Icon(
-                            modifier = Modifier.size(24.dp),
-                            painter = painterResource(R.drawable.ic_close_black_24dp),
-                            contentDescription = stringResource(R.string.dialog_close_description),
-                            tint = WikipediaTheme.colors.primaryColor
-                        )
-                    }
-                }
-
+        Column(
+            modifier = Modifier
+                .safeDrawingPadding()
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .verticalScroll(rememberScrollState()),
+        ) {
+            Row {
                 Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = stringResource(R.string.reading_challenge_install_prompt_message),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = WikipediaTheme.colors.secondaryColor
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(bottom = 16.dp),
+                    text = stringResource(R.string.reading_challenge_install_prompt_title),
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
+                    color = WikipediaTheme.colors.primaryColor
                 )
 
-                Box(
+                IconButton(
                     modifier = Modifier
-                        .padding(vertical = 12.dp)
-                        .height(190.dp)
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(12.dp))
+                        .offset(x = 12.dp, y = (-6).dp),
+                    onClick = {
+                        onCloseClick()
+                    }
                 ) {
-                    Image(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        contentScale = ContentScale.FillWidth,
-                        painter = painterResource(id = R.drawable.reading_challenge_blur_background),
-                        contentDescription = null
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(R.drawable.ic_close_black_24dp),
+                        contentDescription = stringResource(R.string.dialog_close_description),
+                        tint = WikipediaTheme.colors.primaryColor
                     )
-                    Image(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .padding(vertical = 24.dp)
-                            .dropShadow(
-                                shape = RoundedCornerShape(12.dp),
-                                shadow = Shadow(
-                                    color = WikipediaTheme.colors.overlayColor,
-                                    radius = 12.dp,
-                                    offset = DpOffset(0.dp, 12.dp)
-                                )
-                            ),
-                        painter = painterResource(id = R.drawable.reading_challenge_widget_example),
-                        contentDescription = null
-                    )
+                }
+            }
+
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                text = stringResource(R.string.reading_challenge_install_prompt_message),
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+
+            Box(
+                modifier = Modifier
+                    .padding(vertical = 12.dp)
+                    .height(190.dp)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(12.dp))
+            ) {
+                Image(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentScale = ContentScale.FillWidth,
+                    painter = painterResource(id = R.drawable.reading_challenge_blur_background),
+                    contentDescription = null
+                )
+                Image(
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(vertical = 24.dp)
+                        .dropShadow(
+                            shape = RoundedCornerShape(12.dp),
+                            shadow = Shadow(
+                                color = WikipediaTheme.colors.overlayColor,
+                                radius = 12.dp,
+                                offset = DpOffset(0.dp, 12.dp)
+                            )
+                        ),
+                    painter = painterResource(id = R.drawable.reading_challenge_widget_example),
+                    contentDescription = null
+                )
+            }
+
+            if (pinToWidgetSupported) {
+                TwoButtonBottomBar(
+                    primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
+                    secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                    onPrimaryOnClick = onAddClick,
+                    onSecondaryOnClick = onGotItClick
+                )
+            } else {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Button(
+                        modifier = Modifier.padding(16.dp),
+                        border = BorderStroke(
+                            width = 1.dp,
+                            color = WikipediaTheme.colors.borderColor
+                        ),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WikipediaTheme.colors.paperColor
+                        ),
+                        onClick = onGotItClick
+                    ) {
+                        Text(
+                            modifier = Modifier.padding(horizontal = 32.dp),
+                            text = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                            style = MaterialTheme.typography.labelLarge,
+                            color = WikipediaTheme.colors.progressiveColor,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
         }
@@ -242,8 +232,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             currentTheme = Theme.LIGHT
         ) {
             InstallWidgetScreen(
-                modifier = Modifier.height(450.dp),
-                pinToWidgetSupported = false,
+                pinToWidgetSupported = true,
                 onCloseClick = {},
                 onAddClick = {},
                 onGotItClick = {}
