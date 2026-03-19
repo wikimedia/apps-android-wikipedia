@@ -169,3 +169,16 @@ fun WidgetIconButton(
         modifier = modifier
     )
 }
+
+enum class LargeWidgetSize {
+    COMPACT,
+    FULL;
+
+    companion object {
+        @Composable
+        fun fromLocalSize(): LargeWidgetSize {
+            val size = LocalSize.current
+            return if (size.height <= 210.dp || size.width < 360.dp) COMPACT else FULL
+        }
+    }
+}

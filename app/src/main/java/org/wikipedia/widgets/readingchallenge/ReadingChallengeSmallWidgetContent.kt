@@ -8,6 +8,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
@@ -199,6 +200,9 @@ fun SmallWidget(
     backgroundColor: Color,
     bottomContent: @Composable () -> Unit = { }
 ) {
+    println("orange size: ${LocalSize.current}")
+    val size = LocalSize.current
+    val mascotSize = if (size.height <= 200.dp) 80.dp else 120.dp
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -229,7 +233,7 @@ fun SmallWidget(
                 Image(
                     provider = ImageProvider(mainImageResId),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(120.dp)
+                    modifier = GlanceModifier.size(mascotSize)
                 )
 
                 Spacer(modifier = GlanceModifier.defaultWeight())
@@ -296,6 +300,16 @@ fun SmallWidgetChallengeConcludedIncompletePreview() {
 fun SmallWidgetChallengeConcludedNoStreakPreview() {
     ReadingChallengeSmallWidgetContent(
         state = ReadingChallengeState.ChallengeConcludedNoStreak,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 214, heightDp = 176)
+@Composable
+fun SmallWidgetNotEnrolledSmallHeightPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.NotEnrolled,
         enrollmentDate = LocalDate.now()
     )
 }
