@@ -42,7 +42,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionRunCallback<JoinChallengeAction>()),
+                    .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
