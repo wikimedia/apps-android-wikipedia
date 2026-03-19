@@ -1,5 +1,7 @@
 package org.wikipedia.widgets.readingchallenge
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import org.wikipedia.R
 import java.time.LocalDate
@@ -78,7 +80,7 @@ object WidgetCombinations {
         return this[index]
     }
 
-    private fun needsReadingCombination(textResId: Int, iconResId: Int = R.drawable.globe) =
+    private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int = R.drawable.globe) =
         WidgetCombination(
             iconResId = iconResId,
             backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
@@ -87,9 +89,9 @@ object WidgetCombinations {
         )
 
     private fun needsEnrolledNotStartedCombination(
-        titleResId: Int,
-        subtitleResId: Int,
-        iconResId: Int = R.drawable.globe,
+        @StringRes titleResId: Int,
+        @StringRes subtitleResId: Int,
+        @DrawableRes iconResId: Int = R.drawable.globe,
     ) =
         WidgetCombination(
             iconResId = iconResId,

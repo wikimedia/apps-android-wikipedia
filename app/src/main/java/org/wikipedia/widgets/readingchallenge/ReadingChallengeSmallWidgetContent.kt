@@ -1,9 +1,9 @@
 package org.wikipedia.widgets.readingchallenge
 
-import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
@@ -18,28 +18,87 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
+import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.preview.Preview
 import org.wikipedia.R
 import org.wikipedia.main.MainActivity
-import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
 import java.time.LocalDate
 
 @Composable
 fun ReadingChallengeSmallWidgetContent(
-    state: ReadingChallengeState
+    state: ReadingChallengeState,
+    enrollmentDate: LocalDate
 ) {
     val context = LocalContext.current
     when (state) {
-        ReadingChallengeState.ChallengeCompleted -> TODO()
-        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
-        ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
+        ReadingChallengeState.ChallengeCompleted -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
+                ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                backgroundColor = WidgetColors.challengeCompletedBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetBadge(
+                        text = streakText,
+                        textSize = 16.sp,
+                        iconResId = R.drawable.ic_flame_24dp,
+                        iconSize = 24.dp,
+                        iconTintColorProvider = WidgetColors.primary,
+                        textColorProvider = WidgetColors.primary
+                    )
+                    Spacer(
+                        modifier = GlanceModifier.height(8.dp)
+                    )
+                    WidgetButton(
+                        text = context.getString(R.string.reading_challenge_widget_collect_prize_button),
+                        action = actionStartActivity(MainActivity.newIntent(context))
+                    )
+                }
+            )
+        }
+        is ReadingChallengeState.ChallengeConcludedIncomplete -> {
+            val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
+                ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                backgroundColor = WidgetColors.challengeCompletedBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                    WidgetButton(
+                        text = streakText,
+                        action = actionStartActivity(MainActivity.newIntent(context)),
+                        backgroundColor = WidgetColors.challengeConcludedIncompleteButtonBackground,
+                        contentColor = WidgetColors.primary,
+                        icon = ImageProvider(R.drawable.ic_flame_24dp)
+                    )
+                }
+            )
+        }
+        ReadingChallengeState.ChallengeConcludedNoStreak -> {
+            SmallWidget(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                backgroundColor = WidgetColors.challengeCompletedBackground,
+                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                bottomContent = {
+                }
+            )
+        }
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
                 modifier = GlanceModifier
@@ -87,7 +146,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
@@ -109,7 +167,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
@@ -185,17 +242,61 @@ fun SmallWidget(
 }
 
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 250, heightDp = 250)
+@Preview(widthDp = 200, heightDp = 250)
 @Composable
-fun SmallWidgetPreview() {
-    SmallWidget(
-        mainImageResId = R.drawable.globe,
-        backgroundColor = WidgetColors.challengeNotOptInBackground,
-        bottomContent = {
-            WidgetButton(
-                text = "Explore",
-                action = actionStartActivity(Intent())
-            )
-        }
+fun SmallWidgetNotEnrolledPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.NotEnrolled,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 250)
+@Composable
+fun SmallWidgetNotLiveYetPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.NotLiveYet,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 250)
+@Composable
+fun SmallWidgetStreakOngoingNeedsReadingPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(10),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 250)
+@Composable
+fun SmallWidgetChallengeCompletedPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.ChallengeCompleted,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 250)
+@Composable
+fun SmallWidgetChallengeConcludedIncompletePreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.ChallengeConcludedIncomplete(5),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 200, heightDp = 250)
+@Composable
+fun SmallWidgetChallengeConcludedNoStreakPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.ChallengeConcludedNoStreak,
+        enrollmentDate = LocalDate.now()
     )
 }

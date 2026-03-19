@@ -87,7 +87,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         // Stage 4: Post Challenge (After May 31, 2026)
         if (userData.currentDate.isAfter(END_DATE)) {
             return if (userData.currentStreak > 0) {
-                ReadingChallengeState.ChallengeConcludedIncomplete // streak did not hit 25, but they did have a streak
+                ReadingChallengeState.ChallengeConcludedIncomplete(userData.currentStreak) // streak did not hit 25, but they did have a streak
             } else {
                 ReadingChallengeState.ChallengeConcludedNoStreak // no streak at all
             }

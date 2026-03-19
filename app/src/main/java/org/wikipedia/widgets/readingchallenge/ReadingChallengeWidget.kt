@@ -6,9 +6,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.glance.Button
 import androidx.glance.ButtonDefaults
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
@@ -35,6 +35,8 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
+import org.wikipedia.settings.Prefs
+import java.time.LocalDate
 
 class ReadingChallengeWidget : GlanceAppWidget() {
     companion object {
@@ -55,9 +57,9 @@ class ReadingChallengeWidget : GlanceAppWidget() {
             GlanceTheme {
                 val size = LocalSize.current
                 if (size.width >= fullWidthThreshold) {
-                    ReadingChallengeLargeWidgetContent(state)
+                    ReadingChallengeLargeWidgetContent(state, LocalDate.parse(Prefs.readingChallengeEnrollmentDate))
                 } else {
-                    ReadingChallengeSmallWidgetContent(state)
+                    ReadingChallengeSmallWidgetContent(state, LocalDate.parse(Prefs.readingChallengeEnrollmentDate))
                 }
             }
         }
@@ -94,15 +96,19 @@ fun BaseWidgetContent(
 fun WidgetButton(
     text: String,
     action: Action,
+    backgroundColor: Color = WidgetColors.progressive,
+    contentColor: Color = WidgetColors.white,
+    icon: ImageProvider? = null,
     modifier: GlanceModifier = GlanceModifier
 ) {
     FilledButton(
         text = text,
         onClick = action,
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = ColorProvider(day = WidgetColors.progressive, night = WidgetColors.progressive),
-            contentColor = ColorProvider(day = WidgetColors.white, night = WidgetColors.white)
+            backgroundColor = ColorProvider(day = backgroundColor, night = backgroundColor),
+            contentColor = ColorProvider(day = contentColor, night = contentColor)
         ),
+        icon = icon,
         modifier = modifier.fillMaxWidth()
     )
 }
@@ -110,6 +116,7 @@ fun WidgetButton(
 @Composable
 fun WidgetBadge(
     text: String,
+    textSize: TextUnit = 32.sp,
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
@@ -135,7 +142,7 @@ fun WidgetBadge(
         Text(
             text = text,
             style = TextStyle(
-                fontSize = 32.sp,
+                fontSize = textSize,
                 color = ColorProvider(day = textColorProvider, night = textColorProvider),
                 fontWeight = FontWeight.Medium
             )

@@ -2422,9 +2422,16 @@
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final">
+        <item quantity="one">%1$d of %2$d</item>
+        <item quantity="other">%1$d of %2$d</item>
+    </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final_large">
+        <item quantity="one">%1$d of %2$d day</item>
+        <item quantity="other">%1$d of %2$d days</item>
+    </plurals>
     <string name="reading_challenge_not_read_today_description">Don\'t let today drift by, save your streak.</string>
     <string name="reading_challenge_streak_ongoing_title">25-day reading challenge</string>
-
     <string name="reading_challenge_widget_reminder_dont_let_today_drift">Don\'t let today drift by, your reading streak is waiting.</string>
     <string name="reading_challenge_widget_reminder_before_day_snoozes">Before the day snoozes away…\there\'s still time to learn something.</string>
     <string name="reading_challenge_widget_reminder_small_bit_counts">Even a small bit of reading counts towards your goal.</string>
@@ -2432,8 +2439,6 @@
     <string name="reading_challenge_widget_reminder_jump_in_anytime">Jump in for some reading anytime today.</string>
     <string name="reading_challenge_widget_reminder_quiet_reading_moment">Quiet reading moment?</string>
     <string name="reading_challenge_widget_reminder_keep_curiosity_going">Keep your curiosity going.</string>
-
-    <!-- enrolled but not started/ streak lost and can restart messages -->
     <string name="reading_challenge_widget_enrolled_not_started_title">Ready, set, read!</string>
     <string name="reading_challenge_widget_enrolled_not_started_subtitle">Start working towards a 25-day streak!</string>
     <string name="reading_challenge_widget_start_reading_challenge_title">Start your reading challenge.</string>

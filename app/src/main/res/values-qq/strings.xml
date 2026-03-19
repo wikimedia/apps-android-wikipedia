@@ -2168,9 +2168,17 @@
   <string name="reading_challenge_widget_not_opted_in_title">Title in the Reading challenge widget that indicates the reading challenge is not opted in.</string>
   <string name="reading_challenge_widget_not_opted_in_description">Message in the Reading challenge widget that indicates the reading challenge is not opted in</string>
   <plurals name="reading_challenge_small_widget_streak">
-      <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number 1.</item>
-      <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days.</item>
+      <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</item>
+      <item quantity="other">Text showing a streak of multiple days on the small Reading Challenge home screen widget. %d will be replaced by the number of days the user has opened at least one article.</item>
   </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final">
+        <item quantity="one">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
+        <item quantity="other">Text showing a streak on the small Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
+    </plurals>
+    <plurals name="reading_challenge_small_widget_streak_final_large">
+        <item quantity="one">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
+        <item quantity="other">Text showing a streak on the large Reading Challenge home screen widget. %1$d is the number of days the user has opened at least one article, out of a total of %2$d days, as part of the reading challenge.</item>
+    </plurals>
     <string name="reading_challenge_not_read_today_description">Message shown when the user has not read today, encouraging them to maintain their reading streak.</string>
     <string name="reading_challenge_streak_ongoing_title">Title for an ongoing reading challenge streak.</string>
     <string name="reading_challenge_widget_enrolled_not_started_title">Title text displayed on the Reading Challenge widget when the user is enrolled but has not yet started reading.</string>

@@ -24,7 +24,7 @@ sealed interface ReadingChallengeState {
     object ChallengeCompleted : ReadingChallengeState
 
     // State 4: Post Challenge (After May 31, 2026)
-    object ChallengeConcludedIncomplete : ReadingChallengeState // Joined && did not dit 25  streak
+    data class ChallengeConcludedIncomplete(val streak: Int) : ReadingChallengeState // Joined && did not dit 25  streak
 
     object ChallengeConcludedNoStreak : ReadingChallengeState // Joined && 0 streak
 

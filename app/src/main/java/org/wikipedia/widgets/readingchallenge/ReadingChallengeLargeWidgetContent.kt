@@ -35,23 +35,22 @@ import androidx.glance.text.TextStyle
 import org.wikipedia.R
 import org.wikipedia.compose.ComposeColors
 import org.wikipedia.main.MainActivity
-import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
 import java.time.LocalDate
 
 @Composable
 fun ReadingChallengeLargeWidgetContent(
-    state: ReadingChallengeState
+    state: ReadingChallengeState,
+    enrollmentDate: LocalDate
 ) {
     val context = LocalContext.current
 
     when (state) {
         ReadingChallengeState.ChallengeCompleted -> TODO()
-        ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
+        is ReadingChallengeState.ChallengeConcludedIncomplete -> TODO()
         ReadingChallengeState.ChallengeConcludedNoStreak -> TODO()
         ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
                 mainImageResId = R.drawable.globe,
@@ -96,7 +95,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
@@ -111,7 +109,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
-            val enrollmentDate = LocalDate.parse(Prefs.readingChallengeEnrollmentDate)
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier
@@ -436,19 +433,8 @@ fun GeneralLargeWidget(
 @Preview(widthDp = 368, heightDp = 224)
 @Composable
 fun GeneralWidgetPreview() {
-    GeneralLargeWidget(
-        backgroundColor = WidgetColors.challengeNotOptInBackground,
-        textColor = ComposeColors.Gray700,
-        title = LocalContext.current.getString(R.string.reading_challenge_widget_not_live_title),
-        titleFontSize = 34.sp,
-        subTitle = LocalContext.current.getString(R.string.reading_challenge_widget_not_live_description),
-        subTitleFontSize = 16.sp,
-        mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-        bottomContent = {
-            WidgetButton(
-                text = LocalContext.current.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
-                action = actionStartActivity(Intent())
-            )
-        }
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.NotEnrolled,
+        enrollmentDate = LocalDate.now()
     )
 }
