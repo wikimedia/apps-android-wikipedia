@@ -56,10 +56,11 @@ class ReadingChallengeWidget : GlanceAppWidget() {
 
             GlanceTheme {
                 val size = LocalSize.current
+                val enrollmentDate = if (Prefs.readingChallengeEnrollmentDate.isNotEmpty()) LocalDate.parse(Prefs.readingChallengeEnrollmentDate) else LocalDate.now()
                 if (size.width >= fullWidthThreshold) {
-                    ReadingChallengeLargeWidgetContent(state, LocalDate.parse(Prefs.readingChallengeEnrollmentDate))
+                    ReadingChallengeLargeWidgetContent(state, enrollmentDate)
                 } else {
-                    ReadingChallengeSmallWidgetContent(state, LocalDate.parse(Prefs.readingChallengeEnrollmentDate))
+                    ReadingChallengeSmallWidgetContent(state, enrollmentDate)
                 }
             }
         }

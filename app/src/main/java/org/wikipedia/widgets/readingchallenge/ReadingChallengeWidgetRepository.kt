@@ -1,6 +1,7 @@
 package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.glance.appwidget.updateAll
 import androidx.preference.PreferenceManager
@@ -133,6 +134,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
     companion object {
         const val READING_STREAK_GOAL = 25
+        const val INTENT_EXTRA_READING_CHALLENGE_REWARD = "reading_challenge_reward"
         private val START_DATE = LocalDate.of(2026, 5, 1)
         private val END_DATE = LocalDate.of(2026, 5, 31)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
@@ -147,6 +149,10 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         fun shouldShowWidgetInstallDialog(): Boolean {
             return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
                     Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive
+        }
+
+        fun shouldShowReward(intent: Intent): Boolean {
+            return intent.hasExtra(INTENT_EXTRA_READING_CHALLENGE_REWARD)
         }
     }
 }
