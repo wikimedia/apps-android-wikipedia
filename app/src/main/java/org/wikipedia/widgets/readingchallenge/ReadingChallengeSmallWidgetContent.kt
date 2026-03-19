@@ -200,7 +200,6 @@ fun SmallWidget(
     backgroundColor: Color,
     bottomContent: @Composable () -> Unit = { }
 ) {
-    println("orange size: ${LocalSize.current}")
     val size = LocalSize.current
     val mascotSize = if (size.height <= 200.dp) 80.dp else 120.dp
     BaseWidgetContent(

@@ -2,7 +2,6 @@ package org.wikipedia.widgets.readingchallenge
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
@@ -10,6 +9,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
+import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.action.actionStartActivity
@@ -288,7 +288,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     val reminderText = context.getString(reminderTextResId)
 
-    val size = LargeWidgetSize.fromLocalSize()
+    val size = LargeWidgetSize.from(LocalSize.current)
     val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
     val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
 
@@ -417,16 +417,14 @@ fun GeneralLargeWidget(
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     title: String,
-    titleFontSize: TextUnit = 32.sp,
     subTitle: String? = null,
-    subTitleFontSize: TextUnit = 16.sp,
     subTitleContent: @Composable () -> Unit = { },
     mainImageResId: Int,
     bottomContent: @Composable () -> Unit = { }
 ) {
-    val size = LargeWidgetSize.fromLocalSize()
-    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 24.sp else titleFontSize
-    val adjustedSubTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else subTitleFontSize
+    val size = LargeWidgetSize.from(LocalSize.current)
+    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
+    val adjustedSubTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
     val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
 
     BaseWidgetContent(
