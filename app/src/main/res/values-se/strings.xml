@@ -1656,7 +1656,7 @@
   <string name="survey_dialog_cancel">Gaskkalduhte</string>
   <string name="survey_dialog_submit">Sádde</string>
   <string name="survey_dialog_submitted_snackbar">Máhcahat sáddejuvvon. Giitu!</string>
-  <string name="on_this_day_game_share_button">Juoge</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Juoge</string>
   <string name="on_this_day_game_menu_info">Lassedieđut</string>
   <string name="year_in_review_learn_more">Lassedieđut</string>
   <string name="donation_reminders_settings_learn_more_button">Lassedieđut</string>

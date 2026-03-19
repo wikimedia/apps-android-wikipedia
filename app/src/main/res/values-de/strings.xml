@@ -1829,8 +1829,8 @@
   <string name="survey_dialog_submitted_snackbar">Feedback gesendet. Danke!</string>
   <string name="on_this_day_game_entry_dialog_title">Wir präsentieren</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiele</string>
-  <string name="on_this_day_game_entry_dialog_button">Heutiges Spiel spielen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiele sind im Entdecken-Feed verfügbar.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Heutiges Spiel spielen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-Spiele sind im Entdecken-Feed verfügbar.</string>
   <string name="on_this_day_game_title">Was war zuerst?</string>
   <string name="on_this_day_game_dialog_button">Spielen</string>
   <string name="on_this_day_game_splash_message">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
@@ -1842,14 +1842,9 @@
   <string name="on_this_day_game_point">+1 Punkt</string>
   <string name="on_this_day_game_next">Nächste Frage</string>
   <string name="on_this_day_game_finish">Endergebnisse</string>
-  <string name="on_this_day_game_share_button">Teilen</string>
-  <string name="on_this_day_game_pause_title">Spiel pausieren?</string>
-  <string name="on_this_day_game_pause_body">Ihr Fortschritt wird für den Tag gespeichert. Sie können das Spiel in Ihrem Entdecken-Feed finden.</string>
-  <string name="on_this_day_game_pause_negative">Weiterspielen</string>
-  <string name="on_this_day_game_pause_positive">Verstanden</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Teilen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiele</string>
   <string name="on_this_day_game_feed_entry_card_title">Was war zuerst?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Raten Sie, welches Ereignis an diesem Tag in der Geschichte zuerst stattgefunden hat.</string>
   <string name="on_this_day_game_result">Sie haben %1$d von %2$d erzielt.</string>
   <string name="on_this_day_game_next_in">Nächstes Spiel in %s</string>
   <string name="on_this_day_game_your_stats">Ihre Statistiken</string>

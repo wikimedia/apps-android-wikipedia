@@ -1780,8 +1780,8 @@
   <string name="survey_dialog_submitted_snackbar">Tilbakemelding sendt. Hjertelig takk!</string>
   <string name="on_this_day_game_entry_dialog_title">Introduserer</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipediaspill</string>
-  <string name="on_this_day_game_entry_dialog_button">Spill dagens spill</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Spill dagens spill</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spill er tilgjengelig i Utforsk-feeden.</string>
   <string name="on_this_day_game_title">Hva kom først?</string>
   <string name="on_this_day_game_dialog_button">Spill</string>
   <string name="on_this_day_game_splash_message">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
@@ -1793,14 +1793,9 @@
   <string name="on_this_day_game_point">+1 poeng</string>
   <string name="on_this_day_game_next">Neste spørsmål</string>
   <string name="on_this_day_game_finish">Endelig resultat</string>
-  <string name="on_this_day_game_share_button">Del</string>
-  <string name="on_this_day_game_pause_title">Sette spillet på pause?</string>
-  <string name="on_this_day_game_pause_body">Fremgangen din blir lagret for dagen. Du kan finne spillet i Utforsksiden din</string>
-  <string name="on_this_day_game_pause_negative">Fortsett å spille</string>
-  <string name="on_this_day_game_pause_positive">Skjønner</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Del</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipediaspill</string>
   <string name="on_this_day_game_feed_entry_card_title">Hva kom først?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Gjett hvilken hendelse som kom først på denne dagen i historien.</string>
   <string name="on_this_day_game_result">Du fikk %1$d av %2$d poeng.</string>
   <string name="on_this_day_game_next_in">Neste spill om %s</string>
   <string name="on_this_day_game_your_stats">Dine stats</string>

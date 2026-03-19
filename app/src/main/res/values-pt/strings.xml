@@ -1758,8 +1758,8 @@
   <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
   <string name="on_this_day_game_entry_dialog_title">Introdução</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Jogos da Wikipédia</string>
-  <string name="on_this_day_game_entry_dialog_button">Jogue o jogo de hoje</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Os jogos da Wikipédia estão disponíveis na feed de Explore.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Jogue o jogo de hoje</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Os jogos da Wikipédia estão disponíveis na feed de Explore.</string>
   <string name="on_this_day_game_title">Qual foi o primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual o evento que ocorreu primeiro neste dia na história.</string>
@@ -1771,10 +1771,7 @@
   <string name="on_this_day_game_point">+1 ponto</string>
   <string name="on_this_day_game_next">Questão seguinte</string>
   <string name="on_this_day_game_finish">Resultados finais</string>
-  <string name="on_this_day_game_share_button">Partilhar</string>
-  <string name="on_this_day_game_pause_title">Pausar o jogo?</string>
-  <string name="on_this_day_game_pause_negative">Continuar a jogar .</string>
-  <string name="on_this_day_game_pause_positive">Entendi</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Partilhar</string>
   <string name="on_this_day_game_feed_entry_card_heading">Jogos da Wikipédia</string>
   <string name="on_this_day_game_feed_entry_card_title">Qual foi o primeiro?</string>
   <string name="on_this_day_game_result">Você pontuou %1$d/%2$d.</string>
