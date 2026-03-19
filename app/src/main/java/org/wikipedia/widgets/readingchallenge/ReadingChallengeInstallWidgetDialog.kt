@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +25,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -41,6 +43,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
@@ -62,6 +65,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
                 BaseTheme {
                     InstallWidgetScreen(
                         modifier = Modifier.height(500.dp),
+                        pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
                             dismissDialog()
                         },
@@ -88,19 +92,19 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
         }
     }
 
-    fun requestToPinWidget(context: Context) {
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && appWidgetManager.isRequestPinAppWidgetSupported) {
+    private fun pinWidgetSupported(): Boolean {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                AppWidgetManager.getInstance(requireContext()).isRequestPinAppWidgetSupported
+    }
+
+    private fun requestToPinWidget(context: Context) {
+        if (pinWidgetSupported()) {
             val successCallback = PendingIntent.getBroadcast(
                 context, 0,
                 Intent(context, ReadingChallengeWidgetReceiver::class.java),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
-
-            appWidgetManager.requestPinAppWidget(ComponentName(context, ReadingChallengeWidgetReceiver::class.java), null, successCallback)
-        } else {
-            // TODO: confirm with PM
-            Toast.makeText(context, "Launcher does not support pinning", Toast.LENGTH_SHORT).show()
+            AppWidgetManager.getInstance(context).requestPinAppWidget(ComponentName(context, ReadingChallengeWidgetReceiver::class.java), null, successCallback)
         }
     }
 
@@ -112,6 +116,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
     @Composable
     fun InstallWidgetScreen(
         modifier: Modifier = Modifier,
+        pinToWidgetSupported: Boolean,
         onCloseClick: () -> Unit,
         onGotItClick: () -> Unit,
         onAddClick: () -> Unit
@@ -121,12 +126,39 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
                 .safeDrawingPadding(),
             containerColor = WikipediaTheme.colors.paperColor,
             bottomBar = {
-                TwoButtonBottomBar(
-                    primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
-                    secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                    onPrimaryOnClick = onAddClick,
-                    onSecondaryOnClick = onGotItClick
-                )
+                if (pinToWidgetSupported) {
+                    TwoButtonBottomBar(
+                        primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
+                        secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                        onPrimaryOnClick = onAddClick,
+                        onSecondaryOnClick = onGotItClick
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Button(
+                            modifier = Modifier.padding(16.dp),
+                            border = BorderStroke(
+                                width = 1.dp,
+                                color = WikipediaTheme.colors.borderColor
+                            ),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = WikipediaTheme.colors.paperColor
+                            ),
+                            onClick = onGotItClick
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(horizontal = 32.dp),
+                                text = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = WikipediaTheme.colors.progressiveColor,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+                    }
+                }
             }
         ) { paddingValues ->
             Column(
@@ -211,6 +243,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
         ) {
             InstallWidgetScreen(
                 modifier = Modifier.height(450.dp),
+                pinToWidgetSupported = false,
                 onCloseClick = {},
                 onAddClick = {},
                 onGotItClick = {}

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -78,7 +77,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         Prefs.readingChallengeOnboardingShown = true
         setContent {
             BaseTheme {
-                val scope = rememberCoroutineScope()
+                val coroutineScope = rememberCoroutineScope()
                 var showLoginDialog by remember { mutableStateOf(false) }
                 if (showLoginDialog) {
                     WikipediaAlertDialog(
@@ -107,7 +106,6 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        // TODO: update the string to point to actual URL once provided
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
@@ -116,10 +114,10 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         } else {
                             Prefs.readingChallengeEnrolled = true
                             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
-                            scope.launch {
+                            coroutineScope.launch {
                                 ReadingChallengeWidget().updateAll(this@ReadingChallengeOnboardingActivity)
+                                finish()
                             }
-                            finish()
                         }
                     }
                 )
