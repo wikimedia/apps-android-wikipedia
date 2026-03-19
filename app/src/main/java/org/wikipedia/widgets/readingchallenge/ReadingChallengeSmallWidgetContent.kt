@@ -43,7 +43,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<JoinChallengeAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
                 mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
                 bottomContent = {
@@ -60,7 +60,7 @@ fun ReadingChallengeSmallWidgetContent(
                     )
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_collect_prize_button),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionRunCallback<ChallengeRewardAction>()
                     )
                 }
             )

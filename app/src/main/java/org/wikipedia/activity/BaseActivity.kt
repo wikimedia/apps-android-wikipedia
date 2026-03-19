@@ -54,6 +54,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeRewardDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
@@ -78,6 +79,15 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (it.resultCode == RESULT_OK) {
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
             FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+        }
+    }
+
+    private val requestReadingChallengeActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
+            ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeInstallWidgetDialog()
+            )
         }
     }
 
@@ -273,10 +283,15 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() && this !is ReadingChallengeOnboardingActivity) {
-            startActivity(ReadingChallengeOnboardingActivity.newIntent(this))
+            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                ReadingChallengeInstallWidgetDialog.newInstance()
+                ReadingChallengeInstallWidgetDialog()
+            )
+        } else if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
+            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeRewardDialog()
             )
         }
     }

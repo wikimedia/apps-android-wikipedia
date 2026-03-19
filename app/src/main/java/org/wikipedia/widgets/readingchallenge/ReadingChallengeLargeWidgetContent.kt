@@ -66,7 +66,7 @@ fun ReadingChallengeLargeWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_collect_your_prize_button),
-                        action = actionRunCallback<JoinChallengeAction>(),
+                        action = actionRunCallback<ChallengeRewardAction>(),
                         modifier = GlanceModifier
                     )
                 }

@@ -53,3 +53,17 @@ class RandomizerAction : ActionCallback {
         )
     }
 }
+
+class ChallengeRewardAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        context.startActivity(
+            MainActivity.newIntent(context)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD, true)
+        )
+    }
+}

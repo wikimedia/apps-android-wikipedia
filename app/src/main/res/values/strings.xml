@@ -2449,4 +2449,7 @@
     <string name="reading_challenge_widget_start_fresh_start_subtitle">Your streak is just one article away.</string>
     <string name="reading_challenge_widget_concluded_incomplete">Challenge concluded</string>
     <string name="reading_challenge_widget_concluded_complete">You did it!</string>
+    <string name="reading_challenge_widget_reward_title">Curiosity looks good on you! 🛍️</string>
+    <string name="reading_challenge_widget_reward_body">Celebrate completing the challenge with 15% off at the Wikipedia Store.</string>
+    <string name="reading_challenge_widget_reward_button_label">Get 15% off at the store</string>
 </resources>
