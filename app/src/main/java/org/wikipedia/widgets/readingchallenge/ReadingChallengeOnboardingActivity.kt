@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +35,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
+import androidx.glance.appwidget.updateAll
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
@@ -51,15 +54,6 @@ import org.wikipedia.util.UriUtil
 import java.time.LocalDate
 
 class ReadingChallengeOnboardingActivity : BaseActivity() {
-
-    private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            Prefs.readingChallengeEnrolled = true
-            Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
-            finishOnboarding()
-        }
-    }
-
     private val onboardingItems = listOf(
         OnboardingItem(
             icon = R.drawable.ic_contract_24dp,
@@ -81,9 +75,10 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+        Prefs.readingChallengeOnboardingShown = true
         setContent {
             BaseTheme {
-
+                val scope = rememberCoroutineScope()
                 var showLoginDialog by remember { mutableStateOf(false) }
                 if (showLoginDialog) {
                     WikipediaAlertDialog(
@@ -96,10 +91,11 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            loginLauncher.launch(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
+                            startActivity(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
+                            finish()
                         },
                         onDismissButtonClick = {
-                            finishOnboarding()
+                            finish()
                         }
                     )
                 }
@@ -108,9 +104,10 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                     modifier = Modifier.fillMaxSize(),
                     onboardingItems = onboardingItems,
                     onCloseClick = {
-                        finishOnboarding()
+                        finish()
                     },
                     onLearnMoreClick = {
+                        // TODO: update the string to point to actual URL once provided
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
@@ -119,17 +116,15 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         } else {
                             Prefs.readingChallengeEnrolled = true
                             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
-                            finishOnboarding()
+                            scope.launch {
+                                ReadingChallengeWidget().updateAll(this@ReadingChallengeOnboardingActivity)
+                            }
+                            finish()
                         }
                     }
                 )
             }
         }
-    }
-
-    private fun finishOnboarding() {
-        Prefs.readingChallengeOnboardingShown = true
-        finish()
     }
 
     @Composable
