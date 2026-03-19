@@ -81,6 +81,15 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
+    private val requestReadingChallengeActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
+            ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeInstallWidgetDialog.newInstance()
+            )
+        }
+    }
+
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         // TODO: Show message(s) to the user if they deny the permission
     }
@@ -273,7 +282,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() && this !is ReadingChallengeOnboardingActivity) {
-            startActivity(ReadingChallengeOnboardingActivity.newIntent(this))
+            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 ReadingChallengeInstallWidgetDialog.newInstance()
