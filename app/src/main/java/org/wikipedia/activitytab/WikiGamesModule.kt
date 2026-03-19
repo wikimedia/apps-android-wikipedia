@@ -293,7 +293,7 @@ fun OnThisDayGameLoginPromptCard(
                         contentDescription = null
                     )
                     Text(
-                        modifier = Modifier.padding(start = 6.dp, top = 4.dp, bottom = 4.dp),
+                        modifier = Modifier.padding(start = 6.dp),
                         text = stringResource(R.string.on_this_day_game_stats_log_in_prompt_card_button),
                         style = MaterialTheme.typography.labelLarge
                     )

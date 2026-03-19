@@ -800,8 +800,6 @@
   <string name="on_this_day_game_score">ქულა: %d</string>
   <string name="on_this_day_game_correct">სწორია!</string>
   <string name="on_this_day_game_incorrect">არასწორია!</string>
-  <string name="on_this_day_game_pause_negative">თამაშის გაგრძელება</string>
-  <string name="on_this_day_game_pause_positive">გასაგებია</string>
   <string name="on_this_day_game_menu_info">გაიგეთ მეტი</string>
   <string name="on_this_day_game_notification_undo">დაბრუნება</string>
 </resources>

@@ -48,12 +48,14 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
+import java.time.LocalDate
 
 class ReadingChallengeOnboardingActivity : BaseActivity() {
 
     private val loginLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             Prefs.readingChallengeEnrolled = true
+            Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
             finishOnboarding()
         }
     }
@@ -118,6 +120,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = true
                         } else {
                             Prefs.readingChallengeEnrolled = true
+                            Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
                             finishOnboarding()
                         }
                     }
