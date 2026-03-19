@@ -1768,8 +1768,8 @@
   <string name="survey_dialog_submitted_snackbar">غبرگون وسپارل شو. مننه!</string>
   <string name="on_this_day_game_entry_dialog_title">پېژندون</string>
   <string name="on_this_day_game_entry_dialog_subtitle">د ويکيپېډيا لوبې</string>
-  <string name="on_this_day_game_entry_dialog_button">د نن ورځې لوبه کول</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">د ويکيپډيا لوبې سپړل خوراکې کې شتون لري.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">د نن ورځې لوبه کول</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">د ويکيپډيا لوبې سپړل خوراکې کې شتون لري.</string>
   <string name="on_this_day_game_title">کوم یو لومړی راغی؟</string>
   <string name="on_this_day_game_dialog_button">غږول</string>
   <string name="on_this_day_game_splash_message">اټکل وکړئ چې په پېښليک کې په دې ورځ کومه پېښه لومړۍ رامنځته شوه.</string>
@@ -1781,14 +1781,9 @@
   <string name="on_this_day_game_point">+۱ ټکی</string>
   <string name="on_this_day_game_next">نوې پوښتنه</string>
   <string name="on_this_day_game_finish">وروستۍ پايلې</string>
-  <string name="on_this_day_game_share_button">وېشل</string>
-  <string name="on_this_day_game_pause_title">لوبه ودروي؟</string>
-  <string name="on_this_day_game_pause_body">ستاسو د نن ورځې بهير به خوندي شي. تاسو کولی شئ خپله لوبه په سپړل خوراکې کې ومومئ.</string>
-  <string name="on_this_day_game_pause_negative">لوبې ته دوام ورکول</string>
-  <string name="on_this_day_game_pause_positive">وپوهېدم</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">وېشل</string>
   <string name="on_this_day_game_feed_entry_card_heading">د ويکيپېډيا لوبې</string>
   <string name="on_this_day_game_feed_entry_card_title">کوم یو لومړی راغی؟</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">اټکل وکړئ چې په پېښليک کې په دې ورځ کومه پېښه لومړۍ رامنځته شوه.</string>
   <string name="on_this_day_game_result">تاسو %1$d/%2$d نومرې واخيستې.</string>
   <string name="on_this_day_game_next_in">راتلونکې لوبه په %s</string>
   <string name="on_this_day_game_your_stats">ستاسو شمارنې</string>

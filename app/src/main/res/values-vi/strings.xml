@@ -1715,13 +1715,9 @@
   <string name="on_this_day_game_point">+1 điểm</string>
   <string name="on_this_day_game_next">Câu hỏi tiếp theo</string>
   <string name="on_this_day_game_finish">Kết quả cuối cùng</string>
-  <string name="on_this_day_game_share_button">Chia sẻ</string>
-  <string name="on_this_day_game_pause_title">Dừng trò chơi?</string>
-  <string name="on_this_day_game_pause_negative">Tiếp tục chơi</string>
-  <string name="on_this_day_game_pause_positive">Đã hiểu</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Chia sẻ</string>
   <string name="on_this_day_game_feed_entry_card_heading">Trò chơi Wikipedia</string>
   <string name="on_this_day_game_feed_entry_card_title">Cái nào có trước?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Hãy đoán xem sự kiện nào diễn ra trước vào ngày này năm xưa.</string>
   <string name="on_this_day_game_result">Bạn trả lời đúng %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Lần chơi kế tiếp bắt đầu trong %s</string>
   <string name="on_this_day_game_stats_average_score">Điểm số trung bình</string>

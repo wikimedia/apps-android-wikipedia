@@ -774,7 +774,7 @@
   <string name="survey_dialog_general_no">Uhu</string>
   <string name="on_this_day_game_dialog_button">Urar</string>
   <string name="on_this_day_game_progress">%1$d seg %2$d</string>
-  <string name="on_this_day_game_share_button">Bḍu</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Bḍu</string>
   <string name="on_this_day_game_menu_info">Issin ugar</string>
   <string name="on_this_day_game_article_read_button">Ɣeṛ amagrad</string>
   <string name="on_this_day_game_notification_undo">Semmet</string>
