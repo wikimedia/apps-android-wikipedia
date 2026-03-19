@@ -2196,4 +2196,6 @@
     <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Subtitle shown on the Reading Challenge widget instructing the user to read one article to begin their new streak.</string>
     <string name="reading_challenge_widget_start_fresh_start_title">Title shown on the Reading Challenge widget indicating the user is beginning a new streak after a previous one ended.</string>
     <string name="reading_challenge_widget_start_fresh_start_subtitle">Subtitle shown on the Reading Challenge widget encouraging the user that reading one article will start their new streak.</string>
+    <string name="reading_challenge_widget_concluded_incomplete">Message shown when the reading challenge has concluded, with the user not completing it fully.</string>
+    <string name="reading_challenge_widget_concluded_complete">Message shown when the reading challenge has concluded, with the user having completed it successfully.</string>
 </resources>

@@ -2447,4 +2447,6 @@
     <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Read one article to get started.</string>
     <string name="reading_challenge_widget_start_fresh_start_title">A fresh start.</string>
     <string name="reading_challenge_widget_start_fresh_start_subtitle">Your streak is just one article away.</string>
+    <string name="reading_challenge_widget_concluded_incomplete">Challenge concluded</string>
+    <string name="reading_challenge_widget_concluded_complete">You did it!</string>
 </resources>

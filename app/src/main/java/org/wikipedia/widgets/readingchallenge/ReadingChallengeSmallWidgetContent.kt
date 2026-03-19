@@ -51,8 +51,8 @@ fun ReadingChallengeSmallWidgetContent(
                         textSize = 16.sp,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 24.dp,
-                        iconTintColorProvider = WidgetColors.primary,
-                        textColorProvider = WidgetColors.primary
+                        iconTintColor = WidgetColors.primary,
+                        textColor = WidgetColors.primary
                     )
                     Spacer(
                         modifier = GlanceModifier.height(8.dp)
@@ -85,7 +85,7 @@ fun ReadingChallengeSmallWidgetContent(
                 }
             )
         }
-        ReadingChallengeState.ChallengeConcludedNoStreak -> {
+        ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -97,7 +97,6 @@ fun ReadingChallengeSmallWidgetContent(
                 }
             )
         }
-        ReadingChallengeState.ChallengeRemoved -> TODO()
         ReadingChallengeState.EnrolledNotStarted -> {
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
@@ -160,8 +159,8 @@ fun ReadingChallengeSmallWidgetContent(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = combination.contentColor,
-                        textColorProvider = combination.contentColor
+                        iconTintColor = combination.contentColor,
+                        textColor = combination.contentColor
                     )
                 }
             )
@@ -183,8 +182,8 @@ fun ReadingChallengeSmallWidgetContent(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
-                        iconTintColorProvider = combination.contentColor,
-                        textColorProvider = combination.contentColor
+                        iconTintColor = combination.contentColor,
+                        textColor = combination.contentColor
                     )
                 }
             )

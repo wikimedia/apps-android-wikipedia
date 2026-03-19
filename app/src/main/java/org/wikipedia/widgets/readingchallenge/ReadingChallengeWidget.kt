@@ -99,7 +99,7 @@ fun WidgetButton(
     backgroundColor: Color = WidgetColors.progressive,
     contentColor: Color = WidgetColors.white,
     icon: ImageProvider? = null,
-    modifier: GlanceModifier = GlanceModifier
+    modifier: GlanceModifier = GlanceModifier.fillMaxWidth()
 ) {
     FilledButton(
         text = text,
@@ -109,7 +109,7 @@ fun WidgetButton(
             contentColor = ColorProvider(day = contentColor, night = contentColor)
         ),
         icon = icon,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
     )
 }
 
@@ -120,8 +120,8 @@ fun WidgetBadge(
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
-    iconTintColorProvider: Color,
-    textColorProvider: Color,
+    iconTintColor: Color,
+    textColor: Color,
     modifier: GlanceModifier = GlanceModifier
 ) {
     Row(
@@ -134,7 +134,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColorProvider, night = iconTintColorProvider))
+            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor))
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)
@@ -143,7 +143,7 @@ fun WidgetBadge(
             text = text,
             style = TextStyle(
                 fontSize = textSize,
-                color = ColorProvider(day = textColorProvider, night = textColorProvider),
+                color = ColorProvider(day = textColor, night = textColor),
                 fontWeight = FontWeight.Medium
             )
         )
