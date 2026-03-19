@@ -86,7 +86,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                ReadingChallengeInstallWidgetDialog.newInstance()
+                ReadingChallengeInstallWidgetDialog()
             )
         }
     }
