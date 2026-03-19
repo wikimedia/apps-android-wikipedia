@@ -91,8 +91,8 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            finish()
                             startActivity(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
+                            finish()
                         },
                         onDismissButtonClick = {
                             finish()
@@ -107,6 +107,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
+                        // TODO: update the string to point to actual URL once provided
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
