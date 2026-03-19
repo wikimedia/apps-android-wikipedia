@@ -52,6 +52,14 @@ interface Service {
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun prefixSearchResponse(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): Response<MwQueryResponse>
+
+    @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
