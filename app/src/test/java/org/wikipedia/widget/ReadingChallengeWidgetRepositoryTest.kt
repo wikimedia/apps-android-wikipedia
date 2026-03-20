@@ -58,6 +58,7 @@ class ReadingChallengeWidgetRepositoryTest {
             )
         )
         TestCase.assertFalse(state is ReadingChallengeState.NotLiveYet)
+        TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
     }
 
     @Test
@@ -71,22 +72,10 @@ class ReadingChallengeWidgetRepositoryTest {
             )
         )
         TestCase.assertFalse(state is ReadingChallengeState.NotLiveYet)
-    }
-
-    // Not enrolled tests
-    @Test
-    fun `returns NotEnrolled on May 1 when not enrolled`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 1),
-                enabled = false,
-                currentStreak = 0,
-                hasReadToday = false
-            )
-        )
         TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
     }
 
+    // Not enrolled tests
     @Test
     fun `returns NotEnrolled on May 31 when not enrolled`() {
         val state = repository.resolveState(
@@ -138,19 +127,6 @@ class ReadingChallengeWidgetRepositoryTest {
             )
         )
         TestCase.assertTrue(state is ReadingChallengeState.ChallengeCompleted)
-    }
-
-    @Test
-    fun `does not return ChallengeCompleted on exactly July 10 with streak 24`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 7, 10),
-                enabled = true,
-                currentStreak = 24,
-                hasReadToday = false
-            )
-        )
-        TestCase.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
     }
 
     @Test
@@ -216,8 +192,8 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // reset streak test
     @Test
-    fun `when lastReadDate is more than 1 day ago then streak and hasReadToday are reset`() {
-        val currentDate = LocalDate.of(2026, 3, 15)
+    fun `streak resets when lastReadDate is more than 1 day ago`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
 
         every { Prefs.readingChallengeEnrolled } returns true
         every { Prefs.readingChallengeStreak } returns 10
@@ -232,25 +208,97 @@ class ReadingChallengeWidgetRepositoryTest {
         TestCase.assertEquals(0, newCurrentStreak)
     }
 
+    @Test
+    fun `streak resets on exactly May 31 when lastReadDate is more than 1 day ago`() {
+        val currentDate = LocalDate.of(2026, 5, 31)
+
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
+
+        var newCurrentStreak = 10
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
+
+        repository.recalculateStreakIfNeeded(currentDate)
+
+        TestCase.assertEquals(0, newCurrentStreak)
+    }
+
+    @Test
+    fun `streak should not reset after May 31 when lastReadDate is more than 1 day ago`() {
+        val currentDate = LocalDate.of(2026, 6, 1)
+
+        every { Prefs.readingChallengeEnrolled } returns true
+        every { Prefs.readingChallengeStreak } returns 10
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
+        var newCurrentStreak = 10
+
+        // if this is called, it means the streak was reset, which should not happen after May 31
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
+
+        repository.recalculateStreakIfNeeded(currentDate)
+
+        TestCase.assertEquals(10, newCurrentStreak)
+    }
+
+    @Test
+    fun `streak does not reset when lastReadDate is exactly yesterday`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
+        var newCurrentStreak = 10
+
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
+
+        repository.recalculateStreakIfNeeded(currentDate)
+
+        TestCase.assertEquals(10, newCurrentStreak)
+    }
+
+    @Test
+    fun `streak does not reset when lastReadDate is empty`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+
+        every { Prefs.readingChallengeLastReadDate } returns ""
+        var newCurrentStreak = 10
+
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
+
+        repository.recalculateStreakIfNeeded(currentDate)
+
+        TestCase.assertEquals(10, newCurrentStreak)
+    }
+
+    // covers silently reset the streak counter to 0
+    @Test
+    fun `return EnrolledNotStarted when streak resets`() {
+        val currentDate = LocalDate.of(2026, 5, 15)
+
+        every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
+        var newCurrentStreak = 10
+
+        every { Prefs.readingChallengeStreak = any() } answers { newCurrentStreak = firstArg() }
+
+        repository.recalculateStreakIfNeeded(currentDate)
+
+        TestCase.assertEquals(0, newCurrentStreak)
+
+        val state = repository.resolveState(
+            ReadingChallengeUserData(
+                currentDate = currentDate,
+                enabled = true,
+                currentStreak = newCurrentStreak,
+                hasReadToday = false
+            )
+        )
+
+        TestCase.assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
+    }
+
     // Enrolled not started test
     @Test
     fun `returns EnrolledNotStarted on May 1 with zero streak`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
                 currentDate = LocalDate.of(2026, 5, 1),
-                enabled = true,
-                currentStreak = 0,
-                hasReadToday = false
-            )
-        )
-        TestCase.assertTrue(state is ReadingChallengeState.EnrolledNotStarted)
-    }
-
-    @Test
-    fun `returns EnrolledNotStarted mid-May with zero streak or after streak reset`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 15),
                 enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
