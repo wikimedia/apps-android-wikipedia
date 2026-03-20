@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -63,7 +62,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             setContent {
                 BaseTheme {
                     InstallWidgetScreen(
-                        pinToWidgetSupported = false,
+                        pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
                             dismissDialog()
                         },
@@ -208,16 +207,12 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
                     ),
                     onClick = onGotItClick
                 ) {
-                    AnimatedContent(
-                        targetState = stringResource(R.string.reading_challenge_install_prompt_got_it),
-                    ) { targetText ->
-                        Text(
-                            text = targetText,
-                            style = MaterialTheme.typography.labelLarge,
-                            color = WikipediaTheme.colors.paperColor,
-                            textAlign = TextAlign.Center
-                        )
-                    }
+                    Text(
+                        text = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.paperColor,
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
