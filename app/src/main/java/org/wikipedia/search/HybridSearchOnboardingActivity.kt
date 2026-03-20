@@ -94,6 +94,13 @@ private val suggestedQueriesPerLanguage = mapOf(
         R.string.hybrid_search_onboarding_search_example_query3_fr,
         R.string.hybrid_search_onboarding_search_example_query4_fr,
         R.string.hybrid_search_onboarding_search_example_query5_fr
+    ),
+    "pt" to listOf(
+        R.string.hybrid_search_onboarding_search_example_query1_pt,
+        R.string.hybrid_search_onboarding_search_example_query2_pt,
+        R.string.hybrid_search_onboarding_search_example_query3_pt,
+        R.string.hybrid_search_onboarding_search_example_query4_pt,
+        R.string.hybrid_search_onboarding_search_example_query5_pt
     )
 )
 
@@ -115,6 +122,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
             BaseTheme {
                 HybridSearchOnboardingScreen(
                     langCode = WikipediaApp.instance.appOrSystemLanguageCode,
+                    searchExamples = suggestedQueriesPerLanguage[WikipediaApp.instance.appOrSystemLanguageCode] ?: defaultSuggestedQueries,
                     onGetStarted = {
                         instrument?.submitInteraction("click", elementId = "start_button")
 
@@ -167,6 +175,7 @@ class HybridSearchOnboardingActivity : BaseActivity() {
 fun HybridSearchOnboardingScreen(
     modifier: Modifier = Modifier,
     langCode: String,
+    searchExamples: List<Int>,
     onGetStarted: () -> Unit,
     onSearchQueryItemClick: (String) -> Unit,
     onLearnMoreClick: () -> Unit
@@ -243,6 +252,7 @@ fun HybridSearchOnboardingScreen(
                 modifier = Modifier
                     .background(WikipediaTheme.colors.paperColor),
                 langCode = langCode,
+                searchExamples = searchExamples,
                 onClick = { exampleQuery ->
                     onSearchQueryItemClick(exampleQuery)
                 }
@@ -254,7 +264,7 @@ fun HybridSearchOnboardingScreen(
 @Composable
 fun SearchExamplesView(
     modifier: Modifier = Modifier,
-    searchExamples: List<Int> = suggestedQueriesPerLanguage[WikipediaApp.instance.appOrSystemLanguageCode] ?: defaultSuggestedQueries,
+    searchExamples: List<Int>,
     langCode: String,
     onClick: (String) -> Unit
 ) {
@@ -355,6 +365,7 @@ private fun HybridSearchOnboardingScreenPreview() {
     ) {
         HybridSearchOnboardingScreen(
             langCode = "el",
+            searchExamples = suggestedQueriesPerLanguage["el"]!!,
             onGetStarted = {},
             onSearchQueryItemClick = {},
             onLearnMoreClick = {}
@@ -370,6 +381,7 @@ private fun SearchExamplesPreview() {
     ) {
         SearchExamplesView(
             langCode = "en",
+            searchExamples = defaultSuggestedQueries,
             modifier = Modifier
                 .background(WikipediaTheme.colors.paperColor),
             onClick = {}
