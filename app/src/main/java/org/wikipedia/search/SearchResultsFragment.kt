@@ -22,6 +22,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
@@ -80,6 +81,12 @@ class SearchResultsFragment : Fragment() {
                             "show_hybrid_result",
                             actionContext = viewModel.getEventActionContext()
                         )
+                        if (viewModel.languageCode.value == "el") {
+                            // In the Greek case, we log the literal list of semantic search results
+                            // to the Breadcrumbs schema, to be cross-referenced using the x-search-id field.
+                            // (This only needs to be sent once, so let's send it upon impression.)
+                            BreadCrumbLogEvent.logMap(requireContext(), viewModel.getBreadcrumbActionContext())
+                        }
                     }
                 }
             }

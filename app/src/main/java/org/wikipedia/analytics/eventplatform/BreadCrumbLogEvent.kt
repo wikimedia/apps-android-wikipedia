@@ -11,6 +11,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.util.log.L
 
@@ -88,6 +89,11 @@ class BreadCrumbLogEvent(
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             val str = "$viewReadableName." + (view as TextView).text
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
+        }
+
+        fun logMap(context: Context, map: Map<String, Any>) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
+                JsonUtil.encodeToString(map).orEmpty()))
         }
     }
 }
