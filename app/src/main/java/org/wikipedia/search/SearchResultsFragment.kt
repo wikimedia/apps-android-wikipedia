@@ -78,10 +78,8 @@ class SearchResultsFragment : Fragment() {
                         requireActivity().instrument?.submitInteraction(
                             "show_hybrid_result",
                             actionContext = mapOf(
-                                "query" to viewModel.searchTerm.value.orEmpty(),
-                                "x_search_id" to viewModel.lastXSearchId,
-                                "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                "semantic" to viewModel.semanticResultsTitlesForEvent
+                                "x_search_id_lex" to viewModel.lastXSearchIdLexical,
+                                "x_search_id_sem" to viewModel.lastXSearchIdSemantic
                             )
                         )
                     }
@@ -103,10 +101,8 @@ class SearchResultsFragment : Fragment() {
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
                                         "position" to position + 1,
-                                        "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                        "semantic" to viewModel.semanticResultsTitlesForEvent,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
+                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
+                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
                                     )
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -117,8 +113,8 @@ class SearchResultsFragment : Fragment() {
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
                                     actionContext = mapOf(
                                         "position" to position + 1,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
+                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
+                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
                                     )
                                 )
                             },
@@ -128,10 +124,8 @@ class SearchResultsFragment : Fragment() {
                                     pageData = TestKitchenAdapter.getPageData(title),
                                     actionContext = mapOf(
                                         "position" to position + 1,
-                                        "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                        "semantic" to viewModel.semanticResultsTitlesForEvent,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
+                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
+                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
                                     )
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)

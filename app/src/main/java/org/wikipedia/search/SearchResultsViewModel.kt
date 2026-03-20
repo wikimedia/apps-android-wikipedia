@@ -55,9 +55,8 @@ class SearchResultsViewModel : ViewModel() {
 
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
-    var semanticResultsTitlesForEvent = ""
-    var lexicalResultsTitlesForEvent = ""
-    var lastXSearchId = ""
+    var lastXSearchIdLexical = ""
+    var lastXSearchIdSemantic = ""
 
     @OptIn(
         FlowPreview::class,
@@ -90,7 +89,8 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 
-            lastXSearchId = ""
+           lastXSearchIdLexical = ""
+           lastXSearchIdSemantic = ""
             val term = _searchTerm.value
             val lang = _languageCode.value
 
@@ -105,11 +105,12 @@ class SearchResultsViewModel : ViewModel() {
                 runCatching {
                     val lexicalSearchResults = mutableListOf<SearchResult>()
                     // prefix + fulltext search results for at most 3 results.
-                    var response = ServiceFactory.get(wikiSite).prefixSearch(term, lexicalBatchSize, 0)
-                    lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                    val response = ServiceFactory.get(wikiSite).prefixSearchResponse(term, lexicalBatchSize, 0)
+                    lastXSearchIdLexical = response.headers()["x-search-id"] ?: ""
+                    lexicalSearchResults.addAll(buildList(response.body(), invokeSource, wikiSite))
                     if (lexicalSearchResults.size < lexicalBatchSize) {
-                        response = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
-                        lexicalSearchResults.addAll(buildList(response, invokeSource, wikiSite))
+                        val fullTextResponse = ServiceFactory.get(wikiSite).fullTextSearch(term, lexicalBatchSize, 0)
+                        lexicalSearchResults.addAll(buildList(fullTextResponse, invokeSource, wikiSite))
                     }
                     lexicalSearchResults
                 }
@@ -118,7 +119,7 @@ class SearchResultsViewModel : ViewModel() {
             val semanticDeferred = async {
                 runCatching {
                     val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, semanticBatchSize, 0, isSemantic = true)
-                    lastXSearchId = response.headers()["x-search-id"] ?: ""
+                    lastXSearchIdSemantic = response.headers()["x-search-id"] ?: ""
                     buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
                 }
             }
@@ -134,9 +135,6 @@ class SearchResultsViewModel : ViewModel() {
             val lexicalList = lexicalResult.getOrElse { emptyList() }
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
-
-           semanticResultsTitlesForEvent = semanticList.joinToString("|") { it.pageTitle.prefixedText + "#" + it.pageTitle.fragment }
-           lexicalResultsTitlesForEvent = lexicalList.joinToString("|") { it.pageTitle.prefixedText }
 
             _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
