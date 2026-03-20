@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
+import java.util.UUID
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -59,8 +60,10 @@ class SearchResultsViewModel : ViewModel() {
     private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
-    var lastXSearchIdLexical = ""
-    var lastXSearchIdSemantic = ""
+    private var lastXSearchIdLexical = ""
+    private var lastXSearchIdSemantic = ""
+    private var semanticResultsTitlesForEvent = ""
+    private var lexicalResultsTitlesForEvent = ""
 
     @OptIn(
         FlowPreview::class,
@@ -125,6 +128,7 @@ class SearchResultsViewModel : ViewModel() {
                     if (lang == "el") {
                         val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = "elwiki_sections", includeText = true)
                         val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
+                        lastXSearchIdSemantic = UUID.randomUUID().toString()
                         buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
                             for (result in list) {
                                 val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
@@ -152,7 +156,10 @@ class SearchResultsViewModel : ViewModel() {
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
 
-            _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
+           semanticResultsTitlesForEvent = semanticList.joinToString("|") { it.pageTitle.prefixedText + "#" + it.pageTitle.fragment }
+           lexicalResultsTitlesForEvent = lexicalList.joinToString("|") { it.pageTitle.prefixedText }
+
+           _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
     }
 
@@ -170,6 +177,22 @@ class SearchResultsViewModel : ViewModel() {
 
     fun resetHybridSearchState() {
         _hybridSearchResultState.value = UiState.Loading
+    }
+
+    fun getEventActionContext(): Map<String, Any> {
+        return mapOf(
+            "x_search_id_lex" to lastXSearchIdLexical,
+            "x_search_id_sem" to lastXSearchIdSemantic
+        )
+    }
+
+    fun getBreadcrumbActionContext(): Map<String, String> {
+        return mapOf(
+            "x_search_id_sem" to lastXSearchIdSemantic,
+            "lexical" to lexicalResultsTitlesForEvent,
+            "semantic" to semanticResultsTitlesForEvent,
+            "query" to searchTerm.value.orEmpty()
+        )
     }
 
     class SearchResultsPagingSource(
