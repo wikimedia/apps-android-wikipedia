@@ -5,6 +5,7 @@ import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.InteractionData
+import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.event.Event
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
@@ -58,9 +59,10 @@ class TestKitchenClient(
     fun submitInteraction(
         instrument: InstrumentImpl,
         interactionData: InteractionData? = null,
-        pageData: PageData? = null
+        pageData: PageData? = null,
+        mediawikiData: MediawikiData? = null
     ) {
-        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData)
+        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData, mediawikiData)
     }
 
     fun submitInteraction(
@@ -68,18 +70,19 @@ class TestKitchenClient(
         streamName: String,
         instrument: InstrumentImpl,
         interactionData: InteractionData? = null,
-        pageData: PageData? = null
+        pageData: PageData? = null,
+        mediawikiData: MediawikiData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
         if (sourceConfig.get() != null) {
             streamConfig = sourceConfig.get().getStreamConfigByName(streamName)
             if (streamConfig == null) {
-                logger.info("No stream config exists for this stream, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("No stream config exists for this stream, the event is ignored and dropped.")
                 return
             }
             if (!samplingController.isInSample(streamConfig)) {
-                logger.info("Not in sample, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("Not in sample, the event is ignored and dropped.")
                 return
             }
         }
@@ -92,7 +95,7 @@ class TestKitchenClient(
             clientData = ClientData(
                 agentData = clientDataCallback.getAgentData(),
                 pageData = pageData,
-                mediawikiData = clientDataCallback.getMediawikiData(),
+                mediawikiData = mediawikiData ?: clientDataCallback.getMediawikiData(),
                 performerData = clientDataCallback.getPerformerData()
             ),
             interactionData = interactionData ?: InteractionData(),
