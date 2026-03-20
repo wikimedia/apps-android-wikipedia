@@ -67,15 +67,14 @@ fun OnboardingListItem(
 
 @Composable
 fun TwoButtonBottomBar(
+    modifier: Modifier = Modifier,
     primaryButtonText: String,
     secondaryButtonText: String,
     onPrimaryOnClick: () -> Unit,
     onSecondaryOnClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 16.dp),
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(
             space = 24.dp,
             alignment = Alignment.CenterHorizontally
@@ -153,6 +152,8 @@ private fun TwoButtonBottomBarPreview() {
         currentTheme = Theme.DARK
     ) {
         TwoButtonBottomBar(
+            modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             "Foo",
             "A rather long button label",
             onPrimaryOnClick = { },

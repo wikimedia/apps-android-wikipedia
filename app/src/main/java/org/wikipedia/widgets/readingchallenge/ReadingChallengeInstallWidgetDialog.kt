@@ -10,7 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.BorderStroke
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -63,7 +63,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             setContent {
                 BaseTheme {
                     InstallWidgetScreen(
-                        pinToWidgetSupported = pinWidgetSupported(),
+                        pinToWidgetSupported = false,
                         onCloseClick = {
                             dismissDialog()
                         },
@@ -191,32 +191,30 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
 
             if (pinToWidgetSupported) {
                 TwoButtonBottomBar(
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(vertical = 16.dp),
                     primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
                     secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
                     onPrimaryOnClick = onAddClick,
                     onSecondaryOnClick = onGotItClick
                 )
             } else {
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.Center
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = WikipediaTheme.colors.progressiveColor
+                    ),
+                    onClick = onGotItClick
                 ) {
-                    Button(
-                        modifier = Modifier.padding(16.dp),
-                        border = BorderStroke(
-                            width = 1.dp,
-                            color = WikipediaTheme.colors.borderColor
-                        ),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = WikipediaTheme.colors.paperColor
-                        ),
-                        onClick = onGotItClick
-                    ) {
+                    AnimatedContent(
+                        targetState = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                    ) { targetText ->
                         Text(
-                            modifier = Modifier.padding(horizontal = 32.dp),
-                            text = stringResource(R.string.reading_challenge_install_prompt_got_it),
+                            text = targetText,
                             style = MaterialTheme.typography.labelLarge,
-                            color = WikipediaTheme.colors.progressiveColor,
+                            color = WikipediaTheme.colors.paperColor,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -232,7 +230,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
             currentTheme = Theme.LIGHT
         ) {
             InstallWidgetScreen(
-                pinToWidgetSupported = true,
+                pinToWidgetSupported = false,
                 onCloseClick = {},
                 onAddClick = {},
                 onGotItClick = {}
