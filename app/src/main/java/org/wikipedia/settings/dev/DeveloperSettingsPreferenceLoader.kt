@@ -30,9 +30,11 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
+import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundActivity
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 
@@ -267,6 +269,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
+        }
+        findPreference(R.string.preference_key_reading_challenge_widgets).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                activity.startActivity(Intent(activity, ReadingChallengePlayGroundActivity::class.java))
+                true
+            }
         }
     }
 

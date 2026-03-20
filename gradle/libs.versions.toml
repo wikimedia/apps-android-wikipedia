@@ -12,6 +12,7 @@ espressoVersion = "3.7.0"
 firebaseMessagingVersion = "24.1.2"
 flexbox = "3.0.0"
 fragmentKtx = "1.8.9"
+glance = "1.1.1"
 googlePayVersion = "19.5.0"
 googleServices = "4.4.4"
 gradle = "9.1.0"
@@ -50,6 +51,7 @@ workRuntimeKtx = "2.11.1"
 composeBom = "2026.03.00"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
+uiGraphics = "1.10.5"
 
 
 [libraries]
@@ -122,6 +124,11 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
+androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glance" }
+androidx-glance-appwidget-preview = { module = "androidx.glance:glance-appwidget-preview", version.ref = "glance" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }

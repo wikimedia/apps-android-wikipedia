@@ -880,4 +880,28 @@ object Prefs {
     var isGameStatsUnavailableSnackbarShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
+
+    var readingChallengeStreak
+        get() = PrefsIoUtil.getInt(R.string.preference_key_reading_challenge_streak, 0)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_reading_challenge_streak, value)
+
+    var readingChallengeEnrolled
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_enrolled, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_enrolled, value)
+
+    var readingChallengeLastReadDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_last_read_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_last_read_date, value)
+
+    var readingChallengeOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_onboarding_shown, value)
+
+    var readingChallengeInstallPromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_install_prompt_shown, value)
+
+    var readingChallengeEnrollmentDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_enrollment_date, "").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_enrollment_date, value)
 }
