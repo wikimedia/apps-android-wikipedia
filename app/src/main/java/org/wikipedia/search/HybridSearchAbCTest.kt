@@ -1,6 +1,5 @@
 package org.wikipedia.search
 
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
@@ -13,10 +12,6 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
             GROUP_3 -> GROUP_SEMANTIC_LEXICAL
             else -> GROUP_CONTROL
         }
-    }
-
-    override fun shouldInstrument(): Boolean {
-        return isTestActive() && isLanguageSupported(WikipediaApp.instance.appOrSystemLanguageCode)
     }
 
     fun isTestActive(): Boolean {
