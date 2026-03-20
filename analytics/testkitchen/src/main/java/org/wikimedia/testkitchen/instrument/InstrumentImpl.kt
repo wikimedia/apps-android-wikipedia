@@ -25,9 +25,6 @@ class InstrumentImpl(
         mediawikiData: MediawikiData? = null,
         actionContext: Map<String, Any>? = null
     ) {
-        if (experiment?.isLoggable() == false) {
-            return
-        }
         val actionContextFinal = mutableMapOf<String, String>()
         funnel?.addActionContext(actionContextFinal)
         actionContext?.let {
