@@ -1,5 +1,6 @@
 package org.wikipedia.search
 
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -25,7 +26,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UiState
+import java.util.UUID
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -53,10 +57,13 @@ class SearchResultsViewModel : ViewModel() {
 
     val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
+    private val semanticSearchService: SemanticSearchService = ServiceFactory[WikiSite(SemanticSearchService.BASE_URL), SemanticSearchService.BASE_URL, SemanticSearchService::class.java]
     val isHybridSearchExperimentOn get() = HybridSearchAbCTest().isHybridSearchEnabled(languageCode.value)
 
-    var lastXSearchIdLexical = ""
-    var lastXSearchIdSemantic = ""
+    private var lastXSearchIdLexical = ""
+    private var lastXSearchIdSemantic = ""
+    private var semanticResultsTitlesForEvent = ""
+    private var lexicalResultsTitlesForEvent = ""
 
     @OptIn(
         FlowPreview::class,
@@ -118,9 +125,22 @@ class SearchResultsViewModel : ViewModel() {
 
             val semanticDeferred = async {
                 runCatching {
-                    val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, semanticBatchSize, 0, isSemantic = true)
-                    lastXSearchIdSemantic = response.headers()["x-search-id"] ?: ""
-                    buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
+                    if (lang == "el") {
+                        val response = semanticSearchService.search(query = term, count = semanticBatchSize, table = "elwiki_sections", includeText = true)
+                        val infoResponse = ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = response.results.joinToString("|") { it.title })
+                        lastXSearchIdSemantic = UUID.randomUUID().toString()
+                        buildList(response, wikiSite, SearchResult.SearchResultType.SEMANTIC).also { list ->
+                            for (result in list) {
+                                val page = infoResponse.query?.pages?.find { StringUtil.addUnderscores(it.title) == result.pageTitle.prefixedText }
+                                result.pageTitle.thumbUrl = page?.thumbUrl()
+                                result.pageTitle.description = page?.description
+                            }
+                        }
+                    } else {
+                        val response = ServiceFactory.get(wikiSite).fullTextSearchResponse(term, semanticBatchSize, 0, isSemantic = true)
+                        lastXSearchIdSemantic = response.headers()["x-search-id"] ?: ""
+                        buildList(response.body(), invokeSource, wikiSite, type = SearchResult.SearchResultType.SEMANTIC)
+                    }
                 }
             }
 
@@ -136,7 +156,10 @@ class SearchResultsViewModel : ViewModel() {
                 .distinctBy { it.pageTitle.prefixedText }
             val semanticList = semanticResult.getOrElse { emptyList() }
 
-            _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
+           semanticResultsTitlesForEvent = semanticList.joinToString("|") { it.pageTitle.prefixedText + "#" + it.pageTitle.fragment }
+           lexicalResultsTitlesForEvent = lexicalList.joinToString("|") { it.pageTitle.prefixedText }
+
+           _hybridSearchResultState.value = UiState.Success(lexicalList + semanticList)
         }
     }
 
@@ -154,6 +177,22 @@ class SearchResultsViewModel : ViewModel() {
 
     fun resetHybridSearchState() {
         _hybridSearchResultState.value = UiState.Loading
+    }
+
+    fun getEventActionContext(): Map<String, Any> {
+        return mapOf(
+            "x_search_id_lex" to lastXSearchIdLexical,
+            "x_search_id_sem" to lastXSearchIdSemantic
+        )
+    }
+
+    fun getBreadcrumbActionContext(): Map<String, String> {
+        return mapOf(
+            "x_search_id_sem" to lastXSearchIdSemantic,
+            "lexical" to lexicalResultsTitlesForEvent,
+            "semantic" to semanticResultsTitlesForEvent,
+            "query" to searchTerm.value.orEmpty()
+        )
     }
 
     class SearchResultsPagingSource(
@@ -214,6 +253,27 @@ class SearchResultsViewModel : ViewModel() {
                     list.filter { it.coordinates != null } else list).sortedBy { it.index }
                     .map { SearchResult(it, wikiSite, it.coordinates, type) }
             } ?: emptyList()
+        }
+
+        fun buildList(
+            response: SemanticSearchResults,
+            wikiSite: WikiSite,
+            type: SearchResult.SearchResultType = SearchResult.SearchResultType.SEARCH
+        ): List<SearchResult> {
+            return response.results.map { result ->
+                SearchResult(PageTitle.titleForUri(result.url.toUri(), wikiSite), searchResultType = type, snippet = postProcessSectionText(result.sectionText))
+            }
+        }
+
+        fun postProcessSectionText(text: String): String {
+            // TODO: remove this when server-side parsing is done.
+            val bold = Regex("'''(.*?)'''", RegexOption.DOT_MATCHES_ALL)
+            val italic = Regex("''(.*?)''", RegexOption.DOT_MATCHES_ALL)
+            val emptyParens = Regex("""\([\s,.;]*\)""")
+            return text
+                .replace(emptyParens, "")
+                .replace(bold, "<b>\$1</b>")
+                .replace(italic, "<i>\$1</i>")
         }
     }
 }
