@@ -139,6 +139,8 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
             containerColor = WikipediaTheme.colors.paperColor,
             bottomBar = {
                 TwoButtonBottomBar(
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 16.dp),
                     primaryButtonText = stringResource(R.string.reading_challenge_onboarding_join_button),
                     secondaryButtonText = stringResource(R.string.reading_challenge_onboarding_learn_more_button),
                     onPrimaryOnClick = onJoinClick,
