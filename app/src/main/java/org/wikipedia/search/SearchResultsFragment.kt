@@ -22,8 +22,10 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
@@ -77,13 +79,14 @@ class SearchResultsFragment : Fragment() {
                     if (state is UiState.Success) {
                         requireActivity().instrument?.submitInteraction(
                             "show_hybrid_result",
-                            actionContext = mapOf(
-                                "query" to viewModel.searchTerm.value.orEmpty(),
-                                "x_search_id" to viewModel.lastXSearchId,
-                                "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                "semantic" to viewModel.semanticResultsTitlesForEvent
-                            )
+                            actionContext = viewModel.getEventActionContext()
                         )
+                        if (viewModel.languageCode.value == "el") {
+                            // In the Greek case, we log the literal list of semantic search results
+                            // to the Breadcrumbs schema, to be cross-referenced using the x-search-id field.
+                            // (This only needs to be sent once, so let's send it upon impression.)
+                            BreadCrumbLogEvent.logMap(requireContext(), viewModel.getBreadcrumbActionContext())
+                        }
                     }
                 }
             }
@@ -101,13 +104,8 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = "lexical_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                        "semantic" to viewModel.semanticResultsTitlesForEvent,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -115,24 +113,16 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("impression",
                                     elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                             },
                             onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "lexical" to viewModel.lexicalResultsTitlesForEvent,
-                                        "semantic" to viewModel.semanticResultsTitlesForEvent,
-                                        "query" to viewModel.searchTerm.value.orEmpty(),
-                                        "x_search_id" to viewModel.lastXSearchId
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -266,8 +256,9 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
-        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
+        requireActivity().instrument?.setDefaultMediaWikiData(WikiSite.forLanguageCode(searchLanguageCode).dbName())
         viewModel.updateLanguageCode(searchLanguageCode)
+        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
 
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
