@@ -91,7 +91,7 @@ class BreadCrumbLogEvent(
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
         }
 
-        fun logMap(context: Context, map: Map<String, Any>) {
+        fun logMap(context: Context, map: Map<String, String>) {
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
                 JsonUtil.encodeToString(map).orEmpty()))
         }

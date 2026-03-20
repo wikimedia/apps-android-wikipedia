@@ -186,7 +186,7 @@ class SearchResultsViewModel : ViewModel() {
         )
     }
 
-    fun getBreadcrumbActionContext(): Map<String, Any> {
+    fun getBreadcrumbActionContext(): Map<String, String> {
         return mapOf(
             "x_search_id_sem" to lastXSearchIdSemantic,
             "lexical" to lexicalResultsTitlesForEvent,
