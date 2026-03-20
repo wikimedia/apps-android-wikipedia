@@ -116,5 +116,10 @@
     <string name="hybrid_search_onboarding_search_example_query3_fr">ADN ou ARN</string>
     <string name="hybrid_search_onboarding_search_example_query4_fr">Pourquoi rêvons-nous ?</string>
     <string name="hybrid_search_onboarding_search_example_query5_fr">Comment les langues disparaissent-elles ?</string>
+    <string name="hybrid_search_onboarding_search_example_query1_pt">Maior planeta do Sistema Solar</string>
+    <string name="hybrid_search_onboarding_search_example_query2_pt">Primeira Olimpíada de verão</string>
+    <string name="hybrid_search_onboarding_search_example_query3_pt">RNA vs DNA</string>
+    <string name="hybrid_search_onboarding_search_example_query4_pt">O que é um buraco negro?</string>
+    <string name="hybrid_search_onboarding_search_example_query5_pt">Qual é o maior rio do Brasil?</string>
 
 </resources>
