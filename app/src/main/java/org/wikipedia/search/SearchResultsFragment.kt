@@ -77,10 +77,7 @@ class SearchResultsFragment : Fragment() {
                     if (state is UiState.Success) {
                         requireActivity().instrument?.submitInteraction(
                             "show_hybrid_result",
-                            actionContext = mapOf(
-                                "x_search_id_lex" to viewModel.lastXSearchIdLexical,
-                                "x_search_id_sem" to viewModel.lastXSearchIdSemantic
-                            )
+                            actionContext = viewModel.getEventActionContext()
                         )
                     }
                 }
@@ -99,11 +96,8 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = "lexical_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
-                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -111,22 +105,16 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("impression",
                                     elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
-                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                             },
                             onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "x_search_id_lex" to viewModel.lastXSearchIdLexical,
-                                        "x_search_id_sem" to viewModel.lastXSearchIdSemantic
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
