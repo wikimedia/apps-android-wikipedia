@@ -24,6 +24,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.instrument
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.LongPressMenu
@@ -248,8 +249,9 @@ class SearchResultsFragment : Fragment() {
             return
         }
 
-        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
+        requireActivity().instrument?.setDefaultMediaWikiData(WikiSite.forLanguageCode(searchLanguageCode).dbName())
         viewModel.updateLanguageCode(searchLanguageCode)
+        viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
 
         // If user changes the language, make sure to turn off hybrid search screen.
         showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
