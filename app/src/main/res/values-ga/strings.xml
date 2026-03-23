@@ -1891,7 +1891,7 @@
   <string name="donate_gpay_dialog_other_button">Modh íocaíochta eile</string>
   <string name="donate_gpay_activity_title">Roghnaigh méid</string>
   <string name="donate_gpay_activity_title_with_currency">Roghnaigh méid (%s)</string>
-  <string name="donate_gpay_check_transaction_fee">Cuirfidh mé %s leis go fial chun na táillí idirbhirt a chlúdach ionas gur féidir leat 100% de mo shíntiús a choinneáil.</string>
+  <string name="donate_gpay_check_transaction_fee">Cuirfidh mé %s leis go fial chun na táillí idirbhirt a chlúdach ionas gur féidir leat 100%% de mo shíntiús a choinneáil.</string>
   <string name="donate_gpay_check_recurring">Déan síntiús míosúil athfhillteach de seo.</string>
   <string name="donate_gpay_check_send_email">Sea, is féidir le Fondúireacht Wikimedia ríomhphost a sheoladh chugam ó am go ham.</string>
   <string name="donate_gpay_minimum_amount">Roghnaigh méid le do thoil (%s ar a laghad)</string>
