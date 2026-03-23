@@ -1262,6 +1262,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Kies welke modules u wilt weergeven. Alle persoonlijke gegevens blijven privé op uw apparaat staan. U kunt uw browsergeschiedenis op elk moment wissen.</string>
   <string name="edits_screen_what_is_title">Bewerken in de Wikipedia-app</string>
   <string name="edits_screen_what_is_body">Weet u niet waar u moet beginnen met bewerken? Probeer dan ‘Voorgestelde bewerkingen’, een functie waarmee u kleine maar essentiële bijdragen aan Wikipedia kunt doen. U kunt ook direct naar een interessante pagina gaan en een wijziging aanbrengen met behulp van wikitekst.</string>
+  <string name="activity_tab_snackbar_label">Spelstatistieken worden weergegeven voor uw voorkeurstaal.</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="file_page_add_image_tags_button">Afbeeldingslabel toevoegen</string>
@@ -1814,10 +1815,15 @@
   <string name="survey_dialog_general_maybe">Misschien</string>
   <string name="survey_dialog_input_hint">Aanvullende terugkoppeling</string>
   <string name="survey_dialog_submitted_snackbar">Terugkoppeling ingediend. Dank u wel!</string>
+  <string name="games_hub_activity_title">Spellen</string>
+  <string name="games_hub_activity_games_unavailable_message">Er zijn nog geen spellen beschikbaar in deze taal! De spellen maken gebruik van inhoud die door vrijwillige redacteuren voor de betreffende Wikipedia-pagina\'s is gemaakt.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Meer lezen</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Spelstatistieken bekijken</string>
+  <string name="games_hub_activity_overflow_learn_more">Meer lezen</string>
   <string name="on_this_day_game_entry_dialog_title">Welkom bij</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spellen</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Het spel van vandaag spelen</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spellen zijn beschikbaar via Verkennen.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spelen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spellen zijn beschikbaar in de Spellenhub, te vinden in het menu MEER.</string>
   <string name="on_this_day_game_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_dialog_button">Spelen</string>
   <string name="on_this_day_game_splash_message">Raad welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
@@ -1829,7 +1835,7 @@
   <string name="on_this_day_game_point">+1 punt</string>
   <string name="on_this_day_game_next">Volgende vraag</string>
   <string name="on_this_day_game_finish">Eindresultaten</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Delen</string>
+  <string name="on_this_day_game_share_button">Score delen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spellen</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat gebeurde er eerst?</string>
   <string name="on_this_day_game_result">U hebt %1$d/%2$d behaald.</string>
@@ -1874,9 +1880,21 @@
   <string name="on_this_day_game_archive_btn_text">Archief afspelen</string>
   <string name="on_this_day_game_review_results_btn_text">Resultaten bekijken</string>
   <string name="on_this_day_game_score_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spel van de dag spelen</string>
   <string name="on_this_day_game_continue_playing_btn_text">Doorgaan met spelen</string>
   <string name="on_this_day_game_sound_on">Geluid aanzetten</string>
   <string name="on_this_day_game_sound_off">Geluid uitzetten</string>
+  <string name="on_this_day_game_more_label">Meer</string>
+  <string name="on_this_day_game_card_progress_label">U bent bij vraag %d. Blijf raden welke gebeurtenis op deze dag in de geschiedenis als eerste plaatsvond.</string>
+  <string name="on_this_day_game_card_progress_short_label">U bent bij vraag %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">U hebt %1$d/%2$d gescoord in het spel van de dag. Het volgende spel is over %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">U hebt %1$d/%2$d gescoord op het spel van vandaag.</string>
+  <string name="on_this_day_game_card_archive_label">Archief</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Aanmelden</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Meld u aan om uw spelstatistieken te bekijken</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Bekijk uw reeksen, scores en meer</string>
+  <string name="wikipedia_games_title">Wikipedia-spellen</string>
+  <string name="wikipedia_games_subtitle">Dagelijkse spellen gebaseerd op Wikipedia-inhoud.</string>
   <string name="year_in_review_learn_more">Meer lezen</string>
   <string name="year_in_review_get_started">Aan de slag</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-pictogram</string>
