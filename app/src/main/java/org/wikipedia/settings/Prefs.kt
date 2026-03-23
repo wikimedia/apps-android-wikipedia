@@ -29,6 +29,7 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewModel
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 import java.util.Date
@@ -906,6 +907,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_enrollment_date, value)
 
     var readingChallengeEndDate
-        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_end_date, "2026-05-31").orEmpty()
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_end_date,
+            ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_end_date, value)
 }

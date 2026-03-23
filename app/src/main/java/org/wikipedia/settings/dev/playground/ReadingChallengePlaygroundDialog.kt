@@ -18,12 +18,12 @@ import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -38,11 +38,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.glance.appwidget.updateAll
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
-import org.wikipedia.compose.components.WikiTopAppBar
+import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -62,20 +66,35 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
             setContent {
                 val coroutineScope = rememberCoroutineScope()
                 BaseTheme {
-                    Scaffold(
-                        topBar = {
-                            WikiTopAppBar(
-                                title = "Reading Challenge Playground",
-                                onNavigationClick = {
-                                    dismiss()
+                    Column(modifier = Modifier.fillMaxSize()) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            IconButton(
+                                onClick = { dismiss() },
+                                content = {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_arrow_back_black_24dp),
+                                        contentDescription = stringResource(R.string.nav_item_back),
+                                        tint = WikipediaTheme.colors.primaryColor
+                                    )
                                 }
                             )
-                        },
-                        containerColor = WikipediaTheme.colors.paperColor
-                    ) { paddingValues ->
+                            Text(
+                                text = "Reading Challenge Playground",
+                                style = MaterialTheme.typography.headlineSmall.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 18.sp
+                                ),
+                                color = WikipediaTheme.colors.primaryColor,
+                                modifier = Modifier.padding(start = 8.dp)
+                            )
+                        }
                         ReadingChallengePlayground(
-                            modifier = Modifier
-                                .padding(paddingValues),
+                            modifier = Modifier.padding(16.dp),
                             state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
                             updateWidgetsExplicitly = {
                                 coroutineScope.launch {
@@ -92,8 +111,8 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
     override fun onStart() {
         super.onStart()
         dialog?.let {
-            it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let {
-                BottomSheetBehavior.from(it).isDraggable = false
+            it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let { view ->
+                BottomSheetBehavior.from(view).isDraggable = false
             }
         }
     }
@@ -109,17 +128,29 @@ fun ReadingChallengePlayground(
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
     var lastReadDate by remember { mutableStateOf(Prefs.readingChallengeLastReadDate) }
     var endDate by remember { mutableStateOf(Prefs.readingChallengeEndDate) }
+    var onboardingShown by remember { mutableStateOf(Prefs.readingChallengeOnboardingShown) }
+    var widgetPromptShown by remember { mutableStateOf(Prefs.readingChallengeInstallPromptShown) }
 
     fun syncFromPrefs() {
         streak = Prefs.readingChallengeStreak
         enrolled = Prefs.readingChallengeEnrolled
         lastReadDate = Prefs.readingChallengeLastReadDate
         endDate = Prefs.readingChallengeEndDate
+        onboardingShown = Prefs.readingChallengeOnboardingShown
+        widgetPromptShown = Prefs.readingChallengeInstallPromptShown
     }
 
     val today = LocalDate.now().toString()
     val yesterday = LocalDate.now().minusDays(1).toString()
     val threeDaysAgo = LocalDate.now().minusDays(3).toString()
+
+    val switchColor = SwitchDefaults.colors(
+        uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+        uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+        uncheckedBorderColor = MaterialTheme.colorScheme.outline,
+        checkedTrackColor = WikipediaTheme.colors.progressiveColor,
+        checkedThumbColor = WikipediaTheme.colors.paperColor
+    )
 
     Column(
         modifier = modifier
@@ -177,10 +208,11 @@ fun ReadingChallengePlayground(
                     .background(WikipediaTheme.colors.backgroundColor)
                     .padding(16.dp)
                     .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
+                    modifier = Modifier.weight(1f),
                     text = "readingChallengeEnrolled",
                     style = MaterialTheme.typography.labelMedium,
                     color = WikipediaTheme.colors.primaryColor
@@ -193,13 +225,63 @@ fun ReadingChallengePlayground(
                         Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
                         updateWidgetsExplicitly()
                     },
-                    colors = SwitchDefaults.colors(
-                        uncheckedTrackColor = WikipediaTheme.colors.paperColor,
-                        uncheckedThumbColor = MaterialTheme.colorScheme.outline,
-                        uncheckedBorderColor = MaterialTheme.colorScheme.outline,
-                        checkedTrackColor = WikipediaTheme.colors.progressiveColor,
-                        checkedThumbColor = WikipediaTheme.colors.paperColor
-                    )
+                    colors = switchColor
+                )
+            }
+        }
+
+        // --- OnBoarding ---
+        Card {
+            Row(
+                Modifier
+                    .background(WikipediaTheme.colors.backgroundColor)
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = "readingChallengeOnboardingShown",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Switch(
+                    checked = onboardingShown,
+                    onCheckedChange = {
+                        onboardingShown = it
+                        Prefs.readingChallengeOnboardingShown = it
+                        updateWidgetsExplicitly()
+                    },
+                    colors = switchColor
+                )
+            }
+        }
+
+        // --- Widget prompt ---
+        Card {
+            Row(
+                Modifier
+                    .background(WikipediaTheme.colors.backgroundColor)
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = "readingChallengeInstallPromptShown",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Switch(
+                    checked = widgetPromptShown,
+                    onCheckedChange = {
+                        widgetPromptShown = it
+                        Prefs.readingChallengeInstallPromptShown = it
+                        updateWidgetsExplicitly()
+                    },
+                    colors = switchColor
                 )
             }
         }
@@ -340,7 +422,7 @@ fun ReadingChallengePlayground(
                 Prefs.readingChallengeStreak = 0
                 Prefs.readingChallengeEnrolled = false
                 Prefs.readingChallengeLastReadDate = ""
-                Prefs.readingChallengeEndDate = "2026-05-31"
+                Prefs.readingChallengeEndDate = ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE
                 syncFromPrefs()
                 updateWidgetsExplicitly()
             },
