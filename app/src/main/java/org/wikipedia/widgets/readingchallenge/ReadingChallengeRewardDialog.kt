@@ -23,7 +23,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
@@ -46,7 +44,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
-class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
+class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -63,16 +61,6 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment() {
                         }
                     )
                 }
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.let {
-            val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            bottomSheet?.let { sheet ->
-                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
     }

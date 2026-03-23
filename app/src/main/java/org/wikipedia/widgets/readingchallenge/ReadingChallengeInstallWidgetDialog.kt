@@ -45,7 +45,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -54,7 +53,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
-class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() {
+class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -75,16 +74,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment() 
                         }
                     )
                 }
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.let {
-            val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            bottomSheet?.let { sheet ->
-                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
     }

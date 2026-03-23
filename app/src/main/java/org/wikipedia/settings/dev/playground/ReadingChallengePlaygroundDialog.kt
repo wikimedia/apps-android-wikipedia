@@ -39,7 +39,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.glance.appwidget.updateAll
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -51,7 +50,7 @@ import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import java.time.LocalDate
 
-class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment() {
+class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -84,16 +83,6 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment() {
                         )
                     }
                 }
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.let {
-            val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-            bottomSheet?.let { sheet ->
-                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
     }
