@@ -136,7 +136,8 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         const val READING_STREAK_GOAL = 25
         const val INTENT_EXTRA_READING_CHALLENGE_REWARD = "reading_challenge_reward"
         private val START_DATE = LocalDate.of(2026, 5, 1)
-        private val END_DATE = LocalDate.of(2026, 5, 31)
+        private val END_DATE: LocalDate
+            get() = LocalDate.parse(Prefs.readingChallengeEndDate)
         private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
 
         private val isChallengeActive: Boolean

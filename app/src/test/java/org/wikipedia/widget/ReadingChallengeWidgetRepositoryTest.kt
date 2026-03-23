@@ -24,6 +24,7 @@ class ReadingChallengeWidgetRepositoryTest {
         context = mockk<Context>(relaxed = true)
         mockkObject(Prefs)
         repository = ReadingChallengeWidgetRepository(context)
+        every { Prefs.readingChallengeEndDate } returns "2026-05-31"
     }
 
     @After

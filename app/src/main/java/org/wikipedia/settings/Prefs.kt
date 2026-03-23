@@ -904,4 +904,8 @@ object Prefs {
     var readingChallengeEnrollmentDate
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_enrollment_date, "").orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_enrollment_date, value)
+
+    var readingChallengeEndDate
+        get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_end_date, "2026-05-31").orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_end_date, value)
 }

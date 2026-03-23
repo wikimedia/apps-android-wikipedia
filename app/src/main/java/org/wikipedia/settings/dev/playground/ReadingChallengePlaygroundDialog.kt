@@ -22,6 +22,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -39,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.glance.appwidget.updateAll
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
@@ -86,6 +88,15 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
             }
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.let {
+            it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)?.let {
+                BottomSheetBehavior.from(it).isDraggable = false
+            }
+        }
+    }
 }
 
 @Composable
@@ -97,11 +108,13 @@ fun ReadingChallengePlayground(
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
     var lastReadDate by remember { mutableStateOf(Prefs.readingChallengeLastReadDate) }
+    var endDate by remember { mutableStateOf(Prefs.readingChallengeEndDate) }
 
     fun syncFromPrefs() {
         streak = Prefs.readingChallengeStreak
         enrolled = Prefs.readingChallengeEnrolled
         lastReadDate = Prefs.readingChallengeLastReadDate
+        endDate = Prefs.readingChallengeEndDate
     }
 
     val today = LocalDate.now().toString()
@@ -117,7 +130,8 @@ fun ReadingChallengePlayground(
     ) {
         Text(
             "Current State: ${state::class.simpleName}",
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineSmall,
+            color = WikipediaTheme.colors.primaryColor
         )
 
         // --- Streak ---
@@ -128,7 +142,11 @@ fun ReadingChallengePlayground(
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text("readingChallengeStreak", style = MaterialTheme.typography.labelMedium)
+                Text(
+                    text = "readingChallengeStreak",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -139,11 +157,15 @@ fun ReadingChallengePlayground(
                             updateWidgetsExplicitly()
                         }
                     }) { Text("−") }
-                    Text("$streak", style = MaterialTheme.typography.headlineMedium)
+                    Text(
+                        text = "$streak",
+                        style = MaterialTheme.typography.headlineMedium,
+                        color = WikipediaTheme.colors.primaryColor
+                    )
                     IconButton(onClick = {
                         Prefs.readingChallengeStreak = ++streak
                         updateWidgetsExplicitly()
-                    }) { Text("+") }
+                    }) { Text("+", color = WikipediaTheme.colors.primaryColor) }
                 }
             }
         }
@@ -158,7 +180,11 @@ fun ReadingChallengePlayground(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text("readingChallengeEnrolled", style = MaterialTheme.typography.labelMedium)
+                Text(
+                    text = "readingChallengeEnrolled",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
                 Switch(
                     checked = enrolled,
                     onCheckedChange = {
@@ -186,7 +212,11 @@ fun ReadingChallengePlayground(
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text("readingChallengeLastReadDate", style = MaterialTheme.typography.labelMedium)
+                Text(
+                    text = "readingChallengeLastReadDate",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -196,8 +226,16 @@ fun ReadingChallengePlayground(
                         onValueChange = {
                             lastReadDate = it
                         },
-                        placeholder = { Text("YYYY-MM-DD") },
+                        placeholder = { Text("YYYY-MM-DD", color = WikipediaTheme.colors.primaryColor) },
                         singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = WikipediaTheme.colors.primaryColor,
+                            focusedBorderColor = MaterialTheme.colorScheme.outline,
+                            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
+                            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                            cursorColor = WikipediaTheme.colors.primaryColor,
+                            errorTextColor = WikipediaTheme.colors.primaryColor,
+                        ),
                         modifier = Modifier.weight(1f)
                     )
                     Button(
@@ -220,22 +258,78 @@ fun ReadingChallengePlayground(
                         Prefs.readingChallengeLastReadDate = today
                         lastReadDate = today
                         updateWidgetsExplicitly()
-                    }, label = { Text("Today") })
+                    }, label = { Text("Today", color = WikipediaTheme.colors.primaryColor) })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = yesterday
                         lastReadDate = yesterday
                         updateWidgetsExplicitly()
-                    }, label = { Text("Yesterday") })
+                    }, label = { Text("Yesterday", color = WikipediaTheme.colors.primaryColor) })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = threeDaysAgo
                         lastReadDate = threeDaysAgo
                         updateWidgetsExplicitly()
-                    }, label = { Text("3 Days Ago") })
+                    }, label = { Text("3 Days Ago", color = WikipediaTheme.colors.primaryColor) })
                     AssistChip(onClick = {
                         Prefs.readingChallengeLastReadDate = ""
                         lastReadDate = ""
                         updateWidgetsExplicitly()
-                    }, label = { Text("Clear") })
+                    }, label = { Text("Clear", color = WikipediaTheme.colors.primaryColor) })
+                }
+            }
+        }
+
+        // --- Challenge End Date ---
+        Card {
+            Column(
+                Modifier
+                    .background(WikipediaTheme.colors.backgroundColor)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = "readingChallengeEndDate",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedTextField(
+                        value = endDate,
+                        onValueChange = {
+                            endDate = it
+                        },
+                        placeholder = {
+                            Text(
+                                "YYYY-MM-DD",
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = WikipediaTheme.colors.primaryColor,
+                            focusedBorderColor = MaterialTheme.colorScheme.outline,
+                            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
+                            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                            cursorColor = WikipediaTheme.colors.primaryColor,
+                            errorTextColor = WikipediaTheme.colors.primaryColor,
+                        ),
+                        modifier = Modifier.weight(1f)
+                    )
+                    Button(
+                        onClick = {
+                            Prefs.readingChallengeEndDate = endDate
+                            updateWidgetsExplicitly()
+                        },
+                        enabled = endDate.isEmpty() || runCatching { LocalDate.parse(endDate) }.isSuccess,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WikipediaTheme.colors.progressiveColor,
+                            contentColor = WikipediaTheme.colors.paperColor
+                        )
+                    ) {
+                        Text("Save")
+                    }
                 }
             }
         }
@@ -246,13 +340,14 @@ fun ReadingChallengePlayground(
                 Prefs.readingChallengeStreak = 0
                 Prefs.readingChallengeEnrolled = false
                 Prefs.readingChallengeLastReadDate = ""
+                Prefs.readingChallengeEndDate = "2026-05-31"
                 syncFromPrefs()
                 updateWidgetsExplicitly()
             },
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.error)
         ) {
-            Text("Reset All")
+            Text("Reset All", color = WikipediaTheme.colors.primaryColor)
         }
     }
 }
