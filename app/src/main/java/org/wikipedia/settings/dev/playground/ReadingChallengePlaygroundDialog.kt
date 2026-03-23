@@ -1,7 +1,9 @@
 package org.wikipedia.settings.dev.playground
 
 import android.os.Bundle
-import androidx.activity.compose.setContent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -34,50 +36,64 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.glance.appwidget.updateAll
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import java.time.LocalDate
 
-class ReadingChallengePlayGroundActivity : BaseActivity() {
+class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val repository = ReadingChallengeWidgetRepository(this)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View {
+        val repository = ReadingChallengeWidgetRepository(requireContext())
 
-        setContent {
-            val coroutineScope = rememberCoroutineScope()
-            BaseTheme {
-                Scaffold(
-                    topBar = {
-                        WikiTopAppBar(
-                            title = "Reading Challenge Playground",
-                            onNavigationClick = {
-                                onBackPressedDispatcher.onBackPressed()
+        return ComposeView(requireContext()).apply {
+            setContent {
+                val coroutineScope = rememberCoroutineScope()
+                BaseTheme {
+                    Scaffold(
+                        topBar = {
+                            WikiTopAppBar(
+                                title = "Reading Challenge Playground",
+                                onNavigationClick = {
+                                    dismiss()
+                                }
+                            )
+                        },
+                        containerColor = WikipediaTheme.colors.paperColor
+                    ) { paddingValues ->
+                        ReadingChallengePlayground(
+                            modifier = Modifier
+                                .padding(paddingValues),
+                            state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
+                            updateWidgetsExplicitly = {
+                                coroutineScope.launch {
+                                    ReadingChallengeWidget().updateAll(requireContext())
+                                }
                             }
                         )
-                    },
-                    containerColor = WikipediaTheme.colors.paperColor
-                ) { paddingValues ->
-                    ReadingChallengePlayground(
-                        modifier = Modifier
-                            .padding(paddingValues),
-                        state = repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
-                        updateWidgetsExplicitly = {
-                            coroutineScope.launch {
-                                ReadingChallengeWidget().updateAll(this@ReadingChallengePlayGroundActivity)
-                            }
-                        }
-                    )
+                    }
                 }
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.let {
+            val bottomSheet = it.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            bottomSheet?.let { sheet ->
+                BottomSheetBehavior.from(sheet).state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
     }
