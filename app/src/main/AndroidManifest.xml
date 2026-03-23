@@ -415,8 +415,6 @@
 
         <activity
             android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
-        <activity
-            android:name=".settings.dev.playground.ReadingChallengePlayGroundActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"

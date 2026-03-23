@@ -3,6 +3,7 @@ package org.wikipedia.settings.dev
 import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -22,6 +23,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -30,7 +32,7 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
-import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundActivity
+import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
@@ -273,7 +275,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preference_key_reading_challenge_widgets).apply {
             isVisible = ReleaseUtil.isPreProdRelease
             onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                activity.startActivity(Intent(activity, ReadingChallengePlayGroundActivity::class.java))
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, ReadingChallengePlayGroundDialog())
                 true
             }
         }
