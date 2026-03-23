@@ -215,4 +215,5 @@
     <string name="preference_key_reading_challenge_onboarding_shown">readingChallengeOnboardingShown</string>
     <string name="preference_key_reading_challenge_install_prompt_shown">readingChallengeInstallPromptShown</string>
     <string name="preference_key_reading_challenge_enrollment_date">readingChallengeEnrollmentDate</string>
+    <string name="preference_key_reading_challenge_end_date">readingChallengeEndDate</string>
 </resources>
