@@ -46,6 +46,6 @@ object WikiGamesEvent {
         @SerialName("feedback_text") val feedbackText: String? = null,
         @SerialName("lang_code") val langCode: String? = null,
         @SerialName("card_type") val cardType: String? = null,
-        @SerialName("position") val position: Int? = null,
+        @SerialName("position") val position: Int? = null
     )
 }

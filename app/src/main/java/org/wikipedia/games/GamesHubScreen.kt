@@ -414,7 +414,7 @@ fun OnThisDayGameCardContent(
                     titleText = dateTitle,
                     onPlayClick = {
                         val cardType = if (isArchiveGame) "archive" else "today"
-                        WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = cardType, langCode = selectedLanguage, position = if (isArchiveGame) cardPosition else null)
+                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardType, langCode = selectedLanguage, position = if (isArchiveGame) cardPosition else null)
                         onThisDayGameAction(OnThisDayGameAction.Play) },
                     onReviewResult = {
                         WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = "today", langCode = selectedLanguage, position = if (isArchiveGame) cardPosition else null)

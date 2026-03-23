@@ -43,8 +43,8 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                 setHeader(langCode, it)
                 setContent(it)
                 setFooterText(langCode)
+                WikiGamesEvent.submit(action = "impression", activeInterface = "game_feed", langCode = langCode)
             }
-            WikiGamesEvent.submit("impression", "game_feed")
         }
 
     override var callback: FeedAdapter.Callback? = null
