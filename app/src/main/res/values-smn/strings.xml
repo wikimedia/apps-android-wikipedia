@@ -311,6 +311,7 @@
   <string name="suggested_edits_task_action_text_add">Lasseet</string>
   <string name="suggested_edits_task_action_text_translate">Jurgâl</string>
   <string name="suggested_edits_image_captions">Koveteevstah</string>
+  <string name="suggested_edits_image_tags_publishing">Almostitmin</string>
   <string name="suggested_edits_image_tags_published">Almostittum</string>
   <string name="suggested_edits_image_tags_published_list">Almostittum kilgoleh</string>
   <string name="suggested_edits_image_tags_search">Uusâ kilgolijd</string>
