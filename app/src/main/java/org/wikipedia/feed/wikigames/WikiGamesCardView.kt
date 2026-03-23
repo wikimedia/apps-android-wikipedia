@@ -119,7 +119,10 @@ fun WikiGamesCardContent(
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
-                                onPlayClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
+                                onPlayClick = {
+                                    WikiGamesEvent.submit("play_click", "game_feed")
+                                    onThisDayGameAction(OnThisDayGameAction.Play)
+                                }
                             )
                         }
                         is OnThisDayCardGameState.InProgress -> {
@@ -130,7 +133,10 @@ fun WikiGamesCardContent(
                                     .padding(horizontal = 8.dp, vertical = 8.dp),
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
-                                onContinueClick = { onThisDayGameAction(OnThisDayGameAction.Play) }
+                                onContinueClick = {
+                                    WikiGamesEvent.submit("continue_click", "game_feed")
+                                    onThisDayGameAction(OnThisDayGameAction.Play)
+                                }
                             )
                         }
                         is OnThisDayCardGameState.Completed -> {
@@ -142,8 +148,12 @@ fun WikiGamesCardContent(
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
                                 onPlayClick = { },
-                                onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
-                                onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
+                                onReviewResult = {
+                                    WikiGamesEvent.submit("review_click", "game_feed")
+                                    onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
+                                onPlayTheArchive = {
+                                    WikiGamesEvent.submit("archive_click", "game_feed")
+                                    onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                                 onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
                             )
                         }

@@ -340,7 +340,6 @@ class FeedFragment : Fragment() {
         }
 
         override fun onThisDayGamePlayButonClicked(wikiSite: WikiSite) {
-            WikiGamesEvent.submit("enter_click", "game_feed")
             startActivity(OnThisDayGameActivity.newIntent(requireActivity(), Constants.InvokeSource.FEED, wikiSite))
         }
 
