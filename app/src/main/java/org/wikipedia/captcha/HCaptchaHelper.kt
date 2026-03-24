@@ -62,6 +62,7 @@ class HCaptchaHelper(
                 callback.onError(e, e.statusCode)
             }?.addOnOpenListener {
                 L.d("hCaptcha opened")
+                callback.onShow()
             }
         }
         hCaptcha?.verifyWithHCaptcha()
