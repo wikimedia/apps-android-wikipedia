@@ -258,7 +258,6 @@ fun OnThisDayGameCardProgress(
                             ),
                             onClick = onContinueClick
                         ) {
-                            println("orange langCode: ${state.langCode}")
                             Text(
                                 text = context.getString(
                                     state.langCode,

@@ -413,11 +413,9 @@ fun OnThisDayGameCardContent(
                         WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.Play) },
                     onReviewResult = {
-                        println("orange onReviewResult  isArchiveGame $isArchiveGame $cardTypeForEvent")
                         WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                     onPlayTheArchive = {
-                        println("orange onPlayTheArchive  isArchiveGame $isArchiveGame $cardTypeForEvent")
                         WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                     onCountDownFinished = {
