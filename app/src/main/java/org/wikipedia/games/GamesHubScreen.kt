@@ -358,7 +358,7 @@ fun OnThisDayGameCardContent(
     cardPosition: Int
 ) {
     val cardPositionForEvent = if (isArchiveGame) cardPosition + 1 else null
-    val cardType = if (isArchiveGame) "archive" else "today"
+    val cardTypeForEvent = if (isArchiveGame) "archive" else "today"
 
     Column(
         modifier = Modifier
@@ -383,7 +383,7 @@ fun OnThisDayGameCardContent(
                         iconTint = WikipediaTheme.colors.progressiveColor,
                         titleText = dateTitle,
                         onPlayClick = {
-                            WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardPosition + 1)
+                            WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardPositionForEvent)
                             onThisDayGameAction(OnThisDayGameAction.Play)
                         }
                     )
@@ -397,7 +397,7 @@ fun OnThisDayGameCardContent(
                     state = game.state,
                     titleText = dateTitle,
                     onContinueClick = {
-                        WikiGamesEvent.submit(action = "continue_click", activeInterface = "games_hub", cardType = cardType, langCode = selectedLanguage, position = cardPositionForEvent)
+                        WikiGamesEvent.submit(action = "continue_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.Play)
                     }
                 )
@@ -410,13 +410,15 @@ fun OnThisDayGameCardContent(
                     state = game.state,
                     titleText = dateTitle,
                     onPlayClick = {
-                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardType, langCode = selectedLanguage, position = cardPositionForEvent)
+                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.Play) },
                     onReviewResult = {
-                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = "today", langCode = selectedLanguage, position = cardPositionForEvent)
+                        println("orange onReviewResult  isArchiveGame $isArchiveGame $cardTypeForEvent")
+                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                     onPlayTheArchive = {
-                        WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = "today", langCode = selectedLanguage, position = cardPositionForEvent)
+                        println("orange onPlayTheArchive  isArchiveGame $isArchiveGame $cardTypeForEvent")
+                        WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                     onCountDownFinished = {
                         onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
