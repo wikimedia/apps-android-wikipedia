@@ -153,10 +153,8 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "query" to viewModel.searchTerm.value.orEmpty()
-                                    )
+                                    actionContext = viewModel.getEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
                             },
                             onLexicalResultsEmpty = {
