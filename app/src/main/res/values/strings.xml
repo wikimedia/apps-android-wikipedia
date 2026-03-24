@@ -825,6 +825,9 @@
     <string name="notifications_all_types_text">All types</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <string name="notifications_offline_disable_message">The function is not available while offline.</string>
+    <string name="notification_permission_rationale">Enable Notification to stay updated</string>
+    <string name="notification_permission_rationale_action">Settings</string>
+    <string name="notification_permission_denied">Notifications are disabled. Enable them in settings.</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

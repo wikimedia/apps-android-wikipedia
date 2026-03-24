@@ -2,12 +2,14 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Handler
+import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
@@ -16,6 +18,7 @@ import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
@@ -105,6 +108,14 @@ object DeviceUtil {
     fun setEdgeToEdge(activity: AppCompatActivity) {
         activity.enableEdgeToEdge()
         WindowCompat.getInsetsController(activity.window, activity.window.decorView).isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun openNotificationSettings(context: Context){
+        val intent= Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+            putExtra(Settings.EXTRA_APP_PACKAGE,context.packageName)
+        }
+        context.startActivity(intent)
     }
 
     val isOnWiFi: Boolean
