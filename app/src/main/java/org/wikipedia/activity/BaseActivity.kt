@@ -36,6 +36,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -123,6 +124,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowYearInReview()
+        maybeShowExploreFeedUpdatePrompt()
 
         Prefs.localClassName = localClassName
 
@@ -292,6 +294,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                         instrument.submitInteraction("click", elementId = "cancel")
                     }
                     .show()
+        }
+    }
+
+    private fun maybeShowExploreFeedUpdatePrompt() {
+        if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
+            startActivity(ExploreFeedUpdatePromptActivity.newIntent(this))
         }
     }
 

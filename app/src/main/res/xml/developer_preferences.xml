@@ -576,4 +576,10 @@
             android:key="@string/preference_key_hybrid_search_enabled"
             android:title="@string/preference_key_hybrid_search_enabled" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="New Explore Feed">
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_explore_feed_update_prompt_shown"
+            android:title="@string/preference_key_explore_feed_update_prompt_shown"/>
+    </PreferenceCategory>
 </PreferenceScreen>
