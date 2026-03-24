@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityGamesHubBinding
 import org.wikipedia.main.MainActivity
@@ -65,6 +66,7 @@ class GamesHubActivity : SingleFragmentActivity<GamesHubFragment>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_game_stats -> {
+                WikiGamesEvent.submit(action = "game_stats_click", activeInterface = "games_hub")
                 val primaryLangCodeSupported = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.languageState.appLanguageCode)
                 val intent = MainActivity.newIntent(this)
                     .apply {
@@ -80,6 +82,7 @@ class GamesHubActivity : SingleFragmentActivity<GamesHubFragment>() {
                 true
             }
             R.id.menu_learn_more -> {
+                WikiGamesEvent.submit(action = "learn_more_click", activeInterface = "games_hub")
                 UriUtil.visitInExternalBrowser(this, getString(R.string.games_hub_wiki_url).toUri())
                 true
             }
