@@ -261,6 +261,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
+  <string name="legal_safety_contacts_description">Juridiska och säkerhetskontakter</string>
   <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
@@ -1238,6 +1239,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Välj vilka moduler som ska visas. All personlig data förblir privat på din enhet och din webbhistorik kan rensas när som helst.</string>
   <string name="edits_screen_what_is_title">Redigering i Wikipedia-appen</string>
   <string name="edits_screen_what_is_body">Osäker på var du vill börja redigera? Prova redigeringsförslagen, en funktion som skapar möjligheter att göra små men viktiga bidrag till Wikipedia. Alternativt kan du gå direkt till en intressant artikel och göra en ändring med hjälp av wikitext.</string>
+  <string name="activity_tab_snackbar_label">Spelstatistik visas för ditt huvudspråk.</string>
   <string name="file_page_activity_title">Filsida</string>
   <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
   <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
@@ -1267,6 +1269,7 @@
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
   <string name="onboarding_multilingual_add_language_text">Lägg till eller redigera språk</string>
   <string name="onboarding_welcome_title_v2">Den fria encyklopedin\n…på över 300 språk</string>
+  <string name="onboarding_next">Nästa</string>
   <string name="app_shortcuts_random">Slumpartikel</string>
   <string name="app_shortcuts_continue_reading">Fortsätt läsa</string>
   <string name="app_shortcuts_search">Sök</string>
@@ -1789,10 +1792,15 @@
   <string name="survey_dialog_general_maybe">Kanske</string>
   <string name="survey_dialog_input_hint">Ytterligare återkoppling</string>
   <string name="survey_dialog_submitted_snackbar">Återkopplingen har skickats in. Tack!</string>
+  <string name="games_hub_activity_title">Spel</string>
+  <string name="games_hub_activity_games_unavailable_message">Inga spel är tillgängliga på det här språket! Spel använder innehåll som skapas av frivilliga redigerare på varje språks Wikipediaversion.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Ta reda på mer</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Visa spelstatistik</string>
+  <string name="games_hub_activity_overflow_learn_more">Ta reda på mer</string>
   <string name="on_this_day_game_entry_dialog_title">Introducerar</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-spel</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Spela dagens spel</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spel är tillgängliga i flödet Utforska.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spela</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spel är tillgängliga i Spelhubben, i MER-menyn.</string>
   <string name="on_this_day_game_title">Vilket kom först?</string>
   <string name="on_this_day_game_dialog_button">Spela</string>
   <string name="on_this_day_game_splash_message">Gissa vilken händelse som kom först den här dagen i historien.</string>
@@ -1804,7 +1812,7 @@
   <string name="on_this_day_game_point">+1 poäng</string>
   <string name="on_this_day_game_next">Nästa fråga</string>
   <string name="on_this_day_game_finish">Slutresultat</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Dela</string>
+  <string name="on_this_day_game_share_button">Dela poäng</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-spel</string>
   <string name="on_this_day_game_feed_entry_card_title">Vilket kom först?</string>
   <string name="on_this_day_game_result">Du fick %1$d/%2$d.</string>
@@ -1849,9 +1857,21 @@
   <string name="on_this_day_game_archive_btn_text">Spela upp arkivet</string>
   <string name="on_this_day_game_review_results_btn_text">Granska resultatet</string>
   <string name="on_this_day_game_score_message">Du fick %1$d/%2$d poäng på dagens spel.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spela dagens spel</string>
   <string name="on_this_day_game_continue_playing_btn_text">Fortsätt spela</string>
   <string name="on_this_day_game_sound_on">Slå på ljud</string>
   <string name="on_this_day_game_sound_off">Stäng av ljud</string>
+  <string name="on_this_day_game_more_label">Mer</string>
+  <string name="on_this_day_game_card_progress_label">Du är på fråga %d. Fortsätt gissa vilken händelse som inträffade först denna dag i historien.</string>
+  <string name="on_this_day_game_card_progress_short_label">Du är på fråga %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Du fick %1$d/%2$d poäng i dagens spel. Nästa spel om %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Du fick %1$d/%2$d poäng på dagens spel.</string>
+  <string name="on_this_day_game_card_archive_label">Arkiv</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Logga in</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Logga in för se din spelstatistik</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Se dina sviter, poäng och mer</string>
+  <string name="wikipedia_games_title">Wikipedia-spel</string>
+  <string name="wikipedia_games_subtitle">Daglig frågesport som bygger på Wikipedias innehåll.</string>
   <string name="year_in_review_learn_more">Läs mer</string>
   <string name="year_in_review_get_started">Kom igång</string>
   <string name="year_in_review_topbar_w_icon">Wikipedias W-ikon</string>
@@ -2219,4 +2239,37 @@
   <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåminnelser</string>
   <string name="donation_reminders_settings_report_email_body">Jag har stött på ett problem med Wikipedias donationspåminnelsefunktion:\n- [Beskriv det specifika problemet]\n- [Skärmdumpar eller länkar]\n\nBeteendet jag förväntade mig var:\n- [Beskriv en föreslagen lösning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modifiera</string>
+  <string name="hybrid_search_search_hint">Sök eller fråga vad som helst</string>
+  <string name="hybrid_search_article_search_hint">Fråga om %s</string>
+  <string name="hybrid_search_suggestion_title">Sök efter:</string>
+  <string name="hybrid_search_onboarding_learn_more">Ta reda på mer</string>
+  <string name="hybrid_search_onboarding_search_title">Ställ frågor, få svar</string>
+  <string name="hybrid_search_onboarding_search_description">Den här experimentella funktionen förstår naturligt språk. Istället för att söka efter nyckelord, testa att beskriva vad du vet.</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-funktion</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Tillgängligt under en begränsad tid under experimentet.</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Delta i experimentet</string>
+  <string name="hybrid_search_onboarding_search_example_title">Behöver du inspiration?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Använd ett av sökexemplen nedan.</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Du har valt att inte delta i experimentet.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">När slutade Pluto klassas som en planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">första olympiska spelen</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Varför har folk ananas på pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Vilka är de största städerna i Europa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Ett nytt sätt att söka</string>
+  <string name="hybrid_search_results_header_description">Hämtad från mänskligt genererade Wikipediaartiklar</string>
+  <string name="hybrid_search_results_rate_label">Betygsätt det här resultatet</string>
+  <string name="hybrid_search_results_rated_label">Betygsatt</string>
+  <string name="hybrid_search_results_rate_thumb_up">Betygsätt tummen upp</string>
+  <string name="hybrid_search_results_rate_thumb_down">Betygsätt tummen ner</string>
+  <string name="hybrid_lexical_search_results_empty">Ingen artikeltitel matchar den här sökfrågan.</string>
+  <string name="hybrid_search_results_empty">Utökad sök är för tillfälligt inte tillgängligt.</string>
+  <string name="hybrid_search_no_results_header">Inga resultat</string>
+  <string name="hybrid_search_no_results_description">Det här ämnet returnerar inte utdrag ur artiklar just nu. Här är några saker du kan prova:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Omformulera din sökning</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Testa en liknande ämne</string>
+  <string name="hybrid_search_error_message">Något blev fel. Försök igen senare.</string>
+  <string name="hybrid_search_who_is_prefix">Vem är %s?</string>
+  <string name="hybrid_search_turn_off_experiment_label">Stäng av experimentet</string>
 </resources>

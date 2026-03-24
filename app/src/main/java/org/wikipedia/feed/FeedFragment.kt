@@ -433,32 +433,34 @@ class FeedFragment : Fragment() {
     }
 
     private suspend fun refreshWikiGameCards() {
-        coordinator.cards.forEachIndexed { index, card ->
-            if (card is WikiGamesCard) {
-                try {
-                    val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
-                    val updatedGames = card.games.toMutableList()
-                    val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
+        val wikiGamesCards = coordinator.cards.filterIsInstance<WikiGamesCard>()
+        wikiGamesCards.forEach { card ->
+            try {
+                val gameState = OnThisDayGameProvider.getGameState(card.wikiSite, LocalDate.now())
+                val updatedGames = card.games.toMutableList()
+                val gameIndex = updatedGames.indexOfFirst { it is WikiGame.OnThisDayGame }
 
-                    val oldGame = updatedGames.getOrNull(gameIndex) as? WikiGame.OnThisDayGame
-                    val newGame = WikiGame.OnThisDayGame(state = gameState)
+                val oldGame = updatedGames.getOrNull(gameIndex) as? WikiGame.OnThisDayGame
+                val newGame = WikiGame.OnThisDayGame(state = gameState)
 
-                    val isSame = when {
-                        oldGame?.state is OnThisDayCardGameState.Preview && newGame.state is OnThisDayCardGameState.Preview -> {
-                            val old = oldGame.state
-                            val new = newGame.state
-                            old.event1.text == new.event1.text && old.event2.text == new.event2.text
-                        }
-                        else -> oldGame == newGame
+                val isSame = when {
+                    oldGame?.state is OnThisDayCardGameState.Preview && newGame.state is OnThisDayCardGameState.Preview -> {
+                        val old = oldGame.state
+                        val new = newGame.state
+                        old.event1.text == new.event1.text && old.event2.text == new.event2.text
                     }
-                    if (!isSame && gameIndex >= 0) {
-                        updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
-                        coordinator.cards[index] = WikiGamesCard(card.wikiSite, updatedGames)
-                        feedAdapter.notifyItemChanged(index)
-                    }
-                } catch (e: Exception) {
-                    L.e(e)
+                    else -> oldGame == newGame
                 }
+                if (!isSame && gameIndex >= 0) {
+                    updatedGames[gameIndex] = WikiGame.OnThisDayGame(state = gameState)
+                    val finalIndex = coordinator.cards.indexOf(card)
+                    if (finalIndex >= 0) {
+                        coordinator.cards[finalIndex] = WikiGamesCard(card.wikiSite, updatedGames)
+                        feedAdapter.notifyItemChanged(finalIndex)
+                    }
+                }
+            } catch (e: Exception) {
+                L.e(e)
             }
         }
     }
