@@ -910,4 +910,8 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_reading_challenge_end_date,
             ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_reading_challenge_end_date, value)
+
+    var readingChallengeWidgetFastCycle
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, value)
 }

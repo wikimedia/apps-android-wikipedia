@@ -4,7 +4,11 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import org.wikipedia.R
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 import java.time.temporal.ChronoUnit.DAYS
 
 data class WidgetCombination(
@@ -75,8 +79,14 @@ object WidgetCombinations {
         enrollmentDate: LocalDate,
         today: LocalDate = LocalDate.now()
     ): WidgetCombination {
-        val daysSinceEnrollment = DAYS.between(enrollmentDate, today).coerceAtLeast(0)
-        val index = (daysSinceEnrollment % this.size).toInt()
+        val index = if (ReleaseUtil.isPreBetaRelease && Prefs.readingChallengeWidgetFastCycle) {
+            val minutesSinceEnrollment = ChronoUnit.MINUTES.between(enrollmentDate.atStartOfDay(),
+                LocalDateTime.now())
+            (minutesSinceEnrollment % this.size).toInt()
+        } else {
+            val daysSinceEnrollment = DAYS.between(enrollmentDate, today).coerceAtLeast(0)
+            (daysSinceEnrollment % this.size).toInt()
+        }
         return this[index]
     }
 

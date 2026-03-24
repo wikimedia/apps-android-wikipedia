@@ -38,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -54,6 +55,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -124,12 +126,14 @@ fun ReadingChallengePlayground(
     state: ReadingChallengeState,
     updateWidgetsExplicitly: () -> Unit
 ) {
+    val context = LocalContext.current
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
     var lastReadDate by remember { mutableStateOf(Prefs.readingChallengeLastReadDate) }
     var endDate by remember { mutableStateOf(Prefs.readingChallengeEndDate) }
     var onboardingShown by remember { mutableStateOf(Prefs.readingChallengeOnboardingShown) }
     var widgetPromptShown by remember { mutableStateOf(Prefs.readingChallengeInstallPromptShown) }
+    var fastCycle by remember { mutableStateOf(Prefs.readingChallengeWidgetFastCycle) }
 
     fun syncFromPrefs() {
         streak = Prefs.readingChallengeStreak
@@ -161,7 +165,7 @@ fun ReadingChallengePlayground(
     ) {
         Text(
             "Current State: ${state::class.simpleName}",
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.titleLarge,
             color = WikipediaTheme.colors.primaryColor
         )
 
@@ -227,6 +231,43 @@ fun ReadingChallengePlayground(
                     },
                     colors = switchColor
                 )
+            }
+        }
+
+        if (state is ReadingChallengeState.EnrolledNotStarted || state is ReadingChallengeState.StreakOngoingNeedsReading || state is ReadingChallengeState.StreakOngoingReadToday) {
+            // --- Fast Cycle ---
+            Card {
+                Row(
+                    Modifier
+                        .background(WikipediaTheme.colors.backgroundColor)
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            text = "readingChallengeWidgetFastCycle",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Text(
+                            text = "Updates every 1 min instead of midnight",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WikipediaTheme.colors.secondaryColor
+                        )
+                    }
+                    Switch(
+                        checked = fastCycle,
+                        onCheckedChange = {
+                            fastCycle = it
+                            Prefs.readingChallengeWidgetFastCycle = it
+                            ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
+                            updateWidgetsExplicitly()
+                        },
+                        colors = switchColor
+                    )
+                }
             }
         }
 
