@@ -43,7 +43,6 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
                 setHeader(langCode, it)
                 setContent(it)
                 setFooterText(langCode)
-                WikiGamesEvent.submit(action = "impression", activeInterface = "game_feed", langCode = langCode)
             }
         }
 
@@ -59,6 +58,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 
     private fun setContent(card: WikiGamesCard) {
         binding.gamesComposeView.setContent {
+            WikiGamesEvent.submit(action = "impression", activeInterface = "game_feed", langCode = card.wikiSite.languageCode)
             BaseTheme {
                 WikiGamesCardContent(
                     modifier = Modifier

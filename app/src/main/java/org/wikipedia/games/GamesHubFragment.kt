@@ -35,6 +35,7 @@ class GamesHubFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        WikiGamesEvent.submit(action = "impression", activeInterface = "games_hub", langCode = viewModel.selectedLanguage)
         onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
                 fragment = this@GamesHubFragment,
                 languageCode = viewModel.selectedLanguage,

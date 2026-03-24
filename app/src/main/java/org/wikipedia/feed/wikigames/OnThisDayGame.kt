@@ -248,7 +248,6 @@ fun OnThisDayGameCardProgress(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 112.dp)
                     ) {
                         FilledTonalButton(
                             modifier = Modifier
@@ -259,6 +258,7 @@ fun OnThisDayGameCardProgress(
                             ),
                             onClick = onContinueClick
                         ) {
+                            println("orange langCode: ${state.langCode}")
                             Text(
                                 text = context.getString(
                                     state.langCode,
