@@ -740,7 +740,11 @@
   <string name="onboarding_continue">Lanturang</string>
   <string name="onboarding_get_started">Kawitin</string>
   <string name="onboarding_maybe_later">Minab durinan</string>
+  <string name="onboarding_explore_title">Cara anyar ngajelajah</string>
+  <string name="onboarding_analytics_switch_title">Kirim data pawigunaan</string>
   <string name="onboarding_got_it">Ngerti</string>
+  <string name="onboarding_multilingual_add_language_text">Weweh utawi uah basa</string>
+  <string name="onboarding_welcome_title_v2">Énsiklopédia Bébas\n…ring langkung saking 300 basa</string>
   <string name="app_shortcuts_random">Ulah-aluh</string>
   <string name="app_shortcuts_continue_reading">Lanturang ngawacén</string>
   <string name="app_shortcuts_search">Rereh</string>
