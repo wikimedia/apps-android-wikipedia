@@ -55,8 +55,8 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
             val fullTextResponse = ServiceFactory.get(wikiSite)
                 .fullTextSearchResponse(searchTerm, batchSize, currentContinuation)
             lastXSearchIdFullText = fullTextResponse.headers()["x-search-id"]
-            currentContinuation = fullTextResponse.body()?.continuation?.gsroffset
-
+            response = fullTextResponse.body()
+            currentContinuation = response?.continuation?.gsroffset
             resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
         }
 
