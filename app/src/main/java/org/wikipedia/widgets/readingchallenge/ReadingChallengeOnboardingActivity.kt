@@ -196,8 +196,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center,
                     text = stringResource(R.string.reading_challenge_onboarding_note),
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Medium,
+                    style = MaterialTheme.typography.bodySmall,
                     color = WikipediaTheme.colors.placeholderColor
                 )
             }

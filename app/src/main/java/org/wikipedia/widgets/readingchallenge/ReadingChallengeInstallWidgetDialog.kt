@@ -17,9 +17,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -57,20 +57,23 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
+        Prefs.readingChallengeInstallPromptShown = true
+
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
                     InstallWidgetScreen(
                         pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
-                            dismissDialog()
+                            dismiss()
                         },
                         onGotItClick = {
-                            dismissDialog()
+                            dismiss()
                         },
                         onAddClick = {
                             requestToPinWidget(requireContext())
-                            dismissDialog()
+                            dismiss()
                         }
                     )
                 }
@@ -94,11 +97,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         }
     }
 
-    private fun dismissDialog() {
-        Prefs.readingChallengeInstallPromptShown = true
-        dismiss()
-    }
-
     @Composable
     fun InstallWidgetScreen(
         pinToWidgetSupported: Boolean,
@@ -108,9 +106,9 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
     ) {
         Column(
             modifier = Modifier
-                .safeDrawingPadding()
+                .navigationBarsPadding()
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                 .verticalScroll(rememberScrollState()),
         ) {
             Row {
@@ -179,8 +177,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
 
             if (pinToWidgetSupported) {
                 TwoButtonBottomBar(
-                    modifier = Modifier.fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     primaryButtonText = stringResource(R.string.reading_challenge_install_prompt_add),
                     secondaryButtonText = stringResource(R.string.reading_challenge_install_prompt_got_it),
                     onPrimaryOnClick = onAddClick,
@@ -188,9 +185,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                 )
             } else {
                 Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = WikipediaTheme.colors.progressiveColor
                     ),
@@ -207,7 +202,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
         }
     }
 
-    @Preview
+    @Preview(showBackground = true)
     @Composable
     private fun InstallWidgetScreenPreview() {
         BaseTheme(
