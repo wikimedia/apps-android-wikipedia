@@ -82,7 +82,10 @@ class SearchResultsViewModel : ViewModel() {
                     countsPerLanguageCode = countsPerLanguageCode,
                     invokeSource = invokeSource,
                     repository = repository,
-                    onFirstPageLoaded = { results -> _lexicalResultsForLogging.value = results }
+                    onFirstPageLoaded = { result ->
+                        _lexicalResultsForLogging.value = result.results
+                        lastXSearchIdLexical = result.xSearchId.orEmpty()
+                    }
                 )
             }.flow
         }.cachedIn(viewModelScope)
@@ -179,7 +182,13 @@ class SearchResultsViewModel : ViewModel() {
         _hybridSearchResultState.value = UiState.Loading
     }
 
-    fun getEventActionContext(): Map<String, Any> {
+    fun getStandardEventActionContext(): Map<String, Any> {
+        return mapOf(
+            "x_search_id_lex" to lastXSearchIdLexical
+        )
+    }
+
+    fun getHybridEventActionContext(): Map<String, Any> {
         return mapOf(
             "x_search_id_lex" to lastXSearchIdLexical,
             "x_search_id_sem" to lastXSearchIdSemantic
@@ -201,7 +210,7 @@ class SearchResultsViewModel : ViewModel() {
         private var countsPerLanguageCode: MutableList<Pair<String, Int>>,
         private var invokeSource: Constants.InvokeSource,
         private val repository: SearchRepository<StandardSearchResults>,
-        private val onFirstPageLoaded: (List<SearchResult>) -> Unit
+        private val onFirstPageLoaded: (StandardSearchResults) -> Unit
     ) : PagingSource<Int, SearchResult>() {
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
@@ -221,7 +230,7 @@ class SearchResultsViewModel : ViewModel() {
                 )
 
                 if (params.key == null) {
-                    onFirstPageLoaded(result.results)
+                    onFirstPageLoaded(result)
                 }
 
                 return LoadResult.Page(

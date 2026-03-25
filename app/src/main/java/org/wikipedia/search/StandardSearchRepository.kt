@@ -26,6 +26,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         val resultList = mutableListOf<SearchResult>()
         var response: MwQueryResponse? = null
         var currentContinuation = continuation
+        var lastXSearchId: String? = null
 
         if (isPrefixSearch) {
             if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
@@ -41,7 +42,9 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
                     }
                 }
             }
-            response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, batchSize, 0)
+            val prefixResponse = ServiceFactory.get(wikiSite).prefixSearchResponse(searchTerm, batchSize, 0)
+            lastXSearchId = prefixResponse.headers()["x-search-id"]
+            response = prefixResponse.body()
             currentContinuation = 0
         }
 
@@ -77,7 +80,8 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
 
         return StandardSearchResults(
             results = resultList.distinctBy { it.pageTitle.prefixedText }.toMutableList(),
-            continuation = currentContinuation
+            continuation = currentContinuation,
+            xSearchId = lastXSearchId
         )
     }
 
@@ -95,5 +99,6 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
 
 data class StandardSearchResults(
     var results: List<SearchResult>,
-    val continuation: Int?
+    val continuation: Int?,
+    val xSearchId: String?
 )

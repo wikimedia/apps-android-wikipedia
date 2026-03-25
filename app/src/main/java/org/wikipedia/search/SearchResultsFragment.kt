@@ -67,7 +67,7 @@ class SearchResultsFragment : Fragment() {
                     if (data != null) {
                         requireActivity().instrument?.submitInteraction(
                             "show_search_result",
-                            actionContext = mapOf("query" to viewModel.searchTerm.value.orEmpty())
+                            actionContext = viewModel.getStandardEventActionContext()
                         )
                     }
                 }
@@ -79,7 +79,7 @@ class SearchResultsFragment : Fragment() {
                     if (state is UiState.Success) {
                         requireActivity().instrument?.submitInteraction(
                             "show_hybrid_result",
-                            actionContext = viewModel.getEventActionContext()
+                            actionContext = viewModel.getHybridEventActionContext()
                         )
                         if (viewModel.languageCode.value == "el") {
                             // In the Greek case, we log the literal list of semantic search results
@@ -104,7 +104,7 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = "lexical_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getEventActionContext()
+                                    actionContext = viewModel.getHybridEventActionContext()
                                         .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -113,7 +113,7 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("impression",
                                     elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getEventActionContext()
+                                    actionContext = viewModel.getHybridEventActionContext()
                                         .plus("position" to position + 1)
                                 )
                             },
@@ -121,7 +121,7 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getEventActionContext()
+                                    actionContext = viewModel.getHybridEventActionContext()
                                         .plus("position" to position + 1)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -153,7 +153,7 @@ class SearchResultsFragment : Fragment() {
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getEventActionContext()
+                                    actionContext = viewModel.getHybridEventActionContext()
                                         .plus("position" to position + 1)
                                 )
                             },
@@ -183,10 +183,8 @@ class SearchResultsFragment : Fragment() {
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = mapOf(
-                                        "position" to position + 1,
-                                        "query" to viewModel.searchTerm.value.orEmpty()
-                                    )
+                                    actionContext = viewModel.getStandardEventActionContext()
+                                        .plus("position" to position + 1)
                                 )
 
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
@@ -203,13 +201,11 @@ class SearchResultsFragment : Fragment() {
 
                                 if (isSuggestion) {
                                     requireActivity().instrument?.submitInteraction("click",
-                                        elementId = "semantic_search_explicit", actionContext = mapOf("query" to query))
+                                        elementId = "semantic_search_explicit", actionContext = viewModel.getStandardEventActionContext())
                                 } else {
                                     requireActivity().instrument?.submitInteraction("search_result_click",
-                                        actionContext = mapOf(
-                                            "position" to position + 1,
-                                            "query" to query
-                                        )
+                                        actionContext = viewModel.getStandardEventActionContext()
+                                            .plus("position" to position + 1)
                                     )
                                 }
 
