@@ -12,6 +12,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
@@ -22,6 +23,7 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
+import org.wikipedia.feed.HomeFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
@@ -103,7 +105,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onTabChanged(tab: NavTab) {
         if (tab == NavTab.EXPLORE) {
-            // TODO: conditionally hide toolbar if we're looking at a full-bleed Compose feed.
+            binding.mainToolbar.isVisible = false
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
@@ -118,6 +120,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             }
             binding.mainToolbarWordmark.visibility = View.GONE
             binding.mainToolbar.setTitle(tab.text)
+            binding.mainToolbar.isVisible = true
             controlNavTabInFragment = true
         }
         applyStatusBarInsets()
@@ -126,8 +129,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private fun applyStatusBarInsets() {
         statusBarInsets?.let {
-            // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
-            binding.root.updatePadding(top = it.top)
+            binding.root.updatePadding(top = if (fragment.currentFragment is HomeFragment) 0 else it.top)
         }
     }
 

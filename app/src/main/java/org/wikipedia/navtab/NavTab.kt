@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.feed.FeedFragment
+import org.wikipedia.feed.HomeFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.readinglist.ReadingListsFragment
@@ -14,7 +15,7 @@ enum class NavTab(@StringRes val text: Int, val id: Int, @DrawableRes val icon: 
 
     EXPLORE(R.string.feed, R.id.nav_tab_explore, R.drawable.selector_nav_explore) {
         override fun newInstance(): Fragment {
-            return FeedFragment.newInstance()
+            return HomeFragment() // FeedFragment.newInstance()
         }
     },
     READING_LISTS(R.string.nav_item_saved, R.id.nav_tab_reading_lists, R.drawable.selector_nav_saved) {
