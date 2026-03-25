@@ -100,29 +100,26 @@ class SearchResultsFragment : Fragment() {
                         HybridSearchResultsScreen(
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
-                            onNavigateToTitle = { title, inNewTab, position, location ->
+                            onNavigateToTitle = { result, inNewTab, position, location ->
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = "lexical_search_result",
-                                    pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getHybridEventActionContext()
-                                        .plus("position" to position + 1)
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
                                 )
-                                callback()?.navigateToTitle(title, inNewTab, position, location)
+                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                             },
-                            onSemanticCardImpression = { result, position ->
+                            onSemanticCardImpression = { result ->
                                 requireActivity().instrument?.submitInteraction("impression",
                                     elementId = "semantic_search_card",
                                     pageData = TestKitchenAdapter.getPageData(result.pageTitle),
-                                    actionContext = viewModel.getHybridEventActionContext()
-                                        .plus("position" to position + 1)
+                                    actionContext = viewModel.getHybridEventActionContext(result)
                                 )
                             },
-                            onSemanticItemClick = { title, inNewTab, fromSnippetLink, position, location ->
+                            onSemanticItemClick = { result, title, inNewTab, fromSnippetLink, position, location ->
                                 requireActivity().instrument?.submitInteraction("search_result_click",
                                     elementId = if (fromSnippetLink) "semantic_search_link" else "semantic_search_result",
                                     pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getHybridEventActionContext()
-                                        .plus("position" to position + 1)
+                                    actionContext = viewModel.getHybridEventActionContext(result)
                                 )
                                 callback()?.navigateToTitle(title, inNewTab, position, location)
                             },
@@ -149,12 +146,11 @@ class SearchResultsFragment : Fragment() {
                             onLoading = { enabled ->
                                 callback()?.onSearchProgressBar(enabled)
                             },
-                            onRatingClick = { isPositive, title, position ->
+                            onRatingClick = { isPositive, result ->
                                 requireActivity().instrument?.submitInteraction("click",
                                     elementId = if (isPositive) "thumb_up" else "thumb_down",
-                                    pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getHybridEventActionContext()
-                                        .plus("position" to position + 1)
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getHybridEventActionContext(result)
                                 )
                             },
                             onLexicalResultsEmpty = {
@@ -179,15 +175,14 @@ class SearchResultsFragment : Fragment() {
                         SearchResultsScreen(
                             viewModel = viewModel,
                             modifier = Modifier.fillMaxSize(),
-                            onNavigateToTitle = { title, inNewTab, position, location ->
+                            onNavigateToTitle = { result, inNewTab, position, location ->
 
                                 requireActivity().instrument?.submitInteraction("search_result_click",
-                                    pageData = TestKitchenAdapter.getPageData(title),
-                                    actionContext = viewModel.getStandardEventActionContext()
-                                        .plus("position" to position + 1)
+                                    pageData = TestKitchenAdapter.getPageData(result.pageTitle),
+                                    actionContext = viewModel.getStandardEventActionContext(result)
                                 )
 
-                                callback()?.navigateToTitle(title, inNewTab, position, location)
+                                callback()?.navigateToTitle(result.pageTitle, inNewTab, position, location)
                             },
                             onItemLongClick = { view, searchResult, position ->
                                 val entry =
@@ -197,15 +192,14 @@ class SearchResultsFragment : Fragment() {
                                     callback = SearchResultLongPressHandler(callback(), position)
                                 ).show(entry)
                             },
-                            onSemanticSearchClick = { query, isSuggestion, position ->
+                            onSemanticSearchClick = { result, query, isSuggestion ->
 
                                 if (isSuggestion) {
                                     requireActivity().instrument?.submitInteraction("click",
                                         elementId = "semantic_search_explicit", actionContext = viewModel.getStandardEventActionContext())
                                 } else {
                                     requireActivity().instrument?.submitInteraction("search_result_click",
-                                        actionContext = viewModel.getStandardEventActionContext()
-                                            .plus("position" to position + 1)
+                                        actionContext = viewModel.getStandardEventActionContext(result)
                                     )
                                 }
 
