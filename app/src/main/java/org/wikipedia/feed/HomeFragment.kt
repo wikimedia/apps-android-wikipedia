@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,9 +67,12 @@ private val prototypeImageUrls = listOf(
 fun HomeFragmentContents() {
     val context = LocalContext.current
     val screenHeight = LocalConfiguration.current.screenHeightDp
+    val listState = rememberLazyListState()
 
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(
+            state = listState,
+            flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.backgroundColor)
