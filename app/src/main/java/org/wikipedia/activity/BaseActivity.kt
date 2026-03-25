@@ -40,6 +40,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -282,7 +283,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private fun maybeShowReadingChallengePrompt() {
-        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() && this !is ReadingChallengeOnboardingActivity) {
+        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
+            this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
             requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
             intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
