@@ -30,6 +30,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
+import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
@@ -148,6 +149,7 @@ class FeedFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        maybeShowExploreFeedUpdatePrompt()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
         viewLifecycleOwner.lifecycleScope.launch {
@@ -418,6 +420,13 @@ class FeedFragment : Fragment() {
                     showLanguagesActivity(InvokeSource.FEED)
                 }
                 .show()
+        }
+    }
+
+    private fun maybeShowExploreFeedUpdatePrompt() {
+        // TODO: Set this to true during the new user onboarding flow to prevent this prompt from appearing
+        if (Prefs.isExploreFeedUpdatePromptShown.not()) {
+            startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
         }
     }
 

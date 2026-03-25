@@ -882,6 +882,6 @@ object Prefs {
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
 
     var isExploreFeedUpdatePromptShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_update_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_update_prompt_shown, value)
 }
