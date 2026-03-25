@@ -5,14 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.activity.addCallback
-import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.settings.Prefs
 
-class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragment>(), OnboardingFragment.Callback {
+class InitialOnboardingActivity : BaseActivity(), OnboardingFragment.Callback {
+    // TODO: think about the way of how to handle the navigation between onboarding screens.
     override fun onSkip() {}
 
     override fun onComplete() {
-        setResult(if (fragment.languageChanged) RESULT_LANGUAGE_CHANGED else RESULT_OK)
         Prefs.isInitialOnboardingEnabled = false
         finish()
     }
@@ -20,16 +20,11 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         onBackPressedDispatcher.addCallback(this) {
-            if (fragment.onBackPressed()) {
-                return@addCallback
-            }
             setResult(RESULT_OK)
             finish()
         }
-    }
-
-    override fun createFragment(): InitialOnboardingFragment {
-        return InitialOnboardingFragment.newInstance()
+        // TODO: remove this later
+        onComplete()
     }
 
     companion object {
