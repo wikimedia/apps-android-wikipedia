@@ -187,7 +187,7 @@ fun StreakOngoingLargeWidget(
     backgroundColor: Color,
     contentColor: Color,
     progressColor: Color,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)

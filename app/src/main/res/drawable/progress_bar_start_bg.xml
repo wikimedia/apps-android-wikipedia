@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/blue600_30"/>
+    <solid android:color="@color/widget_background"/>
     <corners android:topLeftRadius="8dp" android:topRightRadius="2dp" android:bottomRightRadius="2dp" android:bottomLeftRadius="8dp"/>
 </shape>
