@@ -45,7 +45,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
@@ -74,7 +74,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
@@ -93,9 +93,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
-                bottomContent = {
-                }
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
@@ -105,7 +103,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(
@@ -119,8 +117,9 @@ fun ReadingChallengeSmallWidgetContent(
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {
                     WidgetButton(
@@ -134,8 +133,9 @@ fun ReadingChallengeSmallWidgetContent(
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                    .padding(vertical = 12.dp, horizontal = 16.dp)
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 bottomContent = {
                     WidgetButton(
@@ -154,7 +154,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
@@ -177,7 +177,7 @@ fun ReadingChallengeSmallWidgetContent(
                         onClick = actionStartActivity(MainActivity.newIntent(context))
                     ),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
