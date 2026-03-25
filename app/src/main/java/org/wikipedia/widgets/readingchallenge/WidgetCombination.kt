@@ -20,10 +20,10 @@ object WidgetCombinations {
 
     // TODO: update iconResId when svg's are provided
     val streakNeedsReading = listOf(
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_dont_let_today_drift),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_before_day_snoozes),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_small_bit_counts),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away),
+        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_dont_let_today_drift, iconResId = R.drawable.wp25_babyglobe_sleeping),
+        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_before_day_snoozes, iconResId = R.drawable.wp25_babyglobe_sleeping),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_small_bit_counts, iconResId = R.drawable.wp25_babyglobe_sleeping),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away, iconResId = R.drawable.wp25_babyglobe_sleeping),
         needsReadingCombination(R.string.reading_challenge_widget_reminder_jump_in_anytime),
         needsReadingCombination(R.string.reading_challenge_widget_reminder_quiet_reading_moment),
         needsReadingCombination(R.string.reading_challenge_widget_reminder_keep_curiosity_going),
@@ -52,19 +52,19 @@ object WidgetCombinations {
     // Since we are showing progress bar the title from the doc is not required
     val streakOngoing = listOf(
         WidgetCombination(
-            iconResId = R.drawable.globe,
+            iconResId = R.drawable.wp25_babyglobe_phone,
             backgroundColor = WidgetColors.phoneReadingBackground,
             contentColor = WidgetColors.phoneReadingContent,
             progressColor = WidgetColors.phoneReadingProgressColor
         ),
         WidgetCombination(
-            iconResId = R.drawable.globe,
+            iconResId = R.drawable.wp25_babyglobe_music,
             backgroundColor = WidgetColors.musicReadingBackground,
             contentColor = WidgetColors.musicContent,
             progressColor = WidgetColors.musicReadingProgressColor
         ),
         WidgetCombination(
-            iconResId = R.drawable.globe,
+            iconResId = R.drawable.wp25_babyglobe_space,
             backgroundColor = WidgetColors.spaceReadingBackground,
             contentColor = WidgetColors.spaceContent,
             progressColor = WidgetColors.spaceReadingProgressColor
@@ -80,7 +80,7 @@ object WidgetCombinations {
         return this[index]
     }
 
-    private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int = R.drawable.globe) =
+    private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int = R.drawable.wp25_babyglobe_reading) =
         WidgetCombination(
             iconResId = iconResId,
             backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
@@ -91,7 +91,7 @@ object WidgetCombinations {
     private fun needsEnrolledNotStartedCombination(
         @StringRes titleResId: Int,
         @StringRes subtitleResId: Int,
-        @DrawableRes iconResId: Int = R.drawable.globe,
+        @DrawableRes iconResId: Int = R.drawable.wp25_babyglobe_reading,
     ) =
         WidgetCombination(
             iconResId = iconResId,

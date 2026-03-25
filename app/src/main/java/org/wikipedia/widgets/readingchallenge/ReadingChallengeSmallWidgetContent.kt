@@ -45,7 +45,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_completed, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
@@ -103,7 +103,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = combination.iconResId, // TODO: update when svg's are provided
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(

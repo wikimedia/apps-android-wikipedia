@@ -64,7 +64,7 @@ fun ReadingChallengeLargeWidgetContent(
                         textColor = WidgetColors.primary
                     )
                 },
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_completed, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_collect_your_prize_button),
@@ -121,7 +121,7 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.EnrolledNotStarted -> {
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
-                mainImageResId = R.drawable.wp25_babyglobe_reading,
+                mainImageResId = combination.iconResId,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 titleResId = combination.titleResId ?: R.string.reading_challenge_widget_enrolled_not_started_title,
@@ -175,7 +175,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 state = state,
-                mascotImageResId = R.drawable.wp25_babyglobe_reading // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
@@ -189,7 +189,7 @@ fun ReadingChallengeLargeWidgetContent(
                 contentColor = combination.contentColor,
                 progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
                 state = state,
-                mascotImageResId = R.drawable.wp25_babyglobe_reading // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
             )
         }
     }
