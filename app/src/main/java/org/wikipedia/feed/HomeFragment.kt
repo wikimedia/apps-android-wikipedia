@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -25,7 +26,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
@@ -66,10 +66,11 @@ private val prototypeImageUrls = listOf(
 @Composable
 fun HomeFragmentContents() {
     val context = LocalContext.current
-    val screenHeight = LocalConfiguration.current.screenHeightDp
     val listState = rememberLazyListState()
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val viewportHeight = maxHeight
+
         LazyColumn(
             state = listState,
             flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
@@ -81,7 +82,7 @@ fun HomeFragmentContents() {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(screenHeight.dp)
+                        .height(viewportHeight)
                 ) {
                     AsyncImage(
                         model = ImageService.getRequest(context, url = imageUrl),
@@ -102,10 +103,14 @@ fun HomeFragmentContents() {
                 .height(140.dp)
                 .background(
                     Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Black.copy(alpha = 0.72f),
-                            Color.Black.copy(alpha = 0.32f),
-                            Color.Transparent
+                        colorStops = arrayOf(
+                            0.0f to Color.Black.copy(alpha = 0.78f),
+                            0.18f to Color.Black.copy(alpha = 0.64f),
+                            0.38f to Color.Black.copy(alpha = 0.40f),
+                            0.58f to Color.Black.copy(alpha = 0.20f),
+                            0.76f to Color.Black.copy(alpha = 0.08f),
+                            0.90f to Color.Black.copy(alpha = 0.02f),
+                            1.0f to Color.Transparent
                         )
                     )
                 )
