@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.wikigames.OnThisDayGameAction
@@ -34,7 +35,7 @@ class GamesHubFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-
+        WikiGamesEvent.submit(action = "impression", activeInterface = "games_hub", langCode = viewModel.selectedLanguage)
         onThisDayGameArchiveCalendarHelper = OnThisDayGameArchiveCalendarHelper(
                 fragment = this@GamesHubFragment,
                 languageCode = viewModel.selectedLanguage,
