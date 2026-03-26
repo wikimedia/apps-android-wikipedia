@@ -47,6 +47,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.yearinreview.LoadingIndicator
 
 class InitialOnboardingActivity : BaseActivity() {
@@ -55,9 +56,15 @@ class InitialOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            BaseTheme {
+            var currentTheme by remember { mutableStateOf(Theme.DARK) }
+            BaseTheme(
+                currentTheme = currentTheme
+            ) {
                 AppOnboardingScreen(
-                    isNewUser = Prefs.isInitialOnboardingEnabled
+                    isNewUser = Prefs.isInitialOnboardingEnabled,
+                    onUpdateTheme = {
+                        currentTheme = Theme.LIGHT
+                    }
                 )
             }
         }
@@ -74,20 +81,33 @@ class InitialOnboardingActivity : BaseActivity() {
 @Composable
 fun AppOnboardingScreen(
     modifier: Modifier = Modifier,
-    isNewUser: Boolean
+    isNewUser: Boolean,
+    onUpdateTheme: () -> Unit
 ) {
     var showIntroScreen by remember { mutableStateOf(isNewUser) }
     if (showIntroScreen) {
-        AppOnboardingScreen(modifier = modifier)
+        InitialOnboardingScreen(
+            modifier = modifier,
+            onNextClick = {
+                onUpdateTheme()
+            },
+            onFinishClick = {
+                showIntroScreen = false
+            }
+        )
     } else {
-        // Personalization Screen (interest selection + content preference + language)
+        // TODO: interest selection
     }
 }
 
 @Composable
-fun AppOnboardingScreen(
-    modifier: Modifier = Modifier
+fun InitialOnboardingScreen(
+    modifier: Modifier = Modifier,
+    onNextClick: () -> Unit,
+    onFinishClick: () -> Unit
 ) {
+    val context = LocalContext.current
+    var isFirstScreen by remember { mutableStateOf(true) }
     Scaffold(
         modifier = modifier
             .safeDrawingPadding(),
@@ -105,7 +125,12 @@ fun AppOnboardingScreen(
                     contentAlignment = Alignment.CenterEnd
                 ) {
                     IconButton(onClick = {
-                        // TODO: go to next
+                        if (isFirstScreen) {
+                            onNextClick()
+                            isFirstScreen = false
+                        } else {
+                            onFinishClick()
+                        }
                     }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
@@ -123,11 +148,19 @@ fun AppOnboardingScreen(
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState()),
         ) {
-            InitialOnboardingIntroContent(
-                onLearnMoreClick = {
-                    // TODO: implement this
-                }
-            )
+            if (isFirstScreen) {
+                InitialOnboardingIntroContent(
+                    onLearnMoreClick = {
+                        FeedbackUtil.showAboutWikipedia(context)
+                    }
+                )
+            } else {
+                InitialOnboardingDataPrivacyContent(
+                    onLearnMoreClick = {
+                        FeedbackUtil.showPrivacyPolicy(context)
+                    }
+                )
+            }
         }
     }
 }
@@ -254,12 +287,14 @@ fun InitialOnboardingDataPrivacyContent(
 
 @Preview(showBackground = true)
 @Composable
-fun AppOnboardingScreenPreview() {
+fun InitialOnboardingScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        AppOnboardingScreen(
-            modifier = Modifier.fillMaxSize()
+        InitialOnboardingScreen(
+            modifier = Modifier.fillMaxSize(),
+            onNextClick = {},
+            onFinishClick = {}
         )
     }
 }
