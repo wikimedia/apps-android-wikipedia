@@ -10,13 +10,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import kotlinx.serialization.Serializable
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.AppTextButton
 import org.wikipedia.compose.theme.BaseTheme
@@ -31,7 +30,7 @@ class InitialOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 InitialOnboardingScreen(
-                    startDestination = if (Prefs.isInitialOnboardingEnabled) Intro else PersonalizationSetup,
+                    isNewUser = Prefs.isInitialOnboardingEnabled,
                     onFinish = {
                         Prefs.isInitialOnboardingEnabled = false
                         setResult(RESULT_OK)
@@ -53,26 +52,14 @@ class InitialOnboardingActivity : BaseActivity() {
 @Composable
 fun InitialOnboardingScreen(
     modifier: Modifier = Modifier,
-    navHostController: NavHostController = rememberNavController(),
-    startDestination: OnboardingRoute,
+    isNewUser: Boolean,
     onFinish: () -> Unit
 ) {
-    NavHost(
-        navController = navHostController,
-        startDestination = startDestination,
-        modifier = modifier
-    ) {
-        composable<Intro> {
-            // TODO: replace with actual screen
-            IntroScreen(onClick = onFinish)
-            // on click to navigate to next screen, for now just finish the onboarding flow
-            // navHostController.navigate(PersonalizationSetup)
-        }
-
-        composable<PersonalizationSetup> {
-            // TODO: replace with actual screen
-            // we can create a viewModel for this screen here and pass it down which can be shared
-        }
+    var showPersonalization by remember { mutableStateOf(isNewUser) }
+    if (showPersonalization) {
+        IntroScreen(onClick = onFinish )
+    } else {
+        // Personalization Screen (interest selection + content preference + language)
     }
 }
 
@@ -96,8 +83,3 @@ fun IntroScreen(
         }
     }
 }
-
-// TODO: we can also separate intro into world knowledge intro and data privacy
-sealed interface OnboardingRoute
-@Serializable object Intro : OnboardingRoute
-@Serializable object PersonalizationSetup : OnboardingRoute
