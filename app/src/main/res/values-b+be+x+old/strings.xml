@@ -389,6 +389,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_cancel_hint">Скасаваць</string>
   <string name="suggested_edits_activity_title">Рэдагаваць</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэґі</string>
   <string name="description_edit_login_cancel_button_text">Скасаваць</string>
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>
