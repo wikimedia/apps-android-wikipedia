@@ -38,7 +38,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -102,6 +101,9 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
                                 coroutineScope.launch {
                                     ReadingChallengeWidget().updateAll(requireContext())
                                 }
+                            },
+                            updateWidgetsUpdateFrequency = {
+                                ReadingChallengeWidgetWorker.scheduleNextWidgetUpdate(requireContext())
                             }
                         )
                     }
@@ -124,9 +126,9 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
 fun ReadingChallengePlayground(
     modifier: Modifier = Modifier,
     state: ReadingChallengeState,
-    updateWidgetsExplicitly: () -> Unit
+    updateWidgetsExplicitly: () -> Unit,
+    updateWidgetsUpdateFrequency: () -> Unit
 ) {
-    val context = LocalContext.current
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
     var lastReadDate by remember { mutableStateOf(Prefs.readingChallengeLastReadDate) }
@@ -262,8 +264,7 @@ fun ReadingChallengePlayground(
                         onCheckedChange = {
                             fastCycle = it
                             Prefs.readingChallengeWidgetFastCycle = it
-                            ReadingChallengeWidgetWorker.scheduleNextMidnightUpdate(context)
-                            updateWidgetsExplicitly()
+                            updateWidgetsUpdateFrequency()
                         },
                         colors = switchColor
                     )

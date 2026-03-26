@@ -77,14 +77,13 @@ object WidgetCombinations {
 
     fun List<WidgetCombination>.forToday(
         enrollmentDate: LocalDate,
-        today: LocalDate = LocalDate.now()
+        now: LocalDateTime = LocalDateTime.now()
     ): WidgetCombination {
         val index = if (ReleaseUtil.isPreBetaRelease && Prefs.readingChallengeWidgetFastCycle) {
-            val minutesSinceEnrollment = ChronoUnit.MINUTES.between(enrollmentDate.atStartOfDay(),
-                LocalDateTime.now())
+            val minutesSinceEnrollment = ChronoUnit.MINUTES.between(enrollmentDate.atStartOfDay(), now).coerceAtLeast(0)
             (minutesSinceEnrollment % this.size).toInt()
         } else {
-            val daysSinceEnrollment = DAYS.between(enrollmentDate, today).coerceAtLeast(0)
+            val daysSinceEnrollment = DAYS.between(enrollmentDate, now.toLocalDate()).coerceAtLeast(0)
             (daysSinceEnrollment % this.size).toInt()
         }
         return this[index]

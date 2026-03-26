@@ -23,14 +23,14 @@ class ReadingChallengeWidgetWorker(
 
     override suspend fun doWork(): Result {
         ReadingChallengeWidget().updateAll(applicationContext)
-        scheduleNextMidnightUpdate(applicationContext)
+        scheduleNextWidgetUpdate(applicationContext)
         return Result.success()
     }
 
     companion object {
         const val WORK_NAME = "ReadingChallengeWidgetWorker"
 
-        fun scheduleNextMidnightUpdate(context: Context) {
+        fun scheduleNextWidgetUpdate(context: Context) {
             val delay = if (ReleaseUtil.isPreBetaRelease && Prefs.readingChallengeWidgetFastCycle) {
                 Duration.ofMinutes(1)
             } else {
