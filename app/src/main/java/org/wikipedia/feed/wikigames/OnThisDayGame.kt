@@ -248,7 +248,6 @@ fun OnThisDayGameCardProgress(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 112.dp)
                     ) {
                         FilledTonalButton(
                             modifier = Modifier

@@ -20,12 +20,15 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -95,6 +98,12 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             if (tab == NavTab.EDITS) {
                 ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
                 PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
+
+                if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
+                    ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                        ReadingChallengeInstallWidgetDialog()
+                    )
+                }
             }
             binding.mainToolbarWordmark.visibility = View.GONE
             binding.mainToolbar.setTitle(tab.text)

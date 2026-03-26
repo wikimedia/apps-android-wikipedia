@@ -14,6 +14,7 @@ import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.PlacesEvent
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
@@ -76,6 +77,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerGamesHubContainer.setOnClickListener {
+            WikiGamesEvent.submit(action = "games_click", activeInterface = "more_menu")
             requireActivity().startActivity(GamesHubActivity.newIntent(requireActivity()))
             dismiss()
         }

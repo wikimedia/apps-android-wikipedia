@@ -1,5 +1,7 @@
 package org.wikipedia.widgets.readingchallenge
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -10,6 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
@@ -143,13 +146,21 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val isChallengeActive: Boolean
             get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
 
+        private fun isWidgetInstalled(): Boolean {
+            val context = WikipediaApp.instance
+            val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(
+                ComponentName(context, ReadingChallengeWidgetReceiver::class.java)
+            )
+            return ids.isNotEmpty()
+        }
+
         fun shouldShowOnboardingDialog(): Boolean {
             return !Prefs.readingChallengeOnboardingShown && isChallengeActive
         }
 
         fun shouldShowWidgetInstallDialog(): Boolean {
             return Prefs.readingChallengeOnboardingShown && !Prefs.readingChallengeInstallPromptShown &&
-                    Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive
+                    Prefs.readingChallengeEnrolled && AccountUtil.isLoggedIn && isChallengeActive && !isWidgetInstalled()
         }
 
         fun shouldShowReward(intent: Intent): Boolean {

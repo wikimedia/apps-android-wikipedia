@@ -40,6 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
@@ -81,6 +82,7 @@ fun GamesHubScreen(
 
         PullToRefreshBox(
             onRefresh = {
+                WikiGamesEvent.submit(action = "refresh", activeInterface = "games_hub", langCode = selectedLanguage)
                 isRefreshing = true
                 viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
             },
@@ -114,9 +116,11 @@ fun GamesHubScreen(
                             isSelected = langCode == selectedLanguage,
                             langCode = langCode,
                             onShowDisabledMessage = { snackbarMessage ->
+                                WikiGamesEvent.submit(action = "language_chip_select_disabled", activeInterface = "games_hub", langCode = langCode)
                                 onShowDisabledMessage(snackbarMessage)
                             },
                             onSelected = {
+                                WikiGamesEvent.submit(action = "language_chip_select", activeInterface = "games_hub", langCode = langCode)
                                 selectedLanguage = langCode
                                 viewModel.selectedLanguage = langCode
                                 viewModel.loadOnThisDayGamesPreviews(selectedLanguage)
@@ -315,6 +319,8 @@ fun OnThisDayGameCards(
                             game = WikiGame.OnThisDayGame(gameState),
                             dateTitle = dateTitle,
                             isArchiveGame = isArchiveGame,
+                            selectedLanguage = selectedLanguage,
+                            cardPosition = cardIndex,
                             onThisDayGameAction = {
                                 onThisDayGameAction(it, gameDate)
                             }
@@ -330,6 +336,7 @@ fun OnThisDayGameCards(
                             iconTint = WikipediaTheme.colors.primaryColor,
                             titleText = stringResource(R.string.on_this_day_game_card_archive_label),
                             onPlayClick = {
+                                WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardIndex + 1)
                                 onThisDayGameAction(OnThisDayGameAction.PlayArchive, gameDate)
                             }
                         )
@@ -346,8 +353,13 @@ fun OnThisDayGameCardContent(
     game: WikiGame.OnThisDayGame,
     dateTitle: String,
     isArchiveGame: Boolean,
-    onThisDayGameAction: (OnThisDayGameAction) -> Unit
+    onThisDayGameAction: (OnThisDayGameAction) -> Unit,
+    selectedLanguage: String,
+    cardPosition: Int
 ) {
+    val cardPositionForEvent = if (isArchiveGame) cardPosition + 1 else null
+    val cardTypeForEvent = if (isArchiveGame) "archive" else "today"
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -360,6 +372,7 @@ fun OnThisDayGameCardContent(
                         state = game.state,
                         titleText = dateTitle,
                         onPlayClick = {
+                            WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "today", langCode = selectedLanguage)
                             onThisDayGameAction(OnThisDayGameAction.Play)
                         }
                     )
@@ -370,6 +383,7 @@ fun OnThisDayGameCardContent(
                         iconTint = WikipediaTheme.colors.progressiveColor,
                         titleText = dateTitle,
                         onPlayClick = {
+                            WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardPositionForEvent)
                             onThisDayGameAction(OnThisDayGameAction.Play)
                         }
                     )
@@ -383,6 +397,7 @@ fun OnThisDayGameCardContent(
                     state = game.state,
                     titleText = dateTitle,
                     onContinueClick = {
+                        WikiGamesEvent.submit(action = "continue_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.Play)
                     }
                 )
@@ -394,10 +409,17 @@ fun OnThisDayGameCardContent(
                     isArchiveGame = isArchiveGame,
                     state = game.state,
                     titleText = dateTitle,
-                    onPlayClick = { onThisDayGameAction(OnThisDayGameAction.Play) },
-                    onReviewResult = { onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
-                    onPlayTheArchive = { onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
-                    onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
+                    onPlayClick = {
+                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
+                        onThisDayGameAction(OnThisDayGameAction.Play) },
+                    onReviewResult = {
+                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
+                        onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
+                    onPlayTheArchive = {
+                        WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
+                        onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
+                    onCountDownFinished = {
+                        onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
                 )
             }
         }
