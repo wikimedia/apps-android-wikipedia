@@ -414,7 +414,7 @@
   <string name="link_preview_dialog_saved_button">ਸੰਭਾਲਿਆ</string>
   <string name="link_preview_dialog_share_button">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="link_preview_stub_placeholder_text">ਇਹ ਲੇਖ ਇੱਕ ਟੁੰਠ ਹੈ, ਜਿਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਲੇਖ ਵਿੱਚ ਝਲਕ ਬਣਾਉਣ ਲਈ ਲੋੜੀਂਦੀ ਸਮੱਗਰੀ ਨਹੀਂ ਹੈ। ਹਾਲਾਂਕਿ, ਤੁਸੀਂ ਇਸਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ।</string>
-  <string name="error_page_does_not_exist">ਇਹ ਸਫ਼ਾ ਹਾਲੇ ਮੌਜੂਦ ਨਹੀਂ ਹੈ</string>
+  <string name="error_page_does_not_exist">ਇਹ ਵਰਕਾ ਹਾਲੇ ਹੋਂਦ ਵਿੱਚ ਨਹੀਂ ਏ</string>
   <string name="error_user_page_does_not_exist">ਵਿਕੀਪੀਡੀਆ ਕੋਲ ਇਸ ਸਹੀ ਨਾਮ ਵਾਲਾ ਕੋਈ &lt;a href=\"%1$s \"&gt;ਵਰਤੋਂਕਾਰ ਸਫ਼ਾ&lt;/a&gt; ਨਹੀਂ ਹੈ। ਆਮ ਤੌਰ \'ਤੇ, ਇਹ ਸਫ਼ਾ &lt;b&gt;%2$s&lt;/b&gt; ਵੱਲੋਂ ਬਣਾਇਆ ਅਤੇ ਸੋਧਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਜੇਕਰ ਸ਼ੱਕ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਪੁਸ਼ਟੀ ਕਰੋ ਕਿ \" %3$s \" ਮੌਜੂਦ ਹੈ।</string>
   <string name="view_wiki_error_message_offline">ਇੰਟਰਨੈਟ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਦੇ</string>
   <string name="view_wiki_error_message_timeout">ਵਿਕੀਪੀਡੀਆ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ, ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -1552,9 +1552,13 @@
   <string name="survey_dialog_general_maybe">ਸ਼ਾਇਦ</string>
   <string name="survey_dialog_input_hint">ਵਾਧੂ ਸੁਝਾਅ</string>
   <string name="survey_dialog_submitted_snackbar">ਸੁਝਾਅ ਜਮ੍ਹਾਂ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਧੰਨਵਾਦ!</string>
+  <string name="games_hub_activity_title">ਖੇਡਾਂ</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">ਹੋਰ ਜਾਣੋ</string>
+  <string name="games_hub_activity_overflow_view_game_stats">ਖੇਡ ਦੇ ਅੰਕੜੇ ਵੇਖੋ</string>
+  <string name="games_hub_activity_overflow_learn_more">ਹੋਰ ਸਿੱਖੋ</string>
   <string name="on_this_day_game_entry_dialog_title">ਪੇਸ਼ ਕੀਤਾ ਜਾ ਰਿਹਾ ਏ</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
+  <string name="on_this_day_game_entry_dialog_button">ਖੇਡੋ</string>
   <string name="on_this_day_game_title">ਕਿਹੜਾ ਪਹਿਲਾਂ ਆਇਆ?</string>
   <string name="on_this_day_game_dialog_button">ਖੇਡੋ</string>
   <string name="on_this_day_game_splash_message">ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਕਿ ਇਤਿਹਾਸ ਵਿੱਚ ਇਸ ਦਿਨ ਕਿਹੜੀ ਘਟਨਾ ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਵਾਪਰੀ ਸੀ।</string>
@@ -1587,9 +1591,14 @@
   <string name="on_this_day_game_notification_turned_on_snackbar_message">ਖੇਡ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਹਨ।</string>
   <string name="on_this_day_game_report_email_subject">ਮੁੱਦੇ ਦੀ ਇਤਲਾਹ - ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="on_this_day_game_notification_undo">ਰੱਦ ਕਰੋ</string>
+  <string name="on_this_day_game_play_today_btn_text">ਅੱਜ ਦੀ ਖੇਡ ਖੇਡੋ</string>
   <string name="on_this_day_game_continue_playing_btn_text">ਖੇਡਣਾ ਜਾਰੀ ਰੱਖੋ</string>
   <string name="on_this_day_game_sound_on">ਆਵਾਜ਼ ਚਾਲੂ ਕਰੋ</string>
   <string name="on_this_day_game_sound_off">ਆਵਾਜ਼ ਬੰਦ ਕਰੋ</string>
+  <string name="on_this_day_game_more_label">ਹੋਰ</string>
+  <string name="on_this_day_game_card_archive_label">ਪੁਰਾਲੇਖ</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">ਦਾਖ਼ਲ ਹੋਵੋ</string>
+  <string name="wikipedia_games_title">ਵਿਕੀਪੀਡੀਆ ਖੇਡਾਂ</string>
   <string name="year_in_review_learn_more">ਹੋਰ ਜਾਣੋ</string>
   <string name="year_in_review_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
   <string name="year_in_review_navigate_left">ਖੱਬੇ ਪਾਸੇ ਜਾਓ</string>
