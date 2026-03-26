@@ -107,14 +107,8 @@ fun ReadingChallengeLargeWidgetContent(
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
-                    // just for visual alignment, the background and content are set to the same color to create appearance of not button, prevents the mascot from shifting downward
-                    WidgetButton(
-                        text = "",
-                        action = actionStartActivity(MainActivity.newIntent(context)),
-                        backgroundColor = WidgetColors.joinChallengeBackground,
-                        contentColor = WidgetColors.joinChallengeBackground,
-                        modifier = GlanceModifier
-                    )
+                    // for visual alignment, prevents the mascot from shifting downward
+                    Spacer(modifier = GlanceModifier.height(40.dp))
                 }
             )
         }
