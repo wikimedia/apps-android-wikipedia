@@ -33,6 +33,7 @@
 * Kareyac
 * Katunchik
 * Lutece398
+* Lvova
 * Mailman
 * MaxBioHazard
 * Megakott
@@ -103,8 +104,8 @@
   <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_activity">Активность</string>
-  <string name="nav_item_more">Ещё</string>
-  <string name="nav_item_search">Найти</string>
+  <string name="nav_item_more">Больше</string>
+  <string name="nav_item_search">Поиск</string>
   <string name="nav_item_contribute">Вклад</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -128,7 +129,7 @@
   <string name="wikimedia_commons">Викисклад</string>
   <string name="wikidata">Викиданные</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
-  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц. Продолжить?</string>
+  <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц. Вы уверены?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Нет</string>
   <string name="share_via">Поделиться...</string>
@@ -136,7 +137,7 @@
   <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="page_edit_history_activity_title">История изменений: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
-  <string name="page_edit_history_comment_placeholder">Пустое описание изменений</string>
+  <string name="page_edit_history_comment_placeholder">Нет описания правки</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Искать или отфильтровать правки</string>
   <string name="page_edit_history_filter_by">Отфильтровать по</string>
   <string name="page_edit_history_filter_by_all">Все правки (%s)</string>
@@ -1891,11 +1892,11 @@
   <string name="patroller_saved_message_title_do_not_censor">Не подвергайте цензуре</string>
   <string name="patroller_saved_message_title_art_imp">Предложение по улучшению статьи</string>
   <string name="patroller_saved_message_body_vandalism">Здравствуйте, {{{username}}}. Хочу сообщить, что мною была отменена одна или несколько ваших [{{{diffLink}}}|недавних правок], так как они не кажутся конструктивными. Если вы считаете, что это ошибка, или у вас есть вопросы, вы можете оставить сообщение на [[Обсуждение_участника:{{{senderUserName}}}|моей странице обсуждения]]. Обратите внимание, что продолжение вандализма может привести к ограничениям.</string>
-  <string name="patroller_saved_message_body_editing_tests">Здравствуйте, {{{username}}}. Мы рады, что Википедия привлекла ваше внимание и что вы заинтересовались обучением редактированию на ней. Ваша проба в редактировании прошла успешно; однако, стоит помнить, что цель этого проекта — создать надёжную и полную энциклопедию, которой могут пользоваться все. Ваша правка повлияла на содержимое, поэтому она была удалена.\nЕсли вы хотите научиться править на Википедии, вы можете использовать [[Википедия:Песочница|песочницу]]. Если ваши комментарии касаются конкретной статьи, то правильным местом для них является страница обсуждения этой статьи.</string>
+  <string name="patroller_saved_message_body_editing_tests">Здравствуйте, {{{username}}}. Мы рады, что Википедия привлекла ваше внимание и что вы заинтересовались обучением редактированию в ней. Ваша проба в редактировании прошла успешно; однако, стоит помнить, что цель этого проекта — создать надёжную и полную энциклопедию, которой могут пользоваться все. Ваша правка повлияла на содержимое, поэтому она была удалена.\nЕсли вы хотите научиться править Википедию, вы можете использовать [[Википедия:Песочница|песочницу]]. Если ваши комментарии касаются конкретной статьи, то правильным местом для них является страница обсуждения этой статьи.</string>
   <string name="patroller_saved_message_body_npov">Здравствуйте, {{{username}}}. Некоторые из ваших правок не соответствуют требованиям нейтральности, установленным политикой [[Википедия:Нейтральная_точка_зрения|нейтральной точки зрения]] данной Википедии. По этой причине некоторая часть материалов была изменена или удалена. Пожалуйста, измените абзацы или разделы, которые выражают одностороннюю точку зрения, и замените их на более нейтральный и объективный текст, соответствующий энциклопедическим стандартам.</string>
   <string name="patroller_saved_message_body_auto_trans">Здравствуйте, {{{username}}}. Некоторые из ваших правок, вероятно, являются машинным переводом, по этой причине они были изменены или помечены соответствующим шаблоном. Если в статью не будут внесены улучшения, она может быть удалена.\n\nЕсли, несмотря на всю эту информацию, у вас остались вопросы, не стесняйтесь оставить сообщение на [[Обсуждение_участника:{{{senderUserName}}}|моей странице обсуждения]]. Не расстраивайтесь из-за этого инцидента. Ваш вклад очень важен для Википедии.</string>
   <string name="patroller_saved_message_body_coi_rem">Здравствуйте, {{{username}}}. Я ценю ваш вклад в Википедию; однако мною было замечено, что вы находитесь в [[Википедия:Конфликт_интересов|конфликте интересов]]. Конфликт интересов — это несоответствие между целями Википедии в отношении нейтральности и достоверности и конкретными целями отдельных редакторов, лиц, организаций или компаний.\n\nВсе правки в основном пространстве подчиняются политикам и критериям содержания данной Википедии ([[Википедия:Чем_не_является_Википедия|чем не является Википедия]]), энциклопедическому качеству ([[Википедия:Проверяемость|проверяемость]] и [[Википедия:Недопустимость_оригинальных_исследований|недопустимость оригинальных исследований]]), редакционному методу ([[Википедия:Нейтральная_точка_зрения|нейтральная точка зрения]]) и законности содержания ([[Википедия:Авторские_права|авторские права]]). Все редакторы обязаны следовать этим политикам при создании и оценке содержимого статей и уважать действия других редакторов, предполагая добросовестность.\n\nЕсли вы редактируете, находясь в конфликте интересов, вам следует применять соответствующую политику с особой тщательностью; в противном случае ваш аккаунт может быть признан использующимся в личных целях и заблокирован. Если у вас есть вопросы, не стесняйтесь обратиться ко мне на странице обсуждения.</string>
-  <string name="patroller_saved_message_body_final_warning">Поскольку вы совершили несколько деструктивных правок, это будет для вас последним предупреждением. Если вы вновь внесёте вандальные изменения, ваша возможность править на Википедии будет заблокирована.</string>
+  <string name="patroller_saved_message_body_final_warning">Поскольку вы совершили несколько деструктивных правок, это будет для вас последним предупреждением. Если вы вновь внесёте вандальные изменения, ваша возможность править Википедию будет заблокирована.</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="patroller_saved_message_body_edit_summary">Здравствуйте, {{{username}}}. Похоже, вы удалили содержимое статьи из Википедии, не оставив краткое описание правки. Пожалуйста, оставляйте описание правки каждый раз, когда добавляете или удаляете информацию из Википедии.</string>
   <string name="patroller_saved_message_body_do_not_censor">Здравствуйте, {{{username}}}. Похоже, вы удалили часть содержимого статьи, не обсудив это на её странице обсуждения. Обратите внимание, что Википедия не подвергается цензуре, и её содержимое не должно удаляться только потому, что оно является спорным. Если вы считаете информацию недостоверной, пожалуйста, обсудите это и добейтесь консенсуса на странице обсуждения статьи.</string>
@@ -1965,8 +1966,8 @@
   <string name="survey_dialog_submitted_snackbar">Обратная связь отправлена. Спасибо!</string>
   <string name="on_this_day_game_entry_dialog_title">Введение</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Игры Википедии</string>
-  <string name="on_this_day_game_entry_dialog_button">Сыграть в сегодняшнюю игру</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Игры Википедии доступны в ленте</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Сыграть в сегодняшнюю игру</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Игры Википедии доступны в ленте</string>
   <string name="on_this_day_game_title">Что произошло раньше?</string>
   <string name="on_this_day_game_dialog_button">Играть</string>
   <string name="on_this_day_game_splash_message">Угадайте, какое событие произошло первым в истории в этот день.</string>
@@ -1978,14 +1979,9 @@
   <string name="on_this_day_game_point">+1 балл</string>
   <string name="on_this_day_game_next">Следующий вопрос</string>
   <string name="on_this_day_game_finish">Финальный результат</string>
-  <string name="on_this_day_game_share_button">Поделиться</string>
-  <string name="on_this_day_game_pause_title">Поставить игру на паузу?</string>
-  <string name="on_this_day_game_pause_body">Ваши результаты будут сохранёны на сегодня. В дальнейшем вы можете вернуться к игре через свою ленту.</string>
-  <string name="on_this_day_game_pause_negative">Продолжить играть</string>
-  <string name="on_this_day_game_pause_positive">Понятно</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Поделиться</string>
   <string name="on_this_day_game_feed_entry_card_heading">Игры Википедии</string>
   <string name="on_this_day_game_feed_entry_card_title">Что произошло раньше?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Угадайте, какое событие произошло первым в истории в этот день.</string>
   <string name="on_this_day_game_result">Ваш счёт: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Следующая игра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>

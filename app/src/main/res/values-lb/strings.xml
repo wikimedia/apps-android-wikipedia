@@ -142,7 +142,7 @@
   <string name="search_reading_list_no_results">Keng Resultater a(n) \"%s\" fonnt</string>
   <string name="search_reading_lists_no_results">Keng Resultater an de Lieslëschte fonnt</string>
   <string name="search_history_no_results">Keng Resultater an de Versioune fonnt</string>
-  <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt wgl. d\'Wierder déi hei drënner stinn an</string>
+  <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schützen, gitt wgl. d\'Wierder an, déi hei drënner stinn</string>
   <string name="edit_section_captcha_request_an_account_message">Dir kënnt d\'Bild net gesinn? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Frot e Benotzerkont un&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
@@ -422,6 +422,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Är Geschierläischt upassen</string>
   <string name="error_blocked_footer_no_blocker">Dir kënnt een &lt;a href=\"https://lb.wikipedia.org/wiki/Wikipedia:Administrateuren\"&gt;Administrateur&lt;/a&gt; kontaktéieren fir iwwer d\'Spär ze diskutéieren.</string>
   <string name="temp_account_not_logged_in">Dir sidd net ageloggt</string>
+  <string name="temp_account_anon_dialog_body">Soubal Dir eng Ännerung maacht, gëtt en &lt;b&gt;temporäre Kont&lt;/b&gt; fir Iech ugeluecht, fir Är Privatsphär ze schützen. &lt;a href=\"%1$s\"&gt;Méi gewuer ginn&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Loggt Iech an&lt;/a&gt; oder &lt;a href=\"https://#createaccount\"&gt;leet e Kont un&lt;/a&gt;, fir datt zukünfteg Ännerungen Ärem Kont zougeuerdent gi kënnen a fir Zougang zu weidere Funktiounen ze kréien.</string>
   <string name="temp_account_dialog_ok">Verstanen</string>
   <string name="temp_account_using_title">Dir benotzt en temporäre Kont</string>
   <string name="temp_account_dialog_discard">Ännerunge verwerfen an aloggen</string>
@@ -848,7 +849,7 @@
   <string name="description_edit_help_title">Info: Artikelbeschreiwungen</string>
   <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-Guide fir d\'Schreiwe vu Beschreiwungen</string>
-  <string name="wikidata_description_guide_url" fuzzy="true">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Artikelbeschreiwung z\'änneren! Fir méi Ännerungen ze maache loggt Iech wgl. mat Ärem Wikipedia-Benotzerkont an.</string>
   <string name="description_edit_license_notice">Mam Ännere vun der Artikelbeschreiwung, erklären ech mech mat de &lt;a href=\"%1$s\"&gt;Benotzungskonditiounen&lt;/a&gt; averstanen an ech sinn domat averstanen, datt meng Kontributioun ënnert der &lt;a href=\"%2$s\"&gt;Creative-Commons-CC0&lt;/a&gt;-Lizenz verëffentlecht gëtt an ech dat net widderruffe kann.</string>
   <string name="description_edit_helper_text_lowercase_warning">fänkt normalerweis mat engem klenge Buschtaf un</string>
@@ -1094,6 +1095,7 @@
   <string name="edit_summary_added_caption">Beschrëftung derbäigesat</string>
   <string name="edit_summary_added_image_and_caption">Bild a Beschrëftung derbäigesat</string>
   <string name="edit_published_view">Weisen</string>
+  <string name="activity_tab_logged_out_title">Loggt Iech an oder leet e Kont un, fir Är Aktivitéit an der Wikipedia-App ze gesinn</string>
   <string name="activity_tab_user_reading">Lektür vum %s</string>
   <string name="activity_tab_on_wikipedia_android">an der Wikipedia-App</string>
   <string name="activity_tab_weekly_time_spent">Lieszäit dës Woch</string>
@@ -1166,6 +1168,7 @@
   <string name="activity_tab_onboarding_impact_title">Impakt-Highlights</string>
   <string name="edits_screen_what_is_title">Änneren an der Wikipedia-App</string>
   <string name="edits_screen_what_is_body">Dir sidd net sécher, wou Dir ufänke sollt fir Ännerungen ze maachen? Probéiert d\'Ännerungsvirschléi, eng Funktioun, déi d\'Méiglechkeet bitt fir kleng awer wichteg Bäiträg fir d\'Wikipedia ze maachen. Dir kënnt awer och direkt op en Artikel goen, deen Iech interesséiert, an Ännerungen am Wikitext maachen.</string>
+  <string name="activity_tab_snackbar_label">Spillstatistike gi fir Är Haaptsprooch gewisen.</string>
   <string name="file_page_activity_title">Dateisäit</string>
   <string name="file_page_add_image_caption_button">Bildbeschrëftung derbäisetzen</string>
   <string name="file_page_add_image_tags_button">Bildmarkéierungen derbäisetzen</string>
@@ -1647,10 +1650,15 @@
   <string name="survey_dialog_general_maybe">Villäicht</string>
   <string name="survey_dialog_input_hint">Zousätzleche Feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback ofgeschéckt. Merci!</string>
+  <string name="games_hub_activity_title">Spiller</string>
+  <string name="games_hub_activity_games_unavailable_message">An dëser Sprooch gëtt et nach keng Spiller! Spiller baséieren op Inhalter, déi vu fräiwëllegen Editeure fir d\'Wikipedia op der jeeweileger Sprooch kreéiert ginn.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Méi gewuer ginn</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Spillstatistike weisen</string>
+  <string name="games_hub_activity_overflow_learn_more">Méi gewuer ginn</string>
   <string name="on_this_day_game_entry_dialog_title">Mir presentéieren</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-Spiller</string>
-  <string name="on_this_day_game_entry_dialog_button">Spillt d\'Spill vun haut</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-Spiller sinn iwwer den Entdecke-Feed ze fannen.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spillen</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-Spiller sinn iwwer den Entdecke-Feed ze fannen.</string>
   <string name="on_this_day_game_title">Wat koum als éischt?</string>
   <string name="on_this_day_game_dialog_button">Spillen</string>
   <string name="on_this_day_game_splash_message">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
@@ -1662,14 +1670,9 @@
   <string name="on_this_day_game_point">+ 1 Punkt</string>
   <string name="on_this_day_game_next">Nächst Fro</string>
   <string name="on_this_day_game_finish">Endresultat</string>
-  <string name="on_this_day_game_share_button">Deelen</string>
-  <string name="on_this_day_game_pause_title">D\'Spill pauséieren?</string>
-  <string name="on_this_day_game_pause_body">Äre Fortschrëtt gëtt fir den Dag gespäichert. Dir kënnt d\'Spill an Ärem Entdecke-Feed fannen.</string>
-  <string name="on_this_day_game_pause_negative">Weiderspillen</string>
-  <string name="on_this_day_game_pause_positive">Verstanen</string>
+  <string name="on_this_day_game_share_button">Punkten deelen</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-Spiller</string>
   <string name="on_this_day_game_feed_entry_card_title">Wat koum als éischt?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Rot, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
   <string name="on_this_day_game_result">Dir hutt %1$d/%2$d kritt.</string>
   <string name="on_this_day_game_next_in">Nächst Spill an %s</string>
   <string name="on_this_day_game_your_stats">Är Statistik</string>
@@ -1710,9 +1713,21 @@
   <string name="on_this_day_game_archive_btn_text">Aus dem Archiv spillen</string>
   <string name="on_this_day_game_review_results_btn_text">Resultater nokucken</string>
   <string name="on_this_day_game_score_message">Dir hutt %1$d/%2$d beim Spill vun haut kritt.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spillt d\'Spill vun haut</string>
   <string name="on_this_day_game_continue_playing_btn_text">Virufuere mat Spillen</string>
   <string name="on_this_day_game_sound_on">Toun ausmaachen</string>
   <string name="on_this_day_game_sound_off">Toun umaachen</string>
+  <string name="on_this_day_game_more_label">Méi</string>
+  <string name="on_this_day_game_card_progress_label">Dir sidd bei der Fro Nr. %d. Rot weider, wateren Evenement als éischt op dësem Dag an der Geschicht koum.</string>
+  <string name="on_this_day_game_card_progress_short_label">Dir sidd bei der Fro Nr. %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Dir krut %1$d/%2$d Punkten am Spill vun haut. Dat nächst Spill fänkt a(n) %3$s un</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Dir hutt %1$d/%2$d beim Spill vun haut kritt.</string>
+  <string name="on_this_day_game_card_archive_label">Archiv</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Aloggen</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Loggt Iech an, fir Är Spillstatistiken ze kucken</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Kuckt Är Serien, Är Punkten a méi</string>
+  <string name="wikipedia_games_title">Wikipedia-Spiller</string>
+  <string name="wikipedia_games_subtitle">Deeglech Quiz-Spiller, déi op Wikipedia-Inhalter baséieren.</string>
   <string name="year_in_review_learn_more">Méi gewuer ginn</string>
   <string name="year_in_review_get_started">Ufänken</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia-W-Symbol</string>
@@ -1935,7 +1950,6 @@
   <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
-  <string name="hybrid_search_results_more_button">Méi</string>
   <string name="hybrid_search_no_results_header">Keng Resultater</string>
   <string name="hybrid_search_error_message">Et ass eppes schifgaangen. Probéiert wgl. méi spéit nach eng Kéier.</string>
   <string name="hybrid_search_who_is_prefix">Wien ass %s?</string>

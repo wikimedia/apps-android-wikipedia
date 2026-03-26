@@ -200,11 +200,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             setupLeakCanary()
             true
         }
-        findPreference(R.string.preference_key_otd_game_state).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            Prefs.otdGameState = ""
-            Toast.makeText(activity, "Game reset.", Toast.LENGTH_SHORT).show()
-            true
-        }
         findPreference(R.string.preferences_developer_otd_show_notification).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             OnThisDayGameNotificationManager.showNotification(activity)
             true

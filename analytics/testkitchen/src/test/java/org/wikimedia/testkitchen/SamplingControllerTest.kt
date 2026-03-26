@@ -6,11 +6,17 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.config.sampling.SampleConfig
+import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.DataFixtures
 
 internal class SamplingControllerTest {
+    private val clientData = DataFixtures.getTestClientData()
     private val samplingController = SamplingController(
-        DataFixtures.getTestClientData(),
+        object : ClientDataCallback {
+            override fun getAgentData() = clientData.agentData
+            override fun getMediawikiData() = clientData.mediawikiData
+            override fun getPerformerData() = clientData.performerData
+        },
         SessionController()
     )
 

@@ -1,10 +1,10 @@
 package org.wikipedia.games.onthisday
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -14,23 +14,23 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.Resource
 import org.wikipedia.util.UriUtil
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -41,6 +41,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private lateinit var binding: ActivityOnThisDayGameBinding
     private val viewModel: OnThisDayGameViewModel by viewModels()
 
+    @SuppressLint("SourceLockedOrientationActivity")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnThisDayGameBinding.inflate(layoutInflater)
@@ -74,10 +75,14 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             windowInsets
         }
         if (savedInstanceState == null) {
+            val fragment = when (intent.getIntExtra(EXTRA_GAME_STATUS, -1)) {
+                DailyGameHistory.GAME_COMPLETED -> OnThisDayGameResultFragment.newInstance(viewModel.invokeSource)
+                else -> OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource)
+            }
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragmentContainer,
-                    OnThisDayGameMainMenuFragment.newInstance(viewModel.invokeSource),
+                    fragment,
                     null
                 )
                 .addToBackStack(null)
@@ -127,7 +132,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
             }
             R.id.menu_learn_more -> {
                 WikiGamesEvent.submit("about_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.on_this_day_game_wiki_url)))
+                UriUtil.visitInExternalBrowser(this, getString(R.string.on_this_day_game_wiki_url).toUri())
                 true
             }
             R.id.menu_report_feature -> {
@@ -162,18 +167,8 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             WikiGamesEvent.submit("exit_click", "game_play", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-            if (viewModel.gameState.value !is Resource.Loading &&
-                !isGameMenuFragmentVisible() &&
-                viewModel.gameState.value !is OnThisDayGameViewModel.GameEnded) {
-                showPauseDialog()
-                return
-            }
             onFinish()
         }
-    }
-
-    private fun isGameMenuFragmentVisible(): Boolean {
-        return supportFragmentManager.findFragmentById(R.id.fragmentContainer) is OnThisDayGameMainMenuFragment
     }
 
     private fun onFinish() {
@@ -192,22 +187,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
         finish()
     }
 
-    private fun showPauseDialog() {
-        WikiGamesEvent.submit("impression", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-        MaterialAlertDialogBuilder(this, R.style.AlertDialogTheme_Icon)
-            .setIcon(R.drawable.ic_pause_filled_24)
-            .setTitle(R.string.on_this_day_game_pause_title)
-            .setMessage(R.string.on_this_day_game_pause_body)
-            .setPositiveButton(R.string.on_this_day_game_pause_positive) { _, _ ->
-                WikiGamesEvent.submit("pause_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-                finish()
-            }
-            .setNegativeButton(R.string.on_this_day_game_pause_negative) { _, _ ->
-                WikiGamesEvent.submit("cancel_click", "pause_modal", slideName = viewModel.getCurrentScreenName(), isArchive = viewModel.isArchiveGame)
-            }
-            .show()
-    }
-
     fun requestPermissionAndScheduleGameNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             val permission = android.Manifest.permission.POST_NOTIFICATIONS
@@ -223,19 +202,28 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     companion object {
-        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite): Intent {
-            val intent = Intent(context, OnThisDayGameActivity::class.java)
+        const val EXTRA_GAME_STATUS = "gameStatus"
+
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
+            val resolvedDate = Prefs.lastOtdGameDateOverride
+                .takeIf { it.isNotEmpty() }
+                ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
+                ?: date
+
+            return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            if (Prefs.lastOtdGameDateOverride.isNotEmpty()) {
-                val date = try {
-                    LocalDate.parse(Prefs.lastOtdGameDateOverride, DateTimeFormatter.ISO_LOCAL_DATE)
-                } catch (_: Exception) {
-                    LocalDate.now()
+                .apply {
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
+                    }
+                    resolvedDate?.let {
+                        putExtra(OnThisDayGameViewModel.EXTRA_DATE, it.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
+                    }
+                    if (gameStatus == DailyGameHistory.GAME_COMPLETED) {
+                        putExtra(EXTRA_GAME_STATUS, gameStatus)
+                    }
                 }
-                intent.putExtra(OnThisDayGameViewModel.EXTRA_DATE, date.atStartOfDay().toInstant(ZoneOffset.UTC).epochSecond)
-            }
-            return intent
         }
     }
 }

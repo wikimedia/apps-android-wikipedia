@@ -269,6 +269,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
+  <string name="legal_safety_contacts_description">פרטי קשר לענייני משפט ובטיחות</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/WP:ABOUT</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
@@ -1364,6 +1365,7 @@
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
   <string name="onboarding_welcome_title_v2">האנציקלופדיה החופשית\n…ביותר מ־300 שפות</string>
+  <string name="onboarding_next">הבא</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
@@ -1902,10 +1904,13 @@
   <string name="survey_dialog_general_maybe">אולי</string>
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
+  <string name="games_hub_activity_title">משחקים</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">מידע נוסף</string>
+  <string name="games_hub_activity_overflow_view_game_stats">הצגת סטטיסטיקת משחק</string>
   <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
   <string name="on_this_day_game_entry_dialog_subtitle">משחקי ויקיפדיה</string>
-  <string name="on_this_day_game_entry_dialog_button">לשחק במשחק של היום</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">משחקי ויקיפדיה זמינים בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_entry_dialog_button">לשחק</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">משחקי ויקיפדיה זמינים בהזנת \"לחקור\".</string>
   <string name="on_this_day_game_title">מה היה קודם?</string>
   <string name="on_this_day_game_dialog_button">לשחק</string>
   <string name="on_this_day_game_splash_message">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
@@ -1917,14 +1922,9 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
-  <string name="on_this_day_game_share_button">שיתוף</string>
-  <string name="on_this_day_game_pause_title">להשהות את המשחק?</string>
-  <string name="on_this_day_game_pause_body">ההתקדמות שלך תישמר למשך היום. אפשר למצוא את המשחק בהזנת ה\"לחקור\" שלך.</string>
-  <string name="on_this_day_game_pause_negative">להמשיך לשחק</string>
-  <string name="on_this_day_game_pause_positive">הבנתי</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">שיתוף</string>
   <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
   <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">המשחק הבא בעוד %s</string>
   <string name="on_this_day_game_your_stats">הסטטיסטיקה שלך</string>
@@ -1967,6 +1967,14 @@
   <string name="on_this_day_game_continue_playing_btn_text">להמשיך לשחק</string>
   <string name="on_this_day_game_sound_on">להפעיל צליל</string>
   <string name="on_this_day_game_sound_off">להשתיק צליל</string>
+  <string name="on_this_day_game_more_label">עוד</string>
+  <string name="on_this_day_game_card_progress_label">זאת שאלה מס׳ %d. יש להמשיך לנחש איזה אירוע הוא המוקדם יותר ביום הזה בהיסטוריה.</string>
+  <string name="on_this_day_game_card_progress_short_label">זאת שאלה מס׳ %d.</string>
+  <string name="on_this_day_game_card_archive_label">ארכיון</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">כניסה</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">יש להיכנס כדי לצפות בסטטיסטיקת המשחקים שלך</string>
+  <string name="wikipedia_games_title">משחקי ויקיפדיה</string>
+  <string name="wikipedia_games_subtitle">משחקי טריוויה יומיים המבוססים על תוכן מוויקיפדיה.</string>
   <string name="year_in_review_learn_more">מידע נוסף</string>
   <string name="year_in_review_get_started">להתחיל</string>
   <string name="year_in_review_topbar_w_icon">סמל W של ויקיפדיה</string>
@@ -2113,6 +2121,9 @@
   <string name="recommended_reading_list_settings_updates_base_subtitle_history">לפני היסטוריית הקריאה שלך</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">כוונון</string>
   <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">לא משנה</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">ההמלצות שלך מבוססות מעתה על תחומי העניין שלך.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">ההמלצות שלך מבוססות מעתה על הערכים ששמרת.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">ההמלצות שלך מבוססות מעתה על היסטוריית הקריאה שלך.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">ביטול</string>
   <string name="recommended_reading_list_settings_interests">תחומי עניין</string>
   <string name="recommended_reading_list_settings_notifications_title">התראות</string>
@@ -2132,6 +2143,10 @@
   <string name="donation_reminders_settings_option_custom">מותאם...</string>
   <string name="donation_reminders_prompt_positive_button">לתרום עכשיו</string>
   <string name="donation_reminders_prompt_negative_button">לא עכשיו</string>
+  <string name="donation_reminders_gpay_text">לתרום %s עם Google Pay</string>
+  <string name="donation_reminders_gpay_different_amount_text">לתרום סכום אחר עם Google Pay</string>
+  <string name="donation_reminders_settings_description_off">תזכורות תרומה כבויות.</string>
+  <string name="donation_reminders_settings_tooltip_info_label">מספר הערכים מאוחסן מקומית במכשיר שלך</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="one">ערך</item>
     <item quantity="two">שני ערכים</item>
@@ -2143,4 +2158,20 @@
   <string name="donation_reminders_settings_learn_more_button">מידע נוסף</string>
   <string name="donation_reminders_settings_report_button">בעיה עם תכונה</string>
   <string name="donation_reminders_snackbar_modify_button_label">שינוי</string>
+  <string name="hybrid_search_search_hint">לחפש או לשאול משהו</string>
+  <string name="hybrid_search_article_search_hint">לשאול לגבי %s</string>
+  <string name="hybrid_search_suggestion_title">חיפוש אחר:</string>
+  <string name="hybrid_search_onboarding_learn_more">מידע נוסף</string>
+  <string name="hybrid_search_onboarding_search_title">לשאול שאלות, לקבל תשובות</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">זמין לזמן מוגבל במהלך הניסוי הזה.</string>
+  <string name="hybrid_search_experimental_feature_switch_label">הצטרפות לניסוי</string>
+  <string name="hybrid_search_onboarding_search_example_title">זקוק להשראה?</string>
+  <string name="hybrid_search_onboarding_search_example_description">אפשר להשתמש באחת מדוגמאות החיפוש שלהלן.</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA מול DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">למה אנשים שמים אננס על פיצה?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">מה הן הערים הגדולות ביותר באירופה?</string>
+  <string name="hybrid_search_onboarding_screen_title">דרך חדשה לחפש</string>
+  <string name="hybrid_search_results_rate_label">דירוג התוצאה הזאת</string>
+  <string name="hybrid_search_no_results_header">אין תוצאות</string>
+  <string name="hybrid_search_turn_off_experiment_label">כיבוי הניסוי הזה</string>
 </resources>

@@ -1744,10 +1744,9 @@
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
-  <string name="on_this_day_game_entry_dialog_button">Bugünün oyununu oyna</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Bugünün oyununu oyna</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
-  <string name="on_this_day_game_pause_title">Oyun durdurulsun mu?</string>
   <string name="on_this_day_game_your_stats">İstatistikleriniz</string>
   <string name="on_this_day_game_notification_undo">Geri al</string>
   <string name="year_in_review_reading_list_survey_subtitle">Okuma listenizden memnun musunuz?</string>
@@ -1782,4 +1781,7 @@
   </plurals>
   <string name="year_in_review_highlights_share_button_title">Önemli noktaları paylaşın</string>
   <string name="year_in_review_highlights_logo_description">Wikipedia logosu</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">ilk Olimpiyatlar</string>
+  <string name="hybrid_search_results_rate_label">Bu sonucu değerlendirin</string>
+  <string name="hybrid_lexical_search_results_empty">Bu sorguyla eşleşen makale başlığı bulunamadı.</string>
 </resources>

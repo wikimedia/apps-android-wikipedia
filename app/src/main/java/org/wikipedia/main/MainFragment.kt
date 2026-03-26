@@ -41,6 +41,7 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.activitytab.ActivityTabFragment
 import org.wikipedia.activitytab.ActivityTabOnboardingActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
+import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -58,6 +59,7 @@ import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
+import org.wikipedia.games.GamesHubActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
@@ -451,6 +453,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         callback()?.updateToolbarElevation(elevate)
     }
 
+    override fun onWikiGamesCardFooterClicked() {
+        WikiGamesEvent.submit(action = "more_click", "games_feed")
+        startActivity(GamesHubActivity.newIntent(requireActivity()))
+    }
+
     fun requestUpdateToolbarElevation() {
         val fragment = currentFragment
         updateToolbarElevation(fragment is FeedFragment && fragment.shouldElevateToolbar())
@@ -560,7 +567,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     fun openSearchActivity(source: InvokeSource, query: String?, transitionView: View?) {
         val intent = SearchActivity.newIntent(requireActivity(), source, query)
         val options = transitionView?.let {
-            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            if (intent.component?.className == SearchActivity::class.java.name) {
+                ActivityOptions.makeSceneTransitionAnimation(requireActivity(), it, getString(R.string.transition_search_bar))
+            } else null
         }
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
     }

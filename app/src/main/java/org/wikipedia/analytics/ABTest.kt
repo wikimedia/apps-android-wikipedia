@@ -3,7 +3,9 @@ package org.wikipedia.analytics
 import org.wikipedia.settings.PrefsIoUtil
 import kotlin.random.Random
 
-open class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+abstract class ABTest(private val abTestName: String, private val abTestGroupCount: Int) {
+
+    val name get() = abTestName
 
     val group: Int
         get() {
@@ -19,6 +21,12 @@ open class ABTest(private val abTestName: String, private val abTestGroupCount: 
 
     protected open fun assignGroup() {
         testGroup = Random(System.currentTimeMillis()).nextInt(Int.MAX_VALUE).mod(abTestGroupCount)
+    }
+
+    abstract fun getGroupName(): String
+
+    open fun shouldInstrument(): Boolean {
+        return true
     }
 
     companion object {

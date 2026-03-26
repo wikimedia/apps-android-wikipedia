@@ -9,6 +9,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikimedia.testkitchen.config.DestinationEventService
 import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.BuildConfig
@@ -114,9 +115,8 @@ object EventPlatformClient {
     }
 
     suspend fun refreshStreamConfigs() {
-        val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
         STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(response.streamConfigs)
+        STREAM_CONFIGS.putAll(ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs().streamConfigs)
         // Ensure that serialization of configs is done off the main thread
         withContext(Dispatchers.Default) {
             Prefs.streamConfigs = STREAM_CONFIGS
@@ -132,6 +132,7 @@ object EventPlatformClient {
             // Ensure that serialization of configs is done off the main thread
             withContext(Dispatchers.Default) {
                 STREAM_CONFIGS.putAll(Prefs.streamConfigs)
+                TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
             }
             refreshStreamConfigs()
         }
@@ -201,12 +202,12 @@ object EventPlatformClient {
         private fun send(eventsByStream: Map<String, List<Event>>) {
             eventsByStream.forEach { (stream, events) ->
                 getStreamConfig(stream)?.let {
-                    sendEventsForStream(it, events)
+                    sendEventsForStream(it.destinationEventService, events)
                 }
             }
         }
 
-        private fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
+        private fun sendEventsForStream(destinationEventService: DestinationEventService, events: List<Event>) {
             coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
                 L.e(caught)
                 if (caught is HttpStatusException) {
@@ -214,7 +215,7 @@ object EventPlatformClient {
                         // TODO: For errors >= 500, queue up to retry?
                     } else {
                         // Something unexpected happened.
-                        if (ReleaseUtil.isDevRelease && caught.code != HttpURLConnection.HTTP_FORBIDDEN) {
+                        if (ReleaseUtil.isPreBetaRelease && caught.code != HttpURLConnection.HTTP_FORBIDDEN) {
                             // If it's a pre-beta release, show a loud toast to signal that
                             // a potential issue should be investigated.
                             WikipediaApp.instance.mainThreadHandler.post {
@@ -224,9 +225,9 @@ object EventPlatformClient {
                     }
                 }
             }) {
-                val eventService = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events) else
-                    ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
-                when (eventService.code()) {
+                val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEvents(events) else
+                    ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHasty(events)
+                when (response.code()) {
                     HttpURLConnection.HTTP_CREATED,
                     HttpURLConnection.HTTP_ACCEPTED -> {}
                     else -> {

@@ -382,6 +382,9 @@
             android:name=".games.onthisday.OnThisDayGameActivity"/>
 
         <activity
+            android:name=".games.GamesHubActivity"/>
+
+        <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>
 
         <activity
@@ -402,6 +405,9 @@
 
         <activity
             android:name=".activitytab.ActivityTabOnboardingActivity" />
+
+        <activity
+            android:name=".search.HybridSearchOnboardingActivity" />
 
         <activity
             android:name=".donate.donationreminder.DonationReminderActivity"

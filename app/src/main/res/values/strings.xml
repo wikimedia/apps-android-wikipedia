@@ -250,7 +250,7 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
-    <string name="legal_safety_contacts_description">Legal &amp; safety contacts</string>
+    <string name="legal_safety_contacts_description">Legal and safety contacts</string>
     <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
@@ -632,7 +632,7 @@
     <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="#faq">Learn more</a>]]></string>
-    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don\'t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
     <string name="default_reading_list_name">Saved</string>
@@ -1006,8 +1006,8 @@
     <string name="suggested_edits_task_translate_caption_description">Translate captions into other languages</string>
     <string name="suggested_edits_task_multilingual_title">More tasks for multilingual editors</string>
     <string name="suggested_edits_task_multilingual_description">Translation tasks are available if you read and write in more than one Wikipedia language.</string>
-    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you’ve edited %d image captions</string>
-    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
+    <string name="suggested_edits_task_image_caption_edit_disable_text">Locked until you\'ve edited %d image captions</string>
+    <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you\'ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
     <string name="suggested_edits_image_caption_summary_title_image">Image</string>
@@ -1278,6 +1278,7 @@
     <string name="activity_tab_onboarding_stay_in_control_message">Choose which modules to display. All personal data stays private on your device and browsing history can be cleared at anytime.</string>
     <string name="edits_screen_what_is_title">Editing in the Wikipedia app</string>
     <string name="edits_screen_what_is_body">Unsure where to get started with editing? Try Suggested Edits, a feature that creates opportunities to make small but vital contributions to Wikipedia. Alternatively, go directly to an article of interest and make a change using wikitext.</string>
+    <string name="activity_tab_snackbar_label">Game stats are shown for your primary language.</string>
 
     <!-- /Suggested edits -->
 
@@ -1310,14 +1311,14 @@
     <string name="onboarding_get_started">Get started</string>
     <string name="onboarding_maybe_later">Maybe later</string>
     <string name="onboarding_explore_title">New ways to explore</string>
-    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
+    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it\'s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you\'re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
     <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
-    <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
+    <string name="onboarding_multilingual_secondary_text">We\'ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
     <string name="onboarding_next">Next</string>
@@ -1542,7 +1543,7 @@
     <string name="thank_label">Thank</string>
     <string name="view_user_page">View user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
-    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\'s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
     <string name="thank_dialog_positive_button_text">Send thanks</string>
     <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
@@ -1893,11 +1894,18 @@
     <string name="survey_dialog_input_hint">Additional feedback</string>
     <string name="survey_dialog_submitted_snackbar">Feedback submitted. Thank you!</string>
 
+    <!-- Games Hub -->
+    <string name="games_hub_activity_title">Games</string>
+    <string name="games_hub_activity_games_unavailable_message">No games available in this language yet! Games leverage content created by volunteer editors for each language\'s Wikipedia.</string>
+    <string name="games_hub_activity_games_unavailable_message_learn_more_action">Learn more</string>
+    <string name="games_hub_activity_overflow_view_game_stats">View game stats</string>
+    <string name="games_hub_activity_overflow_learn_more">Learn more</string>
+
     <!-- On this day game -->
     <string name="on_this_day_game_entry_dialog_title">Introducing</string>
     <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia games</string>
-    <string name="on_this_day_game_entry_dialog_button">Play today\'s game</string>
-    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available on the Explore feed.</string>
+    <string name="on_this_day_game_entry_dialog_button">Play</string>
+    <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia games are available in the Games Hub, found in the MORE menu.</string>
     <string name="on_this_day_game_title">Which came first?</string>
     <string name="on_this_day_game_dialog_button">Play</string>
     <string name="on_this_day_game_splash_message">Guess which event came first on this day in history.</string>
@@ -1909,14 +1917,9 @@
     <string name="on_this_day_game_point">+1 point</string>
     <string name="on_this_day_game_next">Next question</string>
     <string name="on_this_day_game_finish">Final results</string>
-    <string name="on_this_day_game_share_button">Share</string>
-    <string name="on_this_day_game_pause_title">Pause the game?</string>
-    <string name="on_this_day_game_pause_body">Your progress will be saved for the day. You can find the game on your Explore feed.</string>
-    <string name="on_this_day_game_pause_negative">Keep playing</string>
-    <string name="on_this_day_game_pause_positive">Got it</string>
+    <string name="on_this_day_game_share_button">Share score</string>
     <string name="on_this_day_game_feed_entry_card_heading">Wikipedia games</string>
     <string name="on_this_day_game_feed_entry_card_title">Which came first?</string>
-    <string name="on_this_day_game_feed_entry_card_subtitle">Guess which event came first on this day in history.</string>
     <string name="on_this_day_game_result">You scored %1$d/%2$d.</string>
     <string name="on_this_day_game_next_in">Next game in %s</string>
     <string name="on_this_day_game_your_stats">Your stats</string>
@@ -1959,9 +1962,21 @@
     <string name="on_this_day_game_archive_btn_text">Play the archive</string>
     <string name="on_this_day_game_review_results_btn_text">Review results</string>
     <string name="on_this_day_game_score_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_play_today_btn_text">Play today\'s game</string>
     <string name="on_this_day_game_continue_playing_btn_text">Continue playing</string>
     <string name="on_this_day_game_sound_on">Turn sound on</string>
     <string name="on_this_day_game_sound_off">Turn sound off</string>
+    <string name="on_this_day_game_more_label">More</string>
+    <string name="on_this_day_game_card_progress_label">You\'re on question %d. Continue guessing which event came first on this day in history.</string>
+    <string name="on_this_day_game_card_progress_short_label">You\'re on question %d.</string>
+    <string name="on_this_day_game_explore_feed_card_score_message">You scored %1$d/%2$d on today\'s game. Next game in %3$s</string>
+    <string name="on_this_day_game_explore_feed_card_score_short_message">You scored %1$d/%2$d on today\'s game.</string>
+    <string name="on_this_day_game_card_archive_label">Archive</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_button">Log in</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_title">Log in to view your game stats</string>
+    <string name="on_this_day_game_stats_log_in_prompt_card_description">See your streaks, scores, and more</string>
+    <string name="wikipedia_games_title">Wikipedia games</string>
+    <string name="wikipedia_games_subtitle">Daily trivia games based Wikipedia content.</string>
 
     <!-- Year In Review -->
     <string name="year_in_review_learn_more">Learn more</string>
@@ -2109,8 +2124,8 @@
         <item quantity="other">People spent an estimated %,d hours</item>
     </plurals>
     <plurals name="year_in_review_slide_english_reading_hours_body_second">
-        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
-        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child’s question.</item>
+        <item quantity="one">—around %1$,d year!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
+        <item quantity="other">—around %1$,d years!—reading English Wikipedia in %2$d. Wikipedia is there when you want to learn about our changing world, win a bet among friends, or answer a curious child\'s question.</item>
     </plurals>
     <plurals name="year_in_review_slide_available_languages_headline">
         <item quantity="one">Wikipedia was available in more than %,d language</item>
@@ -2351,20 +2366,20 @@
     <string name="hybrid_search_onboarding_search_example_description">Use one of the search examples below.</string>
     <string name="hybrid_search_onboarding_opt_out_toast_message">You\'ve opted out of the experiment.</string>
     <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">When was Pluto unlisted as a planet?</string>
-    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first olympics</string>
+    <string name="hybrid_search_onboarding_search_example_query_first_olympics">first Olympics</string>
     <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
     <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
     <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
     <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
     <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
-    <string name="hybrid_search_results_more_button">More</string>
-    <string name="hybrid_search_results_rate_label">Rate these results</string>
+    <string name="hybrid_search_results_rate_label">Rate this result</string>
     <string name="hybrid_search_results_rated_label">Rated</string>
     <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
     <string name="hybrid_search_results_rate_thumb_down">Rate thumbs down</string>
+    <string name="hybrid_lexical_search_results_empty">No article title matches this query.</string>
     <string name="hybrid_search_results_empty">Enhanced search is temporarily unavailable.</string>
     <string name="hybrid_search_no_results_header">No results</string>
-    <string name="hybrid_search_no_results_description">This topic isn’t returning article excerpts at this moment. Here are some things you can try:</string>
+    <string name="hybrid_search_no_results_description">This topic isn\'t returning article excerpts at this moment. Here are some things you can try:</string>
     <string name="hybrid_search_no_results_suggestion_rephrase_text">Rephrase your search</string>
     <string name="hybrid_search_no_results_suggestion_try_related_topic">Try a related topic</string>
     <string name="hybrid_search_error_message">Something went wrong. Please try again later.</string>

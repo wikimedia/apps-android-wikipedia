@@ -1861,8 +1861,8 @@
   <string name="survey_dialog_submitted_snackbar">Povratna informacija odpravjena. Hvala!</string>
   <string name="on_this_day_game_entry_dialog_title">Prědstavjenje</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igry Vikipedije</string>
-  <string name="on_this_day_game_entry_dialog_button">Igrajte dnešnju igru</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Igry Vikipedije sut dostupne v kanalu «Odkryti».</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Igrajte dnešnju igru</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igry Vikipedije sut dostupne v kanalu «Odkryti».</string>
   <string name="on_this_day_game_title">Čto bylo prvo?</string>
   <string name="on_this_day_game_dialog_button">Igrati</string>
   <string name="on_this_day_game_splash_message">Ugadajte, ktoro sobytje slučilo se prvo tutogo dnja v historiji.</string>
@@ -1874,14 +1874,9 @@
   <string name="on_this_day_game_point">+1 bal</string>
   <string name="on_this_day_game_next">Slědujuče pytanje</string>
   <string name="on_this_day_game_finish">Konečne rezultaty</string>
-  <string name="on_this_day_game_share_button">Poděliti se</string>
-  <string name="on_this_day_game_pause_title">Pauzovati igru?</string>
-  <string name="on_this_day_game_pause_body">Vaš progres bude shranjeny na tutoj denj. Vy možete najdti tu igru na svojem kanalu «Odkryti».</string>
-  <string name="on_this_day_game_pause_negative">Igrati dalje</string>
-  <string name="on_this_day_game_pause_positive">Razuměju</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Poděliti se</string>
   <string name="on_this_day_game_feed_entry_card_heading">Igry Vikipedije</string>
   <string name="on_this_day_game_feed_entry_card_title">Čto bylo prvo?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Ugadajte, ktoro sobytje slučilo se prvo tutogo dnja v historiji.</string>
   <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Slědujuča igra za %s</string>
   <string name="on_this_day_game_your_stats">Vaša statistika</string>
@@ -2406,11 +2401,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
   <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
   <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
-  <string name="hybrid_search_results_more_button">Veče</string>
-  <string name="hybrid_search_results_rate_label">Ocěnite tute rezultaty</string>
+  <string name="hybrid_search_results_rate_label">Ocěnite tutoj rezultat</string>
   <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
   <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>
   <string name="hybrid_search_results_rate_thumb_down">Ocěnka negativna</string>
+  <string name="hybrid_lexical_search_results_empty">Nijedin članok ne imaje zaglavje odpovědajuče tutomu poisku.</string>
   <string name="hybrid_search_results_empty">Ulěpšeno iskanje dočasno jest nedostupno.</string>
   <string name="hybrid_search_no_results_header">Ničto ne najdeno</string>
   <string name="hybrid_search_no_results_description">Tutoj prědmet v tutom momentu ne vračaje fragmenty člankov. Ale vy možete poprobovati slědujuče:</string>

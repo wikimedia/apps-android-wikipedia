@@ -21,8 +21,8 @@ class LoginResponse : MwResponse() {
         private val status: String? = null
         private val requests: List<Request>? = null
         private val message: String? = null
-        @SerialName("username")
-        private val userName: String? = null
+        @SerialName("messagecode") private val messageCode: String? = null
+        @SerialName("username") private val userName: String? = null
 
         fun toLoginResult(site: WikiSite, password: String): LoginResult {
             var userMessage = message
@@ -41,10 +41,9 @@ class LoginResponse : MwResponse() {
                     }
                 }
             } else if (LoginResult.STATUS_PASS != status && LoginResult.STATUS_FAIL != status) {
-                // TODO: String resource -- Looks like needed for others in this class too
                 userMessage = "An unknown error occurred."
             }
-            return LoginResult(site, status!!, userName, password, userMessage)
+            return LoginResult(site, status!!, userName, password, userMessage, messageCode = messageCode)
         }
     }
 

@@ -17,6 +17,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.Balloon
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -62,6 +63,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
     var callback: Callback? = null
+
+    // For subclasses to create instruments that they would like to persist for the lifetime of the activity.
+    protected var _instrument: InstrumentImpl? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
@@ -251,6 +255,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         requestDonateActivity.launch(intent)
     }
 
+    fun getInstrument(): InstrumentImpl? {
+        return _instrument
+    }
+
     private fun maybeShowYearInReview() {
         if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
             !Prefs.isInitialOnboardingEnabled &&
@@ -266,12 +274,23 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private fun maybeShowLoggedOutInBackgroundDialog() {
         if (Prefs.loggedOutInBackground) {
             Prefs.loggedOutInBackground = false
+
+            val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+                .setDefaultActionSource("logout_background_dialog")
+                .startFunnel("logout_account_background")
+            instrument.submitInteraction("impression")
+
             MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND)) }
-                    .setNegativeButton(R.string.logged_out_in_background_cancel, null)
+                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
+                        instrument.submitInteraction("click", elementId = "login_button")
+                        startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
+                    }
+                    .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
+                        instrument.submitInteraction("click", elementId = "cancel")
+                    }
                     .show()
         }
     }

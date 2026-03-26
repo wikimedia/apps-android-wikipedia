@@ -39,6 +39,8 @@ class MwQueryPage {
     val revisions: List<Revision> = emptyList()
     val protection: List<Protection> = emptyList()
     val extract: String? = null
+    val snippet: String? = null
+    @SerialName("sectiontitle") val sectionTitle: String? = null
     val description: String? = null
     private val imagerepository: String? = null
     var redirectFrom: String? = null

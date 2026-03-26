@@ -19,7 +19,6 @@ fun TextWithInlineElement(
         color = WikipediaTheme.colors.primaryColor
     ),
     content: @Composable (String) -> Unit
-
 ) {
     val inlineElementId = "element"
     val text = text

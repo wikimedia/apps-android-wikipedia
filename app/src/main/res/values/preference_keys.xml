@@ -113,7 +113,6 @@
     <string name="preference_key_push_notification_token">pushNotificationToken</string>
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
     <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
-    <string name="preference_key_push_notification_options_set">pushNotificationOptionsSet</string>
     <string name="preference_key_event_platform_session_id">eventPlatformSessionId</string>
     <string name="preference_key_event_platform_intake_base_uri">eventPlatformIntakeBaseUri</string>
     <string name="preference_key_event_platform_intake_base_uri_list">eventPlatformIntakeBaseUriList</string>
@@ -169,6 +168,7 @@
     <string name="preference_key_payment_methods_gateway_id">paymentMethodsGatewayId</string>
     <string name="preference_key_otd_game_state">otdGameState</string>
     <string name="preference_key_otd_game_history">otdGameHistory</string>
+    <string name="preference_key_otd_last_played_date">otdLastPlayedDate</string>
     <string name="preference_key_otd_game_date_override">otdGameDateOverride</string>
     <string name="preference_key_otd_game_num_questions">otdGameNumQuestions</string>
     <string name="preference_key_otd_entry_dialog_shown">otdEntryDialogShown</string>
@@ -205,6 +205,7 @@
     <string name="preference_key_activity_tab_modules">activityTabModules</string>
     <string name="preference_key_activity_tab_onboarding_shown">activityTabOnboardingShown</string>
     <string name="preference_key_yir_model_data">yirModelData</string>
-    <string name="preference_key_yir_reading_list_visit_count">yirReadingListVisitCount</string>
-    <string name="preference_key_yir_reading_list_survey_shown">yirReadingListSurveyShown</string>
+    <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
+    <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
+    <string name="preference_key_game_stats_snackbar_shown">gameStatsSnackbarShown</string>
 </resources>

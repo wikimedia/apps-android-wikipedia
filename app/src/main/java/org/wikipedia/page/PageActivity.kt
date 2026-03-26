@@ -66,6 +66,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.readinglist.ReadingListMode
+import org.wikipedia.search.HybridSearchAbCTest
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
@@ -190,12 +191,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
         app = WikipediaApp.instance
 
-        if (savedInstanceState == null && !app.haveMainActivity) {
-            lifecycleScope.launch {
-                YearInReviewDialog.maybeShowCreateReadingListDialog(this@PageActivity)
-            }
-        }
-
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -228,9 +223,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         setSupportActionBar(binding.pageToolbar)
         clearActionBarTitle()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
-            startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
+            val articleTitle = if (pageFragment.title?.namespace() == Namespace.MAIN) pageFragment.title?.displayText else null
+            startActivity(SearchActivity.newIntent(
+                context = this@PageActivity,
+                source = InvokeSource.TOOLBAR,
+                query = null,
+                title = articleTitle))
         }
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
@@ -417,6 +418,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
+        updateSearchHint()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -614,8 +616,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             binding.wikiArticleCardView.prepareForTransition(pageTitle)
             wasTransitionShown = true
         }
-        app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
-        app.putCrashReportProperty("title", pageTitle.toString())
         if (loadNonArticlePageIfNeeded(pageTitle)) {
             return
         }
@@ -810,6 +810,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     fun onAnonNotification() {
         updateNotificationsButton(true)
+    }
+
+    fun updateSearchHint() {
+        if (Prefs.isHybridSearchOnboardingShown && HybridSearchAbCTest().isHybridSearchEnabled(WikipediaApp.instance.languageState.appLanguageCode) &&
+            pageFragment.title?.namespace() == Namespace.MAIN) {
+            val title = StringUtil.fromHtml(pageFragment.title?.displayText)
+            binding.pageToolbarButtonSearch.text = getString(R.string.hybrid_search_article_search_hint, title)
+        } else {
+            binding.pageToolbarButtonSearch.text = getString(R.string.search_hint)
+        }
     }
 
     override fun onProvideAssistContent(outContent: AssistContent) {

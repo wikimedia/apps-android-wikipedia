@@ -30,7 +30,7 @@ class NewsItemView(context: Context) : WikiCardView(context) {
         setLayoutParams(layoutParams)
     }
 
-    /* Remove the in-Wikitext thumbnail caption, which will almost certainly not apply here */
+    // Remove the in-Wikitext thumbnail caption, which will almost certainly not apply here
     private fun removeImageCaption(text: Spanned): CharSequence {
         val spans = text.getSpans<Any>()
         val span = spans.find { it is StyleSpan && it.style == Typeface.ITALIC }

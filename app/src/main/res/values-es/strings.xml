@@ -1871,8 +1871,8 @@
   <string name="survey_dialog_submitted_snackbar">Comentarios enviados. ¡Gracias!</string>
   <string name="on_this_day_game_entry_dialog_title">Te presentamos</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia juegos</string>
-  <string name="on_this_day_game_entry_dialog_button">Inicia el juego de hoy</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia juegos está disponible en la sección Explorar.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Inicia el juego de hoy</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia juegos está disponible en la sección Explorar.</string>
   <string name="on_this_day_game_title">¿Qué fue primero?</string>
   <string name="on_this_day_game_dialog_button">Jugar</string>
   <string name="on_this_day_game_splash_message">Adivina qué evento histórico ocurrió primero en la fecha de hoy.</string>
@@ -1884,14 +1884,9 @@
   <string name="on_this_day_game_point">+1 punto</string>
   <string name="on_this_day_game_next">Siguiente pregunta</string>
   <string name="on_this_day_game_finish">Resultado final</string>
-  <string name="on_this_day_game_share_button">Compartir</string>
-  <string name="on_this_day_game_pause_title">¿Quieres pausar el juego?</string>
-  <string name="on_this_day_game_pause_body">Tu progreso de hoy se guardará. El juego se encuentra en la sección Explorar.</string>
-  <string name="on_this_day_game_pause_negative">Seguir jugando</string>
-  <string name="on_this_day_game_pause_positive">Pausar</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Compartir</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia juegos</string>
   <string name="on_this_day_game_feed_entry_card_title">¿Qué fue primero?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Adivina qué evento histórico ocurrió primero en la fecha de hoy.</string>
   <string name="on_this_day_game_result">Obtuviste %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Más preguntas en %s</string>
   <string name="on_this_day_game_your_stats">Tus estadísticas</string>
@@ -2157,4 +2152,10 @@
   <string name="donation_reminders_settings_learn_more_button">Aprende más</string>
   <string name="donation_reminders_settings_report_email_body">Encontré un problema con la característica de los recordatorios de donación:\n- [Describe el problema en específico]\n- [Capturas de pantalla o links]\n\nEl comportamiento que me gustaría ver es:\n- [Describe solución propuesta]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
+  <string name="hybrid_search_suggestion_title">Buscar:</string>
+  <string name="hybrid_search_onboarding_search_title">Haz preguntas, obtén respuestas</string>
+  <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_experimental_feature_switch_label">Únete al experimento</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">¿Por qué la gente le pone piña a la pizza?</string>
 </resources>

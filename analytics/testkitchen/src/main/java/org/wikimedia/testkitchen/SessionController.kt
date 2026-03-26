@@ -45,7 +45,7 @@ class SessionController internal constructor(
     companion object {
         private val SESSION_LENGTH = Duration.ofMinutes(30)
 
-        private fun generateSessionId(): String {
+        fun generateSessionId(): String {
             val random = Random()
             return String.format("%08x", random.nextInt()) + String.format("%08x", random.nextInt()) + String.format("%04x", random.nextInt() and 0xFFFF)
         }

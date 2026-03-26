@@ -408,7 +408,7 @@
   <string name="error_blocked_expiry">నిరోధం ముగిసేది: %s</string>
   <string name="error_blocked_id">నిరోధం ఐడీ: %s</string>
   <string name="error_blocked_footer">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ను గానీ, మరో &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; గానీ సంప్రదించవచ్చు.</string>
-  <string name="error_blocked_footer_no_blocker">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;నిర్వాహకుని&lt;/a&gt; సంప్రదించవచ్చు.</string>
+  <string name="error_blocked_footer_no_blocker">నిరోధం గురించి చర్చించేందుకు మీరు &lt;a href=\"https://te.wikipedia.org/wiki/వికీపీడియా:నిర్వాహకులు\"&gt;నిర్వాహకులను&lt;/a&gt; సంప్రదించవచ్చు.</string>
   <string name="crash_report_activity_title">అప్లికేషను లోపం</string>
   <string name="crash_report_relaunch_or_quit">క్షమించాలి, వికీపీడియా యాప్‌కు ఏదో లోపం ఎదురవడంతో, అది అంతమై పోయింది.\n\nమళ్ళీ మొదలెడతారా లేక వెళ్ళిపోతారా?</string>
   <string name="crash_report_relaunch">మొదలు పెట్టు</string>

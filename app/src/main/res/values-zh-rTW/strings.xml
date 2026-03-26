@@ -16,6 +16,7 @@
 * LNDDYL
 * Lakejason0
 * Liuxinyu970226
+* LowensteinYang
 * Madeleinemcc
 * Mikepanhu
 * MuratTheTurkish
@@ -1809,8 +1810,8 @@
   <string name="survey_dialog_submitted_snackbar">意見回饋提交成功。謝謝！</string>
   <string name="on_this_day_game_entry_dialog_title">介紹</string>
   <string name="on_this_day_game_entry_dialog_subtitle">維基百科遊戲</string>
-  <string name="on_this_day_game_entry_dialog_button">遊玩今天的遊戲</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">維基百科遊戲可在探索摘要中取得。</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">遊玩今天的遊戲</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">維基百科遊戲可在探索摘要中取得。</string>
   <string name="on_this_day_game_title">猜先後</string>
   <string name="on_this_day_game_dialog_button">遊玩</string>
   <string name="on_this_day_game_splash_message">猜猜歷史上的這一天最先發生的事件是什麼。</string>
@@ -1822,14 +1823,9 @@
   <string name="on_this_day_game_point">+1 分</string>
   <string name="on_this_day_game_next">下一個問題</string>
   <string name="on_this_day_game_finish">最終結果</string>
-  <string name="on_this_day_game_share_button">分享</string>
-  <string name="on_this_day_game_pause_title">暫停遊戲？</string>
-  <string name="on_this_day_game_pause_body">您的進度會在當天內保存。您可以在探索摘要中找到該遊戲。</string>
-  <string name="on_this_day_game_pause_negative">繼續遊玩</string>
-  <string name="on_this_day_game_pause_positive">了解</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">分享</string>
   <string name="on_this_day_game_feed_entry_card_heading">維基百科遊戲</string>
   <string name="on_this_day_game_feed_entry_card_title">猜先後</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜歷史上的這一天最先發生的事件是什麼。</string>
   <string name="on_this_day_game_result">您的得分 %1$d/%2$d。</string>
   <string name="on_this_day_game_next_in">下一個遊戲會在 %s 開始</string>
   <string name="on_this_day_game_your_stats">您的狀態</string>
@@ -2262,11 +2258,11 @@
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
   <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
   <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
-  <string name="hybrid_search_results_more_button">更多</string>
-  <string name="hybrid_search_results_rate_label">評價這些結果</string>
+  <string name="hybrid_search_results_rate_label">評價此結果</string>
   <string name="hybrid_search_results_rated_label">已評價</string>
   <string name="hybrid_search_results_rate_thumb_up">很棒</string>
   <string name="hybrid_search_results_rate_thumb_down">不好</string>
+  <string name="hybrid_lexical_search_results_empty">沒有任何條目的標題符合此查詢。</string>
   <string name="hybrid_search_results_empty">增強搜尋功能暫時無法使用。</string>
   <string name="hybrid_search_no_results_header">沒有結果</string>
   <string name="hybrid_search_no_results_description">此主題目前無法回傳條目摘錄。您可以嘗試以下方法：</string>

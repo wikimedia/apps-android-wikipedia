@@ -39,6 +39,7 @@
   <string name="search_icon_content_description">Hľadať</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovať moje zoznamy</string>
   <string name="nav_item_suggested_edits">Úpravy</string>
+  <string name="nav_item_activity">Aktivita</string>
   <string name="nav_item_more">Viac</string>
   <string name="nav_item_search">Hľadať</string>
   <string name="nav_item_contribute">prispejte</string>
@@ -1364,8 +1365,7 @@
   <string name="on_this_day_game_incorrect">Nesprávne!</string>
   <string name="on_this_day_game_point">+1 bod</string>
   <string name="on_this_day_game_next">Ďalšia otázka</string>
-  <string name="on_this_day_game_share_button">Zdieľať</string>
-  <string name="on_this_day_game_pause_positive">Rozumiem</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Zdieľať</string>
   <string name="on_this_day_game_menu_info">Ďalšie informácie</string>
   <string name="year_in_review_learn_more">Ďalšie informácie</string>
   <string name="year_in_review_survey_cancel">Zrušiť</string>

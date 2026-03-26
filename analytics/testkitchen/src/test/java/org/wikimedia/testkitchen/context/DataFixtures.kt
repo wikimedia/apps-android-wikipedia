@@ -1,15 +1,19 @@
 package org.wikimedia.testkitchen.context
 
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.Instant
 
 object DataFixtures {
+    fun getTestInstrument(): InstrumentImpl {
+        return InstrumentImpl("test-instrument")
+    }
+
     fun getTestClientData(agentData: AgentData = testAgentData): ClientData {
         return ClientData(
             agentData,
             testPageData,
             testMediawikiData,
-            testPerformerData,
-            "en.wikipedia.org"
+            testPerformerData
         )
     }
 
@@ -61,9 +65,7 @@ object DataFixtures {
             actionSource = "TestActionSource",
             actionContext = "TestActionContext",
             elementId = "TestElementId",
-            elementFriendlyName = "TestElementFriendlyName",
-            funnelEntryToken = "TestFunnelEntryToken",
-            funnelEventSequencePosition = 8
+            elementFriendlyName = "TestElementFriendlyName"
         )
     }
 

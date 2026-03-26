@@ -293,6 +293,7 @@
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
+  <string name="legal_safety_contacts_description">Contatos jurídicos e de segurança</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br#Offline_reading_and_data</string>
@@ -1260,6 +1261,7 @@
   <string name="activity_tab_onboarding_stay_in_control_title">Mantenha o controle</string>
   <string name="activity_tab_onboarding_stay_in_control_message">Escolha quais módulos para mostrar. Todos os dados pessoais permanecem privados no seu dispositivo e o histórico de navegação pode ser apagado a qualquer momento.</string>
   <string name="edits_screen_what_is_title">Edição no aplicativo da Wikipédia</string>
+  <string name="activity_tab_snackbar_label">As estatísticas do jogo são exibidas no seu idioma principal.</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1812,10 +1814,15 @@
   <string name="survey_dialog_general_maybe">Talvez</string>
   <string name="survey_dialog_input_hint">Comentários adicionais</string>
   <string name="survey_dialog_submitted_snackbar">Comentário enviado. Obrigado!</string>
+  <string name="games_hub_activity_title">Jogos</string>
+  <string name="games_hub_activity_games_unavailable_message">Ainda não há jogos disponíveis neste idioma! Os jogos usam conteúdo criado por editores voluntários da Wikipédia de cada idioma.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Saiba mais</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Ver estatísticas do jogo</string>
+  <string name="games_hub_activity_overflow_learn_more">Saiba mais</string>
   <string name="on_this_day_game_entry_dialog_title">Apresentando</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia jogos</string>
-  <string name="on_this_day_game_entry_dialog_button">Jogue o jogo de hoje</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipédia Jogos estão disponíveis no feed Explorar. Apresentando</string>
+  <string name="on_this_day_game_entry_dialog_button">Jogar</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipédia Jogos estão disponíveis no Hub de Jogos, que pode ser encontrado no menu MAIS.</string>
   <string name="on_this_day_game_title">O que veio primeiro?</string>
   <string name="on_this_day_game_dialog_button">Jogar</string>
   <string name="on_this_day_game_splash_message">Adivinhe qual evento ocorreu primeiro neste dia na história.</string>
@@ -1827,14 +1834,9 @@
   <string name="on_this_day_game_point">+1 ponto</string>
   <string name="on_this_day_game_next">Próxima pergunta</string>
   <string name="on_this_day_game_finish">Resultado final</string>
-  <string name="on_this_day_game_share_button">Compartilhar</string>
-  <string name="on_this_day_game_pause_title">Pausar jogo?</string>
-  <string name="on_this_day_game_pause_body">Seu progresso será salvo no final do dia. Você pode encontrar o jogo no seu feed Explorar.</string>
-  <string name="on_this_day_game_pause_negative">Continue jogando</string>
-  <string name="on_this_day_game_pause_positive">Entendi</string>
+  <string name="on_this_day_game_share_button">Compartilhar pontuação</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipédia jogos</string>
   <string name="on_this_day_game_feed_entry_card_title">O que veio primeiro?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Adivinhe qual evento ocorreu primeiro neste dia na história.</string>
   <string name="on_this_day_game_result">Você pontuou %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Próximo jogo em %s</string>
   <string name="on_this_day_game_your_stats">Suas estatísticas</string>
@@ -1877,9 +1879,19 @@
   <string name="on_this_day_game_archive_btn_text">Jogar arquivo</string>
   <string name="on_this_day_game_review_results_btn_text">Ver resultados</string>
   <string name="on_this_day_game_score_message">Você marcou %1$d/%2$d no jogo de hoje.</string>
+  <string name="on_this_day_game_play_today_btn_text">Jogar jogo de hoje</string>
   <string name="on_this_day_game_continue_playing_btn_text">Continuar jogando</string>
   <string name="on_this_day_game_sound_on">Ativar som</string>
   <string name="on_this_day_game_sound_off">Desativar som</string>
+  <string name="on_this_day_game_more_label">Mais</string>
+  <string name="on_this_day_game_card_progress_short_label">Você está na pergunta %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Você marcou %1$d/%2$d no jogo de hoje.</string>
+  <string name="on_this_day_game_card_archive_label">Arquivo</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Entrar</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Entre para ver suas estatísticas de jogo</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Veja suas sequências, pontuações e muito mais</string>
+  <string name="wikipedia_games_title">Wikipédia jogos</string>
+  <string name="wikipedia_games_subtitle">Jogos diários de perguntas e respostas baseados no conteúdo da Wikipédia.</string>
   <string name="year_in_review_learn_more">Saiba mais</string>
   <string name="year_in_review_get_started">Começar</string>
   <string name="year_in_review_topbar_w_icon">Ícone W da Wikipédia</string>
@@ -2108,6 +2120,16 @@
   <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
   <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
-  <string name="hybrid_search_results_more_button">Mais</string>
+  <string name="hybrid_search_onboarding_opt_out_toast_message">Você optou por não participar do experimento.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quando Plutão deixou de ser considerado um planeta?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">primeira olimpíada</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Uma nova forma de pesquisar</string>
+  <string name="hybrid_search_results_header_description">Extraídos de artigos da Wikipédia escritos por humanos</string>
+  <string name="hybrid_search_results_rate_label">Avaliar esse recurso</string>
+  <string name="hybrid_search_results_rated_label">Avaliado</string>
   <string name="hybrid_search_no_results_header">Sem resultados</string>
+  <string name="hybrid_search_turn_off_experiment_label">Desative esta experiência</string>
 </resources>

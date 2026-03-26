@@ -26,6 +26,8 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
         val resultList = mutableListOf<SearchResult>()
         var response: MwQueryResponse? = null
         var currentContinuation = continuation
+        var lastXSearchIdPrefix: String? = null
+        var lastXSearchIdFullText: String? = null
 
         if (isPrefixSearch) {
             if (searchTerm.length >= 2 && invokeSource != Constants.InvokeSource.PLACES) {
@@ -41,26 +43,21 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
                     }
                 }
             }
-            response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, batchSize, 0)
+            val prefixResponse = ServiceFactory.get(wikiSite).prefixSearchResponse(searchTerm, batchSize, 0)
+            lastXSearchIdPrefix = prefixResponse.headers()["x-search-id"]
+            response = prefixResponse.body()
             currentContinuation = 0
         }
 
-        resultList.addAll(response?.query?.pages?.let { list ->
-            (if (invokeSource == Constants.InvokeSource.PLACES)
-                list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                .map { SearchResult(it, wikiSite, it.coordinates) }
-        } ?: emptyList())
+        resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.PREFIX))
 
         if (resultList.size < batchSize) {
-            response = ServiceFactory.get(wikiSite)
-                .fullTextSearch(searchTerm, batchSize, currentContinuation)
-            currentContinuation = response.continuation?.gsroffset
-
-            resultList.addAll(response.query?.pages?.let { list ->
-                (if (invokeSource == Constants.InvokeSource.PLACES)
-                    list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                    .map { SearchResult(it, wikiSite, it.coordinates) }
-            } ?: emptyList())
+            val fullTextResponse = ServiceFactory.get(wikiSite)
+                .fullTextSearchResponse(searchTerm, batchSize, currentContinuation)
+            lastXSearchIdFullText = fullTextResponse.headers()["x-search-id"]
+            response = fullTextResponse.body()
+            currentContinuation = response?.continuation?.gsroffset
+            resultList.addAll(SearchResultsViewModel.buildList(response, invokeSource, wikiSite, SearchResult.SearchResultType.FULL_TEXT))
         }
 
         if (resultList.isEmpty() && response?.continuation == null) {
@@ -85,7 +82,9 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
 
         return StandardSearchResults(
             results = resultList.distinctBy { it.pageTitle.prefixedText }.toMutableList(),
-            continuation = currentContinuation
+            continuation = currentContinuation,
+            xSearchIdPrefix = lastXSearchIdPrefix,
+            xSearchIdFullText = lastXSearchIdFullText
         )
     }
 
@@ -103,5 +102,7 @@ class StandardSearchRepository : SearchRepository<StandardSearchResults> {
 
 data class StandardSearchResults(
     var results: List<SearchResult>,
-    val continuation: Int?
+    val continuation: Int?,
+    val xSearchIdPrefix: String? = null,
+    val xSearchIdFullText: String? = null
 )
