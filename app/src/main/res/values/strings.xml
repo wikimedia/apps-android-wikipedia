@@ -2371,7 +2371,7 @@
     <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Why do people put pineapple on pizza?</string>
     <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">What are the biggest cities in Europe?</string>
     <string name="hybrid_search_onboarding_screen_title">A new way to search</string>
-    <string name="hybrid_search_results_header_description">Sourced from human generated Wikipedia articles</string>
+    <string name="hybrid_search_results_header_description">Sourced from human written Wikipedia articles</string>
     <string name="hybrid_search_results_rate_label">Rate this result</string>
     <string name="hybrid_search_results_rated_label">Rated</string>
     <string name="hybrid_search_results_rate_thumb_up">Rate thumbs up</string>
