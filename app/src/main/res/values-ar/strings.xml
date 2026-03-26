@@ -2040,6 +2040,10 @@
   <string name="survey_dialog_general_maybe">ربما</string>
   <string name="survey_dialog_input_hint">ملاحظات إضافية</string>
   <string name="survey_dialog_submitted_snackbar">تم إرسال التعليقات. شكرا لك!</string>
+  <string name="games_hub_activity_title">ألعاب</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">معرفة المزيد</string>
+  <string name="games_hub_activity_overflow_view_game_stats">عرض إحصائيات اللعبة</string>
+  <string name="games_hub_activity_overflow_learn_more">معرفة المزيد</string>
   <string name="on_this_day_game_entry_dialog_title">مقدمة</string>
   <string name="on_this_day_game_entry_dialog_subtitle">ألعاب ويكيبيديا</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">العب لعبة اليوم</string>
@@ -2055,7 +2059,7 @@
   <string name="on_this_day_game_point">+1 نقطة</string>
   <string name="on_this_day_game_next">السؤال التالي</string>
   <string name="on_this_day_game_finish">النتائج النهائية</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">شارك</string>
+  <string name="on_this_day_game_share_button">شارك النتيجة</string>
   <string name="on_this_day_game_feed_entry_card_heading">العاب ويكيبيديا</string>
   <string name="on_this_day_game_feed_entry_card_title">أيهما جاء أولا؟</string>
   <string name="on_this_day_game_result">لقد حصلت على %1$d/%2$d.</string>
@@ -2107,6 +2111,12 @@
   <string name="on_this_day_game_continue_playing_btn_text">استمر باللعب</string>
   <string name="on_this_day_game_sound_on">تشغيل الصوت</string>
   <string name="on_this_day_game_sound_off">إيقاف الصوت</string>
+  <string name="on_this_day_game_more_label">المزيد</string>
+  <string name="on_this_day_game_card_archive_label">أرشيف</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">تسجيل الدخول</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">اطلع على سلسلة انتصاراتك ونتائجك والمزيد</string>
+  <string name="wikipedia_games_title">ألعاب ويكيبيديا</string>
+  <string name="wikipedia_games_subtitle">ألعاب معلومات عامة يومية تعتمد على محتوى ويكيبيديا.</string>
   <string name="year_in_review_learn_more">يتعلم أكثر</string>
   <string name="year_in_review_get_started">البدء</string>
   <string name="year_in_review_topbar_w_icon">أيقونة ويكيبيديا W</string>

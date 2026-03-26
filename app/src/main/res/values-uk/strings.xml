@@ -187,7 +187,7 @@
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title">Вхід</string>
+  <string name="login_activity_title">Увійти</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
@@ -1975,6 +1975,8 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
   <string name="on_this_day_game_sound_on">Увімкнути звук</string>
   <string name="on_this_day_game_sound_off">Вимкнути звук</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Увійти</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Увійдіть, щоб переглянути статистику гри</string>
   <string name="wikipedia_games_title">Ігри Вікіпедії</string>
   <string name="year_in_review_learn_more">Дізнатися більше</string>
   <string name="year_in_review_get_started">Розпочати</string>
