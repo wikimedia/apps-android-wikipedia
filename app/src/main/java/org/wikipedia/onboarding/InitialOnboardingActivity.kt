@@ -55,6 +55,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.onboarding.personalization.PersonalizationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -66,7 +67,7 @@ class InitialOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             var currentTheme by remember { mutableStateOf(Theme.BLACK) }
             var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
@@ -75,14 +76,15 @@ class InitialOnboardingActivity : BaseActivity() {
             BaseTheme(
                 currentTheme = currentTheme
             ) {
-                AppOnboardingScreen(
-                    isNewUser = Prefs.isInitialOnboardingEnabled,
-                    onUpdateTheme = {
+                InitialOnboardingScreen(
+                    onNextClick = {
                         currentTheme = WikipediaApp.instance.currentTheme
                         currentNavigationBarColor = ResourceUtil.getThemedColor(this, R.attr.paper_color)
                     },
-                    onFinish = {
+                    onFinishClick = {
                         Prefs.isInitialOnboardingEnabled = false
+                        Prefs.isExploreFeedUpdatePromptShown = true
+                        startActivity(PersonalizationActivity.newIntent(this))
                         finish()
                     }
                 )
@@ -95,30 +97,6 @@ class InitialOnboardingActivity : BaseActivity() {
         fun newIntent(context: Context): Intent {
             return Intent(context, InitialOnboardingActivity::class.java)
         }
-    }
-}
-
-@Composable
-fun AppOnboardingScreen(
-    modifier: Modifier = Modifier,
-    isNewUser: Boolean,
-    onUpdateTheme: () -> Unit,
-    onFinish: () -> Unit
-) {
-    var showIntroScreen by remember { mutableStateOf(isNewUser) }
-    if (showIntroScreen) {
-        InitialOnboardingScreen(
-            modifier = modifier,
-            onNextClick = {
-                onUpdateTheme()
-            },
-            onFinishClick = {
-                showIntroScreen = false
-            }
-        )
-    } else {
-        // TODO: interest selection
-        onFinish()
     }
 }
 
