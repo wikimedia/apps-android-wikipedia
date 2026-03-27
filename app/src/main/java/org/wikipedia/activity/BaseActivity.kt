@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutManagerCompat
@@ -80,23 +79,24 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         if(!granted){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.POST_NOTIFICATIONS)){
-                //User denied once->Show Snackbar
-                FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_rationale))
-                    .setAction(R.string.notification_permission_rationale_action){
-                        DeviceUtil.openNotificationSettings(this)
-                    }
-                    .show()
-            }else{
-                //User denied (with "Don't Ask Again")
-                FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_denied))
-                    .setAction(R.string.app_settings){
-                        DeviceUtil.openNotificationSettings(this)
-                    }
-                    .show()
+            if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+                if(ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.POST_NOTIFICATIONS)){
+                    //User denied once->Show Snackbar
+                    FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_rationale))
+                        .setAction(R.string.notification_permission_rationale_action){
+                            DeviceUtil.openNotificationSettings(this)
+                        }
+                        .show()
+                }else{
+                    //User denied (with "Don't Ask Again")
+                    FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_denied))
+                        .setAction(R.string.app_settings){
+                            DeviceUtil.openNotificationSettings(this)
+                        }
+                        .show()
+                }
             }
         }
     }
@@ -212,7 +212,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         BreadCrumbLogEvent.logScreenShown(this)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onStart() {
         super.onStart()
         NotificationPresenter.maybeRequestPermission(this, notificationPermissionLauncher)
