@@ -53,10 +53,10 @@ object DeviceUtil {
                 resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
-    fun setLightSystemUiVisibility(activity: Activity) {
+    fun setLightSystemUiVisibility(activity: Activity, isLight: Boolean = !WikipediaApp.instance.currentTheme.isDark) {
         // this make the system recognizes the status bar light and will make status bar icons become visible
         // if the theme is not dark
-        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = isLight
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
