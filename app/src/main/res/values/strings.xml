@@ -2468,4 +2468,5 @@
     <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
+    <string name="explore_feed_building_text">Let\'s build your feed…</string>
 </resources>

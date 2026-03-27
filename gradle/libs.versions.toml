@@ -50,6 +50,7 @@ workRuntimeKtx = "2.11.2"
 composeBom = "2026.03.01"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
+lottieCompose = "6.7.1"
 
 
 [libraries]
@@ -122,6 +123,7 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
