@@ -36,9 +36,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
@@ -46,6 +50,7 @@ import coil3.request.allowHardware
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.settings.Prefs
@@ -60,7 +65,7 @@ class InitialOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            var currentTheme by remember { mutableStateOf(Theme.DARK) }
+            var currentTheme by remember { mutableStateOf(Theme.BLACK) }
             DeviceUtil.setLightSystemUiVisibility(this@InitialOnboardingActivity, isLight = !currentTheme.isDark)
             BaseTheme(
                 currentTheme = currentTheme
@@ -128,11 +133,13 @@ fun InitialOnboardingScreen(
                     .fillMaxWidth()
                     .navigationBarsPadding()
             ) {
-                Spacer(
-                    modifier = Modifier.height(1.dp)
-                        .fillMaxWidth()
-                        .background(WikipediaTheme.colors.borderColor)
-                )
+                if (!isFirstScreen) {
+                    Spacer(
+                        modifier = Modifier.height(1.dp)
+                            .fillMaxWidth()
+                            .background(WikipediaTheme.colors.borderColor)
+                    )
+                }
                 Box(
                     modifier = Modifier
                         .fillMaxWidth(),
@@ -143,6 +150,7 @@ fun InitialOnboardingScreen(
                             onNextClick()
                             isFirstScreen = false
                         } else {
+                            // TODO: navigate to interest selection screen
                             onFinishClick()
                         }
                     }) {
@@ -169,8 +177,11 @@ fun InitialOnboardingScreen(
                 )
             } else {
                 InitialOnboardingDataPrivacyContent(
-                    onLearnMoreClick = {
+                    onPrivacyClick = {
                         FeedbackUtil.showPrivacyPolicy(context)
+                    },
+                    onTermsClick = {
+                        FeedbackUtil.showTermsOfUse(context)
                     }
                 )
             }
@@ -243,7 +254,8 @@ fun InitialOnboardingIntroContent(
 @Composable
 fun InitialOnboardingDataPrivacyContent(
     modifier: Modifier = Modifier,
-    onLearnMoreClick: () -> Unit
+    onPrivacyClick: () -> Unit,
+    onTermsClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -264,7 +276,7 @@ fun InitialOnboardingDataPrivacyContent(
             success = {
                 SubcomposeAsyncImageContent()
             },
-            contentDescription = stringResource(R.string.onboarding_data_and_privacy_title),
+            contentDescription = stringResource(R.string.onboarding_data_privacy_title),
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -273,28 +285,32 @@ fun InitialOnboardingDataPrivacyContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp, vertical = 16.dp),
-            text = stringResource(R.string.onboarding_data_and_privacy_title),
+            text = stringResource(R.string.onboarding_data_privacy_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Medium,
             color = WikipediaTheme.colors.primaryColor
         )
-        Text(
+        HtmlText(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
-            text = stringResource(R.string.onboarding_data_and_privacy_text),
+            text = stringResource(R.string.onboarding_data_privacy_text),
             style = MaterialTheme.typography.bodyLarge,
-            color = WikipediaTheme.colors.primaryColor
-        )
-        Text(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp)
-                .clickable(onClick = onLearnMoreClick),
-            text = stringResource(R.string.onboarding_data_and_privacy_learn_more),
-            style = MaterialTheme.typography.bodyLarge,
-            fontWeight = FontWeight.Bold,
-            color = WikipediaTheme.colors.progressiveColor
+            color = WikipediaTheme.colors.primaryColor,
+            linkStyle = TextLinkStyles(
+                style = SpanStyle(
+                    color = WikipediaTheme.colors.progressiveColor,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            ),
+            linkInteractionListener = {
+                val url = (it as LinkAnnotation.Url).url
+                when {
+                    url.contains("#privacy") -> onPrivacyClick()
+                    url.contains("#termsOfUse") -> onTermsClick()
+                }
+            }
         )
     }
 }
@@ -332,7 +348,8 @@ fun InitialOnboardingDataPrivacyContentPreview() {
         currentTheme = Theme.LIGHT
     ) {
         InitialOnboardingDataPrivacyContent(
-            onLearnMoreClick = {}
+            onPrivacyClick = {},
+            onTermsClick = {}
         )
     }
 }

@@ -1271,9 +1271,6 @@
   <string name="onboarding_fresh_install_knowledge_title">Title text for onboarding screen related to the knowledge source of Wikipedia.</string>
   <string name="onboarding_fresh_install_knowledge_text">Message text for onboarding screen related to the knowledge source of Wikipedia.</string>
   <string name="onboarding_fresh_install_knowledge_learn_more">Label text for onboarding screen related to the knowledge source of Wikipedia.</string>
-  <string name="onboarding_data_and_privacy_title">Title text for onboarding screen related to data and privacy.</string>
-  <string name="onboarding_data_and_privacy_text">Message text for onboarding screen related to data and privacy.</string>
-  <string name="onboarding_data_and_privacy_learn_more">Label text for onboarding screen related to data and privacy that links to the information page.</string>
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>

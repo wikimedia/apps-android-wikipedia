@@ -1325,9 +1325,6 @@
     <string name="onboarding_fresh_install_knowledge_title">All the world\'s knowledge</string>
     <string name="onboarding_fresh_install_knowledge_text">Wikipedia is a free online encyclopedia with 65 million articles collaboratively written and maintained in more than 300 languages by a community of volunteers.</string>
     <string name="onboarding_fresh_install_knowledge_learn_more">Learn more about Wikipedia</string>
-    <string name="onboarding_data_and_privacy_title">Data &amp; Privacy</string>
-    <string name="onboarding_data_and_privacy_text">We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous.</string>
-    <string name="onboarding_data_and_privacy_learn_more">Learn more about our privacy policy and terms of use</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
