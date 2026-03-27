@@ -26,6 +26,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -43,6 +44,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
@@ -57,6 +59,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.yearinreview.LoadingIndicator
 
 class InitialOnboardingActivity : BaseActivity() {
@@ -66,7 +69,9 @@ class InitialOnboardingActivity : BaseActivity() {
 
         setContent {
             var currentTheme by remember { mutableStateOf(Theme.BLACK) }
-            DeviceUtil.setLightSystemUiVisibility(this@InitialOnboardingActivity, isLight = !currentTheme.isDark)
+            var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
+            DeviceUtil.setLightSystemUiVisibility(this, currentTheme = currentTheme)
+            setNavigationBarColor(currentNavigationBarColor)
             BaseTheme(
                 currentTheme = currentTheme
             ) {
@@ -74,6 +79,7 @@ class InitialOnboardingActivity : BaseActivity() {
                     isNewUser = Prefs.isInitialOnboardingEnabled,
                     onUpdateTheme = {
                         currentTheme = WikipediaApp.instance.currentTheme
+                        currentNavigationBarColor = ResourceUtil.getThemedColor(this, R.attr.paper_color)
                     },
                     onFinish = {
                         Prefs.isInitialOnboardingEnabled = false
@@ -269,7 +275,7 @@ fun InitialOnboardingDataPrivacyContent(
             modifier = Modifier
                 .size(124.dp),
             model = ImageRequest.Builder(LocalContext.current)
-                .data(R.drawable.yir_puzzle_cloud)
+                .data(R.drawable.ic_onboarding_puzzle)
                 .allowHardware(false)
                 .build(),
             loading = { LoadingIndicator() },
