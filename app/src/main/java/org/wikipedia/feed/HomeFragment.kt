@@ -36,7 +36,9 @@ import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.main.MainActivity
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.imageservice.ImageService
 
 class HomeFragment : Fragment() {
@@ -70,6 +72,7 @@ fun HomeFragmentContents() {
 
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
         val viewportHeight = maxHeight
+        val topInset = if (context is MainActivity) DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat()) else 64
 
         // TODO: Feed contents go here!
 
@@ -99,11 +102,11 @@ fun HomeFragmentContents() {
         }
 
         // TODO: Toolbar components (wordmark, notification icon, etc)
+
         Box(
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .fillMaxWidth()
-                .height(140.dp)
                 .background(
                     Brush.verticalGradient(
                         colorStops = arrayOf(
@@ -118,6 +121,7 @@ fun HomeFragmentContents() {
                     )
                 )
         ) {
+
             Image(
                 painter = painterResource(R.drawable.feed_header_wordmark),
                 contentDescription = null,
@@ -125,7 +129,7 @@ fun HomeFragmentContents() {
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .statusBarsPadding()
-                    .padding(start = 20.dp, top = 64.dp)
+                    .padding(start = 20.dp, top = (topInset + 16).dp, bottom = 48.dp)
                     .width(128.dp)
                     .align(Alignment.TopStart)
             )
