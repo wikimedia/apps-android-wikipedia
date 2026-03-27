@@ -115,7 +115,9 @@ object DeviceUtil {
                 putExtra(Settings.EXTRA_APP_PACKAGE,context.packageName)
             }
         }else{
-            //TODO
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                data = android.net.Uri.fromParts("package", context.packageName, null)
+            }
         }
         context.startActivity(intent as? Intent)
     }
