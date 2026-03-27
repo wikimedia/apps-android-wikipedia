@@ -18,7 +18,6 @@ import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
@@ -110,12 +109,15 @@ object DeviceUtil {
         WindowCompat.getInsetsController(activity.window, activity.window.decorView).isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun openNotificationSettings(context: Context){
-        val intent= Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
-            putExtra(Settings.EXTRA_APP_PACKAGE,context.packageName)
+        val intent= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                putExtra(Settings.EXTRA_APP_PACKAGE,context.packageName)
+            }
+        }else{
+            //TODO
         }
-        context.startActivity(intent)
+        context.startActivity(intent as? Intent)
     }
 
     val isOnWiFi: Boolean
