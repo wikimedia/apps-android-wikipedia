@@ -6,9 +6,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.graphics.Insets
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -31,6 +35,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private lateinit var binding: ActivityMainBinding
 
+    private var statusBarInsets: Insets? = null
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
@@ -48,6 +53,21 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
         if (!DeviceUtil.assertAppContext(this)) {
             return
+        }
+
+        disableFitsSystemWindows()
+        enableEdgeToEdge()
+        DeviceUtil.setLightSystemUiVisibility(this)
+
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+
+            binding.root.updatePadding(bottom = navBarInsets.bottom)
+
+            applyStatusBarInsets()
+            WindowInsetsCompat.CONSUMED.toWindowInsets()!!
         }
 
         onBackPressedDispatcher.addCallback(this) {
@@ -84,6 +104,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onTabChanged(tab: NavTab) {
         if (tab == NavTab.EXPLORE) {
+            // TODO: conditionally hide toolbar if we're looking at a full-bleed Compose feed.
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
@@ -100,7 +121,15 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
+        applyStatusBarInsets()
         fragment.requestUpdateToolbarElevation()
+    }
+
+    private fun applyStatusBarInsets() {
+        statusBarInsets?.let {
+            // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
+            binding.root.updatePadding(top = it.top)
+        }
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
