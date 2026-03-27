@@ -22,6 +22,7 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxHeight
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
+import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
@@ -48,7 +49,8 @@ fun ReadingChallengeLargeWidgetContent(
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_complete),
@@ -62,7 +64,7 @@ fun ReadingChallengeLargeWidgetContent(
                         textColor = WidgetColors.primary
                     )
                 },
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_completed, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_collect_your_prize_button),
@@ -77,11 +79,12 @@ fun ReadingChallengeLargeWidgetContent(
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
@@ -97,17 +100,22 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
-                mainImageResId = R.drawable.globe // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                bottomContent = {
+                    // for visual alignment, prevents the mascot from shifting downward
+                    Spacer(modifier = GlanceModifier.height(40.dp))
+                }
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
-                mainImageResId = R.drawable.globe,
+                mainImageResId = combination.iconResId,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 titleResId = combination.titleResId ?: R.string.reading_challenge_widget_enrolled_not_started_title,
@@ -117,12 +125,13 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
@@ -134,12 +143,13 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotLiveYet -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
-                mainImageResId = R.drawable.globe, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
@@ -159,7 +169,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 state = state,
-                mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
@@ -173,7 +183,7 @@ fun ReadingChallengeLargeWidgetContent(
                 contentColor = combination.contentColor,
                 progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
                 state = state,
-                mascotImageResId = R.drawable.globe // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
             )
         }
     }
@@ -187,7 +197,7 @@ fun StreakOngoingLargeWidget(
     backgroundColor: Color,
     contentColor: Color,
     progressColor: Color,
-    titleBarIcon: Int = R.drawable.ic_wikipedia_w
+    titleBarIcon: Int = R.drawable.ic_w_logo_shadow
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
@@ -384,6 +394,8 @@ fun EnrolledNotStartedLargeWidget(
     val subtitle = context.getString(subtitleReId)
 
     GeneralLargeWidget(
+        modifier = GlanceModifier
+            .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
         textColor = contentColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
@@ -453,6 +465,7 @@ fun GeneralLargeWidget(
                         )
                     )
                     subTitleContent()
+                    Spacer(modifier = GlanceModifier.height(8.dp))
                     subTitle?.let {
                         Text(
                             text = it,
