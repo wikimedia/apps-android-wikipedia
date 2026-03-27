@@ -54,6 +54,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 import java.time.LocalDate
 
 class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
@@ -100,6 +101,9 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
                                 coroutineScope.launch {
                                     ReadingChallengeWidget().updateAll(requireContext())
                                 }
+                            },
+                            updateWidgetsUpdateFrequency = {
+                                ReadingChallengeWidgetWorker.scheduleNextWidgetUpdate(requireContext())
                             }
                         )
                     }
@@ -122,7 +126,8 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
 fun ReadingChallengePlayground(
     modifier: Modifier = Modifier,
     state: ReadingChallengeState,
-    updateWidgetsExplicitly: () -> Unit
+    updateWidgetsExplicitly: () -> Unit,
+    updateWidgetsUpdateFrequency: () -> Unit
 ) {
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
@@ -130,6 +135,7 @@ fun ReadingChallengePlayground(
     var endDate by remember { mutableStateOf(Prefs.readingChallengeEndDate) }
     var onboardingShown by remember { mutableStateOf(Prefs.readingChallengeOnboardingShown) }
     var widgetPromptShown by remember { mutableStateOf(Prefs.readingChallengeInstallPromptShown) }
+    var fastCycle by remember { mutableStateOf(Prefs.readingChallengeWidgetFastCycle) }
 
     fun syncFromPrefs() {
         streak = Prefs.readingChallengeStreak
@@ -161,7 +167,7 @@ fun ReadingChallengePlayground(
     ) {
         Text(
             "Current State: ${state::class.simpleName}",
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.titleLarge,
             color = WikipediaTheme.colors.primaryColor
         )
 
@@ -227,6 +233,42 @@ fun ReadingChallengePlayground(
                     },
                     colors = switchColor
                 )
+            }
+        }
+
+        if (state is ReadingChallengeState.EnrolledNotStarted || state is ReadingChallengeState.StreakOngoingNeedsReading || state is ReadingChallengeState.StreakOngoingReadToday) {
+            // --- Fast Cycle ---
+            Card {
+                Row(
+                    Modifier
+                        .background(WikipediaTheme.colors.backgroundColor)
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            text = "readingChallengeWidgetFastCycle",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                        Text(
+                            text = "Updates every 1 min instead of midnight",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = WikipediaTheme.colors.secondaryColor
+                        )
+                    }
+                    Switch(
+                        checked = fastCycle,
+                        onCheckedChange = {
+                            fastCycle = it
+                            Prefs.readingChallengeWidgetFastCycle = it
+                            updateWidgetsUpdateFrequency()
+                        },
+                        colors = switchColor
+                    )
+                }
             }
         }
 

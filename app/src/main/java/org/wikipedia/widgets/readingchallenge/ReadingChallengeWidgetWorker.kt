@@ -9,6 +9,8 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
 import androidx.work.WorkerParameters
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.ReleaseUtil
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -21,17 +23,21 @@ class ReadingChallengeWidgetWorker(
 
     override suspend fun doWork(): Result {
         ReadingChallengeWidget().updateAll(applicationContext)
-        scheduleNextMidnightUpdate(applicationContext)
+        scheduleNextWidgetUpdate(applicationContext)
         return Result.success()
     }
 
     companion object {
         const val WORK_NAME = "ReadingChallengeWidgetWorker"
 
-        fun scheduleNextMidnightUpdate(context: Context) {
-            val now = LocalDateTime.now()
-            val nextMidnight = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT).plusMinutes(1)
-            val delay = Duration.between(now, nextMidnight)
+        fun scheduleNextWidgetUpdate(context: Context) {
+            val delay = if (ReleaseUtil.isPreBetaRelease && Prefs.readingChallengeWidgetFastCycle) {
+                Duration.ofMinutes(1)
+            } else {
+                val now = LocalDateTime.now()
+                val nextMidnight = LocalDateTime.of(now.toLocalDate().plusDays(1), LocalTime.MIDNIGHT).plusMinutes(1)
+                Duration.between(now, nextMidnight)
+            }
             val workRequest = OneTimeWorkRequest.Builder(ReadingChallengeWidgetWorker::class.java)
                 .addTag(ReadingChallengeWidgetWorker::class.java.simpleName)
                 .setInitialDelay(delay.toMillis(), TimeUnit.MILLISECONDS)
