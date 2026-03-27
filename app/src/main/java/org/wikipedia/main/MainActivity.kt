@@ -1,5 +1,6 @@
 package org.wikipedia.main
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -37,7 +38,6 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -72,7 +72,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
 
-            binding.root.updatePadding(bottom = navBarInsets.bottom)
+            fragment.binding.mainNavTabContainer.updatePadding(bottom = navBarInsets.bottom)
 
             applyStatusBarInsets()
             WindowInsetsCompat.CONSUMED.toWindowInsets()!!
@@ -90,7 +90,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             !intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
+        setNavigationBarColor(Color.TRANSPARENT)
         setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -117,7 +117,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
 
-            applyNavBarTheme(Theme.DARK)
+            applyNavBarTheme(Theme.BLACK)
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
@@ -144,6 +144,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
     }
 
+    @SuppressLint("ResourceType")
     private fun applyNavBarTheme(theme: Theme) {
         val wrapper = ContextThemeWrapper(this, theme.resourceId)
         val attrs = intArrayOf(R.attr.paper_color, R.attr.border_color)
@@ -153,8 +154,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             val borderColor = getColor(1, Color.TRANSPARENT)
             fragment.binding.mainNavTabLayout.applyColors(paperColor, csl)
             fragment.binding.mainNavTabBorder.setBackgroundColor(borderColor)
-
-            binding.root.setBackgroundColor(paperColor)
+            fragment.binding.mainNavTabContainer.setBackgroundColor(paperColor)
             DeviceUtil.setLightSystemUiVisibility(this@MainActivity, light = !theme.isDark)
         }
     }
