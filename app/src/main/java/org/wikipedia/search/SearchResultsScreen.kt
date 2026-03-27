@@ -52,7 +52,6 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.toAnnotatedStringWithBoldQuery
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -63,9 +62,9 @@ const val SEARCH_LIST_TAG = "search_list"
 fun SearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel,
-    onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
-    onSemanticSearchClick: (String, Boolean, Int) -> Unit,
+    onSemanticSearchClick: (SearchResult?, String, Boolean) -> Unit,
     onLanguageClick: (Int) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
@@ -120,7 +119,7 @@ fun SearchResultsScreen(
                                 .clickable(
                                     onClick = {
                                         searchTerm.value?.let {
-                                            onSemanticSearchClick(it, true, -1)
+                                            onSemanticSearchClick(null, it, true)
                                         }
                                     }
                                 ),
@@ -142,12 +141,12 @@ fun SearchResultsScreen(
                             modifier = Modifier.fillMaxSize(),
                             searchResultsPage = searchResults,
                             searchTerm = searchTerm.value,
-                            onTitleClick = { searchResult, position ->
-                                onSemanticSearchClick(searchResult.pageTitle.displayText, false, position)
+                            onTitleClick = { searchResult ->
+                                onSemanticSearchClick(searchResult, searchResult.pageTitle.displayText, false)
                             },
                             onSuggestionTitleClick = { searchTerm ->
                                 searchTerm?.let {
-                                    onSemanticSearchClick(it, true, -1)
+                                    onSemanticSearchClick(null, it, true)
                                 }
                             }
                         )
@@ -169,7 +168,7 @@ fun SearchResultsScreen(
 fun SearchResultsList(
     searchResultsPage: LazyPagingItems<SearchResult>,
     searchTerm: String?,
-    onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -187,7 +186,7 @@ fun SearchResultsList(
                     searchResultPage = result,
                     searchTerm = searchTerm,
                     onItemClick = {
-                        onItemClick(result.pageTitle, false, index, result.location)
+                        onItemClick(result, false, index, result.location)
                     },
                     onItemLongClick = { view ->
                         onItemLongClick(view, result, index)
@@ -297,7 +296,7 @@ fun SearchResultPageItem(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                if (type != SearchResult.SearchResultType.SEARCH) {
+                if (type != SearchResult.SearchResultType.PREFIX && type != SearchResult.SearchResultType.FULL_TEXT) {
                     Image(
                         modifier = Modifier
                             .size(20.dp),
