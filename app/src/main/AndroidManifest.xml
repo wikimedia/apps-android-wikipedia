@@ -416,6 +416,8 @@
 
         <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
 
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
