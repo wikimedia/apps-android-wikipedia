@@ -70,7 +70,10 @@ fun PersonalizationScreen(
                         InterestOnboardingScreen(
                             categoriesState = uiState.value.categoriesState,
                             articlesState = uiState.value.articlesState,
-                            modifier = Modifier
+                            modifier = Modifier,
+                            onCategorySelected = {
+                                viewModel.onCategorySelected(it)
+                            }
                         )
                     }
                     2 -> {}

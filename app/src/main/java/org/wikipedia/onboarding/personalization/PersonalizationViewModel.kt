@@ -14,6 +14,12 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 
+// TODO: remove comments once reviewed
+// this is a is a raw, flat, internal representation of ALL state
+// needed across the personalization flow (interest, feed preference, language screens)
+// this enables SINGLE SOURCE OF TRUTH — one place to update, no risk of states going out of sync
+// DERIVED UI STATES — each screen gets its own UI state derived from a function like toInterestUIState()
+// instead of maintaining separate StateFlows per screen or one giant combined UI state
 private data class PersonalizedViewModelState(
     // Interest screen
     val categories: List<OnboardingCategory> = emptyList(),
@@ -25,8 +31,8 @@ private data class PersonalizedViewModelState(
     val articlesError: Throwable? = null,
     val selectedArticleIds: Set<PageTitle> = emptySet(),
     val searchQuery: String = "",
-    // Navigation
-    val currentPage: Int = 0
+    // Feed preference screen properties
+    // Language screen properties
 ) {
     fun toInterestUiState(): InterestUiState {
         return InterestUiState(
@@ -52,16 +58,17 @@ private data class PersonalizedViewModelState(
         )
     }
 
-    // Note: the feed preference ui state can be defined as similar to the interest ui state with required properties
-    // and a mapping function to convert the overall view model state to the feed preference ui state
-
-    // similarly, we can define ui states for the other screens in the personalization flow and mapping functions as needed
-    // instead of creating individual states or combining them
+    // Each screen in the personalization flow would have its own function
+    // fun toFeedPreferenceUiState(): FeedPreferenceUiState { ... }
+    // fun toLanguageUiState(): LanguageUiState { ... }
 }
 
 class PersonalizationViewModel : ViewModel() {
+    // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
 
+    // Each screen observes only its own derived UI state
+    // runs automatically when any part of the raw state changes
     val interestUiState = state
         .map { it.toInterestUiState() }
         .stateIn(
@@ -79,10 +86,12 @@ class PersonalizationViewModel : ViewModel() {
         }
     }
 
-    fun loadCategories() {
+    // TODO: add actual api call
+    private fun loadCategories() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(categoriesLoading = false, categoriesError = throwable) }
         }) {
+            state.update { it.copy(categoriesLoading = true) }
             val current = state.value
             if (current.categories.isNotEmpty()) return@launch
 
@@ -97,10 +106,12 @@ class PersonalizationViewModel : ViewModel() {
         }
     }
 
-    fun loadArticlesForCategory(categoryId: String) {
+    // TODO: add actual api call
+    private fun loadArticlesForCategory(categoryId: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
+            state.update { it.copy(articlesLoading = true) }
             val current = state.value
             if (current.articles.isNotEmpty()) return@launch
             println("orange loading articles for category $categoryId...")
@@ -117,5 +128,19 @@ class PersonalizationViewModel : ViewModel() {
             )
             state.update { it.copy(articles = titles, articlesLoading = false) }
         }
+    }
+
+    // as we have a single state it becomes easier to update and control the state
+    fun onCategorySelected(category: OnboardingCategory) {
+        // When a category is selected, we want to reset the articles state and load articles for the selected category
+        state.update {
+            it.copy(
+                selectedCategoryId = category.id,
+                articles = emptyList(),
+                articlesLoading = true,
+                articlesError = null
+            )
+        }
+        loadArticlesForCategory(category.id)
     }
 }
