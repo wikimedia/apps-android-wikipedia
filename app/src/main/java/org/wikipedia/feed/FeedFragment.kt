@@ -423,7 +423,7 @@ class FeedFragment : Fragment() {
 
     private fun maybeShowExploreFeedUpdatePrompt() {
         // TODO: Set this to true during the new user onboarding flow to prevent this prompt from appearing
-        if (Prefs.isExploreFeedUpdatePromptShown.not()) {
+        if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
         }
     }
