@@ -10,10 +10,11 @@ import org.wikipedia.compose.theme.BaseTheme
 class PersonalizationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             BaseTheme {
                 PersonalizationScreen(
-                    onSkipClick = { /*TODO*/ }
+                    onSkipClick = { finish() }
                 )
             }
         }

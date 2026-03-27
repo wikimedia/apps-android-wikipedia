@@ -20,6 +20,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -27,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
@@ -40,6 +42,7 @@ fun PersonalizationScreen(
     onSkipClick: () -> Unit,
     viewModel: PersonalizationViewModel = viewModel()
 ) {
+    val coroutineScope = rememberCoroutineScope()
     val uiState = viewModel.interestUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { 3 })
 
@@ -51,7 +54,16 @@ fun PersonalizationScreen(
         bottomBar = {
                 OnboardingBottomBar(
                     pagerState = pagerState,
-                    onNavigationRightClick = { /*TODO*/ },
+                    onNavigationRightClick = {
+                        coroutineScope.launch {
+                            if (pagerState.currentPage < pagerState.pageCount - 1) {
+                                viewModel.onPageChanged(pagerState.currentPage + 1)
+                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                            } else {
+                                onSkipClick()
+                            }
+                        }
+                    },
                     onSkipClick = onSkipClick
                 )
         },
@@ -76,7 +88,7 @@ fun PersonalizationScreen(
                             }
                         )
                     }
-                    2 -> {}
+                    2 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
                 }
             }
         }
