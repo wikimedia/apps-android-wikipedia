@@ -2201,6 +2201,17 @@
     <string name="reading_challenge_widget_reward_title">Title of a dialog box rewarding the user for completing the reading challenge.</string>
     <string name="reading_challenge_widget_reward_body">Body text of a dialog box rewarding the user for completing the reading challenge.</string>
     <string name="reading_challenge_widget_reward_button_label">Button label to navigate to the Wikipedia store with a discount, as a reward for completing the reading challenge.</string>
+    <string name="explore_feed_new_update_prompt_title">Title text for the onboarding prompt annoncing the rename of the Explore Feed to Home.</string>
+    <string name="explore_feed_new_update_prompt_new_name_title">Title for the slide explaining the feed\'s new name.</string>
+    <string name="explore_feed_new_update_prompt_new_name_description">Body text explaining that the Explore feed has been renamed to Home and remains in the same location.</string>
+    <string name="explore_feed_new_update_prompt_two_ways_title">Title for the slide describing the two content tabs available in the Home feed.</string>
+    <string name="explore_feed_new_update_prompt_two_ways_description">Body text describing the two feed modes: personalized articles in For You, and editorially curated content in Community.</string>
+    <string name="explore_feed_new_update_prompt_control_title">Title for the slide explaining about user control.</string>
+    <string name="explore_feed_new_update_prompt_control_description">Body text explaining that each recommendation shows its reason, and that preferences can be updated in Settings.</string>
+    <string name="explore_feed_new_update_prompt_language_title">Title for the slide describing per-language feed personalization.</string>
+    <string name="explore_feed_new_update_prompt_language_description">Body text explaining that users reading in multiple languages each get a separately personalized feed, which updates automatically on language switch.</string>
+    <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
+    <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
     <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
     <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
 </resources>
