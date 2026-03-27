@@ -17,7 +17,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -53,16 +52,14 @@ object DeviceUtil {
                 resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
-    fun setLightSystemUiVisibility(activity: Activity) {
-        // this make the system recognizes the status bar light and will make status bar icons become visible
-        // if the theme is not dark
-        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+    fun setLightSystemUiVisibility(activity: Activity, light: Boolean = !WikipediaApp.instance.currentTheme.isDark) {
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = light
+        activity.window.insetsControllerCompat.isAppearanceLightNavigationBars = light
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark ||
-                    color == ContextCompat.getColor(window.context, android.R.color.black)
+            val isDarkThemeOrDarkBackground = WikipediaApp.instance.currentTheme.isDark || color == Color.BLACK
             window.navigationBarColor = color
             window.insetsControllerCompat.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
         }
