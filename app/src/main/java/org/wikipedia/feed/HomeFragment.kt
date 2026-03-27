@@ -57,52 +57,18 @@ class HomeFragment : Fragment() {
     }
 }
 
-private val prototypeImageUrls = listOf(
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg/1280px-SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Color_of_Friendship.jpg/1280px-Color_of_Friendship.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg/1280px-MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg/1280px-Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg/1280px-Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg",
-)
-
 @Composable
 fun HomeFragmentContents() {
     val context = LocalContext.current
-    val listState = rememberLazyListState()
+    val topInset = if (context is MainActivity) DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat()) else 64
 
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        val viewportHeight = maxHeight
-        val topInset = if (context is MainActivity) DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat()) else 64
+    Box(modifier = Modifier.fillMaxSize()) {
 
         // TODO: Feed contents go here!
 
-        LazyColumn(
-            state = listState,
-            flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
-            modifier = Modifier
-                .fillMaxSize()
-                .background(WikipediaTheme.colors.backgroundColor)
-        ) {
-            itemsIndexed(prototypeImageUrls) { _, imageUrl ->
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(viewportHeight)
-                ) {
-                    AsyncImage(
-                        model = ImageService.getRequest(context, url = imageUrl),
-                        placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                        error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier.fillMaxSize()
-                    )
-                }
-            }
-        }
+        FeaturedImages()
 
-        // TODO: Toolbar components (wordmark, notification icon, etc)
-
+        // Toolbar, floating above the feed contents.
         Box(
             modifier = Modifier
                 .align(Alignment.TopCenter)
@@ -121,7 +87,6 @@ fun HomeFragmentContents() {
                     )
                 )
         ) {
-
             Image(
                 painter = painterResource(R.drawable.feed_header_wordmark),
                 contentDescription = null,
@@ -133,6 +98,51 @@ fun HomeFragmentContents() {
                     .width(128.dp)
                     .align(Alignment.TopStart)
             )
+
+            // TODO: notification icon, etc.
+        }
+    }
+}
+
+@Composable
+fun FeaturedImages() {
+    val context = LocalContext.current
+    val listState = rememberLazyListState()
+
+    val imageUrls = listOf(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg/1280px-SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Color_of_Friendship.jpg/1280px-Color_of_Friendship.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg/1280px-MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg/1280px-Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg/1280px-Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg",
+    )
+
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val viewportHeight = maxHeight
+
+        LazyColumn(
+            state = listState,
+            flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.backgroundColor)
+        ) {
+            itemsIndexed(imageUrls) { _, imageUrl ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewportHeight)
+                ) {
+                    AsyncImage(
+                        model = ImageService.getRequest(context, url = imageUrl),
+                        placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                        error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+            }
         }
     }
 }
