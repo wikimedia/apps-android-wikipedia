@@ -20,6 +20,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.AppTextButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.onboarding.personalization.PersonalizationScreen
 import org.wikipedia.settings.Prefs
 
 class InitialOnboardingActivity : BaseActivity() {
@@ -32,7 +33,7 @@ class InitialOnboardingActivity : BaseActivity() {
                 InitialOnboardingScreen(
                     isNewUser = Prefs.isInitialOnboardingEnabled,
                     onFinish = {
-                        Prefs.isInitialOnboardingEnabled = false
+                        // Prefs.isInitialOnboardingEnabled = false
                         setResult(RESULT_OK)
                         finish()
                     }
@@ -55,11 +56,17 @@ fun InitialOnboardingScreen(
     isNewUser: Boolean,
     onFinish: () -> Unit
 ) {
-    var showPersonalization by remember { mutableStateOf(isNewUser) }
-    if (showPersonalization) {
-        IntroScreen(onClick = onFinish )
-    } else {
+    var showInterestOnboarding by remember { mutableStateOf(false) }
+    var showIntroScreen by remember { mutableStateOf(isNewUser) }
+    if (showIntroScreen) {
+        IntroScreen(onClick = {
+            showInterestOnboarding = true
+        })
+    }
+
+    if (showInterestOnboarding) {
         // Personalization Screen (interest selection + content preference + language)
+        PersonalizationScreen()
     }
 }
 
@@ -79,7 +86,7 @@ fun IntroScreen(
         AppTextButton (
             onClick = onClick
         ) {
-            Text("Skip", color = WikipediaTheme.colors.progressiveColor)
+            Text("Next", color = WikipediaTheme.colors.progressiveColor)
         }
     }
 }

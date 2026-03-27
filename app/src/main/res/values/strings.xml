@@ -2452,4 +2452,8 @@
     <string name="reading_challenge_widget_reward_title">Curiosity looks good on you! 🛍️</string>
     <string name="reading_challenge_widget_reward_body">Celebrate completing the challenge with 15% off at the Wikipedia Store.</string>
     <string name="reading_challenge_widget_reward_button_label">Get 15% off at the store</string>
+
+    <!-- New Explore Feed   -->
+    <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
+    <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
 </resources>

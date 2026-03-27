@@ -2201,4 +2201,6 @@
     <string name="reading_challenge_widget_reward_title">Title of a dialog box rewarding the user for completing the reading challenge.</string>
     <string name="reading_challenge_widget_reward_body">Body text of a dialog box rewarding the user for completing the reading challenge.</string>
     <string name="reading_challenge_widget_reward_button_label">Button label to navigate to the Wikipedia store with a discount, as a reward for completing the reading challenge.</string>
+    <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
+    <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
 </resources>
