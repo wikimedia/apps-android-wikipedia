@@ -101,6 +101,7 @@ class FeedFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         coordinator.more(app.wikiSite)
+        maybeShowExploreFeedUpdatePrompt()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -148,7 +149,6 @@ class FeedFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        maybeShowExploreFeedUpdatePrompt()
         maybeShowRegionalLanguageVariantDialog()
         OnThisDayGameMainMenuFragment.maybeShowOnThisDayGameDialog(requireActivity(), InvokeSource.FEED)
         viewLifecycleOwner.lifecycleScope.launch {
