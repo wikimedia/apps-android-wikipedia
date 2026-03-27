@@ -23,6 +23,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.theme.Theme
 import kotlin.system.exitProcess
 
 object DeviceUtil {
@@ -53,10 +54,10 @@ object DeviceUtil {
                 resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
-    fun setLightSystemUiVisibility(activity: Activity) {
+    fun setLightSystemUiVisibility(activity: Activity, currentTheme: Theme = WikipediaApp.instance.currentTheme) {
         // this make the system recognizes the status bar light and will make status bar icons become visible
         // if the theme is not dark
-        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !WikipediaApp.instance.currentTheme.isDark
+        activity.window.insetsControllerCompat.isAppearanceLightStatusBars = !currentTheme.isDark
     }
 
     fun setNavigationBarColor(window: Window, @ColorInt color: Int) {
