@@ -1322,6 +1322,9 @@
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
     <string name="onboarding_welcome_title_v2">The Free Encyclopedia\n&#8230;in over 300 languages</string>
     <string name="onboarding_next">Next</string>
+    <string name="onboarding_fresh_install_knowledge_title">All the world\'s knowledge</string>
+    <string name="onboarding_fresh_install_knowledge_text">Wikipedia is a free online encyclopedia with 65 million articles collaboratively written and maintained in more than 300 languages by a community of volunteers.</string>
+    <string name="onboarding_fresh_install_knowledge_learn_more">Learn more about Wikipedia</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
@@ -2452,4 +2455,17 @@
     <string name="reading_challenge_widget_reward_title">Curiosity looks good on you! 🛍️</string>
     <string name="reading_challenge_widget_reward_body">Celebrate completing the challenge with 15% off at the Wikipedia Store.</string>
     <string name="reading_challenge_widget_reward_button_label">Get 15% off at the store</string>
+
+    <!-- New Explore Feed   -->
+    <string name="explore_feed_new_update_prompt_title">Explore is now Home, with a new look</string>
+    <string name="explore_feed_new_update_prompt_new_name_title">A new name</string>
+    <string name="explore_feed_new_update_prompt_new_name_description">The Explore feed is now Home, in the same spot as before.</string>
+    <string name="explore_feed_new_update_prompt_two_ways_title">Your feed, two ways</string>
+    <string name="explore_feed_new_update_prompt_two_ways_description">Discover articles personalized to your interests in For You, or browse Wikipedia\'s best editorial content in Community.</string>
+    <string name="explore_feed_new_update_prompt_control_title">Stay in control</string>
+    <string name="explore_feed_new_update_prompt_control_description">Every recommendation tells you exactly why it\'s there. You can update your preferences anytime in Settings.</string>
+    <string name="explore_feed_new_update_prompt_language_title">Every language, fully personalized</string>
+    <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
+    <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
+    <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
 </resources>
