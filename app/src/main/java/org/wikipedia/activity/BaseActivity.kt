@@ -1,7 +1,6 @@
 package org.wikipedia.activity
 
 import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -10,6 +9,7 @@ import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -40,6 +40,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
+import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -52,6 +53,10 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeRewardDialog
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
@@ -75,6 +80,15 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (it.resultCode == RESULT_OK) {
             ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
             FeedbackUtil.showMessage(this, R.string.donate_gpay_success_message)
+        }
+    }
+
+    private val requestReadingChallengeActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (ReadingChallengeWidgetRepository.shouldShowWidgetInstallDialog()) {
+            ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeInstallWidgetDialog()
+            )
         }
     }
 
@@ -123,6 +137,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
         maybeShowYearInReview()
+        maybeShowReadingChallengePrompt()
 
         Prefs.localClassName = localClassName
 
@@ -267,8 +282,20 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
+    private fun maybeShowReadingChallengePrompt() {
+        if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
+            this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
+            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
+        } else if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
+            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
+                ReadingChallengeRewardDialog()
+            )
+        }
+    }
+
     private fun removeSplashBackground() {
-        window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
+        window.setBackgroundDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color).toDrawable())
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {

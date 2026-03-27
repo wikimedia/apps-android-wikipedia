@@ -103,6 +103,8 @@ fun OnboardingScreen(
         containerColor = WikipediaTheme.colors.paperColor,
         bottomBar = {
             TwoButtonBottomBar(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 16.dp),
                 primaryButtonText = stringResource(R.string.onboarding_continue),
                 secondaryButtonText = stringResource(R.string.activity_tab_menu_info),
                 onPrimaryOnClick = onContinueClick,

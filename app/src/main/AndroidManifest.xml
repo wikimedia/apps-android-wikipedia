@@ -414,6 +414,9 @@
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".widgets.readingchallenge.ReadingChallengeOnboardingActivity" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -450,6 +453,18 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
+        </receiver>
+
+        <receiver
+            android:label="@string/reading_challenge_widget_name"
+            android:name=".widgets.readingchallenge.ReadingChallengeWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/reading_challenge_widget_info"/>
         </receiver>
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
