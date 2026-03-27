@@ -22,12 +22,13 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.onboarding.personalization.PersonalizationScreen
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 
 class InitialOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             BaseTheme {
                 InitialOnboardingScreen(
@@ -66,7 +67,9 @@ fun InitialOnboardingScreen(
 
     if (showInterestOnboarding) {
         // Personalization Screen (interest selection + content preference + language)
-        PersonalizationScreen()
+        PersonalizationScreen(
+            onSkipClick = onFinish
+        )
     }
 }
 
