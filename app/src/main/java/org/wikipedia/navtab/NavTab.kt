@@ -5,7 +5,6 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.activitytab.ActivityTabFragment
-import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode

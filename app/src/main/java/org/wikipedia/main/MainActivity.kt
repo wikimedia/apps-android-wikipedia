@@ -154,7 +154,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             fragment.binding.mainNavTabLayout.applyColors(paperColor, csl)
             fragment.binding.mainNavTabBorder.setBackgroundColor(borderColor)
 
-            setNavigationBarColor(paperColor)
+            binding.root.setBackgroundColor(paperColor)
             DeviceUtil.setLightSystemUiVisibility(this@MainActivity, light = !theme.isDark)
         }
     }

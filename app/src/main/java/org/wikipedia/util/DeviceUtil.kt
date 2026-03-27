@@ -54,8 +54,6 @@ object DeviceUtil {
     }
 
     fun setLightSystemUiVisibility(activity: Activity, light: Boolean = !WikipediaApp.instance.currentTheme.isDark) {
-        // this make the system recognizes the status bar light and will make status bar icons become visible
-        // if the theme is not dark
         activity.window.insetsControllerCompat.isAppearanceLightStatusBars = light
     }
 

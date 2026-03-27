@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,7 +18,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,16 +26,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import androidx.fragment.app.Fragment
+import coil3.compose.AsyncImage
 import org.wikipedia.R
-import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
@@ -71,6 +71,8 @@ fun HomeFragmentContents() {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
         val viewportHeight = maxHeight
 
+        // TODO: Feed contents go here!
+
         LazyColumn(
             state = listState,
             flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
@@ -96,6 +98,7 @@ fun HomeFragmentContents() {
             }
         }
 
+        // TODO: Toolbar components (wordmark, notification icon, etc)
         Box(
             modifier = Modifier
                 .align(Alignment.TopCenter)
