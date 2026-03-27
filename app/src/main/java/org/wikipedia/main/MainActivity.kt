@@ -57,6 +57,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
         disableFitsSystemWindows()
         enableEdgeToEdge()
+        DeviceUtil.setLightSystemUiVisibility(this)
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
