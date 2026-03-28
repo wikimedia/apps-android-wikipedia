@@ -8,11 +8,10 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
-import java.util.Calendar
-import java.util.concurrent.TimeUnit
+import java.util.Objects
 
 class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
-    private val date: Calendar = DateUtil.getDefaultDateFor(age)
+    private val date = DateUtil.getDateForAge(age)
     var callback: FeedAdapter.Callback? = null
 
     override fun type(): CardType {
@@ -28,7 +27,7 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode()
+        return Objects.hash(date, wiki)
     }
 
     fun footerActionText(): String {
@@ -41,10 +40,6 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
 
     fun year(): Int {
         return event.year
-    }
-
-    fun date(): Calendar {
-        return date
     }
 
     fun pages(): List<PageSummary> {
