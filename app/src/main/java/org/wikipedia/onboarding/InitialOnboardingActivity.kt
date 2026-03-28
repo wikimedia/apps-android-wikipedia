@@ -91,6 +91,7 @@ class InitialOnboardingActivity : BaseActivity() {
     }
 
     companion object {
+        // TODO: need to refresh the language state at the final screen
         const val RESULT_LANGUAGE_CHANGED = 1
         fun newIntent(context: Context): Intent {
             return Intent(context, InitialOnboardingActivity::class.java)
