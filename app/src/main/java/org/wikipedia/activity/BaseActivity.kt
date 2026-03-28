@@ -2,6 +2,7 @@ package org.wikipedia.activity
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -79,7 +80,25 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-        // TODO: Show message(s) to the user if they deny the permission
+        if(!granted){
+            if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+                if(ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.POST_NOTIFICATIONS)){
+                    //User denied once->Show Snackbar
+                    FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_rationale))
+                        .setAction(R.string.notification_permission_rationale_action){
+                            DeviceUtil.openNotificationSettings(this)
+                        }
+                        .show()
+                }else{
+                    //User denied (with "Don't Ask Again")
+                    FeedbackUtil.makeSnackbar(this, getString(R.string.notification_permission_denied))
+                        .setAction(R.string.app_settings){
+                            DeviceUtil.openNotificationSettings(this)
+                        }
+                        .show()
+                }
+            }
+        }
     }
 
     private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
