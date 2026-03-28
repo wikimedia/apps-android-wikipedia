@@ -65,36 +65,36 @@ object DonationReminderHelper {
 
         val newArticleCount = config.articleVisit + 1
         if (newArticleCount >= config.articleFrequency) {
-            // Activate reminder, reset counters and increment goal reached
             Prefs.donationReminderConfig = config.copy(
                 articleVisit = 0,
                 isReminderReady = true,
-                timesReminderShown = 0,
-                goalReachedCount = config.goalReachedCount + 1
+                goalReachedCount = config.goalReachedCount + 1,
+                continuousArticleVisit = config.continuousArticleVisit + 1
             )
         } else {
-            // Just increment articleVisit counter
             Prefs.donationReminderConfig = config.copy(
-                articleVisit = newArticleCount
+                articleVisit = newArticleCount,
+                continuousArticleVisit = config.continuousArticleVisit + 1
             )
         }
     }
 
     fun shouldShowReminderNow(): Boolean {
         if (!isEnabled) return false
+        return Prefs.donationReminderConfig.shouldShowNow()
+    }
 
+    fun recordReminderShown() {
         val config = Prefs.donationReminderConfig
-        val shouldShowNow = config.shouldShowNow()
-        if (shouldShowNow) {
-            val newCount = config.timesReminderShown + 1
-            Prefs.donationReminderConfig = config.copy(
-                timesReminderShown = newCount,
-                promptLastSeen = LocalDate.now().toEpochDay(),
-                // Deactivate reminder if we've shown it max times
-                isReminderReady = newCount < MAX_REMINDER_PROMPTS
-            )
-        }
-        return shouldShowNow
+        val newCount = config.timesReminderShown + 1
+
+        Prefs.donationReminderConfig = config.copy(
+            timesReminderShown = if (newCount != MAX_REMINDER_PROMPTS) newCount else 0,
+            promptLastSeen = LocalDate.now().toEpochDay(),
+            // Deactivate reminder if we've shown it max times
+            isReminderReady = newCount < MAX_REMINDER_PROMPTS,
+            continuousArticleVisit = if (newCount != MAX_REMINDER_PROMPTS) config.continuousArticleVisit else 0
+        )
     }
 
     fun dismissReminder() {
@@ -115,7 +115,8 @@ data class DonationReminderConfig(
     val donateAmount: Float = 0f,
     val isReminderReady: Boolean = false,
     val timesReminderShown: Int = 0,
-    val goalReachedCount: Int = 0
+    val goalReachedCount: Int = 0,
+    var continuousArticleVisit: Int = 0
 ) {
     val isSetup: Boolean get() = userEnabled && setupTimestamp != 0L && articleFrequency > 0
 
