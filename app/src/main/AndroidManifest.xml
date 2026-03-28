@@ -245,6 +245,8 @@
 
         <activity
             android:name=".onboarding.InitialOnboardingActivity"/>
+        <activity
+            android:name=".onboarding.AppLanguagesOnboardingActivity"/>
 
         <activity
             android:name=".feed.topread.TopReadArticlesActivity"
