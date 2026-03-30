@@ -3,27 +3,25 @@ package org.wikipedia.onboarding.personalization
 import org.wikipedia.page.PageTitle
 
 // TODO: update the states below as needed as we build out the screen
-data class OnboardingCategory(
+data class OnboardingTopic(
     val id: String,
-    val title: String
+    val title: String,
+    val isSelected: Boolean = false
 )
 
 data class InterestUiState(
-    val categoriesState: CategoriesState = CategoriesState.Loading,
-    val articlesState: ArticlesState = ArticlesState.Loading,
-    val selectedCategory: String? = null,
-    val selectedArticles: Set<PageTitle> = emptySet(),
-    val selectionCount: Int = 0,
+    val topicsState: TopicsState = TopicsState.Loading,
+    val articlesState: ArticlesState = ArticlesState.Loading
 )
 
-sealed interface CategoriesState {
-    data object Loading : CategoriesState
-    data class Success(val categories: List<OnboardingCategory>) : CategoriesState
-    data class Error(val message: String) : CategoriesState
+sealed interface TopicsState {
+    data object Loading : TopicsState
+    data class Success(val topics: List<OnboardingTopic>) : TopicsState
+    data class Error(val message: String) : TopicsState
 }
 
 sealed interface ArticlesState {
     data object Loading : ArticlesState
-    data class Success(val articles: List<PageTitle>) : ArticlesState
+    data class Success(val articles: List<PageTitle>, val selectedArticles: Set<PageTitle>) : ArticlesState
     data class Error(val message: String) : ArticlesState
 }

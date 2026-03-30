@@ -1,7 +1,9 @@
 package org.wikipedia.onboarding.personalization
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -25,22 +27,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
-import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.theme.Theme
 
 // TODO: probably renaming the screen name
 @Composable
 fun PersonalizationScreen(
     modifier: Modifier = Modifier,
     onSkipClick: () -> Unit,
-    viewModel: PersonalizationViewModel = viewModel()
+    onSearchClick: () -> Unit,
+    viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
     val uiState = viewModel.interestUiState.collectAsState()
@@ -80,12 +79,19 @@ fun PersonalizationScreen(
                     0 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
                     1 -> {
                         InterestOnboardingScreen(
-                            categoriesState = uiState.value.categoriesState,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(WikipediaTheme.colors.paperColor)
+                                .padding(top = 40.dp, bottom = 16.dp, start = 16.dp, end = 16.dp),
+                            topicsState = uiState.value.topicsState,
                             articlesState = uiState.value.articlesState,
-                            modifier = Modifier,
                             onCategorySelected = {
-                                viewModel.onCategorySelected(it)
-                            }
+                                viewModel.onTopicSelected(it)
+                            },
+                            onItemClick = {
+                                viewModel.toggleSelection(it)
+                            },
+                            onSearchClick = onSearchClick
                         )
                     }
                     2 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
@@ -146,17 +152,5 @@ fun OnboardingBottomBar(
                 )
             }
         }
-    }
-}
-
-@Preview
-@Composable
-private fun PersonalizationScreenPreview() {
-    BaseTheme(
-        currentTheme = Theme.LIGHT
-    ) {
-        PersonalizationScreen(
-            onSkipClick = {}
-        )
     }
 }
