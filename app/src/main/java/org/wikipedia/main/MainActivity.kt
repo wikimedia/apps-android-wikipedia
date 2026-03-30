@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,6 +14,7 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.children
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
@@ -130,6 +133,29 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
             binding.root.updatePadding(top = it.top)
         }
+    }
+
+    /**
+     * This is a hacky way to fix the background of the system Status Bar while an ActionMode is
+     * active, inside an Activity that has edgeToEdge enabled. For some reason the framework
+     * automatically inserts a View with an explicit black color, regardless of theme, which makes
+     * the status bar look incorrect. This method finds that View and sets the correct color and
+     * elevation on it.
+     */
+    fun fixActionModeBackground() {
+        val decorView = window.decorView as ViewGroup
+        decorView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                decorView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                val actionBarRoot = findViewById<ViewGroup>(androidx.appcompat.R.id.action_bar_root)
+                actionBarRoot.children.forEach {
+                    if (it.id != android.R.id.content && it.id != androidx.appcompat.R.id.action_mode_bar) {
+                        it.setBackgroundColor(ResourceUtil.getThemedColor(this@MainActivity, R.attr.paper_color))
+                        it.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
+                    }
+                }
+            }
+        })
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
