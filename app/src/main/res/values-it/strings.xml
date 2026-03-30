@@ -2120,4 +2120,32 @@
   <string name="hybrid_search_error_message">Qualcosa è andato storto. Riprova più tardi.</string>
   <string name="hybrid_search_who_is_prefix">Chi è %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Disattiva questo esperimento</string>
+  <string name="reading_challenge_onboarding_header">Festeggia il 25° compleanno di Wikipedia partecipando alla sfida di lettura di 25 giorni!</string>
+  <string name="reading_challenge_onboarding_read_title">Leggi una voce al giorno per 25 giorni</string>
+  <string name="reading_challenge_onboarding_install_title">Installa il widget</string>
+  <string name="reading_challenge_onboarding_prompt_title">Accedi per partecipare alla sfida</string>
+  <string name="reading_challenge_onboarding_prompt_message">Accedi o crea un\'utenza per monitorare i tuoi progressi nella sfida di lettura.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">No, grazie</string>
+  <string name="reading_challenge_onboarding_prompt_login">Entra / unisciti a Wikipedia</string>
+  <string name="reading_challenge_install_prompt_got_it">Capito</string>
+  <string name="reading_challenge_install_prompt_add">Aggiungi</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Esplora Wikipedia</string>
+  <string name="reading_challenge_widget_random_button">Casuale</string>
+  <string name="reading_challenge_widget_not_live_title">Preparati a leggere</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Partecipa alla sfida di 25 giorni e sblocca premi speciali.</string>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d di %2$d</item>
+    <item quantity="other">%1$d di %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d di %2$d giorno</item>
+    <item quantity="other">%1$d di %2$d giorni</item>
+  </plurals>
+  <string name="reading_challenge_streak_ongoing_title">Sfida di lettura di 25 giorni</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Non lasciarti sfuggire questa giornata, la tua voglia di leggere ti aspetta.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Inizia la tua sfida di lettura.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Iniziare una nuova serie?</string>
+  <string name="reading_challenge_widget_concluded_complete">Ce l\'hai fatta!</string>
+  <string name="reading_challenge_widget_reward_title">La curiosità ti dona! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15% sul Wikipedia Store.</string>
 </resources>

@@ -2281,7 +2281,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Waarom doen mensen ananas op pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat zijn de grootste steden van Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Een nieuwe manier om te zoeken</string>
-  <string name="hybrid_search_results_header_description">Afkomstig uit door mensen geschreven Wikipedia-pagina\'s</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Afkomstig uit door mensen geschreven Wikipedia-pagina\'s</string>
   <string name="hybrid_search_results_rate_label">Dit resultaat beoordelen</string>
   <string name="hybrid_search_results_rated_label">Beoordeeld</string>
   <string name="hybrid_search_results_rate_thumb_up">Geef een duim omhoog!</string>
