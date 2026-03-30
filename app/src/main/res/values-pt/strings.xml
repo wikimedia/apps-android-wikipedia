@@ -1921,7 +1921,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Uma nova maneira de pesquisar</string>
-  <string name="hybrid_search_results_header_description">Trechos de artigos da Wikipédia, escrita por pessoas como você</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Trechos de artigos da Wikipédia, escrita por pessoas como você</string>
   <string name="hybrid_search_results_rate_label">Avalie este resultado</string>
   <string name="hybrid_search_results_rated_label">Avaliado</string>
   <string name="hybrid_search_results_rate_thumb_up">Dê um joinha!</string>

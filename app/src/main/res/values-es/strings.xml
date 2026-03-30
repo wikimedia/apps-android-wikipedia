@@ -59,6 +59,7 @@
 * Juan Cuartas
 * KATRINE1992
 * Kidneyspr
+* Kookoriko
 * Ktranz
 * La Mantis
 * Luigi Nakano
@@ -2158,4 +2159,21 @@
   <string name="hybrid_search_experimental_feature_switch_label">Únete al experimento</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">ARN vs ADN</string>
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">¿Por qué la gente le pone piña a la pizza?</string>
+  <string name="reading_challenge_onboarding_header">¡Celebra el 25.º aniversario de Wikipedia participando en el reto de lectura de 25 días!</string>
+  <string name="reading_challenge_onboarding_read_title">Lee 1 artículo al día durante 25 días.</string>
+  <string name="reading_challenge_onboarding_install_title">Instalar el widget</string>
+  <string name="reading_challenge_onboarding_prompt_message">Inicia sesión o crea una cuenta para seguir tu progreso en el reto de lectura.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">No, gracias</string>
+  <string name="reading_challenge_onboarding_prompt_login">Iniciar sesión / Registrarse en Wikipedia</string>
+  <string name="reading_challenge_install_prompt_title">Instala el widget del reto de lectura de 25 días.</string>
+  <string name="reading_challenge_install_prompt_got_it">Entendido</string>
+  <string name="reading_challenge_install_prompt_add">Añadir</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Explora Wikipedia</string>
+  <string name="reading_challenge_widget_random_button">Al azar</string>
+  <string name="reading_challenge_widget_not_live_title">Prepárate para leer</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">¡Ponte en acción para lograr una racha de 25 días!</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">¿Comenzar una nueva racha?</string>
+  <string name="reading_challenge_widget_concluded_complete">¡Lo lograste!</string>
+  <string name="reading_challenge_widget_reward_body">Celebra el haber completado el reto con un 15 % de descuento en la tienda de Wikipedia.</string>
+  <string name="reading_challenge_widget_reward_button_label">Obtén un 15% de descuento en la tienda.</string>
 </resources>

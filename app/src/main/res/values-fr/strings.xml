@@ -2300,7 +2300,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Pourquoi met-on de l\'ananas sur la pizza ?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quelles sont les plus grandes villes d\'Europe ?</string>
   <string name="hybrid_search_onboarding_screen_title">Une nouvelle façon de faire des recherches</string>
-  <string name="hybrid_search_results_header_description">Source : articles Wikipédia rédigés par des humains</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Source : articles Wikipédia rédigés par des humains</string>
   <string name="hybrid_search_results_rate_label">Évaluez ce résultat</string>
   <string name="hybrid_search_results_rated_label">Évalué</string>
   <string name="hybrid_search_results_rate_thumb_up">Évaluer comme un pouce levé</string>

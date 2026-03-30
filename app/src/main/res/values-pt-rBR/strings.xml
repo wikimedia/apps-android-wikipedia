@@ -1206,7 +1206,7 @@
   <string name="activity_tab_menu_feedback">Problema com a funcionalidade</string>
   <string name="activity_tab_menu_info">Saber mais</string>
   <string name="activity_tab_menu_customize">Personalizar</string>
-  <string name="activity_tab_menu_customize_description" fuzzy="true">As informações da guia Atividade são baseadas no idioma principal definido nas configurações e utilizam dados locais, com exceção das edições que são públicas.</string>
+  <string name="activity_tab_menu_customize_description">As informações sobre leitura são baseadas nos idiomas do aplicativo definidos nas configurações, enquanto as informações sobre edição se limitam ao idioma principal do aplicativo. Essas informações utilizam dados locais, com exceção das edições, que são públicas.</string>
   <string name="activity_tab_highlights">Destaques</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Histórico de leitura</string>
   <string name="activity_tab_impact">Seu impacto</string>
@@ -1215,6 +1215,10 @@
   <plurals name="activity_tab_impact_edits_this_month">
     <item quantity="one">edição deste mês</item>
     <item quantity="other">edições deste mês</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="one">edição mês passado</item>
+    <item quantity="other">edições mês passado</item>
   </plurals>
   <string name="activity_tab_impact_all_time">Impacto de todos os tempos</string>
   <plurals name="activity_tab_impact_total_edits">
@@ -1764,7 +1768,7 @@
   <string name="email_report_patroller_tasks_subject">Relatório de problema - Funcionalidade \"Patrulha de edições\"</string>
   <string name="email_report_patroller_tasks_body">Encontrei um problema com a funcionalidade \"Patrulha de edições\":\n- [Descrever o problema específico]\n\nO comportamento que gostaria de ver é:\n- [Descrever a solução proposta]\n\n[Capturas de ecrã ou hiperligações]</string>
   <string name="donation_campaign_maybe_later_snackbar">Vamos exibir outro lembrete amanhã.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Obrigado, prezado(a) apoiador(a)! Sua generosidade ajuda a manter a Wikipédia e seus projetos irmãos prosperando.</string>
+  <string name="donation_campaign_donated_snackbar">Obrigado, caro doador! Sua generosidade ajuda a manter a Wikipédia e outros projetos de conhecimento livre em pleno funcionamento.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no navegador do sistema</string>
   <string name="donate_gpay_dialog_title">Doar com o Google Pay?</string>
@@ -1884,7 +1888,9 @@
   <string name="on_this_day_game_sound_on">Ativar som</string>
   <string name="on_this_day_game_sound_off">Desativar som</string>
   <string name="on_this_day_game_more_label">Mais</string>
+  <string name="on_this_day_game_card_progress_label">Você está na pergunta %d. Continue tentando adivinhar qual evento ocorreu primeiro neste dia na história.</string>
   <string name="on_this_day_game_card_progress_short_label">Você está na pergunta %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Você marcou %1$d/%2$d no jogo de hoje. Próximo jogo em %3$s</string>
   <string name="on_this_day_game_explore_feed_card_score_short_message">Você marcou %1$d/%2$d no jogo de hoje.</string>
   <string name="on_this_day_game_card_archive_label">Arquivo</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Entrar</string>
@@ -1938,6 +1944,7 @@
   <string name="year_in_review_slide_app_icon_donor_and_editor">um doador e editor</string>
   <string name="year_in_review_slide_geo_headline">Os artigos que você leu são os mais próximos de %s</string>
   <string name="year_in_review_login_dialog_title">Entrar para personalização?</string>
+  <string name="year_in_review_login_dialog_body">Entrar, você terá acesso a informações personalizadas. Você ainda pode ver as informações gerais sem fazer login.</string>
   <string name="year_in_review_login_dialog_positive">Entrar / Cadastrar-se na Wikipédia</string>
   <string name="year_in_review_login_dialog_negative">Continuar sem entrar</string>
   <plurals name="year_in_review_slide_top_articles_headline">
@@ -1982,6 +1989,10 @@
     <item quantity="other">Edições no aplicativo</item>
   </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Com que frequência a Wikipédia foi editada</string>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minuto lido</item>
+    <item quantity="other">Minutos lidos</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Dia favorito para ler</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
     <item quantity="one">Artigo lido</item>
@@ -2108,6 +2119,7 @@
   <string name="donation_reminders_experiment_label">EXPERIMENTO</string>
   <string name="donation_reminders_settings_learn_more_button">Saiba mais</string>
   <string name="donation_reminders_settings_report_button">Problema com a funcionalidade</string>
+  <string name="donation_reminders_settings_report_email_subject">Relatório de Problemas – Lembretes de Doações</string>
   <string name="donation_reminders_snackbar_modify_button_label">Modificar</string>
   <string name="hybrid_search_search_hint">Pesquise ou pergunte qualquer coisa</string>
   <string name="hybrid_search_article_search_hint">Pergunte sobre %s</string>
@@ -2127,9 +2139,83 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Por que as pessoas colocam abacaxi na pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quais são as maiores cidades da Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Uma nova forma de pesquisar</string>
-  <string name="hybrid_search_results_header_description">Extraídos de artigos da Wikipédia escritos por humanos</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Extraídos de artigos da Wikipédia escritos por humanos</string>
   <string name="hybrid_search_results_rate_label">Avaliar esse recurso</string>
   <string name="hybrid_search_results_rated_label">Avaliado</string>
+  <string name="hybrid_search_results_rate_thumb_up">Dê um joinha!</string>
+  <string name="hybrid_search_results_rate_thumb_down">Dê um voto negativo.</string>
+  <string name="hybrid_lexical_search_results_empty">Nenhum título de artigo corresponde a esta consulta.</string>
+  <string name="hybrid_search_results_empty">A pesquisa avançada está temporariamente indisponível.</string>
   <string name="hybrid_search_no_results_header">Sem resultados</string>
+  <string name="hybrid_search_no_results_description">Este tópico não está retornando trechos de artigos no momento. Aqui estão algumas coisas que você pode tentar:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Reformular sua pesquisa</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Experimente um tópico relacionado</string>
+  <string name="hybrid_search_error_message">Algo deu errado. Por favor, tente novamente mais tarde.</string>
+  <string name="hybrid_search_who_is_prefix">Quem é %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Desative esta experiência</string>
+  <string name="reading_challenge_widget_name">Desafio de leitura</string>
+  <string name="reading_challenge_onboarding_header">Comemore o 25º aniversário da Wikipédia participando do desafio de leitura de 25 dias!</string>
+  <string name="reading_challenge_onboarding_read_title">Leia um artigo por dia durante 25 dias</string>
+  <string name="reading_challenge_onboarding_read_description">Participe do desafio a qualquer momento entre 1º e 31 de maio e complete os 25 dias no seu próprio ritmo.</string>
+  <string name="reading_challenge_onboarding_win_title">Ganhe prêmios</string>
+  <string name="reading_challenge_onboarding_win_description">Complete uma sequência de leitura de 25 dias enquanto o desafio estiver ativo para ganhar prêmios especiais.</string>
+  <string name="reading_challenge_onboarding_install_title">Instale o widget</string>
+  <string name="reading_challenge_onboarding_install_description">Receba lembretes úteis e motivação com o nosso adorável mascote de aniversário, o Bebê Globo.</string>
+  <string name="reading_challenge_onboarding_note">Seu histórico de leitura é mantido protegido. As informações de leitura são calculadas usando dados armazenados localmente no seu dispositivo.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Saiba mais</string>
+  <string name="reading_challenge_onboarding_join_button">Participe do desafio</string>
+  <string name="reading_challenge_onboarding_prompt_title">Entre para participar do desafio</string>
+  <string name="reading_challenge_onboarding_prompt_message">Entre ou crie uma conta para acompanhar seu progresso no desafio de leitura.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Não, obrigado</string>
+  <string name="reading_challenge_onboarding_prompt_login">Entrar / Cadastrar-se na Wikipédia</string>
+  <string name="reading_challenge_install_prompt_title">Instale o widget do desafio de leitura de 25 dias</string>
+  <string name="reading_challenge_install_prompt_message">O Bebê Globo está torcendo por você. Adicione o widget do Desafio de Leitura para acompanhar seu progresso diretamente da tela inicial.</string>
+  <string name="reading_challenge_install_prompt_got_it">Entendi</string>
+  <string name="reading_challenge_install_prompt_add">Adicionar</string>
+  <string name="reading_challenge_widget_explore_button">Explorar</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Explora Wikipédia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Participe do desafio</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Participar do desafio</string>
+  <string name="reading_challenge_widget_search_button">Pesquisar</string>
+  <string name="reading_challenge_widget_random_button">Aleatório</string>
+  <string name="reading_challenge_widget_collect_prize_button">Receber o prêmio</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Venha buscar o seu prêmio!</string>
+  <string name="reading_challenge_widget_not_live_title">Prepare-se para ler</string>
+  <string name="reading_challenge_widget_not_live_description">Um desafio de leitura de 25 dias está a caminho.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Preparar, apontar, ler!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Participe do desafio de 25 dias e ganhe prêmios especiais.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d dia</item>
+    <item quantity="other">%d dias</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d de %2$d</item>
+    <item quantity="other">%1$d de %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d de %2$d dia</item>
+    <item quantity="other">%1$d de %2$d dias</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Não deixe o dia de hoje passar em branco, mantenha sua sequência.</string>
+  <string name="reading_challenge_streak_ongoing_title">Desafio de leitura de 25 dias</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Não deixe o dia de hoje passar em vão; sua sequência de leitura está esperando por você.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Antes que o dia chegue ao fim…    ainda dá tempo de aprender alguma coisa.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Mesmo que seja só um pouquinho, a leitura conta para a sua meta.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Falta apenas um artigo para completar sua sequência.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Venha dar uma lida a qualquer hora hoje.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Um momento de leitura tranquila?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Mantenha a curiosidade viva.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Preparar, apontar, ler!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Comece a trabalhar para alcançar uma sequência de 25 dias!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Comece seu desafio de leitura.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Toda sequência começa em algum lugar</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Vamos começar uma nova sequência?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Leia um artigo para começar.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Um novo começo.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Falta apenas um artigo para completar sua sequência.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Desafio concluído</string>
+  <string name="reading_challenge_widget_concluded_complete">Você conseguiu!</string>
+  <string name="reading_challenge_widget_reward_title">A curiosidade fica bem em você! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15% de desconto na Loja da Wikipédia</string>
+  <string name="reading_challenge_widget_reward_button_label">Ganhe 15% de desconto na loja</string>
 </resources>

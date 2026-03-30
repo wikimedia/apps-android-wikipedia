@@ -1880,4 +1880,14 @@
   <string name="hybrid_search_beta_tag">베타</string>
   <string name="hybrid_search_no_results_header">결과 없음</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
+  <string name="reading_challenge_onboarding_install_title">위젯 설치하기</string>
+  <string name="reading_challenge_onboarding_learn_more_button">더 알아보기</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">괜찮습니다</string>
+  <string name="reading_challenge_onboarding_prompt_login">위키백과에 로그인 / 가입</string>
+  <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
+  <string name="reading_challenge_install_prompt_add">추가</string>
+  <string name="reading_challenge_widget_explore_button">둘러보기</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
+  <string name="reading_challenge_widget_search_button">검색</string>
+  <string name="reading_challenge_widget_concluded_complete">해냈습니다!</string>
 </resources>
