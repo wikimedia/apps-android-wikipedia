@@ -2609,6 +2609,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Челлендж завершён</string>
   <string name="reading_challenge_widget_concluded_complete">Вы справились!</string>
   <string name="reading_challenge_widget_reward_title">Любопытство вам идёт! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Отметьте успешное прохождение челленджа со скидкой 15% в Wikipedia Store.</string>
-  <string name="reading_challenge_widget_reward_button_label">Получите скидку 15% в магазине</string>
+  <string name="reading_challenge_widget_reward_body">Отметьте успешное прохождение челленджа со скидкой 15%% в Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Получите скидку 15%% в магазине</string>
 </resources>

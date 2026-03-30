@@ -2147,5 +2147,5 @@
   <string name="reading_challenge_widget_start_spin_up_new_streak_title">Iniziare una nuova serie?</string>
   <string name="reading_challenge_widget_concluded_complete">Ce l\'hai fatta!</string>
   <string name="reading_challenge_widget_reward_title">La curiosità ti dona! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15% sul Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15%% sul Wikipedia Store.</string>
 </resources>
