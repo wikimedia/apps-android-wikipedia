@@ -122,6 +122,7 @@
   <string name="map_view_link_text">Féach ar léarscáil</string>
   <string name="other_languages_indication_text">Léigh i dteanga eile</string>
   <string name="language_count_link_text">Ar fáil i %d teanga eile</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Trí fhoilsiú, toileann tú na &lt;a href=\"%1$s\"&gt;Téarmaí Úsáide&lt;/a&gt; agus ligean do do chuid ábhair a scaoileadh go neamh-inchúlghairthe de réir an cheadúnais &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Trí fhoilsiú, toileann tú na &lt;a href=\"%1$s\"&gt;Téarmaí Úsáide&lt;/a&gt; agus ligean do do chuid ábhair a scaoileadh go neamh-inchúlghairthe de réir an cheadúnais &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Leis an seoladh IP ar do ghléas a luafar na hathruithe. Beidh tuilleadh príobháideachais agat má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;.</string>
   <string name="edit_anon_warning">Cuirfear eagarthóireachtaí i leith seoladh IP do ghléis. Má &lt;a href=\"https://#login\"&gt;logálann tú isteach&lt;/a&gt;, beidh níos mó príobháideachta agat.</string>
@@ -253,7 +254,13 @@
   <string name="terms_of_use_description">Coinníollacha úsáide</string>
   <string name="legal_safety_contacts_description">Teagmhálaithe dlí agus sábháilteachta</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Leabharlanna a úsáidtear</string>
   <string name="about_contributors_heading">Rannchuiditheoirí</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Leathanach foirne&lt;/a&gt;</string>
@@ -864,6 +871,7 @@
   <string name="notifications_select_all_filters">Roghnaigh gach scagaire</string>
   <string name="notifications_tab_filter_all">Uile</string>
   <string name="notifications_tab_filter_mentions">Luanna</string>
+  <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_search_bar_hint">Cuardaigh nó scag fógraí</string>
   <string name="notifications_search_bar_filter_hint">Scagaire fógraí</string>
   <string name="notifications_menu_mark_as_read">Marcáil mar léite</string>
@@ -966,6 +974,7 @@
   <string name="description_edit_help_title">Eolas: Cur síos ar ailt</string>
   <string name="description_edit_help_about_wikidata">Maidir le Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Treoirleabhar ó Wikidata ar conas sainchuntais a scríobh</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Go raibh maith agat as do spéis leanúnach i gcur síos ar ailt a chur in eagar! Chun tuilleadh eagarthóireachta a dhéanamh, logáil isteach i do chuntas Vicipéide.</string>
   <string name="description_edit_license_notice">Trí athrú a dhéanamh ar thuairisc an ailt, aontaím leis na &lt;a href=\"%1$s\"&gt;Téarmaí Úsáide&lt;/a&gt; agus mo chuid ranníocaíochtaí a scaoileadh go neamh-inchúlghairthe faoin gceadúnas &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">de ghnáth tosaíonn siad le litir bheag</string>
@@ -975,6 +984,7 @@
   <string name="description_too_short">Tá an téacs ró-ghearr.</string>
   <string name="description_too_long">Déan iarracht cur síos gearr a dhéanamh ionas gur féidir le húsáideoirí ábhar an ailt a thuiscint go tapa.</string>
   <string name="description_ends_with_punctuation">Ní mór gan poncaíocht a bheith mar chríoch ar an téacs.</string>
+  <string name="description_starts_with_article">Seachain tosú le hairteagail cosúil le “a” nó “an”.</string>
   <string name="description_starts_with_uppercase">Tosaigh le litir bheag mura hainmfhocal ceart an chéad fhocal.</string>
   <string name="description_starts_with_lowercase">Seachain tosú le litir bheag.</string>
   <string name="description_is_in_different_language">Is cosúil go bhfuil an téacs i dteanga gan choinne. Ba chóir go mbeadh an teanga %s.</string>
@@ -1175,6 +1185,7 @@
     <item quantity="many">Chuir tú %d clib leis</item>
     <item quantity="other">Chuir tú %d clib leis</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Inné</string>
   <string name="suggested_edits_encourage_account_creation_title">An raibh a fhios agat gur féidir le gach duine Vicipéid a chur in eagar?</string>
   <string name="suggested_edits_encourage_account_creation_message">Is bealach nua é eagarthóireachtaí molta chun Vicipéid a chur in eagar ar Android. Cuidíonn sé leat ranníocaíochtaí beaga ach ríthábhachtacha a dhéanamh le Vicipéid.\nIs é an sprioc atá againn ná eagarthóireacht a dhéanamh níos éasca agus níos inrochtana do gach duine! Logáil isteach nó bí páirteach i Vicipéid le tosú.</string>
@@ -1486,6 +1497,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Saincheaptha</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">Leithead</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Airde</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ionsáigh</string>
   <string name="templates_search_hint">Cuardaigh teimpléid</string>
   <string name="templates_insert_button">Ionsáigh</string>
@@ -1670,6 +1682,7 @@
   <string name="watchlist_filter_contribution_authorship_own">Athruithe uaitse</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Athruithe ag daoine eile</string>
   <string name="watchlist_filter_automated_contributions_header">Ranníocaíochtaí uathoibrithe</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bota</string>
   <string name="watchlist_filter_automated_contributions_human">Duine (ní bota)</string>
   <string name="watchlist_filter_significance_header">Suntasacht</string>
   <string name="watchlist_filter_significance_minor">Eagarthóireacht bheag</string>
@@ -1796,6 +1809,7 @@
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Athbhreithniú is déanaí</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ní an t-athbhreithniú is déanaí é</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Ranníocaíochtaí uathoibrithe</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bota</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Duine (ní bota)</string>
   <string name="patroller_tasks_filters_significance_header">Suntasacht</string>
   <string name="patroller_tasks_filters_significance_minor">Eagarthóireacht bheag</string>
@@ -1870,6 +1884,7 @@
   <string name="patroller_saved_message_body_edit_summary">Haigh {{{username}}}, is cosúil gur bhain tú ábhar de Vicipéid gan achoimre eagarthóireachta a fhágáil. Fág achoimre eagarthóireachta le do thoil aon uair a chuireann tú ábhar leis an Vicipéid nó a bhaineann tú é.</string>
   <string name="patroller_saved_message_body_do_not_censor">Haigh {{{username}}}, is cosúil gur bhain tú ábhar gan é a phlé ar leathanach plé an ailt. Tabhair faoi deara nach bhfuil cinsireacht ar Vicipéid, agus níor cheart ábhar a bhaint mar gheall ar a chonspóid. Má chreideann tú go bhfuil an fhaisnéis mícheart, déan comhaontú ar leathanach plé an ailt.</string>
   <string name="talk_warn_learn_more_label">Foghlaim faoi áitchoinneoirí teachtaireachtaí</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Bain úsáid as teachtaireacht shamplach thíos chun do theachtaireachtaí a shaincheapadh, a sheoladh agus a shábháil.</string>
   <string name="patroller_saved_message_body_art_imp">Haigh {{{username}}}. Is tús iontach é d\'alt! Chun é a dhéanamh níos fearr fós, smaoinigh ar níos mó tagairtí do fhoinsí iontaofa a chur leis. Cuidíonn sé seo leis an bhfaisnéis a fhíorú agus feabhsaíonn sé cáilíocht an ailt. Féach ar threoirlínte na Vicipéide seo ar [[Vicipéid:Foinsí_iontaofa|foinsí iontaofa]] le haghaidh tuilleadh sonraí.</string>
   <string name="talk_templates_menu_edit_title">Cuir in Eagar</string>
@@ -2550,4 +2565,78 @@
   <string name="hybrid_search_error_message">Chuaigh rud éigin mícheart. Déan iarracht arís ar ball.</string>
   <string name="hybrid_search_who_is_prefix">Cé hé %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Múch an turgnamh seo</string>
+  <string name="reading_challenge_widget_name">Dúshlán Léitheoireachta</string>
+  <string name="reading_challenge_onboarding_header">Ceiliúir 25ú breithlá Vicipéid trí bheith páirteach sa dúshlán léitheoireachta 25 lá!</string>
+  <string name="reading_challenge_onboarding_read_title">Léigh alt amháin in aghaidh an lae ar feadh 25 lá</string>
+  <string name="reading_challenge_onboarding_read_description">Glac páirt sa dúshlán am ar bith idir an 1 Bealtaine agus an 31 Bealtaine, agus comhlánaigh do 25 lá ar do sceideal ama féin.</string>
+  <string name="reading_challenge_onboarding_win_title">Buaigh duaiseanna</string>
+  <string name="reading_challenge_onboarding_win_description">Comhlánaigh sraith léitheoireachta 25 lá agus an dúshlán beo chun duaiseanna speisialta a bhuachan.</string>
+  <string name="reading_challenge_onboarding_install_title">Suiteáil an giuirléid</string>
+  <string name="reading_challenge_onboarding_install_description">Faigh meabhrúcháin agus spreagadh cabhrach lenár mascóid lá breithe gleoite, Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Coinnítear do stair léitheoireachta faoi chosaint. Ríomhtar léargais léitheoireachta trí úsáid a bhaint as sonraí atá stóráilte go háitiúil ar do ghléas.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Foghlaim níos mó</string>
+  <string name="reading_challenge_onboarding_join_button">Glac páirt sa dúshlán</string>
+  <string name="reading_challenge_onboarding_prompt_title">Logáil isteach chun páirt a ghlacadh sa dúshlán</string>
+  <string name="reading_challenge_onboarding_prompt_message">Logáil isteach nó cruthaigh cuntas chun do dhul chun cinn i dtreo an dúshláin léitheoireachta a rianú.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Ní raibh maith agat</string>
+  <string name="reading_challenge_onboarding_prompt_login">Logáil isteach / Bí linn i Vicipéid</string>
+  <string name="reading_challenge_install_prompt_title">Suiteáil an giuirléid dúshlán léitheoireachta 25 lá</string>
+  <string name="reading_challenge_install_prompt_message">Tá Baby Globe ag spreagadh tú. Cuir an giuirléid Dúshlán Léitheoireachta leis chun do dhul chun cinn a rianú ó do scáileán baile.</string>
+  <string name="reading_challenge_install_prompt_got_it">Tuigim é.</string>
+  <string name="reading_challenge_install_prompt_add">Cuir leis</string>
+  <string name="reading_challenge_widget_explore_button">Taiscéal</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Iniúchadh a dhéanamh ar Vicipéid</string>
+  <string name="reading_challenge_widget_join_challenge_button">Glac páirt sa dúshlán</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Glac páirt sa dúshlán</string>
+  <string name="reading_challenge_widget_search_button">Cuardaigh</string>
+  <string name="reading_challenge_widget_random_button">Randamach</string>
+  <string name="reading_challenge_widget_collect_prize_button">Bailigh duais</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Bailigh do dhuais!</string>
+  <string name="reading_challenge_widget_not_live_title">Bí réidh le léamh</string>
+  <string name="reading_challenge_widget_not_live_description">Tá dúshlán léitheoireachta 25 lá ar an mbealach.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Réidh, socraigh, léigh!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Glac páirt sa dúshlán 25 lá agus díghlasáil duaiseanna speisialta.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d lá</item>
+    <item quantity="two">%d laethanta</item>
+    <item quantity="few">%d laethanta</item>
+    <item quantity="many">%d laethanta</item>
+    <item quantity="other">%d laethanta</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d de %2$d</item>
+    <item quantity="two">%1$d de %2$d</item>
+    <item quantity="few">%1$d de %2$d</item>
+    <item quantity="many">%1$d de %2$d</item>
+    <item quantity="other">%1$d de %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d de %2$d lá</item>
+    <item quantity="two">%1$d de %2$d laethanta</item>
+    <item quantity="few">%1$d de %2$d laethanta</item>
+    <item quantity="many">%1$d de %2$d laethanta</item>
+    <item quantity="other">%1$d de %2$d laethanta</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Ná lig don lá inniu imeacht thart, sábháil do shraith.</string>
+  <string name="reading_challenge_streak_ongoing_title">Dúshlán léitheoireachta 25 lá</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Ná lig don lá inniu imeacht thart, tá do shraith léitheoireachta ag fanacht leat.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Sula dtéann an lá thart… tá am fós ann rud éigin a fhoghlaim.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Tá fiú beagán léitheoireachta tábhachtach i dtreo do sprice.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Níl ach alt amháin uait chun do shraith a bhaint amach.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Léim isteach le haghaidh léitheoireachta am ar bith inniu.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Nóiméad ciúin léitheoireachta?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Coinnigh do fiosracht ag dul.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Réidh, socraigh, léigh!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Tosaigh ag obair i dtreo sraith 25 lá!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Tosaigh do dhúshlán léitheoireachta.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Tosaíonn gach sraith áit éigin</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Sraith nua a thosú?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Léigh alt amháin le tosú.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Tús úr.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Níl ach alt amháin uait chun do shraith a bhaint amach.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Dúshlán críochnaithe</string>
+  <string name="reading_challenge_widget_concluded_complete">Rinne tú é!</string>
+  <string name="reading_challenge_widget_reward_title">Tá cuma mhaith ar an bhfiosracht ort! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Ceiliúradh a dhéanamh ar an dúshlán a chríochnú le 15%% de lascaine ag Siopa Vicipéid.</string>
+  <string name="reading_challenge_widget_reward_button_label">Faigh 15%% de lascaine sa siopa</string>
 </resources>

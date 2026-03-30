@@ -2258,7 +2258,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Varför har folk ananas på pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Vilka är de största städerna i Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Ett nytt sätt att söka</string>
-  <string name="hybrid_search_results_header_description">Hämtad från mänskligt genererade Wikipediaartiklar</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Hämtad från mänskligt genererade Wikipediaartiklar</string>
   <string name="hybrid_search_results_rate_label">Betygsätt det här resultatet</string>
   <string name="hybrid_search_results_rated_label">Betygsatt</string>
   <string name="hybrid_search_results_rate_thumb_up">Betygsätt tummen upp</string>

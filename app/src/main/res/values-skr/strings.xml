@@ -722,6 +722,7 @@
   <string name="survey_dialog_general_no">کو</string>
   <string name="survey_dialog_input_hint">وادھوں فیڈبیک</string>
   <string name="games_hub_activity_title">کھیݙاں</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">ٻیا سِکھو</string>
   <string name="on_this_day_game_dialog_button">چلاؤ</string>
   <string name="on_this_day_game_next">اڳلا سوال</string>
   <string name="on_this_day_game_share_button" fuzzy="true">شیئر</string>
@@ -739,6 +740,7 @@
   <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">اُنہاں کوں بند رکھو</string>
   <string name="on_this_day_game_notification_text">اڄ دی گیم\"پہلے کیہڑا آیا؟\"  کھیݙݨ کیتے تیار ہے۔</string>
   <string name="on_this_day_game_notification_undo">واپس</string>
+  <string name="on_this_day_game_more_label">ٻئے</string>
   <string name="on_this_day_game_card_archive_label">آرکائیو</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">لاگ ان تھیوو</string>
   <string name="year_in_review_get_started" fuzzy="true">شروع کرو</string>
@@ -754,4 +756,11 @@
   <string name="donation_reminders_experiment_label" fuzzy="true">تجربہ</string>
   <string name="hybrid_search_onboarding_learn_more">ٻیا سِکھو</string>
   <string name="hybrid_search_beta_tag">آزمائشی</string>
+  <string name="reading_challenge_onboarding_learn_more_button">ٻیا سِکھو</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">کو، شکریہ</string>
+  <string name="reading_challenge_install_prompt_got_it">سمجھ آڳئی</string>
+  <string name="reading_challenge_install_prompt_add">شامل کرو</string>
+  <string name="reading_challenge_widget_explore_button">پھلورو</string>
+  <string name="reading_challenge_widget_search_button">ڳولو</string>
+  <string name="reading_challenge_widget_random_button">بے ترتیبا</string>
 </resources>

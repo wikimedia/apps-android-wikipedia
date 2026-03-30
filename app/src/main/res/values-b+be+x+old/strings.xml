@@ -388,6 +388,7 @@
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_cancel_hint">Скасаваць</string>
+  <string name="customize_toolbar_category_toolbar">Панэль інструмэнтаў</string>
   <string name="suggested_edits_activity_title">Рэдагаваць</string>
   <string name="suggested_edits_image_preview_dialog_tags">Тэґі</string>
   <string name="description_edit_login_cancel_button_text">Скасаваць</string>
