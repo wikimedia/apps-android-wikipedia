@@ -116,6 +116,7 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="edit_anon_warning">Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt;, тогаш ќе имате повеќе приватност.</string>
@@ -248,6 +249,7 @@
   <string name="legal_safety_contacts_description">Контакти за правни и безбедносни прашања</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
@@ -1223,6 +1225,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Изберете кои модули да се прикажуваат. Сите лични податоци остануваат доверливи на вашиот уред, а историјата на прелистување може да се исчисти во секое време.</string>
   <string name="edits_screen_what_is_title">Уредување во прилгот на Википедија</string>
   <string name="edits_screen_what_is_body">Не знаете каде да почнете со уредување? Пробајте ги Предложените уредувања, функција која дава прилики за мали, но важни придонеси на Википедија. Друга можност е да одите право на статијата што ве интересира и да направите измена користејќи викитекст.</string>
+  <string name="activity_tab_snackbar_label">Статистиката за игрите е прикажана за вашиот примарен јазик.</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -1775,10 +1778,15 @@
   <string name="survey_dialog_general_maybe">Можеби</string>
   <string name="survey_dialog_input_hint">Дополнително мислење</string>
   <string name="survey_dialog_submitted_snackbar">Мислењето е поднесено. Ви благодариме!</string>
+  <string name="games_hub_activity_title">Игри</string>
+  <string name="games_hub_activity_games_unavailable_message">Засега нема достапни игри на овој јазик! Игрите користат содржини создадени од корисници-доброволци за секое јазично издание на Википедија.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Дознајте повеќе</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Погл. статистика за игрите</string>
+  <string name="games_hub_activity_overflow_learn_more">Дознајте повеќе</string>
   <string name="on_this_day_game_entry_dialog_title">Ви претставуваме</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Википедиини игри</string>
   <string name="on_this_day_game_entry_dialog_button">Играјте</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Википедиините игри се достапни на тековникот „Истражи“.</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Википедиините игри се достапни во Games Hub, во менито ПОВЕЌЕ.</string>
   <string name="on_this_day_game_title">Што се случило попрво?</string>
   <string name="on_this_day_game_dialog_button">Играј</string>
   <string name="on_this_day_game_splash_message">Погодете кој настан се случил попрво на денешен ден во историјата.</string>
@@ -1840,6 +1848,10 @@
   <string name="on_this_day_game_sound_on">Вклучи звук</string>
   <string name="on_this_day_game_sound_off">Исклучи звук</string>
   <string name="on_this_day_game_more_label">Повеќе</string>
+  <string name="on_this_day_game_card_progress_label">Одговарате на прашање %d. Продолжете да погодувате кој настан се случил попрво на овој ден во историјата.</string>
+  <string name="on_this_day_game_card_progress_short_label">Одговарате на прашање %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Во денешната игра освоивте %1$d/%2$d. Следната игра ќе биде достапна за %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Во денешната игра освоивте %1$d/%2$d.</string>
   <string name="on_this_day_game_card_archive_label">Архива</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Најава</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">Најавете се за да ги видите статистиките за вашите игри</string>
@@ -2246,4 +2258,7 @@
   <string name="hybrid_search_error_message">Нешто не е во ред. Обидете се подоцна.</string>
   <string name="hybrid_search_who_is_prefix">Кој е %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Исклучи го експериментов</string>
+  <string name="reading_challenge_widget_name">Предизвик за читање</string>
+  <string name="reading_challenge_widget_concluded_complete">Успеавте!</string>
+  <string name="reading_challenge_widget_reward_title">Љубопитноста ви прилега! 🛍️</string>
 </resources>
