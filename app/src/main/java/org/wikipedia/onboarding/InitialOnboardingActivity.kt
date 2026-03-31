@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +19,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
@@ -55,6 +58,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.language.AppLanguageState
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -63,6 +67,13 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.yearinreview.LoadingIndicator
 
 class InitialOnboardingActivity : BaseActivity() {
+
+    private val appLanguageCodesState = mutableStateOf(WikipediaApp.instance.languageState.appLanguageCodes.toList())
+
+    private val languagesLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        appLanguageCodesState.value = WikipediaApp.instance.languageState.appLanguageCodes.toList()
+        setResult(RESULT_LANGUAGE_CHANGED)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -322,6 +333,169 @@ fun InitialOnboardingDataPrivacyContent(
     }
 }
 
+@Composable
+fun InitialOnboardingLanguagesScreen(
+    modifier: Modifier = Modifier,
+    languageState: AppLanguageState?,
+    appLanguageCodes: List<String>,
+    onAddLanguageClick: () -> Unit,
+    onNextClick: () -> Unit
+) {
+    Scaffold(
+        modifier = modifier,
+        containerColor = WikipediaTheme.colors.paperColor,
+        bottomBar = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .navigationBarsPadding()
+            ) {
+                Spacer(
+                    modifier = Modifier.height(1.dp)
+                        .fillMaxWidth()
+                        .background(WikipediaTheme.colors.borderColor)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    contentAlignment = Alignment.CenterEnd
+                ) {
+                    IconButton(onClick = onNextClick) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
+                            tint = WikipediaTheme.colors.progressiveColor,
+                            contentDescription = stringResource(R.string.nav_item_forward)
+                        )
+                    }
+                }
+            }
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            verticalArrangement = Arrangement.Center
+        ) {
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                SubcomposeAsyncImage(
+                    modifier = Modifier
+                        .size(124.dp),
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(R.drawable.yir_puzzle_stone)
+                        .allowHardware(false)
+                        .build(),
+                    loading = { LoadingIndicator() },
+                    success = {
+                        SubcomposeAsyncImageContent()
+                    },
+                    contentDescription = stringResource(R.string.onboarding_data_privacy_title),
+                )
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp, vertical = 16.dp),
+                text = stringResource(R.string.onboarding_app_languages_title),
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Medium,
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp),
+                text = stringResource(R.string.onboarding_app_languages_text),
+                style = MaterialTheme.typography.bodyLarge,
+                color = WikipediaTheme.colors.primaryColor
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(horizontal = 24.dp)
+            ) {
+                items(count = appLanguageCodes.size) {
+                    val isPrimary = it == 0
+                    if (isPrimary) {
+                        Spacer(
+                            modifier = Modifier.height(0.5.dp)
+                                .fillMaxWidth()
+                                .background(WikipediaTheme.colors.borderColor)
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                    InitialOnboardingLanguageItem(
+                        languageState = languageState,
+                        languageCode = appLanguageCodes[it],
+                        isPrimary = isPrimary
+                    )
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .clickable(onClick = onAddLanguageClick)
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(vertical = 24.dp),
+                    text = stringResource(R.string.onboarding_app_languages_add_button),
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = WikipediaTheme.colors.progressiveColor,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun InitialOnboardingLanguageItem(
+    languageState: AppLanguageState?,
+    languageCode: String,
+    isPrimary: Boolean
+) {
+    val localizedName = languageState?.getAppLanguageLocalizedName(languageCode) ?: languageCode
+    Text(
+        modifier = Modifier
+            .fillMaxWidth(),
+        text = localizedName,
+        style = MaterialTheme.typography.bodyLarge,
+        fontWeight = FontWeight.Medium,
+        color = WikipediaTheme.colors.primaryColor
+    )
+    if (isPrimary) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = stringResource(R.string.onboarding_app_languages_primary),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+    Spacer(
+        modifier = Modifier
+            .height(0.5.dp)
+            .fillMaxWidth()
+            .background(WikipediaTheme.colors.borderColor)
+    )
+}
+
 @Preview(showBackground = true)
 @Composable
 fun InitialOnboardingScreenPreview() {
@@ -357,6 +531,22 @@ fun InitialOnboardingDataPrivacyContentPreview() {
         InitialOnboardingDataPrivacyContent(
             onPrivacyClick = {},
             onTermsClick = {}
+        )
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun InitialOnboardingLanguagesLanguagesScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        InitialOnboardingLanguagesScreen(
+            languageState = null,
+            appLanguageCodes = listOf("en", "es", "de"),
+            onAddLanguageClick = {},
+            onNextClick = {}
         )
     }
 }
