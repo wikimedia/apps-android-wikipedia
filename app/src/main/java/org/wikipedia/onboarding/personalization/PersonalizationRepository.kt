@@ -18,7 +18,7 @@ class PersonalizationRepository {
     // TODO: add actual api call if needed otherwise go with static data
     suspend fun getTopics(): List<OnboardingTopic> {
         println("orange loading categories...")
-
+        delay(1000) // simulate network delay
         val categories = listOf(
             OnboardingTopic("1", "Science"),
             OnboardingTopic("2", "History"),

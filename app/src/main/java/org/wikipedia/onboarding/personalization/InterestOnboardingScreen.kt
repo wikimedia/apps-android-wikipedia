@@ -1,14 +1,16 @@
 package org.wikipedia.onboarding.personalization
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -16,19 +18,23 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.recommended.ReadingListInterestCard
@@ -45,6 +51,7 @@ fun InterestOnboardingScreen(
     onSearchClick: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
+    val transition = rememberInfiniteTransition(label = "shimmerTransition")
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -63,7 +70,20 @@ fun InterestOnboardingScreen(
         when (topicsState) {
             is TopicsState.Error -> {}
             TopicsState.Loading -> {
-                Text("Loading categories...")
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(5) { index ->
+                        val width = remember { listOf(80, 100, 70, 90, 85)[index].dp }
+                        Box(
+                            modifier = Modifier
+                                .width(width)
+                                .height(32.dp)
+                                .clip(RoundedCornerShape(size = 8.dp))
+                                .shimmerEffect(transition = transition)
+                        )
+                    }
+                }
             }
             is TopicsState.Success -> {
                 LazyRow(
@@ -114,14 +134,30 @@ fun InterestOnboardingScreen(
         when (articlesState) {
             is ArticlesState.Error -> {}
             ArticlesState.Loading -> {
-                Text("Loading articles...")
+                LazyVerticalStaggeredGrid(
+                    columns = StaggeredGridCells.Adaptive(140.dp),
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    verticalItemSpacing = 16.dp,
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    content = {
+                        items(10) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(200.dp)
+                                    .clip(RoundedCornerShape(size = 16.dp))
+                                    .shimmerEffect(transition = transition)
+                            )
+                        }
+                    }
+                )
             }
             is ArticlesState.Success -> {
                 LazyVerticalStaggeredGrid(
                     columns = StaggeredGridCells.Adaptive(140.dp),
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(start = 16.dp, end = 16.dp),
+                        .fillMaxSize(),
                     state = listState,
                     verticalItemSpacing = 16.dp,
                     horizontalArrangement = Arrangement.spacedBy(16.dp),

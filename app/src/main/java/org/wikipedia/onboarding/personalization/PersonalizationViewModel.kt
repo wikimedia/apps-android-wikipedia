@@ -110,6 +110,7 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
+            state.update { it.copy(articlesLoading = true) }
             val selectedItems = Prefs.recommendedReadingListInterests
             val articles = repository.loadInitialArticles(selectedItems)
             state.update { it.copy(articles = articles, articlesLoading = false, selectedArticles = selectedItems.toSet()) }
