@@ -100,9 +100,9 @@ class SharedPreferenceCookieManager(
             val cookiesForDomainSpec = cookieJar[domainSpec]!!
             if (domain.endsWith(domainSpec)) {
                 buildCookieList(cookieList, cookiesForDomainSpec, null)
-            } else if (domainSpec.endsWith(WikiSite.BASE_DOMAIN)) {
-                // For sites outside the wikipedia.org domain, transfer the centralauth cookies
-                // from wikipedia.org unconditionally.
+            } else if (domainSpec == WikiSite.BASE_DOMAIN ||
+                domainSpec.endsWith(".${WikiSite.BASE_DOMAIN}")) {
+                // Transfer CentralAuth cookies to any subdomains of .wikipedia.org
                 buildCookieList(cookieList, cookiesForDomainSpec, CENTRALAUTH_PREFIX)
             }
         }
