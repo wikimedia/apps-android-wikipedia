@@ -1219,6 +1219,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">غوره کړئ چې کوم چلنوال ښکاره کړئ. ټول ځانواله اومتوکي ستاسو وسيله کې ځانواله پاتې کېږي او د پلټلو پېښليک هروخت سپا کېدی شي.</string>
   <string name="edits_screen_what_is_title">په ويکي‌پېډيا کاريال کې سمول</string>
   <string name="edits_screen_what_is_body">نه پوهېږې چې سمون له کوم ځايه پيل کړې؟ د وړانديز شوو سمونونو هڅه وکړه، يوه داسې ځانگړنه چې تاسو ته په ويکي‌پېډيا کې د کوچنۍ؛ خو د ارزښتمنو ونډو ترسره کولو اجازه درکوي. يا نېغ خپلې خواپورې ليکنې ته ورشئ او د ويکي‌ليک کارولو سره بدلون راولئ.</string>
+  <string name="activity_tab_snackbar_label">ستاسو د لومړنۍ ژبې لپاره د لوبو شمار ښودل شوی دی.</string>
   <string name="file_page_activity_title">د دوتنې مخ</string>
   <string name="file_page_add_image_caption_button">انځور نيونگ ورگډول</string>
   <string name="file_page_add_image_tags_button">انځور نښلنونه ورگډول</string>
@@ -1766,10 +1767,15 @@
   <string name="survey_dialog_general_maybe">ښايي</string>
   <string name="survey_dialog_input_hint">زياتي غبرگون</string>
   <string name="survey_dialog_submitted_snackbar">غبرگون وسپارل شو. مننه!</string>
+  <string name="games_hub_activity_title">لوبې</string>
+  <string name="games_hub_activity_games_unavailable_message">په دې ژبه کې لا تر اوسه لوبې نشته! لوبې د هرې ژبې د ويکي‌پېډيا لپاره  د خپلخوښو سمونگرانو له خوا جوړې شوې منځپانگې کاروي.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">نور زده کړئ</string>
+  <string name="games_hub_activity_overflow_view_game_stats">د لوبې شمارنې کتل</string>
+  <string name="games_hub_activity_overflow_learn_more">نور زده کړئ</string>
   <string name="on_this_day_game_entry_dialog_title">پېژندون</string>
   <string name="on_this_day_game_entry_dialog_subtitle">د ويکيپېډيا لوبې</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">د نن ورځې لوبه کول</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">د ويکيپډيا لوبې سپړل خوراکې کې شتون لري.</string>
+  <string name="on_this_day_game_entry_dialog_button">لوبول</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">د ويکيپډيا لوبې په لوبځي کې شتون لري، په نور غوره‌نۍ کې يې موندلی شئ.</string>
   <string name="on_this_day_game_title">کوم یو لومړی راغی؟</string>
   <string name="on_this_day_game_dialog_button">غږول</string>
   <string name="on_this_day_game_splash_message">اټکل وکړئ چې په پېښليک کې په دې ورځ کومه پېښه لومړۍ رامنځته شوه.</string>
@@ -1781,7 +1787,7 @@
   <string name="on_this_day_game_point">+۱ ټکی</string>
   <string name="on_this_day_game_next">نوې پوښتنه</string>
   <string name="on_this_day_game_finish">وروستۍ پايلې</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">وېشل</string>
+  <string name="on_this_day_game_share_button">نومرې شريکول</string>
   <string name="on_this_day_game_feed_entry_card_heading">د ويکيپېډيا لوبې</string>
   <string name="on_this_day_game_feed_entry_card_title">کوم یو لومړی راغی؟</string>
   <string name="on_this_day_game_result">تاسو %1$d/%2$d نومرې واخيستې.</string>
@@ -1826,9 +1832,21 @@
   <string name="on_this_day_game_archive_btn_text">خونديځ غږول</string>
   <string name="on_this_day_game_review_results_btn_text">پايلو بياکتنه</string>
   <string name="on_this_day_game_score_message">تاسو نننۍ لوبه کې %1$d/%2$d نومرې وکړې.</string>
+  <string name="on_this_day_game_play_today_btn_text">د نن لوبه لوبول</string>
   <string name="on_this_day_game_continue_playing_btn_text">لوبولو ته دوام‌‌ورکول</string>
   <string name="on_this_day_game_sound_on">غږ بلول</string>
   <string name="on_this_day_game_sound_off">غږ گولول</string>
+  <string name="on_this_day_game_more_label">نور</string>
+  <string name="on_this_day_game_card_progress_label">تاسو %d کې پوښتل شوي یاست. \nد نن ورځې د يوې تاريخي پېښې په اړه فکر وکړئ.</string>
+  <string name="on_this_day_game_card_progress_short_label">تاسو %d کې پوښتل شوي یاست.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">تاسو په نننۍ لوبه کې %1$d/%2$d تراوسه کړې دي. راتلونکې لوبه په %3$s ده</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">تاسو نننۍ لوبه کې %1$d/%2$d نومرې وکړې.</string>
+  <string name="on_this_day_game_card_archive_label">خونديځ</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">ننوتل</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">د خپلې لوبې شمارنې دي کتلو لپاره ننوځئ</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">خپله لړۍ، نومرې او نور وگورئ</string>
+  <string name="wikipedia_games_title">د ويکي‌پېډيا لوبې</string>
+  <string name="wikipedia_games_subtitle">د ويکي‌پېډيا منځپانگې پر بنسټ ورځنۍ ټولواله پوهنيزې لوبې.</string>
   <string name="year_in_review_learn_more">نور زده‌کول</string>
   <string name="year_in_review_get_started">پيلول</string>
   <string name="year_in_review_topbar_w_icon">ويکيپېډيا W نښه</string>
@@ -2215,7 +2233,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">ولې خلک په پيزا کې انه‌ناس اچوي؟</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">د اروپا ترټولو لوی ښارونه کوم دي؟</string>
   <string name="hybrid_search_onboarding_screen_title">د پلټلو نوې لار</string>
-  <string name="hybrid_search_results_header_description">د انساني ليکل‌شوو ويکيپېډيا ليکنو څخه اخيستل شوې</string>
+  <string name="hybrid_search_results_header_description">د انساني پنځول‌شوو ويکي‌پېډيا ليکنو څخه اخيستل شوې</string>
   <string name="hybrid_search_results_rate_label">دا پايله ارزول</string>
   <string name="hybrid_search_results_rated_label">ارزول‌شوی</string>
   <string name="hybrid_search_results_rate_thumb_up">بټنوک پورته کولو سره ارزول</string>
@@ -2229,4 +2247,69 @@
   <string name="hybrid_search_error_message">يو څه ناسم پېښ شول. مهرباني وکړئ وروسته بيا هڅه وکړئ.</string>
   <string name="hybrid_search_who_is_prefix">%s څوک دی؟</string>
   <string name="hybrid_search_turn_off_experiment_label">دا ازمېښت گول کړئ</string>
+  <string name="reading_challenge_widget_name">لوست ننگونې</string>
+  <string name="reading_challenge_onboarding_header">د ويکي‌پېډيا ۲۵مې کليزې د نمانځنې په موخه د ۲۵ ورځنۍ لوست ننگونې سره يوځای شئ!</string>
+  <string name="reading_challenge_onboarding_read_title">د ۲۵ ورځو لپاره هره ورځ ۱ ليکنه ولولئ</string>
+  <string name="reading_challenge_onboarding_read_description">د می له ۱ تر کی ۳۱ پورې هر وخت په ننگونه کې گډون وکړئ، په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>
+  <string name="reading_challenge_onboarding_win_title">ډالۍ وگټئ</string>
+  <string name="reading_challenge_onboarding_win_description">د ځانگړو ډاليو گټلو لپاره د ننگونې په ژوندۍ بڼه د لوستلو ۲۵ ورځنۍ لړۍ بشپړه کړئ.</string>
+  <string name="reading_challenge_onboarding_install_title">پراخ‌توکي نصبول</string>
+  <string name="reading_challenge_onboarding_install_description">زموږ د زړه راښکونکې کليزې نېکمرغه ماشوم ځمکې سره گټورې يادونې او هڅونې ترلاسه کړئ.</string>
+  <string name="reading_challenge_onboarding_note">ستاسو لوست پېښليک خوندي ساتل کېږي. د لوستلو ليدلوري ستاسو په وسيله کې په ځايي ډول زېرمه شوو اومتوکو په کارولو سره شمېرل کېږي.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">نور مالومات</string>
+  <string name="reading_challenge_onboarding_join_button">ننگونه کې گډون کول</string>
+  <string name="reading_challenge_onboarding_prompt_title">ننگونه کې گډون کولو لپاره ننوځئ</string>
+  <string name="reading_challenge_onboarding_prompt_message">د خپل لوستلو ننگونو اړوند پرمختگ بهير څارلو لپاره ننوځئ يا يو گڼون جوړ کړئ.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">نه مننه</string>
+  <string name="reading_challenge_onboarding_prompt_login">ويکي‌پېډيا ته ننوتل / يوځای‌کېدل</string>
+  <string name="reading_challenge_install_prompt_title">د ۲۵ ورځنۍ لوست ننگونې پراخ‌توکی نصب کړئ</string>
+  <string name="reading_challenge_install_prompt_message">ماشوم ځمکه تاسو هڅوي. د لوستلو پراخ‌توکی ورگډوي؛ ترڅو له خپل کور سکرين څخه خپل پرمختگ وڅارئ.</string>
+  <string name="reading_challenge_install_prompt_got_it">پوه شوم</string>
+  <string name="reading_challenge_install_prompt_add">ورگډول</string>
+  <string name="reading_challenge_widget_explore_button">سپړل</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">ويکي‌پېډيا سپړل</string>
+  <string name="reading_challenge_widget_join_challenge_button">ننگونه کې گډون کول</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">ننگونه کې گډون کول</string>
+  <string name="reading_challenge_widget_search_button">پلټل</string>
+  <string name="reading_challenge_widget_random_button">ناڅاپي</string>
+  <string name="reading_challenge_widget_collect_prize_button">ډالۍ راټولول</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">خپله ډالۍ راټولول!</string>
+  <string name="reading_challenge_widget_not_live_title">لوستلو لپاره چمتو اوسئ</string>
+  <string name="reading_challenge_widget_not_live_description">د لوست ۲۵ ورځنۍ ننگونه پر لاره ده.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">چمتو اوسئ، ويې ټاکئ، ويې لولئ!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">۲۵ ورځنۍ ننگونه کې برخه واخلئ او ځانگړې ډالۍ ترلاسه کړئ.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d ورځ</item>
+    <item quantity="other">%d ورځې</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d د %2$d</item>
+    <item quantity="other">%1$d د %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">له %2$d ورځو څخه %1$d ورځ</item>
+    <item quantity="other">له %2$d ورځو څخه %1$d ورځې</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">مه پرېږدئ چې نن ورځې هسې تېره شي، خپلې لړۍ ته دوام ورکړئ.</string>
+  <string name="reading_challenge_streak_ongoing_title">۲۵ ورځنۍ لوست ننگونه</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">مه پرېږدئ چې نن ورځې هسې تېره شي، ستاسو د لوست لړۍ ستاسو په تمه ده.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">مخکې له دې چې ورځ تېره شي...	اوس هم وخت شته چې يو څه زده کړئ.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">د يو لږ څه لوستل هم ستاسو موخې ته رسېدوکې ارزښتمن دي.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">ستاسو لړۍ يوازې يوه ليکنه لرې ده.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">نن ورځ ځينې لوستنو ته وخت ورکړئ.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">آرامه لوستلو شېبه؟</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">خپلې لېوالتیا ته دوام ورکړئ.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">چمتو اوسئ، ويې ټاکئ، ويې لولئ!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">د ۲۵ ورځو د دوام لپاره کار پيل کړئ!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">خپله لوست ننگونه پيل کړئ.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">هره لړۍ له يو ځايه پيلېږي</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">نوې لړۍ پيل کړي؟</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">پيلولو لپاره يوه ليکنه ولولئ.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">يو نوی پيل.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">ستاسو لړۍ ته يوازې يوه ليکنه پاتې ده.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">ننگونه پای ته ورسېده</string>
+  <string name="reading_challenge_widget_concluded_complete">تاسو وکړل!</string>
+  <string name="reading_challenge_widget_reward_title">څېړنه له تاسو سره ښه ښکاري! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">په ويکي‌پېډيا پلورنځي کې ۱۵%% کمښت سره د ننگونې بشپړولو ونمانځئ.</string>
+  <string name="reading_challenge_widget_reward_button_label">پلورنځي کې ۱۵%% کمښت ترلاسه کړئ</string>
 </resources>
