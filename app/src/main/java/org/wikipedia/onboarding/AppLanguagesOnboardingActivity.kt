@@ -4,12 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -36,14 +37,22 @@ import coil3.compose.SubcomposeAsyncImage
 import coil3.compose.SubcomposeAsyncImageContent
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.yearinreview.LoadingIndicator
 
 class AppLanguagesOnboardingActivity : BaseActivity() {
+    private val appLanguageCodesState = mutableStateOf(WikipediaApp.instance.languageState.appLanguageCodes.toList())
+
+    private val languagesLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        appLanguageCodesState.value = WikipediaApp.instance.languageState.appLanguageCodes.toList()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +60,11 @@ class AppLanguagesOnboardingActivity : BaseActivity() {
         setContent {
             BaseTheme {
                 AppLanguagesOnboardingScreen(
+                    appLanguageCodes = appLanguageCodesState.value,
                     onAddLanguageClick = {
+                        languagesLauncher.launch(
+                            WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.ONBOARDING_DIALOG)
+                        )
                     },
                     onNextClick = {
                         finish()
@@ -71,6 +84,7 @@ class AppLanguagesOnboardingActivity : BaseActivity() {
 @Composable
 fun AppLanguagesOnboardingScreen(
     modifier: Modifier = Modifier,
+    appLanguageCodes: List<String>,
     onAddLanguageClick: () -> Unit,
     onNextClick: () -> Unit
 ) {
@@ -107,7 +121,7 @@ fun AppLanguagesOnboardingScreen(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(paddingValues), // TODO: think about scrollable state
+                .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -152,38 +166,19 @@ fun AppLanguagesOnboardingScreen(
                     .padding(horizontal = 24.dp, vertical = 16.dp)
             ) {
                 Spacer(
-                    modifier = Modifier.height(1.dp)
+                    modifier = Modifier.height(0.5.dp)
                         .fillMaxWidth()
                         .background(WikipediaTheme.colors.borderColor)
                 )
+                Spacer(modifier = Modifier.height(16.dp))
 
-                // TODO: finish this
                 LazyColumn(
-                    modifier = Modifier,
-                    contentPadding = PaddingValues(vertical = 16.dp)
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    items(count = 3) {
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            text = "English",
-                            style = MaterialTheme.typography.bodyLarge,
-                            fontWeight = FontWeight.Bold,
-                            color = WikipediaTheme.colors.primaryColor
-                        )
-                        if (it == 0) {
-                            Text(
-                                modifier = Modifier
-                                    .fillMaxWidth(),
-                                text = stringResource(R.string.onboarding_app_languages_primary),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = WikipediaTheme.colors.secondaryColor
-                            )
-                        }
-                        Spacer(
-                            modifier = Modifier.height(1.dp)
-                                .fillMaxWidth()
-                                .background(WikipediaTheme.colors.borderColor)
+                    items(count = appLanguageCodes.size) {
+                        AppLanguagesItem(
+                            languageCode = appLanguageCodes[it],
+                            isPrimary = it == 0
                         )
                     }
                 }
@@ -192,7 +187,7 @@ fun AppLanguagesOnboardingScreen(
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp)
+                    .padding(horizontal = 24.dp)
                     .clickable(onClick = onAddLanguageClick),
                 text = stringResource(R.string.onboarding_app_languages_add_button),
                 style = MaterialTheme.typography.bodyLarge,
@@ -203,6 +198,38 @@ fun AppLanguagesOnboardingScreen(
     }
 }
 
+@Composable
+fun AppLanguagesItem(
+    languageCode: String,
+    isPrimary: Boolean
+) {
+    val localizedName = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: languageCode
+    Text(
+        modifier = Modifier
+            .fillMaxWidth(),
+        text = localizedName,
+        style = MaterialTheme.typography.bodyLarge,
+        fontWeight = FontWeight.Medium,
+        color = WikipediaTheme.colors.primaryColor
+    )
+    if (isPrimary) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth(),
+            text = stringResource(R.string.onboarding_app_languages_primary),
+            style = MaterialTheme.typography.bodyMedium,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+    Spacer(
+        modifier = Modifier
+            .height(0.5.dp)
+            .fillMaxWidth()
+            .background(WikipediaTheme.colors.borderColor)
+    )
+}
+
 @Preview(showBackground = true)
 @Composable
 fun AppLanguagesOnboardingScreenPreview() {
@@ -210,6 +237,7 @@ fun AppLanguagesOnboardingScreenPreview() {
         currentTheme = Theme.LIGHT
     ) {
         AppLanguagesOnboardingScreen(
+            appLanguageCodes = listOf("en", "es", "de"),
             onAddLanguageClick = {},
             onNextClick = {}
         )

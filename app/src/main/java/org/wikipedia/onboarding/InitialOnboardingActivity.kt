@@ -82,8 +82,9 @@ class InitialOnboardingActivity : BaseActivity() {
                         currentNavigationBarColor = ResourceUtil.getThemedColor(this, R.attr.paper_color)
                     },
                     onFinish = {
-                        Prefs.isInitialOnboardingEnabled = false
-                        finish()
+//                        Prefs.isInitialOnboardingEnabled = false
+//                        finish()
+                        startActivity(AppLanguagesOnboardingActivity.newIntent(this))
                     }
                 )
             }
