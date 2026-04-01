@@ -69,7 +69,7 @@ fun ExploreFeedBuildingScreen(
 
     LaunchedEffect(Unit) {
         // TODO: actual loading logic here
-        delay(3000)
+        delay(1000)
         onFinished()
     }
 
