@@ -30,6 +30,7 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
+import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
@@ -53,7 +54,7 @@ class ReadingChallengeWidget : GlanceAppWidget() {
         val repository = ReadingChallengeWidgetRepository(context)
 
         provideContent {
-            val state by repository.observeState().collectAsState(initial = ReadingChallengeState.NotLiveYet)
+            val state by repository.observeState().collectAsState(initial = ReadingChallengeState.Loading)
 
             GlanceTheme {
                 val size = LocalSize.current
@@ -169,6 +170,35 @@ fun WidgetIconButton(
         ),
         modifier = modifier
     )
+}
+
+@Composable
+fun ReadingChallengeWidgetLoading(
+    modifier: GlanceModifier = GlanceModifier,
+    backgroundColorResId: Int = WidgetBackground.challengeNotOptInRadialGradient
+) {
+    Box(
+        modifier = modifier
+    ) {
+        // base background color for widget
+        Image(
+            provider = ImageProvider(backgroundColorResId),
+            contentDescription = null,
+            modifier = GlanceModifier.fillMaxSize()
+        )
+        Row(
+            modifier = GlanceModifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.End
+        ) {
+            Image(
+                provider = ImageProvider(R.drawable.ic_w_logo_shadow),
+                contentDescription = null,
+                modifier = GlanceModifier.size(36.dp)
+            )
+        }
+    }
 }
 
 enum class LargeWidgetSize {
