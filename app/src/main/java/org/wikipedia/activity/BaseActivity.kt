@@ -3,13 +3,17 @@ package org.wikipedia.activity
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.ActionMode
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.view.children
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -49,12 +53,14 @@ import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
 import org.wikipedia.yearinreview.YearInReviewViewModel
+import kotlin.sequences.forEach
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -227,6 +233,41 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (resultCode == RESULT_OK && data?.hasExtra(OnThisDayGameResultFragment.EXTRA_GAME_COMPLETED) == true) {
             OnThisDayGameResultFragment.maybeShowOnThisDayGameEndContent(this)
         }
+    }
+
+    override fun startActionMode(callback: ActionMode.Callback?): ActionMode? {
+        return super.startActionMode(callback).also {
+            fixActionModeBackground()
+        }
+    }
+
+    override fun startSupportActionMode(callback: androidx.appcompat.view.ActionMode.Callback): androidx.appcompat.view.ActionMode? {
+        return super.startSupportActionMode(callback).also {
+            fixActionModeBackground()
+        }
+    }
+
+    /**
+     * This is a hacky way to fix the background of the system Status Bar while an ActionMode is
+     * active, inside an Activity that has edgeToEdge enabled. For some reason the framework
+     * automatically inserts a View with an explicit black color, regardless of theme, which makes
+     * the status bar look incorrect. This method finds that View and sets the correct color and
+     * elevation on it.
+     */
+    private fun fixActionModeBackground() {
+        val decorView = window.decorView as? ViewGroup ?: return
+        decorView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                decorView.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                val actionBarRoot = findViewById<ViewGroup>(androidx.appcompat.R.id.action_bar_root)
+                actionBarRoot.children.forEach {
+                    if (it.id != android.R.id.content && it.id != androidx.appcompat.R.id.action_mode_bar) {
+                        it.setBackgroundColor(ResourceUtil.getThemedColor(this@BaseActivity, R.attr.paper_color))
+                        it.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
+                    }
+                }
+            }
+        })
     }
 
     protected fun setStatusBarColor(@ColorInt color: Int) {
