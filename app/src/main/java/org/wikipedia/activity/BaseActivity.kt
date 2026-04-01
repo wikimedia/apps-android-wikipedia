@@ -255,7 +255,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
      * elevation on it.
      */
     private fun fixActionModeBackground() {
-        val decorView = window.decorView as ViewGroup
+        val decorView = window.decorView as? ViewGroup ?: return
         decorView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 decorView.viewTreeObserver.removeOnGlobalLayoutListener(this)
