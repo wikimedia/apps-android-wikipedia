@@ -2,19 +2,16 @@ package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.Insets
+import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.children
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
@@ -135,29 +132,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
     }
 
-    /**
-     * This is a hacky way to fix the background of the system Status Bar while an ActionMode is
-     * active, inside an Activity that has edgeToEdge enabled. For some reason the framework
-     * automatically inserts a View with an explicit black color, regardless of theme, which makes
-     * the status bar look incorrect. This method finds that View and sets the correct color and
-     * elevation on it.
-     */
-    fun fixActionModeBackground() {
-        val decorView = window.decorView as ViewGroup
-        decorView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                decorView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val actionBarRoot = findViewById<ViewGroup>(androidx.appcompat.R.id.action_bar_root)
-                actionBarRoot.children.forEach {
-                    if (it.id != android.R.id.content && it.id != androidx.appcompat.R.id.action_mode_bar) {
-                        it.setBackgroundColor(ResourceUtil.getThemedColor(this@MainActivity, R.attr.paper_color))
-                        it.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
-                    }
-                }
-            }
-        })
-    }
-
     override fun onSupportActionModeStarted(mode: ActionMode) {
         super.onSupportActionModeStarted(mode)
         if (!controlNavTabInFragment) {
@@ -198,7 +172,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             intent.data?.let {
                 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
                     // Pass it right along to PageActivity
-                    val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
+                    val uri = it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://").toUri()
                     startActivity(Intent(this, PageActivity::class.java)
                             .setAction(Intent.ACTION_VIEW)
                             .setData(uri))
