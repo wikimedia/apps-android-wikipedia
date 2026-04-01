@@ -2218,7 +2218,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Proque mitte on ananas sur pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Quales es le citates le plus grande in Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Un nove maniera de cercar</string>
-  <string name="hybrid_search_results_header_description">Extrahite de articulos de Wikipedia create per humanos</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Extrahite de articulos de Wikipedia create per humanos</string>
   <string name="hybrid_search_results_rate_label">Evalutar iste resultato</string>
   <string name="hybrid_search_results_rated_label">Evalutate</string>
   <string name="hybrid_search_results_rate_thumb_up">Evalutar positivemente</string>

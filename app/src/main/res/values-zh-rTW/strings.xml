@@ -2257,7 +2257,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">為什麼人們要在披薩上加鳳梨？</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">歐洲最大的城市有哪些？</string>
   <string name="hybrid_search_onboarding_screen_title">一種新的搜尋方式</string>
-  <string name="hybrid_search_results_header_description">來源出自人工撰寫的維基百科條目</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">來源出自人工撰寫的維基百科條目</string>
   <string name="hybrid_search_results_rate_label">評價此結果</string>
   <string name="hybrid_search_results_rated_label">已評價</string>
   <string name="hybrid_search_results_rate_thumb_up">很棒</string>

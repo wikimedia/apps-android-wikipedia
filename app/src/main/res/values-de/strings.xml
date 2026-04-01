@@ -2276,7 +2276,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Warum kommt Ananas auf Pizza?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Was sind die größten Städte Europas?</string>
   <string name="hybrid_search_onboarding_screen_title">Eine neue Art zu suchen</string>
-  <string name="hybrid_search_results_header_description">Aus von Menschen verfassten Wikipedia-Artikeln</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">Aus von Menschen verfassten Wikipedia-Artikeln</string>
   <string name="hybrid_search_results_rate_label" fuzzy="true">Ergebnisse bewerten</string>
   <string name="hybrid_search_results_rated_label">Bewertet</string>
   <string name="hybrid_search_results_rate_thumb_up">Positiv bewerten</string>

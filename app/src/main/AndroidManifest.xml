@@ -106,6 +106,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -124,6 +126,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
 
