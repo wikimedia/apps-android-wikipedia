@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
+import org.wikipedia.main.MainActivity
 import org.wikipedia.views.SearchActionProvider
 
 abstract class SearchActionModeCallback : ActionMode.Callback {
@@ -15,6 +16,7 @@ abstract class SearchActionModeCallback : ActionMode.Callback {
 
     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
         mode.tag = ACTION_MODE_TAG
+        (getParentContext() as? MainActivity)?.fixActionModeBackground()
         val menuItem = menu.add(getSearchHintString())
         // Manually setup a action provider to be able to adjust the left margin of the search field.
         MenuItemCompat.setActionProvider(menuItem, SearchActionProvider(getParentContext(), getSearchHintString()) { onQueryChange(it) })
