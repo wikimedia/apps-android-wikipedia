@@ -19,6 +19,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -32,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -39,9 +41,13 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.main.MainActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
+import kotlin.getValue
 
 class HomeFragment : Fragment() {
+    private val viewModel: HomeViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,7 +56,7 @@ class HomeFragment : Fragment() {
         return ComposeView(requireActivity()).apply {
             setContent {
                 BaseTheme {
-                    HomeFragmentContents()
+                    HomeFragmentContents(viewModel.sampleImagesFlow.collectAsState().value)
                 }
             }
         }
@@ -58,7 +64,9 @@ class HomeFragment : Fragment() {
 }
 
 @Composable
-fun HomeFragmentContents() {
+fun HomeFragmentContents(
+    featuredImagesState: UiState<List<String>>
+) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat()) else 64
 
@@ -66,7 +74,7 @@ fun HomeFragmentContents() {
 
         // TODO: Feed contents go here!
 
-        FeaturedImages()
+        FeaturedImages(featuredImagesState)
 
         // Toolbar, floating above the feed contents.
         Box(
@@ -105,42 +113,39 @@ fun HomeFragmentContents() {
 }
 
 @Composable
-fun FeaturedImages() {
+fun FeaturedImages(
+    uiState: UiState<List<String>>
+) {
     val context = LocalContext.current
-    val listState = rememberLazyListState()
+    if (uiState is UiState.Success) {
+        val listState = rememberLazyListState()
+        val imageUrls = uiState.data
 
-    val imageUrls = listOf(
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg/1280px-SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Color_of_Friendship.jpg/1280px-Color_of_Friendship.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg/1280px-MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg/1280px-Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg/1280px-Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg",
-    )
+        BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+            val viewportHeight = maxHeight
 
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        val viewportHeight = maxHeight
-
-        LazyColumn(
-            state = listState,
-            flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
-            modifier = Modifier
-                .fillMaxSize()
-                .background(WikipediaTheme.colors.backgroundColor)
-        ) {
-            itemsIndexed(imageUrls) { _, imageUrl ->
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(viewportHeight)
-                ) {
-                    AsyncImage(
-                        model = ImageService.getRequest(context, url = imageUrl),
-                        placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                        error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier.fillMaxSize()
-                    )
+            LazyColumn(
+                state = listState,
+                flingBehavior = rememberSnapFlingBehavior(lazyListState = listState),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(WikipediaTheme.colors.backgroundColor)
+            ) {
+                itemsIndexed(imageUrls) { _, imageUrl ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(viewportHeight)
+                    ) {
+                        AsyncImage(
+                            model = ImageService.getRequest(context, url = imageUrl),
+                            placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                            error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
                 }
             }
         }
@@ -151,6 +156,10 @@ fun FeaturedImages() {
 @Composable
 fun HomeFragmentPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        HomeFragmentContents()
+        HomeFragmentContents(
+            featuredImagesState = UiState.Success(
+                listOf("https://example.com/image.jpg")
+            )
+        )
     }
 }
