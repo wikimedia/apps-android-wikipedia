@@ -2400,7 +2400,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Začto ljudi dodavajut ananas do pice?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Ktore sut največše grady v Evropě?</string>
   <string name="hybrid_search_onboarding_screen_title">Novy sposob iskanja</string>
-  <string name="hybrid_search_results_header_description">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
+  <string name="hybrid_search_results_header_description" fuzzy="true">S izvorami iz člankov Vikipedije generovanyh ljudami</string>
   <string name="hybrid_search_results_rate_label">Ocěnite tutoj rezultat</string>
   <string name="hybrid_search_results_rated_label">Ocěnjeno</string>
   <string name="hybrid_search_results_rate_thumb_up">Ocěnka pozitivna</string>

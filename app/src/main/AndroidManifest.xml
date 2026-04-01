@@ -216,6 +216,7 @@
 
         <activity
             android:name=".search.SearchActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">
@@ -412,6 +413,8 @@
         <activity
             android:name=".donate.donationreminder.DonationReminderActivity"
             android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
 
         <provider
             android:name=".WikipediaFileProvider"
