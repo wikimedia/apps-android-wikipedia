@@ -13,7 +13,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.Insets
 import androidx.core.net.toUri
 import androidx.core.view.WindowInsetsCompat
@@ -38,6 +37,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -147,16 +147,14 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     @SuppressLint("ResourceType")
     private fun applyNavBarTheme(theme: Theme) {
         val wrapper = ContextThemeWrapper(this, theme.resourceId)
-        val attrs = intArrayOf(R.attr.paper_color, R.attr.border_color)
-        val csl = AppCompatResources.getColorStateList(wrapper, R.color.color_state_nav_tab)
-        wrapper.withStyledAttributes(null, attrs) {
-            val paperColor = getColor(0, Color.TRANSPARENT)
-            val borderColor = getColor(1, Color.TRANSPARENT)
-            fragment.binding.mainNavTabLayout.applyColors(paperColor, csl)
-            fragment.binding.mainNavTabBorder.setBackgroundColor(borderColor)
-            fragment.binding.mainNavTabContainer.setBackgroundColor(paperColor)
-            DeviceUtil.setLightSystemUiVisibility(this@MainActivity, light = !theme.isDark)
-        }
+        val paperColor = ResourceUtil.getThemedColor(wrapper, R.attr.paper_color)
+        val borderColor = ResourceUtil.getThemedColor(wrapper, R.attr.border_color)
+        val colorStateList = AppCompatResources.getColorStateList(wrapper, R.color.color_state_nav_tab)
+        fragment.binding.mainNavTabLayout.applyColors(paperColor, colorStateList)
+        fragment.binding.mainNavTabBorder.setBackgroundColor(borderColor)
+        fragment.binding.mainNavTabContainer.setBackgroundColor(paperColor)
+        setNavigationBarColor(paperColor)
+        DeviceUtil.setLightSystemUiVisibility(this@MainActivity, light = !theme.isDark)
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
