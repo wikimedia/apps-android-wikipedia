@@ -1772,4 +1772,13 @@
   <string name="hybrid_search_onboarding_screen_title">Нов начин претраге</string>
   <string name="hybrid_search_no_results_header">Нема резултата</string>
   <string name="hybrid_search_who_is_prefix">Ко је %s?</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Сазнајте више</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Не, хвала</string>
+  <string name="reading_challenge_onboarding_prompt_login">Пријава / Придружите се Википедији</string>
+  <string name="reading_challenge_install_prompt_got_it">Разумео</string>
+  <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="reading_challenge_widget_search_button">Претрага</string>
+  <string name="reading_challenge_widget_random_button">Случајно</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Нови почетак.</string>
+  <string name="reading_challenge_widget_concluded_complete">Успели сте!</string>
 </resources>

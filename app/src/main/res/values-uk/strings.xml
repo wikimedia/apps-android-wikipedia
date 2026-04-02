@@ -2454,7 +2454,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Чому люди кладуть ананас на піцу?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Які найбільші міста в Європі?</string>
   <string name="hybrid_search_onboarding_screen_title">Новий спосіб пошуку</string>
-  <string name="hybrid_search_results_header_description" fuzzy="true">Взято зі статей Вікіпедії, створених людиною</string>
+  <string name="hybrid_search_results_header_description">Взято зі статей Вікіпедії, створених людьми</string>
   <string name="hybrid_search_results_rate_label">Оцініть цей результат</string>
   <string name="hybrid_search_results_rated_label">Оцінено</string>
   <string name="hybrid_search_results_rate_thumb_up">Оцінка «палець вгору»</string>

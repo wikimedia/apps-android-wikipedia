@@ -2217,5 +2217,5 @@
   <string name="reading_challenge_widget_concluded_complete">Você conseguiu!</string>
   <string name="reading_challenge_widget_reward_title">A curiosidade fica bem em você! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Comemore a conclusão do desafio com 15%% de desconto na Loja da Wikipédia</string>
-  <string name="reading_challenge_widget_reward_button_label">Ganhe 15%% de desconto na loja</string>
+  <string name="reading_challenge_widget_reward_button_label" fuzzy="true">Ganhe 15%% de desconto na loja</string>
 </resources>
