@@ -1,6 +1,5 @@
 package org.wikipedia.main
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -144,7 +143,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
     }
 
-    @SuppressLint("ResourceType")
     private fun applyNavBarTheme(theme: Theme) {
         val wrapper = ContextThemeWrapper(this, theme.resourceId)
         val paperColor = ResourceUtil.getThemedColor(wrapper, R.attr.paper_color)
