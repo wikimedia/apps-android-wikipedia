@@ -482,15 +482,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
-            if (dontShowAgain) {
-                // TODO
-            }
-            if (editorChoice == EDITOR_CHOICE_VE) {
+        val launchEditor = {
+            if (Prefs.editorModeChoice == EDITOR_CHOICE_VE) {
                 UriUtil.visitInExternalBrowser(this, (title.uri + "?useformat=mobile&veaction=edit&section=$sectionId").toUri())
             } else {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
             }
+        }
+        if (Prefs.editorModeChoiceShowDialog) {
+            showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
+                Prefs.editorModeChoice = editorChoice
+                Prefs.editorModeChoiceShowDialog = !dontShowAgain
+                launchEditor()
+            }
+        } else {
+            launchEditor()
         }
     }
 

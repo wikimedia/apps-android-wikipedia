@@ -1,6 +1,6 @@
 package org.wikipedia.edit
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,21 +36,28 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
 const val EDITOR_CHOICE_VE = 0
 const val EDITOR_CHOICE_SOURCE = 1
 
-fun showEditorChoiceDialog(activity: AppCompatActivity, onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit) {
-    val composeView = ComposeView(activity)
+fun showEditorChoiceDialog(
+    context: Context,
+    allowShowAgainCheckbox: Boolean = true,
+    onResult: (editorChoice: Int, dontShowAgain: Boolean) -> Unit
+) {
+    val composeView = ComposeView(context)
 
-    MaterialAlertDialogBuilder(activity)
+    MaterialAlertDialogBuilder(context)
         .setView(composeView)
         .create()
         .also { dialog ->
             composeView.setContent {
                 BaseTheme {
                     EditorChoiceContent(
+                        initialChoice = Prefs.editorModeChoice,
+                        allowShowAgainCheckbox,
                         onCancel = { dialog.dismiss() },
                         onContinue = { editorChoice, dontShowAgain ->
                             onResult(editorChoice, dontShowAgain)
@@ -65,11 +72,13 @@ fun showEditorChoiceDialog(activity: AppCompatActivity, onResult: (editorChoice:
 
 @Composable
 private fun EditorChoiceContent(
+    initialChoice: Int,
+    allowShowAgainCheckbox: Boolean = true,
     onCancel: () -> Unit = {},
     onContinue: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
-    var selectedEditor by remember { mutableStateOf(EDITOR_CHOICE_VE) }
-    var dontShowAgain by remember { mutableStateOf(true) }
+    var selectedEditor by remember { mutableStateOf(initialChoice) }
+    var dontShowAgain by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(top = 24.dp, bottom = 24.dp)) {
         Text(
@@ -111,26 +120,28 @@ private fun EditorChoiceContent(
             )
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        if (allowShowAgainCheckbox) {
+            Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Checkbox(
-                checked = dontShowAgain,
-                onCheckedChange = { dontShowAgain = it },
-                colors = CheckboxDefaults.colors(
-                    checkedColor = WikipediaTheme.colors.progressiveColor,
-                    uncheckedColor = WikipediaTheme.colors.secondaryColor,
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Checkbox(
+                    checked = dontShowAgain,
+                    onCheckedChange = { dontShowAgain = it },
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = WikipediaTheme.colors.progressiveColor,
+                        uncheckedColor = WikipediaTheme.colors.secondaryColor,
+                    )
                 )
-            )
-            Text(
-                text = stringResource(R.string.editor_select_dialog_dont_show_again),
-                style = MaterialTheme.typography.bodyMedium,
-                color = WikipediaTheme.colors.primaryColor
-            )
+                Text(
+                    text = stringResource(R.string.editor_select_dialog_dont_show_again),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -204,6 +215,6 @@ private fun TimelineDateSeparatorPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        EditorChoiceContent()
+        EditorChoiceContent(initialChoice = EDITOR_CHOICE_SOURCE)
     }
 }
