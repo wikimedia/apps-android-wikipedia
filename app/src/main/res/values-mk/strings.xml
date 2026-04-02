@@ -250,7 +250,9 @@
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
@@ -1075,6 +1077,7 @@
     <item quantity="one">Додадовте %d ознака</item>
     <item quantity="other">Додадовте %d ознаки</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
@@ -1716,6 +1719,7 @@
   <string name="patroller_saved_message_body_edit_summary">Здраво {{{username}}}. Се чини дека отстранивте содржина од Википедија без да внесете опис на уредувањето. Ставајте опис кога додавате или отстранувате содржини.</string>
   <string name="patroller_saved_message_body_do_not_censor">Здраво {{{username}}}. Се чини дека отстранивте содржина без да ја продискутирате на разговорната страница на статијата. Имајте на ум дека Википедија не се цензурира, и дека содржините не се отстрануваат ако се спорни или контроверзни. Ако сметате дека информациите се неточни, постигнете консензус на разговорната страница на статијата.</string>
   <string name="talk_warn_learn_more_label">Дознајте за пополнувачите на пораки</string>
+  <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
   <string name="talk_warn_saved_messages_usage_instruction">Послужете се со примерната порака подолу за да ги прилагодување, испраќате и зачувувате вашите пораки.</string>
   <string name="patroller_saved_message_body_art_imp">Здраво {{{username}}}. Вашата статија е добар почеток! За да ја направите уште подобра, додајте повеќе наводи кон доверливи извори. Ова ќе ни помогне да ги провериме информациите и го подобрува квалитетот на статијата. Погледајте ги насоките за [[Wikipedia:Reliable_sources|доверливи извори]] на оваа Википедија.</string>
   <string name="talk_templates_menu_edit_title">Уреди</string>
@@ -2259,6 +2263,68 @@
   <string name="hybrid_search_who_is_prefix">Кој е %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Исклучи го експериментов</string>
   <string name="reading_challenge_widget_name">Предизвик за читање</string>
+  <string name="reading_challenge_onboarding_header">Прославете го 25-тиот роденден на Википедија со тоа што ќе се придружите на 25-дневниот читателски предизвик!</string>
+  <string name="reading_challenge_onboarding_read_title">Чирајте по една статија дневно во текот на 25 дена</string>
+  <string name="reading_challenge_onboarding_read_description">Придружете се на предизвикот во било кое време помеѓу 1 и 31 мај, завршете ги 25-те дена по ваш времслед.</string>
+  <string name="reading_challenge_onboarding_win_title">Освојте награди</string>
+  <string name="reading_challenge_onboarding_win_description">Завршете ја 25-дневната низа на читање додека трае предизвикот и освојте специјални награди.</string>
+  <string name="reading_challenge_onboarding_install_title">Воспоставете го елеменетот</string>
+  <string name="reading_challenge_onboarding_install_description">Добивајте корисни потсетници и мотивација со нашата маскота Глобусче.</string>
+  <string name="reading_challenge_onboarding_note">Вашата историја на читање е заштитена. Увидите во вашите читања се пресметуваат користејќи месно складирани податоци на вашиот уред.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Дознајте повеќе</string>
+  <string name="reading_challenge_onboarding_join_button">Придружи се на предизвикот</string>
+  <string name="reading_challenge_onboarding_prompt_title">Најавете се за да се придружите на предизвикот</string>
+  <string name="reading_challenge_onboarding_prompt_message">Најавете се или направете сметка за да го следите вешиот напредок во читателскиот предизвик.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Не, благодарам</string>
+  <string name="reading_challenge_onboarding_prompt_login">Зачленете се / Најава на Википедија</string>
+  <string name="reading_challenge_install_prompt_title">Воспоставете го елементот за 25-дневен читателски предизвик</string>
+  <string name="reading_challenge_install_prompt_message">Глобусчето ве бодри. Додајте го елементот Читателски предизвик за да го следите вашиот напредок од почетниот екран.</string>
+  <string name="reading_challenge_install_prompt_got_it">Јасно</string>
+  <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="reading_challenge_widget_explore_button">Истражи</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Истражете ја Википедија</string>
+  <string name="reading_challenge_widget_join_challenge_button">Придружи се на предизвикот</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Придружи се на предизвикот</string>
+  <string name="reading_challenge_widget_search_button">Пребарај</string>
+  <string name="reading_challenge_widget_random_button">Случајна</string>
+  <string name="reading_challenge_widget_collect_prize_button">Собери награда</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Соберете ја вашата награда!</string>
+  <string name="reading_challenge_widget_not_live_title">Подгответе се за читање</string>
+  <string name="reading_challenge_widget_not_live_description">На повидок е 25-дневен читателски предизвик.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Подготвени, внимание, читај!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Придружете се на 25-дневниот предизвик и освојте специјални награди.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d ден</item>
+    <item quantity="other">%d дена</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d од %2$d</item>
+    <item quantity="other">%1$d од %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d од %2$d ден</item>
+    <item quantity="other">%1$d од %2$d дена</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Не го пропуштајте денешниот ден, зачувајте си ја низата.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-дневен читателски предизвик</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Не го пропуштајте денешниот ден, вашата низа на читање ве чека.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Пред да ви измине денот…	сè уште не е доцна да научите нешто.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Дури и малку читање има придонес кон постигнувањето на вашата цел.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Вашата низа на читање ќе се исполни со уште само една статија.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Наминете да прочитате нешто во било кое време денес.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Миг за спокојно читање?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Не ја воздржувајте вашата љубопитност.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Подготвени, внимание, читај!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Почнете да работите кон 25-дневна низа!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Започнете во вашиот читателски предизвик.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Секоја низа мора да започне некаде.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Започнувате нова низа?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Прочитајте една статија за да почнете.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Нов почеток.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Вашата низа на читање ќе се исполни со уште само една статија.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Предизвикот заврши</string>
   <string name="reading_challenge_widget_concluded_complete">Успеавте!</string>
   <string name="reading_challenge_widget_reward_title">Љубопитноста ви прилега! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body" fuzzy="true">Прославете го успешно завршениот предизвик со 15 %% попуст во Википедиината продавница.</string>
+  <string name="reading_challenge_widget_reward_button_label" fuzzy="true">Добијте 15 %% попуст во продавницата</string>
 </resources>

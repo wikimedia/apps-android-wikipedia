@@ -1877,7 +1877,7 @@
   <string name="recommended_reading_list_page_snackbar_month">Mount</string>
   <string name="recommended_reading_list_settings_section_header">Recommandatiounen</string>
   <string name="recommended_reading_list_settings_title">Entdecken-Astellungen</string>
-  <string name="recommended_reading_list_settings_toggle">Entdecken-Lieslëscht</string>
+  <string name="recommended_reading_list_settings_toggle">Entdecke-Lieslëscht</string>
   <string name="recommended_reading_list_settings_toggle_disable_message">Entdecken ass desaktivéiert. Wikipedia recommandéiert Iech keng Artikele fir ze liesen.</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_title">Entdecken desaktivéieren?</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_message">Wann Dir Entdecken desaktivéiert, kritt Dir keng %s Liesrecommandatioune méi vu Wikipedia.</string>
@@ -1912,7 +1912,7 @@
   <string name="recommended_reading_list_settings_notifications_dialog_message">Wann Dir d\'Notifikatiounen desaktivéiert, kritt Dir keng Erënnerunge méi, wann Entdecken aktualiséiert gëtt.</string>
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">Desaktivéieren</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">Nee, aktivéiert loossen</string>
-  <string name="recommended_reading_list_notification_title">Är %s Entdecken-Lieslëscht ass prett.</string>
+  <string name="recommended_reading_list_notification_title">Är %s Entdecke-Lieslëscht ass prett.</string>
   <string name="recommended_reading_list_settings_notification_subtitle_enable">Wann Är Entdecke-Recommandatiounen aktualiséiert ginn, schéckt Wikipedia Iech eng Notifikatioun.</string>
   <string name="recommended_reading_list_settings_toggle_enable_message">Entdecken ass aktivéiert. Wikipedia recommandéiert Iech Artikele fir ze liesen.</string>
   <string name="donation_reminders_prompt_dismiss_snackbar">Erënnerunge fir Done kënnen zu all Moment an den Astellunge geännert ginn.</string>
@@ -1948,6 +1948,7 @@
   <string name="hybrid_search_onboarding_learn_more">Méi gewuer ginn</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beta-Funktioun</string>
   <string name="hybrid_search_beta_tag">Beta</string>
+  <string name="hybrid_search_onboarding_search_example_title">Braucht Dir Inspiratioun?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Wat sinn déi gréisste Stied an Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">Eng nei Manéier fir ze sichen</string>
   <string name="hybrid_search_no_results_header">Keng Resultater</string>
@@ -1956,6 +1957,8 @@
   <string name="hybrid_search_turn_off_experiment_label">Dat hei Experiment desaktivéieren</string>
   <string name="reading_challenge_onboarding_read_title">Liest 25 Deeg laang 1 Artikel pro Dag</string>
   <string name="reading_challenge_onboarding_learn_more_button">Méi gewuer ginn</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Nee merci</string>
+  <string name="reading_challenge_install_prompt_got_it">Verstanen</string>
   <string name="reading_challenge_install_prompt_add">Derbäisetzen</string>
   <string name="reading_challenge_widget_search_button">Sichen</string>
   <plurals name="reading_challenge_small_widget_streak">
@@ -1966,4 +1969,5 @@
     <item quantity="one">%1$d vu(n) %2$d Dag</item>
     <item quantity="other">%1$d vu(n) %2$d Deeg</item>
   </plurals>
+  <string name="reading_challenge_widget_concluded_complete">Dir hutt et gepackt!</string>
 </resources>
