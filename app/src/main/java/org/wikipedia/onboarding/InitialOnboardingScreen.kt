@@ -297,7 +297,7 @@ fun InitialOnboardingLanguagesScreen(
                 success = {
                     SubcomposeAsyncImageContent()
                 },
-                contentDescription = stringResource(R.string.onboarding_data_privacy_title),
+                contentDescription = stringResource(R.string.onboarding_app_languages_title),
             )
         }
 
