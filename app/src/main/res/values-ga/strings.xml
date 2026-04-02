@@ -2638,5 +2638,5 @@
   <string name="reading_challenge_widget_concluded_complete">Rinne tú é!</string>
   <string name="reading_challenge_widget_reward_title">Tá cuma mhaith ar an bhfiosracht ort! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Ceiliúradh a dhéanamh ar an dúshlán a chríochnú le 15%% de lascaine ag Siopa Vicipéid.</string>
-  <string name="reading_challenge_widget_reward_button_label">Faigh 15% de lascaine sa siopa</string>
+  <string name="reading_challenge_widget_reward_button_label">Faigh 15%% de lascaine sa siopa</string>
 </resources>
