@@ -52,7 +52,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.edit.EDITOR_CHOICE_SOURCE
 import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
@@ -485,7 +484,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
         showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
             if (dontShowAgain) {
-                //TODO
+                // TODO
             }
             if (editorChoice == EDITOR_CHOICE_VE) {
                 UriUtil.visitInExternalBrowser(this, (title.uri + "?useformat=mobile&veaction=edit&section=$sectionId").toUri())
