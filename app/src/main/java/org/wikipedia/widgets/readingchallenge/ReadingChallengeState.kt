@@ -3,6 +3,7 @@ package org.wikipedia.widgets.readingchallenge
 import java.time.LocalDate
 
 sealed interface ReadingChallengeState {
+    object Loading : ReadingChallengeState
     // State 1: Pre-enrollment before May 1, 2026
     object NotLiveYet : ReadingChallengeState
 

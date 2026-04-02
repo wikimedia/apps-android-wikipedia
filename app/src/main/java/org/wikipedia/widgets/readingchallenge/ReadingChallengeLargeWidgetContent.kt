@@ -44,6 +44,12 @@ fun ReadingChallengeLargeWidgetContent(
     val context = LocalContext.current
 
     when (state) {
+        ReadingChallengeState.Loading -> {
+            ReadingChallengeWidgetLoading(
+                modifier = GlanceModifier
+                    .fillMaxSize()
+            )
+        }
         ReadingChallengeState.ChallengeCompleted -> {
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final_large,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
@@ -580,6 +586,16 @@ fun LargeWidgetOngoingNeedsReadingCompactSizePreview() {
         state = ReadingChallengeState.StreakOngoingNeedsReading(
             streak = 2
         ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 176)
+@Composable
+fun LargeWidgetLoadingPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.Loading,
         enrollmentDate = LocalDate.now()
     )
 }

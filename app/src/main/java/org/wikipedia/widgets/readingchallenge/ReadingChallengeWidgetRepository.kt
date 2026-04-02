@@ -28,6 +28,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             context.getString(R.string.preference_key_reading_challenge_last_read_date)
         )
         return callbackFlow {
+            trySend(ReadingChallengeState.Loading) // initial loading state
             fun emit() {
                 val currentDate = LocalDate.now()
                 recalculateStreakIfNeeded(currentDate)

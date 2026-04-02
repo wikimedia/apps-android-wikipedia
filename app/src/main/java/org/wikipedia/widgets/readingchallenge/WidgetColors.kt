@@ -33,5 +33,5 @@ object WidgetColors {
 }
 
 object WidgetBackground {
-    val challengeNotOptInRadialGradient = R.drawable.widget_radial_background
+    val challengeNotOptInRadialGradient = R.drawable.widget_linear_gradient_background
 }
