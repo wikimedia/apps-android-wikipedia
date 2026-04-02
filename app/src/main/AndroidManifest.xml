@@ -420,6 +420,8 @@
 
         <activity android:name=".feed.onboarding.ExploreFeedUpdatePromptActivity"/>
 
+        <activity android:name=".feed.onboarding.ExploreFeedBuildingActivity"/>
+
         <activity android:name=".onboarding.personalization.PersonalizationActivity"/>
 
         <provider
