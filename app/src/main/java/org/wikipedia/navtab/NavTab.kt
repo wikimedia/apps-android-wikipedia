@@ -1,7 +1,5 @@
 package org.wikipedia.navtab
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.activitytab.ActivityTabFragment
@@ -10,9 +8,9 @@ import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.readinglist.ReadingListsFragment
 
-enum class NavTab(@StringRes val text: Int, val id: Int, @DrawableRes val icon: Int) : EnumCode {
+enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
 
-    EXPLORE(R.string.feed, R.id.nav_tab_explore, R.drawable.selector_nav_explore) {
+    HOME(R.string.home, R.id.nav_tab_home, R.drawable.ic_home_24dp) {
         override fun newInstance(): Fragment {
             return FeedFragment.newInstance()
         }

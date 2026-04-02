@@ -103,7 +103,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onTabChanged(tab: NavTab) {
-        if (tab == NavTab.EXPLORE) {
+        if (tab == NavTab.HOME) {
             // TODO: conditionally hide toolbar if we're looking at a full-bleed Compose feed.
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""

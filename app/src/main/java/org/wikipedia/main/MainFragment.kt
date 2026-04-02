@@ -185,7 +185,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                 return@setOnItemSelectedListener false
             }
             val fragment = currentFragment
-            if (item.order == NavTab.EXPLORE.code() && fragment is FeedFragment) {
+            if (item.order == NavTab.HOME.code() && fragment is FeedFragment) {
                 fragment.scrollToTop()
             }
             if (fragment is HistoryFragment && item.order == NavTab.SEARCH.code()) {
@@ -354,9 +354,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
             onNavigateTo(NavTab.READING_LISTS)
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) &&
-                !(binding.mainNavTabLayout.selectedItemId == NavTab.EXPLORE.code() &&
-                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
-            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())))
+                !(binding.mainNavTabLayout.selectedItemId == NavTab.HOME.code() &&
+                        intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code()) == NavTab.HOME.code())) {
+            onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HOME.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
             onNavigateTo(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {

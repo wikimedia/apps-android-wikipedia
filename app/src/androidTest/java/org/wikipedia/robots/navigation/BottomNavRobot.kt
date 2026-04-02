@@ -18,7 +18,7 @@ class BottomNavRobot : BaseRobot() {
     fun navigateToExploreFeed() = apply {
         onView(
             allOf(
-                withId(R.id.nav_tab_explore), withContentDescription("Explore"),
+                withId(R.id.nav_tab_home), withContentDescription("Explore"),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed()
             )
         ).perform(click())
