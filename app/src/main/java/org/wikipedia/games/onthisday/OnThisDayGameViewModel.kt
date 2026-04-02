@@ -12,10 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
-import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.onthisday.OnThisDay
@@ -31,10 +29,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
-import kotlin.math.abs
-import kotlin.math.max
 import kotlin.math.min
-import kotlin.random.Random
 
 class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
@@ -78,7 +73,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
                 currentDate = determineLastPlayedGameDate()
             }
             isArchiveGame = currentDate.isBefore(LocalDate.now())
-
             // load game state from database
             val gameHistory = AppDatabase.instance.dailyGameHistoryDao().findGameHistoryByDate(
                 gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
@@ -91,7 +85,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             currentGameId = gameHistory?.id
 
             events.clear()
-            events.addAll(fetchEvents())
+            events.addAll(OnThisDayGameProvider.getGameEvents(wikiSite, currentDate))
 
             currentState = buildGameState(gameHistory)
             savedPages.clear()
@@ -164,50 +158,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
             )
             _gameState.postValue(GameEnded(currentState, getGameStatistics(wikiSite.languageCode)))
         }
-    }
-
-    private suspend fun fetchEvents(): List<OnThisDay.Event> {
-        val events = mutableListOf<OnThisDay.Event>()
-        val eventsFromApi = ServiceFactory.getRest(wikiSite).getOnThisDay(currentMonth, currentDay).events
-
-        // Here is the logic for arranging the events:
-        // First we filter out any events that actually mention a year in the text, since those might give away the answer.
-        val yearRegex = Regex(".*\\b\\d{1,4}\\b.*")
-        val allEvents = eventsFromApi.filter {
-            it.year > 0 && it.year <= currentDate.year && !it.text.matches(yearRegex)
-        }.distinctBy { it.year }.toMutableList()
-
-        // Shuffle the events, but seed the random number generator with the current month and day so that the order is consistent for the same day.
-        allEvents.shuffle(Random(currentMonth * 100 + currentDay))
-        // Make a copy of the list of events, to draw from in case the allEvents list doesn't have enough events.
-        val allEventsCopy = allEvents.toList()
-
-        // Take an event from the list, and find another event that is within a certain range
-        repeat(Prefs.otdGameQuestionsPerDay) { index ->
-            val event1 = if (allEvents.isNotEmpty()) allEvents.removeAt(0) else allEventsCopy[index % allEventsCopy.size]
-            var event2: OnThisDay.Event?
-            val yearSpread = max((390 - (0.19043 * event1.year)).toInt(), 5)
-            event2 = allEvents.find { abs(event1.year - it.year) <= yearSpread }
-            if (event2 == null) {
-                var minDiff = Int.MAX_VALUE
-                for (event in allEvents) {
-                    val diff = abs(event1.year - event.year)
-                    if (diff < minDiff) {
-                        minDiff = diff
-                        event2 = event
-                    }
-                }
-            }
-            if (event2 == null) {
-                event2 = allEventsCopy.find { it.year != event1.year }
-            }
-            event2?.let {
-                events.add(event1)
-                events.add(event2)
-                allEvents.remove(event2)
-            }
-        }
-        return events
     }
 
     fun submitCurrentResponse(selectedYear: Int) {
@@ -295,15 +245,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     fun getThumbnailUrlForEvent(event: OnThisDay.Event): String? {
         return event.pages.firstOrNull { !it.thumbnailUrl.isNullOrEmpty() }?.thumbnailUrl
-    }
-
-    suspend fun getDataForArchiveCalendar(gameName: Int = WikiGames.WHICH_CAME_FIRST.ordinal, language: String): Map<Long, Int> {
-        val history = AppDatabase.instance.dailyGameHistoryDao().getGameHistory(gameName, language)
-        val map = history.associate {
-            val scoreKey = DateDecorator.getDateKey(it.year, it.month, it.day)
-           scoreKey to it.score
-        }
-        return map
     }
 
     private fun saveGameProgress(status: Int, nextQuestionIndex: Int) {
@@ -477,14 +418,6 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     companion object {
         const val MAX_QUESTIONS = 5
         const val EXTRA_DATE = "date"
-
-        val LANG_CODES_SUPPORTED = listOf("en", "de", "fr", "es", "pt", "ru", "ar", "tr", "zh").flatMap { langCode ->
-            WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
-        }
-
-        fun isLangSupported(lang: String): Boolean {
-            return LANG_CODES_SUPPORTED.contains(lang)
-        }
 
         fun dateReleasedForLang(lang: String): LocalDate {
             return if (lang == "de" || ReleaseUtil.isPreBetaRelease) LocalDate.of(2025, 2, 20) else LocalDate.of(2025, 5, 21)

@@ -116,12 +116,14 @@ class Event {
             this.funnelEventSequencePosition = instrument.funnel?.sequence
         }
         instrument.experiment?.let {
-            this.experiment = EventExperiment(
-                assigned = it.group,
-                enrolled = it.name,
-                subjectId = it.subjectId,
-                coordinator = it.coordinator
-            )
+            if (it.isLoggable()) {
+                this.experiment = EventExperiment(
+                    assigned = it.group,
+                    enrolled = it.name,
+                    subjectId = it.subjectId,
+                    coordinator = it.coordinator
+                )
+            }
         }
     }
 

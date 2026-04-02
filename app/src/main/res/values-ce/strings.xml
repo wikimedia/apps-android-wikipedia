@@ -996,7 +996,7 @@
   <string name="survey_dialog_general_maybe">Хила мега</string>
   <string name="on_this_day_game_entry_dialog_title">Чудахар</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Википедин ловзарш</string>
-  <string name="on_this_day_game_entry_dialog_button">Таханлера ловзар</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Таханлера ловзар</string>
   <string name="on_this_day_game_title">ХӀун хилла хьалха?</string>
   <string name="on_this_day_game_dialog_button">Ловза</string>
   <string name="on_this_day_game_splash_message">Хеталахь, муьлха хилам хилла исторехь дуьххьара оцу дийнахь.</string>
@@ -1008,13 +1008,9 @@
   <string name="on_this_day_game_point">+1 балл</string>
   <string name="on_this_day_game_next">РогӀера хаттар</string>
   <string name="on_this_day_game_finish">ТӀаьххьара жамӀ</string>
-  <string name="on_this_day_game_share_button">Йекъа</string>
-  <string name="on_this_day_game_pause_title">Ловзар сацаде?</string>
-  <string name="on_this_day_game_pause_negative">Кхин дӀа а ловза</string>
-  <string name="on_this_day_game_pause_positive">Кхетта</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Йекъа</string>
   <string name="on_this_day_game_feed_entry_card_heading">Википедин ловзарш</string>
   <string name="on_this_day_game_feed_entry_card_title">ХӀун хилла хьалха?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Хеталахь, муьлха хилам хилла исторехь дуьххьара оцу дийнахь.</string>
   <string name="on_this_day_game_next_in">РогӀера ловзар %s</string>
   <string name="on_this_day_game_your_stats">Хьан статистика</string>
   <string name="on_this_day_game_stats_average_score">Йуккъера мах хадор</string>

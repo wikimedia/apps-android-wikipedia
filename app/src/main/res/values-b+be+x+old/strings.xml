@@ -214,7 +214,7 @@
   <string name="error_can_not_process_link">Не ўдалося паказаць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
-  <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
+  <string name="page_protected_other">Гэтая старонка была абароненая на наступных роўнях: %s</string>
   <string name="page_protected_can_not_edit">Выбачайце, ваш рахунак мае недастаткова правоў, каб рэдагаваць цяпер гэтую старонку.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
   <string name="settings_item_preferences">Налады</string>
@@ -388,7 +388,9 @@
   <string name="feed_language_variants_removal_secondary_dialog_title">Калі ласка, абнавіце свае дадатковыя мовы</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_cancel_hint">Скасаваць</string>
+  <string name="customize_toolbar_category_toolbar">Панэль інструмэнтаў</string>
   <string name="suggested_edits_activity_title">Рэдагаваць</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэґі</string>
   <string name="description_edit_login_cancel_button_text">Скасаваць</string>
   <string name="text_input_dialog_cancel_button_text">Скасаваць</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасаваць</string>

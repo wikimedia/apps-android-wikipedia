@@ -1734,9 +1734,13 @@
   <string name="survey_dialog_general_maybe">아마도</string>
   <string name="survey_dialog_input_hint">추가 피드백</string>
   <string name="survey_dialog_submitted_snackbar">의견이 제출되었습니다. 고맙습니다!</string>
+  <string name="games_hub_activity_title">게임</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">더 알아보기</string>
+  <string name="games_hub_activity_overflow_view_game_stats">게임 통계 보기</string>
+  <string name="games_hub_activity_overflow_learn_more">더 알아보기</string>
   <string name="on_this_day_game_entry_dialog_title">소개</string>
   <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
-  <string name="on_this_day_game_entry_dialog_button">오늘의 게임 플레이</string>
+  <string name="on_this_day_game_entry_dialog_button">플레이</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
   <string name="on_this_day_game_progress">%2$d 중 %1$d</string>
   <string name="on_this_day_game_score">점수: %d</string>
@@ -1746,10 +1750,7 @@
   <string name="on_this_day_game_point">+1점</string>
   <string name="on_this_day_game_next">다음 질문</string>
   <string name="on_this_day_game_finish">최종 결과</string>
-  <string name="on_this_day_game_share_button">공유</string>
-  <string name="on_this_day_game_pause_title">게임을 일시 중지하시겠습니까?</string>
-  <string name="on_this_day_game_pause_negative">계속 플레이합니다</string>
-  <string name="on_this_day_game_pause_positive">알겠습니다</string>
+  <string name="on_this_day_game_share_button">점수 공유</string>
   <string name="on_this_day_game_feed_entry_card_heading">위키백과 게임</string>
   <string name="on_this_day_game_result">%2$d점 중 %1$d점을 받았습니다.</string>
   <string name="on_this_day_game_next_in">다음 게임 (%s)</string>
@@ -1784,6 +1785,9 @@
   <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
+  <string name="on_this_day_game_more_label">더 보기</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">로그인</string>
+  <string name="wikipedia_games_title">위키백과 게임</string>
   <string name="year_in_review_learn_more">더 알아보기</string>
   <string name="year_in_review_get_started">시작하기</string>
   <string name="year_in_review_topbar_w_icon">위키백과 W 아이콘</string>
@@ -1876,4 +1880,14 @@
   <string name="hybrid_search_beta_tag">베타</string>
   <string name="hybrid_search_no_results_header">결과 없음</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
+  <string name="reading_challenge_onboarding_install_title">위젯 설치하기</string>
+  <string name="reading_challenge_onboarding_learn_more_button">더 알아보기</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">괜찮습니다</string>
+  <string name="reading_challenge_onboarding_prompt_login">위키백과에 로그인 / 가입</string>
+  <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
+  <string name="reading_challenge_install_prompt_add">추가</string>
+  <string name="reading_challenge_widget_explore_button">둘러보기</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
+  <string name="reading_challenge_widget_search_button">검색</string>
+  <string name="reading_challenge_widget_concluded_complete">해냈습니다!</string>
 </resources>

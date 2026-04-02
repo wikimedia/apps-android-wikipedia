@@ -1242,6 +1242,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Valitse näytettävät moduulit. Kaikki henkilötiedot pysyvät yksityisinä laitteellasi, ja selaushistorian voi tyhjentää milloin tahansa.</string>
   <string name="edits_screen_what_is_title">Muokkaaminen Wikipedia-sovelluksessa</string>
   <string name="edits_screen_what_is_body">Oletko epävarma, miten aloittaa muokkaaminen? Kokeile ehdotettuja muokkauksia. Tämä ominaisuus luo mahdollisuuksia pienille mutta tärkeille Wikipedian muokkauksille. Vaihtoehtoisesti voit mennä suoraan sinua kiinnostavaan artikkeliin ja tehdä muokkauksen wikitekstin kautta.</string>
+  <string name="activity_tab_snackbar_label">Pelitilastot näytetään ensisijaisella kielelläsi.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -1784,10 +1785,15 @@
   <string name="survey_dialog_general_maybe">Ehkä</string>
   <string name="survey_dialog_input_hint">Lisää palautetta</string>
   <string name="survey_dialog_submitted_snackbar">Palaute lähetetty. Kiitos!</string>
+  <string name="games_hub_activity_title">Pelit</string>
+  <string name="games_hub_activity_games_unavailable_message">Tällä kielellä ei ole vielä saatavilla pelejä! Pelit hyödyntävät kunkin Wikipedian kieliversion vapaaehtoisten muokkaajien luomaa sisältöä.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lisätietoja</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Näytä pelitilastot</string>
+  <string name="games_hub_activity_overflow_learn_more">Lisätietoja</string>
   <string name="on_this_day_game_entry_dialog_title">Esittelyssä</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia-pelit</string>
-  <string name="on_this_day_game_entry_dialog_button">Pelaa tämän päivän peliä</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipediat-pelit ovat saatavilla Tutki-syötteessä.</string>
+  <string name="on_this_day_game_entry_dialog_button">Pelaa</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipediat-pelit ovat saatavilla Tutki-syötteessä.</string>
   <string name="on_this_day_game_title">Kumpi tuli ensin?</string>
   <string name="on_this_day_game_dialog_button">Pelaa</string>
   <string name="on_this_day_game_splash_message">Veikkaa, kumpi tapahtuma tuli ensin tällä päivämäärällä historiassa.</string>
@@ -1799,14 +1805,9 @@
   <string name="on_this_day_game_point">+1 piste</string>
   <string name="on_this_day_game_next">Seuraava kysymys</string>
   <string name="on_this_day_game_finish">Lopputulokset</string>
-  <string name="on_this_day_game_share_button">Jaa</string>
-  <string name="on_this_day_game_pause_title">Keskeytetäänkö peli?</string>
-  <string name="on_this_day_game_pause_body">Edistymisesi tallennetaan tämän päivän ajaksi. Löydät pelin Tutki-syötteestäsi.</string>
-  <string name="on_this_day_game_pause_negative">Jatka pelaamista</string>
-  <string name="on_this_day_game_pause_positive">Selvä</string>
+  <string name="on_this_day_game_share_button">Jaa tulos</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia-pelit</string>
   <string name="on_this_day_game_feed_entry_card_title">Kumpi tuli ensin?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Veikkaa, kumpi tapahtuma tuli ensin tällä päivämäärällä historiassa.</string>
   <string name="on_this_day_game_result">Sait %1$d / %2$d pistettä.</string>
   <string name="on_this_day_game_next_in">Aikaa seuraavaan peliin: %s</string>
   <string name="on_this_day_game_your_stats">Tilastosi</string>
@@ -1849,9 +1850,20 @@
   <string name="on_this_day_game_archive_btn_text">Pelaa arkistosta</string>
   <string name="on_this_day_game_review_results_btn_text">Katso tulokset</string>
   <string name="on_this_day_game_score_message">Sait %1$d/%2$d pistettä tämän päivän pelissä.</string>
+  <string name="on_this_day_game_play_today_btn_text">Pelaa tämän päivän peliä</string>
   <string name="on_this_day_game_continue_playing_btn_text">Jatka pelaamista</string>
   <string name="on_this_day_game_sound_on">Laita äänet päälle</string>
   <string name="on_this_day_game_sound_off">Laita äänet pois</string>
+  <string name="on_this_day_game_more_label">Lisää</string>
+  <string name="on_this_day_game_card_progress_short_label">Olet kysymyksessä %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Sait %1$d/%2$d pistettä tämän päivän pelissä. Seuraava peli avautuu %3$s kuluttua</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Sait %1$d/%2$d pistettä tämän päivän pelissä.</string>
+  <string name="on_this_day_game_card_archive_label">Arkisto</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Kirjaudu sisään</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Kirjaudu sisään nähdäksesi pelitilastosi</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Katso voittoputkesi, pisteesi ja paljon muuta</string>
+  <string name="wikipedia_games_title">Wikipedia-pelit</string>
+  <string name="wikipedia_games_subtitle">Wikipedian sisältöön pohjautua päivittäinen tietovisa.</string>
   <string name="year_in_review_learn_more">Lisätietoja</string>
   <string name="year_in_review_get_started">Aloita</string>
   <string name="year_in_review_topbar_w_icon">Wikipedian W-kuvake</string>
@@ -1868,6 +1880,7 @@
   <string name="year_in_review_get_started_later">Voit tarkastella vuosikatsaustasi myöhemmin Lisää-valikosta.</string>
   <string name="year_in_review_survey_title">Auta parantamaan vuosikatsausta</string>
   <string name="year_in_review_survey_subtitle">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="year_in_review_reading_list_survey_title">Auta parantamaan vuosikatsaus %d -lukulistaa.</string>
   <string name="year_in_review_reading_list_survey_subtitle">Oletko tyytyväinen lukulistaasi?</string>
   <string name="year_in_review_survey_very_satisfied">Erittäin tyytyväinen</string>
   <string name="year_in_review_survey_satisfied">Tyytyväinen</string>
@@ -1992,6 +2005,8 @@
     <item quantity="other">Sovelluksen käyttäjät katsoivat Wikipedia-artikkeleita %,d kertaa</item>
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">Wikipedia on ihmisille ympäri maailman ensimmäinen pysähdyspaikka, kun he etsivät vastauksia kysymyksiin, hakevat tietoa koulua tai työtä varten tai opettelevat uusia asioita.</string>
+  <string name="year_in_review_reading_list_dialog_title">Luo vuosikatsaus %d -lukulista?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedian vuosikatsaus luo sinulle lukulistan artikkeleista, joiden parissa käytit eniten aikaa vuonna %1$d. &lt;a href=\"%2$s\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Luo</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Ei kiitos</string>
   <string name="year_in_review_reading_list_title">Vuosikatsaus %d</string>

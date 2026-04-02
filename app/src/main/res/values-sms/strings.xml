@@ -446,7 +446,7 @@
   <string name="places_toggle_buttons_map">Mäddkartt</string>
   <string name="places_toggle_buttons_list">Listt</string>
   <string name="survey_dialog_submit">Vuõlttâd</string>
-  <string name="on_this_day_game_share_button">Jueʹjj</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Jueʹjj</string>
   <string name="on_this_day_game_menu_info">Lââʹssteâđ</string>
   <string name="year_in_review_learn_more">Lââʹssteâđ</string>
   <string name="donation_reminders_settings_learn_more_button">Lââʹssteâđ</string>

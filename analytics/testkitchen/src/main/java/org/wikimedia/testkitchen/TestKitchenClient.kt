@@ -5,15 +5,14 @@ import org.wikimedia.testkitchen.config.StreamConfig
 import org.wikimedia.testkitchen.context.ClientData
 import org.wikimedia.testkitchen.context.ClientDataCallback
 import org.wikimedia.testkitchen.context.InteractionData
+import org.wikimedia.testkitchen.context.MediawikiData
 import org.wikimedia.testkitchen.context.PageData
 import org.wikimedia.testkitchen.event.Event
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.atomic.AtomicReference
-import kotlin.math.max
 
 class TestKitchenClient(
     eventSender: EventSender,
@@ -41,15 +40,13 @@ class TestKitchenClient(
      */
     private val samplingController = SamplingController(clientDataCallback, sessionController)
 
-    private val eventQueue = LinkedBlockingQueue<Event>(queueCapacity)
-
     private val eventProcessor = EventProcessor(
         ContextController(),
         CurationController(),
         sourceConfig,
         samplingController,
         eventSender,
-        eventQueue,
+        queueCapacity,
         logger,
         followCurationRules = false, // TODO: remove when SDK gets instruments dynamically from config.
     )
@@ -62,9 +59,10 @@ class TestKitchenClient(
     fun submitInteraction(
         instrument: InstrumentImpl,
         interactionData: InteractionData? = null,
-        pageData: PageData? = null
+        pageData: PageData? = null,
+        mediawikiData: MediawikiData? = null
     ) {
-        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData)
+        submitInteraction(SCHEMA_APP_BASE, STREAM_APP_BASE, instrument, interactionData, pageData, mediawikiData)
     }
 
     fun submitInteraction(
@@ -72,18 +70,19 @@ class TestKitchenClient(
         streamName: String,
         instrument: InstrumentImpl,
         interactionData: InteractionData? = null,
-        pageData: PageData? = null
+        pageData: PageData? = null,
+        mediawikiData: MediawikiData? = null
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
         if (sourceConfig.get() != null) {
             streamConfig = sourceConfig.get().getStreamConfigByName(streamName)
             if (streamConfig == null) {
-                logger.info("No stream config exists for this stream, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("No stream config exists for this stream, the event is ignored and dropped.")
                 return
             }
             if (!samplingController.isInSample(streamConfig)) {
-                logger.info("Not in sample, the submitMetricsEvent event is ignored and dropped.")
+                logger.info("Not in sample, the event is ignored and dropped.")
                 return
             }
         }
@@ -96,14 +95,14 @@ class TestKitchenClient(
             clientData = ClientData(
                 agentData = clientDataCallback.getAgentData(),
                 pageData = pageData,
-                mediawikiData = clientDataCallback.getMediawikiData(),
+                mediawikiData = mediawikiData ?: clientDataCallback.getMediawikiData(),
                 performerData = clientDataCallback.getPerformerData()
             ),
             interactionData = interactionData ?: InteractionData(),
             sample = streamConfig?.sampleConfig
         )
 
-        addToEventQueue(event)
+        eventProcessor.addToQueue(event)
     }
 
     /**
@@ -139,29 +138,6 @@ class TestKitchenClient(
 
     fun flushEventQueue() {
         eventProcessor.sendEnqueuedEvents()
-    }
-
-    /**
-     * Append an enriched event to the queue.
-     * If the queue is full, we remove the oldest events from the queue to add the current event.
-     * Number of attempts to add to the queue is 1/50 of the number queue capacity but at least 10
-     *
-     * @param event a processed event
-     */
-    private fun addToEventQueue(event: Event?) {
-        var eventQueueAppendAttempts = max(eventQueue.size / 50, 10)
-
-        if (eventQueue.size > queueCapacity / 2) {
-            eventProcessor.sendEnqueuedEvents()
-        }
-
-        while (!eventQueue.offer(event)) {
-            val removedEvent = eventQueue.remove()
-            if (removedEvent != null) {
-                logger.warn(removedEvent.action + " was dropped so that a newer event could be added to the queue.")
-            }
-            if (eventQueueAppendAttempts-- <= 0) break
-        }
     }
 
     companion object {

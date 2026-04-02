@@ -1810,8 +1810,8 @@
   <string name="survey_dialog_submitted_snackbar">已提交反馈。谢谢！</string>
   <string name="on_this_day_game_entry_dialog_title">介绍</string>
   <string name="on_this_day_game_entry_dialog_subtitle">维基百科游戏</string>
-  <string name="on_this_day_game_entry_dialog_button">游玩今天的游戏</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">维基百科游戏可在探索订阅源中找到。</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">游玩今天的游戏</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">维基百科游戏可在探索订阅源中找到。</string>
   <string name="on_this_day_game_title">猜先后</string>
   <string name="on_this_day_game_dialog_button">游玩</string>
   <string name="on_this_day_game_splash_message">猜猜历史上的这一天最先发生的事件是什么。</string>
@@ -1823,14 +1823,9 @@
   <string name="on_this_day_game_point">+1分</string>
   <string name="on_this_day_game_next">下一个问题</string>
   <string name="on_this_day_game_finish">最终结果</string>
-  <string name="on_this_day_game_share_button">分享</string>
-  <string name="on_this_day_game_pause_title">暂停游戏？</string>
-  <string name="on_this_day_game_pause_body">您的进度会在当天内保存。您可以在探索订阅源中找到该游戏。</string>
-  <string name="on_this_day_game_pause_negative">继续游玩</string>
-  <string name="on_this_day_game_pause_positive">明白了</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">分享</string>
   <string name="on_this_day_game_feed_entry_card_heading">维基百科游戏</string>
   <string name="on_this_day_game_feed_entry_card_title">猜先后</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">猜猜历史上的这一天最先发生的事件是什么。</string>
   <string name="on_this_day_game_result">您的得分%1$d/%2$d。</string>
   <string name="on_this_day_game_next_in">下一个游戏会在%s开始</string>
   <string name="on_this_day_game_your_stats">您的状态</string>

@@ -12,18 +12,20 @@ data class SearchResult(val pageTitle: PageTitle,
                         val redirectFrom: String?,
                         val type: SearchResultType,
                         val coordinates: List<MwQueryPage.Coordinates>? = null,
-                        val snippet: String? = null) {
+                        val snippet: String? = null,
+                        val indexInApiCall: Int = 0) {
 
     @Serializable
     enum class SearchResultType {
-        SEARCH, HISTORY, READING_LIST, TAB_LIST, SEMANTIC
+        PREFIX, FULL_TEXT, HISTORY, READING_LIST, TAB_LIST, SEMANTIC
     }
 
     constructor(
         page: MwQueryPage,
         wiki: WikiSite,
         coordinates: List<MwQueryPage.Coordinates>? = null,
-        type: SearchResultType = SearchResultType.SEARCH
+        type: SearchResultType = SearchResultType.PREFIX,
+        indexInApiCall: Int = 0
     ) : this(
         pageTitle = PageTitle(
             text = page.title,
@@ -35,11 +37,12 @@ data class SearchResult(val pageTitle: PageTitle,
         redirectFrom = page.redirectFrom,
         type = type,
         coordinates = coordinates,
-        snippet = page.snippet
+        snippet = page.snippet,
+        indexInApiCall = indexInApiCall
     )
 
-    constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.SEARCH, snippet: String? = null) :
-            this(pageTitle, null, searchResultType, null, snippet)
+    constructor(pageTitle: PageTitle, searchResultType: SearchResultType = SearchResultType.PREFIX, snippet: String? = null, indexInApiCall: Int = 0) :
+            this(pageTitle, null, searchResultType, null, snippet, indexInApiCall)
 
     val location: Location? get() {
         return if (coordinates.isNullOrEmpty()) null else

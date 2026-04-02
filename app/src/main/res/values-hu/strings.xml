@@ -1792,8 +1792,8 @@
   <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve. Köszönjük!</string>
   <string name="on_this_day_game_entry_dialog_title">Bemutatjuk</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia játékok</string>
-  <string name="on_this_day_game_entry_dialog_button">Játssz a mai játékkal</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">A Wikipédia-játékok elérhetők a Felfedezés hírfolyamban.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Játssz a mai játékkal</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">A Wikipédia-játékok elérhetők a Felfedezés hírfolyamban.</string>
   <string name="on_this_day_game_title">Melyik volt előbb?</string>
   <string name="on_this_day_game_dialog_button">Játék</string>
   <string name="on_this_day_game_splash_message">Találd ki, melyik esemény történt először ezen a napon a történelemben.</string>
@@ -1805,14 +1805,9 @@
   <string name="on_this_day_game_point">+1 pont</string>
   <string name="on_this_day_game_next">Következő kérdés</string>
   <string name="on_this_day_game_finish">Végeredmény</string>
-  <string name="on_this_day_game_share_button">Megosztás</string>
-  <string name="on_this_day_game_pause_title">Szünetet tartasz?</string>
-  <string name="on_this_day_game_pause_body">A mai napi előrehaladásod elmentésre kerül. A játékot később megtalálod a Felfedezés hírcsatornán.</string>
-  <string name="on_this_day_game_pause_negative">Folytatom a játékot</string>
-  <string name="on_this_day_game_pause_positive">Értem</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Megosztás</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipédia játékok</string>
   <string name="on_this_day_game_feed_entry_card_title">Melyik volt előbb?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Találd ki, melyik esemény történt korábban ezen a napon a történelemben.</string>
   <string name="on_this_day_game_result">%1$d/%2$d pontot szereztél.</string>
   <string name="on_this_day_game_next_in">Következő játék %s múlva</string>
   <string name="on_this_day_game_your_stats">A statisztikáid</string>

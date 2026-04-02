@@ -45,6 +45,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.ActivityPageBinding
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -190,12 +191,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         }
 
         app = WikipediaApp.instance
-
-        if (savedInstanceState == null && !app.haveMainActivity) {
-            lifecycleScope.launch {
-                YearInReviewDialog.maybeShowCreateReadingListDialog(this@PageActivity)
-            }
-        }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
@@ -528,6 +523,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
             uri?.let {
+                if (!Service.isWikimediaAuthority(it.authority)) {
+                    UriUtil.visitInExternalBrowser(this, it)
+                    finish()
+                    return
+                }
                 val wiki = WikiSite(it)
                 val title = PageTitle.titleForUri(it, wiki)
                 val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))

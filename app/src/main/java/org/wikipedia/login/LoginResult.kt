@@ -10,7 +10,8 @@ open class LoginResult internal constructor(val site: WikiSite,
                                             val password: String?,
                                             val message: String?,
                                             var userId: Int = 0,
-                                            var groups: Set<String> = emptySet()) {
+                                            var groups: Set<String> = emptySet(),
+                                            var messageCode: String? = null) {
 
     fun pass(): Boolean {
         return STATUS_PASS == status

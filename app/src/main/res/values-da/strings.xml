@@ -1791,8 +1791,8 @@
   <string name="survey_dialog_submitted_snackbar">Feedback indsendt. Tak!</string>
   <string name="on_this_day_game_entry_dialog_title">Introducerer</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia spil</string>
-  <string name="on_this_day_game_entry_dialog_button">Spil dagens spil</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spil er tilgængelige i Udforsk-feedet.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Spil dagens spil</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spil er tilgængelige i Udforsk-feedet.</string>
   <string name="on_this_day_game_title">Hvad kom først?</string>
   <string name="on_this_day_game_dialog_button">Afspil</string>
   <string name="on_this_day_game_splash_message">Gæt hvilken begivenhed, der kom først på denne dag i historien.</string>
@@ -1804,14 +1804,9 @@
   <string name="on_this_day_game_point">+1 point</string>
   <string name="on_this_day_game_next">Næste spørgsmål</string>
   <string name="on_this_day_game_finish">Endeligt resultat</string>
-  <string name="on_this_day_game_share_button">Del</string>
-  <string name="on_this_day_game_pause_title">Sæt spillet på pause?</string>
-  <string name="on_this_day_game_pause_body">Dine fremskridt vil blive gemt for dagen. Du kan finde spillet i dit Udforsk-feed.</string>
-  <string name="on_this_day_game_pause_negative">Fortsæt med at spille</string>
-  <string name="on_this_day_game_pause_positive">Forstået</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Del</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia spil</string>
   <string name="on_this_day_game_feed_entry_card_title">Hvad kom først?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Gæt hvilken begivenhed, der kom først på denne dag i historien.</string>
   <string name="on_this_day_game_result">Du scorede %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Næste spil om %s</string>
   <string name="on_this_day_game_your_stats">Dine stats</string>

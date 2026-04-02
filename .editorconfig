@@ -31,6 +31,7 @@ ktlint_standard_wrapping = disabled
 ktlint_standard_trailing-comma-on-call-site = disabled
 ktlint_standard_trailing-comma-on-declaration-site = disabled
 ktlint_standard_no-wildcard-imports = disabled
+ktlint_standard_no-unused-imports = enabled
 ktlint_standard_multiline-if-else = disabled
 ktlint_standard_spacing-between-declarations-with-annotations = disabled
 ktlint_standard_annotation = disabled

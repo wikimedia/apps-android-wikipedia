@@ -1785,8 +1785,8 @@
   <string name="survey_dialog_submitted_snackbar">Povratne informacije so poslane. Hvalaǃ</string>
   <string name="on_this_day_game_entry_dialog_title">Predstavljamo</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Igre Wikipedije</string>
-  <string name="on_this_day_game_entry_dialog_button">Igraj današnjo igro</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Igre Wikipedije so na voljo v viru Raziskuj</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Igraj današnjo igro</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Igre Wikipedije so na voljo v viru Raziskuj</string>
   <string name="on_this_day_game_title">Kateri je bil prvi?</string>
   <string name="on_this_day_game_dialog_button">Igraj</string>
   <string name="on_this_day_game_splash_message">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
@@ -1797,13 +1797,8 @@
   <string name="on_this_day_game_point">+1 točka</string>
   <string name="on_this_day_game_next">Naslednje vprašanje</string>
   <string name="on_this_day_game_finish">Končni rezultati</string>
-  <string name="on_this_day_game_pause_title">Premor igre?</string>
-  <string name="on_this_day_game_pause_body">Vaš napredek bo shranjen za ta dan. Igro najdete v viru Raziskuj.</string>
-  <string name="on_this_day_game_pause_negative">Igraj naprej</string>
-  <string name="on_this_day_game_pause_positive">Razumem</string>
   <string name="on_this_day_game_feed_entry_card_heading">Igre Wikipedije</string>
   <string name="on_this_day_game_feed_entry_card_title">Kateri je bil prvi?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Uganite, kateri dogodek na današnji dan se je zgodil prvi v zgodovini.</string>
   <string name="on_this_day_game_result">Vaš rezultat: %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Naslednja igra v %s</string>
   <string name="on_this_day_game_your_stats">Vaša statistika</string>
