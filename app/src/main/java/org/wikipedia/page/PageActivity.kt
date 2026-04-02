@@ -52,8 +52,11 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
+import org.wikipedia.edit.EDITOR_CHOICE_SOURCE
+import org.wikipedia.edit.EDITOR_CHOICE_VE
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.showEditorChoiceDialog
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
 import org.wikipedia.extensions.parcelableExtra
@@ -480,14 +483,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        //requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
-
-
-        //startActivity(SingleWebViewActivity.newIntent(this, title.uri + "?veaction=edit"))
-
-
-        UriUtil.visitInExternalBrowser(this, (title.uri + "?action=edit").toUri())
-
+        showEditorChoiceDialog(this) { editorChoice, dontShowAgain ->
+            if (dontShowAgain) {
+                //TODO
+            }
+            if (editorChoice == EDITOR_CHOICE_VE) {
+                UriUtil.visitInExternalBrowser(this, (title.uri + "?useformat=mobile&veaction=edit&section=$sectionId").toUri())
+            } else {
+                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
+            }
+        }
     }
 
     override fun onPageRequestLangLinks(title: PageTitle, historyEntryId: Long) {
