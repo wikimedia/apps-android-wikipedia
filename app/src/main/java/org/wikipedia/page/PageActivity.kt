@@ -527,71 +527,87 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
-            var uri = intent.data
-            if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
+            var uri = intent.data!!
+
+            if (uri.scheme == "wikipedia") {
+                uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
+
+                // TODO: move this to a more appropriate spot.
+                uri.getQueryParameter("saved")?.let {
+                    if (it == "true") {
+                        binding.root.post {
+                            if (!isDestroyed) {
+                                FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+                            }
+                        }
+                    } else {
+                        L.d("Edit abandoned.")
+                    }
+                }
+            }
+
+            if (!ReleaseUtil.isPreBetaRelease && uri.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.
                 uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build()
             }
-            uri?.let {
-                if (!Service.isWikimediaAuthority(it.authority)) {
-                    UriUtil.visitInExternalBrowser(this, it)
-                    finish()
-                    return
-                }
-                val wiki = WikiSite(it)
-                val title = PageTitle.titleForUri(it, wiki)
-                val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
-                    HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
-                // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
-                ActivityCompat.getReferrer(this)?.let { uri ->
-                    historyEntry.referrer = uri.toString()
-                }
-                if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
-                    L.d("Received shareable reading lists")
-                    val encodedListFromParameter = uri.getQueryParameter("limport")
-                    Prefs.importReadingListsDialogShown = false
-                    Prefs.receiveReadingListsData = encodedListFromParameter
-                    startActivity(ReadingListActivity.newIntent(this, ReadingListMode.PREVIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                    finish()
-                    return
-                }
-                // Special cases:
-                // If the subdomain of the URL is not a "language" subdomain as we expect, then
-                // bounce it out to an external browser. This can be links to the "donate." or
-                // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
-                val language = wiki.languageCode.lowercase(Locale.getDefault())
-                if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
-                    // ...Except if the URL came as a result of a successful donation, in which case
-                    // treat it differently:
-                    if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
-                        CampaignCollection.addDonationResult(fromWeb = true,
-                            amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
-                            currency = uri.getQueryParameter("currency") ?: "",
-                            recurring = uri.getQueryParameter("recurring") == "1")
-                        // Check if the donation started from the app, but completed via web, in which case
-                        // show it in a SingleWebViewActivity.
-                        val campaign = uri.getQueryParameter("wmf_campaign")
-
-                        if (campaign != null && campaign == "Android") {
-                            var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
-                            YearInReviewViewModel.currentCampaignId?.let { campaignId ->
-                                YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
-                                pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
-                            } ?: run {
-                                DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
-                            }
-                            startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                                true, pageFragment.title, pageContentInfo))
-                            finish()
-                            return
-                        }
-                    }
-                    UriUtil.visitInExternalBrowser(this, it)
-                    finish()
-                    return
-                }
-                loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
+            if (!Service.isWikimediaAuthority(uri.authority)) {
+                UriUtil.visitInExternalBrowser(this, uri)
+                finish()
+                return
             }
+            val wiki = WikiSite(uri)
+            val title = PageTitle.titleForUri(uri, wiki)
+            val historyEntry = HistoryEntry(title, if (intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID))
+                HistoryEntry.SOURCE_NOTIFICATION_SYSTEM else HistoryEntry.SOURCE_EXTERNAL_LINK)
+            // Populate the referrer with the externally-referring URL, e.g. an external Browser URL, if present.
+            ActivityCompat.getReferrer(this)?.let { uri ->
+                historyEntry.referrer = uri.toString()
+            }
+            if (title.namespace() == Namespace.SPECIAL && title.prefixedText.startsWith("Special:ReadingLists")) {
+                L.d("Received shareable reading lists")
+                val encodedListFromParameter = uri.getQueryParameter("limport")
+                Prefs.importReadingListsDialogShown = false
+                Prefs.receiveReadingListsData = encodedListFromParameter
+                startActivity(ReadingListActivity.newIntent(this, ReadingListMode.PREVIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                finish()
+                return
+            }
+            // Special cases:
+            // If the subdomain of the URL is not a "language" subdomain as we expect, then
+            // bounce it out to an external browser. This can be links to the "donate." or
+            // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
+            val language = wiki.languageCode.lowercase(Locale.getDefault())
+            if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
+                // ...Except if the URL came as a result of a successful donation, in which case
+                // treat it differently:
+                if (language == "thankyou" && uri.getQueryParameter("order_id") != null) {
+                    CampaignCollection.addDonationResult(fromWeb = true,
+                        amount = (uri.getQueryParameter("amount"))?.toFloat() ?: 0f,
+                        currency = uri.getQueryParameter("currency") ?: "",
+                        recurring = uri.getQueryParameter("recurring") == "1")
+                    // Check if the donation started from the app, but completed via web, in which case
+                    // show it in a SingleWebViewActivity.
+                    val campaign = uri.getQueryParameter("wmf_campaign")
+
+                    if (campaign != null && campaign == "Android") {
+                        var pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE
+                        YearInReviewViewModel.currentCampaignId?.let { campaignId ->
+                            YearInReviewEvent.submit(action = "impression", slide = "webpay_processed", campaignId = campaignId)
+                            pageContentInfo = SingleWebViewActivity.PAGE_CONTENT_SOURCE_YIR
+                        } ?: run {
+                            DonorExperienceEvent.logAction("impression", "webpay_processed", wiki.languageCode)
+                        }
+                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                            true, pageFragment.title, pageContentInfo))
+                        finish()
+                        return
+                    }
+                }
+                UriUtil.visitInExternalBrowser(this, uri)
+                finish()
+                return
+            }
+            loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
         } else if ((ACTION_LOAD_IN_NEW_TAB == intent.action || ACTION_LOAD_IN_CURRENT_TAB == intent.action ||
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
             val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
