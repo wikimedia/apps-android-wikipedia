@@ -1325,6 +1325,10 @@
     <string name="onboarding_fresh_install_knowledge_title">All the world\'s knowledge</string>
     <string name="onboarding_fresh_install_knowledge_text">Wikipedia is a free online encyclopedia with 65 million articles collaboratively written and maintained in more than 300 languages by a community of volunteers.</string>
     <string name="onboarding_fresh_install_knowledge_learn_more">Learn more about Wikipedia</string>
+    <string name="onboarding_app_languages_title">Read in more than 300 languages</string>
+    <string name="onboarding_app_languages_text">We\'ve noticed the following languages on your device:</string>
+    <string name="onboarding_app_languages_primary">Primary</string>
+    <string name="onboarding_app_languages_add_button">Add or edit your languages</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->
