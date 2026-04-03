@@ -2148,4 +2148,5 @@
   <string name="reading_challenge_widget_concluded_complete">Ce l\'hai fatta!</string>
   <string name="reading_challenge_widget_reward_title">La curiosità ti dona! 🛍️</string>
   <string name="reading_challenge_widget_reward_body">Festeggia il completamento della sfida con uno sconto del 15%% sul Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Ottieni 15%% di sconto in negozio</string>
 </resources>

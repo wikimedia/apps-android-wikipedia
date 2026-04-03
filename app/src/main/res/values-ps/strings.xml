@@ -2310,6 +2310,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">ننگونه پای ته ورسېده</string>
   <string name="reading_challenge_widget_concluded_complete">تاسو وکړل!</string>
   <string name="reading_challenge_widget_reward_title">څېړنه له تاسو سره ښه ښکاري! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">په ويکي‌پېډيا پلورنځي کې ۱۵%% کمښت سره د ننگونې بشپړولو ونمانځئ.</string>
-  <string name="reading_challenge_widget_reward_button_label">پلورنځي کې ۱۵%% کمښت ترلاسه کړئ</string>
+  <string name="reading_challenge_widget_reward_body" fuzzy="true">په ويکي‌پېډيا پلورنځي کې ۱۵%% کمښت سره د ننگونې بشپړولو ونمانځئ.</string>
+  <string name="reading_challenge_widget_reward_button_label" fuzzy="true">پلورنځي کې ۱۵%% کمښت ترلاسه کړئ</string>
 </resources>

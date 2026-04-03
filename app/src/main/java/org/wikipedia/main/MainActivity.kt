@@ -43,7 +43,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private lateinit var binding: ActivityMainBinding
 
-    private var statusBarInsets: Insets? = null
+    private var statusBarInsets = Insets.NONE
+    private var navBarInsets = Insets.NONE
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
@@ -70,11 +71,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-
-            fragment.binding.mainNavTabContainer.updatePadding(bottom = navBarInsets.bottom)
-
-            applyStatusBarInsets()
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            applyInsets()
             WindowInsetsCompat.CONSUMED.toWindowInsets()!!
         }
 
@@ -134,14 +132,19 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
             applyNavBarTheme(WikipediaApp.instance.currentTheme)
         }
-        applyStatusBarInsets()
+        applyInsets()
         fragment.requestUpdateToolbarElevation()
     }
 
-    private fun applyStatusBarInsets() {
-        statusBarInsets?.let {
-            binding.root.updatePadding(top = if (fragment.currentFragment is HomeFragment) 0 else it.top)
-        }
+    private fun applyInsets() {
+        binding.root.updatePadding(
+            top = if (fragment.currentFragment is HomeFragment) 0 else statusBarInsets.top + navBarInsets.top,
+            left = statusBarInsets.left + navBarInsets.left,
+            right = statusBarInsets.right + navBarInsets.right
+        )
+        fragment.binding.mainNavTabContainer.updatePadding(
+            bottom = statusBarInsets.bottom + navBarInsets.bottom
+        )
     }
 
     private fun applyNavBarTheme(theme: Theme) {

@@ -65,6 +65,7 @@ class ExploreFeedUpdatePromptActivity : BaseActivity() {
                         // TODO: navigate directly to the feed.
                     },
                     onCustomizeFeedClick = {
+                        startActivity(ExploreFeedBuildingActivity.newIntent(this))
                         finish()
                         // TODO: navigate to condensed onboarding flow (Interests Selection, Feed Preference and Feed Loading screens)
                     }
