@@ -2473,4 +2473,7 @@
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
     <string name="explore_feed_building_text">Let\'s build your feed…</string>
+    <string name="explore_feed_community_tab_label">From the community</string>
+    <string name="explore_feed_for_you_tab_label">For you</string>
+    <string name="explore_feed_load_previous_day_label">Load previous day</string>
 </resources>

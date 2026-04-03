@@ -2220,4 +2220,7 @@
   <string name="explore_feed_new_update_prompt_primary_button_text">Label for the primary action button on the feed update onboarding prompt, directing the user to manually customize their feed.</string>
   <string name="explore_feed_new_update_prompt_secondary_button_text">Label for the secondary action button on the feed update onboarding prompt, allowing the user to have their feed configured automatically.</string>
   <string name="explore_feed_building_text">Body text for the feed building screen.</string>
+  <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
+  <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
+  <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
 </resources>
