@@ -10,17 +10,16 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.image.FeaturedImage
-import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.onthisday.OnThisDay
 import org.wikipedia.feed.topread.TopRead
-import org.wikipedia.util.DateUtil
+import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 
 data class DayContent(
     val age: Int,
-    val date: UtcDate,
+    val date: LocalDate,
     val featuredArticle: PageSummary? = null,
     val news: List<NewsItem> = emptyList(),
     val topRead: TopRead? = null,
@@ -116,10 +115,10 @@ class HomeViewModel : ViewModel() {
             )
 
             val age = nextCommunityAge
-            val date = DateUtil.getUtcRequestDateFor(age)
+            val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
             val wiki = WikipediaApp.instance.wikiSite
             val content = ServiceFactory.getRest(wiki)
-                .getFeedFeatured(date.year, date.month, date.day, wiki.languageCode)
+                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wiki.languageCode)
 
             val dayContent = DayContent(
                 age = age,

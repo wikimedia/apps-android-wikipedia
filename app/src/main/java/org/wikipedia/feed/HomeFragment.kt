@@ -60,15 +60,17 @@ import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.imageservice.ImageService
+import java.time.LocalDate
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
@@ -257,13 +259,11 @@ fun CommunityContentTab(
             LoadingIndicator(modifier = Modifier.fillMaxHeight())
         }
         state.error != null && state.days.isEmpty() -> {
-            ErrorState(message = state.error.message, onRetry = onLoadMore)
+            ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
             LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(WikipediaTheme.colors.backgroundColor),
+                modifier = Modifier.fillMaxSize(),
                 contentPadding = androidx.compose.foundation.layout.PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
                 state.days.forEach { day ->
@@ -291,7 +291,7 @@ fun CommunityContentTab(
 
                 if (state.error != null && state.days.isNotEmpty()) {
                     item(key = "error-community") {
-                        ErrorState(message = state.error.message, onRetry = onLoadMore)
+                        ErrorState(state.error, onRetry = onLoadMore)
                     }
                 }
             }
@@ -310,7 +310,7 @@ fun ForYouContentTab(
             LoadingIndicator(modifier = Modifier.fillMaxHeight())
         }
         state.error != null && state.modules.isEmpty() -> {
-            ErrorState(message = state.error.message, onRetry = onLoadMore)
+            ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
             val listState = rememberLazyListState()
@@ -353,7 +353,7 @@ fun ForYouContentTab(
 
                     if (state.error != null && state.modules.isNotEmpty()) {
                         item(key = "error-foryou") {
-                            ErrorState(message = state.error.message, onRetry = onLoadMore)
+                            ErrorState(state.error, onRetry = onLoadMore)
                         }
                     }
                 }
@@ -363,12 +363,12 @@ fun ForYouContentTab(
 }
 
 @Composable
-fun DayHeader(date: UtcDate) {
+fun DayHeader(date: LocalDate) {
     Text(
-        text = "${date.month}/${date.day}/${date.year}",
-        color = WikipediaTheme.colors.primaryColor,
+        text = date.toString(),
+        color = WikipediaTheme.colors.secondaryColor,
         fontWeight = FontWeight.Bold,
-        fontSize = 18.sp,
+        fontSize = 14.sp,
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
     )
 }
@@ -498,26 +498,23 @@ fun LoadingIndicator(
 }
 
 @Composable
-fun ErrorState(message: String?, onRetry: () -> Unit) {
+fun ErrorState(caught: Throwable, onRetry: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = message ?: "Something went wrong",
-            color = WikipediaTheme.colors.destructiveColor,
-            fontSize = 14.sp
+        WikiErrorView(
+            modifier = Modifier,
+            caught,
+            errorClickEvents = WikiErrorClickEvents(
+                retryClickListener = {
+                    onRetry()
+                }
+            ),
+            retryForGenericError = true
         )
-        Spacer(modifier = Modifier.height(8.dp))
-        TextButton(onClick = onRetry) {
-            Text(
-                text = "Retry",
-                color = WikipediaTheme.colors.progressiveColor,
-                fontWeight = FontWeight.Medium
-            )
-        }
     }
 }
 
