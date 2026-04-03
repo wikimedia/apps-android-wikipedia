@@ -1,0 +1,158 @@
+package org.wikipedia.feed.featured
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import org.wikipedia.R
+import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.theme.Theme
+import org.wikipedia.views.imageservice.ImageService
+
+@Composable
+fun FeaturedArticleModule(article: PageSummary) {
+    val context = LocalContext.current
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .clickable {
+                // TODO: navigate.
+            }
+    ) {
+        AsyncImage(
+            model = article.thumbnailUrl?.let { ImageService.getRequest(context, url = it) },
+            placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+            error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+            contentDescription = article.displayTitle,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(360.dp)
+        )
+
+        Row(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            IconButton(
+                modifier = Modifier.background(
+                    color = WikipediaTheme.colors.backgroundColor,
+                    shape = CircleShape
+                ).size(40.dp),
+                onClick = {
+                    // TODO: bookmark
+                }
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+            IconButton(
+                modifier = Modifier.background(
+                    color = WikipediaTheme.colors.backgroundColor,
+                    shape = CircleShape
+                ).size(40.dp),
+                onClick = {
+                    // TODO: share
+                }
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .fillMaxWidth()
+                .padding(16.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.90f))
+                .padding(16.dp)
+        ) {
+            HtmlText(
+                text = article.displayTitle,
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontFamily = FontFamily.Serif
+                )
+            )
+            article.description?.let { description ->
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = description,
+                    color = WikipediaTheme.colors.secondaryColor,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+            article.extract?.let { extract ->
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 12.dp).width(48.dp),
+                    thickness = 1.dp,
+                    color = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
+                )
+                Text(
+                    text = extract,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 4,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun FeaturedArticleCardPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        FeaturedArticleModule(
+            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
+        )
+    }
+}

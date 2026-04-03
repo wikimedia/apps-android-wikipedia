@@ -40,7 +40,7 @@ class InitialOnboardingActivity : BaseActivity() {
         setContent {
             var currentTheme by remember { mutableStateOf(Theme.BLACK) }
             var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
-            DeviceUtil.setLightSystemUiVisibility(this, currentTheme = currentTheme)
+            DeviceUtil.setLightSystemUiVisibility(this, !currentTheme.isDark)
             setNavigationBarColor(currentNavigationBarColor)
             BaseTheme(
                 currentTheme = currentTheme
