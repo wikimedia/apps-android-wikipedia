@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -27,6 +28,9 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -45,6 +49,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,6 +60,7 @@ import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.page.PageSummary
@@ -336,70 +342,91 @@ fun DayHeader(date: UtcDate) {
 @Composable
 fun FeaturedArticleCard(article: PageSummary) {
     val context = LocalContext.current
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
-            .clip(RoundedCornerShape(12.dp))
-            .background(WikipediaTheme.colors.paperColor)
+            .padding(16.dp)
+            .clip(RoundedCornerShape(16.dp))
             .clickable {
                 // TODO: navigate.
             }
-            .padding(16.dp)
     ) {
-        Text(
-            text = "Featured article",
-            color = WikipediaTheme.colors.secondaryColor,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Medium
+        AsyncImage(
+            model = article.thumbnailUrl?.let { ImageService.getRequest(context, url = it) },
+            placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+            error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+            contentDescription = article.displayTitle,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(360.dp)
         )
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = article.displayTitle,
-            color = WikipediaTheme.colors.primaryColor,
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp
-        )
-        article.thumbnailUrl?.let { url ->
-            Spacer(modifier = Modifier.height(8.dp))
-            AsyncImage(
-                model = ImageService.getRequest(context, url = url),
-                placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                contentDescription = article.displayTitle,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-                    .clip(RoundedCornerShape(8.dp))
-            )
-        }
-        article.extract?.let { extract ->
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = extract,
-                color = WikipediaTheme.colors.secondaryColor,
-                fontSize = 14.sp,
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis
-            )
-        }
-    }
-}
 
-@Composable
-fun ModuleHeader(module: ForYouModule) {
-    val title = when (module) {
-        is ForYouModule.BasedOnReadingHistory -> "Based on your reading history"
-        is ForYouModule.BasedOnLocation -> "Near you"
-        is ForYouModule.BasedOnInterests -> "Because you like ${module.interest}"
+        Row(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(8.dp)
+        ) {
+            IconButton(onClick = { /* TODO: bookmark */ }) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+            IconButton(onClick = { /* TODO: share */ }) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .fillMaxWidth()
+                .padding(16.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.90f))
+                .padding(16.dp)
+        ) {
+            HtmlText(
+                text = article.displayTitle,
+                color = WikipediaTheme.colors.primaryColor,
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontFamily = FontFamily.Serif
+                )
+            )
+            article.description?.let { description ->
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = description,
+                    color = WikipediaTheme.colors.secondaryColor,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+            article.extract?.let { extract ->
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 12.dp).width(48.dp),
+                    thickness = 1.dp,
+                    color = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
+                )
+                Text(
+                    text = extract,
+                    color = WikipediaTheme.colors.primaryColor,
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 4,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+        }
     }
-    Text(
-        text = title,
-        color = WikipediaTheme.colors.primaryColor,
-        fontWeight = FontWeight.Bold,
-        fontSize = 16.sp,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
-    )
 }
 
 @Composable
@@ -471,6 +498,17 @@ fun HomeScreenPreview() {
         )
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun FeaturedArticleCardPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        FeaturedArticleCard(
+            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
+        )
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
