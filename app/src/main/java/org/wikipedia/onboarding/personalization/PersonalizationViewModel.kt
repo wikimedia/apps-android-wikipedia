@@ -138,8 +138,9 @@ class PersonalizationViewModel(
                 return@launch
             }
 
-            val titles = repository.getArticlesBytTopic(topics)
-            state.update { it.copy(articles = titles, articlesLoading = false) }
+            val articles = repository.getArticlesBytTopic(topics)
+            val newArticles = (current.selectedArticles.toList() + articles).distinct()
+            state.update { it.copy(articles = newArticles, articlesLoading = false) }
         }
     }
 
