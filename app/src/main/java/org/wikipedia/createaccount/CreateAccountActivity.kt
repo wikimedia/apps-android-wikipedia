@@ -95,9 +95,9 @@ class CreateAccountActivity : BaseActivity() {
             .setDefaultActionSource("create_account_form")
             .startFunnel("create_account")
 
-        // Only send the editing start log event if the activity is created for the first time
+        // Only send event if the activity is created for the first time
         if (savedInstanceState == null) {
-            instrument?.submitInteraction("impression", actionContext = mapOf("invoke_source" to requestSource))
+            instrument?.submitInteraction("impression", actionContext = mapOf("create_source" to requestSource))
         }
 
         addFirstKeystrokeInstrumentation(binding.createAccountUsername.editText, "username")
@@ -396,7 +396,7 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent)
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
-        instrument?.submitInteraction("success")
+        instrument?.submitInteraction("success", actionContext = mapOf("create_source" to requestSource))
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }

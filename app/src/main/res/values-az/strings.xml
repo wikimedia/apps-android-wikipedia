@@ -2236,7 +2236,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Niyə pizzaya ananas əlavə edirlər?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Avropanın ən böyük şəhərləri hansılardır?</string>
   <string name="hybrid_search_onboarding_screen_title">Axtarışın yeni yolu</string>
-  <string name="hybrid_search_results_header_description">İnsan tərəfindən yaradılan Vikipediya məqalələrindən alınıb</string>
+  <string name="hybrid_search_results_header_description">İnsan tərəfindən yazılan Vikipediya məqalələrindən alınıb</string>
   <string name="hybrid_search_results_rate_label">Bu nəticəni qiymətləndir</string>
   <string name="hybrid_search_results_rated_label">Qiymətləndirilib</string>
   <string name="hybrid_search_results_rate_thumb_up">Yaxşı olaraq qiymətləndir</string>
@@ -2250,4 +2250,43 @@
   <string name="hybrid_search_error_message">Xəta baş verdi. Daha sonra yenidən cəhd edin.</string>
   <string name="hybrid_search_who_is_prefix">%s kimdir?</string>
   <string name="hybrid_search_turn_off_experiment_label">Bu təcrübəni söndür</string>
+  <string name="reading_challenge_widget_name">Oxuma Yarışması</string>
+  <string name="reading_challenge_onboarding_header">25 günlük oxuma yarışmasına qoşularaq Vikipediyanın 25-ci doğum gününü qeyd edin!</string>
+  <string name="reading_challenge_onboarding_read_title">25 gün ərzində gündə 1 məqalə oxuyun</string>
+  <string name="reading_challenge_onboarding_read_description">1 may - 31 may tarixləri arasında istənilən vaxt çağırışa qoşulun, 25 gününüzü öz qrafikinizdə tamamlayın.</string>
+  <string name="reading_challenge_onboarding_win_title">Mükafatlar qazanın</string>
+  <string name="reading_challenge_onboarding_win_description">Xüsusi mükafatlar qazanmaq üçün yarışma canlı yayımlandığı müddətdə 25 günlük oxuma seriyasını tamamlayın.</string>
+  <string name="reading_challenge_onboarding_install_title">Vidceti quraşdır</string>
+  <string name="reading_challenge_onboarding_install_description">Sevimli ad günü maskotumuz Körpə Qlobus ilə faydalı xatırlatmalar və motivasiyalar əldə edin.</string>
+  <string name="reading_challenge_onboarding_note">Oxuma tarixçəniz qorunur. Oxuma məlumatları cihazınızda lokal olaraq saxlanılan datadan istifadə etməklə hesablanır.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Daha ətraflı</string>
+  <string name="reading_challenge_onboarding_join_button">Yarışmaya qoşul</string>
+  <string name="reading_challenge_onboarding_prompt_title">Yarışmaya qoşulmaq üçün daxil olun</string>
+  <string name="reading_challenge_onboarding_prompt_message">Oxuma tapşırığına doğru irəliləyişinizi izləmək üçün daxil olun və ya hesab yaradın.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Xeyr, təşəkkürlər</string>
+  <string name="reading_challenge_onboarding_prompt_login">Daxil ol / Vikipediyaya qoşul</string>
+  <string name="reading_challenge_install_prompt_title">25 günlük oxuma yarışması vidcetini quraşdırın</string>
+  <string name="reading_challenge_install_prompt_message">Körpə qlobus sizi dəstəkləyir. Əsas ekrandan irəliləyişinizi izləmək üçün Oxuma Yarışması vidcetini əlavə edin.</string>
+  <string name="reading_challenge_install_prompt_got_it">Başa düşdüm</string>
+  <string name="reading_challenge_install_prompt_add">Əlavə et</string>
+  <string name="reading_challenge_widget_explore_button">Kəşf et</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Vikipediyanı kəşf et</string>
+  <string name="reading_challenge_widget_join_challenge_button">Yarışmaya qoşul</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Yarışmaya qoşul</string>
+  <string name="reading_challenge_widget_search_button">Axtar</string>
+  <string name="reading_challenge_widget_random_button">Təsadüfi</string>
+  <string name="reading_challenge_widget_collect_prize_button">Mükafatı topla</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Mükafatınızı toplayın!</string>
+  <string name="reading_challenge_widget_not_live_title">Oxumağa hazır olun</string>
+  <string name="reading_challenge_widget_not_live_description">25 günlük oxuma yarışması başlayacaq.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Hazır ol, oxu!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">25 günlük yarışmaya qoşulun və xüsusi mükafatlar qazanın.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d gün</item>
+    <item quantity="other">%d gün</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d/%2$d</item>
+    <item quantity="other">%1$d/%2$d</item>
+  </plurals>
 </resources>
