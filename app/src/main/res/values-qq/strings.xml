@@ -2218,4 +2218,5 @@
   <string name="explore_feed_building_text">Body text for the feed building screen.</string>
     <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
     <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
+    <string name="explore_feed_deselect_all_btn_label">Button text to deselect all selected items in the intereset selection screen.</string>
 </resources>

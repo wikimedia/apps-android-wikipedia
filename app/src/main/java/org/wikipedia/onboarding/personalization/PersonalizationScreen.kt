@@ -82,16 +82,19 @@ fun PersonalizationScreen(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .background(WikipediaTheme.colors.paperColor)
-                                .padding(top = 40.dp, bottom = 16.dp, start = 16.dp, end = 16.dp),
+                                .padding(top = 40.dp),
                             topicsState = uiState.value.topicsState,
                             articlesState = uiState.value.articlesState,
-                            onCategorySelected = {
+                            onTopicSelected = {
                                 viewModel.onTopicSelected(it)
                             },
                             onItemClick = {
                                 viewModel.toggleSelection(it)
                             },
-                            onSearchClick = onSearchClick
+                            onSearchClick = onSearchClick,
+                            onDeselectAllClick = {
+                                viewModel.deselectAllArticles()
+                            }
                         )
                     }
                     2 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())

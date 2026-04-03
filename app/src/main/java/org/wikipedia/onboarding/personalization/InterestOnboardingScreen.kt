@@ -2,13 +2,17 @@ package org.wikipedia.onboarding.personalization
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -19,13 +23,17 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -46,17 +54,19 @@ fun InterestOnboardingScreen(
     modifier: Modifier = Modifier,
     topicsState: TopicsState,
     articlesState: ArticlesState,
-    onCategorySelected: (OnboardingTopic) -> Unit,
+    onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
-    onSearchClick: () -> Unit
+    onSearchClick: () -> Unit,
+    onDeselectAllClick: () -> Unit
 ) {
     val listState = rememberLazyStaggeredGridState()
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         Text(
+            modifier = Modifier.padding(horizontal = 16.dp),
             text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
             style = MaterialTheme.typography.titleLarge.copy(
                 fontWeight = FontWeight.Medium
@@ -64,6 +74,7 @@ fun InterestOnboardingScreen(
         )
 
         ReadingListInterestSearchCard(
+            modifier = Modifier.padding(horizontal = 16.dp),
             onSearchClick = onSearchClick
         )
 
@@ -71,7 +82,8 @@ fun InterestOnboardingScreen(
             is TopicsState.Error -> {}
             TopicsState.Loading -> {
                 LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp)
                 ) {
                     items(5) { index ->
                         val width = remember { listOf(80, 100, 70, 90, 85)[index].dp }
@@ -85,49 +97,12 @@ fun InterestOnboardingScreen(
                     }
                 }
             }
+
             is TopicsState.Success -> {
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(topicsState.topics) { item ->
-                        FilterChip(
-                            modifier = Modifier.fillMaxWidth(),
-                            label = { Text(item.displayTitle) },
-                            selected = item.isSelected,
-                            onClick = { onCategorySelected(item) },
-                            leadingIcon = {
-                                AnimatedContent(
-                                    targetState = item.isSelected
-                                ) { isSelected ->
-                                    Icon(
-                                        modifier = Modifier
-                                            .size(16.dp),
-                                        painter = if (isSelected) {
-                                            R.drawable.ic_check_black_24dp
-                                        } else {
-                                            R.drawable.ic_add_gray_white_24dp
-                                        }.let { painterResource(id = it) },
-                                        contentDescription = null
-                                    )
-                                }
-                            },
-                            colors = FilterChipDefaults.filterChipColors(
-                                containerColor = WikipediaTheme.colors.backgroundColor,
-                                labelColor = WikipediaTheme.colors.primaryColor,
-                                iconColor = WikipediaTheme.colors.primaryColor,
-                                selectedLeadingIconColor = WikipediaTheme.colors.progressiveColor,
-                                selectedContainerColor = WikipediaTheme.colors.additionColor,
-                                selectedLabelColor = WikipediaTheme.colors.progressiveColor
-                            ),
-                            border = FilterChipDefaults.filterChipBorder(
-                                enabled = true,
-                                selected = item.isSelected,
-                                borderColor = WikipediaTheme.colors.borderColor,
-                                selectedBorderColor = Color.Transparent
-                            )
-                        )
-                    }
-                }
+                TopicFilterChipRow(
+                    topics = topicsState.topics,
+                    onTopicSelected = { onTopicSelected(it) }
+                )
             }
         }
 
@@ -140,6 +115,7 @@ fun InterestOnboardingScreen(
                         .fillMaxSize(),
                     verticalItemSpacing = 16.dp,
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    contentPadding = PaddingValues(16.dp),
                     content = {
                         items(10) {
                             Box(
@@ -153,30 +129,160 @@ fun InterestOnboardingScreen(
                     }
                 )
             }
+
             is ArticlesState.Success -> {
-                LazyVerticalStaggeredGrid(
-                    columns = StaggeredGridCells.Adaptive(140.dp),
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    state = listState,
-                    verticalItemSpacing = 16.dp,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    content = {
-                        items(articlesState.articles) { item ->
-                            ReadingListInterestCard(
-                                modifier = Modifier.animateItem(),
-                                item = item,
-                                isSelected = articlesState.selectedArticles.contains(item),
-                                onItemClick = { onItemClick(item) }
-                            )
+                Box {
+                    LazyVerticalStaggeredGrid(
+                        columns = StaggeredGridCells.Adaptive(140.dp),
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        state = listState,
+                        verticalItemSpacing = 16.dp,
+                        horizontalArrangement = Arrangement.spacedBy(16.dp),
+                        contentPadding = PaddingValues(16.dp),
+                        content = {
+                            items(articlesState.articles) { item ->
+                                ReadingListInterestCard(
+                                    modifier = Modifier.animateItem(),
+                                    item = item,
+                                    isSelected = articlesState.selectedArticles.contains(item),
+                                    onItemClick = { onItemClick(item) }
+                                )
+                            }
+                            item(span = StaggeredGridItemSpan.FullLine) {
+                                Spacer(
+                                    modifier = Modifier.height(64.dp)
+                                )
+                            }
                         }
-                        item(span = StaggeredGridItemSpan.FullLine) {
-                            Spacer(
-                                modifier = Modifier.height(64.dp)
-                            )
-                        }
+                    )
+                    SelectionBottomBar(
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .background(WikipediaTheme.colors.paperColor),
+                        selectedItemsCount = articlesState.selectedArticles.size,
+                        onDeselectAllClick = onDeselectAllClick
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun TopicFilterChipRow(
+    topics: List<OnboardingTopic>,
+    modifier: Modifier = Modifier,
+    onTopicSelected: (OnboardingTopic) -> Unit
+) {
+    LazyRow(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
+    ) {
+        items(items = topics, key = { it.topicId }) { item ->
+            FilterChip(
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text(item.displayTitle) },
+                selected = item.isSelected,
+                onClick = { onTopicSelected(item) },
+                leadingIcon = {
+                    AnimatedContent(
+                        targetState = item.isSelected
+                    ) { isSelected ->
+                        Icon(
+                            modifier = Modifier
+                                .size(16.dp),
+                            painter = if (isSelected) {
+                                R.drawable.ic_check_black_24dp
+                            } else {
+                                R.drawable.ic_add_gray_white_24dp
+                            }.let { painterResource(id = it) },
+                            contentDescription = null
+                        )
                     }
+                },
+                colors = FilterChipDefaults.filterChipColors(
+                    containerColor = WikipediaTheme.colors.backgroundColor,
+                    labelColor = WikipediaTheme.colors.primaryColor,
+                    iconColor = WikipediaTheme.colors.primaryColor,
+                    selectedLeadingIconColor = WikipediaTheme.colors.progressiveColor,
+                    selectedContainerColor = WikipediaTheme.colors.additionColor,
+                    selectedLabelColor = WikipediaTheme.colors.progressiveColor
+                ),
+                border = FilterChipDefaults.filterChipBorder(
+                    enabled = true,
+                    selected = item.isSelected,
+                    borderColor = WikipediaTheme.colors.borderColor,
+                    selectedBorderColor = Color.Transparent
                 )
+            )
+        }
+    }
+}
+
+@Composable
+fun SelectionBottomBar(
+    selectedItemsCount: Int,
+    modifier: Modifier = Modifier,
+    onDeselectAllClick: () -> Unit
+) {
+    Column(
+        modifier = modifier
+    ) {
+        HorizontalDivider(
+            thickness = 0.5.dp,
+            color = WikipediaTheme.colors.borderColor
+        )
+        AnimatedContent(
+            targetState = selectedItemsCount > 0
+        ) { isSelected ->
+            if (isSelected) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(
+                            R.string.multi_select_items_selected,
+                            selectedItemsCount
+                        ),
+                        style = MaterialTheme.typography.labelLarge.copy(
+                            fontWeight = FontWeight.Bold
+                        )
+                    )
+
+                    Button(
+                        onClick = onDeselectAllClick,
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = WikipediaTheme.colors.backgroundColor,
+                            contentColor = WikipediaTheme.colors.secondaryColor
+                        )
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(size = 8.dp)),
+                            text = stringResource(R.string.explore_feed_deselect_all_btn_label),
+                            style = MaterialTheme.typography.labelLarge
+                        )
+                    }
+                }
+            } else {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.recommended_reading_list_interest_select_minimum),
+                        style = MaterialTheme.typography.labelLarge,
+                    )
+                }
             }
         }
     }

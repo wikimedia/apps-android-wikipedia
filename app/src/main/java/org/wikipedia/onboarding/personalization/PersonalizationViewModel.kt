@@ -113,6 +113,13 @@ class PersonalizationViewModel(
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
             state.update { it.copy(articlesLoading = true) }
+            val current = state.value
+
+            if (current.articles.isNotEmpty()) {
+                state.update { it.copy(articles = current.articles, articlesLoading = false) }
+                return@launch
+            }
+
             val selectedItems = Prefs.recommendedReadingListInterests
             val articles = repository.loadInitialArticles(selectedItems)
             state.update { it.copy(articles = articles, articlesLoading = false, selectedArticles = selectedItems.toSet()) }
@@ -174,6 +181,16 @@ class PersonalizationViewModel(
                 it.selectedArticles + title
             }
             it.copy(selectedArticles = newSelection)
+        }
+    }
+
+    fun deselectAllArticles() {
+        state.update {
+            it.copy(
+                selectedArticles = emptySet(),
+                articlesLoading = false,
+                articlesError = null
+            )
         }
     }
 }

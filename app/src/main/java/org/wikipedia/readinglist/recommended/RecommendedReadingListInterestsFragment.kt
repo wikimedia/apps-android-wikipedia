@@ -362,7 +362,7 @@ fun RecommendedReadingListInterestsContent(
                     )
                 }
                 item(span = StaggeredGridItemSpan.FullLine) {
-                    ReadingListInterestSearchCard(onSearchClick)
+                    ReadingListInterestSearchCard(onSearchClick = onSearchClick)
                 }
                 items(items) { item ->
                     ReadingListInterestCard(
@@ -519,9 +519,12 @@ fun ReadingListInterestCard(
 }
 
 @Composable
-fun ReadingListInterestSearchCard(onSearchClick: () -> Unit) {
+fun ReadingListInterestSearchCard(
+    modifier: Modifier = Modifier,
+    onSearchClick: () -> Unit
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
             .clip(RoundedCornerShape(28.dp))
