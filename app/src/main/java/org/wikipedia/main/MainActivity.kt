@@ -35,7 +35,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private lateinit var binding: ActivityMainBinding
 
-    private var statusBarInsets: Insets? = null
+    private var statusBarInsets = Insets.NONE
+    private var navBarInsets = Insets.NONE
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
@@ -62,11 +63,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            val navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-
-            binding.root.updatePadding(bottom = navBarInsets.bottom)
-
-            applyStatusBarInsets()
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            applyInsets()
             WindowInsetsCompat.CONSUMED.toWindowInsets()!!
         }
 
@@ -121,15 +119,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
-        applyStatusBarInsets()
+        applyInsets()
         fragment.requestUpdateToolbarElevation()
     }
 
-    private fun applyStatusBarInsets() {
-        statusBarInsets?.let {
-            // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
-            binding.root.updatePadding(top = it.top)
-        }
+    private fun applyInsets() {
+        // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
+        binding.root.updatePadding(
+            top = statusBarInsets.top + navBarInsets.top,
+            bottom = statusBarInsets.bottom + navBarInsets.bottom,
+            left = statusBarInsets.left + navBarInsets.left,
+            right = statusBarInsets.right + navBarInsets.right
+        )
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
