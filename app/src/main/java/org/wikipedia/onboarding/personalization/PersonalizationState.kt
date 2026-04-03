@@ -4,8 +4,10 @@ import org.wikipedia.page.PageTitle
 
 // TODO: update the states below as needed as we build out the screen
 data class OnboardingTopic(
-    val id: String,
-    val title: String,
+    val topicId: String,
+    val msgKey: String,
+    val articleTopics: String,
+    val displayTitle: String,
     val isSelected: Boolean = false
 )
 

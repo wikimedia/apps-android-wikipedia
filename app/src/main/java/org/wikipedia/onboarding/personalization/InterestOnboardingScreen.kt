@@ -92,7 +92,7 @@ fun InterestOnboardingScreen(
                     items(topicsState.topics) { item ->
                         FilterChip(
                             modifier = Modifier.fillMaxWidth(),
-                            label = { Text(item.title) },
+                            label = { Text(item.displayTitle) },
                             selected = item.isSelected,
                             onClick = { onCategorySelected(item) },
                             leadingIcon = {

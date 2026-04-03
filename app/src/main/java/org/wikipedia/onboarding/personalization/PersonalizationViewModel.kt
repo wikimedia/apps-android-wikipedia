@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import kotlin.collections.plus
@@ -32,7 +33,6 @@ private data class PersonalizedViewModelState(
     // Feed preference screen properties
 ) {
     fun toInterestUiState(): InterestUiState {
-        println("orange selected topics = $selectedTopics")
         return InterestUiState(
             topicsState = when {
                 topicsLoading -> TopicsState.Loading
@@ -41,7 +41,7 @@ private data class PersonalizedViewModelState(
                 )
                 else -> TopicsState.Success(
                     topics = topics.map {
-                        it.copy(isSelected = selectedTopics.contains(it.id))
+                        it.copy(isSelected = selectedTopics.contains(it.topicId))
                     }
                 )
             },
@@ -68,6 +68,7 @@ class PersonalizationViewModel(
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
+    private val topicApiLookUp = OnboardingTopics.all.associate { it.topicId to it.articleTopics }
 
     // Each screen observes only its own derived UI state
     // runs automatically when any part of the raw state changes
@@ -82,13 +83,14 @@ class PersonalizationViewModel(
     fun onPageChanged(page: Int) {
         when (page) {
             1 -> {
-                loadTopics()
+                val langCode = WikipediaApp.instance.languageState.appLanguageCode
+                loadTopics(langCode)
                 loadInitialArticles()
             }
         }
     }
 
-    private fun loadTopics() {
+    private fun loadTopics(langCode: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(topicsLoading = false, topicsError = throwable) }
         }) {
@@ -100,7 +102,7 @@ class PersonalizationViewModel(
                 return@launch
             }
 
-            val topics = repository.getTopics()
+            val topics = repository.getTopics(langCode)
 
             state.update { it.copy(topics = topics, topicsLoading = false) }
         }
@@ -123,7 +125,6 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true) }
             val current = state.value
-            println("orange is articles empty = ${current.articles.isEmpty()}")
 
             if (current.articles.isNotEmpty()) {
                 state.update { it.copy(articles = current.articles, articlesLoading = false) }
@@ -136,13 +137,14 @@ class PersonalizationViewModel(
     }
 
     // as we have a single state it becomes easier to update and control the state
-    fun onTopicSelected(category: OnboardingTopic) {
+    fun onTopicSelected(topic: OnboardingTopic) {
         // When a category is selected, we want to reset the articles state and load articles for the selected category
-        val selectedTopics = if (state.value.selectedTopics.contains(category.id)) {
-            state.value.selectedTopics - category.id
+        val selectedTopics = if (state.value.selectedTopics.contains(topic.topicId)) {
+            state.value.selectedTopics - topic.topicId
         } else {
-            state.value.selectedTopics + category.id
+            state.value.selectedTopics + topic.topicId
         }
+
         state.update {
             it.copy(
                 selectedTopics = selectedTopics,
@@ -152,7 +154,8 @@ class PersonalizationViewModel(
             )
         }
 
-        loadArticlesByTopics(topics = selectedTopics.toList())
+        val topicQueryIds = selectedTopics.mapNotNull { topicApiLookUp[it] }
+        loadArticlesByTopics(topics = topicQueryIds.toList())
     }
 
     fun addArticle(title: PageTitle) {

@@ -16,15 +16,17 @@ import kotlin.collections.orEmpty
 class PersonalizationRepository {
 
     // TODO: add actual api call if needed otherwise go with static data
-    suspend fun getTopics(): List<OnboardingTopic> {
-        println("orange loading categories...")
-        delay(1000) // simulate network delay
-        val categories = listOf(
-            OnboardingTopic("1", "Science"),
-            OnboardingTopic("2", "History"),
-            OnboardingTopic("3", "Art")
-        )
-        return categories
+    suspend fun getTopics(langCode: String): List<OnboardingTopic> {
+        val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
+        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
+        val translations = response.query?.allmessages
+            ?.filterNot { it.missing }
+            ?.associate { it.name to it.content }
+            .orEmpty()
+
+        return OnboardingTopics.all.map { topic ->
+            topic.copy(displayTitle = translations[topic.msgKey] ?: topic.displayTitle)
+        }
     }
 
     // TODO: add actual api call
