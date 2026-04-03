@@ -43,7 +43,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
@@ -66,12 +65,17 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.imageservice.ImageService
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
+
+    fun getCurrentTab(): HomeTab {
+        return viewModel.selectedTab.value
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -87,7 +91,10 @@ class HomeFragment : Fragment() {
                         selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
-                        onSelectTab = viewModel::selectTab,
+                        onSelectTab = {
+                            viewModel.selectTab(it)
+                            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.EXPLORE)
+                        },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoaDMoreForYouContent = viewModel::loadForYouContent
                     )
@@ -113,54 +120,81 @@ fun HomeScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
-        // Tab content — switches in place based on selected tab.
         when (selectedTab) {
-            HomeTab.COMMUNITY -> CommunityContentTab(
-                state = communityContentState,
-                onLoadMore = onLoadMoreCommunityContent
-            )
-            HomeTab.FOR_YOU -> ForYouContentTab(
-                state = forYouContentState,
-                onLoadMore = onLoaDMoreForYouContent
-            )
-        }
+            HomeTab.COMMUNITY -> {
 
-        // Floating toolbar with gradient scrim, wordmark, and tab selector.
-        Column(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxWidth()
-                .background(if (selectedTab == HomeTab.FOR_YOU)
-                    Brush.verticalGradient(
-                        colorStops = arrayOf(
-                            0.0f to Color.Black.copy(alpha = 0.78f),
-                            0.18f to Color.Black.copy(alpha = 0.64f),
-                            0.38f to Color.Black.copy(alpha = 0.40f),
-                            0.58f to Color.Black.copy(alpha = 0.20f),
-                            0.76f to Color.Black.copy(alpha = 0.08f),
-                            0.90f to Color.Black.copy(alpha = 0.02f),
-                            1.0f to Color.Transparent
-                        )
-                    ) else SolidColor(Color.Transparent)
+                Column(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()
+                        .background(WikipediaTheme.colors.paperColor)
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.feed_header_wordmark),
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                        contentScale = ContentScale.FillWidth,
+                        modifier = Modifier
+                            .statusBarsPadding()
+                            .padding(start = 20.dp, top = (topInset + 16).dp)
+                            .width(128.dp)
+                    )
+
+                    // Tab selector
+                    HomeTabBar(
+                        modifier = Modifier.padding(top = 8.dp),
+                        selectedTab = selectedTab,
+                        onTabSelected = onSelectTab
+                    )
+
+                    CommunityContentTab(
+                        state = communityContentState,
+                        onLoadMore = onLoadMoreCommunityContent
+                    )
+                }
+            }
+            HomeTab.FOR_YOU -> {
+                ForYouContentTab(
+                    state = forYouContentState,
+                    onLoadMore = onLoaDMoreForYouContent
                 )
-        ) {
-            Image(
-                painter = painterResource(R.drawable.feed_header_wordmark),
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                contentScale = ContentScale.FillWidth,
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .padding(start = 20.dp, top = (topInset + 16).dp)
-                    .width(128.dp)
-            )
 
-            // Tab selector
-            HomeTabBar(
-                modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
-                selectedTab = selectedTab,
-                onTabSelected = onSelectTab
-            )
+                // Floating toolbar with gradient scrim, wordmark, and tab selector.
+                Column(
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .fillMaxWidth()
+                        .background(Brush.verticalGradient(
+                            colorStops = arrayOf(
+                                0.0f to Color.Black.copy(alpha = 0.78f),
+                                0.18f to Color.Black.copy(alpha = 0.64f),
+                                0.38f to Color.Black.copy(alpha = 0.40f),
+                                0.58f to Color.Black.copy(alpha = 0.20f),
+                                0.76f to Color.Black.copy(alpha = 0.08f),
+                                0.90f to Color.Black.copy(alpha = 0.02f),
+                                1.0f to Color.Transparent
+                            )
+                        ))
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.feed_header_wordmark),
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                        contentScale = ContentScale.FillWidth,
+                        modifier = Modifier
+                            .statusBarsPadding()
+                            .padding(start = 20.dp, top = (topInset + 16).dp)
+                            .width(128.dp)
+                    )
+
+                    // Tab selector
+                    HomeTabBar(
+                        modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
+                        selectedTab = selectedTab,
+                        onTabSelected = onSelectTab
+                    )
+                }
+            }
         }
     }
 }
@@ -230,7 +264,7 @@ fun CommunityContentTab(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(WikipediaTheme.colors.backgroundColor),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(top = 200.dp, bottom = 16.dp)
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
                 state.days.forEach { day ->
 
@@ -489,7 +523,19 @@ fun ErrorState(message: String?, onRetry: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+fun HomeScreenCommunityPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        HomeScreen(
+            selectedTab = HomeTab.COMMUNITY,
+            communityContentState = CommunityContentState(isInitialLoading = true),
+            forYouContentState = ForYouContentState(isInitialLoading = true)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenForYouPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
             selectedTab = HomeTab.FOR_YOU,
@@ -505,29 +551,6 @@ fun FeaturedArticleCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleCard(
             article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
-        )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun CommunityContentTabPreview() {
-    BaseTheme(currentTheme = Theme.LIGHT) {
-        CommunityContentTab(
-            state = CommunityContentState(isInitialLoading = true),
-            onLoadMore = {}
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ForYouContentTabPreview() {
-    BaseTheme(currentTheme = Theme.LIGHT) {
-        ForYouContentTab(
-            state = ForYouContentState(isInitialLoading = true),
-            onLoadMore = {}
         )
     }
 }
