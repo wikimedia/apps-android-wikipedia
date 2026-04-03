@@ -63,7 +63,7 @@ enum class PageActionItem constructor(val id: Int,
             cb.onNewTabSelected()
         }
     },
-    HOME(10, R.id.page_home, R.string.home, R.drawable.ic_home_24dp) {
+    HOME(10, R.id.page_home, R.string.home, R.drawable.ic_home_filled_24dp) {
         override fun select(cb: Callback) {
             cb.onHomeSelected()
         }

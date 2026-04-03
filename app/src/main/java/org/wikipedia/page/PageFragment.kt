@@ -1462,7 +1462,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onHomeSelected() {
             goToMainActivity(tab = NavTab.HOME, tabExtra = Constants.INTENT_EXTRA_GO_TO_MAIN_TAB)
-            articleInteractionEvent?.logExploreClick()
+            articleInteractionEvent?.logHomeClick()
         }
 
         override fun onCategoriesSelected() {

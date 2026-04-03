@@ -10,7 +10,7 @@ import org.wikipedia.readinglist.ReadingListsFragment
 
 enum class NavTab(val text: Int, val id: Int, val icon: Int) : EnumCode {
 
-    HOME(R.string.home, R.id.nav_tab_home, R.drawable.ic_home_24dp) {
+    HOME(R.string.home, R.id.nav_tab_home, R.drawable.ic_home_filled_24dp) {
         override fun newInstance(): Fragment {
             return FeedFragment.newInstance()
         }
