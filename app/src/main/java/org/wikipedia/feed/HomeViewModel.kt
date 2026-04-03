@@ -63,7 +63,6 @@ class HomeViewModel : ViewModel() {
     val forYouState = _forYouState.asStateFlow()
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.
-    // Matches the convention used by UtcDate and the existing FeedCoordinator.
     private var nextCommunityAge = 0
 
     // Batch counter for "For you" recommendations.

@@ -118,7 +118,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             controlNavTabInFragment = false
 
             applyNavBarTheme(if ((fragment.currentFragment as? HomeFragment)?.getCurrentTab() == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme)
-
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
                 FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
