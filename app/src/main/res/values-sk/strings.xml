@@ -6,6 +6,7 @@
 * Dušan Kreheľ
 * EditorPO
 * Hromoslav
+* KormiSK
 * KuboF
 * Kusavica
 * Lexected
@@ -1379,4 +1380,6 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Každý týždeň</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Každé ráno</string>
   <string name="donation_reminders_prompt_negative_button">Teraz nie</string>
+  <string name="reading_challenge_widget_reward_body">Oslávte dokončenie výzvy s 15%% zľavou v obchode Wikipédie.</string>
+  <string name="reading_challenge_widget_reward_button_label">Získajte 15%% zľavu v obchode</string>
 </resources>

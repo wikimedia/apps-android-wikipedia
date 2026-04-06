@@ -1483,7 +1483,7 @@
   <string name="survey_dialog_general_maybe">Ίσως</string>
   <string name="survey_dialog_input_hint">Επιπλέον σχόλια</string>
   <string name="survey_dialog_submitted_snackbar">Τα σχόλια υποβλήθηκαν. Ευχαριστούμε!</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Παίξε το σημερινό παιχνίδι</string>
+  <string name="on_this_day_game_entry_dialog_button">Παίξε</string>
   <string name="on_this_day_game_title">Ποιο ήρθε πρώτο;</string>
   <string name="on_this_day_game_dialog_button">Παίξε</string>
   <string name="on_this_day_game_splash_message">Μάντεψε ποιο γεγονός συνέβη πρώτο αυτήν την ημέρα στην ιστορία.</string>

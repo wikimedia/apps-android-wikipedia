@@ -1219,4 +1219,6 @@
   <string name="user_contrib_current">nuna</string>
   <string name="reading_list_share_menu_label">Partigez...</string>
   <string name="reading_list_share_menu_tooltip">Partigez ca texto kun altri</string>
+  <string name="reading_challenge_widget_reward_body">Celebrez la kompletigo di la tasko kun diskonto di 15%% che Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Obtenez 15%% diskonto che magazino</string>
 </resources>

@@ -2325,6 +2325,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Предизвикот заврши</string>
   <string name="reading_challenge_widget_concluded_complete">Успеавте!</string>
   <string name="reading_challenge_widget_reward_title">Љубопитноста ви прилега! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body" fuzzy="true">Прославете го успешно завршениот предизвик со 15 %% попуст во Википедиината продавница.</string>
-  <string name="reading_challenge_widget_reward_button_label" fuzzy="true">Добијте 15 %% попуст во продавницата</string>
+  <string name="reading_challenge_widget_reward_body">Прославете го успешно завршениот предизвик со 15%% попуст во Википедиината продавница.</string>
+  <string name="reading_challenge_widget_reward_button_label">Добијте 15%% попуст во продавницата</string>
 </resources>

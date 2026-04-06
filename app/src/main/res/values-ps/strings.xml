@@ -416,7 +416,7 @@
   <string name="error_page_does_not_exist">دا مخشتون نه لري</string>
   <string name="error_user_page_does_not_exist">ويکي‌پېډيا کټ مټ په همدې نوم &lt;a href=\"%1$s\"&gt;کارن مخ&lt;/a&gt; نه لري. په ټوليزه توگه دا مخ بايد د &lt;b&gt;%2$s&lt;/b&gt; له خوا جوړ او سم شي. که شک لرئ؛ نو مهرباني وکړئ تاييد کړئ چې \"%3$s\" شتون لري.</string>
   <string name="view_wiki_error_message_offline">اينټرنېټ سره نشي نښلېدای</string>
-  <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې اړيکه وگورئ، يا وروسته بيا هڅه وکړئ</string>
+  <string name="view_wiki_error_message_timeout">ويکيپېډيا سره نشي نښلېدای. د خپلې شبکې نښلېدا وگورئ، يا وروسته بيا هڅه وکړئ</string>
   <string name="reference_title">سرچينه %s</string>
   <string name="reference_list_title">سرچينې</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">انځور تتول (په تياره شاليد کې)</string>
