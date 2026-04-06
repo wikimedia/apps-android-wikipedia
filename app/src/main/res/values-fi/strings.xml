@@ -2177,4 +2177,6 @@
   <string name="donation_reminders_settings_report_email_body">Olen huomannut seuraavan ongelman Lahjoitusmuistutuset-ominaisuudessa:\n- [Kuvaile havaitsemasi ongelma]\n- [Kuvakaappaukset tai linkit)\n\nOminaisuuden tulisi toimia näin:\n- [Kuvaile mahdollinen ratkaisu]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Muuta</string>
   <string name="hybrid_search_onboarding_learn_more">Lisätietoja</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Beetaominaisuus</string>
+  <string name="hybrid_search_beta_tag">Beeta</string>
 </resources>

@@ -98,8 +98,8 @@ class SettingsRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun clickExploreFeed() = apply {
-        scrollToSettingsPreferenceItem(R.string.preference_title_customize_explore_feed, click())
+    fun clickHomeFeed() = apply {
+        scrollToSettingsPreferenceItem(R.string.preference_title_customize_home_feed, click())
         delay(TestConfig.DELAY_SHORT)
     }
 
