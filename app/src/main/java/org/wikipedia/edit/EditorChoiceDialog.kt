@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -77,7 +78,7 @@ private fun EditorChoiceContent(
     onCancel: () -> Unit = {},
     onContinue: (editorChoice: Int, dontShowAgain: Boolean) -> Unit = { _, _ -> }
 ) {
-    var selectedEditor by remember { mutableStateOf(initialChoice) }
+    var selectedEditor by remember { mutableIntStateOf(initialChoice) }
     var dontShowAgain by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(top = 24.dp, bottom = 24.dp)) {
@@ -211,7 +212,7 @@ private fun EditorOption(
 
 @Preview
 @Composable
-private fun TimelineDateSeparatorPreview() {
+private fun EditorChoiceDialogPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
