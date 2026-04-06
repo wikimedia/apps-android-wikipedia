@@ -109,7 +109,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onTabChanged(tab: NavTab) {
-        if (tab == NavTab.EXPLORE) {
+        if (tab == NavTab.HOME) {
             binding.mainToolbar.isVisible = false
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""

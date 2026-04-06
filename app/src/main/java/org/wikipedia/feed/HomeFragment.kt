@@ -85,7 +85,7 @@ class HomeFragment : Fragment() {
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         onSelectTab = {
                             viewModel.selectTab(it)
-                            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.EXPLORE)
+                            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoaDMoreForYouContent = viewModel::loadForYouContent

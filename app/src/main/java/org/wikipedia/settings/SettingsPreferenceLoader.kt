@@ -45,7 +45,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             true
         }
-        findPreference(R.string.preference_key_customize_explore_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+        findPreference(R.string.preference_key_customize_home_feed).onPreferenceClickListener = Preference.OnPreferenceClickListener {
              activity.startActivityForResult(
                  ConfigureActivity.newIntent(activity, Constants.InvokeSource.NAV_MENU.ordinal),
                     Constants.ACTIVITY_REQUEST_FEED_CONFIGURE)
