@@ -44,6 +44,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -67,10 +68,6 @@ import java.time.LocalDate
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
-
-    fun getCurrentTab(): HomeTab {
-        return viewModel.selectedTab.value
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -96,6 +93,10 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+    }
+
+    fun getCurrentTab(): HomeTab {
+        return viewModel.selectedTab.value
     }
 }
 
@@ -209,8 +210,8 @@ fun HomeTabBar(
         HomeTab.entries.forEach { tab ->
             val isSelected = tab == selectedTab
             val label = when (tab) {
-                HomeTab.COMMUNITY -> "From the community"
-                HomeTab.FOR_YOU -> "For you"
+                HomeTab.COMMUNITY -> stringResource(R.string.explore_feed_community_tab_label)
+                HomeTab.FOR_YOU -> stringResource(R.string.explore_feed_for_you_tab_label)
             }
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -278,7 +279,7 @@ fun CommunityContentTab(
                     if (state.isLoadingMore) {
                         LoadingIndicator()
                     } else if (state.canLoadMore) {
-                        LoadMoreButton(label = "Load previous day", onClick = onLoadMore)
+                        LoadMoreButton(label = stringResource(R.string.explore_feed_load_previous_day_label), onClick = onLoadMore)
                     }
                 }
 
