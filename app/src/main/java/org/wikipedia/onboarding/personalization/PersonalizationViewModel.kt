@@ -126,7 +126,7 @@ class PersonalizationViewModel(
         }
     }
 
-    private fun loadArticlesByTopics(topics: List<String>) {
+    private fun loadArticlesByTopic(topic: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
@@ -138,7 +138,7 @@ class PersonalizationViewModel(
                 return@launch
             }
 
-            val articles = repository.getArticlesBytTopic(topics)
+            val articles = repository.getArticlesBytTopic(topic)
             val newArticles = (current.selectedArticles.toList() + articles).distinct()
             state.update { it.copy(articles = newArticles, articlesLoading = false) }
         }
@@ -163,7 +163,7 @@ class PersonalizationViewModel(
         }
 
         val topicQueryIds = selectedTopics.mapNotNull { topicApiLookUp[it] }
-        loadArticlesByTopics(topics = topicQueryIds.toList())
+        if (topicQueryIds.isEmpty()) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryIds.last())
     }
 
     fun addArticle(title: PageTitle) {

@@ -101,12 +101,6 @@ object OnboardingTopics {
             displayTitle = "Education"
         ),
         OnboardingTopic(
-            topicId = "history",
-            msgKey = "wikimedia-articletopics-topic-history",
-            articleTopics = "history",
-            displayTitle = "History"
-        ),
-        OnboardingTopic(
             topicId = "military-and-warfare",
             msgKey = "wikimedia-articletopics-topic-military-and-warfare",
             articleTopics = "military-and-warfare",
@@ -135,6 +129,114 @@ object OnboardingTopics {
             msgKey = "wikimedia-articletopics-topic-general-science",
             articleTopics = "stem",
             displayTitle = "STEM"
+        ),
+        OnboardingTopic(
+            topicId = "central-america",
+            msgKey = "wikimedia-articletopics-topic-central-america",
+            articleTopics = "central-america",
+            displayTitle = "Central America"
+        ),
+        OnboardingTopic(
+            topicId = "north-america",
+            msgKey = "wikimedia-articletopics-topic-north-america",
+            articleTopics = "north-america",
+            displayTitle = "North America"
+        ),
+        OnboardingTopic(
+            topicId = "south-america",
+            msgKey = "wikimedia-articletopics-topic-south-america",
+            articleTopics = "south-america",
+            displayTitle = "South America"
+        ),
+        OnboardingTopic(
+            topicId = "architecture",
+            msgKey = "wikimedia-articletopics-topic-architecture",
+            articleTopics = "architecture",
+            displayTitle = "Architecture"
+        ),
+        OnboardingTopic(
+            topicId = "comics-and-anime",
+            msgKey = "wikimedia-articletopics-topic-comics-and-anime",
+            articleTopics = "comics-and-anime",
+            displayTitle = "Comics and Anime"
+        ),
+        OnboardingTopic(
+            topicId = "entertainment",
+            msgKey = "wikimedia-articletopics-topic-entertainment",
+            articleTopics = "entertainment",
+            displayTitle = "Entertainment"
+        ),
+        OnboardingTopic(
+            topicId = "fashion",
+            msgKey = "wikimedia-articletopics-topic-fashion",
+            articleTopics = "fashion",
+            displayTitle = "Fashion"
+        ),
+        OnboardingTopic(
+            topicId = "music",
+            msgKey = "wikimedia-articletopics-topic-music",
+            articleTopics = "music",
+            displayTitle = "Music"
+        ),
+        OnboardingTopic(
+            topicId = "tv-and-film",
+            msgKey = "wikimedia-articletopics-topic-tv-and-film",
+            articleTopics = "films",
+            displayTitle = "TV and Film"
+        ),
+        OnboardingTopic(
+            topicId = "video-games",
+            msgKey = "wikimedia-articletopics-topic-video-games",
+            articleTopics = "video-games",
+            displayTitle = "Video Games"
+        ),
+        OnboardingTopic(
+            topicId = "women",
+            msgKey = "wikimedia-articletopics-topic-women",
+            articleTopics = "women",
+            displayTitle = "Women"
+        ),
+        OnboardingTopic(
+            topicId = "biology",
+            msgKey = "wikimedia-articletopics-topic-biology",
+            articleTopics = "biology",
+            displayTitle = "Biology"
+        ),
+        OnboardingTopic(
+            topicId = "chemistry",
+            msgKey = "wikimedia-articletopics-topic-chemistry",
+            articleTopics = "chemistry",
+            displayTitle = "Chemistry"
+        ),
+        OnboardingTopic(
+            topicId = "engineering",
+            msgKey = "wikimedia-articletopics-topic-engineering",
+            articleTopics = "engineering",
+            displayTitle = "Engineering"
+        ),
+        OnboardingTopic(
+            topicId = "mathematics",
+            msgKey = "wikimedia-articletopics-topic-mathematics",
+            articleTopics = "mathematics",
+            displayTitle = "Mathematics"
+        ),
+        OnboardingTopic(
+            topicId = "medicine-and-health",
+            msgKey = "wikimedia-articletopics-topic-medicine-and-health",
+            articleTopics = "medicine-and-health",
+            displayTitle = "Medicine and Health"
+        ),
+        OnboardingTopic(
+            topicId = "physics",
+            msgKey = "wikimedia-articletopics-topic-physics",
+            articleTopics = "physics",
+            displayTitle = "Physics"
+        ),
+        OnboardingTopic(
+            topicId = "technology",
+            msgKey = "wikimedia-articletopics-topic-technology",
+            articleTopics = "technology",
+            displayTitle = "Technology"
         ),
     )
 }

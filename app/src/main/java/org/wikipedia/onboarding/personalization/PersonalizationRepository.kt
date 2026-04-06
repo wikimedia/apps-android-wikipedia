@@ -1,21 +1,15 @@
 package org.wikipedia.onboarding.personalization
 
-import androidx.core.net.toUri
-import kotlinx.coroutines.delay
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.StringUtil
-import kotlin.collections.forEach
-import kotlin.collections.orEmpty
 
 class PersonalizationRepository {
 
-    // TODO: add actual api call if needed otherwise go with static data
     suspend fun getTopics(langCode: String): List<OnboardingTopic> {
         val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
@@ -23,31 +17,28 @@ class PersonalizationRepository {
             ?.filterNot { it.missing }
             ?.associate { it.name to it.content }
             .orEmpty()
-
         return OnboardingTopics.all.map { topic ->
-            topic.copy(displayTitle = translations[topic.msgKey] ?: topic.displayTitle)
+            topic.copy(displayTitle = translations[topic.msgKey] ?: "no")
         }
     }
 
-    // TODO: add actual api call
-    suspend fun getArticlesBytTopic(topics: List<String>): List<PageTitle> {
-        println("orange loading articles for topics $topics...")
-        delay(5000) // simulate network delay
-        val site = WikiSite("https://en.wikipedia.org/".toUri(), "en")
-        val titles = listOf(
-            PageTitle(text = "Psychology of art", wiki = site, thumbUrl = "foo.jpg", description = "Study of mental functions and behaviors", displayText = null),
-            PageTitle(text = "Industrial design", wiki = site, thumbUrl = "foo.jpg", description = "Process of design applied to physical products", displayText = null),
-            PageTitle(text = "Dufourspitze", wiki = site, thumbUrl = "foo.jpg", description = "Highest mountain in Switzerland", displayText = null),
-            PageTitle(text = "Sample title without description", wiki = site, thumbUrl = "foo.jpg", description = "", displayText = null),
-            PageTitle(text = "Sample title without thumbnail", wiki = site, thumbUrl = "", description = "Sample description", displayText = null),
-            PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null),
-            PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
-        )
-        return titles
+    suspend fun getArticlesBytTopic(topic: String): List<PageTitle> {
+        val searchTerm = "articletopic:$topic"
+        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getArticlesByTopic(searchTerm, 25)
+        val pageList = response.query?.pages
+            ?.map { page ->
+                PageTitle(
+                    text = page.title,
+                    wiki = WikipediaApp.instance.wikiSite,
+                    thumbUrl = page.thumbUrl(),
+                    description = page.description,
+                    displayText = page.displayTitle(WikipediaApp.instance.wikiSite.languageCode)
+                )
+            } ?: emptyList()
+        return pageList
     }
 
     suspend fun loadInitialArticles(selectedItems: List<PageTitle>): List<PageTitle> {
-        println("orange loading initial articles...")
         val maxItems = 20
         val results = mutableListOf<PageTitle>()
         results.addAll(selectedItems)
