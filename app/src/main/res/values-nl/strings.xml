@@ -2358,6 +2358,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Uitdaging afgesloten</string>
   <string name="reading_challenge_widget_concluded_complete">U hebt het voor elkaar!</string>
   <string name="reading_challenge_widget_reward_title">Nieuwsgierigheid staat u goed! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Vier het voltooien van de uitdaging met 15% korting in de Wikipedia-winkel.</string>
-  <string name="reading_challenge_widget_reward_button_label">Ontvang 15% korting in de winkel</string>
+  <string name="reading_challenge_widget_reward_body">Vier het voltooien van de uitdaging met 15%% korting in de Wikipedia-winkel.</string>
+  <string name="reading_challenge_widget_reward_button_label">Ontvang 15%% korting in de winkel</string>
 </resources>
