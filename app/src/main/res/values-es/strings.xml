@@ -2174,6 +2174,6 @@
   <string name="reading_challenge_widget_enrolled_not_started_subtitle">¡Ponte en acción para lograr una racha de 25 días!</string>
   <string name="reading_challenge_widget_start_spin_up_new_streak_title">¿Comenzar una nueva racha?</string>
   <string name="reading_challenge_widget_concluded_complete">¡Lo lograste!</string>
-  <string name="reading_challenge_widget_reward_body">Celebra el haber completado el reto con un 15 %% de descuento en la tienda de Wikipedia.</string>
+  <string name="reading_challenge_widget_reward_body" fuzzy="true">Celebra el haber completado el reto con un 15 %% de descuento en la tienda de Wikipedia.</string>
   <string name="reading_challenge_widget_reward_button_label">Obtén un 15%% de descuento en la tienda.</string>
 </resources>
