@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridState
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
@@ -48,7 +49,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.recommended.ReadingListInterestCard
 import org.wikipedia.readinglist.recommended.ReadingListInterestSearchCard
 
-// TODO: add actual UI
 @Composable
 fun InterestOnboardingScreen(
     modifier: Modifier = Modifier,
@@ -57,90 +57,84 @@ fun InterestOnboardingScreen(
     onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
     onSearchClick: () -> Unit,
-    onDeselectAllClick: () -> Unit
+    onDeselectAllClick: () -> Unit,
+    gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
 ) {
-    val listState = rememberLazyStaggeredGridState()
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-    ) {
-        Text(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
-            style = MaterialTheme.typography.titleLarge.copy(
-                fontWeight = FontWeight.Medium
+    Box(modifier = modifier) {
+        Column(
+            modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Medium
+                ),
+                color = WikipediaTheme.colors.primaryColor
             )
-        )
 
-        ReadingListInterestSearchCard(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            onSearchClick = onSearchClick
-        )
-
-        when (topicsState) {
-            is TopicsState.Error -> {}
-            TopicsState.Loading -> {
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    contentPadding = PaddingValues(horizontal = 16.dp)
-                ) {
-                    items(5) { index ->
-                        val width = remember { listOf(80, 100, 70, 90, 85)[index].dp }
-                        Box(
-                            modifier = Modifier
-                                .width(width)
-                                .height(32.dp)
-                                .clip(RoundedCornerShape(size = 8.dp))
-                                .shimmerEffect(transition = transition)
+            LazyVerticalStaggeredGrid(
+                columns = StaggeredGridCells.Adaptive(140.dp),
+                modifier = Modifier
+                    .fillMaxSize(),
+                state = gridState,
+                verticalItemSpacing = 16.dp,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                contentPadding = PaddingValues(16.dp),
+                content = {
+                    item(span = StaggeredGridItemSpan.FullLine) {
+                        ReadingListInterestSearchCard(
+                            onSearchClick = onSearchClick
                         )
                     }
-                }
-            }
+                    item(span = StaggeredGridItemSpan.FullLine) {
+                        when (topicsState) {
+                            is TopicsState.Error -> {}
+                            TopicsState.Loading -> {
+                                LazyRow(
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                    contentPadding = PaddingValues(horizontal = 16.dp)
+                                ) {
+                                    items(5) { index ->
+                                        val width =
+                                            remember { listOf(80, 100, 70, 90, 85)[index].dp }
+                                        Box(
+                                            modifier = Modifier
+                                                .width(width)
+                                                .height(32.dp)
+                                                .clip(RoundedCornerShape(size = 8.dp))
+                                                .shimmerEffect(transition = transition)
+                                        )
+                                    }
+                                }
+                            }
 
-            is TopicsState.Success -> {
-                TopicFilterChipRow(
-                    topics = topicsState.topics,
-                    onTopicSelected = { onTopicSelected(it) }
-                )
-            }
-        }
-
-        when (articlesState) {
-            is ArticlesState.Error -> {}
-            ArticlesState.Loading -> {
-                LazyVerticalStaggeredGrid(
-                    columns = StaggeredGridCells.Adaptive(140.dp),
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    verticalItemSpacing = 16.dp,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    contentPadding = PaddingValues(16.dp),
-                    content = {
-                        items(10) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(200.dp)
-                                    .clip(RoundedCornerShape(size = 16.dp))
-                                    .shimmerEffect(transition = transition)
-                            )
+                            is TopicsState.Success -> {
+                                TopicFilterChipRow(
+                                    topics = topicsState.topics,
+                                    onTopicSelected = { onTopicSelected(it) }
+                                )
+                            }
                         }
                     }
-                )
-            }
 
-            is ArticlesState.Success -> {
-                Box {
-                    LazyVerticalStaggeredGrid(
-                        columns = StaggeredGridCells.Adaptive(140.dp),
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        state = listState,
-                        verticalItemSpacing = 16.dp,
-                        horizontalArrangement = Arrangement.spacedBy(16.dp),
-                        contentPadding = PaddingValues(16.dp),
-                        content = {
+                    when (articlesState) {
+                        is ArticlesState.Error -> {}
+                        ArticlesState.Loading -> {
+                            items(10) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(200.dp)
+                                        .clip(RoundedCornerShape(size = 16.dp))
+                                        .shimmerEffect(transition = transition)
+                                )
+                            }
+                        }
+
+                        is ArticlesState.Success -> {
                             items(articlesState.articles) { item ->
                                 ReadingListInterestCard(
                                     modifier = Modifier.animateItem(),
@@ -155,16 +149,18 @@ fun InterestOnboardingScreen(
                                 )
                             }
                         }
-                    )
-                    SelectionBottomBar(
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .background(WikipediaTheme.colors.paperColor),
-                        selectedItemsCount = articlesState.selectedArticles.size,
-                        onDeselectAllClick = onDeselectAllClick
-                    )
+                    }
                 }
-            }
+            )
+        }
+        if (articlesState is ArticlesState.Success) {
+            SelectionBottomBar(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .background(WikipediaTheme.colors.paperColor),
+                selectedItemsCount = articlesState.selectedArticles.size,
+                onDeselectAllClick = onDeselectAllClick
+            )
         }
     }
 }
@@ -177,8 +173,7 @@ fun TopicFilterChipRow(
 ) {
     LazyRow(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(items = topics, key = { it.topicId }) { item ->
             FilterChip(
@@ -251,7 +246,8 @@ fun SelectionBottomBar(
                             selectedItemsCount
                         ),
                         style = MaterialTheme.typography.labelLarge.copy(
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Bold,
+                            color = WikipediaTheme.colors.primaryColor
                         )
                     )
 
@@ -281,6 +277,7 @@ fun SelectionBottomBar(
                     Text(
                         text = stringResource(R.string.recommended_reading_list_interest_select_minimum),
                         style = MaterialTheme.typography.labelLarge,
+                        color = WikipediaTheme.colors.primaryColor
                     )
                 }
             }
