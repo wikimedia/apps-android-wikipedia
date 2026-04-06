@@ -122,22 +122,27 @@ private fun EditorChoiceContent(
         }
 
         if (allowShowAgainCheckbox) {
-            Spacer(modifier = Modifier.height(8.dp))
-
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .selectable(
+                        selected = dontShowAgain,
+                        onClick = { dontShowAgain = !dontShowAgain },
+                        role = Role.Checkbox
+                    )
             ) {
                 Checkbox(
                     checked = dontShowAgain,
-                    onCheckedChange = { dontShowAgain = it },
+                    onCheckedChange = null,
                     colors = CheckboxDefaults.colors(
                         checkedColor = WikipediaTheme.colors.progressiveColor,
                         uncheckedColor = WikipediaTheme.colors.secondaryColor,
                     )
                 )
                 Text(
+                    modifier = Modifier.padding(start = 8.dp),
                     text = stringResource(R.string.editor_select_dialog_dont_show_again),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.primaryColor
