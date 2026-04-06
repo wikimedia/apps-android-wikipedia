@@ -2123,6 +2123,7 @@
   <string name="reading_challenge_onboarding_header">Festeggia il 25° compleanno di Wikipedia partecipando alla sfida di lettura di 25 giorni!</string>
   <string name="reading_challenge_onboarding_read_title">Leggi una voce al giorno per 25 giorni</string>
   <string name="reading_challenge_onboarding_install_title">Installa il widget</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Ulteriori informazioni</string>
   <string name="reading_challenge_onboarding_prompt_title">Accedi per partecipare alla sfida</string>
   <string name="reading_challenge_onboarding_prompt_message">Accedi o crea un\'utenza per monitorare i tuoi progressi nella sfida di lettura.</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">No, grazie</string>
@@ -2130,6 +2131,7 @@
   <string name="reading_challenge_install_prompt_got_it">Capito</string>
   <string name="reading_challenge_install_prompt_add">Aggiungi</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Esplora Wikipedia</string>
+  <string name="reading_challenge_widget_search_button">Cerca</string>
   <string name="reading_challenge_widget_random_button">Casuale</string>
   <string name="reading_challenge_widget_not_live_title">Preparati a leggere</string>
   <string name="reading_challenge_widget_not_opted_in_description">Partecipa alla sfida di 25 giorni e sblocca premi speciali.</string>

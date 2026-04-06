@@ -31,10 +31,15 @@
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_voice_search">Ahotsaren bidez bilatu</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
+  <string name="search_back_button_content_description">Atzera joan</string>
+  <string name="search_clear_query_content_description">Garbitu kontsulta</string>
+  <string name="search_icon_content_description">Bilatu</string>
   <string name="filter_hint_filter_my_lists_and_articles">Nire zerrendak iragazi</string>
   <string name="nav_item_suggested_edits">Aldaketak</string>
+  <string name="nav_item_activity">Jarduera</string>
   <string name="nav_item_more">Gehiago</string>
   <string name="nav_item_search">Bilatu</string>
+  <string name="nav_item_contribute">Lagundu</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
   <string name="card_offline_error_retry">Berriz saiatu</string>
@@ -57,7 +62,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
+  <string name="dialog_message_clear_history">Honek zure arakatze-historia guztia ezabatuko du. Ziur zaude?</string>
   <string name="dialog_message_clear_history_yes">Bai</string>
   <string name="dialog_message_clear_history_no">Ez</string>
   <string name="share_via">Partekatu honela</string>
@@ -125,6 +130,7 @@
   <string name="language_count_link_text">Irakurgarri beste %d hizkuntzatan</string>
   <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
+  <string name="edit_anon_warning">Aldaketak zure gailuaren IP helbideari egotziko zaizkio. &lt;a href=\"https://#login\"&gt;Saioa hasten&lt;/a&gt; baduzu, pribatutasun handiagoa izango duzu.</string>
   <string name="preference_title_language">Wikipediako hizkuntzak</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
@@ -133,12 +139,17 @@
   <string name="langlinks_your_wikipedia_languages">Zure Wikipedia hizkuntzak</string>
   <string name="menu_save_changes">Aldaketak argitaratu</string>
   <string name="edit_saved_successfully">Aldaketa argitaratu da!</string>
+  <string name="stub_article_edit_saved_successfully">Aldaketa argitaratu da! Aldaketak agertzeko denbora behar du.</string>
   <string name="dialog_message_edit_failed">Errorea aldaketan!</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
   <string name="dialog_message_edit_failed_cancel">Utzi</string>
   <string name="dialog_message_leaving_edit">Zure aldaketak oraindik ez dira gorde. Ziur zaude orritik irten nahi duzula?</string>
   <string name="dialog_message_leaving_edit_leave">Irten</string>
   <string name="dialog_message_leaving_edit_stay">Gelditu</string>
+  <string name="dialog_confirm_delete_donation_history_title">Berretsi ezabatzea</string>
+  <string name="dialog_confirm_delete_donation_history_message">Hau gailu honetatik egindako dohaintzei bakarrik aplikatuko zaie.</string>
+  <string name="dialog_confirm_delete_donation_history_delete">Ezabatu</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">Utzi</string>
   <string name="menu_show_toc">Eduki-taula</string>
   <string name="search_no_results_found">Ez da emaitzarik aurkitu</string>
   <string name="search_reading_list_no_results">\"%s\"-n ez da emaitzik aurkitu</string>
@@ -155,6 +166,9 @@
   <string name="account_creation_password_hint">Pasahitza</string>
   <string name="login_2fa_hint" fuzzy="true">Bi-faktoreko Autentikatze Kodea</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
+  <string name="login_email_auth_hint">Posta elektroniko bidezko egiaztapen-kodea</string>
+  <string name="login_email_auth_other_workflow_error_msg">Posta elektroniko bidezko egiaztapena beharrezkoa da! Hasi saioa pantaila nagusian eta idatzi zure helbide elektronikoan jasotako egiaztapen-kodea.</string>
+  <string name="login_background_error_msg">Ezin da berriro saioa hasi. Itzuli pantaila nagusira eta hasi saioa eskuz.</string>
   <string name="onboarding_card_login">Saioa hasi</string>
   <string name="page_editing_login">Saioa hasi</string>
   <string name="reading_lists_sync_login">Saioa hasi</string>
@@ -175,6 +189,9 @@
   <string name="logged_out_in_background_dialog">Wikipediako saioa itxi da. Nahi al duzu berriro ere saioa hasi?</string>
   <string name="logged_out_in_background_login">Saioa hasi</string>
   <string name="logged_out_in_background_cancel">Utzi</string>
+  <string name="account_vanish_request_title">Kendu kontua</string>
+  <string name="account_vanish_request_confirm_title">Kontua kentzearen abisua</string>
+  <string name="account_vanish_request_confirm">Kontua kentzea &lt;b&gt;azken aukera&lt;/b&gt; da eta &lt;b&gt;betiko editatzeari utzi nahi diozunean eta iraganeko loturak ahalik eta gehien ezkutatu nahi dituzunean bakarrik erabili&lt;/b&gt; behar da.&lt;br/&gt;&lt;br/&gt; Wikipedian kontua ezabatzeko, kontuaren izena aldatu behar da, besteek zure ekarpenak ezagutu ez ditzaten. Prozesu horretan, kontua &lt;b&gt;desagertzeak ez du anonimotasun osoa bermatzen, ezta proiektuetarako ekarpenak ezabatzen ere&lt;/b&gt; .</string>
   <string name="history_empty_title">Ez dago azkenaldian ikusitako orririk!</string>
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="history_offline_articles_toast">Baliteke historialeko artikulu batzuk ezin ikustea offline bazaude.</string>
@@ -191,6 +208,7 @@
   <string name="dialog_create_account_checking_progress">Egiaztatzen</string>
   <string name="create_account_email_hint">Helbide elektronikoa (Hautazkoa)</string>
   <string name="create_account_password_repeat_hint">Pasahitza errepikatu</string>
+  <string name="create_account_password_is_username">Pasahitza ezin da erabiltzaile-izenaren berdina izan</string>
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
   <string name="create_account_username_error">Karaktere ez baliagarriak erabiltzaile izenean</string>
@@ -233,22 +251,26 @@
   <string name="page_protected_can_not_edit_anon">Sentitzen dugu, orrialde honek ezin du aldaketa anonimorik jaso momentu honetan.</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Jarraipen zerrendara gehitu</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Interesatzen zaizkizun artikuluen jarraipena. Sakatu ondoko menua eta hautatu &lt;b&gt;Gehitu jarraipen-zerrendan&lt;/b&gt; artikulu batean egindako aldaketak ikusteko.</string>
   <string name="settings_item_preferences">Ezarpenak</string>
   <string name="settings_activity_title">Ezarpenak</string>
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
+  <string name="legal_safety_contacts_description">Lege eta segurtasun kontaktuak</string>
   <string name="about_wikipedia_url">https://eu.wikipedia.org/wiki/Laguntza:Wikipediari_buruz</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Taldeko orria&lt;/a&gt;</string>
   <string name="about_translators_heading">Itzultzaileak</string>
   <string name="about_translators_translatewiki">Aplikazio hau boluntarioek itzuli dute hementxe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lizentzia</string>
-  <string name="about_app_license" fuzzy="true">Iturburu kodea eskuragarri &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;-en eta &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-en &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizentziapean&lt;/a&gt;. Bestela zehazten ez bada, edukia &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Creative Commons Aitortu-PartekatuBerdin Lizentziapean&lt;/a&gt; dago eskuragarri.</string>
+  <string name="about_app_license">Iturburu kodea eskuragarri dago &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; orrian eta &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-en &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizentziapean&lt;/a&gt;. Bestela zehazten ez bada, edukia &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Creative Commons Aitortu-PartekatuBerdin Lizentziapean&lt;/a&gt; dago eskuragarri.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
+  <string name="about_logo_content_description">Wikipedia globo puzzle logoa</string>
   <string name="edit_abandon_confirm">Orrialde honek aldaketak jasan ditu. Ziur zaude zure aldaketak gorde gabe irten nahi duzula?</string>
   <string name="edit_abandon_confirm_yes">Bai</string>
   <string name="edit_abandon_confirm_no">Ez</string>
@@ -261,6 +283,13 @@
   <string name="edit_preview">Aurrebista</string>
   <string name="edit_undo">Desegin</string>
   <string name="edit_redo">Berregin</string>
+  <string name="edit_rollback">Desegin</string>
+  <string name="edit_warn">Abisatu</string>
+  <string name="edit_damage">%s kaltetua</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s byte</item>
+  </plurals>
   <string name="edit_zoom_in">Handiagotu</string>
   <string name="edit_zoom_out">Txikiagotu</string>
   <string name="edit_summary_tag_typo">Ortografia zuzenketa</string>
@@ -268,12 +297,19 @@
   <string name="edit_summary_tag_links">Gehitutako loturak</string>
   <string name="edit_summary_tag_other">Bestelakoa</string>
   <string name="edit_summary_tag_other_hint">Orria hobetzeko beste bide batzuk</string>
+  <string name="edit_summary_added_short_description">Deskribapen laburra gehitu da</string>
+  <string name="edit_summary_updated_short_description">Deskribapen laburra eguneratu da</string>
   <string name="edit_conflict_title">Aldaketa gatazka</string>
   <string name="edit_conflict_message">Beste erabiltzaile batek orri hau aldatu du jadanik, eta zure aldaketarekin gatazka sortu du. Mesedez, kopiatu zure aldaketak, joan atzera eta freskatu orria, ondoren saiatu berriro editatzen.</string>
+  <string name="edit_notices">Editatu oharrak</string>
+  <string name="edit_notices_please_read">Editatu aurretik irakurri, mesedez</string>
+  <string name="edit_notices_show_auto">Erakutsi editatutako oharrak automatikoki</string>
+  <string name="edit_notices_tooltip">Sakatu botoi hau artikulu honen edizio-oharrak ikusteko.</string>
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="find_first_occurence">Hau lehen agerraldia da</string>
   <string name="find_last_occurence">Hau azken agerraldia da</string>
+  <string name="article_opened_in_background_tab">Artikulua atzeko planoan dagoen fitxa batean ireki da.</string>
   <string name="abusefilter_title_warn">Hau editatze ezezaguna izan daiteke. Ziur al zaude argitaratu nahi duzula?</string>
   <string name="abusefilter_title_disallow">Ezin duzu aldaketa hau argitaratu. Mesedez itzul zaitez eta alda ezazu.</string>
   <string name="abusefilter_text_warn">Iragazki automatizatu batek aldaketa hau ezezagun potentzial gisa identifikatu du. Hurrengotariko baten bat izan daiteke:&lt;br /&gt;&lt;br /&gt;· Typing in all caps&lt;br /&gt;· Blanking articles or spamming&lt;br /&gt;· Irrelevant external links or images&lt;br /&gt;· Errepikaturiko karaktereak</string>
@@ -297,6 +333,8 @@
   <string name="widget_name_featured_page">Wikipediako nabarmendutako orrialdea</string>
   <string name="widget_title_featured_page">Gaurko orrialde nabarmena:</string>
   <string name="widget_name_search">Wikipedia bilaketa</string>
+  <string name="widget_description_search">Wikipedian bilatzeko modurik azkarrena</string>
+  <string name="widget_description_featured_page">Wikipediak eskaintzen dituen artikulu onenak</string>
   <string name="wiktionary_no_definitions_found">Ez da definiziorik aurkitu.</string>
   <string name="alpha_update_notification_title">Alpha eguneraketa berria eskuragarri</string>
   <string name="alpha_update_notification_text">Sakatu, deskargatzeko</string>
@@ -318,6 +356,7 @@
   <string name="gallery_save_success">Fitxategia gorde da.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="gallery_save_image_write_permission_rationale">Beharrezkoa da zure gailuko gordegailuari idazteko baimena ematea argazkiak gordetzeko.</string>
+  <string name="gallery_edit_button_content_description">Editatu irudiaren oineko testua</string>
   <string name="gallery_add_image_caption_button">Gehitu irudi oineko testua</string>
   <string name="gallery_add_image_caption_in_language_button">Gehitu irudi oineko testua (%s)</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
@@ -338,20 +377,27 @@
   <string name="tab_item_closed">%s itxita.</string>
   <string name="all_tab_items_closed">Fitxa guztiak itxi dira.</string>
   <string name="tool_tip_bookmark_icon_title">Gehitu irakurketa zerrendara</string>
+  <string name="tool_tip_bookmark_icon_text">Sakatu laster-marken ikonoa artikulua irakurketa-zerrenda batean gordetzeko.</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
+  <string name="tool_tip_toc_title">Edukien sarbide azkarraren taula</string>
+  <string name="tool_tip_toc_text">Orain ezkerrera irristatu dezakezu edukien taula irekitzeko, eta baita ere sakatu eta arrastatu korritze-botoi hau artikulu baten atal desberdinetara azkar salto egiteko.</string>
   <string name="error_response_malformed">Zerbitzariaren erantzuna ez da formateatu behar bezala.</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="address_copied">Helbidea klip-erretilura kopiatua.</string>
   <string name="text_copied">Testua klip-erretilura kopiatua.</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
+  <string name="button_continue_to_talk_page">Eztabaida orria ikusi</string>
   <string name="button_continue_to_disambiguation">Antzeko orriak ikusi</string>
+  <string name="link_preview_disambiguation_description">Izenburu honek orrialde bat baino gehiagori egiten dio erreferentzia:</string>
   <string name="button_add_to_reading_list">Gehitu irakurketa zerrendara</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikulua ezin da kargatu konexiorik gabe.</string>
   <string name="page_offline_notice_add_to_reading_list">Aholkua: Gehitu artikulua irakurketa zerrenda batera, eta berriz konexioa duzunean deskargatuko da.</string>
   <string name="page_offline_notice_last_date">Konexiorik gabeko artikuluaren bertsioa irakurtzen ari zara %s (e)n gordeta.</string>
+  <string name="redirected_from_snackbar">%s orritik birzuzenduta</string>
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="error_no_maps_app">Ez da aurkitu helbiderik eskaintzen duen aplikaziorik.</string>
+  <string name="preference_title_customize_explore_feed">Arakatu jarioa</string>
   <string name="preference_title_show_link_previews">Erakutsi esteka aurreikuspenak</string>
   <string name="preference_summary_show_link_previews">Erakutsi artikuluen aurrebista bizkorra esteketan sakatzen denean.</string>
   <string name="preference_title_collapse_tables">Taulak txikitu</string>

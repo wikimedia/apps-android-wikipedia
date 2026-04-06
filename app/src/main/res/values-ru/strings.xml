@@ -1519,7 +1519,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Без рамки</string>
   <string name="insert_media_advanced_settings_image_type_frame">Рамка</string>
   <string name="insert_media_advanced_settings_image_type_basic">Базовая</string>
-  <string name="insert_media_advanced_settings_image_type_tip">Вы можете отображение мультимедийного элемента на странице. Чтобы элемент соответствовал разным страницам, это должен быть формат миниатюры.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Вы можете настроить отображение медиафайла на странице. В большинстве случаев используется миниатюра для соответствия остальным страницам.</string>
   <string name="insert_media_advanced_settings_image_size">Размер изображения</string>
   <string name="insert_media_advanced_settings_image_size_default">По умолчанию</string>
   <string name="insert_media_advanced_settings_image_size_custom">Настраиваемый</string>
@@ -2610,6 +2610,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Челлендж завершён</string>
   <string name="reading_challenge_widget_concluded_complete">Вы справились!</string>
   <string name="reading_challenge_widget_reward_title">Любопытство вам идёт! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body" fuzzy="true">Отметьте успешное прохождение челленджа со скидкой 15%% в Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_body">Отметьте успешное прохождение челленджа со скидкой 15%% в Wikipedia Store.</string>
   <string name="reading_challenge_widget_reward_button_label">Получите скидку 15%% в магазине</string>
 </resources>
