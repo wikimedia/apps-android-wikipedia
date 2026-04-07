@@ -63,8 +63,10 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.featured.FeaturedArticleModule
+import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.main.MainActivity
+import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -95,8 +97,14 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
-                        onImageClick = { imageFileName ->
-                            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(imageFileName, WikiSite(Service.COMMONS_URL))))
+                        onImageClick = {
+                            showFilePageForImage(it)
+                        },
+                        onImageShareClick = {
+
+                        },
+                        onImageDownloadClick = {
+                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
                         }
                     )
                 }
@@ -106,6 +114,10 @@ class HomeFragment : Fragment() {
 
     fun getCurrentTab(): HomeTab {
         return viewModel.selectedTab.value
+    }
+
+    private fun showFilePageForImage(imageFileName: String) {
+        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(imageFileName, WikiSite(Service.COMMONS_URL))))
     }
 }
 
@@ -118,7 +130,7 @@ fun HomeScreen(
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
     onImageClick: (imageFileName: String) -> Unit = {},
-    onImageDownloadClicked: () -> Unit = {},
+    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -158,7 +170,9 @@ fun HomeScreen(
                     CommunityContentTab(
                         state = communityContentState,
                         onLoadMore = onLoadMoreCommunityContent,
-                        onImageClick = onImageClick
+                        onImageClick = onImageClick,
+                        onImageDownloadClick = onImageDownloadClick,
+                        onImageShareClick = onImageShareClick
                     )
                 }
             }
@@ -261,7 +275,7 @@ fun CommunityContentTab(
     state: CommunityContentState,
     onLoadMore: () -> Unit,
     onImageClick: (imageFileName: String) -> Unit = {},
-    onImageDownloadClicked: () -> Unit = {},
+    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: () -> Unit = {},
 ) {
     when {
@@ -292,7 +306,8 @@ fun CommunityContentTab(
                         item(key = "tfi-${day.age}") {
                             FeaturedImageModule(
                                 image,
-                                onClick = { onImageClick(image.title) }
+                                onClick = { onImageClick(image.title) },
+                                onDownloadClick = { onImageDownloadClick(image) }
                             )
                         }
                     }
