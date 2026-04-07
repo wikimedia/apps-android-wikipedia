@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -59,6 +60,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
+import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
@@ -122,7 +124,7 @@ fun HomeScreen(
                 Column(
                     modifier = Modifier
                         .align(Alignment.TopCenter)
-                        .fillMaxWidth()
+                        .fillMaxSize()
                         .background(WikipediaTheme.colors.paperColor)
                 ) {
                     Image(
@@ -144,6 +146,7 @@ fun HomeScreen(
                     )
 
                     CommunityContentTab(
+                        modifier = Modifier.weight(1f),
                         state = communityContentState,
                         onLoadMore = onLoadMoreCommunityContent
                     )
@@ -245,20 +248,21 @@ fun HomeTabBar(
 
 @Composable
 fun CommunityContentTab(
+    modifier: Modifier = Modifier,
     state: CommunityContentState,
     onLoadMore: () -> Unit
 ) {
     when {
         state.isInitialLoading -> {
-            LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
         state.error != null && state.days.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(top = 16.dp, bottom = 16.dp)
+                modifier = modifier.fillMaxSize(),
+                contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
                 state.days.forEach { day ->
 
@@ -272,7 +276,25 @@ fun CommunityContentTab(
                         }
                     }
 
-                    // TODO: all the other types of content for this day.
+                    day.topRead?.let {
+                        item(key = "top-read-${day.age}") {
+                            TopReadModule(
+                                topRead = it,
+                                onOverflowClick = {
+                                    // TODO: implement overflow menu
+                                },
+                                onItemClick = { pageSummary ->
+                                    // TODO: navigate to article
+                                },
+                                onItemOverflowClick = { pageSummary ->
+                                    // TODO: implement item overflow menu
+                                },
+                                onFooterClick = {
+                                    // TODO: open top read activity
+                                }
+                            )
+                        }
+                    }
                 }
 
                 item(key = "load-more-community") {

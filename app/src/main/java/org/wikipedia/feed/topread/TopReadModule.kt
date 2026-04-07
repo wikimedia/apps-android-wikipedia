@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,11 +44,12 @@ import org.wikipedia.util.StringUtil
 @Composable
 fun TopReadModule(
     topRead: TopRead,
-    onFooterClick: () -> Unit,
-    onMoreClick: () -> Unit,
+    onOverflowClick: () -> Unit,
     onItemClick: (PageSummary) -> Unit,
-    onItemMoreClick: (PageSummary) -> Unit
+    onItemOverflowClick: (PageSummary) -> Unit,
+    onFooterClick: () -> Unit
 ) {
+    val maxTopReadItems = 5
     val context = LocalContext.current
     Column(
         modifier = Modifier
@@ -82,7 +81,7 @@ fun TopReadModule(
                 )
             }
             IconButton(
-                onClick = onMoreClick,
+                onClick = onOverflowClick,
                 content = {
                     Icon(
                         painter = painterResource(R.drawable.ic_more_vert_white_24dp),
@@ -95,18 +94,18 @@ fun TopReadModule(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(horizontal = 16.dp)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
         ) {
-            items(topRead.articles.size) { index ->
-                val article = topRead.articles[index]
+            topRead.articles.take(maxTopReadItems).forEachIndexed { index, article ->
                 TopReadItem(
                     context = context,
                     rank = index + 1,
                     pageSummary = article,
                     onClick = onItemClick,
-                    onMoreClick = onItemMoreClick
+                    onMoreClick = onItemOverflowClick
                 )
             }
         }
@@ -174,7 +173,7 @@ fun TopReadItem(
                 )
             }
 
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(16.dp))
 
             Column(modifier = Modifier.weight(1f)) {
                 HtmlText(
@@ -183,6 +182,7 @@ fun TopReadItem(
                         fontWeight = FontWeight.Bold
                     ),
                 )
+                Spacer(modifier = Modifier.height(8.dp))
                 Row {
                     Text(
                         text = StringUtil.getPageViewText(context, pageSummary.views),
@@ -243,9 +243,9 @@ fun TopReadCardPreview() {
                 articles = listOf(article, article, article, article, article)
             ),
             onFooterClick = {},
-            onMoreClick = {},
+            onOverflowClick = {},
             onItemClick = {},
-            onItemMoreClick = {}
+            onItemOverflowClick = {}
         )
     }
 }
