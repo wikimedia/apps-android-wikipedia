@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -67,14 +66,12 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
 
     @Composable
     fun RewardScreen(
-        modifier: Modifier = Modifier,
         onCloseClick: () -> Unit,
         onNavigateClick: () -> Unit
     ) {
         Column(
-            modifier = Modifier.safeDrawingPadding()
-                .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
+            modifier = Modifier.fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
                 .verticalScroll(rememberScrollState()),
         ) {
             Box(
@@ -135,7 +132,11 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = stringResource(R.string.reading_challenge_widget_reward_body),
+                // The "emptyArray" argument is necessary to properly parse a string resource with
+                // a double-escaped percent sign (%%), which was necessary for older style
+                // Context.getString() calls. In the future, for usages only in stringResource()
+                // calls, this argument can be removed, and percents don't need to be escaped.
+                text = stringResource(R.string.reading_challenge_widget_reward_body, *emptyArray()),
                 style = MaterialTheme.typography.bodyLarge,
                 color = WikipediaTheme.colors.secondaryColor
             )
@@ -146,7 +147,7 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
                 onClick = onNavigateClick
             ) {
                 Text(
-                    stringResource(R.string.reading_challenge_widget_reward_button_label)
+                    stringResource(R.string.reading_challenge_widget_reward_button_label, *emptyArray())
                 )
             }
         }
