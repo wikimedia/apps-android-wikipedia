@@ -94,7 +94,15 @@ fun InterestOnboardingScreen(
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
                         when (topicsState) {
-                            is TopicsState.Error -> {}
+                            is TopicsState.Error -> {
+                                Text(
+                                    modifier = Modifier
+                                        .fillMaxWidth(),
+                                    text = topicsState.message,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = WikipediaTheme.colors.secondaryColor
+                                )
+                            }
                             TopicsState.Loading -> {
                                 LazyRow(
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),

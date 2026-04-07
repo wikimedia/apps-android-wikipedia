@@ -28,7 +28,7 @@ private data class PersonalizedViewModelState(
     val articlesLoading: Boolean = false,
     val articlesError: Throwable? = null,
     val selectedArticles: Set<PageTitle> = emptySet(),
-    val selectedTopics: Set<String> = emptySet(),
+    val selectedTopics: List<OnboardingTopic> = emptyList(),
     val searchQuery: String = "",
     // Feed preference screen properties
 ) {
@@ -42,7 +42,7 @@ private data class PersonalizedViewModelState(
 
                 else -> TopicsState.Success(
                     topics = topics.map {
-                        it.copy(isSelected = selectedTopics.contains(it.topicId))
+                        it.copy(isSelected = selectedTopics.any { selected -> selected.topicId == it.topicId })
                     }
                 )
             },
@@ -69,7 +69,6 @@ class PersonalizationViewModel(
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
-    private val topicApiLookUp = OnboardingTopics.all.associate { it.topicId to it.articleTopics }
 
     // Each screen observes only its own derived UI state
     // runs automatically when any part of the raw state changes
@@ -154,7 +153,7 @@ class PersonalizationViewModel(
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
         val lang = WikipediaApp.instance.languageState.appLanguageCode
-        val isSelected = state.value.selectedTopics.contains(topic.topicId)
+        val isSelected = state.value.selectedTopics.any { selected -> selected.topicId == topic.topicId }
 
         // When a category is selected, we want to reset the articles state and load articles for the selected category
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -167,9 +166,9 @@ class PersonalizationViewModel(
             }
 
             val selectedTopics = if (isSelected) {
-                state.value.selectedTopics - topic.topicId
+                state.value.selectedTopics.filter { it.topicId != topic.topicId }
             } else {
-                state.value.selectedTopics + topic.topicId
+                state.value.selectedTopics + topic
             }
 
             state.update {
@@ -181,8 +180,8 @@ class PersonalizationViewModel(
                 )
             }
 
-            val topicQueryIds = selectedTopics.mapNotNull { topicApiLookUp[it] }
-            if (topicQueryIds.isEmpty()) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryIds.last())
+            val topicQueryId = selectedTopics.lastOrNull()?.articleTopics
+            if (topicQueryId == null) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryId)
         }
     }
 
@@ -229,8 +228,9 @@ class PersonalizationViewModel(
     }
 
     fun retryLoading() {
-        if (state.value.selectedTopics.isNotEmpty()) {
-            loadArticlesByTopic(topic = topicApiLookUp[state.value.selectedTopics.last()].orEmpty())
+        val last = state.value.selectedTopics.lastOrNull()
+        if (last != null) {
+            loadArticlesByTopic(topic = last.articleTopics)
         } else {
             loadInitialArticles()
         }
