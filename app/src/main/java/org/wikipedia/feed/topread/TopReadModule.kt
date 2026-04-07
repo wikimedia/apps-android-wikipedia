@@ -186,7 +186,7 @@ fun TopReadItem(
                     HtmlText(
                         text = pageSummary.displayTitle,
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.SemiBold
                         )
                     )
                 }
@@ -213,6 +213,7 @@ fun TopReadItem(
                     Text(
                         text = stringResource(R.string.view_top_read_card_pageviews_views_suffix),
                         style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.secondaryColor
                     )
                 }
