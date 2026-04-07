@@ -139,7 +139,12 @@ fun TopReadItem(
     onClick: (PageSummary) -> Unit,
     onMoreClick: (PageSummary) -> Unit
 ) {
-    Column {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+            .clickable(onClick = {
+                onClick(pageSummary)
+            })
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -151,9 +156,6 @@ fun TopReadItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 12.dp)
-                .clickable(onClick = {
-                    onClick(pageSummary)
-                })
         ) {
             Box(
                 modifier = Modifier
