@@ -100,9 +100,12 @@ fun TopReadModule(
                 .padding(horizontal = 16.dp)
         ) {
             topRead.articles.take(maxTopReadItems).forEachIndexed { index, article ->
+                val isTrendingUp = article.viewHistory?.takeLast(2)?.let { it.size < 2 || it[1].views > it[0].views } ?: true
+
                 TopReadItem(
                     context = context,
                     rank = index + 1,
+                    isTrendingUp = isTrendingUp,
                     pageSummary = article,
                     onClick = onPageClick,
                     onMoreClick = onPageOverflowClick
@@ -135,6 +138,7 @@ fun TopReadModule(
 fun TopReadItem(
     context: Context,
     rank: Int,
+    isTrendingUp: Boolean,
     pageSummary: PageSummary,
     onClick: (PageSummary) -> Unit,
     onMoreClick: (PageSummary) -> Unit
@@ -157,35 +161,48 @@ fun TopReadItem(
                 .fillMaxWidth()
                 .padding(vertical = 12.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .size(24.dp)
-                    .background(
-                        color = WikipediaTheme.colors.progressiveColor,
-                        shape = RoundedCornerShape(4.dp)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = rank.toString(),
-                    fontSize = 16.sp,
-                    color = WikipediaTheme.colors.paperColor,
-                    fontFamily = FontFamily.Serif,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-
-            Spacer(modifier = Modifier.width(16.dp))
-
             Column(modifier = Modifier.weight(1f)) {
-                HtmlText(
-                    text = pageSummary.displayTitle,
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold
-                    ),
-                )
-                Spacer(modifier = Modifier.height(8.dp))
                 Row {
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(
+                                color = WikipediaTheme.colors.progressiveColor,
+                                shape = RoundedCornerShape(4.dp)
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = rank.toString(),
+                            fontSize = 16.sp,
+                            color = WikipediaTheme.colors.paperColor,
+                            fontFamily = FontFamily.Serif,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    HtmlText(
+                        text = pageSummary.displayTitle,
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Bold
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    val trendingIcon = if (isTrendingUp) R.drawable.ic_trending_up_24dp else R.drawable.ic_trending_down_24dp
+                    val trendingIconTint = if (isTrendingUp) WikipediaTheme.colors.successColor else WikipediaTheme.colors.destructiveColor
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(trendingIcon),
+                        contentDescription = stringResource(R.string.search_clear_query_content_description),
+                        tint = trendingIconTint
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
                     Text(
                         text = StringUtil.getPageViewText(context, pageSummary.views),
                         style = MaterialTheme.typography.bodyMedium,
