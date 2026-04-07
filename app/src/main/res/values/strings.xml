@@ -2478,4 +2478,5 @@
     <string name="explore_feed_community_tab_label">From the community</string>
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
+    <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
 </resources>

@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -59,6 +60,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
+import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
@@ -88,7 +90,7 @@ class HomeFragment : Fragment() {
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
-                        onLoaDMoreForYouContent = viewModel::loadForYouContent
+                        onLoadMoreForYouContent = viewModel::loadForYouContent,
                     )
                 }
             }
@@ -107,7 +109,10 @@ fun HomeScreen(
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
-    onLoaDMoreForYouContent: () -> Unit = {}
+    onLoadMoreForYouContent: () -> Unit = {},
+    onImageClick: () -> Unit = {},
+    onImageDownloadClicked: () -> Unit = {},
+    onImageShareClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -152,7 +157,7 @@ fun HomeScreen(
             HomeTab.FOR_YOU -> {
                 ForYouContentTab(
                     state = forYouContentState,
-                    onLoadMore = onLoaDMoreForYouContent
+                    onLoadMore = onLoadMoreForYouContent
                 )
 
                 // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -246,7 +251,10 @@ fun HomeTabBar(
 @Composable
 fun CommunityContentTab(
     state: CommunityContentState,
-    onLoadMore: () -> Unit
+    onLoadMore: () -> Unit,
+    onImageClick: (imageFileName: String) -> Unit = {},
+    onImageDownloadClicked: () -> Unit = {},
+    onImageShareClick: () -> Unit = {},
 ) {
     when {
         state.isInitialLoading -> {
@@ -258,7 +266,7 @@ fun CommunityContentTab(
         else -> {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(top = 16.dp, bottom = 16.dp)
+                contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
                 state.days.forEach { day ->
 
@@ -269,6 +277,15 @@ fun CommunityContentTab(
                     day.featuredArticle?.let { article ->
                         item(key = "tfa-${day.age}") {
                             FeaturedArticleModule(article)
+                        }
+                    }
+
+                    day.featuredImage?.let { image ->
+                        item(key = "potd-${day.age}") {
+                            FeaturedImageModule(
+                                image,
+                                onClick = { onImageClick(image.title) }
+                            )
                         }
                     }
 
