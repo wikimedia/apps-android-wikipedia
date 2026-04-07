@@ -43,6 +43,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.compose.components.error.WikiErrorClickEvents
+import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.PageTitle
@@ -58,6 +60,7 @@ fun InterestOnboardingScreen(
     onItemClick: (PageTitle) -> Unit = {},
     onSearchClick: () -> Unit,
     onDeselectAllClick: () -> Unit,
+    retryLoading: () -> Unit,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
 ) {
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
@@ -121,7 +124,25 @@ fun InterestOnboardingScreen(
                     }
 
                     when (articlesState) {
-                        is ArticlesState.Error -> {}
+                        is ArticlesState.Error -> {
+                            item(span = StaggeredGridItemSpan.FullLine) {
+                                Box(
+                                    modifier = modifier
+                                        .fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    WikiErrorView(
+                                        modifier = Modifier
+                                            .fillMaxWidth(),
+                                        caught = articlesState.message,
+                                        errorClickEvents = WikiErrorClickEvents(
+                                            retryClickListener = retryLoading
+                                        ),
+                                        retryForGenericError = true
+                                    )
+                                }
+                            }
+                        }
                         ArticlesState.Loading -> {
                             items(10) {
                                 Box(

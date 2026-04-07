@@ -3,12 +3,15 @@ package org.wikipedia.onboarding.personalization
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.onboarding.personalization.db.dao.InterestDao
+import org.wikipedia.onboarding.personalization.db.entity.Interest
+import org.wikipedia.onboarding.personalization.db.entity.InterestType
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.StringUtil
 
-class PersonalizationRepository {
+class PersonalizationRepository(private val interestDao: InterestDao) {
 
     suspend fun getTopics(langCode: String): List<OnboardingTopic> {
         val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
@@ -87,5 +90,41 @@ class PersonalizationRepository {
         }
 
         return results.distinctBy { it.prefixedText }
+    }
+
+    suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
+        interestDao.insert(
+            Interest(
+                topicKey = topic.topicId,
+                topicLabel = topic.displayTitle,
+                lang = lang,
+                type = InterestType.TOPIC.value
+            )
+        )
+    }
+
+    suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
+        interestDao.findTopic(topic.topicId, lang)?.let {
+            interestDao.delete(it)
+        }
+    }
+
+    suspend fun saveArticle(article: PageTitle, lang: String) {
+        interestDao.insert(
+            Interest(
+                type = InterestType.ARTICLE.value,
+                lang = lang,
+                articleApiTitle = article.prefixedText,
+                articleDisplayTitle = article.displayText,
+                articleDescription = article.description,
+                articleThumbUrl = article.thumbUrl
+            )
+        )
+    }
+
+    suspend fun deleteArticle(article: PageTitle, lang: String) {
+        interestDao.findArticle(article.prefixedText, lang)?.let {
+            interestDao.delete(it)
+        }
     }
 }

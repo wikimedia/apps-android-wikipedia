@@ -94,6 +94,9 @@ fun PersonalizationScreen(
                             onSearchClick = onSearchClick,
                             onDeselectAllClick = {
                                 viewModel.deselectAllArticles()
+                            },
+                            retryLoading = {
+                                viewModel.retryLoading()
                             }
                         )
                     }

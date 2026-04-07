@@ -20,7 +20,7 @@ class PersonalizationActivity : BaseActivity() {
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
-            viewModel.addArticle(pageTitle)
+            viewModel.addArticleFromSearch(pageTitle)
         }
     }
 

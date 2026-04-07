@@ -10,9 +10,9 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import kotlin.collections.plus
 
 // this is a raw, flat, internal representation of ALL state
 // needed across the personalization flow (interest and feed preference)
@@ -39,6 +39,7 @@ private data class PersonalizedViewModelState(
                 topicsError != null -> TopicsState.Error(
                     topicsError.message ?: "Unknown error"
                 )
+
                 else -> TopicsState.Success(
                     topics = topics.map {
                         it.copy(isSelected = selectedTopics.contains(it.topicId))
@@ -48,7 +49,7 @@ private data class PersonalizedViewModelState(
             articlesState = when {
                 articlesLoading -> ArticlesState.Loading
                 articlesError != null -> ArticlesState.Error(
-                    articlesError.message ?: "Unknown error"
+                    articlesError
                 )
 
                 else -> ArticlesState.Success(
@@ -64,7 +65,7 @@ private data class PersonalizedViewModelState(
 }
 
 class PersonalizationViewModel(
-    private val repository: PersonalizationRepository = PersonalizationRepository()
+    private val repository: PersonalizationRepository = PersonalizationRepository(AppDatabase.instance.interestDao())
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
@@ -122,7 +123,13 @@ class PersonalizationViewModel(
 
             val selectedItems = Prefs.recommendedReadingListInterests
             val articles = repository.loadInitialArticles(selectedItems)
-            state.update { it.copy(articles = articles, articlesLoading = false, selectedArticles = selectedItems.toSet()) }
+            state.update {
+                it.copy(
+                    articles = articles,
+                    articlesLoading = false,
+                    selectedArticles = selectedItems.toSet()
+                )
+            }
         }
     }
 
@@ -146,27 +153,40 @@ class PersonalizationViewModel(
 
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
+        val lang = WikipediaApp.instance.languageState.appLanguageCode
+        val isSelected = state.value.selectedTopics.contains(topic.topicId)
+
         // When a category is selected, we want to reset the articles state and load articles for the selected category
-        val selectedTopics = if (state.value.selectedTopics.contains(topic.topicId)) {
-            state.value.selectedTopics - topic.topicId
-        } else {
-            state.value.selectedTopics + topic.topicId
-        }
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            state.update { it.copy(topicsError = throwable) }
+        }) {
+            if (isSelected) {
+                repository.deleteTopic(topic, lang)
+            } else {
+                repository.saveTopic(topic, lang)
+            }
 
-        state.update {
-            it.copy(
-                selectedTopics = selectedTopics,
-                articles = emptyList(),
-                articlesLoading = true,
-                articlesError = null
-            )
-        }
+            val selectedTopics = if (isSelected) {
+                state.value.selectedTopics - topic.topicId
+            } else {
+                state.value.selectedTopics + topic.topicId
+            }
 
-        val topicQueryIds = selectedTopics.mapNotNull { topicApiLookUp[it] }
-        if (topicQueryIds.isEmpty()) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryIds.last())
+            state.update {
+                it.copy(
+                    selectedTopics = selectedTopics,
+                    articles = emptyList(),
+                    articlesLoading = true,
+                    articlesError = null
+                )
+            }
+
+            val topicQueryIds = selectedTopics.mapNotNull { topicApiLookUp[it] }
+            if (topicQueryIds.isEmpty()) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryIds.last())
+        }
     }
 
-    fun addArticle(title: PageTitle) {
+    fun addArticleFromSearch(title: PageTitle) {
         state.update {
             val newItems = listOf(title) + it.articles
             val newSelection = it.selectedArticles + title
@@ -175,13 +195,26 @@ class PersonalizationViewModel(
     }
 
     fun toggleSelection(title: PageTitle) {
-        state.update {
-            val newSelection = if (it.selectedArticles.contains(title)) {
-                it.selectedArticles - title
+        val lang = WikipediaApp.instance.languageState.appLanguageCode
+        val isSelected = state.value.selectedArticles.contains(title)
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            state.update { it.copy(articlesError = throwable) }
+        }) {
+            if (isSelected) {
+                repository.deleteArticle(title, lang)
             } else {
-                it.selectedArticles + title
+                repository.saveArticle(title, lang)
             }
-            it.copy(selectedArticles = newSelection)
+
+            state.update {
+                it.copy(
+                    selectedArticles = if (isSelected) {
+                        state.value.selectedArticles - title
+                    } else {
+                        state.value.selectedArticles + title
+                    }
+                )
+            }
         }
     }
 
@@ -192,6 +225,14 @@ class PersonalizationViewModel(
                 articlesLoading = false,
                 articlesError = null
             )
+        }
+    }
+
+    fun retryLoading() {
+        if (state.value.selectedTopics.isNotEmpty()) {
+            loadArticlesByTopic(topic = topicApiLookUp[state.value.selectedTopics.last()].orEmpty())
+        } else {
+            loadInitialArticles()
         }
     }
 }

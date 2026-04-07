@@ -25,5 +25,5 @@ sealed interface TopicsState {
 sealed interface ArticlesState {
     data object Loading : ArticlesState
     data class Success(val articles: List<PageTitle>, val selectedArticles: Set<PageTitle>) : ArticlesState
-    data class Error(val message: String) : ArticlesState
+    data class Error(val message: Throwable) : ArticlesState
 }

@@ -21,6 +21,8 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.onboarding.personalization.db.dao.InterestDao
+import org.wikipedia.onboarding.personalization.db.entity.Interest
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
@@ -39,7 +41,7 @@ import org.wikipedia.talk.db.TalkTemplateDao
 import java.time.LocalDate
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 32
+const val DATABASE_VERSION = 33
 
 @Database(
     entities = [
@@ -55,7 +57,8 @@ const val DATABASE_VERSION = 32
         TalkTemplate::class,
         Category::class,
         DailyGameHistory::class,
-        RecommendedPage::class
+        RecommendedPage::class,
+        Interest::class
     ],
     version = DATABASE_VERSION
 )
@@ -81,6 +84,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
     abstract fun recommendedPageDao(): RecommendedPageDao
+    abstract fun interestDao(): InterestDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -355,13 +359,28 @@ abstract class AppDatabase : RoomDatabase() {
                 db.execSQL("ALTER TABLE DailyGameHistory ADD COLUMN currentQuestionIndex INTEGER NOT NULL DEFAULT ${OnThisDayGameViewModel.MAX_QUESTIONS}")
             }
         }
+        val MIGRATION_32_33 = object : Migration(32, 33) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS Interests (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                        "type INTEGER NOT NULL," +
+                        "lang TEXT NOT NULL," +
+                        "topicLabel TEXT," +
+                        "topicKey TEXT," +
+                        "articleApiTitle TEXT," +
+                        "articleDisplayTitle TEXT," +
+                        "articleDescription TEXT," +
+                        "articleThumbUrl TEXT" +
+                        ")")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
                 .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23,
                     MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26, MIGRATION_26_27,
                     MIGRATION_26_28, MIGRATION_27_28, MIGRATION_28_29, MIGRATION_29_30,
-                    MIGRATION_30_31, MIGRATION_31_32)
+                    MIGRATION_30_31, MIGRATION_31_32, MIGRATION_32_33)
                 .fallbackToDestructiveMigration(false)
                 .build()
         }
