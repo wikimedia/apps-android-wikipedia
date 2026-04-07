@@ -288,9 +288,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
         } else if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
             intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                ReadingChallengeRewardDialog()
-            )
+            window.decorView.post {
+                if (!isDestroyed) {
+                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, ReadingChallengeRewardDialog())
+                }
+            }
         }
     }
 

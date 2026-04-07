@@ -44,9 +44,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
 class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -63,106 +61,106 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
             }
         }
     }
+}
 
-    @Composable
-    fun RewardScreen(
-        onCloseClick: () -> Unit,
-        onNavigateClick: () -> Unit
+@Composable
+fun RewardScreen(
+    onCloseClick: () -> Unit,
+    onNavigateClick: () -> Unit
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
+            .verticalScroll(rememberScrollState()),
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 16.dp)
-                .verticalScroll(rememberScrollState()),
+        Box(
+            modifier = Modifier
+                .width(32.dp)
+                .height(4.dp)
+                .align(Alignment.CenterHorizontally)
+                .clip(RoundedCornerShape(50))
+                .background(WikipediaTheme.colors.placeholderColor)
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(
-                modifier = Modifier
-                    .width(32.dp)
-                    .height(4.dp)
-                    .align(Alignment.CenterHorizontally)
-                    .clip(RoundedCornerShape(50))
-                    .background(WikipediaTheme.colors.placeholderColor)
-            )
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    modifier = Modifier.weight(1f),
-                    text = stringResource(R.string.reading_challenge_widget_collect_your_prize_button),
-                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                IconButton(
-                    modifier = Modifier
-                        .offset(x = 12.dp),
-                    onClick = {
-                        onCloseClick()
-                    }
-                ) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource(R.drawable.ic_close_black_24dp),
-                        contentDescription = stringResource(R.string.dialog_close_description),
-                        tint = WikipediaTheme.colors.primaryColor
-                    )
-                }
-            }
-
-            Box(
-                modifier = Modifier
-                    .padding(vertical = 12.dp)
-                    .height(202.dp)
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(12.dp))
-            ) {
-                Image(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    contentScale = ContentScale.FillWidth,
-                    painter = painterResource(id = R.drawable.reading_challenge_reward),
-                    contentDescription = null
-                )
-            }
-
             Text(
-                modifier = Modifier,
-                text = stringResource(R.string.reading_challenge_widget_reward_title),
+                modifier = Modifier.weight(1f),
+                text = stringResource(R.string.reading_challenge_widget_collect_your_prize_button),
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
                 color = WikipediaTheme.colors.primaryColor
             )
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                // The "emptyArray" argument is necessary to properly parse a string resource with
-                // a double-escaped percent sign (%%), which was necessary for older style
-                // Context.getString() calls. In the future, for usages only in stringResource()
-                // calls, this argument can be removed, and percents don't need to be escaped.
-                text = stringResource(R.string.reading_challenge_widget_reward_body, *emptyArray()),
-                style = MaterialTheme.typography.bodyLarge,
-                color = WikipediaTheme.colors.secondaryColor
-            )
-            AppButton(
+            IconButton(
                 modifier = Modifier
-                    .padding(top = 16.dp)
-                    .align(Alignment.End),
-                onClick = onNavigateClick
+                    .offset(x = 12.dp),
+                onClick = {
+                    onCloseClick()
+                }
             ) {
-                Text(
-                    stringResource(R.string.reading_challenge_widget_reward_button_label, *emptyArray())
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource(R.drawable.ic_close_black_24dp),
+                    contentDescription = stringResource(R.string.dialog_close_description),
+                    tint = WikipediaTheme.colors.primaryColor
                 )
             }
         }
-    }
 
-    @Preview
-    @Composable
-    private fun RewardScreenPreview() {
-        BaseTheme(
-            currentTheme = Theme.LIGHT
+        Box(
+            modifier = Modifier
+                .padding(vertical = 12.dp)
+                .height(202.dp)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(12.dp))
         ) {
-            RewardScreen(
-                onCloseClick = {},
-                onNavigateClick = {}
+            Image(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentScale = ContentScale.FillWidth,
+                painter = painterResource(id = R.drawable.reading_challenge_reward),
+                contentDescription = null
             )
         }
+
+        Text(
+            modifier = Modifier,
+            text = stringResource(R.string.reading_challenge_widget_reward_title),
+            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Medium),
+            color = WikipediaTheme.colors.primaryColor
+        )
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            // The "emptyArray" argument is necessary to properly parse a string resource with
+            // a double-escaped percent sign (%%), which was necessary for older style
+            // Context.getString() calls. In the future, for usages only in stringResource()
+            // calls, this argument can be removed, and percents don't need to be escaped.
+            text = stringResource(R.string.reading_challenge_widget_reward_body, *emptyArray()),
+            style = MaterialTheme.typography.bodyLarge,
+            color = WikipediaTheme.colors.secondaryColor
+        )
+        AppButton(
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .align(Alignment.End),
+            onClick = onNavigateClick
+        ) {
+            Text(
+                stringResource(R.string.reading_challenge_widget_reward_button_label, *emptyArray())
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun RewardScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        RewardScreen(
+            onCloseClick = {},
+            onNavigateClick = {}
+        )
     }
 }
