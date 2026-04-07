@@ -49,7 +49,7 @@ class OnThisDayGameArchiveCalendarHelper(
         }
     }
 
-    fun show() {
+    fun show(activeInterface: String = "game_play") {
         fragment.lifecycleScope.launch {
             val startDateBasedOnLanguage = WikiGames.WHICH_CAME_FIRST.supportLanguages.associateWith { dateReleasedForLang(it) }
             val localDate = startDateBasedOnLanguage[languageCode]
@@ -60,7 +60,7 @@ class OnThisDayGameArchiveCalendarHelper(
                 Date(),
                 scoreData,
                 onDateSelected = { selectedDateInMillis ->
-                    handleDateSelection(selectedDateInMillis)
+                    handleDateSelection(selectedDateInMillis, activeInterface)
                 }
             )
         }
@@ -116,7 +116,7 @@ class OnThisDayGameArchiveCalendarHelper(
         datePicker.show(fragment.childFragmentManager, "datePicker")
     }
 
-    private fun handleDateSelection(selectedDateInMillis: Long) {
+    private fun handleDateSelection(selectedDateInMillis: Long, activeInterface: String = "game_play") {
         val calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC))
         calendar.timeInMillis = selectedDateInMillis
         val year = calendar.get(Calendar.YEAR)
@@ -126,7 +126,7 @@ class OnThisDayGameArchiveCalendarHelper(
         if (scoreData[scoreDataKey] != null) {
             return
         }
-        WikiGamesEvent.submit("date_select", "game_play", slideName = "archive_calendar")
+        WikiGamesEvent.submit("date_select", activeInterface, slideName = "archive_calendar")
         onDateSelected(LocalDate.of(year, month, day))
     }
 
