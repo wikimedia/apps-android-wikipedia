@@ -55,20 +55,16 @@ import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
-import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -98,10 +94,10 @@ class HomeFragment : Fragment() {
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
                         onImageClick = {
-                            showFilePageForImage(it)
+                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
                         },
-                        onImageShareClick = {
-
+                        onImageShareClick = { image, age ->
+                            (parentFragment as? MainFragment)?.onFeedShareImage(image, age)
                         },
                         onImageDownloadClick = {
                             (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
@@ -115,10 +111,6 @@ class HomeFragment : Fragment() {
     fun getCurrentTab(): HomeTab {
         return viewModel.selectedTab.value
     }
-
-    private fun showFilePageForImage(imageFileName: String) {
-        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(imageFileName, WikiSite(Service.COMMONS_URL))))
-    }
 }
 
 @Composable
@@ -129,9 +121,9 @@ fun HomeScreen(
     onSelectTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
-    onImageClick: (imageFileName: String) -> Unit = {},
+    onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: () -> Unit = {},
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -274,9 +266,9 @@ fun HomeTabBar(
 fun CommunityContentTab(
     state: CommunityContentState,
     onLoadMore: () -> Unit,
-    onImageClick: (imageFileName: String) -> Unit = {},
+    onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: () -> Unit = {},
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
     when {
         state.isInitialLoading -> {
@@ -306,8 +298,9 @@ fun CommunityContentTab(
                         item(key = "tfi-${day.age}") {
                             FeaturedImageModule(
                                 image,
-                                onClick = { onImageClick(image.title) },
-                                onDownloadClick = { onImageDownloadClick(image) }
+                                onClick = onImageClick,
+                                onDownloadClick = onImageDownloadClick,
+                                onShareClick = { onImageShareClick(image, day.age) }
                             )
                         }
                     }

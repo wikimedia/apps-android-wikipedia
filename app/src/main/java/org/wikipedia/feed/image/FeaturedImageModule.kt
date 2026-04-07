@@ -90,7 +90,6 @@ fun FeaturedImageModule(
             style = MaterialTheme.typography.bodyMedium
         )
 
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -171,7 +170,7 @@ fun FeaturedImageModule(
                 ) {
                     HtmlText(
                         modifier = Modifier.padding(bottom = 8.dp),
-                        text = featuredImage.description.html,
+                        text = featuredImage.description.text,
                         color = Color.White,
                         style = MaterialTheme.typography.bodySmall,
                         linkStyle = TextLinkStyles(
