@@ -59,9 +59,12 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.topread.TopReadModule
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
+import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -89,6 +92,16 @@ class HomeFragment : Fragment() {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
                         },
+                        onFooterClick = { action ->
+                            // TODO: pending discussion
+                        },
+                        onPageClick = { pageSummary ->
+                            val entry = pageSummary.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
+                            (parentFragment as MainFragment).onFeedSelectPage(entry, false)
+                        },
+                        onPageOverflowClick = { pageSummary ->
+                            // TODO: pending
+                        },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoaDMoreForYouContent = viewModel::loadForYouContent
                     )
@@ -108,6 +121,9 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
+    onFooterClick: (FooterAction) -> Unit = {},
+    onPageClick: (PageSummary) -> Unit = {},
+    onPageOverflowClick: (PageSummary) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoaDMoreForYouContent: () -> Unit = {}
 ) {
@@ -148,6 +164,9 @@ fun HomeScreen(
                     CommunityContentTab(
                         modifier = Modifier.weight(1f),
                         state = communityContentState,
+                        onPageClick = onPageClick,
+                        onPageOverflowClick = onPageOverflowClick,
+                        onFooterClick = onFooterClick,
                         onLoadMore = onLoadMoreCommunityContent
                     )
                 }
@@ -250,6 +269,9 @@ fun HomeTabBar(
 fun CommunityContentTab(
     modifier: Modifier = Modifier,
     state: CommunityContentState,
+    onPageClick: (PageSummary) -> Unit,
+    onPageOverflowClick: (PageSummary) -> Unit,
+    onFooterClick: (FooterAction) -> Unit,
     onLoadMore: () -> Unit
 ) {
     when {
@@ -283,14 +305,14 @@ fun CommunityContentTab(
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
                                 },
-                                onItemClick = { pageSummary ->
-                                    // TODO: navigate to article
+                                onPageClick = { pageSummary ->
+                                    onPageClick(pageSummary)
                                 },
-                                onItemOverflowClick = { pageSummary ->
-                                    // TODO: implement item overflow menu
+                                onPageOverflowClick = { pageSummary ->
+                                    onPageOverflowClick(pageSummary)
                                 },
                                 onFooterClick = {
-                                    // TODO: open top read activity
+                                    onFooterClick(FooterAction.IN_THE_NEWS)
                                 }
                             )
                         }

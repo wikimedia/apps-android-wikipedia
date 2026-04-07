@@ -17,6 +17,13 @@ import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 
+enum class FooterAction {
+    TOP_READ,
+    IN_THE_NEWS,
+    ON_THIS_DAY,
+    DID_YOU_KNOW
+}
+
 data class DayContent(
     val age: Int,
     val date: LocalDate,
@@ -52,6 +59,8 @@ data class ForYouContentState(
 )
 
 class HomeViewModel : ViewModel() {
+
+    var wikiSite = WikipediaApp.instance.wikiSite
 
     private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
     val selectedTab = _selectedTab.asStateFlow()
@@ -115,9 +124,8 @@ class HomeViewModel : ViewModel() {
 
             val age = nextCommunityAge
             val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
-            val wiki = WikipediaApp.instance.wikiSite
-            val content = ServiceFactory.getRest(wiki)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wiki.languageCode)
+            val content = ServiceFactory.getRest(wikiSite)
+                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.languageCode)
 
             val dayContent = DayContent(
                 age = age,

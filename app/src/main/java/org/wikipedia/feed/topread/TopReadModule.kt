@@ -45,8 +45,8 @@ import org.wikipedia.util.StringUtil
 fun TopReadModule(
     topRead: TopRead,
     onOverflowClick: () -> Unit,
-    onItemClick: (PageSummary) -> Unit,
-    onItemOverflowClick: (PageSummary) -> Unit,
+    onPageClick: (PageSummary) -> Unit,
+    onPageOverflowClick: (PageSummary) -> Unit,
     onFooterClick: () -> Unit
 ) {
     val maxTopReadItems = 5
@@ -104,8 +104,8 @@ fun TopReadModule(
                     context = context,
                     rank = index + 1,
                     pageSummary = article,
-                    onClick = onItemClick,
-                    onMoreClick = onItemOverflowClick
+                    onClick = onPageClick,
+                    onMoreClick = onPageOverflowClick
                 )
             }
         }
@@ -246,8 +246,8 @@ fun TopReadCardPreview() {
             ),
             onFooterClick = {},
             onOverflowClick = {},
-            onItemClick = {},
-            onItemOverflowClick = {}
+            onPageClick = {},
+            onPageOverflowClick = {}
         )
     }
 }
