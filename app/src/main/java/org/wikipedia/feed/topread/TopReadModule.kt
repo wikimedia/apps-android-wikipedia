@@ -6,11 +6,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -55,12 +55,13 @@ fun TopReadModule(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(vertical = 16.dp)
             .clip(RoundedCornerShape(16.dp))
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(start = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.Top
         ) {
@@ -81,7 +82,6 @@ fun TopReadModule(
                 )
             }
             IconButton(
-                modifier = Modifier.offset(x = 16.dp, y = (-8).dp),
                 onClick = onMoreClick,
                 content = {
                     Icon(
@@ -95,7 +95,10 @@ fun TopReadModule(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth(),
+            contentPadding = PaddingValues(horizontal = 16.dp)
+        ) {
             items(topRead.articles.size) { index ->
                 val article = topRead.articles[index]
                 TopReadItem(
@@ -110,8 +113,7 @@ fun TopReadModule(
 
         TextButton(
             modifier = Modifier
-                .align(Alignment.End)
-                .offset(x = 16.dp, y = (-8).dp), // TODO: having a better padding instead of offset
+                .align(Alignment.End),
             onClick = onFooterClick
         ) {
             Text(
