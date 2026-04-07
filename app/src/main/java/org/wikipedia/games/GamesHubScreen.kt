@@ -410,7 +410,7 @@ fun OnThisDayGameCardContent(
                     state = game.state,
                     titleText = dateTitle,
                     onPlayClick = {
-                        WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
+                        WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
                         onThisDayGameAction(OnThisDayGameAction.Play) },
                     onReviewResult = {
                         WikiGamesEvent.submit(action = "review_click", activeInterface = "games_hub", cardType = cardTypeForEvent, langCode = selectedLanguage, position = cardPositionForEvent)
