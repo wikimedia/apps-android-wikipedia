@@ -62,7 +62,7 @@ fun CommunityModuleHeader(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.menu_feed_overflow_label),
                     tint = WikipediaTheme.colors.primaryColor,
                     modifier = Modifier.size(24.dp)
                 )
