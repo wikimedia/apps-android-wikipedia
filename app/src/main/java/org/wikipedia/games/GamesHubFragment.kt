@@ -80,7 +80,7 @@ class GamesHubFragment : Fragment() {
                                 )
                             },
                             onShowArchive = {
-                                onThisDayGameArchiveCalendarHelper.show(activeInterface = "games_hub")
+                                onThisDayGameArchiveCalendarHelper.show()
                             },
                             onShowDisabledMessage = {
                                 FeedbackUtil.makeSnackbar(this, it)
