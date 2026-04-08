@@ -77,40 +77,50 @@ fun FeaturedImageModule(
             Row(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    .padding(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 IconButton(
-                    modifier = Modifier.background(
-                        color = WikipediaTheme.colors.backgroundColor,
-                        shape = CircleShape
-                    ).size(40.dp),
-                    onClick = {
-                        onDownloadClick(featuredImage)
-                    }
+                    onClick = { onDownloadClick(featuredImage) },
+                    modifier = Modifier.size(48.dp)
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_download_24px),
-                        contentDescription = null,
-                        tint = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier.size(24.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(
+                                color = WikipediaTheme.colors.backgroundColor,
+                                shape = CircleShape
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_download_24px),
+                            contentDescription = null,
+                            tint = WikipediaTheme.colors.primaryColor,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
                 }
                 IconButton(
-                    modifier = Modifier.background(
-                        color = WikipediaTheme.colors.backgroundColor,
-                        shape = CircleShape
-                    ).size(40.dp),
-                    onClick = {
-                        onShareClick(featuredImage)
-                    }
+                    onClick = { onShareClick(featuredImage) },
+                    modifier = Modifier.size(48.dp)
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        contentDescription = null,
-                        tint = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier.size(24.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(
+                                color = WikipediaTheme.colors.backgroundColor,
+                                shape = CircleShape
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_share),
+                            contentDescription = null,
+                            tint = WikipediaTheme.colors.primaryColor,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
                 }
             }
 
