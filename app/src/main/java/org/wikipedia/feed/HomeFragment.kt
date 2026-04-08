@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -52,6 +53,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -59,12 +61,12 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.featured.FeaturedArticleModule
+import org.wikipedia.feed.topread.TopReadArticlesActivity
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
-import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -85,22 +87,13 @@ class HomeFragment : Fragment() {
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
-                        selectedTab,
+                        viewModel = viewModel,
+                        selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
-                        },
-                        onFooterClick = { action ->
-                            // TODO: pending discussion
-                        },
-                        onPageClick = { pageSummary ->
-                            val entry = pageSummary.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
-                            (parentFragment as MainFragment).onFeedSelectPage(entry, false)
-                        },
-                        onPageOverflowClick = { pageSummary ->
-                            // TODO: pending
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoaDMoreForYouContent = viewModel::loadForYouContent
@@ -117,13 +110,11 @@ class HomeFragment : Fragment() {
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeViewModel,
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
-    onFooterClick: (FooterAction) -> Unit = {},
-    onPageClick: (PageSummary) -> Unit = {},
-    onPageOverflowClick: (PageSummary) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoaDMoreForYouContent: () -> Unit = {}
 ) {
@@ -136,7 +127,6 @@ fun HomeScreen(
 
         when (selectedTab) {
             HomeTab.COMMUNITY -> {
-
                 Column(
                     modifier = Modifier
                         .align(Alignment.TopCenter)
@@ -163,10 +153,8 @@ fun HomeScreen(
 
                     CommunityContentTab(
                         modifier = Modifier.weight(1f),
+                        viewModel = viewModel,
                         state = communityContentState,
-                        onPageClick = onPageClick,
-                        onPageOverflowClick = onPageOverflowClick,
-                        onFooterClick = onFooterClick,
                         onLoadMore = onLoadMoreCommunityContent
                     )
                 }
@@ -268,12 +256,11 @@ fun HomeTabBar(
 @Composable
 fun CommunityContentTab(
     modifier: Modifier = Modifier,
+    viewModel: HomeViewModel,
     state: CommunityContentState,
-    onPageClick: (PageSummary) -> Unit,
-    onPageOverflowClick: (PageSummary) -> Unit,
-    onFooterClick: (FooterAction) -> Unit,
     onLoadMore: () -> Unit
 ) {
+    val activity = LocalActivity.current as? MainActivity
     when {
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
@@ -306,13 +293,18 @@ fun CommunityContentTab(
                                     // TODO: implement overflow menu
                                 },
                                 onPageClick = { pageSummary ->
-                                    onPageClick(pageSummary)
+                                    activity?.fragment?.onLoadPage(
+                                        entry = pageSummary.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
+                                    )
                                 },
                                 onPageOverflowClick = { pageSummary ->
-                                    onPageOverflowClick(pageSummary)
+                                    // TODO: implement page overflow menu
                                 },
                                 onFooterClick = {
-                                    onFooterClick(FooterAction.IN_THE_NEWS)
+                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
+                                    activity?.startActivity(
+                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, viewModel.wikiSite))
+                                    )
                                 }
                             )
                         }
@@ -471,6 +463,7 @@ fun ErrorState(caught: Throwable, onRetry: () -> Unit) {
 fun HomeScreenCommunityPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
+            viewModel = viewModel(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
@@ -483,6 +476,7 @@ fun HomeScreenCommunityPreview() {
 fun HomeScreenForYouPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
+            viewModel = viewModel(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
