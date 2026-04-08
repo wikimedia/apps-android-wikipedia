@@ -306,6 +306,7 @@ fun CommunityContentTab(
                         item(key = "top-read-${day.age}") {
                             TopReadModule(
                                 topRead = it,
+                                languageName = viewModel.localizedLanguageName,
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
                                 },

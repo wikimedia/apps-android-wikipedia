@@ -840,7 +840,7 @@
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
-  <string name="view_top_read_card_description">Feed card description for recently popular articles.</string>
+  <string name="view_top_read_card_description">Feed card description for recently popular articles. %s is replaced by the language name.</string>
   <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
   <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
   <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>

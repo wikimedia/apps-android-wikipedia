@@ -62,6 +62,7 @@ data class ForYouContentState(
 class HomeViewModel : ViewModel() {
 
     val wikiSite get() = WikipediaApp.instance.wikiSite
+    val localizedLanguageName get() = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(wikiSite.languageCode).orEmpty()
 
     private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
     val selectedTab = _selectedTab.asStateFlow()
