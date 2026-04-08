@@ -3,7 +3,6 @@ package org.wikipedia.feed.topread
 import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,6 +37,7 @@ import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 
@@ -54,43 +54,13 @@ fun TopReadModule(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 16.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .background(color = WikipediaTheme.colors.backgroundColor)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.Top
-        ) {
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = stringResource(R.string.view_top_read_card_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Medium,
-                    color = WikipediaTheme.colors.primaryColor
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.view_top_read_card_description),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = WikipediaTheme.colors.secondaryColor
-                )
-            }
-            IconButton(
-                onClick = onOverflowClick,
-                content = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                        contentDescription = stringResource(R.string.search_clear_query_content_description),
-                        tint = WikipediaTheme.colors.placeholderColor
-                    )
-                }
-            )
-        }
+        CommunityModuleHeader(
+            titleResId = R.string.view_top_read_card_title,
+            subTitleResId = R.string.view_top_read_card_description,
+            onOverflowClick = onOverflowClick
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -115,7 +85,8 @@ fun TopReadModule(
 
         TextButton(
             modifier = Modifier
-                .align(Alignment.End),
+                .align(Alignment.End)
+                .padding(bottom = 16.dp),
             onClick = onFooterClick
         ) {
             Text(
