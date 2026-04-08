@@ -33,9 +33,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshDefaults.Indicator
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -123,16 +128,28 @@ fun HomeScreen(
     val topInset = if (context is MainActivity) {
         DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat())
     } else 64
+    val pullToRefreshState = rememberPullToRefreshState()
+    val isRefreshing = pullToRefreshState.isAnimating && (communityContentState.isInitialLoading || forYouContentState.isInitialLoading)
 
     PullToRefreshBox(
         modifier = Modifier.fillMaxSize(),
-        isRefreshing = communityContentState.isInitialLoading || forYouContentState.isInitialLoading,
+        state = pullToRefreshState,
+        isRefreshing = isRefreshing,
         onRefresh = {
             if (selectedTab == HomeTab.COMMUNITY) {
                 viewModel.refreshCommunityContent()
             } else {
                 viewModel.refreshForYouContent()
             }
+        },
+        indicator = {
+            Indicator(
+                modifier = Modifier.align(Alignment.TopCenter),
+                isRefreshing = isRefreshing,
+                containerColor = WikipediaTheme.colors.paperColor,
+                color = WikipediaTheme.colors.progressiveColor,
+                state = pullToRefreshState
+            )
         }
     ) {
         Box(
