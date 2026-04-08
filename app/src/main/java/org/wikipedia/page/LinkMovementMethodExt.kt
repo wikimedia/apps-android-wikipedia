@@ -7,8 +7,6 @@ import android.text.method.Touch
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
-import androidx.compose.ui.text.LinkAnnotation
-import androidx.compose.ui.text.LinkInteractionListener
 import androidx.core.net.toUri
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
@@ -106,13 +104,6 @@ class LinkMovementMethodExt : LinkMovementMethod {
     companion object {
         fun getExternalLinkMovementMethod(wikiSite: WikiSite = WikipediaApp.instance.wikiSite): LinkMovementMethodExt {
             return LinkMovementMethodExt(ErrorLinkHandler(wikiSite))
-        }
-
-        fun getDefaultHtmlTextLinkHandler(): LinkInteractionListener {
-            return LinkInteractionListener {
-                val url = (it as LinkAnnotation.Url).url
-                //onDialogLinkClick(url)
-            }
         }
     }
 }
