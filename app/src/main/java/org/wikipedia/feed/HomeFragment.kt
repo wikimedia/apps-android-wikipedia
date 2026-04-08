@@ -76,6 +76,7 @@ import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
 
@@ -103,6 +104,15 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
+                        onPageClick = {
+                            (parentFragment as? MainFragment)?.onFeedSelectPage(it, false)
+                        },
+                        onPageBookmarkClick = {
+                            (parentFragment as? MainFragment)?.onFeedAddPageToList(it, false)
+                        },
+                        onPageShareClick = {
+                            ShareUtil.shareText(requireContext(), it.title)
+                        },
                         onImageClick = {
                             (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
                         },
@@ -132,6 +142,9 @@ fun HomeScreen(
     onSelectTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
+    onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
@@ -197,7 +210,13 @@ fun HomeScreen(
                             modifier = Modifier.weight(1f),
                             viewModel = viewModel,
                             state = communityContentState,
-                            onLoadMore = onLoadMoreCommunityContent
+                            onLoadMore = onLoadMoreCommunityContent,
+                            onPageClick = onPageClick,
+                            onPageBookmarkClick = onPageBookmarkClick,
+                            onPageShareClick = onPageShareClick,
+                            onImageClick = onImageClick,
+                            onImageDownloadClick = onImageDownloadClick,
+                            onImageShareClick = onImageShareClick
                         )
                     }
                 }
@@ -305,6 +324,9 @@ fun CommunityContentTab(
     viewModel: HomeViewModel,
     state: CommunityContentState,
     onLoadMore: () -> Unit,
+    onPageClick: (historyEntry: HistoryEntry) -> Unit,
+    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
@@ -330,7 +352,21 @@ fun CommunityContentTab(
 
                     day.featuredArticle?.let { article ->
                         item(key = "tfa-${day.age}") {
-                            FeaturedArticleModule(article)
+                            FeaturedArticleModule(
+                                article,
+                                onPageClick = {
+                                    onPageClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                },
+                                onOverflowClick = {
+                                    // TODO
+                                },
+                                onShareClick = {
+                                    onPageShareClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                },
+                                onBookmarkClick = {
+                                    onPageBookmarkClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                }
+                            )
                         }
                     }
 
@@ -352,10 +388,8 @@ fun CommunityContentTab(
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
                                 },
-                                onPageClick = { pageSummary ->
-                                    activity?.fragment?.onLoadPage(
-                                        entry = pageSummary.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
-                                    )
+                                onPageClick = {
+                                    onPageClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
                                 },
                                 onPageOverflowClick = { pageSummary ->
                                     // TODO: implement page overflow menu

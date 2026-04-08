@@ -2481,4 +2481,5 @@
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
+    <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia and they are updated daily</string>
 </resources>
