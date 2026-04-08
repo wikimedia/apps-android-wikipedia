@@ -26,10 +26,10 @@ import org.wikipedia.theme.Theme
 
 @Composable
 fun CommunityModuleHeader(
+    modifier: Modifier = Modifier,
     @StringRes titleResId: Int,
     @StringRes subTitleResId: Int,
     @DrawableRes contextIconResId: Int? = null,
-    modifier: Modifier = Modifier,
     onOverflowClick: () -> Unit = {},
 ) {
     Column(
