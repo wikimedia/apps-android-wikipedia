@@ -67,7 +67,10 @@ object EditingSuggestionsProvider {
                 while (tries++ <= retryLimit && title.isEmpty()) {
                     // Fetch a batch of random articles, and get the ones that have no description.
                     val resultsWithNoDescription = ServiceFactory.get(wiki).getRandomPages().query?.pages?.filter {
-                        it.description.isNullOrEmpty()
+                        // Important: we only want pages where the description is specifically null,
+                        // instead of an empty string. An empty string implies the description is set
+                        // to "none", which means the editors don't want a description added.
+                        it.description == null
                     }.orEmpty()
 
                     articlesWithMissingDescriptionCacheLang = wiki.languageCode
@@ -121,7 +124,10 @@ object EditingSuggestionsProvider {
                 while (tries++ <= retryLimit && titles == null) {
                     // Fetch a batch of random articles from the target language wiki, and get ones that have no description.
                     val resultsWithNoDescription = ServiceFactory.get(targetWiki).getRandomPages().query?.pages?.filter {
-                        it.description.isNullOrEmpty()
+                        // Important: we only want pages where the description is specifically null,
+                        // instead of an empty string. An empty string implies the description is set
+                        // to "none", which means the editors don't want a description added.
+                        it.description == null
                     }.orEmpty()
 
                     articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode
