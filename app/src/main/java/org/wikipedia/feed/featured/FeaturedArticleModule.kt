@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -83,36 +84,50 @@ fun FeaturedArticleModule(
             Row(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    .padding(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 IconButton(
-                    modifier = Modifier.background(
-                        color = WikipediaTheme.colors.backgroundColor,
-                        shape = CircleShape
-                    ).size(40.dp),
+                    modifier = Modifier.size(48.dp),
                     onClick = { onBookmarkClick(article) }
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
-                        contentDescription = null,
-                        tint = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier.size(24.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = WikipediaTheme.colors.backgroundColor,
+                                shape = CircleShape
+                            )
+                            .size(40.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                            contentDescription = stringResource(R.string.feed_card_add_to_default_list),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
                 }
                 IconButton(
-                    modifier = Modifier.background(
-                        color = WikipediaTheme.colors.backgroundColor,
-                        shape = CircleShape
-                    ).size(40.dp),
+                    modifier = Modifier.size(48.dp),
                     onClick = { onShareClick(article) }
                 ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        contentDescription = null,
-                        tint = WikipediaTheme.colors.primaryColor,
-                        modifier = Modifier.size(24.dp)
-                    )
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = WikipediaTheme.colors.backgroundColor,
+                                shape = CircleShape
+                            )
+                            .size(40.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_share),
+                            contentDescription = stringResource(R.string.view_featured_image_card_share),
+                            tint = WikipediaTheme.colors.primaryColor,
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
                 }
             }
 

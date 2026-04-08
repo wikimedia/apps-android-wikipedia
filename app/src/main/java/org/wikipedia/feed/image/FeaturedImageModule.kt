@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.style.TextDecoration
@@ -95,7 +96,7 @@ fun FeaturedImageModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_download_24px),
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.view_featured_image_card_download),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
@@ -116,7 +117,7 @@ fun FeaturedImageModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_share),
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.view_featured_image_card_share),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
