@@ -45,6 +45,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.compose.components.ArticleCard
+import org.wikipedia.compose.components.SearchBarCard
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
@@ -52,8 +54,6 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.recommended.ReadingListInterestCard
-import org.wikipedia.readinglist.recommended.ReadingListInterestSearchCard
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -92,7 +92,7 @@ fun InterestOnboardingScreen(
                 contentPadding = PaddingValues(16.dp),
                 content = {
                     item(span = StaggeredGridItemSpan.FullLine) {
-                        ReadingListInterestSearchCard(
+                        SearchBarCard(
                             onSearchClick = onSearchClick
                         )
                     }
@@ -169,7 +169,7 @@ fun InterestOnboardingScreen(
 
                         is ArticlesState.Success -> {
                             items(articlesState.articles) { item ->
-                                ReadingListInterestCard(
+                                ArticleCard(
                                     modifier = Modifier.animateItem(),
                                     item = item,
                                     isSelected = articlesState.selectedArticles.contains(item),
