@@ -41,15 +41,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.extensions.shimmerEffect
+import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.recommended.ReadingListInterestCard
 import org.wikipedia.readinglist.recommended.ReadingListInterestSearchCard
+import org.wikipedia.theme.Theme
 
 @Composable
 fun InterestOnboardingScreen(
@@ -311,5 +316,43 @@ fun SelectionBottomBar(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun InterestOnboardingScreenPreview() {
+    val site = WikiSite("https://en.wikipedia.org/".toUri(), "en")
+    val titles = listOf(
+        PageTitle(text = "Psychology of art", wiki = site, thumbUrl = "foo.jpg", description = "Study of mental functions and behaviors", displayText = null),
+        PageTitle(text = "Industrial design", wiki = site, thumbUrl = "foo.jpg", description = "Process of design applied to physical products", displayText = null),
+        PageTitle(text = "Dufourspitze", wiki = site, thumbUrl = "foo.jpg", description = "Highest mountain in Switzerland", displayText = null),
+        PageTitle(text = "Sample title without description", wiki = site, thumbUrl = "foo.jpg", description = "", displayText = null),
+        PageTitle(text = "Sample title without thumbnail", wiki = site, thumbUrl = "", description = "Sample description", displayText = null),
+        PageTitle(text = "Octagon house", wiki = site, thumbUrl = "foo.jpg", description = "North American house style briefly popular in the 1850s", displayText = null),
+        PageTitle(text = "Barack Obama", wiki = site, thumbUrl = "foo.jpg", description = "President of the United States from 2009 to 2017", displayText = null),
+    )
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        InterestOnboardingScreen(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.paperColor)
+                .padding(top = 40.dp),
+            topicsState = TopicsState.Success(
+                topics = OnboardingTopics.all.map {
+                    it.copy(displayTitle = it.msgKey, isSelected = it.topicId == "science")
+                }
+            ),
+            articlesState = ArticlesState.Success(
+                articles = titles,
+                selectedArticles = setOf()
+            ),
+            onTopicSelected = {},
+            onSearchClick = {},
+            onDeselectAllClick = {},
+            retryLoading = {}
+        )
     }
 }
