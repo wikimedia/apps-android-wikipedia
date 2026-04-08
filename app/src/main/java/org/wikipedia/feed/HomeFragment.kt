@@ -381,17 +381,6 @@ fun CommunityContentTab(
                         }
                     }
 
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
-                            )
-                        }
-                    }
-
                     day.topRead?.let {
                         item(key = "top-read-${day.age}") {
                             TopReadModule(
