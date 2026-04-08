@@ -32,6 +32,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -123,82 +124,98 @@ fun HomeScreen(
         DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat())
     } else 64
 
-    Box(modifier = Modifier.fillMaxSize()) {
-
-        when (selectedTab) {
-            HomeTab.COMMUNITY -> {
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .fillMaxSize()
-                        .background(WikipediaTheme.colors.paperColor)
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.feed_header_wordmark),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                        contentScale = ContentScale.FillWidth,
-                        modifier = Modifier
-                            .statusBarsPadding()
-                            .padding(start = 20.dp, top = (topInset + 16).dp)
-                            .width(128.dp)
-                    )
-
-                    // Tab selector
-                    HomeTabBar(
-                        modifier = Modifier.padding(top = 8.dp),
-                        selectedTab = selectedTab,
-                        onTabSelected = onSelectTab
-                    )
-
-                    CommunityContentTab(
-                        modifier = Modifier.weight(1f),
-                        viewModel = viewModel,
-                        state = communityContentState,
-                        onLoadMore = onLoadMoreCommunityContent
-                    )
-                }
+    PullToRefreshBox(
+        modifier = Modifier.fillMaxSize(),
+        isRefreshing = communityContentState.isInitialLoading || forYouContentState.isInitialLoading,
+        onRefresh = {
+            if (selectedTab == HomeTab.COMMUNITY) {
+                viewModel.refreshCommunityContent()
+            } else {
+                viewModel.refreshForYouContent()
             }
-            HomeTab.FOR_YOU -> {
-                ForYouContentTab(
-                    state = forYouContentState,
-                    onLoadMore = onLoaDMoreForYouContent
-                )
-
-                // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .fillMaxWidth()
-                        .background(Brush.verticalGradient(
-                            colorStops = arrayOf(
-                                0.0f to Color.Black.copy(alpha = 0.78f),
-                                0.18f to Color.Black.copy(alpha = 0.64f),
-                                0.38f to Color.Black.copy(alpha = 0.40f),
-                                0.58f to Color.Black.copy(alpha = 0.20f),
-                                0.76f to Color.Black.copy(alpha = 0.08f),
-                                0.90f to Color.Black.copy(alpha = 0.02f),
-                                1.0f to Color.Transparent
-                            )
-                        ))
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.feed_header_wordmark),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                        contentScale = ContentScale.FillWidth,
+        }
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            when (selectedTab) {
+                HomeTab.COMMUNITY -> {
+                    Column(
                         modifier = Modifier
-                            .statusBarsPadding()
-                            .padding(start = 20.dp, top = (topInset + 16).dp)
-                            .width(128.dp)
+                            .align(Alignment.TopCenter)
+                            .fillMaxSize()
+                            .background(WikipediaTheme.colors.paperColor)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.feed_header_wordmark),
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                            contentScale = ContentScale.FillWidth,
+                            modifier = Modifier
+                                .statusBarsPadding()
+                                .padding(start = 20.dp, top = (topInset + 16).dp)
+                                .width(128.dp)
+                        )
+
+                        // Tab selector
+                        HomeTabBar(
+                            modifier = Modifier.padding(top = 8.dp),
+                            selectedTab = selectedTab,
+                            onTabSelected = onSelectTab
+                        )
+
+                        CommunityContentTab(
+                            modifier = Modifier.weight(1f),
+                            viewModel = viewModel,
+                            state = communityContentState,
+                            onLoadMore = onLoadMoreCommunityContent
+                        )
+                    }
+                }
+
+                HomeTab.FOR_YOU -> {
+                    ForYouContentTab(
+                        state = forYouContentState,
+                        onLoadMore = onLoaDMoreForYouContent
                     )
 
-                    // Tab selector
-                    HomeTabBar(
-                        modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
-                        selectedTab = selectedTab,
-                        onTabSelected = onSelectTab
-                    )
+                    // Floating toolbar with gradient scrim, wordmark, and tab selector.
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .fillMaxWidth()
+                            .background(
+                                Brush.verticalGradient(
+                                    colorStops = arrayOf(
+                                        0.0f to Color.Black.copy(alpha = 0.78f),
+                                        0.18f to Color.Black.copy(alpha = 0.64f),
+                                        0.38f to Color.Black.copy(alpha = 0.40f),
+                                        0.58f to Color.Black.copy(alpha = 0.20f),
+                                        0.76f to Color.Black.copy(alpha = 0.08f),
+                                        0.90f to Color.Black.copy(alpha = 0.02f),
+                                        1.0f to Color.Transparent
+                                    )
+                                )
+                            )
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.feed_header_wordmark),
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                            contentScale = ContentScale.FillWidth,
+                            modifier = Modifier
+                                .statusBarsPadding()
+                                .padding(start = 20.dp, top = (topInset + 16).dp)
+                                .width(128.dp)
+                        )
+
+                        // Tab selector
+                        HomeTabBar(
+                            modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
+                            selectedTab = selectedTab,
+                            onTabSelected = onSelectTab
+                        )
+                    }
                 }
             }
         }
