@@ -2227,12 +2227,9 @@
   <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
   <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
   <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
-<<<<<<< ef-interest
-    <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
-    <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
-    <string name="explore_feed_deselect_all_btn_label">Button text to deselect all selected items in the intereset selection screen.</string>
-=======
+  <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
+  <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
+  <string name="explore_feed_deselect_all_btn_label">Button text to deselect all selected items in the intereset selection screen.</string>
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
->>>>>>> explore-feed-upgrade-design
 </resources>

@@ -2480,12 +2480,9 @@
     <string name="explore_feed_community_tab_label">From the community</string>
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
-<<<<<<< ef-interest
     <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
     <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
     <string name="explore_feed_deselect_all_btn_label">Deselect all</string>
-=======
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia and they are updated daily</string>
->>>>>>> explore-feed-upgrade-design
 </resources>
