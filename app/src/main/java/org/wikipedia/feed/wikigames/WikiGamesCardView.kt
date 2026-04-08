@@ -58,7 +58,7 @@ class WikiGamesCardView(context: Context) : DefaultFeedCardView<WikiGamesCard>(c
 
     private fun setContent(card: WikiGamesCard) {
         binding.gamesComposeView.setContent {
-            WikiGamesEvent.submit(action = "impression", activeInterface = "games_feed", langCode = card.wikiSite.languageCode)
+            WikiGamesEvent.submit(action = "impression", activeInterface = "game_feed", langCode = card.wikiSite.languageCode)
             BaseTheme {
                 WikiGamesCardContent(
                     modifier = Modifier
@@ -120,7 +120,7 @@ fun WikiGamesCardContent(
                                 state = game.state,
                                 titleText = context.getString(game.state.langCode, R.string.on_this_day_game_title),
                                 onPlayClick = {
-                                    WikiGamesEvent.submit("play_click", "games_feed")
+                                    WikiGamesEvent.submit("play_click", "game_feed")
                                     onThisDayGameAction(OnThisDayGameAction.Play)
                                 }
                             )
@@ -134,7 +134,7 @@ fun WikiGamesCardContent(
                                 state = game.state,
                                 titleText = stringResource(R.string.on_this_day_game_title),
                                 onContinueClick = {
-                                    WikiGamesEvent.submit("continue_click", "games_feed")
+                                    WikiGamesEvent.submit("continue_click", "game_feed")
                                     onThisDayGameAction(OnThisDayGameAction.Play)
                                 }
                             )
@@ -149,10 +149,10 @@ fun WikiGamesCardContent(
                                 titleText = stringResource(R.string.on_this_day_game_title),
                                 onPlayClick = { },
                                 onReviewResult = {
-                                    WikiGamesEvent.submit("review_click", "games_feed")
+                                    WikiGamesEvent.submit("review_click", "game_feed")
                                     onThisDayGameAction(OnThisDayGameAction.ReviewResults) },
                                 onPlayTheArchive = {
-                                    WikiGamesEvent.submit("archive_click", "games_feed")
+                                    WikiGamesEvent.submit("archive_click", "game_feed")
                                     onThisDayGameAction(OnThisDayGameAction.PlayArchive) },
                                 onCountDownFinished = { onThisDayGameAction(OnThisDayGameAction.CountdownFinished) }
                             )
