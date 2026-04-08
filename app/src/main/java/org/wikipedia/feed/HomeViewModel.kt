@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -53,6 +54,8 @@ data class ForYouContentState(
 
 class HomeViewModel : ViewModel() {
 
+    val wikiSite get() = WikipediaApp.instance.wikiSite
+
     private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
     val selectedTab = _selectedTab.asStateFlow()
 
@@ -88,6 +91,18 @@ class HomeViewModel : ViewModel() {
         loadCommunityContent()
     }
 
+    fun refreshCommunityContent() {
+        nextCommunityAge = 0
+        _communityState.update { CommunityContentState() }
+        loadCommunityContent()
+    }
+
+    fun refreshForYouContent() {
+        forYouBatchIndex = 0
+        _forYouState.update { ForYouContentState() }
+        loadForYouContent()
+    }
+
     fun selectTab(tab: HomeTab) {
         _selectedTab.value = tab
         if (tab == HomeTab.FOR_YOU &&
@@ -115,9 +130,8 @@ class HomeViewModel : ViewModel() {
 
             val age = nextCommunityAge
             val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
-            val wiki = WikipediaApp.instance.wikiSite
-            val content = ServiceFactory.getRest(wiki)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wiki.languageCode)
+            val content = ServiceFactory.getRest(wikiSite)
+                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.languageCode)
 
             val dayContent = DayContent(
                 age = age,

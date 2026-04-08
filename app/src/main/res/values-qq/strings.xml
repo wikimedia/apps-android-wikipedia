@@ -840,9 +840,11 @@
   <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
+  <string name="view_top_read_card_description">Feed card description for recently popular articles.</string>
   <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
   <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
   <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
+  <string name="view_top_read_card_pageviews_views_suffix">Suffix text for the amount of pageviews.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
@@ -2225,7 +2227,12 @@
   <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
   <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
   <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
+<<<<<<< ef-interest
     <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
     <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
     <string name="explore_feed_deselect_all_btn_label">Button text to deselect all selected items in the intereset selection screen.</string>
+=======
+  <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
+  <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+>>>>>>> explore-feed-upgrade-design
 </resources>
