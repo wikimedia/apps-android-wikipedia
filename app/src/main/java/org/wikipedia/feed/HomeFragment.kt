@@ -197,7 +197,10 @@ fun HomeScreen(
                             modifier = Modifier.weight(1f),
                             viewModel = viewModel,
                             state = communityContentState,
-                            onLoadMore = onLoadMoreCommunityContent
+                            onLoadMore = onLoadMoreCommunityContent,
+                            onImageClick = onImageClick,
+                            onImageDownloadClick = onImageDownloadClick,
+                            onImageShareClick = onImageShareClick
                         )
                     }
                 }
