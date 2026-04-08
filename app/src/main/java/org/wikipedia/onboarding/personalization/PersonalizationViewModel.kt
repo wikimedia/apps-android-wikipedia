@@ -2,6 +2,8 @@ package org.wikipedia.onboarding.personalization
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -65,7 +67,7 @@ private data class PersonalizedViewModelState(
 }
 
 class PersonalizationViewModel(
-    private val repository: PersonalizationRepository = PersonalizationRepository(AppDatabase.instance.interestDao())
+    private val repository: PersonalizationRepository
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
@@ -80,13 +82,14 @@ class PersonalizationViewModel(
             initialValue = state.value.toInterestUiState()
         )
 
-    fun onPageChanged(page: Int) {
-        when (page) {
-            1 -> {
+    fun onPageChanged(screen: PersonalizationPage) {
+        when (screen) {
+            PersonalizationPage.INTERESTS -> {
                 val langCode = WikipediaApp.instance.languageState.appLanguageCode
-                loadTopics(langCode)
-                loadInitialArticles()
+                if (state.value.topics.isEmpty()) loadTopics(langCode)
+                if (state.value.articles.isEmpty()) loadInitialArticles()
             }
+            else -> {}
         }
     }
 
@@ -94,16 +97,9 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(topicsLoading = false, topicsError = throwable) }
         }) {
-            state.update { it.copy(topicsLoading = true) }
-            val current = state.value
-
-            if (current.topics.isNotEmpty()) {
-                state.update { it.copy(topics = current.topics, topicsLoading = false) }
-                return@launch
-            }
+            state.update { it.copy(topicsLoading = true, topicsError = null) }
 
             val topics = repository.getTopics(langCode)
-
             state.update { it.copy(topics = topics, topicsLoading = false) }
         }
     }
@@ -112,13 +108,7 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
-            state.update { it.copy(articlesLoading = true) }
-            val current = state.value
-
-            if (current.articles.isNotEmpty()) {
-                state.update { it.copy(articles = current.articles, articlesLoading = false) }
-                return@launch
-            }
+            state.update { it.copy(articlesLoading = true, articlesError = null) }
 
             val selectedItems = Prefs.recommendedReadingListInterests
             val articles = repository.loadInitialArticles(selectedItems)
@@ -136,17 +126,13 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
-            state.update { it.copy(articlesLoading = true) }
-            val current = state.value
+            state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            if (current.articles.isNotEmpty()) {
-                state.update { it.copy(articles = current.articles, articlesLoading = false) }
-                return@launch
+            val articles = repository.getArticlesByTopic(topic)
+            state.update { current ->
+                val newArticles = (current.selectedArticles.toList() + articles).distinct()
+                current.copy(articles = newArticles, articlesLoading = false)
             }
-
-            val articles = repository.getArticlesBytTopic(topic)
-            val newArticles = (current.selectedArticles.toList() + articles).distinct()
-            state.update { it.copy(articles = newArticles, articlesLoading = false) }
         }
     }
 
@@ -159,20 +145,20 @@ class PersonalizationViewModel(
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(topicsError = throwable) }
         }) {
-            if (isSelected) {
-                repository.deleteTopic(topic, lang)
-            } else {
-                repository.saveTopic(topic, lang)
-            }
-
             val selectedTopics = if (isSelected) {
                 state.value.selectedTopics.filter { it.topicId != topic.topicId }
             } else {
                 state.value.selectedTopics + topic
             }
 
-            state.update {
-                it.copy(
+            if (isSelected) {
+                repository.deleteTopic(topic, lang)
+            } else {
+                repository.saveTopic(topic, lang)
+            }
+
+            state.update { current ->
+                current.copy(
                     selectedTopics = selectedTopics,
                     articles = emptyList(),
                     articlesLoading = true,
@@ -186,10 +172,16 @@ class PersonalizationViewModel(
     }
 
     fun addArticleFromSearch(title: PageTitle) {
-        state.update {
-            val newItems = listOf(title) + it.articles
-            val newSelection = it.selectedArticles + title
-            it.copy(articles = newItems, selectedArticles = newSelection)
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                state.update { it.copy(articlesError = throwable) }
+            }
+        ) {
+            repository.saveArticle(title, WikipediaApp.instance.languageState.appLanguageCode)
+            state.update {
+                val newItems = listOf(title) + it.articles
+                val newSelection = it.selectedArticles + title
+                it.copy(articles = newItems, selectedArticles = newSelection)
+            }
         }
     }
 
@@ -205,12 +197,12 @@ class PersonalizationViewModel(
                 repository.saveArticle(title, lang)
             }
 
-            state.update {
-                it.copy(
+            state.update { current ->
+                current.copy(
                     selectedArticles = if (isSelected) {
-                        state.value.selectedArticles - title
+                        current.selectedArticles - title
                     } else {
-                        state.value.selectedArticles + title
+                        current.selectedArticles + title
                     }
                 )
             }
@@ -218,12 +210,18 @@ class PersonalizationViewModel(
     }
 
     fun deselectAllArticles() {
-        state.update {
-            it.copy(
-                selectedArticles = emptySet(),
-                articlesLoading = false,
-                articlesError = null
-            )
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                state.update { it.copy(articlesError = throwable) }
+            }
+        ) {
+            repository.deleteAllArticles(lang = WikipediaApp.instance.languageState.appLanguageCode)
+            state.update {
+                it.copy(
+                    selectedArticles = emptySet(),
+                    articlesLoading = false,
+                    articlesError = null
+                )
+            }
         }
     }
 
@@ -233,6 +231,20 @@ class PersonalizationViewModel(
             loadArticlesByTopic(topic = last.articleTopics)
         } else {
             loadInitialArticles()
+        }
+    }
+
+    companion object {
+        val Factory = viewModelFactory {
+            initializer {
+                PersonalizationViewModel(
+                    repository = PersonalizationRepository(
+                        interestDao = AppDatabase.instance.interestDao(),
+                        historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
+                        readingListPageDao = AppDatabase.instance.readingListPageDao()
+                    )
+                )
+            }
         }
     }
 }

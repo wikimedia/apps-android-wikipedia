@@ -37,16 +37,17 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @Composable
 fun PersonalizationScreen(
     modifier: Modifier = Modifier,
+    screens: List<PersonalizationPage>,
     onSkipClick: () -> Unit,
     onSearchClick: () -> Unit,
     viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
     val uiState = viewModel.interestUiState.collectAsState()
-    val pagerState = rememberPagerState(pageCount = { 3 })
+    val pagerState = rememberPagerState(pageCount = { screens.size })
 
     LaunchedEffect(pagerState.currentPage) {
-        viewModel.onPageChanged(pagerState.currentPage)
+        viewModel.onPageChanged(screens[pagerState.currentPage])
     }
 
     Scaffold(
@@ -56,7 +57,6 @@ fun PersonalizationScreen(
                     onNavigationRightClick = {
                         coroutineScope.launch {
                             if (pagerState.currentPage < pagerState.pageCount - 1) {
-                                viewModel.onPageChanged(pagerState.currentPage + 1)
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
                             } else {
                                 onSkipClick()
@@ -74,10 +74,12 @@ fun PersonalizationScreen(
         ) {
             HorizontalPager(
                 state = pagerState
-            ) { page ->
-                when (page) {
-                    0 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
-                    1 -> {
+            ) { pageIndex ->
+                when (screens[pageIndex]) {
+                    PersonalizationPage.CURIOSITY -> {
+                        OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
+                    }
+                    PersonalizationPage.INTERESTS -> {
                         InterestOnboardingScreen(
                             modifier = Modifier
                                 .fillMaxSize()
@@ -100,7 +102,9 @@ fun PersonalizationScreen(
                             }
                         )
                     }
-                    2 -> OnboardingCuriosityScreen(modifier = Modifier.fillMaxWidth())
+                    PersonalizationPage.FEED_PREFERENCE -> {
+                        // TODO: implement feed preference screen
+                    }
                 }
             }
         }

@@ -6,12 +6,11 @@ import androidx.room.Insert
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import org.wikipedia.onboarding.personalization.db.entity.Interest
-import org.wikipedia.onboarding.personalization.db.entity.InterestType
 
 @Dao
 interface InterestDao {
     @Query("SELECT * FROM Interests WHERE type = :type AND lang = :lang")
-    fun getByType(type: InterestType, lang: String): Flow<List<Interest>>
+    fun getByType(type: Int, lang: String): Flow<List<Interest>>
 
     @Insert
     suspend fun insert(interest: Interest)
@@ -24,4 +23,7 @@ interface InterestDao {
 
     @Delete
     suspend fun delete(interest: Interest)
+
+    @Query("DELETE FROM Interests WHERE type = :type AND lang = :lang")
+    suspend fun deleteAllByType(type: Int, lang: String)
 }

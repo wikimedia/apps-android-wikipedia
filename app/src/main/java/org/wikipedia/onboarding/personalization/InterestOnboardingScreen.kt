@@ -71,7 +71,6 @@ fun InterestOnboardingScreen(
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
     Box(modifier = modifier) {
         Column(
-            modifier = modifier,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
@@ -217,7 +216,8 @@ fun TopicFilterChipRow(
                 onClick = { onTopicSelected(item) },
                 leadingIcon = {
                     AnimatedContent(
-                        targetState = item.isSelected
+                        targetState = item.isSelected,
+                        label = "topicSelectionIcon"
                     ) { isSelected ->
                         Icon(
                             modifier = Modifier

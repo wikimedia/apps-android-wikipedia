@@ -15,11 +15,11 @@ import org.wikipedia.search.SearchActivity
 
 class PersonalizationActivity : BaseActivity() {
 
-    private val viewModel: PersonalizationViewModel by viewModels()
+    private val viewModel: PersonalizationViewModel by viewModels { PersonalizationViewModel.Factory }
 
     private val searchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE) ?: return@registerForActivityResult
             viewModel.addArticleFromSearch(pageTitle)
         }
     }
@@ -31,6 +31,11 @@ class PersonalizationActivity : BaseActivity() {
             BaseTheme {
                 PersonalizationScreen(
                     viewModel = viewModel,
+                    screens = listOf(
+                        PersonalizationPage.CURIOSITY,
+                        PersonalizationPage.INTERESTS,
+                        PersonalizationPage.FEED_PREFERENCE
+                    ),
                     onSkipClick = { finish() },
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.INTEREST_SELECTION, null, returnLink = true)
@@ -46,4 +51,10 @@ class PersonalizationActivity : BaseActivity() {
             return Intent(context, PersonalizationActivity::class.java)
         }
     }
+}
+
+enum class PersonalizationPage {
+    CURIOSITY,
+    INTERESTS,
+    FEED_PREFERENCE
 }

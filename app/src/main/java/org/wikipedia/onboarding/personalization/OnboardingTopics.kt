@@ -1,8 +1,7 @@
 package org.wikipedia.onboarding.personalization
 
+// the values defined here are from https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/WikimediaMessages/+/refs/heads/master/includes/ArticleTopicFiltersRegistry.php
 object OnboardingTopics {
-    // Linguistics and Media is not in the filter registry
-    // americas cannot be queried
     val all = listOf(
         OnboardingTopic(
             topicId = "biography",

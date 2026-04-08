@@ -79,12 +79,6 @@ fun OnboardingCuriosityScreen(
     }
 }
 
-data class InterestOnboardingUiState(
-    val isLoading: Boolean = true,
-    val items: List<String> = emptyList(),
-    val selectedItems: Set<String> = emptySet()
-)
-
 @Preview
 @Composable
 private fun OnboardingCuriosityScreenPreview() {

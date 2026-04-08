@@ -2,12 +2,14 @@ package org.wikipedia.onboarding.personalization.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import org.wikipedia.page.Namespace
 
 @Entity(tableName = "Interests")
 data class Interest(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val type: Int, // 0 = topic, 1 = article, use InterestType enum for better readability
     val lang: String,
+    val namespace: Namespace? = null,
     val topicLabel: String? = null,
     val topicKey: String? = null,
     var articleApiTitle: String? = null,

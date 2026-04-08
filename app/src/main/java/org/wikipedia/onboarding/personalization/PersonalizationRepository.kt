@@ -1,17 +1,22 @@
 package org.wikipedia.onboarding.personalization
 
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.onboarding.personalization.db.dao.InterestDao
 import org.wikipedia.onboarding.personalization.db.entity.Interest
 import org.wikipedia.onboarding.personalization.db.entity.InterestType
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.util.StringUtil
 
-class PersonalizationRepository(private val interestDao: InterestDao) {
+class PersonalizationRepository(
+    private val interestDao: InterestDao,
+    private val historyEntryWithImageDao: HistoryEntryWithImageDao,
+    private val readingListPageDao: ReadingListPageDao
+) {
 
     suspend fun getTopics(langCode: String): List<OnboardingTopic> {
         val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
@@ -21,11 +26,11 @@ class PersonalizationRepository(private val interestDao: InterestDao) {
             ?.associate { it.name to it.content }
             .orEmpty()
         return OnboardingTopics.all.map { topic ->
-            topic.copy(displayTitle = translations[topic.msgKey] ?: "no")
+            topic.copy(displayTitle = translations[topic.msgKey] ?: topic.displayTitle)
         }
     }
 
-    suspend fun getArticlesBytTopic(topic: String): List<PageTitle> {
+    suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
         val searchTerm = "articletopic:$topic"
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getArticlesByTopic(searchTerm, 25)
         val pageList = response.query?.pages
@@ -48,10 +53,10 @@ class PersonalizationRepository(private val interestDao: InterestDao) {
 
         if (results.size < maxItems) {
             // get most recent history entries
-            val historyTitles = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(maxItems, 0)
+            val historyTitles = historyEntryWithImageDao.findEntryForReadMore(maxItems, 0)
                 .map { it.title }
             // and a random sampling of reading list pages
-            val readingListTitles = AppDatabase.instance.readingListPageDao().getPagesByRandom(maxItems)
+            val readingListTitles = readingListPageDao.getPagesByRandom(maxItems)
                 .map { ReadingListPage.toPageTitle(it) }
             // take the two lists and interleave them
             for (i in 0 until maxItems) {
@@ -114,6 +119,7 @@ class PersonalizationRepository(private val interestDao: InterestDao) {
             Interest(
                 type = InterestType.ARTICLE.value,
                 lang = lang,
+                namespace = article.namespace(),
                 articleApiTitle = article.prefixedText,
                 articleDisplayTitle = article.displayText,
                 articleDescription = article.description,
@@ -126,5 +132,9 @@ class PersonalizationRepository(private val interestDao: InterestDao) {
         interestDao.findArticle(article.prefixedText, lang)?.let {
             interestDao.delete(it)
         }
+    }
+
+    suspend fun deleteAllArticles(lang: String) {
+        interestDao.deleteAllByType(InterestType.ARTICLE.value, lang)
     }
 }
