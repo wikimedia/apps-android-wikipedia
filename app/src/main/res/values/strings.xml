@@ -835,7 +835,7 @@
     <string name="view_random_article_card_title">Random article</string>
     <string name="view_random_article_card_action">More random articles</string>
     <string name="view_top_read_card_title">Top read</string>
-    <string name="view_top_read_card_description">What is trending today on %s Wikipedia</string>
+    <string name="view_top_read_card_description">What is trending today on Wikipedia</string>
     <string name="view_top_read_card_action">More top read</string>
     <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
     <string name="view_top_read_card_pageviews_m_suffix">%d M</string>

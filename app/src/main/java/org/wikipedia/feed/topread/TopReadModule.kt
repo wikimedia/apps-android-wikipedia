@@ -44,7 +44,6 @@ import org.wikipedia.util.StringUtil
 @Composable
 fun TopReadModule(
     topRead: TopRead,
-    languageName: String,
     onOverflowClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit,
@@ -76,7 +75,7 @@ fun TopReadModule(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = stringResource(R.string.view_top_read_card_description, StringUtil.capitalize(languageName).orEmpty().ifEmpty { languageName }),
+                    text = stringResource(R.string.view_top_read_card_description),
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.secondaryColor
                 )
@@ -263,7 +262,6 @@ fun TopReadCardPreview() {
             topRead = TopRead(
                 articles = listOf(article, article, article, article, article)
             ),
-            languageName = "English",
             onFooterClick = {},
             onOverflowClick = {},
             onPageClick = {},
