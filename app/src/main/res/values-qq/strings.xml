@@ -2227,4 +2227,5 @@
   <string name="explore_feed_community_tab_label">Label text for the explore feed type tab for the community content.</string>
   <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
   <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
+  <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
 </resources>

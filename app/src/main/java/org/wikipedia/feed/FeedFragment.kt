@@ -77,9 +77,9 @@ class FeedFragment : Fragment() {
         fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
         fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView)
         fun onFeedSeCardFooterClicked()
-        fun onFeedShareImage(card: FeaturedImageCard)
+        fun onFeedShareImage(image: FeaturedImage, age: Int)
         fun onFeedDownloadImage(image: FeaturedImage)
-        fun onFeaturedImageSelected(card: FeaturedImageCard)
+        fun onFeaturedImageSelected(image: FeaturedImage)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
         fun onWikiGamesCardFooterClicked()
@@ -272,7 +272,7 @@ class FeedFragment : Fragment() {
         }
 
         override fun onShareImage(card: FeaturedImageCard) {
-            callback?.onFeedShareImage(card)
+            callback?.onFeedShareImage(card.baseImage(), card.age())
         }
 
         override fun onDownloadImage(image: FeaturedImage) {
@@ -280,7 +280,7 @@ class FeedFragment : Fragment() {
         }
 
         override fun onFeaturedImageSelected(card: FeaturedImageCard) {
-            callback?.onFeaturedImageSelected(card)
+            callback?.onFeaturedImageSelected(card.baseImage())
         }
 
         override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {

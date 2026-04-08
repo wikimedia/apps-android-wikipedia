@@ -6,12 +6,10 @@ import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.util.StringUtil
 
 @Serializable
-class FeaturedImage : GalleryItem() {
-
-    val title = ""
-
-    val image = ImageInfo()
-
+class FeaturedImage(
+    val title: String = "",
+    val image: ImageInfo = ImageInfo()
+) : GalleryItem() {
     init {
         titles = Titles(title, StringUtil.addUnderscores(title), title)
         original.source = image.source

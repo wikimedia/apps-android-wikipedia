@@ -46,6 +46,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
 import org.wikipedia.databinding.FragmentMainBinding
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutEvent
@@ -53,7 +54,6 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
-import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
@@ -418,15 +418,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         startActivity(SuggestedEditsTasksActivity.newIntent(requireActivity()))
     }
 
-    override fun onFeedShareImage(card: FeaturedImageCard) {
-        val thumbUrl = card.baseImage().thumbnailUrl
-        val fullSizeUrl = card.baseImage().original.source
+    override fun onFeedShareImage(image: FeaturedImage, age: Int) {
+        val thumbUrl = image.thumbnailUrl
+        val fullSizeUrl = image.original.source
         ImageService.loadImage(requireContext(), thumbUrl, onSuccess = { bitmap ->
             if (!isAdded) {
                 return@loadImage
             }
             ShareUtil.shareImage(lifecycleScope, requireContext(), bitmap, File(thumbUrl).name,
-                ShareUtil.getFeaturedImageShareSubject(requireContext(), card.age()), fullSizeUrl)
+                ShareUtil.getFeaturedImageShareSubject(requireContext(), age), fullSizeUrl)
         })
     }
 
@@ -440,8 +440,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onFeaturedImageSelected(card: FeaturedImageCard) {
-        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(card.filename(), card.wikiSite())))
+    override fun onFeaturedImageSelected(image: FeaturedImage) {
+        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(image.title, WikiSite(Service.COMMONS_URL))))
     }
 
     override fun onLoginRequested() {

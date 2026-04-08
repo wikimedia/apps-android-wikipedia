@@ -65,11 +65,14 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
+import org.wikipedia.feed.image.FeaturedImage
+import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
+import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
@@ -99,7 +102,16 @@ class HomeFragment : Fragment() {
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
-                        onLoaDMoreForYouContent = viewModel::loadForYouContent
+                        onLoadMoreForYouContent = viewModel::loadForYouContent,
+                        onImageClick = {
+                            (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
+                        },
+                        onImageShareClick = { image, age ->
+                            (parentFragment as? MainFragment)?.onFeedShareImage(image, age)
+                        },
+                        onImageDownloadClick = {
+                            (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
+                        }
                     )
                 }
             }
@@ -119,7 +131,10 @@ fun HomeScreen(
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
-    onLoaDMoreForYouContent: () -> Unit = {}
+    onLoadMoreForYouContent: () -> Unit = {},
+    onImageClick: (image: FeaturedImage) -> Unit = {},
+    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -182,7 +197,10 @@ fun HomeScreen(
                             modifier = Modifier.weight(1f),
                             viewModel = viewModel,
                             state = communityContentState,
-                            onLoadMore = onLoadMoreCommunityContent
+                            onLoadMore = onLoadMoreCommunityContent,
+                            onImageClick = onImageClick,
+                            onImageDownloadClick = onImageDownloadClick,
+                            onImageShareClick = onImageShareClick
                         )
                     }
                 }
@@ -190,7 +208,7 @@ fun HomeScreen(
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
                         state = forYouContentState,
-                        onLoadMore = onLoaDMoreForYouContent
+                        onLoadMore = onLoadMoreForYouContent
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -289,7 +307,10 @@ fun CommunityContentTab(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel,
     state: CommunityContentState,
-    onLoadMore: () -> Unit
+    onLoadMore: () -> Unit,
+    onImageClick: (image: FeaturedImage) -> Unit = {},
+    onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -313,6 +334,17 @@ fun CommunityContentTab(
                     day.featuredArticle?.let { article ->
                         item(key = "tfa-${day.age}") {
                             FeaturedArticleModule(article)
+                        }
+                    }
+
+                    day.featuredImage?.let { image ->
+                        item(key = "tfi-${day.age}") {
+                            FeaturedImageModule(
+                                image,
+                                onClick = onImageClick,
+                                onDownloadClick = onImageDownloadClick,
+                                onShareClick = { onImageShareClick(image, day.age) }
+                            )
                         }
                     }
 
@@ -340,6 +372,8 @@ fun CommunityContentTab(
                             )
                         }
                     }
+
+                    // TODO: all the other types of content for this day.
                 }
 
                 item(key = "load-more-community") {
