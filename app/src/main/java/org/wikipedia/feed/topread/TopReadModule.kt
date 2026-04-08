@@ -185,6 +185,7 @@ fun TopReadItem(
 
                     HtmlText(
                         text = pageSummary.displayTitle,
+                        color = WikipediaTheme.colors.primaryColor,
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.SemiBold
                         )
