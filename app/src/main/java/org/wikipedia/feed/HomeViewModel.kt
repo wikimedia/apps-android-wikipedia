@@ -18,13 +18,6 @@ import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 
-enum class FooterAction {
-    TOP_READ,
-    IN_THE_NEWS,
-    ON_THIS_DAY,
-    DID_YOU_KNOW
-}
-
 data class DayContent(
     val age: Int,
     val date: LocalDate,
@@ -62,7 +55,6 @@ data class ForYouContentState(
 class HomeViewModel : ViewModel() {
 
     val wikiSite get() = WikipediaApp.instance.wikiSite
-    val localizedLanguageName get() = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(wikiSite.languageCode).orEmpty()
 
     private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
     val selectedTab = _selectedTab.asStateFlow()
