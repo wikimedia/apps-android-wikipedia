@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -31,6 +32,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -52,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -62,6 +65,10 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.topread.TopReadArticlesActivity
+import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.feed.topread.TopReadModule
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
@@ -84,7 +91,8 @@ class HomeFragment : Fragment() {
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
-                        selectedTab,
+                        viewModel = viewModel,
+                        selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         onSelectTab = {
@@ -115,6 +123,7 @@ class HomeFragment : Fragment() {
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeViewModel,
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
@@ -130,84 +139,98 @@ fun HomeScreen(
         DimenUtil.roundedPxToDp((context.getStatusBarInsets()?.top ?: 0).toFloat())
     } else 64
 
-    Box(modifier = Modifier.fillMaxSize()) {
-
-        when (selectedTab) {
-            HomeTab.COMMUNITY -> {
-
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .fillMaxWidth()
-                        .background(WikipediaTheme.colors.paperColor)
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.feed_header_wordmark),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                        contentScale = ContentScale.FillWidth,
-                        modifier = Modifier
-                            .statusBarsPadding()
-                            .padding(start = 20.dp, top = (topInset + 16).dp)
-                            .width(128.dp)
-                    )
-
-                    // Tab selector
-                    HomeTabBar(
-                        modifier = Modifier.padding(top = 8.dp),
-                        selectedTab = selectedTab,
-                        onTabSelected = onSelectTab
-                    )
-
-                    CommunityContentTab(
-                        state = communityContentState,
-                        onLoadMore = onLoadMoreCommunityContent,
-                        onImageClick = onImageClick,
-                        onImageDownloadClick = onImageDownloadClick,
-                        onImageShareClick = onImageShareClick
-                    )
-                }
+    PullToRefreshBox(
+        modifier = Modifier.fillMaxSize(),
+        isRefreshing = communityContentState.isInitialLoading || forYouContentState.isInitialLoading,
+        onRefresh = {
+            if (selectedTab == HomeTab.COMMUNITY) {
+                viewModel.refreshCommunityContent()
+            } else {
+                viewModel.refreshForYouContent()
             }
-            HomeTab.FOR_YOU -> {
-                ForYouContentTab(
-                    state = forYouContentState,
-                    onLoadMore = onLoadMoreForYouContent
-                )
-
-                // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .fillMaxWidth()
-                        .background(Brush.verticalGradient(
-                            colorStops = arrayOf(
-                                0.0f to Color.Black.copy(alpha = 0.78f),
-                                0.18f to Color.Black.copy(alpha = 0.64f),
-                                0.38f to Color.Black.copy(alpha = 0.40f),
-                                0.58f to Color.Black.copy(alpha = 0.20f),
-                                0.76f to Color.Black.copy(alpha = 0.08f),
-                                0.90f to Color.Black.copy(alpha = 0.02f),
-                                1.0f to Color.Transparent
-                            )
-                        ))
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.feed_header_wordmark),
-                        contentDescription = null,
-                        colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                        contentScale = ContentScale.FillWidth,
+        }
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            when (selectedTab) {
+                HomeTab.COMMUNITY -> {
+                    Column(
                         modifier = Modifier
-                            .statusBarsPadding()
-                            .padding(start = 20.dp, top = (topInset + 16).dp)
-                            .width(128.dp)
+                            .align(Alignment.TopCenter)
+                            .fillMaxSize()
+                            .background(WikipediaTheme.colors.paperColor)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.feed_header_wordmark),
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                            contentScale = ContentScale.FillWidth,
+                            modifier = Modifier
+                                .statusBarsPadding()
+                                .padding(start = 20.dp, top = (topInset + 16).dp)
+                                .width(128.dp)
+                        )
+
+                        // Tab selector
+                        HomeTabBar(
+                            modifier = Modifier.padding(top = 8.dp),
+                            selectedTab = selectedTab,
+                            onTabSelected = onSelectTab
+                        )
+
+                        CommunityContentTab(
+                            modifier = Modifier.weight(1f),
+                            viewModel = viewModel,
+                            state = communityContentState,
+                            onLoadMore = onLoadMoreCommunityContent
+                        )
+                    }
+                }
+
+                HomeTab.FOR_YOU -> {
+                    ForYouContentTab(
+                        state = forYouContentState,
+                        onLoadMore = onLoadMoreForYouContent
                     )
 
-                    // Tab selector
-                    HomeTabBar(
-                        modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
-                        selectedTab = selectedTab,
-                        onTabSelected = onSelectTab
-                    )
+                    // Floating toolbar with gradient scrim, wordmark, and tab selector.
+                    Column(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .fillMaxWidth()
+                            .background(
+                                Brush.verticalGradient(
+                                    colorStops = arrayOf(
+                                        0.0f to Color.Black.copy(alpha = 0.78f),
+                                        0.18f to Color.Black.copy(alpha = 0.64f),
+                                        0.38f to Color.Black.copy(alpha = 0.40f),
+                                        0.58f to Color.Black.copy(alpha = 0.20f),
+                                        0.76f to Color.Black.copy(alpha = 0.08f),
+                                        0.90f to Color.Black.copy(alpha = 0.02f),
+                                        1.0f to Color.Transparent
+                                    )
+                                )
+                            )
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.feed_header_wordmark),
+                            contentDescription = null,
+                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                            contentScale = ContentScale.FillWidth,
+                            modifier = Modifier
+                                .statusBarsPadding()
+                                .padding(start = 20.dp, top = (topInset + 16).dp)
+                                .width(128.dp)
+                        )
+
+                        // Tab selector
+                        HomeTabBar(
+                            modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
+                            selectedTab = selectedTab,
+                            onTabSelected = onSelectTab
+                        )
+                    }
                 }
             }
         }
@@ -264,22 +287,25 @@ fun HomeTabBar(
 
 @Composable
 fun CommunityContentTab(
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel,
     state: CommunityContentState,
     onLoadMore: () -> Unit,
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
+    val activity = LocalActivity.current as? MainActivity
     when {
         state.isInitialLoading -> {
-            LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
         state.error != null && state.days.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier.fillMaxSize(),
                 contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
                 state.days.forEach { day ->
@@ -301,6 +327,31 @@ fun CommunityContentTab(
                                 onClick = onImageClick,
                                 onDownloadClick = onImageDownloadClick,
                                 onShareClick = { onImageShareClick(image, day.age) }
+                            )
+                        }
+                    }
+
+                    day.topRead?.let {
+                        item(key = "top-read-${day.age}") {
+                            TopReadModule(
+                                topRead = it,
+                                onOverflowClick = {
+                                    // TODO: implement overflow menu
+                                },
+                                onPageClick = { pageSummary ->
+                                    activity?.fragment?.onLoadPage(
+                                        entry = pageSummary.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
+                                    )
+                                },
+                                onPageOverflowClick = { pageSummary ->
+                                    // TODO: implement page overflow menu
+                                },
+                                onFooterClick = {
+                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
+                                    activity?.startActivity(
+                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, viewModel.wikiSite))
+                                    )
+                                }
                             )
                         }
                     }
@@ -460,6 +511,7 @@ fun ErrorState(caught: Throwable, onRetry: () -> Unit) {
 fun HomeScreenCommunityPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
+            viewModel = viewModel(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
@@ -472,6 +524,7 @@ fun HomeScreenCommunityPreview() {
 fun HomeScreenForYouPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
+            viewModel = viewModel(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
