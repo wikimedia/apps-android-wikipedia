@@ -3,9 +3,10 @@ package org.wikipedia.onboarding.personalization
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryWithImageDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestDao
-import org.wikipedia.onboarding.personalization.db.entity.Interest
-import org.wikipedia.onboarding.personalization.db.entity.InterestType
+import org.wikipedia.onboarding.personalization.db.dao.ArticleInterestDao
+import org.wikipedia.onboarding.personalization.db.dao.TopicInterestDao
+import org.wikipedia.onboarding.personalization.db.entity.ArticleInterest
+import org.wikipedia.onboarding.personalization.db.entity.TopicInterest
 import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -14,7 +15,8 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.util.StringUtil
 
 class PersonalizationRepository(
-    private val interestDao: InterestDao,
+    private val topicInterestDao: TopicInterestDao,
+    private val articleInterestDao: ArticleInterestDao,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
     private val readingListPageDao: ReadingListPageDao,
     val wikiSite: WikiSite
@@ -100,43 +102,57 @@ class PersonalizationRepository(
     }
 
     suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
-        interestDao.insert(
-            Interest(
-                topicKey = topic.topicId,
+        topicInterestDao.insert(
+            topicInterest = TopicInterest(
+                topicId = topic.topicId,
                 topicLabel = topic.displayTitle,
-                lang = lang,
-                type = InterestType.TOPIC.value
+                queryTopicId = topic.queryTopicId,
+                lang = lang
+        ))
+    }
+
+    suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
+        topicInterestDao.delete(
+            topicInterest = TopicInterest(
+                topicId = topic.topicId,
+                topicLabel = topic.displayTitle,
+                queryTopicId = topic.queryTopicId,
+                lang = lang
             )
         )
     }
 
-    suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
-        interestDao.findTopic(topic.topicId, lang)?.let {
-            interestDao.delete(it)
-        }
+    suspend fun deleteAllTopics() {
+        topicInterestDao.deleteAll()
     }
 
     suspend fun saveArticle(article: PageTitle, lang: String) {
-        interestDao.insert(
-            Interest(
-                type = InterestType.ARTICLE.value,
+        articleInterestDao.insert(
+            articleInterest = ArticleInterest(
+                apiTitle = article.prefixedText,
                 lang = lang,
                 namespace = article.namespace(),
-                articleApiTitle = article.prefixedText,
-                articleDisplayTitle = article.displayText,
-                articleDescription = article.description,
-                articleThumbUrl = article.thumbUrl
+                displayTitle = article.displayText,
+                description = article.description.orEmpty(),
+                thumbUrl = article.thumbUrl.orEmpty()
             )
         )
     }
 
     suspend fun deleteArticle(article: PageTitle, lang: String) {
-        interestDao.findArticle(article.prefixedText, lang)?.let {
-            interestDao.delete(it)
-        }
+        articleInterestDao.delete(
+            articleInterest = ArticleInterest(
+                apiTitle = article.prefixedText,
+                lang = lang,
+                namespace = article.namespace(),
+                displayTitle = article.displayText,
+                description = article.description.orEmpty(),
+                thumbUrl = article.thumbUrl.orEmpty()
+            )
+        )
     }
 
-    suspend fun deleteAllArticles(lang: String) {
-        interestDao.deleteAllByType(InterestType.ARTICLE.value, lang)
+    suspend fun deleteAllArticles() {
+        articleInterestDao.deleteAll()
     }
 }

@@ -66,6 +66,7 @@ fun InterestOnboardingScreen(
     onSearchClick: () -> Unit,
     onDeselectAllClick: () -> Unit,
     retryLoading: () -> Unit,
+    totalSelectedCount: Int,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
 ) {
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
@@ -184,15 +185,14 @@ fun InterestOnboardingScreen(
                 }
             )
         }
-        if (articlesState is ArticlesState.Success) {
-            SelectionBottomBar(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .background(WikipediaTheme.colors.paperColor),
-                selectedItemsCount = articlesState.selectedArticles.size,
-                onDeselectAllClick = onDeselectAllClick
-            )
-        }
+
+        SelectionBottomBar(
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .background(WikipediaTheme.colors.paperColor),
+            selectedItemsCount = totalSelectedCount,
+            onDeselectAllClick = onDeselectAllClick
+        )
     }
 }
 
@@ -338,6 +338,7 @@ private fun InterestOnboardingScreenPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
+            totalSelectedCount = 0,
             topicsState = TopicsState.Success(
                 topics = OnboardingTopics.all.map {
                     it.copy(displayTitle = it.msgKey, isSelected = it.topicId == "science")

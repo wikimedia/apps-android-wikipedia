@@ -57,7 +57,8 @@ private data class PersonalizedViewModelState(
                     articles = articles,
                     selectedArticles = selectedArticles
                 )
-            }
+            },
+            totalSelectedCount = selectedTopics.size + selectedArticles.size
         )
     }
 
@@ -212,10 +213,13 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.deleteAllArticles(lang = repository.wikiSite.languageCode)
+            repository.deleteAllTopics()
+            repository.deleteAllArticles()
+
             state.update {
                 it.copy(
                     selectedArticles = emptySet(),
+                    selectedTopics = emptyList(),
                     articlesLoading = false,
                     articlesError = null
                 )
@@ -237,7 +241,8 @@ class PersonalizationViewModel(
             initializer {
                 PersonalizationViewModel(
                     repository = PersonalizationRepository(
-                        interestDao = AppDatabase.instance.interestDao(),
+                        topicInterestDao = AppDatabase.instance.topicInterestDao(),
+                        articleInterestDao = AppDatabase.instance.articleInterestDao(),
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
                         readingListPageDao = AppDatabase.instance.readingListPageDao(),
                         wikiSite = WikipediaApp.instance.wikiSite

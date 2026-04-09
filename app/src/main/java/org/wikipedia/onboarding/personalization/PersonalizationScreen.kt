@@ -43,7 +43,7 @@ fun PersonalizationScreen(
     viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
-    val uiState = viewModel.interestUiState.collectAsState()
+    val interestUiState = viewModel.interestUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { screens.size })
 
     LaunchedEffect(pagerState.currentPage) {
@@ -85,8 +85,9 @@ fun PersonalizationScreen(
                                 .fillMaxSize()
                                 .background(WikipediaTheme.colors.paperColor)
                                 .padding(top = 40.dp),
-                            topicsState = uiState.value.topicsState,
-                            articlesState = uiState.value.articlesState,
+                            topicsState = interestUiState.value.topicsState,
+                            articlesState = interestUiState.value.articlesState,
+                            totalSelectedCount = interestUiState.value.totalSelectedCount,
                             onTopicSelected = {
                                 viewModel.onTopicSelected(it)
                             },

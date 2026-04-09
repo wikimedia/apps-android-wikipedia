@@ -2,7 +2,6 @@ package org.wikipedia.onboarding.personalization
 
 import org.wikipedia.page.PageTitle
 
-// TODO: update the states below as needed as we build out the screen
 data class OnboardingTopic(
     val topicId: String,
     val msgKey: String,
@@ -13,7 +12,8 @@ data class OnboardingTopic(
 
 data class InterestUiState(
     val topicsState: TopicsState = TopicsState.Loading,
-    val articlesState: ArticlesState = ArticlesState.Loading
+    val articlesState: ArticlesState = ArticlesState.Loading,
+    val totalSelectedCount: Int = 0
 )
 
 sealed interface TopicsState {
