@@ -287,14 +287,14 @@
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
   <string name="preference_title_download_only_over_wifi">Загружаць толькі па Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Пацьвердзіць загрузку па мабільнай сетцы?</string>
+  <string name="dialog_title_download_only_over_wifi">Пацьвердзіць сьцягваньне праз мабільную сетку?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
-  <string name="gallery_save_progress">Загрузка файлу…</string>
+  <string name="gallery_save_progress">Сьцягваньне файлу…</string>
   <string name="gallery_save_success">Файл захаваны.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
