@@ -434,10 +434,10 @@
   <string name="empty_tab_title">Fitxa berria</string>
   <string name="menu_save_all_tabs">gorde etiketa guztiak</string>
   <string name="error_blocked_title">Zure erabiltzaile-izena edo IP helbidea blokeatu egin da.</string>
-  <string name="error_blocked_by" fuzzy="true">Blokeoa &lt;a href=\"%2$s\"&gt;% 1$s&lt;/a&gt; -ek egin du</string>
+  <string name="error_blocked_by" fuzzy="true">Blokeoa &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; -ek egin du</string>
   <string name="error_blocked_reason">Emandako arrazoia hau da: %s</string>
-  <string name="error_blocked_start" fuzzy="true">Blokearen hasiera: $s</string>
-  <string name="error_blocked_expiry" fuzzy="true">Blokearen epemuga: $s</string>
+  <string name="error_blocked_start" fuzzy="true">Blokearen hasiera: %s</string>
+  <string name="error_blocked_expiry" fuzzy="true">Blokearen epemuga: %s</string>
   <string name="error_blocked_id">Blokeoaren IDa: %s</string>
   <string name="error_blocked_footer">Blokeoaz hitz egiteko, &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; edo beste &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratzaile batekin&lt;/a&gt; harremanetan jar zaitezke.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Pertsonalizatu zure tresna-barra</string>
