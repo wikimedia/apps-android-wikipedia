@@ -1744,7 +1744,7 @@
   <string name="survey_dialog_input_hint">Ek geri bildirim</string>
   <string name="survey_dialog_submitted_snackbar">Geri bildirim gönderildi. Teşekkür ederiz!</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Vikipedi oyunları</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Bugünün oyununu oyna</string>
+  <string name="on_this_day_game_entry_dialog_button">Oyna</string>
   <string name="on_this_day_game_point">+1 puan</string>
   <string name="on_this_day_game_next">Sonraki soru</string>
   <string name="on_this_day_game_your_stats">İstatistikleriniz</string>

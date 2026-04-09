@@ -44,6 +44,7 @@
 * McDutchie
 * Nastoshka
 * Nemo bis
+* Neonsn0w
 * Nivit
 * PPenloglou-WMF
 * Peg60
@@ -2128,12 +2129,14 @@
   <string name="reading_challenge_onboarding_prompt_message">Accedi o crea un\'utenza per monitorare i tuoi progressi nella sfida di lettura.</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">No, grazie</string>
   <string name="reading_challenge_onboarding_prompt_login">Entra / unisciti a Wikipedia</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe fa il tifo per te. Aggiungi il widget Sfida di lettura per monitorare i tuoi progressi direttamente dalla schermata iniziale.</string>
   <string name="reading_challenge_install_prompt_got_it">Capito</string>
   <string name="reading_challenge_install_prompt_add">Aggiungi</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Esplora Wikipedia</string>
   <string name="reading_challenge_widget_search_button">Cerca</string>
   <string name="reading_challenge_widget_random_button">Casuale</string>
   <string name="reading_challenge_widget_not_live_title">Preparati a leggere</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Pronti, partenza, leggi!</string>
   <string name="reading_challenge_widget_not_opted_in_description">Partecipa alla sfida di 25 giorni e sblocca premi speciali.</string>
   <plurals name="reading_challenge_small_widget_streak_final">
     <item quantity="one">%1$d di %2$d</item>

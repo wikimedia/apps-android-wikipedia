@@ -1777,6 +1777,8 @@
   <string name="reading_challenge_onboarding_prompt_login">Пријава / Придружите се Википедији</string>
   <string name="reading_challenge_install_prompt_got_it">Разумео</string>
   <string name="reading_challenge_install_prompt_add">Додај</string>
+  <string name="reading_challenge_widget_explore_button">Истражи</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Истражи Википедију</string>
   <string name="reading_challenge_widget_search_button">Претрага</string>
   <string name="reading_challenge_widget_random_button">Случајно</string>
   <string name="reading_challenge_widget_start_fresh_start_title">Нови почетак.</string>
