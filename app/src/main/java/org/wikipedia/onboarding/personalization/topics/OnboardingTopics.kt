@@ -1,4 +1,6 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.onboarding.personalization.topics
+
+import org.wikipedia.onboarding.personalization.OnboardingTopic
 
 // the values defined here are from https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/WikimediaMessages/+/refs/heads/master/includes/ArticleTopicFiltersRegistry.php
 object OnboardingTopics {

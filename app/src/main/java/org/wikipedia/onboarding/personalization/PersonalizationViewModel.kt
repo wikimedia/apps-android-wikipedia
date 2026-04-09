@@ -30,8 +30,7 @@ private data class PersonalizedViewModelState(
     val articlesLoading: Boolean = false,
     val articlesError: Throwable? = null,
     val selectedArticles: Set<PageTitle> = emptySet(),
-    val selectedTopics: List<OnboardingTopic> = emptyList(),
-    val searchQuery: String = "",
+    val selectedTopics: List<OnboardingTopic> = emptyList()
     // Feed preference screen properties
 ) {
     fun toInterestUiState(): InterestUiState {
@@ -85,8 +84,7 @@ class PersonalizationViewModel(
     fun onPageChanged(screen: PersonalizationPage) {
         when (screen) {
             PersonalizationPage.INTERESTS -> {
-                val langCode = WikipediaApp.instance.languageState.appLanguageCode
-                if (state.value.topics.isEmpty()) loadTopics(langCode)
+                if (state.value.topics.isEmpty()) loadTopics(repository.wikiSite.languageCode)
                 if (state.value.articles.isEmpty()) loadInitialArticles()
             }
             else -> {}
@@ -138,7 +136,7 @@ class PersonalizationViewModel(
 
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
-        val lang = WikipediaApp.instance.languageState.appLanguageCode
+        val lang = repository.wikiSite.languageCode
         val isSelected = state.value.selectedTopics.any { selected -> selected.topicId == topic.topicId }
 
         // When a category is selected, we want to reset the articles state and load articles for the selected category
@@ -176,7 +174,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.saveArticle(title, WikipediaApp.instance.languageState.appLanguageCode)
+            repository.saveArticle(title, repository.wikiSite.languageCode)
             state.update {
                 val newItems = listOf(title) + it.articles
                 val newSelection = it.selectedArticles + title
@@ -186,7 +184,7 @@ class PersonalizationViewModel(
     }
 
     fun toggleSelection(title: PageTitle) {
-        val lang = WikipediaApp.instance.languageState.appLanguageCode
+        val lang = repository.wikiSite.languageCode
         val isSelected = state.value.selectedArticles.contains(title)
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesError = throwable) }
@@ -214,7 +212,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.deleteAllArticles(lang = WikipediaApp.instance.languageState.appLanguageCode)
+            repository.deleteAllArticles(lang = repository.wikiSite.languageCode)
             state.update {
                 it.copy(
                     selectedArticles = emptySet(),
@@ -241,7 +239,8 @@ class PersonalizationViewModel(
                     repository = PersonalizationRepository(
                         interestDao = AppDatabase.instance.interestDao(),
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
-                        readingListPageDao = AppDatabase.instance.readingListPageDao()
+                        readingListPageDao = AppDatabase.instance.readingListPageDao(),
+                        wikiSite = WikipediaApp.instance.wikiSite
                     )
                 )
             }

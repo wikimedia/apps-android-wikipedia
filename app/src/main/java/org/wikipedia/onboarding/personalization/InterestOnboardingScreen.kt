@@ -33,7 +33,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -53,6 +52,7 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 
@@ -112,12 +112,10 @@ fun InterestOnboardingScreen(
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                                     contentPadding = PaddingValues(horizontal = 16.dp)
                                 ) {
-                                    items(5) { index ->
-                                        val width =
-                                            remember { listOf(80, 100, 70, 90, 85)[index].dp }
+                                    items(5) {
                                         Box(
                                             modifier = Modifier
-                                                .width(width)
+                                                .width(80.dp)
                                                 .height(32.dp)
                                                 .clip(RoundedCornerShape(size = 8.dp))
                                                 .shimmerEffect(transition = transition)
@@ -295,7 +293,7 @@ fun SelectionBottomBar(
                         Text(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(size = 8.dp)),
-                            text = stringResource(R.string.explore_feed_deselect_all_btn_label),
+                            text = stringResource(R.string.explore_feed_deselect_all_button_label),
                             style = MaterialTheme.typography.labelLarge
                         )
                     }

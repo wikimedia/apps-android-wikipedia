@@ -1,11 +1,12 @@
 package org.wikipedia.onboarding.personalization
 
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.onboarding.personalization.db.dao.InterestDao
 import org.wikipedia.onboarding.personalization.db.entity.Interest
 import org.wikipedia.onboarding.personalization.db.entity.InterestType
+import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -15,12 +16,13 @@ import org.wikipedia.util.StringUtil
 class PersonalizationRepository(
     private val interestDao: InterestDao,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
-    private val readingListPageDao: ReadingListPageDao
+    private val readingListPageDao: ReadingListPageDao,
+    val wikiSite: WikiSite
 ) {
 
     suspend fun getTopics(langCode: String): List<OnboardingTopic> {
         val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
-        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
+        val response = ServiceFactory.get(wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
         val translations = response.query?.allmessages
             ?.filterNot { it.missing }
             ?.associate { it.name to it.content }
@@ -32,15 +34,15 @@ class PersonalizationRepository(
 
     suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
         val searchTerm = "articletopic:$topic"
-        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getArticlesByTopic(searchTerm, 25)
+        val response = ServiceFactory.get(wikiSite).getArticlesByTopic(searchTerm, 25)
         val pageList = response.query?.pages
             ?.map { page ->
                 PageTitle(
                     text = page.title,
-                    wiki = WikipediaApp.instance.wikiSite,
+                    wiki = wikiSite,
                     thumbUrl = page.thumbUrl(),
                     description = page.description,
-                    displayText = page.displayTitle(WikipediaApp.instance.wikiSite.languageCode)
+                    displayText = page.displayTitle(wikiSite.languageCode)
                 )
             } ?: emptyList()
         return pageList
@@ -71,8 +73,8 @@ class PersonalizationRepository(
         val maxRandomItems = 6
         if (results.size < maxRandomItems) {
             for (i in results.size until maxRandomItems) {
-                val title = ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getRandomSummary()
-                    .getPageTitle(WikipediaApp.instance.wikiSite)
+                val title = ServiceFactory.getRest(wikiSite).getRandomSummary()
+                    .getPageTitle(wikiSite)
                 if (!results.contains(title)) {
                     results.add(title)
                 }

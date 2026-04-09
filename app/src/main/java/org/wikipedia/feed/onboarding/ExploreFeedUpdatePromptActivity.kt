@@ -27,6 +27,7 @@ import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.onboarding.personalization.PersonalizationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
@@ -62,12 +63,10 @@ class ExploreFeedUpdatePromptActivity : BaseActivity() {
                 ExploreFeedUpdatePromptScreen(
                     onSetItUpForMeClick = {
                         finish()
-                        // TODO: navigate directly to the feed.
                     },
                     onCustomizeFeedClick = {
-                        startActivity(ExploreFeedBuildingActivity.newIntent(this))
+                        startActivity(PersonalizationActivity.newIntent(this))
                         finish()
-                        // TODO: navigate to condensed onboarding flow (Interests Selection, Feed Preference and Feed Loading screens)
                     }
                 )
             }
