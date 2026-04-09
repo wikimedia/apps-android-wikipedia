@@ -164,7 +164,7 @@ class PersonalizationViewModel(
                 )
             }
 
-            val topicQueryId = selectedTopics.lastOrNull()?.articleTopics
+            val topicQueryId = selectedTopics.lastOrNull()?.queryTopicId
             if (topicQueryId == null) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryId)
         }
     }
@@ -226,7 +226,7 @@ class PersonalizationViewModel(
     fun retryLoading() {
         val last = state.value.selectedTopics.lastOrNull()
         if (last != null) {
-            loadArticlesByTopic(topic = last.articleTopics)
+            loadArticlesByTopic(topic = last.queryTopicId)
         } else {
             loadInitialArticles()
         }
