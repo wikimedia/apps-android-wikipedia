@@ -52,7 +52,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.wp25_babyglobe_completed, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,

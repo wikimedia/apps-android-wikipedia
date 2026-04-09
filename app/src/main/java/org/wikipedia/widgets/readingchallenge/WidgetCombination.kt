@@ -24,14 +24,14 @@ object WidgetCombinations {
 
     // TODO: update iconResId when svg's are provided
     val streakNeedsReading = listOf(
-        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_dont_let_today_drift, iconResId = R.drawable.wp25_babyglobe_sleeping),
-        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_before_day_snoozes, iconResId = R.drawable.wp25_babyglobe_sleeping),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_small_bit_counts, iconResId = R.drawable.wp25_babyglobe_sleeping),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away, iconResId = R.drawable.wp25_babyglobe_sleeping),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_jump_in_anytime),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_quiet_reading_moment),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_keep_curiosity_going),
-        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away)
+        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_dont_let_today_drift, iconResId = R.drawable.wp25_babyglobe_dreaming),
+        needsReadingCombination(textResId = R.string.reading_challenge_widget_reminder_before_day_snoozes, iconResId = R.drawable.wp25_babyglobe_dreaming),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_small_bit_counts, iconResId = R.drawable.wp25_babyglobe_dreaming),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away, iconResId = R.drawable.wp25_babyglobe_dreaming),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_jump_in_anytime, iconResId = R.drawable.wp25_babyglobe_reading),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_quiet_reading_moment, iconResId = R.drawable.wp25_babyglobe_reading),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_keep_curiosity_going, iconResId = R.drawable.wp25_babyglobe_reading),
+        needsReadingCombination(R.string.reading_challenge_widget_reminder_one_article_away, iconResId = R.drawable.wp25_babyglobe_reading)
     )
 
     val enrolledNotStarted = listOf(
@@ -45,11 +45,13 @@ object WidgetCombinations {
         ),
         needsEnrolledNotStartedCombination(
             titleResId = R.string.reading_challenge_widget_start_spin_up_new_streak_title,
-            subtitleResId = R.string.reading_challenge_widget_start_spin_up_new_streak_subtitle
+            subtitleResId = R.string.reading_challenge_widget_start_spin_up_new_streak_subtitle,
+            iconResId = R.drawable.wp25_babyglobe_synth_1
         ),
         needsEnrolledNotStartedCombination(
             titleResId = R.string.reading_challenge_widget_start_fresh_start_title,
-            subtitleResId = R.string.reading_challenge_widget_start_fresh_start_subtitle
+            subtitleResId = R.string.reading_challenge_widget_start_fresh_start_subtitle,
+            iconResId = R.drawable.wp25_babyglobe_synth_2
         )
     )
 
@@ -59,7 +61,7 @@ object WidgetCombinations {
             iconResId = R.drawable.wp25_babyglobe_phone,
             backgroundColor = WidgetColors.phoneReadingBackground,
             contentColor = WidgetColors.phoneReadingContent,
-            progressColor = WidgetColors.phoneReadingProgressColor
+            progressColor = WidgetColors.phoneReadingProgressColor,
         ),
         WidgetCombination(
             iconResId = R.drawable.wp25_babyglobe_music,
@@ -89,7 +91,7 @@ object WidgetCombinations {
         return this[index]
     }
 
-    private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int = R.drawable.wp25_babyglobe_reading) =
+    private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int) =
         WidgetCombination(
             iconResId = iconResId,
             backgroundColor = WidgetColors.streakOngoingNeedsReadingBackground,
