@@ -16,6 +16,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 
 // this is a raw, flat, internal representation of ALL state
 // needed across the personalization flow (interest and feed preference)
@@ -86,22 +87,64 @@ class PersonalizationViewModel(
 
     fun onPageChanged(screen: PersonalizationPage) {
         when (screen) {
-            PersonalizationPage.INTERESTS -> {
-                if (state.value.topics.isEmpty()) loadTopics(repository.wikiSite.languageCode)
-                if (state.value.articles.isEmpty()) loadInitialArticles()
-            }
+            PersonalizationPage.INTERESTS -> loadScreen()
             else -> {}
         }
     }
 
-    private fun loadTopics(langCode: String) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            state.update { it.copy(topicsLoading = false, topicsError = throwable) }
-        }) {
-            state.update { it.copy(topicsLoading = true, topicsError = null) }
+    private fun loadScreen() {
+        viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+         }) {
+            val topicsLoaded = loadTopics()
+            if (topicsLoaded) {
+                initialize()
+            }
+        }
+    }
 
+    private suspend fun loadTopics(): Boolean {
+        if (state.value.topics.isNotEmpty()) return false
+
+        return runCatching {
+            val langCode = repository.wikiSite.languageCode
+            state.update { it.copy(topicsLoading = true, topicsError = null) }
             val topics = repository.getTopics(langCode)
             state.update { it.copy(topics = topics, topicsLoading = false) }
+        }.onFailure { throwable ->
+            state.update { it.copy(topicsLoading = false, topicsError = throwable) }
+        }.isSuccess
+    }
+
+    private suspend fun initialize() {
+        runCatching {
+            val langCode = repository.wikiSite.languageCode
+            // check db for persisted interest (topic and articles) data
+            val persistedTopics = repository.getPersistedTopics(langCode)
+            val persistedArticles = repository.getPersistedArticles(langCode)
+
+            val hasPersistedData = persistedTopics.isNotEmpty() || persistedArticles.isNotEmpty()
+            if (!hasPersistedData && state.value.articles.isEmpty()) {
+                loadInitialArticles()
+                return@runCatching
+            }
+
+            // restore selections
+            state.update { current ->
+                current.copy(
+                    selectedTopics = persistedTopics,
+                    selectedArticles = persistedArticles.toSet()
+                )
+            }
+
+            val lasTopic = persistedTopics.lastOrNull()
+            if (lasTopic != null) {
+                loadArticlesByTopic(topic = lasTopic)
+            } else {
+                loadInitialArticles()
+            }
+        }.onFailure { throwable ->
+            state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }
     }
 
@@ -114,11 +157,11 @@ class PersonalizationViewModel(
 
             val selectedItems = Prefs.recommendedReadingListInterests
             val articles = repository.loadInitialArticles(selectedItems)
-            state.update {
-                it.copy(
-                    articles = articles,
-                    articlesLoading = false,
-                    selectedArticles = selectedItems.toSet()
+            state.update { current ->
+                val newArticles = (current.selectedArticles + articles).distinct()
+                current.copy(
+                    articles = newArticles,
+                    articlesLoading = false
                 )
             }
         }
@@ -166,7 +209,6 @@ class PersonalizationViewModel(
                 current.copy(
                     selectedTopics = selectedTopics,
                     articles = emptyList(),
-                    articlesLoading = true,
                     articlesError = null
                 )
             }

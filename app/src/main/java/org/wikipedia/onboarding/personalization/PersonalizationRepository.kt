@@ -102,6 +102,24 @@ class PersonalizationRepository(
         return results.distinctBy { it.prefixedText }
     }
 
+    suspend fun getPersistedTopics(lang: String): List<OnboardingTopic> {
+        return topicInterestDao.getAll(lang).mapNotNull { entity ->
+            OnboardingTopics.all.find { it.topicId == entity.topicId }
+        }
+    }
+
+    suspend fun getPersistedArticles(lang: String): List<PageTitle> {
+        return articleInterestDao.getAll(lang).map { entity ->
+            PageTitle(
+                text = entity.apiTitle,
+                wiki = wikiSite,
+                thumbUrl = entity.thumbUrl,
+                description = entity.description,
+                displayText = entity.displayTitle
+            )
+        }
+    }
+
     suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
         topicInterestDao.insert(
             topicInterest = TopicInterest(

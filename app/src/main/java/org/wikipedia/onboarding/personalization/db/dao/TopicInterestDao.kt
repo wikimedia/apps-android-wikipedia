@@ -17,4 +17,7 @@ interface TopicInterestDao {
 
     @Query("DELETE FROM TopicInterest")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM TopicInterest WHERE lang = :lang")
+    suspend fun getAll(lang: String): List<TopicInterest>
 }
