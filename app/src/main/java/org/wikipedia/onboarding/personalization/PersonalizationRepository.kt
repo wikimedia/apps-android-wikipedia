@@ -1,5 +1,6 @@
 package org.wikipedia.onboarding.personalization
 
+import androidx.room.Transaction
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryWithImageDao
@@ -122,11 +123,7 @@ class PersonalizationRepository(
         )
     }
 
-    suspend fun deleteAllTopics() {
-        topicInterestDao.deleteAll()
-    }
-
-    suspend fun saveArticle(article: PageTitle, lang: String) {
+    suspend fun saveArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
         articleInterestDao.insert(
             articleInterest = ArticleInterest(
                 apiTitle = article.prefixedText,
@@ -134,12 +131,14 @@ class PersonalizationRepository(
                 namespace = article.namespace(),
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
-                thumbUrl = article.thumbUrl.orEmpty()
+                thumbUrl = article.thumbUrl.orEmpty(),
+                topicId = topic?.topicId,
+                topicLang = lang
             )
         )
     }
 
-    suspend fun deleteArticle(article: PageTitle, lang: String) {
+    suspend fun deleteArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
         articleInterestDao.delete(
             articleInterest = ArticleInterest(
                 apiTitle = article.prefixedText,
@@ -147,12 +146,16 @@ class PersonalizationRepository(
                 namespace = article.namespace(),
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
-                thumbUrl = article.thumbUrl.orEmpty()
+                thumbUrl = article.thumbUrl.orEmpty(),
+                topicId = topic?.topicId,
+                topicLang = lang
             )
         )
     }
 
-    suspend fun deleteAllArticles() {
+    @Transaction
+    suspend fun deleteAllInterests() {
+        topicInterestDao.deleteAll()
         articleInterestDao.deleteAll()
     }
 }

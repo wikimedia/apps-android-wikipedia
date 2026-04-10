@@ -92,7 +92,7 @@ fun PersonalizationScreen(
                                 viewModel.onTopicSelected(it)
                             },
                             onItemClick = {
-                                viewModel.toggleSelection(it)
+                                viewModel.toggleArticleSelection(it)
                             },
                             onSearchClick = onSearchClick,
                             onDeselectAllClick = {

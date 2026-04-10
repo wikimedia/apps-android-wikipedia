@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
@@ -71,6 +72,7 @@ class PersonalizationViewModel(
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
+    private var articlesJob: Job? = null
 
     // Each screen observes only its own derived UI state
     // runs automatically when any part of the raw state changes
@@ -104,7 +106,8 @@ class PersonalizationViewModel(
     }
 
     private fun loadInitialArticles() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        articlesJob?.cancel()
+        articlesJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
@@ -121,13 +124,14 @@ class PersonalizationViewModel(
         }
     }
 
-    private fun loadArticlesByTopic(topic: String) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+    private fun loadArticlesByTopic(topic: OnboardingTopic) {
+        articlesJob?.cancel()
+        articlesJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = repository.getArticlesByTopic(topic)
+            val articles = repository.getArticlesByTopic(topic.queryTopicId)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()
                 current.copy(articles = newArticles, articlesLoading = false)
@@ -138,16 +142,18 @@ class PersonalizationViewModel(
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
         val lang = repository.wikiSite.languageCode
-        val isSelected = state.value.selectedTopics.any { selected -> selected.topicId == topic.topicId }
 
         // When a category is selected, we want to reset the articles state and load articles for the selected category
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(topicsError = throwable) }
         }) {
+            val currentTopics = state.value.selectedTopics
+            val isSelected = currentTopics.any { selected -> selected.topicId == topic.topicId }
+
             val selectedTopics = if (isSelected) {
-                state.value.selectedTopics.filter { it.topicId != topic.topicId }
+                currentTopics.filter { it.topicId != topic.topicId }
             } else {
-                state.value.selectedTopics + topic
+                currentTopics + topic
             }
 
             if (isSelected) {
@@ -165,8 +171,8 @@ class PersonalizationViewModel(
                 )
             }
 
-            val topicQueryId = selectedTopics.lastOrNull()?.queryTopicId
-            if (topicQueryId == null) loadInitialArticles() else loadArticlesByTopic(topic = topicQueryId)
+            val lastSelectedTopic = selectedTopics.lastOrNull()
+            if (lastSelectedTopic == null) loadInitialArticles() else loadArticlesByTopic(topic = lastSelectedTopic)
         }
     }
 
@@ -175,7 +181,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.saveArticle(title, repository.wikiSite.languageCode)
+            repository.saveArticle(title, repository.wikiSite.languageCode, null)
             state.update {
                 val newItems = listOf(title) + it.articles
                 val newSelection = it.selectedArticles + title
@@ -184,24 +190,28 @@ class PersonalizationViewModel(
         }
     }
 
-    fun toggleSelection(title: PageTitle) {
+    fun toggleArticleSelection(title: PageTitle) {
         val lang = repository.wikiSite.languageCode
-        val isSelected = state.value.selectedArticles.contains(title)
+
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesError = throwable) }
         }) {
+            val current = state.value
+            val isSelected = current.selectedArticles.contains(title)
+            val currentSelectedTopic = current.selectedTopics.lastOrNull()
+
             if (isSelected) {
-                repository.deleteArticle(title, lang)
+                repository.deleteArticle(title, lang, currentSelectedTopic)
             } else {
-                repository.saveArticle(title, lang)
+                repository.saveArticle(title, lang, currentSelectedTopic)
             }
 
-            state.update { current ->
-                current.copy(
+            state.update { currentState ->
+                currentState.copy(
                     selectedArticles = if (isSelected) {
-                        current.selectedArticles - title
+                        currentState.selectedArticles - title
                     } else {
-                        current.selectedArticles + title
+                        currentState.selectedArticles + title
                     }
                 )
             }
@@ -213,8 +223,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.deleteAllTopics()
-            repository.deleteAllArticles()
+            repository.deleteAllInterests()
 
             state.update {
                 it.copy(
@@ -230,7 +239,7 @@ class PersonalizationViewModel(
     fun retryLoading() {
         val last = state.value.selectedTopics.lastOrNull()
         if (last != null) {
-            loadArticlesByTopic(topic = last.queryTopicId)
+            loadArticlesByTopic(topic = last)
         } else {
             loadInitialArticles()
         }

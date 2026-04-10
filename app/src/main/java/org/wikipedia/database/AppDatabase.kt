@@ -373,14 +373,18 @@ abstract class AppDatabase : RoomDatabase() {
                         "PRIMARY KEY (topicId, lang)" +
                         ")")
                 db.execSQL("CREATE TABLE IF NOT EXISTS ArticleInterest (" +
-                    "apiTitle TEXT NOT NULL," +
-                    "lang TEXT NOT NULL," +
-                    "namespace INTEGER NOT NULL," +
-                    "displayTitle TEXT NOT NULL," +
-                    "description TEXT NOT NULL," +
-                    "thumbUrl TEXT NOT NULL," +
-                    "PRIMARY KEY (apiTitle, lang, namespace)" +
+                        "apiTitle TEXT NOT NULL," +
+                        "lang TEXT NOT NULL," +
+                        "namespace INTEGER NOT NULL," +
+                        "displayTitle TEXT NOT NULL," +
+                        "description TEXT NOT NULL," +
+                        "thumbUrl TEXT NOT NULL," +
+                        "topicId TEXT," +
+                        "topicLang TEXT," +
+                        "PRIMARY KEY (apiTitle, lang, namespace)," +
+                        "FOREIGN KEY(topicId, lang) REFERENCES TopicInterest(topicId, lang) ON DELETE SET NULL ON UPDATE CASCADE" +
                         ")")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_ArticleInterest_topicId_lang ON ArticleInterest (topicId, lang)")
             }
         }
 
