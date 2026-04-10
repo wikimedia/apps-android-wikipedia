@@ -19,7 +19,7 @@ data class InterestUiState(
 sealed interface TopicsState {
     data object Loading : TopicsState
     data class Success(val topics: List<OnboardingTopic>) : TopicsState
-    data class Error(val message: String) : TopicsState
+    data class Error(val message: Throwable) : TopicsState
 }
 
 sealed interface ArticlesState {

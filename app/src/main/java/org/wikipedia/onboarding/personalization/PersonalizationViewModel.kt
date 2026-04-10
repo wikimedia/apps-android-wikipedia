@@ -39,9 +39,7 @@ private data class PersonalizedViewModelState(
         return InterestUiState(
             topicsState = when {
                 topicsLoading -> TopicsState.Loading
-                topicsError != null -> TopicsState.Error(
-                    topicsError.message ?: "Unknown error"
-                )
+                topicsError != null -> TopicsState.Error(topicsError)
 
                 else -> TopicsState.Success(
                     topics = topics.map {
@@ -51,9 +49,7 @@ private data class PersonalizedViewModelState(
             },
             articlesState = when {
                 articlesLoading -> ArticlesState.Loading
-                articlesError != null -> ArticlesState.Error(
-                    articlesError
-                )
+                articlesError != null -> ArticlesState.Error(articlesError)
 
                 else -> ArticlesState.Success(
                     articles = articles,
@@ -107,9 +103,11 @@ class PersonalizationViewModel(
         if (state.value.topics.isNotEmpty()) return false
 
         return runCatching {
-            val langCode = repository.wikiSite.languageCode
             state.update { it.copy(topicsLoading = true, topicsError = null) }
+
+            val langCode = repository.wikiSite.languageCode
             val topics = repository.getTopics(langCode)
+
             state.update { it.copy(topics = topics, topicsLoading = false) }
         }.onFailure { throwable ->
             state.update { it.copy(topicsLoading = false, topicsError = throwable) }

@@ -40,6 +40,7 @@ fun PersonalizationScreen(
     screens: List<PersonalizationPage>,
     onSkipClick: () -> Unit,
     onSearchClick: () -> Unit,
+    showError: (Throwable) -> Unit,
     viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -100,7 +101,8 @@ fun PersonalizationScreen(
                             },
                             retryLoading = {
                                 viewModel.retryLoading()
-                            }
+                            },
+                            showError = showError
                         )
                     }
                     PersonalizationPage.FEED_PREFERENCE -> {

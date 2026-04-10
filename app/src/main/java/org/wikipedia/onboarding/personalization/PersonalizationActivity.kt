@@ -12,6 +12,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.util.FeedbackUtil
 
 class PersonalizationActivity : BaseActivity() {
 
@@ -40,6 +41,9 @@ class PersonalizationActivity : BaseActivity() {
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.INTEREST_SELECTION, null, returnLink = true)
                         searchLauncher.launch(intent)
+                    },
+                    showError = { message ->
+                        FeedbackUtil.showError(this, message)
                     }
                 )
             }

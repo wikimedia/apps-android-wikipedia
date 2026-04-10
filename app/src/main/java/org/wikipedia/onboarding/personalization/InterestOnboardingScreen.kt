@@ -66,6 +66,7 @@ fun InterestOnboardingScreen(
     onSearchClick: () -> Unit,
     onDeselectAllClick: () -> Unit,
     retryLoading: () -> Unit,
+    showError: (Throwable) -> Unit,
     totalSelectedCount: Int,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
 ) {
@@ -100,13 +101,7 @@ fun InterestOnboardingScreen(
                     item(span = StaggeredGridItemSpan.FullLine) {
                         when (topicsState) {
                             is TopicsState.Error -> {
-                                Text(
-                                    modifier = Modifier
-                                        .fillMaxWidth(),
-                                    text = topicsState.message,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = WikipediaTheme.colors.secondaryColor
-                                )
+                                showError(topicsState.message)
                             }
                             TopicsState.Loading -> {
                                 LazyRow(
@@ -351,7 +346,8 @@ private fun InterestOnboardingScreenPreview() {
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},
-            retryLoading = {}
+            retryLoading = {},
+            showError = {}
         )
     }
 }
