@@ -145,7 +145,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
 
         private val isChallengeActive: Boolean
-            get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
+            get() = ReleaseUtil.isPreBetaRelease || (!LocalDate.now().isBefore(START_DATE) && LocalDate.now().isBefore(END_DATE))
 
         private fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance

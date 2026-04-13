@@ -24,7 +24,7 @@ class ReadingChallengeWidgetRepositoryTest {
         context = mockk<Context>(relaxed = true)
         mockkObject(Prefs)
         repository = ReadingChallengeWidgetRepository(context)
-        every { Prefs.readingChallengeEndDate } returns "2026-05-31"
+        every { Prefs.readingChallengeEndDate } returns END_DATE.toString()
     }
 
     @After
@@ -34,10 +34,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Not live yet tests
     @Test
-    fun `returns NotLiveYet before May 1`() {
+    fun `returns NotLiveYet before start date`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 4, 15),
+                currentDate = DAY_BEFORE_START,
                 enabled = false,
                 currentStreak = 0,
                 hasReadToday = false,
@@ -48,10 +48,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `bypasses NotLiveYet for pre-beta release even before May 1`() {
+    fun `bypasses NotLiveYet for pre-beta release even before start date`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 4, 15),
+                currentDate = DAY_BEFORE_START,
                 enabled = false,
                 currentStreak = 0,
                 hasReadToday = false,
@@ -63,10 +63,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `does not return NotLiveYet on May 1`() {
+    fun `returns NotEnrolled on start date since challenge is Live`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 1),
+                currentDate = START_DATE,
                 enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
@@ -78,10 +78,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Not enrolled tests
     @Test
-    fun `returns NotEnrolled on May 31 when not enrolled`() {
+    fun `returns NotEnrolled on last day of the challenge when not enrolled`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 31),
+                currentDate = END_DATE,
                 enabled = false,
                 currentStreak = 0,
                 hasReadToday = false
@@ -92,10 +92,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     //  Challenge Completed (streak >= 25, enrolled, on or before July 10)
     @Test
-    fun `returns ChallengeCompleted when streak is exactly 25 in May`() {
+    fun `returns ChallengeCompleted when streak reaches goal in mid challenge`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 25),
+                currentDate = MID_CHALLENGE_DATE,
                 enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
@@ -105,10 +105,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `returns ChallengeCompleted when streak is 25 and date is June (after May but before July 10)`() {
+    fun `returns ChallengeCompleted when streak reaches goal near end of challenge`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 6, 15),
+                currentDate = NEAR_END_CHALLENGE_DATE,
                 enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
@@ -118,10 +118,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `returns ChallengeCompleted on exactly July 10 with streak 25`() {
+    fun `returns ChallengeCompleted after end date but before remove date with streak reached`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 7, 10),
+                currentDate = AFTER_END_BEFORE_REMOVE_DATE,
                 enabled = true,
                 currentStreak = 25,
                 hasReadToday = false
@@ -131,12 +131,12 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `does NOT return ChallengeCompleted when streak is 24`() {
+    fun `does NOT return ChallengeCompleted when streak is one below the goal`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 25),
+                currentDate = MID_CHALLENGE_DATE,
                 enabled = true,
-                currentStreak = 24,
+                currentStreak = READING_STREAK_GOAL - 1,
                 hasReadToday = false
             )
         )
@@ -150,10 +150,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Challenge Concluded tests
     @Test
-    fun `returns ChallengeConcludedNoStreak on June 1 with zero streak`() {
+    fun `returns ChallengeConcludedNoStreak on first day after end date with zero streak`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 6, 1),
+                currentDate = DAY_AFTER_END,
                 enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
@@ -163,10 +163,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `returns ChallengeConcludedIncomplete on June 1 with partial streak`() {
+    fun `returns ChallengeConcludedIncomplete on first day after end date with partial streak`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 6, 1),
+                currentDate = DAY_AFTER_END,
                 enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
@@ -176,15 +176,18 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `does NOT return Concluded states on May 31`() {
+    fun `does NOT return Concluded states on last day of challenge`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 31),
+                currentDate = END_DATE,
                 enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
             )
         )
+        TestCase.assertFalse(state is ReadingChallengeState.ChallengeConcludedNoStreak)
+        TestCase.assertFalse(state is ReadingChallengeState.ChallengeConcludedIncomplete)
+        TestCase.assertFalse(state is ReadingChallengeState.ChallengeCompleted)
         TestCase.assertTrue(
             state is ReadingChallengeState.StreakOngoingNeedsReading ||
                     state is ReadingChallengeState.StreakOngoingReadToday
@@ -193,8 +196,8 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // reset streak test
     @Test
-    fun `streak resets when lastReadDate is more than 1 day ago`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+    fun `streak resets when lastReadDate is more than 1 day ago during challenge`() {
+        val currentDate = MID_CHALLENGE_DATE
 
         every { Prefs.readingChallengeEnrolled } returns true
         every { Prefs.readingChallengeStreak } returns 10
@@ -210,8 +213,8 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `streak resets on exactly May 31 when lastReadDate is more than 1 day ago`() {
-        val currentDate = LocalDate.of(2026, 5, 31)
+    fun `streak resets on exactly last day of challenge when lastReadDate is more than 1 day ago`() {
+        val currentDate = END_DATE
 
         every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
 
@@ -224,8 +227,8 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `streak should not reset after May 31 when lastReadDate is more than 1 day ago`() {
-        val currentDate = LocalDate.of(2026, 6, 1)
+    fun `streak should not reset after end date of when lastReadDate is more than 1 day ago`() {
+        val currentDate = DAY_AFTER_END
 
         every { Prefs.readingChallengeEnrolled } returns true
         every { Prefs.readingChallengeStreak } returns 10
@@ -242,7 +245,7 @@ class ReadingChallengeWidgetRepositoryTest {
 
     @Test
     fun `streak does not reset when lastReadDate is exactly yesterday`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
 
         every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
         var newCurrentStreak = 10
@@ -256,7 +259,7 @@ class ReadingChallengeWidgetRepositoryTest {
 
     @Test
     fun `streak does not reset when lastReadDate is empty`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
 
         every { Prefs.readingChallengeLastReadDate } returns ""
         var newCurrentStreak = 10
@@ -271,7 +274,7 @@ class ReadingChallengeWidgetRepositoryTest {
     // covers silently reset the streak counter to 0
     @Test
     fun `return EnrolledNotStarted when streak resets`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
 
         every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(2).toString()
         var newCurrentStreak = 10
@@ -296,10 +299,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Enrolled not started test
     @Test
-    fun `returns EnrolledNotStarted on May 1 with zero streak`() {
+    fun `returns EnrolledNotStarted on start date with zero streak`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 1),
+                currentDate = START_DATE,
                 enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
@@ -309,10 +312,10 @@ class ReadingChallengeWidgetRepositoryTest {
     }
 
     @Test
-    fun `does NOT return EnrolledNotStarted after streak reset after May 31`() {
+    fun `does NOT return EnrolledNotStarted after end date with zero streak`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 6, 1),
+                currentDate = DAY_AFTER_END,
                 enabled = true,
                 currentStreak = 0,
                 hasReadToday = false
@@ -324,10 +327,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Streak Ongoing: Not Yet Read Today
     @Test
-    fun `returns StreakOngoingNeedsReading when streak is 10 and not read today`() {
+    fun `returns StreakOngoingNeedsReading when streak is active and not read today`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 15),
+                currentDate = MID_CHALLENGE_DATE,
                 enabled = true,
                 currentStreak = 10,
                 hasReadToday = false
@@ -340,7 +343,7 @@ class ReadingChallengeWidgetRepositoryTest {
     fun `StreakOngoingNeedsReading carries correct streak count`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 20),
+                currentDate = MID_CHALLENGE_DATE.plusDays(5),
                 enabled = true,
                 currentStreak = 5,
                 hasReadToday = false
@@ -352,10 +355,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Streak Ongoing: Already Read Today
     @Test
-    fun `returns StreakOngoingReadToday when streak is 10 and read today`() {
+    fun `returns StreakOngoingReadToday when streak is active and read today`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 15),
+                currentDate = MID_CHALLENGE_DATE.plusDays(2),
                 enabled = true,
                 currentStreak = 10,
                 hasReadToday = true
@@ -368,7 +371,7 @@ class ReadingChallengeWidgetRepositoryTest {
     fun `StreakOngoingReadToday carries correct streak count`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 5, 20),
+                currentDate = MID_CHALLENGE_DATE.plusDays(6),
                 enabled = true,
                 currentStreak = 7,
                 hasReadToday = true
@@ -380,10 +383,10 @@ class ReadingChallengeWidgetRepositoryTest {
 
     // Remove challenge test
     @Test
-    fun `returns ChallengeRemoved on July 11`() {
+    fun `returns ChallengeRemoved after remove date`() {
         val state = repository.resolveState(
             ReadingChallengeUserData(
-                currentDate = LocalDate.of(2026, 7, 11),
+                currentDate = DAY_AFTER_REMOVE,
                 enabled = true,
                 currentStreak = 2,
                 hasReadToday = false
@@ -396,7 +399,7 @@ class ReadingChallengeWidgetRepositoryTest {
     // has read today test
     @Test
     fun `hasReadToday returns true when lastReadDate matches currentDate`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
         every { Prefs.readingChallengeLastReadDate } returns currentDate.toString()
 
         TestCase.assertTrue(repository.hasReadToday(currentDate))
@@ -404,7 +407,7 @@ class ReadingChallengeWidgetRepositoryTest {
 
     @Test
     fun `hasReadToday returns false when lastReadDate is yesterday`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
         every { Prefs.readingChallengeLastReadDate } returns currentDate.minusDays(1).toString()
 
         TestCase.assertFalse(repository.hasReadToday(currentDate))
@@ -412,9 +415,26 @@ class ReadingChallengeWidgetRepositoryTest {
 
     @Test
     fun `hasReadToday returns false when lastReadDate is empty`() {
-        val currentDate = LocalDate.of(2026, 5, 15)
+        val currentDate = MID_CHALLENGE_DATE
         every { Prefs.readingChallengeLastReadDate } returns ""
 
         TestCase.assertFalse(repository.hasReadToday(currentDate))
+    }
+
+    companion object {
+        // Update only these when dates change
+        private val START_DATE = LocalDate.of(2026, 5, 11)
+        private val END_DATE = LocalDate.of(2026, 6, 18)
+        private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
+
+        private const val READING_STREAK_GOAL = 25
+
+        // Derive dates based on the above dates
+        private val DAY_BEFORE_START = START_DATE.minusDays(1)
+        private val DAY_AFTER_END = END_DATE.plusDays(1)
+        private val DAY_AFTER_REMOVE = REMOVE_DATE.plusDays(1)
+        private val MID_CHALLENGE_DATE = START_DATE.plusDays(15)
+        private val NEAR_END_CHALLENGE_DATE = END_DATE.minusDays(3)
+        private val AFTER_END_BEFORE_REMOVE_DATE = REMOVE_DATE.minusDays(5)
     }
 }

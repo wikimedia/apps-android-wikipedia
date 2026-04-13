@@ -64,13 +64,19 @@ object WidgetCombinations {
             progressColor = WidgetColors.phoneReadingProgressColor,
         ),
         WidgetCombination(
-            iconResId = R.drawable.wp25_babyglobe_music,
+            iconResId = R.drawable.wp25_babyglobe_dancing_1,
             backgroundColor = WidgetColors.musicReadingBackground,
             contentColor = WidgetColors.musicContent,
             progressColor = WidgetColors.musicReadingProgressColor
         ),
         WidgetCombination(
-            iconResId = R.drawable.wp25_babyglobe_space,
+            iconResId = R.drawable.wp25_babyglobe_dancing_2,
+            backgroundColor = WidgetColors.musicReadingBackground,
+            contentColor = WidgetColors.musicContent,
+            progressColor = WidgetColors.musicReadingProgressColor
+        ),
+        WidgetCombination(
+            iconResId = R.drawable.wp25_babyglobe_outerspace,
             backgroundColor = WidgetColors.spaceReadingBackground,
             contentColor = WidgetColors.spaceContent,
             progressColor = WidgetColors.spaceReadingProgressColor
