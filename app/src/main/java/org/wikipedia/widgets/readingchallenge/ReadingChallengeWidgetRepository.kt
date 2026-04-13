@@ -139,10 +139,10 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     companion object {
         const val READING_STREAK_GOAL = 25
         const val INTENT_EXTRA_READING_CHALLENGE_REWARD = "reading_challenge_reward"
-        const val READING_CHALLENGE_END_DATE = "2026-05-31"
-        private val START_DATE = LocalDate.of(2026, 5, 1)
+        const val READING_CHALLENGE_END_DATE = "2026-06-18"
+        private val START_DATE = LocalDate.of(2026, 5, 11)
         private val END_DATE get() = LocalDate.parse(Prefs.readingChallengeEndDate.ifEmpty { READING_CHALLENGE_END_DATE })
-        private val REMOVE_DATE = LocalDate.of(2026, 7, 10)
+        private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
 
         private val isChallengeActive: Boolean
             get() = ReleaseUtil.isPreBetaRelease || (LocalDate.now().isAfter(START_DATE) && LocalDate.now().isBefore(END_DATE))
