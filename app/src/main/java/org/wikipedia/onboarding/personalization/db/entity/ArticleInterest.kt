@@ -13,10 +13,9 @@ import org.wikipedia.page.Namespace
             parentColumns = ["topicId", "lang"], // primary key in the parent entity
             childColumns = ["topicId", "topicLang"], // foreign key in this entity which references the primary key in parent entity
             onDelete = ForeignKey.SET_NULL, // when a topic is deleted, the foreign key in this entity will be set to null to not delete the article interest but just disassociate it from the deleted topic
-            onUpdate = ForeignKey.CASCADE // when a topic's primary key is updated, the foreign key in this entity will also be updated
         )
     ],
-    indices = [Index(value = ["topicId", "lang"])] // index for the foreign key columns to improve query performance especially for cascade operations
+    indices = [Index(value = ["topicId", "topicLang"])] // index for the foreign key columns to improve query performance especially for cascade operations
 )
 data class ArticleInterest(
     val apiTitle: String,

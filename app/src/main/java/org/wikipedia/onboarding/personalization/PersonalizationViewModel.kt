@@ -92,17 +92,15 @@ class PersonalizationViewModel(
         viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
          }) {
-            val topicsLoaded = loadTopics()
-            if (topicsLoaded) {
-                initialize()
-            }
+            loadTopics()
+            initialize()
         }
     }
 
-    private suspend fun loadTopics(): Boolean {
-        if (state.value.topics.isNotEmpty()) return false
+    private suspend fun loadTopics() {
+        if (state.value.topics.isNotEmpty()) return
 
-        return runCatching {
+        runCatching {
             state.update { it.copy(topicsLoading = true, topicsError = null) }
 
             val langCode = repository.wikiSite.languageCode
@@ -111,7 +109,7 @@ class PersonalizationViewModel(
             state.update { it.copy(topics = topics, topicsLoading = false) }
         }.onFailure { throwable ->
             state.update { it.copy(topicsLoading = false, topicsError = throwable) }
-        }.isSuccess
+        }
     }
 
     private suspend fun initialize() {
@@ -147,7 +145,9 @@ class PersonalizationViewModel(
     }
 
     private fun loadInitialArticles() {
+        if (state.value.articles.isNotEmpty()) return
         articlesJob?.cancel()
+
         articlesJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
@@ -166,7 +166,9 @@ class PersonalizationViewModel(
     }
 
     private fun loadArticlesByTopic(topic: OnboardingTopic) {
+        if (state.value.articles.isNotEmpty()) return
         articlesJob?.cancel()
+
         articlesJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesLoading = false, articlesError = throwable) }
         }) {
