@@ -454,7 +454,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onWikiGamesCardFooterClicked() {
-        WikiGamesEvent.submit(action = "more_click", "games_feed")
+        WikiGamesEvent.submit(action = "more_click", "game_feed")
         startActivity(GamesHubActivity.newIntent(requireActivity()))
     }
 

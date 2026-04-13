@@ -1239,6 +1239,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Válaszd ki, mely modulokat szeretnéd megjeleníteni. Minden személyes adat privát marad az eszközödön, és a böngészési előzmények bármikor törölhetők.</string>
   <string name="edits_screen_what_is_title">Szerkesztés a Wikipédia appban</string>
   <string name="edits_screen_what_is_body">Nem tudod, hol érdemes elkezdeni a szerkesztést? Próbáld ki az Ajánlott szerkesztéseket, egy olyan funkciót, amely lehetőséget ad kisebb, de fontos közreműködésekre a Wikipédián. Alternatívaként közvetlenül is megnyithatsz egy téged érdeklő szócikket, és wikitext használatával módosíthatod.</string>
+  <string name="activity_tab_snackbar_label">A játékstatisztikák az elsődleges nyelveden jelennek meg.</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
@@ -1268,6 +1269,7 @@
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
   <string name="onboarding_multilingual_add_language_text">Nyelvek hozzáadása vagy szerkesztése</string>
   <string name="onboarding_welcome_title_v2">Az ingyenes enciklopédia\n…több mint 300 nyelven</string>
+  <string name="onboarding_next">Következő</string>
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
@@ -1790,6 +1792,10 @@
   <string name="survey_dialog_general_maybe">Talán</string>
   <string name="survey_dialog_input_hint">További visszajelzés</string>
   <string name="survey_dialog_submitted_snackbar">Visszajelzés elküldve. Köszönjük!</string>
+  <string name="games_hub_activity_title">Játékok</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Tudj meg többet</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Játékstatisztikák megtekintése</string>
+  <string name="games_hub_activity_overflow_learn_more">Tudj meg többet</string>
   <string name="on_this_day_game_entry_dialog_title">Bemutatjuk</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipédia játékok</string>
   <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Játssz a mai játékkal</string>
@@ -1805,7 +1811,7 @@
   <string name="on_this_day_game_point">+1 pont</string>
   <string name="on_this_day_game_next">Következő kérdés</string>
   <string name="on_this_day_game_finish">Végeredmény</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Megosztás</string>
+  <string name="on_this_day_game_share_button">Eredmény megosztása</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipédia játékok</string>
   <string name="on_this_day_game_feed_entry_card_title">Melyik volt előbb?</string>
   <string name="on_this_day_game_result">%1$d/%2$d pontot szereztél.</string>
@@ -1850,9 +1856,12 @@
   <string name="on_this_day_game_archive_btn_text">Korábbi játékok</string>
   <string name="on_this_day_game_review_results_btn_text">Eredmények áttekintése</string>
   <string name="on_this_day_game_score_message">A mai játékban %1$d/%2$d pontot szereztél.</string>
+  <string name="on_this_day_game_play_today_btn_text">Játssz a mai játékkal</string>
   <string name="on_this_day_game_continue_playing_btn_text">A játék folytatása</string>
   <string name="on_this_day_game_sound_on">Hang bekapcsolása</string>
   <string name="on_this_day_game_sound_off">Hang kikapcsolása</string>
+  <string name="on_this_day_game_more_label">Több</string>
+  <string name="wikipedia_games_title">Wikipédia játékok</string>
   <string name="year_in_review_learn_more">További információk</string>
   <string name="year_in_review_get_started">Kezdés</string>
   <string name="year_in_review_topbar_w_icon">Wikipédia W ikon</string>
@@ -2220,4 +2229,10 @@
   <string name="donation_reminders_settings_report_email_subject">Problémajelentés – Adományemlékeztetők</string>
   <string name="donation_reminders_settings_report_email_body">Problémát tapasztaltam az adományemlékeztető  funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n– [Képernyőképek vagy hivatkozások]\n\nAz általam elvárt működés a következő lenne:\n\n– [A javasolt megoldás leírása]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Módosít</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d nap</item>
+    <item quantity="other">%d nap</item>
+  </plurals>
+  <string name="reading_challenge_widget_reward_title">Jól áll neked a kíváncsiság! 🛍️</string>
+  <string name="reading_challenge_widget_reward_button_label">15%% kedvezmény az üzletben</string>
 </resources>

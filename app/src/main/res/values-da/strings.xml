@@ -1237,6 +1237,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">Vælg hvilke moduler der skal vises. Alle personlige data forbliver private på din enhed, og din browserhistorik kan til enhver tid slettes.</string>
   <string name="edits_screen_what_is_title">Redigering i Wikipedia-appen</string>
   <string name="edits_screen_what_is_body">Er du usikker på, hvor du skal starte med redigering? Prøv Foreslåede redigeringer, en funktion, der skaber muligheder for at yde små, men vigtige bidrag til Wikipedia. Alternativt kan du gå direkte til en artikel af interesse og foretage en ændring ved hjælp af wikitekst.</string>
+  <string name="activity_tab_snackbar_label">Spilstatistikker vises for dit primære sprog.</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Tilføj billedtekst</string>
   <string name="file_page_add_image_tags_button">Tilføj billedtags</string>
@@ -1789,10 +1790,15 @@
   <string name="survey_dialog_general_maybe">Måske</string>
   <string name="survey_dialog_input_hint">Yderligere feedback</string>
   <string name="survey_dialog_submitted_snackbar">Feedback indsendt. Tak!</string>
+  <string name="games_hub_activity_title">Spil</string>
+  <string name="games_hub_activity_games_unavailable_message">Ingen spil tilgængelige på dette sprog endnu! Spil udnytter indhold skabt af frivillige redaktører til Wikipedia på hvert sprog.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Lær mere</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Se spilstatistik</string>
+  <string name="games_hub_activity_overflow_learn_more">Lær mere</string>
   <string name="on_this_day_game_entry_dialog_title">Introducerer</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Wikipedia spil</string>
-  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Spil dagens spil</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Wikipedia-spil er tilgængelige i Udforsk-feedet.</string>
+  <string name="on_this_day_game_entry_dialog_button">Spil</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Wikipedia-spil er tilgængelige i Spilhubben, som findes i menuen MERE.</string>
   <string name="on_this_day_game_title">Hvad kom først?</string>
   <string name="on_this_day_game_dialog_button">Afspil</string>
   <string name="on_this_day_game_splash_message">Gæt hvilken begivenhed, der kom først på denne dag i historien.</string>
@@ -1804,7 +1810,7 @@
   <string name="on_this_day_game_point">+1 point</string>
   <string name="on_this_day_game_next">Næste spørgsmål</string>
   <string name="on_this_day_game_finish">Endeligt resultat</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">Del</string>
+  <string name="on_this_day_game_share_button">Del score</string>
   <string name="on_this_day_game_feed_entry_card_heading">Wikipedia spil</string>
   <string name="on_this_day_game_feed_entry_card_title">Hvad kom først?</string>
   <string name="on_this_day_game_result">Du scorede %1$d/%2$d.</string>
@@ -1849,9 +1855,21 @@
   <string name="on_this_day_game_archive_btn_text">Afspil arkivet</string>
   <string name="on_this_day_game_review_results_btn_text">Gennemgå resultater</string>
   <string name="on_this_day_game_score_message">Du scorede %1$d/%2$d i dagens kamp.</string>
+  <string name="on_this_day_game_play_today_btn_text">Spil dagens spil</string>
   <string name="on_this_day_game_continue_playing_btn_text">Fortsæt med at spille</string>
   <string name="on_this_day_game_sound_on">Tænd for lyden</string>
   <string name="on_this_day_game_sound_off">Sluk for lyden</string>
+  <string name="on_this_day_game_more_label">Mere</string>
+  <string name="on_this_day_game_card_progress_label">Du er ved spørgsmål %d . Fortsæt med at gætte, hvilken begivenhed der indtraf først på denne dag i historien.</string>
+  <string name="on_this_day_game_card_progress_short_label">Du er på spørgsmål %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Du scorede %1$d/%2$d i dagens spil. Næste spil om %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Du scorede %1$d/%2$d i dagens spil.</string>
+  <string name="on_this_day_game_card_archive_label">Arkiv</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Log ind</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Log ind for at se dine spilstatistikker</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Se dine serier, scorer og mere</string>
+  <string name="wikipedia_games_title">Wikipedia spil</string>
+  <string name="wikipedia_games_subtitle">Daglige quizspil baseret på Wikipedia-indhold.</string>
   <string name="year_in_review_learn_more">Lær mere</string>
   <string name="year_in_review_get_started">Kom i gang</string>
   <string name="year_in_review_topbar_w_icon">Wikipedia W-ikon</string>
@@ -2046,13 +2064,24 @@
   </plurals>
   <string name="year_in_review_slide_viewed_articles_times_body">For folk over hele verden er Wikipedia det første stop, når de skal besvare et spørgsmål, søge information til uddannelse eller arbejde eller blot få ny viden.</string>
   <string name="year_in_review_reading_list_dialog_title">Opret din læseliste med %d årsoversigt?</string>
+  <string name="year_in_review_reading_list_dialog_message">Wikipedia Year in Review opretter en læseliste over de artikler, du har brugt mest tid på i %1$d . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Lær mere&lt;/a&gt;</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">Opret</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">Nej tak</string>
   <string name="year_in_review_reading_list_title">Året i tilbageblik %d</string>
+  <string name="year_in_review_reading_list_description">Lavet til %1$s. Artikler, du har brugt mest tid på i %2$d.</string>
+  <string name="year_in_review_highlights_thank_you_message">Tak for at du har brugt et år med Wikipedia.</string>
   <string name="year_in_review_highlights_looking_forward_message">Vi ser frem til næste år!</string>
   <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
     <item quantity="one">Mest læste artikel på den engelske Wikipedia</item>
     <item quantity="other">Mest læste artikler på den engelske Wikipedia</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="one">Time brugt på læsning</item>
+    <item quantity="other">Timer brugt på læsning</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="one">Ændring foretaget af redaktører</item>
+    <item quantity="other">Ændringer foretaget af redaktører</item>
   </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Yndlingsdag at læse</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
@@ -2181,6 +2210,7 @@
   <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
+  <string name="hybrid_search_search_hint">Søg eller spørg om hvad som helst</string>
   <string name="hybrid_search_article_search_hint">Spørg om %s</string>
   <string name="hybrid_search_suggestion_title">Søg efter:</string>
   <string name="hybrid_search_onboarding_learn_more">Lær mere</string>
@@ -2202,4 +2232,21 @@
   <string name="hybrid_search_no_results_header">Ingen resultater</string>
   <string name="hybrid_search_who_is_prefix">Hvem er %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Slå dette eksperiment fra</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Lær mere</string>
+  <string name="reading_challenge_onboarding_join_button">Deltag i udfordringen</string>
+  <string name="reading_challenge_onboarding_prompt_title">Log ind for at deltage i udfordringen</string>
+  <string name="reading_challenge_onboarding_prompt_message">Log ind eller opret en konto for at følge dine fremskridt i forhold til læseudfordringen.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Nej tak</string>
+  <string name="reading_challenge_onboarding_prompt_login">Log ind / Tilmeld dig Wikipedia</string>
+  <string name="reading_challenge_install_prompt_title">Installer widgetten til 25-dages læseudfordring</string>
+  <string name="reading_challenge_install_prompt_add">Tilføj</string>
+  <string name="reading_challenge_widget_explore_button">Udforsk</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Udforsk Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Deltag i udfordringen</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Deltag i udfordringen</string>
+  <string name="reading_challenge_widget_search_button">Søg</string>
+  <string name="reading_challenge_widget_random_button">Tilfældig</string>
+  <string name="reading_challenge_widget_collect_prize_button">Modtag præmien</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Hent din præmie!</string>
+  <string name="reading_challenge_widget_concluded_complete">Du gjorde det!</string>
 </resources>
