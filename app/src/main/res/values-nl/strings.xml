@@ -332,7 +332,7 @@
   <string name="edit_conflict_title">Bewerkingsconflict</string>
   <string name="edit_conflict_message">Deze pagina is al door een andere gebruiker aangepast en conflicteert met uw bewerking. Kopieer uw wijzigingen, ga terug, ververs de pagina en probeer opnieuw te bewerken.</string>
   <string name="edit_notices">Bewerkingsmeldingen</string>
-  <string name="edit_notices_please_read">Gelieve te lezen alvorens te bewerken</string>
+  <string name="edit_notices_please_read">Lees dit voordat u gaat bewerken</string>
   <string name="edit_notices_show_auto">Automatisch bewerkingsmeldingen weergeven</string>
   <string name="edit_notices_tooltip">Druk op deze knop om bewerkingsmeldingen te zien voor deze pagina.</string>
   <string name="find_next">Volgende zoeken</string>
@@ -440,7 +440,7 @@
   <string name="enable_location_service">Inschakelen</string>
   <string name="location_permissions_enable_prompt">Activeer locatietoestemming om plaatsen nabij u te zien.</string>
   <string name="location_permissions_enable_action">Inschakelen</string>
-  <string name="error_webview_updating">Het Android WebView Systeem is momenteel aan het updaten. Gelieve later nog eens te proberen.</string>
+  <string name="error_webview_updating">Het Android WebView Systeem is momenteel aan het updaten. Probeer het later nog eens.</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d geselecteerd</item>
     <item quantity="other">%d geselecteerd</item>
@@ -746,8 +746,8 @@
   <string name="notifications_activity_title">Meldingen</string>
   <string name="notifications_activity_title_archived">Meldingen (gearchiveerd)</string>
   <string name="notifications_search">Meldingen doorzoeken</string>
-  <string name="notifications_view_unread">Toon ongelezen</string>
-  <string name="notifications_view_archived">Toon gearchiveerd</string>
+  <string name="notifications_view_unread">Ongelezen weergeven</string>
+  <string name="notifications_view_archived">Gearchiveerd weergeven</string>
   <string name="notifications_prefs">Meldingsvoorkeuren</string>
   <string name="notifications_archive">Markeer als gelezen en archiveer</string>
   <plurals name="notification_archive_message">

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
@@ -15,10 +16,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
+import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.extensions.composeFromHtml
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.UriUtil
 
 @Composable
 fun HtmlText(
@@ -38,7 +43,7 @@ fun HtmlText(
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
     lineHeight: TextUnit = 1.6.em,
-    linkInteractionListener: LinkInteractionListener? = null,
+    linkInteractionListener: LinkInteractionListener = defaultLinkInteractionListener(),
     textAlign: TextAlign = TextAlign.Start
 ) {
     Text(
@@ -55,6 +60,22 @@ fun HtmlText(
         overflow = overflow,
         textAlign = textAlign
     )
+}
+
+/**
+ * Provides a default [LinkInteractionListener] that opens links in an external browser, and
+ * accounts for links that don't have an explicit protocol (links that start with "//...").
+ * @param wikiSite Optional [WikiSite] to also handle fully relative URLs.
+ */
+fun defaultLinkInteractionListener(wikiSite: WikiSite? = null): LinkInteractionListener {
+    return LinkInteractionListener { linkAnnotation ->
+        (linkAnnotation as? LinkAnnotation.Url)?.url?.let { url ->
+            UriUtil.visitInExternalBrowser(WikipediaApp.instance,
+                (if (wikiSite == null) UriUtil.resolveProtocolRelativeUrl(url) else
+                    UriUtil.resolveProtocolRelativeUrl(wikiSite, url)).toUri()
+            )
+        }
+    }
 }
 
 @Preview
