@@ -1714,7 +1714,7 @@
   <string name="donate_gpay_dialog_other_button">Metode pembayaran lainnya</string>
   <string name="donate_gpay_activity_title">Pilih jumlah</string>
   <string name="donate_gpay_activity_title_with_currency">Pilih jumlah ( %s )</string>
-  <string name="donate_gpay_check_transaction_fee">Saya akan dengan murah hati menambahkan %s untuk menutupi biaya transaksi sehingga Anda dapat menyimpan 100% dari donasi saya.</string>
+  <string name="donate_gpay_check_transaction_fee">Saya akan dengan murah hati menambahkan %s untuk menutupi biaya transaksi sehingga Anda dapat menyimpan 100%% dari donasi saya.</string>
   <string name="donate_gpay_check_recurring">Jadikan ini sebagai donasi rutin bulanan.</string>
   <string name="donate_gpay_check_send_email">Ya, Wikimedia Foundation dapat mengirimkan email kepada saya sesekali.</string>
   <string name="donate_gpay_minimum_amount">Silakan pilih jumlah (minimal %s)</string>
