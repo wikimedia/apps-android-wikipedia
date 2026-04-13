@@ -107,7 +107,7 @@ class ArticleInterestDaoTest {
         topicInterestDao.insert(technologyTopic)
 
         val article1 = ArticleInterest(apiTitle = "John Doe", lang = "en", namespace = Namespace.MAIN, displayTitle = "John Doe", description = "Soccer Player", thumbUrl = "", topicId = sportsTopic.topicId, topicLang = sportsTopic.lang)
-        val article2 = ArticleInterest(apiTitle = "Jane Doe", lang = "en", namespace = Namespace.MAIN, displayTitle = "Jane Doe", description = "Volleyball Player", thumbUrl = "", topicId = sportsTopic.topicLabel, topicLang = sportsTopic.lang)
+        val article2 = ArticleInterest(apiTitle = "Jane Doe", lang = "en", namespace = Namespace.MAIN, displayTitle = "Jane Doe", description = "Volleyball Player", thumbUrl = "", topicId = sportsTopic.topicId, topicLang = sportsTopic.lang)
         articleInterestDao.insert(article1)
         articleInterestDao.insert(article2)
 
