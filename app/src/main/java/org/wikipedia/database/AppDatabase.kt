@@ -382,9 +382,9 @@ abstract class AppDatabase : RoomDatabase() {
                         "topicId TEXT," +
                         "topicLang TEXT," +
                         "PRIMARY KEY (apiTitle, lang, namespace)," +
-                        "FOREIGN KEY(topicId, lang) REFERENCES TopicInterest(topicId, lang) ON DELETE SET NULL ON UPDATE CASCADE" +
+                        "FOREIGN KEY(topicId, topicLang) REFERENCES TopicInterest(topicId, lang) ON DELETE SET NULL" +
                         ")")
-                db.execSQL("CREATE INDEX IF NOT EXISTS index_ArticleInterest_topicId_lang ON ArticleInterest (topicId, lang)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_ArticleInterest_topicId_topicLang ON ArticleInterest (topicId, topicLang)")
             }
         }
 
