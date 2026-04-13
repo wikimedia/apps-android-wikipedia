@@ -42,7 +42,7 @@
   <string name="history_items_deleted">%d Artikelen aus dem Historique geläscht</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="notification_archive_undo">Réckgängeg maachen</string>
-  <string name="app_settings">Astellunge vun der App</string>
+  <string name="app_settings">App-Astellungen</string>
   <string name="search_tab_tooltip">Tippt nach eng Kéiert op d\'Symbol fir direkt e Sichbegrëff antippen ze kënnen.</string>
   <string name="history_list_title">Versiounen</string>
   <string name="image_content_description">Bild: %s</string>
@@ -155,7 +155,7 @@
   <string name="login_2fa_other_workflow_error_msg">Zwee-Faktor-Authentifizéierung néideg! Loggt Iech wgl. vum Haaptschierm aus an a gitt de Code vun Ärem 2FA-Token an.</string>
   <string name="login_email_auth_hint">E-Mail-Verifikatiounscode</string>
   <string name="login_email_auth_other_workflow_error_msg">E-Mail-Verifizéierung néideg! Loggt Iech wgl. vum Haaptschierm aus an a gitt Ären E-Mail-Verifizéierungs-Code an.</string>
-  <string name="login_background_error_msg">Dir konnt net nei ageloggt ginn. Gitt wgl. zréck op den Haaptschierm a loggt Iech manuell an.</string>
+  <string name="login_background_error_msg">Dir konnt net nei ageloggt ginn. Gitt wgl. zeréck op den Haaptschierm a loggt Iech manuell an.</string>
   <string name="onboarding_card_login">Aloggen</string>
   <string name="page_editing_login">Aloggen</string>
   <string name="reading_lists_sync_login">Aloggen</string>
@@ -265,7 +265,7 @@
   <string name="edit_preview">Kucken ouni ze späicheren</string>
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
-  <string name="edit_rollback">Zrécksetzen</string>
+  <string name="edit_rollback">Zerécksetzen</string>
   <string name="edit_warn">Warnen</string>
   <string name="edit_damage">Schued %s</string>
   <string name="edit_intent">Absicht %s</string>
@@ -283,6 +283,7 @@
   <string name="edit_summary_added_short_description">Kuerzbeschreiwung derbäigesat</string>
   <string name="edit_summary_updated_short_description">Kuerzbeschreiwung aktualiséiert</string>
   <string name="edit_conflict_title">Ännerungskonflikt</string>
+  <string name="edit_conflict_message">D\'Säit gouf scho vun engem anere Benotzer geännert a steet a Konflikt mat Ärer Ännerung. Kopéiert wgl. Är Ännerungen, gitt zeréck a luet d\'Säit nei, fir dann d\'Ännerung op en Neits ze probéieren.</string>
   <string name="edit_notices">Ännerungshiweiser</string>
   <string name="edit_notices_please_read">Liest wgl. virum Änneren</string>
   <string name="edit_notices_show_auto">Ännerungshiweiser automatesch weisen</string>
@@ -293,7 +294,7 @@
   <string name="find_last_occurence">Dëst ass déi leschte Kéier</string>
   <string name="article_opened_in_background_tab">Den Artikel gouf an engem Hannergrond-Tab opgemaach.</string>
   <string name="abusefilter_title_warn">Dëst gesäit no enger net-konstruktiver Ännerung aus. Sidd Dir sécher datt Dir se verëffentleche wëllt?</string>
-  <string name="abusefilter_title_disallow">Dir däerft dës Ännerung net verëffentlechen. Gitt wgl. zréck an ännert se.</string>
+  <string name="abusefilter_title_disallow">Dir kënnt dës Ännerung net verëffentlechen. Gitt wgl. zeréck an ännert se.</string>
   <string name="abusefilter_text_warn">En automatesche Filter huet dës Ännerung als méiglecherweis net konstruktiv identifizéiert. Et ka sinn dat eent oder méi vun dësen Elementer dra virkommen:&lt;br /&gt;&lt;br /&gt;· Alles ass a grousse Buschtawe geschriwwen&lt;br /&gt; Artikelen eidelmaachen oder Spam drasetzen &lt;br /&gt; Irrelevant extern Linken oder Biller&lt;br /&gt; Zeeche widderhuelen</string>
   <string name="abusefilter_text_disallow">En automatesche Filter huet dës Ännerung als potenziell net konstruktiv oder als potenzielle Vandalismus identifizéiert.&lt;br /&gt;&lt;br /&gt;Wikipedia ass eng Enzyklopedie a just neutralen, relevanten Inhalt gehéiert heihin.</string>
   <string name="page_similar_titles">Änlech Säiten</string>
@@ -448,7 +449,7 @@
   <string name="article_menu_bar_language_button">Sprooch</string>
   <string name="article_menu_bar_search_button">Sichen</string>
   <string name="article_menu_bar_theme_button">Ausgesinn</string>
-  <string name="article_menu_bar_contents_button">Inhalter</string>
+  <string name="article_menu_bar_contents_button">Inhalt</string>
   <string name="article_header_edit_hint">Änneren...</string>
   <string name="article_header_edit_description">Artikelbeschreiwung änneren</string>
   <string name="article_header_edit_lead_section">Aleedung änneren</string>
@@ -648,7 +649,7 @@
   <string name="reading_lists_preview_saved_snackbar">Lieslëscht gespäichert</string>
   <string name="reading_lists_preview_saved_snackbar_action">Weisen</string>
   <string name="user_option_sync_label">Astellungen</string>
-  <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
+  <string name="notification_reverted_title">Zeréckgesaten Ännerung</string>
   <string name="notification_channel_title">Artikelen eroflueden</string>
   <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
   <string name="notification_syncing_pause_button">Paus</string>
@@ -687,7 +688,7 @@
   <string name="notifications_search">An den Notifikatioune sichen</string>
   <string name="notifications_view_unread">Déi net geliese weisen</string>
   <string name="notifications_view_archived">Déi archivéiert weisen</string>
-  <string name="notifications_prefs">Astellunge vun den Notifikatiounen</string>
+  <string name="notifications_prefs">Notifikatiounsastellungen</string>
   <string name="notifications_archive">Als gelies markéieren an archivéieren</string>
   <plurals name="notification_archive_message">
     <item quantity="one">Notifikatioun archivéiert</item>
@@ -698,7 +699,7 @@
   <string name="notifications_poll_enable_negative">Net elo</string>
   <string name="notifications_empty_message">Dir hutt keng nei Notifikatioune méi!</string>
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
-  <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
+  <string name="notification_preferences_title">Notifikatiounsastellungen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
   <string name="notifications_mark_all_as_read">All als gelies markéieren</string>
   <string name="notifications_direct_reply_action">Äntweren</string>
@@ -722,7 +723,7 @@
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
   <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
-  <string name="preference_title_notification_revert">Zrécksetzen</string>
+  <string name="preference_title_notification_revert">Zerécksetzen</string>
   <string name="preference_summary_notification_revert">Ee vun Äre Bäiträg gouf réckgängeg gemaach</string>
   <string name="preference_title_notification_login_fail">Aloggen</string>
   <string name="preference_title_notification_mention">Ernimmen</string>
@@ -735,6 +736,7 @@
   <string name="preference_title_notification_article_linked">Linken op Artikelen, déi Dir ugeluecht hutt</string>
   <string name="preference_category_push_notifications">Push-Notifikatiounen</string>
   <string name="preference_title_customize_push_notifications">Push-Notifikatioune personaliséieren</string>
+  <string name="preference_category_display_settings">Affichageastellungen</string>
   <string name="preference_title_hide_read_notifications">Notifikatioune verstoppen</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikatioune vu Wikipedia</string>
@@ -803,7 +805,7 @@
   <string name="feed_configure_menu_reset">Standard-Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
-  <string name="feed_configure_language_warning">Bedenkt, datt net all Kaartentyppen op all Sprooch disponibel sinn. Ännert Är ausgewielte Sproochen an den Astellungen.</string>
+  <string name="feed_configure_language_warning">Denkt drun, datt net all Kaartentyppen op all Sprooch disponibel sinn. Ännert Är ausgewielte Sproochen an den Astellungen.</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="feed_item_type_because_you_read">Virschléi baséierend op engem Artikel aus Ärem Historique, deen Dir viru Kuerzem gelies hutt</string>
@@ -890,7 +892,7 @@
   <string name="customize_toolbar_category_toolbar">Geschierläischt</string>
   <string name="customize_toolbar_category_menu">Menü</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Zitt Är Liblingselementer heihinner 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
+  <string name="customize_toolbar_reset_to_default_button">Op de Standard zerécksetzen</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Haalt d\'Zéiesymbol gedréckt, fir d\'Element ze réckelen</string>
   <string name="customize_toolbar_item_default_tooltip">Dréck an zitt en Element fir et nei ze positionéieren</string>
   <string name="suggested_edits_activity_title">Änneren</string>
@@ -1088,7 +1090,7 @@
   <string name="image_recommendation_tooltip_3">Entscheet, ob d\'Bild dem Lieser dobäi hëlleft d\'Theema besser ze verstoen</string>
   <string name="image_recommendation_tooltip_next">Nächst</string>
   <string name="image_recommendation_tooltip_warning">Liest Iech wgl. den Artikel duerch, fir d\'Theema ze verstoen, a kuckt Iech d\'Bild un</string>
-  <string name="image_recommendation_depleted">Et deet eis Leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zréckkommen.</string>
+  <string name="image_recommendation_depleted">Et deet eis Leed, leider gëtt et am Moment keng weider Billervirschléi. Dir kënnt aner &lt;a href=\"#\"&gt;Ännerungsvirschléi&lt;/a&gt; entdecken oder méi spéit zeréckkommen.</string>
   <string name="suggested_edits_report_feature">Problem mat der Funktioun</string>
   <string name="suggested_edits_report_feature_subject">Problem mat den Ännerungsvirschléi</string>
   <string name="edit_summary_added_image">Bild derbäigesat</string>
@@ -1212,7 +1214,7 @@
   <string name="languages_list_suggested_text">Virgeschloen</string>
   <string name="languages_list_all_text">All Sproochen</string>
   <string name="wikipedia_languages_title">Wikipedia-Sproochen</string>
-  <string name="wikipedia_languages_your_languages_text">Är Sprooch</string>
+  <string name="wikipedia_languages_your_languages_text">Är Sproochen</string>
   <string name="wikipedia_languages_add_language_text">Sprooch derbäisetzen</string>
   <string name="wikipedia_languages_remove_text">Sprooch ewechhuelen</string>
   <string name="wikipedia_languages_remove_action_mode_title">Sprooch ewechhuelen</string>
@@ -1399,8 +1401,8 @@
   <string name="revision_undo_summary_hint">Resümmee (fakultativ)</string>
   <string name="revision_undo_reason">Gitt wgl. de Grond u fir dës Ännerung réckgängeg ze maachen</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
-  <string name="revision_rollback_dialog_title">Sidd Dir sécher, datt Dir dës Ännerungen zrécksetze wëllt?</string>
-  <string name="revision_rollback_success">Ännerungen zréckgesat.</string>
+  <string name="revision_rollback_dialog_title">Sidd Dir sécher, datt Dir dës Ännerungen zerécksetze wëllt?</string>
+  <string name="revision_rollback_success">Ännerungen zeréckgesat.</string>
   <string name="revision_compare_button">Vergläichen</string>
   <string name="revision_compare_two_only">Et kënnen nëmmen zwou Versiounen ausgewielt ginn.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
@@ -1498,7 +1500,7 @@
   <string name="shareable_reading_lists_import_dialog_content">Wéi soll d\'Lëscht heeschen, déi mat Iech gedeelt gouf?</string>
   <string name="shareable_reading_lists_new_indicator">*nei*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Et gouf eng Lieslëscht mat Iech gedeelt</string>
-  <string name="shareable_reading_lists_new_install_dialog_content">Mir hu gemierkt, datt eng Lieslëscht mat Iech gedeelt gouf. Fir d\'Lëscht an der App ze kucken, gitt zréck op den Originalmessage an dréckt nach eng Kéier op de Link.</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Mir hu gemierkt, datt eng Lieslëscht mat Iech gedeelt gouf. Fir d\'Lëscht an der App ze kucken, gitt zeréck op den Originalmessage an dréckt nach eng Kéier op de Link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanen</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Lieslëscht importéiert</string>
   <string name="reading_list_share_menu_label">Deelen...</string>
@@ -1604,7 +1606,7 @@
   <string name="data_opt_in_reject">Refuséieren</string>
   <string name="page_issues_title">Problemer mat der Säit</string>
   <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
-  <string name="donation_campaign_go_back_button">Zréckgoen</string>
+  <string name="donation_campaign_go_back_button">Zeréck goen</string>
   <string name="menu_single_webview_open_external">Am Systembrowser opmaachen</string>
   <string name="donate_gpay_dialog_title">En Don mat Google Pay maachen?</string>
   <string name="donate_gpay_dialog_description">Maacht en Don mat Google Pay oder wielt eng aner Bezuelmethod.</string>
