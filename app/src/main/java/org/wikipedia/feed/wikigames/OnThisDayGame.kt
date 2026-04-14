@@ -39,6 +39,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -70,41 +71,51 @@ fun OnThisDayGameCardPreview(
         elevation = 2.dp
     ) {
         Column(
-            modifier = Modifier.padding(vertical = 16.dp)
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+                .fillMaxSize(),
         ) {
-            Row(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            Column(
+                modifier = Modifier.weight(1f)
             ) {
-                Icon(
-                    modifier = Modifier
-                        .size(24.dp),
-                    painter = painterResource(R.drawable.ic_events_24dp),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    contentDescription = null
-                )
-                Text(
-                    text = titleText,
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.SemiBold,
-                        letterSpacing = 0.15.sp
+                Row(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .size(24.dp),
+                        painter = painterResource(R.drawable.ic_events_24dp),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        contentDescription = null
                     )
+                    Text(
+                        text = titleText,
+                        color = WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            letterSpacing = 0.15.sp
+                        )
+                    )
+                }
+
+                OnThisDayGameFirstEventView(
+                    modifier = Modifier.weight(1f),
+                    event = state.event1
+                )
+
+                HorizontalDivider(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    color = WikipediaTheme.colors.borderColor
+                )
+
+                OnThisDayGameFirstEventView(
+                    modifier = Modifier.weight(1f),
+                    event = state.event2
                 )
             }
-
-            OnThisDayGameFirstEventView(event = state.event1)
-
-            HorizontalDivider(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                color = WikipediaTheme.colors.borderColor
-            )
-
-            OnThisDayGameFirstEventView(event = state.event2)
-
-            Spacer(Modifier.weight(1f))
 
             Box(
                 modifier = Modifier
@@ -378,10 +389,11 @@ fun OnThisDayGameCardCompleted(
 
 @Composable
 fun OnThisDayGameFirstEventView(
+    modifier: Modifier = Modifier,
     event: OnThisDay.Event
 ) {
     Row(
-        modifier = Modifier.padding(16.dp),
+        modifier = modifier.padding(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
@@ -540,6 +552,32 @@ private fun OnThisDayGameCardSimplePreview() {
             titleText = "Archive",
             iconRes = R.drawable.event_repeat_24dp,
             iconTint = WikipediaTheme.colors.primaryColor,
+            onPlayClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true, fontScale = 3f, device = Devices.PIXEL_2)
+@Composable
+private fun OnThisDayGameCardPreviewBiggerFontSizePreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        OnThisDayGameCardPreview(
+            state = OnThisDayCardGameState.Preview(
+                langCode = "en",
+                event1 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    year = 1990
+                ),
+                event2 = OnThisDay.Event(
+                    pages = emptyList(),
+                    text = "Event 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    year = 2000
+                )
+            ),
+            titleText = "November 3",
             onPlayClick = {}
         )
     }
