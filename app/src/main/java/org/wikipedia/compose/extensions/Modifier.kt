@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.WikiTopAppBar
@@ -124,23 +125,28 @@ fun Modifier.shimmerEffect(
 
 fun Modifier.lazyColumnScrollbar(
     state: LazyListState,
-    color: Color
+    color: Color,
+    thumbHeight: Dp = 48.dp
 ): Modifier = drawWithContent {
     drawContent()
     val info = state.layoutInfo
     val visibleItems = info.visibleItemsInfo
     if (visibleItems.isNotEmpty() && (state.canScrollForward || state.canScrollBackward)) {
         val viewportHeight = size.height
-        val thumbHeight = (visibleItems.size.toFloat() / info.totalItemsCount) * viewportHeight
+        val fixedThumbHeight = thumbHeight.toPx()
+
         val firstItem = visibleItems.first()
-        val scrollFraction = (firstItem.index + (-firstItem.offset.toFloat() / firstItem.size)) /
-                (info.totalItemsCount - visibleItems.size).coerceAtLeast(1)
-        val thumbOffset = scrollFraction.coerceIn(0f, 1f) * (viewportHeight - thumbHeight)
+        val itemSize = firstItem.size.coerceAtLeast(1)
+        val estimatedTotalHeight = itemSize * info.totalItemsCount
+        val currentOffset = firstItem.index * itemSize - firstItem.offset
+        val maxOffset = (estimatedTotalHeight - viewportHeight).coerceAtLeast(1f)
+        val scrollFraction = (currentOffset.toFloat() / maxOffset).coerceIn(0f, 1f)
+        val thumbOffset = scrollFraction * (viewportHeight - fixedThumbHeight)
 
         drawRoundRect(
             color = color,
             topLeft = Offset(size.width - 4.dp.toPx(), thumbOffset),
-            size = Size(4.dp.toPx(), thumbHeight),
+            size = Size(4.dp.toPx(), fixedThumbHeight),
             cornerRadius = CornerRadius(2.dp.toPx())
         )
     }
