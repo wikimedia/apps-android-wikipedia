@@ -249,7 +249,7 @@ class SearchResultsFragment : Fragment() {
         viewModel.updateSearchTerm(if (term.isNullOrBlank()) "" else term)
 
         // If user changes the language, make sure to turn off hybrid search screen.
-        showHybridSearch = !resetHybridSearch && showHybridSearch && viewModel.isHybridSearchExperimentOn
+        showHybridSearch = viewModel.isHybridSearchExperimentOn
         if (showHybridSearch) {
             viewModel.resetHybridSearchState()
             viewModel.loadHybridSearchResults()

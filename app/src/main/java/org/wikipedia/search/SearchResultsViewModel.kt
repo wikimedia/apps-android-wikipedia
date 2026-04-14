@@ -12,7 +12,9 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -54,6 +56,7 @@ class SearchResultsViewModel : ViewModel() {
     val hybridSearchResultState = _hybridSearchResultState.asStateFlow()
 
     private var _refreshSearchResults = MutableStateFlow(0)
+    private var hybridSearchJob: Job? = null
 
     val getTestGroup get() = HybridSearchAbCTest().getGroupName()
 
@@ -94,10 +97,12 @@ class SearchResultsViewModel : ViewModel() {
 
     @OptIn(FlowPreview::class)
     fun loadHybridSearchResults() {
-       viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        hybridSearchJob?.cancel()
+        hybridSearchJob = viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
            _hybridSearchResultState.value = UiState.Error(throwable)
-       }) {
+        }) {
             _hybridSearchResultState.value = UiState.Loading
+            delay(delayMillis)
             val lexicalBatchSize = 3
             val semanticBatchSize = 3
 

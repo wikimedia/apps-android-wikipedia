@@ -2,7 +2,6 @@ package org.wikipedia.search
 
 import org.wikipedia.analytics.ABTest
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.RemoteConfig
 
 class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
 
@@ -15,7 +14,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     fun isTestActive(): Boolean {
-        return RemoteConfig.config.androidv1?.hybridSearchEnabled ?: true
+        return true
     }
 
     fun isTestGroupUser(): Boolean {
@@ -31,7 +30,7 @@ class HybridSearchAbCTest : ABTest("apps_hybridsearch", GROUP_SIZE_3) {
     }
 
     private val supportedLanguages = listOf(
-        "en", "pt", "fr", "el"
+        "en"
     )
 
     fun isHybridSearchEnabled(languageCode: String?): Boolean {
