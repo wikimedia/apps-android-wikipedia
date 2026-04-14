@@ -163,10 +163,13 @@ fun ReadingChallengeSmallWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
+                    val size = LargeWidgetSize.from(LocalSize.current)
+                    val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
+                        textSize = adjustedTextSize,
                         iconTintColor = combination.contentColor,
                         textColor = combination.contentColor
                     )
@@ -186,10 +189,13 @@ fun ReadingChallengeSmallWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
+                    val size = LargeWidgetSize.from(LocalSize.current)
+                    val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
+                        textSize = adjustedTextSize,
                         iconTintColor = combination.contentColor,
                         textColor = combination.contentColor
                     )
@@ -208,7 +214,7 @@ fun SmallWidget(
     bottomContent: @Composable () -> Unit = { }
 ) {
     val size = LocalSize.current
-    val mascotSize = if (size.height <= 200.dp) 80.dp else 120.dp
+    val mascotSize = if (size.height <= 210.dp) 80.dp else 120.dp
     BaseWidgetContent(
         color = backgroundColor
     ) {
