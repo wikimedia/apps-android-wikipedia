@@ -3,6 +3,7 @@ package org.wikipedia.onboarding.personalization
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -95,7 +96,8 @@ fun InterestOnboardingScreen(
                 content = {
                     item(span = StaggeredGridItemSpan.FullLine) {
                         SearchBarCard(
-                            onSearchClick = onSearchClick
+                            onSearchClick = onSearchClick,
+                            text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint)
                         )
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
@@ -184,7 +186,8 @@ fun InterestOnboardingScreen(
         SelectionBottomBar(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .background(WikipediaTheme.colors.paperColor),
+                .background(WikipediaTheme.colors.paperColor)
+                .clickable(enabled = false, onClick = {}),
             selectedItemsCount = totalSelectedCount,
             onDeselectAllClick = onDeselectAllClick
         )

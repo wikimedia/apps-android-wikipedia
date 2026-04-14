@@ -39,7 +39,7 @@ class PersonalizationActivity : BaseActivity() {
                     ),
                     onSkipClick = { finish() },
                     onSearchClick = {
-                        val intent = SearchActivity.newIntent(this, Constants.InvokeSource.INTEREST_SELECTION, null, returnLink = true)
+                        val intent = SearchActivity.newIntent(this, Constants.InvokeSource.FEED_INTEREST_SELECTION, null, returnLink = true)
                         searchLauncher.launch(intent)
                     },
                     showError = { message ->

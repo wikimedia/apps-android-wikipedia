@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 33,
-    "identityHash": "e44473e74bf92e8ad212bbdde5bfb88b",
+    "identityHash": "22530eedc11ebe27fdf14ab275b9ea28",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -744,7 +744,7 @@
         }
       },
       {
-        "tableName": "TopicInterest",
+        "tableName": "InterestTopic",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`topicId` TEXT NOT NULL, `lang` TEXT NOT NULL, `topicLabel` TEXT NOT NULL, `queryTopicId` TEXT NOT NULL, PRIMARY KEY(`topicId`, `lang`))",
         "fields": [
           {
@@ -781,8 +781,8 @@
         }
       },
       {
-        "tableName": "ArticleInterest",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apiTitle` TEXT NOT NULL, `lang` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `description` TEXT NOT NULL, `thumbUrl` TEXT NOT NULL, `topicId` TEXT, `topicLang` TEXT, PRIMARY KEY(`apiTitle`, `lang`, `namespace`), FOREIGN KEY(`topicId`, `topicLang`) REFERENCES `TopicInterest`(`topicId`, `lang`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "tableName": "InterestArticle",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apiTitle` TEXT NOT NULL, `lang` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `description` TEXT NOT NULL, `thumbUrl` TEXT NOT NULL, `topicId` TEXT, `topicLang` TEXT, PRIMARY KEY(`apiTitle`, `lang`, `namespace`), FOREIGN KEY(`topicId`, `topicLang`) REFERENCES `InterestTopic`(`topicId`, `lang`) ON UPDATE NO ACTION ON DELETE SET NULL )",
         "fields": [
           {
             "fieldPath": "apiTitle",
@@ -841,19 +841,19 @@
         },
         "indices": [
           {
-            "name": "index_ArticleInterest_topicId_topicLang",
+            "name": "index_InterestArticle_topicId_topicLang",
             "unique": false,
             "columnNames": [
               "topicId",
               "topicLang"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_ArticleInterest_topicId_topicLang` ON `${TABLE_NAME}` (`topicId`, `topicLang`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_InterestArticle_topicId_topicLang` ON `${TABLE_NAME}` (`topicId`, `topicLang`)"
           }
         ],
         "foreignKeys": [
           {
-            "table": "TopicInterest",
+            "table": "InterestTopic",
             "onDelete": "SET NULL",
             "onUpdate": "NO ACTION",
             "columns": [
@@ -870,7 +870,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e44473e74bf92e8ad212bbdde5bfb88b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '22530eedc11ebe27fdf14ab275b9ea28')"
     ]
   }
 }

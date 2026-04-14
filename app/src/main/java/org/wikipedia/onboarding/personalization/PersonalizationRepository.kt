@@ -4,10 +4,10 @@ import androidx.room.Transaction
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.db.HistoryEntryWithImageDao
-import org.wikipedia.onboarding.personalization.db.dao.ArticleInterestDao
-import org.wikipedia.onboarding.personalization.db.dao.TopicInterestDao
-import org.wikipedia.onboarding.personalization.db.entity.ArticleInterest
-import org.wikipedia.onboarding.personalization.db.entity.TopicInterest
+import org.wikipedia.onboarding.personalization.db.dao.InterestArticleDao
+import org.wikipedia.onboarding.personalization.db.dao.InterestTopicDao
+import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
+import org.wikipedia.onboarding.personalization.db.entity.InterestTopic
 import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -16,8 +16,8 @@ import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.util.StringUtil
 
 class PersonalizationRepository(
-    private val topicInterestDao: TopicInterestDao,
-    private val articleInterestDao: ArticleInterestDao,
+    private val interestTopicDao: InterestTopicDao,
+    private val interestArticleDao: InterestArticleDao,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
     private val readingListPageDao: ReadingListPageDao,
     val wikiSite: WikiSite
@@ -103,13 +103,13 @@ class PersonalizationRepository(
     }
 
     suspend fun getPersistedTopics(lang: String): List<OnboardingTopic> {
-        return topicInterestDao.getAll(lang).mapNotNull { entity ->
+        return interestTopicDao.getAll(lang).mapNotNull { entity ->
             OnboardingTopics.all.find { it.topicId == entity.topicId }
         }
     }
 
     suspend fun getPersistedArticles(lang: String): List<PageTitle> {
-        return articleInterestDao.getAll(lang).map { entity ->
+        return interestArticleDao.getAll(lang).map { entity ->
             PageTitle(
                 text = entity.apiTitle,
                 wiki = wikiSite,
@@ -121,18 +121,19 @@ class PersonalizationRepository(
     }
 
     suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
-        topicInterestDao.insert(
-            topicInterest = TopicInterest(
+        interestTopicDao.insert(
+            interestTopic = InterestTopic(
                 topicId = topic.topicId,
                 topicLabel = topic.displayTitle,
                 queryTopicId = topic.queryTopicId,
                 lang = lang
-        ))
+            )
+        )
     }
 
     suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
-        topicInterestDao.delete(
-            topicInterest = TopicInterest(
+        interestTopicDao.delete(
+            interestTopic = InterestTopic(
                 topicId = topic.topicId,
                 topicLabel = topic.displayTitle,
                 queryTopicId = topic.queryTopicId,
@@ -142,8 +143,8 @@ class PersonalizationRepository(
     }
 
     suspend fun saveArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
-        articleInterestDao.insert(
-            articleInterest = ArticleInterest(
+        interestArticleDao.insert(
+            interestArticle = InterestArticle(
                 apiTitle = article.prefixedText,
                 lang = lang,
                 namespace = article.namespace(),
@@ -157,8 +158,8 @@ class PersonalizationRepository(
     }
 
     suspend fun deleteArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
-        articleInterestDao.delete(
-            articleInterest = ArticleInterest(
+        interestArticleDao.delete(
+            interestArticle = InterestArticle(
                 apiTitle = article.prefixedText,
                 lang = lang,
                 namespace = article.namespace(),
@@ -173,7 +174,7 @@ class PersonalizationRepository(
 
     @Transaction
     suspend fun deleteAllInterests() {
-        topicInterestDao.deleteAll()
-        articleInterestDao.deleteAll()
+        interestTopicDao.deleteAll()
+        interestArticleDao.deleteAll()
     }
 }

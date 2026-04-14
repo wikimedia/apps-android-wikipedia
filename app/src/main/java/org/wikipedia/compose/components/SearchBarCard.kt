@@ -26,6 +26,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @Composable
 fun SearchBarCard(
     modifier: Modifier = Modifier,
+    text: String,
     onSearchClick: () -> Unit
 ) {
     Row(
@@ -49,7 +50,7 @@ fun SearchBarCard(
         )
         Text(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-            text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint),
+            text = text,
             style = MaterialTheme.typography.bodyLarge,
             color = WikipediaTheme.colors.primaryColor
         )

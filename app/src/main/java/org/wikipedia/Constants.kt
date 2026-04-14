@@ -113,7 +113,7 @@ object Constants {
         ON_THIS_DAY_GAME_ACTIVITY("onThisDayGame"),
         ACTIVITY_TAB("activityTab"),
         GAMES_HUB("gamesHub"),
-        INTEREST_SELECTION("interestSelection"),
+        FEED_INTEREST_SELECTION("feedInterestSelection"),
     }
 
     enum class ImageEditType(name: String) {

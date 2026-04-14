@@ -21,10 +21,10 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
-import org.wikipedia.onboarding.personalization.db.dao.ArticleInterestDao
-import org.wikipedia.onboarding.personalization.db.dao.TopicInterestDao
-import org.wikipedia.onboarding.personalization.db.entity.ArticleInterest
-import org.wikipedia.onboarding.personalization.db.entity.TopicInterest
+import org.wikipedia.onboarding.personalization.db.dao.InterestArticleDao
+import org.wikipedia.onboarding.personalization.db.dao.InterestTopicDao
+import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
+import org.wikipedia.onboarding.personalization.db.entity.InterestTopic
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
@@ -60,8 +60,8 @@ const val DATABASE_VERSION = 33
         Category::class,
         DailyGameHistory::class,
         RecommendedPage::class,
-        TopicInterest::class,
-        ArticleInterest::class
+        InterestTopic::class,
+        InterestArticle::class
     ],
     version = DATABASE_VERSION
 )
@@ -87,8 +87,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun dailyGameHistoryDao(): DailyGameHistoryDao
     abstract fun recommendedPageDao(): RecommendedPageDao
-    abstract fun topicInterestDao(): TopicInterestDao
-    abstract fun articleInterestDao(): ArticleInterestDao
+    abstract fun topicInterestDao(): InterestTopicDao
+    abstract fun articleInterestDao(): InterestArticleDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -365,14 +365,14 @@ abstract class AppDatabase : RoomDatabase() {
         }
         val MIGRATION_32_33 = object : Migration(32, 33) {
             override fun migrate(db: SupportSQLiteDatabase) {
-                db.execSQL("CREATE TABLE IF NOT EXISTS TopicInterest (" +
+                db.execSQL("CREATE TABLE IF NOT EXISTS InterestTopic (" +
                         "topicId TEXT NOT NULL," +
                         "lang TEXT NOT NULL," +
                         "topicLabel TEXT NOT NULL," +
                         "queryTopicId TEXT NOT NULL," +
                         "PRIMARY KEY (topicId, lang)" +
                         ")")
-                db.execSQL("CREATE TABLE IF NOT EXISTS ArticleInterest (" +
+                db.execSQL("CREATE TABLE IF NOT EXISTS InterestArticle (" +
                         "apiTitle TEXT NOT NULL," +
                         "lang TEXT NOT NULL," +
                         "namespace INTEGER NOT NULL," +

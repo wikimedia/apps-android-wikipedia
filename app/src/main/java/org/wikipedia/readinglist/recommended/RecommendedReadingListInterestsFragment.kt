@@ -350,7 +350,10 @@ fun RecommendedReadingListInterestsContent(
                     )
                 }
                 item(span = StaggeredGridItemSpan.FullLine) {
-                    SearchBarCard(onSearchClick = onSearchClick)
+                    SearchBarCard(
+                        text = stringResource(R.string.recommended_reading_list_interest_pick_search_hint),
+                        onSearchClick = onSearchClick
+                    )
                 }
                 items(items) { item ->
                     ArticleCard(

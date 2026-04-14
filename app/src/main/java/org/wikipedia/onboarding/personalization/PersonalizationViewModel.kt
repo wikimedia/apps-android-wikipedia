@@ -292,8 +292,8 @@ class PersonalizationViewModel(
             initializer {
                 PersonalizationViewModel(
                     repository = PersonalizationRepository(
-                        topicInterestDao = AppDatabase.instance.topicInterestDao(),
-                        articleInterestDao = AppDatabase.instance.articleInterestDao(),
+                        interestTopicDao = AppDatabase.instance.topicInterestDao(),
+                        interestArticleDao = AppDatabase.instance.articleInterestDao(),
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
                         readingListPageDao = AppDatabase.instance.readingListPageDao(),
                         wikiSite = WikipediaApp.instance.wikiSite
