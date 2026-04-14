@@ -2232,4 +2232,7 @@
   <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+    <string name="explore_feed_preference_selection_screen_title">Screen title prompting the user to choose which type of content should appear first in the explore feed.</string>
+    <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
+    <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
 </resources>

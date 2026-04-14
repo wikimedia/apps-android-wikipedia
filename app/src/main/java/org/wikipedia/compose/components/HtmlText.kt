@@ -1,5 +1,6 @@
 package org.wikipedia.compose.components
 
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -44,7 +45,8 @@ fun HtmlText(
     overflow: TextOverflow = TextOverflow.Ellipsis,
     lineHeight: TextUnit = 1.6.em,
     linkInteractionListener: LinkInteractionListener = defaultLinkInteractionListener(),
-    textAlign: TextAlign = TextAlign.Start
+    textAlign: TextAlign = TextAlign.Start,
+    autoSize: TextAutoSize? = null
 ) {
     Text(
         modifier = modifier,
@@ -58,7 +60,8 @@ fun HtmlText(
         color = color,
         maxLines = maxLines,
         overflow = overflow,
-        textAlign = textAlign
+        textAlign = textAlign,
+        autoSize = autoSize
     )
 }
 

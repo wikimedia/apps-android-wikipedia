@@ -32,8 +32,15 @@ private data class PersonalizedViewModelState(
     val articlesLoading: Boolean = false,
     val articlesError: Throwable? = null,
     val selectedArticles: Set<PageTitle> = emptySet(),
-    val selectedTopics: List<OnboardingTopic> = emptyList()
+    val selectedTopics: List<OnboardingTopic> = emptyList(),
     // Feed preference screen properties
+    val feedPreferenceType: FeedPreferenceType = FeedPreferenceType.COMMUNITY,
+    val communityContent: List<FeedPreferenceContent> = emptyList(),
+    val communityLoading: Boolean = false,
+    val communityError: Throwable? = null,
+    val personalizedContent: List<FeedPreferenceContent> = emptyList(),
+    val personalizedLoading: Boolean = false,
+    val personalizedError: Throwable? = null
 ) {
     fun toInterestUiState(): InterestUiState {
         return InterestUiState(
@@ -60,8 +67,21 @@ private data class PersonalizedViewModelState(
         )
     }
 
-    // Each screen in the personalization flow would have its own function
-    // fun toFeedPreferenceUiState(): FeedPreferenceUiState { ... }
+    fun toFeedPreferenceUiState(): FeedPreferenceUiState {
+        return FeedPreferenceUiState(
+            selectedType = feedPreferenceType,
+            communityState = when {
+                communityLoading -> FeedContentState.Loading
+                communityError != null -> FeedContentState.Error(communityError)
+                else -> FeedContentState.Success(communityContent)
+            },
+            personalizedState = when {
+                personalizedLoading -> FeedContentState.Loading
+                personalizedError != null -> FeedContentState.Error(personalizedError)
+                else -> FeedContentState.Success(personalizedContent)
+            }
+        )
+    }
 }
 
 class PersonalizationViewModel(
@@ -79,6 +99,14 @@ class PersonalizationViewModel(
             scope = viewModelScope,
             started = SharingStarted.Eagerly,
             initialValue = state.value.toInterestUiState()
+        )
+
+    val feedPreferenceUiState = state
+        .map { it.toFeedPreferenceUiState() }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = state.value.toFeedPreferenceUiState()
         )
 
     fun onPageChanged(screen: PersonalizationPage) {

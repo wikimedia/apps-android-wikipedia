@@ -45,6 +45,7 @@ fun PersonalizationScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val interestUiState = viewModel.interestUiState.collectAsState()
+    val feedPreferenceUiState = viewModel.feedPreferenceUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { screens.size })
 
     LaunchedEffect(pagerState.currentPage) {
@@ -106,7 +107,15 @@ fun PersonalizationScreen(
                         )
                     }
                     PersonalizationPage.FEED_PREFERENCE -> {
-                        // TODO: implement feed preference screen
+                        FeedPreferenceScreen(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(WikipediaTheme.colors.paperColor),
+                            selectedType = feedPreferenceUiState.value.selectedType,
+                            communityContentState = feedPreferenceUiState.value.communityState,
+                            personalizedContentState = feedPreferenceUiState.value.personalizedState,
+                            onTypeSelected = { }
+                        )
                     }
                 }
             }
