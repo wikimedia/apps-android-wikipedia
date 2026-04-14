@@ -18,6 +18,7 @@
 * Sator
 * Subi
 * Theklan
+* Wrai
 * Xabier Armendaritz
 -->
 <resources>
@@ -434,9 +435,9 @@
   <string name="empty_tab_title">Fitxa berria</string>
   <string name="menu_save_all_tabs">gorde etiketa guztiak</string>
   <string name="error_blocked_title">Zure erabiltzaile-izena edo IP helbidea blokeatu egin da.</string>
-  <string name="error_blocked_by" fuzzy="true">Blokeoa &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; -ek egin du</string>
+  <string name="error_blocked_by">Blokeoa &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;-ek egin du</string>
   <string name="error_blocked_reason">Emandako arrazoia hau da: %s</string>
-  <string name="error_blocked_start" fuzzy="true">Blokearen hasiera: %s</string>
+  <string name="error_blocked_start">Blokearen hasiera: %s</string>
   <string name="error_blocked_expiry" fuzzy="true">Blokearen epemuga: %s</string>
   <string name="error_blocked_id">Blokeoaren IDa: %s</string>
   <string name="error_blocked_footer">Blokeoaz hitz egiteko, &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; edo beste &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratzaile batekin&lt;/a&gt; harremanetan jar zaitezke.</string>
@@ -502,6 +503,7 @@
   <string name="reading_list_create_new">Sortu berria</string>
   <string name="reading_list_title_exists">\"%s\" dagoeneko irakurketa zerrendan dago.</string>
   <string name="reading_list_article_added_to_named">%1$s gehitu da %2$s-n .</string>
+  <string name="reading_list_article_added_to_default_list">%s gorde da. Nahi duzu zerrendan gehitu?</string>
   <string name="reading_list_article_moved_to_named">%1$s %2$s-ra mugitu da.</string>
   <string name="reading_list_article_already_exists_message">Dena ondo! %1$s-k dagoeneko %2$s dauka.</string>
   <string name="reading_list_articles_already_exist_message">Dena ondo! %s(e)k artikulu guztiak biltzen ditu dagoeneko.</string>
@@ -544,7 +546,13 @@
     <item quantity="one">artikulu %d kendu da zerrendatik</item>
     <item quantity="other">%d artikulu kendu dira zerrendatik</item>
   </plurals>
+  <string name="reading_lists_default_list_delete_message">Ezin da lehenetsitako zerrenda (%s) ezabatu</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s ezabatuta. Ezin da lehenetsitako zerrenda (%2$s) ezabatu.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Zerrendak ezabatuta. Ezin da lehenetsitako zerrenda (%s) ezabatu.</string>
+  <string name="single_list_json_file_name">%s (Wikipediako irakurketa zerrenda).json</string>
+  <string name="multiple_lists_json_file_name">Wikipediako irakurketa zerrendak (%s eta gehiago).json</string>
   <string name="reading_list_items_deleted">%d artikulu ezabatu dira zerrendatik</string>
+  <string name="reading_lists_item_deleted">%s zerrendetatik kendu da</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
   <string name="saved_list_empty_title">Irakurketa zerrendarik oraindik ez</string>
@@ -553,6 +561,8 @@
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
   <string name="reading_list_article_make_offline">Egin ezazu artikulu hau erabilgarri, konexiorik gabe ere</string>
   <string name="reading_list_add_to_other_list">Gehitu beste irakurketa-zerrenda batera</string>
+  <string name="reading_list_move_to_other_list">Mugitu beste irakurketa-zerrenda batera</string>
+  <string name="reading_list_move_from_to_other_list">Mugitu %s -tik beste irakurketa-zerrenda batera</string>
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
   <string name="reading_list_remove_from_lists">Kendu irakurketa-zerrendetatik</string>
   <string name="reading_list_select_item">Hautatu</string>
@@ -560,8 +570,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikulua zerrenda anitzetan agertzen da</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ez da erabilgarri egongo konexiorik gabe hurrengo zerrendetan:</string>
   <string name="reading_lists_sync_reminder_title">Irakurketa zerrendaren sinkronizazioa piztu?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Gordetako artikuluak gehitu ahalko dira orain zure Wikipedia kontura. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Learn more&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Gehiago ikasi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Irakurketa-zerrendetan gordetako artikuluak zure Wikipedia kontuarekin sinkronizatu daitezke orain. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Informazio gehiago&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Irakurketa zerrendak orain gailuen zehar sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan eta baimena eman zure zerrendak gorde daitezen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Informazio gehiago&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_login_reminder_title">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="reading_lists_login_reminder_text">Irakurketa-zerrendak gailu guztietan sinkronizatu daitezke. Hasi saioa zure Wikipedia kontuan, zure zerrendak gorde ahal izateko.</string>
@@ -571,7 +581,13 @@
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>
   <string name="reading_list_article_save_in_progress">Artikulua deskargatzen ari da, eta amaitutakoan erabilgarri egongo da lineaz kanpo.</string>
   <string name="reading_list_articles_added_to_named">%1$d artikuluak gehitu dira %2$s(e)ra.</string>
+  <string name="reading_list_articles_moved_to_named">%1$d artikulu mugitu dira %2$s-ra</string>
   <string name="reading_list_delete_confirm">Ziur zaude \"%s\" ezabatu nahi duzula?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Hautatutako zerrenda(k) ezabatu?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Ziur zaude zerrenda %d ezabatu nahi duzula?</item>
+    <item quantity="other">Ziur zaude %d zerrenda ezabatu nahi dituzula?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Saioa hasi sinkronizazioa ahalbidetzeko</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Irakurketa zerrendak zure kontuan gordetzeko, has ezazu saioa.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Utzi</string>
@@ -594,6 +610,7 @@
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko %1$s gatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
   <string name="reading_lists_menu_create_list">Zerrenda berria sortu</string>
+  <string name="reading_lists_menu_import_list">Inportazio zerrenda</string>
   <string name="reading_lists_menu_sort_by">Honen arabera sailkatu</string>
   <string name="reading_lists_refresh_sync_option">Sinkronizatzea freskatu</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kontu sortua / hasi saioa</string>
@@ -614,12 +631,41 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Utzi</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Utzi</string>
   <string name="reading_list_split_dialog_ok_button_text">Ados</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ezabatu</string>
+  <string name="reading_list_activity_title">Irakurketa zerrenda: %s</string>
+  <string name="reading_list_notification_title">Irakurketa-zerrenda(k) esportatu dira</string>
+  <string name="reading_list_notification_text">%d irakurketa-zerrenda \'reading_lists export.json\' gisa esportatu dira zure deskargen karpetara</string>
+  <string name="reading_list_notification_detailed_text">Irakurketa-zerrendak \'reading_lists_export.json\' fitxategira esportatu dira</string>
+  <string name="reading_lists_action_menu_export_lists">Esportatu</string>
+  <string name="reading_lists_import_file_picker_title">Aukeratu inportatzeko fitxategia</string>
+  <string name="reading_lists_import_failure_message">Irakurketa-zerrenden inportazioak huts egin du</string>
+  <string name="reading_lists_export_select_lists_message">Hautatu esportatzeko zerrenda(k)</string>
+  <string name="reading_lists_export_completed_message">Irakurketa-zerrenda(k) esportatu dira</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Irakurketa-zerrenda esportatzeak huts egin du</item>
+    <item quantity="other">Irakurketa-zerrenden esportazioak huts egin du</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Irakurketa-zerrenda inportatuta</item>
+    <item quantity="other">Irakurketa-zerrendak inportatuta</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Partekatutako zerrenda</string>
+  <string name="reading_lists_preview_save_button">Gorde</string>
+  <string name="reading_lists_preview_save_dialog_title">Gorde zerrenda</string>
+  <string name="reading_lists_preview_save_dialog_text">Izendatu zerrenda eta hautatu gordetzeko artikuluak.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Izenburua</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Utzi</string>
+  <string name="reading_lists_preview_save_dialog_save">Gorde</string>
+  <string name="reading_lists_preview_saved_snackbar">Irakurketa-zerrenda gorde da</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Ikusi</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_reverted_title">Lehengoratutako aldaketa</string>
+  <string name="notification_channel_title">Artikuluak deskargatzen</string>
   <string name="notification_channel_description">Deskargatu aurrerapena</string>
   <string name="notification_syncing_pause_button">Gelditu</string>
   <string name="notification_syncing_resume_button">Jarraitu</string>
   <string name="notification_syncing_cancel_button">Bertan behera utzi</string>
+  <string name="notification_syncing_reading_list_channel_title">Irakurketa-zerrendak sinkronizatzea</string>
   <string name="notification_syncing_reading_list_channel_description">Irakurketa zerrenden sinkronizazioaren aurrerapena</string>
   <string name="notification_many_unread">Irakurri gabeko %d jakinarazpen dituzu</string>
   <plurals name="notification_channel_name">
@@ -654,12 +700,32 @@
   <string name="notifications_view_archived">Ikusi artxibatutakoa</string>
   <string name="notifications_prefs">Jakinarazpen lehentasunak</string>
   <string name="notifications_archive">Markatu irakurrita gisa eta artxibatu</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Jakinarazpena artxibatuta</item>
+    <item quantity="other"> %d jakinarazpen artxibatuta</item>
+  </plurals>
   <string name="notifications_poll_enable_title">Jakinarazpenak gaitu</string>
   <string name="notifications_poll_enable_positive">Gaitu</string>
   <string name="notifications_poll_enable_negative">Orain ez</string>
   <string name="notifications_empty_message">Jakinarazpenen artean harrapatuta zaude!</string>
   <string name="notifications_view_archived_button_text">Ikusi artxibatutako jakinarazpenak</string>
   <string name="notification_preferences_title">Jakinarazpen lehentasunak</string>
+  <string name="notifications_mark_unread">Markatu irakurri gabekotzat</string>
+  <string name="notifications_mark_all_as_read">Markatu irakurrita gisa</string>
+  <string name="notifications_direct_reply_action">Erantzun</string>
+  <string name="notifications_direct_reply_progress">%s-ri erantzuna argitaratzen…</string>
+  <string name="notifications_direct_reply_success">Erantzuna argitaratuta.</string>
+  <string name="notifications_direct_reply_error">Ezin izan da erantzuna automatikoki argitaratu.</string>
+  <string name="notifications_mark_all_as_read_message">%d irakurrita bezala markatu da</string>
+  <string name="notifications_mark_all_as_unread_message">%d irakurri gabeko gisa markatuta</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 irakurrita bezala markatu da</item>
+    <item quantity="other"> %d irakurrita bezala markatu dira</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 irakurri gabe gisa markatu da</item>
+    <item quantity="other"> %d irakurri gabe gisa markatu dira</item>
+  </plurals>
   <string name="watchlist_title">Jarraipen zerrenda</string>
   <string name="preference_title_notification_system">Sistema</string>
   <string name="preference_title_notification_milestone">Mugarria</string>

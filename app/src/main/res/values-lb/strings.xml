@@ -228,7 +228,7 @@
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
   <string name="history_filter_list_hint">Verlaf filteren</string>
   <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
-  <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
+  <string name="page_protected_autoconfirmed">Dës Säit ass hallef-protegéiert.</string>
   <string name="page_protected_sysop">Dës Säit ass komplett gespaart.</string>
   <string name="page_protected_other">Dës Säit gouf fir dës Niveaue gespaart: %s</string>
   <string name="page_protected_can_not_edit">Pardon, Äre Benotzerkont huet net genuch Rechter fir dës Säit elo z\'änneren.</string>
@@ -1960,12 +1960,18 @@
   <string name="reading_challenge_onboarding_read_title">Liest 25 Deeg laang 1 Artikel pro Dag</string>
   <string name="reading_challenge_onboarding_learn_more_button">Méi gewuer ginn</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">Nee merci</string>
+  <string name="reading_challenge_onboarding_prompt_login">Aloggen / Bei Wikipedia matmaachen</string>
   <string name="reading_challenge_install_prompt_got_it">Verstanen</string>
   <string name="reading_challenge_install_prompt_add">Derbäisetzen</string>
   <string name="reading_challenge_widget_search_button">Sichen</string>
+  <string name="reading_challenge_widget_random_button">Zoufälleg</string>
   <plurals name="reading_challenge_small_widget_streak">
     <item quantity="one">%d Dag</item>
     <item quantity="other">%d Deeg</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d vu(n) %2$d</item>
+    <item quantity="other">%1$d vu(n) %2$d</item>
   </plurals>
   <plurals name="reading_challenge_small_widget_streak_final_large">
     <item quantity="one">%1$d vu(n) %2$d Dag</item>
