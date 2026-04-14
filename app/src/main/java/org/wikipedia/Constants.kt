@@ -54,7 +54,7 @@ object Constants {
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
 
-    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta", "abstract")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)
