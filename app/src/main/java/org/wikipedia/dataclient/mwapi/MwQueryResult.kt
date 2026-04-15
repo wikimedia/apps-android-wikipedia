@@ -264,6 +264,7 @@ class MwQueryResult {
     class Message {
         val name: String = ""
         val content: String = ""
+        val missing: Boolean = false
     }
 
     @Serializable

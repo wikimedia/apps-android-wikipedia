@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -36,7 +37,7 @@ class InitialOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        DeviceUtil.setEdgeToEdge(this)
         setContent {
             var currentTheme by remember { mutableStateOf(Theme.BLACK) }
             var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }
@@ -58,6 +59,8 @@ class InitialOnboardingActivity : BaseActivity() {
                     },
                     onFinish = {
                         Prefs.isInitialOnboardingEnabled = false
+                        Prefs.isExploreFeedUpdatePromptShown = true
+                        startActivity(PersonalizationActivity.newIntent(this))
                         finish()
                     }
                 )

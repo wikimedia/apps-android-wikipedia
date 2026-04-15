@@ -69,6 +69,7 @@ import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
+import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
@@ -76,6 +77,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
@@ -84,6 +86,13 @@ import java.time.LocalDate
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (savedInstanceState == null) {
+            maybeShowExploreFeedUpdatePrompt()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -135,6 +144,12 @@ class HomeFragment : Fragment() {
 
     fun getCurrentTab(): HomeTab {
         return viewModel.selectedTab.value
+    }
+
+    private fun maybeShowExploreFeedUpdatePrompt() {
+        if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
+            startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
+        }
     }
 }
 

@@ -742,6 +742,13 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&generator=search&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+    "&pilicense=any&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getArticlesByTopic(
+        @Query("gsrsearch") articleTopics: String,
+        @Query("gsrlimit") limit: Int
+    ): MwQueryResponse
+
     companion object {
         const val WIKIPEDIA_URL = "https://${WikiSite.BASE_DOMAIN}/"
         const val BASE_AUTHORITY_WIKIMEDIA = "wikimedia.org"

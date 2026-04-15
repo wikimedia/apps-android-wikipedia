@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 32,
-    "identityHash": "af66b2aaebea2bd3fb1dc8d3fa542914",
+    "version": 33,
+    "identityHash": "22530eedc11ebe27fdf14ab275b9ea28",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -744,24 +744,12 @@
         }
       },
       {
-        "tableName": "Interests",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `topicLabel` TEXT NOT NULL, `topicKey` TEXT NOT NULL, `lang` TEXT NOT NULL, `articleApiTitle` TEXT NOT NULL, `articleDisplayTitle` TEXT NOT NULL, `articleDescription` TEXT, `articleThumbUrl` TEXT)",
+        "tableName": "InterestTopic",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`topicId` TEXT NOT NULL, `lang` TEXT NOT NULL, `topicLabel` TEXT NOT NULL, `queryTopicId` TEXT NOT NULL, PRIMARY KEY(`topicId`, `lang`))",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "topicLabel",
-            "columnName": "topicLabel",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "topicKey",
-            "columnName": "topicKey",
+            "fieldPath": "topicId",
+            "columnName": "topicId",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -772,39 +760,117 @@
             "notNull": true
           },
           {
-            "fieldPath": "articleApiTitle",
-            "columnName": "articleApiTitle",
+            "fieldPath": "topicLabel",
+            "columnName": "topicLabel",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "articleDisplayTitle",
-            "columnName": "articleDisplayTitle",
+            "fieldPath": "queryTopicId",
+            "columnName": "queryTopicId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "topicId",
+            "lang"
+          ]
+        }
+      },
+      {
+        "tableName": "InterestArticle",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apiTitle` TEXT NOT NULL, `lang` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `description` TEXT NOT NULL, `thumbUrl` TEXT NOT NULL, `topicId` TEXT, `topicLang` TEXT, PRIMARY KEY(`apiTitle`, `lang`, `namespace`), FOREIGN KEY(`topicId`, `topicLang`) REFERENCES `InterestTopic`(`topicId`, `lang`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "fields": [
+          {
+            "fieldPath": "apiTitle",
+            "columnName": "apiTitle",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "articleDescription",
-            "columnName": "articleDescription",
+            "fieldPath": "lang",
+            "columnName": "lang",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "namespace",
+            "columnName": "namespace",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayTitle",
+            "columnName": "displayTitle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thumbUrl",
+            "columnName": "thumbUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "topicId",
+            "columnName": "topicId",
             "affinity": "TEXT"
           },
           {
-            "fieldPath": "articleThumbUrl",
-            "columnName": "articleThumbUrl",
+            "fieldPath": "topicLang",
+            "columnName": "topicLang",
             "affinity": "TEXT"
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
+          "autoGenerate": false,
           "columnNames": [
-            "id"
+            "apiTitle",
+            "lang",
+            "namespace"
           ]
-        }
+        },
+        "indices": [
+          {
+            "name": "index_InterestArticle_topicId_topicLang",
+            "unique": false,
+            "columnNames": [
+              "topicId",
+              "topicLang"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_InterestArticle_topicId_topicLang` ON `${TABLE_NAME}` (`topicId`, `topicLang`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "InterestTopic",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "topicId",
+              "topicLang"
+            ],
+            "referencedColumns": [
+              "topicId",
+              "lang"
+            ]
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'af66b2aaebea2bd3fb1dc8d3fa542914')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '22530eedc11ebe27fdf14ab275b9ea28')"
     ]
   }
 }
