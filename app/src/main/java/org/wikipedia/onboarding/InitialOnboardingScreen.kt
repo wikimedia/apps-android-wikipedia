@@ -279,7 +279,8 @@ fun InitialOnboardingLanguagesScreen(
     val lazyListState = rememberLazyListState()
     Column(
         modifier = modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center
     ) {
 
