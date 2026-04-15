@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization.feedpreference
 
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.BorderStroke

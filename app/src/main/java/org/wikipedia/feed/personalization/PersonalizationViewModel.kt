@@ -14,6 +14,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.feed.personalization.feedpreference.FeedContentState
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceContent
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceRepository
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceType
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceUiState
 import org.wikipedia.feed.personalization.interest.ArticlesState
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
@@ -89,7 +94,8 @@ private data class PersonalizedViewModelState(
 }
 
 class PersonalizationViewModel(
-    private val repository: InterestSelectionRepository
+    private val repository: InterestSelectionRepository,
+    private val feedPreferenceRepository: FeedPreferenceRepository
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
@@ -328,6 +334,10 @@ class PersonalizationViewModel(
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
                         readingListPageDao = AppDatabase.instance.readingListPageDao(),
                         wikiSite = WikipediaApp.instance.wikiSite
+                    ),
+                    feedPreferenceRepository = FeedPreferenceRepository(
+                        interestTopicDao = AppDatabase.instance.topicInterestDao(),
+                        interestArticleDao = AppDatabase.instance.articleInterestDao(),
                     )
                 )
             }

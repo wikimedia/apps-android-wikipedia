@@ -32,6 +32,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceScreen
 import org.wikipedia.feed.personalization.interest.InterestOnboardingScreen
 
 // TODO: probably renaming the screen name
