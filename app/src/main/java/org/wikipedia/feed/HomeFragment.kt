@@ -79,7 +79,6 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
 
