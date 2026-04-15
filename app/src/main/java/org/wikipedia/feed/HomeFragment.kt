@@ -115,9 +115,8 @@ class HomeFragment : Fragment() {
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
                         },
-                        onNewsClick = {
-//                            (parentFragment as? MainFragment)?.onFeedNewsItemSelected(it)
-                            // TODO: implement this
+                        onNewsClick = { newsItem ->
+                            (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, viewModel.wikiSite)
                         },
                         onImageClick = {
                             (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)

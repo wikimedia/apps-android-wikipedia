@@ -7,12 +7,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,13 +24,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
-import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
@@ -99,7 +98,7 @@ fun NewsItemContent(
         )
 
         if (newsItem.story.isNotEmpty()) {
-            Column(
+            Box(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .fillMaxWidth()
@@ -108,13 +107,8 @@ fun NewsItemContent(
                     .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.90f))
                     .padding(16.dp)
             ) {
-                HorizontalDivider(
-                    modifier = Modifier.padding(vertical = 12.dp).width(48.dp),
-                    thickness = 1.dp,
-                    color = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
-                )
-                HtmlText(
-                    text = newsItem.story,
+                Text(
+                    text = StringUtil.removeHTMLTags(newsItem.story),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 4,
