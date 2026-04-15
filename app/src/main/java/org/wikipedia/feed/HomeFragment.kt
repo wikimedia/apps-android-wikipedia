@@ -67,6 +67,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.news.NewsItem
+import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
@@ -77,6 +79,7 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
 
@@ -113,6 +116,10 @@ class HomeFragment : Fragment() {
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
                         },
+                        onNewsClick = {
+//                            (parentFragment as? MainFragment)?.onFeedNewsItemSelected(it)
+                            // TODO: implement this
+                        },
                         onImageClick = {
                             (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
                         },
@@ -145,6 +152,7 @@ fun HomeScreen(
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
@@ -214,6 +222,7 @@ fun HomeScreen(
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
+                            onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
                             onImageShareClick = onImageShareClick
@@ -327,6 +336,7 @@ fun CommunityContentTab(
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
@@ -388,8 +398,8 @@ fun CommunityContentTab(
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
                                 },
-                                onPageClick = {
-                                    onPageClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
+                                onPageClick = { entry ->
+                                    onPageClick(entry.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
                                 },
                                 onPageOverflowClick = { pageSummary ->
                                     // TODO: implement page overflow menu
@@ -399,6 +409,20 @@ fun CommunityContentTab(
                                     activity?.startActivity(
                                         TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, viewModel.wikiSite))
                                     )
+                                }
+                            )
+                        }
+                    }
+
+                    if (day.news.isNotEmpty()) {
+                        item(key = "news-${day.age}") {
+                            NewsModule(
+                                newsItems = day.news,
+                                onNewsClick = { newsItem ->
+                                    onNewsClick(newsItem)
+                                },
+                                onOverflowClick = {
+                                    // TODO: implement overflow menu
                                 }
                             )
                         }
