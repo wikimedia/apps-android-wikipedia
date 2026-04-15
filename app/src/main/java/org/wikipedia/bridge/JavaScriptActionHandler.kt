@@ -204,6 +204,12 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
+    fun enableUserScaling() =
+        "(function(){" +
+        "var m=document.querySelector('meta[name=\"viewport\"]');" +
+        "if(m){m.setAttribute('content','width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0');}" +
+        "})();"
+
     @Serializable
     class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
                        val src: String = "")
