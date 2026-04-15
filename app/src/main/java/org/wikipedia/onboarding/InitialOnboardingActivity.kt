@@ -58,7 +58,7 @@ class InitialOnboardingActivity : BaseActivity() {
                         currentNavigationBarColor = ResourceUtil.getThemedColor(this, R.attr.paper_color)
                     },
                     onFinish = {
-                        Prefs.isInitialOnboardingEnabled = false
+                        // Prefs.isInitialOnboardingEnabled = false
                         Prefs.isExploreFeedUpdatePromptShown = true
                         startActivity(PersonalizationActivity.newIntent(this))
                         finish()

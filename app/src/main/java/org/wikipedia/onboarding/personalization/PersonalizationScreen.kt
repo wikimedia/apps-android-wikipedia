@@ -110,11 +110,13 @@ fun PersonalizationScreen(
                         FeedPreferenceScreen(
                             modifier = Modifier
                                 .fillMaxSize()
-                                .background(WikipediaTheme.colors.paperColor),
+                                .background(WikipediaTheme.colors.paperColor)
+                                .padding(top = 40.dp),
                             selectedType = feedPreferenceUiState.value.selectedType,
                             communityContentState = feedPreferenceUiState.value.communityState,
                             personalizedContentState = feedPreferenceUiState.value.personalizedState,
-                            onTypeSelected = { }
+                            onTypeSelected = {},
+                            onRetryClick = {}
                         )
                     }
                 }
