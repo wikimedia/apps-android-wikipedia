@@ -6,6 +6,8 @@ import android.content.res.Resources
 import android.util.SparseArray
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.getStringForLocale
 import org.wikipedia.util.L10nUtil.setDesiredLocale
@@ -55,4 +57,8 @@ fun Context.getResources(languageCode: String): Resources {
     // reset to current configuration
     createConfigurationContext(config)
     return targetResources
+}
+
+val Context.instrument get(): InstrumentImpl? {
+    return (this as? BaseActivity)?.getInstrument()
 }

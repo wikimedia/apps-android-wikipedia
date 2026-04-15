@@ -62,20 +62,22 @@
   <string name="search_hint_voice_search">جستجوی صوتی</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="search_back_button_content_description">بازگشت به عقب</string>
+  <string name="search_icon_content_description">جستجو</string>
   <string name="filter_hint_filter_my_lists_and_articles">پالایش فهرست‌های من</string>
   <string name="nav_item_suggested_edits">ویرایش‌ها</string>
   <string name="nav_item_more">بیشتر</string>
   <string name="nav_item_search">جستجو</string>
+  <string name="nav_item_contribute">مشارکت</string>
   <string name="error_network_error">نمی‌توان به اینترنت متصل شد.</string>
-  <string name="page_error_retry">سعى دوباره</string>
-  <string name="card_offline_error_retry">تلاش مجدد</string>
-  <string name="storage_access_error_retry">تلاش مجدد</string>
-  <string name="article_load_error_retry">تلاش مجدد</string>
-  <string name="offline_load_error_retry">تلاش مجدد</string>
+  <string name="page_error_retry">تلاش دوباره</string>
+  <string name="card_offline_error_retry">تلاش دوباره</string>
+  <string name="storage_access_error_retry">تلاش دوباره</string>
+  <string name="article_load_error_retry">تلاش دوباره</string>
+  <string name="offline_load_error_retry">تلاش دوباره</string>
   <string name="page_error_back_to_main">برگرد</string>
   <string name="error_back">برگرد</string>
   <string name="error_next">بعدی</string>
-  <string name="menu_clear_all_history">پاک‌کردن تاریخچه</string>
+  <string name="menu_clear_all_history" fuzzy="true">پاک‌کردن تاریخچه</string>
   <string name="history_item_deleted">%s از تاریخچه حذف شد</string>
   <string name="history_items_deleted">%d مقاله‌ از تاریخچه حذف شد</string>
   <string name="history_item_delete_undo">بازگردانی</string>
@@ -88,7 +90,7 @@
   <string name="wikimedia_commons">ویکی‌انبار</string>
   <string name="wikidata">ویکی‌داده</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچهٔ جستجو</string>
-  <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
   <string name="dialog_message_clear_history_no">خیر</string>
   <string name="share_via">اشتراک‌گذاری با</string>
@@ -167,11 +169,13 @@
   <string name="edit_saved_successfully">ویرایش منتشر شد!</string>
   <string name="stub_article_edit_saved_successfully">ویرایش منتشر شد! اعمال تغییرات ممکن است زمان ببرد.</string>
   <string name="dialog_message_edit_failed">ویرایش اِعمال نشد!</string>
-  <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
+  <string name="dialog_message_edit_failed_retry">تلاش دوباره</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
   <string name="dialog_message_leaving_edit">ویرایش شما هنوز ذخیره نشده است. آیا واقعاً می‌خواهید از این صفحه خارج شوید؟</string>
   <string name="dialog_message_leaving_edit_leave">ترک‌کردن</string>
   <string name="dialog_message_leaving_edit_stay">ماندن</string>
+  <string name="dialog_confirm_delete_donation_history_delete">حذف</string>
+  <string name="dialog_confirm_delete_donation_history_cancel">لغو</string>
   <string name="menu_show_toc">فهرست محتویات</string>
   <string name="search_no_results_found">نتیجه‌ای یافت نشد</string>
   <string name="search_reading_list_no_results">نتیجه‌ای در \"%s\" یافت نشد</string>
@@ -184,9 +188,9 @@
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
-  <string name="login_password_hint">رمز عبور</string>
-  <string name="account_creation_password_hint">رمز عبور</string>
-  <string name="login_2fa_hint" fuzzy="true">کد اصالت‌سنجی دومرحله‌ای</string>
+  <string name="login_password_hint">گذرواژه</string>
+  <string name="account_creation_password_hint">گذرواژه</string>
+  <string name="login_2fa_hint">کد اصالت‌سنجی دومرحله‌ای</string>
   <string name="login_2fa_other_workflow_error_msg" fuzzy="true">اصالت‌سنجی دو مرحله‌ای مورد نیاز است! لطفاً به فعالیت اصلی بازگردید و با توکن دومرحله‌ای خودتان به سامانه وارد شوید و از نو تلاش کنید.</string>
   <string name="onboarding_card_login">ورود</string>
   <string name="page_editing_login">ورود</string>
@@ -225,7 +229,7 @@
   <string name="create_account_activity_title">ایجاد حساب</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (اختیاری)</string>
-  <string name="create_account_password_repeat_hint">تکرار رمز عبور</string>
+  <string name="create_account_password_repeat_hint">تکرار گذرواژه</string>
   <string name="create_account_password_is_username">گذرواژه نمی‌تواند با نام کاربری شما یکسان باشد</string>
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
   <string name="create_account_email_error">آدرس ایمیل نامعتبر است</string>
@@ -285,7 +289,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fa</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده است.</string>
   <string name="about_app_license_heading">مجوز</string>
@@ -1148,7 +1152,7 @@
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
   <string name="onboarding_got_it">فهمیدم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد(های) زیر را بر روی دستگاه شما یافتیم:</string>
-  <string name="onboarding_multilingual_add_language_text">ویرایش یا اضافه کردن زبان</string>
+  <string name="onboarding_multilingual_add_language_text">افزودن یا ویرایش زبان</string>
   <string name="onboarding_welcome_title_v2">دانشنامهٔ آزاد\n...به بیش از ۳۰۰ زبان</string>
   <string name="app_shortcuts_random">تصادفی</string>
   <string name="app_shortcuts_continue_reading">ادامه دادن به مطالعه</string>
@@ -1245,8 +1249,6 @@
   <string name="templates_insert_button">درج</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="main_tooltip_text">سلام %s، آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
-  <string name="main_tooltip_text_v2">آیا می‌دانستید که همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="main_tooltip_action_button">شروع کن</string>
   <string name="main_tooltip_watchlist_title">فهرست پیگیری</string>
   <string name="main_tooltip_watchlist_text">با استفاده از منوی «بیشتر» در &lt;b&gt;فهرست پیگیری&lt;/b&gt;، مقاله‌ها و صفحه‌هایی که پیشتر به فهرست پیگیری‌‌تان افزودید را بیابید.</string>
@@ -1334,7 +1336,7 @@
   <string name="view_user_page">نمایش صفحهٔ کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
   <string name="thank_dialog_text">«تشکر» راهی آسان برای نشان دادن قدردانی از کار یک ویرایشگر در ویکی‌پدیا است. «تشکر» قابل واگرد نیست و به‌صورت عمومی قابل مشاهده است</string>
-  <string name="thank_dialog_positive_button_text">ارسال تشکر</string>
+  <string name="thank_dialog_positive_button_text">فرستادن تشکر</string>
   <string name="thank_dialog_negative_button_text">لغو</string>
   <string name="thank_success_message">«تشکر» شما به %s فرستاده شد 👍</string>
   <string name="menu_option_view_user_profile">مشاهدهٔ صفحهٔ کاربر</string>
@@ -1573,18 +1575,12 @@
   <string name="survey_dialog_general_no">خیر</string>
   <string name="survey_dialog_general_maybe">شاید</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">بازخورد ارسال شد.</string>
-  <string name="on_this_day_game_pause_title">بازی متوقف شود؟</string>
-  <string name="on_this_day_game_pause_body">پیشرفت شما برای امروز ذخیره خواهد شد. بازی را می‌توانید در خوراک مشاهدهٔ خود بیابید.</string>
-  <string name="on_this_day_game_pause_negative">ادامه دادن به بازی</string>
-  <string name="on_this_day_game_pause_positive">گرفتم</string>
   <string name="on_this_day_game_stats_average_score">میانگین امتیاز</string>
   <string name="on_this_day_game_menu_info">اطلاعات بیشتر</string>
   <string name="on_this_day_game_article_related_event_title">رویداد مرتبط با این مقاله</string>
   <string name="on_this_day_game_notification_undo">خنثی‌سازی</string>
-  <string name="year_in_review_entry_dialog_continue">ادامه</string>
-  <plurals name="year_in_review_read_count_headline">
-    <item quantity="one">شما امسال %d مقاله را مطالعه کرده‌اید</item>
-    <item quantity="other">شما امسال %d مقاله را مطالعه کرده‌اید</item>
-  </plurals>
   <string name="year_in_review_survey_submit">ثبت</string>
+  <string name="donation_reminders_settings_no_thanks_btn_label">نه ممنون</string>
+  <string name="donation_reminders_settings_learn_more_button">بیشتر بدانید</string>
+  <string name="donation_reminders_settings_report_button">مشکل با ویژگی</string>
 </resources>

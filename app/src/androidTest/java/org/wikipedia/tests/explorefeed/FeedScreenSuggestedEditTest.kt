@@ -12,6 +12,7 @@ import org.wikipedia.robots.feature.LoginRobot
 import org.wikipedia.robots.navigation.BottomNavRobot
 import org.wikipedia.robots.screen.HomeScreenRobot
 
+// MARK: requires login
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
@@ -28,6 +29,7 @@ class FeedScreenSuggestedEditTest : BaseTest<MainActivity>(
         // Following test requires login
         // 1. Notification click
         // 2. Suggested Edit Visibility
+        setDeviceOrientation(isLandscape = false)
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         loginRobot

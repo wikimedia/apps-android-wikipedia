@@ -1,10 +1,10 @@
 package org.wikipedia.suggestededits
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -36,7 +36,7 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
     override fun onLinkClick(view: OnboardingPageView, url: String) {
         when (url) {
             "#privacy" -> FeedbackUtil.showPrivacyPolicy(requireContext())
-            else -> UriUtil.handleExternalLink(requireActivity(), Uri.parse(url))
+            else -> UriUtil.handleExternalLink(requireActivity(), url.toUri())
         }
     }
 

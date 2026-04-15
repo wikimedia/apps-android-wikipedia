@@ -38,7 +38,7 @@
   <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="error_back">Grįžti atgal</string>
   <string name="error_next">Kitas</string>
-  <string name="menu_clear_all_history">Valyti istoriją</string>
+  <string name="menu_clear_all_history" fuzzy="true">Valyti istoriją</string>
   <string name="history_item_deleted">%s pašalintas iš istorijos</string>
   <string name="history_items_deleted">%d straipsniai pašalinti iš sąrašo</string>
   <string name="history_item_delete_undo">Anuliuoti</string>
@@ -51,7 +51,7 @@
   <string name="wikimedia_commons">Vikiteka</string>
   <string name="wikidata">Vikiduomenys</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
-  <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
   <string name="dialog_message_clear_history_yes">Taip</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Dalintis per</string>
@@ -227,7 +227,6 @@
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -1026,8 +1025,6 @@
   <string name="insert_media_insert_button">Įterpti</string>
   <string name="main_drawer_help">Pagalba</string>
   <string name="main_drawer_login">Prisijunkite / užsiregistruokite prie Vikipedijos</string>
-  <string name="main_tooltip_text">Sveiki, %s, ar žinojote, kad visi gali redaguoti Vikipediją?</string>
-  <string name="main_tooltip_text_v2">Ar žinojote, kad visi gali redaguoti Vikipediją?</string>
   <string name="main_tooltip_action_button">Pradėkite</string>
   <string name="main_tooltip_watchlist_title">Stebimųjų sąrašas</string>
   <string name="main_tooltip_watchlist_text">Ankščiau pridėtus į stebimųjų sąrašą straipsnius ir puslapius rasite Daugiau meniu &lt;b&gt;Stebimųjų sąraše&lt;/b&gt;.</string>

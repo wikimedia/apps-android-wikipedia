@@ -15,12 +15,13 @@
   <string name="page_tabs_back">Артка</string>
   <string name="nav_item_forward">Алдыга</string>
   <string name="search_hint">Википедиядан издөө</string>
+  <string name="search_icon_content_description">Издөө</string>
   <string name="nav_item_search">Издөө</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="page_error_back_to_main">Артка кайтуу</string>
   <string name="error_next">Кийинки</string>
-  <string name="menu_clear_all_history">Тарыхты тазалоо</string>
+  <string name="menu_clear_all_history" fuzzy="true">Тарыхты тазалоо</string>
   <string name="history_item_delete_undo">Жокко чыгаруу</string>
   <string name="notification_archive_undo">Жокко чыгаруу</string>
   <string name="history_list_title">Тарых</string>
@@ -159,6 +160,7 @@
   <string name="gallery_menu_share">Бөлүшүү</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
+  <string name="format_error_server_message">Билдирме: \"%s\"</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
   <string name="page_footer_license_text">Башкача белгиленбесе, мазмун $1 лицензиясы боюнча жеткиликтүү.</string>
   <string name="article_menu_bar_language_button">Тил</string>
@@ -167,6 +169,7 @@
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Түнкү</string>
+  <string name="reading_list_menu_rename">Аталышты/сыпаттаманы түзөтүү</string>
   <string name="reading_list_item_delete_undo">Жокко чыгаруу</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>
@@ -187,8 +190,10 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_save">Жарыялоо</string>
+  <string name="description_edit_read">Окуу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
   <string name="description_edit_success_done">Даяр</string>
+  <string name="customize_toolbar_category_menu">Меню</string>
   <string name="suggested_edits_image_caption_summary_title_source">Булак</string>
   <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
@@ -198,6 +203,7 @@
   <string name="file_page_edit_button_content_description">%s түзөтүү</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="onboarding_continue">Улантуу</string>
+  <string name="app_shortcuts_random">Туш келди</string>
   <string name="app_shortcuts_search">Издөө</string>
   <string name="more_language_options">көбүрөөк</string>
   <string name="remove_language_dialog_cancel_button_text">Жокко чыгаруу</string>

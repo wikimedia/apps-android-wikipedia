@@ -1,7 +1,7 @@
 package org.wikipedia.feed.topread
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -15,9 +15,9 @@ class TopReadTest {
     @Throws(Throwable::class)
     fun testUnmarshalManyArticles() {
         val subject = unmarshal("most_read.json")
-        MatcherAssert.assertThat(subject.localDate, Matchers.`is`(LocalDate.of(2016, 6, 1)))
-        MatcherAssert.assertThat(subject.articles, Matchers.notNullValue())
-        MatcherAssert.assertThat(subject.articles.size, Matchers.`is`(40))
+        assertEquals(LocalDate.of(2016, 6, 1), subject.localDate)
+        assertNotNull(subject.articles)
+        assertEquals(40, subject.articles.size)
     }
 
     companion object {

@@ -26,7 +26,7 @@
   <string name="page_error_back_to_main">Vai indareddu</string>
   <string name="error_back">Vai indareddu</string>
   <string name="error_next">Sighenti</string>
-  <string name="menu_clear_all_history">Isthudà isthòria</string>
+  <string name="menu_clear_all_history" fuzzy="true">Isthudà isthòria</string>
   <string name="history_item_deleted">%s buggaddu di l\'isthòria</string>
   <string name="history_items_deleted">%d arthìcuri buggaddi di l\'isthòria</string>
   <string name="history_item_delete_undo">Annulla</string>
@@ -115,7 +115,7 @@
   <string name="terms_of_use_description">Cundiziòni d\'usu</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="about_contributors_heading">Autori</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttorii</string>
   <string name="about_app_license_heading">Licèntzia</string>
   <string name="about_activity_title">Infuimmazioni</string>

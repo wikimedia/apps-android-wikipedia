@@ -13,7 +13,7 @@ import org.wikipedia.base.TestConfig
 class AppThemeRobot : BaseRobot() {
     fun toggleTheme() = apply {
         click.onDisplayedView(R.id.page_theme)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun switchOffMatchSystemTheme() = apply {
@@ -27,7 +27,7 @@ class AppThemeRobot : BaseRobot() {
 
     fun selectBlackTheme() = apply {
         scroll.toViewAndClick(R.id.button_theme_black)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyBackgroundIsBlack() = apply {
@@ -38,62 +38,62 @@ class AppThemeRobot : BaseRobot() {
         click.onViewWithId(R.id.page_theme)
         delay(TestConfig.DELAY_SHORT)
         scroll.toViewAndClick(R.id.button_theme_light)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickThemeIconOnEditPage() = apply {
         click.onDisplayedView(R.id.menu_edit_theme)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun increaseTextSize() = apply {
         scroll.toViewAndClick(R.id.buttonIncreaseTextSize)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun decreaseTextSize() = apply {
         scroll.toViewAndClick(R.id.buttonDecreaseTextSize)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applySerif() = apply {
         scroll.toViewAndClick(R.id.button_font_family_serif)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applySansSerif() = apply {
         scroll.toViewAndClick(R.id.button_font_family_sans_serif)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun toggleReadingFocusMode() = apply {
         scroll.toViewAndClick(R.id.theme_chooser_reading_focus_mode_switch)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applySepiaTheme() = apply {
         scroll.toViewAndClick(R.id.button_theme_sepia)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applyLightTheme() = apply {
         scroll.toViewAndClick(R.id.button_theme_light)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applyDarkTheme() = apply {
         scroll.toViewAndClick(R.id.button_theme_dark)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun applyBlackTheme() = apply {
         scroll.toViewAndClick(R.id.button_theme_black)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun toggleMatchSystemTheme() = apply {
         scroll.toViewAndClick(R.id.theme_chooser_match_system_theme_switch)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun backToHomeScreen() = apply {

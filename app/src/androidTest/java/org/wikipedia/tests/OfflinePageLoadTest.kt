@@ -19,15 +19,17 @@ class OfflinePageLoadTest : BaseTest<MainActivity>(
         systemRobot
             .clickOnSystemDialogWithText("Allow")
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
-            .pressBack()
+            .scrollAndPerform(title = FEATURED_ARTICLE) { position ->
+                clickOnFeaturedArticle(position)
+                pressBack()
+            }
         systemRobot
             .turnOffInternet()
         exploreFeedRobot
-            .scrollToItem(title = FEATURED_ARTICLE)
-            .clickOnFeaturedArticle()
-            .pressBack()
+            .scrollAndPerform(title = FEATURED_ARTICLE) { position ->
+                clickOnFeaturedArticle(position)
+                pressBack()
+            }
         systemRobot
             .turnOnInternet()
     }

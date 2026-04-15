@@ -11,8 +11,10 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
 @Parcelize
-class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
-    ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
+class TopReadListCard(
+    private val articles: TopRead,
+    val site: WikiSite
+) : ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_title)

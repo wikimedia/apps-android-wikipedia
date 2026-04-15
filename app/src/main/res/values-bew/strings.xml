@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Kombali</string>
   <string name="error_back">Kombali</string>
   <string name="error_next">Terus</string>
-  <string name="menu_clear_all_history">Bersiin riwayat</string>
+  <string name="menu_clear_all_history" fuzzy="true">Bersiin riwayat</string>
   <string name="history_item_deleted">%s dibuang deri riwayat</string>
   <string name="history_items_deleted">%d makalah dibuang deri riwayat</string>
   <string name="history_item_delete_undo">Balikin</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Bersiin riwayat pengubekan</string>
-  <string name="dialog_message_clear_history">Ni bakal ngapus semua lu punya riwayat pengubekan, èn nutup mana-mana lembaran nyang masing kebuka. Apa lu yakin?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ni bakal ngapus semua lu punya riwayat pengubekan, èn nutup mana-mana lembaran nyang masing kebuka. Apa lu yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Kaga\'</string>
   <string name="share_via">Dumanin liwat</string>
@@ -224,12 +224,10 @@
   <string name="privacy_policy_description">Belèd keresiaan</string>
   <string name="terms_of_use_description">Ketentuan pemakéan</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipédi:Pasal</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Pertanyaan_Sering_Android</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipédi:Bikinin_rèkening</string>
   <string name="about_libraries_heading">Miswar nyang dipaké</string>
   <string name="about_contributors_heading">Penyumbang</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Ni aplikasi udah diterjemahin ama penerjemah sukarèla di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ongji</string>
@@ -1184,8 +1182,6 @@
   <string name="insert_media_insert_button">Selesepin</string>
   <string name="main_drawer_help">Pertulungan</string>
   <string name="main_drawer_login">Masup / nimbrung ama Wikipédi</string>
-  <string name="main_tooltip_text">Tabé %s, nyaho kaga\' lu kalo sapa aja bisa mermak Wikipédi?</string>
-  <string name="main_tooltip_text_v2">Nyaho kaga\' lu kalo sapa aja bisa mermak Wikipédi?</string>
   <string name="main_tooltip_action_button">Mulain</string>
   <string name="main_tooltip_watchlist_title">Daptar pantengan</string>
   <string name="main_tooltip_watchlist_text">Temuin makalah èn halaman nyang sebelonnya lu tambahin ke lu punya daptar pantengan di menu Laènnya di bawahnya &lt;b&gt;Daptar Pantengan&lt;/b&gt;.</string>

@@ -1,13 +1,11 @@
 package org.wikipedia.page
 
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
 
 class FindInWebPageActionProvider(private val fragment: PageFragment,
-                                  private val articleFindInPageInteractionEvent: ArticleFindInPageInteractionEvent,
-                                  private val articleFindInPageInteractionEventMetricsPlatform: ArticleFindInPageInteraction) :
+                                  private val articleFindInPageInteractionEvent: ArticleFindInPageInteractionEvent) :
         FindInPageActionProvider(fragment.requireContext()), FindInPageListener {
 
     private var searchQuery: String? = null
@@ -29,14 +27,12 @@ class FindInWebPageActionProvider(private val fragment: PageFragment,
 
     override fun onFindNextClicked() {
         articleFindInPageInteractionEvent.addFindNext()
-        articleFindInPageInteractionEventMetricsPlatform.addFindNext()
         fragment.webView.findNext(true)
     }
 
     override fun onFindNextLongClicked() {
         // Go to the last match by going to the first one and then going one back.
         articleFindInPageInteractionEvent.addFindPrev()
-        articleFindInPageInteractionEventMetricsPlatform.addFindPrev()
         fragment.webView.clearMatches()
         searchQuery?.let {
             fragment.webView.findAllAsync(it)
@@ -45,14 +41,12 @@ class FindInWebPageActionProvider(private val fragment: PageFragment,
 
     override fun onFindPrevClicked() {
         articleFindInPageInteractionEvent.addFindPrev()
-        articleFindInPageInteractionEventMetricsPlatform.addFindPrev()
         fragment.webView.findNext(false)
     }
 
     override fun onFindPrevLongClicked() {
         // Go to the first match by "restarting" the search.
         articleFindInPageInteractionEvent.addFindNext()
-        articleFindInPageInteractionEventMetricsPlatform.addFindNext()
         fragment.webView.clearMatches()
         searchQuery?.let {
             fragment.webView.findAllAsync(it)
@@ -65,7 +59,6 @@ class FindInWebPageActionProvider(private val fragment: PageFragment,
 
     override fun onSearchTextChanged(text: String?) {
         articleFindInPageInteractionEvent.findText = text.orEmpty()
-        articleFindInPageInteractionEventMetricsPlatform.findText = text.orEmpty()
         if (!text.isNullOrEmpty()) {
             searchQuery = text
             findInPage(text)

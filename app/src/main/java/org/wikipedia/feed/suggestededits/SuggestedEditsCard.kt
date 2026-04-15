@@ -8,9 +8,11 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
-class SuggestedEditsCard(val cardTypes: List<DescriptionEditActivity.Action>,
-                         wiki: WikiSite,
-                         val age: Int) : WikiSiteCard(wiki) {
+class SuggestedEditsCard(
+    val cardTypes: List<DescriptionEditActivity.Action>,
+    wiki: WikiSite,
+    val age: Int
+) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS

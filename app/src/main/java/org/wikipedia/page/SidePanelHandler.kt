@@ -20,7 +20,6 @@ import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.ArticleTocInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleTocInteraction
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.extensions.getString
@@ -45,7 +44,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private var rtl = false
     private var currentItemSelected = 0
     private var articleTocInteractionEvent: ArticleTocInteractionEvent? = null
-    private var metricsPlatformArticleEventTocInteraction: ArticleTocInteraction? = null
 
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
         if (!fragment.isAdded) {
@@ -106,9 +104,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         log()
         articleTocInteractionEvent = ArticleTocInteractionEvent(page.pageProperties.pageId, page.title.wikiSite.dbName(), tocAdapter.count)
         articleTocInteractionEvent?.logClick()
-
-        metricsPlatformArticleEventTocInteraction = ArticleTocInteraction(fragment, tocAdapter.count)
-        metricsPlatformArticleEventTocInteraction?.logClick()
     }
 
     private fun scrollToSection(section: Section?) {
@@ -125,7 +120,6 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         currentItemSelected = -1
         onScrollerMoved(0f, false)
         articleTocInteractionEvent?.scrollStart()
-        metricsPlatformArticleEventTocInteraction?.scrollStart()
     }
 
     fun showToC() {
@@ -136,12 +130,10 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     fun hide() {
         binding.navigationDrawer.closeDrawers()
         articleTocInteractionEvent?.scrollStop()
-        metricsPlatformArticleEventTocInteraction?.scrollStop()
     }
 
     fun log() {
         articleTocInteractionEvent?.logEvent()
-        metricsPlatformArticleEventTocInteraction?.logEvent()
     }
 
     fun setEnabled(enabled: Boolean) {

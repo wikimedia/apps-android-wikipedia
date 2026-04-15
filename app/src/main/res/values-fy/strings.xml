@@ -29,7 +29,7 @@
   <string name="offline_load_error_retry">Nochris besykje</string>
   <string name="page_error_back_to_main">Weromgean</string>
   <string name="error_back">Weromgean</string>
-  <string name="menu_clear_all_history">Skiednis wiskje</string>
+  <string name="menu_clear_all_history" fuzzy="true">Skiednis wiskje</string>
   <string name="history_item_deleted">%s út \'e skiednis fuorthelle</string>
   <string name="history_items_deleted">%d artikels út \'e skiednis fuorthelle</string>
   <string name="history_item_delete_undo">Werombringe</string>
@@ -38,7 +38,7 @@
   <string name="search_tab_tooltip">Ikoan nochris oantikje foar it fuort yntypen fan in sykterm.</string>
   <string name="history_list_title">Skiednis</string>
   <string name="dialog_title_clear_history">Blêderskiednis wiskje</string>
-  <string name="dialog_message_clear_history">Sa wiskje jo jo hiele blêderskiednis, en wurde iepensteande tabblêden sletten. Wolle jo dat?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Sa wiskje jo jo hiele blêderskiednis, en wurde iepensteande tabblêden sletten. Wolle jo dat?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nee</string>
   <string name="share_via">Diele fia</string>
@@ -189,14 +189,12 @@
   <string name="privacy_policy_description">Privacybelied</string>
   <string name="terms_of_use_description">Gebrûksbetingsten</string>
   <string name="about_wikipedia_url">https://fy.wikipedia.org/wiki/Wikipedy:Wat_is_Wikipedia</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://fy.wikipedia.org/wiki/Wikipedy:Gasteboek</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fy</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fy</string>
   <string name="about_libraries_heading">Brûkte subprogrammatuer</string>
   <string name="about_contributors_heading">Bydragers</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tiimside&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Tiimside&lt;/a&gt;</string>
   <string name="about_translators_heading">Oersetters</string>
   <string name="about_translators_translatewiki">Dizze app is ferfryske troch de frijwillige oersetters fan &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisinsje</string>
@@ -898,8 +896,6 @@
   <string name="wikitext_preview_link">Proefbyld keppeling</string>
   <string name="main_drawer_help">Help</string>
   <string name="main_drawer_login">Oanmelde / kom by de Wikipedy</string>
-  <string name="main_tooltip_text">Goeie, %s. Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
-  <string name="main_tooltip_text_v2">Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
   <string name="main_tooltip_action_button">Begjinne</string>
   <string name="main_tooltip_watchlist_title">Folchlist</string>
   <string name="main_tooltip_watchlist_text">Fyn de siden werom dy\'t jo op jo folchlist set hawwe, yn it Mear-menu ûnder &lt;b&gt;Folchlist&lt;/b&gt;.</string>

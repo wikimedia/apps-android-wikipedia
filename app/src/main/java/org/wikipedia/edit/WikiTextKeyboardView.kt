@@ -1,7 +1,6 @@
 package org.wikipedia.edit
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
@@ -41,8 +40,8 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
             }
         }
 
-        binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
-        binding.wikitextButtonRedo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
+        binding.wikitextButtonUndo.visibility = VISIBLE
+        binding.wikitextButtonRedo.visibility = VISIBLE
         binding.wikitextButtonTextFormat.setExpandable(true)
         binding.wikitextButtonHeading.setExpandable(true)
 

@@ -10,12 +10,7 @@ import org.wikipedia.util.ResourceUtil.getThemedColor
 
 abstract class PreferenceLoaderFragment : PreferenceFragmentCompat(), PreferenceLoader {
     override fun onCreatePreferences(bundle: Bundle?, s: String?) {
-        requireActivity().window.decorView.post {
-            if (!isAdded) {
-                return@post
-            }
-            loadPreferences()
-        }
+        loadPreferences()
     }
 
     override fun onCreateRecyclerView(inflater: LayoutInflater, parent: ViewGroup, savedInstanceState: Bundle?): RecyclerView {

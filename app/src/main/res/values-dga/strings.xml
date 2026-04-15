@@ -30,7 +30,7 @@
   <string name="page_error_back_to_main">Gaa puori</string>
   <string name="error_back">Gaa puori</string>
   <string name="error_next">Gaŋene</string>
-  <string name="menu_clear_all_history">Meele a Dabaŋkoroŋ</string>
+  <string name="menu_clear_all_history" fuzzy="true">Meele a Dabaŋkoroŋ</string>
   <string name="history_item_deleted">%s iri yi Dabaŋkoroŋ</string>
   <string name="history_items_deleted">%d aketelehi naŋ iri yi Dabaŋkoroŋ</string>
   <string name="history_item_delete_undo">Leɛ iri a toma na bare</string>
@@ -43,7 +43,7 @@
   <string name="wikimedia_commons">Wikimiideɛ Commons</string>
   <string name="wikidata">Wikideeta</string>
   <string name="dialog_title_clear_history">Meele a viili goɔle dabaŋkroŋ</string>
-  <string name="dialog_message_clear_history">Ŋaaŋ na sãã la fo viili goɔle dabaŋkroŋ zaa, a kyɛ page a tabs ŋa fo naŋ yuo tona toma pampana ŋa. Fo boɔbo la lɛ ŋa?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ŋaaŋ na sãã la fo viili goɔle dabaŋkroŋ zaa, a kyɛ page a tabs ŋa fo naŋ yuo tona toma pampana ŋa. Fo boɔbo la lɛ ŋa?</string>
   <string name="dialog_message_clear_history_yes">Ɔɔ</string>
   <string name="dialog_message_clear_history_no">Aayi</string>
   <string name="share_via">Tɔre ko a yi</string>
@@ -227,12 +227,8 @@
   <string name="privacy_policy_description">Gondo yɛlwaanoo</string>
   <string name="terms_of_use_description">Sagebo yelsɛgeree</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:Yɛlɛ</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Gama binziiri toŋ</string>
   <string name="about_contributors_heading">Tontomba</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">Leɛ leɛre ba</string>
   <string name="about_translators_translatewiki">A app ŋa da leɛŋ a yi leɛ leɛreba ŋa naŋ maŋ tona zaala toma na a yi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Sori terebo</string>
@@ -1152,8 +1148,6 @@
   <string name="templates_param_suggested_value">Aseŋ %s</string>
   <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
-  <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
-  <string name="main_tooltip_text_v2">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="main_tooltip_action_button">De piiloŋ</string>
   <string name="main_tooltip_watchlist_title">Kaa gama</string>
   <string name="main_tooltip_watchlist_text">Bɔ atekele ane peegyiri fo naŋ paale a fo kaabo pɛllɛ ka a ba kɔɔre a yaga menu poɔ a puli kyɛ &lt;b&gt;watchlist&lt;/b&gt;.</string>

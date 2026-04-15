@@ -109,10 +109,16 @@ object LanguageUtil {
     }
 
     fun convertToUselangIfNeeded(languageCode: String): String {
-        return if (languageCode == "test") "uselang" else languageCode
+        return if (languageCode.startsWith(AppLanguageLookUpTable.TEST_LANGUAGE_CODE)) "uselang" else languageCode
     }
 
     fun formatLangCodeForButton(languageCode: String): String {
         return languageCode.replace("-", "-\n")
+    }
+
+    fun getSupportedLanguageCodes(list: List<String>): List<String> {
+        return list.flatMap { langCode ->
+            WikipediaApp.instance.languageState.getLanguageVariants(langCode) ?: listOf(langCode)
+        }
     }
 }

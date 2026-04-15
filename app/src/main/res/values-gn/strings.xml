@@ -27,7 +27,7 @@
   <string name="page_error_back_to_main">Esẽ</string>
   <string name="error_back">Esẽ</string>
   <string name="error_next">Rire</string>
-  <string name="menu_clear_all_history">Embogue tembiasakue</string>
+  <string name="menu_clear_all_history" fuzzy="true">Embogue tembiasakue</string>
   <string name="history_item_deleted">%s ojeipe\'a tembiasakuégui</string>
   <string name="history_items_deleted">%d kuatia ojeipe\'a tembiasakuégui</string>
   <string name="history_item_delete_undo">Emboguevi</string>
@@ -40,7 +40,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Embogue jeheka rembiasakue</string>
-  <string name="dialog_message_clear_history">Kóva omboguepáta ne kundaha rembiasakue, ha ombotýta oimeraẽva kuatia ojepe\'áva ko\'ágã. Upeichaite piko reipota?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Kóva omboguepáta ne kundaha rembiasakue, ha ombotýta oimeraẽva kuatia ojepe\'áva ko\'ágã. Upeichaite piko reipota?</string>
   <string name="dialog_message_clear_history_yes">Upéicha</string>
   <string name="dialog_message_clear_history_no">Nahániri</string>
   <string name="share_via">Eikuaauka</string>

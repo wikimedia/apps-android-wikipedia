@@ -1,7 +1,16 @@
 package org.wikipedia.robots.feature
 
 import BaseRobot
+import android.content.Context
 import android.util.Log
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.test.longClick
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -13,12 +22,14 @@ import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import junit.framework.AssertionFailedError
 import org.hamcrest.Matchers.allOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.base.TestConfig
 import org.wikipedia.base.TestThemeColorType
 import org.wikipedia.base.TestWikipediaColors
+import org.wikipedia.base.utils.assertTextColor
 import org.wikipedia.theme.Theme
 
 class SearchRobot : BaseRobot() {
@@ -42,12 +53,6 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_SHORT)
     }
 
-    fun clickSearchContainer() = apply {
-        // Click the Search box
-        click.onDisplayedView(R.id.search_container)
-        delay(TestConfig.DELAY_SHORT)
-    }
-
     fun clickSearchInsideSearchFragment() = apply {
         click.onViewWithId(R.id.search_cab_view)
         delay(TestConfig.DELAY_SHORT)
@@ -63,7 +68,7 @@ class SearchRobot : BaseRobot() {
 
     fun verifySearchResult(expectedTitle: String) = apply {
         // Make sure one of the results matches the title that we expect
-        verify.withTextIsDisplayed(R.id.page_list_item_title, expectedTitle)
+        composeTestRule.onNodeWithText(expectedTitle).assertExists()
     }
 
     fun verifyHistoryArticle(articleTitle: String) = apply {
@@ -72,14 +77,19 @@ class SearchRobot : BaseRobot() {
 
     fun clickFilterHistoryButton() = apply {
         click.onViewWithId(R.id.history_filter)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
+    }
+
+    fun closeFilterList() = apply {
+        onView(withId(androidx.appcompat.R.id.action_mode_close_button)).perform(click())
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun removeTextByTappingTrashIcon() = apply {
         onView(withId(androidx.appcompat.R.id.search_close_btn))
             .check(matches(isDisplayed()))
             .perform(click())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifySearchTermIsCleared() = apply {
@@ -87,12 +97,13 @@ class SearchRobot : BaseRobot() {
     }
 
     fun clickOnItemFromSearchList(position: Int) = apply {
-        list.clickOnItemInList(R.id.search_results_list, position)
+        composeTestRule.onNodeWithTag("search_list$position").performClick()
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun longClickOnItemFromSearchList(position: Int) = apply {
-        list.longClickOnItemInList(R.id.search_results_list, position)
+        composeTestRule.onNodeWithTag("search_list$position")
+            .performTouchInput { longClick() }
         delay(TestConfig.DELAY_SHORT)
     }
 
@@ -112,12 +123,16 @@ class SearchRobot : BaseRobot() {
 
     fun clickLanguage(languageCode: String) = apply {
         val language = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode) ?: ""
-        click.onDisplayedViewWithText(viewId = R.id.language_label, text = language)
-        delay(TestConfig.DELAY_MEDIUM)
+        list.selectTabWithText(R.id.horizontal_scroll_languages, language)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun checkSearchListItemHasRTLDirection() = apply {
-        verify.rTLDirectionOfRecyclerViewItem(R.id.search_results_list)
+        val node = composeTestRule.onNodeWithTag("search_list").fetchSemanticsNode()
+        val layoutDirection = node.layoutInfo.layoutDirection
+        assert(layoutDirection == LayoutDirection.Rtl) {
+            "Expected RTL layout direction but found $layoutDirection"
+        }
     }
 
     fun clickSave(action: ((isSaved: Boolean) -> Unit)? = null) = apply {
@@ -147,6 +162,23 @@ class SearchRobot : BaseRobot() {
         pressBack()
     }
 
+    fun pressBackUntilExploreFeed() = apply {
+        val maxAttempts = 3
+        var attempts = 0
+        while (attempts < maxAttempts) {
+            try {
+                verify.viewWithIdDoesNotExist(R.id.feed_view)
+                pressBack()
+                delay(TestConfig.DELAY_SHORT)
+                attempts++
+            } catch (_: AssertionFailedError) {
+                break
+            } catch (_: Exception) {
+                break
+            }
+        }
+    }
+
     fun swipeToDelete(position: Int, title: String) = apply {
         onView(withId(R.id.history_list))
             .perform(
@@ -155,7 +187,7 @@ class SearchRobot : BaseRobot() {
                     ViewActions.swipeLeft()
                 )
             )
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyArticleRemoved(title: String) = apply {
@@ -173,14 +205,11 @@ class SearchRobot : BaseRobot() {
         delay(TestConfig.DELAY_LARGE)
     }
 
-    fun assertColorOfTitleInTheSearchList(position: Int, theme: Theme) = apply {
-        val color = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
-        verify.assertColorForChildItemInAList(
-            listId = R.id.search_results_list,
-            childItemId = R.id.page_list_item_title,
-            position = position,
-            colorResId = color
-        )
+    fun assertColorOfTitleInTheSearchList(context: Context, position: Int, theme: Theme) = apply {
+        val colorRes = TestWikipediaColors.getGetColor(theme, TestThemeColorType.PRIMARY)
+        val color = Color(ContextCompat.getColor(context, colorRes))
+        composeTestRule.onNodeWithTag("search_list$position")
+            .assertTextColor(color)
     }
 
     fun assertColorOfTitleInTheHistoryList(position: Int, theme: Theme) = apply {

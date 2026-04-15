@@ -11,7 +11,7 @@
   <string name="search_hint">Википєдїи исканиѥ</string>
   <string name="error_network_error" fuzzy="true">сѣтьна достѫпа нѣстъ</string>
   <string name="page_error_retry">опакꙑ искоуси сѧ</string>
-  <string name="menu_clear_all_history">їсторїѩ обитиѥ</string>
+  <string name="menu_clear_all_history" fuzzy="true">їсторїѩ обитиѥ</string>
   <string name="dialog_title_clear_history">исканиꙗ їсторїѩ обитиѥ</string>
   <string name="share_via">раꙁдѣлити прѣꙁь</string>
   <string name="menu_page_font_and_theme">боукъвиѥ и ѳєма</string>

@@ -106,6 +106,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 FeedContentType.PLACES.isEnabled = false
                 FeedContentType.saveState()
             }
+            card.type() == CardType.WIKI_GAMES -> {
+                FeedContentType.WIKI_GAMES.isEnabled = false
+                FeedContentType.saveState()
+            }
             else -> {
                 addHiddenCard(card)
             }
@@ -127,6 +131,10 @@ abstract class FeedCoordinatorBase(private val context: Context) {
             }
             card.type() == CardType.PLACES -> {
                 FeedContentType.PLACES.isEnabled = true
+                FeedContentType.saveState()
+            }
+            card.type() == CardType.WIKI_GAMES -> {
+                FeedContentType.WIKI_GAMES.isEnabled = true
                 FeedContentType.saveState()
             }
             else -> unHideCard(card)

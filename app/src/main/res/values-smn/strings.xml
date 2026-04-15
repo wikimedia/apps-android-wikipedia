@@ -15,6 +15,7 @@
   <string name="search_hint">Uusâ Wikipediast</string>
   <string name="search_hint_voice_search">Jienâuuccâm</string>
   <string name="search_hint_search_languages">Uusâ kielâ</string>
+  <string name="search_icon_content_description">Uuccâm</string>
   <string name="filter_hint_filter_my_lists_and_articles">Sillii muu listoid</string>
   <string name="nav_item_suggested_edits">Hammiimeh</string>
   <string name="nav_item_more">Lase</string>
@@ -28,7 +29,7 @@
   <string name="page_error_back_to_main">Maacâ</string>
   <string name="error_back">Maacâ</string>
   <string name="error_next">Čuávuvâš</string>
-  <string name="menu_clear_all_history">Kuorrii historjá</string>
+  <string name="menu_clear_all_history">Kuorrii luuhâmhistorjá</string>
   <string name="history_item_deleted">%s sikkum historjást</string>
   <string name="history_item_delete_undo">Koomeet</string>
   <string name="notification_archive_undo">Koomeet</string>
@@ -39,7 +40,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Kuorrii laađđâmhistorjá</string>
-  <string name="dialog_message_clear_history">Taat sikko puoh tuu laađđâmhistorjá já kiddee puoh ávus loostâid. Lah-uv vises?</string>
+  <string name="dialog_message_clear_history">Taat sikko puoh tuu laađđâmhistorjá. Lah-uv vises?</string>
   <string name="dialog_message_clear_history_yes">Joo</string>
   <string name="dialog_message_clear_history_no">Ij</string>
   <string name="share_via">Jyevi palvâlusâst</string>
@@ -75,6 +76,7 @@
   <string name="menu_page_open_a_new_tab">Leehâst uđđâ koskâloostâ</string>
   <string name="menu_page_new_tab">Uđđâ koskâlostâ</string>
   <string name="menu_page_reading_lists">Luuhâmlistoh</string>
+  <string name="menu_page_archive">Arkkâdâh</string>
   <string name="menu_long_press_open_page">Leehâst</string>
   <string name="menu_long_press_open_in_new_tab">Leehâst uđđâ koskâloostân</string>
   <string name="menu_long_press_copy_page">Kopijist liiŋkâ čujottâs</string>
@@ -180,6 +182,7 @@
   <string name="empty_tab_title">Uđđâ koskâlostâ</string>
   <string name="menu_save_all_tabs">Vuorkkii puoh koskâloostâid</string>
   <string name="temp_account_not_logged_in">Jieh lah čáládâttâm siisâ</string>
+  <string name="temp_account_end_session">Jooskâ kevttimpuudâ</string>
   <string name="article_menu_bar_save_button">Vuorkkii</string>
   <string name="article_menu_bar_language_button">Kielâ</string>
   <string name="article_menu_bar_search_button">Uusâ</string>
@@ -308,6 +311,7 @@
   <string name="suggested_edits_task_action_text_add">Lasseet</string>
   <string name="suggested_edits_task_action_text_translate">Jurgâl</string>
   <string name="suggested_edits_image_captions">Koveteevstah</string>
+  <string name="suggested_edits_image_tags_publishing">Almostitmin</string>
   <string name="suggested_edits_image_tags_published">Almostittum</string>
   <string name="suggested_edits_image_tags_published_list">Almostittum kilgoleh</string>
   <string name="suggested_edits_image_tags_search">Uusâ kilgolijd</string>
@@ -320,10 +324,12 @@
   <string name="suggested_edits_contribution_image_label">Kove</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Čáládât siisâ / seervâ Wikipedian</string>
   <string name="image_recommendation_reject_submit">Vuolgât</string>
+  <string name="activity_tab_menu_info">Lasetiäđuh</string>
   <string name="file_page_activity_title">Tiätuvuárkkásijđo</string>
   <string name="file_page_add_image_caption_button">Lasseet koveteevstâ</string>
   <string name="file_page_add_image_tags_button">Lasseet kovekilgolijd</string>
   <string name="description_edit_login_cancel_button_text">Jooskâ</string>
+  <string name="onboarding_skip">Njuškii paijeel</string>
   <string name="onboarding_continue">Juáđhi</string>
   <string name="onboarding_multilingual_add_language_text">Lasseet teikkâ mute kielâid</string>
   <string name="app_shortcuts_search">Uusâ</string>
@@ -349,8 +355,10 @@
   <string name="insert_media_settings_caption">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Kobdodâh</string>
   <string name="insert_media_insert_button">Lasseet</string>
   <string name="templates_param_optional_hint">%s (valjimiävtulâš)</string>
+  <string name="templates_learn_more_link">Lasetiäđuh</string>
   <string name="main_drawer_help">Iše</string>
   <string name="main_drawer_login">Čáládât siisâ / seervâ Wikipedian</string>
   <string name="main_tooltip_watchlist_title">Tarkkumlisto</string>
@@ -359,6 +367,7 @@
   <string name="text_input_dialog_cancel_button_text">Jooskâ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Jooskâ</string>
   <string name="talk_title">Savâstâllâm</string>
+  <string name="talk_new_topic">Uđđâ fáddá</string>
   <string name="talk_warn_save_dialog_title">Vuorkkii nubástusâid?</string>
   <string name="talk_warn_save_dialog_message">Vuorkkii uđđâ viestân</string>
   <string name="talk_warn_save_dialog_existing_new_message">Vuorkkii uđđâ viestân liiston</string>
@@ -369,6 +378,7 @@
   <string name="talk_search_hint">Uusâ viestâid</string>
   <string name="talk_list_item_overflow_subscribe">Tiiláá</string>
   <string name="talk_list_item_overflow_share">Jyevi</string>
+  <string name="menu_option_share_talk_discussion">Jyevi savâstâllâm</string>
   <string name="menu_option_share_talk_page">Jyevi savâstâllâmsiijđo</string>
   <string name="menu_option_share_edit">Jyevi hammim</string>
   <string name="menu_option_user_page">Kevttee %s kevtteesijđo</string>
@@ -383,17 +393,28 @@
   <string name="watchlist_filter_talk">Savâstâllâmsiijđoh</string>
   <string name="watchlist_filter_pages">Siijđoh</string>
   <string name="watchlist_page_deleted">Sikkum</string>
+  <string name="watchlist_filter_user_status_registered">Registeristum</string>
   <string name="preview_edit_watch_this_page">Tarkkuu taam siijđo</string>
   <string name="action_item_categories">Luokah</string>
   <string name="category_tab_subcategories">Vyeliluokah</string>
   <string name="shareable_reading_lists_new_indicator">*uđđâ*</string>
+  <string name="reading_list_share_menu_label">Jyevi...</string>
   <string name="talk_templates_new_message_save">Vuorkkii</string>
   <string name="talk_templates_new_message_dialog_title">Vuorkkii nubástusâid</string>
   <string name="talk_templates_new_message_dialog_save">Vuorkkii</string>
   <string name="talk_templates_edit_message_dialog_save">Vuorkkii</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Čääiti kevtteesiijđo</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Toopâ</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registeristum</string>
+  <string name="patroller_tasks_overflow_learn">Lasetiäđuh</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Macâttâs</string>
   <string name="talk_templates_menu_edit_title">Mute</string>
   <string name="places_toggle_buttons_map">Kárttá</string>
   <string name="places_toggle_buttons_list">Listo</string>
   <string name="survey_dialog_submit">Vuolgât</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Jyevi</string>
+  <string name="on_this_day_game_menu_info">Lasetiäđuh</string>
+  <string name="year_in_review_learn_more">Lasetiäđuh</string>
+  <string name="donation_reminders_settings_learn_more_button">Lasetiäđuh</string>
+  <string name="hybrid_search_onboarding_learn_more">Lasetiäđuh</string>
 </resources>

@@ -2,15 +2,16 @@ package org.wikipedia.edit.insertmedia
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.net.toUri
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
@@ -64,6 +65,8 @@ class InsertMediaActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         setImageZoomHelper()
         supportActionBar?.title = getString(R.string.insert_media_title)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         binding.refreshView.setOnRefreshListener {
             binding.refreshView.isRefreshing = false
@@ -158,7 +161,7 @@ class InsertMediaActivity : BaseActivity() {
                         ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText, recommendationSource = viewModel.selectedImageSource,
                             recommendationSourceProjects = viewModel.selectedImageSourceProjects, acceptanceState = "accepted"), selectedImage.wikiSite.languageCode)
                 }
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             R.id.menu_insert -> {
@@ -187,23 +190,25 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (insertMediaSettingsFragment.handleBackPressed()) {
-            if (insertMediaAdapter != null) {
-                binding.imageInfoContainer.isVisible = true
-                binding.searchContainer.isVisible = true
-                supportActionBar?.title = getString(R.string.insert_media_title)
-                adjustRefreshViewLayoutParams(false)
-            } else {
-                finish()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (insertMediaSettingsFragment.handleBackPressed()) {
+                if (insertMediaAdapter != null) {
+                    binding.imageInfoContainer.isVisible = true
+                    binding.searchContainer.isVisible = true
+                    supportActionBar?.title = getString(R.string.insert_media_title)
+                    adjustRefreshViewLayoutParams(false)
+                } else {
+                    finish()
+                }
+                return
             }
-            return
+            if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
+                insertMediaSettingsFragment.show()
+                return
+            }
+            finish()
         }
-        if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
-            insertMediaSettingsFragment.show()
-            return
-        }
-        super.onBackPressed()
     }
 
     private fun adjustRefreshViewLayoutParams(removeLayoutBehavior: Boolean) {
@@ -249,7 +254,7 @@ class InsertMediaActivity : BaseActivity() {
             binding.selectedImageContainer.isVisible = true
             binding.progressBar.isVisible = true
             binding.selectedImage.loadImage(
-                Uri.parse(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
+                ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE).toUri(),
                 listener = object : ImageLoadListener {
                     override fun onSuccess(image: Any, bmpWidth: Int, bmpHeight: Int) {
                         if (!isDestroyed) {

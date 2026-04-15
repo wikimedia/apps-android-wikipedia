@@ -2,6 +2,9 @@ package org.wikipedia.onboarding
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.activity.addCallback
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.settings.Prefs
 
@@ -14,13 +17,15 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
         finish()
     }
 
-    override fun onBackPressed() {
-        if (fragment.onBackPressed()) {
-            return
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        onBackPressedDispatcher.addCallback(this) {
+            if (fragment.onBackPressed()) {
+                return@addCallback
+            }
+            setResult(RESULT_OK)
+            finish()
         }
-        setResult(RESULT_OK)
-        finish()
-        super.onBackPressed()
     }
 
     override fun createFragment(): InitialOnboardingFragment {

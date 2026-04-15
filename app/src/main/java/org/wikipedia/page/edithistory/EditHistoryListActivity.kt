@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.graphics.ColorUtils
@@ -74,6 +75,8 @@ class EditHistoryListActivity : BaseActivity() {
 
         supportActionBar?.title = getString(R.string.page_edit_history_activity_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         val colorCompareBackground = ResourceUtil.getThemedColor(this, android.R.attr.colorBackground)
         binding.compareFromCard.setCardBackgroundColor(ColorUtils.blendARGB(colorCompareBackground,
@@ -193,13 +196,15 @@ class EditHistoryListActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (viewModel.comparing) {
-            viewModel.toggleCompareState()
-            updateCompareState()
-            return
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (viewModel.comparing) {
+                viewModel.toggleCompareState()
+                updateCompareState()
+                return
+            }
+            finish()
         }
-        super.onBackPressed()
     }
 
     private fun startSearchActionMode() {

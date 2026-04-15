@@ -26,12 +26,12 @@
   <string name="error_network_error">Nuk mund të lidhet me internet.</string>
   <string name="page_error_retry">Riprovo</string>
   <string name="page_error_back_to_main">Kthehu</string>
-  <string name="menu_clear_all_history">Fshij historikun?</string>
+  <string name="menu_clear_all_history" fuzzy="true">Fshij historikun?</string>
   <string name="history_list_title">Historia</string>
   <string name="image_content_description">Imazhi: %s</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Pastro historikun e shfletimit</string>
-  <string name="dialog_message_clear_history">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
   <string name="dialog_message_clear_history_yes">Po</string>
   <string name="dialog_message_clear_history_no">Jo</string>
   <string name="share_via">Shpërndaj nëpërmjet</string>

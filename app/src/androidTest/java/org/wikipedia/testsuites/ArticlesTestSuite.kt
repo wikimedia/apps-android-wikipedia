@@ -1,6 +1,5 @@
 package org.wikipedia.testsuites
 
-import OverflowMenuTest
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
 import org.junit.runners.Suite.SuiteClasses
@@ -25,7 +24,7 @@ import org.wikipedia.tests.offline.SavedArticleOnlineOfflineTest
     LeadNonLeadImageAndPreviewLinkTest::class,
     EditIconTest::class,
     MediaTest::class,
-    OverflowMenuTest::class,
+    // OverflowMenuTest::class, TODO: uncomment when login test in CI/CD is resolved
     SpecialArticleTest::class,
     TableOfContentsTest::class
 )

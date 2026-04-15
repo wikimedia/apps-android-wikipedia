@@ -4,7 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import android.webkit.*
+import android.webkit.ConsoleMessage
+import android.webkit.JavascriptInterface
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import org.wikipedia.bridge.JavaScriptActionHandler.setUp
@@ -40,6 +45,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val model: PageViewModel
         val isPreview: Boolean
         val toolbarMargin: Int
+        val messageCardHeight: Int
     }
 
     init {
@@ -73,7 +79,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         pendingJSMessages.clear()
         pendingEvals.clear()
         if (communicationBridgeListener.model.shouldLoadAsMobileWeb) {
-            communicationBridgeListener.webView.loadUrl(pageTitle.mobileUri)
+            communicationBridgeListener.webView.loadUrl(pageTitle.uri)
         } else {
             communicationBridgeListener.webView.loadUrl(ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
                     RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
@@ -175,7 +181,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val setupSettings: String
             get() = setUp(communicationBridgeListener.webView.context,
                     communicationBridgeListener.model.title!!, communicationBridgeListener.isPreview,
-                    communicationBridgeListener.toolbarMargin)
+                    communicationBridgeListener.toolbarMargin, communicationBridgeListener.messageCardHeight)
     }
 
     @Serializable

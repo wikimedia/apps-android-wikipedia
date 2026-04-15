@@ -7,6 +7,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
@@ -44,9 +45,8 @@ class TemplatesSearchActivity : BaseActivity() {
 
     val viewModel: TemplatesSearchViewModel by viewModels()
 
-    private val searchCloseListener = SearchView.OnCloseListener {
+    private val searchCloseListener = View.OnClickListener {
         closeSearch()
-        false
     }
 
     private val searchQueryListener = object : SearchView.OnQueryTextListener {
@@ -69,6 +69,8 @@ class TemplatesSearchActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         sendPatrollerExperienceEvent("search_init", "pt_templates")
         initSearchView()
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         templatesSearchAdapter = TemplatesSearchAdapter()
         binding.templateRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -119,7 +121,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private fun initSearchView() {
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
-        binding.searchCabView.setOnCloseListener(searchCloseListener)
+        binding.searchCabView.setCloseButtonClickListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
         binding.searchCabView.queryHint = getString(R.string.templates_search_hint)
         val searchEditPlate = binding.searchCabView.findViewById<View>(androidx.appcompat.R.id.search_plate)
@@ -132,6 +134,7 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     private fun closeSearch() {
+        binding.searchCabView.setQuery("", false)
         DeviceUtil.hideSoftKeyboard(this)
     }
 
@@ -157,19 +160,21 @@ class TemplatesSearchActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (insertTemplateFragment.handleBackPressed()) {
-            if (templatesSearchAdapter != null) {
-                binding.searchCabView.isVisible = true
-                binding.insertTemplateButton.isVisible = false
-                supportActionBar?.title = null
-                updateToolbarElevation(true)
-            } else {
-                finish()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (insertTemplateFragment.handleBackPressed()) {
+                if (templatesSearchAdapter != null) {
+                    binding.searchCabView.isVisible = true
+                    binding.insertTemplateButton.isVisible = false
+                    supportActionBar?.title = null
+                    updateToolbarElevation(true)
+                } else {
+                    finish()
+                }
+                return
             }
-            return
+            finish()
         }
-        super.onBackPressed()
     }
 
     private inner class TemplatesSearchDiffCallback : DiffUtil.ItemCallback<PageTitle>() {

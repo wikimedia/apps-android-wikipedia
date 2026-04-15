@@ -2,7 +2,6 @@ package org.wikipedia.notifications
 
 import android.content.Context
 import android.graphics.Typeface
-import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -31,9 +30,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
-        }
+        foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         setOnClickListener {
             callback?.onCheckedChanged(filter)
         }

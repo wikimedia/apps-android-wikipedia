@@ -17,7 +17,7 @@
   <string name="nav_item_suggested_edits">સંપાદનો</string>
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
-  <string name="menu_clear_all_history">ઇતિહાસ હટાવો</string>
+  <string name="menu_clear_all_history" fuzzy="true">ઇતિહાસ હટાવો</string>
   <string name="wikimedia_commons">વિકિમીડિયા કૉમન્સ</string>
   <string name="wikidata">વિકિડેટા</string>
   <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>

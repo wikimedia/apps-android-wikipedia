@@ -16,22 +16,22 @@ import org.wikipedia.base.TestConfig
 class SystemRobot : BaseRobot() {
     fun turnOnAirplaneMode() = apply {
         TestUtil.setAirplaneMode(true)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun turnOffAirplaneMode() = apply {
         TestUtil.setAirplaneMode(false)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun turnOffInternet() = apply {
         TestUtil.toggleInternet(false)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun turnOnInternet() = apply {
         TestUtil.toggleInternet(true)
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun clickOnSystemDialogWithText(text: String) = apply {
@@ -45,7 +45,7 @@ class SystemRobot : BaseRobot() {
         } catch (e: Exception) {
             Log.d("dialog", "Dialog did not appear or couldn't be clicked.")
         }
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun enableDarkMode(context: Context) = apply {

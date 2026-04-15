@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.dataclient.FeedClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -39,14 +40,14 @@ class BecauseYouReadClient(
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
                 val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
-                    Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
+                    Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2)
 
                 val headerPage = PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
                     entry.title.extract, entry.title.thumbUrl, langCode)
 
-                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm }?.map {
+                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
                     PageSummary(it.displayTitle(langCode), it.title, it.description, it.extract, it.thumbUrl(), langCode)
-                }
+                }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                 if (hasParentLanguageCode && relatedPages != null) {
                     relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)

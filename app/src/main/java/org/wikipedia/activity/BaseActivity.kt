@@ -2,7 +2,6 @@ package org.wikipedia.activity
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -18,13 +17,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.Balloon
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
-import org.wikipedia.analytics.metricsplatform.MetricsPlatform
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.FlowEventBus
@@ -52,6 +52,9 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.yearinreview.YearInReviewActivity
+import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
+import org.wikipedia.yearinreview.YearInReviewViewModel
 
 abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
     interface Callback {
@@ -60,6 +63,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
     var callback: Callback? = null
+
+    // For subclasses to create instruments that they would like to persist for the lifetime of the activity.
+    protected var _instrument: InstrumentImpl? = null
 
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             callback?.onPermissionResult(this, isGranted)
@@ -74,6 +80,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         // TODO: Show message(s) to the user if they deny the permission
+    }
+
+    private val yearInReviewLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_CANCELED) {
+            FeedbackUtil.showMessage(this, getString(R.string.year_in_review_get_started_later))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,6 +122,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
+        maybeShowYearInReview()
 
         Prefs.localClassName = localClassName
 
@@ -169,14 +182,14 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onPause() {
         super.onPause()
         WikipediaApp.instance.appSessionEvent.persistSession()
-        MetricsPlatform.client.onAppPause()
+        TestKitchenAdapter.client.onAppPause()
         EventPlatformClient.flushCachedEvents()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
-        MetricsPlatform.client.onAppResume()
+        TestKitchenAdapter.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
     }
 
@@ -188,16 +201,11 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> false
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        BreadCrumbLogEvent.logBackPress(this)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -222,9 +230,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     }
 
     protected fun setStatusBarColor(@ColorInt color: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.statusBarColor = color
-        }
+        window.statusBarColor = color
     }
 
     protected fun setNavigationBarColor(@ColorInt color: Int) {
@@ -249,6 +255,18 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         requestDonateActivity.launch(intent)
     }
 
+    fun getInstrument(): InstrumentImpl? {
+        return _instrument
+    }
+
+    private fun maybeShowYearInReview() {
+        if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
+            !Prefs.isInitialOnboardingEnabled &&
+            YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
+            yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
+        }
+    }
+
     private fun removeSplashBackground() {
         window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
     }
@@ -256,12 +274,23 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     private fun maybeShowLoggedOutInBackgroundDialog() {
         if (Prefs.loggedOutInBackground) {
             Prefs.loggedOutInBackground = false
+
+            val instrument = TestKitchenAdapter.client.getInstrument("apps-authentication")
+                .setDefaultActionSource("logout_background_dialog")
+                .startFunnel("logout_account_background")
+            instrument.submitInteraction("impression")
+
             MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND)) }
-                    .setNegativeButton(R.string.logged_out_in_background_cancel, null)
+                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ ->
+                        instrument.submitInteraction("click", elementId = "login_button")
+                        startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND))
+                    }
+                    .setNegativeButton(R.string.logged_out_in_background_cancel) { _, _ ->
+                        instrument.submitInteraction("click", elementId = "cancel")
+                    }
                     .show()
         }
     }

@@ -38,7 +38,7 @@ class LicenseActivity : BaseActivity() {
                     title = title,
                     licenseText = licenseText,
                     onBackButtonClick = {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     }
                 )
             }

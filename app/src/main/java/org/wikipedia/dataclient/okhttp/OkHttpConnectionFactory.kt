@@ -19,6 +19,7 @@ object OkHttpConnectionFactory {
     val CACHE_CONTROL_FORCE_NETWORK = CacheControl.Builder().maxAge(0, TimeUnit.SECONDS).build()
     val CACHE_CONTROL_MAX_STALE = CacheControl.Builder().maxStale(Int.MAX_VALUE, TimeUnit.SECONDS).build()
     val CACHE_CONTROL_NONE = CacheControl.Builder().build()
+    const val DEFAULT_READ_TIMEOUT_SEC = 20L
 
     private const val CACHE_DIR_NAME = "okhttp-cache"
     private const val NET_CACHE_SIZE = (64 * 1024 * 1024).toLong()
@@ -29,7 +30,7 @@ object OkHttpConnectionFactory {
         val builder = OkHttpClient.Builder()
                 .cookieJar(SharedPreferenceCookieManager.instance)
                 .cache(NET_CACHE)
-                .readTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(DEFAULT_READ_TIMEOUT_SEC, TimeUnit.SECONDS)
                 .addInterceptor(UnsuccessfulResponseInterceptor())
                 .addNetworkInterceptor(CacheControlInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())

@@ -8,9 +8,11 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
-class PlacesCard(wiki: WikiSite,
-                 val age: Int,
-                 val nearbyPage: NearbyPage? = null) : WikiSiteCard(wiki) {
+class PlacesCard(
+    wiki: WikiSite,
+    val age: Int,
+    val nearbyPage: NearbyPage? = null
+) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.PLACES

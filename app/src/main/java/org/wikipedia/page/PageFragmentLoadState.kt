@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
-import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -286,7 +285,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 // And finally, count this as a page view.
                 WikipediaApp.instance.appSessionEvent.pageViewed(entry)
                 ArticleLinkPreviewInteractionEvent(title.wikiSite.dbName(), pageSummary?.pageId ?: 0, entry.source).logNavigate()
-                ArticleLinkPreviewInteraction(fragment, entry.source).logNavigate()
             }
         }
     }

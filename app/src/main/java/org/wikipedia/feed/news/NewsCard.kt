@@ -8,9 +8,11 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
-class NewsCard(private val news: List<NewsItem>,
-               private val age: Int,
-               wiki: WikiSite) : WikiSiteCard(wiki) {
+class NewsCard(
+    private val news: List<NewsItem>,
+    private val age: Int,
+    wiki: WikiSite
+) : WikiSiteCard(wiki) {
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_card_news_title)

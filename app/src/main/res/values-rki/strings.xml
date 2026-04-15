@@ -22,6 +22,7 @@
   <string name="search_icon_content_description">ရှာဖွီပါ</string>
   <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
+  <string name="nav_item_activity">လှုပ်ရှားမှု</string>
   <string name="nav_item_more">ပိုလို့</string>
   <string name="nav_item_search">ရှာဖွီပါ</string>
   <string name="nav_item_contribute">ပံ့ပိုးရေ</string>
@@ -34,7 +35,7 @@
   <string name="page_error_back_to_main">နောက်ကို ပြန်လားပါ</string>
   <string name="error_back">နောက်ကို ပြန်လားပါ</string>
   <string name="error_next">နောက်တစ်ခု</string>
-  <string name="menu_clear_all_history">မှတ်တမ်းကို ရှင်းပါ</string>
+  <string name="menu_clear_all_history">ဖတ်ရှုမှုရာဇ၀င်ကို ရှင်းလင်းပါ။</string>
   <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးဗျာလ်</string>
   <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းက ဖယ်ရှားပြီးပါဗျာလ်</string>
   <string name="history_item_delete_undo">နောက်တဆင့်ဆုတ်</string>
@@ -47,7 +48,7 @@
   <string name="wikimedia_commons">ဘုံဖြိုက်တေ ဝီကီမီးဒီးယား</string>
   <string name="wikidata">ဝီကီးဒေတာ</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းပါ</string>
-  <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းတိ အားလုံးကို ဖျက်ပနာ လက်ရှိဖွင့်ထားစွာတိကို ပိတ်ပါဖို့။ သင်သေချာပါဗျာလ်လား?</string>
+  <string name="dialog_message_clear_history">၎င်းသည် သင်ဧရှာဖွီမှုမှတ်တမ်းအားနုံးကို ဖျက်ပလိုက်ပါဖို့။  သင် သေချာယာလား?</string>
   <string name="dialog_message_clear_history_yes">ဟုတ်ပါရေ</string>
   <string name="dialog_message_clear_history_no">မလုပ်ပါယာ</string>
   <string name="share_via">မှမျှဝီ</string>
@@ -243,8 +244,6 @@
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုမူဆိုင်ရာ သတ်မှတ်ချက်တိ</string>
   <string name="about_wikipedia_url">https://my.wikipedia.org/wiki/ဝီကီးပီးဒီးယား:အကြောင်း</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီးပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="about_libraries_heading">အသုံးပြုထားရေ စာကြေ့တိုက်တိ</string>
   <string name="about_contributors_heading">ပံ့ပိုးကူညီသူတိ</string>
@@ -418,7 +417,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">ပုံမှိန်ခြင်း (အမိုက်အပြင်အဆင်)</string>
   <string name="preference_title_prefer_offline_content">အော့ဖ်လိုင်း အကြောင်းအရာကို ပိုပြီးကေလိုလားရေ</string>
   <string name="preference_summary_prefer_offline_content">ဆောင်းပါးတခုဧ့ နောက်ဆုံးဗားရှင်းထက် အော့ဖ်လိုင်းရဟိနှိုင်မှုကို ခေါ်ယူသုံးစွဲခြင်းနန့် ဒေတာချွေတာဖို့</string>
-  <string name="preference_title_delete_local_donation_history">ဒေသတွင်း လှူဒါန်းမှုမှတ်တမ်းကို ဖျက်ပါ</string>
+  <string name="preference_title_delete_local_donation_history">လှူဒါန်းမှုမှတ်တမ်းကို ဖျက်ပါ</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ကိုက်ညီရေ စနစ်အပြင်အဆင်</string>
   <string name="page_footer_license_text">အကြောင်းအရာတိကို အခြားမှတ်ချက်မဟိပါကေ $1 အောက်တွင် ရဟိနိုင်ပါရေ။</string>
   <string name="empty_tab_title">tab အသစ်</string>
@@ -916,6 +915,7 @@
   <string name="customize_toolbar_reset_to_default_button">နဂိုအတိုင်း ပြန်လားပါ</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">ဖိုင်ကိုရွှိ့ဖို့ ဆွဲအိုင်ကွန်ကို ဖိထားပါ</string>
   <string name="customize_toolbar_item_default_tooltip">ယင်းကို နီရာချထားဖို့ အရာတစ်ခုကို နှိပ်ပနာ ဆွဲယူပါ</string>
+  <string name="suggested_edits_activity_title">တီးဖြတ်ပါ</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးတိ ဖော်ပြပါ</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံတိကို ပုံစံသတ်မှတ်ပါ</string>
   <string name="suggested_edits_tag_images">ပုံတိကို Tag လုပ်ပါ</string>

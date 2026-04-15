@@ -75,7 +75,7 @@ class OnThisDayGameArticleBottomSheet : ExtendedBottomSheetDialogFragment(), All
         if (pageSummary.thumbnailUrl.isNullOrEmpty()) {
             binding.articleThumbnail.isInvisible = true
             binding.articleSummaryContainer.isInvisible = false
-            binding.articleSummary.text = StringUtil.fromHtml(pageSummary.extractHtml)
+            binding.articleSummary.text = StringUtil.fromHtml(pageSummary.extractHtml.orEmpty().ifEmpty { pageSummary.description })
         } else {
             binding.articleThumbnail.isInvisible = false
             binding.articleSummaryContainer.isInvisible = true

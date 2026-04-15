@@ -12,6 +12,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
+import org.wikipedia.analytics.eventplatform.ClientErrorEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
@@ -202,13 +203,9 @@ class WikipediaApp : Application() {
         }
     }
 
-    fun putCrashReportProperty(key: String?, value: String?) {
-        // TODO: add custom properties to crash report
-    }
-
-    fun logCrashManually(throwable: Throwable) {
+    fun logError(throwable: Throwable) {
         L.e(throwable)
-        // TODO: send exception to custom crash reporting system
+        ClientErrorEvent().logError(throwable)
     }
 
     fun commitTabState() {
@@ -254,11 +251,17 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
+        Prefs.lastBackgroundLoginDateTime = ""
         Prefs.tempAccountWelcomeShown = false
         Prefs.tempAccountCreateDay = 0L
         Prefs.tempAccountDialogShown = false
+        Prefs.impactLastQueryTime = 0
+        Prefs.impactLastResponseBody = emptyMap()
+        Prefs.yearInReviewModelData = emptyMap()
         SharedPreferenceCookieManager.instance.clearAllCookies()
-        AppDatabase.instance.notificationDao().deleteAll()
+        MainScope().launch {
+            AppDatabase.instance.notificationDao().deleteAll()
+        }
         FlowEventBus.post(LoggedOutEvent())
         L.d("Logout complete.")
     }

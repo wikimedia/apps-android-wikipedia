@@ -13,9 +13,9 @@
   <string name="error_network_error">Mer han kein Verbendong zom Internet opboue künne.</string>
   <string name="page_error_retry">Norr_ens versöhke</string>
   <string name="page_error_back_to_main">Jangk retuhr</string>
-  <string name="menu_clear_all_history">Leß met de belohrte Sigge läddesch maache</string>
+  <string name="menu_clear_all_history" fuzzy="true">Leß met de belohrte Sigge läddesch maache</string>
   <string name="dialog_title_clear_history">De Verjangeheid vum Bläddere fott schmiiße</string>
-  <string name="dialog_message_clear_history">Dat schmiiß all de faßjehalldde Verjangeheid vum Brause fott un mäht alle Rigger un Ongerfinster zoh. Wells De dat verhaftesch han?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dat schmiiß all de faßjehalldde Verjangeheid vum Brause fott un mäht alle Rigger un Ongerfinster zoh. Wells De dat verhaftesch han?</string>
   <string name="share_via">Bikanntmaache övver</string>
   <string name="search_redirect_from">Ömjeleijt vun %s</string>
   <string name="menu_page_show_tabs">Rigger aanzeije</string>

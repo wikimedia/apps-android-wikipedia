@@ -13,8 +13,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.densityScalar
-import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -23,11 +21,11 @@ import kotlin.math.roundToInt
 object JavaScriptActionHandler {
 
     fun setTopMargin(top: Int): String {
-        return setMargins(16, top + 16, 16, 48)
+        return setMargins(top + 16, 48)
     }
 
-    fun setMargins(left: Int, top: Int, right: Int, bottom: Int): String {
-        return "pcs.c1.Page.setMargins({ top:'${top}px', right:'${right}px', bottom:'${bottom}px', left:'${left}px' })"
+    fun setMargins(top: Int, bottom: Int): String {
+        return "pcs.c1.Page.setMargins({ top:'${top}px', bottom:'${bottom}px' })"
     }
 
     fun getTextSelection(): String {
@@ -79,13 +77,14 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.removeHighlightsFromHighlightedElements()"
     }
 
-    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
+    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int, messageCardHeight: Int): String {
         val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = context.getStrings(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
-        val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
+        var leadImageHeight = if (isPreview) 0 else
+            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (DimenUtil.leadImageHeightForDevice(context) / DimenUtil.densityScalar).roundToInt() - topActionBarHeight)
+        leadImageHeight = leadImageHeight + messageCardHeight
         val topMargin = topActionBarHeight + 16
 
         var fontFamily = Prefs.fontFamily
@@ -105,14 +104,14 @@ object JavaScriptActionHandler {
                 "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
-                "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
+                "   \"margins\": { \"top\": \"%dpx\", \"bottom\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
                 "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": ${JsonUtil.encodeToString(AccountUtil.groups)}," +
                 "   \"isEditable\": ${!Prefs.readingFocusModeEnabled}" +
-                "}", topMargin, 16, 48, 16, leadImageHeight)
+                "}", topMargin, 48, leadImageHeight)
     }
 
     fun setUpEditButtons(isEditable: Boolean, isProtected: Boolean): String {

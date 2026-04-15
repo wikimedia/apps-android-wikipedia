@@ -86,12 +86,8 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
         } else {
             val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             online = try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-                        ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
-                } else {
-                    connectivityManager.activeNetworkInfo?.isConnected == true
-                }
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+                    ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
             } catch (e: Exception) {
                 // Framework bug, will only be fixed in Android S:
                 // https://issuetracker.google.com/issues/175055271

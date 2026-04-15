@@ -18,7 +18,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -30,6 +29,10 @@ object DeviceUtil {
     private inline val Window.insetsControllerCompat
         get() = WindowCompat.getInsetsController(this, decorView)
 
+    fun showSoftKeyboard(activity: Activity) {
+        activity.window.insetsControllerCompat.show(WindowInsetsCompat.Type.ime())
+    }
+
     fun showSoftKeyboard(view: View) {
         (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
                 .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
@@ -40,7 +43,8 @@ object DeviceUtil {
     }
 
     fun hideSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     fun isHardKeyboardAttached(resources: Resources): Boolean {
@@ -71,10 +75,8 @@ object DeviceUtil {
     }
 
     fun setContextClickAsLongClick(vararg views: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            views.forEach {
-                it.setOnContextClickListener { obj -> obj.performLongClick() }
-            }
+        views.forEach {
+            it.setOnContextClickListener { obj -> obj.performLongClick() }
         }
     }
 

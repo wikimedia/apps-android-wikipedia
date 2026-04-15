@@ -31,12 +31,15 @@ data class ReadingListPage(
     var remoteId: Long = 0
 ) : Serializable {
 
-    constructor(title: PageTitle) :
+    constructor(title: PageTitle, fromRemoteSync: Boolean = false) :
             this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText,
                 title.description, title.thumbUrl, lang = title.wikiSite.languageCode) {
         val now = System.currentTimeMillis()
         mtime = now
-        atime = now
+        // The `atime` (added time) field is used for sorting pages added *locally* only.
+        // For pages added from a remote sync, we set the atime to zero, so that these pages
+        // will not be counted as locally-added pages when sorting.
+        atime = if (fromRemoteSync) 0 else now
     }
 
     @delegate:Transient
@@ -49,10 +52,6 @@ data class ReadingListPage(
     @Transient var selected = false
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
-
-    fun touch() {
-        atime = System.currentTimeMillis()
-    }
 
     companion object {
         const val STATUS_QUEUE_FOR_SAVE = 0L

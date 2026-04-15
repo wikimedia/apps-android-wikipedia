@@ -66,7 +66,7 @@
   <string name="page_error_back_to_main">वापस जाएँ</string>
   <string name="error_back">वापस जाएँ</string>
   <string name="error_next">अगला</string>
-  <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
+  <string name="menu_clear_all_history" fuzzy="true">इतिहास साफ़ करें</string>
   <string name="history_item_deleted">%s को इतिहास से हटाया गया</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटाए गए</string>
   <string name="history_item_delete_undo">पूर्ववत करें</string>
@@ -79,7 +79,7 @@
   <string name="wikimedia_commons">विकिमीडिया कॉमन्स</string>
   <string name="wikidata">विकिडेटा</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
-  <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नहीं</string>
   <string name="share_via">बाँटें</string>
@@ -271,13 +271,11 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
+  <string name="legal_safety_contacts_description">कानूनी और सुरक्षा संपर्क</string>
   <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
@@ -445,7 +443,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
-  <string name="preference_title_delete_local_donation_history">स्थानीय दान इतिहास हटाएं</string>
+  <string name="preference_title_delete_local_donation_history" fuzzy="true">स्थानीय दान इतिहास हटाएं</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">सिस्टम थीम जैसा</string>
   <string name="page_footer_license_text">उपलब्ध सामग्री $1 के अधीन है जब तक अलग से उल्लेख ना किया गया हो।</string>
   <string name="empty_tab_title">नया टैब</string>
@@ -456,9 +454,9 @@
   <string name="error_blocked_start">प्रतिबंध की शुरुआत: %s</string>
   <string name="error_blocked_expiry">प्रतिबंध की समाप्ति: %s</string>
   <string name="error_blocked_id">ब्लॉक आईडी: %s</string>
-  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/विकिपीडिया:प्रबन्धक\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपने टूलबार में परिवर्तन करें</string>
-  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/विकिपीडिया:प्रबन्धक\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="temp_account_not_logged_in">आप लॉग इन नहीं हैं</string>
   <string name="temp_account_anon_ip_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपका आईपी पता आपके संपादनों से जुड़ जाएगा।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
   <string name="temp_account_anon_dialog_body">जैसे ही आप कोई संपादन करते हैं, आपकी गोपनीयता की सुरक्षा के लिए एक &lt;b&gt;अस्थायी खाता&lt;/b&gt; बनाया जाएगा। &lt;a href=\"%1$s\"&gt;अधिक जानें&lt;/a&gt;।&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;लॉग इन करें&lt;/a&gt; या &lt;a href=\"https://#createaccount\"&gt;खाता बनाएं&lt;/a&gt; ताकि भविष्य के संपादनों का श्रेय मिल सके और अन्य सुविधाओं तक पहुंच प्राप्त हो सके।</string>
@@ -1132,16 +1130,16 @@
   <string name="image_recommendation_notsure">अनिश्चित</string>
   <string name="image_recommendation_reject_title">अस्वीकृति का कारण</string>
   <string name="image_recommendation_reject_subtitle">अस्वीकृति का कारण गुमनाम है और भविष्य में छवि सुझावों को बेहतर बनाएगा।</string>
-  <string name="image_recommendation_reject_not_relevant">ईमेज रिलेवेंट नहीं है</string>
-  <string name="image_recommendation_reject_no_info">डिसाइड करने के लिए यह जानकारी काफी नहीं है</string>
-  <string name="image_recommendation_reject_offensive">ईमेज ऑफेंसिव है</string>
-  <string name="image_recommendation_reject_low_quality">ईमेज घटिया क्वॉलिटी की है</string>
+  <string name="image_recommendation_reject_not_relevant">चित्र प्रासंगिक नहीं है</string>
+  <string name="image_recommendation_reject_no_info">निर्धारित करने के लिए पर्याप्त जानकारी नहीं है</string>
+  <string name="image_recommendation_reject_offensive">चित्र अपमानजनक है</string>
+  <string name="image_recommendation_reject_low_quality">चित्र कम गुणवत्ता का है</string>
   <string name="image_recommendation_reject_dont_know">मुझे इस विषय के बारे में जानकारी नहीं है</string>
   <string name="image_recommendation_reject_other">अन्य</string>
   <string name="image_recommendation_reject_submit">जमा करें</string>
   <string name="image_recommendation_tooltip_main">सुझाए गए संपादन में लेखों में लुप्त छवियाँ जोड़ें</string>
-  <string name="image_recommendation_onboarding_1">पिक्चर्स लोगों को समझने में सहायता करतीं हैं, लेकिन बहुत आर्टिकल्स में पिक्चर्स नहीं होते हैं</string>
-  <string name="image_recommendation_onboarding_2">आप डिसाइड करेगें यदि एक सजेस्टेड इमेज एक विकिपीडिया आर्टिकल में होना चाहिए या नहीं|</string>
+  <string name="image_recommendation_onboarding_1">चित्रों से लोगों को समझने में मदद मिलती है, लेकिन कई लेखों में एक भी चित्र नहीं है।</string>
+  <string name="image_recommendation_onboarding_2">आप तय करें कि विकिपीडिया के किसी लेख पर कोई सुझावित चित्र जोड़ा जाना चाहिए कि नहीं।</string>
   <string name="image_recommendation_onboarding_3">सजेशंस मशीन जेनरेटेड होते हैं और उनको स्वीकार या अस्वीकार करने के लिए आपको आपके जजमेंट का इस्तेमाल करना पड़ेगा</string>
   <string name="image_recommendation_onboarding_4">ईमेज विकिपीडिया कॉमन्स से चुनें जाते हैं, जो विकिपीडिया द्वारा उपयोग किए जाने वाले फ्रीली लाइसेंस्ड इमेजेस का एक कलेक्शन है|</string>
   <string name="image_recommendation_tooltip_1">इस आर्टिकल के मुद्दे को समझने के इस आर्टिकल को रिव्यू करें</string>
@@ -1156,6 +1154,7 @@
   <string name="edit_summary_added_caption">एड किया हुआ कैप्शन</string>
   <string name="edit_summary_added_image_and_caption">छवि और कैप्शन जोड़ा गया</string>
   <string name="edit_published_view">देखें</string>
+  <string name="activity_tab_timeline_yesterday">कल</string>
   <string name="file_page_activity_title">फ़ाइल पृष्ठ</string>
   <string name="file_page_add_image_caption_button">चित्र कैप्शन जोड़ें</string>
   <string name="file_page_add_image_tags_button">चित्र टैग जोड़ें</string>
@@ -1185,6 +1184,7 @@
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
   <string name="onboarding_multilingual_add_language_text">भाषाएं जोड़ें या संपादित करें</string>
   <string name="onboarding_welcome_title_v2">नि:शुल्क विश्वकोश\n...300 से अधिक भाषाओं में</string>
+  <string name="onboarding_next">अगला</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
@@ -1289,8 +1289,6 @@
   <string name="templates_description_missing_data">इस टेम्पलेट में &lt;a href=\"%1$s\"&gt;टेम्पलेटडेटा&lt;/a&gt; का अभाव है, और इसके पैरामीटर्स &lt;a href=\"%2$s\"&gt;स्वचालित रूप से जनरेट किए गए&lt;/a&gt; हैं। परिणामस्वरूप, टेम्पलेट और इसके पैरामीटर्स में विवरण का अभाव है।</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">लॉग इन करें / विकिपीडिया से जुड़ें</string>
-  <string name="main_tooltip_text">नमस्ते %s , क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
-  <string name="main_tooltip_text_v2">क्या आप जानते हैं कि हर कोई विकिपीडिया को संपादित कर सकता है?</string>
   <string name="main_tooltip_action_button">शुरू करें</string>
   <string name="main_tooltip_watchlist_title">ध्यानसूची</string>
   <string name="main_tooltip_watchlist_text">&lt;b&gt;ध्यानसूची&lt;/b&gt; के अंतर्गत अधिक मेनू में उन लेखों और पृष्ठों को ढूंढें जिन्हें आपने पहले अपनी ध्यानसूची में जोड़ा था।</string>
@@ -1557,12 +1555,15 @@
   <string name="survey_dialog_general_yes">हाँ</string>
   <string name="survey_dialog_general_no">नहीं</string>
   <string name="survey_dialog_submitted_snackbar" fuzzy="true">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">अधिक जानिए</string>
+  <string name="games_hub_activity_overflow_learn_more">अधिक जानिए</string>
   <string name="on_this_day_game_turn_on_notification_dialog_title">खेल सूचनाएं चालू करें?</string>
   <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">नहीं, इन्हें चालू रखें</string>
   <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">इन्हें बंद कर दें।</string>
   <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">हाँ, इन्हें चालू कर दें।</string>
-  <string name="donation_reminders_initial_prompt_positive_button">शुरू करें</string>
-  <string name="donation_reminders_initial_prompt_negative_button">अभी नहीं</string>
+  <string name="on_this_day_game_more_label">अधिक</string>
+  <string name="year_in_review_disable_positive_button">हाँ, मुझे यकीन है</string>
+  <string name="year_in_review_slide_reading_pattern_night">रात</string>
   <string name="donation_reminders_settings_article_frequency_input_suffix_label">लेख</string>
   <string name="donation_reminders_prompt_negative_button">अभी नहीं</string>
 </resources>

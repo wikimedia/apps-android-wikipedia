@@ -1,7 +1,10 @@
 package org.wikipedia.analytics.eventplatform
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.donate.CampaignCollection
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 
 open class DonorExperienceEvent {
@@ -18,6 +21,31 @@ open class DonorExperienceEvent {
                 action,
                 activeInterface,
                 campaignId?.let { "campaign_id: ${CampaignCollection.getFormattedCampaignId(it)}, " }.orEmpty() + "banner_opt_in: ${Prefs.donationBannerOptIn}",
+                wikiId
+            )
+        }
+
+        fun logDonationReminderAction(
+            action: String,
+            activeInterface: String,
+            wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode,
+            defaultMilestone: Boolean? = null,
+            campaignId: String? = null,
+            articleFrequency: Int? = null,
+            donateAmount: Float? = null,
+            groupAssigned: String? = null
+        ) {
+            val actionData = DonationRemindersActionData(
+                defaultMilestone = defaultMilestone,
+                campaignId = campaignId?.let { CampaignCollection.getFormattedCampaignId(campaignId) },
+                articleFrequency = articleFrequency,
+                donateAmount = donateAmount,
+                groupAssigned = groupAssigned
+            )
+            submit(
+                action,
+                activeInterface,
+                JsonUtil.encodeToString(actionData).orEmpty(),
                 wikiId
             )
         }
@@ -40,4 +68,13 @@ open class DonorExperienceEvent {
             )
         }
     }
+
+    @Serializable
+    class DonationRemindersActionData(
+        @SerialName("milestone_default") val defaultMilestone: Boolean? = null,
+        @SerialName("campaign_id") val campaignId: String? = null,
+        @SerialName("read_freq") val articleFrequency: Int? = null,
+        @SerialName("donate_amount") val donateAmount: Float? = null,
+        @SerialName("group") val groupAssigned: String? = null
+    )
 }

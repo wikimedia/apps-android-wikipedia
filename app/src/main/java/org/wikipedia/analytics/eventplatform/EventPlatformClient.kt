@@ -6,9 +6,15 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.wikimedia.testkitchen.config.DestinationEventService
+import org.wikimedia.testkitchen.config.StreamConfig
+import org.wikimedia.testkitchen.config.sampling.SampleConfig
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
@@ -41,7 +47,7 @@ object EventPlatformClient {
      */
     private var ENABLED = WikipediaApp.instance.isOnline
 
-    private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
@@ -109,22 +115,25 @@ object EventPlatformClient {
     }
 
     suspend fun refreshStreamConfigs() {
-        val response = ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs()
-        updateStreamConfigs(response.streamConfigs)
-    }
-
-    private fun updateStreamConfigs(streamConfigs: Map<String, StreamConfig>) {
         STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(streamConfigs)
-        Prefs.streamConfigs = STREAM_CONFIGS
+        STREAM_CONFIGS.putAll(ServiceFactory.get(WikiSite(BuildConfig.META_WIKI_BASE_URI)).getStreamConfigs().streamConfigs)
+        // Ensure that serialization of configs is done off the main thread
+        withContext(Dispatchers.Default) {
+            Prefs.streamConfigs = STREAM_CONFIGS
+            TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
+        }
     }
 
     fun setUpStreamConfigs() {
-        STREAM_CONFIGS.clear()
-        STREAM_CONFIGS.putAll(Prefs.streamConfigs)
         MainScope().launch(CoroutineExceptionHandler { _, t ->
             L.e(t)
         }) {
+            STREAM_CONFIGS.clear()
+            // Ensure that serialization of configs is done off the main thread
+            withContext(Dispatchers.Default) {
+                STREAM_CONFIGS.putAll(Prefs.streamConfigs)
+                TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
+            }
             refreshStreamConfigs()
         }
     }
@@ -193,12 +202,12 @@ object EventPlatformClient {
         private fun send(eventsByStream: Map<String, List<Event>>) {
             eventsByStream.forEach { (stream, events) ->
                 getStreamConfig(stream)?.let {
-                    sendEventsForStream(it, events)
+                    sendEventsForStream(it.destinationEventService, events)
                 }
             }
         }
 
-        private fun sendEventsForStream(streamConfig: StreamConfig, events: List<Event>) {
+        private fun sendEventsForStream(destinationEventService: DestinationEventService, events: List<Event>) {
             coroutineScope.launch(CoroutineExceptionHandler { _, caught ->
                 L.e(caught)
                 if (caught is HttpStatusException) {
@@ -206,7 +215,7 @@ object EventPlatformClient {
                         // TODO: For errors >= 500, queue up to retry?
                     } else {
                         // Something unexpected happened.
-                        if (ReleaseUtil.isDevRelease) {
+                        if (ReleaseUtil.isPreBetaRelease && caught.code != HttpURLConnection.HTTP_FORBIDDEN) {
                             // If it's a pre-beta release, show a loud toast to signal that
                             // a potential issue should be investigated.
                             WikipediaApp.instance.mainThreadHandler.post {
@@ -216,9 +225,9 @@ object EventPlatformClient {
                     }
                 }
             }) {
-                val eventService = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events) else
-                    ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
-                when (eventService.code()) {
+                val response = if (ReleaseUtil.isDevRelease) ServiceFactory.getAnalyticsRest(destinationEventService).postEvents(events) else
+                    ServiceFactory.getAnalyticsRest(destinationEventService).postEventsHasty(events)
+                when (response.code()) {
                     HttpURLConnection.HTTP_CREATED,
                     HttpURLConnection.HTTP_ACCEPTED -> {}
                     else -> {
@@ -328,7 +337,7 @@ object EventPlatformClient {
                 return SAMPLING_CACHE[stream]!!
             }
             val streamConfig = getStreamConfig(stream) ?: return false
-            val samplingConfig = streamConfig.samplingConfig
+            val samplingConfig = streamConfig.sampleConfig
             if (samplingConfig == null || samplingConfig.rate == 1.0) {
                 return true
             }
@@ -350,13 +359,13 @@ object EventPlatformClient {
         }
 
         fun getSamplingId(unit: String): String {
-            if (unit == SamplingConfig.UNIT_SESSION) {
+            if (unit == SampleConfig.UNIT_SESSION) {
                 return AssociationController.sessionId
             }
-            if (unit == SamplingConfig.UNIT_PAGEVIEW) {
+            if (unit == SampleConfig.UNIT_PAGEVIEW) {
                 return AssociationController.pageViewId
             }
-            if (unit == SamplingConfig.UNIT_DEVICE) {
+            if (unit == SampleConfig.UNIT_DEVICE) {
                 return WikipediaApp.instance.appInstallID
             }
             L.e("Bad identifier type")

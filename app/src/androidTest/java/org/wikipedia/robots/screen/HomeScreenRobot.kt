@@ -2,7 +2,6 @@ package org.wikipedia.robots.screen
 
 import BaseRobot
 import android.app.Activity
-import android.util.Log
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -23,19 +22,19 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun navigateToNotifications() = apply {
-        click.onDisplayedViewWithIdAnContentDescription(viewId = R.id.menu_notifications, "Notifications")
+        click.onDisplayedViewWithIdAndContentDescription(viewId = R.id.menu_notifications, "Notifications")
         delay(TestConfig.DELAY_LARGE)
     }
 
     fun pressBack() = apply {
         goBack()
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertAllFeedCardsAreHidden() = apply {
         onView(allOf(withId(R.id.empty_container), withParent(withParent(withId(R.id.swipe_refresh_layout))), isDisplayed()))
             .check(matches(isDisplayed()))
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun assertEmptyMessageIsNotVisible() = apply {
@@ -48,7 +47,7 @@ class HomeScreenRobot : BaseRobot() {
         // Assert that images arent shown anymore
         onView(allOf(withId(R.id.articleImage), withParent(allOf(withId(R.id.articleImageContainer),
             withParent(withId(R.id.view_wiki_article_card)))), isDisplayed())).check(ViewAssertions.doesNotExist())
-        delay(TestConfig.DELAY_MEDIUM)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun dismissTooltip(activity: Activity) = apply {
@@ -57,12 +56,8 @@ class HomeScreenRobot : BaseRobot() {
     }
 
     fun dismissFeedCustomization() = apply {
-        try {
-            click.onDisplayedViewWithText(R.id.view_announcement_action_negative, "Got it")
-            delay(TestConfig.DELAY_SHORT)
-        } catch (e: Exception) {
-            Log.d("HomeScreenRobot", "no view because the device has no internet")
-        }
+        scroll.toViewAndClick(R.id.view_announcement_action_negative)
+        delay(TestConfig.DELAY_SHORT)
     }
 
     fun verifyIfSnackBarAppears() = apply {

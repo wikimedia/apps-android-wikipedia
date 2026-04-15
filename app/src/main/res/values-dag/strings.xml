@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">Labimi nyaanga</string>
   <string name="error_back">labimi nyaaŋga</string>
   <string name="error_next">dimpaya</string>
-  <string name="menu_clear_all_history">nyɛhimi dinpungari</string>
+  <string name="menu_clear_all_history" fuzzy="true">nyɛhimi dinpungari</string>
   <string name="history_item_deleted">%s yihiya dinpungari maa puuni</string>
   <string name="history_items_deleted">%d lahabaya yihiya dinpungari maa puuni</string>
   <string name="history_item_delete_undo">M bi lahi niŋ</string>
@@ -45,7 +45,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">nyɛhimi avihigu dinpungari zaa</string>
-  <string name="dialog_message_clear_history">ŋɔ nyɛla din yen nyɛhi avihigu lahibaya zaa ka kpihimmi tab shɛŋa zaa ani yoli yooi. A dihitabili?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ŋɔ nyɛla din yen nyɛhi avihigu lahibaya zaa ka kpihimmi tab shɛŋa zaa ani yoli yooi. A dihitabili?</string>
   <string name="dialog_message_clear_history_yes">iin</string>
   <string name="dialog_message_clear_history_no">aayi</string>
   <string name="share_via">doli talim</string>
@@ -233,12 +233,8 @@
   <string name="privacy_policy_description">Ashili zalikpana</string>
   <string name="terms_of_use_description">Zaŋ tum tuma zalisi</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">bachinima kahigibu kundinima din zaŋ tum tuma</string>
   <string name="about_contributors_heading">tohiriba</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">lɛbigiriba</string>
   <string name="about_translators_translatewiki">Ninvuɣ\'shɛb ban paɣi bɛ suhiri n daa sɔŋ lɛbigi App ŋɔ zuliya maa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;. puuni</string>
   <string name="about_app_license_heading">Shɛhira gbaŋ din dihi nua</string>
@@ -1215,8 +1211,6 @@
   <string name="insert_media_insert_button">Zaŋ kpɛhi</string>
   <string name="main_drawer_help">Bɔmi sɔŋsim</string>
   <string name="main_drawer_login">kpɛmi Wikipedia puuni/pahimi Wikipedia nim\' zuɣu</string>
-  <string name="main_tooltip_text">N-zo %s! Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu bee?</string>
-  <string name="main_tooltip_text_v2">Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu?</string>
   <string name="main_tooltip_action_button">Piligima</string>
   <string name="main_tooltip_watchlist_title">Anilihiri shɛli</string>
   <string name="main_tooltip_watchlist_text">Bomi atikilnima ni paaginima shɛŋa a ni min pun zaŋ pahi a nini ni pa yu-shɛŋa zuɣu din pahi bii zuɣu din jɛndi &lt;b&gt;A nini ni pa shɛli zuɣu&lt;/b&gt;</string>
@@ -1558,7 +1552,7 @@
   <string name="email_report_patroller_tasks_subject">Yɛlmuɣisirili lahabali - Malimi maliniŋ kaabu yaɣili niŋ</string>
   <string name="email_report_patroller_tasks_body">N tɔla gbirili ni maliniŋ kaabu yaɣili:\n- [Buɣisim lala yɛlmuɣisirili maa]\n\nNi bori ni n-nya biɛhi shɛli n-nyɛ:\n- [Buɣisim a ni tɛhi di maligu shɛm] \n\n\n[dihi ŋmaa di daanfooni bee linkinima]</string>
   <string name="donation_campaign_maybe_later_snackbar">Ti sa ni teegi a biɛɣu ni yaha</string>
-  <string name="donation_campaign_donated_snackbar">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
+  <string name="donation_campaign_donated_snackbar" fuzzy="true">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
   <string name="donation_campaign_go_back_button">Labimi nyaaŋa</string>
   <string name="menu_single_webview_open_external">Yoomi li sistɛm browza puuni</string>
   <string name="places_title">Zaashɛhi</string>

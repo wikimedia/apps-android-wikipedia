@@ -29,7 +29,7 @@
   <string name="page_error_back_to_main">Bə dumo</string>
   <string name="error_back">Bə dumo</string>
   <string name="error_next">Dumotono še</string>
-  <string name="menu_clear_all_history">Tarixi mole</string>
+  <string name="menu_clear_all_history" fuzzy="true">Tarixi mole</string>
   <string name="history_item_deleted">Məǧolə \"%s\" molə byə ce dijə kardə tarixonku</string>
   <string name="history_items_deleted">%d məǧolon molə byən ce dijə karde tarixiku</string>
   <string name="history_item_delete_undo">Ohaštej</string>
@@ -42,7 +42,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Vikiməlumot</string>
   <string name="dialog_title_clear_history">Dijə karde tarixi mole</string>
-  <string name="dialog_message_clear_history">Dijə kardə səhifon tarix həmmə molə byəben ijən həmmə ožə vərəǧon dəbastə byben. Idomə karde?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Dijə kardə səhifon tarix həmmə molə byəben ijən həmmə ožə vərəǧon dəbastə byben. Idomə karde?</string>
   <string name="dialog_message_clear_history_yes">Bəle</string>
   <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Pevylo karde</string>
@@ -209,11 +209,9 @@
   <string name="terms_of_use_description">Oko doj šərton</string>
   <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Vikipedia:Nom-nyšon</string>
   <string name="offline_reading_and_data_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_libraries_heading">Oko doə byə kitobxonon</string>
   <string name="about_contributors_heading">Myəllifon</string>
-  <string name="about_contributors" fuzzy="true">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Dastə səhifə&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Dastə səhifə&lt;/a&gt;</string>
   <string name="about_translators_heading">Pegordynon</string>
   <string name="about_app_license_heading">Lisensijə</string>
   <string name="about_activity_title">Čynəvə barədə</string>
@@ -1016,4 +1014,6 @@
   <string name="places_title">Vyron</string>
   <string name="places_toggle_buttons_map">Xəritə</string>
   <string name="places_toggle_buttons_list">Sijohi</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Soxtej</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Ne, səǧbi</string>
 </resources>

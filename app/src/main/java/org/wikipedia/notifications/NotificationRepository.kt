@@ -8,11 +8,7 @@ import org.wikipedia.notifications.db.NotificationDao
 
 class NotificationRepository(private val notificationDao: NotificationDao) {
 
-    fun getAllNotifications() = notificationDao.getAllNotifications()
-
-    private fun insertNotifications(notifications: List<Notification>) {
-        notificationDao.insertNotifications(notifications)
-    }
+    suspend fun getAllNotifications() = notificationDao.getAllNotifications()
 
     suspend fun updateNotification(notification: Notification) {
         notificationDao.updateNotification(notification)
@@ -24,11 +20,11 @@ class NotificationRepository(private val notificationDao: NotificationDao) {
             .mapNotNull { (key, wiki) -> wiki.source?.let { key to WikiSite(it.base) } }.toMap()
     }
 
-    suspend fun fetchAndSave(wikiList: String?, filter: String?, continueStr: String? = null): String? {
+    suspend fun fetchAndSave(filter: String?, continueStr: String? = null): String? {
         var newContinueStr: String? = null
-        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(wikiList, filter, continueStr)
+        val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(filter, continueStr)
         response.query?.notifications?.let {
-            insertNotifications(it.list.orEmpty())
+            notificationDao.insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
         return newContinueStr

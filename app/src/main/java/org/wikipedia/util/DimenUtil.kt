@@ -45,12 +45,6 @@ object DimenUtil {
         return TypedValueCompat.deriveDimension(TypedValue.COMPLEX_UNIT_SP, fontSp, displayMetrics)
     }
 
-    // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
-    fun calculateLeadImageWidth(): Int {
-        val res = WikipediaApp.instance.resources
-        return (res.getDimension(R.dimen.leadImageWidth) / densityScalar).toInt()
-    }
-
     val displayWidthPx: Int
         get() = displayMetrics.widthPixels
 
@@ -115,7 +109,11 @@ object DimenUtil {
     }
 
     fun leadImageHeightForDevice(context: Context): Int {
-        return if (isLandscape(context)) (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt() else (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+        return (if (isLandscape(context)) {
+            (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt()
+        } else {
+            (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+        })
     }
 
     private fun articleHeaderViewScreenHeightRatio(): Float {
