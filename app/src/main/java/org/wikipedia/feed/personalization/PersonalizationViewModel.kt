@@ -69,7 +69,7 @@ private data class PersonalizedViewModelState(
 }
 
 class PersonalizationViewModel(
-    private val repository: InterestSelectionRepository
+    private val interestSelectionRepository: InterestSelectionRepository
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
@@ -107,8 +107,8 @@ class PersonalizationViewModel(
         runCatching {
             state.update { it.copy(topicsLoading = true, topicsError = null) }
 
-            val langCode = repository.wikiSite.languageCode
-            val topics = repository.getTopics(langCode)
+            val langCode = interestSelectionRepository.wikiSite.languageCode
+            val topics = interestSelectionRepository.getTopics(langCode)
 
             state.update { it.copy(topics = topics, topicsLoading = false) }
         }.onFailure { throwable ->
@@ -118,10 +118,10 @@ class PersonalizationViewModel(
 
     private suspend fun initialize() {
         runCatching {
-            val langCode = repository.wikiSite.languageCode
+            val langCode = interestSelectionRepository.wikiSite.languageCode
             // check db for persisted interest (topic and articles) data
-            val persistedTopics = repository.getPersistedTopics(langCode)
-            val persistedArticles = repository.getPersistedArticles(langCode)
+            val persistedTopics = interestSelectionRepository.getPersistedTopics(langCode)
+            val persistedArticles = interestSelectionRepository.getPersistedArticles(langCode)
 
             val hasPersistedData = persistedTopics.isNotEmpty() || persistedArticles.isNotEmpty()
             if (!hasPersistedData && state.value.articles.isEmpty()) {
@@ -157,7 +157,7 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = repository.loadInitialArticles()
+            val articles = interestSelectionRepository.loadInitialArticles()
             state.update { current ->
                 val newArticles = (current.selectedArticles + articles).distinct()
                 current.copy(
@@ -177,7 +177,7 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = repository.getArticlesByTopic(topic.queryTopicId)
+            val articles = interestSelectionRepository.getArticlesByTopic(topic.queryTopicId)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()
                 current.copy(articles = newArticles, articlesLoading = false)
@@ -187,7 +187,7 @@ class PersonalizationViewModel(
 
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
-        val lang = repository.wikiSite.languageCode
+        val lang = interestSelectionRepository.wikiSite.languageCode
 
         // When a category is selected, we want to reset the articles state and load articles for the selected category
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
@@ -203,9 +203,9 @@ class PersonalizationViewModel(
             }
 
             if (isSelected) {
-                repository.deleteTopic(topic, lang)
+                interestSelectionRepository.deleteTopic(topic, lang)
             } else {
-                repository.saveTopic(topic, lang)
+                interestSelectionRepository.saveTopic(topic, lang)
             }
 
             state.update { current ->
@@ -226,7 +226,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.saveArticle(title, repository.wikiSite.languageCode, null)
+            interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode, null)
             state.update {
                 val newItems = listOf(title) + it.articles
                 val newSelection = it.selectedArticles + title
@@ -236,7 +236,7 @@ class PersonalizationViewModel(
     }
 
     fun toggleArticleSelection(title: PageTitle) {
-        val lang = repository.wikiSite.languageCode
+        val lang = interestSelectionRepository.wikiSite.languageCode
 
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             state.update { it.copy(articlesError = throwable) }
@@ -246,9 +246,9 @@ class PersonalizationViewModel(
             val currentSelectedTopic = current.selectedTopics.lastOrNull()
 
             if (isSelected) {
-                repository.deleteArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.deleteArticle(title, lang, currentSelectedTopic)
             } else {
-                repository.saveArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.saveArticle(title, lang, currentSelectedTopic)
             }
 
             state.update { currentState ->
@@ -268,7 +268,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            repository.deleteAllInterests()
+            interestSelectionRepository.deleteAllInterests()
 
             state.update {
                 it.copy(
@@ -294,7 +294,7 @@ class PersonalizationViewModel(
         val Factory = viewModelFactory {
             initializer {
                 PersonalizationViewModel(
-                    repository = InterestSelectionRepository(
+                    interestSelectionRepository = InterestSelectionRepository(
                         interestTopicDao = AppDatabase.instance.topicInterestDao(),
                         interestArticleDao = AppDatabase.instance.articleInterestDao(),
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
