@@ -10,10 +10,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import org.wikipedia.onboarding.personalization.db.dao.InterestArticleDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestTopicDao
-import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
-import org.wikipedia.onboarding.personalization.db.entity.InterestTopic
+import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
+import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.page.Namespace
 
 @RunWith(RobolectricTestRunner::class)

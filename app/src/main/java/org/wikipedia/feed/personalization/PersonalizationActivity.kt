@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization
 
 import android.content.Context
 import android.content.Intent

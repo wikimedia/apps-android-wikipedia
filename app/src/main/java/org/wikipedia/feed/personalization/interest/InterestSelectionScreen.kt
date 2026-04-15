@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization.interest
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -53,7 +53,7 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
+import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 

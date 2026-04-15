@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization.interest
 
 import org.wikipedia.R
 import org.wikipedia.page.PageTitle

@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization.db.entity
+package org.wikipedia.feed.personalization.db.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
