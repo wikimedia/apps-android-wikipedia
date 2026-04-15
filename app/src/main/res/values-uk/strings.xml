@@ -187,7 +187,7 @@
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title">Вхід</string>
+  <string name="login_activity_title">Увійти</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
@@ -1480,7 +1480,7 @@
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="main_tooltip_watchlist_title">Список спостереження</string>
-  <string name="main_tooltip_watchlist_text">Статті та сторінки, які ви раніше додали до свого списку спостереження, можна знайти в меню Більше, в пункті &lt;b&gt;Список спостереження&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">Знайдіть статті та сторінки, які ви раніше додали до свого списку спостереження, у меню «Більше» в розділі &lt;b&gt;«Список спостереження»&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_cancel_button_text">Назад</string>
@@ -1909,10 +1909,13 @@
   <string name="survey_dialog_general_maybe">Можливо</string>
   <string name="survey_dialog_input_hint">Додатковий відгук</string>
   <string name="survey_dialog_submitted_snackbar">Відгук надіслано. Дякуємо!</string>
+  <string name="games_hub_activity_title">Ігри</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Дізнатися більше</string>
+  <string name="games_hub_activity_overflow_learn_more">Дізнатися більше</string>
   <string name="on_this_day_game_entry_dialog_title">Знайомтеся</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Ігри Вікіпедії</string>
-  <string name="on_this_day_game_entry_dialog_button">Грати сьогоднішню гру</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні у стрічці.</string>
+  <string name="on_this_day_game_entry_dialog_button">Грати</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Ігри Вікіпедії доступні в Ігровому центрі, який знаходиться у меню «Більше».</string>
   <string name="on_this_day_game_title">Що було першим?</string>
   <string name="on_this_day_game_dialog_button">Грати</string>
   <string name="on_this_day_game_splash_message">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
@@ -1924,14 +1927,9 @@
   <string name="on_this_day_game_point">+1 бал</string>
   <string name="on_this_day_game_next">Наступне запитання</string>
   <string name="on_this_day_game_finish">Остаточний результат</string>
-  <string name="on_this_day_game_share_button">Поділитися</string>
-  <string name="on_this_day_game_pause_title">Призупинити гру?</string>
-  <string name="on_this_day_game_pause_body">Ваш прогрес буде збережено. Ви можете знайти гру у своїй стрічці.</string>
-  <string name="on_this_day_game_pause_negative">Продовжити грати</string>
-  <string name="on_this_day_game_pause_positive">Зрозуміло</string>
+  <string name="on_this_day_game_share_button">Поділитися результатом</string>
   <string name="on_this_day_game_feed_entry_card_heading">Ігри Вікіпедії</string>
   <string name="on_this_day_game_feed_entry_card_title">Що було першим?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Вгадайте, яка подія цього дня в історії відбулася першою.</string>
   <string name="on_this_day_game_result">Ваш рахунок — %1$d/%2$d.</string>
   <string name="on_this_day_game_next_in">Наступна гра через %s</string>
   <string name="on_this_day_game_your_stats">Ваша статистика</string>
@@ -1979,6 +1977,9 @@
   <string name="on_this_day_game_continue_playing_btn_text">Продовжити гру</string>
   <string name="on_this_day_game_sound_on">Увімкнути звук</string>
   <string name="on_this_day_game_sound_off">Вимкнути звук</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Увійти</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Увійдіть, щоб переглянути статистику гри</string>
+  <string name="wikipedia_games_title">Ігри Вікіпедії</string>
   <string name="year_in_review_learn_more">Дізнатися більше</string>
   <string name="year_in_review_get_started">Розпочати</string>
   <string name="year_in_review_topbar_w_icon">Іконка W Вікіпедії</string>
@@ -2455,7 +2456,7 @@
   <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Чому люди кладуть ананас на піцу?</string>
   <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Які найбільші міста в Європі?</string>
   <string name="hybrid_search_onboarding_screen_title">Новий спосіб пошуку</string>
-  <string name="hybrid_search_results_header_description">Взято зі статей Вікіпедії, створених людиною</string>
+  <string name="hybrid_search_results_header_description">Взято зі статей Вікіпедії, створених людьми</string>
   <string name="hybrid_search_results_rate_label">Оцініть цей результат</string>
   <string name="hybrid_search_results_rated_label">Оцінено</string>
   <string name="hybrid_search_results_rate_thumb_up">Оцінка «палець вгору»</string>
@@ -2469,4 +2470,5 @@
   <string name="hybrid_search_error_message">Щось пішло не так. Будь ласка, спробуйте ще раз пізніше.</string>
   <string name="hybrid_search_who_is_prefix">Хто такі %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Вимкнути цей експеримент</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Дізнатися більше</string>
 </resources>

@@ -32,7 +32,7 @@ import org.wikipedia.analytics.eventplatform.ActivityTabEvent
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.games.onthisday.OnThisDayGameViewModel
+import org.wikipedia.games.WikiGames
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
@@ -50,7 +50,7 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                     },
                     modules = Prefs.activityTabModules,
                     haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                    areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)
+                    areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)
                 )
             }
         }
@@ -75,7 +75,7 @@ class ActivityTabCustomizationActivity : BaseActivity() {
                 timeline = isTimelineEnabled.toOnOffString(),
                 all = when {
                     noModulesVisible(haveAtLeastOneDonation = Prefs.donationResults.isNotEmpty(),
-                        areGamesAvailable = OnThisDayGameViewModel.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) -> "off"
+                        areGamesAvailable = WikiGames.WHICH_CAME_FIRST.isLangSupported(WikipediaApp.instance.wikiSite.languageCode)) -> "off"
                     areAllModulesEnabled() -> "on"
                     else -> null
                 }

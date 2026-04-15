@@ -514,8 +514,8 @@
   <string name="custom_date_picker_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="on_this_day_game_entry_dialog_title">പരിചയപ്പെടുത്തുന്നു</string>
   <string name="on_this_day_game_entry_dialog_subtitle">വിക്കിപീഡിയാ കളികൾ</string>
-  <string name="on_this_day_game_entry_dialog_button">ഇന്നത്തെ കളി കളിക്കുക</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message">Explore feed-ൽ വിക്കിപീഡിയാ കളികൾ ലഭ്യമാണ്.</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">ഇന്നത്തെ കളി കളിക്കുക</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">Explore feed-ൽ വിക്കിപീഡിയാ കളികൾ ലഭ്യമാണ്.</string>
   <string name="on_this_day_game_title">എന്താണ് ആദ്യം വന്നത് ?</string>
   <string name="on_this_day_game_dialog_button">കളിക്കുക</string>
   <string name="on_this_day_game_score">സ്കോർ: %d</string>

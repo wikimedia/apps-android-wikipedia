@@ -476,10 +476,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_token_subscribed, false)
         set(subscribed) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed)
 
-    var isPushNotificationOptionsSet
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_push_notification_options_set, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_push_notification_options_set, value)
-
     val isSuggestedEditsReactivationTestEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false)
 
@@ -873,14 +869,6 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_selected_app_icon, LauncherIcon.DEFAULT.key)
         set(value) = PrefsIoUtil.setString(R.string.preference_key_selected_app_icon, value)
 
-    var yearInReviewReadingListVisitCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_yir_reading_list_visit_count, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_yir_reading_list_visit_count, value)
-
-    var yearInReviewReadingListSurveyShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_yir_reading_list_survey_shown, false)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_yir_reading_list_survey_shown, value)
-
     var isHybridSearchOnboardingShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_onboarding_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_onboarding_shown, value)
@@ -888,4 +876,8 @@ object Prefs {
     var isHybridSearchEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_hybrid_search_enabled, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_hybrid_search_enabled, value)
+
+    var isGameStatsUnavailableSnackbarShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_game_stats_snackbar_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_game_stats_snackbar_shown, value)
 }

@@ -158,6 +158,8 @@
   <string name="login_2fa_hint">ٻہ-مرحلا تصديق ڪوڊ</string>
   <string name="login_2fa_other_workflow_error_msg">ٻہ-مرحلا تصديق جي ضرورت آهي! مھرباني ڪري مکيہ اسڪرين تان لاگ ان ٿيو، ۽ پنھنجي 2FA ٽوڪن مان ڪوڊ داخل ڪريو.</string>
   <string name="login_email_auth_hint">اي ميل تصديق ڪوڊ</string>
+  <string name="login_email_auth_other_workflow_error_msg">ايميل جي تصديق گهربل آهي! مکيہ اسڪرين تان داخل ٿيو، ۽ پنھنجو ايميل تصديق ڪوڊ داخل ڪريو.</string>
+  <string name="login_background_error_msg">ٻيھر داخل ٿيڻ جي قابل ناھيو. مکيہ اسڪرين ڏانھن واپس وڃو ۽ دستي طور داخل ٿيو.</string>
   <string name="onboarding_card_login">داخل ٿيو</string>
   <string name="page_editing_login">داخل ٿيو</string>
   <string name="reading_lists_sync_login">داخل ٿيو</string>
@@ -1058,6 +1060,7 @@
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
   <string name="onboarding_multilingual_add_language_text">ٻوليون شامل يا مرتب ڪريو</string>
   <string name="onboarding_welcome_title_v2">کليل انسائيڪلوپيڊيا\n...300 کان مٿي ٻولين ۾</string>
+  <string name="onboarding_next">اڳيون</string>
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
   <string name="app_shortcuts_search">ڳوليو</string>
@@ -1511,5 +1514,7 @@
   <string name="survey_dialog_option_very_unsatisfied">ڏاڍو غير مطمئن</string>
   <string name="survey_dialog_cancel">رد ڪريو</string>
   <string name="survey_dialog_submit">اماڻيو</string>
+  <string name="survey_dialog_next">اڳيون</string>
   <string name="survey_dialog_submitted_snackbar">موٽ اماڻجي وئي. توھان جي مھرباني!</string>
+  <string name="on_this_day_game_next">اڳيون سوال</string>
 </resources>

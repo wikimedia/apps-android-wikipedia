@@ -52,6 +52,14 @@ interface Service {
                              @Query("gpsoffset") gpsOffset: Int?): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
+                "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun prefixSearchResponse(@Query("gpssearch") searchTerm: String?,
+                             @Query("gpslimit") maxResults: Int,
+                             @Query("gpsoffset") gpsOffset: Int?): Response<MwQueryResponse>
+
+    @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
                 "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
@@ -362,9 +370,8 @@ interface Service {
     // ------- Notifications -------
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notformat=model&notlimit=max&notwikis=*")
     suspend fun getAllNotifications(
-        @Query("notwikis") wikiList: String?,
         @Query("notfilter") filter: String?,
         @Query("notcontinue") continueStr: String?
     ): MwQueryResponse
@@ -736,9 +743,11 @@ interface Service {
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
     companion object {
-        const val WIKIPEDIA_URL = "https://wikipedia.org/"
-        const val WIKIMEDIA_URL = "https://wikimedia.org/"
-        const val WIKIDATA_URL = "https://www.wikidata.org/"
+        const val WIKIPEDIA_URL = "https://${WikiSite.BASE_DOMAIN}/"
+        const val BASE_AUTHORITY_WIKIMEDIA = "wikimedia.org"
+        const val WIKIMEDIA_URL = "https://${BASE_AUTHORITY_WIKIMEDIA}/"
+        const val BASE_AUTHORITY_WIKIDATA = "wikidata.org"
+        const val WIKIDATA_URL = "https://www.${BASE_AUTHORITY_WIKIDATA}/"
         const val COMMONS_URL = "https://commons.wikimedia.org/"
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
@@ -746,5 +755,12 @@ interface Service {
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400
+
+        fun isWikimediaAuthority(authority: String?): Boolean {
+            return !authority.isNullOrEmpty() &&
+                    (authority == WikiSite.BASE_DOMAIN || authority.endsWith(".${WikiSite.BASE_DOMAIN}") ||
+                            authority == BASE_AUTHORITY_WIKIMEDIA || authority.endsWith(".${BASE_AUTHORITY_WIKIMEDIA}") ||
+                            authority == BASE_AUTHORITY_WIKIDATA || authority.endsWith(".${BASE_AUTHORITY_WIKIDATA}"))
+        }
     }
 }

@@ -2,16 +2,18 @@ package org.wikipedia.main
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.graphics.Insets
+import androidx.core.net.toUri
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
@@ -28,12 +30,13 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.yearinreview.YearInReviewDialog
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var statusBarInsets = Insets.NONE
+    private var navBarInsets = Insets.NONE
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val fragment = fragment.currentFragment
@@ -49,14 +52,20 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // for launching YIR reading list on the next app launch
-        if (savedInstanceState == null) {
-           lifecycleScope.launch {
-               YearInReviewDialog.maybeShowCreateReadingListDialog(this@MainActivity)
-           }
-        }
         if (!DeviceUtil.assertAppContext(this)) {
             return
+        }
+
+        disableFitsSystemWindows()
+        enableEdgeToEdge()
+        DeviceUtil.setLightSystemUiVisibility(this)
+
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            applyInsets()
+            WindowInsetsCompat.CONSUMED.toWindowInsets()!!
         }
 
         onBackPressedDispatcher.addCallback(this) {
@@ -93,6 +102,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onTabChanged(tab: NavTab) {
         if (tab == NavTab.EXPLORE) {
+            // TODO: conditionally hide toolbar if we're looking at a full-bleed Compose feed.
             binding.mainToolbarWordmark.visibility = View.VISIBLE
             binding.mainToolbar.title = ""
             controlNavTabInFragment = false
@@ -109,7 +119,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
+        applyInsets()
         fragment.requestUpdateToolbarElevation()
+    }
+
+    private fun applyInsets() {
+        // TODO: conditionally set padding if we're looking at a full-bleed Compose feed.
+        binding.root.updatePadding(
+            top = statusBarInsets.top + navBarInsets.top,
+            bottom = statusBarInsets.bottom + navBarInsets.bottom,
+            left = statusBarInsets.left + navBarInsets.left,
+            right = statusBarInsets.right + navBarInsets.right
+        )
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
@@ -152,7 +173,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             intent.data?.let {
                 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
                     // Pass it right along to PageActivity
-                    val uri = Uri.parse(it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://"))
+                    val uri = it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://").toUri()
                     startActivity(Intent(this, PageActivity::class.java)
                             .setAction(Intent.ACTION_VIEW)
                             .setData(uri))

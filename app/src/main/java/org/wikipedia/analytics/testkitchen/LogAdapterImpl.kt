@@ -21,7 +21,7 @@ class LogAdapterImpl : LogAdapter {
         L.e(message)
         if (args.isNotEmpty() && args[0] is Exception) {
             L.e(args[0] as Exception)
-            if (ReleaseUtil.isDevRelease && args[0] is HttpStatusException && (args[0] as HttpStatusException).code != HttpURLConnection.HTTP_FORBIDDEN) {
+            if (ReleaseUtil.isPreBetaRelease && args[0] is HttpStatusException && (args[0] as HttpStatusException).code != HttpURLConnection.HTTP_FORBIDDEN) {
                 // Display the error very loudly to alert about potential Test Kitchen issues.
                 WikipediaApp.instance.mainThreadHandler.post {
                     Toast.makeText(WikipediaApp.instance, args[0].toString(), Toast.LENGTH_LONG).show()

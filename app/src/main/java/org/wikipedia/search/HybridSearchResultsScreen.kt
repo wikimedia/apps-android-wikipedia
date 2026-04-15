@@ -86,13 +86,13 @@ import org.wikipedia.views.imageservice.ImageService
 fun HybridSearchResultsScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchResultsViewModel,
-    onNavigateToTitle: (PageTitle, Boolean, Int, Location?) -> Unit,
-    onSemanticCardImpression: (SearchResult, Int) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
+    onNavigateToTitle: (SearchResult, Boolean, Int, Location?) -> Unit,
+    onSemanticCardImpression: (SearchResult) -> Unit,
+    onSemanticItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: (String) -> Unit,
-    onRatingClick: (Boolean, PageTitle, Int) -> Unit,
+    onRatingClick: (Boolean, SearchResult) -> Unit,
     onCloseSearch: () -> Unit,
     onRetrySearch: () -> Unit,
     onLoading: (Boolean) -> Unit,
@@ -107,28 +107,20 @@ fun HybridSearchResultsScreen(
     val layoutDirection =
         if (L10nUtil.isLangRTL(languageCode.value)) LayoutDirection.Rtl else LayoutDirection.Ltr
 
-    val isLoading = searchResultsState is UiState.Loading
-
-    var showSearchProgressBar by remember { mutableStateOf(true) }
-    LaunchedEffect(isLoading, showSearchProgressBar) {
-        if (showSearchProgressBar) {
-            onLoading(isLoading)
-        }
-    }
-
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {
         Box(
             modifier = modifier
         ) {
             when (searchResultsState) {
                 is UiState.Loading -> {
-                    showSearchProgressBar = false
+                    onLoading(true)
                     HybridSearchSkeletonLoader(viewModel.getTestGroup)
                 }
 
                 is UiState.Success -> {
+                    onLoading(false)
                     val semanticData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEMANTIC }
-                    val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.SEARCH }
+                    val lexicalData = searchResultsState.data.filter { it.type == SearchResult.SearchResultType.PREFIX || it.type == SearchResult.SearchResultType.FULL_TEXT }
                     if (lexicalData.isEmpty()) {
                         onLexicalResultsEmpty()
                     } else if (semanticData.isEmpty()) {
@@ -153,6 +145,7 @@ fun HybridSearchResultsScreen(
                 }
 
                 is UiState.Error -> {
+                    onLoading(false)
                     onError(searchResultsState.error)
                     WikiErrorView(
                         modifier = Modifier
@@ -176,13 +169,13 @@ fun HybridSearchResultsList(
     searchResultsPage: List<SearchResult>,
     semanticSearchResultPage: List<SearchResult>,
     searchTerm: String?,
-    onItemClick: (PageTitle, Boolean, Int, Location?) -> Unit,
+    onItemClick: (SearchResult, Boolean, Int, Location?) -> Unit,
     onItemLongClick: (View, SearchResult, Int) -> Unit,
     onInfoClick: () -> Unit,
     onTurnOffExperimentClick: () -> Unit,
-    onSemanticCardImpression: (SearchResult, Int) -> Unit,
-    onSemanticItemClick: (PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
-    onRatingClick: (Boolean, PageTitle, Int) -> Unit
+    onSemanticCardImpression: (SearchResult) -> Unit,
+    onSemanticItemClick: (SearchResult, PageTitle, Boolean, Boolean, Int, Location?) -> Unit,
+    onRatingClick: (Boolean, SearchResult) -> Unit
 ) {
     LazyColumn {
         if (testGroup == HybridSearchAbCTest.GROUP_CONTROL || testGroup == HybridSearchAbCTest.GROUP_LEXICAL_SEMANTIC) {
@@ -194,7 +187,7 @@ fun HybridSearchResultsList(
                         searchResultPage = result,
                         searchTerm = searchTerm,
                         onItemClick = {
-                            onItemClick(result.pageTitle, false, index, result.location)
+                            onItemClick(result, false, index, result.location)
                         },
                         onItemLongClick = { view ->
                             onItemLongClick(view, result, index)
@@ -241,7 +234,7 @@ fun HybridSearchResultsList(
                             if (visibleFraction >= 0.5f) {
                                 val card = semanticSearchResultPage[itemInfo.index]
                                 if (impressedCards.add(card)) {
-                                    onSemanticCardImpression(card, itemInfo.index)
+                                    onSemanticCardImpression(card)
                                 }
                             }
                         }
@@ -260,16 +253,16 @@ fun HybridSearchResultsList(
                         SemanticSearchResultPageItem(
                             searchResult = result,
                             onSemanticItemClick = {
-                                onSemanticItemClick(result.pageTitle, false, false, index, result.location)
+                                onSemanticItemClick(result, result.pageTitle, false, false, index, result.location)
                             },
                             onArticleItemClick = {
                                 onItemClick(it, false, index, result.location)
                             },
                             onSnippetLinkClick = {
-                                onSemanticItemClick(it, false, true, index, result.location)
+                                onSemanticItemClick(result, it, false, true, index, result.location)
                             },
                             onRatingClick = { isPositive ->
-                                onRatingClick(isPositive, result.pageTitle, index)
+                                onRatingClick(isPositive, result)
                             }
                         )
                     }
@@ -295,7 +288,7 @@ fun HybridSearchResultsList(
                         searchResultPage = result,
                         searchTerm = searchTerm,
                         onItemClick = {
-                            onItemClick(result.pageTitle, false, index, result.location)
+                            onItemClick(result, false, index, result.location)
                         },
                         onItemLongClick = { view ->
                             onItemLongClick(view, result, index)
@@ -405,7 +398,7 @@ fun SemanticSearchResultHeader(
 fun SemanticSearchResultPageItem(
     searchResult: SearchResult,
     onSemanticItemClick: () -> Unit,
-    onArticleItemClick: (PageTitle) -> Unit,
+    onArticleItemClick: (SearchResult) -> Unit,
     onSnippetLinkClick: (PageTitle) -> Unit,
     onRatingClick: (Boolean) -> Unit
 ) {
@@ -560,7 +553,7 @@ fun SemanticSearchResultPageItem(
                 modifier = Modifier
                     .defaultMinSize(minHeight = 56.dp)
                     .clickable {
-                        onArticleItemClick(searchResult.pageTitle)
+                        onArticleItemClick(searchResult)
                     }
             ) {
                 Row(

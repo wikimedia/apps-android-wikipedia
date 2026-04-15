@@ -106,6 +106,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -124,6 +126,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="wikipedia" />
+                <data android:host="*.wikipedia.org" />
+                <!-- Add more deeplink hosts as needed -->
             </intent-filter>
         </activity-alias>
 
@@ -216,6 +220,7 @@
 
         <activity
             android:name=".search.SearchActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
             android:exported="true">
@@ -380,6 +385,9 @@
 
         <activity
             android:name=".games.onthisday.OnThisDayGameActivity"/>
+
+        <activity
+            android:name=".games.GamesHubActivity"/>
 
         <activity
             android:name=".readinglist.recommended.RecommendedReadingListOnboardingActivity"/>

@@ -523,6 +523,7 @@
   <string name="notifications_view_archived_button_text">Sken talɣutin yettwaḥerzen</string>
   <string name="notification_preferences_title">Ismenyifen n yilɣuten</string>
   <string name="notifications_mark_unread">Creḍ ur yettwaɣra ara</string>
+  <string name="notifications_direct_reply_action">Err</string>
   <string name="preference_title_notification_poll">Rmed alɣuten</string>
   <string name="preference_category_notification_types">Anawen n yilɣuten deg usnas</string>
   <string name="preference_title_notification_system">Anagraw</string>
@@ -624,6 +625,7 @@
   <string name="description_edit_tutorial_promise">S beddu, adweɛdeɣ ur sṭuqquteɣ ara yir aseqdec n tmahilt-agi.</string>
   <string name="customize_toolbar_category_toolbar">Afeggag n ifecka</string>
   <string name="customize_toolbar_category_menu">Umuɣ</string>
+  <string name="suggested_edits_activity_title">Ẓreg</string>
   <string name="suggested_edits_tag_images">Creḍ tugniwin</string>
   <string name="suggested_edits_add_description_button">Rnu aglam</string>
   <string name="suggested_edits_edit_description_button">Ẓreg aglam</string>
@@ -657,7 +659,9 @@
   <string name="image_recommendation_reject">Uhu</string>
   <string name="image_recommendation_reject_other">Wayeḍ</string>
   <string name="image_recommendation_tooltip_next">Uḍfir</string>
+  <string name="activity_tab_donation_unknown">Arussin</string>
   <string name="activity_tab_menu_info">Issin ugar</string>
+  <string name="activity_tab_menu_customize">Sagen</string>
   <string name="activity_tab_timeline_today">Ass-a</string>
   <string name="activity_tab_timeline_yesterday">Iḍelli</string>
   <string name="file_page_edit_button_content_description">Ẓreg %s</string>
@@ -774,7 +778,7 @@
   <string name="survey_dialog_general_no">Uhu</string>
   <string name="on_this_day_game_dialog_button">Urar</string>
   <string name="on_this_day_game_progress">%1$d seg %2$d</string>
-  <string name="on_this_day_game_share_button">Bḍu</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Bḍu</string>
   <string name="on_this_day_game_menu_info">Issin ugar</string>
   <string name="on_this_day_game_article_read_button">Ɣeṛ amagrad</string>
   <string name="on_this_day_game_notification_undo">Semmet</string>

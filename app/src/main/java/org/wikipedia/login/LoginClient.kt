@@ -65,7 +65,7 @@ class LoginClient {
                                     newModule = "totp").toLoginResult(wiki, password)
                                 continue
                             }
-                            else -> cb.error(LoginFailedException(parsedMessage))
+                            else -> cb.error(LoginFailedException(parsedMessage, loginResult.messageCode))
                         }
                     } else {
                         // Make a call to authmanager to see if we need to provide a captcha.
@@ -73,7 +73,7 @@ class LoginClient {
                         if (!captchaId.isNullOrEmpty()) {
                             cb.uiPrompt(loginResult, LoginFailedException(loginResult.message), captchaId = captchaId, token = loginToken)
                         } else {
-                            cb.error(LoginFailedException(loginResult.message))
+                            cb.error(LoginFailedException(loginResult.message, loginResult.messageCode))
                         }
                     }
                 }

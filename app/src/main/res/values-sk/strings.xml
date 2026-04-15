@@ -6,6 +6,7 @@
 * Dušan Kreheľ
 * EditorPO
 * Hromoslav
+* KormiSK
 * KuboF
 * Kusavica
 * Lexected
@@ -1365,8 +1366,7 @@
   <string name="on_this_day_game_incorrect">Nesprávne!</string>
   <string name="on_this_day_game_point">+1 bod</string>
   <string name="on_this_day_game_next">Ďalšia otázka</string>
-  <string name="on_this_day_game_share_button">Zdieľať</string>
-  <string name="on_this_day_game_pause_positive">Rozumiem</string>
+  <string name="on_this_day_game_share_button" fuzzy="true">Zdieľať</string>
   <string name="on_this_day_game_menu_info">Ďalšie informácie</string>
   <string name="year_in_review_learn_more">Ďalšie informácie</string>
   <string name="year_in_review_survey_cancel">Zrušiť</string>
@@ -1380,4 +1380,6 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Každý týždeň</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Každé ráno</string>
   <string name="donation_reminders_prompt_negative_button">Teraz nie</string>
+  <string name="reading_challenge_widget_reward_body">Oslávte dokončenie výzvy s 15%% zľavou v obchode Wikipédie.</string>
+  <string name="reading_challenge_widget_reward_button_label">Získajte 15%% zľavu v obchode</string>
 </resources>

@@ -214,6 +214,7 @@
   <string name="about_description">ویکیپیڈیا ایپ کے بارے میں</string>
   <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
+  <string name="legal_safety_contacts_description">حفاظتی اور قافونی روابط</string>
   <string name="about_wikipedia_url">https://ur.wikipedia.org/wiki/ویکیپیڈیا:تعارف</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
@@ -506,7 +507,7 @@
   <string name="preference_title_notification_login_fail">لاگ ان</string>
   <string name="preference_title_notification_mention">بنام ذکر</string>
   <string name="preference_title_notification_user_talk">تبادلۂ خیال صفحہ</string>
-  <string name="notifications_filter_label">اطلاعات فلٹر</string>
+  <string name="notifications_filter_label">اطلاع ناموں کی چھان پھٹک کریں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
   <string name="view_next_random_article">ایک اور بے ترتیب مضمون لوڈ کریں</string>

@@ -1681,7 +1681,7 @@
   <string name="survey_dialog_general_no">Ne</string>
   <string name="survey_dialog_input_hint">Další zpětná vazba</string>
   <string name="on_this_day_game_entry_dialog_subtitle">Hry na Wikipedii</string>
-  <string name="on_this_day_game_entry_dialog_button">Hrát dnešní hru</string>
+  <string name="on_this_day_game_entry_dialog_button" fuzzy="true">Hrát dnešní hru</string>
   <string name="on_this_day_game_title">Co se stalo dříve?</string>
   <string name="on_this_day_game_dialog_button">Hrát</string>
   <string name="on_this_day_game_splash_message">Hádejte, která událost se v tento den v historii stala první.</string>
@@ -1691,12 +1691,8 @@
   <string name="on_this_day_game_point">+1 bod</string>
   <string name="on_this_day_game_next">Další otázka</string>
   <string name="on_this_day_game_finish">Konečné výsledky</string>
-  <string name="on_this_day_game_pause_title">Chcete pozastavit hru?</string>
-  <string name="on_this_day_game_pause_negative">Pokračujte ve hraní</string>
-  <string name="on_this_day_game_pause_positive">Rozumím</string>
   <string name="on_this_day_game_feed_entry_card_heading">Hry na Wikipedii</string>
   <string name="on_this_day_game_feed_entry_card_title">Co se stalo dříve?</string>
-  <string name="on_this_day_game_feed_entry_card_subtitle">Hádejte, která událost se v tento den v historii stala první.</string>
   <string name="on_this_day_game_your_stats">Vaše statistiky</string>
   <string name="on_this_day_game_stats_average_score">Průměrné skóre</string>
   <string name="on_this_day_game_menu_notifications">Herní upozornění</string>

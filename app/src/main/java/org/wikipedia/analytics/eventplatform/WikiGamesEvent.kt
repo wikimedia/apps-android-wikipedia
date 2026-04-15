@@ -13,6 +13,9 @@ object WikiGamesEvent {
         feedbackSelect: String? = null,
         feedbackText: String? = null,
         isArchive: Boolean? = null,
+        langCode: String? = null,
+        cardType: String? = null,
+        position: Int? = null,
         wikiId: String = WikipediaApp.instance.appOrSystemLanguageCode
     ) {
         EventPlatformClient.submit(
@@ -23,7 +26,10 @@ object WikiGamesEvent {
                     slide = slideName,
                     archive = isArchive,
                     feedbackText = feedbackText,
-                    feedbackSelect = feedbackSelect
+                    feedbackSelect = feedbackSelect,
+                    langCode = langCode,
+                    cardType = cardType,
+                    position = position
                 )).orEmpty(),
                 WikipediaApp.instance.languageState.appLanguageCode,
                 wikiId,
@@ -38,5 +44,8 @@ object WikiGamesEvent {
         val archive: Boolean? = null,
         @SerialName("feedback_select") val feedbackSelect: String? = null,
         @SerialName("feedback_text") val feedbackText: String? = null,
+        @SerialName("lang_code") val langCode: String? = null,
+        @SerialName("card_type") val cardType: String? = null,
+        @SerialName("position") val position: Int? = null
     )
 }
