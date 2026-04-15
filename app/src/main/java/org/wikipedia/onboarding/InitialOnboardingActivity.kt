@@ -18,8 +18,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.language.AppLanguageState
-import org.wikipedia.onboarding.personalization.PersonalizationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme

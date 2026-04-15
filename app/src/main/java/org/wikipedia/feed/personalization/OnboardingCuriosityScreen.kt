@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

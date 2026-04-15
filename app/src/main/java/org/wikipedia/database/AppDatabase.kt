@@ -11,6 +11,10 @@ import org.wikipedia.categories.db.Category
 import org.wikipedia.categories.db.CategoryDao
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
+import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.games.db.DailyGameHistory
 import org.wikipedia.games.db.DailyGameHistoryDao
 import org.wikipedia.games.onthisday.OnThisDayGameViewModel
@@ -21,10 +25,6 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.NotificationDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestArticleDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestTopicDao
-import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
-import org.wikipedia.onboarding.personalization.db.entity.InterestTopic
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList

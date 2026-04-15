@@ -1,21 +1,21 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization.interest
 
 import androidx.room.Transaction
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
+import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestTopic
+import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.history.db.HistoryEntryWithImageDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestArticleDao
-import org.wikipedia.onboarding.personalization.db.dao.InterestTopicDao
-import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
-import org.wikipedia.onboarding.personalization.db.entity.InterestTopic
-import org.wikipedia.onboarding.personalization.topics.OnboardingTopics
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.util.StringUtil
 
-class PersonalizationRepository(
+class InterestSelectionRepository(
     private val interestTopicDao: InterestTopicDao,
     private val interestArticleDao: InterestArticleDao,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
@@ -51,26 +51,23 @@ class PersonalizationRepository(
         return pageList
     }
 
-    suspend fun loadInitialArticles(selectedItems: List<PageTitle>): List<PageTitle> {
+    suspend fun loadInitialArticles(): List<PageTitle> {
         val maxItems = 20
         val results = mutableListOf<PageTitle>()
-        results.addAll(selectedItems)
 
-        if (results.size < maxItems) {
-            // get most recent history entries
-            val historyTitles = historyEntryWithImageDao.findEntryForReadMore(maxItems, 0)
-                .map { it.title }
-            // and a random sampling of reading list pages
-            val readingListTitles = readingListPageDao.getPagesByRandom(maxItems)
-                .map { ReadingListPage.toPageTitle(it) }
-            // take the two lists and interleave them
-            for (i in 0 until maxItems) {
-                if (i < historyTitles.size && !results.contains(historyTitles[i])) results.add(historyTitles[i])
-                if (i < readingListTitles.size && !results.contains(readingListTitles[i])) results.add(readingListTitles[i])
-            }
-            // remove non-main namespace articles, or Main page
-            results.removeAll { it.isMainPage || it.namespace() != Namespace.MAIN }
+        // get most recent history entries
+        val historyTitles = historyEntryWithImageDao.findEntryForReadMore(maxItems, 0)
+            .map { it.title }
+        // and a random sampling of reading list pages
+        val readingListTitles = readingListPageDao.getPagesByRandom(maxItems)
+            .map { ReadingListPage.toPageTitle(it) }
+        // take the two lists and interleave them
+        for (i in 0 until maxItems) {
+            if (i < historyTitles.size && !results.contains(historyTitles[i])) results.add(historyTitles[i])
+            if (i < readingListTitles.size && !results.contains(readingListTitles[i])) results.add(readingListTitles[i])
         }
+        // remove non-main namespace articles, or Main page
+        results.removeAll { it.isMainPage || it.namespace() != Namespace.MAIN }
 
         // If there are still VERY few items, include a few random articles.
         val maxRandomItems = 6

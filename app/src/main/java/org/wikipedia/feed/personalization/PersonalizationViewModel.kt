@@ -1,4 +1,4 @@
-package org.wikipedia.onboarding.personalization
+package org.wikipedia.feed.personalization
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,8 +14,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.feed.personalization.interest.ArticlesState
+import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
+import org.wikipedia.feed.personalization.interest.InterestUiState
+import org.wikipedia.feed.personalization.interest.OnboardingTopic
+import org.wikipedia.feed.personalization.interest.TopicsState
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
 // this is a raw, flat, internal representation of ALL state
@@ -65,7 +69,7 @@ private data class PersonalizedViewModelState(
 }
 
 class PersonalizationViewModel(
-    private val repository: PersonalizationRepository
+    private val repository: InterestSelectionRepository
 ) : ViewModel() {
     // Single source of truth for all personalization state, can be easily extended to include feed preference and language selection states as well
     private val state = MutableStateFlow(PersonalizedViewModelState())
@@ -83,12 +87,12 @@ class PersonalizationViewModel(
 
     fun onPageChanged(screen: PersonalizationPage) {
         when (screen) {
-            PersonalizationPage.INTERESTS -> loadScreen()
+            PersonalizationPage.INTERESTS -> loadInterestSelectionScreen()
             else -> {}
         }
     }
 
-    private fun loadScreen() {
+    private fun loadInterestSelectionScreen() {
         viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
          }) {
@@ -153,8 +157,7 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val selectedItems = Prefs.recommendedReadingListInterests
-            val articles = repository.loadInitialArticles(selectedItems)
+            val articles = repository.loadInitialArticles()
             state.update { current ->
                 val newArticles = (current.selectedArticles + articles).distinct()
                 current.copy(
@@ -291,7 +294,7 @@ class PersonalizationViewModel(
         val Factory = viewModelFactory {
             initializer {
                 PersonalizationViewModel(
-                    repository = PersonalizationRepository(
+                    repository = InterestSelectionRepository(
                         interestTopicDao = AppDatabase.instance.topicInterestDao(),
                         interestArticleDao = AppDatabase.instance.articleInterestDao(),
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),

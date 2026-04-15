@@ -1,11 +1,11 @@
-package org.wikipedia.onboarding.personalization.db.dao
+package org.wikipedia.feed.personalization.db.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import org.wikipedia.onboarding.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.page.Namespace
 
 @Dao
