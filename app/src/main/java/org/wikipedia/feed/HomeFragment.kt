@@ -142,7 +142,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun maybeShowExploreFeedUpdatePrompt() {
-        if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
+        if (Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
         }
     }
