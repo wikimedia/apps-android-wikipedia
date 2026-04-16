@@ -2335,6 +2335,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Utmaningen har avslutats</string>
   <string name="reading_challenge_widget_concluded_complete">Du klarade det!</string>
   <string name="reading_challenge_widget_reward_title">Nyfikenhet klär dig! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Fira att du har klarat utmaningen med 15 % rabatt i Wikipedia Store.</string>
-  <string name="reading_challenge_widget_reward_button_label">Få 15 % rabatt i butiken</string>
+  <string name="reading_challenge_widget_reward_body">Fira att du har klarat utmaningen med 15 %% rabatt i Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Få 15 %% rabatt i butiken</string>
 </resources>

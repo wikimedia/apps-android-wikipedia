@@ -2333,6 +2333,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Udfordring afsluttet</string>
   <string name="reading_challenge_widget_concluded_complete">Du gjorde det!</string>
   <string name="reading_challenge_widget_reward_title">Nysgerrighed klæder dig! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Fejr at have gennemført udfordringen med 15% rabat i Wikipedia Store.</string>
-  <string name="reading_challenge_widget_reward_button_label">Få 15% rabat i butikken</string>
+  <string name="reading_challenge_widget_reward_body">Fejr at have gennemført udfordringen med 15%% rabat i Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Få 15%% rabat i butikken</string>
 </resources>

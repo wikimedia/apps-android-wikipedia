@@ -2533,6 +2533,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">انتهت التحدي</string>
   <string name="reading_challenge_widget_concluded_complete">لقد فعلتها</string>
   <string name="reading_challenge_widget_reward_title">الفضول يبدو جيدا عليك  ⁇ ️</string>
-  <string name="reading_challenge_widget_reward_body">احتفل بإكمال التحدي مع خصم 15% في متجر ويكيبيديا.</string>
+  <string name="reading_challenge_widget_reward_body">احتفل بإكمال التحدي مع خصم 15%% في متجر ويكيبيديا.</string>
   <string name="reading_challenge_widget_reward_button_label">الحصول على خصم 15%% في المتجر</string>
 </resources>
