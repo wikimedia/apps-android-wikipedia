@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import org.wikipedia.feed.personalization.db.ArticleWithTopic
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.page.Namespace
 
@@ -24,4 +25,19 @@ interface InterestArticleDao {
 
     @Query("UPDATE InterestArticle SET topicId = :newTopicId WHERE apiTitle = :apiTitle AND lang = :lang AND namespace = :namespace")
     suspend fun updateTopic(newTopicId: String, apiTitle: String, lang: String, namespace: Namespace)
+
+    @Query("""
+        SELECT 
+            InterestArticle.*,
+            InterestTopic.topicId AS topic_topicId,
+            InterestTopic.lang AS topic_lang,
+            InterestTopic.topicLabel AS topic_topicLabel,
+            InterestTopic.queryTopicId AS topic_queryTopicId
+        FROM InterestArticle
+        INNER JOIN InterestTopic
+            ON InterestArticle.topicId = InterestTopic.topicId AND InterestArticle.topicLang = InterestTopic.lang
+        WHERE InterestArticle.lang = :lang
+    """
+    )
+    suspend fun getArticlesWithTopic(lang: String): List<ArticleWithTopic>
 }

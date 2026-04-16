@@ -8,7 +8,7 @@ enum class FeedPreferenceType(val titleRes: Int) {
 }
 
 data class FeedPreferenceContent (
-    val title: String,
+    val title: String?,
     val description: String?,
     val imageUrl: String?,
     val tag: String

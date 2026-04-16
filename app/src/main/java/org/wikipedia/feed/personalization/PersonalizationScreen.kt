@@ -103,7 +103,7 @@ fun PersonalizationScreen(
                                 viewModel.deselectAllArticles()
                             },
                             retryLoading = {
-                                viewModel.retryLoading()
+                                viewModel.retryInterestsLoading()
                             },
                             showError = showError
                         )
@@ -117,8 +117,8 @@ fun PersonalizationScreen(
                             selectedType = feedPreferenceUiState.value.selectedType,
                             communityContentState = feedPreferenceUiState.value.communityState,
                             personalizedContentState = feedPreferenceUiState.value.personalizedState,
-                            onTypeSelected = {},
-                            onRetryClick = {}
+                            onTypeSelected = { viewModel.onFeedPreferenceTypeSelected(it) },
+                            onRetryClick = { viewModel.retryFeedPreferenceLoading(it) }
                         )
                     }
                 }

@@ -20,7 +20,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
@@ -39,7 +38,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -59,7 +57,7 @@ fun FeedPreferenceScreen(
     communityContentState: FeedContentState,
     personalizedContentState: FeedContentState,
     onTypeSelected: (FeedPreferenceType) -> Unit,
-    onRetryClick: () -> Unit
+    onRetryClick: (FeedPreferenceType) -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -105,7 +103,7 @@ fun FeedPreferenceSection(
     state: FeedContentState,
     isSelected: Boolean,
     feedPreferenceType: FeedPreferenceType,
-    onRetryClick: () -> Unit,
+    onRetryClick: (FeedPreferenceType) -> Unit,
     onSelected: (FeedPreferenceType) -> Unit
 ) {
     val transition = rememberInfiniteTransition(label = "feedPreferenceShimmerTransition")
@@ -152,7 +150,7 @@ fun FeedPreferenceSection(
                             WikiErrorView(
                                 caught = state.message,
                                 errorClickEvents = WikiErrorClickEvents(
-                                    retryClickListener = onRetryClick
+                                    retryClickListener = { onRetryClick(feedPreferenceType) }
                                 )
                             )
                         }
@@ -226,7 +224,7 @@ fun FeedPreferenceArticleCard(
                         .background(
                             when (feedPreferenceType) {
                                 FeedPreferenceType.COMMUNITY -> WikipediaTheme.colors.progressiveColor
-                                FeedPreferenceType.PERSONALIZED -> WikipediaTheme.colors.progressiveColor // TODO: Update color once confirmed with design
+                                FeedPreferenceType.PERSONALIZED -> WikipediaTheme.colors.successColor
                             }, shape = RoundedCornerShape(8.dp)
                         )
                         .padding(horizontal = 12.dp, vertical = 4.dp),
@@ -238,25 +236,24 @@ fun FeedPreferenceArticleCard(
                     .padding(16.dp)
                     .weight(1f)
             ) {
-                HtmlText(
-                    text = content.title,
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontWeight = FontWeight.Medium
-                    ),
-                    maxLines = 2,
-                    color = WikipediaTheme.colors.primaryColor,
-                )
+                if (!content.title.isNullOrEmpty()) {
+                    HtmlText(
+                        text = content.title,
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontWeight = FontWeight.Medium
+                        ),
+                        maxLines = 2,
+                        color = WikipediaTheme.colors.primaryColor,
+                    )
+                }
+
                 if (!content.description.isNullOrEmpty()) {
                     HtmlText(
                         text = content.description,
                         style = MaterialTheme.typography.bodyMedium,
                         color = WikipediaTheme.colors.secondaryColor,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis,
-                        autoSize = TextAutoSize.StepBased(
-                            minFontSize = 10.sp,
-                            maxFontSize = 14.sp,
-                        )
+                        maxLines = if (!content.title.isNullOrEmpty()) 3 else Int.MAX_VALUE,
+                        overflow = TextOverflow.Ellipsis
                     )
                 } else {
                     Spacer(modifier = Modifier.weight(1f))

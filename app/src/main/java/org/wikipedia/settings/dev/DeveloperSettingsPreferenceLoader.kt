@@ -18,6 +18,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
@@ -267,6 +268,23 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
+        }
+        (findPreference(R.string.preference_key_explore_feed_preference_selection) as ListPreference).apply {
+            value = Prefs.exploreFeedPreferenceSelection.name
+            val states = FeedPreferenceType.entries
+            val names = states.map { it.name }.toTypedArray()
+            entries = names
+            entryValues = names
+            setOnPreferenceChangeListener { _, newValue ->
+                val selectedState = newValue as String
+                val source = when (selectedState) {
+                    "COMMUNITY" -> FeedPreferenceType.COMMUNITY
+                    "PERSONALIZED" -> FeedPreferenceType.PERSONALIZED
+                    else -> FeedPreferenceType.COMMUNITY
+                }
+                Prefs.exploreFeedPreferenceSelection = source
+                true
+            }
         }
     }
 

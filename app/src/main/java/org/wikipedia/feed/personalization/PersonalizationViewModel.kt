@@ -122,6 +122,7 @@ class PersonalizationViewModel(
     fun onPageChanged(screen: PersonalizationPage) {
         when (screen) {
             PersonalizationPage.INTERESTS -> loadInterestSelectionScreen()
+            PersonalizationPage.FEED_PREFERENCE -> loadFeedPreferenceScreen()
             else -> {}
         }
     }
@@ -132,6 +133,35 @@ class PersonalizationViewModel(
          }) {
             loadTopics()
             initialize()
+        }
+    }
+
+    private fun loadFeedPreferenceScreen() {
+        if (state.value.communityContent.isEmpty()) {
+            loadCommunityPreviewContent()
+        }
+        loadPersonalizedPreviewContent()
+    }
+
+    private fun loadCommunityPreviewContent() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            state.update { it.copy(communityLoading = false, communityError = throwable) }
+            L.e(throwable)
+        }) {
+            state.update { it.copy(communityLoading = true, communityError = null) }
+            val communityContent = feedPreferenceRepository.getCommunityContent()
+            state.update { it.copy(communityContent = communityContent, communityLoading = false) }
+        }
+    }
+
+    private fun loadPersonalizedPreviewContent() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            state.update { it.copy(personalizedLoading = false, personalizedError = throwable) }
+            L.e(throwable)
+        }) {
+            state.update { it.copy(personalizedLoading = true, personalizedError = null) }
+            val personalizedContent = feedPreferenceRepository.getInterests()
+            state.update { it.copy(personalizedContent = personalizedContent, personalizedLoading = false) }
         }
     }
 
@@ -315,12 +345,24 @@ class PersonalizationViewModel(
         }
     }
 
-    fun retryLoading() {
+    fun retryInterestsLoading() {
         val last = state.value.selectedTopics.lastOrNull()
         if (last != null) {
             loadArticlesByTopic(topic = last)
         } else {
             loadInitialArticles()
+        }
+    }
+
+    fun onFeedPreferenceTypeSelected(type: FeedPreferenceType) {
+        feedPreferenceRepository.saveFeedPreferenceSelection(type)
+        state.update { it.copy(feedPreferenceType = type) }
+    }
+
+    fun retryFeedPreferenceLoading(type: FeedPreferenceType) {
+        when (type) {
+            FeedPreferenceType.COMMUNITY -> loadCommunityPreviewContent()
+            FeedPreferenceType.PERSONALIZED -> loadPersonalizedPreviewContent()
         }
     }
 
@@ -336,8 +378,8 @@ class PersonalizationViewModel(
                         wikiSite = WikipediaApp.instance.wikiSite
                     ),
                     feedPreferenceRepository = FeedPreferenceRepository(
-                        interestTopicDao = AppDatabase.instance.topicInterestDao(),
                         interestArticleDao = AppDatabase.instance.articleInterestDao(),
+                        wikiSite = WikipediaApp.instance.wikiSite
                     )
                 )
             }
