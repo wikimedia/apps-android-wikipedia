@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,6 +30,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -60,6 +62,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
@@ -367,6 +370,13 @@ fun CommunityContentTab(
                 modifier = modifier.fillMaxSize(),
                 contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
+                item {
+                    CommunityDisclaimer(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .fillMaxWidth()
+                    )
+                }
                 state.days.forEach { day ->
 
                     item(key = "day-header-${day.age}") {
@@ -448,7 +458,7 @@ fun CommunityContentTab(
                     if (state.isLoadingMore) {
                         LoadingIndicator()
                     } else if (state.canLoadMore) {
-                        LoadMoreButton(label = stringResource(R.string.explore_feed_load_previous_day_label), onClick = onLoadMore)
+                        LoadMoreButton(isCommunity = true, onClick = onLoadMore)
                     }
                 }
 
@@ -510,7 +520,7 @@ fun ForYouContentTab(
                         if (state.isLoadingMore) {
                             LoadingIndicator()
                         } else if (state.canLoadMore) {
-                            LoadMoreButton(label = "Load more recommendations", onClick = onLoadMore)
+                            LoadMoreButton(isCommunity = false, onClick = onLoadMore)
                         }
                     }
 
@@ -526,6 +536,38 @@ fun ForYouContentTab(
 }
 
 @Composable
+fun CommunityDisclaimer(
+    modifier: Modifier
+) {
+    Box(
+        modifier = modifier
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    color = WikipediaTheme.colors.borderColor,
+                    shape = RoundedCornerShape(24.dp)
+                )
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = stringResource(R.string.explore_feed_community_disclaimer),
+                style = MaterialTheme.typography.bodyMedium,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+            Image(
+                modifier = Modifier.size(45.dp),
+                painter = painterResource(R.drawable.w_nav_mark),
+                contentDescription = null
+            )
+        }
+    }
+}
+@Composable
 fun DayHeader(date: LocalDate) {
     Text(
         text = date.toString(),
@@ -537,19 +579,52 @@ fun DayHeader(date: LocalDate) {
 }
 
 @Composable
-fun LoadMoreButton(label: String, onClick: () -> Unit) {
+fun LoadMoreButton(
+    isCommunity: Boolean = true,
+    onClick: () -> Unit
+) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+        modifier = Modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
-        TextButton(onClick = onClick) {
-            Text(
-                text = label,
-                color = WikipediaTheme.colors.progressiveColor,
-                fontWeight = FontWeight.Medium
-            )
+        if (isCommunity) {
+            AppButton(
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
+                onClick = onClick,
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_dynamic_feed_24dp),
+                        tint = WikipediaTheme.colors.paperColor,
+                        contentDescription = null
+                    )
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.explore_feed_community_load_more_label),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Medium,
+                        color = WikipediaTheme.colors.paperColor
+                    )
+                }
+            }
+        } else {
+            Box(
+                modifier = Modifier
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                TextButton(onClick = onClick) {
+                    Text(
+                        text = "Load more recommendations",
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
         }
     }
 }
@@ -614,5 +689,25 @@ fun HomeScreenForYouPreview() {
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
         )
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+fun CommunityDisclaimerPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CommunityDisclaimer(
+            modifier = Modifier
+                .padding(16.dp)
+                .height(72.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LoadMoreButtonPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        LoadMoreButton(isCommunity = true, onClick = {})
     }
 }

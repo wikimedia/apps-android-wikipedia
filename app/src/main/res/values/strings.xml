@@ -2477,7 +2477,7 @@
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
     <string name="explore_feed_building_text">Let\'s build your feed…</string>
-    <string name="explore_feed_community_tab_label">From the community</string>
+    <string name="explore_feed_community_tab_label">Community</string>
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
     <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
@@ -2486,4 +2486,7 @@
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia and they are updated daily</string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
+    <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
+    <string name="explore_feed_community_load_more_label">See past community content</string>
+    <string name="explore_feed_manage_languages_label">Manage languages</string>
 </resources>
