@@ -2083,6 +2083,27 @@
     <item quantity="one">Ændring foretaget af redaktører</item>
     <item quantity="other">Ændringer foretaget af redaktører</item>
   </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="one">Antal vist artikel</item>
+    <item quantity="other">Antal viste artikler</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="one">Redigering i appen</item>
+    <item quantity="other">Redigereringer i appen</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Hvor ofte Wikipedia blev redigeret</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="one">%d gang i minuttet</item>
+    <item quantity="other"> %d gange i minuttet</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="one">Artikel jeg læste mest</item>
+    <item quantity="other">Artikler jeg læste mest</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="one">Minut brugt på at læse</item>
+    <item quantity="other">Minutter brugt på at læse</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">Yndlingsdag at læse</string>
   <plurals name="year_in_review_highlights_logged_in_articles_read_title">
     <item quantity="one">Artikel læst</item>
@@ -2194,6 +2215,10 @@
   <string name="donation_reminders_settings_warning_min_amount">Indtast venligst mindst %s</string>
   <string name="donation_reminders_settings_warning_max_amount">Maksimum %s er tilladt</string>
   <string name="donation_reminders_settings_option_custom">Tilpas...</string>
+  <string name="donation_reminders_snacbkbar_confirmation_label">Tak! Vi minder dig om at donere %1$s når du læser %2$s mens dette eksperiment kører.</string>
+  <string name="donation_reminders_first_milestone_reached_prompt_title">Du har læst %1$s siden du gav tilsagn om %2$s</string>
+  <string name="donation_reminders_subsequent_milestone_reached_prompt_title">Du har læst endnu %1$s</string>
+  <string name="donation_reminders_prompt_message">Du har oprettet en donationspåmindelse på %1$s for at give %3$s for hver %2$s du læser. Er du klar til at holde dit løfte om at støtte Wikipedia?</string>
   <string name="donation_reminders_prompt_positive_button">Donér nu</string>
   <string name="donation_reminders_prompt_negative_button">Ikke nu</string>
   <string name="donation_reminders_gpay_text">Donér %s med Google Pay</string>
@@ -2209,6 +2234,8 @@
   <string name="donation_reminders_experiment_label">EKSPERIMENT</string>
   <string name="donation_reminders_settings_learn_more_button">Lær mere</string>
   <string name="donation_reminders_settings_report_button">Problem med funktion</string>
+  <string name="donation_reminders_settings_report_email_subject">Problemrapport - Donationspåmindelser</string>
+  <string name="donation_reminders_settings_report_email_body">Jeg er stødt på et problem med funktionen til påmindelser om donationer:\n- [Beskriv det specifikke problem]\n- [Skærmbilleder eller links]\n\nDen adfærd, jeg gerne vil se, er:\n- [Beskriv den foreslåede løsning]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Ændr</string>
   <string name="hybrid_search_search_hint">Søg eller spørg om hvad som helst</string>
   <string name="hybrid_search_article_search_hint">Spørg om %s</string>
@@ -2223,15 +2250,35 @@
   <string name="hybrid_search_onboarding_search_example_title">Brug for inspiration?</string>
   <string name="hybrid_search_onboarding_search_example_description">Brug et af søge-eksemplerne herunder.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Du har fravalgt eksperimentet.</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Hvornår blev Pluto ikke længere opført som planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">første OL</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs. DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Hvorfor putter folk ananas på pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Hvad er de største byer i Europa?</string>
   <string name="hybrid_search_onboarding_screen_title">En ny måde at søge på</string>
+  <string name="hybrid_search_results_header_description">Kilde fra menneskeskrevne Wikipedia-artikler</string>
   <string name="hybrid_search_results_rate_label">Bedøm dette resultat</string>
   <string name="hybrid_search_results_rated_label">Bedømt</string>
   <string name="hybrid_search_results_rate_thumb_up">Bedøm thumbs up</string>
   <string name="hybrid_search_results_rate_thumb_down">Bedøm thumbs down</string>
+  <string name="hybrid_lexical_search_results_empty">Ingen artikeltitel matcher denne forespørgsel.</string>
   <string name="hybrid_search_results_empty">Forbedret søgning er midlertidigt utilgængelig.</string>
   <string name="hybrid_search_no_results_header">Ingen resultater</string>
+  <string name="hybrid_search_no_results_description">Dette emne returnerer ikke uddrag af artikler i øjeblikket. Her er nogle ting, du kan prøve:</string>
+  <string name="hybrid_search_no_results_suggestion_rephrase_text">Omformulér din søgning</string>
+  <string name="hybrid_search_no_results_suggestion_try_related_topic">Prøv et relateret emne</string>
+  <string name="hybrid_search_error_message">Noget gik galt. Prøv venligst igen senere.</string>
   <string name="hybrid_search_who_is_prefix">Hvem er %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Slå dette eksperiment fra</string>
+  <string name="reading_challenge_widget_name">Læseudfordring</string>
+  <string name="reading_challenge_onboarding_header">Fejr Wikipedias 25-års fødselsdag ved at deltage i 25-dages læseudfordringen!</string>
+  <string name="reading_challenge_onboarding_read_title">Læs 1 artikel om dagen i 25 dage</string>
+  <string name="reading_challenge_onboarding_read_description">Deltag i udfordringen når som helst mellem 1. maj og 31. maj, og gennemfør dine 25 dage på din egen tidslinje.</string>
+  <string name="reading_challenge_onboarding_win_title">Vind præmier</string>
+  <string name="reading_challenge_onboarding_win_description">Gennemfør en 25-dages læse-streak, mens udfordringen er aktiv, for at vinde særlige præmier.</string>
+  <string name="reading_challenge_onboarding_install_title">Installér widgetten</string>
+  <string name="reading_challenge_onboarding_install_description">Få nyttige påmindelser og motivation med vores nuttede fødselsdagsmaskot Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Din læsehistorik holdes beskyttet. Læseindsigt beregnes ved hjælp af lokalt lagrede data på din enhed.</string>
   <string name="reading_challenge_onboarding_learn_more_button">Lær mere</string>
   <string name="reading_challenge_onboarding_join_button">Deltag i udfordringen</string>
   <string name="reading_challenge_onboarding_prompt_title">Log ind for at deltage i udfordringen</string>
@@ -2239,6 +2286,8 @@
   <string name="reading_challenge_onboarding_prompt_no_thanks">Nej tak</string>
   <string name="reading_challenge_onboarding_prompt_login">Log ind / Tilmeld dig Wikipedia</string>
   <string name="reading_challenge_install_prompt_title">Installer widgetten til 25-dages læseudfordring</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe hepper på dig. Tilføj Reading Challenge-widgetten for at spore dine fremskridt fra din startskærm.</string>
+  <string name="reading_challenge_install_prompt_got_it">Forstået</string>
   <string name="reading_challenge_install_prompt_add">Tilføj</string>
   <string name="reading_challenge_widget_explore_button">Udforsk</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">Udforsk Wikipedia</string>
@@ -2248,5 +2297,42 @@
   <string name="reading_challenge_widget_random_button">Tilfældig</string>
   <string name="reading_challenge_widget_collect_prize_button">Modtag præmien</string>
   <string name="reading_challenge_widget_collect_your_prize_button">Hent din præmie!</string>
+  <string name="reading_challenge_widget_not_live_title">Gør dig klar til at læse</string>
+  <string name="reading_challenge_widget_not_live_description">En 25-dages læseudfordring er på vej.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Klar, parat, læs!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Deltag i den 25-dages udfordring, og lås op for særlige præmier.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dage</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="one">%1$d af %2$d</item>
+    <item quantity="other">%1$d af %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d af %2$d dag</item>
+    <item quantity="other">%1$d af %2$d dage</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Lad ikke dagen i dag glide fra dig, red din stime.</string>
+  <string name="reading_challenge_streak_ongoing_title">25-dages læseudfordring</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Lad ikke dagen i dag glide fra dig, din læselyst venter.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Inden dagen slumrer væk ... er her stadig tid til at lære noget.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Selv en lille smule læsning tæller med i forhold til dit mål.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Din stime er kun én artikel væk.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Hop ind og læs lidt når som helst i dag.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Stille læsestund?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Hold din nysgerrighed i gang.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Klar, parat, læs!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Begynd at arbejde hen imod en 25-dages streak!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Start din læseudfordring.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Enhver streak starter et sted</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Starte en ny serie?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Læs én artikel for at komme i gang.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">En frisk start.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Din stime er kun én artikel væk.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Udfordring afsluttet</string>
   <string name="reading_challenge_widget_concluded_complete">Du gjorde det!</string>
+  <string name="reading_challenge_widget_reward_title">Nysgerrighed klæder dig! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Fejr at have gennemført udfordringen med 15%% rabat i Wikipedia Store.</string>
+  <string name="reading_challenge_widget_reward_button_label">Få 15%% rabat i butikken</string>
 </resources>
