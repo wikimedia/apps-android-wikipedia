@@ -1336,6 +1336,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">כאן אפשר לבחור אילו מודולים להציג. כל הנתונים האישיים נשארים פרטיים במכשיר שלך ואפשר לנקות את היסטוריית הגלישה בכל זמן.</string>
   <string name="edits_screen_what_is_title">עריכה ביישום ויקיפדיה</string>
   <string name="edits_screen_what_is_body">לא ברור לך איפה להתחיל עם עריכה? מומלץ לנסות את \"עריכות מוצעות\", תכונה שיוצרת הזדמנויות לעשות תרומות קטנות, אבל חיוניות לוויקיפדיה. לחלופין, אפשר לעבור ישר לערך שמעניין אותך ולעשות שם שינוי בקוד ויקי.</string>
+  <string name="activity_tab_snackbar_label">סטטיסטיקת המשחק מופיעה לשפה העיקרית שלך.</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1905,12 +1906,14 @@
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
   <string name="games_hub_activity_title">משחקים</string>
+  <string name="games_hub_activity_games_unavailable_message">אין משחקים זמינים בשפה הזאת עדיין! משחקים משתמשים בתוכן שנוצר על ידי עורכים מתנדבים עבור ויקיפדיה של כל שפה ושפה.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">מידע נוסף</string>
   <string name="games_hub_activity_overflow_view_game_stats">הצגת סטטיסטיקת משחק</string>
+  <string name="games_hub_activity_overflow_learn_more">מידע נוסף</string>
   <string name="on_this_day_game_entry_dialog_title">גאים להציג</string>
   <string name="on_this_day_game_entry_dialog_subtitle">משחקי ויקיפדיה</string>
   <string name="on_this_day_game_entry_dialog_button">לשחק</string>
-  <string name="on_this_day_game_entry_dialog_snackbar_message" fuzzy="true">משחקי ויקיפדיה זמינים בהזנת \"לחקור\".</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">משחקי ויקיפדיה זמינים במרכז המשחקים שמופיע בתפריט „עוד”.</string>
   <string name="on_this_day_game_title">מה היה קודם?</string>
   <string name="on_this_day_game_dialog_button">לשחק</string>
   <string name="on_this_day_game_splash_message">לנחש איזה אירוע היה ראשון ביום הזה בהיסטוריה.</string>
@@ -1922,7 +1925,7 @@
   <string name="on_this_day_game_point">הרווחת נקודה</string>
   <string name="on_this_day_game_next">השאלה הבאה</string>
   <string name="on_this_day_game_finish">תוצאה סופית</string>
-  <string name="on_this_day_game_share_button" fuzzy="true">שיתוף</string>
+  <string name="on_this_day_game_share_button">שיתוף ניקוד</string>
   <string name="on_this_day_game_feed_entry_card_heading">משחקי ויקיפדיה</string>
   <string name="on_this_day_game_feed_entry_card_title">מה היה קודם?</string>
   <string name="on_this_day_game_result">קיבלת %1$d/%2$d.</string>
@@ -1964,6 +1967,7 @@
   <string name="on_this_day_game_archive_btn_text">לשחק בארכיון</string>
   <string name="on_this_day_game_review_results_btn_text">סקירת תוצאות</string>
   <string name="on_this_day_game_score_message">קיבלת %1$d/%2$d במשחק של היום.</string>
+  <string name="on_this_day_game_play_today_btn_text">לשחק במשחק היומי</string>
   <string name="on_this_day_game_continue_playing_btn_text">להמשיך לשחק</string>
   <string name="on_this_day_game_sound_on">להפעיל צליל</string>
   <string name="on_this_day_game_sound_off">להשתיק צליל</string>

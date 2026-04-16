@@ -35,6 +35,7 @@
 * Pebaryan
 * Penyuwangi
 * Polos
+* Rafka Aditia
 * RaymondSutanto94
 * Relly Komaruzaman
 * Riemogerz
@@ -1925,7 +1926,72 @@
   <plurals name="year_in_review_slide_english_edited_times_headline">
     <item quantity="other">Editors telah menyunting sebanyak %,d perubahan di tahun ini</item>
   </plurals>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Waktu favorit untuk membaca</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Hari favorit untuk membaca</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Bulan yang paling banyak Anda baca</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Pagi</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Tengah hari</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Sore</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Sore menjelang malam</string>
+  <string name="year_in_review_slide_reading_pattern_night">Malam</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Larut malam</string>
+  <string name="year_in_review_slide_viewed_articles_times_body">Bagi orang-orang di seluruh dunia, Wikipedia adalah tempat pertama yang mereka kunjungi saat ingin mencari jawaban atas suatu pertanyaan, mencari informasi untuk keperluan sekolah atau pekerjaan, atau mempelajari fakta baru.</string>
   <string name="year_in_review_reading_list_dialog_title">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
   <string name="year_in_review_reading_list_dialog_message">Tinjauan Tahunan akan membuat daftar bacaan berisi artikel-artikel yang paling banyak Anda baca pada %1$d. &lt;a href=\"%2$s\"&gt;Pelajari selengkapnya&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Buat</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Tidak, terima kasih</string>
   <string name="year_in_review_reading_list_title">Tinjauan Tahunan %d</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Seberapa sering Wikipedia disunting</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="other">%d kali per menit</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="other">Artikel yang paling sering saya baca</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="other">Menit baca</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Hari favorit untuk membaca</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="other">Artikel yang dibaca</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="other">Kategori yang menarik bagi saya</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="other">Waktu disunting</item>
+  </plurals>
+  <string name="year_in_review_highlights_logo_description">Logo Wikipedia</string>
+  <string name="recommended_reading_list_title">Temukan</string>
+  <string name="recommended_reading_list_onboarding_card_title">Temukan artikel yang dipilih khusus untuk Anda</string>
+  <string name="recommended_reading_list_onboarding_card_message">Daftar bacaan mingguan Anda dari artikel Wikipedia, yang disusun khusus untuk Anda.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Baru!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Memulai</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Tidak, terima kasih</string>
+  <string name="recommended_reading_list_interest_pick_title">Apa yang menarik bagi Anda?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Cari artikel</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">harian</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">mingguan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">bulanan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Setiap hari</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
+  <string name="recommended_reading_list_settings_interests">Minat</string>
+  <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Sejak kapan Pluto tidak lagi terdaftar sebagai planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Olimpiade pertama</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Mengapa orang-orang menaruh nanas di atas pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Apa saja kota-kota terbesar di Eropa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Cara baru untuk mencari</string>
+  <string name="hybrid_search_results_header_description">Bersumber dari artikel Wikipedia yang ditulis manusia</string>
+  <string name="hybrid_search_results_rate_label">Beri nilai pada hasil ini</string>
+  <string name="hybrid_search_results_rated_label">Dinilai</string>
+  <string name="hybrid_search_results_rate_thumb_up">Beri nilai jempol ke atas</string>
+  <string name="hybrid_search_results_rate_thumb_down">Beri nilai jempol ke bawah</string>
+  <string name="hybrid_lexical_search_results_empty">Tidak ada judul artikel yang cocok dengan kueri ini.</string>
+  <string name="hybrid_search_results_empty">Pencarian yang ditingkatkan untuk sementara tidak tersedia.</string>
+  <string name="hybrid_search_no_results_header">Tidak ada hasil</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Jelajahi Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Ikuti tantangannya</string>
 </resources>
