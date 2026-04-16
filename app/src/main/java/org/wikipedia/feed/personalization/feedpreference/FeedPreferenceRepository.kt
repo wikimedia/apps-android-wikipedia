@@ -3,7 +3,6 @@ package org.wikipedia.feed.personalization.feedpreference
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
-import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
