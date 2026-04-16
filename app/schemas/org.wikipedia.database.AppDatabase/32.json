@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 32,
-    "identityHash": "af66b2aaebea2bd3fb1dc8d3fa542914",
+    "identityHash": "13caecc46590fb1cbfddc84dfcd32263",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -742,69 +742,11 @@
             "id"
           ]
         }
-      },
-      {
-        "tableName": "Interests",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `topicLabel` TEXT NOT NULL, `topicKey` TEXT NOT NULL, `lang` TEXT NOT NULL, `articleApiTitle` TEXT NOT NULL, `articleDisplayTitle` TEXT NOT NULL, `articleDescription` TEXT, `articleThumbUrl` TEXT)",
-        "fields": [
-          {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "topicLabel",
-            "columnName": "topicLabel",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "topicKey",
-            "columnName": "topicKey",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "lang",
-            "columnName": "lang",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "articleApiTitle",
-            "columnName": "articleApiTitle",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "articleDisplayTitle",
-            "columnName": "articleDisplayTitle",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "articleDescription",
-            "columnName": "articleDescription",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "articleThumbUrl",
-            "columnName": "articleThumbUrl",
-            "affinity": "TEXT"
-          }
-        ],
-        "primaryKey": {
-          "autoGenerate": true,
-          "columnNames": [
-            "id"
-          ]
-        }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'af66b2aaebea2bd3fb1dc8d3fa542914')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '13caecc46590fb1cbfddc84dfcd32263')"
     ]
   }
 }
