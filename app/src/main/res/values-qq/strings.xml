@@ -2232,4 +2232,5 @@
   <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+  <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
 </resources>

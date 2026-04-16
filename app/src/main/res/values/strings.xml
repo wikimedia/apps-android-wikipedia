@@ -2485,4 +2485,5 @@
     <string name="explore_feed_deselect_all_button_label">Deselect all</string>
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia and they are updated daily</string>
+    <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
 </resources>

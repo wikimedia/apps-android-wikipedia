@@ -55,8 +55,7 @@ import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
-import org.wikipedia.feed.news.NewsCard
-import org.wikipedia.feed.news.NewsItemView
+import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.MediaDownloadReceiver
 import org.wikipedia.games.GamesHubActivity
@@ -407,11 +406,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
     }
 
-    override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
-        val options = ActivityOptions.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
-        view.newsItem?.let {
-            startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
-        }
+    override fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite) {
+        startActivity(NewsActivity.newIntent(requireActivity(), newsItem, wikiSite))
     }
 
     override fun onFeedSeCardFooterClicked() {
