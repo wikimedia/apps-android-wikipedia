@@ -2,7 +2,6 @@ package org.wikipedia.feed.personalization.interest
 
 import org.wikipedia.page.PageTitle
 
-// Interest Selection screen state
 data class OnboardingTopic(
     val topicId: String,
     val msgKey: String,

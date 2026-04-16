@@ -28,6 +28,7 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.news.NewsCard
+import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.topread.TopReadArticlesActivity
@@ -74,7 +75,7 @@ class FeedFragment : Fragment() {
         fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
         fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
-        fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView)
+        fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite)
         fun onFeedSeCardFooterClicked()
         fun onFeedShareImage(image: FeaturedImage, age: Int)
         fun onFeedDownloadImage(image: FeaturedImage)
@@ -266,7 +267,9 @@ class FeedFragment : Fragment() {
         }
 
         override fun onNewsItemSelected(card: NewsCard, view: NewsItemView) {
-            callback?.onFeedNewsItemSelected(card, view)
+            view.newsItem?.let {
+                callback?.onFeedNewsItemSelected(it, card.wikiSite())
+            }
         }
 
         override fun onShareImage(card: FeaturedImageCard) {
