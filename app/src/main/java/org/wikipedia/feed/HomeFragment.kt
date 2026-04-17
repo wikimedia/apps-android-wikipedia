@@ -430,6 +430,7 @@ fun CommunityContentTab(
                             .padding(horizontal = 16.dp)
                             .fillMaxWidth()
                     )
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
                 state.days.forEach { day ->
 
@@ -748,7 +749,7 @@ fun LanguageDropDownMenu(
                 modifier = Modifier
                     .height(20.dp)
                     .widthIn(min = 20.dp),
-                languageCode = "en",
+                languageCode = selectedLanguageCode,
                 backgroundColor = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
                 borderColor = Color.Transparent,
                 textColor = WikipediaTheme.colors.paperColor,
@@ -796,9 +797,16 @@ fun LanguageDropDownMenu(
                     },
                     onClick = {
                         onLanguageSelected(langCode)
+                        expanded = false
                     }
                 )
             }
+
+            HorizontalDivider(
+                modifier = Modifier.padding(vertical = 8.dp),
+                color = WikipediaTheme.colors.borderColor
+            )
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -807,10 +815,6 @@ fun LanguageDropDownMenu(
                     }
                     .padding(vertical = 8.dp),
             ) {
-                HorizontalDivider(
-                    color = WikipediaTheme.colors.borderColor
-                )
-                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     modifier = Modifier.padding(horizontal = 16.dp),
                     text = stringResource(R.string.explore_feed_manage_languages_label),
