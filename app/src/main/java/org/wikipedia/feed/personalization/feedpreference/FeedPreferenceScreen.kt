@@ -107,7 +107,7 @@ fun FeedPreferenceSection(
     onSelected: (FeedPreferenceType) -> Unit
 ) {
     val transition = rememberInfiniteTransition(label = "feedPreferenceShimmerTransition")
-
+    val isPersonalizedContentDisabled = state is FeedContentState.Empty
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -115,24 +115,27 @@ fun FeedPreferenceSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp)
-                .clickable(onClick = { onSelected(feedPreferenceType) }),
+                .clickable(onClick = { if (!isPersonalizedContentDisabled) onSelected(feedPreferenceType) }),
             verticalAlignment = Alignment.CenterVertically
         ) {
             RadioButton(
                 selected = isSelected,
                 onClick = { onSelected(feedPreferenceType) },
-                enabled = state !is FeedContentState.Empty,
+                enabled = !isPersonalizedContentDisabled,
                 colors = RadioButtonDefaults.colors(
                     selectedColor = WikipediaTheme.colors.primaryColor,
-                    unselectedColor = WikipediaTheme.colors.primaryColor
+                    unselectedColor = WikipediaTheme.colors.primaryColor,
+                    disabledUnselectedColor = WikipediaTheme.colors.inactiveColor,
+                    disabledSelectedColor = WikipediaTheme.colors.inactiveColor
                 )
             )
             Text(
                 text = stringResource(feedPreferenceType.titleRes),
                 style = MaterialTheme.typography.bodyLarge.copy(
-                    fontWeight = FontWeight.Medium
+                    fontWeight = if (isPersonalizedContentDisabled) FontWeight.Normal else FontWeight.Medium
                 ),
-                color = WikipediaTheme.colors.primaryColor
+                color = if (isPersonalizedContentDisabled) WikipediaTheme.colors.inactiveColor else
+                    WikipediaTheme.colors.primaryColor
             )
         }
 
@@ -212,36 +215,36 @@ fun FeedPreferenceArticleCard(
                 modifier = Modifier
                     .height(108.dp)
             ) {
-                if (!content.imageUrl.isNullOrEmpty()) {
-                    val request = ImageService.getRequest(
-                        LocalContext.current,
-                        url = content.imageUrl,
-                        detectFace = true
-                    )
-                    AsyncImage(
-                        model = request,
-                        placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                        error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
-                        contentScale = ContentScale.Crop,
-                        contentDescription = null,
+                val request = ImageService.getRequest(
+                    LocalContext.current,
+                    url = content.imageUrl,
+                    detectFace = true
+                )
+                AsyncImage(
+                    model = request,
+                    placeholder = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    error = BrushPainter(SolidColor(WikipediaTheme.colors.borderColor)),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(108.dp)
+                )
+                if (!content.tag.isNullOrEmpty()) {
+                    ArticleCardTag(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(108.dp)
+                            .align(Alignment.BottomStart)
+                            .padding(8.dp)
+                            .background(
+                                when (feedPreferenceType) {
+                                    FeedPreferenceType.COMMUNITY -> WikipediaTheme.colors.progressiveColor
+                                    FeedPreferenceType.PERSONALIZED -> WikipediaTheme.colors.successColor
+                                }, shape = RoundedCornerShape(8.dp)
+                            )
+                            .padding(horizontal = 12.dp, vertical = 4.dp),
+                        text = content.tag
                     )
                 }
-                ArticleCardTag(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(8.dp)
-                        .background(
-                            when (feedPreferenceType) {
-                                FeedPreferenceType.COMMUNITY -> WikipediaTheme.colors.progressiveColor
-                                FeedPreferenceType.PERSONALIZED -> WikipediaTheme.colors.successColor
-                            }, shape = RoundedCornerShape(8.dp)
-                        )
-                        .padding(horizontal = 12.dp, vertical = 4.dp),
-                    text = content.tag
-                )
             }
             Column(
                 modifier = Modifier

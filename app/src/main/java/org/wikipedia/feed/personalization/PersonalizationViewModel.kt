@@ -161,7 +161,10 @@ class PersonalizationViewModel(
             L.e(throwable)
         }) {
             state.update { it.copy(personalizedLoading = true, personalizedError = null) }
-            val personalizedContent = feedPreferenceRepository.getInterests()
+            val personalizedContent = feedPreferenceRepository.getInterests(
+                selectedTopics = state.value.selectedTopics,
+                selectedArticles = state.value.selectedArticles
+            )
             state.update { it.copy(personalizedContent = personalizedContent, personalizedLoading = false) }
         }
     }
@@ -379,7 +382,7 @@ class PersonalizationViewModel(
                         wikiSite = WikipediaApp.instance.wikiSite
                     ),
                     feedPreferenceRepository = FeedPreferenceRepository(
-                        interestArticleDao = AppDatabase.instance.articleInterestDao(),
+                        historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
                         wikiSite = WikipediaApp.instance.wikiSite
                     )
                 )

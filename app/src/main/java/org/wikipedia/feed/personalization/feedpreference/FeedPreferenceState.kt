@@ -11,7 +11,7 @@ data class FeedPreferenceContent (
     val title: String?,
     val description: String?,
     val imageUrl: String?,
-    val tag: String
+    val tag: String?
 )
 
 sealed interface FeedContentState {

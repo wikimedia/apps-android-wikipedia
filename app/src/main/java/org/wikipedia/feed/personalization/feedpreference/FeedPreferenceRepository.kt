@@ -2,13 +2,15 @@ package org.wikipedia.feed.personalization.feedpreference
 
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
+import org.wikipedia.feed.personalization.interest.OnboardingTopic
+import org.wikipedia.history.db.HistoryEntryWithImageDao
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 class FeedPreferenceRepository(
-    private val interestArticleDao: InterestArticleDao,
+    private val historyEntryWithImageDao: HistoryEntryWithImageDao,
     private val wikiSite: WikiSite
 ) {
     suspend fun getCommunityContent(): List<FeedPreferenceContent> {
@@ -55,7 +57,55 @@ class FeedPreferenceRepository(
         )
     }
 
-    suspend fun getInterests(): List<FeedPreferenceContent> {
+    suspend fun getInterests(
+        selectedTopics: List<OnboardingTopic>,
+        selectedArticles: Set<PageTitle>
+    ): List<FeedPreferenceContent> {
+        // TODO: Confirm behavior with product
+        if (selectedTopics.isNotEmpty()) {
+            val content = selectedTopics.take(3).flatMap { topic ->
+                val response = ServiceFactory.get(wikiSite).getArticlesByTopic(articleTopics = topic.queryTopicId, limit = 1)
+                response.query?.pages?.map { page ->
+                    FeedPreferenceContent(
+                        title = page.title,
+                        description = page.description,
+                        imageUrl = page.thumbUrl(),
+                        tag = topic.displayTitle
+                    )
+                } ?: emptyList()
+            }
+            return content
+        }
+
+        if (selectedArticles.isNotEmpty()) {
+            val moreLikeSearchTerm = "morelike:${selectedArticles.take(3).joinToString("|") { it.prefixedText }}"
+            val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
+            val content = response.query?.pages?.map { page ->
+                FeedPreferenceContent(
+                    title = page.title,
+                    description = page.description,
+                    imageUrl = page.thumbUrl(),
+                    tag = null
+                )
+            } ?: emptyList()
+            return content
+        }
+
+        val readingHistory = historyEntryWithImageDao.getMostRecentEntriesWithImage(3)
+        if (readingHistory.size >= 3) {
+            val moreLikeSearchTerm = "morelike:${readingHistory.take(3).joinToString("|") { it.apiTitle }}"
+            val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
+            val content = response.query?.pages?.map { page ->
+                FeedPreferenceContent(
+                    title = page.title,
+                    description = page.description,
+                    imageUrl = page.thumbUrl(),
+                    tag = null
+                )
+            } ?: emptyList()
+            return content
+        }
+
         return listOf()
     }
 
