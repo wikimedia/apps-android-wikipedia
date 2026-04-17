@@ -2489,4 +2489,5 @@
     <string name="explore_feed_preference_community_content_title">Community-related content</string>
     <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
+    <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
 </resources>

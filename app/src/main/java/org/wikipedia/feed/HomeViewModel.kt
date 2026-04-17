@@ -13,7 +13,9 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.feed.personalization.feedpreference.FeedPreferenceType
 import org.wikipedia.feed.topread.TopRead
+import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -56,7 +58,9 @@ class HomeViewModel : ViewModel() {
 
     val wikiSite get() = WikipediaApp.instance.wikiSite
 
-    private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
+    private val _selectedTab = MutableStateFlow(
+        if (Prefs.exploreFeedPreferenceSelection == FeedPreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
+    )
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
@@ -88,7 +92,11 @@ class HomeViewModel : ViewModel() {
     }
 
     init {
-        loadCommunityContent()
+        if (_selectedTab.value == HomeTab.COMMUNITY) {
+            loadCommunityContent()
+        } else {
+            loadForYouContent()
+        }
     }
 
     fun refreshCommunityContent() {

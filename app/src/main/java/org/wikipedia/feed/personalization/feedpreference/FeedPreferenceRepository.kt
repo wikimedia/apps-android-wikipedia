@@ -56,16 +56,7 @@ class FeedPreferenceRepository(
     }
 
     suspend fun getInterests(): List<FeedPreferenceContent> {
-        val articles = interestArticleDao.getArticlesWithTopic(wikiSite.languageCode)
-
-        return articles.map {
-            FeedPreferenceContent(
-                title = it.article.displayTitle,
-                description = it.article.description,
-                imageUrl = it.article.thumbUrl,
-                tag = it.topic.topicLabel
-            )
-        }
+        return listOf()
     }
 
     fun saveFeedPreferenceSelection(preferenceType: FeedPreferenceType) {

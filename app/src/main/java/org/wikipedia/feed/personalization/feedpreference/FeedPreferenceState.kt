@@ -16,6 +16,7 @@ data class FeedPreferenceContent (
 
 sealed interface FeedContentState {
     data object Loading : FeedContentState
+    data object Empty : FeedContentState
     data class Success(val content: List<FeedPreferenceContent>) : FeedContentState
     data class Error(val message: Throwable) : FeedContentState
 }

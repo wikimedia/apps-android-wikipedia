@@ -2236,4 +2236,5 @@
     <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
     <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
   <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
+    <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
 </resources>

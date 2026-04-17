@@ -87,6 +87,7 @@ private data class PersonalizedViewModelState(
             personalizedState = when {
                 personalizedLoading -> FeedContentState.Loading
                 personalizedError != null -> FeedContentState.Error(personalizedError)
+                personalizedContent.isEmpty() -> FeedContentState.Empty
                 else -> FeedContentState.Success(personalizedContent)
             }
         )

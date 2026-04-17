@@ -121,6 +121,7 @@ fun FeedPreferenceSection(
             RadioButton(
                 selected = isSelected,
                 onClick = { onSelected(feedPreferenceType) },
+                enabled = state !is FeedContentState.Empty,
                 colors = RadioButtonDefaults.colors(
                     selectedColor = WikipediaTheme.colors.primaryColor,
                     unselectedColor = WikipediaTheme.colors.primaryColor
@@ -165,6 +166,17 @@ fun FeedPreferenceSection(
                                 .height(230.dp)
                                 .clip(RoundedCornerShape(size = 12.dp))
                                 .shimmerEffect(transition = transition)
+                        )
+                    }
+                }
+
+                FeedContentState.Empty -> {
+                    item {
+                        Text(
+                            modifier = Modifier.fillParentMaxWidth(),
+                            text = stringResource(R.string.explore_feed_personalized_preference_empty_state_text),
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor
                         )
                     }
                 }
@@ -418,6 +430,26 @@ private fun FeedPreferenceScreenErrorPreview() {
             selectedType = FeedPreferenceType.COMMUNITY,
             communityContentState = FeedContentState.Error(Throwable("Failed to load community content")),
             personalizedContentState = FeedContentState.Error(Throwable("Failed to load personalized content")),
+            onTypeSelected = {},
+            onRetryClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true, device = Devices.PIXEL_9)
+@Composable
+private fun FeedPreferenceScreenEmptyPersonalizedContentPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        FeedPreferenceScreen(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(WikipediaTheme.colors.paperColor)
+                .padding(top = 40.dp),
+            selectedType = FeedPreferenceType.COMMUNITY,
+            communityContentState = FeedContentState.Loading,
+            personalizedContentState = FeedContentState.Empty,
             onTypeSelected = {},
             onRetryClick = {}
         )
