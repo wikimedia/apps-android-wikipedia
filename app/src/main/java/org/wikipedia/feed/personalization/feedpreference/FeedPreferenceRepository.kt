@@ -61,10 +61,15 @@ class FeedPreferenceRepository(
         selectedTopics: List<OnboardingTopic>,
         selectedArticles: Set<PageTitle>
     ): List<FeedPreferenceContent> {
-        // TODO: Confirm behavior with product
         if (selectedTopics.isNotEmpty()) {
-            val content = selectedTopics.take(3).flatMap { topic ->
-                val response = ServiceFactory.get(wikiSite).getArticlesByTopic(articleTopics = topic.queryTopicId, limit = 1)
+            val contentSize = 3
+            val topicsToUse = selectedTopics.takeLast(contentSize)
+            val baseLimit = contentSize / topicsToUse.size
+            val remainder = contentSize % topicsToUse.size
+
+            val content = topicsToUse.flatMapIndexed { index, topic ->
+                val limit = if (index < remainder) baseLimit + 1 else baseLimit
+                val response = ServiceFactory.get(wikiSite).getArticlesByTopic(articleTopics = topic.queryTopicId, limit = limit)
                 response.query?.pages?.map { page ->
                     FeedPreferenceContent(
                         title = page.title,
