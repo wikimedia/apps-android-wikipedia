@@ -59,7 +59,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -78,6 +77,7 @@ import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
@@ -281,6 +281,7 @@ fun HomeScreen(
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
                         state = forYouContentState,
+                        wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent
                     )
 
@@ -356,8 +357,8 @@ fun HomeTabBar(
             HomeTab.entries.forEach { tab ->
                 val isSelected = tab == selectedTab
                 val label = when (tab) {
-                    HomeTab.COMMUNITY -> stringResource(R.string.explore_feed_community_tab_label)
-                    HomeTab.FOR_YOU -> stringResource(R.string.explore_feed_for_you_tab_label)
+                    HomeTab.COMMUNITY -> LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_tab_label)
+                    HomeTab.FOR_YOU -> LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_for_you_tab_label)
                 }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -429,7 +430,8 @@ fun CommunityContentTab(
                     CommunityDisclaimer(
                         modifier = Modifier
                             .padding(horizontal = 16.dp)
-                            .fillMaxWidth()
+                            .fillMaxWidth(),
+                        wikiSite = wikiSite
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
@@ -442,6 +444,7 @@ fun CommunityContentTab(
                     day.featuredArticle?.let { article ->
                         item(key = "tfa-${day.age}") {
                             FeaturedArticleModule(
+                                wikiSite = wikiSite,
                                 article,
                                 onPageClick = {
                                     onPageClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
@@ -462,6 +465,7 @@ fun CommunityContentTab(
                     day.topRead?.let {
                         item(key = "top-read-${day.age}") {
                             TopReadModule(
+                                wikiSite = wikiSite,
                                 topRead = it,
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
@@ -488,6 +492,7 @@ fun CommunityContentTab(
                     if (day.news.isNotEmpty()) {
                         item(key = "news-${day.age}") {
                             NewsModule(
+                                wikiSite = wikiSite,
                                 newsItems = day.news,
                                 onNewsClick = { newsItem ->
                                     onNewsClick(newsItem)
@@ -504,7 +509,8 @@ fun CommunityContentTab(
                     day.featuredImage?.let { image ->
                         item(key = "tfi-${day.age}") {
                             FeaturedImageModule(
-                                image,
+                                wikiSite = wikiSite,
+                                featuredImage = image,
                                 onClick = onImageClick,
                                 onDownloadClick = onImageDownloadClick,
                                 onShareClick = { onImageShareClick(image, day.age) }
@@ -519,7 +525,11 @@ fun CommunityContentTab(
                     if (state.isLoadingMore) {
                         LoadingIndicator()
                     } else if (state.canLoadMore) {
-                        LoadMoreButton(isCommunity = true, onClick = onLoadMore)
+                        LoadMoreButton(
+                            wikiSite = wikiSite,
+                            isCommunity = true,
+                            onClick = onLoadMore
+                        )
                     }
                 }
 
@@ -536,6 +546,7 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    wikiSite: WikiSite,
     onLoadMore: () -> Unit
 ) {
     val context = LocalContext.current
@@ -581,7 +592,11 @@ fun ForYouContentTab(
                         if (state.isLoadingMore) {
                             LoadingIndicator()
                         } else if (state.canLoadMore) {
-                            LoadMoreButton(isCommunity = false, onClick = onLoadMore)
+                            LoadMoreButton(
+                                wikiSite = wikiSite,
+                                isCommunity = false,
+                                onClick = onLoadMore
+                            )
                         }
                     }
 
@@ -598,7 +613,8 @@ fun ForYouContentTab(
 
 @Composable
 fun CommunityDisclaimer(
-    modifier: Modifier
+    modifier: Modifier,
+    wikiSite: WikiSite
 ) {
     Box(
         modifier = modifier
@@ -616,7 +632,7 @@ fun CommunityDisclaimer(
         ) {
             Text(
                 modifier = Modifier.weight(1f),
-                text = stringResource(R.string.explore_feed_community_disclaimer),
+                text = LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_disclaimer),
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.secondaryColor
             )
@@ -641,6 +657,7 @@ fun DayHeader(date: LocalDate) {
 
 @Composable
 fun LoadMoreButton(
+    wikiSite: WikiSite,
     isCommunity: Boolean = true,
     onClick: () -> Unit
 ) {
@@ -665,7 +682,7 @@ fun LoadMoreButton(
                     Spacer(modifier = Modifier.width(16.dp))
 
                     Text(
-                        text = stringResource(R.string.explore_feed_community_load_more_label),
+                        text = LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_load_more_label),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.paperColor
@@ -825,7 +842,7 @@ fun LanguageDropDownMenu(
             ) {
                 Text(
                     modifier = Modifier.padding(horizontal = 16.dp),
-                    text = stringResource(R.string.explore_feed_manage_languages_label),
+                    text = LocalContext.current.getString(selectedLanguageCode, R.string.explore_feed_manage_languages_label),
                     style = MaterialTheme.typography.bodyLarge,
                     color = WikipediaTheme.colors.primaryColor
                 )
@@ -869,7 +886,8 @@ fun CommunityDisclaimerPreview() {
         CommunityDisclaimer(
             modifier = Modifier
                 .padding(16.dp)
-                .height(72.dp)
+                .height(72.dp),
+            wikiSite = WikiSite("en.wikipedia.org")
         )
     }
 }
@@ -878,7 +896,11 @@ fun CommunityDisclaimerPreview() {
 @Composable
 fun LoadMoreButtonPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
-        LoadMoreButton(isCommunity = true, onClick = {})
+        LoadMoreButton(
+            wikiSite = WikiSite("en.wikipedia.org"),
+            isCommunity = true,
+            onClick = {}
+        )
     }
 }
 

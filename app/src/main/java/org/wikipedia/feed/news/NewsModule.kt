@@ -27,6 +27,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
@@ -35,6 +36,7 @@ import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun NewsModule(
+    wikiSite: WikiSite,
     newsItems: List<NewsItem>,
     onNewsClick: (item: NewsItem) -> Unit = {},
     onOverflowClick: () -> Unit = {}
@@ -48,6 +50,7 @@ fun NewsModule(
         val pagerState = rememberPagerState(pageCount = { newsItems.size })
 
         CommunityModuleHeader(
+            wikiSite = wikiSite,
             titleResId = R.string.view_card_news_title,
             subTitleResId = R.string.explore_feed_in_the_news_subtitle,
             onOverflowClick = onOverflowClick
@@ -132,6 +135,7 @@ fun NewsCardPreview() {
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         NewsModule(
+            wikiSite = WikiSite("en.wikipedia.org"),
             newsItems = listOf(
                 NewsItem(
                     story = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
