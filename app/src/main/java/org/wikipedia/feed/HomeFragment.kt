@@ -68,13 +68,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
-import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -93,6 +93,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
@@ -157,7 +158,7 @@ class HomeFragment : Fragment() {
                             viewModel.updateLanguage(languageCode)
                         },
                         onManageLanguagesClick = {
-                            // TODO: launcher to manage languages
+                            requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
                         }
                     )
                 }
@@ -733,7 +734,8 @@ fun LanguageDropDownMenu(
     Box(
         modifier = Modifier
             .padding(horizontal = 8.dp)
-            .noRippleClickable {
+            .clip(RoundedCornerShape(8.dp))
+            .clickable{
                 expanded = true
             },
         contentAlignment = Alignment.Center
@@ -812,6 +814,7 @@ fun LanguageDropDownMenu(
                     .fillMaxWidth()
                     .clickable {
                         onManageLanguagesClick()
+                        expanded = false
                     }
                     .padding(vertical = 8.dp),
             ) {
