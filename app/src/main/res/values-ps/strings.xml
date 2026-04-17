@@ -124,7 +124,7 @@
   <string name="preference_title_language">د ويکيپېډيا ژبې</string>
   <string name="langlinks_filter_hint">پلټل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
-  <string name="langlinks_no_match">هيڅ ژبې ونه موندل شوې</string>
+  <string name="langlinks_no_match">هېڅ ژبې ونه موندل شوې</string>
   <string name="langlinks_activity_title">نورې ژبې</string>
   <string name="langlinks_your_wikipedia_languages">ستاسې د ويکيپېډيا ژبې</string>
   <string name="menu_save_changes">بدلونونه خپرول</string>
@@ -142,9 +142,9 @@
   <string name="dialog_confirm_delete_donation_history_cancel">ناگارل</string>
   <string name="menu_show_toc">نيوليک</string>
   <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
-  <string name="search_reading_list_no_results">\"%s\" کې هيڅ پايلې ونه موندل شوې</string>
-  <string name="search_reading_lists_no_results">لوست لړليکونو کې هيڅ پايلې ونه موندل شوې</string>
-  <string name="search_history_no_results">پېښليک کې هيڅ پايلې ونه موندل شوې</string>
+  <string name="search_reading_list_no_results">\"%s\" کې هېڅ پايلې ونه موندل شوې</string>
+  <string name="search_reading_lists_no_results">لوستلړونو کې هېڅ پايلې ونه موندل شوې</string>
+  <string name="search_history_no_results">پېښليک کې هېڅ پايلې ونه موندل شوې</string>
   <string name="edit_section_captcha_message">د خپلکاره سپم څخه ژغورنې لپاره مهرباني وکړئ لاندېې ويي وليکئ.</string>
   <string name="edit_section_captcha_request_an_account_message">انځور نه وينئ؟&lt;a href=\"https://ps.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;د يو گڼون غوښتنه وکړئ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">پورتني ويوکي بياويل</string>
@@ -182,7 +182,7 @@
   <string name="account_vanish_request_title">گڼون له منځه وړل</string>
   <string name="account_vanish_request_confirm_title">د گڼون له منځه وړلو خبرتيا</string>
   <string name="account_vanish_request_confirm">ورکېدل يوه &lt;b&gt;وروستۍ چاره ده&lt;/b&gt; او بايد &lt;b&gt;يوازې هغه وخت وکارول شي کله چې تاسو غواړئ د تل لپاره سمون پرېږدئ&lt;/b&gt; او همدارنگه تر شوني بريده د ځان اړوند پخوانۍ اړيکې پټې کړئ.&lt;br/&gt;&lt;br/&gt;په ويکيپېډيا کې گڼون ړنگول ستاسو د گڼون نوم بدلولو له لارې ترسره کېږي؛ ترڅو نور ستاسو ونډې ونه پېژني، دې چارې ته ورکېدل يا گڼون له منځه وړل وايي. &lt;b&gt;ورکېدل په پروژو کې په بشپړ ډول ستاسو د هويت او ونډو لرې کولو ډاډ نه درکوي&lt;/b&gt;.</string>
-  <string name="history_empty_title">وروستيو کې هيڅ ليکنې ليدل شوې نه دي</string>
+  <string name="history_empty_title">وروستيو کې هېڅ ليکنې ليدل شوې نه دي</string>
   <string name="history_empty_message">هغه څه چې تاسو دلته لوستې دي، وڅارئ.</string>
   <string name="history_offline_articles_toast">په پېښليک کې ځينې ليکنې شايد د افلاين کېدو پرمهال د کتلو وړ نه وي.</string>
   <string name="search_empty_message">په خپله ژبه کې وړيا پوهنغونډ ولټوئ او ولولئ.</string>
@@ -325,7 +325,7 @@
   <string name="widget_name_search">ويکيپېډيا پلټل</string>
   <string name="widget_description_search">د ويکيپېډيا لټون لپاره تر ټولو چټکه لار</string>
   <string name="widget_description_featured_page">غوره ليکنې چې ويکيپېډيا کې وړاندې کوي</string>
-  <string name="wiktionary_no_definitions_found">هيڅ پېژندون ونهٔ موندل شو.</string>
+  <string name="wiktionary_no_definitions_found">هېڅ پېژندون ونه موندل شو.</string>
   <string name="alpha_update_notification_title">د الپا نوې هم‌مهالونه د لاسرسي وړ ده</string>
   <string name="alpha_update_notification_text">راکښته کولو لپاره کېکاږئ</string>
   <string name="dialog_close_description">تړل</string>
@@ -386,7 +386,7 @@
   <string name="page_offline_notice_last_date">تاسو د دې ليکنې يوه افلاين بڼه لولئ چې په %s کې خوندي شوې ده.</string>
   <string name="redirected_from_snackbar">\"%s\" څخه مخ گرځېدلی</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
-  <string name="error_no_maps_app">هيڅ داسې کاريال ونهٔ موندل شو چې لارښوونې چمتوکړي.</string>
+  <string name="error_no_maps_app">هېڅ داسې کاريال ونه موندل شو چې لارښوونې چمتو کړي.</string>
   <string name="preference_title_customize_explore_feed">سپړلو ليددړه</string>
   <string name="preference_title_show_link_previews">وېتړ مخکتنې کتل</string>
   <string name="preference_summary_customize_explore_feed">د سپړنې ليددړه دوديزول</string>

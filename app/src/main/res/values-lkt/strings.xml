@@ -45,7 +45,7 @@
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Waláwa-wóyakapi glužúžu</string>
   <string name="dialog_message_clear_history">Léčhel waláwa-wóyakapi yaglúžužu kte. Yusúta kta he?</string>
-  <string name="dialog_message_clear_history_yes">Hau</string>
+  <string name="dialog_message_clear_history_yes">Hau/Haŋ</string>
   <string name="dialog_message_clear_history_no">Hiyá</string>
   <string name="share_via">Léčhel ok\'u</string>
   <string name="image_share_via">Léčhel ok\'u</string>
@@ -229,7 +229,7 @@
   <string name="about_activity_title">Ečhíyataŋhaŋ</string>
   <string name="about_logo_content_description">Wikipedia makȟógmigma wíyačhiŋ</string>
   <string name="edit_abandon_confirm">Oyúblaye kiŋ le lutȟókeča, na héčhena wóyutȟokeča ékignake šni. Wičákȟeya ilála yačhíŋ he?</string>
-  <string name="edit_abandon_confirm_yes">Hau</string>
+  <string name="edit_abandon_confirm_yes">Hau/Haŋ</string>
   <string name="edit_abandon_confirm_no">Hiyá</string>
   <string name="user_blocked_from_editing_title">Anáptapi</string>
   <string name="user_logged_in_blocked_from_editing">Wiki kiŋ le mahél, lutȟókeča oyákihi šni. Anániptapi.</string>
@@ -268,7 +268,7 @@
   </plurals>
   <string name="button_clear_all_recent_searches">Lehaŋl wólepi kiŋ yužúžu</string>
   <string name="clear_recent_searches_confirm">Eháŋni wólepi-wóyakapi yužúžu yačhíŋ he?</string>
-  <string name="clear_recent_searches_confirm_yes">Hau</string>
+  <string name="clear_recent_searches_confirm_yes">Hau/Haŋ</string>
   <string name="clear_recent_searches_confirm_no">Hiyá</string>
   <string name="table_infobox">Ináȟni-wóslolye</string>
   <string name="table_other">Wihoši sáŋpȟa</string>
@@ -302,7 +302,7 @@
   <string name="menu_new_tab">Wipȟá tȟéča</string>
   <string name="menu_close_all_tabs">Wipȟá iyúha ečhél iyékiya</string>
   <string name="close_all_tabs_confirm">Wipȟá iyúha ečhél iyékiya yačhíŋ he?</string>
-  <string name="close_all_tabs_confirm_yes">Hau</string>
+  <string name="close_all_tabs_confirm_yes">Hau/Haŋ</string>
   <string name="close_all_tabs_confirm_no">Hiyá</string>
   <string name="button_close_tab">Wipȟá kiŋ ečhél iyékiya</string>
   <string name="unnamed_tab_closed">Wipȟá kiŋ ečhél iyéyakiye.</string>
@@ -421,7 +421,7 @@
   <string name="reading_list_select_item">Kaȟníǧa</string>
   <string name="reading_lists_login_button">Wikipedia ogná čhaž\'óigwa</string>
   <string name="reading_lists_ignore_button">Waŋná wačhíŋ šni</string>
-  <string name="reading_lists_confirm_remote_delete_yes">Hau</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Hau/Haŋ</string>
   <string name="reading_lists_confirm_remote_delete_no">Hiyá</string>
   <string name="reading_list_articles_added_to_named">%2$s ektá wówapi %1$d yeyá</string>
   <string name="reading_list_articles_moved_to_named">%2$s ektá wówapi %1$d tȟokšú</string>
@@ -690,7 +690,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Wówapi tȟaítowapi</string>
   <string name="image_recommendation_task_instruction">Wówapi kiŋ mahél itówapi kiŋ le leyá kta he?</string>
-  <string name="image_recommendation_accept">Hau</string>
+  <string name="image_recommendation_accept">Hau/Haŋ</string>
   <string name="image_recommendation_reject">Hiyá</string>
   <string name="image_recommendation_notsure">Wačhíŋmanuŋpa</string>
   <string name="image_recommendation_reject_offensive">Itówapi kiŋ le waóhola šni</string>
@@ -765,12 +765,12 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">Iyápi iyúha yuȟéyab iyáču oyákihi šni</string>
   <string name="add_wikipedia_languages_text">Wikipedia iyápi kaȟníǧa</string>
   <string name="remove_language_dialog_cancel_button_text">Yužúžu</string>
-  <string name="remove_language_dialog_ok_button_text">Hau</string>
-  <string name="remove_all_language_warning_dialog_ok_button_text">Hau</string>
-  <string name="protected_page_warning_dialog_ok_button_text">Hau</string>
-  <string name="account_editing_blocked_dialog_ok_button_text">Hau</string>
-  <string name="edit_conflict_dialog_ok_button_text">Hau</string>
-  <string name="reverted_edit_dialog_ok_button_text">Hau</string>
+  <string name="remove_language_dialog_ok_button_text">Hau/Haŋ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Hau/Haŋ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Hau/Haŋ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Hau/Haŋ</string>
+  <string name="edit_conflict_dialog_ok_button_text">Hau/Haŋ</string>
+  <string name="reverted_edit_dialog_ok_button_text">Hau/Haŋ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Yužúžu</string>
   <string name="edit_type_all">Táku kíč\'uŋ iyúha</string>
   <string name="content_description_for_page_indicator">%2$d iyúpȟaȟ wóiyawa etáŋhaŋ oyúblaye %1$d</string>
@@ -977,7 +977,7 @@
   <string name="survey_dialog_cancel">Yužúžu</string>
   <string name="survey_dialog_submit">Iyéya</string>
   <string name="survey_dialog_next">Íyokhihe</string>
-  <string name="survey_dialog_general_yes">Hau</string>
+  <string name="survey_dialog_general_yes">Hau/Haŋ</string>
   <string name="survey_dialog_general_no">Hiyá</string>
   <string name="games_hub_activity_title">Wóškate</string>
   <string name="games_hub_activity_overflow_view_game_stats">Wóškate wóiyawa waŋyáŋka</string>
