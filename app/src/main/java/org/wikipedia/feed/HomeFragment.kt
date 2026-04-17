@@ -735,7 +735,7 @@ fun LanguageDropDownMenu(
         modifier = Modifier
             .padding(horizontal = 8.dp)
             .clip(RoundedCornerShape(8.dp))
-            .clickable{
+            .clickable {
                 expanded = true
             },
         contentAlignment = Alignment.Center
