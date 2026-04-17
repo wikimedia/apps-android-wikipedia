@@ -459,17 +459,6 @@ fun CommunityContentTab(
                         }
                     }
 
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
-                            )
-                        }
-                    }
-
                     day.topRead?.let {
                         item(key = "top-read-${day.age}") {
                             TopReadModule(
@@ -493,6 +482,9 @@ fun CommunityContentTab(
                         }
                     }
 
+                    // TODO: insert Today's Featured Picture module here
+                    // TODO: insert DYK module here
+
                     if (day.news.isNotEmpty()) {
                         item(key = "news-${day.age}") {
                             NewsModule(
@@ -507,7 +499,20 @@ fun CommunityContentTab(
                         }
                     }
 
-                    // TODO: all the other types of content for this day.
+                    // TODO: insert On this day module here
+
+                    day.featuredImage?.let { image ->
+                        item(key = "tfi-${day.age}") {
+                            FeaturedImageModule(
+                                image,
+                                onClick = onImageClick,
+                                onDownloadClick = onImageDownloadClick,
+                                onShareClick = { onImageShareClick(image, day.age) }
+                            )
+                        }
+                    }
+
+                    // TODO: insert Media of the day (Commons) module here
                 }
 
                 item(key = "load-more-community") {
