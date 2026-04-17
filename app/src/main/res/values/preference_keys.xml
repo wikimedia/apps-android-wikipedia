@@ -209,4 +209,5 @@
     <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
     <string name="preference_key_game_stats_snackbar_shown">gameStatsSnackbarShown</string>
     <string name="preference_key_explore_feed_update_prompt_shown">exploreFeedUpdatePromptShown</string>
+    <string name="preference_key_home_language_code">homeLanguageCode</string>
 </resources>
