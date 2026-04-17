@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsItem
@@ -53,8 +54,8 @@ data class ForYouContentState(
 )
 
 class HomeViewModel : ViewModel() {
-
-    val wikiSite get() = WikipediaApp.instance.wikiSite
+    private val _wikiSite = MutableStateFlow(WikipediaApp.instance.wikiSite)
+    val wikiSite = _wikiSite.asStateFlow()
 
     private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
     val selectedTab = _selectedTab.asStateFlow()
@@ -113,6 +114,15 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    fun updateLanguage(langCode: String) {
+        _wikiSite.value = WikiSite.forLanguageCode(langCode)
+        if (selectedTab.value == HomeTab.COMMUNITY) {
+            refreshCommunityContent()
+        } else {
+            refreshForYouContent()
+        }
+    }
+
     /**
      * Loads the next day's community content (today on first call, then progressively older).
      * Safe to call as a retry — the age only advances after a successful fetch.
@@ -130,8 +140,8 @@ class HomeViewModel : ViewModel() {
 
             val age = nextCommunityAge
             val date = LocalDate.now().minusDays(nextCommunityAge.toLong())
-            val content = ServiceFactory.getRest(wikiSite)
-                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.languageCode)
+            val content = ServiceFactory.getRest(wikiSite.value)
+                .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
 
             val dayContent = DayContent(
                 age = age,
