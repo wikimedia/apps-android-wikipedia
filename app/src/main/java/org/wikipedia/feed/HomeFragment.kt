@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Arrangement
@@ -25,11 +26,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -40,6 +44,9 @@ import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -63,8 +70,10 @@ import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.extensions.noRippleClickable
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.feed.featured.FeaturedArticleModule
@@ -301,43 +310,119 @@ fun HomeTabBar(
     selectedTab: HomeTab,
     onTabSelected: (HomeTab) -> Unit
 ) {
+    var expanded by remember { mutableStateOf(false) }
+
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.Start
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        HomeTab.entries.forEach { tab ->
-            val isSelected = tab == selectedTab
-            val label = when (tab) {
-                HomeTab.COMMUNITY -> stringResource(R.string.explore_feed_community_tab_label)
-                HomeTab.FOR_YOU -> stringResource(R.string.explore_feed_for_you_tab_label)
-            }
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .clickable { onTabSelected(tab) }
-                    .padding(horizontal = 12.dp, vertical = 8.dp)
-            ) {
-                Text(
-                    text = label,
-                    color = if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor else if (isSelected) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.titleSmall
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Box(
+        Row(
+            modifier = Modifier.weight(1f)
+        ) {
+            HomeTab.entries.forEach { tab ->
+                val isSelected = tab == selectedTab
+                val label = when (tab) {
+                    HomeTab.COMMUNITY -> stringResource(R.string.explore_feed_community_tab_label)
+                    HomeTab.FOR_YOU -> stringResource(R.string.explore_feed_for_you_tab_label)
+                }
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(3.dp)
-                        .clip(RoundedCornerShape(1.5.dp))
-                        .background(
-                            if (isSelected) {
-                                if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor
-                                else WikipediaTheme.colors.progressiveColor
-                            } else Color.Transparent
-                        )
+                        .width(IntrinsicSize.Max)
+                        .clickable { onTabSelected(tab) }
+                        .padding(horizontal = 12.dp, vertical = 8.dp)
+                ) {
+                    Text(
+                        text = label,
+                        color = if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor else if (isSelected) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.titleSmall
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(3.dp)
+                            .clip(RoundedCornerShape(1.5.dp))
+                            .background(
+                                if (isSelected) {
+                                    if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor
+                                    else WikipediaTheme.colors.progressiveColor
+                                } else Color.Transparent
+                            )
+                    )
+                }
+            }
+        }
+        Box(
+            modifier = Modifier
+                .padding(horizontal = 8.dp)
+                .noRippleClickable {
+                    expanded = true
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            Row(
+                modifier = Modifier
+                    .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                    .padding(4.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                WikiLangCodeBox(
+                    modifier = Modifier
+                        .height(20.dp)
+                        .widthIn(min = 20.dp),
+                    languageCode = "en",
+                    backgroundColor = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                    borderColor = Color.Transparent,
+                    textColor = WikipediaTheme.colors.paperColor,
                 )
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    painter = painterResource(R.drawable.ic_arrow_down_24),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.primaryColor
+                )
+            }
+            DropdownMenu(
+                expanded = expanded,
+                containerColor = WikipediaTheme.colors.paperColor,
+                onDismissRequest = { expanded = false }
+            ) {
+                repeat(5) {
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            WikiLangCodeBox(
+                                modifier = Modifier
+                                    .height(20.dp)
+                                    .widthIn(min = 20.dp),
+                                languageCode = "en",
+                                borderColor = WikipediaTheme.colors.secondaryColor,
+                                textColor = WikipediaTheme.colors.secondaryColor,
+                            )
+                        },
+                        trailingIcon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_check_black_24dp),
+                                contentDescription = null,
+                                tint = WikipediaTheme.colors.secondaryColor
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = "English",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        onClick = {
+                            // TODO: language select action
+                        }
+                    )
+                }
             }
         }
     }
