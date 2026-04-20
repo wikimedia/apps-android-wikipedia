@@ -41,6 +41,7 @@ fun PersonalizationScreen(
     modifier: Modifier = Modifier,
     screens: List<PersonalizationPage>,
     onSkipClick: () -> Unit,
+    onCompleteOnboardingClick: () -> Unit,
     onSearchClick: () -> Unit,
     showError: (Throwable) -> Unit,
     viewModel: PersonalizationViewModel
@@ -63,7 +64,7 @@ fun PersonalizationScreen(
                             if (pagerState.currentPage < pagerState.pageCount - 1) {
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
                             } else {
-                                onSkipClick()
+                                onCompleteOnboardingClick()
                             }
                         }
                     },

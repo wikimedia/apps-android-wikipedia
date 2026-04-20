@@ -42,6 +42,7 @@ private data class PersonalizedViewModelState(
     val articlesError: Throwable? = null,
     val selectedArticles: Set<PageTitle> = emptySet(),
     val selectedTopics: List<OnboardingTopic> = emptyList(),
+    val topicPreviewContent: Map<String, List<FeedPreferenceContent>> = emptyMap(),
     // Feed preference screen properties
     val feedPreferenceType: FeedPreferenceType = FeedPreferenceType.COMMUNITY,
     val communityContent: List<FeedPreferenceContent> = emptyList(),
@@ -150,7 +151,7 @@ class PersonalizationViewModel(
             L.e(throwable)
         }) {
             state.update { it.copy(communityLoading = true, communityError = null) }
-            val communityContent = feedPreferenceRepository.getCommunityContent()
+            val communityContent = feedPreferenceRepository.getCommunityPreviewContent()
             state.update { it.copy(communityContent = communityContent, communityLoading = false) }
         }
     }
@@ -161,9 +162,9 @@ class PersonalizationViewModel(
             L.e(throwable)
         }) {
             state.update { it.copy(personalizedLoading = true, personalizedError = null) }
-            val personalizedContent = feedPreferenceRepository.getInterests(
-                selectedTopics = state.value.selectedTopics,
-                selectedArticles = state.value.selectedArticles
+            val personalizedContent = feedPreferenceRepository.getPersonalizedPreviewContent(
+                selectedArticles = state.value.selectedArticles,
+                contentByTopic = state.value.topicPreviewContent
             )
             state.update { it.copy(personalizedContent = personalizedContent, personalizedLoading = false) }
         }
@@ -205,9 +206,9 @@ class PersonalizationViewModel(
                 )
             }
 
-            val lasTopic = persistedTopics.lastOrNull()
-            if (lasTopic != null) {
-                loadArticlesByTopic(topic = lasTopic)
+            val lastTopic = persistedTopics.lastOrNull()
+            if (lastTopic != null) {
+                loadArticlesByTopic(topic = lastTopic)
             } else {
                 loadInitialArticles()
             }
@@ -246,9 +247,10 @@ class PersonalizationViewModel(
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
             val articles = interestSelectionRepository.getArticlesByTopic(topic.queryTopicId)
+            val previewContent = FeedPreferenceContent.fromPageTitles(pageTitles = articles, topic = topic)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()
-                current.copy(articles = newArticles, articlesLoading = false)
+                current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topicId to previewContent), articlesLoading = false)
             }
         }
     }
@@ -279,6 +281,11 @@ class PersonalizationViewModel(
             state.update { current ->
                 current.copy(
                     selectedTopics = selectedTopics,
+                    topicPreviewContent = if (isSelected) {
+                        current.topicPreviewContent - topic.topicId
+                    } else {
+                        current.topicPreviewContent
+                    },
                     articles = emptyList(),
                     articlesError = null
                 )
@@ -342,6 +349,7 @@ class PersonalizationViewModel(
                 it.copy(
                     selectedArticles = emptySet(),
                     selectedTopics = emptyList(),
+                    topicPreviewContent = emptyMap(),
                     articlesLoading = false,
                     articlesError = null
                 )
@@ -359,7 +367,7 @@ class PersonalizationViewModel(
     }
 
     fun onFeedPreferenceTypeSelected(type: FeedPreferenceType) {
-        feedPreferenceRepository.saveFeedPreferenceSelection(type)
+        feedPreferenceRepository.savePreference(type)
         state.update { it.copy(feedPreferenceType = type) }
     }
 
@@ -382,6 +390,7 @@ class PersonalizationViewModel(
                         wikiSite = WikipediaApp.instance.wikiSite
                     ),
                     feedPreferenceRepository = FeedPreferenceRepository(
+                        context = WikipediaApp.instance,
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
                         wikiSite = WikipediaApp.instance.wikiSite
                     )

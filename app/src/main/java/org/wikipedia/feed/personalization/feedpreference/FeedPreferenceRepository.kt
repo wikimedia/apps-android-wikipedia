@@ -1,8 +1,9 @@
 package org.wikipedia.feed.personalization.feedpreference
 
+import android.content.Context
+import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.personalization.interest.OnboardingTopic
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -10,10 +11,11 @@ import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 class FeedPreferenceRepository(
+    private val context: Context,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
     private val wikiSite: WikiSite
 ) {
-    suspend fun getCommunityContent(): List<FeedPreferenceContent> {
+    suspend fun getCommunityPreviewContent(): List<FeedPreferenceContent> {
         val currentDate = LocalDate.now()
 
         val response = ServiceFactory.getRest(wikiSite).getFeedFeatured(
@@ -28,7 +30,7 @@ class FeedPreferenceRepository(
                 title = article.displayTitle,
                 description = article.description,
                 imageUrl = article.thumbnailUrl,
-                tag = "Featured Article" // TODO: use localized string resource
+                tag = context.getString(R.string.view_featured_article_card_title)
             )
         }
 
@@ -37,84 +39,78 @@ class FeedPreferenceRepository(
                 title = null,
                 description = potd.description.text,
                 imageUrl = potd.thumbnailUrl,
-                tag = "Picture of the Day" // TODO: use localized string resource
+                tag = context.getString(R.string.view_featured_image_card_title)
             )
         }
 
-        val inTheNewsArticle = response.news?.first().let { newsItem ->
+        val topNewsItem = response.news?.firstOrNull()?.let { newsItem ->
             FeedPreferenceContent(
                 title = null,
-                description = StringUtil.removeHTMLTags(newsItem?.story),
-                imageUrl = newsItem?.thumbUrl(),
-                tag = "In the News" // TODO: use localized string resource
+                description = StringUtil.removeHTMLTags(newsItem.story),
+                imageUrl = newsItem.thumbUrl(),
+                tag = context.getString(R.string.view_card_news_title)
             )
         }
 
         return listOfNotNull(
             featuredArticle,
             pictureOfTheDay,
-            inTheNewsArticle
+            topNewsItem
         )
     }
 
-    suspend fun getInterests(
-        selectedTopics: List<OnboardingTopic>,
-        selectedArticles: Set<PageTitle>
+    suspend fun getPersonalizedPreviewContent(
+        selectedArticles: Set<PageTitle>,
+        contentByTopic: Map<String, List<FeedPreferenceContent>>,
     ): List<FeedPreferenceContent> {
-        if (selectedTopics.isNotEmpty()) {
-            val contentSize = 3
-            val topicsToUse = selectedTopics.takeLast(contentSize)
-            val baseLimit = contentSize / topicsToUse.size
-            val remainder = contentSize % topicsToUse.size
-
-            val content = topicsToUse.flatMapIndexed { index, topic ->
-                val limit = if (index < remainder) baseLimit + 1 else baseLimit
-                val response = ServiceFactory.get(wikiSite).getArticlesByTopic(articleTopics = topic.queryTopicId, limit = limit)
-                response.query?.pages?.map { page ->
-                    FeedPreferenceContent(
-                        title = page.title,
-                        description = page.description,
-                        imageUrl = page.thumbUrl(),
-                        tag = topic.displayTitle
-                    )
-                } ?: emptyList()
-            }
-            return content
+        if (contentByTopic.isNotEmpty()) {
+            return sampleAcrossTopics(contentByTopic = contentByTopic)
         }
 
         if (selectedArticles.isNotEmpty()) {
-            val moreLikeSearchTerm = "morelike:${selectedArticles.take(3).joinToString("|") { it.prefixedText }}"
-            val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
-            val content = response.query?.pages?.map { page ->
-                FeedPreferenceContent(
-                    title = page.title,
-                    description = page.description,
-                    imageUrl = page.thumbUrl(),
-                    tag = null
-                )
-            } ?: emptyList()
-            return content
+            return fetchMoreLike(seeds = selectedArticles.map { it.prefixedText })
         }
 
-        val readingHistory = historyEntryWithImageDao.getMostRecentEntriesWithImage(3)
-        if (readingHistory.size >= 3) {
-            val moreLikeSearchTerm = "morelike:${readingHistory.take(3).joinToString("|") { it.apiTitle }}"
-            val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
-            val content = response.query?.pages?.map { page ->
-                FeedPreferenceContent(
-                    title = page.title,
-                    description = page.description,
-                    imageUrl = page.thumbUrl(),
-                    tag = null
-                )
-            } ?: emptyList()
-            return content
+        val recentHistoryEntries = historyEntryWithImageDao.getMostRecentEntriesWithImage(3)
+        if (recentHistoryEntries.size >= 3) {
+            return fetchMoreLike(seeds = recentHistoryEntries.map { it.apiTitle })
         }
 
         return listOf()
     }
 
-    fun saveFeedPreferenceSelection(preferenceType: FeedPreferenceType) {
+    // has count logic for cases where user has selected less than 3 topics
+    // as we need 3 articles to show in the preview, we need to distribute them across the selected topics
+    private fun sampleAcrossTopics(
+        contentByTopic: Map<String, List<FeedPreferenceContent>>,
+        totalCount: Int = 3,
+    ): List<FeedPreferenceContent> {
+        val topicIds = contentByTopic.keys.toList().reversed()
+
+        val baseLimit = totalCount / topicIds.size
+        val remainder = totalCount % topicIds.size
+
+        return topicIds.flatMapIndexed { index, topic ->
+            val count = baseLimit + if (index < remainder) 1 else 0
+            contentByTopic[topic].orEmpty().shuffled().take(count)
+        }
+    }
+
+    private suspend fun fetchMoreLike(seeds: List<String>): List<FeedPreferenceContent> {
+        if (seeds.isEmpty()) return emptyList()
+        val moreLikeSearchTerm = "morelike:${seeds.take(3).joinToString("|")}"
+        val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
+        return response.query?.pages?.map { page ->
+            FeedPreferenceContent(
+                title = page.title,
+                description = page.description,
+                imageUrl = page.thumbUrl(),
+                tag = null
+            )
+        } ?: emptyList()
+    }
+
+    fun savePreference(preferenceType: FeedPreferenceType) {
         Prefs.exploreFeedPreferenceSelection = preferenceType
     }
 }
