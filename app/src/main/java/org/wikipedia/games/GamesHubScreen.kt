@@ -336,7 +336,7 @@ fun OnThisDayGameCards(
                             iconTint = WikipediaTheme.colors.primaryColor,
                             titleText = stringResource(R.string.on_this_day_game_card_archive_label),
                             onPlayClick = {
-                                WikiGamesEvent.submit(action = "play_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardIndex + 1)
+                                WikiGamesEvent.submit(action = "archive_click", activeInterface = "games_hub", cardType = "archive", langCode = selectedLanguage, position = cardIndex + 1)
                                 onThisDayGameAction(OnThisDayGameAction.PlayArchive, gameDate)
                             }
                         )

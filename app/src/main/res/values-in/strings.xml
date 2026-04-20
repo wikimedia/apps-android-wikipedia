@@ -11,6 +11,7 @@
 * Beeyan
 * Bennylin
 * Bramadiarya
+* Budhiastawa
 * Cooltey
 * DARMAS BUDI SANTOSO
 * Daud I.F. Argana
@@ -34,6 +35,7 @@
 * Pebaryan
 * Penyuwangi
 * Polos
+* Rafka Aditia
 * RaymondSutanto94
 * Relly Komaruzaman
 * Riemogerz
@@ -214,6 +216,7 @@
   <string name="logged_out_in_background_cancel">Batal</string>
   <string name="account_vanish_request_title">Hilangkan akun</string>
   <string name="account_vanish_request_confirm_title">Peringatan penghapusan akun</string>
+  <string name="account_vanish_request_confirm">Fitur penghapusan adalah &lt;b&gt;upaya terakhir&lt;/b&gt; dan &lt;b&gt; hanya boleh digunakan jika Anda ingin berhenti mengedit selamanya &lt;/b&gt; dan juga menyemunyikan semua hal yang berkaitan dengan Anda di masa lalu. &lt;br/&gt;&lt;br/&gt; Penghapusan akun di Wikipedia dilakukan dengan mengubah nama akun Anda sehingga orang lain tidak dapat mengenali kontribusi Anda dalam proses yang disebut penghapusan akun. &lt;b&gt;Penghapusan akun tidak menjamin anonimitas sepenuhnya atau menghapus kontribusi pada proyek-proyek tersebut&lt;/b&gt; .</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="history_offline_articles_toast">Beberapa artikel yang pernah diakses mungkin tidak dapat dibaca saat luring.</string>
@@ -279,6 +282,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
+  <string name="legal_safety_contacts_description">Kontak hukum dan keselamatan</string>
   <string name="about_wikipedia_url">https://id.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
@@ -295,6 +299,7 @@
   <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
+  <string name="about_logo_content_description">Logo globe teka-teki Wikipedia</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
   <string name="edit_abandon_confirm_yes">Ya</string>
   <string name="edit_abandon_confirm_no">Tidak</string>
@@ -481,6 +486,9 @@
     <item quantity="other">Akun ini akan kedaluwarsa dalam %d hari.</item>
   </plurals>
   <string name="temp_account_anon_ip_edit_status">&lt;b&gt;Anda tidak masuk log.&lt;/b&gt; Setelah Anda membuat suntingan, alamat IP Anda akan diasosiasikan dengan suntingan Anda.</string>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Anda belum masuk.&lt;/b&gt; Setelah Anda melakukan pengeditan, akun sementara akan dibuat untuk Anda guna melindungi privasi Anda. &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Learn more&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Anda menggunakan akun sementara.&lt;/b&gt; Suntingan Anda akan dikaitkan dengan %1$s . &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Learn more&lt;/a&gt; .</string>
+  <string name="temp_account_login_status">&lt;b&gt;Saat ini Anda menggunakan akun sementara.&lt;/b&gt; Perubahan yang dilakukan dengan akun sementara %1$s tidak akan ditransfer ke akun permanen Anda saat Anda masuk. Masuk atau buat akun untuk mendapatkan kredit ke nama pengguna Anda, di antara manfaat lainnya.</string>
   <string name="temp_account_end_session">Akhiri sesi</string>
   <string name="temp_account_end_session_confirm">Ini akan mengeluarkan Anda dari akun sementara Anda. Ingin melanjutkan?</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
@@ -595,8 +603,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
   <string name="reading_lists_sync_reminder_title">Nyalakan sinkronisasi daftar bacaan?</string>
-  <string name="reading_lists_sync_reminder_text" fuzzy="true">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link" fuzzy="true">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Artikel yang disimpan ke daftar bacaan sekarang dapat disinkronkan ke akun Wikipedia Anda. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Sekarang, daftar bacaan dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ/id#Daftar_bacaan_yang_disinkronkan\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Nyalakan sinkronisasi</string>
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
   <string name="reading_lists_login_reminder_text">Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
@@ -860,8 +868,11 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_text">Anda telah mencapai bagian bawah umpan.</string>
   <string name="feed_accessibility_card_load_more_button">Baca lebih lanjut</string>
+  <string name="feed_language_variants_removal_dialog_title">Pilih varian bahasa berikut untuk pengalaman membaca yang lebih baik.</string>
+  <string name="feed_language_variants_removal_dialog_message">Saat ini Anda menggunakan varian bahasa Cina generik yang tidak didukung sebagai bahasa utama Wikipedia Anda.</string>
   <string name="feed_language_variants_removal_dialog_save">Simpan</string>
   <string name="feed_language_variants_removal_secondary_dialog_title">Harap perbarui bahasa kedua Anda</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Saat ini Anda menggunakan varian bahasa Cina generik yang tidak didukung sebagai bahasa sekunder. Silakan buka pengaturan Anda untuk memilih bahasa sekunder baru atau untuk mengkonfirmasi daftar bahasa Anda.</string>
   <string name="feed_language_variants_removal_secondary_dialog_settings">Pergi ke Pengaturan</string>
   <string name="top_read_activity_title">Baca terus %s</string>
   <string name="tabs_activity_title">Tab</string>
@@ -893,6 +904,7 @@
   <string name="description_edit_learn_more">Pelajari lebih lanjut tentang deskripsi artikel</string>
   <string name="description_edit_image_caption_learn_more">Pelajari lebih lanjut tentang keterangan gambar</string>
   <string name="description_too_short">Teksnya terlalu singkat.</string>
+  <string name="description_too_long">Usahakan deskripsi tetap singkat agar pengguna dapat memahami isi artikel secara sekilas.</string>
   <string name="description_ends_with_punctuation">Teksnya tidak boleh diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_uppercase">Mulailah dengan huruf kecil, kecuali jika kata pertamanya adalah kata benda.</string>
   <string name="description_starts_with_lowercase">Jangan memulai dengan huruf kecil.</string>
@@ -1036,6 +1048,9 @@
   <string name="suggested_edits_quality_bad_text">Buruk</string>
   <string name="suggested_edits_label">Saranan penyuntingan</string>
   <string name="suggested_edits_contribution">Kontribusi</string>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="other">suntingan</item>
+  </plurals>
   <string name="suggested_edits_edit_streak_detail_text">%d hari</string>
   <string name="suggested_edits_what_is_title">Apa itu Saranan Penyuntingan?</string>
   <string name="suggested_edits_what_is_text">Saranan penyuntingan menghadirkan peluang untuk kontribusi kecil yang berharga bagi Wikipedia.</string>
@@ -1115,6 +1130,10 @@
   <string name="edit_summary_added_caption">Takarir yang ditambahkan</string>
   <string name="edit_summary_added_image_and_caption">Gambar dan keterangan yang ditambahkan</string>
   <string name="edit_published_view">Lihat</string>
+  <string name="activity_tab_logged_out_title">Masuk atau buat akun untuk melihat aktivitas Anda di aplikasi Wikipedia.</string>
+  <string name="activity_tab_user_reading">%s sedang membaca</string>
+  <string name="activity_tab_on_wikipedia_android">Di Wikipedia Android</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dj %2$dm</string>
   <string name="activity_tab_weekly_time_spent">Waktu yang dihabiskan untuk membaca minggu ini</string>
   <string name="activity_tab_monthly_articles_read">Artikel yang dibaca bulan ini</string>
   <string name="activity_tab_monthly_articles_saved">Artikel yang disimpan bulan ini</string>
@@ -1123,25 +1142,74 @@
   <string name="activity_tab_discover_encourage">Mencari sesuatu yang baru untuk dibaca?</string>
   <string name="activity_tab_donation_unknown">Tidak diketahui</string>
   <string name="activity_tab_donation_last_donation">&lt;b&gt;Sumbangan terakhir&lt;/b&gt; di aplikasi</string>
+  <string name="activity_tab_total_edits_all_projects">Total suntingan di seluruh proyek</string>
   <string name="activity_tab_game_stats">Statistik permainan</string>
   <string name="activity_tab_game_stats_best_streak">Rentetan terbaik</string>
   <string name="activity_tab_play_wiki_games">Mainkan WikiGames</string>
   <string name="activity_tab_report_email_subject">Laporan Masalah - Tab Aktivitas</string>
+  <string name="activity_tab_report_email_body">Saya mengalami masalah dengan fitur Tab Aktivitas: \n- [Jelaskan masalah secara spesifik]\n\nPerilaku yang ingin saya lihat adalah: \n- [Jelaskan solusi yang diusulkan]</string>
+  <string name="activity_tab_menu_feedback">Masalah dengan fitur</string>
+  <string name="activity_tab_menu_info">Pelajari lebih lanjut</string>
+  <string name="activity_tab_menu_customize">Sesuaikan</string>
   <string name="activity_tab_menu_customize_description">Wawasan bacaan didasarkan pada bahasa aplikasi Anda di pengaturan, dan wawasan penyuntingan terbatas pada bahasa aplikasi utama Anda. Wawasan memanfaatkan data lokal, kecuali untuk suntingan yang bersifat publik.</string>
+  <string name="activity_tab_highlights">Sorotan</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">Riwayat bacaan</string>
   <string name="activity_tab_impact">Dampak Anda</string>
   <string name="activity_tab_impact_most_viewed">Paling banyak dilihat sejak Anda menyuntingnya</string>
   <string name="activity_tab_impact_contributions_this_month">Kontribusi bulan ini</string>
+  <plurals name="activity_tab_impact_edits_this_month">
+    <item quantity="other">suntingan bulan ini</item>
+  </plurals>
+  <plurals name="activity_tab_impact_edits_last_month">
+    <item quantity="other">suntingan bulan lalu</item>
+  </plurals>
   <string name="activity_tab_impact_all_time">Dampak sepanjang masa</string>
+  <plurals name="activity_tab_impact_total_edits">
+    <item quantity="other">total suntingan</item>
+  </plurals>
+  <plurals name="activity_tab_impact_thanks">
+    <item quantity="other">terima kasih</item>
+  </plurals>
+  <plurals name="activity_tab_impact_best_streak_text">
+    <item quantity="other">%d hari</item>
+  </plurals>
+  <string name="activity_tab_impact_best_streak">Rekor terbaik</string>
   <string name="activity_tab_impact_last_edited">Terakhir diubah</string>
   <string name="activity_tab_impact_suggested_edits_title">0 suntingan pada artikel baru-baru ini</string>
+  <string name="activity_tab_impact_suggested_edits_message">Sepertinya Anda belum melakukan penyuntingan bulan ini. Perluas pengetahuan gratis ini dengan menyunting topik yang menarik minat Anda.</string>
   <string name="activity_tab_impact_suggested_edits_button">Lakukan suntingan</string>
   <string name="activity_tab_impact_recent_activity">Aktivitas terbaru Anda (30 hari terakhir)</string>
+  <plurals name="activity_tab_impact_recent_activity_edits">
+    <item quantity="other">suntingan</item>
+  </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="other">Tampilan pada artikel yang telah Anda edit</item>
+  </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">Waktu yang dihabiskan untuk membaca</string>
   <string name="activity_tab_customize_screen_reading_insights_switch_title">Wawasan bacaan</string>
   <string name="activity_tab_customize_screen_editing_insights_switch_title">Wawasan suntingan</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">Dampak sepanjang waktu</string>
+  <string name="activity_tab_customize_screen_games_switch_title">Statistik permainan</string>
+  <string name="activity_tab_customize_screen_donations_switch_title">Donasi terakhir dalam aplikasi</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">Garis waktu perilaku</string>
+  <string name="activity_tab_customize_screen_no_modules_message">Modul aktivitas dimatikan. &lt;a href=\"#\"&gt;Aktifkan modul tersebut&lt;/a&gt; untuk melihat pembaruan di tab ini.</string>
+  <string name="activity_tab_timeline_today">Hari ini</string>
+  <string name="activity_tab_timeline_yesterday">Kemarin</string>
+  <string name="activity_tab_timeline_empty_state_title">Tidak ada yang bisa ditunjukkan</string>
+  <string name="activity_tab_timeline_empty_state_message">Mulailah membaca dan menyunting untuk membangun riwayat Anda.</string>
+  <string name="activity_tab_timeline_view_changes_button">Lihat perubahan</string>
+  <string name="activity_tab_onboarding_reading_patterns_title">Pola membaca</string>
+  <string name="activity_tab_onboarding_reading_patterns_message">Melihat berapa banyak waktu yang Anda habiskan untuk membaca dan artikel atau topik mana yang telah Anda telusuri dari waktu ke waktu.</string>
+  <string name="activity_tab_onboarding_screen_title">Memperkenalkan Aktivitas</string>
+  <string name="activity_tab_onboarding_impact_title">Sorotan dampak</string>
   <string name="activity_tab_onboarding_impact_message">Temukan wawasan tentang kontribusi Anda dan jangkauan pengetahuan yang telah Anda bagikan.</string>
+  <string name="activity_tab_onboarding_engage_title">Lebih banyak cara untuk terlibat</string>
+  <string name="activity_tab_onboarding_engage_message">Jelajahi statistik untuk permainan, artikel yang disimpan, dan aktivitas lain yang menghubungkan Anda lebih dalam dengan Wikipedia.</string>
+  <string name="activity_tab_onboarding_stay_in_control_title">Tetaplah dalam kendali.</string>
+  <string name="activity_tab_onboarding_stay_in_control_message">Pilih modul yang ingin ditampilkan. Semua data pribadi terjaga kerahasiaannya di perangkat Anda dan riwayat penelusuran dapat dihapus kapan saja.</string>
+  <string name="edits_screen_what_is_title">Menyunting di aplikasi Wikipedia</string>
   <string name="edits_screen_what_is_body">Bingung harus mulai menyunting dari mana? Cobalah Saranan Penyuntingan, fitur yang menciptakan peluang untuk memberikan kontribusi kecil namun penting bagi Wikipedia. Atau, langsung saja ke artikel yang diminati dan lakukan perubahan menggunakan teks wiki.</string>
+  <string name="activity_tab_snackbar_label">Statistik permainan ditampilkan dalam bahasa utama Anda.</string>
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>
@@ -1171,6 +1239,7 @@
   <string name="onboarding_multilingual_secondary_text">Kami telah menemukan bahasa berikut di perangkat Anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
   <string name="onboarding_welcome_title_v2">Ensiklopedia Bebas\n…dalam lebih dari 300 bahasa</string>
+  <string name="onboarding_next">Selanjutnya</string>
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
@@ -1272,6 +1341,7 @@
   <string name="templates_learn_more_link">Pelajari lebih lanjut</string>
   <string name="templates_description_incomplete">Templat dibuat oleh pengguna dan mungkin tidak memiliki deskripsi lengkap.</string>
   <string name="templates_description_empty">Templat %s belum memiliki deskripsi.</string>
+  <string name="templates_description_missing_data">Templat ini tidak memiliki &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; , dan parameternya telah &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerated&lt;/a&gt; . Akibatnya, templat dan parameternya tidak memiliki deskripsi.</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Masuk log / gabung ke Wikipedia</string>
   <string name="main_tooltip_action_button">Memulai</string>
@@ -1293,8 +1363,10 @@
   <string name="talk_warn_save_dialog_hint">Judul pesan</string>
   <string name="talk_warn_save_dialog_publish">Terbitkan</string>
   <string name="talk_warn_save_dialog_cancel">Batal</string>
+  <string name="talk_warn_save_dialog_dont_save">Jangan disimpan</string>
   <string name="talk_warn_submitted">Pesan diterbitkan ke halaman diskusi pengguna milik penyunting</string>
   <string name="talk_warn_submitted_and_saved">Pesan disimpan dan diterbitkan ke halaman diskusi pengguna milik penyunting.</string>
+  <string name="talk_warn_saved_messages">Pesan yang disimpan</string>
   <string name="talk_page_empty">Halaman pembicaraan ini kosong.</string>
   <string name="talk_page_empty_title">Percakapan dimulai di sini</string>
   <string name="talk_page_empty_content">Laman pembicaraan adalah tempat orang berdiskusi tentang cara membuat konten Wikipedia sebaik mungkin. Mulailah dengan menambahkan topik diskusi baru untuk terhubung dan berkolaborasi dengan komunitas Wikipediawan.</string>
@@ -1305,6 +1377,7 @@
   <string name="talk_message_hint">Susun pesan</string>
   <string name="talk_message_empty">Pesannya tidak bisa kosong.</string>
   <string name="talk_subject_empty">Subjeknya tidak bisa kosong.</string>
+  <string name="talk_subject_duplicate">Nama subjek sudah ada. Coba yang lain.</string>
   <string name="talk_response_submitted">Balasan diposting.</string>
   <string name="talk_snackbar_undo">Batalkan</string>
   <string name="talk_last_modified">&lt;b&gt;Terakir disunting %1$s&lt;/b&gt; oleh %2$s</string>
@@ -1493,7 +1566,7 @@
   <string name="reading_list_share_menu_label">Bagikan...</string>
   <string name="reading_list_share_menu_tooltip">Bagikan daftar bacaan ini dengan orang lain</string>
   <string name="reading_list_share_message_v2">Hai! Saya ingin berbagi daftar bacaan Wikipedia saya dengan Anda:</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Anda tidak memiliki pesan peringatan yang disimpan.</string>
+  <string name="talk_templates_empty_message">Buat pesan Anda sendiri atau gunakan &lt;a href=\"#\"&gt;contoh pesan&lt;/a&gt; untuk memulai.</string>
   <string name="talk_templates_new_message_title">pesan baru</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>
   <string name="talk_templates_new_message_compose_hint">Tulis pesan</string>
@@ -1517,6 +1590,8 @@
     <item quantity="other">Pesan telah dihapus</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Judul pesan tidak boleh kosong</string>
+  <string name="talk_templates_your_messages_tab_title">Pesan Anda</string>
+  <string name="talk_templates_example_messages_tab_title">Contoh pesan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atau saring suntingan</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tanda: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Tidak ada</string>
@@ -1589,11 +1664,14 @@
   <string name="patroller_onboarding_two_thank_content">Melihat suntingan yang produktif? Ucapkan terima kasih kepada pengguna atas kontribusinya.</string>
   <string name="patroller_onboarding_two_watch_title">Pantau</string>
   <string name="patroller_onboarding_two_watch_content">Ingin melacak suntingan artikel? Tambahkan ke Daftar Pantauan Anda. Lihat di bawah \'Lainnya\'.</string>
+  <string name="patroller_onboarding_two_talk_title">Pembicaraan</string>
+  <string name="patroller_onboarding_two_talk_content">Berkomunikasilah dengan editor lain. Simpan pesan halaman diskusi yang sering digunakan atau gunakan templat.</string>
   <string name="patroller_onboarding_two_undo_title">Batalkan/Kembalikan</string>
   <string name="patroller_onboarding_two_undo_content">Pilih \'Batalkan\' untuk membatalkan atau mengembalikan penyuntingan yang berpotensi merusak.</string>
   <string name="patroller_diff_tooltip_one">Kerusakan memperkirakan jika suatu suntingan menyebabkan kerusakan pada wiki.</string>
   <string name="patroller_diff_tooltip_two">Niat memprediksi kemungkinan suntingan disimpan dengan itikad baik</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Bagaimana kami dapat meningkatkan fitur ini?</string>
+  <string name="patroller_diff_menu_edit_history_title">Riwayat suntingan artikel</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Umpan balik</string>
   <string name="patroller_diff_feedback_tooltip">Ketuk menu luapan untuk mengirimkan masukan kapan saja di \'Masalah dengan fitur\'.</string>
   <string name="patroller_saved_message_title_vandalism">Peringatan vandalisme</string>
@@ -1615,7 +1693,10 @@
   <string name="patroller_saved_message_body_copy_vio">Halo {{{username}}}!\n\nSuntingan terakhir yang Anda lakukan telah melanggar hak cipta dengan menyertakan materi berhak cipta tanpa izin. Pastikan untuk mengunggah dan/atau menyunting di Wikipedia sesuai dengan ketentuan [https://id.wikipedia.org/wiki/Wikipedia:Hak_cipta hak cipta] yang berlaku untuk mencegah penghapusan.</string>
   <string name="patroller_saved_message_body_edit_summary">Halo {{{username}}}!\n\nSepertinya Anda menghapus beberapa konten di Wikipedia tanpa meninggalkan ringkasan penyuntingan. Silakan memberikan keterangan di ringkasan penyuntingan untuk memberitahukan kepada kontributor lain apa yang Anda lakukan di Wikipedia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Halo {{{username}}}!\n\nSepertinya Anda menghapus beberapa konten di Wikipedia karena dianggap kontroversial tanpa mengajukan diskusi terlebih dahulu. Wikipedia bukanlah tempat untuk menyensor segala sesuatu, selama suntingan yang dianggap kontroversial terdapat rujukan dari sumber tepercaya maka suntingan tersebut harus dipertahankan.\n\nJika Anda sangat yakin bahwa suntingan tersebut tidak faktual, maka diskusikan terlebih dahulu di halaman pembicaraan artikelnya alih-alih langsung menghapus.</string>
+  <string name="talk_warn_learn_more_label">Pelajari tentang placeholder pesan</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Gunakan contoh pesan di bawah ini untuk menyesuaikan, mengirim, dan menyimpan ke pesan Anda.</string>
   <string name="patroller_saved_message_body_art_imp">Halo {{{username}}}. Artikel yang telah Anda buat sudah bagus. Kami menyarankan Anda untuk menambahkan beberapa rujukan dari [https://id.wikipedia.org/wiki/Wikipedia:Sumber_tepercaya sumber tepercaya]. Hal ini bertujuan untuk meningkatkan mutu artikel itu sendiri.</string>
+  <string name="talk_templates_menu_edit_title">Sunting</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>
@@ -1625,9 +1706,27 @@
   <string name="email_report_patroller_tasks_subject">Laporan Masalah - Fitur Patroli Suntingan</string>
   <string name="email_report_patroller_tasks_body">Saya mengalami masalah dengan fitur Patroli Suntingan:\n- [Jelaskan masalah spesifik]\n\nPerilaku yang ingin saya lihat adalah:\n- [Jelaskan solusi yang diusulkan]\n\n[Tangkapan Layar atau Tautan]</string>
   <string name="donation_campaign_maybe_later_snackbar">Kami akan mengingatkan Anda lagi besok.</string>
-  <string name="donation_campaign_donated_snackbar" fuzzy="true">Terima kasih, donatur yang terhormat! Kemurahan hati Anda akan membantu Wikipedia dan situs sejenisnya untuk terus berkembang.</string>
+  <string name="donation_campaign_donated_snackbar">Terima kasih, donatur yang terhormat! Kemurahan hati Anda membantu menjaga Wikipedia dan proyek pengetahuan bebas lainnya tetap berkembang.</string>
   <string name="donation_campaign_go_back_button">Kembali</string>
   <string name="menu_single_webview_open_external">Buka di penjelajah sistem</string>
+  <string name="donate_gpay_dialog_title">Donasi menggunakan Google Pay?</string>
+  <string name="donate_gpay_dialog_description">Berdonasi melalui Google Pay atau pilih metode pembayaran lainnya.</string>
+  <string name="donate_gpay_dialog_pay_button">Donasi melalui Google Pay</string>
+  <string name="donate_gpay_dialog_other_button">Metode pembayaran lainnya</string>
+  <string name="donate_gpay_activity_title">Pilih jumlah</string>
+  <string name="donate_gpay_activity_title_with_currency">Pilih jumlah ( %s )</string>
+  <string name="donate_gpay_check_transaction_fee">Saya akan dengan murah hati menambahkan %s untuk menutupi biaya transaksi sehingga Anda dapat menyimpan 100%% dari donasi saya.</string>
+  <string name="donate_gpay_check_recurring">Jadikan ini sebagai donasi rutin bulanan.</string>
+  <string name="donate_gpay_check_send_email">Ya, Wikimedia Foundation dapat mengirimkan email kepada saya sesekali.</string>
+  <string name="donate_gpay_minimum_amount">Silakan pilih jumlah (minimal %s)</string>
+  <string name="donate_gpay_maximum_amount">Kami tidak dapat menerima donasi lebih dari %s melalui aplikasi kami. Silakan hubungi staf donasi besar kami di benefactors@wikimedia.org.</string>
+  <string name="donate_gpay_success_message">&lt;b&gt;Terima kasih!&lt;/b&gt; Kemurahan hati Anda kepada Wikipedia sangat berarti bagi kami.</string>
+  <string name="donate_gpay_help_problems">Mengalami masalah saat berdonasi?</string>
+  <string name="donate_gpay_help_other_ways">Cara lain untuk memberi</string>
+  <string name="donate_gpay_help_faq">Pertanyaan yang sering diajukan</string>
+  <string name="donate_gpay_help_tax">Informasi deduktivitas pajak</string>
+  <string name="donation_history_deleted_message_snackbar">Riwayat donasi telah dihapus.</string>
+  <string name="donation_history_no_history_message_snackbar">Anda tidak memiliki riwayat donasi yang perlu dihapus.</string>
   <string name="places_title">Tempat</string>
   <string name="places_permissions_denied">Izin lokasi diperlukan untuk melihat lokasi Anda di peta. Silakan coba lagi.</string>
   <string name="places_search_hint">Cari tempat</string>
@@ -1635,6 +1734,13 @@
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Daftar</string>
   <string name="places_empty_list">Daerah ini kosong. Perkecil &lt;a href=\"#\"&gt;peta&lt;/a&gt; .</string>
+  <string name="places_card_title">Tempat di sekitar</string>
+  <string name="places_card_action">Lebih banyak tempat di sekitar</string>
+  <string name="places_card_enable_location_card_message">Fitur Tempat adalah cara baru berbasis peta dalam menjelajahi Wikipedia.</string>
+  <string name="places_card_enable_location_card_button">Aktifkan lokasi</string>
+  <string name="places_card_distance_suffix">%s jauhnya</string>
+  <string name="places_card_distance_unknown">Jarak tidak diketahui</string>
+  <string name="places_empty_message_snackbar">Tidak ada artikel terdekat. Coba perkecil tampilan dan geser peta.</string>
   <string name="survey_dialog_title">Bantu kami meningkatkan fitur ini</string>
   <string name="survey_dialog_message">Apakah Anda puas dengan fitur ini?</string>
   <string name="survey_dialog_option_satisfied">Puas</string>
@@ -1644,23 +1750,248 @@
   <string name="survey_dialog_option_very_unsatisfied">Sangat tidak puas</string>
   <string name="survey_dialog_cancel">Batal</string>
   <string name="survey_dialog_submit">Kirim</string>
+  <string name="survey_dialog_next">Selanjutnya</string>
+  <string name="survey_dialog_general_yes">Ya</string>
+  <string name="survey_dialog_general_no">Tidak</string>
+  <string name="survey_dialog_general_maybe">Mungkin</string>
+  <string name="survey_dialog_input_hint">Umpan balik tambahan</string>
   <string name="survey_dialog_submitted_snackbar">Umpan balik dikirimkan. Terima kasih!</string>
+  <string name="games_hub_activity_title">Permainan</string>
+  <string name="games_hub_activity_games_unavailable_message">Belum ada permainan yang tersedia dalam bahasa ini! Permainan ini memanfaatkan konten yang dibuat oleh editor sukarelawan untuk Wikipedia masing-masing bahasa.</string>
+  <string name="games_hub_activity_games_unavailable_message_learn_more_action">Pelajari lebih lanjut</string>
+  <string name="games_hub_activity_overflow_view_game_stats">Lihat statistik permainan</string>
+  <string name="games_hub_activity_overflow_learn_more">Pelajari lebih lanjut</string>
+  <string name="on_this_day_game_entry_dialog_title">Memperkenalkan</string>
+  <string name="on_this_day_game_entry_dialog_subtitle">Permainan Wikipedia</string>
+  <string name="on_this_day_game_entry_dialog_button">Mainkan</string>
+  <string name="on_this_day_game_entry_dialog_snackbar_message">Permainan Wikipedia tersedia di Pusat Permainan, yang dapat ditemukan di menu LAINNYA.</string>
+  <string name="on_this_day_game_title">Mana yang lebih dulu?</string>
+  <string name="on_this_day_game_dialog_button">Mainkan</string>
+  <string name="on_this_day_game_splash_message">Coba tebak peristiwa mana yang terjadi lebih dulu pada hari ini dalam sejarah.</string>
+  <string name="on_this_day_game_progress">%1$d dari %2$d</string>
+  <string name="on_this_day_game_score">Skor: %d</string>
+  <string name="on_this_day_game_submit">Kirim</string>
+  <string name="on_this_day_game_correct">Benar!</string>
+  <string name="on_this_day_game_incorrect">Salah!</string>
+  <string name="on_this_day_game_point">+1 poin</string>
+  <string name="on_this_day_game_next">Pertanyaan selanjutnya</string>
+  <string name="on_this_day_game_finish">Hasil akhir</string>
+  <string name="on_this_day_game_share_button">Bagikan skor</string>
+  <string name="on_this_day_game_feed_entry_card_heading">Permainan Wikipedia</string>
+  <string name="on_this_day_game_feed_entry_card_title">Mana yang lebih dulu?</string>
+  <string name="on_this_day_game_result">Anda mencetak skor %1$d/%2$d.</string>
+  <string name="on_this_day_game_next_in">Pertandingan selanjutnya dalam %s</string>
+  <string name="on_this_day_game_your_stats">Status Anda</string>
+  <plurals name="on_this_day_game_stats_games_played">
+    <item quantity="other">Permainan dimainkan</item>
+  </plurals>
+  <string name="on_this_day_game_stats_average_score">Rata-rata skor</string>
+  <string name="on_this_day_game_stats_streak">Rentetan saat ini</string>
+  <string name="on_this_day_game_result_subtitle">Artikel yang dirujuk dalam permainan hari ini</string>
+  <string name="on_this_day_game_completed_message">Terima kasih telah bermain. Permainan \"Mana yang lebih dulu?\" yang baru tersedia setiap hari di beranda Jelajahi.</string>
+  <string name="on_this_day_game_menu_notifications">Notifikasi permainan</string>
+  <string name="on_this_day_game_menu_info">Pelajari lebih lanjut</string>
+  <string name="on_this_day_game_menu_feedback">Masalah dengan fitur</string>
+  <string name="on_this_day_game_article_read_button">Baca artikel</string>
+  <string name="on_this_day_game_article_related_event_title">Peristiwa yang terkait dengan artikel ini</string>
+  <string name="on_this_day_game_article_answer_correct_stats_message">Anda menjawab pertanyaan ini dengan benar.</string>
+  <string name="on_this_day_game_article_answer_incorrect_stats_message">Anda salah menjawab pertanyaan ini.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_title">Matikan notifikasi permainan?</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_subtitle">Jika Anda menonaktifkan push notifikasi, Anda tidak akan lagi menerima pengingat setiap hari ketika game baru tersedia untuk dimainkan.</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_title">Aktifkan notifikasi permainan?</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_subtitle">Notifikasi permainan akan memberi tahu Anda setiap hari saat permainan baru tersedia untuk dimainkan.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_positive_btn_label">Tidak, biarkan saja.</string>
+  <string name="on_this_day_game_turn_off_notification_dialog_negative_btn_label">Matikan</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_positive_btn_label">Ya, nyalakan</string>
+  <string name="on_this_day_game_turn_on_notification_dialog_negative_btn_label">Tetap matikan</string>
+  <string name="on_this_day_game_notification_turned_off_snackbar_message">Notifikasi permainan dimatikan.</string>
+  <string name="on_this_day_game_notification_turned_on_snackbar_message">Notifikasi permainan diaktifkan.</string>
+  <string name="on_this_day_game_notification_text">Permainan \"Mana yang lebih dulu?\" hari ini siap dimainkan.</string>
+  <string name="on_this_day_game_report_email_subject">Laporan Masalah - Permainan Wikipedia</string>
+  <string name="on_this_day_game_report_email_body">Saya menemukan masalah dengan fitur permainan Wikipedia: \n- [Jelaskan masalah spesifik] \n\nPerilaku yang ingin saya lihat adalah: \n- [Jelaskan solusi yang diusulkan]</string>
+  <string name="on_this_day_game_notification_undo">Batalkan</string>
+  <string name="on_this_day_game_share_link_message">Saya sedang memainkan \"Mana yang lebih dulu?\", sebuah permainan trivia harian di aplikasi Wikipedia Android %s</string>
+  <string name="on_this_day_game_share_screen_title">Saya mendapat skor %1$d/%2$d pada \n\"Mana yang lebih dulu?\" \nhari ini.</string>
+  <string name="on_this_day_game_share_screen_subtitle">Topik termasuk:</string>
+  <string name="on_this_day_game_archive_calendar_title">Pilih permainan berdasarkan tanggal untuk dimainkan.</string>
+  <string name="on_this_day_game_score_toast_message">Anda mencetak skor %1$d/%2$d pada hari ini.</string>
+  <string name="on_this_day_game_continue_btn_text">Lanjutkan permainan hari ini</string>
+  <string name="on_this_day_game_current_progress_message">Anda sedang mengerjakan pertanyaan %d .</string>
+  <string name="on_this_day_game_archive_btn_text">Putar arsip</string>
+  <string name="on_this_day_game_review_results_btn_text">Tinjau hasilnya</string>
+  <string name="on_this_day_game_score_message">Anda mencetak %1$d/%2$d pada permainan hari ini.</string>
+  <string name="on_this_day_game_play_today_btn_text">Mainkan permainan hari ini</string>
+  <string name="on_this_day_game_continue_playing_btn_text">Lanjutkan bermain</string>
+  <string name="on_this_day_game_sound_on">Nyalakan suara</string>
+  <string name="on_this_day_game_sound_off">Matikan suara</string>
+  <string name="on_this_day_game_more_label">Selengkapnya</string>
+  <string name="on_this_day_game_card_progress_label">Anda berada di pertanyaan %d. Lanjutkan menebak peristiwa mana yang terjadi lebih dulu pada hari ini dalam sejarah.</string>
+  <string name="on_this_day_game_card_progress_short_label">Anda sedang mengerjakan pertanyaan %d.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message">Anda mencetak skor %1$d/%2$d pada permainan hari ini. Permainan selanjutnya dalam %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message">Anda mencetak skor %1$d/%2$d pada permainan hari ini.</string>
+  <string name="on_this_day_game_card_archive_label">Arsip</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Masuk</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_title">Masuk untuk melihat statistik permainan Anda</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_description">Lihat rentetan kemenangan, skor, dan lainnya</string>
+  <string name="wikipedia_games_title">Permainan Wikipedia</string>
+  <string name="wikipedia_games_subtitle">Permainan trivia harian berdasarkan konten Wikipedia.</string>
+  <string name="year_in_review_learn_more">Pelajari lebih lanjut</string>
+  <string name="year_in_review_get_started">Mulai</string>
+  <string name="year_in_review_topbar_w_icon">Ikon W Wikipedia</string>
+  <string name="year_in_review_navigate_left">Berpindah ke kiri</string>
+  <string name="year_in_review_close">Tutup</string>
+  <string name="year_in_review_share_icon">Ikon Bagikan</string>
+  <string name="year_in_review_heart_icon">Ikon Hati</string>
+  <string name="year_in_review_navigate_right">Berpindah ke kanan</string>
+  <string name="year_in_review_donate">Donasi</string>
+  <string name="year_in_review_information_icon">Ikon Informasi</string>
   <string name="year_in_review_get_started_headline">Jelajahi Tinjauan Tahunan Wikipedia Anda</string>
   <string name="year_in_review_get_started_bodytext">Lihat wawasan tentang artikel mana yang Anda baca di aplikasi Wikipedia dan suntingan yang Anda buat.</string>
   <string name="year_in_review_get_started_info">Riwayat bacaan Anda dijaga kerahasiaannya. Wawasan bacaan dihitung menggunakan data yang tersimpan secara lokal di perangkat Anda.</string>
   <string name="year_in_review_get_started_later">Anda bisa mengakses Tinjauan Tahunan Anda nanti di menu Selebihnya.</string>
   <string name="year_in_review_survey_title">Bantu tingkatkan Tinjauan Tahunan</string>
+  <string name="year_in_review_survey_subtitle">Apakah Anda puas dengan fitur ini?</string>
   <string name="year_in_review_reading_list_survey_title">Bantu tingkatkan daftar bacaan Tinjauan Tahunan %d.</string>
+  <string name="year_in_review_reading_list_survey_subtitle">Apakah Anda puas dengan daftar bacaan Anda?</string>
+  <string name="year_in_review_survey_very_satisfied">Sangat puas</string>
+  <string name="year_in_review_survey_satisfied">Puas</string>
+  <string name="year_in_review_survey_neutral">Netral</string>
+  <string name="year_in_review_survey_unsatisfied">Tidak puas</string>
+  <string name="year_in_review_survey_very_unsatisfied">Sangat tidak puas</string>
+  <string name="year_in_review_survey_placeholder_text">Ada tambahan?</string>
+  <string name="year_in_review_survey_cancel">Batal</string>
+  <string name="year_in_review_survey_submit">Kirim</string>
   <string name="year_in_review_disable_title">Yakin ingin mematikan Tinjauan Tahunan?</string>
+  <string name="year_in_review_disable_positive_button">Ya, saya yakin</string>
+  <string name="year_in_review_disable_negative_button">Tidak, terima kasih</string>
   <string name="year_in_review_setting_subtitle">Mematikan Tinjauan Tahunan akan menghapus wawasan personalisasi yang tersimpan, dan menyembunyikan Tinjauan Tahunan.</string>
   <string name="year_in_review_screendeck_image_content_description">Sumber gambar untuk layar utama penyajian Tinjauan Tahunan.</string>
+  <string name="year_in_review_screenshot_error">Tidak dapat membuat tangkapan layar: %s</string>
   <string name="year_in_review_share_subject">Tinjauan Tahunan Wikipedia Saya</string>
   <string name="year_in_review_share_body">Inilah Tinjauan Tahunan Wikipedia saya. Dibuat dengan aplikasi Wikipedia Android %1$s %2$s</string>
+  <string name="year_in_review_globe_icon">Ikon globe</string>
+  <string name="settings_app_icon_title">Ikon aplikasi</string>
+  <string name="settings_app_icon_subtitle">Manfaat kontributor</string>
   <string name="settings_app_icon_preference_subtitle">Anda punya akses ke ikon khusus yang merayakan kontribusi %d Anda dalam aplikasi untuk Wikipedia. Ikon ini akan tetap ada hingga Tinjauan Tahunan berikutnya.</string>
+  <string name="settings_app_icon_updated">Ikon aplikasi Anda telah diperbarui.</string>
   <string name="year_in_review_slide_app_icon_title_unlocked">Ikon aplikasi baru tersedia untuk layar beranda Anda</string>
+  <string name="year_in_review_slide_app_icon_title_unlock">Dapatkan hadiah kontributor Anda untuk tahun depan!</string>
+  <string name="year_in_review_slide_app_icon_body_unlocked">Aktifkan ikon aplikasi baru Anda di Pengaturan di bawah Ikon aplikasi. Terima kasih telah berinvestasi dalam masa depan pengetahuan bebas. Kontribusi Anda sebagai %1$s di %2$d membantu membuka jalan menuju dunia informasi bebas, dan sebagai hasilnya Anda telah membuka kunci ikon kontributor khusus untuk Wikipedia di layar beranda Anda.</string>
   <string name="year_in_review_slide_app_icon_body_unlock">Kami senang Wikipedia menjadi bagian dari tahun %1$d Anda! Raih hadiah istimewa di Tinjauan Tahunan %2$d Anda dengan menjadi kontributor—baik dengan &lt;a href=\"%3$s\"&gt;menyunting Wikipedia&lt;/a&gt; atau dengan menyumbang dari aplikasi ke &lt;a href=\"%4$s\"&gt;Yayasan Wikimedia&lt;/a&gt;, organisasi nirlaba di baliknya. Jika Wikipedia berguna bagi Anda, pertimbangkan untuk guna membantu keberlanjutannya di masa depan dan menjaganya agar tetap gratis, bebas iklan, tepercaya, dan dapat diakses oleh semua orang. Jika Anda telah menyumbang di tempat lain, dukungan Anda sangat kami hargai.</string>
+  <string name="year_in_review_slide_app_icon_donor">donor</string>
+  <string name="year_in_review_slide_app_icon_editor">editor</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">donor dan editor</string>
+  <string name="year_in_review_slide_geo_headline">Artikel yang Anda baca mendekati %s</string>
+  <string name="year_in_review_slide_geo_body">Negara yang paling dekat dengan banyak artikel yang Anda baca tampaknya adalah: %1$s , berdasarkan artikel seperti &lt;b&gt;%2$s&lt;/b&gt; dan &lt;b&gt;%3$s&lt;/b&gt; .</string>
+  <string name="year_in_review_login_dialog_title">Masuk untuk personalisasi?</string>
   <string name="year_in_review_login_dialog_body">Log masuk memberi Anda akses ke wawasan yang dipersonalisasi. Anda tetap dapat melihat wawasan kolektif tanpa perlu masuk.</string>
+  <string name="year_in_review_login_dialog_positive">Masuk / Gabung ke Wikipedia</string>
+  <string name="year_in_review_login_dialog_negative">Lanjutkan tanpa masuk</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="other">Artikel teratas Anda</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="other">Berikut adalah artikel yang paling sering Anda kunjungi pada %1$d : %2$s </item>
+  </plurals>
+  <string name="year_in_review_slide_top_categories_headline">Kategori yang paling menarik bagi Anda</string>
+  <string name="year_in_review_slide_top_categories_body">Kategori mengelompokkan artikel-artikel dengan topik serupa. Pada %1$d, Anda telah mengunjungi artikel dalam kategori menarik ini beberapa kali: %2$s</string>
+  <string name="year_in_review_slide_most_read_english_articles_headline">Artikel yang paling banyak dibaca di Wikipedia bahasa Inggris</string>
+  <string name="year_in_review_slide_most_read_english_articles_body">{{PLURAL|Ketika seseorang ingin belajar tentang dunia kita, mereka membuka Wikipedia. Artikel top %1$d yang paling banyak dikunjungi di Wikipedia bahasa Inggris adalah: %2$s &lt;br /&gt;Baca selengkapnya di &lt;a href=\"%3$s\"&gt;artikel blog khusus&lt;/a&gt; kami.}</string>
+  <plurals name="year_in_review_slide_edits_viewed_times_headline">
+    <item quantity="other">untingan Anda telah dilihat lebih dari %,d kali baru-baru ini</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edits_viewed_times_body">
+    <item quantity="other">Pembaca di seluruh dunia menghargai kontribusi Anda. Dalam 2 bulan terakhir, artikel yang Anda edit telah dilihat sebanyak %,d kali. Berkat editor seperti Anda, Wikipedia menjadi sumber pengetahuan yang terus berkembang, berbasis fakta, dan dapat diandalkan bagi dunia.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_per_minute_headline">
+    <item quantity="other">Wikipedia telah disunting %,d kali per menit</item>
+  </plurals>
+  <string name="year_in_review_slide_edited_per_minute_body">Artikel dibuat dan disempurnakan secara kolaboratif menggunakan sumber yang andal. Kita semua memiliki pengetahuan untuk dibagikan, &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%s \"&gt;cari tau lebih lanjut cara berpartisipasi.&lt;/a&gt;</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,d byte ditambahkan</item>
+  </plurals>
+  <plurals name="year_in_review_slide_bytes_added_body">
+    <item quantity="other">Pada %1$d , para sukarelawan menambahkan %2$,d byte ke Wikipedia bahasa Inggris. Jumlah dari semua pekerjaan mereka bersama-sama menghasilkan sumber pengetahuan yang terus meningkat, berbasis fakta, dan andal yang mereka berikan kepada dunia. Kita semua memiliki pengetahuan untuk dibagikan, &lt;a href=\"%3$s \"&gt;cari tau cara berpartisipasi&lt;/a&gt; .</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="other">Anda mengedit %s kali</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_body">
+    <item quantity="other">Terima kasih telah menjadi salah satu editor sukarelawan yang membuat perbedaan pada proyek Wikimedia di seluruh dunia. Sukarelawan seperti Anda telah membuat perubahan sebesar %,d di lebih dari 300 edisi bahasa Wikipedia yang berbeda.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="other">Editor di aplikasi Wikipedia resmi membuat %,d suntingan</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">Inti dan jiwa Wikipedia adalah komunitas global kami yang terdiri dari kontributor sukarelawan, donatur, dan miliaran pembaca seperti Anda. Semuanya bersatu untuk berbagi akses tak terbatas ke informasi yang andal.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="other">Editors telah menyunting sebanyak %,d perubahan di tahun ini</item>
+  </plurals>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_time">Waktu favorit untuk membaca</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_day">Hari favorit untuk membaca</string>
+  <string name="year_in_review_slide_reading_patterns_body_favorite_month">Bulan yang paling banyak Anda baca</string>
+  <string name="year_in_review_slide_reading_pattern_morning">Pagi</string>
+  <string name="year_in_review_slide_reading_pattern_midday">Tengah hari</string>
+  <string name="year_in_review_slide_reading_pattern_afternoon">Sore</string>
+  <string name="year_in_review_slide_reading_pattern_evening">Sore menjelang malam</string>
+  <string name="year_in_review_slide_reading_pattern_night">Malam</string>
+  <string name="year_in_review_slide_reading_pattern_late_night">Larut malam</string>
+  <string name="year_in_review_slide_viewed_articles_times_body">Bagi orang-orang di seluruh dunia, Wikipedia adalah tempat pertama yang mereka kunjungi saat ingin mencari jawaban atas suatu pertanyaan, mencari informasi untuk keperluan sekolah atau pekerjaan, atau mempelajari fakta baru.</string>
   <string name="year_in_review_reading_list_dialog_title">Buat daftar bacaan Tinjauan Tahunan %d Anda?</string>
   <string name="year_in_review_reading_list_dialog_message">Tinjauan Tahunan akan membuat daftar bacaan berisi artikel-artikel yang paling banyak Anda baca pada %1$d. &lt;a href=\"%2$s\"&gt;Pelajari selengkapnya&lt;/a&gt;</string>
+  <string name="year_in_review_reading_list_dialog_positive_button_label">Buat</string>
+  <string name="year_in_review_reading_list_dialog_negative_button_label">Tidak, terima kasih</string>
   <string name="year_in_review_reading_list_title">Tinjauan Tahunan %d</string>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">Seberapa sering Wikipedia disunting</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="other">%d kali per menit</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="other">Artikel yang paling sering saya baca</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="other">Menit baca</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">Hari favorit untuk membaca</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="other">Artikel yang dibaca</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_articles_interested_categories_title">
+    <item quantity="other">Kategori yang menarik bagi saya</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="other">Waktu disunting</item>
+  </plurals>
+  <string name="year_in_review_highlights_logo_description">Logo Wikipedia</string>
+  <string name="recommended_reading_list_title">Temukan</string>
+  <string name="recommended_reading_list_onboarding_card_title">Temukan artikel yang dipilih khusus untuk Anda</string>
+  <string name="recommended_reading_list_onboarding_card_message">Daftar bacaan mingguan Anda dari artikel Wikipedia, yang disusun khusus untuk Anda.</string>
+  <string name="recommended_reading_list_onboarding_card_new">Baru!</string>
+  <string name="recommended_reading_list_onboarding_card_positive_button">Memulai</string>
+  <string name="recommended_reading_list_onboarding_card_negative_button">Tidak, terima kasih</string>
+  <string name="recommended_reading_list_interest_pick_title">Apa yang menarik bagi Anda?</string>
+  <string name="recommended_reading_list_interest_pick_search_hint">Cari artikel</string>
+  <string name="recommended_reading_list_settings_updates_frequency_daily">harian</string>
+  <string name="recommended_reading_list_settings_updates_frequency_weekly">mingguan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_monthly">bulanan</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">Setiap hari</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
+  <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
+  <string name="recommended_reading_list_settings_interests">Minat</string>
+  <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
+  <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Sejak kapan Pluto tidak lagi terdaftar sebagai planet?</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">Olimpiade pertama</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA vs DNA</string>
+  <string name="hybrid_search_onboarding_search_example_query_pineapple_pizza">Mengapa orang-orang menaruh nanas di atas pizza?</string>
+  <string name="hybrid_search_onboarding_search_example_query_biggest_cities_europe">Apa saja kota-kota terbesar di Eropa?</string>
+  <string name="hybrid_search_onboarding_screen_title">Cara baru untuk mencari</string>
+  <string name="hybrid_search_results_header_description">Bersumber dari artikel Wikipedia yang ditulis manusia</string>
+  <string name="hybrid_search_results_rate_label">Beri nilai pada hasil ini</string>
+  <string name="hybrid_search_results_rated_label">Dinilai</string>
+  <string name="hybrid_search_results_rate_thumb_up">Beri nilai jempol ke atas</string>
+  <string name="hybrid_search_results_rate_thumb_down">Beri nilai jempol ke bawah</string>
+  <string name="hybrid_lexical_search_results_empty">Tidak ada judul artikel yang cocok dengan kueri ini.</string>
+  <string name="hybrid_search_results_empty">Pencarian yang ditingkatkan untuk sementara tidak tersedia.</string>
+  <string name="hybrid_search_no_results_header">Tidak ada hasil</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Jelajahi Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Ikuti tantangannya</string>
 </resources>
