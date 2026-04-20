@@ -1185,6 +1185,7 @@
     <item quantity="other">편집</item>
   </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">읽기에 소요한 시간</string>
+  <string name="activity_tab_customize_screen_games_switch_title">게임 통계</string>
   <string name="activity_tab_customize_screen_donations_switch_title">마지막 인앱 기부</string>
   <string name="activity_tab_timeline_today">오늘</string>
   <string name="activity_tab_timeline_yesterday">어제</string>
@@ -1782,6 +1783,8 @@
   <string name="on_this_day_game_notification_undo">실행 취소</string>
   <string name="on_this_day_game_share_screen_subtitle">포함된 주제:</string>
   <string name="on_this_day_game_continue_btn_text">오늘의 게임 계속하기</string>
+  <string name="on_this_day_game_review_results_btn_text">결과 검토</string>
+  <string name="on_this_day_game_play_today_btn_text">오늘의 게임 플레이</string>
   <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
@@ -1797,6 +1800,7 @@
   <string name="year_in_review_donate">기부</string>
   <string name="year_in_review_information_icon">정보 아이콘</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
+  <string name="year_in_review_reading_list_survey_subtitle">읽기 목록에 만족하시나요?</string>
   <string name="year_in_review_survey_very_satisfied">매우 만족</string>
   <string name="year_in_review_survey_satisfied">만족</string>
   <string name="year_in_review_survey_neutral">중립</string>
@@ -1815,6 +1819,7 @@
   <string name="year_in_review_login_dialog_body">로그인하면 개인 맞춤형 분석 정보를 이용할 수 있습니다. 로그인하지 않아도 전체 분석 정보를 볼 수 있습니다.</string>
   <string name="year_in_review_login_dialog_positive">위키백과에 로그인 / 가입</string>
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
+  <string name="year_in_review_slide_top_categories_headline">가장 흥미로운 분류</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
@@ -1871,6 +1876,7 @@
   </plurals>
   <string name="donation_reminders_settings_no_thanks_btn_label">괜찮습니다</string>
   <string name="donation_reminders_settings_learn_more_button">더 알아보기</string>
+  <string name="donation_reminders_settings_report_button">기능에 문제가 있습니다</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
   <string name="hybrid_search_search_hint">무엇이든 검색하거나 질문하세요</string>
   <string name="hybrid_search_article_search_hint">%s에 관해 물어보기</string>
@@ -1878,6 +1884,9 @@
   <string name="hybrid_search_onboarding_learn_more">더 알아보기</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">베타 기능</string>
   <string name="hybrid_search_beta_tag">베타</string>
+  <string name="hybrid_search_experimental_feature_switch_label">실험에 참가</string>
+  <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 대 DNA</string>
+  <string name="hybrid_search_results_rate_label">이 결과 평가하기</string>
   <string name="hybrid_search_no_results_header">결과 없음</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
   <string name="reading_challenge_onboarding_install_title">위젯 설치하기</string>

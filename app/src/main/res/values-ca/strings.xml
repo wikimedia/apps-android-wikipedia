@@ -13,6 +13,7 @@
 * Jaumeortola
 * Jey
 * Jlrb+
+* Jmlarraz
 * Joan manel
 * Kippelboy
 * Lluis Cat
@@ -423,6 +424,7 @@
   <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="error_message_generic">S\'ha produït un error</string>
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
+  <string name="link_preview_dialog_read_button">Llegeix</string>
   <string name="link_preview_dialog_save_button">Desa</string>
   <string name="link_preview_dialog_saved_button">S\'ha desat</string>
   <string name="link_preview_dialog_share_button">Comparteix</string>
@@ -448,9 +450,12 @@
   <string name="error_blocked_footer">Podeu contactar amb &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalitza la barra d\'eines</string>
   <string name="error_blocked_footer_no_blocker">Podeu contactar amb un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt; administrador o una administradora&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="temp_account_not_logged_in">No heu iniciat cap sessió</string>
+  <string name="temp_account_anon_ip_dialog_body">Un cop hagis fet una modificació, la teva adreça IP s\'associarà amb les modificacions.&lt;br /&gt;&lt;br /&gt; &lt;a href=\"https://#login\"&gt;Inicia la sessió&lt;/a&gt; o &lt;a href=\"https://#createaccount\"&gt;crea un compte&lt;/a&gt; per obtenir crèdit per a futures edicions i per accedir a altres funcions.</string>
   <string name="temp_account_dialog_ok">D\'acord</string>
   <string name="temp_account_using_title">Esteu utilitzant un compte temporal</string>
   <string name="temp_account_dialog_discard">Descarta els canvis i inicia sessió</string>
+  <string name="temp_account_end_session">Finalitza la sessió</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
@@ -785,7 +790,7 @@
   <string name="notifications_wiki_filter_header">Filtre wiki</string>
   <string name="notifications_type_filter_header">Filtre de tipus</string>
   <string name="notifications_all_wikis_text" fuzzy="true">Totes les de «wiki»</string>
-  <string name="notifications_all_types_text" fuzzy="true">Totes les de «tipus»</string>
+  <string name="notifications_all_types_text">Tots els tipus</string>
   <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
   <string name="notifications_offline_disable_message">La funció no és disponible fora de línia.</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
@@ -910,6 +915,7 @@
   <string name="customize_toolbar_reset_to_default_button">Reinicialitza als valors per defecte</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Mantingueu la icona d\'arrossegament per a moure l\'element</string>
   <string name="customize_toolbar_item_default_tooltip">Premeu i arrossegueu un element per a reposicionar-lo</string>
+  <string name="suggested_edits_activity_title">Edita</string>
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
@@ -1118,6 +1124,14 @@
   <string name="edit_summary_added_caption">Llegenda afegida</string>
   <string name="edit_summary_added_image_and_caption">S\'ha afegit una imatge i una llegenda</string>
   <string name="edit_published_view">Mostra</string>
+  <string name="activity_tab_weekly_time_spent">Temps dedicat a la lectura aquesta setmana</string>
+  <string name="activity_tab_monthly_articles_saved">Articles desats aquest mes</string>
+  <string name="activity_tab_donation_unknown">Desconegut</string>
+  <string name="activity_tab_game_stats">Estadístiques del joc</string>
+  <string name="activity_tab_menu_info">Aprèn-ne més</string>
+  <string name="activity_tab_impact_last_edited">Darrera modificació</string>
+  <string name="activity_tab_timeline_today">Avui</string>
+  <string name="activity_tab_timeline_yesterday">Ahir</string>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
   <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
@@ -1146,6 +1160,7 @@
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
   <string name="onboarding_multilingual_add_language_text">Afegeix o modifica més llengües</string>
   <string name="onboarding_welcome_title_v2">L’enciclopèdia lliure\n… en més de 300 llengües</string>
+  <string name="onboarding_next">Següent</string>
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>
