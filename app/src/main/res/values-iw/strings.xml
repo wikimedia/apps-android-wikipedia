@@ -1336,7 +1336,7 @@
   <string name="activity_tab_onboarding_stay_in_control_message">כאן אפשר לבחור אילו מודולים להציג. כל הנתונים האישיים נשארים פרטיים במכשיר שלך ואפשר לנקות את היסטוריית הגלישה בכל זמן.</string>
   <string name="edits_screen_what_is_title">עריכה ביישום ויקיפדיה</string>
   <string name="edits_screen_what_is_body">לא ברור לך איפה להתחיל עם עריכה? מומלץ לנסות את \"עריכות מוצעות\", תכונה שיוצרת הזדמנויות לעשות תרומות קטנות, אבל חיוניות לוויקיפדיה. לחלופין, אפשר לעבור ישר לערך שמעניין אותך ולעשות שם שינוי בקוד ויקי.</string>
-  <string name="activity_tab_snackbar_label">סטטיסטיקת המשחק מופיעה לשפה העיקרית שלך.</string>
+  <string name="activity_tab_snackbar_label">סטטיסטיקת המשחק מופיעות לשפה העיקרית שלך.</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1906,7 +1906,7 @@
   <string name="survey_dialog_input_hint">משוב נוסף</string>
   <string name="survey_dialog_submitted_snackbar">המשוב נשלח. תודה רבה!</string>
   <string name="games_hub_activity_title">משחקים</string>
-  <string name="games_hub_activity_games_unavailable_message">אין משחקים זמינים בשפה הזאת עדיין! משחקים משתמשים בתוכן שנוצר על ידי עורכים מתנדבים עבור ויקיפדיה של כל שפה ושפה.</string>
+  <string name="games_hub_activity_games_unavailable_message">אין משחקים זמינים בשפה הזאת עדיין! משחקים משתמשים בתוכן שנוצר על־ידי עורכים מתנדבים עבור ויקיפדיה של כל שפה ושפה.</string>
   <string name="games_hub_activity_games_unavailable_message_learn_more_action">מידע נוסף</string>
   <string name="games_hub_activity_overflow_view_game_stats">הצגת סטטיסטיקת משחק</string>
   <string name="games_hub_activity_overflow_learn_more">מידע נוסף</string>

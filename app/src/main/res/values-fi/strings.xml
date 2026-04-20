@@ -35,6 +35,7 @@
 * Tumm1
 * Valtlait
 * Veikk0.ma
+* Wikipeedikko
 * Yupik
 -->
 <resources>
@@ -2179,4 +2180,5 @@
   <string name="hybrid_search_onboarding_learn_more">Lisätietoja</string>
   <string name="hybrid_search_onboarding_opt_in_choice_title">Beetaominaisuus</string>
   <string name="hybrid_search_beta_tag">Beeta</string>
+  <string name="reading_challenge_widget_reward_button_label">Saat 15 %% alennusta kaupasta</string>
 </resources>
