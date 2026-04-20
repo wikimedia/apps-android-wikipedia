@@ -82,8 +82,7 @@ fun NewsItemContent(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .padding(bottom = 16.dp)
             .clickable { onItemClick(newsItem) }
     ) {
         AsyncImage(
@@ -94,7 +93,7 @@ fun NewsItemContent(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(360.dp)
+                .height(415.dp)
         )
 
         if (newsItem.story.isNotEmpty()) {

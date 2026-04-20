@@ -287,7 +287,7 @@
   </plurals>
   <string name="edit_zoom_in">Приближи</string>
   <string name="edit_zoom_out">Оддалечи</string>
-  <string name="edit_summary_tag_typo">Исправена грешка при пишување</string>
+  <string name="edit_summary_tag_typo">Исправена печатна грешка</string>
   <string name="edit_summary_tag_grammar">Исправена граматиката</string>
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>

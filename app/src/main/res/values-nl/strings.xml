@@ -960,7 +960,7 @@
   <string name="customize_toolbar_category_toolbar">Werkbalk</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sleep uw favoriete items hierheen 👋</string>
-  <string name="customize_toolbar_reset_to_default_button">Reset naar standaard</string>
+  <string name="customize_toolbar_reset_to_default_button">Terug naar standaardinstellingen</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Houd het sleeppictogram ingedrukt om het item te verplaatsen</string>
   <string name="customize_toolbar_item_default_tooltip">Druk op een item en sleep het om het te verplaatsen</string>
   <string name="suggested_edits_activity_title">Bewerken</string>

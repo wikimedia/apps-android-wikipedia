@@ -722,7 +722,7 @@
   <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
   <string name="preference_title_notification_thanks">Merci</string>
-  <string name="preference_summary_notification_thanks">Et seet Een Iech Merci fir eng Ännerung</string>
+  <string name="preference_summary_notification_thanks">Et seet een Iech Merci fir eng Ännerung</string>
   <string name="preference_title_notification_revert">Zerécksetzen</string>
   <string name="preference_summary_notification_revert">Ee vun Äre Bäiträg gouf réckgängeg gemaach</string>
   <string name="preference_title_notification_login_fail">Aloggen</string>
@@ -1381,6 +1381,7 @@
   <string name="thank_label">Merci soen</string>
   <string name="view_user_page">Benotzersäit weisen</string>
   <string name="thank_dialog_title_text">„Merci“ ëffentlech schécken</string>
+  <string name="thank_dialog_text">E „Merci“ ass eng einfach Manéier, fir auszedrécken, datt een engem Editeur seng Aarbecht op der Wikipedia appreciéiert. E „Merci“ kann net réckgängeg gemaach ginn an ass ëffentlech siichtbar</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
   <string name="thank_success_message">Äre „Merci“ gouf dem %s geschéckt 👍</string>
