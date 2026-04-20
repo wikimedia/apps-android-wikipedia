@@ -1861,6 +1861,9 @@
   <string name="on_this_day_game_sound_on">Hang bekapcsolása</string>
   <string name="on_this_day_game_sound_off">Hang kikapcsolása</string>
   <string name="on_this_day_game_more_label">Több</string>
+  <string name="on_this_day_game_card_progress_short_label">A %d. kérdésnél tartasz.</string>
+  <string name="on_this_day_game_card_archive_label">Archívum</string>
+  <string name="on_this_day_game_stats_log_in_prompt_card_button">Bejelentkezés</string>
   <string name="wikipedia_games_title">Wikipédia játékok</string>
   <string name="year_in_review_learn_more">További információk</string>
   <string name="year_in_review_get_started">Kezdés</string>
@@ -2229,6 +2232,9 @@
   <string name="donation_reminders_settings_report_email_subject">Problémajelentés – Adományemlékeztetők</string>
   <string name="donation_reminders_settings_report_email_body">Problémát tapasztaltam az adományemlékeztető  funkcióval kapcsolatban:\n\n– [Írd le pontosan a problémát]\n– [Képernyőképek vagy hivatkozások]\n\nAz általam elvárt működés a következő lenne:\n\n– [A javasolt megoldás leírása]</string>
   <string name="donation_reminders_snackbar_modify_button_label">Módosít</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_title">Béta funkció</string>
+  <string name="hybrid_search_onboarding_opt_in_choice_description">Korlátozott ideig elérhető a kísérlet ideje alatt.</string>
+  <string name="hybrid_search_beta_tag">Béta</string>
   <plurals name="reading_challenge_small_widget_streak">
     <item quantity="one">%d nap</item>
     <item quantity="other">%d nap</item>
