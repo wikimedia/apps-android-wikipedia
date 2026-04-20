@@ -14,11 +14,11 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.google.android.gms.wallet.AutoResolveHelper
-import com.google.android.gms.wallet.PaymentData
+import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.wallet.PaymentsClient
 import com.google.android.gms.wallet.button.ButtonConstants
 import com.google.android.gms.wallet.button.ButtonOptions
+import com.google.android.gms.wallet.contract.TaskResultContracts
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import org.json.JSONArray
@@ -47,6 +47,30 @@ class GooglePayActivity : BaseActivity() {
     private var typedManually = false
 
     private val transactionFee get() = max(DonateUtil.getAmountFloat(binding.donateAmountText.text.toString()) * GooglePayComponent.TRANSACTION_FEE_PERCENTAGE, viewModel.transactionFee)
+
+    private val paymentDataLauncher = registerForActivityResult(TaskResultContracts.GetPaymentDataResult()) { taskResult ->
+        when (taskResult.status.statusCode) {
+            CommonStatusCodes.SUCCESS -> {
+                taskResult.result?.let { paymentData ->
+                    viewModel.submit(paymentData,
+                        binding.checkBoxTransactionFee.isChecked,
+                        binding.checkBoxRecurring.isChecked,
+                        if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
+                        intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
+                }
+            }
+
+            CommonStatusCodes.CANCELED -> {
+                // The user cancelled the payment attempt
+            }
+
+            CommonStatusCodes.ERROR -> {
+                taskResult.status.statusMessage?.let { message ->
+                    FeedbackUtil.showMessage(this, message)
+                }
+            }
+        }
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,10 +146,8 @@ class GooglePayActivity : BaseActivity() {
             DonorExperienceEvent.submit("donate_confirm_click", "gpay",
                 "add_transaction: ${binding.checkBoxTransactionFee.isChecked}, recurring: ${binding.checkBoxRecurring.isChecked}, email_subscribe: ${binding.checkBoxAllowEmail.isChecked}")
 
-            AutoResolveHelper.resolveTask(
-                paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest()),
-                this, LOAD_PAYMENT_DATA_REQUEST_CODE
-            )
+            val task = paymentsClient.loadPaymentData(viewModel.getPaymentDataRequest())
+            task.addOnCompleteListener(paymentDataLauncher::launch)
         }
 
         binding.donateAmountText.addTextChangedListener { text ->
@@ -280,38 +302,7 @@ class GooglePayActivity : BaseActivity() {
         shouldWatchText = true
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == LOAD_PAYMENT_DATA_REQUEST_CODE) {
-            when (resultCode) {
-                RESULT_OK -> {
-                    data?.let { dataIntent ->
-                        PaymentData.getFromIntent(dataIntent)?.let { paymentData ->
-                            viewModel.submit(paymentData,
-                                binding.checkBoxTransactionFee.isChecked,
-                                binding.checkBoxRecurring.isChecked,
-                                if (viewModel.emailOptInRequired) binding.checkBoxAllowEmail.isChecked else true,
-                                intent.getStringExtra(DonateDialog.ARG_CAMPAIGN_ID).orEmpty().ifEmpty { CAMPAIGN_ID_APP_MENU })
-                        }
-                    }
-                }
-                RESULT_CANCELED -> {
-                    // The user cancelled the payment attempt
-                }
-                AutoResolveHelper.RESULT_ERROR -> {
-                    AutoResolveHelper.getStatusFromIntent(data)?.let {
-                        it.statusMessage?.let { message ->
-                            FeedbackUtil.showMessage(this, message)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     companion object {
-        private const val LOAD_PAYMENT_DATA_REQUEST_CODE = 42
         private const val CAMPAIGN_ID_APP_MENU = "appmenu"
         const val FILLED_AMOUNT = "filledAmount"
 
