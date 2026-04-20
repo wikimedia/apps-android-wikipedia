@@ -243,6 +243,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
+  <string name="legal_safety_contacts_description">Maklumat hubungan Perundangan &amp; Keselamatan</string>
   <string name="about_wikipedia_url">https://ms.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
