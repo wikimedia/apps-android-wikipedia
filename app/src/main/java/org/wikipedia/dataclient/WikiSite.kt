@@ -162,6 +162,10 @@ data class WikiSite(
             }
         }
 
+        /**
+         * For use only in Composable Previews, since this bypasses much of the internal constructor
+         * logic that depends on a WikipediaApp instance.
+         */
         fun preview(languageCode: String = "en"): WikiSite {
             return WikiSite("https://$languageCode.wikipedia.org/".toUri(), languageCode)
         }
