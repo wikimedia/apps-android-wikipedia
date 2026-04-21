@@ -154,6 +154,7 @@ fun FeaturedImageModule(
                         text = featuredImage.description.text,
                         color = Color.White,
                         style = MaterialTheme.typography.bodySmall,
+                        maxLines = 2,
                         linkStyle = TextLinkStyles(
                             style = SpanStyle(
                                 color = Color.White,
@@ -173,6 +174,7 @@ fun FeaturedImageModule(
                             text = "${featuredImage.artist?.html.orEmpty()} - ${featuredImage.credit?.html.orEmpty()}",
                             color = Color.White,
                             style = MaterialTheme.typography.bodySmall,
+                            maxLines = 1,
                             linkStyle = TextLinkStyles(
                                 style = SpanStyle(
                                     color = Color.White,
