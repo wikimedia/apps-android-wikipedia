@@ -11,7 +11,6 @@ import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
-import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -25,7 +24,6 @@ import androidx.glance.layout.size
 import androidx.glance.preview.ExperimentalGlancePreviewApi
 import androidx.glance.preview.Preview
 import org.wikipedia.R
-import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
 import java.time.LocalDate
 
@@ -44,6 +42,7 @@ fun ReadingChallengeSmallWidgetContent(
         }
 
         ReadingChallengeState.ChallengeCompleted -> {
+            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             SmallWidget(
@@ -73,19 +72,20 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.ChallengeConcludedIncomplete -> {
+            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
-                        action = actionStartActivity(MainActivity.newIntent(context)),
+                        action = actionRunCallback<HomeAction>(),
                         backgroundColor = WidgetColors.challengeConcludedIncompleteButtonBackground,
                         contentColor = WidgetColors.primary,
                         icon = ImageProvider(R.drawable.ic_flame_24dp)
@@ -94,38 +94,44 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
+            if (state is ReadingChallengeState.ChallengeConcludedNoStreak) {
+                ReadingChallengeAnalyticsHelper.logChallengeConcluded()
+            }
+
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
+            ReadingChallengeAnalyticsHelper.logEnrolledNotStarted()
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 mainImageResId = combination.iconResId, // TODO: update when svg's are provided
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.feed),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionRunCallback<HomeAction>()
                     )
                 }
             )
         }
         ReadingChallengeState.NotEnrolled -> {
+            ReadingChallengeAnalyticsHelper.logNotEnrolled()
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {
@@ -137,29 +143,31 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
+            ReadingChallengeAnalyticsHelper.logNotLiveYet()
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_button),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionRunCallback<HomeAction>()
                     )
                 }
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            ReadingChallengeAnalyticsHelper.logStreakOngoingNeedsReading()
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
                 bottomContent = {
@@ -177,6 +185,7 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
+            ReadingChallengeAnalyticsHelper.logStreakOngoingReadToday()
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
@@ -184,7 +193,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(
-                        onClick = actionStartActivity(MainActivity.newIntent(context))
+                        onClick = actionRunCallback<HomeAction>()
                     ),
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided

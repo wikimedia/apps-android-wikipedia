@@ -7,8 +7,16 @@ import org.wikipedia.settings.Prefs
 object ReadingChallengeAnalyticsHelper {
     val instrument: InstrumentImpl by lazy {
         // TODO: update instrument name after confirming with data analytics
-        TestKitchenAdapter.client.getInstrument("apps-reading-challenge-widget")
+        TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
             .startFunnel("widget_challenge")
+    }
+
+    fun logAppOpenFromWidget() {
+        TestKitchenAdapter.client.getInstrument("apps-open")
+            .submitInteraction(
+                action = "app_open",
+                actionSource = "widget"
+            )
     }
 
     // TODO: finalize the elementId
@@ -21,7 +29,7 @@ object ReadingChallengeAnalyticsHelper {
         )
     }
 
-    fun loadStreakOngoingReadToday() {
+    fun logStreakOngoingReadToday() {
         instrument.submitInteraction(
             action = "heartbeat",
             actionSource = "widget_challenge",

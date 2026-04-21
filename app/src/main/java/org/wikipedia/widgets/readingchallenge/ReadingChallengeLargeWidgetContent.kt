@@ -12,7 +12,6 @@ import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
-import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -32,7 +31,6 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import org.wikipedia.R
-import org.wikipedia.main.MainActivity
 import org.wikipedia.widgets.readingchallenge.WidgetCombinations.forToday
 import java.time.LocalDate
 
@@ -51,6 +49,7 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeCompleted -> {
+            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final_large,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
@@ -81,12 +80,13 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.ChallengeConcludedIncomplete -> {
+            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final_large,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
@@ -94,7 +94,7 @@ fun ReadingChallengeLargeWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
-                        action = actionStartActivity(MainActivity.newIntent(context)),
+                        action = actionRunCallback<HomeAction>(),
                         backgroundColor = WidgetColors.challengeConcludedIncompleteButtonBackground,
                         contentColor = WidgetColors.primary,
                         icon = ImageProvider(R.drawable.ic_flame_24dp),
@@ -104,10 +104,13 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
+            if (state is ReadingChallengeState.ChallengeConcludedNoStreak) {
+                ReadingChallengeAnalyticsHelper.logChallengeConcluded()
+            }
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
@@ -119,6 +122,7 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
+            ReadingChallengeAnalyticsHelper.logEnrolledNotStarted()
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
                 mainImageResId = combination.iconResId,
@@ -129,10 +133,11 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotEnrolled -> {
+            ReadingChallengeAnalyticsHelper.logNotEnrolled()
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
@@ -147,10 +152,11 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
+            ReadingChallengeAnalyticsHelper.logNotLiveYet()
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
@@ -159,18 +165,19 @@ fun ReadingChallengeLargeWidgetContent(
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
-                        action = actionStartActivity(MainActivity.newIntent(context))
+                        action = actionRunCallback<HomeAction>()
                     )
                 }
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
+            ReadingChallengeAnalyticsHelper.logStreakOngoingNeedsReading()
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
@@ -179,6 +186,7 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
+            ReadingChallengeAnalyticsHelper.logStreakOngoingReadToday()
             ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
                 action = "heartbeat",
                 actionSource = "widget_challenge",
@@ -192,7 +200,7 @@ fun ReadingChallengeLargeWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+                    .clickable(onClick = actionRunCallback<HomeAction>()),
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
@@ -409,7 +417,7 @@ fun EnrolledNotStartedLargeWidget(
 
     GeneralLargeWidget(
         modifier = GlanceModifier
-            .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
+            .clickable(onClick = actionRunCallback<HomeAction>()),
         textColor = contentColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
