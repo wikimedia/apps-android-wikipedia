@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Arrangement
@@ -22,13 +23,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -38,6 +45,9 @@ import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -49,21 +59,24 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageModule
@@ -74,10 +87,12 @@ import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
@@ -102,16 +117,25 @@ class HomeFragment : Fragment() {
         return ComposeView(requireActivity()).apply {
             setContent {
                 val selectedTab by viewModel.selectedTab.collectAsState()
+                val wikiSite by viewModel.wikiSite.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
-                        viewModel = viewModel,
+                        wikiSite = wikiSite,
+                        languageState = WikipediaApp.instance.languageState,
                         selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+                        },
+                        onRefreshTab = {
+                            if (it == HomeTab.COMMUNITY) {
+                                viewModel.refreshCommunityContent()
+                            } else {
+                                viewModel.refreshForYouContent()
+                            }
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
@@ -125,7 +149,7 @@ class HomeFragment : Fragment() {
                             ShareUtil.shareText(requireContext(), it.title)
                         },
                         onNewsClick = { newsItem ->
-                            (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, viewModel.wikiSite)
+                            (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
                         },
                         onImageClick = {
                             (parentFragment as? MainFragment)?.onFeaturedImageSelected(it)
@@ -135,6 +159,12 @@ class HomeFragment : Fragment() {
                         },
                         onImageDownloadClick = {
                             (parentFragment as? MainFragment)?.onFeedDownloadImage(it)
+                        },
+                        onLanguageSelected = { languageCode ->
+                            viewModel.updateLanguage(languageCode)
+                        },
+                        onManageLanguagesClick = {
+                            requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
                         }
                     )
                 }
@@ -155,11 +185,13 @@ class HomeFragment : Fragment() {
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel,
+    wikiSite: WikiSite,
+    languageState: AppLanguageState? = null,
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
+    onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -168,7 +200,9 @@ fun HomeScreen(
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onLanguageSelected: (String) -> Unit = {},
+    onManageLanguagesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -181,13 +215,7 @@ fun HomeScreen(
         modifier = Modifier.fillMaxSize(),
         state = pullToRefreshState,
         isRefreshing = isRefreshing,
-        onRefresh = {
-            if (selectedTab == HomeTab.COMMUNITY) {
-                viewModel.refreshCommunityContent()
-            } else {
-                viewModel.refreshForYouContent()
-            }
-        },
+        onRefresh = { onRefreshTab(selectedTab) },
         indicator = {
             Indicator(
                 modifier = Modifier.align(Alignment.TopCenter),
@@ -223,13 +251,21 @@ fun HomeScreen(
                         // Tab selector
                         HomeTabBar(
                             modifier = Modifier.padding(top = 8.dp),
+                            wikiSite = wikiSite,
                             selectedTab = selectedTab,
-                            onTabSelected = onSelectTab
+                            languageState = languageState,
+                            onTabSelected = onSelectTab,
+                            onLanguageSelected = {
+                                onLanguageSelected(it)
+                            },
+                            onManageLanguagesClick = {
+                                onManageLanguagesClick()
+                            }
                         )
 
                         CommunityContentTab(
                             modifier = Modifier.weight(1f),
-                            viewModel = viewModel,
+                            wikiSite = wikiSite,
                             state = communityContentState,
                             onLoadMore = onLoadMoreCommunityContent,
                             onPageClick = onPageClick,
@@ -246,6 +282,7 @@ fun HomeScreen(
                 HomeTab.FOR_YOU -> {
                     ForYouContentTab(
                         state = forYouContentState,
+                        wikiSite = wikiSite,
                         onLoadMore = onLoadMoreForYouContent
                     )
 
@@ -282,8 +319,16 @@ fun HomeScreen(
                         // Tab selector
                         HomeTabBar(
                             modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
+                            wikiSite = wikiSite,
                             selectedTab = selectedTab,
-                            onTabSelected = onSelectTab
+                            languageState = languageState,
+                            onTabSelected = onSelectTab,
+                            onLanguageSelected = {
+                                onLanguageSelected(it)
+                            },
+                            onManageLanguagesClick = {
+                                onManageLanguagesClick()
+                            }
                         )
                     }
                 }
@@ -295,55 +340,70 @@ fun HomeScreen(
 @Composable
 fun HomeTabBar(
     modifier: Modifier,
+    wikiSite: WikiSite,
     selectedTab: HomeTab,
-    onTabSelected: (HomeTab) -> Unit
+    languageState: AppLanguageState? = null,
+    onTabSelected: (HomeTab) -> Unit,
+    onLanguageSelected: (String) -> Unit,
+    onManageLanguagesClick: () -> Unit
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.Start
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        HomeTab.entries.forEach { tab ->
-            val isSelected = tab == selectedTab
-            val label = when (tab) {
-                HomeTab.COMMUNITY -> stringResource(R.string.explore_feed_community_tab_label)
-                HomeTab.FOR_YOU -> stringResource(R.string.explore_feed_for_you_tab_label)
-            }
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .clickable { onTabSelected(tab) }
-                    .padding(horizontal = 12.dp, vertical = 8.dp)
-            ) {
-                Text(
-                    text = label,
-                    color = if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor else if (isSelected) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.titleSmall
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Box(
+        Row(
+            modifier = Modifier.weight(1f)
+        ) {
+            HomeTab.entries.forEach { tab ->
+                val isSelected = tab == selectedTab
+                val label = when (tab) {
+                    HomeTab.COMMUNITY -> LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_tab_label)
+                    HomeTab.FOR_YOU -> LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_for_you_tab_label)
+                }
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(3.dp)
-                        .clip(RoundedCornerShape(1.5.dp))
-                        .background(
-                            if (isSelected) {
-                                if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor
-                                else WikipediaTheme.colors.progressiveColor
-                            } else Color.Transparent
-                        )
-                )
+                        .width(IntrinsicSize.Max)
+                        .clickable { onTabSelected(tab) }
+                        .padding(horizontal = 12.dp, vertical = 8.dp)
+                ) {
+                    Text(
+                        text = label,
+                        color = if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor else if (isSelected) WikipediaTheme.colors.progressiveColor else WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.titleSmall
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(3.dp)
+                            .clip(RoundedCornerShape(1.5.dp))
+                            .background(
+                                if (isSelected) {
+                                    if (selectedTab == HomeTab.FOR_YOU) WikipediaTheme.colors.primaryColor
+                                    else WikipediaTheme.colors.progressiveColor
+                                } else Color.Transparent
+                            )
+                    )
+                }
             }
         }
+        LanguageDropDownMenu(
+            selectedLanguageCode = wikiSite.languageCode,
+            onLanguageSelected = { onLanguageSelected(it) },
+            onManageLanguagesClick = { onManageLanguagesClick() },
+            languageState = languageState
+        )
     }
 }
 
 @Composable
 fun CommunityContentTab(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel,
+    wikiSite: WikiSite,
     state: CommunityContentState,
     onLoadMore: () -> Unit,
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
@@ -367,6 +427,15 @@ fun CommunityContentTab(
                 modifier = modifier.fillMaxSize(),
                 contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
             ) {
+                item {
+                    CommunityDisclaimer(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .fillMaxWidth(),
+                        wikiSite = wikiSite
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
                 state.days.forEach { day ->
 
                     item(key = "day-header-${day.age}") {
@@ -376,30 +445,20 @@ fun CommunityContentTab(
                     day.featuredArticle?.let { article ->
                         item(key = "tfa-${day.age}") {
                             FeaturedArticleModule(
+                                wikiSite = wikiSite,
                                 article,
                                 onPageClick = {
-                                    onPageClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
                                 },
                                 onOverflowClick = {
                                     // TODO
                                 },
                                 onShareClick = {
-                                    onPageShareClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageShareClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
                                 },
                                 onBookmarkClick = {
-                                    onPageBookmarkClick(it.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageBookmarkClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
                                 }
-                            )
-                        }
-                    }
-
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
                             )
                         }
                     }
@@ -407,12 +466,13 @@ fun CommunityContentTab(
                     day.topRead?.let {
                         item(key = "top-read-${day.age}") {
                             TopReadModule(
+                                wikiSite = wikiSite,
                                 topRead = it,
                                 onOverflowClick = {
                                     // TODO: implement overflow menu
                                 },
                                 onPageClick = { entry ->
-                                    onPageClick(entry.getHistoryEntry(viewModel.wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
+                                    onPageClick(entry.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
                                 },
                                 onPageOverflowClick = { pageSummary ->
                                     // TODO: implement page overflow menu
@@ -420,16 +480,20 @@ fun CommunityContentTab(
                                 onFooterClick = {
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
                                     activity?.startActivity(
-                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, viewModel.wikiSite))
+                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, wikiSite))
                                     )
                                 }
                             )
                         }
                     }
 
+                    // TODO: insert Today's Featured Picture module here
+                    // TODO: insert DYK module here
+
                     if (day.news.isNotEmpty()) {
                         item(key = "news-${day.age}") {
                             NewsModule(
+                                wikiSite = wikiSite,
                                 newsItems = day.news,
                                 onNewsClick = { newsItem ->
                                     onNewsClick(newsItem)
@@ -441,14 +505,32 @@ fun CommunityContentTab(
                         }
                     }
 
-                    // TODO: all the other types of content for this day.
+                    // TODO: insert On this day module here
+
+                    day.featuredImage?.let { image ->
+                        item(key = "tfi-${day.age}") {
+                            FeaturedImageModule(
+                                wikiSite = wikiSite,
+                                featuredImage = image,
+                                onClick = onImageClick,
+                                onDownloadClick = onImageDownloadClick,
+                                onShareClick = { onImageShareClick(image, day.age) }
+                            )
+                        }
+                    }
+
+                    // TODO: insert Media of the day (Commons) module here
                 }
 
                 item(key = "load-more-community") {
                     if (state.isLoadingMore) {
                         LoadingIndicator()
                     } else if (state.canLoadMore) {
-                        LoadMoreButton(label = stringResource(R.string.explore_feed_load_previous_day_label), onClick = onLoadMore)
+                        LoadMoreButton(
+                            wikiSite = wikiSite,
+                            isCommunity = true,
+                            onClick = onLoadMore
+                        )
                     }
                 }
 
@@ -465,6 +547,7 @@ fun CommunityContentTab(
 @Composable
 fun ForYouContentTab(
     state: ForYouContentState,
+    wikiSite: WikiSite,
     onLoadMore: () -> Unit
 ) {
     val context = LocalContext.current
@@ -510,7 +593,11 @@ fun ForYouContentTab(
                         if (state.isLoadingMore) {
                             LoadingIndicator()
                         } else if (state.canLoadMore) {
-                            LoadMoreButton(label = "Load more recommendations", onClick = onLoadMore)
+                            LoadMoreButton(
+                                wikiSite = wikiSite,
+                                isCommunity = false,
+                                onClick = onLoadMore
+                            )
                         }
                     }
 
@@ -526,6 +613,39 @@ fun ForYouContentTab(
 }
 
 @Composable
+fun CommunityDisclaimer(
+    modifier: Modifier,
+    wikiSite: WikiSite
+) {
+    Box(
+        modifier = modifier
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    color = WikipediaTheme.colors.borderColor,
+                    shape = RoundedCornerShape(24.dp)
+                )
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_disclaimer),
+                style = MaterialTheme.typography.bodyMedium,
+                color = WikipediaTheme.colors.secondaryColor
+            )
+            Image(
+                modifier = Modifier.size(45.dp),
+                painter = painterResource(R.drawable.w_nav_mark),
+                contentDescription = null
+            )
+        }
+    }
+}
+@Composable
 fun DayHeader(date: LocalDate) {
     Text(
         text = date.toString(),
@@ -537,19 +657,53 @@ fun DayHeader(date: LocalDate) {
 }
 
 @Composable
-fun LoadMoreButton(label: String, onClick: () -> Unit) {
+fun LoadMoreButton(
+    wikiSite: WikiSite,
+    isCommunity: Boolean = true,
+    onClick: () -> Unit
+) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
+        modifier = Modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
-        TextButton(onClick = onClick) {
-            Text(
-                text = label,
-                color = WikipediaTheme.colors.progressiveColor,
-                fontWeight = FontWeight.Medium
-            )
+        if (isCommunity) {
+            AppButton(
+                modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
+                onClick = onClick,
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_dynamic_feed_24dp),
+                        tint = WikipediaTheme.colors.paperColor,
+                        contentDescription = null
+                    )
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    Text(
+                        text = LocalContext.current.getString(wikiSite.languageCode, R.string.explore_feed_community_load_more_label),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Medium,
+                        color = WikipediaTheme.colors.paperColor
+                    )
+                }
+            }
+        } else {
+            Box(
+                modifier = Modifier
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                TextButton(onClick = onClick) {
+                    Text(
+                        text = "Load more recommendations",
+                        color = WikipediaTheme.colors.progressiveColor,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+            }
         }
     }
 }
@@ -591,12 +745,119 @@ fun ErrorState(caught: Throwable, onRetry: () -> Unit) {
     }
 }
 
+@Composable
+fun LanguageDropDownMenu(
+    selectedLanguageCode: String,
+    onLanguageSelected: (String) -> Unit,
+    onManageLanguagesClick: () -> Unit,
+    languageState: AppLanguageState? = null
+) {
+    var expanded by remember { mutableStateOf(false) }
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 8.dp)
+            .clip(RoundedCornerShape(8.dp))
+            .clickable {
+                expanded = true
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            modifier = Modifier
+                .border(width = 1.dp, color = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f), shape = RoundedCornerShape(8.dp))
+                .padding(4.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            WikiLangCodeBox(
+                modifier = Modifier
+                    .height(20.dp)
+                    .widthIn(min = 20.dp),
+                languageCode = selectedLanguageCode,
+                backgroundColor = WikipediaTheme.colors.primaryColor.copy(alpha = 0.8f),
+                borderColor = Color.Transparent,
+                textColor = WikipediaTheme.colors.paperColor,
+            )
+            Icon(
+                modifier = Modifier.size(16.dp),
+                painter = painterResource(R.drawable.ic_arrow_down_24),
+                contentDescription = null,
+                tint = WikipediaTheme.colors.primaryColor
+            )
+        }
+        DropdownMenu(
+            expanded = expanded,
+            containerColor = WikipediaTheme.colors.paperColor,
+            onDismissRequest = { expanded = false }
+        ) {
+            val languageCodes = languageState?.appLanguageCodes.orEmpty()
+            repeat(languageCodes.size) {
+                val langCode = languageCodes[it]
+                DropdownMenuItem(
+                    leadingIcon = {
+                        WikiLangCodeBox(
+                            modifier = Modifier
+                                .height(20.dp)
+                                .widthIn(min = 20.dp),
+                            languageCode = langCode,
+                            borderColor = WikipediaTheme.colors.secondaryColor,
+                            textColor = WikipediaTheme.colors.secondaryColor,
+                        )
+                    },
+                    trailingIcon = {
+                        if (langCode == selectedLanguageCode) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_check_black_24dp),
+                            contentDescription = null,
+                            tint = WikipediaTheme.colors.secondaryColor
+                        )
+                            }
+                    },
+                    text = {
+                        Text(
+                            text = languageState?.getAppLanguageLocalizedName(langCode) ?: langCode,
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = WikipediaTheme.colors.primaryColor
+                        )
+                    },
+                    onClick = {
+                        onLanguageSelected(langCode)
+                        expanded = false
+                    }
+                )
+            }
+
+            HorizontalDivider(
+                modifier = Modifier.padding(vertical = 8.dp),
+                color = WikipediaTheme.colors.borderColor
+            )
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        onManageLanguagesClick()
+                        expanded = false
+                    }
+                    .padding(vertical = 8.dp),
+            ) {
+                Text(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    text = LocalContext.current.getString(selectedLanguageCode, R.string.explore_feed_manage_languages_label),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            }
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenCommunityPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
-            viewModel = viewModel(),
+            wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
@@ -609,10 +870,47 @@ fun HomeScreenCommunityPreview() {
 fun HomeScreenForYouPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
-            viewModel = viewModel(),
+            wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
+        )
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+fun CommunityDisclaimerPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        CommunityDisclaimer(
+            modifier = Modifier
+                .padding(16.dp)
+                .height(72.dp),
+            wikiSite = WikiSite.preview()
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LoadMoreButtonPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        LoadMoreButton(
+            wikiSite = WikiSite.preview(),
+            isCommunity = true,
+            onClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LanguageDropDownMenuPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        LanguageDropDownMenu(
+            selectedLanguageCode = "en",
+            onLanguageSelected = {},
+            onManageLanguagesClick = {}
         )
     }
 }
