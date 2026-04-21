@@ -42,7 +42,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.net.toUri
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.categories.db.Category
@@ -500,7 +499,7 @@ private fun ArticleReadThisMonthCardPreview() {
 @Preview
 @Composable
 private fun ArticleSavedThisMonthCardPreview() {
-    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    val wikiSite = WikiSite.preview()
     BaseTheme(currentTheme = Theme.LIGHT) {
         ArticleSavedThisMonthCard(
             modifier = Modifier
