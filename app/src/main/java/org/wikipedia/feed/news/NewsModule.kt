@@ -110,7 +110,7 @@ fun NewsItemContent(
                     .padding(16.dp)
             ) {
                 Text(
-                    text = StringUtil.removeHTMLTags(newsItem.story),
+                    text = StringUtil.fromHtml(removeItalicParenthetical(newsItem.story)).toString(),
                     color = WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 4,
@@ -119,6 +119,10 @@ fun NewsItemContent(
             }
         }
     }
+}
+
+private fun removeItalicParenthetical(text: String): String {
+    return text.replace("<i.*?>(.*?)</i>".toRegex(), "")
 }
 
 @Preview(showBackground = true)
