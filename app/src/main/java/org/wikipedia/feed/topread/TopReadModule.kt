@@ -25,7 +25,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,13 +35,16 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 
 @Composable
 fun TopReadModule(
+    wikiSite: WikiSite,
     topRead: TopRead,
     onOverflowClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
@@ -57,6 +59,7 @@ fun TopReadModule(
             .background(color = WikipediaTheme.colors.backgroundColor)
     ) {
         CommunityModuleHeader(
+            wikiSite = wikiSite,
             titleResId = R.string.view_top_read_card_title,
             subTitleResId = R.string.view_top_read_card_description,
             onOverflowClick = onOverflowClick
@@ -74,6 +77,7 @@ fun TopReadModule(
 
                 TopReadItem(
                     context = context,
+                    wikiSite = wikiSite,
                     rank = index + 1,
                     isTrendingUp = isTrendingUp,
                     pageSummary = article,
@@ -90,7 +94,7 @@ fun TopReadModule(
             onClick = onFooterClick
         ) {
             Text(
-                text = stringResource(R.string.view_top_read_card_action),
+                text = context.getString(wikiSite.languageCode, R.string.view_top_read_card_action),
                 style = MaterialTheme.typography.labelLarge,
                 color = WikipediaTheme.colors.progressiveColor,
                 fontWeight = FontWeight.Medium
@@ -98,7 +102,7 @@ fun TopReadModule(
             Spacer(modifier = Modifier.width(8.dp))
             Icon(
                 painter = painterResource(R.drawable.ic_arrow_forward_black_24dp),
-                contentDescription = stringResource(R.string.view_top_read_card_action),
+                contentDescription = context.getString(wikiSite.languageCode, R.string.view_top_read_card_action),
                 tint = WikipediaTheme.colors.progressiveColor
             )
         }
@@ -108,6 +112,7 @@ fun TopReadModule(
 @Composable
 fun TopReadItem(
     context: Context,
+    wikiSite: WikiSite,
     rank: Int,
     isTrendingUp: Boolean,
     pageSummary: PageSummary,
@@ -171,7 +176,7 @@ fun TopReadItem(
                     Icon(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(trendingIcon),
-                        contentDescription = stringResource(R.string.search_clear_query_content_description),
+                        contentDescription = null,
                         tint = trendingIconTint
                     )
                     Spacer(modifier = Modifier.width(16.dp))
@@ -183,7 +188,7 @@ fun TopReadItem(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = stringResource(R.string.view_top_read_card_pageviews_views_suffix),
+                        text = context.getString(wikiSite.languageCode, R.string.view_top_read_card_pageviews_views_suffix),
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
                         color = WikipediaTheme.colors.secondaryColor
@@ -209,7 +214,7 @@ fun TopReadItem(
                 content = {
                     Icon(
                         painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                        contentDescription = stringResource(R.string.search_clear_query_content_description),
+                        contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
                         tint = WikipediaTheme.colors.placeholderColor
                     )
                 }
@@ -231,6 +236,7 @@ fun TopReadCardPreview() {
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         TopReadModule(
+            wikiSite = WikiSite.preview(),
             topRead = TopRead(
                 articles = listOf(article, article, article, article, article)
             ),

@@ -27,7 +27,6 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,13 +36,16 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun FeaturedArticleModule(
+    wikiSite: WikiSite,
     article: PageSummary,
     onPageClick: (article: PageSummary) -> Unit = {},
     onOverflowClick: () -> Unit = {},
@@ -58,6 +60,7 @@ fun FeaturedArticleModule(
             .background(color = WikipediaTheme.colors.paperColor)
     ) {
         CommunityModuleHeader(
+            wikiSite = wikiSite,
             titleResId = R.string.view_featured_article_card_title,
             subTitleResId = R.string.explore_feed_featured_article_subtitle,
             onOverflowClick = onOverflowClick
@@ -102,7 +105,7 @@ fun FeaturedArticleModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
-                            contentDescription = stringResource(R.string.feed_card_add_to_default_list),
+                            contentDescription = context.getString(wikiSite.languageCode, R.string.feed_card_add_to_default_list),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
@@ -123,7 +126,7 @@ fun FeaturedArticleModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_share),
-                            contentDescription = stringResource(R.string.view_featured_image_card_share),
+                            contentDescription = context.getString(wikiSite.languageCode, R.string.view_featured_image_card_share),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
@@ -181,6 +184,7 @@ fun FeaturedArticleModule(
 fun FeaturedArticleCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
+            wikiSite = WikiSite.preview(),
             article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
         )
     }

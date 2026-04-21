@@ -23,7 +23,6 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.style.TextDecoration
@@ -34,12 +33,15 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
 fun FeaturedImageModule(
+    wikiSite: WikiSite,
     featuredImage: FeaturedImage,
     onClick: (featuredImage: FeaturedImage) -> Unit = {},
     onOverflowClick: (featuredImage: FeaturedImage) -> Unit = {},
@@ -52,6 +54,7 @@ fun FeaturedImageModule(
         Modifier.background(color = WikipediaTheme.colors.paperColor)
     ) {
         CommunityModuleHeader(
+            wikiSite = wikiSite,
             titleResId = R.string.view_featured_image_card_title,
             subTitleResId = R.string.explore_feed_potd_subtitle,
             contextIconResId = R.drawable.ic_commons_logo,
@@ -96,7 +99,7 @@ fun FeaturedImageModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_download_24px),
-                            contentDescription = stringResource(R.string.view_featured_image_card_download),
+                            contentDescription = context.getString(wikiSite.languageCode, R.string.view_featured_image_card_download),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
@@ -117,7 +120,7 @@ fun FeaturedImageModule(
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_share),
-                            contentDescription = stringResource(R.string.view_featured_image_card_share),
+                            contentDescription = context.getString(wikiSite.languageCode, R.string.view_featured_image_card_share),
                             tint = WikipediaTheme.colors.primaryColor,
                             modifier = Modifier.size(24.dp)
                         )
@@ -212,6 +215,7 @@ fun FeaturedImageModule(
 fun FeaturedImageCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedImageModule(
+            wikiSite = WikiSite.preview(),
             FeaturedImage("Lorem ipsum")
         )
     }

@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
@@ -58,13 +58,11 @@ import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -95,6 +93,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.categories.CategoryActivity
 import org.wikipedia.categories.db.Category
 import org.wikipedia.compose.components.HtmlText
+import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
@@ -482,37 +481,26 @@ class ActivityTabFragment : Fragment() {
                         ) {
                             if (modules.isModuleVisible(ModuleType.EDITING_INSIGHTS) || modules.isModuleVisible(ModuleType.IMPACT)) {
                                 Row(
-                                    modifier = Modifier.fillMaxWidth(),
+                                    modifier = Modifier
+                                        .padding(start = 16.dp, end = 16.dp, top = 24.dp)
+                                        .fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
                                         modifier = Modifier
-                                            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
                                             .weight(1f),
                                         text = stringResource(R.string.activity_tab_impact),
                                         style = MaterialTheme.typography.titleLarge,
                                         fontWeight = FontWeight.Medium,
                                         color = WikipediaTheme.colors.primaryColor
                                     )
-                                    Box(
+                                    WikiLangCodeBox(
                                         modifier = Modifier
-                                            .padding(start = 16.dp, end = 16.dp, top = 24.dp)
-                                            .align(Alignment.CenterVertically)
-                                            .background(color = WikipediaTheme.colors.paperColor)
-                                            .border(
-                                                1.5.dp,
-                                                WikipediaTheme.colors.primaryColor,
-                                                RoundedCornerShape(4.dp)
-                                            )
-                                    ) {
-                                        Text(
-                                            modifier = Modifier.padding(start = 4.dp, end = 4.5.dp, top = 3.5.dp, bottom = 3.dp),
-                                            text = languageCode.uppercase(),
-                                            fontSize = 10.sp,
-                                            fontFamily = FontFamily.Monospace,
-                                            fontWeight = FontWeight.Bold,
-                                            color = WikipediaTheme.colors.primaryColor
-                                        )
-                                    }
+                                            .height(20.dp)
+                                            .widthIn(min = 20.dp),
+                                        languageCode = languageCode
+                                    )
                                 }
                             }
 
