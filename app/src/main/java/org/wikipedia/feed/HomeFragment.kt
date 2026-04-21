@@ -67,6 +67,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil3.compose.AsyncImage
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
@@ -83,6 +84,8 @@ import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
+import org.wikipedia.feed.onthisday.OnThisDayActivity
+import org.wikipedia.feed.onthisday.OnThisDayModule
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
@@ -505,7 +508,26 @@ fun CommunityContentTab(
                         }
                     }
 
-                    // TODO: insert On this day module here
+                    if (day.onThisDay.isNotEmpty()) {
+                        item(key = "on-this-day-${day.age}") {
+                            OnThisDayModule(
+                                wikiSite = wikiSite,
+                                events = day.onThisDay.take(2),
+                                onOverflowClick = {
+                                    // TODO: implement overflow menu
+                                },
+                                onPageClick = { pageSummary ->
+                                    onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
+                                },
+                                onPageOverflowClick = { pageSummary ->
+                                    // TODO: implement page overflow menu
+                                },
+                                onFooterClick = {
+                                    activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
+                                }
+                            )
+                        }
+                    }
 
                     day.featuredImage?.let { image ->
                         item(key = "tfi-${day.age}") {
