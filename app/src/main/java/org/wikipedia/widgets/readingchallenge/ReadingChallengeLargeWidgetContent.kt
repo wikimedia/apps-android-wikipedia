@@ -40,7 +40,6 @@ fun ReadingChallengeLargeWidgetContent(
     enrollmentDate: LocalDate
 ) {
     val context = LocalContext.current
-
     when (state) {
         ReadingChallengeState.Loading -> {
             ReadingChallengeWidgetLoading(
@@ -49,7 +48,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeCompleted -> {
-            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final_large,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
@@ -80,7 +78,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.ChallengeConcludedIncomplete -> {
-            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final_large,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
@@ -104,9 +101,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
-            if (state is ReadingChallengeState.ChallengeConcludedNoStreak) {
-                ReadingChallengeAnalyticsHelper.logChallengeConcluded()
-            }
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -122,7 +116,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
-            ReadingChallengeAnalyticsHelper.logEnrolledNotStarted()
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             EnrolledNotStartedLargeWidget(
                 mainImageResId = combination.iconResId,
@@ -133,7 +126,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotEnrolled -> {
-            ReadingChallengeAnalyticsHelper.logNotEnrolled()
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -152,7 +144,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
-            ReadingChallengeAnalyticsHelper.logNotLiveYet()
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -171,7 +162,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
-            ReadingChallengeAnalyticsHelper.logStreakOngoingNeedsReading()
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
@@ -186,15 +176,6 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
-            ReadingChallengeAnalyticsHelper.logStreakOngoingReadToday()
-            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
-                action = "heartbeat",
-                actionSource = "widget_challenge",
-                elementId = "streak ongoing read today",
-                actionContext = mapOf(
-                    "streak_count" to state.streak.toString()
-                )
-            )
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier

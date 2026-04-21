@@ -42,7 +42,6 @@ fun ReadingChallengeSmallWidgetContent(
         }
 
         ReadingChallengeState.ChallengeCompleted -> {
-            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             SmallWidget(
@@ -72,7 +71,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.ChallengeConcludedIncomplete -> {
-            ReadingChallengeAnalyticsHelper.logChallengeConcluded()
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak_final,
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             SmallWidget(
@@ -94,10 +92,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
-            if (state is ReadingChallengeState.ChallengeConcludedNoStreak) {
-                ReadingChallengeAnalyticsHelper.logChallengeConcluded()
-            }
-
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -108,7 +102,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
-            ReadingChallengeAnalyticsHelper.logEnrolledNotStarted()
             val combination = WidgetCombinations.enrolledNotStarted.forToday(enrollmentDate = enrollmentDate)
             SmallWidget(
                 modifier = GlanceModifier
@@ -126,7 +119,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.NotEnrolled -> {
-            ReadingChallengeAnalyticsHelper.logNotEnrolled()
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -143,7 +135,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         ReadingChallengeState.NotLiveYet -> {
-            ReadingChallengeAnalyticsHelper.logNotLiveYet()
             SmallWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
@@ -160,7 +151,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingNeedsReading -> {
-            ReadingChallengeAnalyticsHelper.logStreakOngoingNeedsReading()
             val combination = WidgetCombinations.streakNeedsReading.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
@@ -185,7 +175,6 @@ fun ReadingChallengeSmallWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
-            ReadingChallengeAnalyticsHelper.logStreakOngoingReadToday()
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
             SmallWidget(
