@@ -24,6 +24,7 @@ class ReadingChallengeWidgetRepositoryTest {
         context = mockk<Context>(relaxed = true)
         mockkObject(Prefs)
         repository = ReadingChallengeWidgetRepository(context)
+        every { Prefs.readingChallengeStartDate } returns START_DATE.toString()
         every { Prefs.readingChallengeEndDate } returns END_DATE.toString()
     }
 
