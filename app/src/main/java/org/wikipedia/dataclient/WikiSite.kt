@@ -162,6 +162,10 @@ data class WikiSite(
             }
         }
 
+        fun preview(languageCode: String = "en"): WikiSite {
+            return WikiSite("https://$languageCode.wikipedia.org/".toUri(), languageCode)
+        }
+
         private fun languageCodeToSubdomain(languageCode: String): String {
             return WikipediaApp.instance.languageState.getDefaultLanguageCode(languageCode) ?: normalizeLanguageCode(languageCode)
         }

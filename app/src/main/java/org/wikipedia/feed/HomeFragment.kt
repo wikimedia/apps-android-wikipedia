@@ -65,7 +65,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -122,14 +121,21 @@ class HomeFragment : Fragment() {
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
-                        viewModel = viewModel,
                         wikiSite = wikiSite,
+                        languageState = WikipediaApp.instance.languageState,
                         selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+                        },
+                        onRefreshTab = {
+                            if (it == HomeTab.COMMUNITY) {
+                                viewModel.refreshCommunityContent()
+                            } else {
+                                viewModel.refreshForYouContent()
+                            }
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
@@ -179,12 +185,13 @@ class HomeFragment : Fragment() {
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel,
     wikiSite: WikiSite,
+    languageState: AppLanguageState? = null,
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     onSelectTab: (HomeTab) -> Unit = {},
+    onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -208,13 +215,7 @@ fun HomeScreen(
         modifier = Modifier.fillMaxSize(),
         state = pullToRefreshState,
         isRefreshing = isRefreshing,
-        onRefresh = {
-            if (selectedTab == HomeTab.COMMUNITY) {
-                viewModel.refreshCommunityContent()
-            } else {
-                viewModel.refreshForYouContent()
-            }
-        },
+        onRefresh = { onRefreshTab(selectedTab) },
         indicator = {
             Indicator(
                 modifier = Modifier.align(Alignment.TopCenter),
@@ -252,6 +253,7 @@ fun HomeScreen(
                             modifier = Modifier.padding(top = 8.dp),
                             wikiSite = wikiSite,
                             selectedTab = selectedTab,
+                            languageState = languageState,
                             onTabSelected = onSelectTab,
                             onLanguageSelected = {
                                 onLanguageSelected(it)
@@ -263,7 +265,6 @@ fun HomeScreen(
 
                         CommunityContentTab(
                             modifier = Modifier.weight(1f),
-                            viewModel = viewModel,
                             wikiSite = wikiSite,
                             state = communityContentState,
                             onLoadMore = onLoadMoreCommunityContent,
@@ -320,6 +321,7 @@ fun HomeScreen(
                             modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
                             wikiSite = wikiSite,
                             selectedTab = selectedTab,
+                            languageState = languageState,
                             onTabSelected = onSelectTab,
                             onLanguageSelected = {
                                 onLanguageSelected(it)
@@ -340,6 +342,7 @@ fun HomeTabBar(
     modifier: Modifier,
     wikiSite: WikiSite,
     selectedTab: HomeTab,
+    languageState: AppLanguageState? = null,
     onTabSelected: (HomeTab) -> Unit,
     onLanguageSelected: (String) -> Unit,
     onManageLanguagesClick: () -> Unit
@@ -389,11 +392,10 @@ fun HomeTabBar(
             }
         }
         LanguageDropDownMenu(
-            languageCodes = WikipediaApp.instance.languageState.appLanguageCodes,
             selectedLanguageCode = wikiSite.languageCode,
             onLanguageSelected = { onLanguageSelected(it) },
             onManageLanguagesClick = { onManageLanguagesClick() },
-            languageState = WikipediaApp.instance.languageState
+            languageState = languageState
         )
     }
 }
@@ -401,7 +403,6 @@ fun HomeTabBar(
 @Composable
 fun CommunityContentTab(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel,
     wikiSite: WikiSite,
     state: CommunityContentState,
     onLoadMore: () -> Unit,
@@ -746,7 +747,6 @@ fun ErrorState(caught: Throwable, onRetry: () -> Unit) {
 
 @Composable
 fun LanguageDropDownMenu(
-    languageCodes: List<String>,
     selectedLanguageCode: String,
     onLanguageSelected: (String) -> Unit,
     onManageLanguagesClick: () -> Unit,
@@ -790,6 +790,7 @@ fun LanguageDropDownMenu(
             containerColor = WikipediaTheme.colors.paperColor,
             onDismissRequest = { expanded = false }
         ) {
+            val languageCodes = languageState?.appLanguageCodes.orEmpty()
             repeat(languageCodes.size) {
                 val langCode = languageCodes[it]
                 DropdownMenuItem(
@@ -856,8 +857,7 @@ fun LanguageDropDownMenu(
 fun HomeScreenCommunityPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
-            viewModel = viewModel(),
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
@@ -870,8 +870,7 @@ fun HomeScreenCommunityPreview() {
 fun HomeScreenForYouPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         HomeScreen(
-            viewModel = viewModel(),
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true)
@@ -887,7 +886,7 @@ fun CommunityDisclaimerPreview() {
             modifier = Modifier
                 .padding(16.dp)
                 .height(72.dp),
-            wikiSite = WikiSite("en.wikipedia.org")
+            wikiSite = WikiSite.preview()
         )
     }
 }
@@ -897,7 +896,7 @@ fun CommunityDisclaimerPreview() {
 fun LoadMoreButtonPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         LoadMoreButton(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             isCommunity = true,
             onClick = {}
         )
@@ -909,7 +908,6 @@ fun LoadMoreButtonPreview() {
 fun LanguageDropDownMenuPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         LanguageDropDownMenu(
-            languageCodes = listOf("en", "es", "fr"),
             selectedLanguageCode = "en",
             onLanguageSelected = {},
             onManageLanguagesClick = {}
