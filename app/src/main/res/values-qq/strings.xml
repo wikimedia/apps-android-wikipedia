@@ -2233,6 +2233,7 @@
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
   <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
+  <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
   <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
   <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
   <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manauge the app languages.</string>

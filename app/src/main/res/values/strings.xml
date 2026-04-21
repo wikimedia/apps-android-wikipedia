@@ -2486,6 +2486,7 @@
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
     <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia, selected daily by editors</string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
+    <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
     <string name="explore_feed_community_load_more_label">See past community content</string>
     <string name="explore_feed_manage_languages_label">Manage languages</string>
