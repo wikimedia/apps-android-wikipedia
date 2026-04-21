@@ -1,4 +1,4 @@
-package org.wikipedia.feed.personalization.feedpreference
+package org.wikipedia.feed.personalization.homepreference
 
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.BorderStroke
@@ -53,11 +53,11 @@ import org.wikipedia.views.imageservice.ImageService
 @Composable
 fun FeedPreferenceScreen(
     modifier: Modifier = Modifier,
-    selectedType: FeedPreferenceType,
-    communityContentState: FeedContentState,
-    personalizedContentState: FeedContentState,
-    onTypeSelected: (FeedPreferenceType) -> Unit,
-    onRetryClick: (FeedPreferenceType) -> Unit
+    selectedType: HomePreferenceType,
+    communityContentState: HomeContentState,
+    personalizedContentState: HomeContentState,
+    onTypeSelected: (HomePreferenceType) -> Unit,
+    onRetryClick: (HomePreferenceType) -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -79,8 +79,8 @@ fun FeedPreferenceScreen(
             item {
                 FeedPreferenceSection(
                     state = communityContentState,
-                    isSelected = selectedType == FeedPreferenceType.COMMUNITY,
-                    feedPreferenceType = FeedPreferenceType.COMMUNITY,
+                    isSelected = selectedType == HomePreferenceType.COMMUNITY,
+                    homePreferenceType = HomePreferenceType.COMMUNITY,
                     onSelected = onTypeSelected,
                     onRetryClick = onRetryClick
                 )
@@ -88,8 +88,8 @@ fun FeedPreferenceScreen(
             item {
                 FeedPreferenceSection(
                     state = personalizedContentState,
-                    isSelected = selectedType == FeedPreferenceType.PERSONALIZED,
-                    feedPreferenceType = FeedPreferenceType.PERSONALIZED,
+                    isSelected = selectedType == HomePreferenceType.PERSONALIZED,
+                    homePreferenceType = HomePreferenceType.PERSONALIZED,
                     onSelected = onTypeSelected,
                     onRetryClick = onRetryClick
                 )
@@ -100,14 +100,14 @@ fun FeedPreferenceScreen(
 
 @Composable
 fun FeedPreferenceSection(
-    state: FeedContentState,
+    state: HomeContentState,
     isSelected: Boolean,
-    feedPreferenceType: FeedPreferenceType,
-    onRetryClick: (FeedPreferenceType) -> Unit,
-    onSelected: (FeedPreferenceType) -> Unit
+    homePreferenceType: HomePreferenceType,
+    onRetryClick: (HomePreferenceType) -> Unit,
+    onSelected: (HomePreferenceType) -> Unit
 ) {
     val transition = rememberInfiniteTransition(label = "feedPreferenceShimmerTransition")
-    val isPersonalizedContentDisabled = state is FeedContentState.Empty
+    val isPersonalizedContentDisabled = state is HomeContentState.Empty
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -115,12 +115,12 @@ fun FeedPreferenceSection(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp)
-                .clickable(onClick = { if (!isPersonalizedContentDisabled) onSelected(feedPreferenceType) }),
+                .clickable(onClick = { if (!isPersonalizedContentDisabled) onSelected(homePreferenceType) }),
             verticalAlignment = Alignment.CenterVertically
         ) {
             RadioButton(
                 selected = isSelected,
-                onClick = { onSelected(feedPreferenceType) },
+                onClick = { onSelected(homePreferenceType) },
                 enabled = !isPersonalizedContentDisabled,
                 colors = RadioButtonDefaults.colors(
                     selectedColor = WikipediaTheme.colors.primaryColor,
@@ -130,7 +130,7 @@ fun FeedPreferenceSection(
                 )
             )
             Text(
-                text = stringResource(feedPreferenceType.titleRes),
+                text = stringResource(homePreferenceType.titleRes),
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = if (isPersonalizedContentDisabled) FontWeight.Normal else FontWeight.Medium
                 ),
@@ -145,7 +145,7 @@ fun FeedPreferenceSection(
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             when (state) {
-                is FeedContentState.Error -> {
+                is HomeContentState.Error -> {
                     item {
                         Box(
                             modifier = Modifier.fillParentMaxWidth(),
@@ -154,14 +154,14 @@ fun FeedPreferenceSection(
                             WikiErrorView(
                                 caught = state.message,
                                 errorClickEvents = WikiErrorClickEvents(
-                                    retryClickListener = { onRetryClick(feedPreferenceType) }
+                                    retryClickListener = { onRetryClick(homePreferenceType) }
                                 )
                             )
                         }
                     }
                 }
 
-                FeedContentState.Loading -> {
+                HomeContentState.Loading -> {
                     items(3) {
                         Box(
                             modifier = Modifier
@@ -173,7 +173,7 @@ fun FeedPreferenceSection(
                     }
                 }
 
-                FeedContentState.Empty -> {
+                HomeContentState.Empty -> {
                     item {
                         Text(
                             modifier = Modifier.fillParentMaxWidth(),
@@ -184,11 +184,11 @@ fun FeedPreferenceSection(
                     }
                 }
 
-                is FeedContentState.Success -> {
+                is HomeContentState.Success -> {
                     items(state.content) { content ->
                         FeedPreferenceArticleCard(
                             content = content,
-                            feedPreferenceType = feedPreferenceType
+                            homePreferenceType = homePreferenceType
                         )
                     }
                 }
@@ -200,8 +200,8 @@ fun FeedPreferenceSection(
 @Composable
 fun FeedPreferenceArticleCard(
     modifier: Modifier = Modifier,
-    feedPreferenceType: FeedPreferenceType,
-    content: FeedPreferenceContent
+    homePreferenceType: HomePreferenceType,
+    content: HomePreferenceContent
 ) {
     WikiCard(
         modifier = modifier
@@ -236,9 +236,9 @@ fun FeedPreferenceArticleCard(
                             .align(Alignment.BottomStart)
                             .padding(8.dp)
                             .background(
-                                when (feedPreferenceType) {
-                                    FeedPreferenceType.COMMUNITY -> WikipediaTheme.colors.progressiveColor
-                                    FeedPreferenceType.PERSONALIZED -> WikipediaTheme.colors.successColor
+                                when (homePreferenceType) {
+                                    HomePreferenceType.COMMUNITY -> WikipediaTheme.colors.progressiveColor
+                                    HomePreferenceType.PERSONALIZED -> WikipediaTheme.colors.successColor
                                 }, shape = RoundedCornerShape(8.dp)
                             )
                             .padding(horizontal = 12.dp, vertical = 4.dp),
@@ -304,22 +304,22 @@ private fun FeedPreferenceScreenPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
-            selectedType = FeedPreferenceType.COMMUNITY,
-            communityContentState = FeedContentState.Success(
+            selectedType = HomePreferenceType.COMMUNITY,
+            communityContentState = HomeContentState.Success(
                 content = listOf(
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Winter Paralympics",
                         description = "2026 Winter Olympics Multi-sport event in Italy",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
                         tag = "In the news"
                     ),
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Rosa Parks",
                         description = "American civil rights activist (1913–2005)",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
                         tag = "Featured article"
                     ),
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Rosa Parks",
                         description = "American civil rights activist (1913–2005)",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
@@ -327,9 +327,9 @@ private fun FeedPreferenceScreenPreview() {
                     )
                 )
             ),
-            personalizedContentState = FeedContentState.Success(
+            personalizedContentState = HomeContentState.Success(
                 content = listOf(
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Personalized Content",
                         description = "See content that’s personalized for you based on your reading history and interests.",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
@@ -354,22 +354,22 @@ private fun FeedPreferenceScreenScaledTextPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
-            selectedType = FeedPreferenceType.COMMUNITY,
-            communityContentState = FeedContentState.Success(
+            selectedType = HomePreferenceType.COMMUNITY,
+            communityContentState = HomeContentState.Success(
                 content = listOf(
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Winter Paralympics",
                         description = "2026 Winter Olympics Multi-sport event in Italy",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
                         tag = "In the news"
                     ),
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Rosa Parks",
                         description = "American civil rights activist (1913–2005)",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
                         tag = "Featured article"
                     ),
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Rosa Parks",
                         description = "American civil rights activist (1913–2005)",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
@@ -377,15 +377,15 @@ private fun FeedPreferenceScreenScaledTextPreview() {
                     )
                 )
             ),
-            personalizedContentState = FeedContentState.Success(
+            personalizedContentState = HomeContentState.Success(
                 content = listOf(
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Post's lattice",
                         description = "Lattice in universal algebra",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
                         tag = "Logic"
                     ),
-                    FeedPreferenceContent(
+                    HomePreferenceContent(
                         title = "Ranunculaceae",
                         description = "Family of eudicot flowering plants",
                         imageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/120px-Wikipedia-logo-v2.svg.png",
@@ -410,9 +410,9 @@ private fun FeedPreferenceScreenLoadingPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
-            selectedType = FeedPreferenceType.COMMUNITY,
-            communityContentState = FeedContentState.Loading,
-            personalizedContentState = FeedContentState.Loading,
+            selectedType = HomePreferenceType.COMMUNITY,
+            communityContentState = HomeContentState.Loading,
+            personalizedContentState = HomeContentState.Loading,
             onTypeSelected = {},
             onRetryClick = {}
         )
@@ -430,9 +430,9 @@ private fun FeedPreferenceScreenErrorPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
-            selectedType = FeedPreferenceType.COMMUNITY,
-            communityContentState = FeedContentState.Error(Throwable("Failed to load community content")),
-            personalizedContentState = FeedContentState.Error(Throwable("Failed to load personalized content")),
+            selectedType = HomePreferenceType.COMMUNITY,
+            communityContentState = HomeContentState.Error(Throwable("Failed to load community content")),
+            personalizedContentState = HomeContentState.Error(Throwable("Failed to load personalized content")),
             onTypeSelected = {},
             onRetryClick = {}
         )
@@ -450,9 +450,9 @@ private fun FeedPreferenceScreenEmptyPersonalizedContentPreview() {
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
-            selectedType = FeedPreferenceType.COMMUNITY,
-            communityContentState = FeedContentState.Loading,
-            personalizedContentState = FeedContentState.Empty,
+            selectedType = HomePreferenceType.COMMUNITY,
+            communityContentState = HomeContentState.Loading,
+            personalizedContentState = HomeContentState.Empty,
             onTypeSelected = {},
             onRetryClick = {}
         )

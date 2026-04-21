@@ -1,4 +1,4 @@
-package org.wikipedia.feed.personalization.feedpreference
+package org.wikipedia.feed.personalization.homepreference
 
 import android.content.Context
 import org.wikipedia.R
@@ -10,12 +10,12 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
-class FeedPreferenceRepository(
+class HomePreferenceRepository(
     private val context: Context,
     private val historyEntryWithImageDao: HistoryEntryWithImageDao,
     private val wikiSite: WikiSite
 ) {
-    suspend fun getCommunityPreviewContent(): List<FeedPreferenceContent> {
+    suspend fun getCommunityPreviewContent(): List<HomePreferenceContent> {
         val currentDate = LocalDate.now()
 
         val response = ServiceFactory.getRest(wikiSite).getFeedFeatured(
@@ -26,7 +26,7 @@ class FeedPreferenceRepository(
         )
 
         val featuredArticle = response.tfa?.let { article ->
-            FeedPreferenceContent(
+            HomePreferenceContent(
                 title = article.displayTitle,
                 description = article.description,
                 imageUrl = article.thumbnailUrl,
@@ -35,7 +35,7 @@ class FeedPreferenceRepository(
         }
 
         val pictureOfTheDay = response.potd?.let { potd ->
-            FeedPreferenceContent(
+            HomePreferenceContent(
                 title = null,
                 description = potd.description.text,
                 imageUrl = potd.thumbnailUrl,
@@ -44,7 +44,7 @@ class FeedPreferenceRepository(
         }
 
         val topNewsItem = response.news?.firstOrNull()?.let { newsItem ->
-            FeedPreferenceContent(
+            HomePreferenceContent(
                 title = null,
                 description = StringUtil.removeHTMLTags(newsItem.story),
                 imageUrl = newsItem.thumbUrl(),
@@ -61,8 +61,8 @@ class FeedPreferenceRepository(
 
     suspend fun getPersonalizedPreviewContent(
         selectedArticles: Set<PageTitle>,
-        contentByTopic: Map<String, List<FeedPreferenceContent>>,
-    ): List<FeedPreferenceContent> {
+        contentByTopic: Map<String, List<HomePreferenceContent>>,
+    ): List<HomePreferenceContent> {
         if (contentByTopic.isNotEmpty()) {
             return sampleAcrossTopics(contentByTopic = contentByTopic)
         }
@@ -82,9 +82,9 @@ class FeedPreferenceRepository(
     // has count logic for cases where user has selected less than 3 topics
     // as we need 3 articles to show in the preview, we need to distribute them across the selected topics
     private fun sampleAcrossTopics(
-        contentByTopic: Map<String, List<FeedPreferenceContent>>,
+        contentByTopic: Map<String, List<HomePreferenceContent>>,
         totalCount: Int = 3,
-    ): List<FeedPreferenceContent> {
+    ): List<HomePreferenceContent> {
         val topicIds = contentByTopic.keys.toList().reversed()
 
         val baseLimit = totalCount / topicIds.size
@@ -92,16 +92,16 @@ class FeedPreferenceRepository(
 
         return topicIds.flatMapIndexed { index, topic ->
             val count = baseLimit + if (index < remainder) 1 else 0
-            contentByTopic[topic].orEmpty().shuffled().take(count)
+            contentByTopic[topic].orEmpty().take(count)
         }
     }
 
-    private suspend fun fetchMoreLike(seeds: List<String>): List<FeedPreferenceContent> {
+    private suspend fun fetchMoreLike(seeds: List<String>): List<HomePreferenceContent> {
         if (seeds.isEmpty()) return emptyList()
         val moreLikeSearchTerm = "morelike:${seeds.take(3).joinToString("|")}"
         val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
         return response.query?.pages?.map { page ->
-            FeedPreferenceContent(
+            HomePreferenceContent(
                 title = page.title,
                 description = page.description,
                 imageUrl = page.thumbUrl(),
@@ -110,7 +110,7 @@ class FeedPreferenceRepository(
         } ?: emptyList()
     }
 
-    fun savePreference(preferenceType: FeedPreferenceType) {
-        Prefs.exploreFeedPreferenceSelection = preferenceType
+    fun savePreference(preferenceType: HomePreferenceType) {
+        Prefs.homePreferenceSelection = preferenceType
     }
 }
