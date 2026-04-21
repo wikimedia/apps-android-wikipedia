@@ -184,7 +184,7 @@ fun FeaturedArticleModule(
 fun FeaturedArticleCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
         )
     }

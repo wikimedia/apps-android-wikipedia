@@ -236,7 +236,7 @@ fun TopReadCardPreview() {
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         TopReadModule(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             topRead = TopRead(
                 articles = listOf(article, article, article, article, article)
             ),

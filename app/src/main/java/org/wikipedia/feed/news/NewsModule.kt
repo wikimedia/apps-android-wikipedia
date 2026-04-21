@@ -134,7 +134,7 @@ fun NewsCardPreview() {
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         NewsModule(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             newsItems = listOf(
                 NewsItem(
                     story = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

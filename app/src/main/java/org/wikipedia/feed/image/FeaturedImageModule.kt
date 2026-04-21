@@ -215,7 +215,7 @@ fun FeaturedImageModule(
 fun FeaturedImageCardPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedImageModule(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             FeaturedImage("Lorem ipsum")
         )
     }
