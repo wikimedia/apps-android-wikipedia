@@ -229,6 +229,7 @@ class LoginActivity : BaseActivity() {
     private fun onLoginSuccess() {
         instrument?.submitInteraction("success")
         if (intent.getStringExtra(LOGIN_REQUEST_SOURCE) == SOURCE_READING_CHALLENGE) {
+            instrument?.submitInteraction("success", actionContext = mapOf("invoke_source" to "widget_challenge"))
             Prefs.readingChallengeEnrolled = true
             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
             lifecycleScope.launch {

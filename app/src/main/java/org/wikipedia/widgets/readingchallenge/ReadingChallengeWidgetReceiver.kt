@@ -15,11 +15,19 @@ class ReadingChallengeWidgetReceiver : GlanceAppWidgetReceiver() {
         // If the user has already added the widget, we should not display the install dialog
         Prefs.readingChallengeInstallPromptShown = true
         ReadingChallengeWidgetWorker.scheduleNextWidgetUpdate(context)
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+            action = "installed",
+            actionSource = "widget_challenge"
+        )
     }
 
     override fun onDisabled(context: Context) {
         super.onDisabled(context)
         Prefs.readingChallengeInstallPromptShown = false
         ReadingChallengeWidgetWorker.cancelScheduledUpdates(context)
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+            action = "removed",
+            actionSource = "widget_challenge"
+        )
     }
 }

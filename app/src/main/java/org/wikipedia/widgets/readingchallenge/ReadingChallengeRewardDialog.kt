@@ -40,11 +40,18 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
 class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+            action = "impression",
+            actionSource = "challenge_complete",
+            elementId = "collect_prize",
+            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+        )
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -53,6 +60,12 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onNavigateClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                                action = "click",
+                                actionSource = "challenge_complete",
+                                elementId = "store_button",
+                                actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+                            )
                             UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.reading_challenge_reward_url).toUri())
                             dismiss()
                         }

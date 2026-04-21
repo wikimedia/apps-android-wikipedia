@@ -57,7 +57,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "impression", actionSource = "widget_challenge_install")
         Prefs.readingChallengeInstallPromptShown = true
 
         return ComposeView(requireContext()).apply {
@@ -66,12 +66,27 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                     InstallWidgetScreen(
                         pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                                action = "click",
+                                actionSource = "widget_challenge_install",
+                                elementId = "install_close"
+                            )
                             dismiss()
                         },
                         onGotItClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                                action = "click",
+                                actionSource = "widget_challenge_install",
+                                elementId = "install_accept"
+                            )
                             dismiss()
                         },
                         onAddClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                                action = "click",
+                                actionSource = "widget_challenge_install",
+                                elementId = "install_add"
+                            )
                             requestToPinWidget(requireContext())
                             dismiss()
                         }

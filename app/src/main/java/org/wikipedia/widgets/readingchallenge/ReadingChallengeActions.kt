@@ -18,6 +18,10 @@ class JoinChallengeAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+            action = "click",
+            elementId = "join_challenge"
+        )
         Prefs.readingChallengeOnboardingShown = false
         context.startActivity(
             MainActivity.newIntent(context)

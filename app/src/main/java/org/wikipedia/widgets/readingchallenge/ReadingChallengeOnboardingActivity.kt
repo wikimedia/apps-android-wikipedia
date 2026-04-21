@@ -75,6 +75,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
         Prefs.readingChallengeOnboardingShown = true
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
         setContent {
             BaseTheme {
                 val coroutineScope = rememberCoroutineScope()
@@ -90,10 +91,12 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "login_join")
                             startActivity(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
                             finish()
                         },
                         onDismissButtonClick = {
+                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "no_thanks")
                             finish()
                         }
                     )
@@ -106,9 +109,11 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
+                        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "learn_more")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
+                        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "join_challenge")
                         if (!AccountUtil.isLoggedIn) {
                             showLoginDialog = true
                         } else {

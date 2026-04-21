@@ -179,6 +179,14 @@ fun ReadingChallengeLargeWidgetContent(
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
+            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                action = "heartbeat",
+                actionSource = "widget_challenge",
+                elementId = "streak ongoing read today",
+                actionContext = mapOf(
+                    "streak_count" to state.streak.toString()
+                )
+            )
             val combination = WidgetCombinations.streakOngoing.forToday(enrollmentDate = enrollmentDate)
             StreakOngoingLargeWidget(
                 modifier = GlanceModifier
