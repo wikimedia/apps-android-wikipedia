@@ -40,26 +40,10 @@ class ReadingChallengeWidgetRepositoryTest {
                 currentDate = DAY_BEFORE_START,
                 enabled = false,
                 currentStreak = 0,
-                hasReadToday = false,
-                isPreBetaRelease = false
+                hasReadToday = false
             )
         )
         TestCase.assertTrue(state is ReadingChallengeState.NotLiveYet)
-    }
-
-    @Test
-    fun `bypasses NotLiveYet for pre-beta release even before start date`() {
-        val state = repository.resolveState(
-            ReadingChallengeUserData(
-                currentDate = DAY_BEFORE_START,
-                enabled = false,
-                currentStreak = 0,
-                hasReadToday = false,
-                isPreBetaRelease = true
-            )
-        )
-        TestCase.assertFalse(state is ReadingChallengeState.NotLiveYet)
-        TestCase.assertTrue(state is ReadingChallengeState.NotEnrolled)
     }
 
     @Test
