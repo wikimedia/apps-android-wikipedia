@@ -4,6 +4,7 @@ import android.content.Context
 import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -30,7 +31,7 @@ class HomePreferenceRepository(
                 title = article.displayTitle,
                 description = article.description,
                 imageUrl = article.thumbnailUrl,
-                tag = context.getString(R.string.view_featured_article_card_title)
+                tag = context.getString(wikiSite.languageCode, R.string.view_featured_article_card_title)
             )
         }
 
@@ -39,7 +40,7 @@ class HomePreferenceRepository(
                 title = null,
                 description = potd.description.text,
                 imageUrl = potd.thumbnailUrl,
-                tag = context.getString(R.string.view_featured_image_card_title)
+                tag = context.getString(wikiSite.languageCode, R.string.view_featured_image_card_title)
             )
         }
 
@@ -48,7 +49,7 @@ class HomePreferenceRepository(
                 title = null,
                 description = StringUtil.removeHTMLTags(newsItem.story),
                 imageUrl = newsItem.thumbUrl(),
-                tag = context.getString(R.string.view_card_news_title)
+                tag = context.getString(wikiSite.languageCode, R.string.view_card_news_title)
             )
         }
 
