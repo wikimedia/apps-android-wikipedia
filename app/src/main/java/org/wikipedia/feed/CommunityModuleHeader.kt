@@ -2,22 +2,30 @@ package org.wikipedia.feed
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -33,9 +41,10 @@ fun CommunityModuleHeader(
     @StringRes titleResId: Int,
     @StringRes subTitleResId: Int,
     @DrawableRes contextIconResId: Int? = null,
-    onOverflowClick: () -> Unit = {},
+    onHideModuleClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
+    var expanded by remember { mutableStateOf(false) }
     Column(
         modifier = modifier
     ) {
@@ -58,18 +67,48 @@ fun CommunityModuleHeader(
                     modifier = Modifier.size(24.dp)
                 )
             }
-            IconButton(
-                modifier = Modifier.size(48.dp),
-                onClick = {
-                    onOverflowClick()
+            Box {
+                IconButton(
+                    modifier = Modifier.size(48.dp),
+                    onClick = {
+                        expanded = true
+                    }
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                        contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
+                        tint = WikipediaTheme.colors.primaryColor,
+                        modifier = Modifier.size(24.dp)
+                    )
                 }
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                    contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
-                    tint = WikipediaTheme.colors.primaryColor,
-                    modifier = Modifier.size(24.dp)
-                )
+                DropdownMenu(
+                    offset = DpOffset(x = (-16).dp, y = 0.dp),
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false },
+                    containerColor = WikipediaTheme.colors.paperColor
+                ) {
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_visibility_off_24dp),
+                                contentDescription = null,
+                                tint = WikipediaTheme.colors.secondaryColor,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = context.getString(wikiSite.languageCode, R.string.explore_feed_header_overflow_hide_module_label),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        onClick = {
+                            onHideModuleClick()
+                            expanded = false
+                        }
+                    )
+                }
             }
         }
         Text(

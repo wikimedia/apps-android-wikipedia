@@ -39,7 +39,7 @@ fun NewsModule(
     wikiSite: WikiSite,
     newsItems: List<NewsItem>,
     onNewsClick: (item: NewsItem) -> Unit = {},
-    onOverflowClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -53,7 +53,7 @@ fun NewsModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_card_news_title,
             subTitleResId = R.string.explore_feed_in_the_news_subtitle,
-            onOverflowClick = onOverflowClick
+            onHideModuleClick = onHideModuleClick
         )
 
         HorizontalPager(

@@ -491,7 +491,7 @@ fun CommunityContentTab(
                                         )
                                     )
                                 },
-                                onOverflowClick = {
+                                onHideModuleClick = {
                                     // TODO
                                 },
                                 onShareClick = {
@@ -526,8 +526,8 @@ fun CommunityContentTab(
                                         items = overflowMenuState?.items.orEmpty()
                                     )
                                 },
-                                onOverflowClick = {
-                                    // TODO: implement overflow menu
+                                onHideModuleClick = {
+                                    // TODO: implement hide module functionality
                                 },
                                 onPageClick = { entry ->
                                     onPageClick(
@@ -564,7 +564,7 @@ fun CommunityContentTab(
                                 onNewsClick = { newsItem ->
                                     onNewsClick(newsItem)
                                 },
-                                onOverflowClick = {
+                                onHideModuleClick = {
                                     // TODO: implement overflow menu
                                 }
                             )

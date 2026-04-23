@@ -2489,4 +2489,7 @@
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
     <string name="explore_feed_community_load_more_label">See past community content</string>
     <string name="explore_feed_manage_languages_label">Manage languages</string>
+    <string name="explore_feed_header_overflow_hide_module_label">Hide module</string>
+    <string name="explore_feed_header_overflow_hide_module_message">Module hidden.</string>
+    <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
 </resources>

@@ -48,7 +48,7 @@ fun FeaturedArticleModule(
     wikiSite: WikiSite,
     article: PageSummary,
     onPageClick: (article: PageSummary) -> Unit = {},
-    onOverflowClick: () -> Unit = {},
+    onHideModuleClick: () -> Unit = {},
     onShareClick: (article: PageSummary) -> Unit = {},
     onBookmarkClick: (article: PageSummary) -> Unit = {}
 ) {
@@ -63,7 +63,7 @@ fun FeaturedArticleModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_featured_article_card_title,
             subTitleResId = R.string.explore_feed_featured_article_subtitle,
-            onOverflowClick = onOverflowClick
+            onHideModuleClick = onHideModuleClick
         )
 
         Box(

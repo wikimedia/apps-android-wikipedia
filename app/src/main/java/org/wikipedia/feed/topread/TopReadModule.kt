@@ -47,7 +47,7 @@ fun TopReadModule(
     wikiSite: WikiSite,
     topRead: TopRead,
     pageOverflowContent: @Composable (Int) -> Unit,
-    onOverflowClick: () -> Unit,
+    onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit,
     onFooterClick: () -> Unit
@@ -63,7 +63,7 @@ fun TopReadModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_top_read_card_title,
             subTitleResId = R.string.view_top_read_card_description,
-            onOverflowClick = onOverflowClick
+            onHideModuleClick = onHideModuleClick
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -251,7 +251,7 @@ fun TopReadCardPreview() {
             ),
             pageOverflowContent = {},
             onFooterClick = {},
-            onOverflowClick = {},
+            onHideModuleClick = {},
             onPageClick = {},
             onPageOverflowClick = {}
         )

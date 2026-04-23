@@ -2236,4 +2236,7 @@
   <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
   <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
   <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manauge the app languages.</string>
+  <string name="explore_feed_header_overflow_hide_module_label">Label text for the overflow menu option in the card header to hide the module.</string>
+  <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
+  <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
 </resources>
