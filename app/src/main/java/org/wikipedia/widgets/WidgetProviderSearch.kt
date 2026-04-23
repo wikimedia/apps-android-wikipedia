@@ -36,7 +36,7 @@ class WidgetProviderSearch : AppWidgetProvider() {
 
                 val viewMapping: Map<SizeF, RemoteViews> = mapOf(
                     SizeF(32f, 32f) to smallView,
-                    SizeF(64f, 32f) to mediumView,
+                    SizeF(100f, 32f) to mediumView,
                     SizeF(160f, 32f) to largeView
                 )
                 RemoteViews(viewMapping)
