@@ -501,7 +501,7 @@
   <string name="theme_category_editing">Праўленне</string>
   <string name="reading_focus_mode">Рэжым чытання</string>
   <string name="reading_focus_mode_detail">Схоўвае функцыі рэдагавання і ніжнюю панэль пры прагортцы</string>
-  <string name="editing_syntax_highlight_label">Выдзяленне сінтаксісу</string>
+  <string name="editing_syntax_highlight_label">Вылучэнне сінтаксісу</string>
   <string name="editing_line_numbers_label">Паказаць нумары радкоў</string>
   <string name="editing_monospace_font_label">Выкарыстоўваць монашырынны шрыфт</string>
   <string name="editing_typing_suggestions">Паказваць аўтадапаўненне пры ўводзе</string>
@@ -1457,7 +1457,7 @@
   <string name="revision_diff_paragraph_removed">Абзац выдалены</string>
   <string name="revision_diff_protected">Змены, зробленыя ў гэтай рэдакцыі, не з’яўляюцца агульнадаступнымі.</string>
   <string name="revision_undo_title">Ці вы ўпэўнены, што хочаце адкаціць праўку?</string>
-  <string name="revision_undo_message">Адмена азначае прыбранне зменаў, унесеных адным або некальнікімі рэдагаваннямі.</string>
+  <string name="revision_undo_message">Скасаванне азначае прыбранне зменаў, унесеных адным ці болей рэдагаваннямі.</string>
   <string name="revision_undo_summary_hint">Апісанне (неабавязкова)</string>
   <string name="revision_undo_reason">Падзяліцеся прычынай адкату</string>
   <string name="revision_undo_success">Версія была скасавана.</string>
@@ -1682,7 +1682,7 @@
   <string name="patroller_onboarding_two_watch_content">Хочаце адсочваць праўкі артыкулаў? Дадайце ў свой спіс назірання. Праглядзіце яго ў раздзеле \"Яшчэ\".</string>
   <string name="patroller_onboarding_two_talk_title">Абмеркаванне</string>
   <string name="patroller_onboarding_two_talk_content">Камунікуйце з іншымі праўнікамі. Захоўвайце часта выкарыстальныя паведамленні або выкарыстайце шаблон.</string>
-  <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
+  <string name="patroller_onboarding_two_undo_title">Адрабіць/Адкаціць</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасць добрасумленнага захавання праўкі.</string>

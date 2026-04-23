@@ -914,7 +914,7 @@
   <string name="suggested_edits_no_description">Dëse Fichier huet keng Beschreiwung</string>
   <string name="suggested_edits_license_notice">Mam Derbäisetze vun der Artikelbeschreiwung, erklären ech mech mat de &lt;a href=\"%1$s\"&gt;Benotzungskonditiounen&lt;/a&gt; averstanen an ech sinn domat averstanen, datt meng Kontributioun ënnert der &lt;a href=\"%2$s\"&gt;Creative-Commons-CC0&lt;/a&gt;-Lizenz verëffentlecht gëtt an ech dat net widderruffe kann.</string>
   <string name="suggested_edits_image_caption_license_notice">Mam Derbäisetze vun der Bildbeschrëftung, erklären ech mech mat de &lt;a href=\"%1$s\"&gt;Benotzungskonditiounen&lt;/a&gt; averstanen an ech sinn domat averstanen, datt meng Kontributioun ënnert der &lt;a href=\"%2$s\"&gt;Creative-Commons-CC0&lt;/a&gt;-Lizenz verëffentlecht gëtt an ech dat net widderruffe kann.</string>
-  <string name="suggested_edits_menu_info">Informatioun</string>
+  <string name="suggested_edits_menu_info">Informatiounen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschreiwungen derbäisetzen</string>
   <string name="suggested_edits_task_add_description_description">Zu Artikelen ouni Beschreiwunge bäidroen</string>
   <string name="suggested_edits_task_image_caption_title">Bildbeschrëftungen derbäisetzen</string>
@@ -978,7 +978,7 @@
   <string name="suggested_edits_image_captions_task_detail">Beschreift e Bild fir de Lieser ze hëllefe seng Bedeitung a säi Kontext ze verstoen.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuméiert en Artikel fir dem Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
-  <string name="suggested_edits_ip_blocked_message">Et schéngt, wéi wann Är IP-Adress (oder IP-Adressberäich) aktuell blockéiert ass fir op Wikipedia Ännerungen ze maachen.</string>
+  <string name="suggested_edits_ip_blocked_message">Et schéngt, wéi wann Är IP-Adress (oder Ären IP-Adressberäich) aktuell gespaart ass, fir op Wikipedia Ännerungen ze maachen.</string>
   <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tippen an Tricker beim Änneren</string>
   <string name="suggested_edits_help_page_link_text">Hëllefssäit fir d\'Ännerungsvirschléi</string>
