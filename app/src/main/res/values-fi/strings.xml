@@ -2220,7 +2220,6 @@
   <string name="reading_challenge_widget_name">Lukuhaaste</string>
   <string name="reading_challenge_onboarding_header">Juhlista 25-vuotiasta Wikipediaa osallistumalla 25 päivän lukuhaasteeseen!</string>
   <string name="reading_challenge_onboarding_read_title">Lue yksi artikkeli päivässä 25 päivän ajan</string>
-  <string name="reading_challenge_onboarding_read_description">Voit osallistua haasteeseen milloin tahansa ajalla 1.–31. toukokuuta ja suorittaa 25 päivän haasteen aloituspäivästäsi alkaen.</string>
   <string name="reading_challenge_onboarding_win_title">Tarjolla palkintoja</string>
   <string name="reading_challenge_onboarding_win_description">Voit voitta erikoispalkintoja suorittamalla 25 päivän lukuputken haasteen ollessa aktiivisena.</string>
   <string name="reading_challenge_onboarding_learn_more_button">Lisätietoja</string>

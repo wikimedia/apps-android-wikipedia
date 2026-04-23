@@ -2276,7 +2276,6 @@
   <string name="reading_challenge_widget_name">Läsutmaning</string>
   <string name="reading_challenge_onboarding_header">Fira Wikipedias 25-årsdag genom att delta i 25-dagars läsutmaningen!</string>
   <string name="reading_challenge_onboarding_read_title">Läs 1 artikel om dagen i 25 dagar</string>
-  <string name="reading_challenge_onboarding_read_description">Delta i utmaningen när som helst mellan 1—31 maj och slutför dina 25 dagar på eget bevåg.</string>
   <string name="reading_challenge_onboarding_win_title">Vinn priser</string>
   <string name="reading_challenge_onboarding_win_description">Slutför en 25-dagars lässvit medan utmaningen pågår för att vinna specialpriser.</string>
   <string name="reading_challenge_onboarding_install_title">Installera widgeten</string>

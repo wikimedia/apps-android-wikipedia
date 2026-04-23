@@ -2273,7 +2273,6 @@
   <string name="reading_challenge_widget_name">Læseudfordring</string>
   <string name="reading_challenge_onboarding_header">Fejr Wikipedias 25-års fødselsdag ved at deltage i 25-dages læseudfordringen!</string>
   <string name="reading_challenge_onboarding_read_title">Læs 1 artikel om dagen i 25 dage</string>
-  <string name="reading_challenge_onboarding_read_description">Deltag i udfordringen når som helst mellem 1. maj og 31. maj, og gennemfør dine 25 dage på din egen tidslinje.</string>
   <string name="reading_challenge_onboarding_win_title">Vind præmier</string>
   <string name="reading_challenge_onboarding_win_description">Gennemfør en 25-dages læse-streak, mens udfordringen er aktiv, for at vinde særlige præmier.</string>
   <string name="reading_challenge_onboarding_install_title">Installér widgetten</string>

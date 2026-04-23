@@ -2253,7 +2253,6 @@
   <string name="reading_challenge_widget_name">Oxuma Yarışması</string>
   <string name="reading_challenge_onboarding_header">25 günlük oxuma yarışmasına qoşularaq Vikipediyanın 25-ci doğum gününü qeyd edin!</string>
   <string name="reading_challenge_onboarding_read_title">25 gün ərzində gündə 1 məqalə oxuyun</string>
-  <string name="reading_challenge_onboarding_read_description">1 may - 31 may tarixləri arasında istənilən vaxt çağırışa qoşulun, 25 gününüzü öz qrafikinizdə tamamlayın.</string>
   <string name="reading_challenge_onboarding_win_title">Mükafatlar qazanın</string>
   <string name="reading_challenge_onboarding_win_description">Xüsusi mükafatlar qazanmaq üçün yarışma canlı yayımlandığı müddətdə 25 günlük oxuma seriyasını tamamlayın.</string>
   <string name="reading_challenge_onboarding_install_title">Vidceti quraşdır</string>
