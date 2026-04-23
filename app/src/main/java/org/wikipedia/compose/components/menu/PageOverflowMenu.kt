@@ -9,7 +9,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
 fun PageOverflowMenu(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     expanded: Boolean,
     onDismiss: () -> Unit,
     items: List<Pair<String, () -> Unit>>
