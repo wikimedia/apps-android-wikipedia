@@ -381,18 +381,20 @@ class PersonalizationViewModel(
     companion object {
         val Factory = viewModelFactory {
             initializer {
+                val appDatabase = AppDatabase.instance
+                val instance = WikipediaApp.instance
                 PersonalizationViewModel(
                     interestSelectionRepository = InterestSelectionRepository(
-                        interestTopicDao = AppDatabase.instance.topicInterestDao(),
-                        interestArticleDao = AppDatabase.instance.articleInterestDao(),
-                        historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
-                        readingListPageDao = AppDatabase.instance.readingListPageDao(),
-                        wikiSite = WikipediaApp.instance.wikiSite
+                        interestTopicDao = appDatabase.topicInterestDao(),
+                        interestArticleDao = appDatabase.articleInterestDao(),
+                        historyEntryWithImageDao = appDatabase.historyEntryWithImageDao(),
+                        readingListPageDao = appDatabase.readingListPageDao(),
+                        wikiSite = instance.wikiSite
                     ),
                     homePreferenceRepository = HomePreferenceRepository(
-                        context = WikipediaApp.instance,
+                        context = instance,
                         historyEntryWithImageDao = AppDatabase.instance.historyEntryWithImageDao(),
-                        wikiSite = WikipediaApp.instance.wikiSite
+                        wikiSite = instance.wikiSite
                     )
                 )
             }

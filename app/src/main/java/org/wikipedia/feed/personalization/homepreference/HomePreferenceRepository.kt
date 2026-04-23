@@ -102,7 +102,7 @@ class HomePreferenceRepository(
         val response = ServiceFactory.get(wikiSite).searchMoreLike(searchTerm = moreLikeSearchTerm, gsrLimit = 3, piLimit = 3)
         return response.query?.pages?.map { page ->
             HomePreferenceContent(
-                title = page.title,
+                title = page.displayTitle(wikiSite.languageCode),
                 description = page.description,
                 imageUrl = page.thumbUrl(),
                 tag = null
