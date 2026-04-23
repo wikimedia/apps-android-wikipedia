@@ -1,7 +1,6 @@
 package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
-import androidx.glance.appwidget.updateAll
 import androidx.work.BackoffPolicy
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingWorkPolicy
@@ -22,7 +21,7 @@ class ReadingChallengeWidgetWorker(
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
-        ReadingChallengeWidget().updateAll(applicationContext)
+        ReadingChallengeWidgetRepository(applicationContext).updateWidgetsAndSendAnalytics()
         scheduleNextWidgetUpdate(applicationContext)
         return Result.success()
     }

@@ -34,10 +34,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.glance.appwidget.updateAll
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
@@ -75,7 +76,12 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
         Prefs.readingChallengeOnboardingShown = true
-        ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
+
+        lifecycleScope.launch {
+            EventPlatformClient.streamConfigsDeferred.await()
+            ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
+        }
+
         setContent {
             BaseTheme {
                 val coroutineScope = rememberCoroutineScope()
@@ -120,7 +126,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             Prefs.readingChallengeEnrolled = true
                             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
                             coroutineScope.launch {
-                                ReadingChallengeWidget().updateAll(this@ReadingChallengeOnboardingActivity)
+                                ReadingChallengeWidgetRepository(this@ReadingChallengeOnboardingActivity).updateWidgetsAndSendAnalytics()
                                 finish()
                             }
                         }

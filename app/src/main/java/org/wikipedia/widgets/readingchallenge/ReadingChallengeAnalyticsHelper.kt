@@ -15,12 +15,21 @@ object ReadingChallengeAnalyticsHelper {
             ReadingChallengeState.ChallengeCompleted -> logChallengeConcluded(elementId = "challenge_completed")
             is ReadingChallengeState.ChallengeConcludedIncomplete -> logChallengeConcluded(elementId = "challenge_incomplete")
             ReadingChallengeState.ChallengeConcludedNoStreak -> logChallengeConcluded(elementId = "challenge_no_streak")
-            ReadingChallengeState.EnrolledNotStarted -> logEnrolledNotStarted()
-            ReadingChallengeState.NotEnrolled -> logNotEnrolled()
-            ReadingChallengeState.NotLiveYet -> logNotLiveYet()
-            is ReadingChallengeState.StreakOngoingNeedsReading -> logStreakOngoingNeedsReading()
+            is ReadingChallengeState.StreakOngoingNeedsReading,
             is ReadingChallengeState.StreakOngoingReadToday -> {
-                logStreakOngoingReadToday()
+                instrument.submitInteraction(
+                    action = "heartbeat",
+                    actionSource = "widget_challenge",
+                    actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+                )
+            }
+            ReadingChallengeState.NotEnrolled,
+            ReadingChallengeState.NotLiveYet,
+            ReadingChallengeState.EnrolledNotStarted -> {
+                instrument.submitInteraction(
+                    action = "heartbeat",
+                    actionSource = "widget_challenge"
+                )
             }
             else -> {}
         }
@@ -34,49 +43,12 @@ object ReadingChallengeAnalyticsHelper {
             )
     }
 
-    private fun logStreakOngoingNeedsReading() {
-        instrument.submitInteraction(
-            action = "heartbeat",
-            actionSource = "widget_challenge",
-            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-        )
-    }
-
-    private fun logStreakOngoingReadToday() {
-        instrument.submitInteraction(
-            action = "heartbeat",
-            actionSource = "widget_challenge",
-            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-        )
-    }
-
     private fun logChallengeConcluded(elementId: String) {
         instrument.submitInteraction(
             action = "heartbeat",
             actionSource = "widget_challenge",
             elementId = elementId,
             actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-        )
-    }
-
-    private fun logNotLiveYet() {
-        instrument.submitInteraction(
-            action = "heartbeat",
-            actionSource = "widget_challenge"
-        )
-    }
-
-    private fun logNotEnrolled() {
-        instrument.submitInteraction(
-            action = "heartbeat",
-            actionSource = "widget_challenge"
-        )
-    }
-
-    private fun logEnrolledNotStarted() {
-        instrument.submitInteraction(
-            action = "heartbeat",
-            actionSource = "widget_challenge"
         )
     }
 }

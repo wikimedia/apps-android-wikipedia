@@ -97,7 +97,7 @@ class CreateAccountActivity : BaseActivity() {
 
         // Only send event if the activity is created for the first time
         if (savedInstanceState == null) {
-            instrument?.submitInteraction("impression", actionContext = mapOf("create_source" to requestSource))
+            instrument?.submitInteraction("impression", actionContext = mapOf("invoke_source" to requestSource))
         }
 
         addFirstKeystrokeInstrumentation(binding.createAccountUsername.editText, "username")
@@ -396,7 +396,7 @@ class CreateAccountActivity : BaseActivity() {
         setResult(RESULT_ACCOUNT_CREATED, resultIntent)
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
-        instrument?.submitInteraction("success", actionContext = mapOf("create_source" to requestSource))
+        instrument?.submitInteraction("success", actionContext = mapOf("invoke_source" to requestSource))
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }

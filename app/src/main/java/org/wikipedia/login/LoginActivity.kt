@@ -13,7 +13,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
-import androidx.glance.appwidget.updateAll
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
@@ -42,7 +41,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import java.time.LocalDate
 
 class LoginActivity : BaseActivity() {
@@ -227,13 +226,15 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun onLoginSuccess() {
-        instrument?.submitInteraction("success")
-        if (intent.getStringExtra(LOGIN_REQUEST_SOURCE) == SOURCE_READING_CHALLENGE) {
-            instrument?.submitInteraction("success", actionContext = mapOf("invoke_source" to "widget_challenge"))
+        val isReadingChallenge = loginSource == SOURCE_READING_CHALLENGE
+        instrument?.submitInteraction(action = "success", actionContext = if (isReadingChallenge) mapOf("invoke_source" to loginSource) else null)
+        if (isReadingChallenge) {
             Prefs.readingChallengeEnrolled = true
             Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
             lifecycleScope.launch {
-                ReadingChallengeWidget().updateAll(this@LoginActivity)
+                if (ReadingChallengeWidgetRepository.isWidgetInstalled()) {
+                    ReadingChallengeWidgetRepository(this@LoginActivity).updateWidgetsAndSendAnalytics()
+                }
             }
             intent.removeExtra(LOGIN_REQUEST_SOURCE)
         }
@@ -359,7 +360,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_ACTIVITY_TAB = "activity_tab"
         const val SOURCE_YEAR_IN_REVIEW = "yir"
         const val SOURCE_ON_THIS_DAY_GAME_RESULT = "on_this_day_game_result"
-        const val SOURCE_READING_CHALLENGE = "reading_challenge"
+        const val SOURCE_READING_CHALLENGE = "widget_challenge"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

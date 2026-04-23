@@ -2,7 +2,6 @@ package org.wikipedia.widgets.readingchallenge
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
@@ -56,11 +55,6 @@ class ReadingChallengeWidget : GlanceAppWidget() {
 
         provideContent {
             val state by repository.observeState().collectAsState(initial = ReadingChallengeState.Loading)
-            LaunchedEffect(state) {
-                if (state !is ReadingChallengeState.Loading) {
-                    ReadingChallengeAnalyticsHelper.sendAnalytics(state)
-                }
-            }
 
             GlanceTheme {
                 val size = LocalSize.current
