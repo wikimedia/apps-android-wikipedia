@@ -2551,6 +2551,6 @@
   <string name="reading_challenge_widget_concluded_incomplete">Виклик завершено</string>
   <string name="reading_challenge_widget_concluded_complete">Ви це зробили!</string>
   <string name="reading_challenge_widget_reward_title">Допитливість вам пасує! 🛍️</string>
-  <string name="reading_challenge_widget_reward_body">Відсвяткуйте виконання завдання зі знижкою 15% у магазині Вікіпедії.</string>
-  <string name="reading_challenge_widget_reward_button_label">Отримайте знижку 15% у магазині</string>
+  <string name="reading_challenge_widget_reward_body">Відсвяткуйте виконання завдання зі знижкою 15%% у магазині Вікіпедії.</string>
+  <string name="reading_challenge_widget_reward_button_label">Отримайте знижку 15%% у магазині</string>
 </resources>
