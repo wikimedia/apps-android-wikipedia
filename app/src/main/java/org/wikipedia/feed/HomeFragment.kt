@@ -73,9 +73,12 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.components.menu.PageOverflowMenu
+import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
@@ -101,6 +104,7 @@ import java.time.LocalDate
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
+    private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,6 +130,7 @@ class HomeFragment : Fragment() {
                         selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
+                        overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -147,6 +152,28 @@ class HomeFragment : Fragment() {
                         },
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
+                        },
+                        onPageOverflowClick = { pageSummary ->
+                            pageOverflowMenuViewModel.onPageOverflowClick(
+                                pageSummary = pageSummary,
+                                wikiSite = wikiSite,
+                                context = requireContext(),
+                                onOpenPage = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
+                                },
+                                onOpenInNewTab = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
+                                },
+                                onAddRequest = { entry, addToDefault ->
+                                    (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
+                                },
+                                onMoveRequest = { id, entry ->
+                                    (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
+                                }
+                            )
+                        },
+                        onPageOverflowDismiss = {
+                            pageOverflowMenuViewModel.dismissPageOverflowMenu()
                         },
                         onNewsClick = { newsItem ->
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
@@ -190,6 +217,7 @@ fun HomeScreen(
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -197,6 +225,8 @@ fun HomeScreen(
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary) -> Unit = {},
+    onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
@@ -267,10 +297,13 @@ fun HomeScreen(
                             modifier = Modifier.weight(1f),
                             wikiSite = wikiSite,
                             state = communityContentState,
+                            overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
+                            onPageOverflowClick = onPageOverflowClick,
+                            onPageOverflowDismiss = onPageOverflowDismiss,
                             onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
@@ -405,10 +438,13 @@ fun CommunityContentTab(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     state: CommunityContentState,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onLoadMore: () -> Unit,
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary) -> Unit = {},
+    onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
@@ -423,120 +459,153 @@ fun CommunityContentTab(
             ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
-            LazyColumn(
-                modifier = modifier.fillMaxSize(),
-                contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
-            ) {
-                item {
-                    CommunityDisclaimer(
-                        modifier = Modifier
-                            .padding(horizontal = 16.dp)
-                            .fillMaxWidth(),
-                        wikiSite = wikiSite
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                }
-                state.days.forEach { day ->
-
-                    item(key = "day-header-${day.age}") {
-                        DayHeader(day.date)
-                    }
-
-                    day.featuredArticle?.let { article ->
-                        item(key = "tfa-${day.age}") {
-                            FeaturedArticleModule(
-                                wikiSite = wikiSite,
-                                article,
-                                onPageClick = {
-                                    onPageClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
-                                },
-                                onOverflowClick = {
-                                    // TODO
-                                },
-                                onShareClick = {
-                                    onPageShareClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
-                                },
-                                onBookmarkClick = {
-                                    onPageBookmarkClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
-                                }
-                            )
-                        }
-                    }
-
-                    day.topRead?.let {
-                        item(key = "top-read-${day.age}") {
-                            TopReadModule(
-                                wikiSite = wikiSite,
-                                topRead = it,
-                                onOverflowClick = {
-                                    // TODO: implement overflow menu
-                                },
-                                onPageClick = { entry ->
-                                    onPageClick(entry.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
-                                },
-                                onPageOverflowClick = { pageSummary ->
-                                    // TODO: implement page overflow menu
-                                },
-                                onFooterClick = {
-                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
-                                    activity?.startActivity(
-                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, wikiSite))
-                                    )
-                                }
-                            )
-                        }
-                    }
-
-                    // TODO: insert Today's Featured Picture module here
-                    // TODO: insert DYK module here
-
-                    if (day.news.isNotEmpty()) {
-                        item(key = "news-${day.age}") {
-                            NewsModule(
-                                wikiSite = wikiSite,
-                                newsItems = day.news,
-                                onNewsClick = { newsItem ->
-                                    onNewsClick(newsItem)
-                                },
-                                onOverflowClick = {
-                                    // TODO: implement overflow menu
-                                }
-                            )
-                        }
-                    }
-
-                    // TODO: insert On this day module here
-
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                wikiSite = wikiSite,
-                                featuredImage = image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
-                            )
-                        }
-                    }
-
-                    // TODO: insert Media of the day (Commons) module here
-                }
-
-                item(key = "load-more-community") {
-                    if (state.isLoadingMore) {
-                        LoadingIndicator()
-                    } else if (state.canLoadMore) {
-                        LoadMoreButton(
-                            wikiSite = wikiSite,
-                            isCommunity = true,
-                            onClick = onLoadMore
+            Box(modifier = modifier.fillMaxSize()) {
+                LazyColumn(
+                    modifier = modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp)
+                ) {
+                    item {
+                        CommunityDisclaimer(
+                            modifier = Modifier
+                                .padding(horizontal = 16.dp)
+                                .fillMaxWidth(),
+                            wikiSite = wikiSite
                         )
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
-                }
+                    state.days.forEach { day ->
 
-                if (state.error != null && state.days.isNotEmpty()) {
-                    item(key = "error-community") {
-                        ErrorState(state.error, onRetry = onLoadMore)
+                        item(key = "day-header-${day.age}") {
+                            DayHeader(day.date)
+                        }
+
+                        day.featuredArticle?.let { article ->
+                            item(key = "tfa-${day.age}") {
+                                FeaturedArticleModule(
+                                    wikiSite = wikiSite,
+                                    article,
+                                    onPageClick = {
+                                        onPageClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
+                                        )
+                                    },
+                                    onOverflowClick = {
+                                        // TODO
+                                    },
+                                    onShareClick = {
+                                        onPageShareClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
+                                        )
+                                    },
+                                    onBookmarkClick = {
+                                        onPageBookmarkClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                        }
+
+                        day.topRead?.let {
+                            item(key = "top-read-${day.age}") {
+                                TopReadModule(
+                                    wikiSite = wikiSite,
+                                    topRead = it,
+                                    pageOverflowContent = { index ->
+                                        PageOverflowMenu(
+                                            modifier = Modifier.align(Alignment.BottomEnd),
+                                            expanded = overflowMenuState?.entry?.source == HistoryEntry.SOURCE_FEED_MOST_READ && overflowMenuState.entry.title.prefixedText == it.articles[index].apiTitle,
+                                            onDismiss = onPageOverflowDismiss,
+                                            items = overflowMenuState?.items.orEmpty()
+                                        )
+                                    },
+                                    onOverflowClick = {
+                                        // TODO: implement overflow menu
+                                    },
+                                    onPageClick = { entry ->
+                                        onPageClick(
+                                            entry.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_MOST_READ
+                                            )
+                                        )
+                                    },
+                                    onPageOverflowClick = { pageSummary ->
+                                        onPageOverflowClick(pageSummary)
+                                    },
+                                    onFooterClick = {
+                                        // TODO: simplify TopReadListCard after we remove the old feed UIs.
+                                        activity?.startActivity(
+                                            TopReadArticlesActivity.newIntent(
+                                                activity,
+                                                TopReadListCard(it, wikiSite)
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                        }
+
+                        // TODO: insert Today's Featured Picture module here
+                        // TODO: insert DYK module here
+
+                        if (day.news.isNotEmpty()) {
+                            item(key = "news-${day.age}") {
+                                NewsModule(
+                                    wikiSite = wikiSite,
+                                    newsItems = day.news,
+                                    onNewsClick = { newsItem ->
+                                        onNewsClick(newsItem)
+                                    },
+                                    onOverflowClick = {
+                                        // TODO: implement overflow menu
+                                    }
+                                )
+                            }
+                        }
+
+                        // TODO: insert On this day module here
+
+                        day.featuredImage?.let { image ->
+                            item(key = "tfi-${day.age}") {
+                                FeaturedImageModule(
+                                    wikiSite = wikiSite,
+                                    featuredImage = image,
+                                    onClick = onImageClick,
+                                    onDownloadClick = onImageDownloadClick,
+                                    onShareClick = { onImageShareClick(image, day.age) }
+                                )
+                            }
+                        }
+
+                        // TODO: insert Media of the day (Commons) module here
+                    }
+
+                    item(key = "load-more-community") {
+                        if (state.isLoadingMore) {
+                            LoadingIndicator()
+                        } else if (state.canLoadMore) {
+                            LoadMoreButton(
+                                wikiSite = wikiSite,
+                                isCommunity = true,
+                                onClick = onLoadMore
+                            )
+                        }
+                    }
+
+                    if (state.error != null && state.days.isNotEmpty()) {
+                        item(key = "error-community") {
+                            ErrorState(state.error, onRetry = onLoadMore)
+                        }
                     }
                 }
             }
