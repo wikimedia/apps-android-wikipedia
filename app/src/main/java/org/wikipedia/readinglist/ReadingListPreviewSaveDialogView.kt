@@ -25,7 +25,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
-import java.util.Date
+import java.time.LocalDateTime
 
 class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
@@ -68,7 +68,8 @@ class ReadingListPreviewSaveDialogView(context: Context, attrs: AttributeSet? = 
         } else {
             R.string.recommended_reading_list_title
         }
-        val defaultListTitle = context.getString(titleRes).plus(" " + DateUtil.getShortDayWithTimeString(Date()))
+        val defaultListTitle = context.getString(titleRes) + " " +
+                DateUtil.getDateAndTimeString(LocalDateTime.now())
         binding.readingListTitleLayout.editText?.setText(defaultListTitle)
         validateTitleAndList()
         binding.recyclerView.adapter = ReadingListItemAdapter()

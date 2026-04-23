@@ -70,7 +70,7 @@ class OnThisDayGameMainMenuFragment : OnThisDayGameBaseFragment() {
     }
 
     private fun showGameMenu() {
-        binding.dateText.text = DateUtil.getShortDateString(viewModel.currentDate)
+        binding.dateText.text = DateUtil.getDateString(viewModel.currentDate)
         binding.gameMenuContainer.isVisible = true
         binding.progressBar.isVisible = false
         binding.errorView.isVisible = false
