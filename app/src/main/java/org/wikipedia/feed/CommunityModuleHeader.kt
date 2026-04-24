@@ -40,7 +40,7 @@ fun CommunityModuleHeader(
         modifier = modifier
     ) {
         Row(
-            modifier = Modifier.padding(top = 16.dp).fillMaxWidth(),
+            modifier = Modifier.padding(top = 8.dp).fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -86,7 +86,7 @@ fun CommunityModuleHeader(
 fun CommunityModuleHeaderPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         CommunityModuleHeader(
-            wikiSite = WikiSite("en.wikipedia.org"),
+            wikiSite = WikiSite.preview(),
             titleResId = R.string.view_featured_image_card_title,
             subTitleResId = R.string.explore_feed_potd_subtitle,
             contextIconResId = R.drawable.ic_commons_logo

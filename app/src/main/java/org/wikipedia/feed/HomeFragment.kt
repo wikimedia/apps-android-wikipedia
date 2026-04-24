@@ -1,6 +1,7 @@
 package org.wikipedia.feed
 
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +59,9 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -101,6 +104,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
@@ -442,7 +446,7 @@ fun CommunityContentTab(
                 state.days.forEach { day ->
 
                     item(key = "day-header-${day.age}") {
-                        DayHeader(day.date)
+                        DayHeader(day.date, isFirst = day.age == 0)
                     }
 
                     day.featuredArticle?.let { article ->
@@ -668,13 +672,14 @@ fun CommunityDisclaimer(
     }
 }
 @Composable
-fun DayHeader(date: LocalDate) {
+fun DayHeader(date: LocalDate, isFirst: Boolean = true) {
+    val dateFormatter = DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(LocalLocale.current.platformLocale, "MMM dd, yyyy"))
     Text(
-        text = date.toString(),
+        text = if (LocalDate.now().dayOfYear == date.dayOfYear) stringResource(R.string.explore_feed_date_today, date.format(dateFormatter)) else date.format(dateFormatter),
         color = WikipediaTheme.colors.secondaryColor,
         fontWeight = FontWeight.Bold,
         fontSize = 14.sp,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = if (isFirst) 16.dp else 24.dp)
     )
 }
 
@@ -913,7 +918,7 @@ fun CommunityDisclaimerPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun LoadMoreButtonPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
@@ -925,7 +930,7 @@ fun LoadMoreButtonPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun LanguageDropDownMenuPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
@@ -934,5 +939,13 @@ fun LanguageDropDownMenuPreview() {
             onLanguageSelected = {},
             onManageLanguagesClick = {}
         )
+    }
+}
+
+@Preview
+@Composable
+fun DayHeaderPreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        DayHeader(LocalDate.now())
     }
 }

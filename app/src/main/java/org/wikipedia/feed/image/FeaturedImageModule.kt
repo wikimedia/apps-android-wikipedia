@@ -63,7 +63,7 @@ fun FeaturedImageModule(
 
         Box(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxWidth().padding(bottom = 24.dp)
                 .clickable {
                     onClick(featuredImage)
                 }

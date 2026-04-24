@@ -71,7 +71,7 @@ fun FeaturedArticleModule(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
+                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .clickable { onPageClick(article) }
         ) {
