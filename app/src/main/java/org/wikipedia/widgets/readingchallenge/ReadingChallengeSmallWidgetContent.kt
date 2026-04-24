@@ -161,7 +161,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.wp25_babyglobe_reading,
+                mainImageResId = combination.iconResId,
                 bottomContent = {
                     val size = LargeWidgetSize.from(LocalSize.current)
                     val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
@@ -187,7 +187,7 @@ fun ReadingChallengeSmallWidgetContent(
                         onClick = actionStartActivity(MainActivity.newIntent(context))
                     ),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.wp25_babyglobe_reading,
+                mainImageResId = combination.iconResId,
                 bottomContent = {
                     val size = LargeWidgetSize.from(LocalSize.current)
                     val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
