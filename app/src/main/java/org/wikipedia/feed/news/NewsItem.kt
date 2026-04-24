@@ -14,7 +14,7 @@ import org.wikipedia.util.ImageUrlUtil
 @Serializable
 class NewsItem(
     val story: String = "",
-    val links: List<PageSummary> = emptyList(),
+    val links: List<PageSummary> = emptyList()
 ) : Parcelable {
 
     fun linkCards(wiki: WikiSite): List<NewsLinkCard> {
