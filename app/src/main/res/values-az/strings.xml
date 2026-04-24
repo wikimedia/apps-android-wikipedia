@@ -160,8 +160,8 @@
   <string name="account_creation_password_hint">Şifrə</string>
   <string name="login_2fa_hint">İki faktorlu autentifikasiya kodu</string>
   <string name="login_2fa_other_workflow_error_msg">İki faktorlu autentifikasiya tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və 2FA kodunu daxil edin.</string>
-  <string name="login_email_auth_hint">E-poçt doğrulama kodu</string>
-  <string name="login_email_auth_other_workflow_error_msg">E-poçt təsdiqi tələb olunur! Zəhmət olmasa əsas ekrandan daxil olun və e-poçt doğrulama kodunuzu daxil edin.</string>
+  <string name="login_email_auth_hint">E-poçt təsdiqləmə kodu</string>
+  <string name="login_email_auth_other_workflow_error_msg">E-poçt təsdiqi tələb olunur! Zəhmət olmasa, əsas ekrandan daxil olun və e-poçt təsdiqləmə kodunuzu daxil edin.</string>
   <string name="login_background_error_msg">Yenidən giriş etmək mümkün olmadı. Zəhmət olmasa, əsas ekrana qayıt və manual daxil ol.</string>
   <string name="onboarding_card_login">Daxil ol</string>
   <string name="page_editing_login">Daxil ol</string>
@@ -2289,4 +2289,30 @@
     <item quantity="one">%1$d/%2$d</item>
     <item quantity="other">%1$d/%2$d</item>
   </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="one">%1$d/%2$d</item>
+    <item quantity="other">%1$d/%2$d</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Bu gününüzün keçməsinə icazə verməyin, ardıcıllığınızı qoruyun.</string>
+  <string name="reading_challenge_streak_ongoing_title">25 günlük oxuma yarışması</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Bu günün keçməsinə icazə vermə, oxuma seriyan səni gözləyir.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Gün keçməmişdən əvvəl... hələ bir şey öyrənməyin vaxtıdır.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Hətta kiçik bir oxuma belə məqsədinizə çatmaq üçün vacibdir.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Seriyanız cəmi bir məqalə qədər uzaqdadır.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Bu gün istənilən vaxt oxumaq üçün bizə qoşulun.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Oxumaq vaxtıdır bəlkə?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Marağınızı davam etdirin.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Hazır ol, oxu!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">25 günlük seriyaya başlayın!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Oxuma yarışınıza başlayın.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Hər seriya bir yerdən başlayır</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Yeni bir seriya başlasın?</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Başlamaq üçün bir məqalə oxuyun.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Yeni bir başlanğıc.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Seriyanız cəmi bir məqalə qədər uzaqdadır.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Yarış başa çatdı</string>
+  <string name="reading_challenge_widget_concluded_complete">Sən bunu bacardın!</string>
+  <string name="reading_challenge_widget_reward_title">Maraqlanmaq sənə yaraşır! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Wikipedia Mağazasında 15%% endirimlə yarışmanı tamamladığınızı qeyd edin.</string>
+  <string name="reading_challenge_widget_reward_button_label">Mağazada 15%% endirim əldə edin</string>
 </resources>

@@ -2314,4 +2314,13 @@
   <string name="hybrid_search_error_message">Une erreur s\'est produite. Veuillez réessayer plus tard.</string>
   <string name="hybrid_search_who_is_prefix">Qui est %s ?</string>
   <string name="hybrid_search_turn_off_experiment_label">Désactivez cette expérience</string>
+  <string name="reading_challenge_onboarding_header">Célébrez le 25e anniversaire de Wikipédia en participant au défi de lecture de 25 jours !</string>
+  <string name="reading_challenge_onboarding_read_title">Lisez un article par jour et ce, pendant 25 jours</string>
+  <string name="reading_challenge_onboarding_win_title">Des prix à gagner</string>
+  <string name="reading_challenge_onboarding_win_description">Terminez une série de 25 jours de lecture pendant la durée du défi pour gagner des prix spéciaux</string>
+  <string name="reading_challenge_onboarding_install_title">Installez le widget</string>
+  <string name="reading_challenge_onboarding_install_description">Profitez de rappels utiles et de motivation grâce à notre adorable mascotte, Baby Globe</string>
+  <string name="reading_challenge_onboarding_note">Votre historique de lecture est protégée. Vos statistiques sont calculées à partir des données stockées localement sur votre appareil.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">En savoir plus</string>
+  <string name="reading_challenge_onboarding_join_button">Participer au défi</string>
 </resources>
