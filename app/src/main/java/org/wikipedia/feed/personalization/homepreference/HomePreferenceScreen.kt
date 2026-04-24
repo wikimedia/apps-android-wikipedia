@@ -51,7 +51,7 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
 @Composable
-fun FeedPreferenceScreen(
+fun HomePreferenceScreen(
     modifier: Modifier = Modifier,
     selectedType: HomePreferenceType,
     communityContentState: HomeContentState,
@@ -77,7 +77,7 @@ fun FeedPreferenceScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             item {
-                FeedPreferenceSection(
+                HomePreferenceSection(
                     state = communityContentState,
                     isSelected = selectedType == HomePreferenceType.COMMUNITY,
                     homePreferenceType = HomePreferenceType.COMMUNITY,
@@ -86,7 +86,7 @@ fun FeedPreferenceScreen(
                 )
             }
             item {
-                FeedPreferenceSection(
+                HomePreferenceSection(
                     state = personalizedContentState,
                     isSelected = selectedType == HomePreferenceType.PERSONALIZED,
                     homePreferenceType = HomePreferenceType.PERSONALIZED,
@@ -99,14 +99,14 @@ fun FeedPreferenceScreen(
 }
 
 @Composable
-fun FeedPreferenceSection(
+fun HomePreferenceSection(
     state: HomeContentState,
     isSelected: Boolean,
     homePreferenceType: HomePreferenceType,
     onRetryClick: (HomePreferenceType) -> Unit,
     onSelected: (HomePreferenceType) -> Unit
 ) {
-    val transition = rememberInfiniteTransition(label = "feedPreferenceShimmerTransition")
+    val transition = rememberInfiniteTransition(label = "homePreferenceShimmerTransition")
     val isPersonalizedContentDisabled = state is HomeContentState.Empty
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -186,7 +186,7 @@ fun FeedPreferenceSection(
 
                 is HomeContentState.Success -> {
                     items(state.content) { content ->
-                        FeedPreferenceArticleCard(
+                        HomePreferenceArticleCard(
                             content = content,
                             homePreferenceType = homePreferenceType
                         )
@@ -198,7 +198,7 @@ fun FeedPreferenceSection(
 }
 
 @Composable
-fun FeedPreferenceArticleCard(
+fun HomePreferenceArticleCard(
     modifier: Modifier = Modifier,
     homePreferenceType: HomePreferenceType,
     content: HomePreferenceContent
@@ -295,11 +295,11 @@ fun ArticleCardTag(
 
 @Preview(showBackground = true)
 @Composable
-private fun FeedPreferenceScreenPreview() {
+private fun HomePreferenceScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        FeedPreferenceScreen(
+        HomePreferenceScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
@@ -345,11 +345,11 @@ private fun FeedPreferenceScreenPreview() {
 
 @Preview(showBackground = true, fontScale = 1.5f, device = Devices.PIXEL_9)
 @Composable
-private fun FeedPreferenceScreenScaledTextPreview() {
+private fun HomePreferenceScreenScaledTextPreview() {
     BaseTheme(
         currentTheme = Theme.DARK
     ) {
-        FeedPreferenceScreen(
+        HomePreferenceScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
@@ -401,11 +401,11 @@ private fun FeedPreferenceScreenScaledTextPreview() {
 
 @Preview(showBackground = true, device = Devices.PIXEL_9)
 @Composable
-private fun FeedPreferenceScreenLoadingPreview() {
+private fun HomePreferenceScreenLoadingPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        FeedPreferenceScreen(
+        HomePreferenceScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
@@ -421,11 +421,11 @@ private fun FeedPreferenceScreenLoadingPreview() {
 
 @Preview(showBackground = true, device = Devices.PIXEL_9)
 @Composable
-private fun FeedPreferenceScreenErrorPreview() {
+private fun HomePreferenceScreenErrorPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        FeedPreferenceScreen(
+        HomePreferenceScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)
@@ -441,11 +441,11 @@ private fun FeedPreferenceScreenErrorPreview() {
 
 @Preview(showBackground = true, device = Devices.PIXEL_9)
 @Composable
-private fun FeedPreferenceScreenEmptyPersonalizedContentPreview() {
+private fun HomePreferenceScreenEmptyPersonalizedContentPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
-        FeedPreferenceScreen(
+        HomePreferenceScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .background(WikipediaTheme.colors.paperColor)

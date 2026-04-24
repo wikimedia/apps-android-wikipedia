@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.feed.personalization.homepreference.FeedPreferenceScreen
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceScreen
 import org.wikipedia.feed.personalization.interest.InterestOnboardingScreen
 
 // TODO: probably renaming the screen name
@@ -109,8 +109,8 @@ fun PersonalizationScreen(
                             showError = showError
                         )
                     }
-                    PersonalizationPage.FEED_PREFERENCE -> {
-                        FeedPreferenceScreen(
+                    PersonalizationPage.HOME_PREFERENCE -> {
+                        HomePreferenceScreen(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .background(WikipediaTheme.colors.paperColor)

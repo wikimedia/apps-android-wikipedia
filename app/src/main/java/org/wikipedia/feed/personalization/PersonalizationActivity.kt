@@ -36,7 +36,7 @@ class PersonalizationActivity : BaseActivity() {
                     screens = listOf(
                         PersonalizationPage.CURIOSITY,
                         PersonalizationPage.INTERESTS,
-                        PersonalizationPage.FEED_PREFERENCE
+                        PersonalizationPage.HOME_PREFERENCE
                     ),
                     onSkipClick = { finish() },
                     onSearchClick = {
@@ -65,5 +65,5 @@ class PersonalizationActivity : BaseActivity() {
 enum class PersonalizationPage {
     CURIOSITY,
     INTERESTS,
-    FEED_PREFERENCE
+    HOME_PREFERENCE
 }

@@ -124,7 +124,7 @@ class PersonalizationViewModel(
     fun onPageChanged(screen: PersonalizationPage) {
         when (screen) {
             PersonalizationPage.INTERESTS -> loadInterestSelectionScreen()
-            PersonalizationPage.FEED_PREFERENCE -> loadFeedPreferenceScreen()
+            PersonalizationPage.HOME_PREFERENCE -> loadFeedPreferenceScreen()
             else -> {}
         }
     }
