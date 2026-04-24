@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -97,6 +98,10 @@ fun NewsItemContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(415.dp)
+        )
+        // Dark overlay on top of image:
+        Box(
+            modifier = Modifier.fillMaxWidth().height(415.dp).background(Color(0, 0, 0, 100))
         )
 
         if (newsItem.story.isNotEmpty()) {
