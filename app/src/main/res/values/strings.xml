@@ -2391,6 +2391,7 @@
     <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
     <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
     <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_read_subtitle">Join the challenge anytime between %1$s and %2$s, complete your 25 days on your own timeline.</string>
     <string name="reading_challenge_onboarding_win_title">Win prizes</string>
     <string name="reading_challenge_onboarding_win_description">Complete a 25-day reading streak while the challenge is live to win special prizes.</string>
     <string name="reading_challenge_onboarding_install_title">Install the widget</string>
