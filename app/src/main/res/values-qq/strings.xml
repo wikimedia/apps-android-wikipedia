@@ -337,6 +337,14 @@
   <string name="edit_notices_please_read">Instructional text encouraging the user to read the edit notices for this article.</string>
   <string name="edit_notices_show_auto">Label for checkbox that enables showing edit notices automatically when entering the editing workflow.\n\nThe words \"edit notices\" must be translated consistently with {{msg-wm|Wikipedia-android-strings-edit notices}}.</string>
   <string name="edit_notices_tooltip">Text for a tooltip that points to the button for displaying edit notices.</string>
+  <string name="editor_select_dialog_title">Title of popup dialog asking the user how they want to edit the article.</string>
+  <string name="editor_select_dialog_subtitle">Explanation of popup dialog asking the user how they want to edit the article.</string>
+  <string name="editor_select_dialog_ve_title">Title of checkbox selection for editing with VisualEditor.</string>
+  <string name="editor_select_dialog_ve_subtitle">Subtitle of checkbox selection for editing with VisualEditor.</string>
+  <string name="editor_select_dialog_source_title">Title of checkbox selection for editing with the native wikitext editor.</string>
+  <string name="editor_select_dialog_source_subtitle">Subtitle of checkbox selection for editing with the native wikitext editor.</string>
+  <string name="editor_select_dialog_dont_show_again">Checkbox for no longer showing the popup dialog for selecting the type of editor used for editing articles.</string>
+  <string name="editor_select_dialog_continue">Button label for continuing with the selected mode of editing articles.</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>
