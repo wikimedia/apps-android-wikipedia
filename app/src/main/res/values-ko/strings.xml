@@ -25,6 +25,7 @@
 * Revi
 * SeoJeongHo
 * Suleiman the Magnificent Television
+* Tensama0415
 * Twotwo2019
 * YeBoy371
 * Ykhwong
@@ -180,7 +181,7 @@
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
   <string name="account_creation_password_hint">비밀번호</string>
-  <string name="login_2fa_hint">2요소 인증 코드</string>
+  <string name="login_2fa_hint">2단계 인증 코드</string>
   <string name="login_2fa_other_workflow_error_msg">2단계 인증이 필요합니다! 주 화면에서 로그인하고 2FA 토큰의 코드를 입력하십시오.</string>
   <string name="login_email_auth_hint">이메일 인증 코드</string>
   <string name="login_email_auth_other_workflow_error_msg">이메일 인증이 필요합니다! 주 화면에서 로그인한 다음 이메일 인증 코드를 입력해 주십시오.</string>

@@ -622,7 +622,7 @@ private fun SemanticSearchResultHeaderPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun SemanticSearchResultPageItemPreview() {
-    val wikiSite = WikiSite("en.wikipedia.org".toUri(), "en")
+    val wikiSite = WikiSite.preview()
     val pageTitle = PageTitle("Beyoncé", wikiSite).apply {
         description = "American singer, songwriter, and actress"
         thumbUrl = "https://example"
