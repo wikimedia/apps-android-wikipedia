@@ -32,6 +32,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceScreen
 import org.wikipedia.feed.personalization.interest.InterestOnboardingScreen
 
 // TODO: probably renaming the screen name
@@ -40,12 +41,14 @@ fun PersonalizationScreen(
     modifier: Modifier = Modifier,
     screens: List<PersonalizationPage>,
     onSkipClick: () -> Unit,
+    onCompleteOnboardingClick: () -> Unit,
     onSearchClick: () -> Unit,
     showError: (Throwable) -> Unit,
     viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
     val interestUiState = viewModel.interestUiState.collectAsState()
+    val feedPreferenceUiState = viewModel.feedPreferenceUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { screens.size })
 
     LaunchedEffect(pagerState.currentPage) {
@@ -61,7 +64,7 @@ fun PersonalizationScreen(
                             if (pagerState.currentPage < pagerState.pageCount - 1) {
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
                             } else {
-                                onSkipClick()
+                                onCompleteOnboardingClick()
                             }
                         }
                     },
@@ -101,13 +104,23 @@ fun PersonalizationScreen(
                                 viewModel.deselectAllArticles()
                             },
                             retryLoading = {
-                                viewModel.retryLoading()
+                                viewModel.retryInterestsLoading()
                             },
                             showError = showError
                         )
                     }
-                    PersonalizationPage.FEED_PREFERENCE -> {
-                        // TODO: implement feed preference screen
+                    PersonalizationPage.HOME_PREFERENCE -> {
+                        HomePreferenceScreen(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(WikipediaTheme.colors.paperColor)
+                                .padding(top = 40.dp),
+                            selectedType = feedPreferenceUiState.value.selectedType,
+                            communityContentState = feedPreferenceUiState.value.communityState,
+                            personalizedContentState = feedPreferenceUiState.value.personalizedState,
+                            onTypeSelected = { viewModel.onFeedPreferenceTypeSelected(it) },
+                            onRetryClick = { viewModel.retryFeedPreferenceLoading(it) }
+                        )
                     }
                 }
             }

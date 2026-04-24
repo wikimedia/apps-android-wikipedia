@@ -10,6 +10,7 @@ import org.wikipedia.Constants
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.util.FeedbackUtil
@@ -35,12 +36,16 @@ class PersonalizationActivity : BaseActivity() {
                     screens = listOf(
                         PersonalizationPage.CURIOSITY,
                         PersonalizationPage.INTERESTS,
-                        PersonalizationPage.FEED_PREFERENCE
+                        PersonalizationPage.HOME_PREFERENCE
                     ),
                     onSkipClick = { finish() },
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.FEED_INTEREST_SELECTION, null, returnLink = true)
                         searchLauncher.launch(intent)
+                    },
+                    onCompleteOnboardingClick = {
+                        startActivity(ExploreFeedBuildingActivity.newIntent(this))
+                        finish()
                     },
                     showError = { message ->
                         FeedbackUtil.showError(this, message)
@@ -60,5 +65,5 @@ class PersonalizationActivity : BaseActivity() {
 enum class PersonalizationPage {
     CURIOSITY,
     INTERESTS,
-    FEED_PREFERENCE
+    HOME_PREFERENCE
 }

@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
@@ -57,7 +58,9 @@ class HomeViewModel : ViewModel() {
     private val _wikiSite = MutableStateFlow(WikiSite.forLanguageCode(Prefs.homeLanguageCode))
     val wikiSite = _wikiSite.asStateFlow()
 
-    private val _selectedTab = MutableStateFlow(HomeTab.COMMUNITY)
+    private val _selectedTab = MutableStateFlow(
+        if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
+    )
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
@@ -89,7 +92,11 @@ class HomeViewModel : ViewModel() {
     }
 
     init {
-        loadCommunityContent()
+        if (_selectedTab.value == HomeTab.COMMUNITY) {
+            loadCommunityContent()
+        } else {
+            loadForYouContent()
+        }
     }
 
     fun refreshCommunityContent() {

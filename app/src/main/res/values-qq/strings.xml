@@ -2233,12 +2233,19 @@
   <string name="explore_feed_deselect_all_button_label">Button text to deselect all selected items in the intereset selection screen.</string>
   <string name="explore_feed_potd_subtitle">Description of the Picture of the Day card in the Home feed.</string>
   <string name="explore_feed_featured_article_subtitle">Description of the Featured Article card in the Home feed.</string>
+    <string name="explore_feed_preference_selection_screen_title">Screen title prompting the user to choose which type of content should appear first in the explore feed.</string>
+    <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
+    <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
   <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
   <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
   <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
   <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
   <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manauge the app languages.</string>
+<<<<<<< ef-overflow-menus
   <string name="explore_feed_header_overflow_hide_module_label">Label text for the overflow menu option in the card header to hide the module.</string>
   <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
+=======
+    <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
+>>>>>>> explore-feed-upgrade-design
 </resources>

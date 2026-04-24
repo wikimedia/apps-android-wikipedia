@@ -2485,7 +2485,10 @@
     <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you, and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
     <string name="explore_feed_deselect_all_button_label">Deselect all</string>
     <string name="explore_feed_potd_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
-    <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia, selected daily by editors</string>
+    <string name="explore_feed_featured_article_subtitle">Featured articles are some of the best articles on Wikipedia and they are updated daily</string>
+    <string name="explore_feed_preference_selection_screen_title">What would you like to see first?</string>
+    <string name="explore_feed_preference_community_content_title">Community-related content</string>
+    <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
     <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
@@ -2494,4 +2497,5 @@
     <string name="explore_feed_header_overflow_hide_module_label">Hide module</string>
     <string name="explore_feed_header_overflow_hide_module_message">Module hidden.</string>
     <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
+    <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
 </resources>

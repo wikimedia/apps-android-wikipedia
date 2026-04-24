@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -83,6 +84,9 @@ fun FeaturedArticleModule(
                     .fillMaxWidth()
                     .height(360.dp)
             )
+            Box(
+                modifier = Modifier.fillMaxWidth().height(360.dp).background(Color(0, 0, 0, 100))
+            )
 
             Row(
                 modifier = Modifier
@@ -140,7 +144,7 @@ fun FeaturedArticleModule(
                     .fillMaxWidth()
                     .padding(16.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.90f))
+                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
                     .padding(16.dp)
             ) {
                 HtmlText(
