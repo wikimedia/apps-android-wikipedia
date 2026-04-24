@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -69,9 +70,7 @@ fun NewsModule(
 
         if (newsItems.size > 1) {
             PageIndicator(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 16.dp),
+                modifier = Modifier.fillMaxWidth(),
                 pagerState = pagerState
             )
         }
@@ -89,38 +88,57 @@ fun NewsItemContent(
             .padding(bottom = 16.dp)
             .clickable { onItemClick(newsItem) }
     ) {
-        AsyncImage(
-            model = newsItem.thumbUrl()?.let { ImageService.getRequest(LocalContext.current, url = it) },
-            placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-            error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-            contentDescription = newsItem.story,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(415.dp)
-        )
-        // Dark overlay on top of image:
-        Box(
-            modifier = Modifier.fillMaxWidth().height(415.dp).background(Color(0, 0, 0, 100))
-        )
+        if (newsItem.thumbUrl().isNullOrEmpty()) {
+            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random())
+            Box(
+                modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
+            )
+        } else {
+            AsyncImage(
+                model = newsItem.thumbUrl()?.let { ImageService.getRequest(LocalContext.current, url = it) },
+                placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                contentDescription = newsItem.story,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth().height(415.dp)
+            )
+            // Dark overlay on top of image:
+            Box(
+                modifier = Modifier.fillMaxWidth().height(415.dp).background(Color(0, 0, 0, 100))
+            )
+        }
 
         if (newsItem.story.isNotEmpty()) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .fillMaxWidth()
-                    .padding(16.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
-                    .padding(16.dp)
-            ) {
+            if (newsItem.thumbUrl().isNullOrEmpty()) {
                 Text(
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
+                        .fillMaxWidth()
+                        .padding(32.dp),
                     text = StringUtil.fromHtml(removeItalicParenthetical(newsItem.story)).toString(),
-                    color = WikipediaTheme.colors.primaryColor,
+                    color = Color.White,
                     style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 4,
+                    maxLines = 8,
                     overflow = TextOverflow.Ellipsis
                 )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = StringUtil.fromHtml(removeItalicParenthetical(newsItem.story)).toString(),
+                        color = WikipediaTheme.colors.primaryColor,
+                        style = MaterialTheme.typography.bodyMedium,
+                        maxLines = 4,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
         }
     }
@@ -132,13 +150,45 @@ private fun removeItalicParenthetical(text: String): String {
 
 @Preview(showBackground = true)
 @Composable
-fun NewsCardPreview() {
+fun NewsCardPreviewWithImage() {
     val pageSummary = PageSummary(
         displayTitle = "Dog and Cat",
         prefixTitle = "Dog_and_Cat",
         description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         thumbnail = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/1200px-Commons-logo.svg.png",
+        lang = "en"
+    )
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        NewsModule(
+            wikiSite = WikiSite.preview(),
+            newsItems = listOf(
+                NewsItem(
+                    story = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    links = listOf(pageSummary)
+                ),
+                NewsItem(
+                    story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    links = listOf(pageSummary)
+                ),
+                NewsItem(
+                    story = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    links = listOf(pageSummary)
+                )
+            )
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun NewsCardPreviewNoImage() {
+    val pageSummary = PageSummary(
+        displayTitle = "Dog and Cat",
+        prefixTitle = "Dog_and_Cat",
+        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbnail = null,
         lang = "en"
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
