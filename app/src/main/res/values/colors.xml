@@ -47,6 +47,11 @@
     <color name="orange500_50">#80FF9500</color>
     <color name="orange200">#FFC894</color>
 
+    <color name="maroon800">#854848</color>
+
+    <color name="purple800">#534FA3</color>
+
+    <color name="pink800">#82456A</color>
 
     <color name="widget_background">#F8F9FA</color>
     <color name="widget_paper">#FFFFFF</color>

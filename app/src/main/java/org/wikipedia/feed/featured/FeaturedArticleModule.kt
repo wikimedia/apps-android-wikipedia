@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
@@ -70,23 +71,30 @@ fun FeaturedArticleModule(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
+                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .clickable { onPageClick(article) }
         ) {
-            AsyncImage(
-                model = article.thumbnailUrl?.let { ImageService.getRequest(context, url = it) },
-                placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                contentDescription = article.displayTitle,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(360.dp)
-            )
-            Box(
-                modifier = Modifier.fillMaxWidth().height(360.dp).background(Color(0, 0, 0, 100))
-            )
+            if (article.thumbnailUrl.isNullOrEmpty()) {
+                val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random())
+                Box(
+                    modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
+                )
+            } else {
+                AsyncImage(
+                    model = article.thumbnailUrl?.let { ImageService.getRequest(context, url = it) },
+                    placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                    error = ColorPainter(WikipediaTheme.colors.backgroundColor),
+                    contentDescription = article.displayTitle,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(415.dp)
+                )
+                Box(
+                    modifier = Modifier.fillMaxWidth().height(415.dp).background(Color(0, 0, 0, 100))
+                )
+            }
 
             Row(
                 modifier = Modifier
@@ -144,21 +152,22 @@ fun FeaturedArticleModule(
                     .fillMaxWidth()
                     .padding(16.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
+                    .background(if (article.thumbnailUrl.isNullOrEmpty()) Color.Transparent else WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
                     .padding(16.dp)
             ) {
                 HtmlText(
                     text = article.displayTitle,
-                    color = WikipediaTheme.colors.primaryColor,
+                    color = if (article.thumbnailUrl.isNullOrEmpty()) Color.White else WikipediaTheme.colors.primaryColor,
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontFamily = FontFamily.Serif
-                    )
+                    ),
+                    maxLines = 3
                 )
                 article.description?.let { description ->
                     Spacer(modifier = Modifier.height(2.dp))
                     Text(
                         text = description,
-                        color = WikipediaTheme.colors.secondaryColor,
+                        color = if (article.thumbnailUrl.isNullOrEmpty()) Color.White.copy(alpha = 0.8f) else WikipediaTheme.colors.secondaryColor,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -168,13 +177,13 @@ fun FeaturedArticleModule(
                     HorizontalDivider(
                         modifier = Modifier.padding(vertical = 12.dp).width(48.dp),
                         thickness = 1.dp,
-                        color = WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
+                        color = if (article.thumbnailUrl.isNullOrEmpty()) Color.White.copy(alpha = 0.8f) else WikipediaTheme.colors.secondaryColor.copy(alpha = 0.2f)
                     )
                     Text(
                         text = extract,
-                        color = WikipediaTheme.colors.primaryColor,
+                        color = if (article.thumbnailUrl.isNullOrEmpty()) Color.White else WikipediaTheme.colors.primaryColor,
                         style = MaterialTheme.typography.bodyMedium,
-                        maxLines = 4,
+                        maxLines = if (article.thumbnailUrl.isNullOrEmpty()) 6 else 4,
                         overflow = TextOverflow.Ellipsis
                     )
                 }
@@ -185,11 +194,22 @@ fun FeaturedArticleModule(
 
 @Preview(showBackground = true)
 @Composable
-fun FeaturedArticleCardPreview() {
+fun FeaturedArticleCardWithImagePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         FeaturedArticleModule(
             wikiSite = WikiSite.preview(),
-            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "", "")
+            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = "test.jpg", "")
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun FeaturedArticleCardNoImagePreview() {
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        FeaturedArticleModule(
+            wikiSite = WikiSite.preview(),
+            article = PageSummary("Lorem ipsum", "Lorem ipsum", "Lorem ipsum", "Lorem ipsum", thumbnail = null, "")
         )
     }
 }
