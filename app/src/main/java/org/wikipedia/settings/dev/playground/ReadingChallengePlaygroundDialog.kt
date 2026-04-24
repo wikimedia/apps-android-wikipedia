@@ -63,7 +63,7 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
 
         return ComposeView(requireContext()).apply {
             setContent {
-                val currentState = remember { repository.observeState() }
+                val stateFlow = remember { repository.observeState() }
                 val coroutineScope = rememberCoroutineScope()
 
                 BaseTheme {
@@ -96,7 +96,7 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
                         }
                         ReadingChallengePlayground(
                             modifier = Modifier.padding(16.dp),
-                            state = currentState.collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
+                            state = stateFlow.collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
                             updateWidgetsExplicitly = {
                                 coroutineScope.launch {
                                     ReadingChallengeWidgetRepository(requireContext()).updateWidgetsAndSendAnalytics()
@@ -132,6 +132,7 @@ fun ReadingChallengePlayground(
     var streak by remember { mutableIntStateOf(Prefs.readingChallengeStreak) }
     var enrolled by remember { mutableStateOf(Prefs.readingChallengeEnrolled) }
     var lastReadDate by remember { mutableStateOf(Prefs.readingChallengeLastReadDate) }
+    var startDate by remember { mutableStateOf(Prefs.readingChallengeStartDate) }
     var endDate by remember { mutableStateOf(Prefs.readingChallengeEndDate) }
     var onboardingShown by remember { mutableStateOf(Prefs.readingChallengeOnboardingShown) }
     var widgetPromptShown by remember { mutableStateOf(Prefs.readingChallengeInstallPromptShown) }
@@ -141,6 +142,7 @@ fun ReadingChallengePlayground(
         streak = Prefs.readingChallengeStreak
         enrolled = Prefs.readingChallengeEnrolled
         lastReadDate = Prefs.readingChallengeLastReadDate
+        startDate = Prefs.readingChallengeStartDate
         endDate = Prefs.readingChallengeEndDate
         onboardingShown = Prefs.readingChallengeOnboardingShown
         widgetPromptShown = Prefs.readingChallengeInstallPromptShown
@@ -402,6 +404,62 @@ fun ReadingChallengePlayground(
             }
         }
 
+        // --- Challenge Start Date ---
+        Card {
+            Column(
+                Modifier
+                    .background(WikipediaTheme.colors.backgroundColor)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = "readingChallengeStartDate",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OutlinedTextField(
+                        value = startDate,
+                        onValueChange = {
+                            startDate = it
+                        },
+                        placeholder = {
+                            Text(
+                                "YYYY-MM-DD",
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        singleLine = true,
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedTextColor = WikipediaTheme.colors.primaryColor,
+                            focusedBorderColor = MaterialTheme.colorScheme.outline,
+                            unfocusedTextColor = WikipediaTheme.colors.primaryColor,
+                            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                            cursorColor = WikipediaTheme.colors.primaryColor,
+                            errorTextColor = WikipediaTheme.colors.primaryColor,
+                        ),
+                        modifier = Modifier.weight(1f)
+                    )
+                    Button(
+                        onClick = {
+                            Prefs.readingChallengeStartDate = startDate
+                            updateWidgetsExplicitly()
+                        },
+                        enabled = startDate.isEmpty() || runCatching { LocalDate.parse(startDate) }.isSuccess,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = WikipediaTheme.colors.progressiveColor,
+                            contentColor = WikipediaTheme.colors.paperColor
+                        )
+                    ) {
+                        Text("Save")
+                    }
+                }
+            }
+        }
+
         // --- Challenge End Date ---
         Card {
             Column(
@@ -465,6 +523,7 @@ fun ReadingChallengePlayground(
                 Prefs.readingChallengeEnrolled = false
                 Prefs.readingChallengeLastReadDate = ""
                 Prefs.readingChallengeEndDate = ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE
+                Prefs.readingChallengeStartDate = ReadingChallengeWidgetRepository.READING_CHALLENGE_START_DATE
                 syncFromPrefs()
                 updateWidgetsExplicitly()
             },

@@ -15,7 +15,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -61,7 +60,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         // Stage 1: Pre-enrollment
-        if (!userData.isPreBetaRelease && userData.currentDate.isBefore(START_DATE)) {
+        if (userData.currentDate.isBefore(START_DATE)) {
             return ReadingChallengeState.NotLiveYet
         }
 
@@ -108,8 +107,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 currentDate = currentDate,
                 enabled = Prefs.readingChallengeEnrolled,
                 currentStreak = Prefs.readingChallengeStreak,
-                hasReadToday = hasReadToday(currentDate),
-                isPreBetaRelease = ReleaseUtil.isPreBetaRelease
+                hasReadToday = hasReadToday(currentDate)
             )
         )
     }
@@ -132,7 +130,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         ReadingChallengeWidget().updateAll(context)
     }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (!ReleaseUtil.isPreBetaRelease && (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE))) {
+        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
             return
         }
 
@@ -147,12 +145,13 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         const val READING_STREAK_GOAL = 25
         const val INTENT_EXTRA_READING_CHALLENGE_REWARD = "reading_challenge_reward"
         const val READING_CHALLENGE_END_DATE = "2026-06-18"
-        private val START_DATE = LocalDate.of(2026, 5, 11)
+        const val READING_CHALLENGE_START_DATE = "2026-05-11"
+        private val START_DATE get() = LocalDate.parse(Prefs.readingChallengeStartDate.ifEmpty { READING_CHALLENGE_START_DATE })
         private val END_DATE get() = LocalDate.parse(Prefs.readingChallengeEndDate.ifEmpty { READING_CHALLENGE_END_DATE })
         private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
 
         private val isChallengeActive: Boolean
-            get() = ReleaseUtil.isPreBetaRelease || (!LocalDate.now().isBefore(START_DATE) && LocalDate.now().isBefore(END_DATE))
+            get() = !LocalDate.now().isBefore(START_DATE) && LocalDate.now().isBefore(END_DATE)
 
         fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
