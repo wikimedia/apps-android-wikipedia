@@ -111,7 +111,7 @@ fun NewsItemContent(
                     .fillMaxWidth()
                     .padding(16.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.90f))
+                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
                     .padding(16.dp)
             ) {
                 Text(
