@@ -52,7 +52,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral,
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
@@ -81,7 +81,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
@@ -100,7 +100,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading
             )
         }
         ReadingChallengeState.EnrolledNotStarted -> {
@@ -110,7 +110,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                mainImageResId = combination.iconResId, // TODO: update when svg's are provided
+                mainImageResId = combination.iconResId,
                 backgroundColor = combination.backgroundColor,
                 bottomContent = {
                     WidgetButton(
@@ -126,7 +126,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {
                     WidgetButton(
@@ -142,7 +142,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 bottomContent = {
                     WidgetButton(
@@ -161,7 +161,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .padding(vertical = 12.dp, horizontal = 16.dp)
                     .clickable(onClick = actionStartActivity(MainActivity.newIntent(context))),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = combination.iconResId,
                 bottomContent = {
                     val size = LargeWidgetSize.from(LocalSize.current)
                     val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
@@ -187,7 +187,7 @@ fun ReadingChallengeSmallWidgetContent(
                         onClick = actionStartActivity(MainActivity.newIntent(context))
                     ),
                 backgroundColor = combination.backgroundColor,
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = combination.iconResId,
                 bottomContent = {
                     val size = LargeWidgetSize.from(LocalSize.current)
                     val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp

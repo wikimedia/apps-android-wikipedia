@@ -57,7 +57,7 @@ fun OnboardingListItem(
                 color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                text = stringResource(item.subTitle),
+                text = item.subtitleString ?: stringResource(item.subTitle),
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.secondaryColor
             )
@@ -126,7 +126,8 @@ fun TwoButtonBottomBar(
 data class OnboardingItem(
     val icon: Int,
     val title: Int,
-    val subTitle: Int
+    val subTitle: Int = 0,
+    val subtitleString: String? = null
 )
 
 @Preview
