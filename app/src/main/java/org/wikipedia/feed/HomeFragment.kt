@@ -169,6 +169,15 @@ class HomeFragment : Fragment() {
                                 },
                                 onMoveRequest = { id, entry ->
                                     (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
+                                },
+                                onRemoveRequest = { entry, lists ->
+                                    (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
+                                },
+                                onShareRequest = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSharePage(entry)
+                                },
+                                onLinkCopyRequest = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
                                 }
                             )
                         },
