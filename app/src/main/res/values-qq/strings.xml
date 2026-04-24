@@ -2140,6 +2140,7 @@
   <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
   <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
   <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between specified date range.The %1$s will be replaced by the start date and %2$s will be replaced by the end date.</string>
   <string name="reading_challenge_onboarding_win_title">Title of the first item in onboarding screen for the Reading challenge that indicates you can win the prize.</string>
   <string name="reading_challenge_onboarding_win_description">Description of the first item in onboarding screen for the Reading challenge that indicates how you can win the prize.</string>
   <string name="reading_challenge_onboarding_install_title">Title of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
