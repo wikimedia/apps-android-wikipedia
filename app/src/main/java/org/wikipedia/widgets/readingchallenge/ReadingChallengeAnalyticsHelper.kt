@@ -10,7 +10,7 @@ object ReadingChallengeAnalyticsHelper {
             .startFunnel("widget_challenge")
     }
 
-    fun sendAnalytics(state: ReadingChallengeState) {
+    fun sendHeartbeatEvent(state: ReadingChallengeState) {
         when (state) {
             ReadingChallengeState.ChallengeCompleted -> logChallengeConcluded(elementId = "challenge_completed")
             is ReadingChallengeState.ChallengeConcludedIncomplete -> logChallengeConcluded(elementId = "challenge_incomplete")

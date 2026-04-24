@@ -2,7 +2,6 @@ package org.wikipedia.analytics.eventplatform
 
 import android.widget.Toast
 import androidx.core.os.postDelayed
-import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +27,6 @@ import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
 object EventPlatformClient {
-    val streamConfigsDeferred = CompletableDeferred<Unit>()
     /**
      * Stream configs to be fetched on startup and stored for the duration of the app lifecycle.
      */
@@ -137,7 +135,6 @@ object EventPlatformClient {
                 TestKitchenAdapter.client.updateSourceConfig(STREAM_CONFIGS)
             }
             refreshStreamConfigs()
-            streamConfigsDeferred.complete(Unit)
         }
     }
 

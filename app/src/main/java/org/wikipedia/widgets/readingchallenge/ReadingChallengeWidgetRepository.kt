@@ -55,7 +55,6 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
-        println("orange resolveState called")
         // Stage 5: Remove challenge
         if (userData.currentDate.isAfter(REMOVE_DATE)) {
             return ReadingChallengeState.ChallengeRemoved
@@ -129,7 +128,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     suspend fun updateWidgetsAndSendAnalytics() {
-        ReadingChallengeAnalyticsHelper.sendAnalytics(getCurrentState())
+        ReadingChallengeAnalyticsHelper.sendHeartbeatEvent(getCurrentState())
         ReadingChallengeWidget().updateAll(context)
     }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {

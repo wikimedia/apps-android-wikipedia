@@ -34,11 +34,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
@@ -77,10 +75,7 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         DeviceUtil.setEdgeToEdge(this)
         Prefs.readingChallengeOnboardingShown = true
 
-        lifecycleScope.launch {
-            EventPlatformClient.streamConfigsDeferred.await()
-            ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
-        }
+        ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
 
         setContent {
             BaseTheme {
