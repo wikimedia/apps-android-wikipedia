@@ -57,11 +57,12 @@ import org.wikipedia.theme.Theme
 class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+        .setDefaultActionSource("widget_challenge_install")
         .startFunnel("widget_challenge")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        instrument.submitInteraction(action = "impression", actionSource = "widget_challenge_install")
+        instrument.submitInteraction(action = "impression")
         Prefs.readingChallengeInstallPromptShown = true
 
         return ComposeView(requireContext()).apply {
@@ -72,7 +73,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                         onCloseClick = {
                             instrument.submitInteraction(
                                 action = "click",
-                                actionSource = "widget_challenge_install",
                                 elementId = "install_close"
                             )
                             dismiss()
@@ -80,7 +80,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                         onGotItClick = {
                             instrument.submitInteraction(
                                 action = "click",
-                                actionSource = "widget_challenge_install",
                                 elementId = "install_accept"
                             )
                             dismiss()
@@ -88,7 +87,6 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                         onAddClick = {
                             instrument.submitInteraction(
                                 action = "click",
-                                actionSource = "widget_challenge_install",
                                 elementId = "install_add"
                             )
                             requestToPinWidget(requireContext())

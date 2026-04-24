@@ -78,9 +78,10 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         Prefs.readingChallengeOnboardingShown = true
 
         _instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+            .setDefaultActionSource("widget_challenge_announce")
             .startFunnel("widget_challenge")
 
-        instrument?.submitInteraction("impression", actionSource = "widget_challenge_announce")
+        instrument?.submitInteraction("impression")
 
         setContent {
             BaseTheme {
@@ -115,11 +116,11 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "learn_more")
+                        instrument?.submitInteraction(action = "click", elementId = "learn_more")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
-                        instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "join_challenge")
+                        instrument?.submitInteraction(action = "click", elementId = "join_challenge")
                         if (!AccountUtil.isLoggedIn) {
                             showLoginDialog = true
                         } else {
