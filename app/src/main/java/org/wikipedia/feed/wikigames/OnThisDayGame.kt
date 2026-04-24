@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -55,7 +56,6 @@ import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
-import java.util.Locale
 
 @Composable
 fun OnThisDayGameCardPreview(
@@ -460,7 +460,7 @@ fun OnThisDayGameCountdown(
         stringResource(R.string.on_this_day_game_explore_feed_card_score_short_message, state.score, state.totalQuestions)
     } else {
         stringResource(R.string.on_this_day_game_explore_feed_card_score_message, state.score, state.totalQuestions, String.format(
-            Locale.getDefault(),
+            LocalLocale.current.platformLocale,
             "%02d:%02d:%02d",
             duration.toHoursPart(),
             duration.toMinutesPart(),
