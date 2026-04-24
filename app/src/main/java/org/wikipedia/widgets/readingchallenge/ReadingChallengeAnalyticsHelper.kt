@@ -39,7 +39,8 @@ object ReadingChallengeAnalyticsHelper {
         TestKitchenAdapter.client.getInstrument("apps-open")
             .submitInteraction(
                 action = "app_open",
-                actionSource = "widget"
+                actionSource = "widget",
+                actionSubtype = "reading_challenge"
             )
     }
 
