@@ -24,6 +24,7 @@ class PageOverflowMenuViewModel : ViewModel() {
 
     fun onPageOverflowClick(
         pageSummary: PageSummary,
+        source: Int,
         wikiSite: WikiSite,
         context: Context,
         onOpenPage: (HistoryEntry) -> Unit = {},
@@ -35,7 +36,7 @@ class PageOverflowMenuViewModel : ViewModel() {
         onLinkCopyRequest: (HistoryEntry) -> Unit
     ) {
         viewModelScope.launch {
-            val entry = pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ)
+            val entry = pageSummary.getHistoryEntry(wikiSite, source)
             val lists = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
                 AppDatabase.instance.readingListPageDao().getAllPageOccurrences(entry.title)
             )

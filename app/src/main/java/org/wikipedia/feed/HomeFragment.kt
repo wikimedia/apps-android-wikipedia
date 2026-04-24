@@ -156,9 +156,10 @@ class HomeFragment : Fragment() {
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
                         },
-                        onPageOverflowClick = { pageSummary ->
+                        onPageOverflowClick = { pageSummary, source ->
                             pageOverflowMenuViewModel.onPageOverflowClick(
                                 pageSummary = pageSummary,
+                                source = source,
                                 wikiSite = wikiSite,
                                 context = requireContext(),
                                 onOpenPage = { entry ->
@@ -237,7 +238,7 @@ fun HomeScreen(
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int) -> Unit = { _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
@@ -455,7 +456,7 @@ fun CommunityContentTab(
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int) -> Unit = { _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
@@ -550,7 +551,7 @@ fun CommunityContentTab(
                                     )
                                 },
                                 onPageOverflowClick = { pageSummary ->
-                                    onPageOverflowClick(pageSummary)
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ)
                                 },
                                 onFooterClick = {
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
@@ -588,14 +589,21 @@ fun CommunityContentTab(
                             OnThisDayModule(
                                 wikiSite = wikiSite,
                                 events = day.onThisDay.take(2),
-                                onOverflowClick = {
+                                pageOverflowContent = { eventIndex, itemIndex ->
+                                    PageOverflowMenu(
+                                        expanded = overflowMenuState?.entry?.source == HistoryEntry.SOURCE_FEED_ON_THIS_DAY && overflowMenuState.entry.title.prefixedText == day.onThisDay[eventIndex].pages[itemIndex].apiTitle,
+                                        onDismiss = onPageOverflowDismiss,
+                                        items = overflowMenuState?.items.orEmpty()
+                                    )
+                                },
+                                onHideModuleClick = {
                                     // TODO: implement overflow menu
                                 },
                                 onPageClick = { pageSummary ->
                                     onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                 },
                                 onPageOverflowClick = { pageSummary ->
-                                    // TODO: implement page overflow menu
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY)
                                 },
                                 onFooterClick = {
                                     activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
