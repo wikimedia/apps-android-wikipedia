@@ -42,7 +42,7 @@ import java.time.LocalDate
 
 class ReadingChallengeWidget : GlanceAppWidget() {
     companion object {
-        private val fullWidthThreshold = 320.dp
+        private val fullWidthThreshold = 360.dp
     }
 
     override val sizeMode: SizeMode = SizeMode.Exact
@@ -202,12 +202,18 @@ fun ReadingChallengeWidgetLoading(
 }
 
 enum class LargeWidgetSize {
+    EXTRA_COMPACT,
     COMPACT,
     FULL;
 
     companion object {
         fun from(size: DpSize): LargeWidgetSize {
-            return if (size.height <= 210.dp || size.width < 360.dp) COMPACT else FULL
+            return when {
+                size.height <= 180.dp -> EXTRA_COMPACT
+                size.height <= 210.dp || size.width < 360.dp -> COMPACT
+                else -> FULL
+            }
+            // return if (size.height <= 210.dp || size.width < 360.dp) COMPACT else FULL
         }
     }
 }

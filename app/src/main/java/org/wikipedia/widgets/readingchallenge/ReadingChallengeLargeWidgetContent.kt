@@ -207,6 +207,13 @@ fun StreakOngoingLargeWidget(
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
+    val size = LargeWidgetSize.from(LocalSize.current)
+    val mascotSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT -> 70.dp
+        LargeWidgetSize.COMPACT -> 90.dp
+        LargeWidgetSize.FULL -> 100.dp
+    }
+
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -282,7 +289,7 @@ fun StreakOngoingLargeWidget(
                     provider = ImageProvider(mascotImageResId),
                     contentDescription = null,
                     modifier = GlanceModifier
-                        .size(120.dp)
+                        .size(mascotSize)
                         .padding(end = 24.dp, bottom = 32.dp)
                 )
             }
@@ -305,8 +312,21 @@ fun StreakOngoingNeedsReadingLargeWidget(
     val reminderText = context.getString(reminderTextResId)
 
     val size = LargeWidgetSize.from(LocalSize.current)
-    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
-    val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
+    val adjustedTitleFontSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT,
+        LargeWidgetSize.COMPACT -> 14.sp
+        LargeWidgetSize.FULL -> 16.sp
+    }
+    val widgetBadgeAdjustFontSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT,
+        LargeWidgetSize.COMPACT -> 24.sp
+        LargeWidgetSize.FULL -> 32.sp
+    }
+    val mascotSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT -> 55.dp
+        LargeWidgetSize.COMPACT -> 70.dp
+        LargeWidgetSize.FULL -> 100.dp
+    }
 
     BaseWidgetContent(
         color = backgroundColor
@@ -325,6 +345,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                 ) {
                     WidgetBadge(
                         text = streakText,
+                        textSize = widgetBadgeAdjustFontSize,
                         iconResId = R.drawable.ic_flame_24dp,
                         iconSize = 40.dp,
                         iconTintColor = contentColor,
@@ -363,7 +384,8 @@ fun StreakOngoingNeedsReadingLargeWidget(
             }
 
             Row(
-                modifier = GlanceModifier.fillMaxWidth()
+                modifier = GlanceModifier
+                    .fillMaxWidth()
             ) {
                 WidgetIconButton(
                     modifier = GlanceModifier
@@ -441,9 +463,21 @@ fun GeneralLargeWidget(
     bottomContent: @Composable () -> Unit = { }
 ) {
     val size = LargeWidgetSize.from(LocalSize.current)
-    val adjustedTitleFontSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
-    val adjustedSubTitleFontSize = if (size == LargeWidgetSize.COMPACT) 14.sp else 16.sp
-    val mascotSize = if (size == LargeWidgetSize.COMPACT) 80.dp else 110.dp
+    val adjustedTitleFontSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT,
+        LargeWidgetSize.COMPACT -> 24.sp
+        LargeWidgetSize.FULL -> 32.sp
+    }
+    val adjustedSubTitleFontSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT,
+        LargeWidgetSize.COMPACT -> 14.sp
+        LargeWidgetSize.FULL -> 16.sp
+    }
+    val mascotSize = when (size) {
+        LargeWidgetSize.EXTRA_COMPACT -> 50.dp
+        LargeWidgetSize.COMPACT -> 70.dp
+        LargeWidgetSize.FULL -> 100.dp
+    }
 
     BaseWidgetContent(
         color = backgroundColor
@@ -559,6 +593,18 @@ fun LargeWidgetNotEnrolledPreview() {
 }
 
 @OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 210)
+@Composable
+fun LargeWidgetOngoingCompactPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingReadToday(
+            streak = 5
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
 @Preview(widthDp = 368, heightDp = 176)
 @Composable
 fun LargeWidgetNotEnrolledCompactSizePreview() {
@@ -596,6 +642,90 @@ fun LargeWidgetOngoingNeedsReadingCompactSizePreview() {
 fun LargeWidgetLoadingPreview() {
     ReadingChallengeLargeWidgetContent(
         state = ReadingChallengeState.Loading,
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 176)
+@Composable
+fun LargeWidgetOngoingPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingReadToday(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 350, heightDp = 176)
+@Composable
+fun LargeWidgetOngoing340WidthPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingReadToday(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 290, heightDp = 176)
+@Composable
+fun LargeWidgetOngoing290WidthPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingReadToday(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 290, heightDp = 176)
+@Composable
+fun LargeWidgetOngoingNeedsReadingPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 250, heightDp = 176)
+@Composable
+fun LargeWidgetOngoingNeedsReading250WidthPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 290, heightDp = 156)
+@Composable
+fun LargeWidgetOngoingNeedsReading290WidthAnd156HeightPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(
+            streak = 7
+        ),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 360, heightDp = 156)
+@Composable
+fun LargeWidgetOngoingNeedsReading156HeightPreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(
+            streak = 7
+        ),
         enrollmentDate = LocalDate.now()
     )
 }
