@@ -65,8 +65,8 @@ class EventProcessor(
      * retried on the next submission attempt.
      */
     fun sendEnqueuedEvents() {
-        val config: SourceConfig? = sourceConfig.get()
-        if (config == null) {
+        val streamConfigsMap = sourceConfig.get()?.streamConfigs
+        if (streamConfigsMap.isNullOrEmpty()) {
             logger.warn("Configuration is missing, enqueued events are not sent.")
             return
         }
@@ -75,8 +75,6 @@ class EventProcessor(
         synchronized(eventQueue) {
             eventQueue.drainTo(pending)
         }
-
-        val streamConfigsMap = config.streamConfigs
 
         pending.filter { event -> streamConfigsMap.containsKey(event.meta.stream) }
             .filter { event ->

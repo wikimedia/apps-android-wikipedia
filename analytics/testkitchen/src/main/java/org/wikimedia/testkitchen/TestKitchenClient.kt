@@ -75,8 +75,8 @@ class TestKitchenClient(
     ) {
         // If we already have stream configs, then we can pre-validate certain conditions and exclude the event from the queue entirely.
         var streamConfig: StreamConfig? = null
-        if (sourceConfig.get() != null) {
-            streamConfig = sourceConfig.get().getStreamConfigByName(streamName)
+        if (!sourceConfig.get()?.streamConfigs.isNullOrEmpty()) {
+            streamConfig = sourceConfig.get()?.streamConfigs[streamName]
             if (streamConfig == null) {
                 logger.info("No stream config exists for this stream, the event is ignored and dropped.")
                 return
