@@ -127,7 +127,7 @@
   <string name="login_username_hint">Wužiwarske mjeno</string>
   <string name="login_password_hint">Hesło</string>
   <string name="account_creation_password_hint">Hesło</string>
-  <string name="login_2fa_hint" fuzzy="true">Kod za dwójnu awtentifikaciju</string>
+  <string name="login_2fa_hint">Kod za dwufaktorowu awtentifikaciju</string>
   <string name="onboarding_card_login">Přizjewić</string>
   <string name="page_editing_login">Přizjewić</string>
   <string name="reading_lists_sync_login">Přizjewić</string>
@@ -211,7 +211,7 @@
   <string name="about_description">Wo tutu app</string>
   <string name="privacy_policy_description">Datowoškitne směrnicy</string>
   <string name="terms_of_use_description">Wužiwanske wuměnjenja</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://hsb.m.wikipedia.org/wiki/Wikipedija:Wo_Wikipediji</string>
+  <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="android_app_faq_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="about_libraries_heading">Trjebane biblioteki</string>
   <string name="about_contributors_heading">Přinošowarjo</string>
@@ -460,15 +460,19 @@
   <string name="reading_lists_menu_sort_by">Sortěrować po</string>
   <string name="reading_lists_refresh_sync_option">Znowa synchronizować</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přizjewić / konto wutworić</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tutón nastawk je nětko offline přistupny.</item>
-    <item quantity="other">Tutej nastawkaj stej nětko offline přistupnej.</item>
+    <item quantity="two">Tutej nastawkaj stej nětko offline přistupnej.</item>
+    <item quantity="few">Tute nastawki su nětko offline přistupne.</item>
+    <item quantity="other">Tute nastawki su nětko offline přistupne.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
-    <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
+    <item quantity="two">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
+    <item quantity="few">Tute nastawki njejsu hižo offline přistupne.</item>
+    <item quantity="other">Tute nastawki njejsu hižo offline přistupne.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Čitanske lisćiny wuspěšnje synchronizowane</string>
+  <string name="reading_list_toast_last_sync">Čitanske lisćiny synchronizowane</string>
   <string name="reading_list_menu_last_sync">Poslednja synchronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">W porjadku</string>
   <string name="reading_list_delete_dialog_ok_button_text">W porjadku</string>
