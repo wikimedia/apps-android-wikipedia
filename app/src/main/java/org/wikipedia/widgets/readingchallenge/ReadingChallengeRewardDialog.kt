@@ -36,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -45,8 +46,11 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
 class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+        .startFunnel("widget_challenge")
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+        instrument.submitInteraction(
             action = "impression",
             actionSource = "challenge_complete",
             elementId = "collect_prize",
@@ -60,7 +64,7 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onNavigateClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                            instrument.submitInteraction(
                                 action = "click",
                                 actionSource = "challenge_complete",
                                 elementId = "store_button",

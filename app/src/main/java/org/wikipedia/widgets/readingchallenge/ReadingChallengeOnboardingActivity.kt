@@ -37,6 +37,7 @@ import androidx.core.net.toUri
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
@@ -44,6 +45,7 @@ import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.components.WikipediaAlertDialog
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -75,7 +77,10 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         DeviceUtil.setEdgeToEdge(this)
         Prefs.readingChallengeOnboardingShown = true
 
-        ReadingChallengeAnalyticsHelper.instrument.submitInteraction("impression", actionSource = "widget_challenge_announce")
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+            .startFunnel("widget_challenge")
+
+        instrument?.submitInteraction("impression", actionSource = "widget_challenge_announce")
 
         setContent {
             BaseTheme {
@@ -92,12 +97,12 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                             showLoginDialog = false
                         },
                         onConfirmButtonClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "login_join")
+                            instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "login_join")
                             startActivity(LoginActivity.newIntent(this, LoginActivity.SOURCE_READING_CHALLENGE))
                             finish()
                         },
                         onDismissButtonClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "no_thanks")
+                            instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_login", elementId = "no_thanks")
                             finish()
                         }
                     )
@@ -110,11 +115,11 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
                         finish()
                     },
                     onLearnMoreClick = {
-                        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "learn_more")
+                        instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "learn_more")
                         UriUtil.visitInExternalBrowser(context = this, uri = getString(R.string.reading_challenge_learn_more).toUri())
                     },
                     onJoinClick = {
-                        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "join_challenge")
+                        instrument?.submitInteraction(action = "click", actionSource = "widget_challenge_announce", elementId = "join_challenge")
                         if (!AccountUtil.isLoggedIn) {
                             showLoginDialog = true
                         } else {

@@ -1,14 +1,12 @@
 package org.wikipedia.widgets.readingchallenge
 
-import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 
 object ReadingChallengeAnalyticsHelper {
-    val instrument: InstrumentImpl by lazy {
-        TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
-            .startFunnel("widget_challenge")
-    }
+    // TODO: waiting on decision on whether to remove funnel or not for hearbeat events
+    fun getInstrumentation() = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+        .startFunnel("widget_challenge")
 
     fun sendHeartbeatEvent(state: ReadingChallengeState) {
         when (state) {
@@ -17,7 +15,7 @@ object ReadingChallengeAnalyticsHelper {
             ReadingChallengeState.ChallengeConcludedNoStreak -> logChallengeConcluded(elementId = "challenge_no_streak")
             is ReadingChallengeState.StreakOngoingNeedsReading,
             is ReadingChallengeState.StreakOngoingReadToday -> {
-                instrument.submitInteraction(
+                getInstrumentation().submitInteraction(
                     action = "heartbeat",
                     actionSource = "widget_challenge",
                     actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
@@ -26,7 +24,7 @@ object ReadingChallengeAnalyticsHelper {
             ReadingChallengeState.NotEnrolled,
             ReadingChallengeState.NotLiveYet,
             ReadingChallengeState.EnrolledNotStarted -> {
-                instrument.submitInteraction(
+                getInstrumentation().submitInteraction(
                     action = "heartbeat",
                     actionSource = "widget_challenge"
                 )
@@ -45,7 +43,7 @@ object ReadingChallengeAnalyticsHelper {
     }
 
     private fun logChallengeConcluded(elementId: String) {
-        instrument.submitInteraction(
+        getInstrumentation().submitInteraction(
             action = "heartbeat",
             actionSource = "widget_challenge",
             elementId = elementId,

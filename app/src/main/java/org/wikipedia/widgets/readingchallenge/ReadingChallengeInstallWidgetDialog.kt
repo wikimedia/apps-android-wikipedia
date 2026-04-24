@@ -46,6 +46,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -55,9 +56,12 @@ import org.wikipedia.theme.Theme
 
 class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
 
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+        .startFunnel("widget_challenge")
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        ReadingChallengeAnalyticsHelper.instrument.submitInteraction(action = "impression", actionSource = "widget_challenge_install")
+        instrument.submitInteraction(action = "impression", actionSource = "widget_challenge_install")
         Prefs.readingChallengeInstallPromptShown = true
 
         return ComposeView(requireContext()).apply {
@@ -66,7 +70,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                     InstallWidgetScreen(
                         pinToWidgetSupported = pinWidgetSupported(),
                         onCloseClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                            instrument.submitInteraction(
                                 action = "click",
                                 actionSource = "widget_challenge_install",
                                 elementId = "install_close"
@@ -74,7 +78,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                             dismiss()
                         },
                         onGotItClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                            instrument.submitInteraction(
                                 action = "click",
                                 actionSource = "widget_challenge_install",
                                 elementId = "install_accept"
@@ -82,7 +86,7 @@ class ReadingChallengeInstallWidgetDialog : ExtendedBottomSheetDialogFragment(st
                             dismiss()
                         },
                         onAddClick = {
-                            ReadingChallengeAnalyticsHelper.instrument.submitInteraction(
+                            instrument.submitInteraction(
                                 action = "click",
                                 actionSource = "widget_challenge_install",
                                 elementId = "install_add"
