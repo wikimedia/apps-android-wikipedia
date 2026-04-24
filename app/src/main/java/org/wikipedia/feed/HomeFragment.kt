@@ -497,6 +497,18 @@ fun CommunityContentTab(
                     // TODO: insert Today's Featured Picture module here
                     // TODO: insert DYK module here
 
+                    day.featuredImage?.let { image ->
+                        item(key = "tfi-${day.age}") {
+                            FeaturedImageModule(
+                                wikiSite = wikiSite,
+                                featuredImage = image,
+                                onClick = onImageClick,
+                                onDownloadClick = onImageDownloadClick,
+                                onShareClick = { onImageShareClick(image, day.age) }
+                            )
+                        }
+                    }
+
                     if (day.news.isNotEmpty()) {
                         item(key = "news-${day.age}") {
                             NewsModule(
@@ -529,18 +541,6 @@ fun CommunityContentTab(
                                 onFooterClick = {
                                     activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
                                 }
-                            )
-                        }
-                    }
-
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                wikiSite = wikiSite,
-                                featuredImage = image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
                             )
                         }
                     }
