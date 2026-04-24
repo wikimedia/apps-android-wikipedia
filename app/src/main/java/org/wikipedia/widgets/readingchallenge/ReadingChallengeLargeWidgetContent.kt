@@ -70,7 +70,7 @@ fun ReadingChallengeLargeWidgetContent(
                         textColor = WidgetColors.primary
                     )
                 },
-                mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_collect_your_prize_button),
@@ -90,7 +90,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 bottomContent = {
                     WidgetButton(
                         text = streakText,
@@ -111,7 +111,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 bottomContent = {
                     // for visual alignment, prevents the mascot from shifting downward
                     Spacer(modifier = GlanceModifier.height(40.dp))
@@ -137,7 +137,7 @@ fun ReadingChallengeLargeWidgetContent(
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_opted_in_description),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_join_the_challenge_button),
@@ -155,7 +155,7 @@ fun ReadingChallengeLargeWidgetContent(
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
                 subTitle = context.getString(R.string.reading_challenge_widget_not_live_description),
-                mainImageResId = R.drawable.wp25_babyglobe_reading, // TODO: update when svg's are provided
+                mainImageResId = R.drawable.wp25_babyglobe_reading,
                 bottomContent = {
                     WidgetButton(
                         text = context.getString(R.string.reading_challenge_widget_explore_wikipedia_button),
@@ -175,7 +175,7 @@ fun ReadingChallengeLargeWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
                 state = state,
-                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId
             )
         }
         is ReadingChallengeState.StreakOngoingReadToday -> {
@@ -189,7 +189,7 @@ fun ReadingChallengeLargeWidgetContent(
                 contentColor = combination.contentColor,
                 progressColor = combination.progressColor ?: WidgetColors.phoneReadingProgressColor,
                 state = state,
-                mascotImageResId = combination.iconResId // TODO: update when svg's are provided
+                mascotImageResId = combination.iconResId
             )
         }
     }
