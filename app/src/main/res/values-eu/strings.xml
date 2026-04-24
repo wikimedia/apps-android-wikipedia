@@ -165,8 +165,8 @@
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="account_creation_password_hint">Pasahitza</string>
-  <string name="login_2fa_hint" fuzzy="true">Bi-faktoreko Autentikatze Kodea</string>
-  <string name="login_2fa_other_workflow_error_msg" fuzzy="true">Bi-faktoreko autentikatzea beharrezkoa da! Mesedez bueltatu jarduera normalera eta sartu zure 2FA tokena, eta orduan berriro saiatu.</string>
+  <string name="login_2fa_hint">Bi faktoreko autentifikazio kodea</string>
+  <string name="login_2fa_other_workflow_error_msg">Bi faktoreko autentifikazioa beharrezkoa da! Mesedez, hasi saioa pantaila nagusitik eta sartu zure 2FA tokenaren kodea.</string>
   <string name="login_email_auth_hint">Posta elektroniko bidezko egiaztapen-kodea</string>
   <string name="login_email_auth_other_workflow_error_msg">Posta elektroniko bidezko egiaztapena beharrezkoa da! Hasi saioa pantaila nagusian eta idatzi zure helbide elektronikoan jasotako egiaztapen-kodea.</string>
   <string name="login_background_error_msg">Ezin da berriro saioa hasi. Itzuli pantaila nagusira eta hasi saioa eskuz.</string>
@@ -432,13 +432,14 @@
   <string name="preference_title_prefer_offline_content">Konexiorik gabeko edukia hobestu</string>
   <string name="preference_summary_prefer_offline_content">Aurreztu itzazu datuak, lineaz kanpo erabilgarri dauden artikuluak kargatuz, artikulu baten azken bertsioa kargatzearen ordez</string>
   <string name="preference_title_delete_local_donation_history">Garbitu dohaintzen historia</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistemaren gaiarekin bat egin</string>
   <string name="empty_tab_title">Fitxa berria</string>
   <string name="menu_save_all_tabs">gorde etiketa guztiak</string>
   <string name="error_blocked_title">Zure erabiltzaile-izena edo IP helbidea blokeatu egin da.</string>
   <string name="error_blocked_by">Blokeoa &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;-ek egin du</string>
   <string name="error_blocked_reason">Emandako arrazoia hau da: %s</string>
   <string name="error_blocked_start">Blokearen hasiera: %s</string>
-  <string name="error_blocked_expiry" fuzzy="true">Blokearen epemuga: %s</string>
+  <string name="error_blocked_expiry">Blokearen epemuga: %s</string>
   <string name="error_blocked_id">Blokeoaren IDa: %s</string>
   <string name="error_blocked_footer">Blokeoaz hitz egiteko, &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; edo beste &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratzaile batekin&lt;/a&gt; harremanetan jar zaitezke.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Pertsonalizatu zure tresna-barra</string>
@@ -517,6 +518,10 @@
     <item quantity="one">artikulu 1, %2$.2f MB</item>
     <item quantity="other">%1$d artikulu, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">1 artikulutik %1$d lineaz kanpo eskuragarri</item>
+    <item quantity="other"> %1$d %2$d lineaz kanpo eskuragarri</item>
+  </plurals>
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_ellipsis">Honen arabera sailkatu...</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
@@ -545,6 +550,14 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">artikulu %d kendu da zerrendatik</item>
     <item quantity="other">%d artikulu kendu dira zerrendatik</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+    <item quantity="one">artikulu %d kendu da %s zerrendatik</item>
+    <item quantity="other">%d artikulu kendu dira %s zerrendatik</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">zerrenda %d ezabatuta</item>
+    <item quantity="other"> %d zerrenda ezabatuta</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Ezin da lehenetsitako zerrenda (%s) ezabatu</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s ezabatuta. Ezin da lehenetsitako zerrenda (%2$s) ezabatu.</string>
@@ -607,6 +620,7 @@
   <string name="no_user_lists_msg">Sortu zerrendak bidaiatzeko lekuetarako, gai gogokoentzat, eta askoz gehiagorako</string>
   <string name="reading_list_saved_list_rename">%1$s (erabiltzailea sortua)</string>
   <string name="split_reading_list_message">Irakurketa zerrenda bakoitzeko %d artikuluen muga dago. Muga gainditu dituzten jada existitzen diren zerrendak beste zerrendatan banatu dira.</string>
+  <string name="reading_list_move_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko mugara %1$s gatik iritsi zara.</string>
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko %1$s gatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
   <string name="reading_lists_menu_create_list">Zerrenda berria sortu</string>
@@ -727,15 +741,64 @@
     <item quantity="other"> %d irakurri gabe gisa markatu dira</item>
   </plurals>
   <string name="watchlist_title">Jarraipen zerrenda</string>
+  <string name="preference_title_notification_poll">Piztu jakinarazpenak</string>
+  <string name="preference_summary_notification_poll">Baimendu aplikazioari datuak erabiltzea atzeko planoan jakinarazpen berriak bilatzeko.</string>
+  <string name="preference_category_notification_types">Aplikazio barruko jakinarazpen motak</string>
   <string name="preference_title_notification_system">Sistema</string>
+  <string name="preference_summary_notification_system">Sistemaren mezuak</string>
   <string name="preference_title_notification_milestone">Mugarria</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
   <string name="preference_title_notification_revert">Lehengoratu</string>
+  <string name="preference_summary_notification_revert">Zure ekarpenetako bat desegin da</string>
   <string name="preference_title_notification_login_fail">Saio-hasiera</string>
+  <string name="preference_title_notification_mention">Aipamena</string>
+  <string name="preference_summary_notification_mention">Norbaitek orrialde batean aipatu zaitu</string>
+  <string name="preference_title_notification_user_talk">Eztabaida orria</string>
+  <string name="preference_summary_notification_user_talk">Eztabaida orrietako mezuak eta erantzunak</string>
+  <string name="preference_title_notification_email_user">posta elektronikoa jaso da</string>
+  <string name="preference_summary_notification_email_user">Norbaitek posta elektroniko bat bidali dizu wikiaren bidez</string>
+  <string name="preference_title_notification_user_rights">Erabiltzaileen eskubideen aldaketak</string>
+  <string name="preference_title_notification_article_linked">Zuk sortutako artikuluetarako estekak</string>
+  <string name="preference_summary_notification_article_linked">Zuk sortutako orrialde batera esteka berri bat egiten denean jasotzen da</string>
+  <string name="preference_category_push_notifications">Piztu jakinarazpenak</string>
+  <string name="preference_title_customize_push_notifications">Pertsonalizatu jakinarazpenen aktibazioa</string>
+  <string name="preference_category_display_settings">Bistaratu ezarpenak</string>
+  <string name="preference_title_hide_read_notifications">Ezkutatu irakurritako jakinarazpenak</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Wikipediako jakinarazpenak</string>
+  <string name="notifications_channel_group_other_title">Bestelakoa</string>
+  <string name="notifications_channel_group_other_description">Aplikazioko beste jakinarazpen batzuk</string>
+  <string name="notifications_filter_label">Iragazi jakinarazpenak</string>
+  <string name="notifications_filter_icon_content_description">Iragazi jakinarazpenak</string>
+  <string name="notifications_filter_update_app_languages">Eguneratu aplikazioaren hizkuntzak</string>
+  <string name="notifications_empty_search_message">Saiatu %s kentzen jakinarazpen gehiago ikusteko</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">iragazki %d</item>
+    <item quantity="other"> %d iragazki</item>
+  </plurals>
+  <string name="notifications_select_all_filters">Hautatu iragazki guztiak</string>
+  <string name="notifications_tab_filter_mentions">Aipamenak</string>
+  <string name="notifications_search_bar_hint">Bilatu edo iragazi jakinarazpenak</string>
+  <string name="notifications_search_bar_filter_hint">Jakinarazpen-iragazkia</string>
+  <string name="notifications_menu_mark_as_read">Markatu irakurrita gisa</string>
+  <string name="notifications_menu_mark_as_unread">Markatu irakurri gabekotzat</string>
+  <string name="notifications_swipe_action_read">Irakurrita</string>
+  <string name="notifications_swipe_action_unread">Irakurri gabe</string>
+  <string name="notifications_menu_check_all">Markatu elementu guztiak</string>
+  <string name="notifications_menu_uncheck_all">Desmarkatu elementu guztiak</string>
+  <string name="notifications_wiki_filter_header">Wiki iragazkia</string>
+  <string name="notifications_type_filter_header">Mota iragazkia</string>
+  <string name="notifications_all_wikis_text">Wiki guztiak</string>
+  <string name="notifications_all_types_text">Mota guztiak</string>
+  <string name="notifications_menu_user_talk_page">%s -ren eztabaida orria</string>
+  <string name="notifications_offline_disable_message">Funtzioa ez dago erabilgarri lineaz kanpo zaudenean.</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
+  <string name="view_random_article_card_title">Ausazko artikulua</string>
+  <string name="view_random_article_card_action">Ausazko artikulu gehiago</string>
   <string name="view_top_read_card_title">Irakurrienak</string>
+  <string name="view_top_read_card_action">Irakurri gehiago</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Ausazko beste artikulu bat kargatu</string>
@@ -776,6 +839,8 @@
   <string name="feed_item_type_featured_image">Wikimedia Commonsetik hartutako eguneko irudi aipagarria</string>
   <string name="feed_item_type_main_page">Wikipediako orrialde nagusia eguneko eduki aipagarriarekin</string>
   <string name="feed_item_type_randomizer">Irakurtzeko ausazko artikuluak sortu</string>
+  <string name="feed_item_type_suggested_edits">Wikipedian edukia gehitzeko iradokizunak</string>
+  <string name="feed_item_type_places">Uneko kokapenean oinarritutako inguruko artikuluak</string>
   <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ados</string>
@@ -783,24 +848,57 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Pertsonalizatu zure Arakatze jarioa&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Orain zure jarioan zer erakutsi behar den aukeratu dezakezu eta, era berean, zure eduki mota gogokoenak lehentasunez ezarri.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Ados</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Utzi</string>
+  <string name="feed_accessibility_card_text">Jarioaren amaierara iritsi zara.</string>
   <string name="feed_accessibility_card_load_more_button">Gehiago kargatu</string>
+  <string name="feed_language_variants_removal_dialog_title">Irakurketa esperientzia hobea lortzeko, hautatu eskualdeko hizkuntza aldaera bat</string>
+  <string name="feed_language_variants_removal_dialog_message">Une honetan Wikipediako hizkuntza nagusi gisa onartzen ez den txinerazko aldaera generiko bat erabiltzen ari zara.</string>
+  <string name="feed_language_variants_removal_dialog_save">Gorde</string>
+  <string name="feed_language_variants_removal_secondary_dialog_title">Mesedez, eguneratu zure bigarren mailako hizkuntzak</string>
+  <string name="feed_language_variants_removal_secondary_dialog_message">Une honetan txinerazko aldaera generiko bateraezin bat erabiltzen ari zara bigarren mailako hizkuntza gisa. Joan ezarpenetara bigarren mailako hizkuntza berri bat hautatzeko edo hizkuntzen zerrenda berresteko.</string>
+  <string name="feed_language_variants_removal_secondary_dialog_settings">Joan Ezarpenetara</string>
+  <string name="tabs_activity_title">Fitxak</string>
   <string name="description_edit_text_hint">Artikuluaren deskribapena</string>
   <string name="description_edit_article_description_label">Artikulua</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikuluaren deskribapena (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikuluaren deskribapena (%s)</string>
   <string name="description_edit_add_caption_label">Irudiaren deskribapena</string>
   <string name="description_edit_add_caption_hint">Irudiaren testua</string>
+  <string name="description_edit_translate_caption_label_per_language">Irudi oineko testua (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Irudi oineko testua (%s)</string>
   <string name="description_edit_save">Argitaratu</string>
   <string name="description_edit_read">Irakurri</string>
   <string name="description_edit_add_description">Gehitu artikuluaren deskribapena</string>
+  <string name="description_edit_translate_description">Itzuli artikuluaren deskribapena</string>
   <string name="description_edit_edit_description">Artikuluaren deskribapena aldatu</string>
+  <string name="description_edit_add_image_caption">Gehitu irudi oineko testua</string>
+  <string name="description_edit_edit_image_caption">Editatu irudiaren oineko testua</string>
+  <string name="description_edit_translate_image_caption">Itzuli irudi oinak</string>
   <string name="description_edit_cancel_hint">Utzi</string>
   <string name="description_edit_help_title">Info: artikuluen deskribapenak</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_help_wikidata_guide">Wikidata gida idatzitako deskribapenentzat</string>
   <string name="description_edit_anon_limit">Eskerrik asko deskribapenak aldatzen jarri duzun etengabeko interesagatik! Aldaketa gehigarriak egiteko, saioa hasi zure Wikipedia kontuan.</string>
   <string name="description_edit_license_notice">Deskribapena aldatzerakoan, hurrengo hau onartzen dut &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
+  <string name="description_edit_helper_text_lowercase_warning">normalean letra minuskulaz hasten dira</string>
+  <string name="description_edit_voice_input_description">Ahots-sarrera</string>
+  <string name="description_edit_learn_more">Lortu informazio gehiago artikuluen deskribapenei buruz</string>
+  <string name="description_edit_image_caption_learn_more">Lortu informazio gehiago irudien azpiko testuei buruz</string>
+  <string name="description_too_short">Testua laburregia da.</string>
+  <string name="description_too_long">Saiatu deskribapenak laburrak izaten, erabiltzaileek artikuluaren gaia begirada batean uler dezaten.</string>
+  <string name="description_ends_with_punctuation">Testua ezin da puntuaziorik gabe amaitu.</string>
+  <string name="description_starts_with_uppercase">Letra minuskulaz hasi, lehenengo hitza izen propioa ez bada behintzat.</string>
+  <string name="description_starts_with_lowercase">Saihestu letra minuskulaz hastea.</string>
+  <string name="description_is_in_different_language">Testua ustekabeko hizkuntza batean dagoela dirudi. Hizkuntza %s izan beharko litzateke.</string>
+  <string name="description_verification_notice">Mesedez, egiaztatu zure deskribapena %1$s hizkuntzan dagoela. Idatzi duzun deskribapena %2$s hizkuntzan badago, abisu hau alde batera utzi dezakezu.</string>
+  <string name="description_edit_suggested_description_button_text">Erakutsi iradokitako deskribapenak</string>
+  <string name="description_edit_suggested_description_button_tooltip">Probatu makinak iradokitako artikuluen deskribapenak</string>
   <string name="description_edit_success_saved">Artikulua argitaratu da!</string>
+  <string name="description_edit_success_saved_snackbar">Artikuluaren deskribapena argitaratu da!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Artikuluaren deskribapena argitaratu da! ( %s )</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Irudi azpiko testua argitaratu da!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Irudi azpiko testua argitaratu da! ( %s )</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Irudiaren etiketa(k) argitaratu dira!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Gustatu zaizu? Lagundu gehitzen.</string>
   <string name="description_edit_success_encouragement">Wikipedia askoz hobea egin duzu gu denontzat</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
@@ -811,6 +909,34 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aldatzen hasi</string>
   <string name="description_edit_tutorial_promise">Hasteko, zin dagit ezarpen hau ez dudala gehiegikeriz erabiliko.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Makina iradokizunak</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Iradokizunak makina batek sortzen ditu, ez boluntarioek edo Wikimedia Fundazioak.</string>
+  <string name="customize_toolbar_title">Pertsonalizatu tresna-barra</string>
+  <string name="customize_toolbar_shortcut_description_text">Pertsonalizatu beheko tresna-barra erabilgarrienak iruditzen zaizkizun 5 lasterbiderekin.</string>
+  <string name="customize_toolbar_category_toolbar">Tresna-barra</string>
+  <string name="customize_toolbar_category_menu">Menua</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Arrastatu eta askatu zure gogoko elementuak hemen 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Berrezarri lehenetsitako egoerara</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Eduki sakatuta ikonoa elementua mugitzeko</string>
+  <string name="customize_toolbar_item_default_tooltip">Sakatu eta arrastatu elementu bat berriro kokatzeko</string>
+  <string name="suggested_edits_activity_title">Aldatu</string>
+  <string name="suggested_edits_describe_articles">Deskribatu artikuluak</string>
+  <string name="suggested_edits_caption_images">Idatzi azpiko testuak irudiei</string>
+  <string name="suggested_edits_tag_images">Etiketatu irudiak</string>
+  <string name="suggested_edits_edit_patrol_hint">Berrikusi azken aldaketak eta erabaki eraikitzaileak diren ala ez.</string>
+  <string name="suggested_edits_edit_patrol_review">Berrikusi</string>
+  <string name="suggested_edits_review_description">Berrikusi artikuluaren deskripzioa</string>
+  <string name="suggested_edits_add_description_button">Gehitu deskribapena</string>
+  <string name="suggested_edits_edit_description_button">Aldatu deskribapena</string>
+  <string name="suggested_edits_add_translation_button">Gehitu itzulpena</string>
+  <string name="suggested_edits_edit_translation_button">Aldatu itzulpena</string>
+  <string name="suggested_edits_add_caption_button">Gehitu irudi oineko testua</string>
+  <string name="suggested_edits_edit_caption_button">Aldatu irudi oineko testua</string>
+  <string name="suggested_edits_review_image_caption">Berrikusi irudi oineko testua</string>
+  <string name="suggested_edits_my_contributions">Nire ekarpenak</string>
+  <string name="suggested_edits_no_description">Fitxategi honek ez du deskribapenik</string>
+  <string name="suggested_edits_license_notice">Deskribapena gehitzean, &lt;a href=\"%1$s\"&gt;erabilera baldintzak&lt;/a&gt; onartzen ditut  eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
+  <string name="suggested_edits_image_caption_license_notice">Irudi oineko testua gehitzean, &lt;a href=\"%1$s\"&gt;erabilera baldintzak&lt;/a&gt; onartzen ditut  eta onartzen dut nire ekarpenak aske uzten ditudala &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lizentziaren babespean.</string>
   <string name="suggested_edits_menu_info">Info</string>
   <string name="suggested_edits_task_add_description_title">Gehitu artikuluen deskribapenak</string>
   <string name="suggested_edits_task_add_description_description">Deskribapenik ez dute artikuluetan lagundu</string>
@@ -839,23 +965,37 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Gehitu artikuluen deskribapena (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Hasi</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Irudi oineko testua (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Irudia</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons-eko fitxategia</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etiketak</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Jatorria/Argazkilaria</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lizentzia</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Informazio Gehiago</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Fitxategiaren orrialdea Wikimedia Commonsen</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Wikipediako fitxategi orria</string>
+  <string name="suggested_edits_article_cta_image_tags">Gehitu irudi-etiketak</string>
   <string name="suggested_edits_article_cta_image_caption">Gehitu irudi oineko testua</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Gehitu irudi oineko testua (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Ikusi</string>
   <string name="suggested_edits_feed_card_add_image_caption">Gehitu irudi oineko testua</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Gehitu irudi oineko testua (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Gehitu irudi-etiketak</string>
   <string name="suggested_edits_task_action_text_add">Gehitu</string>
   <string name="suggested_edits_task_action_text_translate">Itzuli</string>
   <string name="suggested_edits_image_captions">Irudi oineko testuak</string>
   <string name="suggested_edits_image_tags">Irudiaren etiketak</string>
   <string name="suggested_edits_image_tags_publishing">Argitaratzen</string>
   <string name="suggested_edits_image_tags_published">Argitaratua</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Irudiak etiketatzeak errazago aurkitzen laguntzen du.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Irudi-etiketak gehituz, irudiak errazago bilatuko dituzu Commons-en, Wikipediak bere artikuluetako irudietarako erabiltzen duen lizentzia libreko irudi-biltegian.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Zuk aukeratzen dituzun etiketak bakarrik gehituko zaizkie irudiei.</string>
+  <string name="suggested_edits_image_tags_task_detail">Gehitu etiketa pertsonalizatuak irudi bati errazago aurkitzeko.</string>
+  <string name="suggested_edits_image_tags_choose">Gehitu edo aukeratu etiketak</string>
+  <string name="suggested_edits_image_tags_published_list">Argitaratutako etiketak</string>
+  <string name="suggested_edits_image_tags_search">Bilatu etiketak</string>
+  <string name="suggested_edits_image_tags_select_title">Ez duzu etiketarik hautatu irudi honetarako</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="description_edit_revert_intro">Badakigu hoberen egiten saiatu zarela, baina gure berrikuskarietako batek arazo bat ikusi du. Zure aldaketa lehengoratzeko arrazoi posibleen artean hurrengoak daude:</string>
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>
