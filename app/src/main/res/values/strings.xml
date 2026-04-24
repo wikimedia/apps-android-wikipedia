@@ -2402,6 +2402,7 @@
     <string name="reading_challenge_onboarding_header">Celebrate Wikipedia\'s 25th birthday by joining the 25-day reading challenge!</string>
     <string name="reading_challenge_onboarding_read_title">Read 1 article a day for 25 days</string>
     <string name="reading_challenge_onboarding_read_description">Join the challenge anytime between 1 May and 31 May, complete your 25 days on your own timeline.</string>
+    <string name="reading_challenge_onboarding_read_subtitle">Join the challenge anytime between %1$s and %2$s, complete your 25 days on your own timeline.</string>
     <string name="reading_challenge_onboarding_win_title">Win prizes</string>
     <string name="reading_challenge_onboarding_win_description">Complete a 25-day reading streak while the challenge is live to win special prizes.</string>
     <string name="reading_challenge_onboarding_install_title">Install the widget</string>
@@ -2489,6 +2490,7 @@
     <string name="explore_feed_preference_community_content_title">Community-related content</string>
     <string name="explore_feed_preference_personalized_content_title">Personalized content </string>
     <string name="explore_feed_in_the_news_subtitle">Articles that have been substantially updated to reflect recent or current events of wide interest</string>
+    <string name="explore_feed_on_this_day_subtitle">Discover historical events from this day</string>
     <string name="explore_feed_community_disclaimer">Content and resources selected by and about the Wikimedia community</string>
     <string name="explore_feed_community_load_more_label">See past community content</string>
     <string name="explore_feed_manage_languages_label">Manage languages</string>

@@ -2151,6 +2151,7 @@
   <string name="reading_challenge_onboarding_header">Title of the onboarding screen for the Reading challenge.</string>
   <string name="reading_challenge_onboarding_read_title">Title of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge.</string>
   <string name="reading_challenge_onboarding_read_description">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between 1 May to 31 May.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Description of the first item in onboarding screen for the Reading challenge that indicates read one article for 25 days to complete the challenge between specified date range.The %1$s will be replaced by the start date and %2$s will be replaced by the end date.</string>
   <string name="reading_challenge_onboarding_win_title">Title of the first item in onboarding screen for the Reading challenge that indicates you can win the prize.</string>
   <string name="reading_challenge_onboarding_win_description">Description of the first item in onboarding screen for the Reading challenge that indicates how you can win the prize.</string>
   <string name="reading_challenge_onboarding_install_title">Title of the first item in onboarding screen for the Reading challenge that indicates to install widgets.</string>
@@ -2236,6 +2237,7 @@
     <string name="explore_feed_preference_community_content_title">Option label for selecting community-related content in the preference selection screen.</string>
     <string name="explore_feed_preference_personalized_content_title">Option label for selecting personalized content based on user interests in preference selection screen.</string>
   <string name="explore_feed_in_the_news_subtitle">Description of the In the News card in the Home feed.</string>
+  <string name="explore_feed_on_this_day_subtitle">Description of the On This Day card in the Home feed.</string>
   <string name="explore_feed_community_disclaimer">Text for the disclaimer at the top of the community tab in the Home feed.</string>
   <string name="explore_feed_community_load_more_label">Label text for the community tab in Home feed to load more content.</string>
   <string name="explore_feed_manage_languages_label">Label text in the languages pop-up menu in the Home feed to manauge the app languages.</string>

@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.BrushPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLocale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -60,7 +61,6 @@ import org.wikipedia.util.UiState
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 @Composable
 fun ReadingHistoryModule(
@@ -243,6 +243,7 @@ private fun ArticleReadThisMonthCard(
         ),
         onClick = onClick
     ) {
+        val locale = LocalLocale.current.platformLocale
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
@@ -255,20 +256,14 @@ private fun ArticleReadThisMonthCard(
                         readingHistory.lastArticleReadTime
                             .format(
                                 DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "hhmm a"
-                                    )
+                                    DateFormat.getBestDateTimePattern(locale, "hhmm a")
                                 )
                             )
                     else
                         readingHistory.lastArticleReadTime
                             .format(
                                 DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "MMMM d"
-                                    )
+                                    DateFormat.getBestDateTimePattern(locale, "MMMM d")
                                 )
                             )
                 } else null
@@ -316,6 +311,7 @@ private fun ArticleSavedThisMonthCard(
         ),
         onClick = onClick
     ) {
+        val locale = LocalLocale.current.platformLocale
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
@@ -328,20 +324,14 @@ private fun ArticleSavedThisMonthCard(
                         readingHistory.lastArticleSavedTime
                             .format(
                                 DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "hhmm a"
-                                    )
+                                    DateFormat.getBestDateTimePattern(locale, "hhmm a")
                                 )
                             )
                     else
                         readingHistory.lastArticleSavedTime
                             .format(
                                 DateTimeFormatter.ofPattern(
-                                    DateFormat.getBestDateTimePattern(
-                                        Locale.getDefault(),
-                                        "MMMM d"
-                                    )
+                                    DateFormat.getBestDateTimePattern(locale, "MMMM d")
                                 )
                             )
                 } else null
@@ -409,7 +399,7 @@ private fun ArticleSavedThisMonthCard(
                         ) {
                             Text(
                                 text = String.format(
-                                    Locale.getDefault(),
+                                    locale,
                                     "+%d",
                                     readingHistory.articlesSavedThisMonth - 3
                                 ),

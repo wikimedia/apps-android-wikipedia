@@ -38,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -73,9 +74,7 @@ fun InterestOnboardingScreen(
 ) {
     val transition = rememberInfiniteTransition(label = "shimmerTransition")
     Box(modifier = modifier) {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
+        Column {
             Text(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 text = stringResource(id = R.string.recommended_reading_list_interest_pick_title),
@@ -84,6 +83,7 @@ fun InterestOnboardingScreen(
                 ),
                 color = WikipediaTheme.colors.primaryColor
             )
+            Spacer(modifier = Modifier.height(16.dp))
 
             LazyVerticalStaggeredGrid(
                 columns = StaggeredGridCells.Adaptive(140.dp),
@@ -92,7 +92,7 @@ fun InterestOnboardingScreen(
                 state = gridState,
                 verticalItemSpacing = 16.dp,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
-                contentPadding = PaddingValues(16.dp),
+                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 16.dp),
                 content = {
                     item(span = StaggeredGridItemSpan.FullLine) {
                         SearchBarCard(
@@ -101,32 +101,47 @@ fun InterestOnboardingScreen(
                         )
                     }
                     item(span = StaggeredGridItemSpan.FullLine) {
-                        when (topicsState) {
-                            is TopicsState.Error -> {
-                                showError(topicsState.message)
-                            }
-                            TopicsState.Loading -> {
-                                LazyRow(
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                    contentPadding = PaddingValues(horizontal = 16.dp)
-                                ) {
-                                    items(5) {
-                                        Box(
-                                            modifier = Modifier
-                                                .width(80.dp)
-                                                .height(32.dp)
-                                                .clip(RoundedCornerShape(size = 8.dp))
-                                                .shimmerEffect(transition = transition)
-                                        )
-                                    }
+                        Box(
+                            modifier = Modifier.layout { measurable, constraints ->
+                                val extra = 16.dp.roundToPx() * 2
+                                val placeable = measurable.measure(
+                                    constraints.copy(
+                                        minWidth = constraints.minWidth + extra,
+                                        maxWidth = constraints.maxWidth + extra
+                                    )
+                                )
+                                layout(placeable.width, placeable.height) {
+                                    placeable.place(0, 0)
                                 }
                             }
+                        ) {
+                            when (topicsState) {
+                                is TopicsState.Error -> {
+                                    showError(topicsState.message)
+                                }
+                                TopicsState.Loading -> {
+                                    LazyRow(
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                        contentPadding = PaddingValues(horizontal = 16.dp)
+                                    ) {
+                                        items(5) {
+                                            Box(
+                                                modifier = Modifier
+                                                    .width(80.dp)
+                                                    .height(32.dp)
+                                                    .clip(RoundedCornerShape(size = 8.dp))
+                                                    .shimmerEffect(transition = transition)
+                                            )
+                                        }
+                                    }
+                                }
 
-                            is TopicsState.Success -> {
-                                TopicFilterChipRow(
-                                    topics = topicsState.topics,
-                                    onTopicSelected = { onTopicSelected(it) }
-                                )
+                                is TopicsState.Success -> {
+                                    TopicFilterChipRow(
+                                        topics = topicsState.topics,
+                                        onTopicSelected = { onTopicSelected(it) }
+                                    )
+                                }
                             }
                         }
                     }
@@ -202,11 +217,11 @@ fun TopicFilterChipRow(
 ) {
     LazyRow(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         items(items = topics, key = { it.topicId }) { item ->
             FilterChip(
-                modifier = Modifier.fillMaxWidth(),
                 label = { Text(item.displayTitle) },
                 selected = item.isSelected,
                 onClick = { onTopicSelected(item) },
