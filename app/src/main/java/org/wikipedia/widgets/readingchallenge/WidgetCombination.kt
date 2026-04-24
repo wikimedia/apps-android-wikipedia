@@ -4,11 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.Color
 import org.wikipedia.R
-import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.temporal.ChronoUnit
 import java.time.temporal.ChronoUnit.DAYS
 
 data class WidgetCombination(
@@ -87,14 +84,8 @@ object WidgetCombinations {
         enrollmentDate: LocalDate,
         now: LocalDateTime = LocalDateTime.now()
     ): WidgetCombination {
-        val index = if (ReleaseUtil.isPreBetaRelease && Prefs.readingChallengeWidgetFastCycle) {
-            val minutesSinceEnrollment = ChronoUnit.MINUTES.between(enrollmentDate.atStartOfDay(), now).coerceAtLeast(0)
-            (minutesSinceEnrollment % this.size).toInt()
-        } else {
-            val daysSinceEnrollment = DAYS.between(enrollmentDate, now.toLocalDate()).coerceAtLeast(0)
-            (daysSinceEnrollment % this.size).toInt()
-        }
-        return this[index]
+        val daysSinceEnrollment = DAYS.between(enrollmentDate, now.toLocalDate()).coerceAtLeast(0)
+        return this[(daysSinceEnrollment % this.size).toInt()]
     }
 
     private fun needsReadingCombination(@StringRes textResId: Int, @DrawableRes iconResId: Int) =

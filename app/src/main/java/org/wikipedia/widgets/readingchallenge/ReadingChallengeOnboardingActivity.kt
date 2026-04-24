@@ -52,25 +52,12 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class ReadingChallengeOnboardingActivity : BaseActivity() {
-    private val onboardingItems = listOf(
-        OnboardingItem(
-            icon = R.drawable.ic_contract_24dp,
-            title = R.string.reading_challenge_onboarding_read_title,
-            subTitle = R.string.reading_challenge_onboarding_read_description
-        ),
-        OnboardingItem(
-            icon = R.drawable.ic_featured_seasonal_and_gifts_24dp,
-            title = R.string.reading_challenge_onboarding_win_title,
-            subTitle = R.string.reading_challenge_onboarding_win_description
-        ),
-        OnboardingItem(
-            icon = R.drawable.dashboard_customize_24dp,
-            title = R.string.reading_challenge_onboarding_install_title,
-            subTitle = R.string.reading_challenge_onboarding_install_description
-        )
-    )
+
+    private val formatter = DateTimeFormatter.ofPattern("d MMMM", Locale.getDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +71,29 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
         instrument?.submitInteraction("impression")
 
         setContent {
+
+            val onboardingItems = listOf(
+                OnboardingItem(
+                    icon = R.drawable.ic_contract_24dp,
+                    title = R.string.reading_challenge_onboarding_read_title,
+                    subtitleString = getString(
+                        R.string.reading_challenge_onboarding_read_subtitle,
+                        formatter.format(ReadingChallengeWidgetRepository.START_DATE),
+                        formatter.format(ReadingChallengeWidgetRepository.END_DATE)
+                    )
+                ),
+                OnboardingItem(
+                    icon = R.drawable.ic_featured_seasonal_and_gifts_24dp,
+                    title = R.string.reading_challenge_onboarding_win_title,
+                    subTitle = R.string.reading_challenge_onboarding_win_description
+                ),
+                OnboardingItem(
+                    icon = R.drawable.dashboard_customize_24dp,
+                    title = R.string.reading_challenge_onboarding_install_title,
+                    subTitle = R.string.reading_challenge_onboarding_install_description
+                )
+            )
+
             BaseTheme {
                 val coroutineScope = rememberCoroutineScope()
                 var showLoginDialog by remember { mutableStateOf(false) }
@@ -222,7 +232,23 @@ class ReadingChallengeOnboardingActivity : BaseActivity() {
             currentTheme = Theme.LIGHT
         ) {
             OnboardingScreen(
-                onboardingItems = onboardingItems,
+                onboardingItems = listOf(
+                    OnboardingItem(
+                        icon = R.drawable.ic_contract_24dp,
+                        title = R.string.reading_challenge_onboarding_read_title,
+                        subTitle = R.string.reading_challenge_onboarding_read_subtitle
+                    ),
+                    OnboardingItem(
+                        icon = R.drawable.ic_featured_seasonal_and_gifts_24dp,
+                        title = R.string.reading_challenge_onboarding_win_title,
+                        subTitle = R.string.reading_challenge_onboarding_win_description
+                    ),
+                    OnboardingItem(
+                        icon = R.drawable.dashboard_customize_24dp,
+                        title = R.string.reading_challenge_onboarding_install_title,
+                        subTitle = R.string.reading_challenge_onboarding_install_description
+                    )
+                ),
                 onCloseClick = {},
                 onLearnMoreClick = {},
                 onJoinClick = {}
