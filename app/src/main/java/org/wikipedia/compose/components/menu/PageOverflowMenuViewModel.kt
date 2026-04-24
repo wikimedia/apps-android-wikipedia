@@ -17,16 +17,18 @@ import org.wikipedia.readinglist.database.ReadingList
 class PageOverflowMenuViewModel : ViewModel() {
     data class PageOverflowMenuState(
         val entry: HistoryEntry,
-        val items: List<Pair<String, () -> Unit>>
+        val items: List<Pair<String, () -> Unit>>,
+        val menuKey: String
     )
 
     var pageOverflowMenuState by mutableStateOf<PageOverflowMenuState?>(null)
 
     fun onPageOverflowClick(
+        context: Context,
+        wikiSite: WikiSite,
         pageSummary: PageSummary,
         source: Int,
-        wikiSite: WikiSite,
-        context: Context,
+        menuKey: String,
         onOpenPage: (HistoryEntry) -> Unit = {},
         onOpenInNewTab: (HistoryEntry) -> Unit = {},
         onAddRequest: (HistoryEntry, addToDefault: Boolean) -> Unit,
@@ -53,7 +55,8 @@ class PageOverflowMenuViewModel : ViewModel() {
                     onRemoveRequest = onRemoveRequest,
                     onShareRequest = onShareRequest,
                     onLinkCopyRequest = onLinkCopyRequest
-                )
+                ),
+                menuKey = menuKey
             )
         }
     }

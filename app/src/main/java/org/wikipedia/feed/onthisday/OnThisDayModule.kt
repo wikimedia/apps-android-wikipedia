@@ -55,7 +55,7 @@ fun OnThisDayModule(
     pageOverflowContent: @Composable (eventIndex: Int, itemIndex: Int) -> Unit,
     onHideModuleClick: () -> Unit = {},
     onPageClick: (page: PageSummary) -> Unit = {},
-    onPageOverflowClick: (PageSummary) -> Unit = {},
+    onPageOverflowClick: (PageSummary, Int, Int) -> Unit = { _, _, _ -> },
     onFooterClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -71,15 +71,17 @@ fun OnThisDayModule(
             onHideModuleClick = onHideModuleClick
         )
 
-        events.forEachIndexed { index, event ->
+        events.forEachIndexed { eventIndex, event ->
             EventRow(
                 context = context,
                 wikiSite = wikiSite,
-                isFirst = index == 0,
+                isFirst = eventIndex == 0,
                 event = event,
-                pageOverflowContent = { pageOverflowContent(index, it) },
+                pageOverflowContent = { pageOverflowContent(eventIndex, it) },
                 onPageClick = onPageClick,
-                onPageOverflowClick = onPageOverflowClick
+                onPageOverflowClick = { pageSummary, itemIndex ->
+                    onPageOverflowClick(pageSummary, eventIndex, itemIndex)
+                }
             )
         }
 
@@ -113,7 +115,7 @@ private fun EventRow(
     isFirst: Boolean,
     pageOverflowContent: @Composable (Int) -> Unit,
     onPageClick: (page: PageSummary) -> Unit = {},
-    onPageOverflowClick: (PageSummary) -> Unit = {},
+    onPageOverflowClick: (PageSummary, Int) -> Unit = { _, _ -> },
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {
 
@@ -197,7 +199,7 @@ private fun EventRow(
                         pageSummary = page,
                         pageOverflowContent = { pageOverflowContent(index) },
                         onPageClick = onPageClick,
-                        onPageOverflowClick = onPageOverflowClick
+                        onPageOverflowClick = { onPageOverflowClick(page, index) }
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))

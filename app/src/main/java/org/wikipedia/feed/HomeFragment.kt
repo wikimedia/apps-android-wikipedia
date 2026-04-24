@@ -156,12 +156,13 @@ class HomeFragment : Fragment() {
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
                         },
-                        onPageOverflowClick = { pageSummary, source ->
+                        onPageOverflowClick = { pageSummary, source, menuKey ->
                             pageOverflowMenuViewModel.onPageOverflowClick(
+                                context = requireContext(),
+                                wikiSite = wikiSite,
                                 pageSummary = pageSummary,
                                 source = source,
-                                wikiSite = wikiSite,
-                                context = requireContext(),
+                                menuKey = menuKey,
                                 onOpenPage = { entry ->
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
                                 },
@@ -238,7 +239,7 @@ fun HomeScreen(
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int) -> Unit = { _, _ -> },
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
@@ -456,7 +457,7 @@ fun CommunityContentTab(
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
-    onPageOverflowClick: (pageSummary: PageSummary, source: Int) -> Unit = { _, _ -> },
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
@@ -534,7 +535,8 @@ fun CommunityContentTab(
                                 topRead = it,
                                 pageOverflowContent = { index ->
                                     PageOverflowMenu(
-                                        expanded = overflowMenuState?.entry?.source == HistoryEntry.SOURCE_FEED_MOST_READ && overflowMenuState.entry.title.prefixedText == it.articles[index].apiTitle,
+                                        menuKey = "top-read-${day.age}-$index",
+                                        overflowMenuState = overflowMenuState,
                                         onDismiss = onPageOverflowDismiss,
                                         items = overflowMenuState?.items.orEmpty()
                                     )
@@ -550,8 +552,8 @@ fun CommunityContentTab(
                                         )
                                     )
                                 },
-                                onPageOverflowClick = { pageSummary ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ)
+                                onPageOverflowClick = { pageSummary, index ->
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${day.age}-$index")
                                 },
                                 onFooterClick = {
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
@@ -591,7 +593,8 @@ fun CommunityContentTab(
                                 events = day.onThisDay.take(2),
                                 pageOverflowContent = { eventIndex, itemIndex ->
                                     PageOverflowMenu(
-                                        expanded = overflowMenuState?.entry?.source == HistoryEntry.SOURCE_FEED_ON_THIS_DAY && overflowMenuState.entry.title.prefixedText == day.onThisDay[eventIndex].pages[itemIndex].apiTitle,
+                                        menuKey = "on-this-day-${day.age}-$eventIndex-$itemIndex",
+                                        overflowMenuState = overflowMenuState,
                                         onDismiss = onPageOverflowDismiss,
                                         items = overflowMenuState?.items.orEmpty()
                                     )
@@ -602,8 +605,8 @@ fun CommunityContentTab(
                                 onPageClick = { pageSummary ->
                                     onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                 },
-                                onPageOverflowClick = { pageSummary ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY)
+                                onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${day.age}-$eventIndex-$itemIndex")
                                 },
                                 onFooterClick = {
                                     activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))

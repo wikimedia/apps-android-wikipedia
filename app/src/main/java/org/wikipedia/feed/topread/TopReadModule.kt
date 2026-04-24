@@ -49,7 +49,7 @@ fun TopReadModule(
     pageOverflowContent: @Composable (Int) -> Unit,
     onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
-    onPageOverflowClick: (PageSummary) -> Unit,
+    onPageOverflowClick: (PageSummary, Int) -> Unit,
     onFooterClick: () -> Unit
 ) {
     val maxTopReadItems = 5
@@ -84,7 +84,7 @@ fun TopReadModule(
                     pageSummary = article,
                     pageOverflowContent = { pageOverflowContent(index) },
                     onClick = onPageClick,
-                    onPageOverflowClick = onPageOverflowClick
+                    onPageOverflowClick = { onPageOverflowClick(it, index) }
                 )
             }
         }
@@ -253,7 +253,7 @@ fun TopReadCardPreview() {
             onFooterClick = {},
             onHideModuleClick = {},
             onPageClick = {},
-            onPageOverflowClick = {}
+            onPageOverflowClick = { _, _ -> }
         )
     }
 }

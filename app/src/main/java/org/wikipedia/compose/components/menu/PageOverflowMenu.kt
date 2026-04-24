@@ -11,13 +11,14 @@ import org.wikipedia.compose.theme.WikipediaTheme
 @Composable
 fun PageOverflowMenu(
     modifier: Modifier = Modifier,
-    expanded: Boolean,
+    menuKey: String,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState?,
     onDismiss: () -> Unit,
     items: List<Pair<String, () -> Unit>>
 ) {
     DropdownMenu(
         modifier = modifier,
-        expanded = expanded,
+        expanded = menuKey == overflowMenuState?.menuKey,
         onDismissRequest = onDismiss,
         containerColor = WikipediaTheme.colors.paperColor
     ) {
@@ -29,7 +30,7 @@ fun PageOverflowMenu(
                         style = MaterialTheme.typography.bodyLarge,
                         color = WikipediaTheme.colors.primaryColor
                     )
-                       },
+                },
                 onClick = {
                     action()
                     onDismiss()
