@@ -17,17 +17,18 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopRead
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
+import java.util.Collections
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 
 data class DayContent(
     val age: Int,
     val date: LocalDate,
-    val featuredArticle: PageSummary? = null,
-    val news: List<NewsItem> = emptyList(),
-    val topRead: TopRead? = null,
-    val featuredImage: FeaturedImage? = null,
-    val onThisDay: List<OnThisDay.Event> = emptyList()
+    val featuredArticle: Pair<String, PageSummary?>,
+    val news: Pair<String, List<NewsItem>?>,
+    val topRead: Pair<String, TopRead?>,
+    val featuredImage: Pair<String, FeaturedImage?>,
+    val onThisDay: Pair<String, List<OnThisDay.Event>?>
 )
 
 sealed class ForYouModule {
@@ -91,24 +92,39 @@ class HomeViewModel : ViewModel() {
         )
     }
 
+    private val hiddenModules =
+        Collections.newSetFromMap(object : LinkedHashMap<String, Boolean>() {
+            public override fun removeEldestEntry(eldest: Map.Entry<String, Boolean>): Boolean {
+                return size > MAX_HIDDEN_CARDS
+            }
+        })
+
     init {
         if (_selectedTab.value == HomeTab.COMMUNITY) {
             loadCommunityContent()
         } else {
             loadForYouContent()
         }
+        updateHiddenModules()
+    }
+
+    fun updateHiddenModules() {
+        hiddenModules.clear()
+        hiddenModules.addAll(Prefs.hiddenCards)
     }
 
     fun refreshCommunityContent() {
         nextCommunityAge = 0
         _communityState.update { CommunityContentState() }
         loadCommunityContent()
+        updateHiddenModules()
     }
 
     fun refreshForYouContent() {
         forYouBatchIndex = 0
         _forYouState.update { ForYouContentState() }
         loadForYouContent()
+        updateHiddenModules()
     }
 
     fun selectTab(tab: HomeTab) {
@@ -124,6 +140,28 @@ class HomeViewModel : ViewModel() {
     fun updateLanguage(langCode: String) {
         _wikiSite.value = WikiSite.forLanguageCode(langCode)
         Prefs.homeLanguageCode = langCode
+        if (selectedTab.value == HomeTab.COMMUNITY) {
+            refreshCommunityContent()
+        } else {
+            refreshForYouContent()
+        }
+    }
+
+    fun hideModule(moduleKey: String) {
+        hiddenModules.add(moduleKey)
+        Prefs.hiddenCards = hiddenModules
+        // TODO: optimize by only refreshing the affected module instead of the whole tab.
+        if (selectedTab.value == HomeTab.COMMUNITY) {
+            refreshCommunityContent()
+        } else {
+            refreshForYouContent()
+        }
+    }
+
+    fun unhideModule(moduleKey: String) {
+        hiddenModules.remove(moduleKey)
+        Prefs.hiddenCards = hiddenModules
+        // TODO: optimize by only refreshing the affected module instead of the whole tab.
         if (selectedTab.value == HomeTab.COMMUNITY) {
             refreshCommunityContent()
         } else {
@@ -154,11 +192,11 @@ class HomeViewModel : ViewModel() {
             val dayContent = DayContent(
                 age = age,
                 date = date,
-                featuredArticle = content.tfa,
-                news = content.news.orEmpty(),
-                topRead = content.topRead,
-                featuredImage = content.potd,
-                onThisDay = content.onthisday.orEmpty()
+                featuredArticle = "tfa-$age" to content.tfa,
+                news = "news-$age" to content.news,
+                topRead = "top-read-$age" to content.topRead,
+                featuredImage = "tfi-$age" to content.potd,
+                onThisDay = "otd-$age" to content.onthisday
             )
 
             // Advance age only after success, so retry on failure re-fetches the same day.
@@ -218,5 +256,9 @@ class HomeViewModel : ViewModel() {
             ForYouModule.BasedOnInterests("Art", listOf(PageSummary("", "", "", "", thumbnail = it, "")))
         }
         return modules
+    }
+
+    companion object {
+        private const val MAX_HIDDEN_CARDS = 100
     }
 }
