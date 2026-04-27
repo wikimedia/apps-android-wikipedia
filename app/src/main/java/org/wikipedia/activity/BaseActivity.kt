@@ -55,7 +55,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeInstallWidgetDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeOnboardingActivity
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeRewardDialog
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewActivity
 import org.wikipedia.yearinreview.YearInReviewOnboardingActivity
@@ -286,13 +285,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
             this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
             requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
-        } else if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
-            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
-            window.decorView.post {
-                if (!isDestroyed) {
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, ReadingChallengeRewardDialog())
-                }
-            }
         }
     }
 
