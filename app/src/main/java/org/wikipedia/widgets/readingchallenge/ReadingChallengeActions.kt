@@ -18,6 +18,7 @@ class JoinChallengeAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+        ReadingChallengeAnalyticsHelper.logAppOpenFromWidget()
         Prefs.readingChallengeOnboardingShown = false
         context.startActivity(
             MainActivity.newIntent(context)
@@ -32,6 +33,7 @@ class SearchAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+        ReadingChallengeAnalyticsHelper.logAppOpenFromWidget()
         context.startActivity(
             SearchActivity.newIntent(context, InvokeSource.WIDGET, null).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -46,6 +48,7 @@ class RandomizerAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+        ReadingChallengeAnalyticsHelper.logAppOpenFromWidget()
         context.startActivity(
             RandomActivity.newIntent(context, WikipediaApp.instance.wikiSite, InvokeSource.WIDGET).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -60,10 +63,25 @@ class ChallengeRewardAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
+        ReadingChallengeAnalyticsHelper.logAppOpenFromWidget()
         context.startActivity(
             MainActivity.newIntent(context)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD, true)
+        )
+    }
+}
+
+class HomeAction : ActionCallback {
+    override suspend fun onAction(
+        context: Context,
+        glanceId: GlanceId,
+        parameters: ActionParameters
+    ) {
+        ReadingChallengeAnalyticsHelper.logAppOpenFromWidget()
+        context.startActivity(
+            MainActivity.newIntent(context)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         )
     }
 }

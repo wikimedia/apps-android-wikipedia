@@ -29,16 +29,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         return callbackFlow {
             trySend(ReadingChallengeState.Loading) // initial loading state
             fun emit() {
-                val currentDate = LocalDate.now()
-                recalculateStreakIfNeeded(currentDate)
-                trySend(resolveState(
-                    ReadingChallengeUserData(
-                        currentDate = currentDate,
-                        enabled = Prefs.readingChallengeEnrolled,
-                        currentStreak = Prefs.readingChallengeStreak,
-                        hasReadToday = hasReadToday(currentDate)
-                    )
-                ))
+                trySend(getCurrentState())
             }
 
             val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
@@ -109,6 +100,18 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
+    private fun getCurrentState(currentDate: LocalDate = LocalDate.now()): ReadingChallengeState {
+        recalculateStreakIfNeeded(currentDate)
+        return resolveState(
+            ReadingChallengeUserData(
+                currentDate = currentDate,
+                enabled = Prefs.readingChallengeEnrolled,
+                currentStreak = Prefs.readingChallengeStreak,
+                hasReadToday = hasReadToday(currentDate)
+            )
+        )
+    }
+
     fun recalculateStreakIfNeeded(currentDate: LocalDate) {
         if (currentDate.isAfter(END_DATE)) return // will not reset after challenge ends
 
@@ -122,6 +125,10 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
     }
 
+    suspend fun updateWidgetsAndSendAnalytics() {
+        ReadingChallengeAnalyticsHelper.sendHeartbeatEvent(getCurrentState())
+        ReadingChallengeWidget().updateAll(context)
+    }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
         if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
             return
@@ -130,7 +137,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeLastReadDate = currentDate.toString()
             Prefs.readingChallengeStreak += 1
-            ReadingChallengeWidget().updateAll(context)
+            updateWidgetsAndSendAnalytics()
         }
     }
 
@@ -146,7 +153,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val isChallengeActive: Boolean
             get() = !LocalDate.now().isBefore(START_DATE) && LocalDate.now().isBefore(END_DATE)
 
-        private fun isWidgetInstalled(): Boolean {
+        fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
             val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(
                 ComponentName(context, ReadingChallengeWidgetReceiver::class.java)

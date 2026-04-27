@@ -36,15 +36,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import org.wikipedia.R
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.UriUtil
 
 class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpanded = true) {
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
+        .startFunnel("widget_challenge")
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        instrument.submitInteraction(
+            action = "impression",
+            actionSource = "challenge_complete",
+            elementId = "collect_prize",
+            actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+        )
         return ComposeView(requireContext()).apply {
             setContent {
                 BaseTheme {
@@ -53,6 +64,12 @@ class ReadingChallengeRewardDialog : ExtendedBottomSheetDialogFragment(startExpa
                             dismiss()
                         },
                         onNavigateClick = {
+                            instrument.submitInteraction(
+                                action = "click",
+                                actionSource = "challenge_complete",
+                                elementId = "store_button",
+                                actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
+                            )
                             UriUtil.visitInExternalBrowser(requireContext(), getString(R.string.reading_challenge_reward_url).toUri())
                             dismiss()
                         }

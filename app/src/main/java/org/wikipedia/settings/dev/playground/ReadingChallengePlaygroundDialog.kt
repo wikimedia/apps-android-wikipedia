@@ -43,7 +43,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.glance.appwidget.updateAll
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.R
@@ -52,7 +51,6 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeState
-import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidget
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetWorker
 import java.time.LocalDate
@@ -67,6 +65,7 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
             setContent {
                 val stateFlow = remember { repository.observeState() }
                 val coroutineScope = rememberCoroutineScope()
+
                 BaseTheme {
                     Column(modifier = Modifier.fillMaxSize()) {
                         Row(
@@ -100,7 +99,7 @@ class ReadingChallengePlayGroundDialog : ExtendedBottomSheetDialogFragment(start
                             state = stateFlow.collectAsState(initial = ReadingChallengeState.NotLiveYet).value,
                             updateWidgetsExplicitly = {
                                 coroutineScope.launch {
-                                    ReadingChallengeWidget().updateAll(requireContext())
+                                    ReadingChallengeWidgetRepository(requireContext()).updateWidgetsAndSendAnalytics()
                                 }
                             },
                             updateWidgetsUpdateFrequency = {
