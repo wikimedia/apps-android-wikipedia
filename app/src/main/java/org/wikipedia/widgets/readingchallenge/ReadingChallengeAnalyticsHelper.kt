@@ -4,31 +4,18 @@ import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.settings.Prefs
 
 object ReadingChallengeAnalyticsHelper {
-    // TODO: waiting on decision on whether to remove funnel or not for hearbeat events
-    fun getInstrumentation() = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
-        .startFunnel("widget_challenge")
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-widgetchallenge")
 
     fun sendHeartbeatEvent(state: ReadingChallengeState) {
         when (state) {
-            ReadingChallengeState.ChallengeCompleted -> logChallengeConcluded(elementId = "challenge_completed")
-            is ReadingChallengeState.ChallengeConcludedIncomplete -> logChallengeConcluded(elementId = "challenge_incomplete")
-            ReadingChallengeState.ChallengeConcludedNoStreak -> logChallengeConcluded(elementId = "challenge_no_streak")
-            is ReadingChallengeState.StreakOngoingNeedsReading,
-            is ReadingChallengeState.StreakOngoingReadToday -> {
-                getInstrumentation().submitInteraction(
-                    action = "heartbeat",
-                    actionSource = "widget_challenge",
-                    actionContext = mapOf("streak_count" to Prefs.readingChallengeStreak)
-                )
-            }
-            ReadingChallengeState.NotEnrolled,
-            ReadingChallengeState.NotLiveYet,
-            ReadingChallengeState.EnrolledNotStarted -> {
-                getInstrumentation().submitInteraction(
-                    action = "heartbeat",
-                    actionSource = "widget_challenge"
-                )
-            }
+            ReadingChallengeState.ChallengeCompleted -> logHeartbeatWithStreak(elementId = "challenge_completed")
+            is ReadingChallengeState.ChallengeConcludedIncomplete -> logHeartbeatWithStreak(elementId = "challenge_incomplete")
+            ReadingChallengeState.ChallengeConcludedNoStreak -> logHeartbeatWithStreak(elementId = "challenge_no_streak")
+            is ReadingChallengeState.StreakOngoingNeedsReading -> logHeartbeatWithStreak(elementId = "streak_ongoing")
+            is ReadingChallengeState.StreakOngoingReadToday -> logHeartbeatWithStreak(elementId = "streak_ongoing_read")
+            ReadingChallengeState.NotEnrolled -> logHeartbeatWithoutStreak(elementId = "not_enrolled")
+            ReadingChallengeState.NotLiveYet -> logHeartbeatWithoutStreak(elementId = "not_yet_live")
+            ReadingChallengeState.EnrolledNotStarted -> logHeartbeatWithoutStreak(elementId = "enrolled_not_started")
             else -> {}
         }
     }
@@ -42,8 +29,16 @@ object ReadingChallengeAnalyticsHelper {
             )
     }
 
-    private fun logChallengeConcluded(elementId: String) {
-        getInstrumentation().submitInteraction(
+    private fun logHeartbeatWithoutStreak(elementId: String) {
+        instrument.submitInteraction(
+            action = "heartbeat",
+            actionSource = "widget_challenge",
+            elementId = elementId,
+        )
+    }
+
+    private fun logHeartbeatWithStreak(elementId: String) {
+        instrument.submitInteraction(
             action = "heartbeat",
             actionSource = "widget_challenge",
             elementId = elementId,
