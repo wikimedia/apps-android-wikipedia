@@ -164,7 +164,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         }
 
         fun shouldShowReward(intent: Intent): Boolean {
-            return intent.hasExtra(INTENT_EXTRA_READING_CHALLENGE_REWARD)
+            return intent.hasExtra(INTENT_EXTRA_READING_CHALLENGE_REWARD) && AccountUtil.isLoggedIn
         }
     }
 }

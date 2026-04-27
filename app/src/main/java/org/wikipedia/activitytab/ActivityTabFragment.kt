@@ -221,7 +221,7 @@ class ActivityTabFragment : Fragment() {
 
     private fun maybeShowReadingChallengeRewardDialog() {
         val intent = requireActivity().intent
-        if (AccountUtil.isLoggedIn && ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
+        if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
             intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
             ExclusiveBottomSheetPresenter.show(childFragmentManager, ReadingChallengeRewardDialog())
         }
