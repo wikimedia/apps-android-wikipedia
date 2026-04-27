@@ -165,6 +165,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
+        maybeShowReadingChallengePrompt()
         fragment.handleIntent(intent)
     }
 

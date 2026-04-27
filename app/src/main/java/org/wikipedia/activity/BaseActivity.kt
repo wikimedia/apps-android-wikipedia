@@ -282,7 +282,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
-    private fun maybeShowReadingChallengePrompt() {
+    protected fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
             this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
             requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
