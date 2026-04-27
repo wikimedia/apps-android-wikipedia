@@ -104,7 +104,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
@@ -211,14 +210,6 @@ class HomeFragment : Fragment() {
                         },
                         onManageLanguagesClick = {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
-                        },
-                        onHideModuleClick = { moduleKey ->
-                            viewModel.hideModule(moduleKey)
-                            FeedbackUtil.makeSnackbar(requireActivity(), context.getString(R.string.explore_feed_header_overflow_hide_module_message)).apply {
-                                setAction(context.getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                                    viewModel.unhideModule(moduleKey)
-                                }
-                            }.show()
                         }
                     )
                 }
@@ -259,8 +250,7 @@ fun HomeScreen(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
-    onManageLanguagesClick: () -> Unit = {},
-    onHideModuleClick: (moduleKey: String) -> Unit = { _ -> }
+    onManageLanguagesClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -335,8 +325,7 @@ fun HomeScreen(
                             onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
-                            onImageShareClick = onImageShareClick,
-                            onHideModuleClick = onHideModuleClick
+                            onImageShareClick = onImageShareClick
                         )
                     }
                 }
@@ -477,8 +466,7 @@ fun CommunityContentTab(
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
-    onHideModuleClick: (moduleKey: String) -> Unit = { _ -> }
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -508,9 +496,8 @@ fun CommunityContentTab(
                         DayHeader(day.date, isFirst = day.age == 0)
                     }
 
-                    val (featuredArticleKey, featuredArticle) = day.featuredArticle
-                    featuredArticle?.let { article ->
-                        item(key = featuredArticleKey) {
+                    day.featuredArticle?.let { article ->
+                        item(key = "tfa-${day.age}") {
                             FeaturedArticleModule(
                                 wikiSite = wikiSite,
                                 article,
@@ -523,7 +510,7 @@ fun CommunityContentTab(
                                     )
                                 },
                                 onHideModuleClick = {
-                                    onHideModuleClick(featuredArticleKey)
+                                    // TODO
                                 },
                                 onShareClick = {
                                     onPageShareClick(
@@ -545,22 +532,21 @@ fun CommunityContentTab(
                         }
                     }
 
-                    val (topReadKey, topRead) = day.topRead
-                    topRead?.let {
-                        item(key = topReadKey) {
+                    day.topRead?.let {
+                        item(key = "top-read-${day.age}") {
                             TopReadModule(
                                 wikiSite = wikiSite,
                                 topRead = it,
                                 pageOverflowContent = { index ->
                                     PageOverflowMenu(
-                                        menuKey = "$topReadKey-$index",
+                                        menuKey = "top-read-${day.age}-$index",
                                         overflowMenuState = overflowMenuState,
                                         onDismiss = onPageOverflowDismiss,
                                         items = overflowMenuState?.items.orEmpty()
                                     )
                                 },
                                 onHideModuleClick = {
-                                    onHideModuleClick(topReadKey)
+                                    // TODO: implement hide module functionality
                                 },
                                 onPageClick = { entry ->
                                     onPageClick(
@@ -571,7 +557,7 @@ fun CommunityContentTab(
                                     )
                                 },
                                 onPageOverflowClick = { pageSummary, index ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "$topReadKey-$index")
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${day.age}-$index")
                                 },
                                 onFooterClick = {
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
@@ -589,60 +575,54 @@ fun CommunityContentTab(
                     // TODO: insert Today's Featured Picture module here
                     // TODO: insert DYK module here
 
-                    val (featuredImageKey, featuredImage) = day.featuredImage
-                    featuredImage?.let { image ->
-                        item(key = featuredImageKey) {
+                    day.featuredImage?.let { image ->
+                        item(key = "tfi-${day.age}") {
                             FeaturedImageModule(
                                 wikiSite = wikiSite,
                                 featuredImage = image,
                                 onClick = onImageClick,
-                                onHideModuleClick = {
-                                    onHideModuleClick(featuredImageKey)
-                                },
                                 onDownloadClick = onImageDownloadClick,
                                 onShareClick = { onImageShareClick(image, day.age) }
                             )
                         }
                     }
 
-                    val (newsKey, news) = day.news
-                    news?.let {
-                        item(key = newsKey) {
+                    if (day.news.isNotEmpty()) {
+                        item(key = "news-${day.age}") {
                             NewsModule(
                                 wikiSite = wikiSite,
-                                newsItems = news,
+                                newsItems = day.news,
                                 onNewsClick = { newsItem ->
                                     onNewsClick(newsItem)
                                 },
                                 onHideModuleClick = {
-                                    onHideModuleClick(newsKey)
+                                    // TODO: implement overflow menu
                                 }
                             )
                         }
                     }
 
-                    val (onThisDayKey, onThisDay) = day.onThisDay
-                    onThisDay?.let {
-                        item(key = onThisDayKey) {
+                    if (day.onThisDay.isNotEmpty()) {
+                        item(key = "on-this-day-${day.age}") {
                             OnThisDayModule(
                                 wikiSite = wikiSite,
-                                events = onThisDay.take(2),
+                                events = day.onThisDay.take(2),
                                 pageOverflowContent = { eventIndex, itemIndex ->
                                     PageOverflowMenu(
-                                        menuKey = "$onThisDayKey-$eventIndex-$itemIndex",
+                                        menuKey = "on-this-day-${day.age}-$eventIndex-$itemIndex",
                                         overflowMenuState = overflowMenuState,
                                         onDismiss = onPageOverflowDismiss,
                                         items = overflowMenuState?.items.orEmpty()
                                     )
                                 },
                                 onHideModuleClick = {
-                                    onHideModuleClick(onThisDayKey)
+                                    // TODO: implement overflow menu
                                 },
                                 onPageClick = { pageSummary ->
                                     onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                 },
                                 onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "$onThisDayKey-$eventIndex-$itemIndex")
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${day.age}-$eventIndex-$itemIndex")
                                 },
                                 onFooterClick = {
                                     activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
