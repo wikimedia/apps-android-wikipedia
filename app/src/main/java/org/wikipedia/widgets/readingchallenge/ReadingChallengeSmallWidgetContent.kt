@@ -51,6 +51,7 @@ fun ReadingChallengeSmallWidgetContent(
                     .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
                 backgroundColor = WidgetColors.challengeCompletedBackground,
                 mainImageResId = R.drawable.wp25_babyglobe_celebration_neutral,
+                usCompactMascotSize = true,
                 bottomContent = {
                     WidgetBadge(
                         text = streakText,
@@ -161,13 +162,12 @@ fun ReadingChallengeSmallWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = combination.iconResId,
                 bottomContent = {
-                    val size = LargeWidgetSize.from(LocalSize.current)
-                    val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
+                    val size = SmallWidgetSize.from(LocalSize.current)
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = 40.dp,
-                        textSize = adjustedTextSize,
+                        iconSize = size.badgeIconSize,
+                        textSize = size.badgeTextSize,
                         iconTintColor = combination.contentColor,
                         textColor = combination.contentColor
                     )
@@ -187,13 +187,12 @@ fun ReadingChallengeSmallWidgetContent(
                 backgroundColor = combination.backgroundColor,
                 mainImageResId = combination.iconResId,
                 bottomContent = {
-                    val size = LargeWidgetSize.from(LocalSize.current)
-                    val adjustedTextSize = if (size == LargeWidgetSize.COMPACT) 24.sp else 32.sp
+                    val size = SmallWidgetSize.from(LocalSize.current)
                     WidgetBadge(
                         text = streakText,
                         iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = 40.dp,
-                        textSize = adjustedTextSize,
+                        iconSize = size.badgeIconSize,
+                        textSize = size.badgeTextSize,
                         iconTintColor = combination.contentColor,
                         textColor = combination.contentColor
                     )
@@ -209,10 +208,10 @@ fun SmallWidget(
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     mainImageResId: Int,
     backgroundColor: Color,
+    usCompactMascotSize: Boolean = false,
     bottomContent: @Composable () -> Unit = { }
 ) {
-    val size = LocalSize.current
-    val mascotSize = if (size.height <= 210.dp) 80.dp else 120.dp
+    val size = SmallWidgetSize.from(LocalSize.current)
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -227,14 +226,14 @@ fun SmallWidget(
                 Image(
                     provider = ImageProvider(titleBarIcon),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(36.dp)
+                    modifier = GlanceModifier.size(size.titleBarIconSize)
                 )
             }
 
             Column(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(top = 16.dp),
+                    .padding(top = size.paddingBetweenMascotAndTitleIcon),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -243,7 +242,7 @@ fun SmallWidget(
                 Image(
                     provider = ImageProvider(mainImageResId),
                     contentDescription = null,
-                    modifier = GlanceModifier.size(mascotSize)
+                    modifier = GlanceModifier.size(if (usCompactMascotSize) size.compactMascotSize else size.mascotSize)
                 )
 
                 Spacer(modifier = GlanceModifier.defaultWeight())
@@ -254,82 +253,81 @@ fun SmallWidget(
     }
 }
 
+// ChallengeCompleted: layout has (mascot + badge + spacer + button)
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
+@Preview(widthDp = 184, heightDp = 130) // TINY
+@Preview(widthDp = 200, heightDp = 141) // boundary: first EXTRA_COMPACT
+@Preview(widthDp = 184, heightDp = 160) // EXTRA_COMPACT
+@Preview(widthDp = 176, heightDp = 176) // boundary: last EXTRA_COMPACT
+@Preview(widthDp = 180, heightDp = 177) // boundary: first COMPACT
+@Preview(widthDp = 120, heightDp = 200) // COMPACT
+@Preview(widthDp = 230, heightDp = 230) // boundary: last COMPACT
+@Preview(widthDp = 230, heightDp = 231) // boundary: first FULL
+@Preview(widthDp = 200, heightDp = 280) // FULL
 @Composable
-fun SmallWidgetNotEnrolledPreview() {
-    ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.NotEnrolled,
-        enrollmentDate = LocalDate.now()
-    )
-}
-
-@OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
-@Composable
-fun SmallWidgetNotLiveYetPreview() {
-    ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.NotLiveYet,
-        enrollmentDate = LocalDate.now()
-    )
-}
-
-@OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
-@Composable
-fun SmallWidgetStreakOngoingNeedsReadingPreview() {
-    ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.StreakOngoingNeedsReading(10),
-        enrollmentDate = LocalDate.now()
-    )
-}
-
-@OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
-@Composable
-fun SmallWidgetChallengeCompletedPreview() {
+fun SmallWidgetChallengeCompletedTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
         state = ReadingChallengeState.ChallengeCompleted,
         enrollmentDate = LocalDate.now()
     )
 }
 
+// StreakOngoingReadToday: mascot + badge
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
 @Composable
-fun SmallWidgetChallengeConcludedIncompletePreview() {
+fun SmallWidgetStreakOngoingReadTodayTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.ChallengeConcludedIncomplete(5),
+        state = ReadingChallengeState.StreakOngoingReadToday(streak = 15),
         enrollmentDate = LocalDate.now()
     )
 }
 
+// ChallengeConcludedIncomplete: button-with-icon (longest button text)
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 200, heightDp = 250)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
 @Composable
-fun SmallWidgetChallengeConcludedNoStreakPreview() {
+fun SmallWidgetChallengeIncompleteTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.ChallengeConcludedNoStreak,
+        state = ReadingChallengeState.ChallengeConcludedIncomplete(streak = 12),
         enrollmentDate = LocalDate.now()
     )
 }
 
+// NotEnrolled: button + mascot, simpler layout but worth checking
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 214, heightDp = 176)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
 @Composable
-fun SmallWidgetNotEnrolledSmallHeightPreview() {
+fun SmallWidgetNotEnrolledTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
         state = ReadingChallengeState.NotEnrolled,
         enrollmentDate = LocalDate.now()
     )
 }
 
+// EnrolledNotStarted: button + mascot, similar density to NotEnrolled
 @OptIn(ExperimentalGlancePreviewApi::class)
-@Preview(widthDp = 214, heightDp = 176)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
 @Composable
-fun SmallWidgetLoadingPreview() {
+fun SmallWidgetEnrolledNotStartedTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
-        state = ReadingChallengeState.Loading,
+        state = ReadingChallengeState.EnrolledNotStarted,
         enrollmentDate = LocalDate.now()
     )
 }
