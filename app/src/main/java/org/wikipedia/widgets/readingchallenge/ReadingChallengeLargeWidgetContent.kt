@@ -498,7 +498,9 @@ fun GeneralLargeWidget(
 
             // Layer 3: mascot (right side, vertically centered or bottom-aligned)
             Box(
-                modifier = GlanceModifier.fillMaxSize(),
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(end = 8.dp),
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Image(
