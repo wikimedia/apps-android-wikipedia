@@ -61,6 +61,7 @@
 * Rubin16
 * SHaran (WMF)
 * SaldırganSincap
+* Shabe
 * SimondR
 * Smigles
 * Soul Train
@@ -690,7 +691,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
   <string name="reading_lists_sync_reminder_title">Включить синхронизацию списков для чтения?</string>
-  <string name="reading_lists_sync_reminder_text">Статьи, сохраненные в списках для чтения, теперь можно синхронизировать с вашей учетной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Статьи, сохранённые в списках для чтения, теперь можно синхронизировать с вашей учётной записью Википедии. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Списки для чтения теперь можно синхронизировать между устройствами. Войдите в свою учетную запись Wikipedia и разрешите сохранение ваших списков. &lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Узнать больше&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
@@ -2545,6 +2546,7 @@
   <string name="reading_challenge_onboarding_header">Отметьте 25-летие Википедии, приняв участие в 25-дневном читательском челлендже!</string>
   <string name="reading_challenge_onboarding_read_title">Читайте по одной статье в день в течение 25 дней.</string>
   <string name="reading_challenge_onboarding_read_description">Присоединяйтесь к челленджу в любой день с 1 по 31 мая и завершите свои 25 дней в удобное для вас время.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Присоединяйтесь к челленджу в любой день с %1$s по %2$s и завершите свои 25 дней в удобное для вас время.</string>
   <string name="reading_challenge_onboarding_win_title">Выигрывайте призы</string>
   <string name="reading_challenge_onboarding_win_description">Завершите 25-дневную серию чтения, пока челлендж активен, чтобы получить особые призы.</string>
   <string name="reading_challenge_onboarding_install_title">Установите виджет</string>

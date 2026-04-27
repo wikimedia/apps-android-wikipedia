@@ -551,7 +551,7 @@
     <item quantity="one">artikulu %d kendu da zerrendatik</item>
     <item quantity="other">%d artikulu kendu dira zerrendatik</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list" fuzzy="true">
+  <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">artikulu %d kendu da %s zerrendatik</item>
     <item quantity="other">%d artikulu kendu dira %s zerrendatik</item>
   </plurals>
@@ -747,6 +747,7 @@
   <string name="preference_title_notification_system">Sistema</string>
   <string name="preference_summary_notification_system">Sistemaren mezuak</string>
   <string name="preference_title_notification_milestone">Mugarria</string>
+  <string name="preference_summary_notification_milestone">Edizio kopuru jakin batzuetara iritsi da</string>
   <string name="preference_title_notification_thanks">Eskerrik asko</string>
   <string name="preference_summary_notification_thanks">Norbaitek eskertu du zure aldaketa</string>
   <string name="preference_title_notification_revert">Lehengoratu</string>
@@ -778,6 +779,7 @@
     <item quantity="other"> %d iragazki</item>
   </plurals>
   <string name="notifications_select_all_filters">Hautatu iragazki guztiak</string>
+  <string name="notifications_tab_filter_all">Guztiak</string>
   <string name="notifications_tab_filter_mentions">Aipamenak</string>
   <string name="notifications_search_bar_hint">Bilatu edo iragazi jakinarazpenak</string>
   <string name="notifications_search_bar_filter_hint">Jakinarazpen-iragazkia</string>
@@ -996,6 +998,43 @@
   <string name="suggested_edits_image_tags_published_list">Argitaratutako etiketak</string>
   <string name="suggested_edits_image_tags_search">Bilatu etiketak</string>
   <string name="suggested_edits_image_tags_select_title">Ez duzu etiketarik hautatu irudi honetarako</string>
+  <string name="suggested_edits_image_tags_select_text">Zuk aukeratzen dituzun etiketak bakarrik gehituko zaizkie irudiei. Hautatu ez diren etiketak baztertu gisa markatuko dira. Ziur zaude etiketa guztiak baztertu gisa markatu nahi dituzula?</string>
+  <string name="suggested_edits_image_tags_add_tag">Gehitu etiketa</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Argitaratu gabeko etiketak ez dira gordeko</string>
+  <string name="suggested_edits_image_zoom_tooltip">Atximurkatu irudian zoom egiteko.</string>
+  <string name="suggested_edits_encouragement_message">%s , eskerrik asko zure aldaketengatik. Jarraian Wikipedian laguntzeko modu gehiago aurki ditzakezu.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Kaixo %s&lt;/b&gt;, behean Wikipedia hobetzen laguntzeko modu azkar eta erraz batzuk aurkituko dituzu. Hasi bezain laster ikusiko duzu egiten ari zaren aldea. Edizio zoriontsua!</string>
+  <string name="suggested_edits_image_captions_task_detail">Deskribatu irudi bat irakurleei haren esanahia eta testuingurua ulertzen laguntzeko.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Laburtu artikulu bat irakurleek gaia begirada batean uler dezaten.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Orain arteko ekarpen kopuru osoa.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Zenbat egunez jarraian ekarpenak egin dituzun. Denbora batez ekarpenik egin ez baduzu, azken ekarpenaren data erakusten du.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Azken 30 egunetan egindako ekarpenen orrialde-ikuspenak.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Zure ekarpen bat zenbat aldiz desegin den kontuan hartuta (beste editore batek desegin duena). Desegindako edizioak: %d.</string>
+  <string name="suggested_edits_paused_message">Iradokitako edizioak %1$s arte pausatuta daude. Barkatu %2$s , zure azken ekarpen batzuk desegin dira.</string>
+  <string name="suggested_edits_disabled_message">Iradokitako edizioak desgaituta daude. Barkatu %s , zure azken ekarpenetatik gehiegi desegin dira.</string>
+  <string name="suggested_edits_ip_blocked_message">Badirudi zure IP helbidea (edo IP helbideen barrutia) Wikipedia editatzeko blokeatuta dagoela.</string>
+  <string name="suggested_edits_gate_message">Barkatu, %s , funtzio hau erabiltzeko gutxienez hiru aldaketa egin behar dituzu artikulu batean zuzenean.</string>
+  <string name="suggested_edits_editing_tips_link_text">Editatzeko aholkuak eta trikimailuak</string>
+  <string name="suggested_edits_help_page_link_text">Iradokitako edizioen laguntza orria</string>
+  <string name="suggested_edits_views_label_text">Ikustaldiak</string>
+  <string name="suggested_edits_quality_label_text">Edizioaren kalitatea</string>
+  <string name="suggested_edits_quality_perfect_text">Ezin hobea</string>
+  <string name="suggested_edits_quality_excellent_text">Bikaina</string>
+  <string name="suggested_edits_quality_very_good_text">Oso ona</string>
+  <string name="suggested_edits_quality_good_text">Ona</string>
+  <string name="suggested_edits_quality_okay_text">Balekoa</string>
+  <string name="suggested_edits_quality_sufficient_text">Nahikoa</string>
+  <string name="suggested_edits_quality_poor_text">Eskasa</string>
+  <string name="suggested_edits_quality_bad_text">Txarra</string>
+  <string name="suggested_edits_label">Gomendatutako aldaketak</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">aldaketa bat</item>
+    <item quantity="other">aldaketak</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_frequency">
+    <item quantity="one">Edizioa</item>
+    <item quantity="other">Edizioak</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="description_edit_revert_intro">Badakigu hoberen egiten saiatu zarela, baina gure berrikuskarietako batek arazo bat ikusi du. Zure aldaketa lehengoratzeko arrazoi posibleen artean hurrengoak daude:</string>
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>
