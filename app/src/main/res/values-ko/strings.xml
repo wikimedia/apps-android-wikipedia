@@ -1323,7 +1323,7 @@
   <string name="templates_learn_more_link">더 알아보기</string>
   <string name="templates_description_incomplete">틀은 사용자가 생성하였으므로 완전한 설명이 부족할 수 있습니다.</string>
   <string name="templates_description_empty">\"%s\" 틀에 설명이 아직 없습니다.</string>
-  <string name="templates_description_missing_data">이 틀은 &lt;a href=\"%1$s\"&gt;틀 데이터&lt;/a&gt;가 없어졌으며, 그 매개 변수는 &lt;a href=\"%2$s\"&gt;자동 생성&lt;/a&gt;되었습니다. 그 결과, 틀과 그 매개 변수는 설명이 부족하다.</string>
+  <string name="templates_description_missing_data">이 틀은 &lt;a href=\"%1$s\"&gt;틀 데이터&lt;/a&gt;가 없어졌으며, 그 매개변수는 &lt;a href=\"%2$s\"&gt;자동 생성&lt;/a&gt;되었습니다. 그 결과, 틀과 그 매개변수의 설명이 부족합니다.</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
   <string name="main_tooltip_action_button">시작하기</string>

@@ -2272,10 +2272,14 @@
   <string name="hybrid_search_no_results_suggestion_try_related_topic">Keress egy kapcsolódó témára</string>
   <string name="hybrid_search_error_message">Valami félresikerült. Kérlek próbáld újra később.</string>
   <string name="hybrid_search_turn_off_experiment_label">Kísérlet kikapcsolása</string>
+  <string name="reading_challenge_widget_name">Olvasási kihívás</string>
+  <string name="reading_challenge_widget_search_button">Keresés</string>
+  <string name="reading_challenge_widget_random_button">Véletlen</string>
   <plurals name="reading_challenge_small_widget_streak">
     <item quantity="one">%d nap</item>
     <item quantity="other">%d nap</item>
   </plurals>
+  <string name="reading_challenge_widget_concluded_complete">Megcsináltad!</string>
   <string name="reading_challenge_widget_reward_title">Jól áll neked a kíváncsiság! 🛍️</string>
   <string name="reading_challenge_widget_reward_button_label">15%% kedvezmény az üzletben</string>
 </resources>

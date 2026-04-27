@@ -57,6 +57,7 @@
 * Wat
 * Whym
 * Wicklo
+* Wrai
 * WwLMvmT
 * YeBoy371
 * Yusuke1109
@@ -1975,4 +1976,66 @@
   <string name="donation_reminders_snackbar_modify_button_label">変更</string>
   <string name="hybrid_search_onboarding_learn_more">詳細</string>
   <string name="hybrid_search_no_results_header">結果なし</string>
+  <string name="reading_challenge_widget_name">読書チャレンジ</string>
+  <string name="reading_challenge_onboarding_header">ウィキペディア誕生25周年を記念して、25日間閲覧チャレンジに参加しよう！</string>
+  <string name="reading_challenge_onboarding_read_title">25日間、1日1記事を読もう</string>
+  <string name="reading_challenge_onboarding_read_subtitle">%1$sから%2$sまでの間、いつでもチャレンジに参加できます。自分のペースで25日連続記録を達成しましょう。</string>
+  <string name="reading_challenge_onboarding_win_title">賞品をゲット</string>
+  <string name="reading_challenge_onboarding_win_description">チャレンジ開催中に25日連続閲覧記録を達成すると、特別な賞品をゲットできます</string>
+  <string name="reading_challenge_onboarding_install_title">ウィジェットをインストール</string>
+  <string name="reading_challenge_onboarding_install_description">25周年記念のかわいいマスコット「ベビー・グローブ」が便利なリマインダーや励ましをお届け</string>
+  <string name="reading_challenge_onboarding_note">閲覧履歴は安全に保護されます。 閲覧インサイトは、お使いのデバイスにローカル保存されたデータを用いて集計されます。</string>
+  <string name="reading_challenge_onboarding_learn_more_button">詳細はこちら</string>
+  <string name="reading_challenge_onboarding_join_button">チャレンジに参加する</string>
+  <string name="reading_challenge_onboarding_prompt_title">ログインしてチャレンジに参加する</string>
+  <string name="reading_challenge_onboarding_prompt_message">閲覧チャレンジの進捗状況を確認するには、ログインするか、アカウントを作成してください</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">いいえ</string>
+  <string name="reading_challenge_onboarding_prompt_login">ログイン / 新規登録</string>
+  <string name="reading_challenge_install_prompt_title">25日間閲覧チャレンジ用ウィジェットのインストール</string>
+  <string name="reading_challenge_install_prompt_message">ベビー・グローブがあなたにエールを送ります。 ホーム画面から進捗状況を管理できるよう、閲覧チャレンジ用ウィジェットを追加しましょう。</string>
+  <string name="reading_challenge_install_prompt_got_it">了解</string>
+  <string name="reading_challenge_install_prompt_add">追加する</string>
+  <string name="reading_challenge_widget_explore_button">探検する</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">ウィキペディアを探検する</string>
+  <string name="reading_challenge_widget_join_challenge_button">チャレンジに参加する</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">チャレンジに参加する</string>
+  <string name="reading_challenge_widget_search_button">検索する</string>
+  <string name="reading_challenge_widget_random_button">ランダムに選択</string>
+  <string name="reading_challenge_widget_collect_prize_button">賞品をゲット</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">賞品をゲットしよう！</string>
+  <string name="reading_challenge_widget_not_live_title">閲覧を始めましょう</string>
+  <string name="reading_challenge_widget_not_live_description">25日間閲覧チャレンジが待っています。</string>
+  <string name="reading_challenge_widget_not_opted_in_title">準備はいい？閲覧開始！</string>
+  <string name="reading_challenge_widget_not_opted_in_description">25日間チャレンジに参加して、特別な賞品をゲットしましょう。</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="other">%d日目</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="other">%1$d / %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="other">%1$d / %2$d日</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">今日を無駄に過ごさないで、連続記録を維持しよう。</string>
+  <string name="reading_challenge_streak_ongoing_title">25日間閲覧チャレンジ</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">今日を無為に過ごさないで。連続閲覧記録を更新しましょう。</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">今日が過ぎ去ってしまう前に…\n学びの時間はまだ残っています。</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">ほんの少しの読書でも、目標達成に向けた一歩に。</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">連続記録も記事をひとつ読めば続いていきます。</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">気軽に読み始めてみてね。</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">静かな読書タイムはいかがですか？</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">好奇心をくすぐり続けよう。</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">準備はいい？閲覧開始！</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">25日間連続記録を目指して頑張りましょう！</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">閲覧チャレンジを始めよう。</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">どんな連続記録にも、始まりがあります</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">新たな連続記録をスタートさせる？</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">記事をひとつ読むだけで開始できます。</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">新たなスタート。</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">連続記録も記事をひとつ読めば続いていきます。</string>
+  <string name="reading_challenge_widget_concluded_incomplete">チャレンジ達成しました</string>
+  <string name="reading_challenge_widget_concluded_complete">目標達成！</string>
+  <string name="reading_challenge_widget_reward_title">好奇心旺盛なあなたは最高！</string>
+  <string name="reading_challenge_widget_reward_body">チャレンジ達成を記念して、ウィキペディア・ストアで15%%割引</string>
+  <string name="reading_challenge_widget_reward_button_label">ストアで15%% OFFをゲット</string>
 </resources>

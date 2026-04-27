@@ -54,6 +54,7 @@
 * Walesson
 * Webysther
 * Welerson98
+* Wrai
 * YuriNikolai
 -->
 <resources>
@@ -2157,6 +2158,7 @@
   <string name="reading_challenge_onboarding_header">Comemore o 25º aniversário da Wikipédia participando do desafio de leitura de 25 dias!</string>
   <string name="reading_challenge_onboarding_read_title">Leia um artigo por dia durante 25 dias</string>
   <string name="reading_challenge_onboarding_read_description">Participe do desafio a qualquer momento entre 1º e 31 de maio e complete os 25 dias no seu próprio ritmo.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Participe do desafio a qualquer momento entre %1$s e %2$s e complete os 25 dias no seu próprio ritmo.</string>
   <string name="reading_challenge_onboarding_win_title">Ganhe prêmios</string>
   <string name="reading_challenge_onboarding_win_description">Complete uma sequência de leitura de 25 dias enquanto o desafio estiver ativo para ganhar prêmios especiais.</string>
   <string name="reading_challenge_onboarding_install_title">Instale o widget</string>
