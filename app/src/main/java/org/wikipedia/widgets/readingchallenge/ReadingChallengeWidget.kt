@@ -42,7 +42,7 @@ import java.time.LocalDate
 
 class ReadingChallengeWidget : GlanceAppWidget() {
     companion object {
-        private val fullWidthThreshold = 360.dp
+        private val fullWidthThreshold = 320.dp
     }
 
     override val sizeMode: SizeMode = SizeMode.Exact
@@ -59,6 +59,7 @@ class ReadingChallengeWidget : GlanceAppWidget() {
             GlanceTheme {
                 val size = LocalSize.current
                 val enrollmentDate = if (Prefs.readingChallengeEnrollmentDate.isNotEmpty()) LocalDate.parse(Prefs.readingChallengeEnrollmentDate) else LocalDate.now()
+
                 if (size.width >= fullWidthThreshold) {
                     ReadingChallengeLargeWidgetContent(state, enrollmentDate)
                 } else {
@@ -201,19 +202,147 @@ fun ReadingChallengeWidgetLoading(
     }
 }
 
-enum class LargeWidgetSize {
+enum class SmallWidgetSize {
+    TINY,
     EXTRA_COMPACT,
     COMPACT,
     FULL;
 
+    val mascotSize: Dp
+        get() = when (this) {
+            TINY -> 46.dp
+            EXTRA_COMPACT -> 56.dp
+            COMPACT -> 80.dp
+            FULL -> 120.dp
+        }
+
+    val compactMascotSize: Dp
+        get() = when (this) {
+            TINY -> 36.dp
+            EXTRA_COMPACT -> 46.dp
+            COMPACT -> 70.dp
+            FULL -> 120.dp
+        }
+
+    val badgeTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 18.sp
+            EXTRA_COMPACT -> 22.sp
+            COMPACT -> 26.sp
+            FULL -> 32.sp
+        }
+
+    val badgeIconSize: Dp
+        get() = when (this) {
+            TINY -> 22.dp
+            EXTRA_COMPACT -> 28.dp
+            COMPACT -> 36.dp
+            FULL -> 40.dp
+        }
+
+    val paddingBetweenMascotAndTitleIcon: Dp
+        get() = when (this) {
+            TINY, EXTRA_COMPACT -> 0.dp
+            COMPACT, FULL -> 16.dp
+        }
+
+    val titleBarIconSize: Dp
+        get() = when (this) {
+            TINY -> 22.dp
+            EXTRA_COMPACT -> 28.dp
+            COMPACT -> 32.dp
+            FULL -> 36.dp
+        }
+
     companion object {
-        fun from(size: DpSize): LargeWidgetSize {
+        fun from(size: DpSize): SmallWidgetSize {
             return when {
-                size.height <= 180.dp -> EXTRA_COMPACT
-                size.height <= 210.dp || size.width < 360.dp -> COMPACT
+                size.height <= 140.dp -> TINY
+                size.height <= 176.dp -> EXTRA_COMPACT
+                size.height <= 230.dp -> COMPACT
                 else -> FULL
             }
-            // return if (size.height <= 210.dp || size.width < 360.dp) COMPACT else FULL
+        }
+    }
+}
+
+enum class LargeWidgetSize {
+    TINY,
+    EXTRA_COMPACT,
+    COMPACT,
+    FULL;
+
+    val titleTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 16.sp
+            EXTRA_COMPACT -> 18.sp
+            COMPACT -> 24.sp
+            FULL -> 32.sp
+        }
+
+    val subtitleTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 12.sp
+            EXTRA_COMPACT, COMPACT -> 14.sp
+            FULL -> 16.sp
+        }
+
+    val streakBadgeTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 18.sp
+            EXTRA_COMPACT -> 20.sp
+            COMPACT -> 26.sp
+            FULL -> 32.sp
+        }
+
+    val streakBadgeIconSize: Dp
+        get() = when (this) {
+            TINY -> 22.dp
+            EXTRA_COMPACT -> 28.dp
+            COMPACT -> 36.dp
+            FULL -> 40.dp
+        }
+
+    val titleBarIconSize: Dp
+        get() = when (this) {
+            TINY -> 22.dp
+            EXTRA_COMPACT -> 24.dp
+            COMPACT -> 32.dp
+            FULL -> 36.dp
+        }
+
+    // Mascot size when bottom content is not empty.
+    val sideMascotSize: Dp
+        get() = when (this) {
+            TINY -> 28.dp
+            EXTRA_COMPACT -> 40.dp
+            COMPACT -> 70.dp
+            FULL -> 100.dp
+        }
+
+    // Mascot size when bottom content is empty/spacer-only. Can expand down further.
+    val expandedMascotSize: Dp
+        get() = when (this) {
+            TINY -> 48.dp
+            EXTRA_COMPACT -> 64.dp
+            COMPACT -> 95.dp
+            FULL -> 120.dp
+        }
+
+    val overlayMascotSize: Dp
+        get() = when (this) {
+            TINY -> 44.dp
+            EXTRA_COMPACT -> 60.dp
+            COMPACT -> 85.dp
+            FULL -> 110.dp
+        }
+
+    companion object {
+        fun from(size: DpSize): LargeWidgetSize = when {
+            size.height <= 140.dp -> TINY
+            size.height <= 176.dp -> EXTRA_COMPACT
+            size.height <= 230.dp -> COMPACT
+            else -> FULL
         }
     }
 }
