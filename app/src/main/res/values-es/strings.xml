@@ -1946,8 +1946,8 @@
   <string name="on_this_day_game_more_label">Más</string>
   <string name="on_this_day_game_card_progress_label">Estás en la pregunta %d . Continúa adivinando qué evento ocurrió primero en este día de la historia.</string>
   <string name="on_this_day_game_card_progress_short_label">Estás en la pregunta %d .</string>
-  <string name="on_this_day_game_explore_feed_card_score_message" fuzzy="true">Obtuviste %1$d/% 2$d en el juego de hoy. Próximo juego en %3$s</string>
-  <string name="on_this_day_game_explore_feed_card_score_short_message" fuzzy="true">Obtuviste %1$d/% 2$d en el juego de hoy.</string>
+  <string name="on_this_day_game_explore_feed_card_score_message" fuzzy="true">Obtuviste %1$d/%2$d en el juego de hoy. Próximo juego en %3$s</string>
+  <string name="on_this_day_game_explore_feed_card_score_short_message" fuzzy="true">Obtuviste %1$d/%2$d en el juego de hoy.</string>
   <string name="on_this_day_game_card_archive_label">Archivo</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">Acceder</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_title">Inicia sesión para ver tus estadísticas de juego.</string>
