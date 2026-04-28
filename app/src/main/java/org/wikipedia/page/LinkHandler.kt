@@ -69,7 +69,7 @@ abstract class LinkHandler(protected val context: Context) : JSEventListener, Ur
         }
 
         // TODO: remove this after the endpoint supporting language variants
-        val convertedText = UriUtil.getTitleFromUrl(href)
+        val convertedText = UriUtil.getTitleFromUrl(Uri.decode(href)) // decode '%'-escaped octets
         var titleStr = titleString
         if (convertedText != titleStr) {
             titleStr = convertedText
