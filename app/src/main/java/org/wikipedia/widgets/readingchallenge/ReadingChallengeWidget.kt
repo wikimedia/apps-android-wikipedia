@@ -332,10 +332,10 @@ enum class LargeWidgetSize {
 
     val overlayMascotSize: Dp
         get() = when (this) {
-            TINY -> 44.dp
+            TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
-            COMPACT -> 85.dp
-            FULL -> 110.dp
+            COMPACT -> 80.dp
+            FULL -> 100.dp
         }
 
     companion object {

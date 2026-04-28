@@ -274,7 +274,9 @@ fun StreakOngoingLargeWidget(
 
             // Mascot overlay positioned absolutely inside the Box bounds
             Box(
-                modifier = GlanceModifier.fillMaxSize(),
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(end = 24.dp, bottom = 32.dp),
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Image(
@@ -282,7 +284,6 @@ fun StreakOngoingLargeWidget(
                     contentDescription = null,
                     modifier = GlanceModifier
                         .size(size.overlayMascotSize)
-                        .padding(end = 24.dp, bottom = 32.dp)
                 )
             }
         }
@@ -305,7 +306,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
 
     val widgetDimension = LocalSize.current
     val size = LargeWidgetSize.from(widgetDimension)
-    val availableWidth = LocalSize.current.width - 32.dp
+    val availableWidth = widgetDimension.width - 32.dp
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -522,7 +523,7 @@ fun GeneralLargeWidget(
     }
 }
 
-// Loading state
+ // Loading state
 @OptIn(ExperimentalGlancePreviewApi::class)
 @Preview(widthDp = 368, heightDp = 224)
 @Composable
@@ -588,7 +589,7 @@ fun EnrolledNotStartedLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun StreakOngoingReadTodayLargePreview() {
     ReadingChallengeLargeWidgetContent(
