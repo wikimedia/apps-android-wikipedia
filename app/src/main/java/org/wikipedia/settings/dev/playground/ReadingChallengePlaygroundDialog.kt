@@ -521,6 +521,8 @@ fun ReadingChallengePlayground(
             onClick = {
                 Prefs.readingChallengeStreak = 0
                 Prefs.readingChallengeEnrolled = false
+                Prefs.readingChallengeOnboardingShown = false
+                Prefs.readingChallengeInstallPromptShown = false
                 Prefs.readingChallengeLastReadDate = ""
                 Prefs.readingChallengeEndDate = ReadingChallengeWidgetRepository.READING_CHALLENGE_END_DATE
                 Prefs.readingChallengeStartDate = ReadingChallengeWidgetRepository.READING_CHALLENGE_START_DATE
