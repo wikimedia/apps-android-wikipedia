@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
@@ -56,7 +57,7 @@ fun OnboardingListItem(
                 color = WikipediaTheme.colors.primaryColor
             )
             Text(
-                text = stringResource(item.subTitle),
+                text = item.subtitleString ?: stringResource(item.subTitle),
                 style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.secondaryColor
             )
@@ -66,15 +67,14 @@ fun OnboardingListItem(
 
 @Composable
 fun TwoButtonBottomBar(
+    modifier: Modifier = Modifier,
     primaryButtonText: String,
     secondaryButtonText: String,
     onPrimaryOnClick: () -> Unit,
     onSecondaryOnClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 16.dp),
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(
             space = 24.dp,
             alignment = Alignment.CenterHorizontally
@@ -96,7 +96,8 @@ fun TwoButtonBottomBar(
             Text(
                 text = secondaryButtonText,
                 style = MaterialTheme.typography.labelLarge,
-                color = WikipediaTheme.colors.progressiveColor
+                color = WikipediaTheme.colors.progressiveColor,
+                textAlign = TextAlign.Center
             )
         }
 
@@ -114,7 +115,8 @@ fun TwoButtonBottomBar(
                 Text(
                     text = targetText,
                     style = MaterialTheme.typography.labelLarge,
-                    color = WikipediaTheme.colors.paperColor
+                    color = WikipediaTheme.colors.paperColor,
+                    textAlign = TextAlign.Center
                 )
             }
         }
@@ -124,7 +126,8 @@ fun TwoButtonBottomBar(
 data class OnboardingItem(
     val icon: Int,
     val title: Int,
-    val subTitle: Int
+    val subTitle: Int = 0,
+    val subtitleString: String? = null
 )
 
 @Preview
@@ -139,6 +142,23 @@ private fun OnboardingListItemPreview() {
                 title = R.string.activity_tab_onboarding_reading_patterns_title,
                 subTitle = R.string.activity_tab_onboarding_reading_patterns_message
             )
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun TwoButtonBottomBarPreview() {
+    BaseTheme(
+        currentTheme = Theme.DARK
+    ) {
+        TwoButtonBottomBar(
+            modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 16.dp),
+            "Foo",
+            "A rather long button label",
+            onPrimaryOnClick = { },
+            onSecondaryOnClick = { }
         )
     }
 }

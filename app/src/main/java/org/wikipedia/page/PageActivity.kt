@@ -89,8 +89,10 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import org.wikipedia.yearinreview.YearInReviewDialog
 import org.wikipedia.yearinreview.YearInReviewViewModel
+import java.time.LocalDate
 import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
@@ -420,6 +422,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         removeTransitionAnimState()
         maybeShowThemeTooltip()
         updateSearchHint()
+        lifecycleScope.launch {
+            ReadingChallengeWidgetRepository(this@PageActivity).updateOnArticleRead(LocalDate.now())
+        }
     }
 
     override fun onPageDismissBottomSheet() {
