@@ -68,7 +68,7 @@ fun ExploreFeedBuildingScreen(
     val animationAsset by rememberLottieComposition(LottieCompositionSpec.Asset("lottie/explore_feed_building.lottie"))
 
     LaunchedEffect(Unit) {
-        delay(1700)
+        delay(2000)
         onFinished()
     }
 
