@@ -52,9 +52,10 @@ import org.wikipedia.util.DateUtil
 fun OnThisDayModule(
     wikiSite: WikiSite,
     events: List<OnThisDay.Event>,
-    onOverflowClick: () -> Unit = {},
+    pageOverflowContent: @Composable (eventIndex: Int, itemIndex: Int) -> Unit,
+    onHideModuleClick: () -> Unit = {},
     onPageClick: (page: PageSummary) -> Unit = {},
-    onPageOverflowClick: (PageSummary) -> Unit = {},
+    onPageOverflowClick: (PageSummary, Int, Int) -> Unit = { _, _, _ -> },
     onFooterClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -67,17 +68,20 @@ fun OnThisDayModule(
             wikiSite = wikiSite,
             titleResId = R.string.on_this_day_card_title,
             subTitleResId = R.string.explore_feed_on_this_day_subtitle,
-            onOverflowClick = onOverflowClick
+            onHideModuleClick = onHideModuleClick
         )
 
-        events.forEachIndexed { index, event ->
+        events.forEachIndexed { eventIndex, event ->
             EventRow(
                 context = context,
                 wikiSite = wikiSite,
-                isFirst = index == 0,
+                isFirst = eventIndex == 0,
                 event = event,
+                pageOverflowContent = { pageOverflowContent(eventIndex, it) },
                 onPageClick = onPageClick,
-                onPageOverflowClick = onPageOverflowClick
+                onPageOverflowClick = { pageSummary, itemIndex ->
+                    onPageOverflowClick(pageSummary, eventIndex, itemIndex)
+                }
             )
         }
 
@@ -109,8 +113,9 @@ private fun EventRow(
     wikiSite: WikiSite,
     event: OnThisDay.Event,
     isFirst: Boolean,
+    pageOverflowContent: @Composable (Int) -> Unit,
     onPageClick: (page: PageSummary) -> Unit = {},
-    onPageOverflowClick: (PageSummary) -> Unit = {},
+    onPageOverflowClick: (PageSummary, Int) -> Unit = { _, _ -> },
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {
 
@@ -187,13 +192,14 @@ private fun EventRow(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Spacer(modifier = Modifier.width(20.dp))
-                event.pages.forEach { page ->
+                event.pages.forEachIndexed { index, page ->
                     OnThisDayPageItem(
-                        context,
-                        wikiSite,
-                        page,
+                        context = context,
+                        wikiSite = wikiSite,
+                        pageSummary = page,
+                        pageOverflowContent = { pageOverflowContent(index) },
                         onPageClick = onPageClick,
-                        onPageOverflowClick = onPageOverflowClick
+                        onPageOverflowClick = { onPageOverflowClick(page, index) }
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
@@ -208,6 +214,7 @@ private fun OnThisDayPageItem(
     context: Context,
     wikiSite: WikiSite,
     pageSummary: PageSummary,
+    pageOverflowContent: @Composable () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary) -> Unit = {},
 ) {
@@ -255,18 +262,24 @@ private fun OnThisDayPageItem(
 
             Spacer(modifier = Modifier.width(4.dp))
 
-            IconButton(
-                onClick = {
-                    onPageOverflowClick(pageSummary)
-                },
-                content = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                        contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
-                        tint = WikipediaTheme.colors.secondaryColor
-                    )
-                }
-            )
+            Box {
+                IconButton(
+                    onClick = {
+                        onPageOverflowClick(pageSummary)
+                    },
+                    content = {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                            contentDescription = context.getString(
+                                wikiSite.languageCode,
+                                R.string.menu_feed_overflow_label
+                            ),
+                            tint = WikipediaTheme.colors.secondaryColor
+                        )
+                    }
+                )
+                pageOverflowContent()
+            }
         }
     }
 }
@@ -287,6 +300,7 @@ fun OnThisDayPageItemPreview() {
             LocalContext.current,
             wikiSite = WikiSite.preview(),
             pageSummary = pageSummary,
+            pageOverflowContent = {},
             onPageClick = {},
             onPageOverflowClick = {}
         )
@@ -314,6 +328,7 @@ fun OnThisDayModulePreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         OnThisDayModule(
             wikiSite = WikiSite.preview(),
+            pageOverflowContent = { _, _ -> },
             events = listOf(event, event)
         )
     }
