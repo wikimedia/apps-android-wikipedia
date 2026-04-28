@@ -36,6 +36,7 @@ import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
+import kotlin.random.Random
 
 @Composable
 fun NewsModule(
@@ -91,7 +92,7 @@ fun NewsItemContent(
             .clickable { onItemClick(newsItem) }
     ) {
         if (newsItem.thumbUrl().isNullOrEmpty()) {
-            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random())
+            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(newsItem.story.hashCode())))
             Box(
                 modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
             )

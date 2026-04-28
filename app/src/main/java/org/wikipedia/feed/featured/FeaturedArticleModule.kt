@@ -44,6 +44,7 @@ import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CommunityModuleHeader
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
+import kotlin.random.Random
 
 @Composable
 fun FeaturedArticleModule(
@@ -76,7 +77,7 @@ fun FeaturedArticleModule(
                 .clickable { onPageClick(article) }
         ) {
             if (article.thumbnailUrl.isNullOrEmpty()) {
-                val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random())
+                val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(article.apiTitle.hashCode())))
                 Box(
                     modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
                 )
