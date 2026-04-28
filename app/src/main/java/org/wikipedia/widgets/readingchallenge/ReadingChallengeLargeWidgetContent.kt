@@ -364,7 +364,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     }
                 }
             }
-
+            Spacer(modifier = GlanceModifier.height(2.dp))
             Row(
                 modifier = GlanceModifier
                     .fillMaxWidth()
@@ -516,7 +516,7 @@ fun GeneralLargeWidget(
                     }
                 }
             }
-
+            Spacer(modifier = GlanceModifier.height(2.dp))
             // Bottom row: optional CTA / additional content (e.g. "Join the challenge" button)
             bottomContent()
         }
