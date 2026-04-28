@@ -51,7 +51,7 @@ workRuntimeKtx = "2.11.2"
 composeBom = "2026.04.01"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
-uiGraphics = "1.10.5"
+uiGraphics = "1.11.0"
 
 
 [libraries]
