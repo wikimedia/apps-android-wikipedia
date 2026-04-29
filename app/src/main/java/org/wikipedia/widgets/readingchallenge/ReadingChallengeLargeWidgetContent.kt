@@ -350,6 +350,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -358,7 +359,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                             provider = ImageProvider(mascotImageResId),
                             contentDescription = null,
                             modifier = GlanceModifier
-                                .size(size.sideMascotSize)
+                                .size(mascotSize)
                         )
                     }
                 }
@@ -501,6 +502,11 @@ fun GeneralLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = if (expandMascot) {
+                        minOf(size.expandedMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    } else {
+                        minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    }
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -508,9 +514,7 @@ fun GeneralLargeWidget(
                         Image(
                             provider = ImageProvider(mainImageResId),
                             contentDescription = null,
-                            modifier = GlanceModifier.size(
-                                if (expandMascot) size.expandedMascotSize else size.sideMascotSize
-                            )
+                            modifier = GlanceModifier.size(mascotSize)
                         )
                     }
                 }
