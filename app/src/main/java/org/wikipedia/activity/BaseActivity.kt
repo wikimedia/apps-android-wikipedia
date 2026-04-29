@@ -187,14 +187,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
-    override fun onNewIntent(intent: Intent) {
-        super.onNewIntent(intent)
-        if (intent.hasExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN)) {
-            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN)
-            maybeShowReadingChallengePrompt()
-        }
-    }
-
     override fun onDestroy() {
         WikipediaApp.instance.connectionStateMonitor.unregisterCallback(this)
         CustomHtmlParser.pruneBitmaps(this)
@@ -292,7 +284,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     protected fun maybeShowReadingChallengePrompt() {
         if (ReadingChallengeWidgetRepository.shouldShowOnboardingDialog() &&
             this !is ReadingChallengeOnboardingActivity && this !is InitialOnboardingActivity) {
-            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity.newIntent(this))
+            requestReadingChallengeActivity.launch(ReadingChallengeOnboardingActivity
+                .newIntent(this)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
         }
     }
 
