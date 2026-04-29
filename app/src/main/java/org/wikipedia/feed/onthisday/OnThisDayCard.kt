@@ -11,7 +11,7 @@ import org.wikipedia.util.L10nUtil
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
-class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
+class OnThisDayCard(val events: List<OnThisDay.Event>, val age: Int, wiki: WikiSite) : WikiSiteCard(wiki) {
     private val date: Calendar = DateUtil.getDefaultDateFor(age)
     var callback: FeedAdapter.Callback? = null
 
@@ -36,11 +36,11 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
     }
 
     fun text(): CharSequence {
-        return event.text
+        return events.first().text
     }
 
     fun year(): Int {
-        return event.year
+        return events.first().year
     }
 
     fun date(): Calendar {
@@ -48,6 +48,6 @@ class OnThisDayCard(val event: OnThisDay.Event, wiki: WikiSite, val age: Int) : 
     }
 
     fun pages(): List<PageSummary> {
-        return event.pages
+        return events.first().pages
     }
 }

@@ -10,8 +10,8 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
 class FeaturedImageCard(
-    private val featuredImage: FeaturedImage,
-    private val age: Int,
+    val featuredImage: FeaturedImage,
+    val age: Int,
     wiki: WikiSite
 ) : WikiSiteCard(wiki) {
 
