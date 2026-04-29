@@ -138,7 +138,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = if (iconTintColor != null) ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) else null
+            colorFilter = iconTintColor?.let { ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) }
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)
