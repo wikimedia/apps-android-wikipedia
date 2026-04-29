@@ -1,6 +1,5 @@
 package org.wikipedia.activity
 
-import android.app.ComponentCaller
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -188,9 +187,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         }
     }
 
-    override fun onNewIntent(intent: Intent, caller: ComponentCaller) {
-        super.onNewIntent(intent, caller)
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
         if (intent.hasExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN)) {
+            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN)
             maybeShowReadingChallengePrompt()
         }
     }
