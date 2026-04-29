@@ -24,7 +24,8 @@ class JoinChallengeAction : ActionCallback {
         Prefs.readingChallengeOnboardingShown = false
         context.startActivity(
             MainActivity.newIntent(context)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                .putExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN, true)
         )
     }
 }
