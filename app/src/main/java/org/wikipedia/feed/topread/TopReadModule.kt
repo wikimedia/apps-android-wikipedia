@@ -46,9 +46,10 @@ import org.wikipedia.util.StringUtil
 fun TopReadModule(
     wikiSite: WikiSite,
     topRead: TopRead,
-    onOverflowClick: () -> Unit,
+    pageOverflowContent: @Composable (Int) -> Unit,
+    onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
-    onPageOverflowClick: (PageSummary) -> Unit,
+    onPageOverflowClick: (PageSummary, Int) -> Unit,
     onFooterClick: () -> Unit
 ) {
     val maxTopReadItems = 5
@@ -62,7 +63,7 @@ fun TopReadModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_top_read_card_title,
             subTitleResId = R.string.view_top_read_card_description,
-            onOverflowClick = onOverflowClick
+            onHideModuleClick = onHideModuleClick
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -81,8 +82,9 @@ fun TopReadModule(
                     rank = index + 1,
                     isTrendingUp = isTrendingUp,
                     pageSummary = article,
+                    pageOverflowContent = { pageOverflowContent(index) },
                     onClick = onPageClick,
-                    onMoreClick = onPageOverflowClick
+                    onPageOverflowClick = { onPageOverflowClick(it, index) }
                 )
             }
         }
@@ -116,8 +118,9 @@ fun TopReadItem(
     rank: Int,
     isTrendingUp: Boolean,
     pageSummary: PageSummary,
+    pageOverflowContent: @Composable () -> Unit,
     onClick: (PageSummary) -> Unit,
-    onMoreClick: (PageSummary) -> Unit
+    onPageOverflowClick: (PageSummary) -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxWidth()
@@ -207,18 +210,24 @@ fun TopReadItem(
                 )
             }
 
-            IconButton(
-                onClick = {
-                    onMoreClick(pageSummary)
-                },
-                content = {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_more_vert_white_24dp),
-                        contentDescription = context.getString(wikiSite.languageCode, R.string.menu_feed_overflow_label),
-                        tint = WikipediaTheme.colors.placeholderColor
-                    )
-                }
-            )
+            Box {
+                IconButton(
+                    onClick = {
+                        onPageOverflowClick(pageSummary)
+                    },
+                    content = {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                            contentDescription = context.getString(
+                                wikiSite.languageCode,
+                                R.string.menu_feed_overflow_label
+                            ),
+                            tint = WikipediaTheme.colors.placeholderColor
+                        )
+                    }
+                )
+                pageOverflowContent()
+            }
         }
     }
 }
@@ -240,10 +249,11 @@ fun TopReadCardPreview() {
             topRead = TopRead(
                 articles = listOf(article, article, article, article, article)
             ),
+            pageOverflowContent = {},
             onFooterClick = {},
-            onOverflowClick = {},
+            onHideModuleClick = {},
             onPageClick = {},
-            onPageOverflowClick = {}
+            onPageOverflowClick = { _, _ -> }
         )
     }
 }

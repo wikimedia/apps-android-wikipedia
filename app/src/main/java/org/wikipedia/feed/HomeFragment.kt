@@ -77,9 +77,12 @@ import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
+import org.wikipedia.compose.components.menu.PageOverflowMenu
+import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
@@ -108,6 +111,7 @@ import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
+    private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,6 +137,7 @@ class HomeFragment : Fragment() {
                         selectedTab = selectedTab,
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
+                        overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -154,6 +159,39 @@ class HomeFragment : Fragment() {
                         },
                         onPageShareClick = {
                             ShareUtil.shareText(requireContext(), it.title)
+                        },
+                        onPageOverflowClick = { pageSummary, source, menuKey ->
+                            pageOverflowMenuViewModel.onPageOverflowClick(
+                                context = requireContext(),
+                                wikiSite = wikiSite,
+                                pageSummary = pageSummary,
+                                source = source,
+                                menuKey = menuKey,
+                                onOpenPage = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSelectPage(entry, false)
+                                },
+                                onOpenInNewTab = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
+                                },
+                                onAddRequest = { entry, addToDefault ->
+                                    (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
+                                },
+                                onMoveRequest = { id, entry ->
+                                    (parentFragment as? MainFragment)?.onFeedMovePageToList(id, entry)
+                                },
+                                onRemoveRequest = { entry, lists ->
+                                    (parentFragment as? MainFragment)?.onFeedRemovePageFromList(entry, lists)
+                                },
+                                onShareRequest = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedSharePage(entry)
+                                },
+                                onLinkCopyRequest = { entry ->
+                                    (parentFragment as? MainFragment)?.onFeedCopyLink(entry)
+                                }
+                            )
+                        },
+                        onPageOverflowDismiss = {
+                            pageOverflowMenuViewModel.dismissPageOverflowMenu()
                         },
                         onNewsClick = { newsItem ->
                             (parentFragment as? MainFragment)?.onFeedNewsItemSelected(newsItem, wikiSite)
@@ -197,6 +235,7 @@ fun HomeScreen(
     selectedTab: HomeTab,
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -204,6 +243,8 @@ fun HomeScreen(
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
@@ -274,10 +315,13 @@ fun HomeScreen(
                             modifier = Modifier.weight(1f),
                             wikiSite = wikiSite,
                             state = communityContentState,
+                            overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
+                            onPageOverflowClick = onPageOverflowClick,
+                            onPageOverflowDismiss = onPageOverflowDismiss,
                             onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
@@ -412,10 +456,13 @@ fun CommunityContentTab(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
     state: CommunityContentState,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onLoadMore: () -> Unit,
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowDismiss: () -> Unit = {},
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
@@ -455,16 +502,31 @@ fun CommunityContentTab(
                                 wikiSite = wikiSite,
                                 article,
                                 onPageClick = {
-                                    onPageClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageClick(
+                                        it.getHistoryEntry(
+                                            wikiSite,
+                                            HistoryEntry.SOURCE_FEED_FEATURED
+                                        )
+                                    )
                                 },
-                                onOverflowClick = {
+                                onHideModuleClick = {
                                     // TODO
                                 },
                                 onShareClick = {
-                                    onPageShareClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageShareClick(
+                                        it.getHistoryEntry(
+                                            wikiSite,
+                                            HistoryEntry.SOURCE_FEED_FEATURED
+                                        )
+                                    )
                                 },
                                 onBookmarkClick = {
-                                    onPageBookmarkClick(it.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_FEATURED))
+                                    onPageBookmarkClick(
+                                        it.getHistoryEntry(
+                                            wikiSite,
+                                            HistoryEntry.SOURCE_FEED_FEATURED
+                                        )
+                                    )
                                 }
                             )
                         }
@@ -475,19 +537,35 @@ fun CommunityContentTab(
                             TopReadModule(
                                 wikiSite = wikiSite,
                                 topRead = it,
-                                onOverflowClick = {
-                                    // TODO: implement overflow menu
+                                pageOverflowContent = { index ->
+                                    PageOverflowMenu(
+                                        menuKey = "top-read-${day.age}-$index",
+                                        overflowMenuState = overflowMenuState,
+                                        onDismiss = onPageOverflowDismiss,
+                                        items = overflowMenuState?.items.orEmpty()
+                                    )
+                                },
+                                onHideModuleClick = {
+                                    // TODO: implement hide module functionality
                                 },
                                 onPageClick = { entry ->
-                                    onPageClick(entry.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_MOST_READ))
+                                    onPageClick(
+                                        entry.getHistoryEntry(
+                                            wikiSite,
+                                            HistoryEntry.SOURCE_FEED_MOST_READ
+                                        )
+                                    )
                                 },
-                                onPageOverflowClick = { pageSummary ->
-                                    // TODO: implement page overflow menu
+                                onPageOverflowClick = { pageSummary, index ->
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${day.age}-$index")
                                 },
                                 onFooterClick = {
                                     // TODO: simplify TopReadListCard after we remove the old feed UIs.
                                     activity?.startActivity(
-                                        TopReadArticlesActivity.newIntent(activity, TopReadListCard(it, wikiSite))
+                                        TopReadArticlesActivity.newIntent(
+                                            activity,
+                                            TopReadListCard(it, wikiSite)
+                                        )
                                     )
                                 }
                             )
@@ -517,7 +595,7 @@ fun CommunityContentTab(
                                 onNewsClick = { newsItem ->
                                     onNewsClick(newsItem)
                                 },
-                                onOverflowClick = {
+                                onHideModuleClick = {
                                     // TODO: implement overflow menu
                                 }
                             )
@@ -529,14 +607,22 @@ fun CommunityContentTab(
                             OnThisDayModule(
                                 wikiSite = wikiSite,
                                 events = day.onThisDay.take(2),
-                                onOverflowClick = {
+                                pageOverflowContent = { eventIndex, itemIndex ->
+                                    PageOverflowMenu(
+                                        menuKey = "on-this-day-${day.age}-$eventIndex-$itemIndex",
+                                        overflowMenuState = overflowMenuState,
+                                        onDismiss = onPageOverflowDismiss,
+                                        items = overflowMenuState?.items.orEmpty()
+                                    )
+                                },
+                                onHideModuleClick = {
                                     // TODO: implement overflow menu
                                 },
                                 onPageClick = { pageSummary ->
                                     onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
                                 },
-                                onPageOverflowClick = { pageSummary ->
-                                    // TODO: implement page overflow menu
+                                onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
+                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${day.age}-$eventIndex-$itemIndex")
                                 },
                                 onFooterClick = {
                                     activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))

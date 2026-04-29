@@ -46,6 +46,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameProvider
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
+import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
@@ -75,6 +76,9 @@ class FeedFragment : Fragment() {
         fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
         fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
+        fun onFeedRemovePageFromList(entry: HistoryEntry, lists: List<ReadingList>)
+        fun onFeedSharePage(entry: HistoryEntry)
+        fun onFeedCopyLink(entry: HistoryEntry)
         fun onFeedNewsItemSelected(newsItem: NewsItem, wikiSite: WikiSite)
         fun onFeedSeCardFooterClicked()
         fun onFeedShareImage(image: FeaturedImage, age: Int)

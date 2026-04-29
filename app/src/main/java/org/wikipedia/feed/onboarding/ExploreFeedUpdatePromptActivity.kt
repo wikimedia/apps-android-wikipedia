@@ -93,6 +93,8 @@ fun ExploreFeedUpdatePromptScreen(
         containerColor = WikipediaTheme.colors.paperColor,
         bottomBar = {
             TwoButtonBottomBar(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 16.dp),
                 primaryButtonText = stringResource(R.string.explore_feed_new_update_prompt_primary_button_text),
                 secondaryButtonText = stringResource(R.string.explore_feed_new_update_prompt_secondary_button_text),
                 onPrimaryOnClick = onCustomizeFeedClick,
