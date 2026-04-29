@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -29,7 +30,9 @@ fun PageIndicator(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     animationDuration: Int = 500,
-    indicatorSpacing: Dp = 8.dp
+    indicatorSpacing: Dp = 8.dp,
+    activeColor: Color = WikipediaTheme.colors.progressiveColor,
+    inactiveColor: Color = WikipediaTheme.colors.inactiveColor
 ) {
     Row(
         modifier = modifier,
@@ -39,9 +42,9 @@ fun PageIndicator(
         repeat(pagerState.pageCount) { index ->
             val colorTransition by animateColorAsState(
                 targetValue = if (index == pagerState.currentPage) {
-                    WikipediaTheme.colors.progressiveColor
+                    activeColor
                 } else {
-                    WikipediaTheme.colors.inactiveColor
+                    inactiveColor
                 },
                 animationSpec = tween(
                     durationMillis = animationDuration,

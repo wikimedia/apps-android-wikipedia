@@ -84,6 +84,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
@@ -704,20 +705,17 @@ fun ForYouContentTab(
                         .fillMaxSize()
                         .background(WikipediaTheme.colors.backgroundColor)
                 ) {
-                    itemsIndexed(modules) { _, module ->
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(viewportHeight)
-                        ) {
-                            AsyncImage(
-                                model = ImageService.getRequest(context, url = module.pages.first().thumbnailUrl),
-                                placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                                error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                                contentDescription = null,
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
-                            )
+                    modules.forEach { module ->
+                        if (module is ForYouModule.ContinueReading) {
+                            item(key = "news-${module.age}") {
+                                ContinueReadingModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight),
+                                    wikiSite = wikiSite,
+                                    cards = module.cards
+                                )
+                            }
                         }
                     }
 

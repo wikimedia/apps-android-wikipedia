@@ -7,9 +7,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -18,17 +22,21 @@ import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 
 sealed class ForYouModule {
-    abstract val pages: List<PageSummary>
+    abstract val age: Int
 
-    data class BasedOnReadingHistory(override val pages: List<PageSummary>) : ForYouModule()
-    data class BasedOnLocation(override val pages: List<PageSummary>) : ForYouModule()
-    data class BasedOnInterests(val interest: String, override val pages: List<PageSummary>) : ForYouModule()
+    data class ContinueReading(override val age: Int, val cards: List<ContinueReadingCard>) : ForYouModule()
+    data class BecauseYouRead(override val age: Int, val pages: List<PageSummary>) : ForYouModule()
+    data class BasedOnLocation(override val age: Int, val pages: List<PageSummary>) : ForYouModule()
+    data class BasedOnInterests(override val age: Int, val interest: String, val pages: List<PageSummary>) : ForYouModule()
 }
 
 data class CommunityContentState(
@@ -231,8 +239,26 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    private suspend fun fetchForYouModules(batchIndex: Int): List<ForYouModule> {
+    private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
+        val modules = mutableListOf<ForYouModule>()
+        val hiddenCards = Prefs.hiddenCards
 
+        // Continue reading
+        val continueReadingCards = buildList {
+            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30)
+            if (lastReadEntries.size > age) {
+                add(ContinueReadingCard(lastReadEntries[age].also { it.source = HistoryEntry.SOURCE_HISTORY }))
+            }
+            val readingListPages = AppDatabase.instance.readingListPageDao().getPagesByRandom(10).map {
+                HistoryEntry(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST)
+            }
+            addAll(readingListPages.map { ContinueReadingCard(it) })
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+        if (continueReadingCards.isNotEmpty()) {
+            modules.add(ForYouModule.ContinueReading(age, continueReadingCards))
+        }
+
+        /*
         val sampleImageUrls = listOf(
             "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg/1280px-SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Color_of_Friendship.jpg/1280px-Color_of_Friendship.jpg",
@@ -244,6 +270,8 @@ class HomeViewModel : ViewModel() {
         val modules = sampleImageUrls.map {
             ForYouModule.BasedOnInterests("Art", listOf(PageSummary("", "", "", "", thumbnail = it, "")))
         }
+         */
+
         return modules
     }
 }
