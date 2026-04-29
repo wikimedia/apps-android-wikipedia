@@ -29,7 +29,6 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -55,7 +54,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
@@ -68,7 +66,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import coil3.compose.AsyncImage
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -113,7 +110,6 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -159,11 +155,18 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
-                        onHideCardClick = { card ->
+                        onHideCommunityCardClick = { card ->
                             val cardIndex = viewModel.hideCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
                                     viewModel.restoreCard(card, cardIndex)
+                                }.show()
+                        },
+                        onHideForYouCardClick = { module, card ->
+                            val cardIndex = viewModel.hideCard(module, card)
+                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                                .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    viewModel.restoreCard(module, card, cardIndex)
                                 }.show()
                         },
                         onPageClick = {
@@ -255,7 +258,8 @@ fun HomeScreen(
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
-    onHideCardClick: (card: Card) -> Unit = {},
+    onHideCommunityCardClick: (card: Card) -> Unit = {},
+    onHideForYouCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -333,7 +337,7 @@ fun HomeScreen(
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
-                            onHideCardClick = onHideCardClick,
+                            onHideCardClick = onHideCommunityCardClick,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
@@ -351,7 +355,14 @@ fun HomeScreen(
                     ForYouContentTab(
                         state = forYouContentState,
                         wikiSite = wikiSite,
-                        onLoadMore = onLoadMoreForYouContent
+                        onLoadMore = onLoadMoreForYouContent,
+                        overflowMenuState = overflowMenuState,
+                        onPageClick = onPageClick,
+                        onHideCardClick = onHideForYouCardClick,
+                        onPageBookmarkClick = onPageBookmarkClick,
+                        onPageShareClick = onPageShareClick,
+                        onPageOverflowClick = onPageOverflowClick,
+                        onPageOverflowDismiss = onPageOverflowDismiss
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -681,15 +692,34 @@ fun CommunityContentTab(
 fun ForYouContentTab(
     state: ForYouContentState,
     wikiSite: WikiSite,
-    onLoadMore: () -> Unit
+    onLoadMore: () -> Unit,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onPageClick: (historyEntry: HistoryEntry) -> Unit,
+    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowDismiss: () -> Unit = {}
 ) {
     val context = LocalContext.current
     when {
         state.isInitialLoading -> {
-            LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .background(color = WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            }
         }
         state.error != null && state.modules.isEmpty() -> {
-            ErrorState(state.error, onRetry = onLoadMore)
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .background(color = WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                ErrorState(state.error, onRetry = onLoadMore)
+            }
         }
         else -> {
             val listState = rememberLazyListState()
@@ -705,15 +735,17 @@ fun ForYouContentTab(
                         .fillMaxSize()
                         .background(WikipediaTheme.colors.backgroundColor)
                 ) {
-                    modules.forEach { module ->
+                    modules.forEachIndexed { index, module ->
                         if (module is ForYouModule.ContinueReading) {
-                            item(key = "news-${module.age}") {
+                            item(key = "continue-reading-${module.age}-$index") {
                                 ContinueReadingModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(viewportHeight),
                                     wikiSite = wikiSite,
-                                    cards = module.cards
+                                    module = module,
+                                    onPageClick = { entry -> onPageClick(entry) },
+                                    onHideCardClick = onHideCardClick
                                 )
                             }
                         }

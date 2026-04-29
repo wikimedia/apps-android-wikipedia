@@ -30,7 +30,7 @@ fun PageIndicator(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     animationDuration: Int = 500,
-    indicatorSpacing: Dp = 8.dp,
+    indicatorSpacing: Dp = 12.dp,
     activeColor: Color = WikipediaTheme.colors.progressiveColor,
     inactiveColor: Color = WikipediaTheme.colors.inactiveColor
 ) {

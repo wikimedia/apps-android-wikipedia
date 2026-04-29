@@ -104,5 +104,6 @@ class HistoryEntry(
         const val SOURCE_RECOMMENDED_READING_LIST = 44
         const val SOURCE_ACTIVITY_TAB = 45
         const val SOURCE_FEED_ON_THIS_DAY = 46
+        const val SOURCE_FEED_CONTINUE_READING = 47
     }
 }

@@ -2482,6 +2482,7 @@
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_date_today">Today - %s</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
+    <string name="explore_feed_from_reading_list">From your reading list</string>
     <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
     <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you, and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
     <string name="explore_feed_deselect_all_button_label">Deselect all</string>
