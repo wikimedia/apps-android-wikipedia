@@ -256,10 +256,11 @@ enum class SmallWidgetSize {
 
     companion object {
         fun from(size: DpSize): SmallWidgetSize {
+            val constraint = minOf(size.width, size.height)
             return when {
-                size.height <= 140.dp -> TINY
-                size.height <= 176.dp -> EXTRA_COMPACT
-                size.height <= 230.dp -> COMPACT
+                constraint <= 140.dp -> TINY
+                constraint <= 176.dp -> EXTRA_COMPACT
+                constraint <= 230.dp -> COMPACT
                 else -> FULL
             }
         }
@@ -314,10 +315,10 @@ enum class LargeWidgetSize {
     // Mascot size when bottom content is not empty.
     val sideMascotSize: Dp
         get() = when (this) {
-            TINY -> 28.dp
-            EXTRA_COMPACT -> 40.dp
-            COMPACT -> 70.dp
-            FULL -> 100.dp
+            TINY -> 40.dp
+            EXTRA_COMPACT -> 60.dp
+            COMPACT -> 80.dp
+            FULL -> 120.dp
         }
 
     // Mascot size when bottom content is empty/spacer-only. Can expand down further.
@@ -331,10 +332,10 @@ enum class LargeWidgetSize {
 
     val overlayMascotSize: Dp
         get() = when (this) {
-            TINY -> 44.dp
+            TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
-            COMPACT -> 85.dp
-            FULL -> 110.dp
+            COMPACT -> 80.dp
+            FULL -> 100.dp
         }
 
     companion object {
