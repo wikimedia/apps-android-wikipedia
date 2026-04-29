@@ -44,6 +44,7 @@ fun FeaturedImageModule(
     wikiSite: WikiSite,
     featuredImage: FeaturedImage,
     onClick: (featuredImage: FeaturedImage) -> Unit = {},
+    onHideCardClick: () -> Unit = {},
     onHideModuleClick: (featuredImage: FeaturedImage) -> Unit = {},
     onDownloadClick: (featuredImage: FeaturedImage) -> Unit = {},
     onShareClick: (featuredImage: FeaturedImage) -> Unit = {},
@@ -58,6 +59,7 @@ fun FeaturedImageModule(
             titleResId = R.string.view_featured_image_card_title,
             subTitleResId = R.string.explore_feed_potd_subtitle,
             contextIconResId = R.drawable.ic_commons_logo,
+            onHideCardClick = onHideCardClick,
             onHideModuleClick = { onHideModuleClick(featuredImage) }
         )
 

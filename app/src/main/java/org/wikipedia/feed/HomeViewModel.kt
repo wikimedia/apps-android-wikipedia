@@ -211,6 +211,26 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    fun hideCard(card: Card): Int {
+        Prefs.hiddenCards += card.hideKey
+        val cardIndex = _communityState.value.cards.indexOf(card)
+        if (cardIndex >= 0) {
+            _communityState.value = _communityState.value.copy(
+                cards = _communityState.value.cards - card
+            )
+        }
+        return cardIndex
+    }
+
+    fun restoreCard(card: Card, index: Int) {
+        Prefs.hiddenCards -= card.hideKey
+         _communityState.value = _communityState.value.copy(
+            cards = _communityState.value.cards.toMutableList().apply {
+                add(index, card)
+            }
+        )
+    }
+
     private suspend fun fetchForYouModules(batchIndex: Int): List<ForYouModule> {
 
         val sampleImageUrls = listOf(

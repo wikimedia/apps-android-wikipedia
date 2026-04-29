@@ -90,6 +90,7 @@ import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
@@ -109,6 +110,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
@@ -156,6 +158,13 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
+                        onHideCardClick = { card ->
+                            val cardIndex = viewModel.hideCard(card)
+                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                                .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    viewModel.restoreCard(card, cardIndex)
+                                }.show()
+                        },
                         onPageClick = {
                             (parentFragment as? MainFragment)?.onFeedSelectPage(it, false)
                         },
@@ -245,6 +254,7 @@ fun HomeScreen(
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
+    onHideCardClick: (card: Card) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -322,6 +332,7 @@ fun HomeScreen(
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
+                            onHideCardClick = onHideCardClick,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
@@ -463,6 +474,7 @@ fun CommunityContentTab(
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onLoadMore: () -> Unit,
+    onHideCardClick: (card: Card) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -515,6 +527,7 @@ fun CommunityContentTab(
                                             )
                                         )
                                     },
+                                    onHideCardClick = { onHideCardClick(card) },
                                     onHideModuleClick = {
                                         // TODO
                                     },
@@ -550,6 +563,7 @@ fun CommunityContentTab(
                                             items = overflowMenuState?.items.orEmpty()
                                         )
                                     },
+                                    onHideCardClick = { onHideCardClick(card) },
                                     onHideModuleClick = {
                                         // TODO: implement hide module functionality
                                     },
@@ -581,6 +595,7 @@ fun CommunityContentTab(
                                 FeaturedImageModule(
                                     wikiSite = wikiSite,
                                     featuredImage = card.featuredImage,
+                                    onHideCardClick = { onHideCardClick(card) },
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
                                     onShareClick = { onImageShareClick(card.featuredImage, card.age) }
@@ -592,6 +607,7 @@ fun CommunityContentTab(
                                 NewsModule(
                                     wikiSite = wikiSite,
                                     newsItems = card.news,
+                                    onHideCardClick = { onHideCardClick(card) },
                                     onNewsClick = { newsItem ->
                                         onNewsClick(newsItem)
                                     },
@@ -614,6 +630,7 @@ fun CommunityContentTab(
                                             items = overflowMenuState?.items.orEmpty()
                                         )
                                     },
+                                    onHideCardClick = { onHideCardClick(card) },
                                     onHideModuleClick = {
                                         // TODO: implement overflow menu
                                     },
