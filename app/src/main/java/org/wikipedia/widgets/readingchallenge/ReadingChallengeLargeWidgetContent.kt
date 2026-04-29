@@ -214,8 +214,7 @@ fun StreakOngoingLargeWidget(
             Column(modifier = GlanceModifier.fillMaxSize()) {
                 // Top Row: Trophy, Title, W logo
                 Row(
-                    modifier = GlanceModifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier = GlanceModifier.fillMaxWidth()
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
@@ -228,6 +227,7 @@ fun StreakOngoingLargeWidget(
 
                     Text(
                         text = context.getString(R.string.reading_challenge_streak_ongoing_title),
+                        modifier = GlanceModifier.defaultWeight(),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
                             fontSize = 16.sp,
@@ -235,7 +235,7 @@ fun StreakOngoingLargeWidget(
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Spacer(modifier = GlanceModifier.width(12.dp))
 
                     // W logo (Placeholder)
                     Image(
