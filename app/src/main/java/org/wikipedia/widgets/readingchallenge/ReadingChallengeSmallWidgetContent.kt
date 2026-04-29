@@ -165,10 +165,9 @@ fun ReadingChallengeSmallWidgetContent(
                     val size = SmallWidgetSize.from(LocalSize.current)
                     WidgetBadge(
                         text = streakText,
-                        iconResId = R.drawable.ic_flame_24dp,
+                        iconResId = R.drawable.ic_streak_warning,
                         iconSize = size.badgeIconSize,
                         textSize = size.badgeTextSize,
-                        iconTintColor = combination.contentColor,
                         textColor = combination.contentColor
                     )
                 }
@@ -283,6 +282,21 @@ fun SmallWidgetChallengeCompletedTierBoundariesPreview() {
 fun SmallWidgetStreakOngoingReadTodayTierBoundariesPreview() {
     ReadingChallengeSmallWidgetContent(
         state = ReadingChallengeState.StreakOngoingReadToday(streak = 15),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+// StreakOngoingNeedsReading: mascot + badge
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 184, heightDp = 130)
+@Preview(widthDp = 130, heightDp = 200)
+@Preview(widthDp = 184, heightDp = 160)
+@Preview(widthDp = 200, heightDp = 200)
+@Preview(widthDp = 250, heightDp = 250)
+@Composable
+fun SmallWidgetStreakOngoingNeedsReadingTierBoundariesPreview() {
+    ReadingChallengeSmallWidgetContent(
+        state = ReadingChallengeState.StreakOngoingNeedsReading(streak = 2),
         enrollmentDate = LocalDate.now()
     )
 }

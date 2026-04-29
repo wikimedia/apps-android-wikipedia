@@ -124,7 +124,7 @@ fun WidgetBadge(
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
-    iconTintColor: Color,
+    iconTintColor: Color? = null,
     textColor: Color,
     modifier: GlanceModifier = GlanceModifier
 ) {
@@ -138,7 +138,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor))
+            colorFilter = if (iconTintColor != null) ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) else null
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)

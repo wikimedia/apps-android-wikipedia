@@ -325,9 +325,8 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     WidgetBadge(
                         text = streakText,
                         textSize = size.streakBadgeTextSize,
-                        iconResId = R.drawable.ic_flame_24dp,
+                        iconResId = R.drawable.ic_streak_warning,
                         iconSize = size.streakBadgeIconSize,
-                        iconTintColor = contentColor,
                         textColor = contentColor
                     )
                     Text(

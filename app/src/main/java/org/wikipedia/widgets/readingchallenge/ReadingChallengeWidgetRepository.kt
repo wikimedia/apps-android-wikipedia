@@ -54,32 +54,32 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
     }
 
     fun resolveState(userData: ReadingChallengeUserData): ReadingChallengeState {
-        // Stage 5: Remove challenge
         if (userData.currentDate.isAfter(REMOVE_DATE)) {
             return ReadingChallengeState.ChallengeRemoved
         }
 
-        // Stage 1: Pre-enrollment
         if (userData.currentDate.isBefore(START_DATE)) {
             return ReadingChallengeState.NotLiveYet
         }
 
-        // From this point onward, we are in the active or past the challenge period
-
-        // Stage 2: Challenge is active and user has not enrolled
         if (!userData.enabled) {
+            // Past end date and never enrolled treat as concluded with no streak
+            if (userData.currentDate.isAfter(END_DATE)) {
+                return ReadingChallengeState.ChallengeConcludedNoStreak
+            }
             return ReadingChallengeState.NotEnrolled
         }
 
         // From this point onward, user is enrolled
 
-        // Stage 3: Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time
+        // Success State, once user is enrolled we check immediately to bypass other conditions if they finish on time
         if (userData.currentStreak >= READING_STREAK_GOAL) {
             return ReadingChallengeState.ChallengeCompleted
         }
 
-        // Stage 4: Post Challenge (After May 31, 2026)
-        if (userData.currentDate.isAfter(END_DATE)) {
+        // Past end date with a broken streak — challenge is concluded and cannot restart.
+        // Active streaks past end date fall through and continue toward completion (buffer period)
+        if (userData.currentDate.isAfter(END_DATE) && !userData.hasActiveStreak) {
             return if (userData.currentStreak > 0) {
                 ReadingChallengeState.ChallengeConcludedIncomplete(userData.currentStreak) // streak did not hit 25, but they did have a streak
             } else {
@@ -87,12 +87,12 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
             }
         }
 
-        // Stage 2: no article opened
+        // no article read since enrollment
         if (userData.currentStreak == 0) {
             return ReadingChallengeState.EnrolledNotStarted
         }
 
-        // Stage 2: Active streak
+        // Active streak
         return if (userData.hasReadToday) {
             ReadingChallengeState.StreakOngoingReadToday(userData.currentStreak)
         } else {
@@ -107,13 +107,21 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
                 currentDate = currentDate,
                 enabled = Prefs.readingChallengeEnrolled,
                 currentStreak = Prefs.readingChallengeStreak,
-                hasReadToday = hasReadToday(currentDate)
+                hasReadToday = hasReadToday(currentDate),
+                hasActiveStreak = hasActiveStreak(currentDate)
             )
         )
     }
 
+    fun hasActiveStreak(currentDate: LocalDate): Boolean {
+        val lastReadDateStr = Prefs.readingChallengeLastReadDate
+        return lastReadDateStr.isNotEmpty() &&
+                ChronoUnit.DAYS.between(LocalDate.parse(lastReadDateStr), currentDate) <= 1
+    }
+
     fun recalculateStreakIfNeeded(currentDate: LocalDate) {
         if (currentDate.isAfter(END_DATE)) return // will not reset after challenge ends
+        if (Prefs.readingChallengeStreak >= READING_STREAK_GOAL) return
 
         val lastReadDateStr = Prefs.readingChallengeLastReadDate
         if (lastReadDateStr.isNotEmpty()) {
@@ -130,9 +138,11 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         ReadingChallengeWidget().updateAll(context)
     }
     suspend fun updateOnArticleRead(currentDate: LocalDate) {
-        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(END_DATE)) {
-            return
-        }
+        if (currentDate.isBefore(START_DATE) || currentDate.isAfter(REMOVE_DATE)) return
+        if (Prefs.readingChallengeStreak >= READING_STREAK_GOAL) return
+
+        // after end date but streak is not active
+        if (currentDate.isAfter(END_DATE) && !hasActiveStreak(currentDate)) return
 
         if (Prefs.readingChallengeEnrolled && !hasReadToday(currentDate)) {
             Prefs.readingChallengeLastReadDate = currentDate.toString()
@@ -151,7 +161,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
         private val REMOVE_DATE = LocalDate.of(2026, 7, 27)
 
         private val isChallengeActive: Boolean
-            get() = !LocalDate.now().isBefore(START_DATE) && LocalDate.now().isBefore(END_DATE)
+            get() = !LocalDate.now().isBefore(START_DATE) && !LocalDate.now().isAfter(END_DATE)
 
         fun isWidgetInstalled(): Boolean {
             val context = WikipediaApp.instance
