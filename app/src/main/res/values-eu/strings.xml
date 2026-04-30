@@ -1065,7 +1065,7 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Azken 30 egunetan %s aldiz ikusi da.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
-    <item quantity="one">etiketa% d gehitu duzu</item>
+    <item quantity="one">etiketa %d gehitu duzu</item>
     <item quantity="other"> %d etiketa gehitu dituzu</item>
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Atzo</string>
