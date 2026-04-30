@@ -139,7 +139,7 @@ fun ContinueReadingCardContent(
                 model = card.entry.title.thumbUrl?.let { ImageService.getRequest(LocalContext.current,
                     url = ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)) },
                 placeholder = ColorPainter(Color.Black),
-                error = ColorPainter(Color.White),
+                error = ColorPainter(Color.DarkGray),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()

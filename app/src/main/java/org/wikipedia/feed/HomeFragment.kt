@@ -316,7 +316,6 @@ fun HomeScreen(
                                 .width(128.dp)
                         )
 
-                        // Tab selector
                         HomeTabBar(
                             modifier = Modifier.padding(top = 8.dp),
                             wikiSite = wikiSite,
@@ -366,49 +365,54 @@ fun HomeScreen(
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            .fillMaxWidth()
-                            .background(
-                                Brush.verticalGradient(
-                                    colorStops = arrayOf(
-                                        0.0f to Color.Black.copy(alpha = 0.78f),
-                                        0.18f to Color.Black.copy(alpha = 0.64f),
-                                        0.38f to Color.Black.copy(alpha = 0.40f),
-                                        0.58f to Color.Black.copy(alpha = 0.20f),
-                                        0.76f to Color.Black.copy(alpha = 0.08f),
-                                        0.90f to Color.Black.copy(alpha = 0.02f),
-                                        1.0f to Color.Transparent
+                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.Black.copy(alpha = 0.80f))
+                        ) {
+                            Image(
+                                painter = painterResource(R.drawable.feed_header_wordmark),
+                                contentDescription = null,
+                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier
+                                    .statusBarsPadding()
+                                    .padding(start = 20.dp, top = (topInset + 16).dp)
+                                    .width(128.dp)
+                            )
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(
+                                    Brush.verticalGradient(
+                                        colorStops = arrayOf(
+                                            0.0f to Color.Black.copy(alpha = 0.80f),
+                                            0.18f to Color.Black.copy(alpha = 0.64f),
+                                            0.38f to Color.Black.copy(alpha = 0.40f),
+                                            0.58f to Color.Black.copy(alpha = 0.20f),
+                                            0.76f to Color.Black.copy(alpha = 0.08f),
+                                            0.90f to Color.Black.copy(alpha = 0.02f),
+                                            1.0f to Color.Transparent
+                                        )
                                     )
                                 )
+                        ) {
+                            HomeTabBar(
+                                modifier = Modifier.padding(top = 8.dp, bottom = 64.dp),
+                                wikiSite = wikiSite,
+                                selectedTab = selectedTab,
+                                languageState = languageState,
+                                onTabSelected = onSelectTab,
+                                onLanguageSelected = {
+                                    onLanguageSelected(it)
+                                },
+                                onManageLanguagesClick = {
+                                    onManageLanguagesClick()
+                                }
                             )
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
-                        )
-
-                        // Tab selector
-                        HomeTabBar(
-                            modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
-                            wikiSite = wikiSite,
-                            selectedTab = selectedTab,
-                            languageState = languageState,
-                            onTabSelected = onSelectTab,
-                            onLanguageSelected = {
-                                onLanguageSelected(it)
-                            },
-                            onManageLanguagesClick = {
-                                onManageLanguagesClick()
-                            }
-                        )
+                        }
                     }
                 }
             }
