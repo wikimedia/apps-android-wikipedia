@@ -124,7 +124,7 @@ fun ReadingChallengeSmallWidgetContent(
                 modifier = GlanceModifier
                     .fillMaxSize()
                     .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .clickable(onClick = actionRunCallback<JoinChallengeAction>()),
                 mainImageResId = R.drawable.wp25_babyglobe_reading,
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 bottomContent = {

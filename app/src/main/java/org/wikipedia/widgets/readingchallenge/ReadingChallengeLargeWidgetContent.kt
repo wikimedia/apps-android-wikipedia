@@ -128,7 +128,7 @@ fun ReadingChallengeLargeWidgetContent(
             GeneralLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .clickable(onClick = actionRunCallback<JoinChallengeAction>()),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
