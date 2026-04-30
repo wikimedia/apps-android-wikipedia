@@ -214,13 +214,12 @@ fun StreakOngoingLargeWidget(
             Column(modifier = GlanceModifier.fillMaxSize()) {
                 // Top Row: Trophy, Title, W logo
                 Row(
-                    modifier = GlanceModifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier = GlanceModifier.fillMaxWidth()
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp),
+                        modifier = GlanceModifier.size(size.trophyIconSize),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
 
@@ -228,14 +227,15 @@ fun StreakOngoingLargeWidget(
 
                     Text(
                         text = context.getString(R.string.reading_challenge_streak_ongoing_title),
+                        modifier = GlanceModifier.defaultWeight(),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
-                            fontSize = 16.sp,
+                            fontSize = size.titleBarTextSize,
                             fontWeight = FontWeight.Medium
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Spacer(modifier = GlanceModifier.width(12.dp))
 
                     // W logo (Placeholder)
                     Image(
@@ -325,9 +325,8 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     WidgetBadge(
                         text = streakText,
                         textSize = size.streakBadgeTextSize,
-                        iconResId = R.drawable.ic_flame_24dp,
+                        iconResId = R.drawable.ic_streak_warning,
                         iconSize = size.streakBadgeIconSize,
-                        iconTintColor = contentColor,
                         textColor = contentColor
                     )
                     Text(
@@ -351,6 +350,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -359,7 +359,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                             provider = ImageProvider(mascotImageResId),
                             contentDescription = null,
                             modifier = GlanceModifier
-                                .size(size.sideMascotSize)
+                                .size(mascotSize)
                         )
                     }
                 }
@@ -502,6 +502,11 @@ fun GeneralLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = if (expandMascot) {
+                        minOf(size.expandedMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    } else {
+                        minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    }
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -509,9 +514,7 @@ fun GeneralLargeWidget(
                         Image(
                             provider = ImageProvider(mainImageResId),
                             contentDescription = null,
-                            modifier = GlanceModifier.size(
-                                if (expandMascot) size.expandedMascotSize else size.sideMascotSize
-                            )
+                            modifier = GlanceModifier.size(mascotSize)
                         )
                     }
                 }
