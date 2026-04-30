@@ -288,6 +288,22 @@ enum class LargeWidgetSize {
             FULL -> 16.sp
         }
 
+    val trophyIconSize: Dp
+        get() = when (this) {
+            TINY -> 18.dp
+            EXTRA_COMPACT -> 20.dp
+            COMPACT -> 22.dp
+            FULL -> 24.dp
+        }
+
+    val titleBarTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 12.sp
+            EXTRA_COMPACT -> 13.sp
+            COMPACT -> 14.sp
+            FULL -> 16.sp
+        }
+
     val streakBadgeTextSize: TextUnit
         get() = when (this) {
             TINY -> 18.sp

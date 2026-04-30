@@ -219,7 +219,7 @@ fun StreakOngoingLargeWidget(
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp),
+                        modifier = GlanceModifier.size(size.trophyIconSize),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
 
@@ -230,7 +230,7 @@ fun StreakOngoingLargeWidget(
                         modifier = GlanceModifier.defaultWeight(),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
-                            fontSize = 16.sp,
+                            fontSize = size.titleBarTextSize,
                             fontWeight = FontWeight.Medium
                         )
                     )
