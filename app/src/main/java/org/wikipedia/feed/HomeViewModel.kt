@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -61,6 +62,9 @@ data class ForYouContentState(
     val error: Throwable? = null,
     val canLoadMore: Boolean = true
 )
+
+val noImageCardBackgroundColors = listOf(R.color.maroon800, R.color.purple800, R.color.pink800)
+val noImageCardForegroundColors = listOf(R.color.maroon300, R.color.purple300, R.color.pink300)
 
 class HomeViewModel : ViewModel() {
     private val _wikiSite = MutableStateFlow(WikiSite.forLanguageCode(Prefs.homeLanguageCode))
@@ -321,6 +325,7 @@ class HomeViewModel : ViewModel() {
                                 StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
                     }?.let {
                         it.entry.title.extract = page.extract
+                        it.entry.title.description = page.description
                         it.entry.title.thumbUrl = page.thumbUrl()
                     }
                 }

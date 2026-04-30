@@ -11,11 +11,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -51,13 +53,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.noImageCardBackgroundColors
+import org.wikipedia.feed.noImageCardForegroundColors
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
-import kotlin.random.Random
+import kotlin.math.abs
 
 @Composable
 fun ContinueReadingModule(
@@ -72,6 +75,7 @@ fun ContinueReadingModule(
         modifier = modifier
     ) {
         val pagerState = rememberPagerState(pageCount = { module.cards.size })
+        val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
 
         HorizontalPager(
             state = pagerState,
@@ -81,6 +85,7 @@ fun ContinueReadingModule(
                 wikiSite = wikiSite,
                 module = module,
                 card = module.cards[page] as ContinueReadingCard,
+                backgroundColorIndex = backgroundColorIndex + page,
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
                 onHideModuleClick = onHideModuleClick
@@ -92,7 +97,7 @@ fun ContinueReadingModule(
                 modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter).padding(bottom = 16.dp),
                 pagerState = pagerState,
                 activeColor = Color.White,
-                inactiveColor = Color.White.copy(alpha = 0.8f)
+                inactiveColor = Color.White.copy(alpha = 0.5f)
             )
         }
     }
@@ -103,6 +108,7 @@ fun ContinueReadingCardContent(
     wikiSite: WikiSite,
     module: ForYouModule.ContinueReading,
     card: ContinueReadingCard,
+    backgroundColorIndex: Int,
     onPageClick: (HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {}
@@ -116,7 +122,7 @@ fun ContinueReadingCardContent(
             .clickable { onPageClick(HistoryEntry(card.entry.title, HistoryEntry.SOURCE_FEED_CONTINUE_READING)) }
     ) {
         if (card.entry.title.thumbUrl.isNullOrEmpty()) {
-            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(card.entry.title.hashCode())))
+            val color = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
             Box(
                 modifier = Modifier.fillMaxSize().background(color)
             )
@@ -133,33 +139,105 @@ fun ContinueReadingCardContent(
         }
 
         if (card.entry.title.thumbUrl.isNullOrEmpty()) {
-            Text(
+            Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .fillMaxWidth()
-                    .padding(32.dp),
-                text = StringUtil.fromHtml(card.entry.title.displayText).toString(),
-                color = Color.White,
-                style = MaterialTheme.typography.bodyMedium,
-                maxLines = 8,
-                overflow = TextOverflow.Ellipsis
-            )
-            Box(
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .fillMaxWidth()
-                    .padding(16.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(WikipediaTheme.colors.paperColor.copy(alpha = 0.92f))
-                    .padding(16.dp)
             ) {
-                Text(
-                    text = StringUtil.fromHtml(card.entry.title.displayText).toString(),
-                    color = WikipediaTheme.colors.primaryColor,
-                    style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 4,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(colorResource(noImageCardForegroundColors[backgroundColorIndex % noImageCardForegroundColors.size]))
+                        .padding(16.dp)
+                ) {
+                    val text = card.entry.title.extract ?: card.entry.title.description ?: ""
+                    HtmlText(
+                        text = text,
+                        color = colorResource(R.color.gray700),
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontFamily = FontFamily.Serif
+                        ),
+                        maxLines = 8
+                    )
+                    HorizontalDivider(
+                        modifier = Modifier.padding(vertical = 16.dp).width(48.dp),
+                        thickness = 1.dp,
+                        color = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            HtmlText(
+                                text = card.entry.title.displayText,
+                                color = colorResource(R.color.gray700),
+                                style = MaterialTheme.typography.titleSmall,
+                                maxLines = 1
+                            )
+                            HtmlText(
+                                modifier = Modifier.padding(top = 4.dp),
+                                text = card.entry.title.description ?: "",
+                                color = colorResource(R.color.gray700),
+                                style = MaterialTheme.typography.bodySmall,
+                                maxLines = 2
+                            )
+                        }
+                        Column {
+                            IconButton(
+                                modifier = Modifier.size(48.dp),
+                                onClick = {
+                                    overflowMenuExpanded = true
+                                }
+                            ) {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_more_vert_white_24dp),
+                                    contentDescription = context.getString(
+                                        wikiSite.languageCode,
+                                        R.string.menu_feed_overflow_label
+                                    ),
+                                    tint = colorResource(R.color.gray700),
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            }
+                            ContinueReadingCardDropdownMenu(
+                                expanded = overflowMenuExpanded,
+                                wikiSite = wikiSite,
+                                onDismiss = { overflowMenuExpanded = false },
+                                onHideCardClick = { onHideCardClick(module, card) },
+                                onHideModuleClick = onHideModuleClick
+                            )
+                        }
+                    }
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        painter = painterResource(if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
+                        contentDescription = context.getString(
+                            wikiSite.languageCode,
+                            R.string.menu_feed_overflow_label
+                        ),
+                        tint = Color.White,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Text(
+                        modifier = Modifier.padding(horizontal = 4.dp),
+                        text = context.getString(wikiSite.languageCode, if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
+                        color = Color.White,
+                        style = MaterialTheme.typography.labelSmall,
+                        maxLines = 8,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+                Spacer(modifier = Modifier.height(40.dp))
             }
         } else {
             Column(
@@ -235,28 +313,28 @@ fun ContinueReadingCardContent(
                             maxLines = 8,
                             overflow = TextOverflow.Ellipsis
                         )
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 16.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                painter = painterResource(if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
-                                contentDescription = context.getString(
-                                    wikiSite.languageCode,
-                                    R.string.menu_feed_overflow_label
-                                ),
-                                tint = Color.White,
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Text(
-                                modifier = Modifier.padding(horizontal = 4.dp),
-                                text = context.getString(wikiSite.languageCode, if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
-                                color = Color.White,
-                                style = MaterialTheme.typography.labelSmall,
-                                maxLines = 8,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            painter = painterResource(if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
+                            contentDescription = context.getString(
+                                wikiSite.languageCode,
+                                R.string.menu_feed_overflow_label
+                            ),
+                            tint = Color.White,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Text(
+                            modifier = Modifier.padding(horizontal = 4.dp),
+                            text = context.getString(wikiSite.languageCode, if (card.entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
+                            color = Color.White,
+                            style = MaterialTheme.typography.labelSmall,
+                            maxLines = 8,
+                            overflow = TextOverflow.Ellipsis
+                        )
                     }
                 }
             }
@@ -357,6 +435,7 @@ fun ContinueReadingCardPreviewNoImage() {
             displayText = "Test Article",
             wiki = WikiSite.preview(),
             description = "This is a test article",
+            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             thumbUrl = null
         ), source = HistoryEntry.SOURCE_HISTORY
     )

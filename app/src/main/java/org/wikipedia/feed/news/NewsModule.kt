@@ -33,6 +33,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.noImageCardBackgroundColors
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -94,7 +95,7 @@ fun NewsItemContent(
             .clickable { onItemClick(newsItem) }
     ) {
         if (newsItem.thumbUrl().isNullOrEmpty()) {
-            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(newsItem.story.hashCode())))
+            val color = colorResource(noImageCardBackgroundColors.random(Random(newsItem.story.hashCode())))
             Box(
                 modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
             )
