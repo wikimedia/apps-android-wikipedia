@@ -124,7 +124,7 @@ fun WidgetBadge(
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
-    iconTintColor: Color,
+    iconTintColor: Color? = null,
     textColor: Color,
     modifier: GlanceModifier = GlanceModifier
 ) {
@@ -138,7 +138,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor))
+            colorFilter = iconTintColor?.let { ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) }
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)
@@ -285,6 +285,22 @@ enum class LargeWidgetSize {
         get() = when (this) {
             TINY -> 12.sp
             EXTRA_COMPACT, COMPACT -> 14.sp
+            FULL -> 16.sp
+        }
+
+    val trophyIconSize: Dp
+        get() = when (this) {
+            TINY -> 18.dp
+            EXTRA_COMPACT -> 20.dp
+            COMPACT -> 22.dp
+            FULL -> 24.dp
+        }
+
+    val titleBarTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 12.sp
+            EXTRA_COMPACT -> 13.sp
+            COMPACT -> 14.sp
             FULL -> 16.sp
         }
 

@@ -12,6 +12,7 @@ import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -214,13 +215,12 @@ fun StreakOngoingLargeWidget(
             Column(modifier = GlanceModifier.fillMaxSize()) {
                 // Top Row: Trophy, Title, W logo
                 Row(
-                    modifier = GlanceModifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier = GlanceModifier.fillMaxWidth()
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp),
+                        modifier = GlanceModifier.size(size.trophyIconSize),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
 
@@ -228,14 +228,15 @@ fun StreakOngoingLargeWidget(
 
                     Text(
                         text = context.getString(R.string.reading_challenge_streak_ongoing_title),
+                        modifier = GlanceModifier.defaultWeight(),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
-                            fontSize = 16.sp,
+                            fontSize = size.titleBarTextSize,
                             fontWeight = FontWeight.Medium
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Spacer(modifier = GlanceModifier.width(12.dp))
 
                     // W logo (Placeholder)
                     Image(
@@ -318,26 +319,29 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     .defaultWeight()
                     .fillMaxWidth()
             ) {
-                Column(
+                LazyColumn(
                     modifier = GlanceModifier
                         .width(availableWidth * 0.7f)
                 ) {
-                    WidgetBadge(
-                        text = streakText,
-                        textSize = size.streakBadgeTextSize,
-                        iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = size.streakBadgeIconSize,
-                        iconTintColor = contentColor,
-                        textColor = contentColor
-                    )
-                    Text(
-                        text = reminderText,
-                        style = TextStyle(
-                            fontSize = size.subtitleTextSize,
-                            color = ColorProvider(day = contentColor, night = contentColor),
-                            fontWeight = FontWeight.Medium,
+                    item {
+                        WidgetBadge(
+                            text = streakText,
+                            textSize = size.streakBadgeTextSize,
+                            iconResId = R.drawable.ic_streak_warning,
+                            iconSize = size.streakBadgeIconSize,
+                            textColor = contentColor
                         )
-                    )
+                    }
+                    item {
+                        Text(
+                            text = reminderText,
+                            style = TextStyle(
+                                fontSize = size.subtitleTextSize,
+                                color = ColorProvider(day = contentColor, night = contentColor),
+                                fontWeight = FontWeight.Medium,
+                            )
+                        )
+                    }
                 }
 
                 Column(
@@ -351,6 +355,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -359,7 +364,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                             provider = ImageProvider(mascotImageResId),
                             contentDescription = null,
                             modifier = GlanceModifier
-                                .size(size.sideMascotSize)
+                                .size(mascotSize)
                         )
                     }
                 }
@@ -464,29 +469,33 @@ fun GeneralLargeWidget(
                     .fillMaxWidth()
             ) {
                 // Left column: title, optional subtitle content, optional subtitle
-                Column(
+                LazyColumn(
                     modifier = GlanceModifier
                         .width(availableWidth * 0.7f)
                 ) {
-                    Text(
-                        text = title,
-                        style = TextStyle(
-                            fontSize = size.titleTextSize,
-                            color = ColorProvider(day = textColor, night = textColor),
-                            fontWeight = FontWeight.Medium,
-                        )
-                    )
-                    subTitleContent()
-                    Spacer(modifier = GlanceModifier.height(8.dp))
-                    subTitle?.let {
+                    item {
                         Text(
-                            text = it,
+                            text = title,
                             style = TextStyle(
-                                fontSize = size.subtitleTextSize,
+                                fontSize = size.titleTextSize,
                                 color = ColorProvider(day = textColor, night = textColor),
                                 fontWeight = FontWeight.Medium,
                             )
                         )
+                    }
+                    item { subTitleContent() }
+                    item { Spacer(modifier = GlanceModifier.height(8.dp)) }
+                    subTitle?.let {
+                        item {
+                            Text(
+                                text = it,
+                                style = TextStyle(
+                                    fontSize = size.subtitleTextSize,
+                                    color = ColorProvider(day = textColor, night = textColor),
+                                    fontWeight = FontWeight.Medium,
+                                )
+                            )
+                        }
                     }
                 }
 
@@ -502,6 +511,11 @@ fun GeneralLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
+                    val mascotSize = if (expandMascot) {
+                        minOf(size.expandedMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    } else {
+                        minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
+                    }
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -509,9 +523,7 @@ fun GeneralLargeWidget(
                         Image(
                             provider = ImageProvider(mainImageResId),
                             contentDescription = null,
-                            modifier = GlanceModifier.size(
-                                if (expandMascot) size.expandedMascotSize else size.sideMascotSize
-                            )
+                            modifier = GlanceModifier.size(mascotSize)
                         )
                     }
                 }
