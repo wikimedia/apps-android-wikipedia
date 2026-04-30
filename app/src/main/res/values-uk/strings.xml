@@ -2486,6 +2486,7 @@
   <string name="reading_challenge_onboarding_header">Відсвяткуйте 25-річчя Вікіпедії, приєднавшись до 25-денного читацького виклику!</string>
   <string name="reading_challenge_onboarding_read_title">Читайте 1 статтю щодня упродовж 25 днів</string>
   <string name="reading_challenge_onboarding_read_description">Приєднуйтесь до виклику будь-коли з 1 по 31 травня, завершіть свої 25 днів за власним графіком.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Приєднуйтесь до виклику будь-коли між %1$s та %2$s, завершіть свої 25 днів за власним графіком.</string>
   <string name="reading_challenge_onboarding_win_title">Вигравайте призи</string>
   <string name="reading_challenge_onboarding_win_description">Завершіть 25-денну серію читання, поки триває виклик, щоб виграти спеціальні призи.</string>
   <string name="reading_challenge_onboarding_install_title">Встановіть віджет</string>

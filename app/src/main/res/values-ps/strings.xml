@@ -2251,6 +2251,7 @@
   <string name="reading_challenge_onboarding_header">د ويکي‌پېډيا ۲۵مې کليزې د نمانځنې په موخه د ۲۵ ورځنۍ لوست ننگونې سره يوځای شئ!</string>
   <string name="reading_challenge_onboarding_read_title">د ۲۵ ورځو لپاره هره ورځ ۱ ليکنه ولولئ</string>
   <string name="reading_challenge_onboarding_read_description">د می له ۱ تر کی ۳۱ پورې هر وخت په ننگونه کې گډون وکړئ، په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">د %1$s او %2$s پورې هر وخت په ننگونه کې گډون وکړئ،  په خپل مهالوېش کې خپلې ۲۵ ورځې بشپړې کړئ.</string>
   <string name="reading_challenge_onboarding_win_title">ډالۍ وگټئ</string>
   <string name="reading_challenge_onboarding_win_description">د ځانگړو ډاليو گټلو لپاره د ننگونې په ژوندۍ بڼه د لوستلو ۲۵ ورځنۍ لړۍ بشپړه کړئ.</string>
   <string name="reading_challenge_onboarding_install_title">پراخ‌توکي نصبول</string>
