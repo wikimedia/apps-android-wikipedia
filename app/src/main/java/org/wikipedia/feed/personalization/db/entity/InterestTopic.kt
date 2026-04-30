@@ -8,6 +8,6 @@ import androidx.room.Entity
 data class InterestTopic(
     val topicId: String,
     val lang: String,
-    val topicLabel: String,
+    val topicLabel: String = "",
     val queryTopicId: String
 )

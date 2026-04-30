@@ -23,18 +23,6 @@ class InterestSelectionRepository(
     val wikiSite: WikiSite
 ) {
 
-    suspend fun getTopics(langCode: String): List<OnboardingTopic> {
-        val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
-        val response = ServiceFactory.get(wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
-        val translations = response.query?.allmessages
-            ?.filterNot { it.missing }
-            ?.associate { it.name to it.content }
-            .orEmpty()
-        return OnboardingTopics.all.map { topic ->
-            topic.copy(displayTitle = translations[topic.msgKey] ?: topic.displayTitle)
-        }
-    }
-
     suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
         val searchTerm = "articletopic:$topic"
         val response = ServiceFactory.get(wikiSite).getArticlesByTopic(searchTerm, 25)
@@ -121,7 +109,6 @@ class InterestSelectionRepository(
         interestTopicDao.insert(
             interestTopic = InterestTopic(
                 topicId = topic.topicId,
-                topicLabel = topic.displayTitle,
                 queryTopicId = topic.queryTopicId,
                 lang = lang
             )
@@ -132,7 +119,6 @@ class InterestSelectionRepository(
         interestTopicDao.delete(
             interestTopic = InterestTopic(
                 topicId = topic.topicId,
-                topicLabel = topic.displayTitle,
                 queryTopicId = topic.queryTopicId,
                 lang = lang
             )

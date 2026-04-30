@@ -24,6 +24,7 @@ import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
 import org.wikipedia.feed.personalization.interest.TopicsState
+import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.log.L
 
@@ -34,8 +35,7 @@ import org.wikipedia.util.log.L
 // instead of maintaining separate StateFlows per screen or one giant combined UI state
 private data class PersonalizedViewModelState(
     // Interest screen
-    val topics: List<OnboardingTopic> = emptyList(),
-    val topicsLoading: Boolean = false,
+    val topics: List<OnboardingTopic> = OnboardingTopics.all,
     val topicsError: Throwable? = null,
     val articles: List<PageTitle> = emptyList(),
     val articlesLoading: Boolean = false,
@@ -55,7 +55,6 @@ private data class PersonalizedViewModelState(
     fun toInterestUiState(): InterestUiState {
         return InterestUiState(
             topicsState = when {
-                topicsLoading -> TopicsState.Loading
                 topicsError != null -> TopicsState.Error(topicsError)
 
                 else -> TopicsState.Success(
@@ -133,7 +132,6 @@ class PersonalizationViewModel(
         viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
          }) {
-            loadTopics()
             initialize()
         }
     }
@@ -167,21 +165,6 @@ class PersonalizationViewModel(
                 contentByTopic = state.value.topicPreviewContent
             )
             state.update { it.copy(personalizedContent = personalizedContent, personalizedLoading = false) }
-        }
-    }
-
-    private suspend fun loadTopics() {
-        if (state.value.topics.isNotEmpty()) return
-
-        runCatching {
-            state.update { it.copy(topicsLoading = true, topicsError = null) }
-
-            val langCode = interestSelectionRepository.wikiSite.languageCode
-            val topics = interestSelectionRepository.getTopics(langCode)
-
-            state.update { it.copy(topics = topics, topicsLoading = false) }
-        }.onFailure { throwable ->
-            state.update { it.copy(topicsLoading = false, topicsError = throwable) }
         }
     }
 
