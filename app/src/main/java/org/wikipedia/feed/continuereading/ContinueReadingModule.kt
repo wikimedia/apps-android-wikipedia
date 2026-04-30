@@ -62,6 +62,12 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.math.abs
 
+enum class CardVariation {
+    VARIATION_IMAGE_WITH_EXTRACT,
+    VARIATION_IMAGE_WITH_DESCRIPTION,
+    VARIATION_TEXT_ONLY
+}
+
 @Composable
 fun ContinueReadingModule(
     modifier: Modifier = Modifier,
@@ -85,6 +91,7 @@ fun ContinueReadingModule(
                 wikiSite = wikiSite,
                 module = module,
                 card = module.cards[page] as ContinueReadingCard,
+                variation = CardVariation.entries[page % CardVariation.entries.size],
                 backgroundColorIndex = backgroundColorIndex + page,
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
@@ -108,6 +115,7 @@ fun ContinueReadingCardContent(
     wikiSite: WikiSite,
     module: ForYouModule.ContinueReading,
     card: ContinueReadingCard,
+    variation: CardVariation,
     backgroundColorIndex: Int,
     onPageClick: (HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
@@ -121,7 +129,7 @@ fun ContinueReadingCardContent(
             .fillMaxSize()
             .clickable { onPageClick(HistoryEntry(card.entry.title, HistoryEntry.SOURCE_FEED_CONTINUE_READING)) }
     ) {
-        if (card.entry.title.thumbUrl.isNullOrEmpty()) {
+        if (card.entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY) {
             val color = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
             Box(
                 modifier = Modifier.fillMaxSize().background(color)
@@ -138,7 +146,7 @@ fun ContinueReadingCardContent(
             )
         }
 
-        if (card.entry.title.thumbUrl.isNullOrEmpty()) {
+        if (card.entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY) {
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
@@ -171,6 +179,15 @@ fun ContinueReadingCardContent(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
+                        if (!card.entry.title.thumbUrl.isNullOrEmpty()) {
+                            AsyncImage(
+                                model = card.entry.title.thumbUrl,
+                                contentDescription = null,
+                                modifier = Modifier.padding(end = 8.dp).size(56.dp)
+                                    .clip(RoundedCornerShape(8.dp)),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
                         Column(
                             modifier = Modifier.weight(1f)
                         ) {
@@ -302,7 +319,7 @@ fun ContinueReadingCardContent(
                     modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
                         .padding(bottom = 40.dp)
                 ) {
-                    val text = card.entry.title.extract ?: card.entry.title.description
+                    val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) card.entry.title.extract else card.entry.title.description
                     text?.let {
                         Spacer(modifier = Modifier.height(2.dp))
                         HtmlText(
@@ -437,6 +454,29 @@ fun ContinueReadingCardPreviewNoImage() {
             description = "This is a test article",
             extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             thumbUrl = null
+        ), source = HistoryEntry.SOURCE_HISTORY
+    )
+    val card = ContinueReadingCard(entry)
+    BaseTheme(currentTheme = Theme.LIGHT) {
+        ContinueReadingModule(
+            wikiSite = wikiSite,
+            module = ForYouModule.ContinueReading(0, mutableListOf(card, card, card, card))
+        )
+    }
+}
+
+@Preview
+@Composable
+fun ContinueReadingCardPreviewTextOnlyWithImage() {
+    val wikiSite = WikiSite.preview()
+    val entry = HistoryEntry(
+        title = PageTitle(
+            text = "Test Article",
+            displayText = "Test Article",
+            wiki = WikiSite.preview(),
+            description = "This is a test article",
+            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            thumbUrl = "test.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
     val card = ContinueReadingCard(entry)
