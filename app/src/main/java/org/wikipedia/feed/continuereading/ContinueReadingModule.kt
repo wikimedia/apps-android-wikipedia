@@ -377,7 +377,7 @@ fun ContinueReadingCardDropdownMenu(
         DropdownMenuItem(
             leadingIcon = {
                 Icon(
-                    painter = painterResource(R.drawable.ic_visibility_off_24dp),
+                    painter = painterResource(R.drawable.ic_no_sim_24dp),
                     contentDescription = null,
                     tint = WikipediaTheme.colors.secondaryColor,
                     modifier = Modifier.size(24.dp)
