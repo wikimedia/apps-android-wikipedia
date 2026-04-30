@@ -2266,6 +2266,7 @@
   <string name="reading_challenge_onboarding_header">Прославете го 25-тиот роденден на Википедија со тоа што ќе се придружите на 25-дневниот читателски предизвик!</string>
   <string name="reading_challenge_onboarding_read_title">Чирајте по една статија дневно во текот на 25 дена</string>
   <string name="reading_challenge_onboarding_read_description">Придружете се на предизвикот во било кое време помеѓу 1 и 31 мај, завршете ги 25-те дена по ваш времслед.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Придружете се на предизвикот во било кое време помеѓу %1$s и %2$s, завршете ги 25-те дена по ваш времслед.</string>
   <string name="reading_challenge_onboarding_win_title">Освојте награди</string>
   <string name="reading_challenge_onboarding_win_description">Завршете ја 25-дневната низа на читање додека трае предизвикот и освојте специјални награди.</string>
   <string name="reading_challenge_onboarding_install_title">Воспоставете го елеменетот</string>
