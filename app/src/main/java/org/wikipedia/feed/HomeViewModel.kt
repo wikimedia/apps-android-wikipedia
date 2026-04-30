@@ -319,9 +319,9 @@ class HomeViewModel : ViewModel() {
 
         // --- Interests ---
 
-        val interestTopics = AppDatabase.instance.topicInterestDao().getAll(wikiSite.value.languageCode)
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }
         interestTopics.forEachIndexed { index, topic ->
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + topic.queryTopicId + "^100", 10)
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + topic.queryTopicId + "^90", 10)
                 .query?.pages?.sortedBy { it.index }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,

@@ -18,6 +18,9 @@ interface InterestTopicDao {
     @Query("DELETE FROM InterestTopic")
     suspend fun deleteAll()
 
+    @Query("SELECT * FROM InterestTopic")
+    suspend fun getAll(): List<InterestTopic>
+
     @Query("SELECT * FROM InterestTopic WHERE lang = :lang")
     suspend fun getAll(lang: String): List<InterestTopic>
 }
