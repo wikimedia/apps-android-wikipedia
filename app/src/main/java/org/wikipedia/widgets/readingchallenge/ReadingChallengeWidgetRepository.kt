@@ -153,6 +153,7 @@ class ReadingChallengeWidgetRepository(private val context: Context) {
 
     companion object {
         const val READING_STREAK_GOAL = 25
+        const val INTENT_EXTRA_READING_CHALLENGE_JOIN = "reading_challenge_join"
         const val INTENT_EXTRA_READING_CHALLENGE_REWARD = "reading_challenge_reward"
         const val READING_CHALLENGE_END_DATE = "2026-06-18"
         const val READING_CHALLENGE_START_DATE = "2026-05-11"
