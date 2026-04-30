@@ -12,6 +12,7 @@ import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -318,25 +319,29 @@ fun StreakOngoingNeedsReadingLargeWidget(
                     .defaultWeight()
                     .fillMaxWidth()
             ) {
-                Column(
+                LazyColumn(
                     modifier = GlanceModifier
                         .width(availableWidth * 0.7f)
                 ) {
-                    WidgetBadge(
-                        text = streakText,
-                        textSize = size.streakBadgeTextSize,
-                        iconResId = R.drawable.ic_streak_warning,
-                        iconSize = size.streakBadgeIconSize,
-                        textColor = contentColor
-                    )
-                    Text(
-                        text = reminderText,
-                        style = TextStyle(
-                            fontSize = size.subtitleTextSize,
-                            color = ColorProvider(day = contentColor, night = contentColor),
-                            fontWeight = FontWeight.Medium,
+                    item {
+                        WidgetBadge(
+                            text = streakText,
+                            textSize = size.streakBadgeTextSize,
+                            iconResId = R.drawable.ic_streak_warning,
+                            iconSize = size.streakBadgeIconSize,
+                            textColor = contentColor
                         )
-                    )
+                    }
+                    item {
+                        Text(
+                            text = reminderText,
+                            style = TextStyle(
+                                fontSize = size.subtitleTextSize,
+                                color = ColorProvider(day = contentColor, night = contentColor),
+                                fontWeight = FontWeight.Medium,
+                            )
+                        )
+                    }
                 }
 
                 Column(
@@ -464,29 +469,33 @@ fun GeneralLargeWidget(
                     .fillMaxWidth()
             ) {
                 // Left column: title, optional subtitle content, optional subtitle
-                Column(
+                LazyColumn(
                     modifier = GlanceModifier
                         .width(availableWidth * 0.7f)
                 ) {
-                    Text(
-                        text = title,
-                        style = TextStyle(
-                            fontSize = size.titleTextSize,
-                            color = ColorProvider(day = textColor, night = textColor),
-                            fontWeight = FontWeight.Medium,
-                        )
-                    )
-                    subTitleContent()
-                    Spacer(modifier = GlanceModifier.height(8.dp))
-                    subTitle?.let {
+                    item {
                         Text(
-                            text = it,
+                            text = title,
                             style = TextStyle(
-                                fontSize = size.subtitleTextSize,
+                                fontSize = size.titleTextSize,
                                 color = ColorProvider(day = textColor, night = textColor),
                                 fontWeight = FontWeight.Medium,
                             )
                         )
+                    }
+                    item { subTitleContent() }
+                    item { Spacer(modifier = GlanceModifier.height(8.dp)) }
+                    subTitle?.let {
+                        item {
+                            Text(
+                                text = it,
+                                style = TextStyle(
+                                    fontSize = size.subtitleTextSize,
+                                    color = ColorProvider(day = textColor, night = textColor),
+                                    fontWeight = FontWeight.Medium,
+                                )
+                            )
+                        }
                     }
                 }
 
