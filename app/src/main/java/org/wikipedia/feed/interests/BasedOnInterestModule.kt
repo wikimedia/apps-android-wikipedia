@@ -1,4 +1,4 @@
-package org.wikipedia.feed.continuereading
+package org.wikipedia.feed.interests
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,15 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
@@ -28,15 +26,14 @@ import org.wikipedia.theme.Theme
 import kotlin.math.abs
 
 @Composable
-fun ContinueReadingModule(
+fun BasedOnInterestModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    module: ForYouModule.ContinueReading,
+    module: ForYouModule.BasedOnInterest,
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {}
 ) {
-    val context = LocalContext.current
     Box(
         modifier = modifier
     ) {
@@ -47,16 +44,16 @@ fun ContinueReadingModule(
             state = pagerState,
             modifier = Modifier.fillMaxWidth()
         ) { page ->
-            val entry = (module.cards[page] as ContinueReadingCard).entry
+            val card = module.cards[page] as BasedOnInterestCard
+
             ForYouCardContent(
                 wikiSite = wikiSite,
-                entry = entry,
+                entry = card.entry,
                 variation = CardVariation.entries[page % CardVariation.entries.size],
                 backgroundColorIndex = backgroundColorIndex + page,
                 module = module,
                 card = module.cards[page],
-                footerIcon = painterResource(if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
-                footerText = context.getString(wikiSite.languageCode, if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
+                footerText = stringResource(R.string.explore_feed_because_of_interest, card.interestTopic?.topicLabel.orEmpty()),
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
                 onHideModuleClick = onHideModuleClick
@@ -76,7 +73,7 @@ fun ContinueReadingModule(
 
 @Preview
 @Composable
-fun ContinueReadingCardPreviewWithImage() {
+fun BasedOnInterestCardPreviewWithImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -88,18 +85,18 @@ fun ContinueReadingCardPreviewWithImage() {
             thumbUrl = "https://example.com/thumb.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = ContinueReadingCard(entry)
+    val card = BasedOnInterestCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ContinueReadingModule(
+        BasedOnInterestModule(
             wikiSite = wikiSite,
-            module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }
 
 @Preview
 @Composable
-fun ContinueReadingCardPreviewNoImage() {
+fun BasedOnInterestCardPreviewNoImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -111,18 +108,18 @@ fun ContinueReadingCardPreviewNoImage() {
             thumbUrl = null
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = ContinueReadingCard(entry)
+    val card = BasedOnInterestCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ContinueReadingModule(
+        BasedOnInterestModule(
             wikiSite = wikiSite,
-            module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }
 
 @Preview
 @Composable
-fun ContinueReadingCardPreviewTextOnlyWithImage() {
+fun BasedOnInterestCardPreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -134,11 +131,11 @@ fun ContinueReadingCardPreviewTextOnlyWithImage() {
             thumbUrl = "test.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = ContinueReadingCard(entry)
+    val card = BasedOnInterestCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
-        ContinueReadingModule(
+        BasedOnInterestModule(
             wikiSite = wikiSite,
-            module = ForYouModule.ContinueReading(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }

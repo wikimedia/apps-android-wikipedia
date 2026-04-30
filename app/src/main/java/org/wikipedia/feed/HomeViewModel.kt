@@ -16,12 +16,14 @@ import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
+import org.wikipedia.feed.interests.BasedOnInterestCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
@@ -31,16 +33,26 @@ enum class HomeTab { COMMUNITY, FOR_YOU }
 
 sealed class ForYouModule {
     abstract val age: Int
+    abstract val index: Int
     abstract val cards: List<Card>
 
     abstract fun withCards(cards: List<Card>): ForYouModule
 
     fun matchesIdentity(other: ForYouModule): Boolean {
-        return this::class == other::class && age == other.age
+        return this::class == other::class && age == other.age && index == other.index
+    }
+
+    data class BasedOnInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<Card>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
     }
 
     data class ContinueReading(
         override val age: Int,
+        override val index: Int,
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
@@ -305,7 +317,35 @@ class HomeViewModel : ViewModel() {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = Prefs.hiddenCards
 
-        // Continue reading
+        // --- Interests ---
+
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAll(wikiSite.value.languageCode)
+        interestTopics.forEachIndexed { index, topic ->
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + topic.queryTopicId + "^100", 10)
+                .query?.pages?.sortedBy { it.index }?.map { page ->
+                    val pageTitle = PageTitle(
+                        text = page.title,
+                        wiki = wikiSite.value,
+                        thumbUrl = page.thumbUrl(),
+                        description = page.description,
+                        displayText = page.displayTitle(wikiSite.value.languageCode),
+                    ).also {
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        it.extract = page.extract
+                    }
+                    HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
+                }.orEmpty().map {
+                    // TODO: filter items that have already been suggested.
+                    BasedOnInterestCard(it, interestTopic = topic)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+                }
+        }
+
+        // --- Continue reading ---
+
         val continueReadingCards = buildList {
             val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
             if (lastReadEntries.size > age) {
@@ -329,7 +369,7 @@ class HomeViewModel : ViewModel() {
                         it.entry.title.thumbUrl = page.thumbUrl()
                     }
                 }
-            modules.add(ForYouModule.ContinueReading(age, continueReadingCards))
+            modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
         }
 
         return modules

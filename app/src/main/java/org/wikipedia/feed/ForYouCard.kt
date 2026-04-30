@@ -31,6 +31,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -69,6 +70,8 @@ fun ForYouCardContent(
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
     card: Card? = null,
+    footerIcon: Painter? = null,
+    footerText: String? = null,
     onPageClick: (HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {}
@@ -192,23 +195,26 @@ fun ForYouCardContent(
                     modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(
-                        painter = painterResource(if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
-                        contentDescription = context.getString(
-                            wikiSite.languageCode,
-                            R.string.menu_feed_overflow_label
-                        ),
-                        tint = Color.White,
-                        modifier = Modifier.size(16.dp)
-                    )
-                    Text(
-                        modifier = Modifier.padding(horizontal = 4.dp),
-                        text = context.getString(wikiSite.languageCode, if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
-                        color = Color.White,
-                        style = MaterialTheme.typography.labelSmall,
-                        maxLines = 8,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    footerIcon?.let {
+                        Icon(
+                            painter = it,
+                            contentDescription = context.getString(
+                                wikiSite.languageCode,
+                                R.string.menu_feed_overflow_label
+                            ),
+                            tint = Color.White,
+                            modifier = Modifier.padding(end = 4.dp).size(16.dp)
+                        )
+                    }
+                    footerText?.let {
+                        Text(
+                            text = it,
+                            color = Color.White,
+                            style = MaterialTheme.typography.labelSmall,
+                            maxLines = 8,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.height(40.dp))
             }
@@ -287,7 +293,7 @@ fun ForYouCardContent(
                             text = it,
                             color = Color.White,
                             style = MaterialTheme.typography.bodyMedium,
-                            maxLines = 8,
+                            maxLines = 5,
                             overflow = TextOverflow.Ellipsis
                         )
                     }
@@ -295,23 +301,26 @@ fun ForYouCardContent(
                         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, end = 16.dp, top = 16.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            painter = painterResource(if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
-                            contentDescription = context.getString(
-                                wikiSite.languageCode,
-                                R.string.menu_feed_overflow_label
-                            ),
-                            tint = Color.White,
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Text(
-                            modifier = Modifier.padding(horizontal = 4.dp),
-                            text = context.getString(wikiSite.languageCode, if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
-                            color = Color.White,
-                            style = MaterialTheme.typography.labelSmall,
-                            maxLines = 8,
-                            overflow = TextOverflow.Ellipsis
-                        )
+                        footerIcon?.let {
+                            Icon(
+                                painter = it,
+                                contentDescription = context.getString(
+                                    wikiSite.languageCode,
+                                    R.string.menu_feed_overflow_label
+                                ),
+                                tint = Color.White,
+                                modifier = Modifier.padding(end = 4.dp).size(16.dp)
+                            )
+                        }
+                        footerText?.let {
+                            Text(
+                                text = it,
+                                color = Color.White,
+                                style = MaterialTheme.typography.labelSmall,
+                                maxLines = 8,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
                     }
                 }
             }
@@ -397,6 +406,7 @@ fun ForYouModulePreviewWithImage() {
         ForYouCardContent(
             wikiSite = wikiSite,
             entry = entry,
+            footerText = "Lorem ipsum"
         )
     }
 }
@@ -419,6 +429,7 @@ fun ForYouModulePreviewNoImage() {
         ForYouCardContent(
             wikiSite = wikiSite,
             entry = entry,
+            footerText = "Lorem ipsum"
         )
     }
 }
@@ -441,6 +452,7 @@ fun ForYouModulePreviewTextOnlyWithImage() {
         ForYouCardContent(
             wikiSite = wikiSite,
             entry = entry,
+            footerText = "Lorem ipsum",
             variation = CardVariation.VARIATION_TEXT_ONLY,
             backgroundColorIndex = 2
         )

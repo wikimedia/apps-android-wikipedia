@@ -1,13 +1,17 @@
-package org.wikipedia.feed.continuereading
+package org.wikipedia.feed.interests
 
 import android.net.Uri
 import androidx.core.net.toUri
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
+import org.wikipedia.feed.personalization.db.entity.InterestArticle
+import org.wikipedia.feed.personalization.db.entity.InterestTopic
 import org.wikipedia.history.HistoryEntry
 
-class ContinueReadingCard(
-    val entry: HistoryEntry
+class BasedOnInterestCard(
+    val entry: HistoryEntry,
+    val interestTopic: InterestTopic? = null,
+    val interestArticle: InterestArticle? = null
 ) : Card() {
     override fun image(): Uri? {
         return entry.title.thumbUrl?.toUri()

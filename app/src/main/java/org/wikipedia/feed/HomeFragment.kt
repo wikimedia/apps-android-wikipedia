@@ -88,6 +88,7 @@ import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
@@ -740,7 +741,20 @@ fun ForYouContentTab(
                         .background(WikipediaTheme.colors.backgroundColor)
                 ) {
                     modules.forEachIndexed { index, module ->
-                        if (module is ForYouModule.ContinueReading) {
+
+                        if (module is ForYouModule.BasedOnInterest) {
+                            item(key = "interest-${module.age}-$index") {
+                                BasedOnInterestModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight),
+                                    wikiSite = wikiSite,
+                                    module = module,
+                                    onPageClick = { entry -> onPageClick(entry) },
+                                    onHideCardClick = onHideCardClick
+                                )
+                            }
+                        } else if (module is ForYouModule.ContinueReading) {
                             item(key = "continue-reading-${module.age}-$index") {
                                 ContinueReadingModule(
                                     modifier = Modifier
