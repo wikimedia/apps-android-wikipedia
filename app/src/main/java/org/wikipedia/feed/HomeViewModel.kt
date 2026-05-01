@@ -330,10 +330,10 @@ class HomeViewModel : ViewModel() {
 
         // --- Interests ---
 
-        val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }.take(3)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", 10)
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
                 .query?.pages?.sortedBy { it.index }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
@@ -355,7 +355,7 @@ class HomeViewModel : ViewModel() {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
                 }
         }
-        val interestArticles = AppDatabase.instance.articleInterestDao().getAll(wikiSite.value.languageCode)
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAll(wikiSite.value.languageCode).take(3)
         interestArticles.forEachIndexed { index, topic ->
             // TODO
         }

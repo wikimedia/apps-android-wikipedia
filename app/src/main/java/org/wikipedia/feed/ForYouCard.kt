@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -90,7 +91,7 @@ fun ForYouCardContent(
                 modifier = Modifier.fillMaxSize().background(color)
             )
         } else {
-            AsyncImage(
+            FadeInAsyncImage(
                 model = entry.title.thumbUrl?.let { ImageService.getRequest(LocalContext.current,
                     url = ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)) },
                 placeholder = ColorPainter(Color.Black),

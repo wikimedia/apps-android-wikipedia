@@ -749,7 +749,8 @@ interface Service {
     "&pilicense=any&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getArticlesByTopic(
         @Query("gsrsearch") articleTopics: String,
-        @Query("gsrlimit") limit: Int
+        @Query("gsrlimit") limit: Int,
+        @Query("gsrsort") sort: String? = null
     ): MwQueryResponse
 
     companion object {
