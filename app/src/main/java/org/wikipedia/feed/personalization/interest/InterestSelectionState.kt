@@ -9,16 +9,10 @@ data class OnboardingTopic(
 )
 
 data class InterestUiState(
-    val topicsState: TopicsState = TopicsState.Loading,
+    val topicsList: List<OnboardingTopic> = emptyList(),
     val articlesState: ArticlesState = ArticlesState.Loading,
     val totalSelectedCount: Int = 0
 )
-
-sealed interface TopicsState {
-    data object Loading : TopicsState
-    data class Success(val topics: List<OnboardingTopic>) : TopicsState
-    data class Error(val message: Throwable) : TopicsState
-}
 
 sealed interface ArticlesState {
     data object Loading : ArticlesState

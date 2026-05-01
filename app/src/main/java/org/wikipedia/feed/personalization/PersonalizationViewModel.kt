@@ -23,7 +23,6 @@ import org.wikipedia.feed.personalization.interest.ArticlesState
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
-import org.wikipedia.feed.personalization.interest.TopicsState
 import org.wikipedia.page.PageTitle
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.log.L
@@ -36,7 +35,6 @@ import org.wikipedia.util.log.L
 private data class PersonalizedViewModelState(
     // Interest screen
     val topics: List<OnboardingTopic> = ArticleTopics.all.map { OnboardingTopic(it) },
-    val topicsError: Throwable? = null,
     val articles: List<PageTitle> = emptyList(),
     val articlesLoading: Boolean = false,
     val articlesError: Throwable? = null,
@@ -54,14 +52,8 @@ private data class PersonalizedViewModelState(
 ) {
     fun toInterestUiState(): InterestUiState {
         return InterestUiState(
-            topicsState = when {
-                topicsError != null -> TopicsState.Error(topicsError)
-
-                else -> TopicsState.Success(
-                    topics = topics.map {
-                        it.copy(isSelected = selectedTopics.any { selected -> selected.topic.topicId == it.topic.topicId })
-                    }
-                )
+            topicsList = topics.map {
+                it.copy(isSelected = selectedTopics.any { selected -> selected.topic.topicId == it.topic.topicId })
             },
             articlesState = when {
                 articlesLoading -> ArticlesState.Loading
@@ -242,9 +234,8 @@ class PersonalizationViewModel(
     fun onTopicSelected(topic: OnboardingTopic) {
         val lang = interestSelectionRepository.wikiSite.languageCode
 
-        // When a category is selected, we want to reset the articles state and load articles for the selected category
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            state.update { it.copy(topicsError = throwable) }
+        // When a topic is selected, we want to reset the articles state and load articles for the selected topic
+        viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
         }) {
             val currentTopics = state.value.selectedTopics
             val isSelected = currentTopics.any { selected -> selected.topic.topicId == topic.topic.topicId }

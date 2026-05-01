@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridState
@@ -61,14 +60,13 @@ import org.wikipedia.topics.ArticleTopics
 @Composable
 fun InterestOnboardingScreen(
     modifier: Modifier = Modifier,
-    topicsState: TopicsState,
     articlesState: ArticlesState,
+    topicsList: List<OnboardingTopic>,
     onTopicSelected: (OnboardingTopic) -> Unit,
     onItemClick: (PageTitle) -> Unit = {},
     onSearchClick: () -> Unit,
     onDeselectAllClick: () -> Unit,
     retryLoading: () -> Unit,
-    showError: (Throwable) -> Unit,
     totalSelectedCount: Int,
     gridState: LazyStaggeredGridState = rememberLazyStaggeredGridState()
 ) {
@@ -87,8 +85,7 @@ fun InterestOnboardingScreen(
 
             LazyVerticalStaggeredGrid(
                 columns = StaggeredGridCells.Adaptive(140.dp),
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 state = gridState,
                 verticalItemSpacing = 16.dp,
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -115,34 +112,10 @@ fun InterestOnboardingScreen(
                                 }
                             }
                         ) {
-                            when (topicsState) {
-                                is TopicsState.Error -> {
-                                    showError(topicsState.message)
-                                }
-                                TopicsState.Loading -> {
-                                    LazyRow(
-                                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                        contentPadding = PaddingValues(horizontal = 16.dp)
-                                    ) {
-                                        items(5) {
-                                            Box(
-                                                modifier = Modifier
-                                                    .width(80.dp)
-                                                    .height(32.dp)
-                                                    .clip(RoundedCornerShape(size = 8.dp))
-                                                    .shimmerEffect(transition = transition)
-                                            )
-                                        }
-                                    }
-                                }
-
-                                is TopicsState.Success -> {
-                                    TopicFilterChipRow(
-                                        topics = topicsState.topics,
-                                        onTopicSelected = { onTopicSelected(it) }
-                                    )
-                                }
-                            }
+                            TopicFilterChipRow(
+                                topics = topicsList,
+                                onTopicSelected = { onTopicSelected(it) }
+                            )
                         }
                     }
 
@@ -352,11 +325,9 @@ private fun InterestOnboardingScreenPreview() {
                 .background(WikipediaTheme.colors.paperColor)
                 .padding(top = 40.dp),
             totalSelectedCount = 0,
-            topicsState = TopicsState.Success(
-                topics = ArticleTopics.all.map { OnboardingTopic(it) }.map {
+            topicsList = ArticleTopics.all.map { OnboardingTopic(it) }.map {
                     it.copy(isSelected = it.topic.topicId == "art")
-                }
-            ),
+                },
             articlesState = ArticlesState.Success(
                 articles = titles,
                 selectedArticles = setOf()
@@ -364,8 +335,7 @@ private fun InterestOnboardingScreenPreview() {
             onTopicSelected = {},
             onSearchClick = {},
             onDeselectAllClick = {},
-            retryLoading = {},
-            showError = {}
+            retryLoading = {}
         )
     }
 }
