@@ -13,7 +13,6 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.util.FeedbackUtil
 
 class PersonalizationActivity : BaseActivity() {
 
@@ -46,9 +45,6 @@ class PersonalizationActivity : BaseActivity() {
                     onCompleteOnboardingClick = {
                         startActivity(ExploreFeedBuildingActivity.newIntent(this))
                         finish()
-                    },
-                    showError = { message ->
-                        FeedbackUtil.showError(this, message)
                     }
                 )
             }

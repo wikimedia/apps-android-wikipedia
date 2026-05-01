@@ -10,25 +10,18 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.image.FeaturedImage
-import org.wikipedia.feed.news.NewsItem
-import org.wikipedia.feed.onthisday.OnThisDay
+import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.featured.FeaturedArticleCard
+import org.wikipedia.feed.image.FeaturedImageCard
+import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.news.NewsCard
+import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
-import org.wikipedia.feed.topread.TopRead
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.settings.Prefs
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-
-data class DayContent(
-    val age: Int,
-    val date: LocalDate,
-    val featuredArticle: PageSummary? = null,
-    val news: List<NewsItem> = emptyList(),
-    val topRead: TopRead? = null,
-    val featuredImage: FeaturedImage? = null,
-    val onThisDay: List<OnThisDay.Event> = emptyList()
-)
 
 sealed class ForYouModule {
     abstract val pages: List<PageSummary>
@@ -39,7 +32,7 @@ sealed class ForYouModule {
 }
 
 data class CommunityContentState(
-    val days: List<DayContent> = emptyList(),
+    val cards: List<Card> = emptyList(),
     val isInitialLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val error: Throwable? = null,
@@ -139,7 +132,7 @@ class HomeViewModel : ViewModel() {
         if (_communityState.value.isInitialLoading || _communityState.value.isLoadingMore) return
 
         viewModelScope.launch(communityHandler) {
-            val isInitial = _communityState.value.days.isEmpty()
+            val isInitial = _communityState.value.cards.isEmpty()
             _communityState.value = _communityState.value.copy(
                 isInitialLoading = isInitial,
                 isLoadingMore = !isInitial,
@@ -151,21 +144,35 @@ class HomeViewModel : ViewModel() {
             val content = ServiceFactory.getRest(wikiSite.value)
                 .getFeedFeatured(date.year.toString(), "%02d".format(date.monthValue), "%02d".format(date.dayOfMonth), wikiSite.value.languageCode)
 
-            val dayContent = DayContent(
-                age = age,
-                date = date,
-                featuredArticle = content.tfa,
-                news = content.news.orEmpty(),
-                topRead = content.topRead,
-                featuredImage = content.potd,
-                onThisDay = content.onthisday.orEmpty()
-            )
+            // Construct Card objects based on the day's content
+            val hiddenCards = Prefs.hiddenCards
+
+            val cardsForDay = buildList<Card> {
+                content.tfa?.let {
+                    add(FeaturedArticleCard(it, age, wikiSite.value))
+                }
+                content.topRead?.let {
+                    add(TopReadListCard(it, age, wikiSite.value))
+                }
+                content.potd?.let {
+                    add(FeaturedImageCard(it, age, wikiSite.value))
+                }
+                if (!content.news.isNullOrEmpty()) {
+                    add(NewsCard(content.news, age, wikiSite.value))
+                }
+                if (!content.onthisday.isNullOrEmpty()) {
+                    add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
+                }
+            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            if (cardsForDay.isNotEmpty()) {
+                cardsForDay.add(0, DayHeaderCard(age))
+            }
 
             // Advance age only after success, so retry on failure re-fetches the same day.
             nextCommunityAge = age + 1
 
             _communityState.value = _communityState.value.copy(
-                days = _communityState.value.days + dayContent,
+                cards = _communityState.value.cards + cardsForDay,
                 isInitialLoading = false,
                 isLoadingMore = false,
                 error = null,
@@ -202,6 +209,26 @@ class HomeViewModel : ViewModel() {
                 canLoadMore = newModules.isNotEmpty()
             )
         }
+    }
+
+    fun hideCard(card: Card): Int {
+        Prefs.hiddenCards += card.hideKey
+        val cardIndex = _communityState.value.cards.indexOf(card)
+        if (cardIndex >= 0) {
+            _communityState.value = _communityState.value.copy(
+                cards = _communityState.value.cards - card
+            )
+        }
+        return cardIndex
+    }
+
+    fun restoreCard(card: Card, index: Int) {
+        Prefs.hiddenCards -= card.hideKey
+         _communityState.value = _communityState.value.copy(
+            cards = _communityState.value.cards.toMutableList().apply {
+                add(index, card)
+            }
+        )
     }
 
     private suspend fun fetchForYouModules(batchIndex: Int): List<ForYouModule> {

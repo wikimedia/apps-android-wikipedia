@@ -367,10 +367,7 @@ abstract class AppDatabase : RoomDatabase() {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("CREATE TABLE IF NOT EXISTS InterestTopic (" +
                         "topicId TEXT NOT NULL," +
-                        "lang TEXT NOT NULL," +
-                        "topicLabel TEXT NOT NULL," +
-                        "queryTopicId TEXT NOT NULL," +
-                        "PRIMARY KEY (topicId, lang)" +
+                        "PRIMARY KEY (topicId)" +
                         ")")
                 db.execSQL("CREATE TABLE IF NOT EXISTS InterestArticle (" +
                         "apiTitle TEXT NOT NULL," +
@@ -379,12 +376,8 @@ abstract class AppDatabase : RoomDatabase() {
                         "displayTitle TEXT NOT NULL," +
                         "description TEXT NOT NULL," +
                         "thumbUrl TEXT NOT NULL," +
-                        "topicId TEXT," +
-                        "topicLang TEXT," +
-                        "PRIMARY KEY (apiTitle, lang, namespace)," +
-                        "FOREIGN KEY(topicId, topicLang) REFERENCES InterestTopic(topicId, lang) ON DELETE SET NULL" +
+                        "PRIMARY KEY (apiTitle, lang, namespace)" +
                         ")")
-                db.execSQL("CREATE INDEX IF NOT EXISTS index_InterestArticle_topicId_topicLang ON InterestArticle (topicId, topicLang)")
             }
         }
 

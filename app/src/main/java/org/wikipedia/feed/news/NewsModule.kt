@@ -43,6 +43,7 @@ fun NewsModule(
     wikiSite: WikiSite,
     newsItems: List<NewsItem>,
     onNewsClick: (item: NewsItem) -> Unit = {},
+    onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {}
 ) {
     Column(
@@ -57,6 +58,7 @@ fun NewsModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_card_news_title,
             subTitleResId = R.string.explore_feed_in_the_news_subtitle,
+            onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick
         )
 

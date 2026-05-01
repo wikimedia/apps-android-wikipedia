@@ -23,8 +23,8 @@ import org.wikipedia.feed.personalization.interest.ArticlesState
 import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
-import org.wikipedia.feed.personalization.interest.TopicsState
 import org.wikipedia.page.PageTitle
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.log.L
 
 // this is a raw, flat, internal representation of ALL state
@@ -34,9 +34,7 @@ import org.wikipedia.util.log.L
 // instead of maintaining separate StateFlows per screen or one giant combined UI state
 private data class PersonalizedViewModelState(
     // Interest screen
-    val topics: List<OnboardingTopic> = emptyList(),
-    val topicsLoading: Boolean = false,
-    val topicsError: Throwable? = null,
+    val topics: List<OnboardingTopic> = ArticleTopics.all.map { OnboardingTopic(it) },
     val articles: List<PageTitle> = emptyList(),
     val articlesLoading: Boolean = false,
     val articlesError: Throwable? = null,
@@ -54,15 +52,8 @@ private data class PersonalizedViewModelState(
 ) {
     fun toInterestUiState(): InterestUiState {
         return InterestUiState(
-            topicsState = when {
-                topicsLoading -> TopicsState.Loading
-                topicsError != null -> TopicsState.Error(topicsError)
-
-                else -> TopicsState.Success(
-                    topics = topics.map {
-                        it.copy(isSelected = selectedTopics.any { selected -> selected.topicId == it.topicId })
-                    }
-                )
+            topicsList = topics.map {
+                it.copy(isSelected = selectedTopics.any { selected -> selected.topic.topicId == it.topic.topicId })
             },
             articlesState = when {
                 articlesLoading -> ArticlesState.Loading
@@ -133,7 +124,6 @@ class PersonalizationViewModel(
         viewModelScope.launch( CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
          }) {
-            loadTopics()
             initialize()
         }
     }
@@ -170,26 +160,11 @@ class PersonalizationViewModel(
         }
     }
 
-    private suspend fun loadTopics() {
-        if (state.value.topics.isNotEmpty()) return
-
-        runCatching {
-            state.update { it.copy(topicsLoading = true, topicsError = null) }
-
-            val langCode = interestSelectionRepository.wikiSite.languageCode
-            val topics = interestSelectionRepository.getTopics(langCode)
-
-            state.update { it.copy(topics = topics, topicsLoading = false) }
-        }.onFailure { throwable ->
-            state.update { it.copy(topicsLoading = false, topicsError = throwable) }
-        }
-    }
-
     private suspend fun initialize() {
         runCatching {
             val langCode = interestSelectionRepository.wikiSite.languageCode
             // check db for persisted interest (topic and articles) data
-            val persistedTopics = interestSelectionRepository.getPersistedTopics(langCode)
+            val persistedTopics = interestSelectionRepository.getPersistedTopics()
             val persistedArticles = interestSelectionRepository.getPersistedArticles(langCode)
 
             val hasPersistedData = persistedTopics.isNotEmpty() || persistedArticles.isNotEmpty()
@@ -246,43 +221,40 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = interestSelectionRepository.getArticlesByTopic(topic.queryTopicId)
+            val articles = interestSelectionRepository.getArticlesByTopic(topic.topic.queryTopicId)
             val previewContent = HomePreferenceContent.fromPageTitles(pageTitles = articles, topic = topic)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()
-                current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topicId to previewContent), articlesLoading = false)
+                current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topic.topicId to previewContent), articlesLoading = false)
             }
         }
     }
 
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
-        val lang = interestSelectionRepository.wikiSite.languageCode
-
-        // When a category is selected, we want to reset the articles state and load articles for the selected category
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            state.update { it.copy(topicsError = throwable) }
+        // When a topic is selected, we want to reset the articles state and load articles for the selected topic
+        viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
         }) {
             val currentTopics = state.value.selectedTopics
-            val isSelected = currentTopics.any { selected -> selected.topicId == topic.topicId }
+            val isSelected = currentTopics.any { selected -> selected.topic.topicId == topic.topic.topicId }
 
             val selectedTopics = if (isSelected) {
-                currentTopics.filter { it.topicId != topic.topicId }
+                currentTopics.filter { it.topic.topicId != topic.topic.topicId }
             } else {
                 currentTopics + topic
             }
 
             if (isSelected) {
-                interestSelectionRepository.deleteTopic(topic, lang)
+                interestSelectionRepository.deleteTopic(topic)
             } else {
-                interestSelectionRepository.saveTopic(topic, lang)
+                interestSelectionRepository.saveTopic(topic)
             }
 
             state.update { current ->
                 current.copy(
                     selectedTopics = selectedTopics,
                     topicPreviewContent = if (isSelected) {
-                        current.topicPreviewContent - topic.topicId
+                        current.topicPreviewContent - topic.topic.topicId
                     } else {
                         current.topicPreviewContent
                     },
@@ -301,7 +273,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode, null)
+            interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode)
             state.update {
                 val newItems = listOf(title) + it.articles
                 val newSelection = it.selectedArticles + title
@@ -318,12 +290,11 @@ class PersonalizationViewModel(
         }) {
             val current = state.value
             val isSelected = current.selectedArticles.contains(title)
-            val currentSelectedTopic = current.selectedTopics.lastOrNull()
 
             if (isSelected) {
-                interestSelectionRepository.deleteArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.deleteArticle(title, lang)
             } else {
-                interestSelectionRepository.saveArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.saveArticle(title, lang)
             }
 
             state.update { currentState ->

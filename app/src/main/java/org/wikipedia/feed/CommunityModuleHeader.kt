@@ -41,6 +41,7 @@ fun CommunityModuleHeader(
     @StringRes titleResId: Int,
     @StringRes subTitleResId: Int,
     @DrawableRes contextIconResId: Int? = null,
+    onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -87,6 +88,27 @@ fun CommunityModuleHeader(
                     onDismissRequest = { expanded = false },
                     containerColor = WikipediaTheme.colors.paperColor
                 ) {
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_visibility_off_24dp),
+                                contentDescription = null,
+                                tint = WikipediaTheme.colors.secondaryColor,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = context.getString(wikiSite.languageCode, R.string.menu_feed_card_dismiss),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = WikipediaTheme.colors.primaryColor
+                            )
+                        },
+                        onClick = {
+                            onHideCardClick()
+                            expanded = false
+                        }
+                    )
                     DropdownMenuItem(
                         leadingIcon = {
                             Icon(

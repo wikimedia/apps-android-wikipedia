@@ -7,12 +7,12 @@ import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
 import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
-import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListPageDao
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 
 class InterestSelectionRepository(
@@ -22,18 +22,6 @@ class InterestSelectionRepository(
     private val readingListPageDao: ReadingListPageDao,
     val wikiSite: WikiSite
 ) {
-
-    suspend fun getTopics(langCode: String): List<OnboardingTopic> {
-        val allMsgKey = OnboardingTopics.all.joinToString("|") { it.msgKey }
-        val response = ServiceFactory.get(wikiSite).getMessages(messages = allMsgKey, args = null, lang = langCode)
-        val translations = response.query?.allmessages
-            ?.filterNot { it.missing }
-            ?.associate { it.name to it.content }
-            .orEmpty()
-        return OnboardingTopics.all.map { topic ->
-            topic.copy(displayTitle = translations[topic.msgKey] ?: topic.displayTitle)
-        }
-    }
 
     suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
         val searchTerm = "articletopic:$topic"
@@ -99,10 +87,10 @@ class InterestSelectionRepository(
         return results.distinctBy { it.prefixedText }
     }
 
-    suspend fun getPersistedTopics(lang: String): List<OnboardingTopic> {
-        return interestTopicDao.getAll(lang).mapNotNull { entity ->
-            OnboardingTopics.all.find { it.topicId == entity.topicId }
-        }
+    suspend fun getPersistedTopics(): List<OnboardingTopic> {
+        return interestTopicDao.getAll().mapNotNull { entity ->
+            ArticleTopics.all.find { it.topicId == entity.topicId }
+        }.map { OnboardingTopic(it) }
     }
 
     suspend fun getPersistedArticles(lang: String): List<PageTitle> {
@@ -117,29 +105,15 @@ class InterestSelectionRepository(
         }
     }
 
-    suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
-        interestTopicDao.insert(
-            interestTopic = InterestTopic(
-                topicId = topic.topicId,
-                topicLabel = topic.displayTitle,
-                queryTopicId = topic.queryTopicId,
-                lang = lang
-            )
-        )
+    suspend fun saveTopic(topic: OnboardingTopic) {
+        interestTopicDao.insert(InterestTopic(topic.topic.topicId))
     }
 
-    suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
-        interestTopicDao.delete(
-            interestTopic = InterestTopic(
-                topicId = topic.topicId,
-                topicLabel = topic.displayTitle,
-                queryTopicId = topic.queryTopicId,
-                lang = lang
-            )
-        )
+    suspend fun deleteTopic(topic: OnboardingTopic) {
+        interestTopicDao.delete(InterestTopic(topic.topic.topicId))
     }
 
-    suspend fun saveArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
+    suspend fun saveArticle(article: PageTitle, lang: String) {
         interestArticleDao.insert(
             interestArticle = InterestArticle(
                 apiTitle = article.prefixedText,
@@ -147,14 +121,12 @@ class InterestSelectionRepository(
                 namespace = article.namespace(),
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
-                thumbUrl = article.thumbUrl.orEmpty(),
-                topicId = topic?.topicId,
-                topicLang = lang
+                thumbUrl = article.thumbUrl.orEmpty()
             )
         )
     }
 
-    suspend fun deleteArticle(article: PageTitle, lang: String, topic: OnboardingTopic?) {
+    suspend fun deleteArticle(article: PageTitle, lang: String) {
         interestArticleDao.delete(
             interestArticle = InterestArticle(
                 apiTitle = article.prefixedText,
@@ -162,9 +134,7 @@ class InterestSelectionRepository(
                 namespace = article.namespace(),
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
-                thumbUrl = article.thumbUrl.orEmpty(),
-                topicId = topic?.topicId,
-                topicLang = lang
+                thumbUrl = article.thumbUrl.orEmpty()
             )
         )
     }

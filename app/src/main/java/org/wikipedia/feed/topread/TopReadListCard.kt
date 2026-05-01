@@ -12,7 +12,8 @@ import org.wikipedia.util.L10nUtil
 
 @Parcelize
 class TopReadListCard(
-    private val articles: TopRead,
+    val articles: TopRead,
+    val age: Int,
     val site: WikiSite
 ) : ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
 

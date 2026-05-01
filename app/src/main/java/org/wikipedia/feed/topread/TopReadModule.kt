@@ -47,6 +47,7 @@ fun TopReadModule(
     wikiSite: WikiSite,
     topRead: TopRead,
     pageOverflowContent: @Composable (Int) -> Unit,
+    onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary, Int) -> Unit,
@@ -63,6 +64,7 @@ fun TopReadModule(
             wikiSite = wikiSite,
             titleResId = R.string.view_top_read_card_title,
             subTitleResId = R.string.view_top_read_card_description,
+            onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick
         )
 

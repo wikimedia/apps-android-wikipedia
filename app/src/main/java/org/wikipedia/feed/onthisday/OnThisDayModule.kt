@@ -53,6 +53,7 @@ fun OnThisDayModule(
     wikiSite: WikiSite,
     events: List<OnThisDay.Event>,
     pageOverflowContent: @Composable (eventIndex: Int, itemIndex: Int) -> Unit,
+    onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
     onPageClick: (page: PageSummary) -> Unit = {},
     onPageOverflowClick: (PageSummary, Int, Int) -> Unit = { _, _, _ -> },
@@ -68,6 +69,7 @@ fun OnThisDayModule(
             wikiSite = wikiSite,
             titleResId = R.string.on_this_day_card_title,
             subTitleResId = R.string.explore_feed_on_this_day_subtitle,
+            onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick
         )
 

@@ -84,13 +84,19 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.dayheader.DayHeaderCard
+import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
+import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
 import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
+import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
@@ -104,6 +110,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.imageservice.ImageService
 import java.time.LocalDate
@@ -151,6 +158,13 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
+                        onHideCardClick = { card ->
+                            val cardIndex = viewModel.hideCard(card)
+                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                                .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    viewModel.restoreCard(card, cardIndex)
+                                }.show()
+                        },
                         onPageClick = {
                             (parentFragment as? MainFragment)?.onFeedSelectPage(it, false)
                         },
@@ -240,6 +254,7 @@ fun HomeScreen(
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
+    onHideCardClick: (card: Card) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -317,6 +332,7 @@ fun HomeScreen(
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
+                            onHideCardClick = onHideCardClick,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
@@ -458,6 +474,7 @@ fun CommunityContentTab(
     state: CommunityContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
     onLoadMore: () -> Unit,
+    onHideCardClick: (card: Card) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -473,7 +490,7 @@ fun CommunityContentTab(
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
-        state.error != null && state.days.isEmpty() -> {
+        state.error != null && state.cards.isEmpty() -> {
             ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
@@ -490,148 +507,151 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
-                state.days.forEach { day ->
-
-                    item(key = "day-header-${day.age}") {
-                        DayHeader(day.date, isFirst = day.age == 0)
-                    }
-
-                    day.featuredArticle?.let { article ->
-                        item(key = "tfa-${day.age}") {
-                            FeaturedArticleModule(
-                                wikiSite = wikiSite,
-                                article,
-                                onPageClick = {
-                                    onPageClick(
-                                        it.getHistoryEntry(
-                                            wikiSite,
-                                            HistoryEntry.SOURCE_FEED_FEATURED
+                state.cards.forEach { card ->
+                    when (card) {
+                        is DayHeaderCard -> {
+                            item(key = "day-header-${card.age}") {
+                                DayHeader(LocalDate.now().minusDays(card.age.toLong()), isFirst = card.age == 0)
+                            }
+                        }
+                        is FeaturedArticleCard -> {
+                            item(key = "tfa-${card.age}") {
+                                FeaturedArticleModule(
+                                    wikiSite = wikiSite,
+                                    card.page,
+                                    onPageClick = {
+                                        onPageClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
                                         )
-                                    )
-                                },
-                                onHideModuleClick = {
-                                    // TODO
-                                },
-                                onShareClick = {
-                                    onPageShareClick(
-                                        it.getHistoryEntry(
-                                            wikiSite,
-                                            HistoryEntry.SOURCE_FEED_FEATURED
+                                    },
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onHideModuleClick = {
+                                        // TODO
+                                    },
+                                    onShareClick = {
+                                        onPageShareClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
                                         )
-                                    )
-                                },
-                                onBookmarkClick = {
-                                    onPageBookmarkClick(
-                                        it.getHistoryEntry(
-                                            wikiSite,
-                                            HistoryEntry.SOURCE_FEED_FEATURED
+                                    },
+                                    onBookmarkClick = {
+                                        onPageBookmarkClick(
+                                            it.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_FEATURED
+                                            )
                                         )
-                                    )
-                                }
-                            )
+                                    }
+                                )
+                            }
+                        }
+                        is TopReadListCard -> {
+                            item(key = "top-read-${card.age}") {
+                                TopReadModule(
+                                    wikiSite = wikiSite,
+                                    topRead = card.articles,
+                                    pageOverflowContent = { index ->
+                                        PageOverflowMenu(
+                                            menuKey = "top-read-${card.age}-$index",
+                                            overflowMenuState = overflowMenuState,
+                                            onDismiss = onPageOverflowDismiss,
+                                            items = overflowMenuState?.items.orEmpty()
+                                        )
+                                    },
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onHideModuleClick = {
+                                        // TODO: implement hide module functionality
+                                    },
+                                    onPageClick = { entry ->
+                                        onPageClick(
+                                            entry.getHistoryEntry(
+                                                wikiSite,
+                                                HistoryEntry.SOURCE_FEED_MOST_READ
+                                            )
+                                        )
+                                    },
+                                    onPageOverflowClick = { pageSummary, index ->
+                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${card.age}-$index")
+                                    },
+                                    onFooterClick = {
+                                        // TODO: simplify TopReadListCard after we remove the old feed UIs.
+                                        activity?.startActivity(
+                                            TopReadArticlesActivity.newIntent(
+                                                activity,
+                                                TopReadListCard(card.articles, card.age, wikiSite)
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                        }
+                        is FeaturedImageCard -> {
+                            item(key = "tfi-${card.age}") {
+                                FeaturedImageModule(
+                                    wikiSite = wikiSite,
+                                    featuredImage = card.featuredImage,
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onClick = onImageClick,
+                                    onDownloadClick = onImageDownloadClick,
+                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) }
+                                )
+                            }
+                        }
+                        is NewsCard -> {
+                            item(key = "news-${card.age}") {
+                                NewsModule(
+                                    wikiSite = wikiSite,
+                                    newsItems = card.news,
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onNewsClick = { newsItem ->
+                                        onNewsClick(newsItem)
+                                    },
+                                    onHideModuleClick = {
+                                        // TODO: implement overflow menu
+                                    }
+                                )
+                            }
+                        }
+                        is OnThisDayCard -> {
+                            item(key = "on-this-day-${card.age}") {
+                                OnThisDayModule(
+                                    wikiSite = wikiSite,
+                                    events = card.events,
+                                    pageOverflowContent = { eventIndex, itemIndex ->
+                                        PageOverflowMenu(
+                                            menuKey = "on-this-day-${card.age}-$eventIndex-$itemIndex",
+                                            overflowMenuState = overflowMenuState,
+                                            onDismiss = onPageOverflowDismiss,
+                                            items = overflowMenuState?.items.orEmpty()
+                                        )
+                                    },
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onHideModuleClick = {
+                                        // TODO: implement overflow menu
+                                    },
+                                    onPageClick = { pageSummary ->
+                                        onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
+                                    },
+                                    onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
+                                        onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${card.age}-$eventIndex-$itemIndex")
+                                    },
+                                    onFooterClick = {
+                                        activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
+                                    }
+                                )
+                            }
+                        }
+                        else -> {
+                            // TODO: Today's Featured Picture
+                            // TODO: DYK
+                            // TODO: Media of the day (Commons)
                         }
                     }
-
-                    day.topRead?.let {
-                        item(key = "top-read-${day.age}") {
-                            TopReadModule(
-                                wikiSite = wikiSite,
-                                topRead = it,
-                                pageOverflowContent = { index ->
-                                    PageOverflowMenu(
-                                        menuKey = "top-read-${day.age}-$index",
-                                        overflowMenuState = overflowMenuState,
-                                        onDismiss = onPageOverflowDismiss,
-                                        items = overflowMenuState?.items.orEmpty()
-                                    )
-                                },
-                                onHideModuleClick = {
-                                    // TODO: implement hide module functionality
-                                },
-                                onPageClick = { entry ->
-                                    onPageClick(
-                                        entry.getHistoryEntry(
-                                            wikiSite,
-                                            HistoryEntry.SOURCE_FEED_MOST_READ
-                                        )
-                                    )
-                                },
-                                onPageOverflowClick = { pageSummary, index ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_MOST_READ, "top-read-${day.age}-$index")
-                                },
-                                onFooterClick = {
-                                    // TODO: simplify TopReadListCard after we remove the old feed UIs.
-                                    activity?.startActivity(
-                                        TopReadArticlesActivity.newIntent(
-                                            activity,
-                                            TopReadListCard(it, wikiSite)
-                                        )
-                                    )
-                                }
-                            )
-                        }
-                    }
-
-                    // TODO: insert Today's Featured Picture module here
-                    // TODO: insert DYK module here
-
-                    day.featuredImage?.let { image ->
-                        item(key = "tfi-${day.age}") {
-                            FeaturedImageModule(
-                                wikiSite = wikiSite,
-                                featuredImage = image,
-                                onClick = onImageClick,
-                                onDownloadClick = onImageDownloadClick,
-                                onShareClick = { onImageShareClick(image, day.age) }
-                            )
-                        }
-                    }
-
-                    if (day.news.isNotEmpty()) {
-                        item(key = "news-${day.age}") {
-                            NewsModule(
-                                wikiSite = wikiSite,
-                                newsItems = day.news,
-                                onNewsClick = { newsItem ->
-                                    onNewsClick(newsItem)
-                                },
-                                onHideModuleClick = {
-                                    // TODO: implement overflow menu
-                                }
-                            )
-                        }
-                    }
-
-                    if (day.onThisDay.isNotEmpty()) {
-                        item(key = "on-this-day-${day.age}") {
-                            OnThisDayModule(
-                                wikiSite = wikiSite,
-                                events = day.onThisDay.take(2),
-                                pageOverflowContent = { eventIndex, itemIndex ->
-                                    PageOverflowMenu(
-                                        menuKey = "on-this-day-${day.age}-$eventIndex-$itemIndex",
-                                        overflowMenuState = overflowMenuState,
-                                        onDismiss = onPageOverflowDismiss,
-                                        items = overflowMenuState?.items.orEmpty()
-                                    )
-                                },
-                                onHideModuleClick = {
-                                    // TODO: implement overflow menu
-                                },
-                                onPageClick = { pageSummary ->
-                                    onPageClick(pageSummary.getHistoryEntry(wikiSite, HistoryEntry.SOURCE_FEED_ON_THIS_DAY))
-                                },
-                                onPageOverflowClick = { pageSummary, eventIndex, itemIndex ->
-                                    onPageOverflowClick(pageSummary, HistoryEntry.SOURCE_FEED_ON_THIS_DAY, "on-this-day-${day.age}-$eventIndex-$itemIndex")
-                                },
-                                onFooterClick = {
-                                    activity?.startActivity(OnThisDayActivity.newIntent(activity, day.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
-                                }
-                            )
-                        }
-                    }
-
-                    // TODO: insert Media of the day (Commons) module here
                 }
 
                 item(key = "load-more-community") {
@@ -646,7 +666,7 @@ fun CommunityContentTab(
                     }
                 }
 
-                if (state.error != null && state.days.isNotEmpty()) {
+                if (state.error != null && state.cards.isNotEmpty()) {
                     item(key = "error-community") {
                         ErrorState(state.error, onRetry = onLoadMore)
                     }
