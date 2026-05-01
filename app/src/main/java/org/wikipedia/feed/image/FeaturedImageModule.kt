@@ -48,6 +48,7 @@ fun FeaturedImageModule(
     onHideModuleClick: (featuredImage: FeaturedImage) -> Unit = {},
     onDownloadClick: (featuredImage: FeaturedImage) -> Unit = {},
     onShareClick: (featuredImage: FeaturedImage) -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
 
@@ -60,7 +61,8 @@ fun FeaturedImageModule(
             subTitleResId = R.string.explore_feed_potd_subtitle,
             contextIconResId = R.drawable.ic_commons_logo,
             onHideCardClick = onHideCardClick,
-            onHideModuleClick = { onHideModuleClick(featuredImage) }
+            onHideModuleClick = { onHideModuleClick(featuredImage) },
+            onCardInView = onCardImpression
         )
 
         Box(

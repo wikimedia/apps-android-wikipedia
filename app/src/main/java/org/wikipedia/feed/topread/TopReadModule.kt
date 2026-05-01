@@ -51,7 +51,8 @@ fun TopReadModule(
     onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary, Int) -> Unit,
-    onFooterClick: () -> Unit
+    onFooterClick: () -> Unit,
+    onCardImpression: () -> Unit = {}
 ) {
     val maxTopReadItems = 5
     val context = LocalContext.current
@@ -65,7 +66,8 @@ fun TopReadModule(
             titleResId = R.string.view_top_read_card_title,
             subTitleResId = R.string.view_top_read_card_description,
             onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
+            onHideModuleClick = onHideModuleClick,
+            onCardInView = onCardImpression
         )
 
         Spacer(modifier = Modifier.height(16.dp))

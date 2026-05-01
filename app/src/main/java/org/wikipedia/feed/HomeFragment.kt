@@ -368,7 +368,8 @@ fun HomeScreen(
                             onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
-                            onImageShareClick = onImageShareClick
+                            onImageShareClick = onImageShareClick,
+                            onCardImpression = onCardImpression
                         )
                     }
                 }
@@ -523,7 +524,8 @@ fun CommunityContentTab(
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onCardImpression: (card: Card) -> Unit = {}
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -586,7 +588,8 @@ fun CommunityContentTab(
                                                 HistoryEntry.SOURCE_FEED_FEATURED
                                             )
                                         )
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -626,7 +629,8 @@ fun CommunityContentTab(
                                                 TopReadListCard(card.articles, card.age, wikiSite)
                                             )
                                         )
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -638,7 +642,8 @@ fun CommunityContentTab(
                                     onHideCardClick = { onHideCardClick(card) },
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
-                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) }
+                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -653,7 +658,8 @@ fun CommunityContentTab(
                                     },
                                     onHideModuleClick = {
                                         // TODO: implement overflow menu
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -682,7 +688,8 @@ fun CommunityContentTab(
                                     },
                                     onFooterClick = {
                                         activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }

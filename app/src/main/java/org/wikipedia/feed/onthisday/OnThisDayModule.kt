@@ -57,7 +57,8 @@ fun OnThisDayModule(
     onHideModuleClick: () -> Unit = {},
     onPageClick: (page: PageSummary) -> Unit = {},
     onPageOverflowClick: (PageSummary, Int, Int) -> Unit = { _, _, _ -> },
-    onFooterClick: () -> Unit = {}
+    onFooterClick: () -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
     Column(
@@ -70,7 +71,8 @@ fun OnThisDayModule(
             titleResId = R.string.on_this_day_card_title,
             subTitleResId = R.string.explore_feed_on_this_day_subtitle,
             onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
+            onHideModuleClick = onHideModuleClick,
+            onCardInView = onCardImpression
         )
 
         events.forEachIndexed { eventIndex, event ->

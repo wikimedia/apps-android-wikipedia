@@ -45,7 +45,8 @@ fun NewsModule(
     newsItems: List<NewsItem>,
     onNewsClick: (item: NewsItem) -> Unit = {},
     onHideCardClick: () -> Unit = {},
-    onHideModuleClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -60,7 +61,8 @@ fun NewsModule(
             titleResId = R.string.view_card_news_title,
             subTitleResId = R.string.explore_feed_in_the_news_subtitle,
             onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
+            onHideModuleClick = onHideModuleClick,
+            onCardInView = onCardImpression
         )
 
         HorizontalPager(
