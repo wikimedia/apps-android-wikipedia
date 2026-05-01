@@ -20,6 +20,7 @@ import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -45,6 +46,7 @@ fun BasedOnInterestModule(
             modifier = Modifier.fillMaxWidth()
         ) { page ->
             val card = module.cards[page] as BasedOnInterestCard
+            val topic = OnboardingTopics.all.find { it.topicId == card.interestTopic?.topicId }
 
             ForYouCardContent(
                 wikiSite = wikiSite,
@@ -53,7 +55,7 @@ fun BasedOnInterestModule(
                 backgroundColorIndex = backgroundColorIndex + page,
                 module = module,
                 card = module.cards[page],
-                footerText = stringResource(R.string.explore_feed_because_of_interest, card.interestTopic?.topicLabel.orEmpty()),
+                footerText = if (topic != null) stringResource(R.string.explore_feed_because_of_interest, stringResource(topic.msgKey)) else null,
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
                 onHideModuleClick = onHideModuleClick
