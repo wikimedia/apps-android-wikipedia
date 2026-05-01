@@ -69,7 +69,7 @@ class HomeViewModel : ViewModel() {
     // Batch counter for "For you" recommendations.
     private var forYouBatchIndex = 0
 
-    val tabsState = MutableStateFlow(WikipediaApp.instance.tabCount)
+    val tabsState = MutableStateFlow(WikipediaApp.instance.tabCount to false)
 
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
@@ -127,8 +127,8 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun updateTabCount() {
-        tabsState.value = WikipediaApp.instance.tabCount
+    fun updateTabCount(pulse: Boolean = false) {
+        tabsState.value = WikipediaApp.instance.tabCount to pulse
     }
 
     /**

@@ -81,6 +81,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
+import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -108,6 +109,7 @@ import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
@@ -190,7 +192,7 @@ class HomeFragment : Fragment() {
                                 },
                                 onOpenInNewTab = { entry ->
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
-                                    viewModel.updateTabCount()
+                                    viewModel.updateTabCount(true)
                                 },
                                 onAddRequest = { entry, addToDefault ->
                                     (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
@@ -229,11 +231,22 @@ class HomeFragment : Fragment() {
                         },
                         onManageLanguagesClick = {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
+                        },
+                        onTabClick = {
+                            requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
+                        },
+                        onUpdateTabCount = {
+                            viewModel.updateTabCount(false)
                         }
                     )
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateTabCount()
     }
 
     fun getCurrentTab(): HomeTab {
@@ -255,7 +268,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
-    tabsCountState: Int = 0,
+    tabsCountState: Pair<Int, Boolean> = 0 to false,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -272,7 +285,8 @@ fun HomeScreen(
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
-    onTabClick: () -> Unit = {}
+    onTabClick: () -> Unit = {},
+    onUpdateTabCount: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -307,32 +321,12 @@ fun HomeScreen(
                             .fillMaxSize()
                             .background(WikipediaTheme.colors.paperColor)
                     ) {
-                        Row {
-                            Image(
-                                painter = painterResource(R.drawable.feed_header_wordmark),
-                                contentDescription = null,
-                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                                contentScale = ContentScale.FillWidth,
-                                modifier = Modifier
-                                    .statusBarsPadding()
-                                    .padding(start = 20.dp, top = (topInset + 16).dp)
-                                    .width(128.dp)
-                            )
-                            Spacer(modifier = Modifier.weight(1f))
-                            if (tabsCountState > 0) {
-                                IconButton(
-                                    modifier = Modifier
-                                        .statusBarsPadding()
-                                        .padding(top = topInset.dp),
-                                    onClick = { onTabClick() }
-                                ) {
-                                    TabsBox(
-                                        modifier = Modifier.size(20.dp),
-                                        count = tabsCountState
-                                    )
-                                }
-                            }
-                        }
+                        HomeToolbar(
+                            topInset = topInset,
+                            tabsCountState = tabsCountState,
+                            onTabClick = onTabClick,
+                            onUpdateTabCount = onUpdateTabCount
+                        )
 
                         // Tab selector
                         HomeTabBar(
@@ -395,15 +389,11 @@ fun HomeScreen(
                                 )
                             )
                     ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
+                        HomeToolbar(
+                            topInset = topInset,
+                            tabsCountState = tabsCountState,
+                            onTabClick = onTabClick,
+                            onUpdateTabCount = onUpdateTabCount
                         )
 
                         // Tab selector
@@ -422,6 +412,55 @@ fun HomeScreen(
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun HomeToolbar(
+    topInset: Int,
+    tabsCountState: Pair<Int, Boolean>,
+    onTabClick: () -> Unit,
+    onUpdateTabCount: () -> Unit
+) {
+    Row {
+        Image(
+            painter = painterResource(R.drawable.feed_header_wordmark),
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+            contentScale = ContentScale.FillWidth,
+            modifier = Modifier
+                .statusBarsPadding()
+                .padding(start = 20.dp, top = (topInset + 16).dp)
+                .width(128.dp)
+        )
+        Spacer(modifier = Modifier.weight(1f))
+        if (tabsCountState.first > 0) {
+            IconButton(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(top = topInset.dp),
+                onClick = { onTabClick() }
+            ) {
+                TabsBox(
+                    modifier = Modifier
+                        .width(20.dp)
+                        .height(19.dp)
+                        .then(if (tabsCountState.second) {
+                            Modifier.pulse(
+                                durationMillis = 300,
+                                toScale = 1.25f,
+                                onCompleted = {
+                                    onUpdateTabCount()
+                                }
+                            )
+                        } else {
+                            Modifier
+                        }),
+                    backgroundColor = Color.Transparent,
+                    count = tabsCountState.first
+                )
             }
         }
     }

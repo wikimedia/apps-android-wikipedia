@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Text
@@ -54,8 +53,7 @@ private fun TabsBoxSmallNumberPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         TabsBox(
             modifier = Modifier
-                .size(20.dp)
-                .widthIn(min = 20.dp),
+                .size(20.dp, 19.dp),
             count = 1
         )
     }
@@ -67,8 +65,7 @@ private fun TabsBoxSmallLargePreview() {
     BaseTheme(currentTheme = Theme.DARK) {
         TabsBox(
             modifier = Modifier
-                .size(20.dp)
-                .widthIn(min = 20.dp),
+                .size(20.dp, 19.dp),
             count = 99
         )
     }
