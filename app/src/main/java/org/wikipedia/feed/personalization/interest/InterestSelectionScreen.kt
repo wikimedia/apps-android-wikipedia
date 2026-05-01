@@ -222,7 +222,7 @@ fun TopicFilterChipRow(
     ) {
         items(items = topics, key = { it.topicId }) { item ->
             FilterChip(
-                label = { Text(item.displayTitle) },
+                label = { Text(stringResource(item.msgKey)) },
                 selected = item.isSelected,
                 onClick = { onTopicSelected(item) },
                 leadingIcon = {
@@ -354,7 +354,7 @@ private fun InterestOnboardingScreenPreview() {
             totalSelectedCount = 0,
             topicsState = TopicsState.Success(
                 topics = OnboardingTopics.all.map {
-                    it.copy(displayTitle = it.msgKey, isSelected = it.topicId == "science")
+                    it.copy(isSelected = it.topicId == "science")
                 }
             ),
             articlesState = ArticlesState.Success(

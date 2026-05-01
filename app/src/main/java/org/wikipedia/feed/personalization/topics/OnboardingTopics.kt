@@ -1,5 +1,6 @@
 package org.wikipedia.feed.personalization.topics
 
+import org.wikipedia.R
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
 
 // the values defined here are from https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/WikimediaMessages/+/refs/heads/master/includes/ArticleTopicFiltersRegistry.php
@@ -7,237 +8,198 @@ object OnboardingTopics {
     val all = listOf(
         OnboardingTopic(
             topicId = "architecture",
-            msgKey = "wikimedia-articletopics-topic-architecture",
-            queryTopicId = "architecture",
-            displayTitle = "Architecture"
+            msgKey = R.string.wikimedia_articletopics_topic_architecture,
+            queryTopicId = "architecture"
         ),
         OnboardingTopic(
             topicId = "art", // registry uses "art" as topicId but articleTopics = "visual-arts"
-            msgKey = "wikimedia-articletopics-topic-art",
-            queryTopicId = "visual-arts",
-            displayTitle = "Art"
+            msgKey = R.string.wikimedia_articletopics_topic_art,
+            queryTopicId = "visual-arts"
         ),
         OnboardingTopic(
             topicId = "comics-and-anime",
-            msgKey = "wikimedia-articletopics-topic-comics-and-anime",
-            queryTopicId = "comics-and-anime",
-            displayTitle = "Comics and Anime"
+            msgKey = R.string.wikimedia_articletopics_topic_comics_and_anime,
+            queryTopicId = "comics-and-anime"
         ),
         OnboardingTopic(
             topicId = "entertainment",
-            msgKey = "wikimedia-articletopics-topic-entertainment",
-            queryTopicId = "entertainment",
-            displayTitle = "Entertainment"
+            msgKey = R.string.wikimedia_articletopics_topic_entertainment,
+            queryTopicId = "entertainment"
         ),
         OnboardingTopic(
             topicId = "fashion",
-            msgKey = "wikimedia-articletopics-topic-fashion",
-            queryTopicId = "fashion",
-            displayTitle = "Fashion"
+            msgKey = R.string.wikimedia_articletopics_topic_fashion,
+            queryTopicId = "fashion"
         ),
         OnboardingTopic(
             topicId = "literature",
-            msgKey = "wikimedia-articletopics-topic-literature",
-            queryTopicId = "books", // registry uses "literature" as topicId but articleTopics = "books"
-            displayTitle = "Literature"
+            msgKey = R.string.wikimedia_articletopics_topic_literature,
+            queryTopicId = "books" // registry uses "literature" as topicId but articleTopics = "books"
         ),
         OnboardingTopic(
             topicId = "music",
-            msgKey = "wikimedia-articletopics-topic-music",
-            queryTopicId = "music",
-            displayTitle = "Music"
+            msgKey = R.string.wikimedia_articletopics_topic_music,
+            queryTopicId = "music"
         ),
         OnboardingTopic(
             topicId = "performing-arts",
-            msgKey = "wikimedia-articletopics-topic-performing-arts",
-            queryTopicId = "performing-arts",
-            displayTitle = "Performing arts"
+            msgKey = R.string.wikimedia_articletopics_topic_performing_arts,
+            queryTopicId = "performing-arts"
         ),
         OnboardingTopic(
             topicId = "sports",
-            msgKey = "wikimedia-articletopics-topic-sports",
-            queryTopicId = "sports",
-            displayTitle = "Sports"
+            msgKey = R.string.wikimedia_articletopics_topic_sports,
+            queryTopicId = "sports"
         ),
         OnboardingTopic(
             topicId = "tv-and-film",
-            msgKey = "wikimedia-articletopics-topic-tv-and-film",
-            queryTopicId = "films",
-            displayTitle = "TV and Film"
+            msgKey = R.string.wikimedia_articletopics_topic_tv_and_film,
+            queryTopicId = "films"
         ),
         OnboardingTopic(
             topicId = "video-games",
-            msgKey = "wikimedia-articletopics-topic-video-games",
-            queryTopicId = "video-games",
-            displayTitle = "Video Games"
+            msgKey = R.string.wikimedia_articletopics_topic_video_games,
+            queryTopicId = "video-games"
         ),
         OnboardingTopic(
             topicId = "biography",
-            msgKey = "wikimedia-articletopics-topic-biography",
-            queryTopicId = "biography",
-            displayTitle = "Biography"
+            msgKey = R.string.wikimedia_articletopics_topic_biography,
+            queryTopicId = "biography"
         ),
         OnboardingTopic(
             topicId = "women",
-            msgKey = "wikimedia-articletopics-topic-women",
-            queryTopicId = "women",
-            displayTitle = "Women"
+            msgKey = R.string.wikimedia_articletopics_topic_women,
+            queryTopicId = "women"
         ),
         OnboardingTopic(
             topicId = "business-and-economics",
-            msgKey = "wikimedia-articletopics-topic-business-and-economics",
-            queryTopicId = "business-and-economics",
-            displayTitle = "Business and economics"
+            msgKey = R.string.wikimedia_articletopics_topic_business_and_economics,
+            queryTopicId = "business-and-economics"
         ),
         OnboardingTopic(
             topicId = "education",
-            msgKey = "wikimedia-articletopics-topic-education",
-            queryTopicId = "education",
-            displayTitle = "Education"
+            msgKey = R.string.wikimedia_articletopics_topic_education,
+            queryTopicId = "education"
         ),
         OnboardingTopic(
             topicId = "food-and-drink",
-            msgKey = "wikimedia-articletopics-topic-food-and-drink",
-            queryTopicId = "food-and-drink",
-            displayTitle = "Food and Drink"
+            msgKey = R.string.wikimedia_articletopics_topic_food_and_drink,
+            queryTopicId = "food-and-drink"
         ),
         OnboardingTopic(
             topicId = "history",
-            msgKey = "wikimedia-articletopics-topic-history",
-            queryTopicId = "history",
-            displayTitle = "History"
+            msgKey = R.string.wikimedia_articletopics_topic_history,
+            queryTopicId = "history"
         ),
         OnboardingTopic(
             topicId = "military-and-warfare",
-            msgKey = "wikimedia-articletopics-topic-military-and-warfare",
-            queryTopicId = "military-and-warfare",
-            displayTitle = "Military and warfare"
+            msgKey = R.string.wikimedia_articletopics_topic_military_and_warfare,
+            queryTopicId = "military-and-warfare"
         ),
         OnboardingTopic(
             topicId = "philosophy-and-religion",
-            msgKey = "wikimedia-articletopics-topic-philosophy-and-religion",
-            queryTopicId = "philosophy-and-religion",
-            displayTitle = "Philosophy and religion"
+            msgKey = R.string.wikimedia_articletopics_topic_philosophy_and_religion,
+            queryTopicId = "philosophy-and-religion"
         ),
         OnboardingTopic(
             topicId = "politics-and-government",
-            msgKey = "wikimedia-articletopics-topic-politics-and-government",
-            queryTopicId = "politics-and-government",
-            displayTitle = "Politics and government"
+            msgKey = R.string.wikimedia_articletopics_topic_politics_and_government,
+            queryTopicId = "politics-and-government"
         ),
         OnboardingTopic(
             topicId = "society",
-            msgKey = "wikimedia-articletopics-topic-society",
-            queryTopicId = "society",
-            displayTitle = "Society"
+            msgKey = R.string.wikimedia_articletopics_topic_society,
+            queryTopicId = "society"
         ),
         OnboardingTopic(
             topicId = "transportation",
-            msgKey = "wikimedia-articletopics-topic-transportation",
-            queryTopicId = "transportation",
-            displayTitle = "Transportation"
+            msgKey = R.string.wikimedia_articletopics_topic_transportation,
+            queryTopicId = "transportation"
         ),
         OnboardingTopic(
             topicId = "biology",
-            msgKey = "wikimedia-articletopics-topic-biology",
-            queryTopicId = "biology",
-            displayTitle = "Biology"
+            msgKey = R.string.wikimedia_articletopics_topic_biology,
+            queryTopicId = "biology"
         ),
         OnboardingTopic(
             topicId = "chemistry",
-            msgKey = "wikimedia-articletopics-topic-chemistry",
-            queryTopicId = "chemistry",
-            displayTitle = "Chemistry"
+            msgKey = R.string.wikimedia_articletopics_topic_chemistry,
+            queryTopicId = "chemistry"
         ),
         OnboardingTopic(
             topicId = "computers-and-internet", // registry uses "computers-and-internet" as topicId but articleTopics = "internet-culture"
-            msgKey = "wikimedia-articletopics-topic-computers-and-internet",
-            queryTopicId = "internet-culture",
-            displayTitle = "Internet Culture"
+            msgKey = R.string.wikimedia_articletopics_topic_computers_and_internet,
+            queryTopicId = "internet-culture"
         ),
         OnboardingTopic(
             topicId = "earth-and-environment", // registry uses "earth-and-environment" as topicId but articleTopics = "geographical"
-            msgKey = "wikimedia-articletopics-topic-earth-and-environment",
-            queryTopicId = "geographical",
-            displayTitle = "Geographical"
+            msgKey = R.string.wikimedia_articletopics_topic_earth_and_environment,
+            queryTopicId = "geographical"
         ),
         OnboardingTopic(
             topicId = "engineering",
-            msgKey = "wikimedia-articletopics-topic-engineering",
-            queryTopicId = "engineering",
-            displayTitle = "Engineering"
+            msgKey = R.string.wikimedia_articletopics_topic_engineering,
+            queryTopicId = "engineering"
         ),
         OnboardingTopic(
             topicId = "general-science", // registry uses "general-science" as topicId but articleTopics = "stem"
-            msgKey = "wikimedia-articletopics-topic-general-science",
-            queryTopicId = "stem",
-            displayTitle = "STEM"
+            msgKey = R.string.wikimedia_articletopics_topic_general_science,
+            queryTopicId = "stem"
         ),
         OnboardingTopic(
             topicId = "mathematics",
-            msgKey = "wikimedia-articletopics-topic-mathematics",
-            queryTopicId = "mathematics",
-            displayTitle = "Mathematics"
+            msgKey = R.string.wikimedia_articletopics_topic_mathematics,
+            queryTopicId = "mathematics"
         ),
         OnboardingTopic(
             topicId = "medicine-and-health",
-            msgKey = "wikimedia-articletopics-topic-medicine-and-health",
-            queryTopicId = "medicine-and-health",
-            displayTitle = "Medicine and Health"
+            msgKey = R.string.wikimedia_articletopics_topic_medicine_and_health,
+            queryTopicId = "medicine-and-health"
         ),
         OnboardingTopic(
             topicId = "physics",
-            msgKey = "wikimedia-articletopics-topic-physics",
-            queryTopicId = "physics",
-            displayTitle = "Physics"
+            msgKey = R.string.wikimedia_articletopics_topic_physics,
+            queryTopicId = "physics"
         ),
         OnboardingTopic(
             topicId = "technology",
-            msgKey = "wikimedia-articletopics-topic-technology",
-            queryTopicId = "technology",
-            displayTitle = "Technology"
+            msgKey = R.string.wikimedia_articletopics_topic_technology,
+            queryTopicId = "technology"
         ),
         OnboardingTopic(
             topicId = "africa",
-            msgKey = "wikimedia-articletopics-topic-africa",
-            queryTopicId = "africa",
-            displayTitle = "Africa"
+            msgKey = R.string.wikimedia_articletopics_topic_africa,
+            queryTopicId = "africa"
         ),
         OnboardingTopic(
             topicId = "asia",
-            msgKey = "wikimedia-articletopics-topic-asia",
-            queryTopicId = "asia",
-            displayTitle = "Asia"
+            msgKey = R.string.wikimedia_articletopics_topic_asia,
+            queryTopicId = "asia"
         ),
         OnboardingTopic(
             topicId = "central-america",
-            msgKey = "wikimedia-articletopics-topic-central-america",
-            queryTopicId = "central-america",
-            displayTitle = "Central America"
+            msgKey = R.string.wikimedia_articletopics_topic_central_america,
+            queryTopicId = "central-america"
         ),
         OnboardingTopic(
             topicId = "europe",
-            msgKey = "wikimedia-articletopics-topic-europe",
-            queryTopicId = "europe",
-            displayTitle = "Europe"
+            msgKey = R.string.wikimedia_articletopics_topic_europe,
+            queryTopicId = "europe"
         ),
         OnboardingTopic(
             topicId = "north-america",
-            msgKey = "wikimedia-articletopics-topic-north-america",
-            queryTopicId = "north-america",
-            displayTitle = "North America"
+            msgKey = R.string.wikimedia_articletopics_topic_north_america,
+            queryTopicId = "north-america"
         ),
         OnboardingTopic(
             topicId = "oceania",
-            msgKey = "wikimedia-articletopics-topic-oceania",
-            queryTopicId = "oceania",
-            displayTitle = "Oceania"
+            msgKey = R.string.wikimedia_articletopics_topic_oceania,
+            queryTopicId = "oceania"
         ),
         OnboardingTopic(
             topicId = "south-america",
-            msgKey = "wikimedia-articletopics-topic-south-america",
-            queryTopicId = "south-america",
-            displayTitle = "South America"
+            msgKey = R.string.wikimedia_articletopics_topic_south_america,
+            queryTopicId = "south-america"
         )
     )
 }

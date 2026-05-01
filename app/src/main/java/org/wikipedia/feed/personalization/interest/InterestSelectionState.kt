@@ -4,9 +4,8 @@ import org.wikipedia.page.PageTitle
 
 data class OnboardingTopic(
     val topicId: String,
-    val msgKey: String,
+    val msgKey: Int,
     val queryTopicId: String,
-    val displayTitle: String,
     val isSelected: Boolean = false
 )
 
