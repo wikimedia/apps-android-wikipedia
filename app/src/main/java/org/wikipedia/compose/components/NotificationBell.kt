@@ -9,6 +9,7 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
@@ -16,9 +17,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,22 +43,27 @@ fun NotificationBell(
     unreadCount: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    animationTrigger: Any? = null,
     iconRes: Int = R.drawable.ic_notifications_black_24dp
 ) {
     val scale = remember { Animatable(1f) }
-    LaunchedEffect(animationTrigger) {
-        if (animationTrigger != null) {
+    var previousCount by remember { mutableIntStateOf(unreadCount) }
+
+    LaunchedEffect(unreadCount) {
+        if (unreadCount > previousCount) {
+            scale.snapTo(1f)
             scale.animateTo(2f, tween(250))
             scale.animateTo(1f, tween(250))
         }
+        previousCount = unreadCount
     }
 
     Box(
         modifier = modifier
             .size(48.dp)
             .clickable(
-                onClick = onClick
+                onClick = onClick,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = ripple(bounded = false),
             )
             .graphicsLayer(
                 scaleX = scale.value,
