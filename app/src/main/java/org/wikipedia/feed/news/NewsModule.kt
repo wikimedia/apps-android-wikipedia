@@ -24,8 +24,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -94,7 +94,7 @@ fun NewsItemContent(
                 modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
             )
         } else {
-            AsyncImage(
+            FadeInAsyncImage(
                 model = newsItem.thumbUrl()?.let { ImageService.getRequest(LocalContext.current, url = it) },
                 placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
                 error = ColorPainter(WikipediaTheme.colors.backgroundColor),

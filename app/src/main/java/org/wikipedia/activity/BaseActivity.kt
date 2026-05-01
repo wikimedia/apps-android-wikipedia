@@ -36,6 +36,8 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
+import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -275,7 +277,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     private fun maybeShowYearInReview() {
         if (this !is YearInReviewOnboardingActivity && this !is YearInReviewActivity &&
-            !Prefs.isInitialOnboardingEnabled &&
+            !Prefs.isInitialOnboardingEnabled && this !is PersonalizationActivity && this !is ExploreFeedBuildingActivity &&
             YearInReviewViewModel.isAccessible && Prefs.isYearInReviewEnabled && !Prefs.yearInReviewVisited) {
             yearInReviewLauncher.launch((YearInReviewOnboardingActivity.newIntent(this)))
         }
