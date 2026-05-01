@@ -475,7 +475,6 @@ fun GeneralLargeWidget(
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
-            // Top row: text column (70%) + mascot/logo column (30%)
             Row(
                 modifier = GlanceModifier
                     .defaultWeight()
