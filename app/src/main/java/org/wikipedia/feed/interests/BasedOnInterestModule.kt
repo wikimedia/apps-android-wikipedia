@@ -12,10 +12,10 @@ import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.topics.ArticleTopics
 import kotlin.math.abs
 
 @Composable
@@ -36,7 +36,7 @@ fun BasedOnInterestModule(
         onCardInView = onCardInView
     ) { page ->
         val card = module.cards[page] as BasedOnInterestCard
-        val topic = OnboardingTopics.all.find { it.topicId == card.interestTopic?.topicId }
+        val topic = ArticleTopics.all.find { it.topicId == card.interestTopic?.topicId }
 
         ForYouCardContent(
             wikiSite = wikiSite,

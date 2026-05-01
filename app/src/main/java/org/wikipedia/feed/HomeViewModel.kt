@@ -26,6 +26,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
@@ -331,7 +332,8 @@ class HomeViewModel : ViewModel() {
 
         val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }
         interestTopics.forEachIndexed { index, topic ->
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + topic.queryTopicId + "^90", 10)
+            val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", 10)
                 .query?.pages?.sortedBy { it.index }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
@@ -352,6 +354,10 @@ class HomeViewModel : ViewModel() {
                 if (entries.isNotEmpty()) {
                     modules.add(ForYouModule.BasedOnInterest(age, index, entries))
                 }
+        }
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAll(wikiSite.value.languageCode)
+        interestArticles.forEachIndexed { index, topic ->
+            // TODO
         }
 
         // --- Continue reading ---
