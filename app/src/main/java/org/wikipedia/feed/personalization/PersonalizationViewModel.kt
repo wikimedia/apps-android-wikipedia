@@ -164,7 +164,7 @@ class PersonalizationViewModel(
         runCatching {
             val langCode = interestSelectionRepository.wikiSite.languageCode
             // check db for persisted interest (topic and articles) data
-            val persistedTopics = interestSelectionRepository.getPersistedTopics(langCode)
+            val persistedTopics = interestSelectionRepository.getPersistedTopics()
             val persistedArticles = interestSelectionRepository.getPersistedArticles(langCode)
 
             val hasPersistedData = persistedTopics.isNotEmpty() || persistedArticles.isNotEmpty()
@@ -232,8 +232,6 @@ class PersonalizationViewModel(
 
     // as we have a single state it becomes easier to update and control the state
     fun onTopicSelected(topic: OnboardingTopic) {
-        val lang = interestSelectionRepository.wikiSite.languageCode
-
         // When a topic is selected, we want to reset the articles state and load articles for the selected topic
         viewModelScope.launch(CoroutineExceptionHandler { _, _ ->
         }) {
@@ -247,9 +245,9 @@ class PersonalizationViewModel(
             }
 
             if (isSelected) {
-                interestSelectionRepository.deleteTopic(topic, lang)
+                interestSelectionRepository.deleteTopic(topic)
             } else {
-                interestSelectionRepository.saveTopic(topic, lang)
+                interestSelectionRepository.saveTopic(topic)
             }
 
             state.update { current ->
@@ -275,7 +273,7 @@ class PersonalizationViewModel(
                 state.update { it.copy(articlesError = throwable) }
             }
         ) {
-            interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode, null)
+            interestSelectionRepository.saveArticle(title, interestSelectionRepository.wikiSite.languageCode)
             state.update {
                 val newItems = listOf(title) + it.articles
                 val newSelection = it.selectedArticles + title
@@ -292,12 +290,11 @@ class PersonalizationViewModel(
         }) {
             val current = state.value
             val isSelected = current.selectedArticles.contains(title)
-            val currentSelectedTopic = current.selectedTopics.lastOrNull()
 
             if (isSelected) {
-                interestSelectionRepository.deleteArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.deleteArticle(title, lang)
             } else {
-                interestSelectionRepository.saveArticle(title, lang, currentSelectedTopic)
+                interestSelectionRepository.saveArticle(title, lang)
             }
 
             state.update { currentState ->

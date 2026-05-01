@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 33,
-    "identityHash": "22530eedc11ebe27fdf14ab275b9ea28",
+    "identityHash": "2d6aab7152886519776ccc32aaa6cc0c",
     "entities": [
       {
         "tableName": "HistoryEntry",
@@ -745,29 +745,11 @@
       },
       {
         "tableName": "InterestTopic",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`topicId` TEXT NOT NULL, `lang` TEXT NOT NULL, `topicLabel` TEXT NOT NULL, `queryTopicId` TEXT NOT NULL, PRIMARY KEY(`topicId`, `lang`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`topicId` TEXT NOT NULL, PRIMARY KEY(`topicId`))",
         "fields": [
           {
             "fieldPath": "topicId",
             "columnName": "topicId",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "lang",
-            "columnName": "lang",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "topicLabel",
-            "columnName": "topicLabel",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "queryTopicId",
-            "columnName": "queryTopicId",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -775,14 +757,13 @@
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "topicId",
-            "lang"
+            "topicId"
           ]
         }
       },
       {
         "tableName": "InterestArticle",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apiTitle` TEXT NOT NULL, `lang` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `description` TEXT NOT NULL, `thumbUrl` TEXT NOT NULL, `topicId` TEXT, `topicLang` TEXT, PRIMARY KEY(`apiTitle`, `lang`, `namespace`), FOREIGN KEY(`topicId`, `topicLang`) REFERENCES `InterestTopic`(`topicId`, `lang`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`apiTitle` TEXT NOT NULL, `lang` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `description` TEXT NOT NULL, `thumbUrl` TEXT NOT NULL, PRIMARY KEY(`apiTitle`, `lang`, `namespace`))",
         "fields": [
           {
             "fieldPath": "apiTitle",
@@ -819,16 +800,6 @@
             "columnName": "thumbUrl",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "topicId",
-            "columnName": "topicId",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "topicLang",
-            "columnName": "topicLang",
-            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
@@ -838,39 +809,12 @@
             "lang",
             "namespace"
           ]
-        },
-        "indices": [
-          {
-            "name": "index_InterestArticle_topicId_topicLang",
-            "unique": false,
-            "columnNames": [
-              "topicId",
-              "topicLang"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_InterestArticle_topicId_topicLang` ON `${TABLE_NAME}` (`topicId`, `topicLang`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "InterestTopic",
-            "onDelete": "SET NULL",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "topicId",
-              "topicLang"
-            ],
-            "referencedColumns": [
-              "topicId",
-              "lang"
-            ]
-          }
-        ]
+        }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '22530eedc11ebe27fdf14ab275b9ea28')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2d6aab7152886519776ccc32aaa6cc0c')"
     ]
   }
 }
