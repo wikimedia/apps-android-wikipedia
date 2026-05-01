@@ -334,7 +334,7 @@ enum class LargeWidgetSize {
             TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
             COMPACT -> 80.dp
-            FULL -> 120.dp
+            FULL -> 100.dp
         }
 
     val rightColumnExtraSpace: Dp

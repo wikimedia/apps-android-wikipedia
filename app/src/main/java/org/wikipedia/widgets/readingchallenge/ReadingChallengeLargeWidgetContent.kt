@@ -578,7 +578,7 @@ fun LoadingFullPreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotEnrolledLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -594,7 +594,7 @@ fun NotEnrolledLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotLiveYetLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -660,7 +660,7 @@ fun StreakOngoingNeedsReadingLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeCompletedLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -676,7 +676,7 @@ fun ChallengeCompletedLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeConcludedIncompleteLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -692,7 +692,7 @@ fun ChallengeConcludedIncompleteLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeConcludedNoStreakLargePreview() {
     ReadingChallengeLargeWidgetContent(
