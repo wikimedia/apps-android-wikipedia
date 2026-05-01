@@ -43,7 +43,6 @@ fun PersonalizationScreen(
     onSkipClick: () -> Unit,
     onCompleteOnboardingClick: () -> Unit,
     onSearchClick: () -> Unit,
-    showError: (Throwable) -> Unit,
     viewModel: PersonalizationViewModel
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -90,7 +89,7 @@ fun PersonalizationScreen(
                                 .fillMaxSize()
                                 .background(WikipediaTheme.colors.paperColor)
                                 .padding(top = 40.dp),
-                            topicsState = interestUiState.value.topicsState,
+                            topicsList = interestUiState.value.topicsList,
                             articlesState = interestUiState.value.articlesState,
                             totalSelectedCount = interestUiState.value.totalSelectedCount,
                             onTopicSelected = {
@@ -105,8 +104,7 @@ fun PersonalizationScreen(
                             },
                             retryLoading = {
                                 viewModel.retryInterestsLoading()
-                            },
-                            showError = showError
+                            }
                         )
                     }
                     PersonalizationPage.HOME_PREFERENCE -> {

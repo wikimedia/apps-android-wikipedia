@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
-import org.wikipedia.page.Namespace
 
 @Dao
 interface InterestArticleDao {
@@ -21,7 +20,4 @@ interface InterestArticleDao {
 
     @Query("SELECT * FROM InterestArticle WHERE lang = :lang")
     suspend fun getAll(lang: String): List<InterestArticle>
-
-    @Query("UPDATE InterestArticle SET topicId = :newTopicId WHERE apiTitle = :apiTitle AND lang = :lang AND namespace = :namespace")
-    suspend fun updateTopic(newTopicId: String, apiTitle: String, lang: String, namespace: Namespace)
 }
