@@ -111,12 +111,14 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
+    private val cardImpressions = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -229,7 +231,8 @@ class HomeFragment : Fragment() {
                         },
                         onManageLanguagesClick = {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
-                        }
+                        },
+                        onCardImpression = { card -> onCardImpression(card) }
                     )
                 }
             }
@@ -240,9 +243,27 @@ class HomeFragment : Fragment() {
         return viewModel.selectedTab.value
     }
 
+    override fun onPause() {
+        super.onPause()
+        cardImpressions.clear()
+        // TODO: end current analytics funnel
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // TODO: start new funnel for analytics
+    }
+
     private fun maybeShowExploreFeedUpdatePrompt() {
         if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
+        }
+    }
+
+    private fun onCardImpression(card: Card) {
+        if (cardImpressions.add(card.hideKey)) {
+            // TODO: send event
+            L.d(">>>> Card impression: ${card.hideKey}")
         }
     }
 }
@@ -271,7 +292,8 @@ fun HomeScreen(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
-    onManageLanguagesClick: () -> Unit = {}
+    onManageLanguagesClick: () -> Unit = {},
+    onCardImpression: (card: Card) -> Unit = { _ -> }
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -362,7 +384,8 @@ fun HomeScreen(
                         onPageBookmarkClick = onPageBookmarkClick,
                         onPageShareClick = onPageShareClick,
                         onPageOverflowClick = onPageOverflowClick,
-                        onPageOverflowDismiss = onPageOverflowDismiss
+                        onPageOverflowDismiss = onPageOverflowDismiss,
+                        onCardImpression = onCardImpression
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
@@ -704,7 +727,8 @@ fun ForYouContentTab(
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
-    onPageOverflowDismiss: () -> Unit = {}
+    onPageOverflowDismiss: () -> Unit = {},
+    onCardImpression: (card: Card) -> Unit = {}
 ) {
     val context = LocalContext.current
     when {
@@ -751,7 +775,8 @@ fun ForYouContentTab(
                                     wikiSite = wikiSite,
                                     module = module,
                                     onPageClick = { entry -> onPageClick(entry) },
-                                    onHideCardClick = onHideCardClick
+                                    onHideCardClick = onHideCardClick,
+                                    onCardInView = { onCardImpression(it) },
                                 )
                             }
                         } else if (module is ForYouModule.ContinueReading) {

@@ -1,7 +1,5 @@
 package org.wikipedia.feed.interests
 
-import android.net.Uri
-import androidx.core.net.toUri
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
@@ -13,14 +11,6 @@ class BasedOnInterestCard(
     val interestTopic: InterestTopic? = null,
     val interestArticle: InterestArticle? = null
 ) : Card() {
-    override fun image(): Uri? {
-        return entry.title.thumbUrl?.toUri()
-    }
-
-    override fun extract(): String {
-        return entry.title.description.orEmpty()
-    }
-
     override fun type(): CardType {
         return CardType.RANDOM // TODO: remove, since this is no longer used
     }
