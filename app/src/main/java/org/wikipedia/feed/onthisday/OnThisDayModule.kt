@@ -44,7 +44,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DateUtil
 
@@ -61,20 +61,16 @@ fun OnThisDayModule(
     onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = WikipediaTheme.colors.backgroundColor)
-    ) {
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.on_this_day_card_title,
-            subTitleResId = R.string.explore_feed_on_this_day_subtitle,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick,
-            onCardInView = onCardImpression
-        )
 
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.on_this_day_card_title,
+        subTitleResId = R.string.explore_feed_on_this_day_subtitle,
+        backgroundColor = WikipediaTheme.colors.backgroundColor,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = onHideModuleClick,
+        onCardInView = onCardImpression
+    ) {
         events.forEachIndexed { eventIndex, event ->
             EventRow(
                 context = context,

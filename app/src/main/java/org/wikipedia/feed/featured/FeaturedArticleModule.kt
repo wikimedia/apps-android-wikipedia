@@ -41,7 +41,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
 import org.wikipedia.feed.noImageCardBackgroundColors
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
@@ -60,20 +60,14 @@ fun FeaturedArticleModule(
 ) {
     val context = LocalContext.current
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = WikipediaTheme.colors.paperColor)
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.view_featured_article_card_title,
+        subTitleResId = R.string.explore_feed_featured_article_subtitle,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = onHideModuleClick,
+        onCardInView = onCardImpression
     ) {
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.view_featured_article_card_title,
-            subTitleResId = R.string.explore_feed_featured_article_subtitle,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick,
-            onCardInView = onCardImpression
-        )
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
