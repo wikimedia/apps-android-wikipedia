@@ -30,6 +30,7 @@ import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
+private const val MAX_HIDDEN_CARDS = 100
 
 sealed class ForYouModule {
     abstract val age: Int
@@ -243,7 +244,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun hideCard(card: Card): Int {
-        Prefs.hiddenCards += card.hideKey
+        addHiddenCard(card)
         val cardIndex = _communityState.value.cards.indexOf(card)
         if (cardIndex >= 0) {
             _communityState.value = _communityState.value.copy(
@@ -265,7 +266,7 @@ class HomeViewModel : ViewModel() {
     }
 
     fun hideCard(module: ForYouModule, card: Card): Int {
-        Prefs.hiddenCards += card.hideKey
+        addHiddenCard(card)
         val modules = _forYouState.value.modules
         val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
         if (moduleIndex < 0) {
@@ -311,6 +312,15 @@ class HomeViewModel : ViewModel() {
             modules.add(insertIndex, module.withCards(listOf(card)))
         }
         _forYouState.update { it.copy(modules = modules) }
+    }
+
+    private fun addHiddenCard(card: Card) {
+        val hiddenCards = Prefs.hiddenCards.toMutableList()
+        if (hiddenCards.size > MAX_HIDDEN_CARDS) {
+            hiddenCards.removeAt(0)
+        }
+        hiddenCards += card.hideKey
+        Prefs.hiddenCards = hiddenCards
     }
 
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
