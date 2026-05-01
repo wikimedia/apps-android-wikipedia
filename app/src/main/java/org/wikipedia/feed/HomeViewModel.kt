@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -68,6 +69,8 @@ class HomeViewModel : ViewModel() {
     // Batch counter for "For you" recommendations.
     private var forYouBatchIndex = 0
 
+    val tabsState = MutableStateFlow(WikipediaApp.instance.tabCount)
+
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
             isInitialLoading = false,
@@ -122,6 +125,10 @@ class HomeViewModel : ViewModel() {
         } else {
             refreshForYouContent()
         }
+    }
+
+    fun updateTabCount() {
+        tabsState.value = WikipediaApp.instance.tabCount
     }
 
     /**

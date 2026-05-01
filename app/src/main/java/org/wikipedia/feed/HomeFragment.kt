@@ -37,6 +37,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -74,6 +75,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -136,6 +138,7 @@ class HomeFragment : Fragment() {
             setContent {
                 val selectedTab by viewModel.selectedTab.collectAsState()
                 val wikiSite by viewModel.wikiSite.collectAsState()
+                val tabsCount by viewModel.tabsState.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -145,6 +148,7 @@ class HomeFragment : Fragment() {
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        tabsCountState = tabsCount,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -186,6 +190,7 @@ class HomeFragment : Fragment() {
                                 },
                                 onOpenInNewTab = { entry ->
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
+                                    viewModel.updateTabCount()
                                 },
                                 onAddRequest = { entry, addToDefault ->
                                     (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
@@ -250,6 +255,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    tabsCountState: Int = 0,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -265,7 +271,8 @@ fun HomeScreen(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
-    onManageLanguagesClick: () -> Unit = {}
+    onManageLanguagesClick: () -> Unit = {},
+    onTabClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -300,16 +307,32 @@ fun HomeScreen(
                             .fillMaxSize()
                             .background(WikipediaTheme.colors.paperColor)
                     ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
-                        )
+                        Row {
+                            Image(
+                                painter = painterResource(R.drawable.feed_header_wordmark),
+                                contentDescription = null,
+                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier
+                                    .statusBarsPadding()
+                                    .padding(start = 20.dp, top = (topInset + 16).dp)
+                                    .width(128.dp)
+                            )
+                            Spacer(modifier = Modifier.weight(1f))
+                            if (tabsCountState > 0) {
+                                IconButton(
+                                    modifier = Modifier
+                                        .statusBarsPadding()
+                                        .padding(top = topInset.dp),
+                                    onClick = { onTabClick() }
+                                ) {
+                                    TabsBox(
+                                        modifier = Modifier.size(20.dp),
+                                        count = tabsCountState
+                                    )
+                                }
+                            }
+                        }
 
                         // Tab selector
                         HomeTabBar(
