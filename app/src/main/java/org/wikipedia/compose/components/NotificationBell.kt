@@ -63,7 +63,7 @@ fun NotificationBell(
             .clickable(
                 onClick = onClick,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = ripple(bounded = false),
+                indication = ripple(bounded = false)
             )
             .graphicsLayer(
                 scaleX = scale.value,
