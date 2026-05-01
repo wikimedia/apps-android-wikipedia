@@ -23,7 +23,7 @@ data class HomePreferenceContent (
                     title = page.displayText,
                     description = page.description,
                     imageUrl = page.thumbUrl,
-                    tag = WikipediaApp.instance.getString(topic.msgKey)
+                    tag = WikipediaApp.instance.getString(topic.topic.msgKey)
                 )
             }
         }

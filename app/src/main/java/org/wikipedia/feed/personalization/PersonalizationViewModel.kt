@@ -24,8 +24,8 @@ import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
 import org.wikipedia.feed.personalization.interest.TopicsState
-import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.page.PageTitle
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.log.L
 
 // this is a raw, flat, internal representation of ALL state
@@ -35,7 +35,7 @@ import org.wikipedia.util.log.L
 // instead of maintaining separate StateFlows per screen or one giant combined UI state
 private data class PersonalizedViewModelState(
     // Interest screen
-    val topics: List<OnboardingTopic> = OnboardingTopics.all,
+    val topics: List<OnboardingTopic> = ArticleTopics.all.map { OnboardingTopic(it) },
     val topicsError: Throwable? = null,
     val articles: List<PageTitle> = emptyList(),
     val articlesLoading: Boolean = false,
@@ -59,7 +59,7 @@ private data class PersonalizedViewModelState(
 
                 else -> TopicsState.Success(
                     topics = topics.map {
-                        it.copy(isSelected = selectedTopics.any { selected -> selected.topicId == it.topicId })
+                        it.copy(isSelected = selectedTopics.any { selected -> selected.topic.topicId == it.topic.topicId })
                     }
                 )
             },
@@ -229,11 +229,11 @@ class PersonalizationViewModel(
         }) {
             state.update { it.copy(articlesLoading = true, articlesError = null) }
 
-            val articles = interestSelectionRepository.getArticlesByTopic(topic.queryTopicId)
+            val articles = interestSelectionRepository.getArticlesByTopic(topic.topic.queryTopicId)
             val previewContent = HomePreferenceContent.fromPageTitles(pageTitles = articles, topic = topic)
             state.update { current ->
                 val newArticles = (current.selectedArticles.toList() + articles).distinct()
-                current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topicId to previewContent), articlesLoading = false)
+                current.copy(articles = newArticles, topicPreviewContent = current.topicPreviewContent + (topic.topic.topicId to previewContent), articlesLoading = false)
             }
         }
     }
@@ -247,10 +247,10 @@ class PersonalizationViewModel(
             state.update { it.copy(topicsError = throwable) }
         }) {
             val currentTopics = state.value.selectedTopics
-            val isSelected = currentTopics.any { selected -> selected.topicId == topic.topicId }
+            val isSelected = currentTopics.any { selected -> selected.topic.topicId == topic.topic.topicId }
 
             val selectedTopics = if (isSelected) {
-                currentTopics.filter { it.topicId != topic.topicId }
+                currentTopics.filter { it.topic.topicId != topic.topic.topicId }
             } else {
                 currentTopics + topic
             }
@@ -265,7 +265,7 @@ class PersonalizationViewModel(
                 current.copy(
                     selectedTopics = selectedTopics,
                     topicPreviewContent = if (isSelected) {
-                        current.topicPreviewContent - topic.topicId
+                        current.topicPreviewContent - topic.topic.topicId
                     } else {
                         current.topicPreviewContent
                     },

@@ -7,12 +7,12 @@ import org.wikipedia.feed.personalization.db.dao.InterestArticleDao
 import org.wikipedia.feed.personalization.db.dao.InterestTopicDao
 import org.wikipedia.feed.personalization.db.entity.InterestArticle
 import org.wikipedia.feed.personalization.db.entity.InterestTopic
-import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListPageDao
+import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 
 class InterestSelectionRepository(
@@ -89,8 +89,8 @@ class InterestSelectionRepository(
 
     suspend fun getPersistedTopics(lang: String): List<OnboardingTopic> {
         return interestTopicDao.getAll(lang).mapNotNull { entity ->
-            OnboardingTopics.all.find { it.topicId == entity.topicId }
-        }
+            ArticleTopics.all.find { it.topicId == entity.topicId }
+        }.map { OnboardingTopic(it) }
     }
 
     suspend fun getPersistedArticles(lang: String): List<PageTitle> {
@@ -108,8 +108,8 @@ class InterestSelectionRepository(
     suspend fun saveTopic(topic: OnboardingTopic, lang: String) {
         interestTopicDao.insert(
             interestTopic = InterestTopic(
-                topicId = topic.topicId,
-                queryTopicId = topic.queryTopicId,
+                topicId = topic.topic.topicId,
+                queryTopicId = topic.topic.queryTopicId,
                 lang = lang
             )
         )
@@ -118,8 +118,8 @@ class InterestSelectionRepository(
     suspend fun deleteTopic(topic: OnboardingTopic, lang: String) {
         interestTopicDao.delete(
             interestTopic = InterestTopic(
-                topicId = topic.topicId,
-                queryTopicId = topic.queryTopicId,
+                topicId = topic.topic.topicId,
+                queryTopicId = topic.topic.queryTopicId,
                 lang = lang
             )
         )
@@ -134,7 +134,7 @@ class InterestSelectionRepository(
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
                 thumbUrl = article.thumbUrl.orEmpty(),
-                topicId = topic?.topicId,
+                topicId = topic?.topic?.topicId,
                 topicLang = lang
             )
         )
@@ -149,7 +149,7 @@ class InterestSelectionRepository(
                 displayTitle = article.displayText,
                 description = article.description.orEmpty(),
                 thumbUrl = article.thumbUrl.orEmpty(),
-                topicId = topic?.topicId,
+                topicId = topic?.topic?.topicId,
                 topicLang = lang
             )
         )

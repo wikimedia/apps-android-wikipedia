@@ -1,11 +1,10 @@
 package org.wikipedia.feed.personalization.interest
 
 import org.wikipedia.page.PageTitle
+import org.wikipedia.topics.ArticleTopic
 
 data class OnboardingTopic(
-    val topicId: String,
-    val msgKey: Int,
-    val queryTopicId: String,
+    val topic: ArticleTopic,
     val isSelected: Boolean = false
 )
 

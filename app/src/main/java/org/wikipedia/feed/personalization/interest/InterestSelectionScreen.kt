@@ -54,9 +54,9 @@ import org.wikipedia.compose.extensions.shimmerEffect
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.personalization.topics.OnboardingTopics
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
+import org.wikipedia.topics.ArticleTopics
 
 @Composable
 fun InterestOnboardingScreen(
@@ -220,9 +220,9 @@ fun TopicFilterChipRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
-        items(items = topics, key = { it.topicId }) { item ->
+        items(items = topics, key = { it.topic.topicId }) { item ->
             FilterChip(
-                label = { Text(stringResource(item.msgKey)) },
+                label = { Text(stringResource(item.topic.msgKey)) },
                 selected = item.isSelected,
                 onClick = { onTopicSelected(item) },
                 leadingIcon = {
@@ -353,8 +353,8 @@ private fun InterestOnboardingScreenPreview() {
                 .padding(top = 40.dp),
             totalSelectedCount = 0,
             topicsState = TopicsState.Success(
-                topics = OnboardingTopics.all.map {
-                    it.copy(isSelected = it.topicId == "science")
+                topics = ArticleTopics.all.map { OnboardingTopic(it) }.map {
+                    it.copy(isSelected = it.topic.topicId == "art")
                 }
             ),
             articlesState = ArticlesState.Success(
