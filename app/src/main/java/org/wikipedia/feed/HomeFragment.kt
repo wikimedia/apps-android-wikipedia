@@ -445,8 +445,8 @@ fun HomeToolbar(
             ) {
                 TabsBox(
                     modifier = Modifier
-                        .width(20.dp)
-                        .height(19.dp)
+                        .width(21.dp)
+                        .height(20.dp)
                         .then(if (tabsCountState.second) {
                             Modifier.pulse(
                                 durationMillis = 300,
@@ -1055,7 +1055,8 @@ fun HomeScreenCommunityPreview() {
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true)
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsCountState = 1 to false
         )
     }
 }
@@ -1068,7 +1069,8 @@ fun HomeScreenForYouPreview() {
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true)
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsCountState = 1 to false
         )
     }
 }
