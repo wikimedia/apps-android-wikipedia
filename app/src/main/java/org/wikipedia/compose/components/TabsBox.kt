@@ -42,7 +42,7 @@ fun TabsBox(
         Text(
             modifier = Modifier.padding(start = 3.dp, end = 4.dp),
             text = count.toString(),
-            autoSize = TextAutoSize.StepBased(minFontSize = 3.sp, maxFontSize = 10.sp, stepSize = 1.sp),
+            autoSize = TextAutoSize.StepBased(minFontSize = 5.sp, maxFontSize = 10.sp, stepSize = 1.sp),
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.Bold,
             lineHeight = 12.sp,
