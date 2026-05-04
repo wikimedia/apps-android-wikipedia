@@ -2262,7 +2262,7 @@
   <string name="hybrid_search_error_message">Нешто не е во ред. Обидете се подоцна.</string>
   <string name="hybrid_search_who_is_prefix">Кој е %s?</string>
   <string name="hybrid_search_turn_off_experiment_label">Исклучи го експериментов</string>
-  <string name="reading_challenge_widget_name">Предизвик за читање</string>
+  <string name="reading_challenge_widget_name">Читателски предизвик</string>
   <string name="reading_challenge_onboarding_header">Прославете го 25-тиот роденден на Википедија со тоа што ќе се придружите на 25-дневниот читателски предизвик!</string>
   <string name="reading_challenge_onboarding_read_title">Чирајте по една статија дневно во текот на 25 дена</string>
   <string name="reading_challenge_onboarding_read_description">Придружете се на предизвикот во било кое време помеѓу 1 и 31 мај, завршете ги 25-те дена по ваш времслед.</string>

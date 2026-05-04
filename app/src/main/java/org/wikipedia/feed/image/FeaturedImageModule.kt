@@ -28,8 +28,8 @@ import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import org.wikipedia.R
+import org.wikipedia.compose.components.FadeInAsyncImage
 import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
@@ -70,7 +70,7 @@ fun FeaturedImageModule(
                     onClick(featuredImage)
                 }
         ) {
-            AsyncImage(
+            FadeInAsyncImage(
                 model = ImageService.getRequest(context, url = featuredImage.thumbnailUrl),
                 placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
                 error = ColorPainter(WikipediaTheme.colors.backgroundColor),
