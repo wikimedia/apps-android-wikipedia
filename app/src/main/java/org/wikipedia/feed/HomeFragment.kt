@@ -140,7 +140,7 @@ class HomeFragment : Fragment() {
             setContent {
                 val selectedTab by viewModel.selectedTab.collectAsState()
                 val wikiSite by viewModel.wikiSite.collectAsState()
-                val tabsCount by viewModel.tabsState.collectAsState()
+                val tabsState by viewModel.tabsState.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -150,7 +150,7 @@ class HomeFragment : Fragment() {
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
-                        tabsCountState = tabsCount,
+                        tabsState = tabsState,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -268,7 +268,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
-    tabsCountState: Pair<Int, Boolean> = 0 to false,
+    tabsState: TabsState,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -323,7 +323,7 @@ fun HomeScreen(
                     ) {
                         HomeToolbar(
                             topInset = topInset,
-                            tabsCountState = tabsCountState,
+                            tabsState = tabsState,
                             onTabClick = onTabClick,
                             onUpdateTabCount = onUpdateTabCount
                         )
@@ -391,7 +391,7 @@ fun HomeScreen(
                     ) {
                         HomeToolbar(
                             topInset = topInset,
-                            tabsCountState = tabsCountState,
+                            tabsState = tabsState,
                             onTabClick = onTabClick,
                             onUpdateTabCount = onUpdateTabCount
                         )
@@ -420,7 +420,7 @@ fun HomeScreen(
 @Composable
 fun HomeToolbar(
     topInset: Int,
-    tabsCountState: Pair<Int, Boolean>,
+    tabsState: TabsState,
     onTabClick: () -> Unit,
     onUpdateTabCount: () -> Unit
 ) {
@@ -436,7 +436,7 @@ fun HomeToolbar(
                 .width(128.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
-        if (tabsCountState.first > 0) {
+        if (tabsState.count > 0) {
             IconButton(
                 modifier = Modifier
                     .statusBarsPadding()
@@ -447,7 +447,7 @@ fun HomeToolbar(
                     modifier = Modifier
                         .width(21.dp)
                         .height(20.dp)
-                        .then(if (tabsCountState.second) {
+                        .then(if (tabsState.pulse) {
                             Modifier.pulse(
                                 durationMillis = 300,
                                 toScale = 1.25f,
@@ -459,7 +459,7 @@ fun HomeToolbar(
                             Modifier
                         }),
                     backgroundColor = Color.Transparent,
-                    count = tabsCountState.first
+                    count = tabsState.count
                 )
             }
         }
@@ -1056,7 +1056,7 @@ fun HomeScreenCommunityPreview() {
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true),
-            tabsCountState = 1 to false
+            tabsState = TabsState(1, false)
         )
     }
 }
@@ -1070,7 +1070,7 @@ fun HomeScreenForYouPreview() {
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true),
-            tabsCountState = 1 to false
+            tabsState = TabsState(1, false)
         )
     }
 }
