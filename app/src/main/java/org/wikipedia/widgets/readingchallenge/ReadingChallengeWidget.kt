@@ -124,7 +124,7 @@ fun WidgetBadge(
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
-    iconTintColor: Color,
+    iconTintColor: Color? = null,
     textColor: Color,
     modifier: GlanceModifier = GlanceModifier
 ) {
@@ -138,7 +138,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor))
+            colorFilter = iconTintColor?.let { ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) }
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)
@@ -288,6 +288,22 @@ enum class LargeWidgetSize {
             FULL -> 16.sp
         }
 
+    val trophyIconSize: Dp
+        get() = when (this) {
+            TINY -> 18.dp
+            EXTRA_COMPACT -> 20.dp
+            COMPACT -> 22.dp
+            FULL -> 24.dp
+        }
+
+    val titleBarTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 12.sp
+            EXTRA_COMPACT -> 13.sp
+            COMPACT -> 14.sp
+            FULL -> 16.sp
+        }
+
     val streakBadgeTextSize: TextUnit
         get() = when (this) {
             TINY -> 18.sp
@@ -318,7 +334,13 @@ enum class LargeWidgetSize {
             TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
             COMPACT -> 80.dp
-            FULL -> 120.dp
+            FULL -> 100.dp
+        }
+
+    val rightColumnExtraSpace: Dp
+        get() = when (this) {
+            TINY, EXTRA_COMPACT -> 8.dp
+            COMPACT, FULL -> 18.dp
         }
 
     // Mascot size when bottom content is empty/spacer-only. Can expand down further.

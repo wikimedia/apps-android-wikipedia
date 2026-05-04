@@ -233,7 +233,7 @@
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="email_recommendation_dialog_title">이메일 주소 없이 계정을 만드시겠습니까?</string>
-  <string name="email_recommendation_dialog_message">이메일 주소가 선택사항이지만, 비밀번호를 잃어버렸을 경우 계정 복구에 이메일이 필요하므로 &lt;b&gt;매우 권장됩니다&lt;/b&gt;.</string>
+  <string name="email_recommendation_dialog_message">이메일 주소가 선택 사항이지만, 비밀번호를 잃어버렸을 경우 계정 복구에 이메일이 필요하므로 &lt;b&gt;매우 권장됩니다&lt;/b&gt;.</string>
   <string name="email_recommendation_message">계정 복구에 이메일이 필요하므로 권장됩니다.</string>
   <string name="email_recommendation_dialog_create_without_email_action">이메일 없이 계속하기</string>
   <string name="email_recommendation_dialog_create_with_email_action">이메일 주소 추가</string>
@@ -1436,7 +1436,7 @@
   <string name="revision_diff_protected">이 판의 변경사항은 비공개입니다.</string>
   <string name="revision_undo_title">정말 이 편집을 취소하시겠습니까?</string>
   <string name="revision_undo_message">편집 취소는 하나 이상의 편집을 되돌리는 것을 의미합니다.</string>
-  <string name="revision_undo_summary_hint">요약 (선택사항)</string>
+  <string name="revision_undo_summary_hint">요약 (선택 사항)</string>
   <string name="revision_undo_reason">되돌리는 이유 공유하기</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
   <string name="revision_rollback_dialog_title">이 편집을 일괄적으로 되돌리시겠습니까?</string>
@@ -1822,6 +1822,9 @@
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
   <string name="year_in_review_slide_top_categories_headline">가장 흥미로운 분류</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,d 바이트 추가됨</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">글 읽기 가장 좋은 날</string>
@@ -1834,6 +1837,7 @@
   <string name="year_in_review_slide_reading_pattern_late_night">늦은 밤</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">글 읽기 가장 좋은 날</string>
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
