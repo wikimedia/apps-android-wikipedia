@@ -14,6 +14,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.donate.DonationResult
 import org.wikipedia.donate.donationreminder.DonationReminderConfig
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
@@ -919,4 +920,18 @@ object Prefs {
     var readingChallengeWidgetFastCycle
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_challenge_widget_fast_cycle, value)
+
+    var isExploreFeedUpdatePromptShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_explore_feed_update_prompt_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_explore_feed_update_prompt_shown, value)
+
+    var homeLanguageCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_language_code, WikipediaApp.instance.appOrSystemLanguageCode)!!
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_language_code, value)
+
+    var homePreferenceSelection: HomePreferenceType
+        get() = PrefsIoUtil.getString(R.string.preference_key_home_preference_selection, null)?.let {
+            HomePreferenceType.valueOf(it)
+        } ?: HomePreferenceType.COMMUNITY
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_home_preference_selection, value.name)
 }

@@ -12,8 +12,8 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
 open class FeaturedArticleCard(
-    private val page: PageSummary,
-    private val age: Int, wiki: WikiSite,
+    val page: PageSummary,
+    val age: Int, wiki: WikiSite,
 ) : WikiSiteCard(wiki) {
 
     override fun title(): String {

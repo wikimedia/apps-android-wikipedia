@@ -64,6 +64,10 @@ interface HistoryEntryWithImageDao {
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())
     }
 
+    suspend fun getMostRecentEntriesWithImage(limit: Int): List<HistoryEntry> {
+        return getHistoryEntriesWithOffset(limit, 0).map { toHistoryEntry(it) }
+    }
+
     suspend fun filterHistoryItemsWithoutTime(searchQuery: String = ""): List<HistoryEntry> {
         return findEntriesBySearchTerm("%${normalizedQuery(searchQuery)}%").map { toHistoryEntry(it) }
     }

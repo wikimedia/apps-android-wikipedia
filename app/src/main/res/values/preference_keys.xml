@@ -32,7 +32,7 @@
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
     <string name="preference_key_tabs">tabs</string>
-    <string name="preference_key_customize_explore_feed">customizeExploreFeed</string>
+    <string name="preference_key_customize_home_feed">customizeHomeFeed</string>
     <string name="preference_key_show_link_previews">showLinkPreviews</string>
     <string name="preference_key_collapse_tables">collapseTables</string>
     <string name="preference_key_session_data">session_data</string>
@@ -218,4 +218,7 @@
     <string name="preference_key_reading_challenge_start_date">readingChallengeStartDate</string>
     <string name="preference_key_reading_challenge_end_date">readingChallengeEndDate</string>
     <string name="preference_key_reading_challenge_widget_fast_cycle">readingChallengeWidgetFastCycle</string>
+    <string name="preference_key_explore_feed_update_prompt_shown">exploreFeedUpdatePromptShown</string>
+    <string name="preference_key_home_language_code">homeLanguageCode</string>
+    <string name="preference_key_home_preference_selection">exploreFeedPreferenceSelection</string>
 </resources>

@@ -13,6 +13,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,13 +26,17 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.wikipedia.compose.components.WikiTopAppBar
@@ -88,6 +93,65 @@ fun Modifier.noRippleClickable(
     onClick = onClick
 )
 
+fun Modifier.shimmerEffect(
+    shimmerColors: List<Color>? = null,
+    durationMs: Int = 1200,
+    easing: Easing = LinearEasing,
+    heightMultiplier: Float = 1f,
+    transition: InfiniteTransition,
+): Modifier = composed {
+    val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
+    var size by remember { mutableStateOf(IntSize.Zero) }
+
+    val startOffsetX by transition.animateFloat(
+        initialValue = -2 * size.width.toFloat(),
+        targetValue = 2 * size.width.toFloat(),
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMs, easing = easing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+
+    val brush = Brush.linearGradient(
+        colors = colors,
+        start = Offset(startOffsetX, 0f),
+        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat() * heightMultiplier)
+    )
+
+    this
+        .onSizeChanged { size = it }
+        .background(brush)
+}
+
+fun Modifier.lazyColumnScrollbar(
+    state: LazyListState,
+    color: Color,
+    thumbHeight: Dp = 48.dp
+): Modifier = drawWithContent {
+    drawContent()
+    val info = state.layoutInfo
+    val visibleItems = info.visibleItemsInfo
+    if (visibleItems.isNotEmpty() && (state.canScrollForward || state.canScrollBackward)) {
+        val viewportHeight = size.height
+        val fixedThumbHeight = thumbHeight.toPx()
+
+        val firstItem = visibleItems.first()
+        val itemSize = firstItem.size.coerceAtLeast(1)
+        val estimatedTotalHeight = itemSize * info.totalItemsCount
+        val currentOffset = firstItem.index * itemSize - firstItem.offset
+        val maxOffset = (estimatedTotalHeight - viewportHeight).coerceAtLeast(1f)
+        val scrollFraction = (currentOffset.toFloat() / maxOffset).coerceIn(0f, 1f)
+        val thumbOffset = scrollFraction * (viewportHeight - fixedThumbHeight)
+
+        drawRoundRect(
+            color = color,
+            topLeft = Offset(size.width - 4.dp.toPx(), thumbOffset),
+            size = Size(4.dp.toPx(), fixedThumbHeight),
+            cornerRadius = CornerRadius(2.dp.toPx())
+        )
+    }
+}
+
 @Preview
 @Composable
 private fun PreviewPulse() {
@@ -117,34 +181,4 @@ private fun PreviewPulse() {
             }
         }
     }
-}
-
-fun Modifier.shimmerEffect(
-    shimmerColors: List<Color>? = null,
-    durationMs: Int = 1200,
-    easing: Easing = LinearEasing,
-    heightMultiplier: Float = 1f,
-    transition: InfiniteTransition,
-): Modifier = composed {
-    val colors = shimmerColors ?: WikipediaTheme.colors.shimmerColors()
-    var size by remember { mutableStateOf(IntSize.Zero) }
-
-    val startOffsetX by transition.animateFloat(
-        initialValue = -2 * size.width.toFloat(),
-        targetValue = 2 * size.width.toFloat(),
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMs, easing = easing),
-            repeatMode = RepeatMode.Restart
-        )
-    )
-
-    val brush = Brush.linearGradient(
-        colors = colors,
-        start = Offset(startOffsetX, 0f),
-        end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat() * heightMultiplier)
-    )
-
-    this
-        .onSizeChanged { size = it }
-        .background(brush)
 }

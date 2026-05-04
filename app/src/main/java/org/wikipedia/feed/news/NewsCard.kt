@@ -9,8 +9,8 @@ import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
 class NewsCard(
-    private val news: List<NewsItem>,
-    private val age: Int,
+    val news: List<NewsItem>,
+    val age: Int,
     wiki: WikiSite
 ) : WikiSiteCard(wiki) {
 

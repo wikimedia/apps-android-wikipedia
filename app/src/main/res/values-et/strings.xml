@@ -72,10 +72,10 @@
   <string name="page_edit_history_filter_by_bot">Robotimuudatused (%s)</string>
   <string name="page_edit_history_metrics_content_description">Mõõdikud vahemikus %1$s kuni %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">%1$d muudatus %2$s\'st</item>
-    <item quantity="other">%1$d muudatust %2$s\'st</item>
+    <item quantity="one">%1$d muudatus alates %2$s. aastast</item>
+    <item quantity="other">%1$d muudatust alates %2$s. aastast</item>
   </plurals>
-  <string name="page_edit_history_empty_search_message">Rohkemate muudatuste nägemiseks proovige &lt;a href=\"#\"&gt;filtreid&lt;/a&gt; muuta</string>
+  <string name="page_edit_history_empty_search_message">Proovi &lt;a href=\"#\"&gt;filtreid&lt;/a&gt; muuta, et näha rohkem muudatusi</string>
   <string name="menu_page_show_tabs">Näita kaarti</string>
   <string name="menu_page_other_languages">Vaheta keelt</string>
   <string name="menu_page_find_in_page">Otsi artiklist</string>
@@ -117,7 +117,7 @@
   <string name="map_view_link_text">Vaata kaardil</string>
   <string name="other_languages_indication_text">Loe teises keeles</string>
   <string name="language_count_link_text">Saadaval %d teises keeles</string>
-  <string name="edit_save_action_license_logged_in">Avaldades, nõustute &lt;a href=\"%1$s\"&gt;Kasutajatingimustega&lt;/a&gt; ja nõustute tagasivõtmata avaldama oma panuseid &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; litsetsi alusel.</string>
+  <string name="edit_save_action_license_logged_in">Avaldades nõustud &lt;a href=\"%1$s\"&gt;kasutustingimustega&lt;/a&gt; ja oma kaastöö avaldamisega pöördumatult litsentsi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; alusel.</string>
   <string name="preference_title_language">Vikipeedia keeled</string>
   <string name="langlinks_filter_hint">Otsi</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>

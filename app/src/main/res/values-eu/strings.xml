@@ -1035,6 +1035,124 @@
     <item quantity="one">Edizioa</item>
     <item quantity="other">Edizioak</item>
   </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">egun %d</item>
+    <item quantity="other"> %d egun</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Zer dira Iradokitako aldaketak?</string>
+  <string name="suggested_edits_what_is_text">Iradokitako edizioek Wikipediari ekarpen txiki baina funtsezkoak egiteko aukerak eskaintzen dituzte.</string>
+  <string name="suggested_edits_learn_more">Informazio gehiago</string>
+  <string name="suggested_edits_paused_title">Pausatua</string>
+  <string name="suggested_edits_disabled_title">Desgaitua</string>
+  <string name="suggested_edits_ip_blocked_title">IP blokeatuta</string>
+  <string name="suggested_edits_last_edited">Azken edizioa</string>
+  <string name="suggested_edits_last_edited_never">Inoiz ez</string>
+  <string name="suggested_edits_task_new">Berria</string>
+  <string name="suggested_edits_cc0_notice">Argitaratzen baduzu, &lt;a href=%1$s \"&gt;erabilera baldintzak&lt;/a&gt; onartzen dituzu eta ekarpen hau &lt;a href=%2$s \"&gt;CC0 lizentzia&lt;/a&gt;pean atzeraezinki argitaratzen duzula adierazten duzu.</string>
+  <string name="suggested_edits_reactivation_notification_title">Iradokitako aldaketak</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Eskerrik asko Wikipedia editatzeagatik! Zergatik ez duzu utzi zenuen tokitik jarraitzen?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Baduzu minutu bat Wikipedia hobetzen jarraitzeko? Begiratu iradokitako edizio hauei.</string>
+  <string name="suggested_edits_contributions_screen_title">%s -ren ekarpenak</string>
+  <string name="suggested_edits_contribution_language_label">Hizkuntza</string>
+  <string name="suggested_edits_contribution_date_time_label">Data eta ordua</string>
+  <string name="suggested_edits_contribution_type_label">Ekarpen mota</string>
+  <string name="suggested_edits_contribution_image_label">Irudia</string>
+  <string name="suggested_edits_contribution_article_label">Artikulua</string>
+  <string name="suggested_edits_contribution_views">%s ikustaldi</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Azken 30 egunetan behin ikusia.</item>
+    <item quantity="other">Azken 30 egunetan %s aldiz ikusia.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Azken 30 egunetan %s aldiz ikusi da.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">etiketa %d gehitu duzu</item>
+    <item quantity="other"> %d etiketa gehitu dituzu</item>
+  </plurals>
+  <string name="suggested_edits_contribution_date_yesterday_text">Atzo</string>
+  <string name="suggested_edits_encourage_account_creation_title">Ba al zenekien edonork edita dezakeela Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Iradokitako edizioak Wikipedia editatzeko modu berri bat da Android-en. Wikipediari ekarpen txiki baina garrantzitsuak egiten laguntzen dizu.\nGure helburua edizioa errazagoa eta eskuragarriagoa egitea da guztiontzat! Hasi saioa edo batu zaitez Wikipediara hasteko.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Hasi saioa / batu Wikipediara</string>
+  <string name="suggested_edits_contribution_type_image_tag">Irudi etiketa</string>
+  <string name="suggested_edits_contribution_current_revision_text">Zure edizioa Wikipedian argitaratuta dago une honetan</string>
+  <string name="suggested_card_more_edits">Iradokitako edizio gehiago</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Iradokitako deskribapenak</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Zer salatu nahi duzu?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informazio nahikorik ez</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ezin ditut iradokitako deskribapenak ikusi</string>
+  <string name="suggested_edits_inappropriate_suggestion">Iradokizun desegokia</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Ez dut ulertzen zer egin behar dudan.</string>
+  <string name="suggested_edits_report_suggestion">Txostena</string>
+  <string name="suggested_edits_suggestion_report_submitted">Txostena bidali da</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">izar %1$s</item>
+    <item quantity="other">%1$s izar</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">karaktere %1$s</item>
+    <item quantity="other">%1$s karaktere</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">karaktere %d kendu duzu</item>
+    <item quantity="other"> %d karaktere kendu dituzu</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">karaktere %d gehitu duzu</item>
+    <item quantity="other">%d karaktere gehitu dituzu</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Artikuluaren irudiak</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Gehitu irudi iradokizunak Wikipedia artikuluetan ulermena hobetzeko.</string>
+  <string name="image_recommendation_task_instruction">Nahi duzu irudi hau gehitu artikuluari?</string>
+  <string name="image_recommendation_tutorial">Tutoriala</string>
+  <string name="image_recommendation_accept">Bai</string>
+  <string name="image_recommendation_reject">Ez</string>
+  <string name="image_recommendation_notsure">Ez nago ziur</string>
+  <string name="image_recommendation_reject_title">Uko egiteko arrazoia</string>
+  <string name="image_recommendation_reject_subtitle">Uko egiteko arrazoia anonimoa da eta etorkizunean irudien iradokizunak hobetuko ditu.</string>
+  <string name="image_recommendation_reject_not_relevant">Irudiak ez du garrantzirik</string>
+  <string name="image_recommendation_reject_no_info">Ez dago informazio nahikorik erabakitzeko</string>
+  <string name="image_recommendation_reject_offensive">Irudia iraingarria da</string>
+  <string name="image_recommendation_reject_low_quality">Irudia kalitate baxukoa da</string>
+  <string name="image_recommendation_reject_dont_know">Ez dut gai hau ezagutzen</string>
+  <string name="image_recommendation_reject_other">Bestelakoa</string>
+  <string name="image_recommendation_reject_submit">Bidali</string>
+  <string name="image_recommendation_tooltip_main">Gehitu falta diren irudiak artikuluetan Iradokitako Aldaketetan</string>
+  <string name="image_recommendation_onboarding_1">Irudiek jendeari ulertzen laguntzen diote, baina artikulu askok ez dituzte horrelakorik.</string>
+  <string name="image_recommendation_onboarding_2">Zuk erabakiko duzu proposatutako irudi bat Wikipedia artikulu batean jarri behar den ala ez.</string>
+  <string name="image_recommendation_onboarding_3">Iradokizunak makinaz sortzen dira eta zure irizpidea erabiliko duzu onartu edo baztertu erabakitzeko.</string>
+  <string name="image_recommendation_onboarding_4">Irudiak Wikimedia Commons-etik datoz, Wikipediak erabiltzen dituen lizentzia libreko irudien bilduma batetik.</string>
+  <string name="image_recommendation_tooltip_1">Berrikusi artikulu hau bere gaia ulertzeko</string>
+  <string name="image_recommendation_tooltip_2">Aztertu irudia eta hari lotutako informazioa</string>
+  <string name="image_recommendation_tooltip_3">Erabaki irudiak irakurleei gai hau hobeto ulertzen laguntzen dien ala ez</string>
+  <string name="image_recommendation_tooltip_next">Hurrengoa</string>
+  <string name="image_recommendation_tooltip_warning">Mesedez, berrikusi artikulua bere gaia ulertzeko eta aztertu irudia.</string>
+  <string name="image_recommendation_depleted">Barkatu, ez dago beste irudi iradokirik une honetan. Arakatu beste &lt;a href=\"#\"&gt;iradokitako edizioak&lt;/a&gt; edo itzuli geroago.</string>
+  <string name="suggested_edits_report_feature">Arazoa funtzioarekin</string>
+  <string name="suggested_edits_report_feature_subject">Arazoa iradokitako aldaketekin</string>
+  <string name="edit_summary_added_image">Gehitutako irudia</string>
+  <string name="edit_summary_added_caption">Gehitutako irudi oineko testua</string>
+  <string name="edit_summary_added_image_and_caption">Irudia eta oineko testua gehitu dira</string>
+  <string name="edit_published_view">Ikusi</string>
+  <string name="activity_tab_logged_out_title">Hasi saioa edo sortu kontu bat Wikipedia aplikazioan zure jarduera ikusteko</string>
+  <string name="activity_tab_user_reading">%s irakurtzen ari da</string>
+  <string name="activity_tab_on_wikipedia_android">Android Wikipedian</string>
+  <string name="activity_tab_weekly_time_spent_hm">%1$dh %2$dm</string>
+  <string name="activity_tab_weekly_time_spent">Aste honetan irakurtzen emandako denbora</string>
+  <string name="activity_tab_monthly_articles_read">Hilabete honetan irakurritako artikuluak</string>
+  <string name="activity_tab_monthly_articles_saved">Hilabete honetan gordetako artikuluak</string>
+  <string name="activity_tab_monthly_top_categories">Hilabete honetan irakurritako kategoria nagusiak</string>
+  <string name="activity_tab_explore_wikipedia">Ezagutu Wikipediaren bidez</string>
+  <string name="activity_tab_discover_encourage">Zerbait berria irakurtzeko?</string>
+  <string name="activity_tab_donation_unknown">Ezezaguna</string>
+  <string name="activity_tab_donation_last_donation">&lt;b&gt;Azken dohaintza&lt;/b&gt; aplikazioan</string>
+  <string name="activity_tab_total_edits_all_projects">Proiektuen arteko editatze kopurua</string>
+  <string name="activity_tab_game_stats">Jokoaren estatistikak</string>
+  <string name="activity_tab_game_stats_best_streak">Bolada onena</string>
+  <string name="activity_tab_play_wiki_games">Jolastu WikiGames-en</string>
+  <string name="activity_tab_report_email_subject">Arazo txostena - Jarduera fitxa</string>
+  <string name="activity_tab_report_email_body">Arazo bat izan dut Jarduera fitxa funtzioarekin:\n- [Deskribatu arazo zehatza]\n\nIkusi nahi dudan jokabidea hau da:\n- [Deskribatu proposatutako irtenbidea]</string>
+  <string name="activity_tab_menu_feedback">Arazoa funtzioarekin</string>
+  <string name="activity_tab_menu_info">Informazio gehiago</string>
+  <string name="activity_tab_menu_customize">Pertsonalizatu</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="description_edit_revert_intro">Badakigu hoberen egiten saiatu zarela, baina gure berrikuskarietako batek arazo bat ikusi du. Zure aldaketa lehengoratzeko arrazoi posibleen artean hurrengoak daude:</string>
   <string name="description_edit_revert_reason1">zure ekarpenak ez du &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt;(e)tatik bat jarraitu.</string>

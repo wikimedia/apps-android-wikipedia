@@ -1822,6 +1822,9 @@
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
   <string name="year_in_review_slide_top_categories_headline">가장 흥미로운 분류</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,d 바이트 추가됨</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">글 읽기 가장 좋은 날</string>
@@ -1834,6 +1837,7 @@
   <string name="year_in_review_slide_reading_pattern_late_night">늦은 밤</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">글 읽기 가장 좋은 날</string>
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>

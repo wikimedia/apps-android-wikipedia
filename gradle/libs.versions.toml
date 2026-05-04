@@ -52,7 +52,7 @@ composeBom = "2026.04.01"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
 uiGraphics = "1.11.0"
-
+lottieCompose = "6.7.1"
 
 [libraries]
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
@@ -124,6 +124,7 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-view-model = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "composeViewModel" }
 compose-test = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-debug-test = { module = "androidx.compose.ui:ui-test-manifest" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
 androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
 androidx-glance-preview = { module = "androidx.glance:glance-preview", version.ref = "glance" }
