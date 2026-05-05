@@ -29,7 +29,6 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -55,7 +54,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
@@ -68,7 +66,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import coil3.compose.AsyncImage
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -84,12 +81,14 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.featured.FeaturedArticleModule
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
+import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
@@ -112,13 +111,14 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.views.imageservice.ImageService
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
+    private val cardImpressions = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,11 +158,18 @@ class HomeFragment : Fragment() {
                         },
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
-                        onHideCardClick = { card ->
-                            val cardIndex = viewModel.hideCard(card)
+                        onHideCommunityCardClick = { card ->
+                            val cardIndex = viewModel.hideCommunityCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                                    viewModel.restoreCard(card, cardIndex)
+                                    viewModel.restoreCommunityCard(card, cardIndex)
+                                }.show()
+                        },
+                        onHideForYouCardClick = { module, card ->
+                            val cardIndex = viewModel.hideForYouCard(module, card)
+                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
+                                .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
+                                    viewModel.restoreForYouCard(module, card, cardIndex)
                                 }.show()
                         },
                         onPageClick = {
@@ -224,7 +231,8 @@ class HomeFragment : Fragment() {
                         },
                         onManageLanguagesClick = {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
-                        }
+                        },
+                        onCardImpression = { card -> onCardImpression(card) }
                     )
                 }
             }
@@ -235,9 +243,27 @@ class HomeFragment : Fragment() {
         return viewModel.selectedTab.value
     }
 
+    override fun onPause() {
+        super.onPause()
+        cardImpressions.clear()
+        // TODO: end current analytics funnel
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // TODO: start new funnel for analytics
+    }
+
     private fun maybeShowExploreFeedUpdatePrompt() {
         if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
+        }
+    }
+
+    private fun onCardImpression(card: Card) {
+        if (cardImpressions.add(card.hideKey)) {
+            // TODO: send event
+            L.d(">>>> Card impression: ${card.hideKey}")
         }
     }
 }
@@ -254,7 +280,8 @@ fun HomeScreen(
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
-    onHideCardClick: (card: Card) -> Unit = {},
+    onHideCommunityCardClick: (card: Card) -> Unit = {},
+    onHideForYouCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -265,7 +292,8 @@ fun HomeScreen(
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
-    onManageLanguagesClick: () -> Unit = {}
+    onManageLanguagesClick: () -> Unit = {},
+    onCardImpression: (card: Card) -> Unit = { _ -> }
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -311,7 +339,6 @@ fun HomeScreen(
                                 .width(128.dp)
                         )
 
-                        // Tab selector
                         HomeTabBar(
                             modifier = Modifier.padding(top = 8.dp),
                             wikiSite = wikiSite,
@@ -332,7 +359,7 @@ fun HomeScreen(
                             state = communityContentState,
                             overflowMenuState = overflowMenuState,
                             onLoadMore = onLoadMoreCommunityContent,
-                            onHideCardClick = onHideCardClick,
+                            onHideCardClick = onHideCommunityCardClick,
                             onPageClick = onPageClick,
                             onPageBookmarkClick = onPageBookmarkClick,
                             onPageShareClick = onPageShareClick,
@@ -341,7 +368,8 @@ fun HomeScreen(
                             onNewsClick = onNewsClick,
                             onImageClick = onImageClick,
                             onImageDownloadClick = onImageDownloadClick,
-                            onImageShareClick = onImageShareClick
+                            onImageShareClick = onImageShareClick,
+                            onCardImpression = onCardImpression
                         )
                     }
                 }
@@ -350,53 +378,66 @@ fun HomeScreen(
                     ForYouContentTab(
                         state = forYouContentState,
                         wikiSite = wikiSite,
-                        onLoadMore = onLoadMoreForYouContent
+                        onLoadMore = onLoadMoreForYouContent,
+                        overflowMenuState = overflowMenuState,
+                        onPageClick = onPageClick,
+                        onHideCardClick = onHideForYouCardClick,
+                        onPageBookmarkClick = onPageBookmarkClick,
+                        onPageShareClick = onPageShareClick,
+                        onPageOverflowClick = onPageOverflowClick,
+                        onPageOverflowDismiss = onPageOverflowDismiss,
+                        onCardImpression = onCardImpression
                     )
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            .fillMaxWidth()
-                            .background(
-                                Brush.verticalGradient(
-                                    colorStops = arrayOf(
-                                        0.0f to Color.Black.copy(alpha = 0.78f),
-                                        0.18f to Color.Black.copy(alpha = 0.64f),
-                                        0.38f to Color.Black.copy(alpha = 0.40f),
-                                        0.58f to Color.Black.copy(alpha = 0.20f),
-                                        0.76f to Color.Black.copy(alpha = 0.08f),
-                                        0.90f to Color.Black.copy(alpha = 0.02f),
-                                        1.0f to Color.Transparent
+                    Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.Black.copy(alpha = 0.80f))
+                        ) {
+                            Image(
+                                painter = painterResource(R.drawable.feed_header_wordmark),
+                                contentDescription = null,
+                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier
+                                    .statusBarsPadding()
+                                    .padding(start = 20.dp, top = (topInset + 16).dp)
+                                    .width(128.dp)
+                            )
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(
+                                    Brush.verticalGradient(
+                                        colorStops = arrayOf(
+                                            0.0f to Color.Black.copy(alpha = 0.80f),
+                                            0.18f to Color.Black.copy(alpha = 0.64f),
+                                            0.38f to Color.Black.copy(alpha = 0.40f),
+                                            0.58f to Color.Black.copy(alpha = 0.20f),
+                                            0.76f to Color.Black.copy(alpha = 0.08f),
+                                            0.90f to Color.Black.copy(alpha = 0.02f),
+                                            1.0f to Color.Transparent
+                                        )
                                     )
                                 )
+                        ) {
+                            HomeTabBar(
+                                modifier = Modifier.padding(top = 8.dp, bottom = 64.dp),
+                                wikiSite = wikiSite,
+                                selectedTab = selectedTab,
+                                languageState = languageState,
+                                onTabSelected = onSelectTab,
+                                onLanguageSelected = {
+                                    onLanguageSelected(it)
+                                },
+                                onManageLanguagesClick = {
+                                    onManageLanguagesClick()
+                                }
                             )
-                    ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
-                        )
-
-                        // Tab selector
-                        HomeTabBar(
-                            modifier = Modifier.padding(top = 8.dp, bottom = 32.dp),
-                            wikiSite = wikiSite,
-                            selectedTab = selectedTab,
-                            languageState = languageState,
-                            onTabSelected = onSelectTab,
-                            onLanguageSelected = {
-                                onLanguageSelected(it)
-                            },
-                            onManageLanguagesClick = {
-                                onManageLanguagesClick()
-                            }
-                        )
+                        }
                     }
                 }
             }
@@ -483,7 +524,8 @@ fun CommunityContentTab(
     onNewsClick: (newsItem: NewsItem) -> Unit = {},
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
-    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> }
+    onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
+    onCardImpression: (card: Card) -> Unit = {}
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -546,7 +588,8 @@ fun CommunityContentTab(
                                                 HistoryEntry.SOURCE_FEED_FEATURED
                                             )
                                         )
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -586,7 +629,8 @@ fun CommunityContentTab(
                                                 TopReadListCard(card.articles, card.age, wikiSite)
                                             )
                                         )
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -598,7 +642,8 @@ fun CommunityContentTab(
                                     onHideCardClick = { onHideCardClick(card) },
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
-                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) }
+                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -613,7 +658,8 @@ fun CommunityContentTab(
                                     },
                                     onHideModuleClick = {
                                         // TODO: implement overflow menu
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -642,7 +688,8 @@ fun CommunityContentTab(
                                     },
                                     onFooterClick = {
                                         activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
-                                    }
+                                    },
+                                    onCardImpression = { onCardImpression(card) }
                                 )
                             }
                         }
@@ -680,15 +727,35 @@ fun CommunityContentTab(
 fun ForYouContentTab(
     state: ForYouContentState,
     wikiSite: WikiSite,
-    onLoadMore: () -> Unit
+    onLoadMore: () -> Unit,
+    overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onPageClick: (historyEntry: HistoryEntry) -> Unit,
+    onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
+    onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
+    onPageOverflowDismiss: () -> Unit = {},
+    onCardImpression: (card: Card) -> Unit = {}
 ) {
     val context = LocalContext.current
     when {
         state.isInitialLoading -> {
-            LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .background(color = WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                LoadingIndicator(modifier = Modifier.fillMaxHeight())
+            }
         }
         state.error != null && state.modules.isEmpty() -> {
-            ErrorState(state.error, onRetry = onLoadMore)
+            Box(
+                modifier = Modifier.fillMaxSize()
+                    .background(color = WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                ErrorState(state.error, onRetry = onLoadMore)
+            }
         }
         else -> {
             val listState = rememberLazyListState()
@@ -704,20 +771,33 @@ fun ForYouContentTab(
                         .fillMaxSize()
                         .background(WikipediaTheme.colors.backgroundColor)
                 ) {
-                    itemsIndexed(modules) { _, module ->
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(viewportHeight)
-                        ) {
-                            AsyncImage(
-                                model = ImageService.getRequest(context, url = module.pages.first().thumbnailUrl),
-                                placeholder = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                                error = ColorPainter(WikipediaTheme.colors.backgroundColor),
-                                contentDescription = null,
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
-                            )
+                    modules.forEachIndexed { index, module ->
+
+                        if (module is ForYouModule.BasedOnInterest) {
+                            item(key = "interest-${module.age}-$index") {
+                                BasedOnInterestModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight),
+                                    wikiSite = wikiSite,
+                                    module = module,
+                                    onPageClick = { entry -> onPageClick(entry) },
+                                    onHideCardClick = onHideCardClick,
+                                    onCardInView = { onCardImpression(it) },
+                                )
+                            }
+                        } else if (module is ForYouModule.ContinueReading) {
+                            item(key = "continue-reading-${module.age}-$index") {
+                                ContinueReadingModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight),
+                                    wikiSite = wikiSite,
+                                    module = module,
+                                    onPageClick = { entry -> onPageClick(entry) },
+                                    onHideCardClick = onHideCardClick
+                                )
+                            }
                         }
                     }
 

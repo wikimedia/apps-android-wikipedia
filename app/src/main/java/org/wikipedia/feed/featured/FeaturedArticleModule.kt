@@ -41,7 +41,8 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
+import org.wikipedia.feed.noImageCardBackgroundColors
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 import kotlin.random.Random
@@ -54,23 +55,19 @@ fun FeaturedArticleModule(
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
     onShareClick: (article: PageSummary) -> Unit = {},
-    onBookmarkClick: (article: PageSummary) -> Unit = {}
+    onBookmarkClick: (article: PageSummary) -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = WikipediaTheme.colors.paperColor)
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.view_featured_article_card_title,
+        subTitleResId = R.string.explore_feed_featured_article_subtitle,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = onHideModuleClick,
+        onCardInView = onCardImpression
     ) {
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.view_featured_article_card_title,
-            subTitleResId = R.string.explore_feed_featured_article_subtitle,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
-        )
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -79,7 +76,7 @@ fun FeaturedArticleModule(
                 .clickable { onPageClick(article) }
         ) {
             if (article.thumbnailUrl.isNullOrEmpty()) {
-                val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(article.apiTitle.hashCode())))
+                val color = colorResource(noImageCardBackgroundColors.random(Random(article.apiTitle.hashCode())))
                 Box(
                     modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
                 )
