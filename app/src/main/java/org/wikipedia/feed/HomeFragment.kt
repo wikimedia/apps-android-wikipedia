@@ -110,6 +110,7 @@ import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -254,6 +255,9 @@ class HomeFragment : Fragment() {
                         },
                         onCardImpression = {
                                 card -> onCardImpression(card)
+                        },
+                        onNotificationBellClick = {
+                            requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         }
                     )
                 }
@@ -326,7 +330,8 @@ fun HomeScreen(
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card) -> Unit = { _ -> }
+    onCardImpression: (card: Card) -> Unit = { _ -> },
+    onNotificationBellClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -366,9 +371,8 @@ fun HomeScreen(
                             tabsState = tabsState,
                             onTabClick = onTabClick,
                             onUpdateTabCount = onUpdateTabCount,
-                            unReadCount = notificationBellState.unreadCount,
-                            canShowNotificationBell = notificationBellState.canShow,
-                            onNotificationBellClick = {}
+                            notificationBellState = notificationBellState,
+                            onNotificationBellClick = onNotificationBellClick
                         )
 
                         HomeTabBar(
@@ -429,15 +433,13 @@ fun HomeScreen(
                                 .fillMaxWidth()
                                 .background(Color.Black.copy(alpha = 0.80f))
                         ) {
-                            Image(
-                                painter = painterResource(R.drawable.feed_header_wordmark),
-                                contentDescription = null,
-                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                                contentScale = ContentScale.FillWidth,
-                                modifier = Modifier
-                                    .statusBarsPadding()
-                                    .padding(start = 20.dp, top = (topInset + 16).dp)
-                                    .width(128.dp)
+                            HomeToolbar(
+                                topInset = topInset,
+                                tabsState = tabsState,
+                                onTabClick = onTabClick,
+                                onUpdateTabCount = onUpdateTabCount,
+                                notificationBellState = notificationBellState,
+                                onNotificationBellClick = onNotificationBellClick
                             )
                         }
                         Column(
@@ -457,15 +459,6 @@ fun HomeScreen(
                                     )
                                 )
                         ) {
-                            HomeToolbar(
-                                topInset = topInset,
-                                tabsState = tabsState,
-                                onTabClick = onTabClick,
-                                onUpdateTabCount = onUpdateTabCount,
-                                unReadCount = notificationBellState.unreadCount,
-                                canShowNotificationBell = notificationBellState.canShow,
-                                onNotificationBellClick = {}
-                            )
                             HomeTabBar(
                                 modifier = Modifier.padding(top = 8.dp, bottom = 64.dp),
                                 wikiSite = wikiSite,
@@ -491,8 +484,10 @@ fun HomeScreen(
 fun HomeToolbar(
     topInset: Int,
     tabsState: TabsState,
+    notificationBellState: NotificationBellState,
     onTabClick: () -> Unit,
-    onUpdateTabCount: () -> Unit
+    onUpdateTabCount: () -> Unit,
+    onNotificationBellClick: () -> Unit
 ) {
     Row {
         Image(
@@ -533,12 +528,12 @@ fun HomeToolbar(
                 )
             }
         }
-        if (canShowNotificationBell) {
+        if (notificationBellState.canShow) {
             NotificationBell(
                 modifier = Modifier
                     .statusBarsPadding()
                     .padding(top = topInset.dp),
-                unreadCount = unReadCount,
+                unreadCount = notificationBellState.unreadCount,
                 onClick = onNotificationBellClick
             )
         }
