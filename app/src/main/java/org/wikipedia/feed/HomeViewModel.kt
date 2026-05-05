@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.database.AppDatabase
@@ -80,6 +81,8 @@ data class ForYouContentState(
     val canLoadMore: Boolean = true
 )
 
+data class TabsState(val count: Int, val pulse: Boolean)
+
 val noImageCardBackgroundColors = listOf(R.color.maroon800, R.color.purple800, R.color.pink800)
 val noImageCardForegroundColors = listOf(R.color.maroon300, R.color.purple300, R.color.pink300)
 
@@ -103,6 +106,9 @@ class HomeViewModel : ViewModel() {
 
     // Batch counter for "For you" recommendations.
     private var forYouBatchIndex = 0
+
+    private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
+    val tabsState = _tabsState.asStateFlow()
 
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
@@ -161,6 +167,10 @@ class HomeViewModel : ViewModel() {
         } else {
             refreshForYouContent()
         }
+    }
+
+    fun updateTabCount(pulse: Boolean = false) {
+        _tabsState.value = TabsState(WikipediaApp.instance.tabCount, pulse)
     }
 
     /**

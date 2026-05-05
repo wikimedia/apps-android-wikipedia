@@ -36,6 +36,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -70,6 +71,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.WikiLangCodeBox
@@ -77,6 +79,7 @@ import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
 import org.wikipedia.compose.components.menu.PageOverflowMenu
 import org.wikipedia.compose.components.menu.PageOverflowMenuViewModel
+import org.wikipedia.compose.extensions.pulse
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
@@ -107,6 +110,7 @@ import org.wikipedia.language.AppLanguageState
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.Theme
@@ -138,6 +142,7 @@ class HomeFragment : Fragment() {
             setContent {
                 val selectedTab by viewModel.selectedTab.collectAsState()
                 val wikiSite by viewModel.wikiSite.collectAsState()
+                val tabsState by viewModel.tabsState.collectAsState()
                 val notificationBellState by viewModel.unreadCount.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
@@ -148,6 +153,7 @@ class HomeFragment : Fragment() {
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        tabsState = tabsState,
                         notificationBellState = notificationBellState,
                         onSelectTab = {
                             viewModel.selectTab(it)
@@ -197,6 +203,7 @@ class HomeFragment : Fragment() {
                                 },
                                 onOpenInNewTab = { entry ->
                                     (parentFragment as? MainFragment)?.onFeedSelectPage(entry, true)
+                                    viewModel.updateTabCount(true)
                                 },
                                 onAddRequest = { entry, addToDefault ->
                                     (parentFragment as? MainFragment)?.onFeedAddPageToList(entry, addToDefault)
@@ -239,11 +246,26 @@ class HomeFragment : Fragment() {
                         onCustomizeInterestsClick = {
                             requireActivity().startActivity(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
-                        onCardImpression = { card -> onCardImpression(card) }
+                        onTabClick = {
+                            requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
+                        },
+                        onUpdateTabCount = {
+                            viewModel.updateTabCount(false)
+                        },
+                        onCardImpression = {
+                                card -> onCardImpression(card)
+                        }
                     )
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateTabCount()
+        onUnreadNotification()
+        // TODO: start new funnel for analytics
     }
 
     fun getCurrentTab(): HomeTab {
@@ -256,15 +278,10 @@ class HomeFragment : Fragment() {
         // TODO: end current analytics funnel
     }
 
-    override fun onResume() {
-        super.onResume()
-        onUnreadNotification()
-        // TODO: start new funnel for analytics
-    }
-
     fun onUnreadNotification() {
         viewModel.refreshUnreadNotificationCount()
     }
+
     private fun maybeShowExploreFeedUpdatePrompt() {
         if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
@@ -287,6 +304,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    tabsState: TabsState,
     notificationBellState: NotificationBellState,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
@@ -305,6 +323,8 @@ fun HomeScreen(
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
+    onTabClick: () -> Unit = {},
+    onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card) -> Unit = { _ -> }
 ) {
@@ -343,8 +363,9 @@ fun HomeScreen(
                     ) {
                         HomeToolbar(
                             topInset = topInset,
-                            onTabClick = {},
-                            onUpdateTabCount = {},
+                            tabsState = tabsState,
+                            onTabClick = onTabClick,
+                            onUpdateTabCount = onUpdateTabCount,
                             unReadCount = notificationBellState.unreadCount,
                             canShowNotificationBell = notificationBellState.canShow,
                             onNotificationBellClick = {}
@@ -408,13 +429,15 @@ fun HomeScreen(
                                 .fillMaxWidth()
                                 .background(Color.Black.copy(alpha = 0.80f))
                         ) {
-                            HomeToolbar(
-                                topInset = topInset,
-                                unReadCount = notificationBellState.unreadCount,
-                                canShowNotificationBell = notificationBellState.canShow,
-                                onTabClick = {},
-                                onUpdateTabCount = {},
-                                onNotificationBellClick = {},
+                            Image(
+                                painter = painterResource(R.drawable.feed_header_wordmark),
+                                contentDescription = null,
+                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier
+                                    .statusBarsPadding()
+                                    .padding(start = 20.dp, top = (topInset + 16).dp)
+                                    .width(128.dp)
                             )
                         }
                         Column(
@@ -434,6 +457,15 @@ fun HomeScreen(
                                     )
                                 )
                         ) {
+                            HomeToolbar(
+                                topInset = topInset,
+                                tabsState = tabsState,
+                                onTabClick = onTabClick,
+                                onUpdateTabCount = onUpdateTabCount,
+                                unReadCount = notificationBellState.unreadCount,
+                                canShowNotificationBell = notificationBellState.canShow,
+                                onNotificationBellClick = {}
+                            )
                             HomeTabBar(
                                 modifier = Modifier.padding(top = 8.dp, bottom = 64.dp),
                                 wikiSite = wikiSite,
@@ -458,11 +490,9 @@ fun HomeScreen(
 @Composable
 fun HomeToolbar(
     topInset: Int,
-    unReadCount: Int,
+    tabsState: TabsState,
     onTabClick: () -> Unit,
-    onUpdateTabCount: () -> Unit,
-    onNotificationBellClick: () -> Unit,
-    canShowNotificationBell: Boolean
+    onUpdateTabCount: () -> Unit
 ) {
     Row {
         Image(
@@ -476,7 +506,33 @@ fun HomeToolbar(
                 .width(128.dp)
         )
         Spacer(modifier = Modifier.weight(1f))
-
+        if (tabsState.count > 0) {
+            IconButton(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(top = topInset.dp),
+                onClick = { onTabClick() }
+            ) {
+                TabsBox(
+                    modifier = Modifier
+                        .width(21.dp)
+                        .height(20.dp)
+                        .then(if (tabsState.pulse) {
+                            Modifier.pulse(
+                                durationMillis = 300,
+                                toScale = 1.25f,
+                                onCompleted = {
+                                    onUpdateTabCount()
+                                }
+                            )
+                        } else {
+                            Modifier
+                        }),
+                    backgroundColor = Color.Transparent,
+                    count = tabsState.count
+                )
+            }
+        }
         if (canShowNotificationBell) {
             NotificationBell(
                 modifier = Modifier
@@ -1121,6 +1177,7 @@ fun HomeScreenCommunityPreview() {
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
     }
@@ -1135,6 +1192,7 @@ fun HomeScreenForYouPreview() {
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
             forYouContentState = ForYouContentState(isInitialLoading = true),
+            tabsState = TabsState(1, false),
             notificationBellState = NotificationBellState(unreadCount = 99, canShow = true)
         )
     }
