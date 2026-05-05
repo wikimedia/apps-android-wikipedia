@@ -26,6 +26,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
@@ -330,7 +331,7 @@ class HomeViewModel : ViewModel() {
 
         // --- Interests ---
 
-        val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }.shuffled().take(5)
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
             val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
@@ -351,13 +352,34 @@ class HomeViewModel : ViewModel() {
                     BasedOnInterestCard(it, interestTopic = topic)
                 }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
 
-                if (entries.isNotEmpty()) {
-                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
-                }
+            if (entries.isNotEmpty()) {
+                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            }
         }
-        val interestArticles = AppDatabase.instance.articleInterestDao().getAll(wikiSite.value.languageCode).take(3)
-        interestArticles.forEachIndexed { index, topic ->
-            // TODO
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
+        interestArticles.forEachIndexed { index, article ->
+            val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
+            val entries = ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
+                    .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
+                    val pageTitle = PageTitle(
+                        text = page.title,
+                        wiki = wikiSite.value,
+                        thumbUrl = page.thumbUrl(),
+                        description = page.description,
+                        displayText = page.displayTitle(wikiSite.value.languageCode),
+                    ).also {
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        it.extract = page.extract
+                    }
+                    HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
+                }.orEmpty().map {
+                    // TODO: filter items that have already been suggested.
+                    BasedOnInterestCard(it, interestArticle = article)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+
+            if (entries.isNotEmpty()) {
+                modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+            }
         }
 
         // --- Continue reading ---

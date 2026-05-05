@@ -119,7 +119,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
-                "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops" +
+                "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops|extracts&exchars=500&exintro=1&explaintext=1" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun searchMoreLike(
