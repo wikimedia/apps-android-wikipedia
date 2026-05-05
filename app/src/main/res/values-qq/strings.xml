@@ -2230,6 +2230,7 @@
   <string name="explore_feed_for_you_tab_label">Label text for the explore feed type tab for the personalized content.</string>
   <string name="explore_feed_load_previous_day_label">Label text for the explore feed to load more content.</string>
   <string name="explore_feed_from_reading_list">Label explaining that the current suggestion is from your reading list.</string>
+  <string name="explore_feed_customize_interests">Button label for customizing the interests used for composing Home feed content.</string>
   <string name="explore_feed_because_of_interest">Label explaining that the current suggestion is based on one of your selected interests, which could be a topic or an article. The %s symbol is replaced by the name of the interest.</string>
   <string name="explore_feed_onboarding_curiosity_title">Display name for the title of the Explore feed onboarding screen prompting users to follow topics.</string>
   <string name="explore_feed_onboarding_curiosity_description">Body text for the Explore feed onboarding screen explaining feed personalization and data usage. \n\n represents a paragraph break between the personalization explanation and the data collection notice.</string>
