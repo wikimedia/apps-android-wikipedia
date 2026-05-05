@@ -181,6 +181,7 @@ private fun EventRow(
             Text(
                 modifier = Modifier.padding(start = 36.dp, end = 16.dp, top = 8.dp),
                 text = event.text,
+                style = MaterialTheme.typography.bodyMedium,
                 color = WikipediaTheme.colors.primaryColor
             )
 
@@ -233,6 +234,7 @@ private fun OnThisDayPageItem(
                 HtmlText(
                     text = pageSummary.displayTitle,
                     color = WikipediaTheme.colors.primaryColor,
+                    maxLines = 1,
                     style = MaterialTheme.typography.titleSmall.copy(
                         fontWeight = FontWeight.W600
                     )
@@ -253,7 +255,7 @@ private fun OnThisDayPageItem(
                     model = pageSummary.thumbnailUrl,
                     contentDescription = null,
                     modifier = Modifier
-                        .padding(start = 4.dp)
+                        .padding(start = 8.dp)
                         .size(56.dp)
                         .clip(RoundedCornerShape(8.dp)),
                     contentScale = ContentScale.Crop

@@ -28,7 +28,6 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -91,6 +90,8 @@ data class ForYouContentState(
     val canLoadMore: Boolean = true
 )
 
+data class TabsState(val count: Int, val pulse: Boolean)
+
 val noImageCardBackgroundColors = listOf(R.color.maroon800, R.color.purple800, R.color.pink800)
 val noImageCardForegroundColors = listOf(R.color.maroon300, R.color.purple300, R.color.pink300)
 
@@ -114,6 +115,9 @@ class HomeViewModel : ViewModel() {
 
     // Batch counter for "For you" recommendations.
     private var forYouBatchIndex = 0
+
+    private val _tabsState = MutableStateFlow(TabsState(WikipediaApp.instance.tabCount, pulse = false))
+    val tabsState = _tabsState.asStateFlow()
 
     private val communityHandler = CoroutineExceptionHandler { _, throwable ->
         _communityState.value = _communityState.value.copy(
@@ -169,6 +173,10 @@ class HomeViewModel : ViewModel() {
         } else {
             refreshForYouContent()
         }
+    }
+
+    fun updateTabCount(pulse: Boolean = false) {
+        _tabsState.value = TabsState(WikipediaApp.instance.tabCount, pulse)
     }
 
     /**
@@ -402,24 +410,27 @@ class HomeViewModel : ViewModel() {
             if (lastReadEntries.size > age) {
                 add(ContinueReadingCard(lastReadEntries[age].also { it.source = HistoryEntry.SOURCE_HISTORY }))
             }
-            val readingListPages = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).map {
-                HistoryEntry(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST)
-            }
-            addAll(readingListPages.map { ContinueReadingCard(it) })
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-
-        if (continueReadingCards.isNotEmpty()) {
-            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.entry.apiTitle }.fastJoinToString("||"))
-                .query?.pages?.forEach { page ->
-                    continueReadingCards.find {
-                        StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.title) ||
-                                StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
-                    }?.let {
-                        it.entry.title.extract = page.extract
-                        it.entry.title.description = page.description
-                        it.entry.title.thumbUrl = page.thumbUrl()
+            val readingListPageTitles = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).take(3)
+                .map { it.apiTitle }
+                .fastJoinToString("|")
+            if (readingListPageTitles.isNotEmpty()) {
+                ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(readingListPageTitles)
+                    .query?.pages?.forEach { page ->
+                        add(ContinueReadingCard(HistoryEntry(PageTitle(
+                            text = page.title,
+                            wiki = wikiSite.value,
+                            thumbUrl = page.thumbUrl(),
+                            description = page.description,
+                            displayText = page.displayTitle(wikiSite.value.languageCode),
+                        ).also {
+                            if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                            it.extract = page.extract
+                        }, HistoryEntry.SOURCE_READING_LIST)))
                     }
-                }
+            }
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+        if (continueReadingCards.isNotEmpty()) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
         }
 
