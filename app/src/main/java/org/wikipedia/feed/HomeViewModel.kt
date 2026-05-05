@@ -31,7 +31,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
@@ -440,19 +439,15 @@ class HomeViewModel : ViewModel() {
             val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
             if (lastReadEntries.size > age) {
                 val entry = lastReadEntries[age]
-                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
                 val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
 
                 val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
                     Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2)
 
-                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
+                val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
                     PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
                 }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
-                if (hasParentLanguageCode && relatedPages != null) {
-                    relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)
-                }
                 addAll(relatedPages?.map {
                     BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
                 } ?: emptyList())
