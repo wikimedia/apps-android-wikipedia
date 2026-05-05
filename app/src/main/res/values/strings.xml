@@ -2476,12 +2476,15 @@
     <string name="explore_feed_new_update_prompt_language_title">Every language, fully personalized</string>
     <string name="explore_feed_new_update_prompt_language_description">Reading in multiple languages? Each one gets its own experience. Just switch and your new feed is ready.</string>
     <string name="explore_feed_new_update_prompt_primary_button_text">Customize my feed</string>
+    <string name="explore_feed_customize_interests">Customize interests</string>
     <string name="explore_feed_new_update_prompt_secondary_button_text">Set it up for me</string>
     <string name="explore_feed_building_text">Let\'s build your feed…</string>
     <string name="explore_feed_community_tab_label">Community</string>
     <string name="explore_feed_for_you_tab_label">For you</string>
     <string name="explore_feed_date_today">Today - %s</string>
     <string name="explore_feed_load_previous_day_label">Load previous day</string>
+    <string name="explore_feed_from_reading_list">From your reading list</string>
+    <string name="explore_feed_because_of_interest">Because of your interest: %s</string>
     <string name="explore_feed_onboarding_curiosity_title">Follow your curiosity</string>
     <string name="explore_feed_onboarding_curiosity_description">Select topics that interest you, and we will personalize your feed.\n\nWe collect minimal data that is anonymized.</string>
     <string name="explore_feed_deselect_all_button_label">Deselect all</string>

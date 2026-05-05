@@ -62,6 +62,9 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() DESC LIMIT :limit")
     suspend fun getPagesByRandom(limit: Int): List<ReadingListPage>
 
+    @Query("SELECT * FROM ReadingListPage WHERE lang = :langCode ORDER BY RANDOM() DESC LIMIT :limit")
+    suspend fun getPagesByRandomByLang(langCode: String, limit: Int): List<ReadingListPage>
+
     @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     suspend fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 
@@ -95,8 +98,8 @@ interface ReadingListPageDao {
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 AND atime > :timestamp ORDER BY atime DESC LIMIT :limit")
     suspend fun getLocallySavedPagesSince(timestamp: Long, limit: Int): List<ReadingListPage>
 
-    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT 1")
-    suspend fun getMostRecentLocallySavedPage(): ReadingListPage?
+    @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit")
+    suspend fun getMostRecentLocallySavedPages(limit: Int): List<ReadingListPage>
 
     @Query("SELECT * FROM ReadingListPage WHERE atime > 0 ORDER BY atime DESC LIMIT :limit OFFSET :offset")
     suspend fun getPagesByLocallySavedTime(limit: Int, offset: Int): List<ReadingListPage>

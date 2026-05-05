@@ -20,4 +20,7 @@ interface InterestArticleDao {
 
     @Query("SELECT * FROM InterestArticle WHERE lang = :lang")
     suspend fun getAll(lang: String): List<InterestArticle>
+
+    @Query("SELECT * FROM InterestArticle WHERE lang = :lang ORDER BY RANDOM()")
+    suspend fun getAllRandom(lang: String): List<InterestArticle>
 }

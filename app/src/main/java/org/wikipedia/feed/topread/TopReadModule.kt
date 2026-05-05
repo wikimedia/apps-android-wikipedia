@@ -38,7 +38,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 
@@ -51,23 +51,21 @@ fun TopReadModule(
     onHideModuleClick: () -> Unit,
     onPageClick: (PageSummary) -> Unit,
     onPageOverflowClick: (PageSummary, Int) -> Unit,
-    onFooterClick: () -> Unit
+    onFooterClick: () -> Unit,
+    onCardImpression: () -> Unit = {}
 ) {
     val maxTopReadItems = 5
     val context = LocalContext.current
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = WikipediaTheme.colors.backgroundColor)
-    ) {
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.view_top_read_card_title,
-            subTitleResId = R.string.view_top_read_card_description,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
-        )
 
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.view_top_read_card_title,
+        subTitleResId = R.string.view_top_read_card_description,
+        backgroundColor = WikipediaTheme.colors.backgroundColor,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = onHideModuleClick,
+        onCardInView = onCardImpression
+    ) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Column(

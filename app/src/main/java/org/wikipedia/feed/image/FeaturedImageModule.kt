@@ -35,7 +35,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
 import org.wikipedia.theme.Theme
 import org.wikipedia.views.imageservice.ImageService
 
@@ -48,21 +48,19 @@ fun FeaturedImageModule(
     onHideModuleClick: (featuredImage: FeaturedImage) -> Unit = {},
     onDownloadClick: (featuredImage: FeaturedImage) -> Unit = {},
     onShareClick: (featuredImage: FeaturedImage) -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
     val context = LocalContext.current
 
-    Column(
-        Modifier.background(color = WikipediaTheme.colors.paperColor)
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.view_featured_image_card_title,
+        subTitleResId = R.string.explore_feed_potd_subtitle,
+        contextIconResId = R.drawable.ic_commons_logo,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = { onHideModuleClick(featuredImage) },
+        onCardInView = onCardImpression
     ) {
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.view_featured_image_card_title,
-            subTitleResId = R.string.explore_feed_potd_subtitle,
-            contextIconResId = R.drawable.ic_commons_logo,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = { onHideModuleClick(featuredImage) }
-        )
-
         Box(
             modifier = Modifier
                 .fillMaxWidth().padding(bottom = 24.dp)

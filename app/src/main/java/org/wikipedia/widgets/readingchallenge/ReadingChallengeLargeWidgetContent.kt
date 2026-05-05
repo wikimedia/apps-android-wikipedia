@@ -309,7 +309,6 @@ fun StreakOngoingNeedsReadingLargeWidget(
 
     val widgetDimension = LocalSize.current
     val size = LargeWidgetSize.from(widgetDimension)
-    val availableWidth = widgetDimension.width - 32.dp
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -324,7 +323,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
             ) {
                 LazyColumn(
                     modifier = GlanceModifier
-                        .width(availableWidth * 0.7f)
+                        .defaultWeight()
                 ) {
                     item {
                         WidgetBadge(
@@ -356,10 +355,12 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         )
                     }
                 }
+                Spacer(modifier = GlanceModifier.width(12.dp))
+                val mascotImageSize = minOf(size.sideMascotSize, widgetDimension.height - size.titleBarIconSize)
 
                 Column(
                     modifier = GlanceModifier
-                        .width(availableWidth * 0.3f)
+                        .width(mascotImageSize + size.rightColumnExtraSpace)
                         .fillMaxHeight(),
                     horizontalAlignment = Alignment.End
                 ) {
@@ -368,7 +369,6 @@ fun StreakOngoingNeedsReadingLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
-                    val mascotSize = minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -377,7 +377,7 @@ fun StreakOngoingNeedsReadingLargeWidget(
                             provider = ImageProvider(mascotImageResId),
                             contentDescription = null,
                             modifier = GlanceModifier
-                                .size(mascotSize)
+                                .size(mascotImageSize)
                         )
                     }
                 }
@@ -466,8 +466,6 @@ fun GeneralLargeWidget(
 ) {
     val widgetDimension = LocalSize.current
     val size = LargeWidgetSize.from(widgetDimension)
-    val availableWidth = widgetDimension.width - 32.dp
-
     BaseWidgetContent(
         color = backgroundColor
     ) {
@@ -477,7 +475,6 @@ fun GeneralLargeWidget(
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
-            // Top row: text column (70%) + mascot/logo column (30%)
             Row(
                 modifier = GlanceModifier
                     .defaultWeight()
@@ -486,7 +483,7 @@ fun GeneralLargeWidget(
                 // Left column: title, optional subtitle content, optional subtitle
                 LazyColumn(
                     modifier = GlanceModifier
-                        .width(availableWidth * 0.7f)
+                        .defaultWeight()
                 ) {
                     item {
                         Text(
@@ -523,11 +520,17 @@ fun GeneralLargeWidget(
                         }
                     }
                 }
-
+                Spacer(modifier = GlanceModifier.width(12.dp))
                 // Right column: W logo pinned top-right, mascot centered below
+                val mascotImageSize = if (expandMascot) {
+                    minOf(size.expandedMascotSize, widgetDimension.height - size.titleBarIconSize)
+                } else {
+                    minOf(size.sideMascotSize, widgetDimension.height - size.titleBarIconSize)
+                }
+
                 Column(
                     modifier = GlanceModifier
-                        .width(availableWidth * 0.3f)
+                        .width(mascotImageSize + size.rightColumnExtraSpace)
                         .fillMaxHeight(),
                     horizontalAlignment = Alignment.End
                 ) {
@@ -536,11 +539,7 @@ fun GeneralLargeWidget(
                         contentDescription = null,
                         modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
-                    val mascotSize = if (expandMascot) {
-                        minOf(size.expandedMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
-                    } else {
-                        minOf(size.sideMascotSize, availableWidth * 0.3f, widgetDimension.height - size.titleBarIconSize)
-                    }
+
                     Box(
                         modifier = GlanceModifier.fillMaxSize(),
                         contentAlignment = Alignment.Center
@@ -548,7 +547,7 @@ fun GeneralLargeWidget(
                         Image(
                             provider = ImageProvider(mainImageResId),
                             contentDescription = null,
-                            modifier = GlanceModifier.size(mascotSize)
+                            modifier = GlanceModifier.size(mascotImageSize)
                         )
                     }
                 }
@@ -560,7 +559,7 @@ fun GeneralLargeWidget(
     }
 }
 
- // Loading state
+// Loading state
 @OptIn(ExperimentalGlancePreviewApi::class)
 @Preview(widthDp = 368, heightDp = 224)
 @Composable
@@ -578,7 +577,7 @@ fun LoadingFullPreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotEnrolledLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -594,7 +593,7 @@ fun NotEnrolledLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotLiveYetLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -610,7 +609,7 @@ fun NotLiveYetLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun EnrolledNotStartedLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -660,7 +659,7 @@ fun StreakOngoingNeedsReadingLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeCompletedLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -676,7 +675,7 @@ fun ChallengeCompletedLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeConcludedIncompleteLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -692,7 +691,7 @@ fun ChallengeConcludedIncompleteLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeConcludedNoStreakLargePreview() {
     ReadingChallengeLargeWidgetContent(

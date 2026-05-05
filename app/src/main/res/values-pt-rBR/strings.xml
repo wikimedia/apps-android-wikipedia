@@ -2133,6 +2133,7 @@
   <string name="hybrid_search_beta_tag">Beta</string>
   <string name="hybrid_search_experimental_feature_switch_label">Participar do experimento</string>
   <string name="hybrid_search_onboarding_search_example_title">Precisa de inspiração?</string>
+  <string name="hybrid_search_onboarding_search_example_description">Use um dos exemplos de pesquisa abaixo.</string>
   <string name="hybrid_search_onboarding_opt_out_toast_message">Você optou por não participar do experimento.</string>
   <string name="hybrid_search_onboarding_search_example_query_pluto_as_planet">Quando Plutão deixou de ser considerado um planeta?</string>
   <string name="hybrid_search_onboarding_search_example_query_first_olympics">primeira olimpíada</string>

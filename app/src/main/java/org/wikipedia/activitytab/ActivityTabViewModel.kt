@@ -153,7 +153,7 @@ class ActivityTabViewModel : ViewModel() {
             val articlesSavedThisMonth = AppDatabase.instance.readingListPageDao().getTotalLocallySavedPagesBetween(thirtyDaysAgo) ?: 0
             val articlesSaved = AppDatabase.instance.readingListPageDao().getLocallySavedPagesSince(thirtyDaysAgo, 4)
                 .map { ReadingListPage.toPageTitle(it) }
-            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPage()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
+            val mostRecentSaveTime = AppDatabase.instance.readingListPageDao().getMostRecentLocallySavedPages(1).firstOrNull()?.atime?.let { Instant.ofEpochMilli(it) }?.atZone(ZoneId.systemDefault())?.toLocalDateTime()
 
             val currentDate = LocalDate.now()
             val topCategories = AppDatabase.instance.categoryDao().getTopCategoriesByMonth(currentDate.year, currentDate.monthValue)
