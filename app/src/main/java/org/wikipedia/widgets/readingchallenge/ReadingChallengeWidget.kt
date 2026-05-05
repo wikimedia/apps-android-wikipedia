@@ -334,7 +334,13 @@ enum class LargeWidgetSize {
             TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
             COMPACT -> 80.dp
-            FULL -> 120.dp
+            FULL -> 100.dp
+        }
+
+    val rightColumnExtraSpace: Dp
+        get() = when (this) {
+            TINY, EXTRA_COMPACT -> 8.dp
+            COMPACT, FULL -> 18.dp
         }
 
     // Mascot size when bottom content is empty/spacer-only. Can expand down further.
