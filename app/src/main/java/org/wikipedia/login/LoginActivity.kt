@@ -15,6 +15,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -40,6 +41,8 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
+import java.time.LocalDate
 
 class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -223,8 +226,18 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun onLoginSuccess() {
-        instrument?.submitInteraction("success")
-
+        val isReadingChallenge = loginSource == SOURCE_READING_CHALLENGE
+        instrument?.submitInteraction(action = "success", actionContext = if (isReadingChallenge) mapOf("invoke_source" to loginSource) else null)
+        if (isReadingChallenge) {
+            Prefs.readingChallengeEnrolled = true
+            Prefs.readingChallengeEnrollmentDate = LocalDate.now().toString()
+            lifecycleScope.launch {
+                if (ReadingChallengeWidgetRepository.isWidgetInstalled()) {
+                    ReadingChallengeWidgetRepository(this@LoginActivity).updateWidgetsAndSendAnalytics()
+                }
+            }
+            intent.removeExtra(LOGIN_REQUEST_SOURCE)
+        }
         DeviceUtil.hideSoftKeyboard(this@LoginActivity)
         setResult(RESULT_LOGIN_SUCCESS)
 
@@ -347,6 +360,7 @@ class LoginActivity : BaseActivity() {
         const val SOURCE_ACTIVITY_TAB = "activity_tab"
         const val SOURCE_YEAR_IN_REVIEW = "yir"
         const val SOURCE_ON_THIS_DAY_GAME_RESULT = "on_this_day_game_result"
+        const val SOURCE_READING_CHALLENGE = "widget_challenge"
 
         fun newIntent(context: Context, source: String, createAccountFirst: Boolean = true): Intent {
             return Intent(context, LoginActivity::class.java)

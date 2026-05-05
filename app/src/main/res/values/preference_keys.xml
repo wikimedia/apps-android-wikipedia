@@ -208,4 +208,14 @@
     <string name="preference_key_hybrid_search_onboarding_shown">hybridSearchOnboardingShown</string>
     <string name="preference_key_hybrid_search_enabled">hybridSearchEnabled</string>
     <string name="preference_key_game_stats_snackbar_shown">gameStatsSnackbarShown</string>
+    <string name="preference_key_reading_challenge_streak">readingChallengeStreak</string>
+    <string name="preference_key_reading_challenge_enrolled">readingChallengeEnrolled</string>
+    <string name="preference_key_reading_challenge_last_read_date">readingChallengeLastReadDate</string>
+    <string name="preference_key_reading_challenge_widgets">readingChallengeWidgets</string>
+    <string name="preference_key_reading_challenge_onboarding_shown">readingChallengeOnboardingShown</string>
+    <string name="preference_key_reading_challenge_install_prompt_shown">readingChallengeInstallPromptShown</string>
+    <string name="preference_key_reading_challenge_enrollment_date">readingChallengeEnrollmentDate</string>
+    <string name="preference_key_reading_challenge_start_date">readingChallengeStartDate</string>
+    <string name="preference_key_reading_challenge_end_date">readingChallengeEndDate</string>
+    <string name="preference_key_reading_challenge_widget_fast_cycle">readingChallengeWidgetFastCycle</string>
 </resources>
