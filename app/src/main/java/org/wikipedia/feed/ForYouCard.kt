@@ -287,7 +287,7 @@ fun ForYouCardContent(
                     modifier = Modifier.background(color = Color.Black.copy(alpha = 0.80f))
                         .padding(bottom = 40.dp)
                 ) {
-                    val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) entry.title.extract else entry.title.description
+                    val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (entry.title.extract ?: entry.title.description) else entry.title.description
                     text?.let {
                         Spacer(modifier = Modifier.height(2.dp))
                         HtmlText(

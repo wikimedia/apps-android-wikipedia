@@ -428,7 +428,7 @@ fun HomeScreen(
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
                     Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
-                        Column(
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(Color.Black.copy(alpha = 0.80f))
@@ -442,7 +442,7 @@ fun HomeScreen(
                                 onNotificationBellClick = onNotificationBellClick
                             )
                         }
-                        Column(
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(
