@@ -67,7 +67,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -100,6 +99,7 @@ import org.wikipedia.feed.onboarding.ExploreFeedUpdatePromptActivity
 import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
+import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
@@ -237,7 +237,10 @@ class HomeFragment : Fragment() {
                             viewModel.updateLanguage(languageCode)
                         },
                         onManageLanguagesClick = {
-                            requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = Constants.InvokeSource.FEED))
+                            requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
+                        },
+                        onCustomizeInterestsClick = {
+                            requireActivity().startActivity(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
@@ -310,8 +313,12 @@ fun HomeScreen(
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
+<<<<<<< ef-tabs
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
+=======
+    onCustomizeInterestsClick: () -> Unit = {},
+>>>>>>> explore-feed-upgrade-design
     onCardImpression: (card: Card) -> Unit = { _ -> }
 ) {
     val context = LocalContext.current
@@ -401,6 +408,7 @@ fun HomeScreen(
                         onPageShareClick = onPageShareClick,
                         onPageOverflowClick = onPageOverflowClick,
                         onPageOverflowDismiss = onPageOverflowDismiss,
+                        onCustomizeInterestsClick = onCustomizeInterestsClick,
                         onCardImpression = onCardImpression
                     )
 
@@ -805,9 +813,9 @@ fun ForYouContentTab(
     onPageShareClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card) -> Unit = {}
 ) {
-    val context = LocalContext.current
     when {
         state.isInitialLoading -> {
             Box(
@@ -854,6 +862,7 @@ fun ForYouContentTab(
                                     onPageClick = { entry -> onPageClick(entry) },
                                     onHideCardClick = onHideCardClick,
                                     onCardInView = { onCardImpression(it) },
+                                    onCustomizeInterestsClick = onCustomizeInterestsClick
                                 )
                             }
                         } else if (module is ForYouModule.ContinueReading) {
@@ -865,7 +874,9 @@ fun ForYouContentTab(
                                     wikiSite = wikiSite,
                                     module = module,
                                     onPageClick = { entry -> onPageClick(entry) },
-                                    onHideCardClick = onHideCardClick
+                                    onHideCardClick = onHideCardClick,
+                                    onCardInView = { onCardImpression(it) },
+                                    onCustomizeInterestsClick = onCustomizeInterestsClick
                                 )
                             }
                         }

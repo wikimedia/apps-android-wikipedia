@@ -26,7 +26,8 @@ fun BasedOnInterestModule(
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
-    onCardInView: (card: Card) -> Unit = {}
+    onCardInView: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {},
 ) {
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
 
@@ -45,10 +46,13 @@ fun BasedOnInterestModule(
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
             card = module.cards[pageIndex],
-            footerText = topic?.let { stringResource(R.string.explore_feed_because_of_interest, stringResource(topic.msgKey)) },
+            footerText = (if (topic != null) stringResource(topic.msgKey) else card.interestArticle?.displayTitle)?.let {
+                stringResource(R.string.explore_feed_because_of_interest, it)
+            },
             onPageClick = onPageClick,
             onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
+            onHideModuleClick = onHideModuleClick,
+            onCustomizeInterestsClick = onCustomizeInterestsClick
         )
     }
 }
