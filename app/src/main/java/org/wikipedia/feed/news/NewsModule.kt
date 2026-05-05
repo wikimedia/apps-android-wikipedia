@@ -3,7 +3,6 @@ package org.wikipedia.feed.news
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -32,7 +31,8 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.CommunityModuleHeader
+import org.wikipedia.feed.CommunityModuleContainer
+import org.wikipedia.feed.noImageCardBackgroundColors
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.imageservice.ImageService
@@ -44,24 +44,19 @@ fun NewsModule(
     newsItems: List<NewsItem>,
     onNewsClick: (item: NewsItem) -> Unit = {},
     onHideCardClick: () -> Unit = {},
-    onHideModuleClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {},
+    onCardImpression: () -> Unit = {}
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = WikipediaTheme.colors.paperColor)
+    val pagerState = rememberPagerState(pageCount = { newsItems.size })
+
+    CommunityModuleContainer(
+        wikiSite = wikiSite,
+        titleResId = R.string.view_card_news_title,
+        subTitleResId = R.string.explore_feed_in_the_news_subtitle,
+        onHideCardClick = onHideCardClick,
+        onHideModuleClick = onHideModuleClick,
+        onCardInView = onCardImpression
     ) {
-
-        val pagerState = rememberPagerState(pageCount = { newsItems.size })
-
-        CommunityModuleHeader(
-            wikiSite = wikiSite,
-            titleResId = R.string.view_card_news_title,
-            subTitleResId = R.string.explore_feed_in_the_news_subtitle,
-            onHideCardClick = onHideCardClick,
-            onHideModuleClick = onHideModuleClick
-        )
-
         HorizontalPager(
             state = pagerState,
             modifier = Modifier.fillMaxWidth()
@@ -94,7 +89,7 @@ fun NewsItemContent(
             .clickable { onItemClick(newsItem) }
     ) {
         if (newsItem.thumbUrl().isNullOrEmpty()) {
-            val color = colorResource(listOf(R.color.maroon800, R.color.purple800, R.color.pink800).random(Random(newsItem.story.hashCode())))
+            val color = colorResource(noImageCardBackgroundColors.random(Random(newsItem.story.hashCode())))
             Box(
                 modifier = Modifier.fillMaxWidth().height(415.dp).background(color)
             )

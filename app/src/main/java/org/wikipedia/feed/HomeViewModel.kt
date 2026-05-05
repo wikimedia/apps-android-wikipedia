@@ -1,5 +1,6 @@
 package org.wikipedia.feed
 
+import androidx.compose.ui.util.fastJoinToString
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -7,29 +8,58 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
+import org.wikipedia.feed.interests.BasedOnInterestCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageTitle
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
+private const val MAX_HIDDEN_CARDS = 100
 
 sealed class ForYouModule {
-    abstract val pages: List<PageSummary>
+    abstract val age: Int
+    abstract val index: Int
+    abstract val cards: List<Card>
 
-    data class BasedOnReadingHistory(override val pages: List<PageSummary>) : ForYouModule()
-    data class BasedOnLocation(override val pages: List<PageSummary>) : ForYouModule()
-    data class BasedOnInterests(val interest: String, override val pages: List<PageSummary>) : ForYouModule()
+    abstract fun withCards(cards: List<Card>): ForYouModule
+
+    fun matchesIdentity(other: ForYouModule): Boolean {
+        return this::class == other::class && age == other.age && index == other.index
+    }
+
+    data class BasedOnInterest(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<Card>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+    }
+
+    data class ContinueReading(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<Card>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+    }
 }
 
 data class CommunityContentState(
@@ -49,6 +79,9 @@ data class ForYouContentState(
 )
 
 data class TabsState(val count: Int, val pulse: Boolean)
+
+val noImageCardBackgroundColors = listOf(R.color.maroon800, R.color.purple800, R.color.pink800)
+val noImageCardForegroundColors = listOf(R.color.maroon300, R.color.purple300, R.color.pink300)
 
 class HomeViewModel : ViewModel() {
     private val _wikiSite = MutableStateFlow(WikiSite.forLanguageCode(Prefs.homeLanguageCode))
@@ -221,8 +254,8 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun hideCard(card: Card): Int {
-        Prefs.hiddenCards += card.hideKey
+    fun hideCommunityCard(card: Card): Int {
+        addHiddenCard(card)
         val cardIndex = _communityState.value.cards.indexOf(card)
         if (cardIndex >= 0) {
             _communityState.value = _communityState.value.copy(
@@ -232,28 +265,139 @@ class HomeViewModel : ViewModel() {
         return cardIndex
     }
 
-    fun restoreCard(card: Card, index: Int) {
+    fun restoreCommunityCard(card: Card, index: Int) {
         Prefs.hiddenCards -= card.hideKey
          _communityState.value = _communityState.value.copy(
             cards = _communityState.value.cards.toMutableList().apply {
-                add(index, card)
+                if (index in 0..size) {
+                    add(index, card)
+                }
             }
         )
     }
 
-    private suspend fun fetchForYouModules(batchIndex: Int): List<ForYouModule> {
-
-        val sampleImageUrls = listOf(
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg/1280px-SW_Hullathy_Gram_Panchayat_Villages_Nilgiris_Nov24_A7CR_05293.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Color_of_Friendship.jpg/1280px-Color_of_Friendship.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg/1280px-MAP_Expo_Empereur_Ojin_Poup%C3%A9e_03_01_2012.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg/1280px-Sachsenheim_-_Ochsenbach_-_Geigersberg_-_n%C3%B6rdlicher_Teil_von_SSO_im_M%C3%A4rz.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg/1280px-Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_26-28_HDR.jpg",
-        )
-
-        val modules = sampleImageUrls.map {
-            ForYouModule.BasedOnInterests("Art", listOf(PageSummary("", "", "", "", thumbnail = it, "")))
+    fun hideForYouCard(module: ForYouModule, card: Card): Int {
+        addHiddenCard(card)
+        val modules = _forYouState.value.modules
+        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
+        if (moduleIndex < 0) {
+            return -1
         }
+        val currentModule = modules[moduleIndex]
+        val cardIndex = currentModule.cards.indexOf(card)
+        if (cardIndex < 0) {
+            return -1
+        }
+        val updatedCards = currentModule.cards.toMutableList().apply {
+            removeAt(cardIndex)
+        }
+        // If this was the last card in the module, remove the module.
+        val updatedModules = modules.toMutableList().apply {
+            if (updatedCards.isEmpty()) {
+                removeAt(moduleIndex)
+            } else {
+                this[moduleIndex] = currentModule.withCards(updatedCards)
+            }
+        }
+        _forYouState.update { it.copy(modules = updatedModules) }
+        if (updatedCards.isEmpty()) {
+            return moduleIndex
+        }
+        return cardIndex
+    }
+
+    fun restoreForYouCard(module: ForYouModule, card: Card, index: Int) {
+        Prefs.hiddenCards -= card.hideKey
+        val modules = _forYouState.value.modules.toMutableList()
+        val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
+        if (moduleIndex >= 0) {
+            val currentModule = modules[moduleIndex]
+            val insertIndex = index.coerceIn(0, currentModule.cards.size)
+            val updatedCards = currentModule.cards.toMutableList().apply {
+                add(insertIndex, card)
+            }
+            modules[moduleIndex] = currentModule.withCards(updatedCards)
+        } else {
+            // If the module was removed when the card was hidden, add it back in.
+            val insertIndex = index.coerceIn(0, modules.size)
+            modules.add(insertIndex, module.withCards(listOf(card)))
+        }
+        _forYouState.update { it.copy(modules = modules) }
+    }
+
+    private fun addHiddenCard(card: Card) {
+        val hiddenCards = Prefs.hiddenCards.toMutableList()
+        if (hiddenCards.size > MAX_HIDDEN_CARDS) {
+            hiddenCards.removeAt(0)
+        }
+        hiddenCards += card.hideKey
+        Prefs.hiddenCards = hiddenCards
+    }
+
+    private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
+        val modules = mutableListOf<ForYouModule>()
+        val hiddenCards = Prefs.hiddenCards
+
+        // --- Interests ---
+
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAll().distinctBy { it.topicId }.take(3)
+        interestTopics.forEachIndexed { index, topic ->
+            val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
+                .query?.pages?.sortedBy { it.index }?.map { page ->
+                    val pageTitle = PageTitle(
+                        text = page.title,
+                        wiki = wikiSite.value,
+                        thumbUrl = page.thumbUrl(),
+                        description = page.description,
+                        displayText = page.displayTitle(wikiSite.value.languageCode),
+                    ).also {
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        it.extract = page.extract
+                    }
+                    HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
+                }.orEmpty().map {
+                    // TODO: filter items that have already been suggested.
+                    BasedOnInterestCard(it, interestTopic = topic)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+
+                if (entries.isNotEmpty()) {
+                    modules.add(ForYouModule.BasedOnInterest(age, index, entries))
+                }
+        }
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAll(wikiSite.value.languageCode).take(3)
+        interestArticles.forEachIndexed { index, topic ->
+            // TODO
+        }
+
+        // --- Continue reading ---
+
+        val continueReadingCards = buildList {
+            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+            if (lastReadEntries.size > age) {
+                add(ContinueReadingCard(lastReadEntries[age].also { it.source = HistoryEntry.SOURCE_HISTORY }))
+            }
+            val readingListPages = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).map {
+                HistoryEntry(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST)
+            }
+            addAll(readingListPages.map { ContinueReadingCard(it) })
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+
+        if (continueReadingCards.isNotEmpty()) {
+            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.entry.apiTitle }.fastJoinToString("||"))
+                .query?.pages?.forEach { page ->
+                    continueReadingCards.find {
+                        StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.title) ||
+                                StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
+                    }?.let {
+                        it.entry.title.extract = page.extract
+                        it.entry.title.description = page.description
+                        it.entry.title.thumbUrl = page.thumbUrl()
+                    }
+                }
+            modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
+        }
+
         return modules
     }
 }

@@ -143,6 +143,9 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages|extracts&exchars=500&exintro=1&explaintext=1&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getInfoWithExtractsByPageTitles(@Query("titles") titles: String? = null): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=query&meta=globaluserinfo&guiprop=editcount&prop=info|description|pageimages&pilicense=any&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getInfoByTitlesWithGlobalUserInfo(@Query("titles") titles: String? = null): MwQueryResponse
 
@@ -742,11 +745,12 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&inprop=varianttitles")
     suspend fun getVariantTitlesByTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=search&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+    @GET(MW_API_PREFIX + "action=query&generator=search&redirects=&converttitles=&prop=description|pageimages|info|extracts&exchars=500&exintro=1&explaintext=1&piprop=thumbnail" +
     "&pilicense=any&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE)
     suspend fun getArticlesByTopic(
         @Query("gsrsearch") articleTopics: String,
-        @Query("gsrlimit") limit: Int
+        @Query("gsrlimit") limit: Int,
+        @Query("gsrsort") sort: String? = null
     ): MwQueryResponse
 
     companion object {
