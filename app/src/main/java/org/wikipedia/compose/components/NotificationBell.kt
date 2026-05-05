@@ -112,6 +112,11 @@ fun CircleWithNumber(
     }
 }
 
+data class NotificationBellState(
+    val unreadCount: Int = 0,
+    val canShow: Boolean = false
+)
+
 @Preview(showBackground = true)
 @Composable
 private fun NotificationBellPreview() {

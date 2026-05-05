@@ -74,6 +74,8 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
+import org.wikipedia.compose.components.NotificationBell
+import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
@@ -136,6 +138,7 @@ class HomeFragment : Fragment() {
             setContent {
                 val selectedTab by viewModel.selectedTab.collectAsState()
                 val wikiSite by viewModel.wikiSite.collectAsState()
+                val notificationBellState by viewModel.unreadCount.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -145,6 +148,7 @@ class HomeFragment : Fragment() {
                         communityContentState = viewModel.communityState.collectAsState().value,
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
+                        notificationBellState = notificationBellState,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -231,10 +235,18 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        onUnreadNotification()
+    }
+
     fun getCurrentTab(): HomeTab {
         return viewModel.selectedTab.value
     }
 
+    fun onUnreadNotification() {
+        viewModel.refreshUnreadNotificationCount()
+    }
     private fun maybeShowExploreFeedUpdatePrompt() {
         if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
             startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
@@ -250,6 +262,7 @@ fun HomeScreen(
     communityContentState: CommunityContentState,
     forYouContentState: ForYouContentState,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
+    notificationBellState: NotificationBellState,
     onSelectTab: (HomeTab) -> Unit = {},
     onRefreshTab: (HomeTab) -> Unit = {},
     onLoadMoreCommunityContent: () -> Unit = {},
@@ -300,15 +313,13 @@ fun HomeScreen(
                             .fillMaxSize()
                             .background(WikipediaTheme.colors.paperColor)
                     ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
+                        HomeToolbar(
+                            topInset = topInset,
+                            onTabClick = {},
+                            onUpdateTabCount = {},
+                            unReadCount = notificationBellState.unreadCount,
+                            canShowNotificationBell = notificationBellState.canShow,
+                            onNotificationBellClick = {}
                         )
 
                         // Tab selector
@@ -372,15 +383,13 @@ fun HomeScreen(
                                 )
                             )
                     ) {
-                        Image(
-                            painter = painterResource(R.drawable.feed_header_wordmark),
-                            contentDescription = null,
-                            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                            contentScale = ContentScale.FillWidth,
-                            modifier = Modifier
-                                .statusBarsPadding()
-                                .padding(start = 20.dp, top = (topInset + 16).dp)
-                                .width(128.dp)
+                        HomeToolbar(
+                            topInset = topInset,
+                            unReadCount = notificationBellState.unreadCount,
+                            canShowNotificationBell = notificationBellState.canShow,
+                            onTabClick = {},
+                            onUpdateTabCount = {},
+                            onNotificationBellClick = {},
                         )
 
                         // Tab selector
@@ -400,6 +409,40 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun HomeToolbar(
+    topInset: Int,
+    unReadCount: Int,
+    onTabClick: () -> Unit,
+    onUpdateTabCount: () -> Unit,
+    onNotificationBellClick: () -> Unit,
+    canShowNotificationBell: Boolean
+) {
+    Row {
+        Image(
+            painter = painterResource(R.drawable.feed_header_wordmark),
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
+            contentScale = ContentScale.FillWidth,
+            modifier = Modifier
+                .statusBarsPadding()
+                .padding(start = 20.dp, top = (topInset + 16).dp)
+                .width(128.dp)
+        )
+        Spacer(modifier = Modifier.weight(1f))
+
+        if (canShowNotificationBell) {
+            NotificationBell(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(top = topInset.dp),
+                unreadCount = unReadCount,
+                onClick = onNotificationBellClick
+            )
         }
     }
 }
@@ -993,7 +1036,8 @@ fun HomeScreenCommunityPreview() {
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.COMMUNITY,
             communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true)
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            notificationBellState = NotificationBellState(unreadCount = 5, canShow = true)
         )
     }
 }
@@ -1006,7 +1050,8 @@ fun HomeScreenForYouPreview() {
             wikiSite = WikiSite.preview(),
             selectedTab = HomeTab.FOR_YOU,
             communityContentState = CommunityContentState(isInitialLoading = true),
-            forYouContentState = ForYouContentState(isInitialLoading = true)
+            forYouContentState = ForYouContentState(isInitialLoading = true),
+            notificationBellState = NotificationBellState(unreadCount = 99, canShow = true)
         )
     }
 }

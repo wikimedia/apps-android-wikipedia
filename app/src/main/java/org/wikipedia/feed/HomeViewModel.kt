@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -83,6 +85,9 @@ class HomeViewModel : ViewModel() {
             error = throwable
         )
     }
+
+    private val _unreadCount = MutableStateFlow(NotificationBellState())
+    val unreadCount = _unreadCount.asStateFlow()
 
     init {
         if (_selectedTab.value == HomeTab.COMMUNITY) {
@@ -246,4 +251,11 @@ class HomeViewModel : ViewModel() {
         }
         return modules
     }
+
+    fun refreshUnreadNotificationCount() {
+        _unreadCount.update { it.copy(unreadCount = currentCount(), canShow = AccountUtil.isLoggedIn) }
+    }
+
+    private fun currentCount(): Int =
+        if (AccountUtil.isLoggedIn) Prefs.notificationUnreadCount else 0
 }
