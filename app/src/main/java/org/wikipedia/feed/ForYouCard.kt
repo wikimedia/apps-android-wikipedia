@@ -75,7 +75,8 @@ fun ForYouCardContent(
     footerText: String? = null,
     onPageClick: (HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
-    onHideModuleClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     var overflowMenuExpanded by remember { mutableStateOf(false) }
@@ -188,7 +189,8 @@ fun ForYouCardContent(
                                         onHideCardClick(module, card)
                                     }
                                 },
-                                onHideModuleClick = onHideModuleClick
+                                onHideModuleClick = onHideModuleClick,
+                                onCustomizeInterestsClick = onCustomizeInterestsClick
                             )
                         }
                     }
@@ -206,7 +208,7 @@ fun ForYouCardContent(
                         )
                     }
                     footerText?.let {
-                        Text(
+                        HtmlText(
                             text = it,
                             color = Color.White,
                             style = MaterialTheme.typography.labelSmall,
@@ -276,7 +278,8 @@ fun ForYouCardContent(
                                     onHideCardClick(module, card)
                                 }
                             },
-                            onHideModuleClick = onHideModuleClick
+                            onHideModuleClick = onHideModuleClick,
+                            onCustomizeInterestsClick = onCustomizeInterestsClick
                         )
                     }
                 }
@@ -309,7 +312,7 @@ fun ForYouCardContent(
                             )
                         }
                         footerText?.let {
-                            Text(
+                            HtmlText(
                                 text = it,
                                 color = Color.White,
                                 style = MaterialTheme.typography.labelSmall,
@@ -330,7 +333,8 @@ fun ForYouCardDropdownMenu(
     wikiSite: WikiSite,
     onDismiss: () -> Unit = {},
     onHideCardClick: () -> Unit = {},
-    onHideModuleClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit
 ) {
     val context = LocalContext.current
     DropdownMenu(
@@ -378,6 +382,27 @@ fun ForYouCardDropdownMenu(
             },
             onClick = {
                 onHideModuleClick()
+                onDismiss()
+            }
+        )
+        DropdownMenuItem(
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_baseline_tune_24),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.secondaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            },
+            text = {
+                Text(
+                    text = context.getString(wikiSite.languageCode, R.string.explore_feed_customize_interests),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            },
+            onClick = {
+                onCustomizeInterestsClick()
                 onDismiss()
             }
         )

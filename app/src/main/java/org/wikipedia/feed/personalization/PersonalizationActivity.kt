@@ -27,16 +27,25 @@ class PersonalizationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val showIntroPage = intent?.getBooleanExtra(EXTRA_SHOW_INTRO_PAGE, true) ?: true
+        val pages = if (showIntroPage) {
+            listOf(
+                PersonalizationPage.CURIOSITY,
+                PersonalizationPage.INTERESTS,
+                PersonalizationPage.HOME_PREFERENCE
+            )
+        } else {
+            listOf(
+                PersonalizationPage.INTERESTS,
+                PersonalizationPage.HOME_PREFERENCE
+            )
+        }
 
         setContent {
             BaseTheme {
                 PersonalizationScreen(
                     viewModel = viewModel,
-                    screens = listOf(
-                        PersonalizationPage.CURIOSITY,
-                        PersonalizationPage.INTERESTS,
-                        PersonalizationPage.HOME_PREFERENCE
-                    ),
+                    screens = pages,
                     onSkipClick = { finish() },
                     onSearchClick = {
                         val intent = SearchActivity.newIntent(this, Constants.InvokeSource.FEED_INTEREST_SELECTION, null, returnLink = true)
@@ -52,8 +61,11 @@ class PersonalizationActivity : BaseActivity() {
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
+        private const val EXTRA_SHOW_INTRO_PAGE = "show_intro_page"
+
+        fun newIntent(context: Context, showIntroPage: Boolean = true): Intent {
             return Intent(context, PersonalizationActivity::class.java)
+                .putExtra(EXTRA_SHOW_INTRO_PAGE, showIntroPage)
         }
     }
 }
