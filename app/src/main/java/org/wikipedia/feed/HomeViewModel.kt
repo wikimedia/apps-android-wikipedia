@@ -460,17 +460,7 @@ class HomeViewModel : ViewModel() {
         }.filterNot { hiddenCards.contains(it.hideKey) }
 
         if (becauseYouReadCards.isNotEmpty()) {
-            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(becauseYouReadCards.map { it.entry.apiTitle }.fastJoinToString("||"))
-                .query?.pages?.forEach { page ->
-                    becauseYouReadCards.find {
-                        StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.title) ||
-                                StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
-                    }?.let {
-                        it.entry.title.extract = page.extract
-                        it.entry.title.description = page.description
-                        it.entry.title.thumbUrl = page.thumbUrl()
-                    }
-                }
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
 
