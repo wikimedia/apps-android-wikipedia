@@ -2,11 +2,12 @@ package org.wikipedia.feed.interests
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
@@ -29,6 +30,7 @@ fun BasedOnInterestModule(
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
 ) {
+    val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
 
     ForYouModulePager(
@@ -38,6 +40,9 @@ fun BasedOnInterestModule(
     ) { pageIndex ->
         val card = module.cards[pageIndex] as BasedOnInterestCard
         val topic = ArticleTopics.all.find { it.topicId == card.interestTopic?.topicId }
+        val footerTextParameter = if (topic != null) {
+            context.getString(wikiSite.languageCode, topic.msgKey)
+        } else card.interestArticle?.displayTitle
 
         ForYouCardContent(
             wikiSite = wikiSite,
@@ -46,8 +51,8 @@ fun BasedOnInterestModule(
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
             card = module.cards[pageIndex],
-            footerText = (if (topic != null) stringResource(topic.msgKey) else card.interestArticle?.displayTitle)?.let {
-                stringResource(R.string.explore_feed_because_of_interest, it)
+            footerText = footerTextParameter?.let {
+                context.getString(wikiSite.languageCode, R.string.explore_feed_because_of_interest, it)
             },
             onPageClick = onPageClick,
             onHideCardClick = onHideCardClick,

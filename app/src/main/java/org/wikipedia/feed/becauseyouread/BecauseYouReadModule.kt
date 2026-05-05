@@ -3,23 +3,24 @@ package org.wikipedia.feed.becauseyouread
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getString
 import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
+import org.wikipedia.feed.ForYouModulePager
 import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
@@ -34,17 +35,21 @@ fun BecauseYouReadModule(
     module: ForYouModule.BecauseYouRead,
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
-    onHideModuleClick: () -> Unit = {}
+    onHideModuleClick: () -> Unit = {},
+    onCardInView: (card: Card) -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {}
 ) {
     Box(
         modifier = modifier
     ) {
+        val context = LocalContext.current
         val pagerState = rememberPagerState(pageCount = { module.cards.size })
         val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
 
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.fillMaxWidth()
+        ForYouModulePager(
+            modifier = modifier,
+            module = module,
+            onCardInView = onCardInView
         ) { page ->
             val card = (module.cards[page] as BecauseYouReadCard)
             ForYouCardContent(
@@ -55,10 +60,11 @@ fun BecauseYouReadModule(
                 module = module,
                 card = module.cards[page],
                 footerIcon = painterResource(R.drawable.ic_history_24),
-                footerText = stringResource(R.string.explore_feed_because_you_read, StringUtil.removeHTMLTags(card.sourceDisplayTitle)), // TODO: show localized string
+                footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, StringUtil.removeHTMLTags(card.sourceDisplayTitle)),
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
-                onHideModuleClick = onHideModuleClick
+                onHideModuleClick = onHideModuleClick,
+                onCustomizeInterestsClick = onCustomizeInterestsClick
             )
         }
 

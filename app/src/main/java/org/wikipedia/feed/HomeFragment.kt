@@ -876,7 +876,9 @@ fun ForYouContentTab(
                                     wikiSite = wikiSite,
                                     module = module,
                                     onPageClick = { entry -> onPageClick(entry) },
-                                    onHideCardClick = onHideCardClick
+                                    onHideCardClick = onHideCardClick,
+                                    onCardInView = { onCardImpression(it) },
+                                    onCustomizeInterestsClick = onCustomizeInterestsClick
                                 )
                             }
                         }
