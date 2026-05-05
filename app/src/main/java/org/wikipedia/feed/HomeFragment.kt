@@ -71,9 +71,9 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.compose.components.AppButton
-import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.NotificationBell
 import org.wikipedia.compose.components.NotificationBellState
+import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
 import org.wikipedia.compose.components.error.WikiErrorClickEvents
 import org.wikipedia.compose.components.error.WikiErrorView
