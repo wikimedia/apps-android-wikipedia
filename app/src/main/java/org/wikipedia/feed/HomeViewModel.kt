@@ -24,7 +24,6 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
@@ -389,24 +388,27 @@ class HomeViewModel : ViewModel() {
             if (lastReadEntries.size > age) {
                 add(ContinueReadingCard(lastReadEntries[age].also { it.source = HistoryEntry.SOURCE_HISTORY }))
             }
-            val readingListPages = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).map {
-                HistoryEntry(ReadingListPage.toPageTitle(it), HistoryEntry.SOURCE_READING_LIST)
-            }
-            addAll(readingListPages.map { ContinueReadingCard(it) })
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
-
-        if (continueReadingCards.isNotEmpty()) {
-            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(continueReadingCards.map { it.entry.apiTitle }.fastJoinToString("||"))
-                .query?.pages?.forEach { page ->
-                    continueReadingCards.find {
-                        StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.title) ||
-                                StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
-                    }?.let {
-                        it.entry.title.extract = page.extract
-                        it.entry.title.description = page.description
-                        it.entry.title.thumbUrl = page.thumbUrl()
+            val readingListPageTitles = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).take(3)
+                .map { it.apiTitle }
+                .fastJoinToString("|")
+            if (readingListPageTitles.isNotEmpty()) {
+                ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(readingListPageTitles)
+                    .query?.pages?.forEach { page ->
+                        add(ContinueReadingCard(HistoryEntry(PageTitle(
+                            text = page.title,
+                            wiki = wikiSite.value,
+                            thumbUrl = page.thumbUrl(),
+                            description = page.description,
+                            displayText = page.displayTitle(wikiSite.value.languageCode),
+                        ).also {
+                            if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                            it.extract = page.extract
+                        }, HistoryEntry.SOURCE_READING_LIST)))
                     }
-                }
+            }
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+        if (continueReadingCards.isNotEmpty()) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
         }
 
