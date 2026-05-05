@@ -313,12 +313,9 @@ fun HomeScreen(
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
     onLanguageSelected: (String) -> Unit = {},
     onManageLanguagesClick: () -> Unit = {},
-<<<<<<< ef-tabs
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
-=======
     onCustomizeInterestsClick: () -> Unit = {},
->>>>>>> explore-feed-upgrade-design
     onCardImpression: (card: Card) -> Unit = { _ -> }
 ) {
     val context = LocalContext.current
