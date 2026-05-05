@@ -51,7 +51,8 @@ fun Modifier.pulse(
     durationMillis: Int = 1000,
     pivot: Float = 0.5f,
     repeatCount: Int = 1,
-    easing: Easing = FastOutSlowInEasing
+    easing: Easing = FastOutSlowInEasing,
+    onCompleted: (() -> Unit)? = null
 ): Modifier = composed {
     val scale = remember { mutableFloatStateOf(fromScale) }
     val targetScale = rememberUpdatedState(toScale)
@@ -74,6 +75,7 @@ fun Modifier.pulse(
                 scale.floatValue = value
             }
         }
+        onCompleted?.invoke()
     }
 
     scale(scale.floatValue, scale.floatValue).also {
