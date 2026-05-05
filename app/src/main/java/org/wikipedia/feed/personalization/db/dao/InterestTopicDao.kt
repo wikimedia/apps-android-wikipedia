@@ -20,4 +20,7 @@ interface InterestTopicDao {
 
     @Query("SELECT * FROM InterestTopic")
     suspend fun getAll(): List<InterestTopic>
+
+    @Query("SELECT * FROM InterestTopic ORDER BY RANDOM()")
+    suspend fun getAllRandom(): List<InterestTopic>
 }
