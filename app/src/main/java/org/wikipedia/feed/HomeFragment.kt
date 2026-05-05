@@ -81,6 +81,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
@@ -789,6 +790,18 @@ fun ForYouContentTab(
                         } else if (module is ForYouModule.ContinueReading) {
                             item(key = "continue-reading-${module.age}-$index") {
                                 ContinueReadingModule(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(viewportHeight),
+                                    wikiSite = wikiSite,
+                                    module = module,
+                                    onPageClick = { entry -> onPageClick(entry) },
+                                    onHideCardClick = onHideCardClick
+                                )
+                            }
+                        } else if (module is ForYouModule.BecauseYouRead) {
+                            item(key = "because-you-read-${module.age}-$index") {
+                                BecauseYouReadModule(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(viewportHeight),

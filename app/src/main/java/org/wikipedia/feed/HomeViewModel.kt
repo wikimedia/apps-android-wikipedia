@@ -8,10 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.becauseyouread.BecauseYouReadCard
 import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
@@ -26,7 +30,9 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
@@ -53,6 +59,14 @@ sealed class ForYouModule {
     }
 
     data class ContinueReading(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<Card>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+    }
+
+    data class BecauseYouRead(
         override val age: Int,
         override val index: Int,
         override val cards: List<Card>
@@ -386,6 +400,46 @@ class HomeViewModel : ViewModel() {
                     }
                 }
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
+        }
+
+        // --- Because you read ---
+
+        val becauseYouReadCards = buildList {
+            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+            if (lastReadEntries.size > age) {
+                val entry = lastReadEntries[age]
+                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
+                val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+
+                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                    Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2)
+
+                var relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
+                    PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
+                }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
+
+                if (hasParentLanguageCode && relatedPages != null) {
+                    relatedPages = L10nUtil.getPagesForLanguageVariant(relatedPages, entry.title.wikiSite)
+                }
+                addAll(relatedPages?.map {
+                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
+                } ?: emptyList())
+            }
+        }.filterNot { hiddenCards.contains(it.hideKey) }
+
+        if (becauseYouReadCards.isNotEmpty()) {
+            ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(becauseYouReadCards.map { it.entry.apiTitle }.fastJoinToString("||"))
+                .query?.pages?.forEach { page ->
+                    becauseYouReadCards.find {
+                        StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.title) ||
+                                StringUtil.addUnderscores(it.entry.apiTitle) == StringUtil.addUnderscores(page.redirectFrom)
+                    }?.let {
+                        it.entry.title.extract = page.extract
+                        it.entry.title.description = page.description
+                        it.entry.title.thumbUrl = page.thumbUrl()
+                    }
+                }
+            modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
 
         return modules

@@ -2,38 +2,27 @@ package org.wikipedia.feed.becauseyouread
 
 import android.net.Uri
 import androidx.core.net.toUri
-import org.wikipedia.R
+import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
-import org.wikipedia.feed.model.ListCard
-import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.history.HistoryEntry
 
 class BecauseYouReadCard(
-    val pageTitle: PageTitle,
-    itemCards: List<BecauseYouReadItemCard>,
-) : ListCard<BecauseYouReadItemCard>(itemCards, pageTitle.wikiSite) {
-
-    override fun title(): String {
-        return L10nUtil.getString(pageTitle, R.string.view_because_you_read_card_title)
-    }
-
+    val entry: HistoryEntry,
+    val sourceDisplayTitle: String
+) : Card() {
     override fun image(): Uri? {
-        return pageTitle.thumbUrl?.toUri()
+        return entry.title.thumbUrl?.toUri()
     }
 
     override fun extract(): String {
-        return pageTitle.description.orEmpty()
+        return entry.title.description.orEmpty()
     }
 
     override fun type(): CardType {
-        return CardType.BECAUSE_YOU_READ_LIST
-    }
-
-    fun pageTitle(): String {
-        return pageTitle.displayText
+        return CardType.RANDOM // TODO: remove, since this is no longer used
     }
 
     override fun dismissHashCode(): Int {
-        return pageTitle.hashCode()
+        return entry.title.hashCode()
     }
 }
