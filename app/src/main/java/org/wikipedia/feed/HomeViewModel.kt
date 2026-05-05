@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.compose.components.NotificationBellState
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.continuereading.ContinueReadingCard
@@ -419,9 +419,6 @@ class HomeViewModel : ViewModel() {
     }
 
     fun refreshUnreadNotificationCount() {
-        _unreadCount.update { it.copy(unreadCount = currentCount(), canShow = AccountUtil.isLoggedIn) }
+        _unreadCount.update { it.copy(unreadCount = Prefs.notificationUnreadCount, canShow = AccountUtil.isLoggedIn) }
     }
-
-    private fun currentCount(): Int =
-        if (AccountUtil.isLoggedIn) Prefs.notificationUnreadCount else 0
 }
