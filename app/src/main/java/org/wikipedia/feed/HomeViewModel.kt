@@ -244,7 +244,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun hideCard(card: Card): Int {
+    fun hideCommunityCard(card: Card): Int {
         addHiddenCard(card)
         val cardIndex = _communityState.value.cards.indexOf(card)
         if (cardIndex >= 0) {
@@ -255,7 +255,7 @@ class HomeViewModel : ViewModel() {
         return cardIndex
     }
 
-    fun restoreCard(card: Card, index: Int) {
+    fun restoreCommunityCard(card: Card, index: Int) {
         Prefs.hiddenCards -= card.hideKey
          _communityState.value = _communityState.value.copy(
             cards = _communityState.value.cards.toMutableList().apply {
@@ -266,7 +266,7 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    fun hideCard(module: ForYouModule, card: Card): Int {
+    fun hideForYouCard(module: ForYouModule, card: Card): Int {
         addHiddenCard(card)
         val modules = _forYouState.value.modules
         val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
@@ -296,7 +296,7 @@ class HomeViewModel : ViewModel() {
         return cardIndex
     }
 
-    fun restoreCard(module: ForYouModule, card: Card, index: Int) {
+    fun restoreForYouCard(module: ForYouModule, card: Card, index: Int) {
         Prefs.hiddenCards -= card.hideKey
         val modules = _forYouState.value.modules.toMutableList()
         val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }

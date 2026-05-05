@@ -85,14 +85,15 @@ fun ForYouCardContent(
             .fillMaxSize()
             .clickable { onPageClick(HistoryEntry(entry.title, HistoryEntry.SOURCE_FEED_CONTINUE_READING)) }
     ) {
-        if (entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY) {
+        val shouldShowTextOnly = entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY
+        if (shouldShowTextOnly) {
             val color = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
             Box(
                 modifier = Modifier.fillMaxSize().background(color)
             )
         } else {
             FadeInAsyncImage(
-                model = entry.title.thumbUrl?.let { ImageService.getRequest(LocalContext.current,
+                model = entry.title.thumbUrl?.let { ImageService.getRequest(context,
                     url = ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)) },
                 placeholder = ColorPainter(Color.Black),
                 error = ColorPainter(Color.DarkGray),
@@ -102,7 +103,7 @@ fun ForYouCardContent(
             )
         }
 
-        if (entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY) {
+        if (shouldShowTextOnly) {
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
@@ -199,10 +200,7 @@ fun ForYouCardContent(
                     footerIcon?.let {
                         Icon(
                             painter = it,
-                            contentDescription = context.getString(
-                                wikiSite.languageCode,
-                                R.string.menu_feed_overflow_label
-                            ),
+                            contentDescription = null,
                             tint = Color.White,
                             modifier = Modifier.padding(end = 4.dp).size(16.dp)
                         )
@@ -305,10 +303,7 @@ fun ForYouCardContent(
                         footerIcon?.let {
                             Icon(
                                 painter = it,
-                                contentDescription = context.getString(
-                                    wikiSite.languageCode,
-                                    R.string.menu_feed_overflow_label
-                                ),
+                                contentDescription = null,
                                 tint = Color.White,
                                 modifier = Modifier.padding(end = 4.dp).size(16.dp)
                             )

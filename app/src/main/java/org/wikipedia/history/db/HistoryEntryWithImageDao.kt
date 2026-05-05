@@ -32,13 +32,9 @@ interface HistoryEntryWithImageDao {
     suspend fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent ORDER BY timestamp DESC LIMIT :limit")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent AND (:langCode IS NULL OR HistoryEntry.lang = :langCode) ORDER BY timestamp DESC LIMIT :limit")
     @RewriteQueriesToDropUnusedColumns
-    suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
-
-    @Query("SELECT HistoryEntry.*, PageImage.imageName, PageImage.description, PageImage.geoLat, PageImage.geoLon, PageImage.timeSpentSec FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent AND HistoryEntry.lang = :langCode ORDER BY timestamp DESC LIMIT :limit")
-    @RewriteQueriesToDropUnusedColumns
-    suspend fun findEntriesByLang(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, langCode: String, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
+    suspend fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int, langCode: String? = null): List<HistoryEntryWithImage>
 
     @Query("SELECT SUM(timeSpentSec) FROM (" +
             "  SELECT DISTINCT HistoryEntry.lang, HistoryEntry.apiTitle, PageImage.timeSpentSec FROM HistoryEntry" +
@@ -101,8 +97,8 @@ interface HistoryEntryWithImageDao {
 
     suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int, langCode: String? = null): List<HistoryEntry> {
         val entries = if (langCode != null) {
-            findEntriesByLang(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
-            HistoryEntry.SOURCE_FEED_MAIN_PAGE, langCode, minTimeSpent, limit)
+            findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
+            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit, langCode)
         } else {
             findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
                 HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit)

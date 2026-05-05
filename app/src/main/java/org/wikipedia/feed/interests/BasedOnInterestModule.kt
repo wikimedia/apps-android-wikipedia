@@ -34,18 +34,18 @@ fun BasedOnInterestModule(
         modifier = modifier,
         module = module,
         onCardInView = onCardInView
-    ) { page ->
-        val card = module.cards[page] as BasedOnInterestCard
+    ) { pageIndex ->
+        val card = module.cards[pageIndex] as BasedOnInterestCard
         val topic = ArticleTopics.all.find { it.topicId == card.interestTopic?.topicId }
 
         ForYouCardContent(
             wikiSite = wikiSite,
             entry = card.entry,
-            variation = CardVariation.entries[page % CardVariation.entries.size],
-            backgroundColorIndex = backgroundColorIndex + page,
+            variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
+            backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
-            card = module.cards[page],
-            footerText = if (topic != null) stringResource(R.string.explore_feed_because_of_interest, stringResource(topic.msgKey)) else null,
+            card = module.cards[pageIndex],
+            footerText = topic?.let { stringResource(R.string.explore_feed_because_of_interest, stringResource(topic.msgKey)) },
             onPageClick = onPageClick,
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick

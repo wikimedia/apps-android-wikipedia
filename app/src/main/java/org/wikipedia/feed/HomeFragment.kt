@@ -159,17 +159,17 @@ class HomeFragment : Fragment() {
                         onLoadMoreCommunityContent = viewModel::loadCommunityContent,
                         onLoadMoreForYouContent = viewModel::loadForYouContent,
                         onHideCommunityCardClick = { card ->
-                            val cardIndex = viewModel.hideCard(card)
+                            val cardIndex = viewModel.hideCommunityCard(card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                                    viewModel.restoreCard(card, cardIndex)
+                                    viewModel.restoreCommunityCard(card, cardIndex)
                                 }.show()
                         },
                         onHideForYouCardClick = { module, card ->
-                            val cardIndex = viewModel.hideCard(module, card)
+                            val cardIndex = viewModel.hideForYouCard(module, card)
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.menu_feed_card_dismissed))
                                 .setAction(getString(R.string.explore_feed_header_overflow_hide_module_message_action)) {
-                                    viewModel.restoreCard(module, card, cardIndex)
+                                    viewModel.restoreForYouCard(module, card, cardIndex)
                                 }.show()
                         },
                         onPageClick = {
