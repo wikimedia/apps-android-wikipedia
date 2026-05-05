@@ -411,23 +411,19 @@ fun HomeScreen(
 
                     // Floating toolbar with gradient scrim, wordmark, and tab selector.
                     Column(modifier = Modifier.align(Alignment.TopCenter).fillMaxWidth()) {
-                        Column(
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(Color.Black.copy(alpha = 0.80f))
                         ) {
-                            Image(
-                                painter = painterResource(R.drawable.feed_header_wordmark),
-                                contentDescription = null,
-                                colorFilter = ColorFilter.tint(WikipediaTheme.colors.primaryColor),
-                                contentScale = ContentScale.FillWidth,
-                                modifier = Modifier
-                                    .statusBarsPadding()
-                                    .padding(start = 20.dp, top = (topInset + 16).dp)
-                                    .width(128.dp)
+                            HomeToolbar(
+                                topInset = topInset,
+                                tabsState = tabsState,
+                                onTabClick = onTabClick,
+                                onUpdateTabCount = onUpdateTabCount
                             )
                         }
-                        Column(
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .background(
@@ -444,12 +440,6 @@ fun HomeScreen(
                                     )
                                 )
                         ) {
-                            HomeToolbar(
-                                topInset = topInset,
-                                tabsState = tabsState,
-                                onTabClick = onTabClick,
-                                onUpdateTabCount = onUpdateTabCount
-                            )
                             HomeTabBar(
                                 modifier = Modifier.padding(top = 8.dp, bottom = 64.dp),
                                 wikiSite = wikiSite,
