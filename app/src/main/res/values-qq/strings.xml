@@ -2249,4 +2249,5 @@
   <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
   <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
+  <string name="explore_feed_because_you_read">Label explaining that the current suggestion is from the article you read. The %s symbol is replaced by the name of the article.</string>
 </resources>

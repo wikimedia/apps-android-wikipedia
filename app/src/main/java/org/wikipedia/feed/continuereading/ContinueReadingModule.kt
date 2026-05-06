@@ -28,7 +28,7 @@ fun ContinueReadingModule(
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())

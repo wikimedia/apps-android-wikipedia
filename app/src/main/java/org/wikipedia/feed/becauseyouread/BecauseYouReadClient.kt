@@ -66,8 +66,8 @@ class BecauseYouReadClient(
         clientJob?.cancel()
     }
 
-    private fun toBecauseYouReadCard(results: List<PageSummary>, pageSummary: PageSummary, wikiSite: WikiSite): BecauseYouReadCard {
+    private fun toBecauseYouReadCard(results: List<PageSummary>, pageSummary: PageSummary, wikiSite: WikiSite): BecauseYouReadCardOld {
         val itemCards = results.map { BecauseYouReadItemCard(it.getPageTitle(wikiSite)) }
-        return BecauseYouReadCard(pageSummary.getPageTitle(wikiSite), itemCards)
+        return BecauseYouReadCardOld(pageSummary.getPageTitle(wikiSite), itemCards)
     }
 }

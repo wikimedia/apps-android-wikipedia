@@ -26,16 +26,22 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.min
 import coil3.compose.AsyncImage
 import org.wikipedia.R
 import org.wikipedia.compose.components.HtmlText
@@ -117,7 +123,14 @@ private fun EventRow(
     onPageClick: (page: PageSummary) -> Unit = {},
     onPageOverflowClick: (PageSummary, Int) -> Unit = { _, _ -> },
 ) {
-    Box(modifier = Modifier.fillMaxWidth()) {
+    val containerSize = remember { mutableStateOf(DpSize(0.dp, 0.dp)) }
+    val localDensity = LocalDensity.current
+
+    Box(
+        modifier = Modifier.fillMaxWidth().onSizeChanged {
+            containerSize.value = DpSize((it.width / localDensity.density).dp, (it.height / localDensity.density).dp)
+        },
+    ) {
 
         Column(
             modifier = Modifier.matchParentSize()
@@ -196,6 +209,7 @@ private fun EventRow(
                 event.pages.forEachIndexed { index, page ->
                     OnThisDayPageItem(
                         context = context,
+                        viewPortSize = containerSize.value,
                         wikiSite = wikiSite,
                         pageSummary = page,
                         pageOverflowContent = { pageOverflowContent(index) },
@@ -213,6 +227,7 @@ private fun EventRow(
 @Composable
 private fun OnThisDayPageItem(
     context: Context,
+    viewPortSize: DpSize,
     wikiSite: WikiSite,
     pageSummary: PageSummary,
     pageOverflowContent: @Composable () -> Unit,
@@ -223,7 +238,7 @@ private fun OnThisDayPageItem(
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.dp, WikipediaTheme.colors.borderColor),
         color = WikipediaTheme.colors.paperColor,
-        modifier = Modifier.width(260.dp),
+        modifier = Modifier.width(min(viewPortSize.width - 100.dp, 480.dp)),
         onClick = { onPageClick(pageSummary) }
     ) {
         Row(
@@ -300,6 +315,7 @@ fun OnThisDayPageItemPreview() {
     BaseTheme(currentTheme = Theme.LIGHT) {
         OnThisDayPageItem(
             LocalContext.current,
+            viewPortSize = DpSize(360.dp, 80.dp),
             wikiSite = WikiSite.preview(),
             pageSummary = pageSummary,
             pageOverflowContent = {},

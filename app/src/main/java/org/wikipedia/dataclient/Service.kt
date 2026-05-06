@@ -120,13 +120,15 @@ interface Service {
     @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
                 "&origin=*&piprop=thumbnail&pilicense=any&prop=pageimages|description|info|pageprops|extracts&exchars=500&exintro=1&explaintext=1" +
-                "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
+                "&inprop=varianttitles&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun searchMoreLike(
         @Query("gsrsearch") searchTerm: String?,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("pilimit") piLimit: Int,
         @Query("gsroffset") gsrOffset: Int? = null,
+        @Query("smaxage") sMaxAge: Int = 86400,
+        @Query("maxage") maxAge: Int = 86400
     ): MwQueryResponse
 
     // ------- Miscellaneous -------
