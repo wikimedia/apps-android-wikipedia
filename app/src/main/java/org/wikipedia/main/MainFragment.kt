@@ -54,7 +54,6 @@ import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
-import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
@@ -601,7 +600,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun refreshContents() {
         when (val fragment = currentFragment) {
-            is HomeFragment -> fragment.onUnreadNotification()
             is FeedFragment -> fragment.refresh()
             is ReadingListsFragment -> fragment.updateLists()
             is HistoryFragment -> fragment.refresh()
