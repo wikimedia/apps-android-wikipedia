@@ -2249,4 +2249,8 @@
   <string name="explore_feed_header_overflow_hide_module_message">Snackbar message that indicates the module is hidden.</string>
   <string name="explore_feed_header_overflow_hide_module_message_action">Label for the snackbar action to undo the hide module action.</string>
   <string name="explore_feed_personalized_preference_empty_state_text">Message shown when no interests are selected, informing the user that they need to add interests to receive personalized content recommendations and guiding them to previous steps or Settings.</string>
+    <string name="home_feed_settings_title">Title for the home feed settings screen.</string>
+    <string name="home_feed_settings_for_you_title">Title for modules personalized for the user in home feed settings.</string>
+    <string name="home_feed_settings_community_title">Title for community-related modules in home feed settings.</string>
+    <string name="home_feed_settings_whats_driving_title">Title for What\'s Driving modules in home feed settings.</string>
 </resources>

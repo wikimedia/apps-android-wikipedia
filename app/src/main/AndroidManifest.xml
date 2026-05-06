@@ -427,6 +427,8 @@
 
         <activity android:name=".feed.personalization.PersonalizationActivity"/>
 
+        <activity android:name=".settings.homefeed.HomeFeedSettingsActivity"/>
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
