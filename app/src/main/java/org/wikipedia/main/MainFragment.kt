@@ -149,7 +149,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     when (event) {
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
-                            updateNotificationDot(false)
+                            if (!AccountUtil.isLoggedIn) {
+                                notificationButtonView.isVisible = false
+                            }
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
@@ -544,11 +546,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     fun updateNotificationDot(animate: Boolean) {
-        if (!AccountUtil.isLoggedIn) {
-            notificationButtonView.isVisible = false
-            return
-        }
-
         if (AccountUtil.isLoggedIn && Prefs.notificationUnreadCount > 0) {
             notificationButtonView.setUnreadCount(Prefs.notificationUnreadCount)
             if (animate) {
