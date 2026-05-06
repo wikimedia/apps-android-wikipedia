@@ -144,7 +144,7 @@ class HomeFragment : Fragment() {
                 val selectedTab by viewModel.selectedTab.collectAsState()
                 val wikiSite by viewModel.wikiSite.collectAsState()
                 val tabsState by viewModel.tabsState.collectAsState()
-                val notificationBellState by viewModel.unreadCount.collectAsState()
+                val notificationState by viewModel.unreadCount.collectAsState()
 
                 BaseTheme(currentTheme = if (selectedTab == HomeTab.FOR_YOU) Theme.BLACK else WikipediaApp.instance.currentTheme) {
                     HomeScreen(
@@ -155,7 +155,7 @@ class HomeFragment : Fragment() {
                         forYouContentState = viewModel.forYouState.collectAsState().value,
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
-                        notificationBellState = notificationBellState,
+                        notificationBellState = notificationState,
                         onSelectTab = {
                             viewModel.selectTab(it)
                             (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
@@ -256,7 +256,7 @@ class HomeFragment : Fragment() {
                         onCardImpression = {
                                 card -> onCardImpression(card)
                         },
-                        onNotificationBellClick = {
+                        onNotificationClick = {
                             requireActivity().startActivity(NotificationActivity.newIntent(requireActivity()))
                         }
                     )
@@ -331,7 +331,7 @@ fun HomeScreen(
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
     onCardImpression: (card: Card) -> Unit = { _ -> },
-    onNotificationBellClick: () -> Unit = {}
+    onNotificationClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -372,7 +372,7 @@ fun HomeScreen(
                             onTabClick = onTabClick,
                             onUpdateTabCount = onUpdateTabCount,
                             notificationBellState = notificationBellState,
-                            onNotificationBellClick = onNotificationBellClick
+                            onNotificationBellClick = onNotificationClick
                         )
 
                         HomeTabBar(
@@ -439,7 +439,7 @@ fun HomeScreen(
                                 onTabClick = onTabClick,
                                 onUpdateTabCount = onUpdateTabCount,
                                 notificationBellState = notificationBellState,
-                                onNotificationBellClick = onNotificationBellClick
+                                onNotificationBellClick = onNotificationClick
                             )
                         }
                         Box(
