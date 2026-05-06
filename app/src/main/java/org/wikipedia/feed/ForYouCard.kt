@@ -74,6 +74,8 @@ fun ForYouCardContent(
     footerIcon: Painter? = null,
     footerText: String? = null,
     onPageClick: (HistoryEntry) -> Unit = {},
+    onShareClick: (HistoryEntry) -> Unit = {},
+    onSaveClick: (HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {}
@@ -184,6 +186,12 @@ fun ForYouCardContent(
                                 expanded = overflowMenuExpanded,
                                 wikiSite = wikiSite,
                                 onDismiss = { overflowMenuExpanded = false },
+                                onShareClick = {
+                                    onShareClick(entry)
+                                },
+                                onSaveClick = {
+                                    onSaveClick(entry)
+                                },
                                 onHideCardClick = {
                                     if (module != null && card != null) {
                                         onHideCardClick(module, card)
@@ -273,6 +281,12 @@ fun ForYouCardContent(
                             expanded = overflowMenuExpanded,
                             wikiSite = wikiSite,
                             onDismiss = { overflowMenuExpanded = false },
+                            onShareClick = {
+                                onShareClick(entry)
+                            },
+                            onSaveClick = {
+                                onSaveClick(entry)
+                            },
                             onHideCardClick = {
                                 if (module != null && card != null) {
                                     onHideCardClick(module, card)
@@ -332,6 +346,8 @@ fun ForYouCardDropdownMenu(
     expanded: Boolean,
     wikiSite: WikiSite,
     onDismiss: () -> Unit = {},
+    onShareClick: () -> Unit = {},
+    onSaveClick: () -> Unit = {},
     onHideCardClick: () -> Unit = {},
     onHideModuleClick: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit
@@ -343,6 +359,48 @@ fun ForYouCardDropdownMenu(
         onDismissRequest = onDismiss,
         containerColor = WikipediaTheme.colors.paperColor
     ) {
+        DropdownMenuItem(
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_share),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.secondaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            },
+            text = {
+                Text(
+                    text = context.getString(wikiSite.languageCode, R.string.menu_page_article_share),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            },
+            onClick = {
+                onShareClick()
+                onDismiss()
+            }
+        )
+        DropdownMenuItem(
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_bookmark_border_white_24dp),
+                    contentDescription = null,
+                    tint = WikipediaTheme.colors.secondaryColor,
+                    modifier = Modifier.size(24.dp)
+                )
+            },
+            text = {
+                Text(
+                    text = context.getString(wikiSite.languageCode, R.string.menu_page_add_to_default_list),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = WikipediaTheme.colors.primaryColor
+                )
+            },
+            onClick = {
+                onSaveClick()
+                onDismiss()
+            }
+        )
         DropdownMenuItem(
             leadingIcon = {
                 Icon(

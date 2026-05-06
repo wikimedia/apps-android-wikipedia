@@ -851,6 +851,8 @@ fun ForYouContentTab(
                                         wikiSite = wikiSite,
                                         module = module,
                                         onPageClick = { entry -> onPageClick(entry) },
+                                        onShareClick = { entry -> onPageShareClick(entry) },
+                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onCardInView = { onCardImpression(it) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
@@ -867,6 +869,8 @@ fun ForYouContentTab(
                                         wikiSite = wikiSite,
                                         module = module,
                                         onPageClick = { entry -> onPageClick(entry) },
+                                        onShareClick = { entry -> onPageShareClick(entry) },
+                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onCardInView = { onCardImpression(it) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
@@ -883,6 +887,8 @@ fun ForYouContentTab(
                                         wikiSite = wikiSite,
                                         module = module,
                                         onPageClick = { entry -> onPageClick(entry) },
+                                        onShareClick = { entry -> onPageShareClick(entry) },
+                                        onSaveClick = { entry -> onPageBookmarkClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onCardInView = { onCardImpression(it) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
