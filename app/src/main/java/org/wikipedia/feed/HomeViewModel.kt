@@ -211,7 +211,7 @@ class HomeViewModel : ViewModel() {
                 if (!content.onthisday.isNullOrEmpty()) {
                     add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
                 }
-            }.filterNot { hiddenModules.contains(it.moduleKey()) }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
@@ -364,16 +364,10 @@ class HomeViewModel : ViewModel() {
 
         // --- Interests ---
 
-        val interestTopics =
-            AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }
-                .take(5)
+        val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
-                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90",
-                limit = 10,
-                sort = "random"
-            )
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
                 .query?.pages?.sortedBy { it.index }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
@@ -382,8 +376,7 @@ class HomeViewModel : ViewModel() {
                         description = page.description,
                         displayText = page.displayTitle(wikiSite.value.languageCode),
                     ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment =
-                            StringUtil.addUnderscores(page.sectionTitle)
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
                     HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
@@ -396,18 +389,11 @@ class HomeViewModel : ViewModel() {
                 modules.add(ForYouModule.BasedOnInterest(age, index, entries))
             }
         }
-        val interestArticles =
-            AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode)
-                .take(5)
+        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
         interestArticles.forEachIndexed { index, article ->
             val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
-            val entries = ServiceFactory.get(wikiSite.value)
-                .searchMoreLike("morelike:$searchTerm", 10, 10)
-                .query?.pages?.filter {
-                    it.title != searchTerm && it.title != MainPageNameData.valueFor(
-                        wikiSite.value.languageCode
-                    )
-                }?.map { page ->
+            val entries = ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
+                .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
                         wiki = wikiSite.value,
@@ -415,8 +401,7 @@ class HomeViewModel : ViewModel() {
                         description = page.description,
                         displayText = page.displayTitle(wikiSite.value.languageCode),
                     ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment =
-                            StringUtil.addUnderscores(page.sectionTitle)
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
                     HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
