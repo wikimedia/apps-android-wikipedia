@@ -25,6 +25,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -32,10 +33,11 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.PageIndicator
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceScreen
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.personalization.interest.InterestOnboardingScreen
 
-// TODO: probably renaming the screen name
 @Composable
 fun PersonalizationScreen(
     modifier: Modifier = Modifier,
@@ -45,10 +47,16 @@ fun PersonalizationScreen(
     onSearchClick: () -> Unit,
     viewModel: PersonalizationViewModel
 ) {
+    val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val interestUiState = viewModel.interestUiState.collectAsState()
     val feedPreferenceUiState = viewModel.feedPreferenceUiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { screens.size })
+    val pageActionSource = mapOf(
+        PersonalizationPage.CURIOSITY to "curiosity_page",
+        PersonalizationPage.INTERESTS to "interests_page",
+        PersonalizationPage.HOME_PREFERENCE to "home_preference_page"
+    )
 
     LaunchedEffect(pagerState.currentPage) {
         viewModel.onPageChanged(screens[pagerState.currentPage])
@@ -59,6 +67,11 @@ fun PersonalizationScreen(
                 OnboardingBottomBar(
                     pagerState = pagerState,
                     onNavigationRightClick = {
+                        context.instrument?.submitInteraction(
+                            "click",
+                            elementId = "next_button",
+                            actionSource = pageActionSource[screens[pagerState.currentPage]]
+                        )
                         coroutineScope.launch {
                             if (pagerState.currentPage < pagerState.pageCount - 1) {
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
@@ -67,7 +80,14 @@ fun PersonalizationScreen(
                             }
                         }
                     },
-                    onSkipClick = onSkipClick
+                    onSkipClick = {
+                        context.instrument?.submitInteraction(
+                            "click",
+                            elementId = "skip_button",
+                            actionSource = pageActionSource[screens[pagerState.currentPage]]
+                        )
+                        onSkipClick()
+                    }
                 )
         },
         containerColor = WikipediaTheme.colors.paperColor
@@ -93,16 +113,20 @@ fun PersonalizationScreen(
                             articlesState = interestUiState.value.articlesState,
                             totalSelectedCount = interestUiState.value.totalSelectedCount,
                             onTopicSelected = {
+                                context.instrument?.submitInteraction("click", elementId = "topic_select")
                                 viewModel.onTopicSelected(it)
                             },
                             onItemClick = {
+                                context.instrument?.submitInteraction("click", elementId = "article_select")
                                 viewModel.toggleArticleSelection(it)
                             },
                             onSearchClick = onSearchClick,
                             onDeselectAllClick = {
+                                context.instrument?.submitInteraction("click", elementId = "deselect_all")
                                 viewModel.deselectAllArticles()
                             },
                             retryLoading = {
+                                context.instrument?.submitInteraction("click", elementId = "retry")
                                 viewModel.retryInterestsLoading()
                             }
                         )
@@ -116,8 +140,17 @@ fun PersonalizationScreen(
                             selectedType = feedPreferenceUiState.value.selectedType,
                             communityContentState = feedPreferenceUiState.value.communityState,
                             personalizedContentState = feedPreferenceUiState.value.personalizedState,
-                            onTypeSelected = { viewModel.onFeedPreferenceTypeSelected(it) },
-                            onRetryClick = { viewModel.retryFeedPreferenceLoading(it) }
+                            onTypeSelected = {
+                                context.instrument?.submitInteraction(
+                                    "click",
+                                    actionSource = "feed_order_customize",
+                                    elementId = if (it == HomePreferenceType.COMMUNITY) "community_first" else "for_you_first")
+                                viewModel.onFeedPreferenceTypeSelected(it)
+                            },
+                            onRetryClick = {
+                                context.instrument?.submitInteraction("click", elementId = "retry")
+                                viewModel.retryFeedPreferenceLoading(it)
+                            }
                         )
                     }
                 }
