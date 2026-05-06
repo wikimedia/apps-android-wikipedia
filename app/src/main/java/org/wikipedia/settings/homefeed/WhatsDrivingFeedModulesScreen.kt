@@ -24,7 +24,7 @@ fun WhatsDrivingFeedModulesScreen(
                 onNavigationClick = onBack,
             )
         },
-        containerColor = WikipediaTheme.colors.backgroundColor,
+        containerColor = WikipediaTheme.colors.paperColor,
     ) { paddingValues ->
         Box(
             modifier = Modifier
