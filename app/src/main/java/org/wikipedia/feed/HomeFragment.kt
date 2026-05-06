@@ -70,6 +70,7 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
@@ -83,6 +84,7 @@ import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.getString
+import org.wikipedia.feed.becauseyouread.BecauseYouReadModule
 import org.wikipedia.feed.continuereading.ContinueReadingModule
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
@@ -123,6 +125,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -260,7 +263,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.updateTabCount()
-        // TODO: start new funnel for analytics
+        instrument.startFunnel("home_feed")
     }
 
     fun getCurrentTab(): HomeTab {
@@ -270,7 +273,7 @@ class HomeFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         cardImpressions.clear()
-        // TODO: end current analytics funnel
+        instrument.stopFunnel()
     }
 
     private fun maybeShowExploreFeedUpdatePrompt() {
@@ -838,33 +841,53 @@ fun ForYouContentTab(
                 ) {
                     modules.forEachIndexed { index, module ->
 
-                        if (module is ForYouModule.BasedOnInterest) {
-                            item(key = "interest-${module.age}-$index") {
-                                BasedOnInterestModule(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(viewportHeight),
-                                    wikiSite = wikiSite,
-                                    module = module,
-                                    onPageClick = { entry -> onPageClick(entry) },
-                                    onHideCardClick = onHideCardClick,
-                                    onCardInView = { onCardImpression(it) },
-                                    onCustomizeInterestsClick = onCustomizeInterestsClick
-                                )
+                        when (module) {
+                            is ForYouModule.BasedOnInterest -> {
+                                item(key = "interest-${module.age}-$index") {
+                                    BasedOnInterestModule(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(viewportHeight),
+                                        wikiSite = wikiSite,
+                                        module = module,
+                                        onPageClick = { entry -> onPageClick(entry) },
+                                        onHideCardClick = onHideCardClick,
+                                        onCardInView = { onCardImpression(it) },
+                                        onCustomizeInterestsClick = onCustomizeInterestsClick
+                                    )
+                                }
                             }
-                        } else if (module is ForYouModule.ContinueReading) {
-                            item(key = "continue-reading-${module.age}-$index") {
-                                ContinueReadingModule(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(viewportHeight),
-                                    wikiSite = wikiSite,
-                                    module = module,
-                                    onPageClick = { entry -> onPageClick(entry) },
-                                    onHideCardClick = onHideCardClick,
-                                    onCardInView = { onCardImpression(it) },
-                                    onCustomizeInterestsClick = onCustomizeInterestsClick
-                                )
+
+                            is ForYouModule.ContinueReading -> {
+                                item(key = "continue-reading-${module.age}-$index") {
+                                    ContinueReadingModule(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(viewportHeight),
+                                        wikiSite = wikiSite,
+                                        module = module,
+                                        onPageClick = { entry -> onPageClick(entry) },
+                                        onHideCardClick = onHideCardClick,
+                                        onCardInView = { onCardImpression(it) },
+                                        onCustomizeInterestsClick = onCustomizeInterestsClick
+                                    )
+                                }
+                            }
+
+                            is ForYouModule.BecauseYouRead -> {
+                                item(key = "because-you-read-${module.age}-$index") {
+                                    BecauseYouReadModule(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(viewportHeight),
+                                        wikiSite = wikiSite,
+                                        module = module,
+                                        onPageClick = { entry -> onPageClick(entry) },
+                                        onHideCardClick = onHideCardClick,
+                                        onCardInView = { onCardImpression(it) },
+                                        onCustomizeInterestsClick = onCustomizeInterestsClick
+                                    )
+                                }
                             }
                         }
                     }

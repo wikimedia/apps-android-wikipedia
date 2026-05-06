@@ -1,8 +1,9 @@
-package org.wikipedia.feed.interests
+package org.wikipedia.feed.becauseyouread
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
@@ -16,19 +17,18 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
-import org.wikipedia.topics.ArticleTopics
 import kotlin.math.abs
 
 @Composable
-fun BasedOnInterestModule(
+fun BecauseYouReadModule(
     modifier: Modifier = Modifier,
     wikiSite: WikiSite,
-    module: ForYouModule.BasedOnInterest,
+    module: ForYouModule.BecauseYouRead,
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
-    onCustomizeInterestsClick: () -> Unit = {},
+    onCustomizeInterestsClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val backgroundColorIndex = abs(module.cards.firstOrNull()?.hideKey.hashCode())
@@ -37,23 +37,17 @@ fun BasedOnInterestModule(
         modifier = modifier,
         module = module,
         onCardInView = onCardInView
-    ) { pageIndex ->
-        val card = module.cards[pageIndex] as BasedOnInterestCard
-        val topic = ArticleTopics.all.find { it.topicId == card.interestTopic?.topicId }
-        val footerTextParameter = if (topic != null) {
-            context.getString(wikiSite.languageCode, topic.msgKey)
-        } else card.interestArticle?.displayTitle
-
+    ) { page ->
+        val card = (module.cards[page] as BecauseYouReadCard)
         ForYouCardContent(
             wikiSite = wikiSite,
             entry = card.entry,
-            variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
-            backgroundColorIndex = backgroundColorIndex + pageIndex,
+            variation = CardVariation.entries[page % CardVariation.entries.size],
+            backgroundColorIndex = backgroundColorIndex + page,
             module = module,
-            card = module.cards[pageIndex],
-            footerText = footerTextParameter?.let {
-                context.getString(wikiSite.languageCode, R.string.explore_feed_because_of_interest, it)
-            },
+            card = module.cards[page],
+            footerIcon = painterResource(R.drawable.ic_history_24),
+            footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, card.sourceDisplayTitle),
             onPageClick = onPageClick,
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
@@ -64,7 +58,7 @@ fun BasedOnInterestModule(
 
 @Preview
 @Composable
-fun BasedOnInterestCardPreviewWithImage() {
+fun BecauseYouReadCardPreviewWithImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -76,18 +70,18 @@ fun BasedOnInterestCardPreviewWithImage() {
             thumbUrl = "https://example.com/thumb.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "<i>Test Article</i>")
     BaseTheme(currentTheme = Theme.LIGHT) {
-        BasedOnInterestModule(
+        BecauseYouReadModule(
             wikiSite = wikiSite,
-            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }
 
 @Preview
 @Composable
-fun BasedOnInterestCardPreviewNoImage() {
+fun BecauseYouReadCardPreviewNoImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -99,18 +93,18 @@ fun BasedOnInterestCardPreviewNoImage() {
             thumbUrl = null
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
-        BasedOnInterestModule(
+        BecauseYouReadModule(
             wikiSite = wikiSite,
-            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }
 
 @Preview
 @Composable
-fun BasedOnInterestCardPreviewTextOnlyWithImage() {
+fun BecauseYouReadCardPreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
     val entry = HistoryEntry(
         title = PageTitle(
@@ -122,11 +116,11 @@ fun BasedOnInterestCardPreviewTextOnlyWithImage() {
             thumbUrl = "test.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
     BaseTheme(currentTheme = Theme.LIGHT) {
-        BasedOnInterestModule(
+        BecauseYouReadModule(
             wikiSite = wikiSite,
-            module = ForYouModule.BasedOnInterest(0, 0, mutableListOf(card, card, card, card))
+            module = ForYouModule.BecauseYouRead(0, 0, mutableListOf(card, card, card, card))
         )
     }
 }

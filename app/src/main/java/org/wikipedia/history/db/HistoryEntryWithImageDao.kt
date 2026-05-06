@@ -96,14 +96,8 @@ interface HistoryEntryWithImageDao {
     }
 
     suspend fun findEntryForReadMore(limit: Int, minTimeSpent: Int, langCode: String? = null): List<HistoryEntry> {
-        val entries = if (langCode != null) {
-            findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
-            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit, langCode)
-        } else {
-            findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
-                HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit)
-        }
-        return entries.map { toHistoryEntry(it) }
+        return findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
+            HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, limit, langCode).map { toHistoryEntry(it) }
     }
 
     suspend fun getHistoryItemWIthImage(searchTerm: String): List<HistoryEntryWithImage> {

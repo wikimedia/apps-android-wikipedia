@@ -7,8 +7,8 @@ import org.wikipedia.feed.view.ListCardView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.views.DefaultViewHolder
 
-class BecauseYouReadCardView(context: Context) : ListCardView<BecauseYouReadCard>(context) {
-    override var card: BecauseYouReadCard? = null
+class BecauseYouReadCardView(context: Context) : ListCardView<BecauseYouReadCardOld>(context) {
+    override var card: BecauseYouReadCardOld? = null
         set(value) {
             field = value
             value?.let {
@@ -18,7 +18,7 @@ class BecauseYouReadCardView(context: Context) : ListCardView<BecauseYouReadCard
             }
         }
 
-    private fun header(card: BecauseYouReadCard) {
+    private fun header(card: BecauseYouReadCardOld) {
         headerView.setTitle(card.title())
             .setLangCode(card.wikiSite().languageCode)
             .setCard(card)
