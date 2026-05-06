@@ -8,11 +8,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.becauseyouread.BecauseYouReadCard
 import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
@@ -54,6 +57,14 @@ sealed class ForYouModule {
     }
 
     data class ContinueReading(
+        override val age: Int,
+        override val index: Int,
+        override val cards: List<Card>
+    ) : ForYouModule() {
+        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+    }
+
+    data class BecauseYouRead(
         override val age: Int,
         override val index: Int,
         override val cards: List<Card>
@@ -420,6 +431,37 @@ class HomeViewModel : ViewModel() {
         if (continueReadingCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
+        }
+
+        // --- Because you read ---
+
+        val becauseYouReadCards = buildList {
+            val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
+            if (lastReadEntries.size > age) {
+                val entry = lastReadEntries[age]
+                val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(wikiSite.value.languageCode).isNullOrEmpty()
+                val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+
+                var moreLikeMaxAge = 86400
+                if (hasParentLanguageCode) {
+                    moreLikeMaxAge = 0
+                }
+                val moreLikeResponse = ServiceFactory.get(entry.title.wikiSite).searchMoreLike("morelike:$searchTerm",
+                    Constants.SUGGESTION_REQUEST_ITEMS * 2, Constants.SUGGESTION_REQUEST_ITEMS * 2, sMaxAge = moreLikeMaxAge, maxAge = moreLikeMaxAge)
+
+                val relatedPages = moreLikeResponse.query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(entry.title.wikiSite.languageCode) }?.map {
+                    PageSummary(it.displayTitle(wikiSite.value.languageCode), it.title, it.description, it.extract, it.thumbUrl(), wikiSite.value.languageCode)
+                }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
+
+                addAll(relatedPages?.map {
+                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
+                } ?: emptyList())
+            }
+        }.filterNot { hiddenCards.contains(it.hideKey) }
+
+        if (becauseYouReadCards.isNotEmpty()) {
+            // The index for this module is always 0 because there is always a single instance of this module, per age.
+            modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
 
         return modules
