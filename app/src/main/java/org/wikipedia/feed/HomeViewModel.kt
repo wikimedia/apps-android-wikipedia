@@ -74,6 +74,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = HomeModules.BECAUSE_YOU_READ.name
     }
 }
 
