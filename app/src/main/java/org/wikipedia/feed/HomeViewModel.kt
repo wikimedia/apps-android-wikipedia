@@ -454,10 +454,10 @@ class HomeViewModel : ViewModel() {
                 }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                 addAll(relatedPages?.map {
-                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ))
+                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
                 } ?: emptyList())
             }
-        }.filterNot { hiddenCards.contains(it.hideKey) }
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
 
         if (becauseYouReadCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.

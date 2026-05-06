@@ -7,7 +7,8 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.history.HistoryEntry
 
 class BecauseYouReadCard(
-    val entry: HistoryEntry
+    val entry: HistoryEntry,
+    val sourceDisplayTitle: String
 ) : Card() {
     override fun image(): Uri? {
         return entry.title.thumbUrl?.toUri()
