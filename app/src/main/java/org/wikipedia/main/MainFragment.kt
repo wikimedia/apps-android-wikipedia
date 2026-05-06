@@ -149,9 +149,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     when (event) {
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
-                            if (!AccountUtil.isLoggedIn) {
-                                notificationButtonView.isVisible = false
-                            }
+                            notificationButtonView.isVisible = false
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }
