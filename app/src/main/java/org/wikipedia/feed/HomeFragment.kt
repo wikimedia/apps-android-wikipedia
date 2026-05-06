@@ -70,6 +70,7 @@ import androidx.fragment.app.viewModels
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.AppButton
 import org.wikipedia.compose.components.TabsBox
 import org.wikipedia.compose.components.WikiLangCodeBox
@@ -124,6 +125,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
+    private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -268,7 +270,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.updateTabCount()
-        // TODO: start new funnel for analytics
+        instrument.startFunnel("home_feed")
     }
 
     fun getCurrentTab(): HomeTab {
@@ -278,7 +280,7 @@ class HomeFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         cardImpressions.clear()
-        // TODO: end current analytics funnel
+        instrument.stopFunnel()
     }
 
     private fun maybeShowExploreFeedUpdatePrompt() {
