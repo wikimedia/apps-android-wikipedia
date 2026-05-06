@@ -32,6 +32,7 @@ import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
+enum class HomeModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY, CONTINUE_READING, BASED_ON_INTEREST, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
 
 sealed class ForYouModule {
@@ -40,6 +41,7 @@ sealed class ForYouModule {
     abstract val cards: List<Card>
 
     abstract fun withCards(cards: List<Card>): ForYouModule
+    abstract fun moduleKey(): String
 
     fun matchesIdentity(other: ForYouModule): Boolean {
         return this::class == other::class && age == other.age && index == other.index
@@ -51,6 +53,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = HomeModules.BASED_ON_INTEREST.name
     }
 
     data class ContinueReading(
@@ -59,6 +62,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun moduleKey(): String = HomeModules.CONTINUE_READING.name
     }
 }
 
@@ -189,6 +193,7 @@ class HomeViewModel : ViewModel() {
 
             // Construct Card objects based on the day's content
             val hiddenCards = Prefs.hiddenCards
+            val hiddenModules = Prefs.hiddenModules
 
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
@@ -206,7 +211,7 @@ class HomeViewModel : ViewModel() {
                 if (!content.onthisday.isNullOrEmpty()) {
                     add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
                 }
-            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.filterNot { hiddenModules.contains(it.moduleKey()) }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
@@ -325,6 +330,24 @@ class HomeViewModel : ViewModel() {
         _forYouState.update { it.copy(modules = modules) }
     }
 
+    fun hideModule(moduleKey: String) {
+        Prefs.hiddenModules = Prefs.hiddenModules.toMutableList().apply { add(moduleKey) }.distinct()
+        if (_selectedTab.value == HomeTab.FOR_YOU) {
+            refreshForYouContent()
+        } else {
+            refreshCommunityContent()
+        }
+    }
+
+    fun restoreModule(moduleKey: String) {
+        Prefs.hiddenModules = Prefs.hiddenModules.toMutableList().apply { remove(moduleKey) }
+        if (_selectedTab.value == HomeTab.FOR_YOU) {
+            refreshForYouContent()
+        } else {
+            refreshCommunityContent()
+        }
+    }
+
     private fun addHiddenCard(card: Card) {
         val hiddenCards = Prefs.hiddenCards.toMutableList()
         if (hiddenCards.size > MAX_HIDDEN_CARDS) {
@@ -337,13 +360,20 @@ class HomeViewModel : ViewModel() {
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = Prefs.hiddenCards
+        val hiddenModules = Prefs.hiddenModules
 
         // --- Interests ---
 
-        val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
+        val interestTopics =
+            AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }
+                .take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
+                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90",
+                limit = 10,
+                sort = "random"
+            )
                 .query?.pages?.sortedBy { it.index }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
@@ -352,24 +382,32 @@ class HomeViewModel : ViewModel() {
                         description = page.description,
                         displayText = page.displayTitle(wikiSite.value.languageCode),
                     ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment =
+                            StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
                     HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestTopic = topic)
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
 
             if (entries.isNotEmpty()) {
                 modules.add(ForYouModule.BasedOnInterest(age, index, entries))
             }
         }
-        val interestArticles = AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode).take(5)
+        val interestArticles =
+            AppDatabase.instance.articleInterestDao().getAllRandom(wikiSite.value.languageCode)
+                .take(5)
         interestArticles.forEachIndexed { index, article ->
             val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
-            val entries = ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
-                    .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
+            val entries = ServiceFactory.get(wikiSite.value)
+                .searchMoreLike("morelike:$searchTerm", 10, 10)
+                .query?.pages?.filter {
+                    it.title != searchTerm && it.title != MainPageNameData.valueFor(
+                        wikiSite.value.languageCode
+                    )
+                }?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
                         wiki = wikiSite.value,
@@ -377,14 +415,15 @@ class HomeViewModel : ViewModel() {
                         description = page.description,
                         displayText = page.displayTitle(wikiSite.value.languageCode),
                     ).also {
-                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
+                        if (!page.sectionTitle.isNullOrEmpty()) it.fragment =
+                            StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
                     HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestArticle = article)
-                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+                }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
 
             if (entries.isNotEmpty()) {
                 modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -416,7 +455,7 @@ class HomeViewModel : ViewModel() {
                         }, HistoryEntry.SOURCE_READING_LIST)))
                     }
             }
-        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
+        }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
         if (continueReadingCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
