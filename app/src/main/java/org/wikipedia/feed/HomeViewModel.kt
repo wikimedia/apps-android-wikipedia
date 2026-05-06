@@ -454,7 +454,7 @@ class HomeViewModel : ViewModel() {
                 }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                 addAll(relatedPages?.map {
-                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
+                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ))
                 } ?: emptyList())
             }
         }.filterNot { hiddenCards.contains(it.hideKey) }

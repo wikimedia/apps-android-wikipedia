@@ -25,7 +25,6 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.StringUtil
 import kotlin.math.abs
 
 @Composable
@@ -60,7 +59,7 @@ fun BecauseYouReadModule(
                 module = module,
                 card = module.cards[page],
                 footerIcon = painterResource(R.drawable.ic_history_24),
-                footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, StringUtil.removeHTMLTags(card.sourceDisplayTitle)),
+                footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, card.entry.displayTitle),
                 onPageClick = onPageClick,
                 onHideCardClick = onHideCardClick,
                 onHideModuleClick = onHideModuleClick,
@@ -86,14 +85,14 @@ fun BecauseYouReadCardPreviewWithImage() {
     val entry = HistoryEntry(
         title = PageTitle(
             text = "Test Article",
-            displayText = "Test Article",
+            displayText = "<i>Test Article</i>",
             wiki = WikiSite.preview(),
             description = "This is a test article",
             extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             thumbUrl = "https://example.com/thumb.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
@@ -116,7 +115,7 @@ fun BecauseYouReadCardPreviewNoImage() {
             thumbUrl = null
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
@@ -139,7 +138,7 @@ fun BecauseYouReadCardPreviewTextOnlyWithImage() {
             thumbUrl = "test.jpg"
         ), source = HistoryEntry.SOURCE_HISTORY
     )
-    val card = BecauseYouReadCard(entry, sourceDisplayTitle = "Test Article")
+    val card = BecauseYouReadCard(entry)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BecauseYouReadModule(
             wikiSite = wikiSite,
