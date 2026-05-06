@@ -13,8 +13,8 @@ import org.wikipedia.util.L10nUtil.getStringForLocale
 import org.wikipedia.util.L10nUtil.setDesiredLocale
 import java.util.Locale
 
-fun Context.getString(languageCode: String, @StringRes resId: Int): String {
-    return getStringForLocale(this, Locale(languageCode), resId)
+fun Context.getString(languageCode: String, @StringRes resId: Int, vararg formatArgs: Any): String {
+    return getStringForLocale(this, Locale(languageCode), resId, *formatArgs)
 }
 
 fun Context.getString(title: PageTitle, @StringRes resId: Int): String {

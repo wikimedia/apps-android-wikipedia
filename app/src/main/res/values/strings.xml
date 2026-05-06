@@ -2502,4 +2502,5 @@
     <string name="explore_feed_header_overflow_hide_module_message">Module hidden.</string>
     <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
     <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
+    <string name="explore_feed_because_you_read">Because you read: %s</string>
 </resources>
