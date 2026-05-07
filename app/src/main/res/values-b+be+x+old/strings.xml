@@ -286,7 +286,7 @@
   <string name="dialog_close_description">Закрыць</string>
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
-  <string name="preference_title_download_only_over_wifi">Загружаць толькі па Wi-Fi</string>
+  <string name="preference_title_download_only_over_wifi">Сьцягваць толькі праз Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Пацьвердзіць сьцягваньне праз мабільную сетку?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>

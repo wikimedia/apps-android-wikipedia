@@ -8,7 +8,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import org.wikipedia.Constants
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.feed.onboarding.ExploreFeedBuildingActivity
 import org.wikipedia.page.PageTitle
@@ -27,6 +29,11 @@ class PersonalizationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
+            .setDefaultActionSource("feed_customize")
+            .startFunnel("feed_customize")
+
         val showIntroPage = intent?.getBooleanExtra(EXTRA_SHOW_INTRO_PAGE, true) ?: true
         val pages = if (showIntroPage) {
             listOf(
@@ -58,6 +65,7 @@ class PersonalizationActivity : BaseActivity() {
                 )
             }
         }
+        instrument?.submitInteraction("impression")
     }
 
     companion object {

@@ -23,11 +23,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.components.OnboardingItem
 import org.wikipedia.compose.components.OnboardingListItem
 import org.wikipedia.compose.components.TwoButtonBottomBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
@@ -58,20 +60,28 @@ private val onboardingItems = listOf(
 class ExploreFeedUpdatePromptActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
+            .setDefaultActionSource("feed_announce")
+            .startFunnel("feed_announce")
+
         Prefs.isExploreFeedUpdatePromptShown = true
         setContent {
             BaseTheme {
                 ExploreFeedUpdatePromptScreen(
                     onSetItUpForMeClick = {
+                        instrument?.submitInteraction("click", elementId = "accept_default")
                         finish()
                     },
                     onCustomizeFeedClick = {
+                        instrument?.submitInteraction("click", elementId = "customize_feed")
                         startActivity(PersonalizationActivity.newIntent(this))
                         finish()
                     }
                 )
             }
         }
+        instrument?.submitInteraction("impression")
     }
 
     companion object {
