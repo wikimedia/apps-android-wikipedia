@@ -17,6 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.feed.personalization.PersonalizationActivity
 import org.wikipedia.language.AppLanguageState
@@ -38,6 +39,11 @@ class InitialOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         DeviceUtil.setEdgeToEdge(this)
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-onboarding")
+            .setDefaultActionSource("initial_onboarding")
+            .startFunnel("initial_onboarding")
+
         setContent {
             var currentTheme by remember { mutableStateOf(Theme.BLACK) }
             var currentNavigationBarColor by remember { mutableIntStateOf(ContextCompat.getColor(window.context, android.R.color.black)) }

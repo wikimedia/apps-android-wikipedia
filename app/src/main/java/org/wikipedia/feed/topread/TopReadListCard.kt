@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.util.DateUtil
@@ -16,6 +17,10 @@ class TopReadListCard(
     val age: Int,
     val site: WikiSite
 ) : ListCard<TopReadItemCard>(toItems(articles.articles, site), site), Parcelable {
+
+    override fun moduleKey(): String {
+        return CommunityModules.TOP_READ.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_top_read_card_title)

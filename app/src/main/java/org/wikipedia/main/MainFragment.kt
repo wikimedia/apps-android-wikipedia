@@ -152,6 +152,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     when (event) {
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
+                            requireActivity().invalidateOptionsMenu()
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }

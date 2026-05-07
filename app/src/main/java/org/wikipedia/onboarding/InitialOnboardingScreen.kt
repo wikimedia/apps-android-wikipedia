@@ -50,6 +50,7 @@ import org.wikipedia.compose.components.HtmlText
 import org.wikipedia.compose.extensions.lazyColumnScrollbar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.extensions.instrument
 import org.wikipedia.language.AppLanguageState
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.FeedbackUtil
@@ -89,6 +90,7 @@ fun InitialOnboardingScreen(
                     contentAlignment = Alignment.CenterEnd
                 ) {
                     IconButton(onClick = {
+                        context.instrument?.submitInteraction("click", elementId = "next_button", actionSubtype = onboardingScreens[currentScreenIndex].name)
                         if (currentScreenIndex == onboardingScreens.size - 1) {
                             onFinishClick()
                         } else {
@@ -115,6 +117,7 @@ fun InitialOnboardingScreen(
                 OnboardingScreen.INTRO -> {
                     InitialOnboardingIntroContent(
                         onLearnMoreClick = {
+                            context.instrument?.submitInteraction("click", elementId = "about_link", actionSubtype = onboardingScreens[currentScreenIndex].name)
                             FeedbackUtil.showAboutWikipedia(context)
                         }
                     )
@@ -122,9 +125,11 @@ fun InitialOnboardingScreen(
                 OnboardingScreen.DATA_PRIVACY -> {
                     InitialOnboardingDataPrivacyContent(
                         onPrivacyClick = {
+                            context.instrument?.submitInteraction("click", elementId = "privacy_link", actionSubtype = onboardingScreens[currentScreenIndex].name)
                             FeedbackUtil.showPrivacyPolicy(context)
                         },
                         onTermsClick = {
+                            context.instrument?.submitInteraction("click", elementId = "terms_link", actionSubtype = onboardingScreens[currentScreenIndex].name)
                             FeedbackUtil.showTermsOfUse(context)
                         }
                     )
@@ -134,6 +139,7 @@ fun InitialOnboardingScreen(
                         languageState = languageState,
                         appLanguageCodes = appLanguageCodes,
                         onAddLanguageClick = {
+                            context.instrument?.submitInteraction("click", elementId = "add_language", actionSubtype = onboardingScreens[currentScreenIndex].name)
                             onAddLanguageClick()
                         }
                     )
