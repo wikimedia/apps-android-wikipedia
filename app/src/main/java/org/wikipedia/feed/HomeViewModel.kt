@@ -32,7 +32,7 @@ import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SettingRepository
+import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
@@ -115,12 +115,12 @@ class HomeViewModel : ViewModel() {
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
-    val communityState = combine(_communityState, SettingRepository.hiddenModules) { state, hiddenModules ->
+    val communityState = combine(_communityState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         state.copy(cards = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
-    val forYouState = combine(_forYouState, SettingRepository.hiddenModules) { state, hiddenModules ->
+    val forYouState = combine(_forYouState, SettingsRepository.hiddenModules) { state, hiddenModules ->
         state.copy(modules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) })
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
@@ -353,13 +353,13 @@ class HomeViewModel : ViewModel() {
 
     fun hideModule(moduleKey: String) {
         viewModelScope.launch {
-            SettingRepository.addHiddenModule(moduleKey)
+            SettingsRepository.addHiddenModule(moduleKey)
         }
     }
 
     fun restoreModule(moduleKey: String) {
         viewModelScope.launch {
-            SettingRepository.removeHiddenModule(moduleKey)
+            SettingsRepository.removeHiddenModule(moduleKey)
         }
     }
 

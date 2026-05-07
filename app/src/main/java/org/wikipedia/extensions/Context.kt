@@ -16,7 +16,6 @@ import org.wikipedia.util.L10nUtil.getStringForLocale
 import org.wikipedia.util.L10nUtil.setDesiredLocale
 import java.util.Locale
 
-
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "wikipedia_datastore")
 
 fun Context.getString(languageCode: String, @StringRes resId: Int, vararg formatArgs: Any): String {

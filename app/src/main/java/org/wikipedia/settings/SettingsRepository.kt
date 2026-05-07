@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.map
 import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.dataStore
 
-object SettingRepository {
+object SettingsRepository {
     private val preferenceKey = stringSetPreferencesKey("home_hidden_modules")
     private val dataStore = WikipediaApp.instance.dataStore
     val hiddenModules: Flow<Set<String>> = dataStore.data
