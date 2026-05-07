@@ -25,6 +25,8 @@ fun BecauseYouReadModule(
     wikiSite: WikiSite,
     module: ForYouModule.BecauseYouRead,
     onPageClick: (item: HistoryEntry) -> Unit = {},
+    onShareClick: (entry: HistoryEntry) -> Unit = {},
+    onSaveClick: (entry: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
@@ -49,6 +51,8 @@ fun BecauseYouReadModule(
             footerIcon = painterResource(R.drawable.ic_history_24),
             footerText = context.getString(wikiSite.languageCode, R.string.explore_feed_because_you_read, card.sourceDisplayTitle),
             onPageClick = onPageClick,
+            onShareClick = onShareClick,
+            onSaveClick = onSaveClick,
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick
