@@ -42,6 +42,7 @@ enum class HomeTab { COMMUNITY, FOR_YOU }
 enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
 enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
+private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 
 sealed class ForYouModule {
     abstract val age: Int
@@ -116,12 +117,12 @@ class HomeViewModel : ViewModel() {
     private val _communityState = MutableStateFlow(CommunityContentState())
     val communityState = combine(_communityState, SettingRepository.hiddenModules) { state, hiddenModules ->
         state.copy(cards = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) })
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), CommunityContentState())
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
     val forYouState = combine(_forYouState, SettingRepository.hiddenModules) { state, hiddenModules ->
         state.copy(modules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) })
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), ForYouContentState())
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(MAX_STOP_TIMEOUT_MILLIS), ForYouContentState())
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.
     private var nextCommunityAge = 0

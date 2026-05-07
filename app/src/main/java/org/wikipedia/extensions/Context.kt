@@ -6,12 +6,18 @@ import android.content.res.Resources
 import android.util.SparseArray
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.getStringForLocale
 import org.wikipedia.util.L10nUtil.setDesiredLocale
 import java.util.Locale
+
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "wikipedia_datastore")
 
 fun Context.getString(languageCode: String, @StringRes resId: Int, vararg formatArgs: Any): String {
     return getStringForLocale(this, Locale(languageCode), resId, *formatArgs)
