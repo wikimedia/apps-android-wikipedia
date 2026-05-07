@@ -5,7 +5,7 @@ import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.HomeModules
+import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.history.HistoryEntry
@@ -18,7 +18,7 @@ open class FeaturedArticleCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return HomeModules.FEATURED_ARTICLE.name
+        return CommunityModules.FEATURED_ARTICLE.name
     }
 
     override fun title(): String {

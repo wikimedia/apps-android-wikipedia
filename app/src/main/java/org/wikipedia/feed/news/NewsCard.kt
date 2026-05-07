@@ -2,7 +2,7 @@ package org.wikipedia.feed.news
 
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.feed.HomeModules
+import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.model.WikiSiteCard
@@ -16,7 +16,7 @@ class NewsCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return HomeModules.NEWS.name
+        return CommunityModules.NEWS.name
     }
 
     override fun title(): String {

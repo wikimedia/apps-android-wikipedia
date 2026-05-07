@@ -114,11 +114,6 @@ object Prefs {
             ?: emptyList()
         set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_cards, JsonUtil.encodeToString(cards))
 
-    var hiddenModules: List<String>
-        get() = JsonUtil.decodeFromString<List<String>>(PrefsIoUtil.getString(R.string.preference_key_feed_hidden_modules, null))
-            ?: emptyList()
-        set(cards) = PrefsIoUtil.setString(R.string.preference_key_feed_hidden_modules, JsonUtil.encodeToString(cards))
-
     var sessionData
         get() = JsonUtil.decodeFromString<SessionData>(PrefsIoUtil.getString(R.string.preference_key_session_data, null))
             ?: SessionData()

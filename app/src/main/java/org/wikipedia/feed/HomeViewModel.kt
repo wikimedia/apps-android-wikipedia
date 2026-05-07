@@ -5,7 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -29,13 +32,15 @@ import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.settings.SettingRepository
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-enum class HomeModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY, CONTINUE_READING, BASED_ON_INTEREST, BECAUSE_YOU_READ }
+enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
+enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
 
 sealed class ForYouModule {
@@ -56,7 +61,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = HomeModules.BASED_ON_INTEREST.name
+        override fun moduleKey(): String = ForYouModules.BASED_ON_INTEREST.name
     }
 
     data class ContinueReading(
@@ -65,7 +70,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = HomeModules.CONTINUE_READING.name
+        override fun moduleKey(): String = ForYouModules.CONTINUE_READING.name
     }
 
     data class BecauseYouRead(
@@ -74,7 +79,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = HomeModules.BECAUSE_YOU_READ.name
+        override fun moduleKey(): String = ForYouModules.BECAUSE_YOU_READ.name
     }
 }
 
@@ -109,10 +114,14 @@ class HomeViewModel : ViewModel() {
     val selectedTab = _selectedTab.asStateFlow()
 
     private val _communityState = MutableStateFlow(CommunityContentState())
-    val communityState = _communityState.asStateFlow()
+    val communityState = combine(_communityState, SettingRepository.hiddenModules) { state, hiddenModules ->
+        state.copy(cards = state.cards.filterNot { hiddenModules.contains(it.moduleKey()) })
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), CommunityContentState())
 
     private val _forYouState = MutableStateFlow(ForYouContentState())
-    val forYouState = _forYouState.asStateFlow()
+    val forYouState = combine(_forYouState, SettingRepository.hiddenModules) { state, hiddenModules ->
+        state.copy(modules = state.modules.filterNot { hiddenModules.contains(it.moduleKey()) })
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), ForYouContentState())
 
     // "age" in days from today. 0 = today, 1 = yesterday, etc.
     private var nextCommunityAge = 0
@@ -205,7 +214,6 @@ class HomeViewModel : ViewModel() {
 
             // Construct Card objects based on the day's content
             val hiddenCards = Prefs.hiddenCards
-            val hiddenModules = Prefs.hiddenModules
 
             val cardsForDay = buildList<Card> {
                 content.tfa?.let {
@@ -223,7 +231,7 @@ class HomeViewModel : ViewModel() {
                 if (!content.onthisday.isNullOrEmpty()) {
                     add(OnThisDayCard(content.onthisday.take(2), age, wikiSite.value))
                 }
-            }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.toMutableList()
+            }.filterNot { hiddenCards.contains(it.hideKey) }.toMutableList()
             if (cardsForDay.isNotEmpty()) {
                 cardsForDay.add(0, DayHeaderCard(age))
             }
@@ -343,20 +351,14 @@ class HomeViewModel : ViewModel() {
     }
 
     fun hideModule(moduleKey: String) {
-        Prefs.hiddenModules = Prefs.hiddenModules.toMutableList().apply { add(moduleKey) }.distinct()
-        if (_selectedTab.value == HomeTab.FOR_YOU) {
-            refreshForYouContent()
-        } else {
-            refreshCommunityContent()
+        viewModelScope.launch {
+            SettingRepository.addHiddenModule(moduleKey)
         }
     }
 
     fun restoreModule(moduleKey: String) {
-        Prefs.hiddenModules = Prefs.hiddenModules.toMutableList().apply { remove(moduleKey) }
-        if (_selectedTab.value == HomeTab.FOR_YOU) {
-            refreshForYouContent()
-        } else {
-            refreshCommunityContent()
+        viewModelScope.launch {
+            SettingRepository.removeHiddenModule(moduleKey)
         }
     }
 
@@ -372,7 +374,6 @@ class HomeViewModel : ViewModel() {
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = Prefs.hiddenCards
-        val hiddenModules = Prefs.hiddenModules
 
         // --- Interests ---
 
@@ -395,7 +396,7 @@ class HomeViewModel : ViewModel() {
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestTopic = topic)
-                }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
 
             if (entries.isNotEmpty()) {
                 modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -420,7 +421,7 @@ class HomeViewModel : ViewModel() {
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestArticle = article)
-                }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
+                }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
 
             if (entries.isNotEmpty()) {
                 modules.add(ForYouModule.BasedOnInterest(age, index, entries))
@@ -452,7 +453,7 @@ class HomeViewModel : ViewModel() {
                         }, HistoryEntry.SOURCE_READING_LIST)))
                     }
             }
-        }.filterNot { hiddenModules.contains(it.moduleKey()) || hiddenCards.contains(it.hideKey) }.take(4)
+        }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
         if (continueReadingCards.isNotEmpty()) {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.ContinueReading(age, 0, continueReadingCards))
