@@ -271,7 +271,7 @@ class HomeFragment : Fragment() {
         super.onResume()
         viewModel.updateTabCount()
         instrument.startFunnel("home_feed")
-        onUnreadNotification()
+        refreshNotification()
         // TODO: start new funnel for analytics
     }
 
@@ -285,7 +285,7 @@ class HomeFragment : Fragment() {
         instrument.stopFunnel()
     }
 
-    fun onUnreadNotification() {
+    fun refreshNotification() {
         viewModel.refreshUnreadNotificationCount()
     }
 
@@ -336,8 +336,8 @@ fun HomeScreen(
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card) -> Unit = { _ -> },
-    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> },
+    onNotificationClick: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -378,7 +378,7 @@ fun HomeScreen(
                             onTabClick = onTabClick,
                             onUpdateTabCount = onUpdateTabCount,
                             notificationBellState = notificationBellState,
-                            onNotificationBellClick = onNotificationClick
+                            onNotificationClick = onNotificationClick
                         )
 
                         HomeTabBar(
@@ -445,7 +445,7 @@ fun HomeScreen(
                                 onTabClick = onTabClick,
                                 onUpdateTabCount = onUpdateTabCount,
                                 notificationBellState = notificationBellState,
-                                onNotificationBellClick = onNotificationClick
+                                onNotificationClick = onNotificationClick
                             )
                         }
                         Box(
@@ -493,7 +493,7 @@ fun HomeToolbar(
     notificationBellState: NotificationBellState,
     onTabClick: () -> Unit,
     onUpdateTabCount: () -> Unit,
-    onNotificationBellClick: () -> Unit
+    onNotificationClick: () -> Unit
 ) {
     Row {
         Image(
@@ -540,7 +540,7 @@ fun HomeToolbar(
                     .statusBarsPadding()
                     .padding(top = topInset.dp),
                 unreadCount = notificationBellState.unreadCount,
-                onClick = onNotificationBellClick
+                onClick = onNotificationClick
             )
         }
     }
