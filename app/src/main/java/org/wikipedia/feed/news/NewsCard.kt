@@ -2,6 +2,7 @@ package org.wikipedia.feed.news
 
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.model.WikiSiteCard
@@ -13,6 +14,10 @@ class NewsCard(
     val age: Int,
     wiki: WikiSite
 ) : WikiSiteCard(wiki) {
+
+    override fun moduleKey(): String {
+        return CommunityModules.NEWS.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_card_news_title)
