@@ -25,7 +25,13 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 
 object TestKitchenAdapter : ClientDataCallback, EventSender {
+    const val FLUSH_DELAY_MILLIS = 30000L
     val logger = LogAdapterImpl()
+
+    val flushEventsRunnable: Runnable = {
+        client.flushEventQueue()
+        WikipediaApp.instance.mainThreadHandler.postDelayed(flushEventsRunnable, FLUSH_DELAY_MILLIS)
+    }
 
     val client = TestKitchenClient(
         eventSender = this,
@@ -33,6 +39,10 @@ object TestKitchenAdapter : ClientDataCallback, EventSender {
         clientDataCallback = this,
         logger = logger
     )
+
+    init {
+        flushEventsRunnable.run()
+    }
 
     override fun getAgentData(): AgentData {
         return AgentData(

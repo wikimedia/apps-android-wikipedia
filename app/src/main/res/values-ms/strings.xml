@@ -18,6 +18,7 @@
 * SaldırganSincap
 * Stress 043
 * Tofeiku
+* Wrai
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -1100,4 +1101,66 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">Setiap minggu</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">Setiap bulan</string>
   <string name="recommended_reading_list_settings_notifications_title">Pemberitahuan</string>
+  <string name="reading_challenge_widget_name">Cabaran Membaca</string>
+  <string name="reading_challenge_onboarding_header">Raikan hari jadi ke-25 Wikipedia dengan menyertai cabaran membaca selama 25 hari!</string>
+  <string name="reading_challenge_onboarding_read_title">Baca 1 laman rencana setiap hari selama 25 hari</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Sertai cabaran ini pada bila-bila masa antara %1$s hingga %2$s, dan lengkapkan 25 hari mengikut jadual anda sendiri.</string>
+  <string name="reading_challenge_onboarding_win_title">Menangkan hadiahnya</string>
+  <string name="reading_challenge_onboarding_win_description">Lengkapkan cabaran membaca selama 25 hari berturutan untuk memenangkan hadiah yang istimewa.</string>
+  <string name="reading_challenge_onboarding_install_title">Pasang perkakas pengingat</string>
+  <string name="reading_challenge_onboarding_install_description">Dapatkan pengingat dan motivasi dengan maskot hari jadi kami yang comel, Baby Globe.</string>
+  <string name="reading_challenge_onboarding_note">Sejarah bacaan anda kekal terlindungi. Analisis mengenai bacaan dikira menggunakan data yang disimpan pada peranti Anda secara tempatan.</string>
+  <string name="reading_challenge_onboarding_learn_more_button">Ketahui lebih lanjut</string>
+  <string name="reading_challenge_onboarding_join_button">Sertai cabaran ini</string>
+  <string name="reading_challenge_onboarding_prompt_title">Log masuk untuk menyertai cabaran</string>
+  <string name="reading_challenge_onboarding_prompt_message">Log masuk atau cipta akaun untuk menjejaki kemajuan anda dalam cabaran membaca.</string>
+  <string name="reading_challenge_onboarding_prompt_no_thanks">Tidak, terima kasih</string>
+  <string name="reading_challenge_onboarding_prompt_login">Log masuk / Sertai Wikipedia</string>
+  <string name="reading_challenge_install_prompt_title">Pasang widget Cabaran Membaca 25 Hari</string>
+  <string name="reading_challenge_install_prompt_message">Baby Globe menyokong anda. Tambahkan widget Cabaran Membaca untuk menjejaki kemajuan terus dari skrin utama.</string>
+  <string name="reading_challenge_install_prompt_got_it">Faham</string>
+  <string name="reading_challenge_install_prompt_add">Tambah</string>
+  <string name="reading_challenge_widget_explore_button">Terokai</string>
+  <string name="reading_challenge_widget_explore_wikipedia_button">Terokai Wikipedia</string>
+  <string name="reading_challenge_widget_join_challenge_button">Sertai cabaran</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">Sertai cabaran ini</string>
+  <string name="reading_challenge_widget_search_button">Cari</string>
+  <string name="reading_challenge_widget_random_button">Rawak</string>
+  <string name="reading_challenge_widget_collect_prize_button">Tuntut hadiah</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">Tuntut hadiah anda!</string>
+  <string name="reading_challenge_widget_not_live_title">Bersedia untuk membaca</string>
+  <string name="reading_challenge_widget_not_live_description">Cabaran membaca 25 hari akan bermula tidak lama lagi.</string>
+  <string name="reading_challenge_widget_not_opted_in_title">Sedia, mula, baca!</string>
+  <string name="reading_challenge_widget_not_opted_in_description">Sertai cabaran 25 hari dan buka ganjaran istimewa.</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="other">%d hari</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="other">%1$d daripada %2$d</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final_large">
+    <item quantity="other">%1$d daripada %2$d hari</item>
+  </plurals>
+  <string name="reading_challenge_not_read_today_description">Jangan biarkan hari ini berlalu begitu sahaja, selamatkan rentak anda.</string>
+  <string name="reading_challenge_streak_ongoing_title">Lencana Cabaran 25 Hari</string>
+  <string name="reading_challenge_widget_reminder_dont_let_today_drift">Jangan biarkan hari ini berlalu begitu sahaja, streak bacaan anda sedang menunggu.</string>
+  <string name="reading_challenge_widget_reminder_before_day_snoozes">Masih ada masa untuk belajar sesuatu…\nsebelum hari berakhir.</string>
+  <string name="reading_challenge_widget_reminder_small_bit_counts">Walaupun sedikit, bacaan tetap menyumbang kepada matlamat anda.</string>
+  <string name="reading_challenge_widget_reminder_one_article_away">Streak anda hanya selangkah lagi.</string>
+  <string name="reading_challenge_widget_reminder_jump_in_anytime">Mulakan bacaan pada bila-bila masa hari ini.</string>
+  <string name="reading_challenge_widget_reminder_quiet_reading_moment">Momen membaca yang tenang?</string>
+  <string name="reading_challenge_widget_reminder_keep_curiosity_going">Teruskan rasa ingin tahu anda.</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">Sedia, mula, baca!</string>
+  <string name="reading_challenge_widget_enrolled_not_started_subtitle">Mula berusaha ke arah rentetan 25 hari!</string>
+  <string name="reading_challenge_widget_start_reading_challenge_title">Mulakan cabaran membaca anda.</string>
+  <string name="reading_challenge_widget_start_reading_challenge_subtitle">Setiap streak bermula dari satu langkah</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_title">Mulakan streak baharu? Baca satu artikel untuk bermula.</string>
+  <string name="reading_challenge_widget_start_spin_up_new_streak_subtitle">Baca satu artikel untuk bermula.</string>
+  <string name="reading_challenge_widget_start_fresh_start_title">Permulaan baharu.</string>
+  <string name="reading_challenge_widget_start_fresh_start_subtitle">Streak anda hanya selangkah lagi.</string>
+  <string name="reading_challenge_widget_concluded_incomplete">Cabaran Tamat</string>
+  <string name="reading_challenge_widget_concluded_complete">Anda berjaya!</string>
+  <string name="reading_challenge_widget_reward_title">Rasa ingin tahu memang sesuai dengan anda! 🛍️</string>
+  <string name="reading_challenge_widget_reward_body">Raikan kejayaan menamatkan cabaran dengan diskaun 15%% di Kedai Wikipedia.</string>
+  <string name="reading_challenge_widget_reward_button_label">Dapatkan diskaun 15%% di kedai</string>
 </resources>

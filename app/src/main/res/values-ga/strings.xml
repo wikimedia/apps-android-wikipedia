@@ -2569,6 +2569,7 @@
   <string name="reading_challenge_onboarding_header">Ceiliúir 25ú breithlá Vicipéid trí bheith páirteach sa dúshlán léitheoireachta 25 lá!</string>
   <string name="reading_challenge_onboarding_read_title">Léigh alt amháin in aghaidh an lae ar feadh 25 lá</string>
   <string name="reading_challenge_onboarding_read_description">Glac páirt sa dúshlán am ar bith idir an 1 Bealtaine agus an 31 Bealtaine, agus comhlánaigh do 25 lá ar do sceideal ama féin.</string>
+  <string name="reading_challenge_onboarding_read_subtitle">Glac páirt sa dúshlán am ar bith idir %1$s agus %2$s, críochnaigh do 25 lá ar do sceideal ama féin.</string>
   <string name="reading_challenge_onboarding_win_title">Buaigh duaiseanna</string>
   <string name="reading_challenge_onboarding_win_description">Comhlánaigh sraith léitheoireachta 25 lá agus an dúshlán beo chun duaiseanna speisialta a bhuachan.</string>
   <string name="reading_challenge_onboarding_install_title">Suiteáil an giuirléid</string>

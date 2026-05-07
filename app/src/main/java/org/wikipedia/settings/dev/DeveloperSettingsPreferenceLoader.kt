@@ -3,6 +3,7 @@ package org.wikipedia.settings.dev
 import android.content.DialogInterface
 import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -22,6 +23,7 @@ import org.wikipedia.games.onthisday.OnThisDayGameNotificationManager
 import org.wikipedia.games.onthisday.OnThisDayGameNotificationState
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -30,9 +32,11 @@ import org.wikipedia.readinglist.recommended.RecommendedReadingListUpdateFrequen
 import org.wikipedia.settings.BasePreferenceLoader
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.dev.playground.CategoryDeveloperPlayGround
+import org.wikipedia.settings.dev.playground.ReadingChallengePlayGroundDialog
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.yearinreview.YearInReviewSurveyState
 
@@ -267,6 +271,13 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             Prefs.eventPlatformIntakeUriOverride = selectedState
             findPreference(R.string.preference_key_event_platform_intake_base_uri).summary = selectedState
             true
+        }
+        findPreference(R.string.preference_key_reading_challenge_widgets).apply {
+            isVisible = ReleaseUtil.isPreProdRelease
+            onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager, ReadingChallengePlayGroundDialog())
+                true
+            }
         }
     }
 

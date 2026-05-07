@@ -286,7 +286,7 @@
   <string name="dialog_close_description">Закрыць</string>
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
-  <string name="preference_title_download_only_over_wifi">Загружаць толькі па Wi-Fi</string>
+  <string name="preference_title_download_only_over_wifi">Сьцягваць толькі праз Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Пацьвердзіць сьцягваньне праз мабільную сетку?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
@@ -404,6 +404,7 @@
   <string name="talk_templates_new_message_dialog_cancel">Скасаваць</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае імавернасьць добрасумленнага захаваньня рэдагаваньня.</string>
   <string name="talk_templates_menu_edit_title">Рэдагаваць</string>
+  <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_card_action">Болей месцаў побач</string>
   <string name="survey_dialog_cancel">Скасаваць</string>
   <string name="year_in_review_survey_cancel">Скасаваць</string>

@@ -114,6 +114,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -123,6 +124,8 @@ import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UiState
 import org.wikipedia.util.UriUtil
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeRewardDialog
+import org.wikipedia.widgets.readingchallenge.ReadingChallengeWidgetRepository
 import java.time.LocalDateTime
 
 class ActivityTabFragment : Fragment() {
@@ -211,8 +214,17 @@ class ActivityTabFragment : Fragment() {
                 Prefs.isGameStatsUnavailableSnackbarShown = true
             }
         }
+        maybeShowReadingChallengeRewardDialog()
         viewModel.loadAll()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    private fun maybeShowReadingChallengeRewardDialog() {
+        val intent = requireActivity().intent
+        if (ReadingChallengeWidgetRepository.shouldShowReward(intent)) {
+            intent.removeExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD)
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, ReadingChallengeRewardDialog())
+        }
     }
 
     override fun onPause() {
