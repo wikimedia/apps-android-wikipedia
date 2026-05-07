@@ -117,7 +117,6 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.log.L
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -258,8 +257,8 @@ class HomeFragment : Fragment() {
                         onUpdateTabCount = {
                             viewModel.updateTabCount(false)
                         },
-                        onCardImpression = {
-                                card -> onCardImpression(card)
+                        onCardImpression = { card, index ->
+                            onCardImpression(card, index)
                         }
                     )
                 }
@@ -289,10 +288,13 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun onCardImpression(card: Card) {
+    private fun onCardImpression(card: Card, index: Int) {
         if (cardImpressions.add(card.hideKey)) {
-            // TODO: send event
-            L.d(">>>> Card impression: ${card.hideKey}")
+            instrument.submitInteraction(
+                "impression",
+                actionSource = card.javaClass.simpleName,
+                actionContext = mapOf("card_index" to index)
+            )
         }
     }
 }
@@ -327,7 +329,7 @@ fun HomeScreen(
     onTabClick: () -> Unit = {},
     onUpdateTabCount: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card) -> Unit = { _ -> }
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
 ) {
     val context = LocalContext.current
     val topInset = if (context is MainActivity) {
@@ -604,7 +606,7 @@ fun CommunityContentTab(
     onImageClick: (image: FeaturedImage) -> Unit = {},
     onImageDownloadClick: (image: FeaturedImage) -> Unit = {},
     onImageShareClick: (image: FeaturedImage, age: Int) -> Unit = { _, _ -> },
-    onCardImpression: (card: Card) -> Unit = {}
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
 ) {
     val activity = LocalActivity.current as? MainActivity
     when {
@@ -628,7 +630,7 @@ fun CommunityContentTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
-                state.cards.forEach { card ->
+                state.cards.forEachIndexed { cardIndex, card ->
                     when (card) {
                         is DayHeaderCard -> {
                             item(key = "day-header-${card.age}") {
@@ -668,7 +670,7 @@ fun CommunityContentTab(
                                             )
                                         )
                                     },
-                                    onCardImpression = { onCardImpression(card) }
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
@@ -709,7 +711,7 @@ fun CommunityContentTab(
                                             )
                                         )
                                     },
-                                    onCardImpression = { onCardImpression(card) }
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
@@ -725,7 +727,7 @@ fun CommunityContentTab(
                                     onClick = onImageClick,
                                     onDownloadClick = onImageDownloadClick,
                                     onShareClick = { onImageShareClick(card.featuredImage, card.age) },
-                                    onCardImpression = { onCardImpression(card) }
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
@@ -741,7 +743,7 @@ fun CommunityContentTab(
                                     onNewsClick = { newsItem ->
                                         onNewsClick(newsItem)
                                     },
-                                    onCardImpression = { onCardImpression(card) }
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
@@ -771,7 +773,7 @@ fun CommunityContentTab(
                                     onFooterClick = {
                                         activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
                                     },
-                                    onCardImpression = { onCardImpression(card) }
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
                         }
@@ -819,7 +821,7 @@ fun ForYouContentTab(
     onPageOverflowClick: (pageSummary: PageSummary, source: Int, menuKey: String) -> Unit = { _, _, _ -> },
     onPageOverflowDismiss: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
-    onCardImpression: (card: Card) -> Unit = {}
+    onCardImpression: (card: Card, index: Int) -> Unit = { _, _ -> }
 ) {
     when {
         state.isInitialLoading -> {
@@ -867,7 +869,7 @@ fun ForYouContentTab(
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it) },
+                                        onCardInView = { onCardImpression(it, index) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
                                     )
                                 }
@@ -884,7 +886,7 @@ fun ForYouContentTab(
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it) },
+                                        onCardInView = { onCardImpression(it, index) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
                                     )
                                 }
@@ -901,7 +903,7 @@ fun ForYouContentTab(
                                         onPageClick = { entry -> onPageClick(entry) },
                                         onHideCardClick = onHideCardClick,
                                         onHideModuleClick = { onHideModuleClick(module.moduleKey()) },
-                                        onCardInView = { onCardImpression(it) },
+                                        onCardInView = { onCardImpression(it, index) },
                                         onCustomizeInterestsClick = onCustomizeInterestsClick
                                     )
                                 }
