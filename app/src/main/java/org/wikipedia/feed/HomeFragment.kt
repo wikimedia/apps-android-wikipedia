@@ -131,8 +131,8 @@ class HomeFragment : Fragment() {
 
     private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            viewModel.selectTab(if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY)
-            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+            val tab = if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
+            selectTab(tab)
         }
     }
 
@@ -164,8 +164,7 @@ class HomeFragment : Fragment() {
                         overflowMenuState = pageOverflowMenuViewModel.pageOverflowMenuState,
                         tabsState = tabsState,
                         onSelectTab = {
-                            viewModel.selectTab(it)
-                            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+                            selectTab(it)
                         },
                         onRefreshTab = {
                             if (it == HomeTab.COMMUNITY) {
@@ -290,6 +289,11 @@ class HomeFragment : Fragment() {
         super.onPause()
         cardImpressions.clear()
         instrument.stopFunnel()
+    }
+
+    fun selectTab(tab: HomeTab) {
+        viewModel.selectTab(tab)
+        (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
     }
 
     private fun maybeShowExploreFeedUpdatePrompt() {
