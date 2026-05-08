@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.HomeTab
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -53,6 +54,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         val fragment = fragment.currentFragment
         if (it.resultCode == InitialOnboardingActivity.RESULT_LANGUAGE_CHANGED && fragment is FeedFragment) {
             fragment.refresh()
+        }
+        if (fragment is HomeFragment) {
+            val tab = if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY
+            fragment.selectTab(tab)
         }
     }
 

@@ -27,6 +27,9 @@ class InterestSelectionRepository(
         val searchTerm = "articletopic:$topic"
         val response = ServiceFactory.get(wikiSite).getArticlesByTopic(searchTerm, 25)
         val pageList = response.query?.pages
+            ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
+            ?.sortedBy { it.index } // Sort by index, as reported by the API
+            ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
             ?.map { page ->
                 PageTitle(
                     text = page.title,
