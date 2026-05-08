@@ -124,7 +124,7 @@ fun WidgetBadge(
     iconResId: Int,
     iconSize: Dp = 16.dp,
     spacerWidth: Dp = 4.dp,
-    iconTintColor: Color,
+    iconTintColor: Color? = null,
     textColor: Color,
     modifier: GlanceModifier = GlanceModifier
 ) {
@@ -138,7 +138,7 @@ fun WidgetBadge(
             contentDescription = null,
             modifier = GlanceModifier
                 .size(iconSize),
-            colorFilter = ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor))
+            colorFilter = iconTintColor?.let { ColorFilter.tint(ColorProvider(day = iconTintColor, night = iconTintColor)) }
         )
         Spacer(
             modifier = GlanceModifier.width(spacerWidth)
@@ -256,10 +256,11 @@ enum class SmallWidgetSize {
 
     companion object {
         fun from(size: DpSize): SmallWidgetSize {
+            val constraint = minOf(size.width, size.height)
             return when {
-                size.height <= 140.dp -> TINY
-                size.height <= 176.dp -> EXTRA_COMPACT
-                size.height <= 230.dp -> COMPACT
+                constraint <= 140.dp -> TINY
+                constraint <= 176.dp -> EXTRA_COMPACT
+                constraint <= 230.dp -> COMPACT
                 else -> FULL
             }
         }
@@ -284,6 +285,22 @@ enum class LargeWidgetSize {
         get() = when (this) {
             TINY -> 12.sp
             EXTRA_COMPACT, COMPACT -> 14.sp
+            FULL -> 16.sp
+        }
+
+    val trophyIconSize: Dp
+        get() = when (this) {
+            TINY -> 18.dp
+            EXTRA_COMPACT -> 20.dp
+            COMPACT -> 22.dp
+            FULL -> 24.dp
+        }
+
+    val titleBarTextSize: TextUnit
+        get() = when (this) {
+            TINY -> 12.sp
+            EXTRA_COMPACT -> 13.sp
+            COMPACT -> 14.sp
             FULL -> 16.sp
         }
 
@@ -314,10 +331,16 @@ enum class LargeWidgetSize {
     // Mascot size when bottom content is not empty.
     val sideMascotSize: Dp
         get() = when (this) {
-            TINY -> 28.dp
-            EXTRA_COMPACT -> 40.dp
-            COMPACT -> 70.dp
+            TINY -> 40.dp
+            EXTRA_COMPACT -> 60.dp
+            COMPACT -> 80.dp
             FULL -> 100.dp
+        }
+
+    val rightColumnExtraSpace: Dp
+        get() = when (this) {
+            TINY, EXTRA_COMPACT -> 8.dp
+            COMPACT, FULL -> 18.dp
         }
 
     // Mascot size when bottom content is empty/spacer-only. Can expand down further.
@@ -331,10 +354,10 @@ enum class LargeWidgetSize {
 
     val overlayMascotSize: Dp
         get() = when (this) {
-            TINY -> 44.dp
+            TINY -> 40.dp
             EXTRA_COMPACT -> 60.dp
-            COMPACT -> 85.dp
-            FULL -> 110.dp
+            COMPACT -> 80.dp
+            FULL -> 100.dp
         }
 
     companion object {

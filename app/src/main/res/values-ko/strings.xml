@@ -233,7 +233,7 @@
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="email_recommendation_dialog_title">이메일 주소 없이 계정을 만드시겠습니까?</string>
-  <string name="email_recommendation_dialog_message">이메일 주소가 선택사항이지만, 비밀번호를 잃어버렸을 경우 계정 복구에 이메일이 필요하므로 &lt;b&gt;매우 권장됩니다&lt;/b&gt;.</string>
+  <string name="email_recommendation_dialog_message">이메일 주소가 선택 사항이지만, 비밀번호를 잃어버렸을 경우 계정 복구에 이메일이 필요하므로 &lt;b&gt;매우 권장됩니다&lt;/b&gt;.</string>
   <string name="email_recommendation_message">계정 복구에 이메일이 필요하므로 권장됩니다.</string>
   <string name="email_recommendation_dialog_create_without_email_action">이메일 없이 계속하기</string>
   <string name="email_recommendation_dialog_create_with_email_action">이메일 주소 추가</string>
@@ -845,7 +845,7 @@
   <string name="feed_configure_language_warning">모든 카드 유형을 모든 위키백과 언어에서 사용할 수 있는 것은 아닙니다. 설정에서 선택된 언어를 수정하십시오.</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
   <string name="feed_item_type_on_this_day">오늘의 역사적 사건</string>
-  <string name="feed_item_type_because_you_read">검색기록에 있는 최근 읽은 글 관련 추천</string>
+  <string name="feed_item_type_because_you_read">검색 기록에 있는 최근 읽은 글 관련 추천</string>
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
@@ -1049,7 +1049,6 @@
     <item quantity="other">편집</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">%d일</item>
     <item quantity="other">%d일</item>
   </plurals>
   <string name="suggested_edits_what_is_title">편집 제안이 무엇입니까?</string>
@@ -1152,12 +1151,12 @@
   <string name="activity_tab_game_stats">게임 통계</string>
   <string name="activity_tab_game_stats_best_streak">최고 기록</string>
   <string name="activity_tab_play_wiki_games">위키게임 으로</string>
-  <string name="activity_tab_report_email_subject">문제 보고하기</string>
+  <string name="activity_tab_report_email_subject">문제 보고 - 활동 탭</string>
   <string name="activity_tab_report_email_body">활동 탭 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="activity_tab_menu_feedback">문제가 발생하였습니다</string>
   <string name="activity_tab_menu_info">더 알아보기</string>
   <string name="activity_tab_menu_customize">개별 사용자 맞춤 설정</string>
-  <string name="activity_tab_highlights">강조됨</string>
+  <string name="activity_tab_highlights">하이라이트</string>
   <string name="activity_tab_customize_screen_reading_history_switch_title">문서 열람 기록</string>
   <string name="activity_tab_impact">당신의 영향력</string>
   <string name="activity_tab_impact_most_viewed">당신의 편집 이후 가장 많이 보여진 항목</string>
@@ -1168,6 +1167,7 @@
   <plurals name="activity_tab_impact_edits_last_month">
     <item quantity="other">지난 달의 편집</item>
   </plurals>
+  <string name="activity_tab_impact_all_time">모든 시간 영향력</string>
   <plurals name="activity_tab_impact_total_edits">
     <item quantity="other">총 편집 횟수</item>
   </plurals>
@@ -1180,19 +1180,31 @@
   <string name="activity_tab_impact_best_streak">최고 기록</string>
   <string name="activity_tab_impact_last_edited">최근 편집</string>
   <string name="activity_tab_impact_suggested_edits_title">최근 문서 편집 수 0회</string>
+  <string name="activity_tab_impact_suggested_edits_message">이번 달에는 편집을 하지 않으신 것 같네요. 관심 있는 주제를 편집하여 지식을 널리 퍼뜨려 주세요.</string>
   <string name="activity_tab_impact_suggested_edits_button">편집하기</string>
   <string name="activity_tab_impact_recent_activity">최근 활동 (지난 30일)</string>
   <plurals name="activity_tab_impact_recent_activity_edits">
     <item quantity="other">편집</item>
   </plurals>
+  <plurals name="activity_tab_impact_recent_activity_views">
+    <item quantity="other">내가 편집한 문서에 대한 조회수</item>
+  </plurals>
   <string name="activity_tab_customize_screen_time_spent_switch_title">읽기에 소요한 시간</string>
+  <string name="activity_tab_customize_screen_reading_insights_switch_title">분석 정보 읽기</string>
+  <string name="activity_tab_customize_screen_editing_insights_switch_title">분석 정보 편집</string>
+  <string name="activity_tab_customize_screen_impact_switch_title">모든 시간 영향력</string>
   <string name="activity_tab_customize_screen_games_switch_title">게임 통계</string>
   <string name="activity_tab_customize_screen_donations_switch_title">마지막 인앱 기부</string>
+  <string name="activity_tab_customize_screen_timeline_switch_title">활동 타임라인</string>
+  <string name="activity_tab_customize_screen_no_modules_message">활동 모듈이 꺼져 있습니다. 이 탭에서 업데이트를 보려면 &lt;a href=\"#\"&gt;활동 모듈을 켜세요&lt;/a&gt;.</string>
   <string name="activity_tab_timeline_today">오늘</string>
   <string name="activity_tab_timeline_yesterday">어제</string>
   <string name="activity_tab_timeline_empty_state_title">표시할 항목이 없습니다</string>
   <string name="activity_tab_timeline_view_changes_button">차이 보기</string>
   <string name="activity_tab_onboarding_reading_patterns_title">읽기 패턴</string>
+  <string name="activity_tab_onboarding_impact_title">영향 하이라이트</string>
+  <string name="activity_tab_onboarding_impact_message">여러분의 기여와 공유한 지식의 파급 효과에 대한 분석 정보를 발견하세요.</string>
+  <string name="edits_screen_what_is_title">위키백과 앱에서 편집 중</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -1436,7 +1448,7 @@
   <string name="revision_diff_protected">이 판의 변경사항은 비공개입니다.</string>
   <string name="revision_undo_title">정말 이 편집을 취소하시겠습니까?</string>
   <string name="revision_undo_message">편집 취소는 하나 이상의 편집을 되돌리는 것을 의미합니다.</string>
-  <string name="revision_undo_summary_hint">요약 (선택사항)</string>
+  <string name="revision_undo_summary_hint">요약 (선택 사항)</string>
   <string name="revision_undo_reason">되돌리는 이유 공유하기</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
   <string name="revision_rollback_dialog_title">이 편집을 일괄적으로 되돌리시겠습니까?</string>
@@ -1686,7 +1698,7 @@
   <string name="email_report_image_recommendations_subject">문제 보고 - 이미지 추천 기능</string>
   <string name="email_report_image_recommendations_body">이미지 추천 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="email_report_patroller_tasks_subject">문제 보고 - 편집 점검 기능</string>
-  <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다.\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
+  <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
   <string name="donation_campaign_maybe_later_snackbar">내일 다시 알려드리겠습니다.</string>
   <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 다른 자유 지식 프로젝트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
@@ -1697,6 +1709,7 @@
   <string name="donate_gpay_dialog_other_button">다른 결제 방법</string>
   <string name="donate_gpay_activity_title">금액 선택</string>
   <string name="donate_gpay_activity_title_with_currency">금액을 선택하세요 (%s)</string>
+  <string name="donate_gpay_check_transaction_fee">거래 수수료를 충당해 기부금을 100%% 받을 수 있게끔 %s 만큼 추가로 지불하겠습니다.</string>
   <string name="donate_gpay_check_recurring">월간 정기 기부로 설정해 보세요.</string>
   <string name="donate_gpay_check_send_email">네, 위키미디어 재단에서 가끔 이메일을 보내드릴 수 있게 됩니다.</string>
   <string name="donate_gpay_minimum_amount">금액을 선택해 주십시오 (최소 %s)</string>
@@ -1707,6 +1720,7 @@
   <string name="donate_gpay_help_faq">자주 묻는 질문</string>
   <string name="donate_gpay_help_tax">세금 공제 정보</string>
   <string name="donation_history_deleted_message_snackbar">기부 기록이 삭제되었습니다</string>
+  <string name="donation_history_no_history_message_snackbar">삭제할 기부 기록이 없습니다.</string>
   <string name="places_title">장소</string>
   <string name="places_permissions_denied">지도에서 내 위치를 보려면 위치 권한이 필요합니다. 다시 시도해 주십시오.</string>
   <string name="places_search_hint">장소 검색</string>
@@ -1743,7 +1757,9 @@
   <string name="on_this_day_game_entry_dialog_title">소개</string>
   <string name="on_this_day_game_entry_dialog_subtitle">위키백과 게임</string>
   <string name="on_this_day_game_entry_dialog_button">플레이</string>
+  <string name="on_this_day_game_title">어느 것이 먼저 일어났나요?</string>
   <string name="on_this_day_game_dialog_button">플레이</string>
+  <string name="on_this_day_game_splash_message">오늘 어떤 역사적 사건이 먼저 일어났는지 맞춰보세요.</string>
   <string name="on_this_day_game_progress">%2$d 중 %1$d</string>
   <string name="on_this_day_game_score">점수: %d</string>
   <string name="on_this_day_game_submit">제출</string>
@@ -1754,6 +1770,7 @@
   <string name="on_this_day_game_finish">최종 결과</string>
   <string name="on_this_day_game_share_button">점수 공유</string>
   <string name="on_this_day_game_feed_entry_card_heading">위키백과 게임</string>
+  <string name="on_this_day_game_feed_entry_card_title">어느 것이 먼저 일어났나요?</string>
   <string name="on_this_day_game_result">%2$d점 중 %1$d점을 받았습니다.</string>
   <string name="on_this_day_game_next_in">다음 게임 (%s)</string>
   <string name="on_this_day_game_your_stats">내 통계</string>
@@ -1800,6 +1817,7 @@
   <string name="year_in_review_heart_icon">하트 아이콘</string>
   <string name="year_in_review_donate">기부</string>
   <string name="year_in_review_information_icon">정보 아이콘</string>
+  <string name="year_in_review_get_started_bodytext">위키백과 앱에서 어떤 문서를 읽었는지, 어떤 편집을 했는지에 대한 분석 정보를 확인하세요.</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
   <string name="year_in_review_reading_list_survey_subtitle">읽기 목록에 만족하시나요?</string>
   <string name="year_in_review_survey_very_satisfied">매우 만족</string>
@@ -1822,6 +1840,9 @@
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
   <string name="year_in_review_slide_top_categories_headline">가장 흥미로운 분류</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
+  <plurals name="year_in_review_slide_bytes_added_headline">
+    <item quantity="other">%,d 바이트 추가됨</item>
+  </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_day">글 읽기 가장 좋은 날</string>
@@ -1834,11 +1855,23 @@
   <string name="year_in_review_slide_reading_pattern_late_night">늦은 밤</string>
   <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
+  <string name="year_in_review_highlights_thank_you_message">위키백과와 함께 한 해를 보내주셔서 감사합니다.</string>
+  <string name="year_in_review_highlights_looking_forward_message">내년이 기대됩니다!</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
+    <item quantity="other">앱에서 편집함</item>
+  </plurals>
+  <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">위키백과의 편집 주기</string>
+  <string name="year_in_review_highlights_logged_in_favorite_day_title">글 읽기 가장 좋은 날</string>
+  <string name="year_in_review_highlights_share_button_title">하이라이트 공유</string>
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
+  <string name="recommended_reading_list_title">발견</string>
   <string name="recommended_reading_list_onboarding_card_new">새로운!</string>
   <string name="recommended_reading_list_onboarding_card_positive_button">시작하기</string>
   <string name="recommended_reading_list_onboarding_card_negative_button">괜찮습니다</string>
   <string name="recommended_reading_list_interest_pick_search_hint">문서 검색</string>
+  <plurals name="recommended_reading_list_interest_pick_selected_articles">
+    <item quantity="other">%d개 선택됨</item>
+  </plurals>
   <string name="recommended_reading_list_interest_pick_random_button_content_description">무작위로 선택</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar">여러분을 위해 무작위로 몇 가지 문서를 골랐습니다.</string>
   <string name="recommended_reading_list_interest_pick_random_snackbar_action">실행 취소</string>
@@ -1848,12 +1881,19 @@
   </plurals>
   <string name="recommended_reading_list_page_overflow_customize">사용자 지정</string>
   <string name="recommended_reading_list_page_overflow_about">이 기능 정보</string>
+  <string name="recommended_reading_list_page_snackbar_action">발견 맞춤 설정</string>
   <string name="recommended_reading_list_page_snackbar_day">일</string>
   <string name="recommended_reading_list_page_snackbar_week">주</string>
   <string name="recommended_reading_list_page_snackbar_month">월</string>
   <string name="recommended_reading_list_settings_section_header">권장</string>
-  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">끔</string>
+  <string name="recommended_reading_list_settings_title">발견 설정</string>
+  <string name="recommended_reading_list_settings_toggle">읽기 목록 발견하기</string>
+  <string name="recommended_reading_list_settings_toggle_disable_message">발견이 꺼져 있습니다. 위키백과가 읽을만한 글을 추천하지 않습니다.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_title">발견을 끄시겠습니까?</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_message">발견을 끄면 위키백과에서 %s 읽기 추천을 더 이상 받지 못하게 됩니다.</string>
+  <string name="recommended_reading_list_settings_turn_off_dialog_positive_button">끕니다</string>
   <string name="recommended_reading_list_settings_turn_off_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
+  <string name="recommended_reading_list_settings_turn_off_snackbar">발견이 꺼져 있습니다. 설정에서 언제든지 다시 켤 수 있습니다.</string>
   <string name="recommended_reading_list_settings_articles">문서</string>
   <string name="recommended_reading_list_settings_updates_frequency">%s 업데이트</string>
   <string name="recommended_reading_list_settings_updates_frequency_daily">매일</string>
@@ -1862,6 +1902,17 @@
   <string name="recommended_reading_list_settings_updates_frequency_dialog_daily">매일</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_weekly">매주</string>
   <string name="recommended_reading_list_settings_updates_frequency_dialog_monthly">매달</string>
+  <string name="recommended_reading_list_settings_updates_base_title">발견이 생성되는 방법</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_interests">관심사에 기반해</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_saved">저장한 문서에 기반해</string>
+  <string name="recommended_reading_list_settings_updates_base_subtitle_history">열람 기록에 기반해</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_title">발견이 생성되는 방법을 조정하시겠습니까?</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_message">발견이 추천을 생성하는 방식을 변경하면 현재의 추천 내용이 변경됩니다.</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_positive_button">조정</string>
+  <string name="recommended_reading_list_settings_updates_base_dialog_negative_button">괜찮습니다</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_interests">이제 추천은 관심사에 기반합니다.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_saved">이제 추천은 저장한 문서에 기반합니다.</string>
+  <string name="recommended_reading_list_settings_updates_base_snackbar_history">이제 추천은 열람 기록에 기반합니다.</string>
   <string name="recommended_reading_list_settings_updates_base_snackbar_action">실행 취소</string>
   <string name="recommended_reading_list_settings_interests">관심 분야</string>
   <string name="recommended_reading_list_settings_notifications_title">알림</string>
@@ -1878,6 +1929,8 @@
   <string name="donation_reminders_settings_no_thanks_btn_label">괜찮습니다</string>
   <string name="donation_reminders_settings_learn_more_button">더 알아보기</string>
   <string name="donation_reminders_settings_report_button">기능에 문제가 있습니다</string>
+  <string name="donation_reminders_settings_report_email_subject">문제 보고 - 기부 알림</string>
+  <string name="donation_reminders_settings_report_email_body">기부 알림 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n- [스크린샷 또는 링크]\n\n원하던 동작은 다음과 같습니다:\n- [해결책 제안 설명]</string>
   <string name="donation_reminders_snackbar_modify_button_label">수정</string>
   <string name="hybrid_search_search_hint">무엇이든 검색하거나 질문하세요</string>
   <string name="hybrid_search_article_search_hint">%s에 관해 물어보기</string>
@@ -1886,18 +1939,38 @@
   <string name="hybrid_search_onboarding_opt_in_choice_title">베타 기능</string>
   <string name="hybrid_search_beta_tag">베타</string>
   <string name="hybrid_search_experimental_feature_switch_label">실험에 참가</string>
+  <string name="hybrid_search_onboarding_search_example_query_first_olympics">첫 올림픽</string>
   <string name="hybrid_search_onboarding_search_example_query_rna_vs_dna">RNA 대 DNA</string>
   <string name="hybrid_search_results_rate_label">이 결과 평가하기</string>
+  <string name="hybrid_search_results_rated_label">평가됨</string>
   <string name="hybrid_search_no_results_header">결과 없음</string>
   <string name="hybrid_search_turn_off_experiment_label">이 실험 기능 끄기</string>
+  <string name="reading_challenge_onboarding_win_title">우승 상품</string>
   <string name="reading_challenge_onboarding_install_title">위젯 설치하기</string>
   <string name="reading_challenge_onboarding_learn_more_button">더 알아보기</string>
+  <string name="reading_challenge_onboarding_join_button">도전에 참여하기</string>
+  <string name="reading_challenge_onboarding_prompt_title">도전에 참여하기 위해 로그인하기</string>
   <string name="reading_challenge_onboarding_prompt_no_thanks">괜찮습니다</string>
   <string name="reading_challenge_onboarding_prompt_login">위키백과에 로그인 / 가입</string>
   <string name="reading_challenge_install_prompt_got_it">알겠습니다</string>
   <string name="reading_challenge_install_prompt_add">추가</string>
   <string name="reading_challenge_widget_explore_button">둘러보기</string>
   <string name="reading_challenge_widget_explore_wikipedia_button">위키백과 둘러보기</string>
+  <string name="reading_challenge_widget_join_challenge_button">도전 참여</string>
+  <string name="reading_challenge_widget_join_the_challenge_button">도전에 참여하기</string>
   <string name="reading_challenge_widget_search_button">검색</string>
+  <string name="reading_challenge_widget_collect_prize_button">상품을 수령</string>
+  <string name="reading_challenge_widget_collect_your_prize_button">상품을 수령하세요!</string>
+  <string name="reading_challenge_widget_not_live_title">읽을 준비를 하세요</string>
+  <string name="reading_challenge_widget_not_opted_in_title">준비하시고, 읽으세요!</string>
+  <plurals name="reading_challenge_small_widget_streak">
+    <item quantity="other">%d일</item>
+  </plurals>
+  <plurals name="reading_challenge_small_widget_streak_final">
+    <item quantity="other">%1$d개 중 %2$d개</item>
+  </plurals>
+  <string name="reading_challenge_streak_ongoing_title">25일 읽기 도전</string>
+  <string name="reading_challenge_widget_enrolled_not_started_title">준비하시고, 읽으세요!</string>
+  <string name="reading_challenge_widget_concluded_incomplete">도전 종료됨</string>
   <string name="reading_challenge_widget_concluded_complete">해냈습니다!</string>
 </resources>

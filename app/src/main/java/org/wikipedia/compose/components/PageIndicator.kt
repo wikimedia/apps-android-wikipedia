@@ -29,7 +29,7 @@ fun PageIndicator(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     animationDuration: Int = 500,
-    indicatorSpacing: Dp = 8.dp
+    indicatorSpacing: Dp = 12.dp
 ) {
     Row(
         modifier = modifier,
@@ -67,9 +67,9 @@ fun PageIndicator(
 
 private fun paginationSizeGradient(totalIndicators: Int, iteration: Int, pagerState: PagerState): Int {
     return when {
-        totalIndicators <= 3 -> 8
-        (iteration - pagerState.currentPage).absoluteValue <= 2 -> 8
-        (iteration - pagerState.currentPage).absoluteValue == 3 -> 4
+        totalIndicators <= 5 -> 8
+        (iteration - pagerState.currentPage).absoluteValue <= 4 -> 8
+        (iteration - pagerState.currentPage).absoluteValue == 5 -> 4
         else -> 2
     }
 }
@@ -81,7 +81,7 @@ private fun PageIndicatorPreview() {
         currentTheme = Theme.LIGHT
     ) {
         PageIndicator(
-            pagerState = rememberPagerState(pageCount = { 3 })
+            pagerState = rememberPagerState(pageCount = { 8 })
         )
     }
 }

@@ -10,8 +10,10 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
+import androidx.glance.action.Action
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.color.ColorProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -52,8 +54,8 @@ fun ReadingChallengeLargeWidgetContent(
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<ChallengeRewardAction>()),
+                    .fillMaxSize(),
+                clickAction = actionRunCallback<ChallengeRewardAction>(),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_complete),
@@ -83,8 +85,8 @@ fun ReadingChallengeLargeWidgetContent(
                 ReadingChallengeWidgetRepository.READING_STREAK_GOAL, state.streak, ReadingChallengeWidgetRepository.READING_STREAK_GOAL)
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .fillMaxSize(),
+                clickAction = actionRunCallback<HomeAction>(),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
@@ -105,8 +107,8 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.ChallengeConcludedNoStreak, ReadingChallengeState.ChallengeRemoved -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .fillMaxSize(),
+                clickAction = actionRunCallback<HomeAction>(),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_concluded_incomplete),
@@ -127,8 +129,8 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotEnrolled -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .fillMaxSize(),
+                clickAction = actionRunCallback<JoinChallengeAction>(),
                 backgroundColor = WidgetColors.joinChallengeBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_opted_in_title),
@@ -145,8 +147,8 @@ fun ReadingChallengeLargeWidgetContent(
         ReadingChallengeState.NotLiveYet -> {
             GeneralLargeWidget(
                 modifier = GlanceModifier
-                    .fillMaxSize()
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .fillMaxSize(),
+                clickAction = actionRunCallback<HomeAction>(),
                 backgroundColor = WidgetColors.challengeNotLiveBackground,
                 textColor = WidgetColors.primary,
                 title = context.getString(R.string.reading_challenge_widget_not_live_title),
@@ -165,8 +167,8 @@ fun ReadingChallengeLargeWidgetContent(
             StreakOngoingNeedsReadingLargeWidget(
                 modifier = GlanceModifier
                     .fillMaxSize()
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .clickable(onClick = actionRunCallback<HomeAction>()),
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                clickAction = actionRunCallback<HomeAction>(),
                 reminderTextResId = combination.titleResId ?: R.string.reading_challenge_widget_reminder_dont_let_today_drift,
                 backgroundColor = combination.backgroundColor,
                 contentColor = combination.contentColor,
@@ -214,13 +216,12 @@ fun StreakOngoingLargeWidget(
             Column(modifier = GlanceModifier.fillMaxSize()) {
                 // Top Row: Trophy, Title, W logo
                 Row(
-                    modifier = GlanceModifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier = GlanceModifier.fillMaxWidth()
                 ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_trophy24dp),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(24.dp),
+                        modifier = GlanceModifier.size(size.trophyIconSize),
                         colorFilter = ColorFilter.tint(ColorProvider(day = contentColor, night = contentColor))
                     )
 
@@ -228,14 +229,15 @@ fun StreakOngoingLargeWidget(
 
                     Text(
                         text = context.getString(R.string.reading_challenge_streak_ongoing_title),
+                        modifier = GlanceModifier.defaultWeight(),
                         style = TextStyle(
                             color = ColorProvider(day = contentColor, night = contentColor),
-                            fontSize = 16.sp,
+                            fontSize = size.titleBarTextSize,
                             fontWeight = FontWeight.Medium
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Spacer(modifier = GlanceModifier.width(12.dp))
 
                     // W logo (Placeholder)
                     Image(
@@ -274,7 +276,9 @@ fun StreakOngoingLargeWidget(
 
             // Mascot overlay positioned absolutely inside the Box bounds
             Box(
-                modifier = GlanceModifier.fillMaxSize(),
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .padding(end = 24.dp, bottom = 32.dp),
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Image(
@@ -282,7 +286,6 @@ fun StreakOngoingLargeWidget(
                     contentDescription = null,
                     modifier = GlanceModifier
                         .size(size.overlayMascotSize)
-                        .padding(end = 24.dp, bottom = 32.dp)
                 )
             }
         }
@@ -291,75 +294,95 @@ fun StreakOngoingLargeWidget(
 
 @Composable
 fun StreakOngoingNeedsReadingLargeWidget(
+    modifier: GlanceModifier = GlanceModifier,
+    clickAction: Action,
     state: ReadingChallengeState.StreakOngoingNeedsReading,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
     reminderTextResId: Int,
     backgroundColor: Color,
     mascotImageResId: Int,
-    modifier: GlanceModifier = GlanceModifier,
     contentColor: Color
 ) {
     val context = LocalContext.current
     val streakText = context.resources.getQuantityString(R.plurals.reading_challenge_small_widget_streak, state.streak, state.streak)
     val reminderText = context.getString(reminderTextResId)
 
-    val size = LargeWidgetSize.from(LocalSize.current)
-
+    val widgetDimension = LocalSize.current
+    val size = LargeWidgetSize.from(widgetDimension)
     BaseWidgetContent(
         color = backgroundColor
     ) {
         Column (
             modifier = modifier
+                .clickable(clickAction)
         ) {
             Row (
                 modifier = GlanceModifier
                     .defaultWeight()
                     .fillMaxWidth()
             ) {
-                Column(
+                LazyColumn(
                     modifier = GlanceModifier
                         .defaultWeight()
                 ) {
-                    WidgetBadge(
-                        text = streakText,
-                        textSize = size.streakBadgeTextSize,
-                        iconResId = R.drawable.ic_flame_24dp,
-                        iconSize = size.streakBadgeIconSize,
-                        iconTintColor = contentColor,
-                        textColor = contentColor
-                    )
-                    Text(
-                        text = reminderText,
-                        style = TextStyle(
-                            fontSize = size.subtitleTextSize,
-                            color = ColorProvider(day = contentColor, night = contentColor),
-                            fontWeight = FontWeight.Medium,
+                    item {
+                        WidgetBadge(
+                            modifier = GlanceModifier
+                                .clickable(
+                                    onClick = clickAction,
+                                    rippleOverride = android.R.color.transparent
+                                ),
+                            text = streakText,
+                            textSize = size.streakBadgeTextSize,
+                            iconResId = R.drawable.ic_streak_warning,
+                            iconSize = size.streakBadgeIconSize,
+                            textColor = contentColor
                         )
-                    )
+                    }
+                    item {
+                        Text(
+                            modifier = GlanceModifier
+                                .clickable(
+                                    onClick = clickAction,
+                                    rippleOverride = android.R.color.transparent
+                                ),
+                            text = reminderText,
+                            style = TextStyle(
+                                fontSize = size.subtitleTextSize,
+                                color = ColorProvider(day = contentColor, night = contentColor),
+                                fontWeight = FontWeight.Medium,
+                            )
+                        )
+                    }
                 }
+                Spacer(modifier = GlanceModifier.width(12.dp))
+                val mascotImageSize = minOf(size.sideMascotSize, widgetDimension.height - size.titleBarIconSize)
 
                 Column(
                     modifier = GlanceModifier
-                        .defaultWeight()
+                        .width(mascotImageSize + size.rightColumnExtraSpace)
                         .fillMaxHeight(),
                     horizontalAlignment = Alignment.End
                 ) {
                     Image(
                         provider = ImageProvider(titleBarIcon),
                         contentDescription = null,
-                        modifier = GlanceModifier.size(36.dp)
+                        modifier = GlanceModifier.size(size.titleBarIconSize)
                     )
-                    Spacer(modifier = GlanceModifier.defaultWeight())
-                    Image(
-                        provider = ImageProvider(mascotImageResId),
-                        contentDescription = null,
-                        modifier = GlanceModifier
-                            .size(size.sideMascotSize)
-                    )
-                    Spacer(modifier = GlanceModifier.size(24.dp))
+                    Box(
+                        modifier = GlanceModifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            provider = ImageProvider(mascotImageResId),
+                            contentDescription = null,
+                            modifier = GlanceModifier
+                                .size(mascotImageSize)
+                        )
+                    }
                 }
             }
-
+            Spacer(modifier = GlanceModifier.height(2.dp))
             Row(
                 modifier = GlanceModifier
                     .fillMaxWidth()
@@ -399,8 +422,8 @@ fun EnrolledNotStartedLargeWidget(
     val subtitle = context.getString(subtitleReId)
 
     GeneralLargeWidget(
-        modifier = GlanceModifier
-            .clickable(onClick = actionRunCallback<HomeAction>()),
+        modifier = GlanceModifier,
+        clickAction = actionRunCallback<HomeAction>(),
         textColor = contentColor,
         backgroundColor = backgroundColor,
         titleBarIcon = titleBarIcon,
@@ -430,6 +453,7 @@ fun EnrolledNotStartedLargeWidget(
 @Composable
 fun GeneralLargeWidget(
     modifier: GlanceModifier = GlanceModifier,
+    clickAction: Action,
     textColor: Color,
     backgroundColor: Color,
     titleBarIcon: Int = R.drawable.ic_w_logo_shadow,
@@ -440,25 +464,34 @@ fun GeneralLargeWidget(
     subTitleContent: @Composable () -> Unit = { },
     bottomContent: @Composable () -> Unit = { }
 ) {
-    val size = LargeWidgetSize.from(LocalSize.current)
+    val widgetDimension = LocalSize.current
+    val size = LargeWidgetSize.from(widgetDimension)
     BaseWidgetContent(
         color = backgroundColor
     ) {
-        Box(
+        Column(
             modifier = modifier
+                .clickable(clickAction)
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 12.dp)
         ) {
-            // Layer 1: text column + bottom content (left-aligned, doesn't fight mascot)
-            Column(
-                modifier = GlanceModifier.fillMaxSize()
-            ) {
-                Row(modifier = GlanceModifier
+            Row(
+                modifier = GlanceModifier
                     .defaultWeight()
                     .fillMaxWidth()
+            ) {
+                // Left column: title, optional subtitle content, optional subtitle
+                LazyColumn(
+                    modifier = GlanceModifier
+                        .defaultWeight()
                 ) {
-                    Column(modifier = GlanceModifier.defaultWeight()) {
+                    item {
                         Text(
+                            modifier = GlanceModifier
+                                .clickable(
+                                    onClick = clickAction,
+                                    rippleOverride = android.R.color.transparent
+                                ),
                             text = title,
                             style = TextStyle(
                                 fontSize = size.titleTextSize,
@@ -466,10 +499,17 @@ fun GeneralLargeWidget(
                                 fontWeight = FontWeight.Medium,
                             )
                         )
-                        subTitleContent()
-                        Spacer(modifier = GlanceModifier.height(8.dp))
-                        subTitle?.let {
+                    }
+                    item { subTitleContent() }
+                    item { Spacer(modifier = GlanceModifier.height(8.dp)) }
+                    subTitle?.let {
+                        item {
                             Text(
+                                modifier = GlanceModifier
+                                    .clickable(
+                                        onClick = clickAction,
+                                        rippleOverride = android.R.color.transparent
+                                    ),
                                 text = it,
                                 style = TextStyle(
                                     fontSize = size.subtitleTextSize,
@@ -479,36 +519,42 @@ fun GeneralLargeWidget(
                             )
                         }
                     }
-                    // Empty spacer column — Reserve for the mascot layer
-                    Spacer(modifier = GlanceModifier.defaultWeight())
                 }
-                bottomContent()
-            }
-            // Layer 2: W-logo (top-right)
-            Box(
-                modifier = GlanceModifier.fillMaxSize(),
-                contentAlignment = Alignment.TopEnd
-            ) {
-                Image(
-                    provider = ImageProvider(titleBarIcon),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(size.titleBarIconSize)
-                )
-            }
+                Spacer(modifier = GlanceModifier.width(12.dp))
+                // Right column: W logo pinned top-right, mascot centered below
+                val mascotImageSize = if (expandMascot) {
+                    minOf(size.expandedMascotSize, widgetDimension.height - size.titleBarIconSize)
+                } else {
+                    minOf(size.sideMascotSize, widgetDimension.height - size.titleBarIconSize)
+                }
 
-            // Layer 3: mascot (right side, vertically centered or bottom-aligned)
-            Box(
-                modifier = GlanceModifier
-                    .fillMaxSize()
-                    .padding(end = 8.dp),
-                contentAlignment = Alignment.CenterEnd
-            ) {
-                Image(
-                    provider = ImageProvider(mainImageResId),
-                    contentDescription = null,
-                    modifier = GlanceModifier.size(if (expandMascot) size.expandedMascotSize else size.sideMascotSize)
-                )
+                Column(
+                    modifier = GlanceModifier
+                        .width(mascotImageSize + size.rightColumnExtraSpace)
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Image(
+                        provider = ImageProvider(titleBarIcon),
+                        contentDescription = null,
+                        modifier = GlanceModifier.size(size.titleBarIconSize)
+                    )
+
+                    Box(
+                        modifier = GlanceModifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Image(
+                            provider = ImageProvider(mainImageResId),
+                            contentDescription = null,
+                            modifier = GlanceModifier.size(mascotImageSize)
+                        )
+                    }
+                }
             }
+            Spacer(modifier = GlanceModifier.height(2.dp))
+            // Bottom row: optional CTA / additional content (e.g. "Join the challenge" button)
+            bottomContent()
         }
     }
 }
@@ -531,7 +577,7 @@ fun LoadingFullPreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotEnrolledLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -547,7 +593,7 @@ fun NotEnrolledLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun NotLiveYetLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -563,7 +609,7 @@ fun NotLiveYetLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun EnrolledNotStartedLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -579,7 +625,7 @@ fun EnrolledNotStartedLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun StreakOngoingReadTodayLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -590,12 +636,14 @@ fun StreakOngoingReadTodayLargePreview() {
 
 // StreakOngoingNeedsReading: badge + reminder + side mascot + two buttons
 @OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 368, heightDp = 123)
 @Preview(widthDp = 320, heightDp = 130) // launcher placed below declared minHeight (rare)
 @Preview(widthDp = 320, heightDp = 156) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 224) // COMPACT
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun StreakOngoingNeedsReadingLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -611,7 +659,7 @@ fun StreakOngoingNeedsReadingLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeCompletedLargePreview() {
     ReadingChallengeLargeWidgetContent(
@@ -627,11 +675,27 @@ fun ChallengeCompletedLargePreview() {
 @Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
 @Preview(widthDp = 340, heightDp = 200) // COMPACT
 @Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
-@Preview(widthDp = 368, heightDp = 224) // FULL
+@Preview(widthDp = 368, heightDp = 234) // FULL
 @Composable
 fun ChallengeConcludedIncompleteLargePreview() {
     ReadingChallengeLargeWidgetContent(
         state = ReadingChallengeState.ChallengeConcludedIncomplete(streak = 12),
+        enrollmentDate = LocalDate.now()
+    )
+}
+
+// ChallengeConcludedIncomplete: button-with-icon + expanded mascot
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview(widthDp = 320, heightDp = 130) // launcher placed below declared minHeight (rare)
+@Preview(widthDp = 320, heightDp = 156) // EXTRA_COMPACT worst-case
+@Preview(widthDp = 330, heightDp = 176) // EXTRA_COMPACT worst-case
+@Preview(widthDp = 340, heightDp = 200) // COMPACT
+@Preview(widthDp = 368, heightDp = 184) // COMPACT, wider
+@Preview(widthDp = 368, heightDp = 234) // FULL
+@Composable
+fun ChallengeConcludedNoStreakLargePreview() {
+    ReadingChallengeLargeWidgetContent(
+        state = ReadingChallengeState.ChallengeConcludedNoStreak,
         enrollmentDate = LocalDate.now()
     )
 }
