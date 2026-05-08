@@ -39,7 +39,6 @@ import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
 enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L

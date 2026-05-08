@@ -5,10 +5,10 @@ import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.settings.homefeed.CommunityModules
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
