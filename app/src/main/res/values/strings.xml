@@ -403,7 +403,7 @@
     <string name="preference_title_customize_home_feed">Home feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
-    <string name="preference_summary_customize_home_feed">Customize the Home feed</string>
+    <string name="preference_summary_customize_home_feed">Customize your Home feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
@@ -2503,4 +2503,12 @@
     <string name="explore_feed_header_overflow_hide_module_message_action">Undo</string>
     <string name="explore_feed_personalized_preference_empty_state_text">You need to add interests to see personalized content recommendations. You can do this in the previous steps or later in Settings.</string>
     <string name="explore_feed_because_you_read">Because you read: %s</string>
+    <string name="home_feed_settings_title">Customize the Home feed</string>
+    <string name="home_feed_settings_for_you_title">For you</string>
+    <string name="home_feed_settings_community_title">Community</string>
+    <string name="home_feed_settings_whats_driving_title">What\'s driving your feed</string>
+    <string name="home_feed_settings_modules_title">Modules</string>
+    <string name="home_feed_settings_community_subtitle">Turn on or off Community feed sections</string>
+    <string name="home_feed_settings_for_you_subtitle">Turn on or off For You feed sections</string>
+    <string name="home_feed_settings_whats_driving_subtitle">Topics and articles shaping your content</string>
 </resources>
