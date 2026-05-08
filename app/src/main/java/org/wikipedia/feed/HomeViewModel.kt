@@ -176,6 +176,11 @@ class HomeViewModel : ViewModel() {
             !_forYouState.value.isInitialLoading
         ) {
             loadForYouContent()
+        } else if (tab == HomeTab.COMMUNITY &&
+            _communityState.value.cards.isEmpty() &&
+            !_communityState.value.isInitialLoading
+        ) {
+            loadCommunityContent()
         }
     }
 
