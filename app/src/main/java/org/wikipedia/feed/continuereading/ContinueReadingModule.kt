@@ -25,6 +25,8 @@ fun ContinueReadingModule(
     wikiSite: WikiSite,
     module: ForYouModule.ContinueReading,
     onPageClick: (item: HistoryEntry) -> Unit = {},
+    onShareClick: (entry: HistoryEntry) -> Unit = {},
+    onSaveClick: (entry: HistoryEntry) -> Unit = {},
     onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
@@ -49,6 +51,8 @@ fun ContinueReadingModule(
             footerIcon = painterResource(if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
             footerText = context.getString(wikiSite.languageCode, if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
             onPageClick = onPageClick,
+            onShareClick = onShareClick,
+            onSaveClick = onSaveClick,
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick

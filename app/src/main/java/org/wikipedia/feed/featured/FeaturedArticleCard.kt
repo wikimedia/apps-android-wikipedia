@@ -5,6 +5,7 @@ import androidx.core.net.toUri
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.feed.CommunityModules
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.history.HistoryEntry
@@ -15,6 +16,10 @@ open class FeaturedArticleCard(
     val page: PageSummary,
     val age: Int, wiki: WikiSite,
 ) : WikiSiteCard(wiki) {
+
+    override fun moduleKey(): String {
+        return CommunityModules.FEATURED_ARTICLE.name
+    }
 
     override fun title(): String {
         return L10nUtil.getString(wikiSite().languageCode, R.string.view_featured_article_card_title)

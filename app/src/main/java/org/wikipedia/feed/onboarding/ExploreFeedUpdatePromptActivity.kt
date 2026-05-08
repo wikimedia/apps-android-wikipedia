@@ -66,6 +66,7 @@ class ExploreFeedUpdatePromptActivity : BaseActivity() {
             .startFunnel("feed_announce")
 
         Prefs.isExploreFeedUpdatePromptShown = true
+        setResult(RESULT_OK)
         setContent {
             BaseTheme {
                 ExploreFeedUpdatePromptScreen(

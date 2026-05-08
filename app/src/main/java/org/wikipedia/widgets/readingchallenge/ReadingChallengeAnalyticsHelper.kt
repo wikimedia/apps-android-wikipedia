@@ -14,6 +14,7 @@ object ReadingChallengeAnalyticsHelper {
             ReadingChallengeState.NotEnrolled -> logHeartbeat(elementId = "not_enrolled")
             ReadingChallengeState.NotLiveYet -> logHeartbeat(elementId = "not_yet_live")
             ReadingChallengeState.EnrolledNotStarted -> logHeartbeat(elementId = "enrolled_not_started")
+            ReadingChallengeState.ChallengeRemoved -> logHeartbeat(elementId = "challenge_removed", includeStreak = true)
             else -> {}
         }
     }
