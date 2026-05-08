@@ -1,11 +1,13 @@
 package org.wikipedia.feed
 
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.compose.LocalActivity
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -102,6 +104,7 @@ import org.wikipedia.feed.onthisday.OnThisDayActivity
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.onthisday.OnThisDayModule
 import org.wikipedia.feed.personalization.PersonalizationActivity
+import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadArticlesActivity
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.topread.TopReadModule
@@ -125,6 +128,13 @@ class HomeFragment : Fragment() {
     private val pageOverflowMenuViewModel: PageOverflowMenuViewModel by viewModels()
     private val cardImpressions = mutableSetOf<String>()
     private val instrument = TestKitchenAdapter.client.getInstrument("apps-home-feed")
+
+    private val personalizationResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            viewModel.selectTab(if (Prefs.homePreferenceSelection == HomePreferenceType.PERSONALIZED) HomeTab.FOR_YOU else HomeTab.COMMUNITY)
+            (requireActivity() as? MainActivity)?.onTabChanged(NavTab.HOME)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -284,7 +294,7 @@ class HomeFragment : Fragment() {
 
     private fun maybeShowExploreFeedUpdatePrompt() {
         if (!Prefs.isInitialOnboardingEnabled && Prefs.isExploreFeedUpdatePromptShown.not()) {
-            startActivity(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
+            personalizationResultLauncher.launch(ExploreFeedUpdatePromptActivity.newIntent(requireContext()))
         }
     }
 

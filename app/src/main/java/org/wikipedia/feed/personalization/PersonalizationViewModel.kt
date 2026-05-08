@@ -24,6 +24,7 @@ import org.wikipedia.feed.personalization.interest.InterestSelectionRepository
 import org.wikipedia.feed.personalization.interest.InterestUiState
 import org.wikipedia.feed.personalization.interest.OnboardingTopic
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.log.L
 
@@ -42,7 +43,7 @@ private data class PersonalizedViewModelState(
     val selectedTopics: List<OnboardingTopic> = emptyList(),
     val topicPreviewContent: Map<String, List<HomePreferenceContent>> = emptyMap(),
     // Feed preference screen properties
-    val homePreferenceType: HomePreferenceType = HomePreferenceType.COMMUNITY,
+    val homePreferenceType: HomePreferenceType = Prefs.homePreferenceSelection,
     val communityContent: List<HomePreferenceContent> = emptyList(),
     val communityLoading: Boolean = false,
     val communityError: Throwable? = null,
