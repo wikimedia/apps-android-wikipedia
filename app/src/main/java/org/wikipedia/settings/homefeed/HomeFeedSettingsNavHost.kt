@@ -44,7 +44,7 @@ fun HomeFeedSettingsNavHost(
         }
 
         composable<HomeFeedSettingsDestination.WhatsDrivingFeedModules> {
-            WhatsDrivingFeedModulesScreen(
+            FeedConfigurationScreen(
                 onBack = { navController.navigateUp() }
             )
         }

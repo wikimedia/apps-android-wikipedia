@@ -14,7 +14,7 @@ import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.WikipediaTheme
 
 @Composable
-fun WhatsDrivingFeedModulesScreen(
+fun FeedConfigurationScreen(
     onBack: () -> Unit,
 ) {
     Scaffold(
