@@ -20,19 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.compose.components.SettingsRow
 import org.wikipedia.compose.components.WikiTopAppBar
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.theme.Theme
 
 enum class CommunityModules(
@@ -63,7 +56,7 @@ enum class CommunityModules(
 
 @Composable
 fun CommunityModulesScreen(
-    viewModel: CommunityModulesViewModel = viewModel(),
+    viewModel: ModulesViewModel = viewModel(),
     onBack: () -> Unit,
 ) {
     val hiddenModules by viewModel.hiddenModules.collectAsState()
@@ -71,7 +64,7 @@ fun CommunityModulesScreen(
         CommunityModulesContent(
             hiddenModules = it,
             onToggle = { module, isVisible ->
-                viewModel.toggleModuleVisibility(module, isVisible)
+                viewModel.toggleCommunityModuleVisibility(module, isVisible)
             },
             onBack = onBack
         )
@@ -129,25 +122,6 @@ fun CommunityModulesContent(
                         )
                     }
                 )
-            }
-        }
-    }
-}
-
-class CommunityModulesViewModel : ViewModel() {
-    val hiddenModules: StateFlow<Set<String>?> = SettingsRepository.hiddenModules
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = null
-        )
-
-    fun toggleModuleVisibility(modules: CommunityModules, isVisible: Boolean) {
-        viewModelScope.launch {
-            if (isVisible) {
-                SettingsRepository.removeHiddenModule(modules.name)
-            } else {
-                SettingsRepository.addHiddenModule(modules.name)
             }
         }
     }

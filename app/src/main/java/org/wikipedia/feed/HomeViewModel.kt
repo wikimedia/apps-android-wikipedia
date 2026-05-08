@@ -33,13 +33,13 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
+import org.wikipedia.settings.homefeed.ForYouModules
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
-enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ }
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 
