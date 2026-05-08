@@ -354,8 +354,12 @@ class HomeViewModel : ViewModel() {
         val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90", limit = 10, sort = "random")
-                .query?.pages?.sortedBy { it.index }?.map { page ->
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95", limit = 20, sort = "random")
+                .query?.pages
+                ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
+                ?.sortedBy { it.index } // Sort by index, as reported by the API
+                ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
+                ?.map { page ->
                     val pageTitle = PageTitle(
                         text = page.title,
                         wiki = wikiSite.value,
