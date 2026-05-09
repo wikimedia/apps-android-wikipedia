@@ -35,6 +35,7 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
 
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/splash_background_color</item>
         <item name="android:windowBackground">?attr/border_color</item>
         <item name="android:colorBackground">?attr/background_color</item>
         <item name="android:textColorPrimary">?attr/primary_color</item>
