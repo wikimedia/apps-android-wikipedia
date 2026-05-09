@@ -19,8 +19,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
@@ -57,6 +59,26 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
         if (!DeviceUtil.assertAppContext(this)) {
             return
+        }
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
+            .setDefaultAction("app_open")
+
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource?
+        invokeSource?.let {
+            when (it) {
+                Constants.InvokeSource.WIDGET -> {
+                    instrument?.submitInteraction(actionSource = "widget")
+                }
+                Constants.InvokeSource.NOTIFICATION -> {
+                    instrument?.submitInteraction(actionSource = "notification")
+                }
+                else -> {
+                    // TODO: maybe for regular app open
+                }
+            }
+        } ?: run {
+            instrument?.submitInteraction(actionSource = "app_icon ")
         }
 
         disableFitsSystemWindows()
@@ -97,6 +119,11 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        instrument?.submitInteraction(actionSource = "background")
     }
 
     override fun createFragment(): MainFragment {
@@ -184,6 +211,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             // TODO: handle special cases of non-article content, e.g. shared reading lists.
             intent.data?.let {
                 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
+                    instrument?.submitInteraction(actionSource = "external_link")
                     // Pass it right along to PageActivity
                     val uri = it.toString().replace("wikipedia://", WikiSite.DEFAULT_SCHEME + "://").toUri()
                     startActivity(Intent(this, PageActivity::class.java)

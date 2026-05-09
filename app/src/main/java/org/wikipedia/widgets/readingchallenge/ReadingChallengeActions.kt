@@ -25,6 +25,7 @@ class JoinChallengeAction : ActionCallback {
         context.startActivity(
             MainActivity.newIntent(context)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.WIDGET)
                 .putExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_JOIN, true)
         )
     }
@@ -71,6 +72,7 @@ class ChallengeRewardAction : ActionCallback {
             MainActivity.newIntent(context)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 .putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.WIDGET)
                 .putExtra(ReadingChallengeWidgetRepository.INTENT_EXTRA_READING_CHALLENGE_REWARD, true)
         )
     }
@@ -86,6 +88,7 @@ class HomeAction : ActionCallback {
         context.startActivity(
             MainActivity.newIntent(context)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.WIDGET)
         )
     }
 }

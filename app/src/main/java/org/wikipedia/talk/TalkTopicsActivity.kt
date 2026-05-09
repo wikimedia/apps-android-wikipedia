@@ -23,10 +23,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -561,7 +563,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     companion object {
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
 
-        fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: InvokeSource): Intent {
+            if (invokeSource == InvokeSource.NOTIFICATION) {
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(actionSource = "notification")
+            }
             return Intent(context, TalkTopicsActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, pageTitle)
                 .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())

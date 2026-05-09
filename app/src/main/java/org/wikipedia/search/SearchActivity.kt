@@ -78,7 +78,10 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 Prefs.isHybridSearchOnboardingShown = true
                 return HybridSearchOnboardingActivity.newIntent(context, source)
             }
-
+            if (source == InvokeSource.WIDGET) {
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(actionSource = "widget")
+            }
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)

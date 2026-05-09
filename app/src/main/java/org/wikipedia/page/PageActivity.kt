@@ -41,6 +41,7 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.YearInReviewEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.concurrency.FlowEventBus
@@ -286,6 +287,11 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         if (languageChanged) {
             app.resetWikiSite()
             loadMainPage(TabPosition.EXISTING_TAB)
+        }
+
+        if (intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) == InvokeSource.WIDGET) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(actionSource = "widget")
         }
 
         if (savedInstanceState == null) {

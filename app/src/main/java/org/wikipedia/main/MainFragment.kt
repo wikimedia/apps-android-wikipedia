@@ -51,6 +51,7 @@ import org.wikipedia.events.ImportReadingListsEvent
 import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
+import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
@@ -345,11 +346,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     fun handleIntent(intent: Intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
+            requireActivity().instrument?.submitInteraction(actionSource = "shortcut", elementId = "randomizer")
             startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite, InvokeSource.APP_SHORTCUTS))
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
+            requireActivity().instrument?.submitInteraction(actionSource = "shortcut", elementId = "search")
             openSearchActivity(InvokeSource.APP_SHORTCUTS, null, null)
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
+            requireActivity().instrument?.submitInteraction(actionSource = "shortcut", elementId = "continue_reading")
             startActivity(PageActivity.newIntent(requireActivity()))
+            requireActivity().instrument?.submitInteraction(actionSource = "shortcut", elementId = "places")
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_PLACES)) {
             startActivity(PlacesActivity.newIntent(requireActivity()))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
