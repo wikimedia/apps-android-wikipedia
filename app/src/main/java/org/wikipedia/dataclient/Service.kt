@@ -264,7 +264,7 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle&pilicense=any")
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info|pageviews&pvipdays=$GEO_SEARCH_PAGE_VIEWS_DAYS&inprop=varianttitles|displaytitle&pilicense=any")
     suspend fun getGeoSearch(
         @Query("ggscoord", encoded = true) coordinates: String,
         @Query("ggsradius") radius: Int,
@@ -752,6 +752,8 @@ interface Service {
         const val URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/"
         const val MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&"
         const val PREFERRED_THUMB_SIZE = 330
+        // Days of pageview history fetched per page; summed as a popularity score in Places.
+        const val GEO_SEARCH_PAGE_VIEWS_DAYS = 30
 
         // Maximum cache time for site-specific data, and other things not likely to change very often.
         const val SITE_INFO_MAXAGE = 86400

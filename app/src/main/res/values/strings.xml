@@ -1867,6 +1867,9 @@
     <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
+    <string name="places_sort_distance">Distance</string>
+    <string name="places_sort_popularity">Popularity</string>
+    <string name="places_sort_button_description">Sort nearby places</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <string name="places_card_title">Places nearby</string>
     <string name="places_card_action">More places nearby</string>

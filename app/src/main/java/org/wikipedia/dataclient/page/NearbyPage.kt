@@ -10,6 +10,7 @@ class NearbyPage(
     val pageTitle: PageTitle,
     val latitude: Double,
     val longitude: Double,
+    val pageViews: Long = 0L,
     var annotation: Symbol? = null,
     var bitmap: Bitmap? = null
 ) {
