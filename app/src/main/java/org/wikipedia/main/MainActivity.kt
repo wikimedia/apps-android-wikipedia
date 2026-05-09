@@ -20,6 +20,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
+import org.wikipedia.appshortcuts.AppShortcuts.Companion.APP_SHORTCUT_ID
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.instrument
@@ -64,6 +65,9 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
             .setDefaultAction("app_open")
 
+        intent.getStringExtra(APP_SHORTCUT_ID)?.let {
+            instrument?.submitInteraction(actionSource = "shortcut", actionSubtype = it)
+        }
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource?
         invokeSource?.let {
             when (it) {
@@ -73,15 +77,12 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                 Constants.InvokeSource.NOTIFICATION -> {
                     instrument?.submitInteraction(actionSource = "notification")
                 }
-                Constants.InvokeSource.APP_SHORTCUTS -> {
-                    instrument?.submitInteraction(actionSource = "shortcut")
-                }
                 else -> {
                     // TODO: maybe for regular app open
                 }
             }
         } ?: run {
-            instrument?.submitInteraction(actionSource = "app_icon ")
+            instrument?.submitInteraction(actionSource = "app_icon")
         }
 
         disableFitsSystemWindows()
@@ -122,11 +123,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        instrument?.submitInteraction(actionSource = "background")
     }
 
     override fun createFragment(): MainFragment {

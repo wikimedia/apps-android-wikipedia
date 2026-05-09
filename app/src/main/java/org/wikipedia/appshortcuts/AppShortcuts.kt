@@ -44,7 +44,6 @@ class AppShortcuts {
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_SEARCH)
-                                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_SEARCH, true))
                     .build()
         }
@@ -58,7 +57,6 @@ class AppShortcuts {
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_RANDOM)
-                                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER, true))
                     .build()
         }
@@ -72,7 +70,6 @@ class AppShortcuts {
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_CONTINUE_READING)
-                                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true))
                     .build()
         }
@@ -86,7 +83,6 @@ class AppShortcuts {
                     Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_PLACES)
-                        .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
                         .putExtra(Constants.INTENT_APP_SHORTCUT_PLACES, true))
                 .build()
         }
