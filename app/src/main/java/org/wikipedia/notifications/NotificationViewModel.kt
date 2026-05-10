@@ -19,17 +19,31 @@ import java.util.Random
 
 class NotificationViewModel : ViewModel() {
 
+    // repository (local database) for notifications
     private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
+
+    // in-memory storage of all notifications
     private val notificationList = mutableListOf<Notification>()
+
+    // notification source
     private var dbNameMap = mapOf<String, WikiSite>()
+
+    // stores which tab is active: "All" or "Mentions"
     private var selectedFilterTab: Int = 0
+    // pagination token for fetching the next page of notifications
     private var currentContinueStr: String? = null
+
+    // search query established by user
     var currentSearchQuery: String? = null
         private set
+
+    // sum of all unread notifications for the "Mentions"-tab
     var mentionsUnreadCount: Int = 0
+
+    // sum of all unread notification for the "All" tab
     var allUnreadCount: Int = 0
 
     private val _uiState = MutableStateFlow(Resource<Pair<List<NotificationListItemContainer>, Boolean>>())
@@ -42,11 +56,26 @@ class NotificationViewModel : ViewModel() {
         fetchAndSave()
     }
 
+    // Reads complete database content to memory, processes it (applying filtering, sorting) and
+    // binds it together with a flag calculated from the paging state.
+    // Then the uiState is updated triggering UI update.
     private suspend fun filterAndPostNotifications() {
         val pair = Pair(processList(notificationRepository.getAllNotifications()), !currentContinueStr.isNullOrEmpty())
         _uiState.value = Resource.Success(pair)
     }
 
+    // Performs in-memory transformation of the raw data into displayable items.
+    // - clearing in-memory list if paging state is not set
+    // - iterating through the list in memory and comparing with all additional elements in order to
+    // eliminate duplicates (O(n*m))
+    // - sorting the in-memory list by date
+    // - apply user preference for showing/hiding read entries
+    // - apply user preferences for excluding certain types of notifications and certain wikis
+    // - apply user-specific search query against title, header, body and secondary link label:
+    //   if none of these fields contain the search string (case-insensitive), the notification is
+    //   skipped
+    // - maintain counters for all unread notifications and all unread notifications of type "Mentions"
+    // - apply filtering for "Mentions" is user the corresponding tab is active
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
@@ -111,6 +140,7 @@ class NotificationViewModel : ViewModel() {
         return notificationContainerList
     }
 
+    // returns the sum of all excluded wikis plus all excluded type of notifications
     fun excludedFiltersCount(): Int {
         val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
         val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
@@ -118,6 +148,10 @@ class NotificationViewModel : ViewModel() {
                 NotificationFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
+    // Resets the paging state and erases in-memory notifications if refresh is requested.
+    // Checks connectivity state. If device is online, it fetches data from the API and stores it in
+    // the database by calling repository function without effective filter and current paging state.
+    // UI update is triggered by calling filterAndPostNotifications()
     fun fetchAndSave(refresh: Boolean = false) {
         if (refresh) {
             currentContinueStr = null
@@ -132,6 +166,9 @@ class NotificationViewModel : ViewModel() {
         }
     }
 
+    // Updates currentSearchQuery and triggers filterAndPostNotifications().
+    // Because filtering happens in processList called from filterAndPostNotifications(),
+    // the list is immediately re-filtered in memory.
     fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
         viewModelScope.launch(handler) {
@@ -139,6 +176,7 @@ class NotificationViewModel : ViewModel() {
         }
     }
 
+    // update the selection of the tab (between "All" and "Mentions"
     fun updateTabSelection(position: Int) {
         selectedFilterTab = position
         viewModelScope.launch(handler) {
@@ -146,6 +184,10 @@ class NotificationViewModel : ViewModel() {
         }
     }
 
+    // Creates a map of the read notification items keyed by their wiki.
+    // This combines multiple read notification in one API call instead of one call per item.
+    // After issuing the coroutine for the API call, the function triggers a further coroutine for
+    // updating the local database.
     fun markItemsAsRead(items: List<NotificationListItemContainer>, markUnread: Boolean) {
         val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
