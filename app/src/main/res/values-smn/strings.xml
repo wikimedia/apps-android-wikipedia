@@ -500,6 +500,8 @@
   <string name="thank_dialog_negative_button_text">Jooskâ</string>
   <string name="menu_option_view_user_profile">Čääiti kevtteesiijđo</string>
   <string name="menu_option_view_user_talk">Čääiti savâstâllâmsiijđo</string>
+  <string name="revision_diff_paragraph_added">Pittá lasettum</string>
+  <string name="revision_diff_paragraph_removed">Pittá meddâlistum</string>
   <string name="watchlist_search">Uusâ čuávvumlistoost</string>
   <string name="watchlist_filter_all">Puoh</string>
   <string name="watchlist_filter_talk">Savâstâllâmsiijđoh</string>
