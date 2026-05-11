@@ -387,7 +387,7 @@ class HomeViewModel : ViewModel() {
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
             val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
-                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90 hastemplate:\"good article\"",
+                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95",
                 limit = 20,
                 profile = "classic_noboostlinks",
                 sort = "random"
