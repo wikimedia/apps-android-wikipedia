@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.wikipedia.settings.SettingsRepository
 
-class ModulesViewModel: ViewModel() {
+class ModulesViewModel : ViewModel() {
     val hiddenModules: StateFlow<Set<String>?> = SettingsRepository.hiddenModules
         .stateIn(
             scope = viewModelScope,
@@ -16,22 +16,12 @@ class ModulesViewModel: ViewModel() {
             initialValue = null
         )
 
-    fun toggleCommunityModuleVisibility(modules: CommunityModules, isVisible: Boolean) {
+    fun toggleModuleVisibility(moduleKey: String, isVisible: Boolean) {
         viewModelScope.launch {
             if (isVisible) {
-                SettingsRepository.removeHiddenModule(modules.name)
+                SettingsRepository.removeHiddenModule(moduleKey)
             } else {
-                SettingsRepository.addHiddenModule(modules.name)
-            }
-        }
-    }
-
-    fun toggleForYouModuleVisibility(modules: ForYouModules, isVisible: Boolean) {
-        viewModelScope.launch {
-            if (isVisible) {
-                SettingsRepository.removeHiddenModule(modules.name)
-            } else {
-                SettingsRepository.addHiddenModule(modules.name)
+                SettingsRepository.addHiddenModule(moduleKey)
             }
         }
     }

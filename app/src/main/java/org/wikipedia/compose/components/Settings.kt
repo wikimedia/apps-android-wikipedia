@@ -1,23 +1,31 @@
 package org.wikipedia.compose.components
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.homefeed.CommunityModules
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -78,6 +86,70 @@ fun SettingsSection(
     }
 }
 
+@Composable
+fun ToggleListScreen(
+    screenTitle: String,
+    description: String,
+    modules: List<ModuleEntry>,
+    hiddenModules: Set<String>,
+    onToggle: (key: String, isVisible: Boolean) -> Unit,
+    onBack: () -> Unit,
+) {
+    Scaffold(
+        topBar = {
+            WikiTopAppBar(
+                title = screenTitle,
+                onNavigationClick = onBack,
+            )
+        },
+        containerColor = WikipediaTheme.colors.paperColor,
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp),
+                text = description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = WikipediaTheme.colors.primaryColor
+            )
+            Spacer(Modifier.height(8.dp))
+            modules.forEach { module ->
+                val isVisible = module.key !in hiddenModules
+                SettingsRow(
+                    title = stringResource(module.title),
+                    subtitle = stringResource(module.subtitle),
+                    trailingContent = {
+                        Switch(
+                            checked = isVisible,
+                            onCheckedChange = { newChecked ->
+                                onToggle(module.key, newChecked)
+                            },
+                            colors = SwitchDefaults.colors(
+                                uncheckedTrackColor = WikipediaTheme.colors.paperColor,
+                                uncheckedThumbColor = MaterialTheme.colorScheme.outline,
+                                uncheckedBorderColor = MaterialTheme.colorScheme.outline,
+                                checkedTrackColor = WikipediaTheme.colors.progressiveColor,
+                                checkedThumbColor = WikipediaTheme.colors.paperColor,
+                            ),
+                        )
+                    }
+                )
+            }
+        }
+    }
+}
+
+data class ModuleEntry(
+    @param:StringRes val title: Int,
+    @param:StringRes val subtitle: Int,
+    val key: String
+)
+
 @Preview
 @Composable
 private fun SettingsSectionPreview() {
@@ -135,6 +207,23 @@ private fun SettingsRowWithSwitchPreview() {
                     onCheckedChange = { /* Handle switch state change */ }
                 )
             }
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ToggleListScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ToggleListScreen(
+            screenTitle = "Community",
+            description = stringResource(R.string.home_feed_settings_community_modules_description),
+            modules = CommunityModules.entries(),
+            hiddenModules = setOf(CommunityModules.FEATURED_IMAGE.name),
+            onToggle = { key, isVisible -> },
+            onBack = { }
         )
     }
 }
