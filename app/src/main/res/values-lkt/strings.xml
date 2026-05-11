@@ -108,6 +108,9 @@
   <string name="map_view_link_text">Makȟówapi mahél waŋyáŋka</string>
   <string name="other_languages_indication_text">Tȟog\'íyapi uŋ yawá</string>
   <string name="language_count_link_text">Tȟog\'íyapi %d uŋ lawá oyákihi</string>
+  <string name="edit_save_action_license_logged_in">Leyá kiŋháŋ, &lt;a href=\"%1$s\"&gt;Úƞpi-wóopȟe&lt;/a&gt; héčhetuyala kte, na &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; wóopȟe-wóiyowiƞkhiye kiŋ ogná táku yéč’uŋ ókiwaŋžila yaglúška kte.</string>
+  <string name="edit_save_action_license_anon">Leyá kiŋháŋ, &lt;a href=\"%1$s\"&gt;Úƞpi-wóopȟe&lt;/a&gt; héčhetuyala kte, na &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; wóopȟe-wóiyowiƞkhiye kiŋ ogná táku yéč’uŋ ókiwaŋžila yaglúška kte. IP makȟóčhažeyate nitȟáwa owa égnaka kte. &lt;a href=\"https://#login\"&gt;Čhaž\'ónigwa&lt;/a&gt; eháŋtaŋš, isáŋm naȟmála lutȟókeča kte.</string>
+  <string name="edit_anon_warning">IP makȟóčhažeyate nitȟáwa owa égnaka kte. &lt;a href=\"https://#login\"&gt;Čhaž\'ónigwa&lt;/a&gt; eháŋtaŋš, isáŋm naȟmála lutȟókeča kte.</string>
   <string name="preference_title_language">Wikipedia iyápi</string>
   <string name="langlinks_filter_hint">Wóle</string>
   <string name="langlinks_empty">Tȟog\'íyapi uŋ lawá oyákihi šni.</string>
