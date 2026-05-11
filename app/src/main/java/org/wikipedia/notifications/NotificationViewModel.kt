@@ -8,19 +8,18 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.notifications.db.Notification
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import java.util.Date
 import java.util.Random
 
-class NotificationViewModel : ViewModel() {
+class NotificationViewModel(
+    private val notificationPreferences: NotificationPreferences,
+    private val notificationRepository: NotificationRepository
+) : ViewModel() {
 
-    // repository (local database) for notifications
-    private val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = Resource.Error(throwable)
     }
@@ -90,10 +89,10 @@ class NotificationViewModel : ViewModel() {
 
         // Filtered the tab selection
         val tabSelectedList = notificationList
-            .filter { if (Prefs.hideReadNotificationsEnabled) it.isUnread else true }
+            .filter { if (notificationPreferences.isHideReadNotificationsEnabled()) it.isUnread else true }
 
-        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
-        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
+        val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
+        val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
         val includedWikiCodes = NotificationFilterActivity.allWikisList().minus(excludedWikiCodes).map {
             it.split("-")[0]
         }
@@ -142,8 +141,8 @@ class NotificationViewModel : ViewModel() {
 
     // returns the sum of all excluded wikis plus all excluded type of notifications
     fun excludedFiltersCount(): Int {
-        val excludedWikiCodes = Prefs.notificationExcludedWikiCodes
-        val excludedTypeCodes = Prefs.notificationExcludedTypeCodes
+        val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
+        val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
         return NotificationFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
                 NotificationFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }

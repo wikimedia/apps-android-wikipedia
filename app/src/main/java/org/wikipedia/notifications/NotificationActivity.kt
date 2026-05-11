@@ -41,6 +41,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.dataclient.WikiSite
@@ -67,7 +68,12 @@ import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
-    private val viewModel: NotificationViewModel by viewModels()
+    private val viewModel: NotificationViewModel by viewModels {
+        NotificationViewModelFactory(
+            NotificationPreferencesImpl(),
+            NotificationRepositoryImpl(AppDatabase.instance.notificationDao())
+        )
+    }
 
     private lateinit var externalLinkIcon: Drawable
     private val notificationContainerList = mutableListOf<NotificationListItemContainer>()
