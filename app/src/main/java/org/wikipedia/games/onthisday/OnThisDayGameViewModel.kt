@@ -64,9 +64,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         }) {
             _gameState.postValue(Resource.Loading())
 
-            // Migrate from Prefs.otdGameHistory to use database
-            // TODO: remove this in May, 2026
-            migrateGameHistoryFromPrefsToDatabase()
+            // TODO: remove this in March, 2027
             migrateInProgressGameFromPrefsToDatabase()
 
             if (useDateFromState && !overrideDate) {
@@ -286,38 +284,7 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
         loadGameState(useDateFromState = false)
     }
 
-    // TODO: remove this in May, 2026
-    private suspend fun migrateGameHistoryFromPrefsToDatabase() {
-        if (Prefs.otdGameHistory.isEmpty()) {
-            return
-        }
-        val totalHistory = JsonUtil.decodeFromString<TotalGameHistory>(Prefs.otdGameHistory)?.langToHistory ?: return
-        val dailyGameHistories = mutableListOf<DailyGameHistory>()
-        totalHistory.forEach { (lang, gameHistory) ->
-            gameHistory.history.forEach { (year, monthMap) ->
-                monthMap.forEach { (month, dayMap) ->
-                    dayMap.forEach { (day, answers) ->
-                        val gameHistory = DailyGameHistory(
-                            gameName = WikiGames.WHICH_CAME_FIRST.ordinal,
-                            language = lang,
-                            year = year,
-                            month = month,
-                            day = day,
-                            score = answers.count { it },
-                            playType = PlayTypes.PLAYED_ON_SAME_DAY.ordinal,
-                            gameData = JsonUtil.encodeToString(answers),
-                            currentQuestionIndex = currentState.currentQuestionIndex
-                        )
-                        dailyGameHistories.add(gameHistory)
-                    }
-                }
-            }
-        }
-        AppDatabase.instance.dailyGameHistoryDao().insertAll(dailyGameHistories)
-        Prefs.otdGameHistory = ""
-    }
-
-    // TODO: remove this in May, 2026
+    // TODO: remove this in March, 2027
     private suspend fun migrateInProgressGameFromPrefsToDatabase() {
         if (Prefs.otdGameState.isEmpty()) {
             return
@@ -325,6 +292,9 @@ class OnThisDayGameViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
         val totalState = JsonUtil.decodeFromString<TotalGameState>(Prefs.otdGameState) ?: return
         totalState.langToState.forEach { (lang, gameState) ->
+
+            if (gameState.gamePlayDate.isEmpty() || gameState.lastActiveDate.isEmpty()) return@forEach
+
             if (gameState.currentQuestionIndex < Prefs.otdGameQuestionsPerDay) {
                 val gamePlayDate = LocalDate.parse(gameState.gamePlayDate, DateTimeFormatter.ISO_LOCAL_DATE)
                 val lastActiveDate = LocalDate.parse(gameState.lastActiveDate, DateTimeFormatter.ISO_LOCAL_DATE)

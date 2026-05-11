@@ -16,6 +16,7 @@
 * Ignatgg
 * Ihor.Zinchenko
 * MatviiBohdanFediura
+* MonX94
 * Movses
 * Piramidion
 * SHaran (WMF)
@@ -63,7 +64,7 @@
   <string name="history_item_delete_undo">Скасувати</string>
   <string name="notification_archive_undo">Скасувати</string>
   <string name="app_settings">Налаштування</string>
-  <string name="search_tab_tooltip">Торкніться іконки знову щоб почати вводити пошуковий запит напряму.</string>
+  <string name="search_tab_tooltip">Торкніться іконки знову, щоб почати вводити пошуковий запит напряму.</string>
   <string name="history_list_title">Історія</string>
   <string name="image_content_description">Зображення: %s</string>
   <string name="page_content_description">Сторінка: %s</string>
@@ -84,7 +85,7 @@
   <string name="page_edit_history_filter_by_all">Усі редагування (%s)</string>
   <string name="page_edit_history_filter_by_user">Редагування користувача (%s)</string>
   <string name="page_edit_history_filter_by_anon">Незареєстровані редагування (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Редагування бота (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Редагування ботів (%s)</string>
   <string name="page_edit_history_metrics_content_description">Показники від %1$s до %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d редагування з %2$s</item>
@@ -95,8 +96,8 @@
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d редагування від %2$s ( %3$s)</item>
     <item quantity="few">%1$d редагування від %2$s (%3$s)</item>
-    <item quantity="many">%1$d редагування від %2$s (%3$s)</item>
-    <item quantity="other">%1$d редагування від %2$s (%3$s)</item>
+    <item quantity="many">%1$d редагувань від %2$s (%3$s)</item>
+    <item quantity="other">%1$d редагувань від %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Спробуйте змінити &lt;a href=\"#\"&gt;фільтри&lt;/a&gt;, щоб побачити більше редагувань</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
@@ -141,7 +142,7 @@
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
   <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
-  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
   <string name="preference_title_language">Мови Вікіпедії</string>
@@ -180,7 +181,7 @@
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
   <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! Будь ласка, увійдіть в систему з головного екрану і введіть свій токен 2FA.</string>
   <string name="login_email_auth_hint">Код підтвердження електронної пошти</string>
-  <string name="login_email_auth_other_workflow_error_msg">Потрібна перевірка електронної пошти! Увійдіть із головного екрана та введіть код підтвердження електронної пошти.</string>
+  <string name="login_email_auth_other_workflow_error_msg">Потрібно верифікувати електронну пошту! Увійдіть до акаунту із головного екрана та введіть код підтвердження з електронної пошти.</string>
   <string name="login_background_error_msg">Не вдалося повторно ввійти. Поверніться, будь ласка, на головний екран й увійдіть вручну.</string>
   <string name="onboarding_card_login">Увійти</string>
   <string name="page_editing_login">Увійти</string>
@@ -204,7 +205,7 @@
   <string name="logged_out_in_background_cancel">Скасувати</string>
   <string name="account_vanish_request_title">Знищити обліковий запис</string>
   <string name="account_vanish_request_confirm_title">Попередження про знищення облікового запису</string>
-  <string name="account_vanish_request_confirm">Зникнення є &lt;b&gt;останнім заходом&lt;/b&gt;, і його слід використовувати &lt;b&gt;лише тоді, коли ви хочете назавжди припинити редагування&lt;/b&gt;, а також щоб приховати якомога більше своїх минулих зв\'язків.&lt;br/&gt;&lt;br/&gt;Вилучення облікового запису у Вікіпедії робиться шляхом зміни імені вашого облікового запису, щоб інші не могли розпізнати ваші внески; це називають зникненням облікового запису. &lt;b&gt;Зникнення не гарантує повної анонімності і не вилучає внесок у проєкти&lt;/b&gt;.</string>
+  <string name="account_vanish_request_confirm">Зникнення є &lt;b&gt;крайнім заходом&lt;/b&gt;, і його слід використовувати &lt;b&gt;лише тоді, коли ви хочете назавжди припинити редагування&lt;/b&gt;, а також щоб приховати якомога більше своїх минулих зв\'язків.&lt;br/&gt;&lt;br/&gt;Вилучення облікового запису у Вікіпедії робиться шляхом зміни імені вашого облікового запису, щоб інші не могли розпізнати ваші внески; це називають зникненням облікового запису. &lt;b&gt;Зникнення не гарантує повної анонімності і не вилучає внесок у проєкти&lt;/b&gt;.</string>
   <string name="history_empty_title">Немає нещодавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що ви вже читали тут.</string>
   <string name="history_offline_articles_toast">Деякі статті в історії можуть бути недоступними в режимі офлайн.</string>
@@ -226,10 +227,10 @@
   <string name="create_account_email_error">Неправильна адреса електронної пошти</string>
   <string name="create_account_username_error">Недійсні символи в імені користувача.</string>
   <string name="create_account_password_error">Пароль мусить мати не менше 8 символів</string>
-  <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
+  <string name="create_account_generic_error">Не вийшло створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
   <string name="email_recommendation_dialog_title">Створити обліковий запис без електронної адреси?</string>
-  <string name="email_recommendation_dialog_message">Хоча вказування адреси електронної пошти не є обов\'язковим, дуже рекомендуємо її вказати, оскільки вона необхідна для відновлення пароля в разі його втрати.</string>
+  <string name="email_recommendation_dialog_message">Хоча вказування адреси електронної пошти не є обов\'язковим, &lt;b&gt;дуже рекомендуємо&lt;/b&gt; її вказати, оскільки вона необхідна для відновлення пароля в разі його втрати.</string>
   <string name="email_recommendation_message">Рекомендовано, оскільки електронна пошта обов\'язкова для відновлення облікового запису.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продовжити без електронної пошти</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додати електронну пошту</string>
@@ -1678,7 +1679,7 @@
   <string name="preview_edit_summarize_edit_title">Резюмуйте правку</string>
   <string name="preview_edit_summarize_edit_hint">Як Ви поліпшили цю сторінку?</string>
   <string name="preview_edit_minor_edit">Це незначна зміна</string>
-  <string name="preview_edit_watch_this_page">Перегляньте цю сторінку</string>
+  <string name="preview_edit_watch_this_page">Спостерігати за цією сторінкою</string>
   <string name="preview_edit_learn_more">Докладніше про опис редагування</string>
   <string name="action_item_categories">Категорії</string>
   <string name="page_no_categories">Ця сторінка не належить до жодної категорії.</string>
