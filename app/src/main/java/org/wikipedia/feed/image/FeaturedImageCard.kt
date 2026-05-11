@@ -6,7 +6,7 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.settings.homefeed.CommunityModules
+import org.wikipedia.settings.homefeed.CommunityModuleSetting
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
@@ -17,7 +17,7 @@ class FeaturedImageCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return CommunityModules.FEATURED_IMAGE.name
+        return CommunityModuleSetting.FEATURED_IMAGE.name
     }
 
     override fun title(): String {

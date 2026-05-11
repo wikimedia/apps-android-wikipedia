@@ -10,7 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.ModuleEntry
 import org.wikipedia.compose.components.ToggleListScreen
 
-enum class CommunityModules(
+enum class CommunityModuleSetting(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
@@ -52,7 +52,7 @@ fun CommunityModulesScreen(
         ToggleListScreen(
             screenTitle = stringResource(R.string.home_feed_settings_community_title),
             description = stringResource(R.string.home_feed_settings_community_modules_description),
-            modules = CommunityModules.entries(),
+            modules = CommunityModuleSetting.entries(),
             hiddenModules = it,
             onToggle = viewModel::toggleModuleVisibility,
             onBack = onBack

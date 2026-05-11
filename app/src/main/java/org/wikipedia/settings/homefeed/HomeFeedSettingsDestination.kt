@@ -6,9 +6,9 @@ sealed interface HomeFeedSettingsDestination {
     @Serializable
     data object Root : HomeFeedSettingsDestination
     @Serializable
-    data object ForYouModules : HomeFeedSettingsDestination
+    data object ForYouModuleScreen : HomeFeedSettingsDestination
     @Serializable
-    data object CommunityModules : HomeFeedSettingsDestination
+    data object CommunityModuleScreen : HomeFeedSettingsDestination
     @Serializable
-    data object WhatsDrivingFeedModules : HomeFeedSettingsDestination
+    data object FeedConfiguration : HomeFeedSettingsDestination
 }

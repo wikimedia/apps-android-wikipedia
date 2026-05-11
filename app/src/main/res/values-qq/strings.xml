@@ -2265,7 +2265,7 @@
     <string name="home_feed_settings_community_module_on_this_day_subtitle">Subtitle describing historical events that happened on the current day.</string>
     <string name="home_feed_settings_community_module_picture_of_the_day_subtitle">Subtitle describing the daily featured image selected from Wikimedia Commons.</string>
     <string name="home_feed_settings_for_you_modules_description">Description explaining that disabled For You feed modules can be re-enabled later.</string>
-    <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences.</string>
+    <string name="home_feed_settings_based_on_interest_subtitle">Subtitle describing article recommendations based on selected interests and feed preferences. Please keep the anchor link around the word \"What\’s driving your feed"\</string>
     <string name="home_feed_settings_because_you_read_subtitle">Subtitle describing article suggestions based on recently viewed articles.</string>
     <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
     <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>

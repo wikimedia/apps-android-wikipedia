@@ -10,7 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.compose.components.ModuleEntry
 import org.wikipedia.compose.components.ToggleListScreen
 
-enum class ForYouModules(
+enum class ForYouModuleSetting(
     @param:StringRes val title: Int,
     @param:StringRes val subtitle: Int,
 ) {
@@ -37,6 +37,7 @@ enum class ForYouModules(
 @Composable
 fun ForYouModulesScreen(
     viewModel: ModulesViewModel = viewModel(),
+    navigateToFeedConfigurationScreen: () -> Unit,
     onBack: () -> Unit,
 ) {
     val hiddenModules by viewModel.hiddenModules.collectAsState()
@@ -44,10 +45,15 @@ fun ForYouModulesScreen(
         ToggleListScreen(
             screenTitle = stringResource(R.string.home_feed_settings_for_you_title),
             description = stringResource(R.string.home_feed_settings_for_you_modules_description),
-            modules = ForYouModules.entries(),
+            modules = ForYouModuleSetting.entries(),
             hiddenModules = it,
             onToggle = viewModel::toggleModuleVisibility,
-            onBack = onBack
+            onBack = onBack,
+            onSubtitleLinkClick = { href ->
+                when (href) {
+                    "#drivingFeed" -> navigateToFeedConfigurationScreen()
+                }
+            }
         )
     }
 }

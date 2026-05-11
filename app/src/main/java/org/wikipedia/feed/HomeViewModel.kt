@@ -33,7 +33,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
-import org.wikipedia.settings.homefeed.ForYouModules
+import org.wikipedia.settings.homefeed.ForYouModuleSetting
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
@@ -61,7 +61,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.BASED_ON_INTEREST.name
+        override fun moduleKey(): String = ForYouModuleSetting.BASED_ON_INTEREST.name
     }
 
     data class ContinueReading(
@@ -70,7 +70,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.CONTINUE_READING.name
+        override fun moduleKey(): String = ForYouModuleSetting.CONTINUE_READING.name
     }
 
     data class BecauseYouRead(
@@ -79,7 +79,7 @@ sealed class ForYouModule {
         override val cards: List<Card>
     ) : ForYouModule() {
         override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
-        override fun moduleKey(): String = ForYouModules.BECAUSE_YOU_READ.name
+        override fun moduleKey(): String = ForYouModuleSetting.BECAUSE_YOU_READ.name
     }
 }
 

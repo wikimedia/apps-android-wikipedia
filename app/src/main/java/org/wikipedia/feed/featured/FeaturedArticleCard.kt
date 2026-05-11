@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.settings.homefeed.CommunityModules
+import org.wikipedia.settings.homefeed.CommunityModuleSetting
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 
@@ -18,7 +18,7 @@ open class FeaturedArticleCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return CommunityModules.FEATURED_ARTICLE.name
+        return CommunityModuleSetting.FEATURED_ARTICLE.name
     }
 
     override fun title(): String {

@@ -20,12 +20,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
-import org.wikipedia.settings.homefeed.CommunityModules
+import org.wikipedia.settings.homefeed.ForYouModuleSetting
 import org.wikipedia.theme.Theme
 
 @Composable
@@ -34,6 +39,7 @@ fun SettingsRow(
     modifier: Modifier = Modifier,
     subtitle: String? = null,
     onClick: (() -> Unit)? = null,
+    onSubtitleLinkClick: ((String) -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null
 ) {
     Row(
@@ -52,11 +58,23 @@ fun SettingsRow(
                 color = WikipediaTheme.colors.primaryColor
             )
             if (subtitle != null) {
-                Text(
+                HtmlText(
                     text = subtitle,
                     style = MaterialTheme.typography.bodyMedium,
                     color = WikipediaTheme.colors.secondaryColor,
-                    modifier = Modifier.padding(top = 4.dp)
+                    modifier = Modifier.padding(top = 4.dp),
+                    linkInteractionListener = { link ->
+                        val url = (link as LinkAnnotation.Url).url
+                        onSubtitleLinkClick?.invoke(url)
+                    },
+                    linkStyle = TextLinkStyles(
+                        style = SpanStyle(
+                            color = WikipediaTheme.colors.progressiveColor,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+                            letterSpacing = 0.25.sp
+                        )
+                    )
                 )
             }
         }
@@ -93,6 +111,7 @@ fun ToggleListScreen(
     modules: List<ModuleEntry>,
     hiddenModules: Set<String>,
     onToggle: (key: String, isVisible: Boolean) -> Unit,
+    onSubtitleLinkClick: ((href: String) -> Unit)? = null,
     onBack: () -> Unit,
 ) {
     Scaffold(
@@ -137,6 +156,9 @@ fun ToggleListScreen(
                                 checkedThumbColor = WikipediaTheme.colors.paperColor,
                             ),
                         )
+                    },
+                    onSubtitleLinkClick = { href ->
+                        onSubtitleLinkClick?.invoke(href)
                     }
                 )
             }
@@ -220,10 +242,10 @@ private fun ToggleListScreenPreview() {
         ToggleListScreen(
             screenTitle = "Community",
             description = stringResource(R.string.home_feed_settings_community_modules_description),
-            modules = CommunityModules.entries(),
-            hiddenModules = setOf(CommunityModules.FEATURED_IMAGE.name),
-            onToggle = { key, isVisible -> },
-            onBack = { }
+            modules = ForYouModuleSetting.entries(),
+            hiddenModules = setOf(ForYouModuleSetting.BECAUSE_YOU_READ.name),
+            onToggle = { _, _ -> },
+            onBack = { },
         )
     }
 }

@@ -2519,7 +2519,7 @@
     <string name="home_feed_settings_community_module_picture_of_the_day_subtitle">Daily images on Wikimedia Commons, selected by volunteer contributors</string>
     <string name="home_feed_settings_for_you_modules_description">Turning off a module hides it from your For You feed. You can re-enable it here at any time.</string>
     <string name="home_feed_settings_based_on_interest_title">Based on your interests</string>
-    <string name="home_feed_settings_based_on_interest_subtitle">Articles tailored to the topics you chose. What\’s driving your feed</string>
+    <string name="home_feed_settings_based_on_interest_subtitle"><![CDATA[Articles tailored to the topics you chose. <a href="#drivingFeed">What\'s driving your feed</a>]]></string>
     <string name="home_feed_settings_because_you_read_title">Because you read</string>
     <string name="home_feed_settings_because_you_read_subtitle">Suggestions based on a recent article from your history</string>
     <string name="home_feed_settings_continue_reading_title">Continue reading</string>

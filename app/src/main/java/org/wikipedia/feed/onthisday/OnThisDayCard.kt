@@ -6,7 +6,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.settings.homefeed.CommunityModules
+import org.wikipedia.settings.homefeed.CommunityModuleSetting
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
 import java.util.Calendar
@@ -17,7 +17,7 @@ class OnThisDayCard(val events: List<OnThisDay.Event>, val age: Int, wiki: WikiS
     var callback: FeedAdapter.Callback? = null
 
     override fun moduleKey(): String {
-        return CommunityModules.ON_THIS_DAY.name
+        return CommunityModuleSetting.ON_THIS_DAY.name
     }
 
     override fun type(): CardType {

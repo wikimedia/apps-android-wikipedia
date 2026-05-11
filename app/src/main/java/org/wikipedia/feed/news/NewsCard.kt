@@ -5,7 +5,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.UtcDate
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.settings.homefeed.CommunityModules
+import org.wikipedia.settings.homefeed.CommunityModuleSetting
 import org.wikipedia.util.L10nUtil
 import java.util.concurrent.TimeUnit
 
@@ -16,7 +16,7 @@ class NewsCard(
 ) : WikiSiteCard(wiki) {
 
     override fun moduleKey(): String {
-        return CommunityModules.NEWS.name
+        return CommunityModuleSetting.NEWS.name
     }
 
     override fun title(): String {
