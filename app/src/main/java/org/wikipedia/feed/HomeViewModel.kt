@@ -386,7 +386,12 @@ class HomeViewModel : ViewModel() {
         val interestTopics = AppDatabase.instance.topicInterestDao().getAllRandom().distinctBy { it.topicId }.take(5)
         interestTopics.forEachIndexed { index, topic ->
             val articleTopic = ArticleTopics.all.find { it.topicId == topic.topicId }
-            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic("articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^95", limit = 20, sort = "random")
+            val entries = ServiceFactory.get(wikiSite.value).getArticlesByTopic(
+                "articletopic:" + (articleTopic?.queryTopicId ?: topic.topicId) + "^90 hastemplate:\"good article\"",
+                limit = 20,
+                profile = "classic_noboostlinks",
+                sort = "random"
+            )
                 .query?.pages
                 ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
                 ?.sortedBy { it.index } // Sort by index, as reported by the API

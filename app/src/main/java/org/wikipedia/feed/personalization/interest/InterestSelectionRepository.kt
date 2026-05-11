@@ -24,8 +24,12 @@ class InterestSelectionRepository(
 ) {
 
     suspend fun getArticlesByTopic(topic: String): List<PageTitle> {
-        val searchTerm = "articletopic:$topic"
-        val response = ServiceFactory.get(wikiSite).getArticlesByTopic(searchTerm, 25)
+        val response = ServiceFactory.get(wikiSite).getArticlesByTopic(
+            "articletopic:$topic",
+            limit = 20,
+            profile = "classic_noboostlinks",
+            sort = "relevance"
+        )
         val pageList = response.query?.pages
             ?.filter { it.pageProps?.disambiguation == null } // Filter out disambiguation pages
             ?.sortedBy { it.index } // Sort by index, as reported by the API
