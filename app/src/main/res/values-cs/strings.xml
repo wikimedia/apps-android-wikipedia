@@ -317,10 +317,10 @@
   <string name="edit_damage">Poškozeno %s</string>
   <string name="edit_intent">Záměr %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s byte.</item>
-    <item quantity="few">%s byty.</item>
-    <item quantity="many">%s bytu.</item>
-    <item quantity="other">%s bytů.</item>
+    <item quantity="one">%s bajt</item>
+    <item quantity="few">%s bajty</item>
+    <item quantity="many">%s bajtu</item>
+    <item quantity="other">%s bajtů</item>
   </plurals>
   <string name="edit_zoom_in">Přiblížit</string>
   <string name="edit_zoom_out">Oddálit</string>

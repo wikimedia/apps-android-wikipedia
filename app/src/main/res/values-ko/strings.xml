@@ -316,7 +316,7 @@
   <string name="edit_summary_tag_other">기타</string>
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="edit_summary_added_short_description">짧은 설명을 추가함</string>
-  <string name="edit_summary_updated_short_description">짧을 설명을 갱신함</string>
+  <string name="edit_summary_updated_short_description">짧은 설명을 갱신함</string>
   <string name="edit_conflict_title">편집 충돌</string>
   <string name="edit_conflict_message">이 문서는 이미 다른 사용자에 의해 수정되었으며 편집과 충돌합니다. 편집을 복사하고 뒤로 돌아가서 문서를 새로 고친 다음 다시 편집을 시도하십시오.</string>
   <string name="edit_notices">편집 알림</string>
@@ -1205,6 +1205,7 @@
   <string name="activity_tab_onboarding_impact_title">영향 하이라이트</string>
   <string name="activity_tab_onboarding_impact_message">여러분의 기여와 공유한 지식의 파급 효과에 대한 분석 정보를 발견하세요.</string>
   <string name="edits_screen_what_is_title">위키백과 앱에서 편집 중</string>
+  <string name="activity_tab_snackbar_label">게임 통계는 사용자의 주요 언어로 표시됩니다.</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -1704,9 +1705,9 @@
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
   <string name="donate_gpay_dialog_title">구글 페이로 기부하시겠습니까?</string>
-  <string name="donate_gpay_dialog_description">구글 페이로 기부하거나 다른 결제 방법을 선택하세요.</string>
+  <string name="donate_gpay_dialog_description">구글 페이로 기부하거나 다른 결제 수단법을 선택하세요.</string>
   <string name="donate_gpay_dialog_pay_button">구글 페이로 기부하기</string>
-  <string name="donate_gpay_dialog_other_button">다른 결제 방법</string>
+  <string name="donate_gpay_dialog_other_button">다른 결제 수단</string>
   <string name="donate_gpay_activity_title">금액 선택</string>
   <string name="donate_gpay_activity_title_with_currency">금액을 선택하세요 (%s)</string>
   <string name="donate_gpay_check_transaction_fee">거래 수수료를 충당해 기부금을 100%% 받을 수 있게끔 %s 만큼 추가로 지불하겠습니다.</string>
@@ -1801,12 +1802,14 @@
   <string name="on_this_day_game_notification_undo">실행 취소</string>
   <string name="on_this_day_game_share_screen_subtitle">포함된 주제:</string>
   <string name="on_this_day_game_continue_btn_text">오늘의 게임 계속하기</string>
+  <string name="on_this_day_game_archive_btn_text">이전 게임을 플레이</string>
   <string name="on_this_day_game_review_results_btn_text">결과 검토</string>
   <string name="on_this_day_game_play_today_btn_text">오늘의 게임 플레이</string>
   <string name="on_this_day_game_continue_playing_btn_text">플레이 계속</string>
   <string name="on_this_day_game_sound_on">소리를 켭니다</string>
   <string name="on_this_day_game_sound_off">소리를 끕니다</string>
   <string name="on_this_day_game_more_label">더 보기</string>
+  <string name="on_this_day_game_card_archive_label">이전 게임</string>
   <string name="on_this_day_game_stats_log_in_prompt_card_button">로그인</string>
   <string name="wikipedia_games_title">위키백과 게임</string>
   <string name="year_in_review_learn_more">더 알아보기</string>
@@ -1817,7 +1820,9 @@
   <string name="year_in_review_heart_icon">하트 아이콘</string>
   <string name="year_in_review_donate">기부</string>
   <string name="year_in_review_information_icon">정보 아이콘</string>
+  <string name="year_in_review_get_started_headline">당신의 위키백과 올해를 돌아보면서를 살펴보세요</string>
   <string name="year_in_review_get_started_bodytext">위키백과 앱에서 어떤 문서를 읽었는지, 어떤 편집을 했는지에 대한 분석 정보를 확인하세요.</string>
+  <string name="year_in_review_survey_title">올해를 돌아보면서 개선에 도움을 주세요</string>
   <string name="year_in_review_survey_subtitle">이 기능에 만족하시나요?</string>
   <string name="year_in_review_reading_list_survey_subtitle">읽기 목록에 만족하시나요?</string>
   <string name="year_in_review_survey_very_satisfied">매우 만족</string>
@@ -1830,18 +1835,50 @@
   <string name="year_in_review_survey_submit">제출</string>
   <string name="year_in_review_disable_positive_button">네, 확실합니다</string>
   <string name="year_in_review_disable_negative_button">아니요, 괜찮습니다</string>
+  <string name="year_in_review_share_subject">내 위키백과 올해를 돌아보면서</string>
   <string name="year_in_review_globe_icon">지구본 아이콘</string>
   <string name="settings_app_icon_title">앱 아이콘</string>
   <string name="settings_app_icon_subtitle">기여자 혜택</string>
   <string name="settings_app_icon_updated">앱 아이콘이 업데이트되었습니다.</string>
+  <string name="year_in_review_slide_app_icon_donor">기부자</string>
+  <string name="year_in_review_slide_app_icon_editor">편집자</string>
+  <string name="year_in_review_slide_app_icon_donor_and_editor">기부자와 편집자</string>
   <string name="year_in_review_login_dialog_title">개인 맞춤 설정을 위해 로그인하시겠습니까?</string>
   <string name="year_in_review_login_dialog_body">로그인하면 개인 맞춤형 분석 정보를 이용할 수 있습니다. 로그인하지 않아도 전체 분석 정보를 볼 수 있습니다.</string>
   <string name="year_in_review_login_dialog_positive">위키백과에 로그인 / 가입</string>
   <string name="year_in_review_login_dialog_negative">로그인 없이 계속하기</string>
+  <plurals name="year_in_review_slide_top_articles_headline">
+    <item quantity="other">인기 문서</item>
+  </plurals>
+  <plurals name="year_in_review_slide_top_articles_body">
+    <item quantity="other">이 문서들은 %1$d년에 가장 많이 방문한 문서들입니다: %2$s</item>
+  </plurals>
   <string name="year_in_review_slide_top_categories_headline">가장 흥미로운 분류</string>
   <string name="year_in_review_slide_most_read_english_articles_headline">영어 위키백과에서 가장 많이 읽은 문서</string>
   <plurals name="year_in_review_slide_bytes_added_headline">
     <item quantity="other">%,d 바이트 추가됨</item>
+  </plurals>
+  <plurals name="year_in_review_slide_edited_times_headline">
+    <item quantity="other">당신은 %s회 편집했습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_app_edited_times_headline">
+    <item quantity="other">안드로이드 앱의 편집자는 %,d번 편집을 했습니다</item>
+  </plurals>
+  <string name="year_in_review_slide_app_edited_times_body">위키백과의 심장과 영혼은 자원봉사자, 기부자, 그리고 여러분 같은 수십억 명의 독자들로 구성된 글로벌 커뮤니티입니다.</string>
+  <plurals name="year_in_review_slide_english_edited_times_headline">
+    <item quantity="other">편집자들은 올해 %,d건의 편집을 수행했습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_first">
+    <item quantity="other">자원봉사자들이 위키백과의 300개가 넘는 언어판에서 %,d회의 편집을 수행했습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_edited_times_body_second">
+    <item quantity="other">영어판 위키백과에서는 %,d회의 편집이 이루어졌습니다. 매일 매시간, 자원봉사자들이 위키백과를 더 나은 곳으로 만들기 위해 노력하고 있습니다.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_saved_articles_headline">
+    <item quantity="other">문서 %,d개를 저장했습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_global_saved_articles_headline">
+    <item quantity="other">앱 사용자들은 %,d개 문서를 저장했습니다</item>
   </plurals>
   <string name="year_in_review_slide_reading_patterns_headline">당신의 읽기 패턴은 뚜렷합니다</string>
   <string name="year_in_review_slide_reading_patterns_body_favorite_time">글 읽기 가장 좋은 시간</string>
@@ -1853,15 +1890,76 @@
   <string name="year_in_review_slide_reading_pattern_evening">저녁</string>
   <string name="year_in_review_slide_reading_pattern_night">밤</string>
   <string name="year_in_review_slide_reading_pattern_late_night">늦은 밤</string>
+  <plurals name="year_in_review_slide_english_reading_hours_headline">
+    <item quantity="other">읽기에 %,d시간이 할애됐습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_first">
+    <item quantity="other">사람들은 약 %,d시간을</item>
+  </plurals>
+  <plurals name="year_in_review_slide_english_reading_hours_body_second">
+    <item quantity="other">—무려 %1$,d년이나!—%2$d년 동안에 영어 위키백과를 읽는 데 보낸 것으로 추산됩니다. 위키백과는 변화하는 세상에 대해 배우고 싶을 때, 친구들과의 내기에서 이기고 싶을 때, 혹은 호기심 많은 아이의 질문에 답해 주고 싶을 때 당신 곁에 있습니다.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_headline">
+    <item quantity="other">위키백과는 %,d개 이상의 언어로 제공되었습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_first">
+    <item quantity="other">위키백과에는 %,d개의 문서가</item>
+  </plurals>
+  <plurals name="year_in_review_slide_available_languages_body_second">
+    <item quantity="other">%,d개의 활성화된 언어에 걸쳐 있습니다. 당신은 수백만 명의 다른 사용자들과 함께 지식을 넓히고 다양한 주제를 탐구했습니다.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_first">
+    <item quantity="other">%,d분을 들여</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_headline_second">
+    <item quantity="other">%1$,d개의 문서를 %2$d년 동안에 읽으셨습니다</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_first">
+    <item quantity="other">사람들은 약 %,d시간을</item>
+  </plurals>
+  <plurals name="year_in_review_slide_spent_minutes_reading_body_english_second">
+    <item quantity="other">—무려 %1$,d년이나!—%2$d년 동안에 영어 위키백과를 읽는 데 보낸 것으로 추산됩니다.</item>
+  </plurals>
+  <plurals name="year_in_review_slide_viewed_articles_times_headline">
+    <item quantity="other">앱 사용자들의 위키백과 문서 조회 수는 %,d회입니다</item>
+  </plurals>
   <string name="year_in_review_reading_list_dialog_positive_button_label">만들기</string>
   <string name="year_in_review_reading_list_dialog_negative_button_label">괜찮습니다</string>
+  <string name="year_in_review_reading_list_title">올해를 돌아보면서 %d</string>
   <string name="year_in_review_highlights_thank_you_message">위키백과와 함께 한 해를 보내주셔서 감사합니다.</string>
   <string name="year_in_review_highlights_looking_forward_message">내년이 기대됩니다!</string>
+  <plurals name="year_in_review_highlights_logged_out_en_most_read_title">
+    <item quantity="other">영어 위키백과에서 가장 많이 읽은 문서</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_hours_spent_title">
+    <item quantity="other">읽기에 소요한 시간</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_en_edits_title">
+    <item quantity="other">편집자가 수행한 변경 사항 수</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_out_non_en_articles_title">
+    <item quantity="other">만든 읽기 목록 수</item>
+  </plurals>
   <plurals name="year_in_review_highlights_logged_out_non_en_edits_title">
     <item quantity="other">앱에서 편집함</item>
   </plurals>
   <string name="year_in_review_highlights_logged_out_non_en_wikipedia_edited_title">위키백과의 편집 주기</string>
+  <plurals name="year_in_review_highlights_logged_out_non_en_wikipedia_per_minute_label">
+    <item quantity="other">분 당 %d회</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_most_read_article_title">
+    <item quantity="other">가장 많이 읽은 문서</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_minutes_read_title">
+    <item quantity="other">읽기에 소요한 시간 (분)</item>
+  </plurals>
   <string name="year_in_review_highlights_logged_in_favorite_day_title">글 읽기 가장 좋은 날</string>
+  <plurals name="year_in_review_highlights_logged_in_articles_read_title">
+    <item quantity="other">열람한 문서</item>
+  </plurals>
+  <plurals name="year_in_review_highlights_logged_in_total_edits_title">
+    <item quantity="other">편집한 시간</item>
+  </plurals>
   <string name="year_in_review_highlights_share_button_title">하이라이트 공유</string>
   <string name="year_in_review_highlights_logo_description">위키백과 로고</string>
   <string name="recommended_reading_list_title">발견</string>
@@ -1920,9 +2018,16 @@
   <string name="recommended_reading_list_settings_notifications_dialog_positive_button">끕니다</string>
   <string name="recommended_reading_list_settings_notifications_dialog_negative_button">아니요, 켠 상태로 유지합니다</string>
   <string name="donation_settings_section_header">기부</string>
+  <string name="donation_reminders_settings_option_title">기부 알림</string>
+  <string name="donation_reminders_settings_confirm_btn_label">알림 확인</string>
+  <string name="donation_reminders_settings_article_frequency_input_suffix_label">문서</string>
+  <string name="donation_reminders_settings_warning_min_amount">최소 %s을(를) 입력해 주세요</string>
+  <string name="donation_reminders_settings_warning_max_amount">허용되는 최대값은 %s입니다</string>
   <string name="donation_reminders_settings_option_custom">사용자 지정…</string>
   <string name="donation_reminders_prompt_positive_button">지금 기부하기</string>
   <string name="donation_reminders_prompt_negative_button">지금은 괜찮습니다</string>
+  <string name="donation_reminders_gpay_text">구글 페이로 %s만큼 기부하기</string>
+  <string name="donation_reminders_gpay_different_amount_text">구글 페이로 다른 금액을 기부하기</string>
   <plurals name="donation_reminders_text_articles">
     <item quantity="other">문서 %d개</item>
   </plurals>

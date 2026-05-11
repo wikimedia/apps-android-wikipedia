@@ -215,7 +215,7 @@
   <string name="create_account_ip_block_message">بښنې سره، اوسمهال ستاسو په وېب‌‌پتې د نوي گڼون جوړولو بنديز لگول شوی.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">سپيناوي</string>
-  <string name="preferences_general_heading">ټولگړی</string>
+  <string name="preferences_general_heading">ټولواله</string>
   <string name="preferences_account_heading">گڼون</string>
   <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ‌ځ‌پ</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>

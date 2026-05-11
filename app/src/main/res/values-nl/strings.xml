@@ -237,7 +237,7 @@
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
   <string name="create_account_password_is_username">Wachtwoord mag niet hetzelfde zijn als de gebruikersnaam</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
-  <string name="create_account_email_error">Ongeldig e-mailadres</string>
+  <string name="create_account_email_error">Onjuist e-mailadres</string>
   <string name="create_account_username_error">Ongeldige tekens in gebruikersnaam</string>
   <string name="create_account_password_error">Het wachtwoord moet ten minste 8 tekens lang zijn.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
