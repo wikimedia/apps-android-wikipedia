@@ -239,6 +239,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onUnreadNotification() {
         fragment.updateNotificationDot(true)
+        (fragment.currentFragment as? HomeFragment)?.refreshNotification()
     }
 
     private fun setToolbarElevationDefault() {

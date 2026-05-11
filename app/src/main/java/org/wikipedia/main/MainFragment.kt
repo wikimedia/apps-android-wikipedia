@@ -54,6 +54,7 @@ import org.wikipedia.events.LoggedOutEvent
 import org.wikipedia.events.LoggedOutInBackgroundEvent
 import org.wikipedia.events.NewRecommendedReadingListEvent
 import org.wikipedia.feed.FeedFragment
+import org.wikipedia.feed.HomeFragment
 import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.news.NewsActivity
 import org.wikipedia.feed.news.NewsItem
@@ -153,6 +154,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                         is LoggedOutEvent,
                         is LoggedOutInBackgroundEvent -> {
                             requireActivity().invalidateOptionsMenu()
+                            (currentFragment as? HomeFragment)?.refreshNotification()
                             ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
                             refreshContents()
                         }

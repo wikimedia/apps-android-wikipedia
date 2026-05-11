@@ -14,6 +14,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.compose.components.NotificationBellState
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -148,6 +150,9 @@ class HomeViewModel : ViewModel() {
             error = throwable
         )
     }
+
+    private val _unreadCount = MutableStateFlow(NotificationBellState())
+    val unreadCount = _unreadCount.asStateFlow()
 
     init {
         if (_selectedTab.value == HomeTab.COMMUNITY) {
@@ -506,5 +511,9 @@ class HomeViewModel : ViewModel() {
         }
 
         return modules
+    }
+
+    fun refreshUnreadNotificationCount() {
+        _unreadCount.update { it.copy(unreadCount = Prefs.notificationUnreadCount, canShow = AccountUtil.isLoggedIn) }
     }
 }
