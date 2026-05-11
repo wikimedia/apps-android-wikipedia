@@ -50,7 +50,7 @@ fun CommunityModulesScreen(
     val hiddenModules by viewModel.hiddenModules.collectAsState()
     hiddenModules?.let {
         ToggleListScreen(
-            screenTitle = stringResource(R.string.home_feed_settings_community_title),
+            title = stringResource(R.string.home_feed_settings_community_title),
             description = stringResource(R.string.home_feed_settings_community_modules_description),
             modules = CommunityModuleSetting.entries(),
             hiddenModules = it,

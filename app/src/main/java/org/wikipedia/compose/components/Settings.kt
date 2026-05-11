@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import org.wikipedia.R
 import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
+import org.wikipedia.settings.homefeed.CommunityModuleSetting
 import org.wikipedia.settings.homefeed.ForYouModuleSetting
 import org.wikipedia.theme.Theme
 
@@ -106,7 +107,7 @@ fun SettingsSection(
 
 @Composable
 fun ToggleListScreen(
-    screenTitle: String,
+    title: String,
     description: String,
     modules: List<ModuleEntry>,
     hiddenModules: Set<String>,
@@ -117,7 +118,7 @@ fun ToggleListScreen(
     Scaffold(
         topBar = {
             WikiTopAppBar(
-                title = screenTitle,
+                title = title,
                 onNavigationClick = onBack,
             )
         },
@@ -235,15 +236,32 @@ private fun SettingsRowWithSwitchPreview() {
 
 @Preview
 @Composable
-private fun ToggleListScreenPreview() {
+private fun ToggleListForYouScreenPreview() {
     BaseTheme(
         currentTheme = Theme.LIGHT
     ) {
         ToggleListScreen(
-            screenTitle = "Community",
+            title = "Community",
             description = stringResource(R.string.home_feed_settings_community_modules_description),
             modules = ForYouModuleSetting.entries(),
             hiddenModules = setOf(ForYouModuleSetting.BECAUSE_YOU_READ.name),
+            onToggle = { _, _ -> },
+            onBack = { },
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ToggleListCommunityScreenPreview() {
+    BaseTheme(
+        currentTheme = Theme.LIGHT
+    ) {
+        ToggleListScreen(
+            title = "Community",
+            description = stringResource(R.string.home_feed_settings_community_modules_description),
+            modules = CommunityModuleSetting.entries(),
+            hiddenModules = setOf(CommunityModuleSetting.FEATURED_IMAGE.name, CommunityModuleSetting.ON_THIS_DAY.name),
             onToggle = { _, _ -> },
             onBack = { },
         )

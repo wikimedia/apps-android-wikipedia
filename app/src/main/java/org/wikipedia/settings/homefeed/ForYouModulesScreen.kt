@@ -43,7 +43,7 @@ fun ForYouModulesScreen(
     val hiddenModules by viewModel.hiddenModules.collectAsState()
     hiddenModules?.let {
         ToggleListScreen(
-            screenTitle = stringResource(R.string.home_feed_settings_for_you_title),
+            title = stringResource(R.string.home_feed_settings_for_you_title),
             description = stringResource(R.string.home_feed_settings_for_you_modules_description),
             modules = ForYouModuleSetting.entries(),
             hiddenModules = it,

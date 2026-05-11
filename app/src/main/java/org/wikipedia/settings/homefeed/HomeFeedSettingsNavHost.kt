@@ -27,7 +27,7 @@ fun HomeFeedSettingsNavHost(
                 },
                 onCommunityModulesClick = { navController.navigate(HomeFeedSettingsDestination.CommunityModuleScreen) },
                 onForYouModulesClick = { navController.navigate(HomeFeedSettingsDestination.ForYouModuleScreen) },
-                onWhatsDrivingFeedClick = { navController.navigate(HomeFeedSettingsDestination.FeedConfiguration) }
+                onFeedConfigurationClick = { navController.navigate(HomeFeedSettingsDestination.FeedConfiguration) }
             )
         }
 
