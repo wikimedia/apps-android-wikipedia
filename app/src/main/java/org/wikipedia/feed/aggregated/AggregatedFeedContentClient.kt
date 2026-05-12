@@ -20,6 +20,7 @@ import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
+import java.time.ZoneOffset
 
 class AggregatedFeedContentClient {
     private val aggregatedResponses = mutableMapOf<String, AggregatedFeedContent>()
@@ -135,7 +136,7 @@ class AggregatedFeedContentClient {
 
         private fun requestAggregated() {
             aggregatedClient.clientJob?.cancel()
-            val date = DateUtil.getUtcRequestDateFor(age)
+            val (year, month, day) = DateUtil.getDatePartsForAge(age, ZoneOffset.UTC)
             aggregatedClient.clientJob = coroutineScope.launch(
                 CoroutineExceptionHandler { _, caught ->
                     L.v(caught)
@@ -146,7 +147,7 @@ class AggregatedFeedContentClient {
                 val deferredResponses = WikipediaApp.instance.languageState.appLanguageCodes.map { langCode ->
                     async {
                         val wikiSite = WikiSite.forLanguageCode(langCode)
-                        val feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day, langCode)
+                        val feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(year, month, day, langCode)
 
                         feedContentResponse.randomOnThisDayEvent = feedContentResponse.onthisday?.random()
 

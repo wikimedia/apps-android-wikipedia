@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.extensions.getResources
 import org.wikipedia.extensions.getString
 import org.wikipedia.extensions.toLocalDate
-import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
@@ -51,11 +50,17 @@ object DateUtil {
     }
 
     fun getFeedCardDateString(age: Int): String {
-        return getShortDateString(UtcDate(age).baseCalendar.time)
+        return getShortDateString(getDateForAge(age, ZoneOffset.UTC))
     }
 
-    fun getFeedCardShortDateString(date: Calendar): String {
-        return getExtraShortDateString(date.time)
+    fun getFeedCardShortDateString(date: LocalDate): String {
+        val pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMM d")
+        return DateTimeFormatter.ofPattern(pattern).format(date)
+    }
+
+    fun getFeedCardShortDateString(calendar: Calendar): String {
+        val date = LocalDate.ofInstant(calendar.toInstant(), ZoneId.systemDefault())
+        return getFeedCardShortDateString(date)
     }
 
     fun getMDYDateString(date: Date): String {
@@ -89,10 +94,6 @@ object DateUtil {
 
     fun getMMMMdYYYY(date: Date, utc: Boolean = true): String {
         return getCachedDateFormat("MMMM d, yyyy", Locale.getDefault(), utc).format(date)
-    }
-
-    private fun getExtraShortDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
     fun getTimeString(context: Context, date: Date): String {
@@ -169,14 +170,12 @@ object DateUtil {
         return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(localDate)
     }
 
-    fun getUtcRequestDateFor(age: Int): UtcDate {
-        return UtcDate(age)
+    fun getDateForAge(age: Int, zoneId: ZoneId = ZoneId.systemDefault()): LocalDate {
+        return LocalDate.now(zoneId).minusDays(age.toLong())
     }
 
-    fun getDefaultDateFor(age: Int): Calendar {
-        val calendar = Calendar.getInstance(TimeZone.getDefault())
-        calendar.add(Calendar.DATE, -age)
-        return calendar
+    fun getDatePartsForAge(age: Int, zoneId: ZoneId = ZoneId.systemDefault()): List<String> {
+        return getDateForAge(age, zoneId).toString().split("-")
     }
 
     fun yearToStringWithEra(year: Int): String {

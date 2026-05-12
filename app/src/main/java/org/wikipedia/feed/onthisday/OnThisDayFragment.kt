@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,6 +33,9 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CustomDatePicker
 import org.wikipedia.views.HeaderMarginItemDecoration
+import java.time.LocalDate
+import java.time.MonthDay
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Locale
 import kotlin.math.abs
@@ -50,7 +54,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             } else if (verticalOffset <= -appBarLayout.totalScrollRange) {
                 binding.dropDownToolbar.visibility = View.VISIBLE
             }
-            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date.time) else ""
+            val newText = if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(viewModel.date) else ""
             if (newText != binding.toolbarDay.text.toString()) {
                 appBarLayout.post { binding.toolbarDay.text = newText }
             }
@@ -138,16 +142,15 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
             ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color)
         )
-        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
+        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date)
         maybeHideDateIndicator()
         binding.appBar.addOnOffsetChangedListener(offsetChangedListener)
     }
 
     private fun maybeHideDateIndicator() {
-        binding.indicatorLayout.visibility =
-            if (viewModel.date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
-                viewModel.date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]) View.GONE else View.VISIBLE
-        binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", Calendar.getInstance()[Calendar.DATE])
+        val now = MonthDay.now()
+        binding.indicatorLayout.isGone = MonthDay.from(viewModel.date) == now
+        binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", now.dayOfMonth)
         TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.indicatorDate, 4, 10, 1, TypedValue.COMPLEX_UNIT_SP)
     }
 
@@ -159,17 +162,19 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     }
 
     override fun onDatePicked(calendar: Calendar) {
+        val localDate = LocalDate.ofInstant(calendar.toInstant(), ZoneId.systemDefault())
+
         binding.eventsRecycler.visibility = View.GONE
-        viewModel.date[CustomDatePicker.LEAP_YEAR, calendar[Calendar.MONTH], calendar[Calendar.DATE], 0] = 0
-        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date.time)
+        viewModel.date = localDate
+        binding.day.text = DateUtil.getMonthOnlyDateString(viewModel.date)
         binding.appBar.setExpanded(true)
-        viewModel.loadOnThisDay(calendar)
+        viewModel.loadOnThisDay(localDate)
         maybeHideDateIndicator()
     }
 
     private fun onCalendarClicked() {
         val newFragment = CustomDatePicker()
-        newFragment.setSelectedDay(viewModel.date[Calendar.MONTH], viewModel.date[Calendar.DATE])
+        newFragment.setSelectedDay(viewModel.date.monthValue - 1, viewModel.date.dayOfMonth)
         newFragment.callback = this@OnThisDayFragment
         newFragment.show(parentFragmentManager, "datePicker")
     }
