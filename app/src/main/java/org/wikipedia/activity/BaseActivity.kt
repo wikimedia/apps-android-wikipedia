@@ -135,7 +135,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
                     instrument?.submitInteraction(actionSource = "notification")
                 }
                 InvokeSource.APP_SHORTCUTS -> {
-                    instrument?.submitInteraction(actionSource = "shortcut")
+                    val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
+                    instrument?.submitInteraction(actionSource = "shortcut", actionSubtype = shortcutId)
                 }
                 else -> { }
             }
