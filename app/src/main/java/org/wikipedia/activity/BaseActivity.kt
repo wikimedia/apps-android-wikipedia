@@ -121,7 +121,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             }
         }
 
-
         _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
             .setDefaultAction("app_open")
 
@@ -129,7 +128,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         invokeSource?.let {
             when (it) {
                 InvokeSource.WIDGET -> {
-                    instrument?.submitInteraction(actionSource = "widget")
+                    val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
+                    instrument?.submitInteraction(actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
                     instrument?.submitInteraction(actionSource = "notification")
@@ -143,6 +143,10 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
         if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
             instrument?.submitInteraction(actionSource = "app_icon")
+        }
+
+        if (intent.action == Intent.ACTION_VIEW) {
+            instrument?.submitInteraction(actionSource = "external_link")
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -286,6 +290,12 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onGoOffline() {}
 
     override fun onGoOnline() {}
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        instrument?.submitInteraction(actionSource = "background", actionSubtype = invokeSource?.value)
+    }
 
     fun launchDonateDialog(campaignId: String? = null, donateUrl: String? = null) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager, DonateDialog.newInstance(campaignId, donateUrl))

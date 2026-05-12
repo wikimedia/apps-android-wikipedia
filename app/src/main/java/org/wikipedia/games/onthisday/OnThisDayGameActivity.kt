@@ -173,7 +173,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onFinish() {
-        if (viewModel.invokeSource == Constants.InvokeSource.NOTIFICATION) {
+        if (viewModel.invokeSource == InvokeSource.NOTIFICATION) {
             goToMainTab()
         } else {
             finish()
