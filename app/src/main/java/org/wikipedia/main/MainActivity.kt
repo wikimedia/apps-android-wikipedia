@@ -76,9 +76,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
                 Constants.InvokeSource.APP_SHORTCUTS -> {
                     instrument?.submitInteraction(actionSource = "shortcut")
                 }
-                else -> {
-                    // TODO: maybe for regular app open
-                }
+                else -> { }
             }
         }
 

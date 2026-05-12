@@ -6,7 +6,6 @@ import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelableExtra
 
@@ -14,10 +13,6 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
 
     companion object {
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: InvokeSource?): Intent {
-            if (invokeSource == InvokeSource.WIDGET) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "widget")
-            }
             return Intent(context, RandomActivity::class.java).apply {
                 putExtra(Constants.ARG_WIKISITE, wikiSite)
                 putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)

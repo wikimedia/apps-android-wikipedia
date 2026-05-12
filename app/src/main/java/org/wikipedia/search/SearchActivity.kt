@@ -37,6 +37,11 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
+        if (intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) == InvokeSource.WIDGET) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "widget")
+        }
+
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .setDefaultActionSource("search")
             .startFunnel("search")
@@ -77,10 +82,6 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
             if (HybridSearchAbCTest().shouldShowOnboarding(WikipediaApp.instance.languageState.appLanguageCode)) {
                 Prefs.isHybridSearchOnboardingShown = true
                 return HybridSearchOnboardingActivity.newIntent(context, source)
-            }
-            if (source == InvokeSource.WIDGET) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "widget")
             }
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
