@@ -291,7 +291,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
         if (intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) == InvokeSource.WIDGET) {
             TestKitchenAdapter.client.getInstrument("apps-open")
-                .submitInteraction(actionSource = "widget")
+                .submitInteraction(action = "app_open", actionSource = "widget")
         }
 
         if (savedInstanceState == null) {
@@ -521,6 +521,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
+            TestKitchenAdapter.client.getInstrument("apps-open")
+                .submitInteraction(action = "app_open", actionSource = "external_link")
             var uri = intent.data
             if (!ReleaseUtil.isPreBetaRelease && uri?.scheme != null && uri.scheme == "http") {
                 // For external links, ensure that they're using https.

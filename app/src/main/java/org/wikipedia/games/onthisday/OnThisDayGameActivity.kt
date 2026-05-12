@@ -214,7 +214,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
 
             if (invokeSource == InvokeSource.NOTIFICATION) {
                 TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(actionSource = "notification")
+                    .submitInteraction(action = "app_open", actionSource = "notification")
             }
 
             return Intent(context, OnThisDayGameActivity::class.java)

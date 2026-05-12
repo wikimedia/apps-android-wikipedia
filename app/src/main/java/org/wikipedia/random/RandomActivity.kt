@@ -16,7 +16,7 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: InvokeSource?): Intent {
             if (invokeSource == InvokeSource.WIDGET) {
                 TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(actionSource = "widget")
+                    .submitInteraction(action = "app_open", actionSource = "widget")
             }
             return Intent(context, RandomActivity::class.java).apply {
                 putExtra(Constants.ARG_WIKISITE, wikiSite)

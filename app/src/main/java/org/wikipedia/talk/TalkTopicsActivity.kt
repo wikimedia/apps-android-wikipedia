@@ -566,7 +566,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: InvokeSource): Intent {
             if (invokeSource == InvokeSource.NOTIFICATION) {
                 TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(actionSource = "notification")
+                    .submitInteraction(action = "app_open", actionSource = "notification")
             }
             return Intent(context, TalkTopicsActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, pageTitle)

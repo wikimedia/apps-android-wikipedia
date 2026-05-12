@@ -92,7 +92,7 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         fun newIntent(context: Context, readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): Intent {
             if (invokeSource == InvokeSource.NOTIFICATION) {
                 TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(actionSource = "notification")
+                    .submitInteraction(action = "app_open", actionSource = "notification")
             }
             return Intent(context, ReadingListActivity::class.java)
                 .putExtra(EXTRA_READING_LIST_MODE, readingListMode)
