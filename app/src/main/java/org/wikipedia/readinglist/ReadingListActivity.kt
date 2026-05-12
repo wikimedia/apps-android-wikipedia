@@ -12,7 +12,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.main.MainActivity
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.readinglist.database.ReadingList
@@ -90,10 +89,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>(), BaseA
         }
 
         fun newIntent(context: Context, readingListMode: ReadingListMode, invokeSource: InvokeSource? = null): Intent {
-            if (invokeSource == InvokeSource.NOTIFICATION) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "notification")
-            }
             return Intent(context, ReadingListActivity::class.java)
                 .putExtra(EXTRA_READING_LIST_MODE, readingListMode)
                 .putExtra(EXTRA_SOURCE, invokeSource)

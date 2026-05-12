@@ -37,11 +37,6 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         }
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
-        if (intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) == InvokeSource.WIDGET) {
-            TestKitchenAdapter.client.getInstrument("apps-open")
-                .submitInteraction(action = "app_open", actionSource = "widget")
-        }
-
         _instrument = TestKitchenAdapter.client.getInstrument("apps-search")
             .setDefaultActionSource("search")
             .startFunnel("search")

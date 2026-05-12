@@ -28,7 +28,6 @@ import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.databinding.ItemTalkTopicBinding
@@ -564,10 +563,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: InvokeSource): Intent {
-            if (invokeSource == InvokeSource.NOTIFICATION) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "notification")
-            }
             return Intent(context, TalkTopicsActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, pageTitle)
                 .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())

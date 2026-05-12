@@ -289,11 +289,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
-        if (intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) == InvokeSource.WIDGET) {
-            TestKitchenAdapter.client.getInstrument("apps-open")
-                .submitInteraction(action = "app_open", actionSource = "widget")
-        }
-
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!

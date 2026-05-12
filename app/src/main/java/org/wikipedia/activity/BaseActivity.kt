@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
@@ -36,6 +37,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.extensions.instrument
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -112,11 +114,35 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         removeSplashBackground()
 
         if (AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
-            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
+            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.APP_SHORTCUTS)
             val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
             if (!shortcutId.isNullOrEmpty()) {
                 ShortcutManagerCompat.reportShortcutUsed(applicationContext, shortcutId)
             }
+        }
+
+
+        _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
+            .setDefaultAction("app_open")
+
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        invokeSource?.let {
+            when (it) {
+                InvokeSource.WIDGET -> {
+                    instrument?.submitInteraction(actionSource = "widget")
+                }
+                InvokeSource.NOTIFICATION -> {
+                    instrument?.submitInteraction(actionSource = "notification")
+                }
+                InvokeSource.APP_SHORTCUTS -> {
+                    instrument?.submitInteraction(actionSource = "shortcut")
+                }
+                else -> { }
+            }
+        }
+
+        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
+            instrument?.submitInteraction(actionSource = "app_icon")
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -19,10 +19,8 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.extensions.instrument
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
@@ -59,29 +57,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
         if (!DeviceUtil.assertAppContext(this)) {
             return
-        }
-
-        _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
-            .setDefaultAction("app_open")
-
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource?
-        invokeSource?.let {
-            when (it) {
-                Constants.InvokeSource.WIDGET -> {
-                    instrument?.submitInteraction(actionSource = "widget")
-                }
-                Constants.InvokeSource.NOTIFICATION -> {
-                    instrument?.submitInteraction(actionSource = "notification")
-                }
-                Constants.InvokeSource.APP_SHORTCUTS -> {
-                    instrument?.submitInteraction(actionSource = "shortcut")
-                }
-                else -> { }
-            }
-        }
-
-        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
-            instrument?.submitInteraction(actionSource = "app_icon")
         }
 
         disableFitsSystemWindows()

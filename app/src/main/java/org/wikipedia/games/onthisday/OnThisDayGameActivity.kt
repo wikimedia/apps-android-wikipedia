@@ -24,7 +24,6 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
-import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityOnThisDayGameBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.games.db.DailyGameHistory
@@ -211,11 +210,6 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
                 .takeIf { it.isNotEmpty() }
                 ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
                 ?: date
-
-            if (invokeSource == InvokeSource.NOTIFICATION) {
-                TestKitchenAdapter.client.getInstrument("apps-open")
-                    .submitInteraction(action = "app_open", actionSource = "notification")
-            }
 
             return Intent(context, OnThisDayGameActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
