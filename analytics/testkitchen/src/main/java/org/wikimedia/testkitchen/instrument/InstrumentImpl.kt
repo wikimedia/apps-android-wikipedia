@@ -12,7 +12,6 @@ class InstrumentImpl(
 ) {
     var funnel: Funnel? = null
     var experiment: ExperimentImpl? = null
-    private var defaultAction: String? = null
     private var defaultActionSource: String? = null
     private var defaultMediaWikiData: MediawikiData? = null
 
@@ -34,7 +33,7 @@ class InstrumentImpl(
         client?.submitInteraction(
             instrument = this,
             interactionData = InteractionData(
-                action = action ?: defaultAction,
+                action = action,
                 actionSource = actionSource ?: defaultActionSource,
                 actionSubtype = actionSubtype,
                 elementId = elementId,
@@ -64,11 +63,6 @@ class InstrumentImpl(
 
     fun setExperiment(experiment: ExperimentImpl?): InstrumentImpl {
         this.experiment = experiment
-        return this
-    }
-
-    fun setDefaultAction(action: String): InstrumentImpl {
-        defaultAction = action
         return this
     }
 
