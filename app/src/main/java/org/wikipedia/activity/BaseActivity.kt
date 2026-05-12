@@ -37,7 +37,6 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent
 import org.wikipedia.events.SplitLargeListsEvent
 import org.wikipedia.events.ThemeFontChangeEvent
 import org.wikipedia.events.UnreadNotificationsEvent
-import org.wikipedia.extensions.instrument
 import org.wikipedia.games.onthisday.OnThisDayGameResultFragment
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
@@ -121,33 +120,25 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
             }
         }
 
-        _instrument = TestKitchenAdapter.client.getInstrument("apps-open")
-            .setDefaultAction("app_open")
-
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
         invokeSource?.let {
             when (it) {
                 InvokeSource.WIDGET -> {
                     val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
-                    instrument?.submitInteraction(actionSource = "widget", actionSubtype = widgetType)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
                 }
                 InvokeSource.NOTIFICATION -> {
-                    instrument?.submitInteraction(actionSource = "notification")
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "notification")
                 }
                 InvokeSource.APP_SHORTCUTS -> {
                     val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
-                    instrument?.submitInteraction(actionSource = "shortcut", actionSubtype = shortcutId)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "shortcut", actionSubtype = shortcutId)
                 }
                 else -> { }
             }
-        }
-
-        if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
-            instrument?.submitInteraction(actionSource = "app_icon")
-        }
-
-        if (intent.action == Intent.ACTION_VIEW) {
-            instrument?.submitInteraction(actionSource = "external_link")
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -295,7 +286,8 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
-        instrument?.submitInteraction(actionSource = "background", actionSubtype = invokeSource?.value)
+        TestKitchenAdapter.client.getInstrument("apps-open")
+            .submitInteraction(action = "app_open", actionSource = "background", actionSubtype = invokeSource?.value)
     }
 
     fun launchDonateDialog(campaignId: String? = null, donateUrl: String? = null) {

@@ -19,6 +19,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedFragment
@@ -181,6 +182,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_VIEW == intent.action && intent.data != null) {
+            if (intent.action == Intent.ACTION_MAIN && intent.categories?.contains(Intent.CATEGORY_LAUNCHER) == true) {
+                TestKitchenAdapter.client.getInstrument("apps-open")
+                    .submitInteraction(action = "app_open", actionSource = "app_icon")
+            }
             // TODO: handle special cases of non-article content, e.g. shared reading lists.
             intent.data?.let {
                 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) {
