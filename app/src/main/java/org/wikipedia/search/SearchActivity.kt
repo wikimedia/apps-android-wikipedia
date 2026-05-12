@@ -78,6 +78,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 Prefs.isHybridSearchOnboardingShown = true
                 return HybridSearchOnboardingActivity.newIntent(context, source)
             }
+
             return Intent(context, SearchActivity::class.java)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
                     .putExtra(QUERY_EXTRA, query)

@@ -3,6 +3,8 @@ package org.wikipedia.views
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +15,6 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.net.toUri
 import androidx.core.widget.PopupWindowCompat
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.Constants
@@ -51,7 +51,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popupWindowHost?.let {
-            it.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
+            it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             PopupWindowCompat.setOverlapAnchor(it, true)
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }
@@ -69,7 +69,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     setUpViewForLink(binding.overflowViewSecondary, secondary.first())
                     binding.overflowViewSecondary.visibility = View.VISIBLE
 
-                    val uri = secondary.first().url.toUri()
+                    val uri = Uri.parse(secondary.first().url)
                     val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
@@ -123,12 +123,10 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         dismiss()
     }
 
-    private fun setUpViewForLink(
-        textView: TextView, link: Notification.Link,
-        @DrawableRes customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
-        @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.secondary_color),
-        @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_color),
-    ) {
+    private fun setUpViewForLink(textView: TextView, link: Notification.Link,
+                                 @DrawableRes customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
+                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.secondary_color),
+                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_color)) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
         val icon = when (link.icon()) {

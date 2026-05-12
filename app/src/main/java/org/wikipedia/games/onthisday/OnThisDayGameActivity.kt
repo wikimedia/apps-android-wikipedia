@@ -20,7 +20,6 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.WikiGamesEvent
@@ -173,7 +172,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     }
 
     private fun onFinish() {
-        if (viewModel.invokeSource == InvokeSource.NOTIFICATION) {
+        if (viewModel.invokeSource == Constants.InvokeSource.NOTIFICATION) {
             goToMainTab()
         } else {
             finish()
@@ -205,7 +204,7 @@ class OnThisDayGameActivity : BaseActivity(), BaseActivity.Callback {
     companion object {
         const val EXTRA_GAME_STATUS = "gameStatus"
 
-        fun newIntent(context: Context, invokeSource: InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
+        fun newIntent(context: Context, invokeSource: Constants.InvokeSource, wikiSite: WikiSite, date: LocalDate? = null, gameStatus: Int = -1): Intent {
             val resolvedDate = Prefs.lastOtdGameDateOverride
                 .takeIf { it.isNotEmpty() }
                 ?.let { runCatching { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE) }.getOrElse { LocalDate.now() } }
