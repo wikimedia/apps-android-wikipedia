@@ -69,16 +69,59 @@ class NotificationViewModelTest {
 
     @Test
     fun testSearchFiltering() = runBlocking {
-        val n1 = createNotification(1, "en", "mention", "Apple")
-        val n2 = createNotification(2, "en", "mention", "Banana")
+        val n1 = createNotification(
+            1,
+            "en",
+            "mention",
+            "Apple",
+            timestamp = "2023-10-03T10:00:00Z",
+            body = "Orange",
+            title = "Kiwi",
+            links = "Melon"
+        )
+        val n2 = createNotification(
+            2,
+            "en",
+            "mention",
+            "Banana",
+            timestamp = "2023-10-04T10:00:00Z",
+            body = "Cherry",
+            title = "Jabuticaba",
+            links = "Passion fruit"
+        )
         repository.notifications.addAll(listOf(n1, n2))
 
-        viewModel.updateSearchQuery("App")
+        // check if match on header is reported
+        viewModel.updateSearchQuery("app")
 
-        val uiState = viewModel.uiState.value
-        val items = (uiState as Resource.Success).data.first
-        assertEquals(1, items.size)
-        assertEquals(1L, items[0].notification?.id)
+        val uiStateHeaderFiltered = viewModel.uiState.value
+        val itemsHeaderFiltered = (uiStateHeaderFiltered as Resource.Success).data.first
+        assertEquals(1, itemsHeaderFiltered.size)
+        assertEquals(1L, itemsHeaderFiltered[0].notification?.id)
+
+        // check if match on body is reported
+        viewModel.updateSearchQuery("ora")
+
+        val uiStateBodyFiltered = viewModel.uiState.value
+        val itemsBodyFiltered = (uiStateBodyFiltered as Resource.Success).data.first
+        assertEquals(1, itemsBodyFiltered.size)
+        assertEquals(1L, itemsBodyFiltered[0].notification?.id)
+
+        // check if match on title is reported
+        viewModel.updateSearchQuery("kiw")
+
+        val uiStateTitleFiltered = viewModel.uiState.value
+        val itemsTitleFiltered = (uiStateTitleFiltered as Resource.Success).data.first
+        assertEquals(1, itemsTitleFiltered.size)
+        assertEquals(1L, itemsTitleFiltered[0].notification?.id)
+
+        // check if match on links is reported
+        viewModel.updateSearchQuery("mel")
+
+        val uiStateLinkFiltered = viewModel.uiState.value
+        val itemsLinkFiltered = (uiStateLinkFiltered as Resource.Success).data.first
+        assertEquals(1, itemsLinkFiltered.size)
+        assertEquals(1L, itemsLinkFiltered[0].notification?.id)
     }
 
     @Test
@@ -180,18 +223,31 @@ class NotificationViewModelTest {
         wiki: String,
         category: String,
         header: String,
-        timestamp: String = "2023-10-27T10:00:00Z"
+        timestamp: String = "2023-10-27T10:00:00Z",
+        title: String = "",
+        body: String = "",
+        links: String = "",
     ): Notification {
-        val json = """
+        val json = $$"""
             {
-                "id": $id,
-                "wiki": "$wiki",
-                "category": "$category",
+                "id": $$id,
+                "wiki": "$$wiki",
+                "category": "$$category",
+                "title": {
+                    "full": "$$title",
+                    "text": "$$title"
+                },
                 "timestamp": {
-                    "utciso8601": "$timestamp"
+                    "utciso8601": "$$timestamp"
                 },
                 "*": {
-                    "header": "$header"
+                    "header": "$$header",
+                    "body": "$$body",
+                    "links": {
+                        "secondary": [
+                            { "label": "$$links", "url": "" }
+                        ]
+                    }
                 }
             }
         """.trimIndent()
