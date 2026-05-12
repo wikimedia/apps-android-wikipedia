@@ -52,9 +52,12 @@ composeBom = "2026.05.00"
 composeActivity = "1.13.0"
 composeViewModel = "2.10.0"
 uiGraphics = "1.11.1"
+credentialsVersion = "1.6.0"
 
 
 [libraries]
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentialsVersion" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentialsVersion" }
 androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoVersion" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }

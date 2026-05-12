@@ -219,6 +219,14 @@ dependencies {
     implementation libs.androidx.glance.preview
     implementation libs.androidx.glance.appwidget.preview
 
+    // For saving/retrieving user credentials via Credential Manager
+    implementation libs.androidx.credentials
+    prodImplementation libs.androidx.credentials.play.services.auth
+    betaImplementation libs.androidx.credentials.play.services.auth
+    alphaImplementation libs.androidx.credentials.play.services.auth
+    devImplementation libs.androidx.credentials.play.services.auth
+    customImplementation libs.androidx.credentials.play.services.auth
+
     // For language detection during editing
     prodImplementation libs.com.google.mlkit.language.id
     betaImplementation libs.com.google.mlkit.language.id
