@@ -16,23 +16,23 @@ enum class CommunityModuleType(
 ) {
     FEATURED_ARTICLE(
         title = R.string.view_featured_article_card_title,
-        subtitle = R.string.home_feed_settings_community_module_featured_article_subtitle,
+        subtitle = R.string.explore_feed_featured_article_subtitle,
     ),
     TOP_READ(
         title = R.string.view_top_read_card_title,
-        subtitle = R.string.home_feed_settings_community_module_top_red_subtitle
+        subtitle = R.string.view_top_read_card_description
     ),
     FEATURED_IMAGE(
         title = R.string.view_featured_image_card_title,
-        subtitle = R.string.home_feed_settings_community_module_picture_of_the_day_subtitle
+        subtitle = R.string.explore_feed_in_the_news_subtitle
     ),
     NEWS(
         title = R.string.view_card_news_title,
-        subtitle = R.string.home_feed_settings_community_module_in_the_news_subtitle
+        subtitle = R.string.explore_feed_on_this_day_subtitle
     ),
     ON_THIS_DAY(
         title = R.string.on_this_day_card_title,
-        subtitle = R.string.home_feed_settings_community_module_on_this_day_subtitle
+        subtitle = R.string.explore_feed_potd_subtitle
     );
 
     fun toEntry() = ToggleSettingItem(title, subtitle, name)
@@ -50,7 +50,7 @@ fun CommunityModulesScreen(
     val hiddenModules by viewModel.hiddenModules.collectAsState()
     hiddenModules?.let {
         ToggleListScreen(
-            title = stringResource(R.string.home_feed_settings_community_title),
+            title = stringResource(R.string.explore_feed_community_tab_label),
             description = stringResource(R.string.home_feed_settings_community_modules_description),
             modules = CommunityModuleType.entries(),
             hiddenModules = it,

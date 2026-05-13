@@ -19,7 +19,7 @@ enum class ForYouModuleType(
         subtitle = R.string.home_feed_settings_based_on_interest_subtitle
     ),
     BECAUSE_YOU_READ(
-        title = R.string.home_feed_settings_because_you_read_title,
+        title = R.string.view_because_you_read_card_title,
         subtitle = R.string.home_feed_settings_because_you_read_subtitle
     ),
     CONTINUE_READING(
@@ -43,7 +43,7 @@ fun ForYouModulesScreen(
     val hiddenModules by viewModel.hiddenModules.collectAsState()
     hiddenModules?.let {
         ToggleListScreen(
-            title = stringResource(R.string.home_feed_settings_for_you_title),
+            title = stringResource(R.string.explore_feed_for_you_tab_label),
             description = stringResource(R.string.home_feed_settings_for_you_modules_description),
             modules = ForYouModuleType.entries(),
             hiddenModules = it,
