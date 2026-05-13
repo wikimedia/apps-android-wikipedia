@@ -17,7 +17,8 @@ import java.util.Random
 
 class NotificationViewModel(
     private val notificationPreferences: NotificationPreferences,
-    private val notificationRepository: NotificationRepository
+    private val notificationRepository: NotificationRepository,
+    private val notificationFilterHelper: NotificationFilterHelper
 ) : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -93,11 +94,10 @@ class NotificationViewModel(
 
         val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
         val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
-        val includedWikiCodes = NotificationFilterActivity.allWikisList().minus(excludedWikiCodes).map {
+        val includedWikiCodes = notificationFilterHelper.allWikisList().minus(excludedWikiCodes).map {
             it.split("-")[0]
         }
-        val checkExcludedWikiCodes = NotificationFilterActivity.allWikisList().size != includedWikiCodes.size
-
+        val checkExcludedWikiCodes = notificationFilterHelper.allWikisList().size != includedWikiCodes.size
         val notificationContainerList = mutableListOf<NotificationListItemContainer>()
 
         allUnreadCount = 0
@@ -135,7 +135,6 @@ class NotificationViewModel(
             }
             notificationContainerList.add(NotificationListItemContainer(n))
         }
-
         return notificationContainerList
     }
 
@@ -143,13 +142,14 @@ class NotificationViewModel(
     fun excludedFiltersCount(): Int {
         val excludedWikiCodes = notificationPreferences.getNotificationExcludedWikiCodes()
         val excludedTypeCodes = notificationPreferences.getNotificationExcludedTypeCodes()
-        return NotificationFilterActivity.allWikisList().count { excludedWikiCodes.contains(it) } +
-                NotificationFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
+        return notificationFilterHelper.allWikisList().count { excludedWikiCodes.contains(it) } +
+                notificationFilterHelper.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
     // Resets the paging state and erases in-memory notifications if refresh is requested.
     // Checks connectivity state. If device is online, it fetches data from the API and stores it in
-    // the database by calling repository function without effective filter and current paging state.
+    // the database by calling repository function without an effective filter but with the current
+    // paging state.
     // UI update is triggered by calling filterAndPostNotifications()
     fun fetchAndSave(refresh: Boolean = false) {
         if (refresh) {

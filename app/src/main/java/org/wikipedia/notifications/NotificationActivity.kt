@@ -71,7 +71,8 @@ class NotificationActivity : BaseActivity() {
     private val viewModel: NotificationViewModel by viewModels {
         NotificationViewModelFactory(
             NotificationPreferencesImpl(),
-            NotificationRepositoryImpl(AppDatabase.instance.notificationDao())
+            NotificationRepositoryImpl(AppDatabase.instance.notificationDao()),
+            NotificationFilterHelperImpl()
         )
     }
 

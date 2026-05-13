@@ -172,7 +172,7 @@ class NotificationFilterActivity : BaseActivity() {
         }
     }
 
-    companion object {
+    companion object: NotificationFilterHelper {
         const val ACTIVITY_RESULT_LANGUAGES_CHANGED = 2
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
@@ -180,7 +180,7 @@ class NotificationFilterActivity : BaseActivity() {
         private const val FILTER_TYPE_WIKI = 0
         private const val FILTER_TYPE_CATEGORY = 1
 
-        fun allWikisList(): List<String> {
+        override fun allWikisList(): List<String> {
             val wikiList = mutableListOf<String>()
             wikiList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
             wikiList.add(Constants.WIKI_CODE_COMMONS)
@@ -188,7 +188,7 @@ class NotificationFilterActivity : BaseActivity() {
             return wikiList
         }
 
-        fun allTypesIdList(): List<String> {
+        override fun allTypesIdList(): List<String> {
             return NotificationCategory.FILTERS_GROUP.map { it.id }
         }
 

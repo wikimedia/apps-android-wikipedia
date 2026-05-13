@@ -32,7 +32,7 @@ class NotificationViewModelTest {
         every { NotificationFilterActivity.allWikisList() } returns listOf("en", "zh")
         every { NotificationFilterActivity.allTypesIdList() } returns listOf("edit-thank", "mention")
 
-        viewModel = NotificationViewModel(preferences, repository)
+        viewModel = NotificationViewModel(preferences, repository, NotificationFilterHelperImpl())
     }
 
     @After

@@ -8,10 +8,11 @@ import androidx.lifecycle.ViewModelProvider
  */
 class NotificationViewModelFactory(
     private val preferences: NotificationPreferences,
-    private val notificationRepository: NotificationRepository
+    private val notificationRepository: NotificationRepository,
+    private val notificationFilterHelper: NotificationFilterHelper
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return NotificationViewModel(preferences, notificationRepository) as T
+        return NotificationViewModel(preferences, notificationRepository, notificationFilterHelper) as T
     }
 }
