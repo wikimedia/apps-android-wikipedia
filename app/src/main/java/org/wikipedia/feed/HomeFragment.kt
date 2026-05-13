@@ -760,22 +760,6 @@ fun CommunityContentTab(
                                 )
                             }
                         }
-                        is FeaturedImageCard -> {
-                            item(key = "tfi-${card.age}") {
-                                FeaturedImageModule(
-                                    wikiSite = wikiSite,
-                                    featuredImage = card.featuredImage,
-                                    onHideCardClick = { onHideCardClick(card) },
-                                    onHideModuleClick = {
-                                        onHideModuleClick(card.moduleKey())
-                                    },
-                                    onClick = onImageClick,
-                                    onDownloadClick = onImageDownloadClick,
-                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
-                                    onCardImpression = { onCardImpression(card, cardIndex) }
-                                )
-                            }
-                        }
                         is NewsCard -> {
                             item(key = "news-${card.age}") {
                                 NewsModule(
@@ -818,6 +802,22 @@ fun CommunityContentTab(
                                     onFooterClick = {
                                         activity?.startActivity(OnThisDayActivity.newIntent(activity, card.age, -1, wikiSite, InvokeSource.ON_THIS_DAY_CARD_FOOTER))
                                     },
+                                    onCardImpression = { onCardImpression(card, cardIndex) }
+                                )
+                            }
+                        }
+                        is FeaturedImageCard -> {
+                            item(key = "tfi-${card.age}") {
+                                FeaturedImageModule(
+                                    wikiSite = wikiSite,
+                                    featuredImage = card.featuredImage,
+                                    onHideCardClick = { onHideCardClick(card) },
+                                    onHideModuleClick = {
+                                        onHideModuleClick(card.moduleKey())
+                                    },
+                                    onClick = onImageClick,
+                                    onDownloadClick = onImageDownloadClick,
+                                    onShareClick = { onImageShareClick(card.featuredImage, card.age) },
                                     onCardImpression = { onCardImpression(card, cardIndex) }
                                 )
                             }
