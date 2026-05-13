@@ -688,9 +688,6 @@ fun CommunityContentTab(
         state.isInitialLoading -> {
             LoadingIndicator(modifier = modifier.fillMaxHeight())
         }
-        state.error != null && state.cards.isEmpty() -> {
-            ErrorState(state.error, onRetry = onLoadMore)
-        }
         state.isEmptyState -> {
             HomeScreenEmptyState(
                 modifier = Modifier
@@ -701,6 +698,9 @@ fun CommunityContentTab(
                 description = stringResource(R.string.home_feed_community_screen_empty_state_description),
                 onManageModuleBtnClick = onManageModuleBtnClick
             )
+        }
+        state.error != null && state.cards.isEmpty() -> {
+            ErrorState(state.error, onRetry = onLoadMore)
         }
         else -> {
             LazyColumn(
@@ -921,17 +921,7 @@ fun ForYouContentTab(
                 LoadingIndicator(modifier = Modifier.fillMaxHeight())
             }
         }
-        state.error != null && state.modules.isEmpty() -> {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = WikipediaTheme.colors.backgroundColor),
-                contentAlignment = Alignment.Center
-            ) {
-                ErrorState(state.error, onRetry = onLoadMore)
-            }
-        }
-        state.modules.isEmpty() -> {
+        state.isEmptyState -> {
             HomeScreenEmptyState(
                 modifier = Modifier
                     .fillMaxSize()
@@ -941,6 +931,16 @@ fun ForYouContentTab(
                 description = stringResource(R.string.home_feed_for_you_screen_empty_state_description),
                 onManageModuleBtnClick = onManageModuleBtnClick
             )
+        }
+        state.error != null && state.modules.isEmpty() -> {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = WikipediaTheme.colors.backgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                ErrorState(state.error, onRetry = onLoadMore)
+            }
         }
         else -> {
             val listState = rememberLazyListState()
@@ -1324,7 +1324,7 @@ fun HomeScreenEmptyState(
             onClick = onManageModuleBtnClick
         ) {
             Text(
-                text = "Manage modules"
+                text = stringResource(R.string.home_feed_screen_empty_state_btn_label)
             )
         }
     }

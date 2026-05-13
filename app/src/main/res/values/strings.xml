@@ -2519,4 +2519,5 @@
     <string name="home_feed_screen_empty_state_label">Your feed is empty</string>
     <string name="home_feed_community_screen_empty_state_description"><![CDATA[Turn on the <b>From the community</b> modules to start seeing content curated by contributors across the Wikimedia movement.]]></string>
     <string name="home_feed_for_you_screen_empty_state_description"><![CDATA[Turn on the <b>For you</b> modules to start seeing content based on your preferences.]]></string>
+    <string name="home_feed_screen_empty_state_btn_label">Manage modules</string>
 </resources>
