@@ -4,6 +4,7 @@ import androidx.compose.ui.util.fastJoinToString
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,6 +12,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -35,6 +37,7 @@ import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.json.LocalDateTimeSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
@@ -43,6 +46,7 @@ import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
 enum class CommunityModules { TOP_READ, FEATURED_ARTICLE, FEATURED_IMAGE, NEWS, ON_THIS_DAY }
@@ -93,6 +97,12 @@ sealed class ForYouModule {
         override fun moduleKey(): String = ForYouModules.BECAUSE_YOU_READ.name
     }
 }
+
+@Serializable
+class ForYouCollectionSaved(
+    @Serializable(with = LocalDateTimeSerializer::class) val dateTime: LocalDateTime? = null,
+    val modulesPerLanguage: Map<String, List<ForYouModule>> = emptyMap()
+)
 
 data class CommunityContentState(
     val cards: List<Card> = emptyList(),
@@ -393,6 +403,32 @@ class HomeViewModel : ViewModel() {
     private suspend fun fetchForYouModules(age: Int): List<ForYouModule> {
         val modules = mutableListOf<ForYouModule>()
         val hiddenCards = Prefs.hiddenCards
+        var forYouCollectionSaved = ForYouCollectionSaved()
+
+        try {
+            withContext(Dispatchers.Default) {
+                forYouCollectionSaved = JsonUtil.decodeFromString<ForYouCollectionSaved>(Prefs.homeForYouModulesToday)!!
+            }
+        } catch (e: Exception) {
+            L.e("Failed to load modules from cache.")
+        }
+
+        if (forYouCollectionSaved.dateTime != null &&
+            forYouCollectionSaved.dateTime.toLocalDate() == LocalDate.now() &&
+            forYouCollectionSaved.modulesPerLanguage.containsKey(wikiSite.value.languageCode)
+        ) {
+            L.d("Loading modules from cache...")
+            val modules = forYouCollectionSaved.modulesPerLanguage[wikiSite.value.languageCode].orEmpty()
+            val newModules = mutableListOf<ForYouModule>()
+            modules.forEach { module ->
+                val filteredCards = module.cards.filterNot { hiddenCards.contains(it.hideKey) }
+                if (filteredCards.isNotEmpty()) {
+                    newModules.add(module.withCards(filteredCards))
+                }
+            }
+            return newModules
+        }
+        L.d("Loading modules from network...")
 
         // --- Interests ---
 
@@ -506,7 +542,7 @@ class HomeViewModel : ViewModel() {
                 }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                 addAll(relatedPages?.map {
-                    BecauseYouReadCard(entry.title, entry.title.displayText)
+                    BecauseYouReadCard(it.getPageTitle(wikiSite.value), entry.title.displayText)
                 } ?: emptyList())
             }
         }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
@@ -516,9 +552,13 @@ class HomeViewModel : ViewModel() {
             modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
 
-        var json = JsonUtil.encodeToString(modules)
-        L.d(">>>>>>>>>>" + json)
-
+        forYouCollectionSaved = ForYouCollectionSaved(
+            dateTime = LocalDateTime.now(),
+            modulesPerLanguage = forYouCollectionSaved.modulesPerLanguage + (wikiSite.value.languageCode to modules)
+        )
+        withContext(Dispatchers.Default) {
+            Prefs.homeForYouModulesToday = JsonUtil.encodeToString(forYouCollectionSaved).orEmpty()
+        }
         return modules
     }
 

@@ -143,6 +143,7 @@ class HomeFragment : Fragment() {
     private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
             selectTab(HomeTab.FOR_YOU)
+            Prefs.homeForYouModulesToday = ""
             viewModel.refreshForYouContent()
         }
     }
