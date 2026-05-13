@@ -44,7 +44,7 @@ fun HomeFeedSettingsScreen(
             verticalArrangement = Arrangement.spacedBy(34.dp)
         ) {
             SettingsSection(
-                title = stringResource(R.string.home_feed_settings_community_title)
+                title = stringResource(R.string.explore_feed_community_tab_label)
             ) {
                 SettingsRow(
                     title = stringResource(R.string.home_feed_settings_modules_title),
@@ -54,7 +54,7 @@ fun HomeFeedSettingsScreen(
             }
 
             SettingsSection(
-                title = stringResource(R.string.home_feed_settings_for_you_title)
+                title = stringResource(R.string.explore_feed_for_you_tab_label)
             ) {
                 SettingsRow(
                     title = stringResource(R.string.home_feed_settings_modules_title),

@@ -20,7 +20,7 @@ fun CommunityModulesScreen(
     Scaffold(
         topBar = {
             WikiTopAppBar(
-                title = stringResource(R.string.home_feed_settings_community_title),
+                title = stringResource(R.string.explore_feed_community_tab_label),
                 onNavigationClick = onBack,
             )
         },

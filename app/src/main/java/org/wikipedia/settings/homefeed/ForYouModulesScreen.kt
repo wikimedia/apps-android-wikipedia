@@ -20,7 +20,7 @@ fun ForYouModulesScreen(
     Scaffold(
         topBar = {
             WikiTopAppBar(
-                title = stringResource(R.string.home_feed_settings_for_you_title),
+                title = stringResource(R.string.explore_feed_for_you_tab_label),
                 onNavigationClick = onBack,
             )
         },
