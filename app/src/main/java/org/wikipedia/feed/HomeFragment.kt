@@ -966,11 +966,12 @@ fun ForYouContentTab(
                         if (state.isLoadingMore) {
                             LoadingIndicator()
                         } else if (state.canLoadMore) {
-                            LoadMoreButton(
-                                wikiSite = wikiSite,
-                                isCommunity = false,
-                                onClick = onLoadMore
-                            )
+                            // In case we want to load more For You items in the future:
+                            // LoadMoreButton(
+                            //     wikiSite = wikiSite,
+                            //     isCommunity = false,
+                            //     onClick = onLoadMore
+                            // )
                         }
                     }
 
