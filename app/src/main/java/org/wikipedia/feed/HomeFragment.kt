@@ -139,6 +139,13 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private val customizeInterestsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            selectTab(HomeTab.FOR_YOU)
+            viewModel.refreshForYouContent()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
@@ -263,7 +270,7 @@ class HomeFragment : Fragment() {
                             requireActivity().startActivity(WikipediaLanguagesActivity.newIntent(requireContext(), invokeSource = InvokeSource.FEED))
                         },
                         onCustomizeInterestsClick = {
-                            requireActivity().startActivity(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
+                            customizeInterestsLauncher.launch(PersonalizationActivity.newIntent(requireContext(), showIntroPage = false))
                         },
                         onTabClick = {
                             requireActivity().startActivity(TabActivity.newIntent(requireActivity()))
