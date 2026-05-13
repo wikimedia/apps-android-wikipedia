@@ -19,10 +19,12 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikimedia.testkitchen.instrument.InstrumentImpl
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.BreadCrumbViewUtil
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.testkitchen.TestKitchenAdapter
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -114,10 +116,31 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         removeSplashBackground()
 
         if (AppShortcuts.ACTION_APP_SHORTCUT == intent.action) {
-            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.APP_SHORTCUTS)
+            intent.putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.APP_SHORTCUTS)
             val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
             if (!shortcutId.isNullOrEmpty()) {
                 ShortcutManagerCompat.reportShortcutUsed(applicationContext, shortcutId)
+            }
+        }
+
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        invokeSource?.let {
+            when (it) {
+                InvokeSource.WIDGET -> {
+                    val widgetType = intent.getStringExtra(Constants.INTENT_WIDGET_TYPE)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "widget", actionSubtype = widgetType)
+                }
+                InvokeSource.NOTIFICATION -> {
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "notification")
+                }
+                InvokeSource.APP_SHORTCUTS -> {
+                    val shortcutId = intent.getStringExtra(AppShortcuts.APP_SHORTCUT_ID)
+                    TestKitchenAdapter.client.getInstrument("apps-open")
+                        .submitInteraction(action = "app_open", actionSource = "shortcut", actionSubtype = shortcutId)
+                }
+                else -> { }
             }
         }
 
@@ -207,6 +230,9 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         WikipediaApp.instance.appSessionEvent.touchSession()
         TestKitchenAdapter.client.onAppResume()
         BreadCrumbLogEvent.logScreenShown(this)
+        TestKitchenAdapter.client.getInstrument("apps-open")
+            .submitInteraction(action = "app_open", actionSource = "background",
+                actionSubtype = BreadCrumbViewUtil.getReadableScreenName(this))
     }
 
     override fun onStart() {

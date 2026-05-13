@@ -10,6 +10,7 @@ import android.os.Build
 import android.util.SizeF
 import android.widget.RemoteViews
 import androidx.core.app.PendingIntentCompat
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.search.SearchActivity
@@ -22,6 +23,7 @@ class WidgetProviderSearch : AppWidgetProvider() {
 
             val pendingIntent = PendingIntentCompat.getActivity(context, 0,
                 SearchActivity.newIntent(context, InvokeSource.WIDGET, null)
+                    .putExtra(Constants.INTENT_WIDGET_TYPE, WidgetTypes.SEARCH.value)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
 
@@ -36,7 +38,7 @@ class WidgetProviderSearch : AppWidgetProvider() {
 
                 val viewMapping: Map<SizeF, RemoteViews> = mapOf(
                     SizeF(32f, 32f) to smallView,
-                    SizeF(64f, 32f) to mediumView,
+                    SizeF(100f, 32f) to mediumView,
                     SizeF(160f, 32f) to largeView
                 )
                 RemoteViews(viewMapping)
