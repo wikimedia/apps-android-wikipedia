@@ -2263,4 +2263,7 @@
     <string name="home_feed_settings_continue_reading_subtitle">Subtitle prompting users to continue reading unfinished articles.</string>
     <string name="home_feed_settings_based_on_interest_title">Title for the Based on your interests module in Home feed settings.</string>
     <string name="home_feed_settings_continue_reading_title">Title for the Continue reading module in Home feed settings.</string>
+    <string name="home_feed_screen_empty_state_label">Title text shown when the selected feed has no visible content.</string>
+    <string name="home_feed_community_screen_empty_state_description">Description text shown when all “From the community” modules are turned off in the feed settings.</string>
+    <string name="home_feed_for_you_screen_empty_state_description">Description text shown when all “For you” modules are turned off in the feed settings.</string>
 </resources>
