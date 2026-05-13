@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -20,24 +21,27 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.feed.becauseyouread.BecauseYouReadCard
-import org.wikipedia.feed.continuereading.ContinueReadingCard
 import org.wikipedia.feed.dayheader.DayHeaderCard
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
-import org.wikipedia.feed.interests.BasedOnInterestCard
+import org.wikipedia.feed.model.BasedOnInterestCard
+import org.wikipedia.feed.model.BecauseYouReadCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ContinueReadingCard
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.personalization.homepreference.HomePreferenceType
 import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsRepository
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.topics.ArticleTopics
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import java.time.LocalDate
 
 enum class HomeTab { COMMUNITY, FOR_YOU }
@@ -46,42 +50,46 @@ enum class ForYouModules { BASED_ON_INTEREST, CONTINUE_READING, BECAUSE_YOU_READ
 private const val MAX_HIDDEN_CARDS = 100
 private const val MAX_STOP_TIMEOUT_MILLIS = 5000L
 
+@Serializable
 sealed class ForYouModule {
     abstract val age: Int
     abstract val index: Int
-    abstract val cards: List<Card>
+    abstract val cards: List<ForYouCard>
 
-    abstract fun withCards(cards: List<Card>): ForYouModule
+    abstract fun withCards(cards: List<ForYouCard>): ForYouModule
     abstract fun moduleKey(): String
 
     fun matchesIdentity(other: ForYouModule): Boolean {
         return this::class == other::class && age == other.age && index == other.index
     }
 
+    @Serializable
     data class BasedOnInterest(
         override val age: Int,
         override val index: Int,
-        override val cards: List<Card>
+        override val cards: List<ForYouCard>
     ) : ForYouModule() {
-        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModules.BASED_ON_INTEREST.name
     }
 
+    @Serializable
     data class ContinueReading(
         override val age: Int,
         override val index: Int,
-        override val cards: List<Card>
+        override val cards: List<ForYouCard>
     ) : ForYouModule() {
-        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModules.CONTINUE_READING.name
     }
 
+    @Serializable
     data class BecauseYouRead(
         override val age: Int,
         override val index: Int,
-        override val cards: List<Card>
+        override val cards: List<ForYouCard>
     ) : ForYouModule() {
-        override fun withCards(cards: List<Card>): ForYouModule = copy(cards = cards)
+        override fun withCards(cards: List<ForYouCard>): ForYouModule = copy(cards = cards)
         override fun moduleKey(): String = ForYouModules.BECAUSE_YOU_READ.name
     }
 }
@@ -312,7 +320,7 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    fun hideForYouCard(module: ForYouModule, card: Card): Int {
+    fun hideForYouCard(module: ForYouModule, card: ForYouCard): Int {
         addHiddenCard(card)
         val modules = _forYouState.value.modules
         val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
@@ -342,7 +350,7 @@ class HomeViewModel : ViewModel() {
         return cardIndex
     }
 
-    fun restoreForYouCard(module: ForYouModule, card: Card, index: Int) {
+    fun restoreForYouCard(module: ForYouModule, card: ForYouCard, index: Int) {
         Prefs.hiddenCards -= card.hideKey
         val modules = _forYouState.value.modules.toMutableList()
         val moduleIndex = modules.indexOfFirst { it.matchesIdentity(module) }
@@ -402,7 +410,7 @@ class HomeViewModel : ViewModel() {
                 ?.sortedBy { it.index } // Sort by index, as reported by the API
                 ?.sortedBy { it.thumbUrl().isNullOrEmpty() } // Sort by whether it has a thumbnail
                 ?.map { page ->
-                    val pageTitle = PageTitle(
+                    PageTitle(
                         text = page.title,
                         wiki = wikiSite.value,
                         thumbUrl = page.thumbUrl(),
@@ -412,7 +420,6 @@ class HomeViewModel : ViewModel() {
                         if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
-                    HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestTopic = topic)
@@ -427,7 +434,7 @@ class HomeViewModel : ViewModel() {
             val searchTerm = StringUtil.removeUnderscores(article.apiTitle)
             val entries = ServiceFactory.get(wikiSite.value).searchMoreLike("morelike:$searchTerm", 10, 10)
                 .query?.pages?.filter { it.title != searchTerm && it.title != MainPageNameData.valueFor(wikiSite.value.languageCode) }?.map { page ->
-                    val pageTitle = PageTitle(
+                    PageTitle(
                         text = page.title,
                         wiki = wikiSite.value,
                         thumbUrl = page.thumbUrl(),
@@ -437,7 +444,6 @@ class HomeViewModel : ViewModel() {
                         if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                         it.extract = page.extract
                     }
-                    HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_INTERESTS)
                 }.orEmpty().map {
                     // TODO: filter items that have already been suggested.
                     BasedOnInterestCard(it, interestArticle = article)
@@ -453,7 +459,7 @@ class HomeViewModel : ViewModel() {
         val continueReadingCards = buildList {
             val lastReadEntries = AppDatabase.instance.historyEntryWithImageDao().findEntryForReadMore(age + 1, 30, wikiSite.value.languageCode)
             if (lastReadEntries.size > age) {
-                add(ContinueReadingCard(lastReadEntries[age].also { it.source = HistoryEntry.SOURCE_HISTORY }))
+                add(ContinueReadingCard(lastReadEntries[age].title, HistoryEntry.SOURCE_HISTORY))
             }
             val readingListPageTitles = AppDatabase.instance.readingListPageDao().getPagesByRandomByLang(wikiSite.value.languageCode, 10).take(3)
                 .map { it.apiTitle }
@@ -461,7 +467,7 @@ class HomeViewModel : ViewModel() {
             if (readingListPageTitles.isNotEmpty()) {
                 ServiceFactory.get(wikiSite.value).getInfoWithExtractsByPageTitles(readingListPageTitles)
                     .query?.pages?.forEach { page ->
-                        add(ContinueReadingCard(HistoryEntry(PageTitle(
+                        add(ContinueReadingCard(PageTitle(
                             text = page.title,
                             wiki = wikiSite.value,
                             thumbUrl = page.thumbUrl(),
@@ -470,7 +476,7 @@ class HomeViewModel : ViewModel() {
                         ).also {
                             if (!page.sectionTitle.isNullOrEmpty()) it.fragment = StringUtil.addUnderscores(page.sectionTitle)
                             it.extract = page.extract
-                        }, HistoryEntry.SOURCE_READING_LIST)))
+                        }, HistoryEntry.SOURCE_READING_LIST))
                     }
             }
         }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
@@ -500,7 +506,7 @@ class HomeViewModel : ViewModel() {
                 }?.take(Constants.SUGGESTION_REQUEST_ITEMS)
 
                 addAll(relatedPages?.map {
-                    BecauseYouReadCard(it.getHistoryEntry(entry.title.wikiSite, HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), entry.title.displayText)
+                    BecauseYouReadCard(entry.title, entry.title.displayText)
                 } ?: emptyList())
             }
         }.filterNot { hiddenCards.contains(it.hideKey) }.take(4)
@@ -509,6 +515,9 @@ class HomeViewModel : ViewModel() {
             // The index for this module is always 0 because there is always a single instance of this module, per age.
             modules.add(ForYouModule.BecauseYouRead(age, 0, becauseYouReadCards))
         }
+
+        var json = JsonUtil.encodeToString(modules)
+        L.d(">>>>>>>>>>" + json)
 
         return modules
     }

@@ -50,8 +50,7 @@ import org.wikipedia.compose.theme.BaseTheme
 import org.wikipedia.compose.theme.WikipediaTheme
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.getString
-import org.wikipedia.feed.model.Card
-import org.wikipedia.history.HistoryEntry
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.ImageUrlUtil
@@ -66,17 +65,17 @@ enum class CardVariation {
 @Composable
 fun ForYouCardContent(
     wikiSite: WikiSite,
-    entry: HistoryEntry,
+    title: PageTitle,
     variation: CardVariation = CardVariation.VARIATION_IMAGE_WITH_EXTRACT,
     backgroundColorIndex: Int = 0,
     module: ForYouModule? = null,
-    card: Card? = null,
+    card: ForYouCard? = null,
     footerIcon: Painter? = null,
     footerText: String? = null,
-    onPageClick: (HistoryEntry) -> Unit = {},
-    onShareClick: (HistoryEntry) -> Unit = {},
-    onSaveClick: (HistoryEntry) -> Unit = {},
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onPageClick: (PageTitle) -> Unit = {},
+    onShareClick: (PageTitle) -> Unit = {},
+    onSaveClick: (PageTitle) -> Unit = {},
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {}
 ) {
@@ -86,9 +85,9 @@ fun ForYouCardContent(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .clickable { onPageClick(HistoryEntry(entry.title, HistoryEntry.SOURCE_FEED_CONTINUE_READING)) }
+            .clickable { onPageClick(title) }
     ) {
-        val shouldShowTextOnly = entry.title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY
+        val shouldShowTextOnly = title.thumbUrl.isNullOrEmpty() || variation == CardVariation.VARIATION_TEXT_ONLY
         if (shouldShowTextOnly) {
             val color = colorResource(noImageCardBackgroundColors[backgroundColorIndex % noImageCardBackgroundColors.size])
             Box(
@@ -96,7 +95,7 @@ fun ForYouCardContent(
             )
         } else {
             FadeInAsyncImage(
-                model = entry.title.thumbUrl?.let { ImageService.getRequest(context,
+                model = title.thumbUrl?.let { ImageService.getRequest(context,
                     url = ImageUrlUtil.getUrlForPreferredSize(it, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)) },
                 placeholder = ColorPainter(Color.Black),
                 error = ColorPainter(Color.DarkGray),
@@ -120,7 +119,7 @@ fun ForYouCardContent(
                         .background(colorResource(noImageCardForegroundColors[backgroundColorIndex % noImageCardForegroundColors.size]))
                         .padding(16.dp)
                 ) {
-                    val text = entry.title.extract ?: entry.title.description ?: ""
+                    val text = title.extract ?: title.description ?: ""
                     HtmlText(
                         text = text,
                         color = colorResource(R.color.gray700),
@@ -139,9 +138,9 @@ fun ForYouCardContent(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        if (!entry.title.thumbUrl.isNullOrEmpty()) {
+                        if (!title.thumbUrl.isNullOrEmpty()) {
                             AsyncImage(
-                                model = entry.title.thumbUrl,
+                                model = title.thumbUrl,
                                 contentDescription = null,
                                 modifier = Modifier.padding(end = 8.dp).size(56.dp)
                                     .clip(RoundedCornerShape(8.dp)),
@@ -152,14 +151,14 @@ fun ForYouCardContent(
                             modifier = Modifier.weight(1f)
                         ) {
                             HtmlText(
-                                text = entry.title.displayText,
+                                text = title.displayText,
                                 color = colorResource(R.color.gray700),
                                 style = MaterialTheme.typography.titleSmall,
                                 maxLines = 1
                             )
                             HtmlText(
                                 modifier = Modifier.padding(top = 4.dp),
-                                text = entry.title.description ?: "",
+                                text = title.description ?: "",
                                 color = colorResource(R.color.gray700),
                                 style = MaterialTheme.typography.bodySmall,
                                 maxLines = 2
@@ -187,10 +186,10 @@ fun ForYouCardContent(
                                 wikiSite = wikiSite,
                                 onDismiss = { overflowMenuExpanded = false },
                                 onShareClick = {
-                                    onShareClick(entry)
+                                    onShareClick(title)
                                 },
                                 onSaveClick = {
-                                    onSaveClick(entry)
+                                    onSaveClick(title)
                                 },
                                 onHideCardClick = {
                                     if (module != null && card != null) {
@@ -256,7 +255,7 @@ fun ForYouCardContent(
                     ) {
                         HtmlText(
                             modifier = Modifier.weight(1f).padding(start = 16.dp, top = 8.dp),
-                            text = entry.title.displayText,
+                            text = title.displayText,
                             color = Color.White,
                             style = MaterialTheme.typography.titleLarge.copy(
                                 fontFamily = FontFamily.Serif
@@ -284,10 +283,10 @@ fun ForYouCardContent(
                             wikiSite = wikiSite,
                             onDismiss = { overflowMenuExpanded = false },
                             onShareClick = {
-                                onShareClick(entry)
+                                onShareClick(title)
                             },
                             onSaveClick = {
-                                onSaveClick(entry)
+                                onSaveClick(title)
                             },
                             onHideCardClick = {
                                 if (module != null && card != null) {
@@ -298,7 +297,7 @@ fun ForYouCardContent(
                             onCustomizeInterestsClick = onCustomizeInterestsClick
                         )
                     }
-                    val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (entry.title.extract ?: entry.title.description) else entry.title.description
+                    val text = if (variation == CardVariation.VARIATION_IMAGE_WITH_EXTRACT) (title.extract ?: title.description) else title.description
                     text?.let {
                         Spacer(modifier = Modifier.height(2.dp))
                         HtmlText(
@@ -468,20 +467,18 @@ fun ForYouCardDropdownMenu(
 @Composable
 fun ForYouModulePreviewWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "https://example.com/thumb.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "https://example.com/thumb.jpg"
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = entry,
+            title = title,
             footerText = "Lorem ipsum"
         )
     }
@@ -491,20 +488,18 @@ fun ForYouModulePreviewWithImage() {
 @Composable
 fun ForYouModulePreviewNoImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = null
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = null
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = entry,
+            title = title,
             footerText = "Lorem ipsum"
         )
     }
@@ -514,20 +509,18 @@ fun ForYouModulePreviewNoImage() {
 @Composable
 fun ForYouModulePreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "test.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "test.jpg"
     )
     BaseTheme(currentTheme = Theme.LIGHT) {
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = entry,
+            title = title,
             footerText = "Lorem ipsum",
             variation = CardVariation.VARIATION_TEXT_ONLY,
             backgroundColorIndex = 2

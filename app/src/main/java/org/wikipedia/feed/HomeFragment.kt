@@ -98,6 +98,7 @@ import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.image.FeaturedImageModule
 import org.wikipedia.feed.interests.BasedOnInterestModule
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItem
 import org.wikipedia.feed.news.NewsModule
@@ -349,7 +350,7 @@ fun HomeScreen(
     onLoadMoreCommunityContent: () -> Unit = {},
     onLoadMoreForYouContent: () -> Unit = {},
     onHideCommunityCardClick: (card: Card) -> Unit = {},
-    onHideForYouCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideForYouCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit = {},
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},
@@ -865,7 +866,7 @@ fun ForYouContentTab(
     wikiSite: WikiSite,
     onLoadMore: () -> Unit,
     overflowMenuState: PageOverflowMenuViewModel.PageOverflowMenuState? = null,
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: (moduleKey: String) -> Unit = {},
     onPageClick: (historyEntry: HistoryEntry) -> Unit,
     onPageBookmarkClick: (historyEntry: HistoryEntry) -> Unit = {},

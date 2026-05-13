@@ -12,7 +12,9 @@ import org.wikipedia.feed.CardVariation
 import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
+import org.wikipedia.feed.model.BasedOnInterestCard
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -27,7 +29,7 @@ fun BasedOnInterestModule(
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onShareClick: (entry: HistoryEntry) -> Unit = {},
     onSaveClick: (entry: HistoryEntry) -> Unit = {},
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {},
@@ -41,6 +43,7 @@ fun BasedOnInterestModule(
         onCardInView = onCardInView
     ) { pageIndex ->
         val card = module.cards[pageIndex] as BasedOnInterestCard
+        val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_FEED_INTERESTS)
         val topic = ArticleTopics.all.find { it.topicId == card.interestTopic?.topicId }
         val footerTextParameter = if (topic != null) {
             context.getString(wikiSite.languageCode, topic.msgKey)
@@ -48,7 +51,7 @@ fun BasedOnInterestModule(
 
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = card.entry,
+            title = card.title,
             variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
@@ -56,9 +59,9 @@ fun BasedOnInterestModule(
             footerText = footerTextParameter?.let {
                 context.getString(wikiSite.languageCode, R.string.explore_feed_because_of_interest, it)
             },
-            onPageClick = onPageClick,
-            onShareClick = onShareClick,
-            onSaveClick = onSaveClick,
+            onPageClick = { onPageClick(historyEntry) },
+            onShareClick = { onShareClick(historyEntry) },
+            onSaveClick = { onSaveClick(historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick
@@ -70,17 +73,15 @@ fun BasedOnInterestModule(
 @Composable
 fun BasedOnInterestCardPreviewWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "https://example.com/thumb.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "https://example.com/thumb.jpg"
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BasedOnInterestCard(title)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
             wikiSite = wikiSite,
@@ -93,17 +94,15 @@ fun BasedOnInterestCardPreviewWithImage() {
 @Composable
 fun BasedOnInterestCardPreviewNoImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = null
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = null
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BasedOnInterestCard(title)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
             wikiSite = wikiSite,
@@ -116,17 +115,15 @@ fun BasedOnInterestCardPreviewNoImage() {
 @Composable
 fun BasedOnInterestCardPreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "test.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "test.jpg"
     )
-    val card = BasedOnInterestCard(entry)
+    val card = BasedOnInterestCard(title)
     BaseTheme(currentTheme = Theme.LIGHT) {
         BasedOnInterestModule(
             wikiSite = wikiSite,

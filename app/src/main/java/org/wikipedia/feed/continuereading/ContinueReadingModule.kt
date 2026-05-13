@@ -14,6 +14,8 @@ import org.wikipedia.feed.ForYouCardContent
 import org.wikipedia.feed.ForYouModule
 import org.wikipedia.feed.ForYouModulePager
 import org.wikipedia.feed.model.Card
+import org.wikipedia.feed.model.ContinueReadingCard
+import org.wikipedia.feed.model.ForYouCard
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.theme.Theme
@@ -27,7 +29,7 @@ fun ContinueReadingModule(
     onPageClick: (item: HistoryEntry) -> Unit = {},
     onShareClick: (entry: HistoryEntry) -> Unit = {},
     onSaveClick: (entry: HistoryEntry) -> Unit = {},
-    onHideCardClick: (module: ForYouModule, card: Card) -> Unit = { _, _ -> },
+    onHideCardClick: (module: ForYouModule, card: ForYouCard) -> Unit = { _, _ -> },
     onHideModuleClick: () -> Unit = {},
     onCardInView: (card: Card) -> Unit = {},
     onCustomizeInterestsClick: () -> Unit = {}
@@ -40,19 +42,20 @@ fun ContinueReadingModule(
         module = module,
         onCardInView = onCardInView
     ) { pageIndex ->
-        val entry = (module.cards[pageIndex] as ContinueReadingCard).entry
+        val card = (module.cards[pageIndex] as ContinueReadingCard)
+        val historyEntry = HistoryEntry(card.title, HistoryEntry.SOURCE_FEED_CONTINUE_READING)
         ForYouCardContent(
             wikiSite = wikiSite,
-            entry = entry,
+            title = card.title,
             variation = CardVariation.entries[pageIndex % CardVariation.entries.size],
             backgroundColorIndex = backgroundColorIndex + pageIndex,
             module = module,
             card = module.cards[pageIndex],
-            footerIcon = painterResource(if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
-            footerText = context.getString(wikiSite.languageCode, if (entry.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
-            onPageClick = onPageClick,
-            onShareClick = onShareClick,
-            onSaveClick = onSaveClick,
+            footerIcon = painterResource(if (card.source == HistoryEntry.SOURCE_READING_LIST) R.drawable.ic_bookmark_border_white_24dp else R.drawable.ic_read_more_24dp),
+            footerText = context.getString(wikiSite.languageCode, if (card.source == HistoryEntry.SOURCE_READING_LIST) R.string.explore_feed_from_reading_list else R.string.app_shortcuts_continue_reading),
+            onPageClick = { onPageClick(historyEntry) },
+            onShareClick = { onShareClick(historyEntry) },
+            onSaveClick = { onSaveClick(historyEntry) },
             onHideCardClick = onHideCardClick,
             onHideModuleClick = onHideModuleClick,
             onCustomizeInterestsClick = onCustomizeInterestsClick
@@ -64,17 +67,15 @@ fun ContinueReadingModule(
 @Composable
 fun ContinueReadingCardPreviewWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "https://example.com/thumb.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "https://example.com/thumb.jpg"
     )
-    val card = ContinueReadingCard(entry)
+    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
             wikiSite = wikiSite,
@@ -87,17 +88,15 @@ fun ContinueReadingCardPreviewWithImage() {
 @Composable
 fun ContinueReadingCardPreviewNoImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = null
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = null
     )
-    val card = ContinueReadingCard(entry)
+    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
             wikiSite = wikiSite,
@@ -110,17 +109,15 @@ fun ContinueReadingCardPreviewNoImage() {
 @Composable
 fun ContinueReadingCardPreviewTextOnlyWithImage() {
     val wikiSite = WikiSite.preview()
-    val entry = HistoryEntry(
-        title = PageTitle(
-            text = "Test Article",
-            displayText = "Test Article",
-            wiki = WikiSite.preview(),
-            description = "This is a test article",
-            extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            thumbUrl = "test.jpg"
-        ), source = HistoryEntry.SOURCE_HISTORY
+    val title = PageTitle(
+        text = "Test Article",
+        displayText = "Test Article",
+        wiki = WikiSite.preview(),
+        description = "This is a test article",
+        extract = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        thumbUrl = "test.jpg"
     )
-    val card = ContinueReadingCard(entry)
+    val card = ContinueReadingCard(title, HistoryEntry.SOURCE_HISTORY)
     BaseTheme(currentTheme = Theme.LIGHT) {
         ContinueReadingModule(
             wikiSite = wikiSite,
