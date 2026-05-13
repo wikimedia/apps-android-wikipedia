@@ -484,7 +484,7 @@ class NotificationActivity : BaseActivity() {
                 val n = container.notification!!
                 markReadItems(listOf(container), markUnread = false, fromUndoOrClick = true, position = itemPosition)
                 n.contents?.links?.getPrimary()?.let { link ->
-                    val url = link.url
+                    val url = link.encodedUrl
                     if (url.isNotEmpty()) {
                         linkHandler.wikiSite = WikiSite(url)
                         linkHandler.onUrlClick(url, null, "")

@@ -149,7 +149,7 @@ object NotificationPresenter {
     }
 
     private fun addActionForDiffLink(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
-        val uri = Uri.parse(link.url)
+        val uri = Uri.parse(link.encodedUrl)
         val title = uri.getQueryParameter("title")
         val oldRev = uri.getQueryParameter("prev").orEmpty().toLongOrNull() ?: -1
         val newRev = uri.getQueryParameter("diff").orEmpty().toLongOrNull() ?: -1
